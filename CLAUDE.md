@@ -179,6 +179,65 @@ Rules:
 5. **Known drift to repair:** some 2026 records use the short form `TRK-26-NNNN`.
    That form cannot be found by a search for `TRK-2026-NNNN`. Normalise on sight.
 
+### 9.1 Filename grammar
+
+The established convention, underscore-delimited:
+
+```
+DATE _ TRK _ TYPE _ DESCRIPTION _ VERSION.ext
+```
+
+Live examples from Drive:
+
+```
+2026-07-29 _ TRK-2026-1262 _ Permit _ Permit Card Unit 143 _ v1.pdf
+2026-07-30 _ TRK-2026-1262 _ Report _ Job File Summary _ v2 CORRECTED.pdf
+```
+
+### 9.2 Page-level identity — the `_ pNNN` standard
+
+**Adopted 2026-08-15.** When a single page needs its own identity, the page number
+goes at the **end of the filename**, after the version:
+
+```
+2026-07-30 _ TRK-2026-1262 _ Report _ Job File Summary _ v2 _ p047.pdf
+```
+
+**Citation form**, for prose, reports and conversation:
+
+```
+TRK-2026-1262 / Report / Job File Summary / v2 / p047
+```
+
+**Do not use `.NNN` appended to the tracking number.** `TRK-2026-1262.047` is
+forbidden, for four reasons — recorded here so no future session reintroduces it:
+
+1. **It collides.** A job holds many documents. `TRK-2026-1262.047` cannot say
+   whether it means page 47 of the Permit or page 47 of the Report. The page number
+   must be anchored to the **document**, never to the job.
+2. **The version must come first.** Documents get revised (`v1`, `v2 CORRECTED`).
+   Insert a page in v2 and every later page shifts. With the version ahead of the
+   page number, a citation cannot silently point at different content — which for
+   due-diligence work is worse than a citation that simply fails.
+3. **The dot breaks tooling.** Windows and Drive read trailing dot-segments as file
+   extensions, and some search tokenizers split on dots, destroying the exact-match
+   property the whole scheme depends on.
+4. **It reads aloud as noise.** Jorge uses text-to-speech. `.047` is spoken as
+   "point zero four seven." `p047` is spoken as "p zero four seven" and can be said
+   back as "page 47."
+
+### 9.3 Stamp the ID on the page itself
+
+**A page identified only by its filename loses its identity the moment it is
+printed, screenshotted, or pasted into another document.**
+
+Every page that carries a `pNNN` identity must also carry the full citation
+**stamped in its footer**. The ID then travels with the content, and the `.SEARCH.txt`
+sidecar files pick it up — so the page stays findable after it has been extracted
+from its original file.
+
+Filename identity is for storage. Footer identity is for retrieval. Both are required.
+
 **How to search by tracking number:**
 
 - **Google Drive** — `title contains 'TRK-2026-1262' or fullText contains 'TRK-2026-1262'`

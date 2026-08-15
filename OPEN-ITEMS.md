@@ -40,6 +40,8 @@ against the master registry before issuing new numbers)*
 | TRK-2026-9020 | Authorize Microsoft 365 connector (OneDrive read) | BLOCKED | Only Jorge can click the consent screen in claude.ai connector settings |
 | TRK-2026-9021 | Unpin Haiku 4.5 in desktop `.claude\settings.json` | NOT_STARTED | **CRITICAL.** See RI-008. Tier 2 fix; `/model` alone reverts next launch |
 | TRK-2026-9022 | Audit model used by every saved session | NOT_STARTED | Drift found across haiku-4-5, fable-5, opus-4-8. See RI-008 |
+| TRK-2026-9023 | Adopt `_ pNNN` page-identity standard | DONE | Written into CLAUDE.md 9.1-9.3, verified on remote 2026-08-15 |
+| TRK-2026-9024 | Add footer stamping to the document pipeline | NOT_STARTED | Filename identity is lost on print/screenshot; footer stamp is what makes pNNN pay off |
 
 ---
 
