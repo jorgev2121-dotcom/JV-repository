@@ -168,16 +168,74 @@ loses track of which block belongs where.
 **Canonical format: `TRK-2026-NNNN`** (four-digit year, four-digit sequence).
 Suffixes are allowed: `TRK-2026-0708-JULIA`.
 
-Rules:
+**Authoritative source:** `C:\Users\JV\OneDrive\Documents\ClaudeMemory\Tracking-Registry.md`
+(pending migration into this repo — TRK-2026-9017). Protocol supplied by Jorge
+2026-08-15; this section records it verbatim in substance.
 
-1. **Never invent or reuse a number.** Read `OPEN-ITEMS.md` for the last issued value.
-2. **The number goes in the filename and in the email subject line** — not only in a
-   registry. If it isn't in the name, it cannot be found.
-3. **Never file anything against a fuzzy match.** Fuzzy matching is for *searching*
-   only. Writing to the wrong job folder is far worse than a failed search.
+### Issuing
+
+1. **Seed:** `TRK-2026-1247`. Deliberately seeded high so clients cannot infer
+   company size.
+2. **Increment: +3.** `1247 → 1250 → 1253 → 1256`.
+3. **Never invent or reuse a number.** Check the registry for the next unused value
+   before issuing. Inventing a number is a charter violation.
 4. **`TRK-TBD` is a defect.** Assign a real number.
-5. **Known drift to repair:** some 2026 records use the short form `TRK-26-NNNN`.
-   That form cannot be found by a search for `TRK-2026-NNNN`. Normalise on sight.
+5. **What gets a TRK: everything** — jobs, projects, reports, document sets,
+   deliverables, analyses. **One TRK = one project.** Related items (address, owner,
+   permits) share the same TRK.
+
+### Never do
+
+- Invent a TRK without checking the registry.
+- Leave files loose on the Desktop. Desktop is a launchpad, never storage.
+- Silently overwrite an old version — move it to `_Superseded\` first.
+- Create a TRK with no registry entry.
+- **Put the number in the filename only.** It must *also* be in the file body, as a
+  footer stamp or hashtags.
+- File anything against a fuzzy match. Fuzzy matching is for *searching* only;
+  writing to the wrong job folder is far worse than a failed search.
+
+### Filing locations
+
+- **Google Drive `G:\My Drive\01-JOBS\`** — active job folders, by TRK.
+- **OneDrive `C:\Users\JV\OneDrive\...`** — master filing cabinet for everything not
+  an active job.
+- **Desktop** — launchpad only. No storage.
+- **Subfolders under a TRK:** Cover Page, Contact Sheet, one per party.
+
+### Versioning, backup, logging
+
+- `_VERSION-LOG.md` in every TRK folder: Version · Date · What Changed · Status.
+- Highest `vN` is current. Superseded versions move to `_Superseded\`.
+- Before editing an existing file, make a `.bak-YYYYMMDD` copy.
+- After any TRK move/edit/delete, write a rollback script to
+  `C:\Users\JV\OneDrive\Documents\Reports\Undo_Manifests\` named
+  `Rollback_[Action]_[YYYY-MM-DD]_[HHMM].ps1`.
+- Log every action on a TRK: timestamp, TRK, action, agent, undo path.
+
+### Hashtags — category handles, not identities
+
+Hashtags go **in the file body or metadata, never in the filename**. Examples:
+`#JorgeValdes`, `#CU-Inspections`, `#MDC`, `#Property-Address`.
+
+One file may carry several. A hashtag is a **category** that returns many results and
+points back to TRK numbers. A tracking number is an **identity** that returns exactly
+one job. Both are needed; never substitute one for the other.
+
+### Known drift to repair
+
+1. Some 2026 records use the short form `TRK-26-NNNN`, which a search for
+   `TRK-2026-NNNN` cannot find. Normalise on sight.
+2. **Two filename conventions are in active use** — see RI-012. Resolve before any
+   script parses filenames.
+3. **The stated range (1247–1367) does not cover observed numbers.** Drive contains
+   `TRK-2026-1536` and `TRK-2026-1611`, both above the stated ceiling, plus
+   `TRK-2026-0708-JULIA` below the seed. The registry is out of date, has gaps, or
+   numbers were issued outside it. Reconcile before issuing anything new.
+4. **The `9xxx` band used in `OPEN-ITEMS.md` was issued outside the registry** by a
+   cloud session on 2026-08-15, before this protocol was known. It is hereby
+   **reserved as an internal admin band, never for jobs**, and must be recorded as
+   such in the registry. See TRK-2026-9027.
 
 ### 9.1 Filename grammar
 
@@ -207,6 +265,14 @@ goes at the **end of the filename**, after the version:
 
 ```
 TRK-2026-1262 / Report / Job File Summary / v2 / p047
+```
+
+**Footer stamp** — the established stamp is
+`TRK-2026-#### · v[N] · [YYYY-MM-DD] · CURRENT/SUPERSEDED`, bottom-right of every
+page. Page identity slots in after the version:
+
+```
+TRK-2026-1247 · v3 · p047 · 2026-08-15 · CURRENT
 ```
 
 **Do not use `.NNN` appended to the tracking number.** `TRK-2026-1262.047` is

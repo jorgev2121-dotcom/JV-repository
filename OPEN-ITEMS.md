@@ -8,9 +8,11 @@ never announced. Anything that matters gets a row here.
 **Statuses:** `NOT_STARTED` · `IN_PROGRESS` · `DONE` (requires evidence) ·
 `BLOCKED` (requires what-was-tried + the one thing needed)
 
-**Tracking number format:** `TRK-2026-NNNN`
-**Last issued in this file:** `TRK-2026-1611` *(observed in Google Drive — verify
-against the master registry before issuing new numbers)*
+**Tracking number format:** `TRK-2026-NNNN`, seeded at 1247, **+3 increment**.
+**Authoritative registry:** `C:\Users\JV\OneDrive\Documents\ClaudeMemory\Tracking-Registry.md`
+**⚠ The `9xxx` numbers below are an internal admin band, NOT job numbers.** They were
+issued on 2026-08-15 before the protocol was known. Reserved band — see TRK-2026-9027
+and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 
 ---
 
@@ -44,6 +46,10 @@ against the master registry before issuing new numbers)*
 | TRK-2026-9024 | Add footer stamping to the document pipeline | NOT_STARTED | Filename identity is lost on print/screenshot; footer stamp is what makes pNNN pay off |
 | TRK-2026-9025 | Install and configure Wispr Flow Pro | NOT_STARTED | See RI-010. Two modes: dictation + command. Free tier too small at 285 words/day |
 | TRK-2026-9026 | Confirm `Alt+V` image paste in Claude Code | NOT_STARTED | See RI-009. `Ctrl+V` fails silently on Windows — this is why the window seemed broken |
+| TRK-2026-9027 | Record the `9xxx` admin band in Tracking-Registry.md | NOT_STARTED | Cloud issued 9001-9027 outside the registry. Must be reserved so it never collides with jobs |
+| TRK-2026-9028 | Resolve the two conflicting filename conventions | NOT_STARTED | See RI-012. **Blocks all filing automation.** Recommend adopting the Drive form |
+| TRK-2026-9029 | Reconcile Tracking-Registry against Drive | NOT_STARTED | See RI-013. Numbers exist above the stated ceiling; collision risk on next issue |
+| TRK-2026-9030 | Restore the microphone button | NOT_STARTED | See RI-011. Check Windows mic permission first; `Win+H` works meanwhile |
 
 ---
 

@@ -323,3 +323,109 @@ recommend a workflow that requires sustained typing.
    Fix is `npm install -g @anthropic-ai/claude-code@2.1.81`.
 
 **Recommendation:** `/voice` inside Claude Code, Wispr Flow Pro everywhere else.
+
+---
+
+## RI-011 — Microphone button vanished overnight
+
+**Status:** OPEN — 2026-08-15
+**Severity:** HIGH. Jorge had a free microphone **button** he preferred and it
+disappeared overnight. Per RI-010 this is not cosmetic; it removes his primary input.
+
+**First, the distinction that matters:**
+
+- **Microphone BUTTON** — lives in the **Claude Code desktop app UI**. You click it.
+- **`/voice` command** — for terminal/CLI sessions. You hold the spacebar.
+
+They are different surfaces. Switching from the app window to a terminal window makes
+the button "disappear" without anything having broken.
+
+**Three candidate causes, ranked. All are checkable in under a minute.**
+
+**1. Windows Update reset the microphone permission overnight.**
+Windows Feature Updates are documented to silently toggle app microphone permissions
+back off; Zoom, Discord and Teams are routinely hit. Updates install overnight by
+default, which fits "vanished overnight" exactly.
+Check: Settings → Privacy & security → Microphone → **Let desktop apps access your
+microphone.**
+
+**Note the pattern.** This is the RI-001 signature again — a setting that reverts
+because something re-applies it. The durable answer is Tier 3 enforcement, not
+re-toggling it by hand each time it happens.
+
+**2. Known open bug — the button is present but silently does nothing.**
+anthropics/claude-code issue **#59849**: on the Windows desktop app the mic button's
+click handler fires and audio capture starts, but no transcript is ever returned to
+the input box. Silent failure reads as "gone" to the user.
+
+**3. Wrong window.** The current session may be a terminal surface, which never had a
+button. Use `/voice` there instead.
+
+**Immediate workaround that sidesteps all three: `Win + H`.**
+Windows' built-in voice typing. Free, already installed, works into any text field
+including the Claude input box, and is confirmed working in the same bug report where
+the mic button fails. **Use this until the button is restored.**
+
+
+---
+
+## RI-012 — Two filename conventions in active conflict
+
+**Status:** OPEN — identified 2026-08-15
+**Severity:** HIGH. Any script that parses filenames will silently miss half the
+library.
+
+**The protocol says:**
+
+```
+TRK-2026-1247_MDC-Permit-Application_v1_2026-08-15.pdf
+```
+
+`TRK _ Description _ vN _ DATE`, underscores with no spaces.
+
+**Google Drive actually contains:**
+
+```
+2026-07-29 _ TRK-2026-1262 _ Permit _ Permit Card Unit 143 _ v1.pdf
+2026-07-30 _ TRK-2026-1262 _ Report _ Job File Summary _ v2 CORRECTED.pdf
+```
+
+`DATE _ TRK _ TYPE _ DESCRIPTION _ vN`, space-underscore-space delimited.
+
+**Different field order and different delimiters.** A parser written for one returns
+nothing for the other, and returning nothing looks identical to "no such job."
+
+**Also inconsistent:** the Drive form carries a TYPE field (Permit, Report) that the
+protocol form lacks, and uses free text in versions (`v2 CORRECTED`) where the
+protocol expects a bare `vN`.
+
+**Do not write any filing automation until this is resolved.** Automation built on an
+ambiguous convention will misfile, and misfiling is the one failure this whole system
+exists to prevent.
+
+**Recommendation — adopt the Drive form as canonical.** It is what the existing
+library actually contains, it sorts chronologically by default, and its TYPE field is
+genuinely useful. Migrating the protocol document is cheaper than renaming the
+library. Jorge's decision.
+
+---
+
+## RI-013 — TRK registry range does not match reality
+
+**Status:** OPEN — identified 2026-08-15
+**Severity:** HIGH. Issuing a new number from a stale registry risks a collision,
+and a collision means two jobs sharing one identity.
+
+**Stated:** current range 1247–1367, issued 2026-07-10 onward, +3 increment.
+
+**Observed in Google Drive:**
+- `TRK-2026-1536` — above the stated ceiling
+- `TRK-2026-1611` — above the stated ceiling
+- `TRK-2026-0708-JULIA` — below the stated seed, and suffixed
+- Two `TRK-TBD` job-trees — no identity at all
+
+So numbers exist outside the registry's stated range. Either the registry is stale,
+or numbers were issued without being recorded. There is already a session in the
+history titled *"Fix stale TRK registry counter and collisions."*
+
+**Reconcile the registry against Drive before issuing any new number.**
