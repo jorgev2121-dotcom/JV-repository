@@ -138,13 +138,44 @@ stated in one line.
 
 ---
 
-## 6. Order of operations
+## 6. Order of operations — REVISED 2026-08-15
 
-1. **Restore the health report.** The sensor comes first, always.
-2. **Reconnect Remote Control on Jorge-PC.**
-3. **Add the desktop heartbeat** — scheduled task, headless, 15 minutes.
-4. **Verify the loop with no human**: cloud writes a task, desktop executes and
-   replies, cloud confirms — with Jorge not present.
-5. **Then hand the whole backlog to the loop.**
+**An earlier draft of this file said "restore the health report first, the sensor comes
+first, always." Jorge asked cloud to make the call. On harder thought that ordering is
+wrong here, and the reversal is recorded rather than quietly edited.**
 
-**Steps 1–3 need the desktop. Cloud cannot touch the PC.**
+### 1. RECONNECT REMOTE CONTROL — first, before anything else
+
+**Why it moved to the top:** it is the fix that lets cloud perform the other fixes.
+
+With Remote Control live, cloud can message the desktop directly and drive the health
+report, the heartbeat and the backlog **without Jorge in the room**. Every other item
+on this list needs a human to relay it until this one is done.
+
+**Sensor-first is correct logic and the wrong sequencing when one option unlocks the
+rest.** Doing the health report first means Jorge personally carries three more
+instructions across. Doing Remote Control first means he carries one.
+
+**And the RI-015 objection does not apply to it.** RI-015 is about *scheduled tasks*
+running unwatched. Remote Control is a persistent connection, not a scheduled task —
+and **cloud is already its sensor.** Cloud's hourly triggers call `ListAgents`. If the
+desktop is connected it appears; if the connection drops, the list goes empty and
+cloud notices **within the hour**, automatically. That is exactly the sensor whose
+absence let it sit dark from 2026-08-09 to 2026-08-15 unnoticed.
+
+### 2. Restore the daily health report
+Now drivable by cloud over the live channel. Must include *when each scheduled task
+last ran* — that is the specific gap that let four OCR tasks sit disabled for two
+months.
+
+### 3. Add the desktop heartbeat
+Scheduled task, headless Claude Code, 15 minutes. **Now correctly ordered after the
+sensor**, per RI-015 — this one *is* a scheduled task and the objection does apply.
+
+### 4. Prove the loop with no human in it
+Cloud writes a task, desktop executes and replies, cloud confirms — Jorge absent.
+**Until that happens with him out of the room, this is correspondence, not autonomy.**
+
+### 5. Hand the backlog to the loop
+
+**Step 1 needs Jorge once. Everything after it should not.**
