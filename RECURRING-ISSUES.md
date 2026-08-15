@@ -264,6 +264,36 @@ available. Permanent until something rewrites the file.
 it is running at session start. Model drift becomes visible immediately instead of
 silently degrading the work for months.
 
+**UPDATE 2026-08-15 — the re-adder has been found.**
+
+The desktop session located the pin at `C:\Users\JV\.claude\settings.json` line 61,
+`"model": "haiku"`. **But it also found four sibling files in the same folder:**
+
+```
+haiku-settings.json     ("haiku")
+opus-settings.json      ("opus")
+fable-settings.json     ("fable")
+sonnet-settings.json    ("sonnet")
+```
+
+**Four preset files do not appear by accident.** Something copies one of them over
+`settings.json` to switch models — a script, a shortcut, a launcher, or a scheduled
+task. That mechanism is the re-adder, and it explains the model drift across sessions
+(`haiku-4-5`, `fable-5`, `opus-4-8`) far better than manual changes do.
+
+**Editing line 61 is therefore Tier 1, not Tier 2.** It lasts until the next time
+whatever-it-is copies `haiku-settings.json` back over the top.
+
+**Tier 2 — Removal. REQUIRED.** Find and disable the switcher:
+1. `Select-String -Path "C:\Users\JV\**\*.ps1","C:\Users\JV\**\*.bat","C:\Users\JV\**\*.cmd" -Pattern "settings.json" -List`
+2. Check Task Scheduler for any task referencing `.claude`
+3. Check desktop/Start-menu shortcut targets for a copy step
+4. Then **rename `haiku-settings.json` to `haiku-settings.json.disabled`.** If
+   anything still tries to restore Haiku it will fail loudly instead of silently
+   downgrading months of work.
+
+**Do not close this item on the line-61 edit alone.**
+
 ---
 
 ## RI-009 — "Cannot paste screenshots into Claude Code"
