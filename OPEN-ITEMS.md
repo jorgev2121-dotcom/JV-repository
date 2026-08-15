@@ -92,6 +92,9 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-1629 | 1185 SW 183 ST | NOT_STARTED | **ISSUED, provisional.** Heating permit 2-14-2018 |
 | TRK-2026-9067 | **Verify 1614-1629 against the master registry before filing** | NOT_STARTED | **BLOCKS filing under all six.** Cloud cannot read OneDrive. If any collide the block shifts up — nothing filed yet, so amendment is cheap |
 | TRK-2026-9068 | Create job folders for the six new numbers | NOT_STARTED | Depends on 9067. Use the canonical folder convention, not address-first (see RI-012) |
+| **TRK-2026-9069** | **Reconnect Claude Code Remote Control on Jorge-PC** | NOT_STARTED | **HIGHEST-VALUE FIX AVAILABLE.** `Jorge-PC` bridge sessions show DISCONNECTED since 2026-08-09. This is the purpose-built direct channel — everything built today was a workaround for a channel that already existed and went dark unnoticed. See AUTONOMY-ARCHITECTURE §2 |
+| TRK-2026-9070 | Desktop heartbeat — scheduled task, headless Claude Code, 15 min | NOT_STARTED | Turns the desktop from "runs when a window is open" into "runs forever". **Gated on 9035 (health report) per RI-015** — do not add a task nothing watches |
+| TRK-2026-9071 | Prove the loop with no human in it | NOT_STARTED | Cloud writes a task, desktop executes and replies, cloud confirms — with Jorge absent. **This is the acceptance test for the whole architecture** |
 | TRK-2026-9043 | Clone the repo onto the PC | NOT_STARTED | **Desktop has no .git anywhere — the repo was never cloned.** This is why it cannot find WORK-QUEUE.md |
 | TRK-2026-9044 | Consolidate the six Drive mailboxes | NOT_STARTED | Confirmed existing: VTES-Bridge, VTES-Inbox, VTES-Outbox, VTES-Capture-Inbox, PASTE-TRAY, _CLAUDE-MAILBOX. VTES-Bridge holds VTES-OWNER-CHARTER-and-HANDOFF v1+v2 |
 | TRK-2026-9045 | Reconcile VTES charter against CLAUDE.md | NOT_STARTED | `VTES-OWNER-CHARTER-and-HANDOFF-v2.md` in VTES-Bridge is a second charter cloud has not read |
