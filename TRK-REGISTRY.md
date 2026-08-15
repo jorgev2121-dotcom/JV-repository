@@ -35,6 +35,7 @@ compared. Where they disagree, Drive is the evidence and the registry is the cla
 | TRK-2026-1310 | 10980 SW 202 Dr, Cutler Bay — Concrete Restoration (FOLIO-TBD) |
 | TRK-2026-1436 | DOH Non-Compliance Response — Permit 13-60-01441 (#karla) |
 | TRK-2026-1531 | 7823 NW 5 AV — City of Miami charges |
+| TRK-2026-1582 | **Bay Harbor 10000 Building** — contacts Jennifer Ting Chen, Reyna Jovel. *Recovered from desktop 2026-08-15; was missing from this registry* |
 | TRK-2026-1534 | 1840 NW 63 ST — folio 30-3115-005-3770 |
 | TRK-2026-1535 | 18020 SW 103 AVE — folio 30-5032-086-0020 |
 | TRK-2026-1536 | 10362 SW 180 ST — folio 30-5032-000-1352 |
