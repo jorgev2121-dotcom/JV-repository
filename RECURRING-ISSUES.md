@@ -22,6 +22,19 @@ wrong window, often unnoticed for a paragraph.
 - 2024–2026 — recurring for roughly two years. Many fixes attempted. Each lasted a
   day or two, then decayed progressively until re-addressed. Cycle then repeated.
 - 2026-08-15 — raised again. Logged here for the first time.
+- 2026-08-15 — **live instance captured.** Three modal dialogs stacked on screen at
+  once: two `claude.exe` launch failures (see RI-006) and one Outlook
+  "Cannot show your next reminder." Note that neither was a *notification* — both
+  were **modal error dialogs**, which no notification setting can suppress. This
+  confirms that Focus Assist was never going to fix this class of pop-up, and
+  explains two years of failed Tier 1 attempts.
+
+**Sub-cause identified 2026-08-15 — Outlook "Cannot show your next reminder"**
+Caused by a single corrupt reminder item in the mailbox, not by settings. Clicking
+OK is Tier 1 and it returns forever.
+Tier 2 fix: close Outlook, then run `outlook.exe /cleanreminders` once. This clears
+and rebuilds the reminder set, deleting the corrupt item. If it recurs, run
+`outlook.exe /resetfolders`.
 
 **Diagnosis (2026-08-15)**
 The decay pattern is the tell. A fix that lasts days and then degrades means
@@ -139,3 +152,72 @@ tracked per site in `OPEN-ITEMS.md`.
 Code session — desktop and cloud — reads it automatically at startup.
 
 **Verification still required:** confirm a desktop session actually loads this file.
+
+---
+
+## RI-006 — Bridge launcher cannot start the Claude MS Store app
+
+**Status:** OPEN — root cause identified 2026-08-15
+**Severity:** MEDIUM — generates modal error pop-ups, feeding RI-001.
+
+**History**
+- 2026-08-15 — `BRIDGE-PICKER.hta` built with 5 launcher buttons. Clicking the
+  "Claude Desktop [DESKTOP] — MS Store desktop app" button produced two stacked
+  `claude.exe` error dialogs.
+
+**Diagnosis**
+The button calls `shell.Run()` on a direct file path:
+
+```
+C:\Program Files\WindowsApps\Claude_1.26832.0.0_x64__pzs8sxrjxfjjc\app\claude.exe
+```
+
+**MSIX/Store-packaged applications cannot be launched by direct executable path.**
+Windows blocks it; the app requires its packaging context. The `WindowsApps` folder
+is also ACL-restricted. This button can never work as written — the try/catch added
+around it will report the failure more politely, but cannot make it succeed.
+
+**Tier 1 — DO NOT PROPOSE.** Wrapping in try/catch, retrying, or elevating. The
+launch method itself is invalid.
+
+**Tier 2 — Removal/replacement. CORRECT FIX.**
+Launch by AppUserModelID instead of by path.
+
+1. Get the ID: `Get-StartApps | Where-Object { $_.Name -like "*Claude*" }`
+2. Launch with: `explorer.exe shell:AppsFolder\<AppUserModelID>`
+
+Replace the button's `shell.Run` target with that command.
+
+**Related defect — Windows Terminal profile "CLAUDE" is broken.**
+Fails with `0x80070002` (ERROR_FILE_NOT_FOUND) attempting:
+
+```
+- CODE -d C:\Users\JV C:\Users\JV\.local\bin\claude.exe
+```
+
+Two faults: the target `C:\Users\JV\.local\bin\claude.exe` does not exist, and the
+command line is malformed (stray `- CODE -d` prefix, two concatenated paths).
+Resolve the real location with `where.exe claude` or `Get-Command claude`, then
+rewrite the profile's `commandline` value.
+
+---
+
+## RI-007 — Duplicate sessions working the same task
+
+**Status:** OPEN
+**Severity:** MEDIUM — wasted effort, contradictory state, and confusion about which
+window is authoritative.
+
+**History**
+- 2026-08-15 — two desktop sessions ("Investigate Claude Code se…" and "Test bridge
+  buttons after w…") were both working the bridge-picker task. One had progressed to
+  a relaunched picker; the other was frozen asking which window to look at. Neither
+  could see the other.
+
+**Diagnosis**
+Sessions share no memory (see RI-005). Two windows opened on one task will diverge
+silently, and the stale one will ask questions already answered in the other.
+
+**Fix — Tier 3 (enforcement).** One task, one window. When a task spans sessions,
+its state lives in `OPEN-ITEMS.md`, not in a window. Close duplicates rather than
+answering them.
