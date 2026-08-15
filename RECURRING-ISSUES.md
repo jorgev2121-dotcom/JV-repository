@@ -694,3 +694,97 @@ successful call, never by the presence of a tool.**
 `github.com`, `code.claude.com`, general web search, and assorted commercial sites.
 Blocked so far — `miamidade.gov`, `miamidadepa.gov`, `search.sunbiz.org`,
 `wisprflow.ai`. **Assume nothing; test the specific host.**
+
+---
+
+## RI-020 — Job documents living outside the filing system
+
+**Status:** OPEN — found 2026-08-15
+**Severity:** HIGH. Documents that never enter the filing system are invisible to
+every search, every tracking number, and every future session.
+
+**The instance**
+PaperPort's holding folder — `My PaperPort Documents` — contains **15 items**, and at
+least three of them are real job documents:
+
+- `C2026061642 - 20001 SW 1...` — permit number and address of **TRK-2026-1262**
+- `PERM AP_-8621 Pasadina ...` — 8621 Pasadena Blvd, Pembroke Pines, **TRK-2026-1611**
+  territory
+- Two W9s for Team USA Sales and CU Inspections
+
+**None carry a tracking number. None follow the filename convention. None are in a job
+folder.**
+
+**Why this is worse than RI-016.** There, OCR sidecars were ~11% TRK-tagged — poor,
+but they existed inside the library. **These are at zero. They have never entered the
+system at all.** A search for `TRK-2026-1262` cannot return them, so as far as the
+filing system is concerned they do not exist.
+
+**Diagnosis — this is a class, not an incident.**
+Every tool with an inbox creates a holding area, and a holding area with no exit
+process silently accumulates. Known or suspected on this machine:
+
+1. **PaperPort** — `My PaperPort Documents`, 15 items, confirmed
+2. **The Windows Desktop** — the protocol already calls it a launchpad and forbids
+   storage, which means it has been used for storage
+3. **Downloads** — the `__dl-20260729-230930` suffixes on files already in Drive show
+   documents arriving via browser download
+4. **`_OCR-INTAKE`** — a Drive folder created 2026-08-11, purpose-built as a holding area
+5. **Outlook attachments** — never opened, never saved
+
+**Tier 1 — DO NOT PROPOSE.** Filing these 15 by hand. It clears today's pile and the
+pile returns, because nothing changed about how documents leave the holding area.
+
+**Tier 2 — Removal of the holding area.** Configure the scanner to write straight into
+the job folder structure, so `My PaperPort Documents` stops being a destination.
+Strongest fix; needs the TRK to be known at scan time, which is not always true.
+
+**Tier 3 — Enforcement. RECOMMENDED, and it is the general answer.**
+A scheduled sweep that reports the contents of every known holding area and how long
+each item has sat there. **The failure is not that documents land in a holding area —
+that is normal. The failure is that nobody is told they are still sitting there.**
+
+This is the same shape as RI-015: the OCR tasks were disabled and nothing announced
+it. Here, documents accumulate and nothing announces it. **Both are missing sensors,
+not missing effort.**
+
+**Filing rule that applies while this is fixed:** never file against a fuzzy match.
+`CLAUDE.md` section 9. An item whose TRK is not certain from the permit number, folio
+or address is marked UNKNOWN and left where it is. **Filing to the wrong job folder is
+worse than leaving it unfiled**, because an unfiled document is merely missing while a
+misfiled one corrupts a job record.
+
+---
+
+## RI-021 — PaperPort Send To Bar empty; link modules unregistered
+
+**Status:** OPEN — diagnosed 2026-08-15
+**Severity:** LOW-MEDIUM. Degraded, not broken. Scanning is unaffected.
+
+**Evidence**
+Modal dialog: *"System error occurred in external link module `<module name is not
+available>`. Cannot define link-specific set-up mode in the Preferences dialog box."*
+Main window status bar: **"Send To Bar is empty."**
+
+**Diagnosis.** Same fault, two symptoms. The Send To Bar holds PaperPort's link
+modules — the applications a scan can be sent to. PaperPort enumerated them, hit a
+registration pointing at something no longer installed, aborted, and the bar rendered
+empty. The error cannot even name the offender, which is why it prints the literal
+string `<module name is not available>`.
+
+**Confirmed still working:** scanner connected (`WIA: Brother MFC-L3770CDW LAN`), all
+five profiles intact, output configured (PDF Image, 300 DPI colour, Auto ADF, SET
+Process, Auto-Straighten), Scan button live.
+
+**Fix:** Desktop Options → Send To Bar / Items → re-add links. If that dialog throws
+the same error, a **repair install** is next. Registry edits are RED.
+
+**CORRECTION TO AN EARLIER RECOMMENDATION.** A cloud session asked whether PaperPort
+was a leftover that could be uninstalled. **It is not.** The profile list includes
+**"Color Searchable PDF Document"** — OCR at scan time. That is the one function here
+nothing else in the stack performs; the `.SEARCH.txt` pipeline runs after the fact on
+files that already exist. **Do not propose uninstalling PaperPort.**
+
+**Low-priority alternative for later:** determine whether the Brother MFC-L3770CDW can
+produce searchable PDFs natively. If it can, the dependency disappears — but that is a
+Tier 2 option to investigate, not a change to make now.

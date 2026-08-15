@@ -73,6 +73,10 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-1614 | PROJECT: Marketing — Wally | IN_PROGRESS | Provisional TRK. Plan assembled: PROJECT_MARKETING-WALLY.md. Gated on ~$99 one-off + $22/mo, not on work |
 | TRK-2026-9054 | Send the Wally Milian / Alec Valdes 5-report email | BLOCKED | **Drafted and sitting in Outlook Drafts since 2026-07-30.** RED — outbound mail needs Jorge. Quickest win available |
 | TRK-2026-9055 | Answer the 17 owner approvals from 2026-07-31 | BLOCKED | Presented once, never answered. 13 recommended APPROVE. Blocks ~40 downstream jobs by its own count |
+| TRK-2026-9056 | File the 15 unfiled documents in PaperPort's holding folder | NOT_STARTED | See RI-020. At least 3 belong to live jobs (1262, 1611). **Zero carry a TRK.** Desktop only. Rollback script before any move |
+| TRK-2026-9057 | Inventory every holding area on the machine | NOT_STARTED | See RI-020. PaperPort, Desktop, Downloads, `_OCR-INTAKE`, Outlook attachments. The class, not the instance |
+| TRK-2026-9058 | Scheduled sweep reporting holding-area contents and age | NOT_STARTED | **Tier 3, the real fix for RI-020.** Documents landing in a holding area is normal; nobody being told they are still there is the failure |
+| TRK-2026-9059 | Repair PaperPort Send To Bar | NOT_STARTED | See RI-021. Desktop Options → Send To Bar; repair install if that fails. Scanning unaffected — low urgency |
 | TRK-2026-9043 | Clone the repo onto the PC | NOT_STARTED | **Desktop has no .git anywhere — the repo was never cloned.** This is why it cannot find WORK-QUEUE.md |
 | TRK-2026-9044 | Consolidate the six Drive mailboxes | NOT_STARTED | Confirmed existing: VTES-Bridge, VTES-Inbox, VTES-Outbox, VTES-Capture-Inbox, PASTE-TRAY, _CLAUDE-MAILBOX. VTES-Bridge holds VTES-OWNER-CHARTER-and-HANDOFF v1+v2 |
 | TRK-2026-9045 | Reconcile VTES charter against CLAUDE.md | NOT_STARTED | `VTES-OWNER-CHARTER-and-HANDOFF-v2.md` in VTES-Bridge is a second charter cloud has not read |
