@@ -69,6 +69,10 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-9050 | Resolve whether 1292 and 1531 are one property or two | NOT_STARTED | Both are 7823 NW 5 AV. Blocks the DD sweep |
 | TRK-2026-9051 | Review the PAD verification-code routine | NOT_STARTED | **Running hourly since 2026-07-20, ~650 unattended runs.** Auto-re-requests security codes and sends push+email every hour. See RI-018 |
 | TRK-2026-9052 | Audit every scheduled routine on the account | IN_PROGRESS | 3 found so far. Cloud can list its own; **desktop must inventory Windows Task Scheduler and the VTES-LOCAL-POLLER** |
+| **TRK-2026-9053** | **Find `_WORK-REGISTER.csv` (183 rows) and pull it into this repo** | NOT_STARTED | **HIGHEST VALUE ON THE BOARD.** The backlog already exists as a file. Cloud cannot reach it; desktop can. See PROJECT_MARKETING-WALLY.md §1 |
+| TRK-2026-1614 | PROJECT: Marketing — Wally | IN_PROGRESS | Provisional TRK. Plan assembled: PROJECT_MARKETING-WALLY.md. Gated on ~$99 one-off + $22/mo, not on work |
+| TRK-2026-9054 | Send the Wally Milian / Alec Valdes 5-report email | BLOCKED | **Drafted and sitting in Outlook Drafts since 2026-07-30.** RED — outbound mail needs Jorge. Quickest win available |
+| TRK-2026-9055 | Answer the 17 owner approvals from 2026-07-31 | BLOCKED | Presented once, never answered. 13 recommended APPROVE. Blocks ~40 downstream jobs by its own count |
 | TRK-2026-9043 | Clone the repo onto the PC | NOT_STARTED | **Desktop has no .git anywhere — the repo was never cloned.** This is why it cannot find WORK-QUEUE.md |
 | TRK-2026-9044 | Consolidate the six Drive mailboxes | NOT_STARTED | Confirmed existing: VTES-Bridge, VTES-Inbox, VTES-Outbox, VTES-Capture-Inbox, PASTE-TRAY, _CLAUDE-MAILBOX. VTES-Bridge holds VTES-OWNER-CHARTER-and-HANDOFF v1+v2 |
 | TRK-2026-9045 | Reconcile VTES charter against CLAUDE.md | NOT_STARTED | `VTES-OWNER-CHARTER-and-HANDOFF-v2.md` in VTES-Bridge is a second charter cloud has not read |
