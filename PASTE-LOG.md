@@ -1,0 +1,54 @@
+# PASTE-LOG.md — Numbered paste blocks
+
+**Problem this solves:** Jorge runs several Claude windows at once. When a reply
+contains a block of text to paste somewhere, it is easy to lose track of which block
+belongs in which window, and whether it was ever pasted at all.
+
+---
+
+## The scheme
+
+Every paste block gets a permanent ID. **Numbers never reset and are never reused** —
+the same rule as tracking numbers.
+
+```
+PASTE-D-001    →  paste into DESKTOP Claude Code
+PASTE-C-001    →  paste into CLOUD Claude (claude.ai/code)
+PASTE-X-001    →  paste somewhere else (named in the block)
+```
+
+**D** = Desktop. **C** = Cloud. **X** = elsewhere.
+
+Reading sections in a reply are labelled **Section A, Section B, Section C**. Those
+are for navigation only — they are never pasted anywhere.
+
+**How to use it:** say "done with PASTE-D-002" or "PASTE-D-001 failed." That is
+enough to identify it exactly, with no description needed.
+
+---
+
+## Rules
+
+1. Every paste block in a reply carries its ID **on the first line inside the block**,
+   so the ID travels with the text even when copied.
+2. A paste is `ISSUED` until Jorge confirms. Confirmation is required — per
+   `CLAUDE.md` Rule 2, an unconfirmed paste is not done.
+3. If a block is replaced, the old ID is marked `SUPERSEDED` and points at the new
+   one. Old IDs are never silently reused.
+4. Anything requiring more than one window gets one ID per window, never a combined
+   block.
+
+---
+
+## Issued
+
+| ID | Date | Destination | Subject | Status |
+|---|---|---|---|---|
+| PASTE-D-001 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | Bridge picker: MS Store button fails; launch by AppUserModelID. Terminal profile repair. Outlook `/cleanreminders`. Load the charter. | ISSUED |
+| PASTE-D-002 | 2026-08-15 | Desktop — same window | Stop building the OneDrive mailbox; use the repo. Pull the branch, read the charter, execute TRK-2026-9017. | ISSUED |
+
+---
+
+## Confirmed
+
+*Blocks move here once Jorge reports the result, with the outcome recorded.*

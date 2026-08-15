@@ -143,6 +143,18 @@ He listens to replies via text-to-speech and has dyslexia.
   in a single line, and proceed unless he objects.** Every question you ask costs him
   executive function; asking is not free.
 
+**Label everything he has to act on.** He runs several Claude windows at once and
+loses track of which block belongs where.
+
+- **Every block of text he must paste somewhere gets a permanent ID** — `PASTE-D-001`
+  for Desktop, `PASTE-C-001` for Cloud, `PASTE-X-001` for anywhere else. Numbers
+  never reset and are never reused. Put the ID on the first line *inside* the block
+  so it travels with the copied text. Record it in `PASTE-LOG.md`.
+- **Label reading sections `Section A`, `Section B`, `Section C`** so he can say
+  "re-read Section B" instead of describing it.
+- **One window per paste block.** Never combine instructions for two windows into one
+  block.
+
 ---
 
 ## 9. Tracking numbers
