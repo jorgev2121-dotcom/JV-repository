@@ -98,6 +98,56 @@ a written record would recreate it in faster form.**
 
 ---
 
+## 3b. The iPhone — a window, not a third executor
+
+**Question asked 2026-08-15: "can you do that with iPhone as well?"**
+
+**Not the same way, and it should not be.**
+
+**Why not the same way.** Remote Control is Claude Code infrastructure. The Claude
+iPhone app is a chat client, not a Claude Code session — it has connectors, but it is
+not an executor that can be listed as a peer and messaged agent-to-agent. There is no
+`ListAgents` entry to reach.
+
+**Why it should not be.** A third executor would be a third thing that can act on the
+same files, and the whole diagnosis of RI-005 is that parallel actors on shared state
+diverge. **The iPhone's value is not that it can do work. It is that it is the one
+device Jorge always has.**
+
+**So its role is his window into the loop, and three layers already serve that:**
+
+**1. It reads Google Drive — already proven.** The Drive Board runs Code↔iPhone at
+roughly 30 seconds. `_CLAUDE-MAILBOX` is therefore *already* visible to the iPhone
+with nothing new built. `OWNER-QUEUE.md` was written to be read on a small screen for
+exactly this reason.
+
+**2. Push notifications — and here is the find.** Cloud can push a notification to his
+phone, **but only when Remote Control is connected.**
+
+**That means restoring Remote Control fixes two things, not one:**
+- the direct desktop↔cloud channel
+- the path to reach Jorge on his phone
+
+**One action, two unlocks.** It strengthens the case for doing it first, already made
+in section 6.
+
+**3. He can reply from the iPhone** either by answering the notification or by opening
+Claude on the phone and writing into the Drive mailbox.
+
+**The discipline that makes this work: push only for RED items.** Spend, credentials,
+outbound email, deletions, genuine product decisions. **Nothing else, ever.**
+
+A notification he did not need is annoying in a way that accumulates. Push for routine
+progress and he will mute them — and then we have built **another dead sensor**, which
+is RI-015 and RI-011 and the health report all over again. **The channel that reaches
+him is only worth having if it stays worth answering.**
+
+Paired with the 48-hour rule, an unanswered push never stalls work: the executor
+records what it is doing in the absence of an answer and proceeds on the safest
+reversible option.
+
+---
+
 ## 4. What Jorge is left with
 
 Only **RED** items under `AUTONOMY.md` — spend, credentials, outbound email,
