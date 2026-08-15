@@ -51,6 +51,46 @@ desktop session can pull them.
 
 ---
 
+## 2b. UPDATE 2026-08-15 — Google Drive is the better mailbox
+
+**Proven working the same day.** A cloud session created
+`_CLAUDE-MAILBOX` in Jorge's Google Drive and wrote `TO-DESKTOP.md` and
+`READ-ME-FIRST.txt` into it, with no paste and no action from Jorge.
+
+**Why Drive beats the repo for live messages** — and this corrects the earlier
+recommendation:
+
+| | Git repo | Google Drive |
+|---|---|---|
+| Cloud can write | yes | yes |
+| Desktop can write | yes | yes — appears as `G:\My Drive\` |
+| Needs git commands | **yes — `pull` must be remembered** | **no** |
+| Syncs by itself | no | **yes, ~30 seconds** |
+| Jorge can read it himself | only via GitHub | **yes, in his own Drive** |
+| Version history | yes | no |
+| `CLAUDE.md` auto-loads | **yes — unique to git** | no |
+
+**The split, settled:**
+
+- **Git repo = RULES AND STATE.** `CLAUDE.md` loads into every Claude Code session
+  automatically. Drive cannot do that, and that property is the whole reason the repo
+  exists.
+- **Google Drive `_CLAUDE-MAILBOX` = LIVE MESSAGES.** No commands, auto-sync, and
+  Jorge can watch it work.
+
+**Note the distinction from OneDrive.** OneDrive was rejected because cloud sessions
+cannot reach it — the Microsoft 365 connector is unauthorized. **Google Drive is
+different: the connector is live and verified.** That single fact is what makes this
+work, and it is why "just use a shared folder" failed before and succeeds now.
+
+**The instruction to either side is now one sentence:**
+
+```
+Check the mailbox in Drive
+```
+
+---
+
 ## 3. The protocol
 
 Two directories. Plain markdown files. No software to build.

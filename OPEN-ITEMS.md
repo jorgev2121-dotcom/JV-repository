@@ -58,6 +58,8 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-9036 | Stamp TRK into OCR sidecars at extraction time | NOT_STARTED | See RI-016. Only ~11% of sidecars carry a TRK today |
 | TRK-2026-9037 | Enable Windows LongPathsEnabled | NOT_STARTED | See RI-017. Silent skip of deeply-nested files, which is where job documents live |
 | TRK-2026-9038 | Count total PDFs vs total .SEARCH.txt for a real completion % | NOT_STARTED | Denominator unknown. Desktop can count locally in seconds |
+| TRK-2026-9039 | Google Drive mailbox `_CLAUDE-MAILBOX` created | DONE | Folder + TO-DESKTOP.md + READ-ME-FIRST.txt written by cloud 2026-08-15 19:37 UTC, verified by API response |
+| TRK-2026-9040 | Desktop to reply with TO-CLOUD.md | NOT_STARTED | Closes the loop and proves two-way. Until this exists, the channel is one-way |
 
 ---
 
