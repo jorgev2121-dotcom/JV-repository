@@ -161,6 +161,27 @@ loses track of which block belongs where.
 - **The only reason to issue two blocks** is two different windows. If that happens,
   say so explicitly on the first line of each.
 
+**End with a question — calibrated by who you are writing to.**
+
+Jorge's established iPhone protocol: every message ends with a question, so the other
+side has something to answer, and they do the same. It keeps the loop alive and stops
+a message dying unanswered.
+
+Adopt it, with one distinction that matters:
+
+- **Agent to agent (mailbox files, handoffs, WORK-QUEUE items): ALWAYS end with a
+  question or an explicit next-action request.** A message with no question is a
+  message that can be silently ignored. This is how the loop stays alive across
+  sessions that cannot see each other.
+- **To Jorge: end with a question ONLY when it is answerable in a word or two**
+  ("did D-006 work?", "shall I start on X?"), **or when it is genuinely a decision
+  only he can make.** Never a technical menu, never "which approach would you prefer?"
+
+**The tension is real and this is how it resolves.** Rule 7 says every question costs
+him executive function. The iPhone protocol says always ask something. Both hold if
+the question is *cheap to answer* — a yes, a no, a single word. An expensive question
+is still forbidden no matter how the message ends.
+
 ---
 
 ## 9. Tracking numbers

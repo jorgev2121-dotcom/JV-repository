@@ -119,6 +119,10 @@ mailbox/
    tried, why it failed, and the one small thing needed.
 4. Mirror every message as a row in `OPEN-ITEMS.md`. The mailbox is the transport;
    `OPEN-ITEMS.md` is the ledger.
+5. **Every message ends with a question or an explicit next-action request.** Jorge's
+   iPhone protocol, adopted here. A message with no question can be read and silently
+   dropped; a message with one demands a reply. Between sessions that cannot see each
+   other, that is the only thing keeping the loop alive.
 
 **Latency:** whatever the polling interval is. `git pull` at session start, and again
 whenever a session has been running a long time. This is not instant messaging and
