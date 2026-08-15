@@ -60,7 +60,11 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-9038 | Count total PDFs vs total .SEARCH.txt for a real completion % | NOT_STARTED | Denominator unknown. Desktop can count locally in seconds |
 | TRK-2026-9039 | Google Drive mailbox `_CLAUDE-MAILBOX` created | DONE | Folder + TO-DESKTOP.md + READ-ME-FIRST.txt written by cloud 2026-08-15 19:37 UTC, verified by API response |
 | TRK-2026-9040 | Desktop to reply with TO-CLOUD.md | NOT_STARTED | Closes the loop and proves two-way. Until this exists, the channel is one-way |
-| TRK-2026-9041 | Find and disable the model switcher | NOT_STARTED | **The real fix for RI-008.** Four preset files exist (haiku/opus/fable/sonnet-settings.json). Something copies one over settings.json. Editing line 61 alone is Tier 1 |
+| TRK-2026-9041 | Find and disable the model switcher | DONE | Found: `OneDrive\Scripts\Start-Claude-Model.ps1`, launched by Desktop icon `CLAUDE - PICK MODEL.cmd`. haiku-settings.json renamed .disabled. Evidence pasted by desktop 2026-08-15 |
+| TRK-2026-9042 | Remove the `CLAUDE - PICK MODEL` desktop shortcut | NOT_STARTED | A one-click path back to the smallest model with no indicator is how RI-008 recurred. Recommend removing it |
+| TRK-2026-9043 | Clone the repo onto the PC | NOT_STARTED | **Desktop has no .git anywhere — the repo was never cloned.** This is why it cannot find WORK-QUEUE.md |
+| TRK-2026-9044 | Consolidate the six Drive mailboxes | NOT_STARTED | Confirmed existing: VTES-Bridge, VTES-Inbox, VTES-Outbox, VTES-Capture-Inbox, PASTE-TRAY, _CLAUDE-MAILBOX. VTES-Bridge holds VTES-OWNER-CHARTER-and-HANDOFF v1+v2 |
+| TRK-2026-9045 | Reconcile VTES charter against CLAUDE.md | NOT_STARTED | `VTES-OWNER-CHARTER-and-HANDOFF-v2.md` in VTES-Bridge is a second charter cloud has not read |
 
 ---
 

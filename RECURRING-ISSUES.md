@@ -292,7 +292,31 @@ whatever-it-is copies `haiku-settings.json` back over the top.
    anything still tries to restore Haiku it will fail loudly instead of silently
    downgrading months of work.
 
-**Do not close this item on the line-61 edit alone.**
+**SWITCHER FOUND AND DISABLED 2026-08-15 — by the desktop session.**
+
+```
+C:\Users\JV\OneDrive\Scripts\Start-Claude-Model.ps1
+    $settingsFile = "C:\Users\JV\.claude\$Model-settings.json"
+```
+
+It copies the per-model preset over `settings.json`. Launched from a Desktop icon,
+**`CLAUDE - PICK MODEL.cmd`**, which opens an HTA dropdown.
+
+**So the model was being chosen by a desktop shortcut Jorge could click by accident**,
+and nothing afterwards ever announced which model was live. That is the complete
+mechanism behind months of silent Haiku sessions.
+
+Actions taken:
+- `settings.json` line 61 changed to `"opus"`
+- `haiku-settings.json` renamed to `haiku-settings.json.disabled`, so any copy attempt
+  now fails loudly instead of downgrading silently
+- Undo if ever needed:
+  `Rename-Item 'C:\Users\JV\.claude\haiku-settings.json.disabled' -NewName 'haiku-settings.json'`
+
+**Still outstanding:** restart to activate Opus, and a decision on whether the
+`CLAUDE - PICK MODEL` shortcut should be removed entirely. Keeping a one-click path
+back to the smallest model, with no indicator, is how this recurred in the first
+place. **Recommend removing the shortcut and keeping only `opus-settings.json`.**
 
 ---
 
