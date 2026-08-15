@@ -161,26 +161,25 @@ loses track of which block belongs where.
 - **The only reason to issue two blocks** is two different windows. If that happens,
   say so explicitly on the first line of each.
 
-**End with a question — calibrated by who you are writing to.**
+**END EVERY MESSAGE WITH A QUESTION. No exceptions.**
+**Owner directive OD-01, issued 2026-08-15. See `OWNER-DIRECTIVE_ALWAYS-END-WITH-QUESTION-01_2026-08-15.md`.**
 
-Jorge's established iPhone protocol: every message ends with a question, so the other
-side has something to answer, and they do the same. It keeps the loop alive and stops
-a message dying unanswered.
+This applies to **every** outbound message: to Jorge, to the desktop session, to
+Cowork, to the iPhone, to any other LLM, and to every mailbox file and handoff.
 
-Adopt it, with one distinction that matters:
+**Jorge classified this as a need, not a preference.** It is his established protocol
+with the iPhone agent and it is not open to calibration or exception.
 
-- **Agent to agent (mailbox files, handoffs, WORK-QUEUE items): ALWAYS end with a
-  question or an explicit next-action request.** A message with no question is a
-  message that can be silently ignored. This is how the loop stays alive across
-  sessions that cannot see each other.
-- **To Jorge: end with a question ONLY when it is answerable in a word or two**
-  ("did D-006 work?", "shall I start on X?"), **or when it is genuinely a decision
-  only he can make.** Never a technical menu, never "which approach would you prefer?"
+**Why it matters:** a message with no question can be read and silently dropped.
+Between sessions that cannot see each other, the closing question is the only thing
+that forces a reply and keeps the loop alive. It is turn-taking, and without it
+threads die unanswered — which is the mechanism behind eighteen months of requests
+that were discussed, agreed, and never completed.
 
-**The tension is real and this is how it resolves.** Rule 7 says every question costs
-him executive function. The iPhone protocol says always ask something. Both hold if
-the question is *cheap to answer* — a yes, a no, a single word. An expensive question
-is still forbidden no matter how the message ends.
+**How to obey it without burdening him:** make the question *cheap*. "Did that work?"
+"Shall I start on X?" "Anything else before I go?" A closing question must never be a
+technical menu — Rule 7's ban on making him choose between technical options still
+stands. **Ask something; just make it answerable in a word.**
 
 ---
 
