@@ -47,6 +47,7 @@ enough to identify it exactly, with no description needed.
 | PASTE-D-001 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | Bridge picker: MS Store button fails; launch by AppUserModelID. Terminal profile repair. Outlook `/cleanreminders`. Load the charter. | SUPERSEDED by PASTE-D-003 |
 | PASTE-D-002 | 2026-08-15 | Desktop — same window | Stop building the OneDrive mailbox; use the repo. Pull the branch, read the charter, execute TRK-2026-9017. | SUPERSEDED by PASTE-D-003 |
 | PASTE-D-003 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | Consolidates D-001 and D-002 into one block: load charter, execute TRK-2026-9017, fix bridge button, repair terminal profile, clear Outlook reminder. | ISSUED |
+| PASTE-D-004 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | **Run BEFORE D-003.** Unpin Haiku 4.5 from `.claude\settings.json` and restart on Opus. See RI-008. | ISSUED |
 
 ---
 

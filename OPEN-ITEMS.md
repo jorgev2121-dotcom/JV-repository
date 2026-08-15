@@ -38,6 +38,8 @@ against the master registry before issuing new numbers)*
 | TRK-2026-9018 | Enable /voice in desktop Claude Code | NOT_STARTED | Type `/voice`, hold space. Windows: allow desktop apps mic access |
 | TRK-2026-9019 | Evaluate Wispr Flow for system-wide dictation | NOT_STARTED | Known bug: Claude Code v2.1.83 breaks injection on Windows; use v2.1.81 |
 | TRK-2026-9020 | Authorize Microsoft 365 connector (OneDrive read) | BLOCKED | Only Jorge can click the consent screen in claude.ai connector settings |
+| TRK-2026-9021 | Unpin Haiku 4.5 in desktop `.claude\settings.json` | NOT_STARTED | **CRITICAL.** See RI-008. Tier 2 fix; `/model` alone reverts next launch |
+| TRK-2026-9022 | Audit model used by every saved session | NOT_STARTED | Drift found across haiku-4-5, fable-5, opus-4-8. See RI-008 |
 
 ---
 

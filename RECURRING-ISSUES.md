@@ -221,3 +221,45 @@ silently, and the stale one will ask questions already answered in the other.
 **Fix — Tier 3 (enforcement).** One task, one window. When a task spans sessions,
 its state lives in `OPEN-ITEMS.md`, not in a window. Close duplicates rather than
 answering them.
+
+---
+
+## RI-008 — Desktop Claude Code pinned to the smallest model
+
+**Status:** OPEN — root cause identified 2026-08-15
+**Severity:** CRITICAL — this is the strongest single explanation for the 18-month
+"Claude doesn't analyse deeply, I end up doing the thinking" complaint.
+
+**History**
+- 2026-08-15 — desktop session statusline read:
+  `Using Haiku 4.5 (from .claude\settings.json)`
+- Session history shows further drift: three sessions on `claude-haiku-4-5`, several
+  on `claude-fable-5`, one on `claude-opus-4-8`. Very little work has run on Opus.
+
+**Diagnosis**
+Haiku 4.5 is the small, fast, inexpensive model. It is a good fit for mechanical
+work — file moves, renames, simple edits. It is the **wrong tool** for architecture
+design, root-cause diagnosis, and long multi-step reasoning.
+
+Jorge pays for a Max 20 subscription, which includes Opus. The model is pinned in a
+config file, so **every desktop session silently inherits it.** He was never told.
+
+**What this explains, in one stroke:**
+1. The handoff architecture proposed with a fatal flaw (a cloud↔desktop bridge whose
+   cloud end was an unreachable Windows path).
+2. Circling repeatedly on "which window am I looking at" without resolving it.
+3. Ending with four technical decisions handed back to Jorge (Rule 1 violation).
+4. Doing two or three items then losing the thread.
+5. Plausibly RI-004 as well — a smaller model exhausts its working capacity sooner,
+   which fits "3 or 4 sites out of 20."
+
+**Tier 1 — Suppression.** Type `/model` and pick Opus. Fixes the current session
+only; the config file reasserts itself next launch. Lifespan: one session.
+
+**Tier 2 — Removal. CORRECT FIX.** Edit `.claude\settings.json` and change the pinned
+model to Opus, or delete the `model` key so it defaults to the account's best
+available. Permanent until something rewrites the file.
+
+**Tier 3 — Enforcement.** `CLAUDE.md` now requires every session to state which model
+it is running at session start. Model drift becomes visible immediately instead of
+silently degrading the work for months.

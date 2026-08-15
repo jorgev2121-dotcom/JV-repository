@@ -189,8 +189,13 @@ newsletter and a Publix receipt. Searching `TRK-2026-1262` cannot.
 
 **At the start of every session:**
 
-1. Read this file.
-2. Read `OPEN-ITEMS.md` and report anything IN PROGRESS or BLOCKED.
+1. **State which model you are running.** One line, unprompted. See RI-008 — desktop
+   sessions were silently pinned to the smallest model for months, and that single
+   fact explains a large share of the shallow analysis Jorge has been receiving.
+   If you are not running Opus, say so and ask whether that is intended before
+   starting analytical work.
+2. Read this file.
+3. Read `OPEN-ITEMS.md` and report anything IN PROGRESS or BLOCKED.
 
 **At the end of every session:**
 
