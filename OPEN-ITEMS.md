@@ -84,6 +84,14 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-9064 | **STOP — 14598 SW 110 ST was mis-mapped to TRK-2026-1262** | NOT_STARTED | **1262 is 20001 SW 110 CT. 14598 is SW 110 ST — different street, different party.** Conflated on "110". Would have misfiled a client's docs. See HOLDING-AREAS-INVENTORY corrections |
 | TRK-2026-9065 | Adopt `OPH-2026-NNNN` orphan numbering | DONE | Jorge's design, adopted over cloud's INTAKE- proposal. `ORPHAN-NUMBERING.md` + CLAUDE.md §9. Verified on remote |
 | TRK-2026-9066 | Create `OPH-REGISTER.md` and assign OPH numbers to all ~700 orphans | NOT_STARTED | Mechanical, plain sequential, no registry lookup needed. **This unblocks the 15 docs that were stuck waiting for TRKs** |
+| TRK-2026-1614 | 14598 SW 110 ST — Migulez | NOT_STARTED | **ISSUED 2026-08-15, provisional.** ~7 documents waiting. Was nearly misfiled into 1262 on a "110" match |
+| TRK-2026-1617 | 11385 NW 12 AVE — Yolanda Rodriguez | NOT_STARTED | **ISSUED, provisional.** folio 30-2135-010-0170, 3 versions in Downloads |
+| TRK-2026-1620 | 2262-2364 SW 2 ST — Jose A Gonzalez | NOT_STARTED | **ISSUED, provisional.** City of Miami BB16003432 |
+| TRK-2026-1623 | 9907 NW 9 Street Circle units 15-20 | NOT_STARTED | **ISSUED, provisional.** CU inspection report |
+| TRK-2026-1626 | 20723 SW 119 PL | NOT_STARTED | **ISSUED, provisional.** CU report |
+| TRK-2026-1629 | 1185 SW 183 ST | NOT_STARTED | **ISSUED, provisional.** Heating permit 2-14-2018 |
+| TRK-2026-9067 | **Verify 1614-1629 against the master registry before filing** | NOT_STARTED | **BLOCKS filing under all six.** Cloud cannot read OneDrive. If any collide the block shifts up — nothing filed yet, so amendment is cheap |
+| TRK-2026-9068 | Create job folders for the six new numbers | NOT_STARTED | Depends on 9067. Use the canonical folder convention, not address-first (see RI-012) |
 | TRK-2026-9043 | Clone the repo onto the PC | NOT_STARTED | **Desktop has no .git anywhere — the repo was never cloned.** This is why it cannot find WORK-QUEUE.md |
 | TRK-2026-9044 | Consolidate the six Drive mailboxes | NOT_STARTED | Confirmed existing: VTES-Bridge, VTES-Inbox, VTES-Outbox, VTES-Capture-Inbox, PASTE-TRAY, _CLAUDE-MAILBOX. VTES-Bridge holds VTES-OWNER-CHARTER-and-HANDOFF v1+v2 |
 | TRK-2026-9045 | Reconcile VTES charter against CLAUDE.md | NOT_STARTED | `VTES-OWNER-CHARTER-and-HANDOFF-v2.md` in VTES-Bridge is a second charter cloud has not read |

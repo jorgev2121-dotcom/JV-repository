@@ -45,6 +45,41 @@ compared. Where they disagree, Drive is the evidence and the registry is the cla
 | TRK-26-1043 | *(short form)* Desktop consolidation |
 | TRK-TBD ×2 | Two job-trees with no identity assigned |
 
+---
+
+## 1b. NUMBERS ISSUED 2026-08-15 — properties found with documents but no identity
+
+**Authorised by Jorge 2026-08-15: "continue with the next number in sequence."**
+Sequence resumed from the highest observed number (1611), +3 increment per protocol.
+
+| TRK | Property | Party | Evidence found |
+|---|---|---|---|
+| **TRK-2026-1614** | 14598 SW 110 ST | Migulez | Well recertification, legalisation app, as-built engineering findings, review-approval package, recent-emails workbook |
+| **TRK-2026-1617** | 11385 NW 12 AVE | Yolanda Rodriguez | folio 30-2135-010-0170, 3 document versions in Downloads |
+| **TRK-2026-1620** | 2262-2364 SW 2 ST | Jose A Gonzalez | City of Miami permit BB16003432 |
+| **TRK-2026-1623** | 9907 NW 9 Street Circle, units 15–20 | — | CU inspection report |
+| **TRK-2026-1626** | 20723 SW 119 PL | — | CU report |
+| **TRK-2026-1629** | 1185 SW 183 ST | — | Heating permit 2-14-2018 |
+
+**⚠ PROVISIONAL UNTIL VERIFIED AGAINST THE MASTER REGISTRY.**
+
+Cloud cannot read `C:\Users\JV\OneDrive\Documents\ClaudeMemory\Tracking-Registry.md`.
+These numbers continue from the highest value **observed in Drive**, which is not the
+same as the highest value **issued**. Section 2 below documents that the registry and
+reality already disagree.
+
+**Before these are treated as final, the desktop must confirm none of 1614–1629
+already exists.** If any collide, the whole block shifts up and this table is amended
+— the properties keep their documents either way, and nothing has been filed against
+these numbers yet.
+
+**Why issuing now was still correct:** roughly fifteen documents were frozen because
+they had no identity to be filed under. `14598 SW 110 ST` was nearly absorbed into
+`TRK-2026-1262` on a fuzzy address match. A provisional number that can be amended is
+safer than an orphan that gets misfiled while waiting.
+
+---
+
 **Observed range: 0707 → 1611.** The stated registry range of 1247–1367 covers **less
 than a third** of what exists.
 
