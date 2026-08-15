@@ -462,3 +462,82 @@ a partial result reported as a complete one.
 searched. "No results in a 15-file sample" is not "not in use." If a claim is about
 absence, either survey exhaustively or state the sample size in the same sentence as
 the claim.
+
+
+---
+
+## RI-015 — Scheduled automation silently disabled
+
+**Status:** OPEN — 2026-08-15
+**Severity:** CRITICAL. Jorge spent four hours on an OCR run and believed all of it
+was lost.
+
+**History**
+- 2026-08-15 — all four OCR scheduled tasks found DISABLED: `CU-BulkOCR`,
+  `CU-OCR-Intake`, `CU-OCR-Watch`, `CU-Inspections-Auto-Filing-OCR`. No overnight run
+  occurred. Nothing announced the disablement. Last health reports date from June 19.
+
+**Diagnosis**
+A disabled scheduled task produces **no output and no error**. It is indistinguishable
+from a task that ran and found nothing to do. There is no indicator anywhere that
+says "this automation is off," so it can stay off for months.
+
+Same shape as RI-001 and RI-011: something reverted, and the absence of a signal is
+what made it expensive.
+
+**Tier 1 — Suppression. Insufficient.** Re-enabling the tasks by hand. They were
+enabled once already and ended up disabled; nothing stops that recurring.
+
+**Tier 2 — Removal.** Find and remove whatever disables them. Candidates: a Windows
+update, a cleanup script, a power/battery policy, or a prior session disabling them
+during debugging and never restoring them. **Check task history for who disabled them
+and when — that answers it definitively.**
+
+**Tier 3 — Enforcement. REQUIRED REGARDLESS.** A daily check that reports the state of
+every scheduled task and emails or writes a status line. Jorge already receives
+"[AI Report] CU Inspections System Health" emails — the last one is dated
+**2026-06-19**. That reporting itself stopped two months ago and nobody noticed.
+**Restore the health report first; it is the sensor for everything else.**
+
+---
+
+## RI-016 — OCR output is not attached to tracking numbers
+
+**Status:** OPEN — 2026-08-15
+**Severity:** HIGH
+
+**Evidence**
+Of ~54 `.SEARCH.txt` sidecars observed in Drive, only about **6 carry a TRK number —
+roughly 11%.** Three different files named `LEGEND.PDF.SEARCH.txt` exist in three
+folders, along with multiple `S-1`, `A-1`, `P-1`, `E-1`.
+
+**Diagnosis**
+The sidecar system works — the text is extracted and searchable. **What is missing is
+identity.** A search for "LEGEND" returns three indistinguishable results. Content is
+findable; the job it belongs to is not.
+
+`CLAUDE.md` section 9 already requires the tracking number to be in the file body, not
+only the filename. **The OCR pipeline is not honouring the charter.**
+
+**Fix — Tier 2.** Stamp the TRK into the sidecar header and the source filename **at
+OCR time**, derived from the containing job folder. Retrofitting later is far more
+expensive and, for generic sheet names, sometimes impossible.
+
+---
+
+## RI-017 — Long-path PDF failures in the OCR pipeline
+
+**Status:** OPEN — 2026-08-15
+**Severity:** MEDIUM, but silent, which makes it worse.
+
+**Evidence**
+2026-08-13 12:37 — 28 of 28 files failed with PDF open errors attributed to long path
+names and permissions. A later batch the same day succeeded, which indicates the
+second batch simply had shorter paths, **not that the defect was fixed.**
+
+**Consequence:** any document with a deep path is silently skipped. Deeply-nested job
+folders are exactly where due-diligence documents live.
+
+**Fix — Tier 2.** Enable Windows long-path support (`LongPathsEnabled`) rather than
+shortening paths one at a time. Shortening paths is Tier 1 and the problem returns
+with the next deep folder.

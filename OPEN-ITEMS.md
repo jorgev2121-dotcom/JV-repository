@@ -53,6 +53,11 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-9031 | Read OWNER-DIRECTIVE_SUBORDINATE-TRK-HASHTAG-01 and reconcile | NOT_STARTED | **Governing directive adopted 2026-08-11 that neither the protocol nor CLAUDE.md reflects.** See TRK-REGISTRY §3 |
 | TRK-2026-9032 | Rename address-first job folders to lead with TRK | NOT_STARTED | Two known: `20001 SW 110 CT Unit 143 (TRK-2026-1262)`, `14953 SW 34 ST (TRK-2026-1280)`. They sort away from every other job |
 | TRK-2026-9033 | Complete the Drive survey (full-text + short-form + untagged) | IN_PROGRESS | First pass done: TRK-REGISTRY.md, 25 numbers. See §6 for what remains |
+| TRK-2026-9034 | Re-enable the four OCR scheduled tasks + find what disabled them | NOT_STARTED | See RI-015. Check task history for who/when — that is the root cause |
+| TRK-2026-9035 | Restore the daily System Health email | NOT_STARTED | **Last one 2026-06-19.** It is the sensor for RI-015; without it, silent failures stay silent |
+| TRK-2026-9036 | Stamp TRK into OCR sidecars at extraction time | NOT_STARTED | See RI-016. Only ~11% of sidecars carry a TRK today |
+| TRK-2026-9037 | Enable Windows LongPathsEnabled | NOT_STARTED | See RI-017. Silent skip of deeply-nested files, which is where job documents live |
+| TRK-2026-9038 | Count total PDFs vs total .SEARCH.txt for a real completion % | NOT_STARTED | Denominator unknown. Desktop can count locally in seconds |
 
 ---
 

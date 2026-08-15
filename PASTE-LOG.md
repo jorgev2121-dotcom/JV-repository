@@ -49,6 +49,7 @@ enough to identify it exactly, with no description needed.
 | PASTE-D-003 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | Consolidates D-001 and D-002 into one block: load charter, execute TRK-2026-9017, fix bridge button, repair terminal profile, clear Outlook reminder. | SUPERSEDED by PASTE-D-005 |
 | PASTE-D-004 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | **Run BEFORE D-003.** Unpin Haiku 4.5 from `.claude\settings.json` and restart on Opus. See RI-008. | SUPERSEDED by PASTE-D-005 |
 | PASTE-D-005 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | Single pointer block. Merges D-003 + D-004. Fix model, restart, then work `mailbox/to-desktop/WORK-QUEUE.md` top to bottom. Survives restart because the work lives in the repo. | ISSUED |
+| PASTE-D-006 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | OCR correction: the 2026-08-13 run DID succeed after 16:35. Search chat history for what was agreed on OCR and never done. Count PDFs vs sidecars. | ISSUED |
 
 ---
 
