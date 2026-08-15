@@ -130,6 +130,38 @@ microphone.** Jorge dictates heavily; this matters more than it looks.
 
 ---
 
+## 8. TRK-2026-9025 — Install and configure Wispr Flow
+
+Jorge dictates constantly; this is his primary input method, not a convenience
+(RI-010). `/voice` covers Claude Code only. Wispr Flow covers every application.
+
+1. Install Wispr Flow for Windows from wisprflow.ai. It runs as a system tray app.
+2. Set it to **Pro** — the free tier caps at 2,000 words/week (~285/day), which he
+   will exhaust before lunch. $15/month or $144/year.
+3. Configure both modes and show him each once:
+   - **Dictation** — hold the hotkey (Fn by default), speak, released text lands at
+     the cursor with punctuation already applied.
+   - **Command** — highlight text, hold the hotkey, say "make this more formal" or
+     "summarise in bullets", and the selection is rewritten.
+4. **Check the Claude Code version first.** v2.1.83 broke Wispr Flow's text injection
+   on Windows. If injection fails into the Claude Code prompt, run:
+   `npm install -g @anthropic-ai/claude-code@2.1.81`
+5. Confirm the tray icon is pinned and visible — see RI-001, hidden tray icons have
+   cost him time before.
+
+---
+
+## 9. TRK-2026-9026 — Confirm Alt+V image paste works
+
+`Ctrl+V` does not paste images into Claude Code on Windows and fails silently, which
+led Jorge to conclude the window was unusable (RI-009). `Alt+V` works.
+
+Have him take a snip, press `Alt+V`, and confirm the image registers. If it does not,
+set up the VS Code extension route instead — do not leave him without a way to send
+screenshots.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by

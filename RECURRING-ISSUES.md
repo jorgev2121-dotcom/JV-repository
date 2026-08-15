@@ -263,3 +263,63 @@ available. Permanent until something rewrites the file.
 **Tier 3 — Enforcement.** `CLAUDE.md` now requires every session to state which model
 it is running at session start. Model drift becomes visible immediately instead of
 silently degrading the work for months.
+
+---
+
+## RI-009 — "Cannot paste screenshots into Claude Code"
+
+**Status:** SOLVED 2026-08-15 — record kept so no session re-diagnoses it
+**Severity:** HIGH while it lasted — Jorge concluded the whole window was unusable
+and asked for a replacement interface.
+
+**History**
+- 2026-08-15 — "This code window is not acceptable. I am unable to copy and paste
+  snips." Jorge asked to be moved to a different application entirely.
+
+**Diagnosis**
+**`Ctrl+V` does not paste images into Claude Code on Windows. It fails silently** —
+no error, no message, nothing appears. That silence is what makes it read as a broken
+application rather than a wrong keystroke.
+
+**The fix is `Alt+V`.** The image drops in immediately.
+
+**Do not propose replacing the interface for this.** The window was never the problem.
+Before recommending any tool migration, check whether the current tool simply has a
+different binding.
+
+**Fallbacks if `Alt+V` ever fails:**
+1. Save the snip to a file and give Claude the path — e.g.
+   `C:\Users\JV\Pictures\Screenshots\shot.png`
+2. Use the Claude Code VS Code extension, which handles clipboard images natively.
+
+---
+
+## RI-010 — Dictation is load-bearing, not a convenience
+
+**Status:** OPEN
+**Severity:** HIGH
+
+**Context**
+Jorge: *"The microphone is a workaround, which is something I use every second of the
+day."* Dictation is not a preference here. With ADHD and dyslexia, it is the primary
+input method, and any window without it is effectively unusable to him.
+
+**Consequence for every session:** never treat voice input as optional, and never
+recommend a workflow that requires sustained typing.
+
+**Current state**
+1. **`/voice` in Claude Code** — free, built in, works in desktop and terminal
+   sessions only. Requires Windows: Settings → Privacy & security → Microphone →
+   *Let desktop apps access your microphone.*
+2. **Wispr Flow** — third-party, system-wide, works in every application including
+   Gmail and Drive. Two modes:
+   - **Dictation** — hold hotkey (Fn by default), speak, it transcribes with
+     punctuation and grammar cleanup and pastes at the cursor.
+   - **Command** — highlight existing text, hold hotkey, say *"make this more
+     formal"* or *"summarise in bullets"*, and it rewrites the selection.
+   Free tier is capped at 2,000 words per week (~285/day) — far too small for
+   Jorge's usage. Pro is $15/month or $144/year.
+   Known defect: Claude Code v2.1.83 broke Wispr Flow's text injection on Windows.
+   Fix is `npm install -g @anthropic-ai/claude-code@2.1.81`.
+
+**Recommendation:** `/voice` inside Claude Code, Wispr Flow Pro everywhere else.
