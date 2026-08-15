@@ -313,10 +313,17 @@ Actions taken:
 - Undo if ever needed:
   `Rename-Item 'C:\Users\JV\.claude\haiku-settings.json.disabled' -NewName 'haiku-settings.json'`
 
-**Still outstanding:** restart to activate Opus, and a decision on whether the
-`CLAUDE - PICK MODEL` shortcut should be removed entirely. Keeping a one-click path
-back to the smallest model, with no indicator, is how this recurred in the first
-place. **Recommend removing the shortcut and keeping only `opus-settings.json`.**
+**Still outstanding:** restart to activate Opus.
+
+**Shortcut removal — DEFERRED by Jorge 2026-08-15.** He judged it too risky to remove
+`CLAUDE - PICK MODEL` while OCR is still broken, and he is right: one repair at a time
+is how you keep a failure attributable. **Gate: revisit only after OCR is verified
+working (TRK-2026-9034 to 9038).**
+
+**This is safe to defer, and the reason matters.** With `haiku-settings.json` renamed
+`.disabled`, the shortcut can no longer cause the silent downgrade — a Haiku pick now
+fails loudly with a file-not-found. The dangerous property was silence, and the
+silence is already gone. Removing the shortcut is tidying, not a fix.
 
 ---
 
