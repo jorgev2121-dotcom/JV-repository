@@ -233,6 +233,27 @@ Suffixes are allowed: `TRK-2026-0708-JULIA`.
   `Rollback_[Action]_[YYYY-MM-DD]_[HHMM].ps1`.
 - Log every action on a TRK: timestamp, TRK, action, agent, undo path.
 
+### Orphan numbers — `OPH-2026-NNNN`
+
+**Documents entering the system before their job is known get an ORPHAN number, not a
+tracking number.** Full standard in `ORPHAN-NUMBERING.md`.
+
+```
+OPH-2026-0042        an identity — this document has no family yet
+     ↓  matched to its job
+TRK-2026-1262        the identity
+#OPH-2026-0042       demoted to a category handle, kept in the body
+```
+
+**Never issue a TRK to a document whose job is not yet certain.** Issue an OPH. The
+orphan number is cheap, plain-sequential, and never seen by a client — unlike a TRK,
+which is seeded high and increments by 3 precisely so clients cannot infer company
+size.
+
+**An OPH resolves to one of four outcomes and never stays open:** a TRK, `NON-JOB`,
+`DUPLICATE`, or `DISCARD-PENDING` (Jorge's decision — deletion is RED). Anything
+unresolved after 30 days appears in the daily digest.
+
 ### Hashtags — category handles, not identities
 
 Hashtags go **in the file body or metadata, never in the filename**. Examples:
