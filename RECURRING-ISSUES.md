@@ -655,3 +655,42 @@ off unattended would itself be an unreviewed action. **Flagged for his decision.
 **Broader rule this implies:** the scheduled-routine inventory is part of the system
 inventory. `TRK-2026-9052` — cloud can list its own routines; only the desktop can
 enumerate Windows Task Scheduler and the VTES-LOCAL-POLLER.
+
+
+---
+
+## RI-019 — Capability claimed without testing it
+
+**Status:** LOGGED 2026-08-15 — cloud's own error, second instance today.
+**Severity:** HIGH. It produced a work plan and a delivery forecast that could not
+have been met.
+
+**What happened**
+Cloud told Jorge that public web scraping — the 22 Miami-Dade sources and Sunbiz —
+was its half of the division of labour, and forecast Phase 1 complete by 9am with
+"roughly 90%" confidence. It then built `MIAMI-DADE-SITES.md`, reassigned the work
+away from the desktop, and told the desktop explicitly *"do NOT start the Miami-Dade
+scraping, it is cloud's."*
+
+**Not one county URL had been tested.** On first attempt all three probes failed:
+`miamidadepa.gov`, `miamidade.gov` and `search.sunbiz.org` are all blocked by the
+cloud container's egress proxy with a 403 on CONNECT.
+
+**Why it matters beyond the wasted plan:** cloud told the desktop to stand down on
+work cloud could not do. **A false capability claim is worse than a false completion
+claim** — a false completion wastes the time already spent, a false capability
+reassigns future work into a dead end and stops the party who could actually do it.
+
+**This is RI-014 in a new costume.** There it was "no results in a 15-file sample"
+reported as "not deployed." Here it is "I have web access" reported as "I can reach
+these sites." Both are inference presented as verification.
+
+**Rule, now binding: probe before you claim, and probe before you reassign.**
+Before an executor takes ownership of work involving an external system, it makes one
+real request against that system and pastes the result. **A capability is proven by a
+successful call, never by the presence of a tool.**
+
+**Standing note for cloud sessions:** the egress proxy is selective. Reachable so far —
+`github.com`, `code.claude.com`, general web search, and assorted commercial sites.
+Blocked so far — `miamidade.gov`, `miamidadepa.gov`, `search.sunbiz.org`,
+`wisprflow.ai`. **Assume nothing; test the specific host.**

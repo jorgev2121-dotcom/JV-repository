@@ -26,7 +26,7 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-9004 | Confirm desktop Claude Code loads this charter | NOT_STARTED | Open the repo in a desktop session and ask it to quote Rule 1 |
 | TRK-2026-9005 | Pop-up focus theft — Tier 2 removal pass | NOT_STARTED | See RI-001. Requires a desktop session. Cloud cannot touch the PC |
 | TRK-2026-9006 | Pop-up focus theft — Tier 3 enforcement scheduled task | NOT_STARTED | Depends on 9005 |
-| TRK-2026-9007 | Miami-Dade scrape — rebuild as one agent per site | IN_PROGRESS | **Site list built by cloud 2026-08-15 — see MIAMI-DADE-SITES.md, 22 sources.** Phase 1 feasibility probe starts on the overnight runs |
+| TRK-2026-9007 | Miami-Dade scrape — rebuild as one agent per site | **REASSIGNED TO DESKTOP** | Site list built (MIAMI-DADE-SITES.md, 22 sources) but **cloud is EGRESS_BLOCKED from miamidade.gov, miamidadepa.gov and sunbiz.org — tested, 403 on CONNECT.** See RI-019. Desktop has unrestricted network + claude-in-chrome |
 | TRK-2026-9008 | Normalise `TRK-26-NNNN` → `TRK-2026-NNNN` across Drive and Gmail | NOT_STARTED | Two incompatible formats in use; searches silently miss records |
 | TRK-2026-9009 | Assign real numbers to the two `_JOB-TREE_TRK-TBD.html` files | NOT_STARTED | Placeholder numbers collide with each other |
 | TRK-2026-9010 | Import the 300+ enhancement backlog into this file | NOT_STARTED | Scattered across chats and emails; cannot be delegated until it is a list |

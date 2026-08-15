@@ -46,6 +46,38 @@ rather than silently dropped.
 
 ---
 
+## ⚠ BLOCKER FOUND 2026-08-15 — cloud cannot reach these sites at all
+
+**Tested, not assumed.** A cloud session attempted three probes and all failed at the
+network layer:
+
+```
+www.miamidadepa.gov   -> EGRESS_BLOCKED  (CONNECT tunnel failed, 403)
+www.miamidade.gov     -> EGRESS_BLOCKED  (CONNECT tunnel failed, 403)
+search.sunbiz.org     -> EGRESS_BLOCKED  (CONNECT tunnel failed, 403)
+```
+
+The cloud container's egress proxy refuses these domains. This is an environment
+policy, not a site defence, and **it is not something to work around** — routing
+around an access control the environment owner set is out of bounds.
+
+**Consequence: the entire Miami-Dade scrape is impossible from cloud.** So is Sunbiz.
+
+**This corrects a claim made earlier the same day.** Cloud told Jorge it would take
+public web scraping as its half of the division of labour and deliver Phase 1 by
+morning. **That was stated without testing a single county URL.** It is the same
+error shape as RI-014 — confident capability claims made from assumption rather than
+evidence.
+
+**Reassignment: ALL 22 sites go to the DESKTOP executor.** It has unrestricted network
+access and `claude-in-chrome` for the portals that need a real browser session.
+
+**What cloud can still contribute:** the registry itself, the method, the per-site
+status tracking, the report assembly once data comes back, and any source that turns
+out to be reachable. **Cloud is the librarian here, not the field agent.**
+
+---
+
 ## Method — per CLAUDE.md Rule 5
 
 **Phase 1 — feasibility probe. One agent per site.** For each: is it reachable, what
