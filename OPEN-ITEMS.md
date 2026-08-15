@@ -50,6 +50,9 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-9028 | Resolve the two conflicting filename conventions | NOT_STARTED | See RI-012. **Blocks all filing automation.** Recommend adopting the Drive form |
 | TRK-2026-9029 | Reconcile Tracking-Registry against Drive | NOT_STARTED | See RI-013. Numbers exist above the stated ceiling; collision risk on next issue |
 | TRK-2026-9030 | Restore the microphone button | NOT_STARTED | See RI-011. Check Windows mic permission first; `Win+H` works meanwhile |
+| TRK-2026-9031 | Read OWNER-DIRECTIVE_SUBORDINATE-TRK-HASHTAG-01 and reconcile | NOT_STARTED | **Governing directive adopted 2026-08-11 that neither the protocol nor CLAUDE.md reflects.** See TRK-REGISTRY §3 |
+| TRK-2026-9032 | Rename address-first job folders to lead with TRK | NOT_STARTED | Two known: `20001 SW 110 CT Unit 143 (TRK-2026-1262)`, `14953 SW 34 ST (TRK-2026-1280)`. They sort away from every other job |
+| TRK-2026-9033 | Complete the Drive survey (full-text + short-form + untagged) | IN_PROGRESS | First pass done: TRK-REGISTRY.md, 25 numbers. See §6 for what remains |
 
 ---
 

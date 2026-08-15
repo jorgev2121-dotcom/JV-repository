@@ -408,6 +408,12 @@ library actually contains, it sorts chronologically by default, and its TYPE fie
 genuinely useful. Migrating the protocol document is cheaper than renaming the
 library. Jorge's decision.
 
+**Update 2026-08-15 — it is worse than two conventions.** A wider Drive survey found
+**five folder-naming patterns** as well, including two folders named address-first
+with the TRK in parentheses (`20001 SW 110 CT Unit 143 (TRK-2026-1262)`). Those do
+not sort with the TRK folders and are invisible to any listing that assumes the name
+begins with `TRK`. See `TRK-REGISTRY.md` section 4.
+
 ---
 
 ## RI-013 — TRK registry range does not match reality
@@ -429,3 +435,30 @@ or numbers were issued without being recorded. There is already a session in the
 history titled *"Fix stale TRK registry counter and collisions."*
 
 **Reconcile the registry against Drive before issuing any new number.**
+
+
+---
+
+## RI-014 — Advice given from a sample treated as the whole
+
+**Status:** LOGGED 2026-08-15 — a cloud session's own error, recorded so it is not
+repeated.
+
+**What happened**
+Asked whether `.NNN` page/document suffixes were deployed, a cloud session ran one
+Drive search that returned 15 files, saw no `.NNN`, and told Jorge the convention was
+not in use and migration cost would be "near zero."
+
+A wider survey found `TRK-2026-1531.002` in live use, **plus an owner directive
+adopted four days earlier** (`OWNER-DIRECTIVE_SUBORDINATE-TRK-HASHTAG-01_2026-08-11`)
+establishing subordinate numbering as policy.
+
+**Why it matters**
+The advice was confident, it was wrong, and Jorge had no way to check it. This is the
+same failure shape as RI-002 (false completion) applied to research instead of tasks:
+a partial result reported as a complete one.
+
+**Rule going forward:** when a search backs a recommendation, say how much was
+searched. "No results in a 15-file sample" is not "not in use." If a claim is about
+absence, either survey exhaustively or state the sample size in the same sentence as
+the claim.
