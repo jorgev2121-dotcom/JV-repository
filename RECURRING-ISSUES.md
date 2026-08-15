@@ -720,17 +720,91 @@ but they existed inside the library. **These are at zero. They have never entere
 system at all.** A search for `TRK-2026-1262` cannot return them, so as far as the
 filing system is concerned they do not exist.
 
+**ROOT CAUSE — identified by the DESKTOP executor 2026-08-15, and it is better than
+cloud's original framing. Recorded with attribution.**
+
+> *"Documents enter the pipeline (scan, OCR, email) but the ingestion gate doesn't
+> require or apply a tracking number. **The filing convention exists for outputs, not
+> inputs.** Everything downstream assumes the TRK is already there."*
+
+Cloud had written this up as "holding areas accumulate because nobody is told" — which
+describes the symptom. The desktop named the mechanism, and it explains all three
+observed failures with **one** cause instead of three coincidences:
+
+- PaperPort scans → local folder → no TRK stamp → orphaned
+- OCR processes files → creates `.SEARCH.txt` → no TRK in sidecar → orphaned
+- Email attachments → extracted by hand → no systematic filing → orphaned
+
+**The convention was designed for documents leaving the system, and nothing governs
+documents entering it.**
+
+---
+
+**THE FIX — and note why the obvious version does not work.**
+
+"Require a TRK at ingestion" **cannot work.** At scan time the TRK is frequently not
+known yet: mail is opened, a client sends a packet, a stack gets scanned. Requiring a
+number to enter means either the document does not get scanned, or somebody invents a
+number — and inventing a number is a charter violation and worse than leaving the item
+unfiled.
+
+**Put the gate on EXIT. Two-stage identity:**
+
+**Stage 1 — INTAKE ID, applied automatically on arrival, requiring no knowledge:**
+
+```
+INTAKE-2026-0815-PP-0007
+   2026-0815   date received
+   PP          source — PaperPort. Others: DL downloads, EM email,
+               DT desktop, GD drive-root
+   0007        sequence that day
+```
+
+Deliberately a different prefix from `TRK-` so the two can never be confused. It is
+not a tracking number and confers no job identity.
+
+**Stage 2 — a real TRK is required to LEAVE the holding area.** Nothing moves into
+`01-JOBS` without a registry-issued number. **The gate sits at the point where the job
+actually is known**, which is precisely why an entry gate fails and an exit gate works.
+
+**What this buys:** every document is identifiable from the moment it arrives, with a
+source and an age, before anyone knows whose it is. Today the 15 PaperPort items have
+no identity of any kind — they cannot even be discussed without a screenshot.
+
+**And the sensor becomes trivial:** *"list every `INTAKE-*` older than 7 days"* is the
+entire daily report.
+
+---
+
+**Sequencing — agreed between both executors 2026-08-15.**
+
+**Inventory before re-enabling the OCR tasks.** Switching OCR back on now would
+generate thousands more untagged sidecars needing retrofit, and retrofitting is far
+more expensive than stamping at the time — sometimes impossible, as the three
+identical `LEGEND.PDF.SEARCH.txt` files already demonstrate. The tasks have been off
+since June; another day costs nothing.
+
+**But time-box it.** A full census of every holding area is a week; a census of the
+five already named is an afternoon. Do the five, ship the gate, extend later.
+
+---
+
 **Diagnosis — this is a class, not an incident.**
 Every tool with an inbox creates a holding area, and a holding area with no exit
 process silently accumulates. Known or suspected on this machine:
 
-1. **PaperPort** — `My PaperPort Documents`, 15 items, confirmed
-2. **The Windows Desktop** — the protocol already calls it a launchpad and forbids
-   storage, which means it has been used for storage
-3. **Downloads** — the `__dl-20260729-230930` suffixes on files already in Drive show
-   documents arriving via browser download
-4. **`_OCR-INTAKE`** — a Drive folder created 2026-08-11, purpose-built as a holding area
-5. **Outlook attachments** — never opened, never saved
+**Confirmed by the desktop executor 2026-08-15, which can see the machine:**
+
+1. `C:\Users\JV\Desktop\` — launchpad by protocol, but used for temporary stacking
+2. `C:\Users\JV\Downloads\` — browser default. Checked at intake, **not monitored
+   daily**
+3. `C:\Users\JV\OneDrive\Documents\My PaperPort Documents\` — seen during the OCR
+   scan; holds test PDFs. **Note this is a SECOND PaperPort location** distinct from
+   the 15-item folder in the application
+4. `G:\My Drive\` root — loose files awaiting folder assignment
+5. **Outlook attachments** — never extracted, never filed. Instance cited:
+   TRK-2026-1582 emails
+6. `_OCR-INTAKE` — Drive folder created 2026-08-11, purpose-built as a holding area
 
 **Tier 1 — DO NOT PROPOSE.** Filing these 15 by hand. It clears today's pile and the
 pile returns, because nothing changed about how documents leave the holding area.

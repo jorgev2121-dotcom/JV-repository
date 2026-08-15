@@ -53,7 +53,7 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-9031 | Read OWNER-DIRECTIVE_SUBORDINATE-TRK-HASHTAG-01 and reconcile | NOT_STARTED | **Governing directive adopted 2026-08-11 that neither the protocol nor CLAUDE.md reflects.** See TRK-REGISTRY §3 |
 | TRK-2026-9032 | Rename address-first job folders to lead with TRK | NOT_STARTED | Two known: `20001 SW 110 CT Unit 143 (TRK-2026-1262)`, `14953 SW 34 ST (TRK-2026-1280)`. They sort away from every other job |
 | TRK-2026-9033 | Complete the Drive survey (full-text + short-form + untagged) | IN_PROGRESS | First pass done: TRK-REGISTRY.md, 25 numbers. See §6 for what remains |
-| TRK-2026-9034 | Re-enable the four OCR scheduled tasks + find what disabled them | NOT_STARTED | See RI-015. Check task history for who/when — that is the root cause |
+| TRK-2026-9034 | Re-enable the four OCR scheduled tasks + find what disabled them | **BLOCKED BY DESIGN** | See RI-015 for the cause. **Deliberately held until 9060 ships** — re-enabling now scales the untagged-sidecar defect. Agreed by both executors 2026-08-15 |
 | TRK-2026-9035 | Restore the daily System Health email | NOT_STARTED | **Last one 2026-06-19.** It is the sensor for RI-015; without it, silent failures stay silent |
 | TRK-2026-9036 | Stamp TRK into OCR sidecars at extraction time | NOT_STARTED | See RI-016. Only ~11% of sidecars carry a TRK today |
 | TRK-2026-9037 | Enable Windows LongPathsEnabled | NOT_STARTED | See RI-017. Silent skip of deeply-nested files, which is where job documents live |
@@ -77,6 +77,9 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-9057 | Inventory every holding area on the machine | NOT_STARTED | See RI-020. PaperPort, Desktop, Downloads, `_OCR-INTAKE`, Outlook attachments. The class, not the instance |
 | TRK-2026-9058 | Scheduled sweep reporting holding-area contents and age | NOT_STARTED | **Tier 3, the real fix for RI-020.** Documents landing in a holding area is normal; nobody being told they are still there is the failure |
 | TRK-2026-9059 | Repair PaperPort Send To Bar | NOT_STARTED | See RI-021. Desktop Options → Send To Bar; repair install if that fails. Scanning unaffected — low urgency |
+| TRK-2026-9060 | Build the INTAKE ID stamp + exit gate | NOT_STARTED | **The systemic fix for RI-020.** Gate on EXIT not entry — at scan time the TRK is often unknown. Blocks 9034 (OCR re-enable) by agreement |
+| TRK-2026-9061 | Census the 6 confirmed holding areas | NOT_STARTED | Count and age only, do not file. **Time-boxed to an afternoon** — do not let the census become the stall |
+| TRK-2026-9062 | Confirm TRK-2026-1582 and any other numbers missing from the registry | NOT_STARTED | Desktop referenced 1582; cloud's survey of 25 numbers did not find it. Another RI-013 data point |
 | TRK-2026-9043 | Clone the repo onto the PC | NOT_STARTED | **Desktop has no .git anywhere — the repo was never cloned.** This is why it cannot find WORK-QUEUE.md |
 | TRK-2026-9044 | Consolidate the six Drive mailboxes | NOT_STARTED | Confirmed existing: VTES-Bridge, VTES-Inbox, VTES-Outbox, VTES-Capture-Inbox, PASTE-TRAY, _CLAUDE-MAILBOX. VTES-Bridge holds VTES-OWNER-CHARTER-and-HANDOFF v1+v2 |
 | TRK-2026-9045 | Reconcile VTES charter against CLAUDE.md | NOT_STARTED | `VTES-OWNER-CHARTER-and-HANDOFF-v2.md` in VTES-Bridge is a second charter cloud has not read |
