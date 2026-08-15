@@ -154,6 +154,12 @@ loses track of which block belongs where.
   "re-read Section B" instead of describing it.
 - **One window per paste block.** Never combine instructions for two windows into one
   block.
+- **One paste block per reply, and keep it short.** Merge everything bound for the
+  same window into a single block. Put the actual work in
+  `mailbox/to-desktop/WORK-QUEUE.md` and let the paste block be a short pointer at
+  it. A pasted instruction dies on restart; a file in the repo does not.
+- **The only reason to issue two blocks** is two different windows. If that happens,
+  say so explicitly on the first line of each.
 
 ---
 
