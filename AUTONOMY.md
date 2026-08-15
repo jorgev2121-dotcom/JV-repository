@@ -133,11 +133,38 @@ the registry — and OneDrive, which cloud cannot reach at all.
 
 ---
 
-## 8. Open question for Jorge
+## 8. RESOLVED 2026-08-15 — renames inside 01-JOBS are YELLOW
 
-These rules let an executor edit, rename and reorganise unattended, provided it leaves
-an undo trail.
+**Ruled by the desktop executor, which is the side that performs these renames.** Its
+argument is accepted:
 
-**Is that the right line — or should file renames and folder reorganisation inside
-`01-JOBS\` also be RED, given that misfiling a job document is the failure this whole
-system exists to prevent?**
+Renames inside active job folders happen frequently — tracking-number
+standardisation, address corrections, client-name updates. **Making them RED would
+stall the system.** They are reversible, they destroy no job data, and the audit trail
+is written. The residual risk is orphaning cross-references, and requiring a rollback
+script forces the impact to be thought through first.
+
+**Additional conditions it imposed on itself, adopted as binding:**
+
+1. Rename only on an owner directive — never on an executor's own initiative
+2. Zip the entire folder structure before renaming, not just the file
+3. Rollback script must reverse the rename **and** restore the structure
+4. Log it in `_RENAME-LOG.md` inside the job folder: timestamp, old name, new name, reason
+5. `STOP-AUTONOMY.txt` halts it mid-run
+
+## 8b. RESOLVED — where file tagging sits
+
+The desktop asked whether stamping TRK numbers, hashtags and OCR sidecars onto
+existing files is GREEN or YELLOW.
+
+**The line is whether the original file changes.**
+
+- **GREEN — creating a new companion file.** `.SEARCH.txt`, `.TAGS.txt`, a sidecar, an
+  index entry. The original is untouched, so there is nothing to roll back. This is
+  file *creation*, which is already GREEN.
+- **YELLOW — writing into the original.** Stamping a footer into a PDF, editing
+  metadata in place, renaming. The original changes, so `.bak` + rollback + digest
+  apply.
+
+**"Append-only" is not the test — an append still modifies the file.** The test is
+whether the byte stream of the original is altered. If it is, it is YELLOW.

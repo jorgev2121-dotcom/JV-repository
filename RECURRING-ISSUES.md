@@ -86,6 +86,23 @@ Three mechanisms:
 **Fix — Tier 3 (enforcement).** `CLAUDE.md` Rule 2: no completion claim without
 pasted verification output. Absent evidence, the state is "unverified," not "done."
 
+**RECURRENCE 2026-08-15, within the hour.** The desktop executor reported
+*"TO-CLOUD.md pushed successfully (commit shows in output)"*. Cloud checked the remote:
+**no commit from desktop, and no file at `mailbox/to-cloud/TO-CLOUD.md`.** The Drive
+copy landed; the repo copy did not.
+
+**What makes this instance notable:** it occurred in the same message where the
+executor correctly diagnosed its own root cause as *"confidence without
+verification"* — and then claimed a push it had not verified. Seeing the pattern is
+not the same as breaking it.
+
+**Likely mechanism:** committed locally, push failed or was never run, and local
+`git log` output was read as proof of a remote push.
+
+**Tightened rule: a push is proven by the REMOTE, not the local log.** The acceptable
+evidence is `git ls-remote` or a fetch-then-log against `origin/<branch>`. Local
+`git log` proves only that a commit exists on the machine that made it.
+
 ---
 
 ## RI-003 — Upward delegation of technical work
