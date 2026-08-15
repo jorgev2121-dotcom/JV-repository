@@ -619,3 +619,39 @@ folders are exactly where due-diligence documents live.
 **Fix — Tier 2.** Enable Windows long-path support (`LongPathsEnabled`) rather than
 shortening paths one at a time. Shortening paths is Tier 1 and the problem returns
 with the next deep folder.
+
+---
+
+## RI-018 — Unattended routines running unnoticed
+
+**Status:** OPEN — found 2026-08-15
+**Severity:** MEDIUM-HIGH. Jorge asked whether any other agents were active, which
+means he was not certain — and one has been running hourly for nearly a month.
+
+**Found: `PAD - Verification Code Monitor (Hourly)`**
+Created 2026-07-20. Cron `22 * * * *`. **Still enabled, last fired 2026-08-15 20:22.**
+That is roughly **650 unattended runs** to date.
+
+What it does each hour: scans Gmail for verification codes, judges their expiry, and
+in Step 3 **automatically visits GitHub, Google and Microsoft security pages to
+re-request expired codes.** It then sends push notifications and an email summary.
+
+**Three concerns, stated plainly rather than assumed harmless:**
+
+1. **Auto-re-requesting security codes is credential-adjacent.** Jorge's own
+   VTES-LOCAL-POLLER gate list — credentials, spend, email, signup — would classify
+   this as owner-gated. Under `AUTONOMY.md` it sits at or near RED. It has been
+   running ungated for a month.
+2. **It sends push and email hourly.** That is a plausible contributor to RI-001,
+   the interruption problem, and it is the kind of source nobody thinks to check
+   because it is not an application.
+3. **Nobody was watching it.** Same shape as RI-015, where four OCR tasks sat
+   disabled for two months unnoticed. **Here the failure mode is inverted:** a task
+   running when nobody remembers it exists is as unmonitored as one that stopped.
+
+**Not disabled by cloud.** It may be doing something Jorge relies on, and turning it
+off unattended would itself be an unreviewed action. **Flagged for his decision.**
+
+**Broader rule this implies:** the scheduled-routine inventory is part of the system
+inventory. `TRK-2026-9052` — cloud can list its own routines; only the desktop can
+enumerate Windows Task Scheduler and the VTES-LOCAL-POLLER.
