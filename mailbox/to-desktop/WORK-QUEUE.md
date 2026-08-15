@@ -162,6 +162,58 @@ screenshots.
 
 ---
 
+## 10. TRK-2026-9034/9035 — OCR: you reported this wrong, and it cost Jorge four hours
+
+**Correction.** You read the 2026-08-13 `12:37` log, saw 28 of 28 failures, and told
+Jorge the run was a total loss. **Drive says otherwise.** A later run the same day
+wrote **at least 54 `.SEARCH.txt` sidecars between 16:35 and 17:57**, with real
+extracted text from 625 bytes to 95 KB. See `OCR-STATUS.md` in this repo.
+
+Before reporting a run as failed, check the *output*, not only the log.
+
+Then do these:
+
+1. **Task history — who disabled the four OCR tasks, and when.**
+   `Get-WinEvent -LogName Microsoft-Windows-TaskScheduler/Operational` filtered for
+   the task names, or check each task's History tab. This is the root cause of
+   RI-015; do not just re-enable and move on.
+2. **Re-enable** `CU-BulkOCR`, `CU-OCR-Intake`, `CU-OCR-Watch`,
+   `CU-Inspections-Auto-Filing-OCR`.
+3. **Restore the daily System Health email.** The last one is dated **2026-06-19**.
+   That report is the sensor that should have caught this; it failed two months before
+   the thing it monitors. Fix the sensor first.
+4. **Enable Windows long-path support** (`LongPathsEnabled`). The 12:37 failures were
+   long-path PDF open errors, and they will silently skip deeply-nested files forever
+   otherwise. See RI-017.
+5. **Count for a real completion figure** — total PDFs in scope versus total
+   `.SEARCH.txt`. Cloud cannot get the denominator; you can, in seconds.
+   Report both numbers, not a percentage on its own.
+6. **Stamp the TRK into sidecars at OCR time.** Only ~11% carry one today, and three
+   separate `LEGEND.PDF.SEARCH.txt` files exist in three folders with no way to tell
+   them apart. See RI-016.
+
+---
+
+## 11. Search your own history for what was agreed and never done
+
+Jorge's words: *"We discussed. We agreed. And ultimately it was not done."* Find those.
+
+1. Search your Claude Code session history and project files for OCR decisions:
+   ```
+   Select-String -Path "C:\Users\JV\.claude\**\*" -Pattern "OCR" -List
+   Select-String -Path "C:\Users\JV\OneDrive\Documents\ClaudeMemory\**\*" -Pattern "OCR" -List
+   ```
+2. Also check `CodeHandoff\Done\`, `DIRECTIVE-REGISTER.md`, and any
+   `CROSS-LLM-THREAD.md`.
+3. Produce a single list: **what was agreed, on what date, and whether evidence exists
+   that it was done.** Anything agreed with no evidence of completion goes into
+   `OPEN-ITEMS.md` with a TRK number.
+
+**That list is the deliverable.** Do not summarise it in chat only — write it to
+`OCR-AGREEMENTS-AUDIT.md` in this repo and push it.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
