@@ -406,27 +406,50 @@ intake stamp.
 
 ---
 
-## 12. THE NIGHT'S REAL LESSON
+## 12. ⚠ CORRECTION — YOUR WATCHDOG EXISTS AND IT WORKED
 
-**Everything on my side finished. Everything on the desktop's side stopped at 2:06am
-and nothing noticed for four hours.**
+**I told you twice tonight that the thing which should have caught the stall "has
+never been built." That was wrong, and I found out at six this morning by looking
+somewhere I had not looked.**
 
-That is not a small detail. **The night protocol says a dead run should be caught
-within fifteen minutes** — by checking whether its output file is still growing, not
-whether the program is still open.
+**RECONCILER-01 is alive on your machine. It runs every thirty minutes.** At 5:40am it
+logged 54 files, checked for stalled work, and **reissued the Orange Tree job because
+it noticed it had not finished.**
 
-**That check is written down and has never been built.** It is the heartbeat, and it
-is still unverified.
+It did exactly the job I said nothing was doing.
 
-**So tonight proved both halves of the problem at once:** the work absolutely can get
-done unattended — twenty-two sources, a corrected job record, a found work register,
-all of it while you slept. **And a stopped executor can sit dead for four hours with
-nobody to restart it.**
+**I missed it because I was watching the mailbox folder. It writes to four VTES lanes
+I never checked.** That is the third time tonight I have looked in one place and
+reported on the whole — the same mistake I have spent all night flagging in the
+desktop. I would rather you hear it from me.
 
-**I can see that it stopped. I cannot restart it.** That is the gap.
+### So the real gap is much smaller than I said
 
-**Fixing the heartbeat is worth more than any new task on the list.** A twelve-hour
-queue is worth nothing to a machine that quits at hour four.
+Your machine is awake and working right now — the reconciler, the poller, the
+heartbeat files, four ledgers, all updating this morning.
+
+**What is not running is a Claude Code window.**
+
+The reissued job carries this note: **"Queued for Claude Code's next work session."**
+
+**The watchdog can spot a stall and re-queue the work. It cannot open a window to do
+it.** That is the one missing link — and it is the only one.
+
+**Detection: built and working. Re-queueing: built and working. Starting a session:
+needs you, or needs the heartbeat finished.**
+
+### And a better piece of news about the ACKs
+
+The audit blamed eighteen months of false completion on automatic acknowledgements.
+**One was generated at 6:01 this morning — so they are still running.**
+
+**But look at what it actually says: "Status: received." Not "done."**
+
+**The acknowledgement is telling the truth.** It says it got the job and queued it,
+which is exactly what happened. **The failure was never the ACK — it was somebody
+upstream reading "received" as "finished."**
+
+**So don't turn them off.** Just never let anything treat "received" as done.
 
 ---
 
