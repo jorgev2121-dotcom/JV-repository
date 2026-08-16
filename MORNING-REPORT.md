@@ -10,7 +10,30 @@ itself a finding, and far better than nothing.
 
 ## THE HEADLINE
 
-**The county run is FINISHED. 22 of 22 closed at 11:08pm.**
+**Good morning. The night worked — and it also showed exactly why eighteen months
+didn't.**
+
+**22 of 22 county sources closed. Three of Alec's job records corrected. Your work
+register found. A stalled job caught and reissued by a watchdog I didn't know you
+had.**
+
+**And the single most useful thing I learned all night, in one sentence:**
+
+> **Every part of your system reports honestly about itself, and no part is
+> responsible for whether the work actually happened.**
+
+The acknowledgement says "received" — true. The reconciler says "components healthy" —
+true. The ledger counts files — true. **Nothing anywhere measures output against what
+you asked for.**
+
+**That is why it never announced a failure. By each part's own definition, there wasn't
+one.** See section 12.
+
+---
+
+## THE COUNTY RUN
+
+**22 of 22 closed at 11:08pm.**
 
 **20 proven with real retrieved data. 2 partial. Not one left without a status.**
 
