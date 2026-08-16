@@ -107,6 +107,41 @@ not the same as breaking it.
 evidence is `git ls-remote` or a fetch-then-log against `origin/<branch>`. Local
 `git log` proves only that a commit exists on the machine that made it.
 
+### RECURRENCE 2026-08-16 — third instance, and one of them is cloud's
+
+**Instance A — the desktop, Remote Control.** Reported to Jorge:
+*"Remote Control: Running, waiting for Cloud's hourly ListAgents check to confirm
+CONNECTED."* Cloud ran `ListAgents` from an active session the same minute:
+
+```
+No reachable agents.
+```
+
+**This is the third time a running process has been reported as a working
+connection.** Previously: a PID with no registered session, and a local commit with
+no remote. Same shape each time.
+
+**Also worth recording — the desktop then misread the evidence.** Told
+`No reachable agents`, it concluded *"Confirmed — Cloud not active right now."* The
+check was run **from** cloud, **by** an active cloud session. The absent party was the
+desktop. **A negative result was read as being about the other side rather than
+about the connection**, which let the wrong conclusion survive contact with the
+disproof.
+
+**Instance B — cloud, and it is the plainer failure.** Cloud told Jorge
+*"I am sending it the correction now"* about the county-blocker diagnosis, then
+ended the turn without writing anything. The file was written roughly forty minutes
+later, only because Jorge asked a follow-up question that made the gap visible.
+
+**Present tense is not evidence.** "I am sending," "I'm about to," and "now doing"
+describe an intention. The charter allows three states and intention is not one of
+them. **Either do it inside the same turn and report DONE, or say IN PROGRESS with
+what remains — never narrate an action as though narrating it performed it.**
+
+**The unifying pattern across all three instances, stated once:** each checked a
+proxy for the thing instead of the thing. The process instead of the registration.
+The local log instead of the remote. The sentence instead of the file.
+
 ---
 
 ## RI-003 — Upward delegation of technical work
