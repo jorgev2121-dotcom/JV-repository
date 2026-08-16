@@ -50,7 +50,8 @@ enough to identify it exactly, with no description needed.
 | PASTE-D-004 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | **Run BEFORE D-003.** Unpin Haiku 4.5 from `.claude\settings.json` and restart on Opus. See RI-008. | SUPERSEDED by PASTE-D-005 |
 | PASTE-D-005 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | Single pointer block. Merges D-003 + D-004. Fix model, restart, then work `mailbox/to-desktop/WORK-QUEUE.md` top to bottom. Survives restart because the work lives in the repo. | SUPERSEDED by PASTE-D-006 |
 | PASTE-D-006 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | Fix model, restart, pull repo, work WORK-QUEUE.md. | SUPERSEDED by PASTE-D-007 |
-| PASTE-D-007 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | **One sentence.** "Check the mailbox in Drive." Everything else now lives in `G:\My Drive\_CLAUDE-MAILBOX\TO-DESKTOP.md`, written by cloud directly. | ISSUED |
+| PASTE-D-007 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | **One sentence.** "Check the mailbox in Drive." Everything else now lives in `G:\My Drive\_CLAUDE-MAILBOX\TO-DESKTOP.md`, written by cloud directly. | SUPERSEDED by PASTE-D-008 |
+| PASTE-D-008 | 2026-08-16 | Desktop — "Investigate Claude Code se…" | Pull the repo for the new `orphan-onboarding` skill, then work `TASK-07` (heartbeat) and `TASK-08` (orphan sweep + the 22 county sites) from the Drive mailbox. | ISSUED |
 
 ---
 
