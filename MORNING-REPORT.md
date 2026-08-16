@@ -73,14 +73,31 @@ City of Miami code, so both labels describe the same parcel.
 **Your call in the morning: merge them, or keep both and cross-reference?** Merging job
 records is never done unattended.
 
-### TRK-2026-1286 — that address does not exist
+### TRK-2026-1286 — the address doesn't exist, but a likely real one turned up
 
-**"1997 SW 218 St" is not an address in Miami-Dade County.** Not "we couldn't find
-it" — it was checked against the county's master list of every address. House numbers
-on SW 218th Street run from 9721 to 20490. There is no 1997.
+**"1997 SW 218 St" is not an address in Miami-Dade.** Checked against the county's
+master list of every address. House numbers on that street run 9721 to 20490.
 
-**That job cannot be researched until you supply the real address.** Nobody should
-guess it.
+**Then it found `11997 SW 218 ST` — the same thing with a dropped 1 at the front.**
+
+It is a **duplex built in 2024**, on land that was empty the year before, bought for
+$100,000 in 2023 and **sold for $765,000 in January 2025.** That is a builder's job,
+which is Alec's business.
+
+**And the trust that owned it during construction is called `THE JG 11997 LAND
+TRUST`** — the number 11997 is in the entity's own name.
+
+**I have NOT filed it.** No county document on that parcel names Alec or Avis
+Builders. The address fits a pattern; the client doesn't match anything yet. **That's
+exactly the near-miss shape that nearly put one client's papers in another's folder.**
+
+**One question settles it — does your file for 1286 mention any of these?**
+
+> DIXON E ROSALES RODRIGUEZ · MAYRET A DIAZ FLORES · IVAN RABINOVICH DEVELOPMENT LLC ·
+> JDBE INVESTMENTS LLC · THE JG 11997 LAND TRUST · a 2-unit duplex in Goulds
+
+**Yes, and the job is unstuck** — folio, owner, values and the whole sale chain are
+already pulled and waiting.
 
 ### TRK-2026-1289 — the folio on file is a parent record, not a unit
 
@@ -154,14 +171,14 @@ counted does not count as populated.
 
 ---
 
-## 4. CLOUD-SIDE WORK
+## 6. CLOUD-SIDE WORK
 
 The audit of `MASTER-UNFINISHED-WORK-REGISTER`, Gmail attachment enumeration, the
 Drive survey, and the version-log gap map.
 
 ---
 
-## 5. WHAT NEEDS JORGE — ONE PLACE, ONE WORD EACH
+## 7. WHAT NEEDS JORGE — ONE PLACE, ONE WORD EACH
 
 Everything requiring a decision gets gathered here so it can be cleared in one sitting
 instead of surfacing one interruption at a time.
@@ -178,7 +195,7 @@ instead of surfacing one interruption at a time.
 
 ---
 
-## 6. WHAT FAILED OR NEVER STARTED
+## 8. WHAT FAILED OR NEVER STARTED
 
 **This section is mandatory and must never be left empty by omission.** If nothing
 failed, it says "nothing failed." A silent gap is how a night with no work looks
@@ -186,7 +203,7 @@ identical to a night that went well.
 
 ---
 
-## 7. STANDING TRUTHS, so no session has to rediscover them at 3am
+## 9. STANDING TRUTHS, so no session has to rediscover them at 3am
 
 - **The desktop's `git push` is broken.** It writes to the Drive mailbox; cloud mirrors
   to the repo. Never report "committed to repo" on its behalf without checking the

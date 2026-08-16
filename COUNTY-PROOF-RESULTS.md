@@ -267,3 +267,69 @@ records success and stores garbage. **Both of tonight's false walls — the "dea
 Property Appraiser endpoint and the "retired" CU search — were 200s and 301s that
 looked like refusals and were not.**
 
+---
+
+## 10. TRK-2026-1286 — a strong candidate, recorded and NOT filed
+
+**Found 2026-08-16 02:00 UTC in `_ALEC-SWEEP/PA_CANDIDATE_11997-SW-218-ST.json`.**
+
+The address on file is `1997 SW 218 St`, which does not exist. **`11997 SW 218 ST`
+does** — the same string with a dropped leading `1`, the commonest transcription error
+there is, and it sits inside the 9721–20490 range the street actually occupies.
+
+```
+FOLIO   : 30-6912-004-0951
+ADDRESS : 11997 SW 218 ST, Unincorporated County, FL 33170
+OWNERS  : DIXON E ROSALES RODRIGUEZ + MAYRET A DIAZ FLORES (Tenants by the Entirety)
+USE     : MULTIFAMILY 2-9 UNITS : 2 LIVING UNITS — "Duplex Residential"
+BUILT   : 2024 · 2,392 sq ft gross · 4 bed / 4 bath · 2 floors · 2 units
+ZONING  : UC CENTER - MIXED USE OPTIONAL (MO) 4 MAX HT
+VALUE   : 2024 $183,750 (land only) -> 2026 $624,398 (with building)
+```
+
+Sale history, the part that matters:
+
+```
+1/23/2025  $765,000  IVAN RABINOVICH DEV LLC TRS / THE JG 11997 LAND TRUST
+                     -> DIXON E ROSALES RODRIGUEZ + MAYRET A DIAZ FLORES
+ 4/6/2023      $100  JDBE INVESTMENTS LLC -> IVAN RABINOVICH DEVELOPMENT LLC TRS
+ 3/3/2023  $100,000  JDBE INVESTMENTS LLC -> THE JG 11997 LAND TRUST
+ 8/31/2015  $30,000  MARGARITA S RIVERA / JORGE RIVERA -> JDBE INVESTMENTS LLC
+```
+
+### Why it is a strong candidate
+
+1. **The land trust is named `THE JG 11997 LAND TRUST`.** The number 11997 is in the
+   entity's own name — so 11997, not 1997, is what the paperwork says.
+2. **The digit-drop is the classic error shape**, and 1997 is not a plausible number
+   on that street.
+3. **New construction: vacant land in 2024, a finished duplex by 2026.** That is a
+   builder's job, which is what Avis Builders does.
+4. Bought for $100,000 in 2023, sold for $765,000 in January 2025 — a build-and-sell.
+
+### Why it is NOT filed, and must not be
+
+**No document in the county record names Alec Valdes or Avis Builders on this
+parcel.** The owners are Rosales Rodriguez and Diaz Flores; the developer of record is
+Rabinovich / JDBE / the JG 11997 Land Trust.
+
+**The address matches a pattern. The client does not yet match anything.** That is
+precisely the shape of the `14598 SW 110 ST` near-miss — a number that lines up, with
+no confirmation that the job is the same job.
+
+**Filing it would be a charter violation. It stays a candidate.**
+
+### The one question that settles it
+
+**Does Jorge's file for TRK-2026-1286 mention any of these names?**
+
+```
+DIXON E ROSALES RODRIGUEZ · MAYRET A DIAZ FLORES
+IVAN RABINOVICH DEVELOPMENT LLC · JDBE INVESTMENTS LLC
+THE JG 11997 LAND TRUST · permit for a 2-unit duplex, Goulds / SW 218 ST
+```
+
+**One yes and the job is unstuck with a folio, an owner, a value history and a full
+sale chain already retrieved. One no and it stays an open question — which is still
+better than the dead end it was this morning.**
+
