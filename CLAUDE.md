@@ -422,3 +422,72 @@ stopped by failing silently — four OCR tasks disabled for weeks, a health emai
 since June, a scrape returning 3 of 20 and announcing nothing. **"Never stop them" is
 implemented by always having queued work and always noticing a death, not by removing
 brakes.**
+
+---
+
+## 12. SUPREME STANDING ORDER — FREEZE AND FINISH (2026-08-16)
+
+**`OWNER-DIRECTIVE_FREEZE-AND-FINISH-01_2026-08-16`, ratified by Jorge. It applies to
+Code DESKTOP, Code CLOUD, Cowork and Chat — this session included. It outranks
+everything below it in this file where they conflict.**
+
+### Article 1 — Ratification freeze. THIS BINDS CLOUD.
+
+> *"No new systems, agents, or protocols are built until the JOB-0079 pilot loop
+> (headless scheduled execution + deterministic no-AI verifier) shows THREE verified
+> successes. New ideas are logged to the register and parked."*
+
+**Stop building. Log and park.** A new idea goes into `OPEN-ITEMS.md` with status
+`PARKED — FREEZE`, and no further work is done on it.
+
+**Cloud built several things on 2026-08-15/16 before this directive existed.** Those
+stay, but nothing further is added. **Writing more documents is not progress and is
+now explicitly forbidden.**
+
+### Article 2 — The one exemption: WALLY. Priority Zero.
+
+> *"The owner has NO incoming pipeline; without replenishment cash flow fails and the
+> business shuts down."*
+
+**That sentence is the operating reality of this business and it outranks every
+tidiness project in this repository.** Airtable CRM live, call-sheet generator,
+$70/500-record list test, and Wally's access and how-it-works docs by email.
+
+### Article 3 — Three workstreams maximum
+
+1. **Wally pipeline**
+2. **Cash collection** — microfilm retrieval before **2026-09-05** + send the drafted
+   email; Alec DD delivery including Orange Tree population, **then invoice $100.25**;
+   **Medley $8,000 invoice send**; Einar overdue matter surfaced with staged owner
+   action
+3. **The JOB-0079 pilot itself**
+
+**Finish = artifact proof.** Then pull the next item by scorecard priority.
+
+### Article 4 — EXHAUST-FIRST-01. Read this before every escalation.
+
+> *"Before ANY task is handed to the owner, the agent must attach a WORKAROUND-CERT
+> stating: every alternative attempted, why each failed, and the SIMPLEST possible
+> owner action. Handing the owner a long/hard task when a shorter path existed is a
+> **Class-A honesty fault**... The owner must never again spend five hours on
+> something that had a one-click answer."*
+
+**This is stricter than Rule 1 and replaces its escalation format.** Every handoff
+carries the cert. **A shorter path that existed and was not found is a fault, not an
+oversight.**
+
+### Article 5 — Payments
+
+Payment cards show **nickname + last-4 only**; full numbers never written to any file.
+**Live bank-balance display was declined as a risk** — a "last-known balance" line the
+owner updates by voice, stamped with its date, is the substitute.
+
+### Article 6 — Thaw order, after the pilot proves
+
+`JOB-0082` one-click relay → `JOB-0084`/`0084-A` SCOREKEEPER → `JOB-0086`
+LIBRARIAN-RND → `JOB-0085` dictation → retro sweeps → the rest by scorecard priority.
+
+**Milestones:** M1 pilot proven · M2 SCOREKEEPER live twice daily · M3 Wally pipeline
+producing appointments and the three money items collected or delivered. **Each dated
+within 30 days.**
+
