@@ -376,3 +376,49 @@ newsletter and a Publix receipt. Searching `TRK-2026-1262` cannot.
 
 **Never end a session leaving work recorded only in the conversation.** The
 conversation will be gone. The files will not.
+
+---
+
+## 11. Rule 8 — Nights are for long runs
+
+**Owner directive, issued by Jorge 2026-08-16:**
+
+> *"I want a standing protocol that nights are used for long runs, line them up, and
+> never stop them. Otherwise, we'll never catch up."*
+
+**Full protocol in `NIGHT-PROTOCOL.md`. The standing list is `OVERNIGHT-QUEUE.md`.**
+The essentials, because they must load into every session:
+
+1. **The queue is never empty.** Always at least 12 hours of work queued — a run that
+   finishes at 2am and idles until morning has wasted six hours. **Refilling the
+   queue is itself a queue item.**
+
+2. **Results are written per item, as each completes.** A run killed at item 40
+   leaves 39 results on disk, never zero.
+
+3. **A dead run is detected within one cycle.** The heartbeat checks whether the
+   **output file has grown** — not whether the process exists. Alive-but-not-growing
+   for three cycles means hung: kill it, log it, start the next item. **A process in
+   the task list is not a run making progress.** That is RI-002, logged three times.
+
+4. **Eligibility is decided by reversibility, not difficulty.**
+   **GREEN at night:** counting, enumeration, read-only survey, report generation,
+   OCR where the TRK is already known from the folder path, and anything writing only
+   to a file that did not previously exist.
+   **RED at any hour:** filing, moving, renaming or deleting a client document;
+   anything outbound; spend, credentials, signup; registry edits.
+
+   **Filing is RED even though it is mundane.** A misfile is found months later by
+   the client, not by the executor. `14598 SW 110 ST` was one digit-match from
+   landing in another client's folder. **Nights prepare filing decisions; mornings
+   execute them.**
+
+5. **Every night ends with a report carrying a denominator** — "412 of 3,180," never
+   "good progress." **A night with no report counts as a failed night**, because an
+   unverifiable run is indistinguishable from no run.
+
+**Why this rule exists:** night runs here were never stopped by caution. They were
+stopped by failing silently — four OCR tasks disabled for weeks, a health email dead
+since June, a scrape returning 3 of 20 and announcing nothing. **"Never stop them" is
+implemented by always having queued work and always noticing a death, not by removing
+brakes.**
