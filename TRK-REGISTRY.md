@@ -179,3 +179,59 @@ This pass searched titles for `TRK-2026` only. Not yet covered:
 3. Files with no TRK at all, which is the largest unknown
 4. The OneDrive registry itself — requires a desktop session or Microsoft 365
    authorization (TRK-2026-9020)
+
+---
+
+## 7. FOLIO VERIFICATION 2026-08-16 — three records corrected
+
+**Source:** the county proof run, TRK-2026-9078. Retrieved live from the Miami-Dade
+Property Appraiser and the county address index. Full quotes in
+`COUNTY-PROOF-RESULTS.md`.
+
+| TRK | Was recorded as | What the county actually says |
+|---|---|---|
+| **1292** | 7823 NW 5th Ave — Miami-Dade | **Folio 01-3112-016-0030**, owner **ASF HOMES LLC**, `7823 NW 5 AVE` Miami FL 33150 |
+| **1531** | 7823 NW 5 AV — City of Miami | **Same folio. Same parcel. Duplicate of 1292.** |
+| **1286** | 1997 SW 218 St | **No such address exists in Miami-Dade County** |
+| **1289** | folio 01-4102-098-0001 | **Condominium MASTER / REFERENCE folio.** No owner, no assessment, no sales |
+
+### 1292 = 1531 — one parcel, double-filed
+
+Folio prefix `01` **is** the City of Miami municipality code. "Miami-Dade" on 1292 and
+"City of Miami" on 1531 are two names for one jurisdiction, not two jurisdictions.
+The address search returns `Total=1` for both spellings, same Strap.
+
+**RECOMMENDED: merge into one capsule keyed on folio 01-3112-016-0030, mark 1531 a
+duplicate of 1292. NOT ACTIONED — merging job records is RED and waits for Jorge.**
+
+### 1286 — the address is bad data
+
+Proven against the county's master address index, not merely "not found":
+house numbers on `SW 218TH ST` run 9721–20490; `hse_num=1997 AND st_name='218TH'`
+returns zero rows; a truncated 19970–19979 was ruled out separately.
+
+An owner search for `VALDES ALEC` returns exactly two properties countywide —
+`5780 SW 153 CT` and `9167 FONTAINEBLEAU BLVD Unit 6` — neither on SW 218.
+
+**The address must be corrected at source. An executor must never guess an address,
+so this waits for Jorge.**
+
+### 1289 — researching the master folio would return empty and look complete
+
+`STATUS: RO Reference`, `DOR 0000 REFERENCE FOLIO`, legal `1658 NW 1 STREET CONDO`.
+It is the parent record for a condominium declaration and carries no owner,
+assessment or sale history by design.
+
+**Due diligence must run against the individual unit folios beneath it.** Run against
+the parent, every source returns nothing and the job appears researched when it was
+not — a silent-failure shape worth naming.
+
+### Flag on 01-3112-016-0030, in Jorge's own line of work
+
+The county carries the parcel as **VACANT RESIDENTIAL**, living area 0, year built
+9999 — while the same record lists **6 bedrooms and 4 bathrooms**, and it sold for
+**$320,000** against a county value of **$222,523**.
+
+**That is the signature of unpermitted structure on a parcel the tax roll still shows
+as vacant.**
+
