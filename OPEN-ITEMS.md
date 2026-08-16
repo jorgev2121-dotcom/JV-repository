@@ -23,7 +23,7 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-9001 | Operating charter (`CLAUDE.md`) committed to repo root | DONE | Verified by read-back 2026-08-15 |
 | TRK-2026-9002 | `RECURRING-ISSUES.md` created and seeded | DONE | Verified by read-back 2026-08-15 |
 | TRK-2026-9003 | `OPEN-ITEMS.md` created | DONE | This file |
-| TRK-2026-9004 | Confirm desktop Claude Code loads this charter | NOT_STARTED | Open the repo in a desktop session and ask it to quote Rule 1 |
+| TRK-2026-9004 | Confirm desktop Claude Code loads this charter | IN_PROGRESS | Desktop restarted on Opus 5, but the restart cleared its context — it must be re-pointed at the mailbox and repo |
 | TRK-2026-9005 | Pop-up focus theft — Tier 2 removal pass | NOT_STARTED | See RI-001. Requires a desktop session. Cloud cannot touch the PC |
 | TRK-2026-9006 | Pop-up focus theft — Tier 3 enforcement scheduled task | NOT_STARTED | Depends on 9005 |
 | TRK-2026-9007 | Miami-Dade scrape — rebuild as one agent per site | **REASSIGNED TO DESKTOP** | Site list built (MIAMI-DADE-SITES.md, 22 sources) but **cloud is EGRESS_BLOCKED from miamidade.gov, miamidadepa.gov and sunbiz.org — tested, 403 on CONNECT.** See RI-019. Desktop has unrestricted network + claude-in-chrome |
@@ -38,9 +38,9 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 | TRK-2026-9016 | Close duplicate session "Test bridge buttons after w…" | NOT_STARTED | See RI-007. Frozen duplicate of the active bridge task |
 | TRK-2026-9017 | Migrate OneDrive ClaudeMemory into this repo | NOT_STARTED | Message queued in mailbox/to-desktop/. Desktop only — cloud cannot read OneDrive |
 | TRK-2026-9018 | Enable /voice in desktop Claude Code | NOT_STARTED | Type `/voice`, hold space. Windows: allow desktop apps mic access |
-| TRK-2026-9019 | Evaluate Wispr Flow for system-wide dictation | NOT_STARTED | Known bug: Claude Code v2.1.83 breaks injection on Windows; use v2.1.81 |
+| TRK-2026-9019 | Evaluate Wispr Flow for system-wide dictation | NOT_STARTED | **v2.1.83 injection bug is moot — desktop is on v2.1.233.** That warning no longer applies |
 | TRK-2026-9020 | Authorize Microsoft 365 connector (OneDrive read) | BLOCKED | Only Jorge can click the consent screen in claude.ai connector settings |
-| TRK-2026-9021 | Unpin Haiku 4.5 in desktop `.claude\settings.json` | NOT_STARTED | **CRITICAL.** See RI-008. Tier 2 fix; `/model` alone reverts next launch |
+| TRK-2026-9021 | Unpin Haiku 4.5 in desktop `.claude\settings.json` | **DONE** | **VERIFIED 2026-08-16 by statusline screenshot: `Claude Code v2.1.233 / Opus 5 · Claude Max`.** Restart completed. `haiku-settings.json.disabled` blocks silent reversion |
 | TRK-2026-9022 | Audit model used by every saved session | NOT_STARTED | Drift found across haiku-4-5, fable-5, opus-4-8. See RI-008 |
 | TRK-2026-9023 | Adopt `_ pNNN` page-identity standard | DONE | Written into CLAUDE.md 9.1-9.3, verified on remote 2026-08-15 |
 | TRK-2026-9024 | Add footer stamping to the document pipeline | NOT_STARTED | Filename identity is lost on print/screenshot; footer stamp is what makes pNNN pay off |

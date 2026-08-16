@@ -24,7 +24,11 @@ wrong window, often unnoticed for a paragraph.
 - 2026-08-15 — raised again. Logged here for the first time.
 - 2026-08-15 — **live instance captured.** Three modal dialogs stacked on screen at
   once: two `claude.exe` launch failures (see RI-006) and one Outlook
-  "Cannot show your next reminder." Note that neither was a *notification* — both
+  "Cannot show your next reminder."
+- 2026-08-16 — **PaperPort dialog returned, third sighting in one day.** Same text,
+  same single OK button. **Clicking OK demonstrably does not fix it** — which is the
+  Tier 1 forbidden-fix proven live rather than argued. The Send To Bar repair
+  (RI-021) has not been done yet, so its return is expected, not mysterious. Note that neither was a *notification* — both
   were **modal error dialogs**, which no notification setting can suppress. This
   confirms that Focus Assist was never going to fix this class of pop-up, and
   explains two years of failed Tier 1 attempts.
