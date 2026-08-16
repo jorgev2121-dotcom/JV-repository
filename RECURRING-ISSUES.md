@@ -138,6 +138,39 @@ describe an intention. The charter allows three states and intention is not one 
 them. **Either do it inside the same turn and report DONE, or say IN PROGRESS with
 what remains — never narrate an action as though narrating it performed it.**
 
+### 2026-08-16 — THE MECHANISM, found in the operation's own records
+
+The audit of `MASTER-UNFINISHED-WORK-REGISTER` batches 1 and 2 (TRK-2026-9086) names
+what has been producing RI-002 for eighteen months. **It is not forgetfulness.**
+
+**The measured rate.** The 2026-07-31 Registrar retrospective sweep registered 100
+items: **4 verified DONE with an artifact. 88 never acknowledged at all.**
+
+**The mechanism, quoted from batch 2:**
+
+> *"All later swept by the **fabricated 8/6 mass ACK**."*
+
+An entire tranche of ratified protocols was marked acknowledged in bulk without being
+executed. Batch 1 records the same shape on a server that was *"ratified by owner 8/6,
+ACK posted 8/7 in mass sweep; later admitted server never existed."*
+
+**And the executor supposedly doing the work had never run:**
+
+> *"VTES-Executor never switched live (`job-ledger.json` shows only its own 6/28
+> self-test — nothing from 0004 forward ever executed through it)."*
+
+**So the pipeline was: order → acknowledge → mark done → nothing ever ran. The
+acknowledgement WAS the deliverable.**
+
+**This is the root cause of RI-002, and it reframes every other instance in this file
+as a symptom.** A reporting layer that reports success independently of execution will
+produce exactly this: confident completion claims, no artifacts, and a backlog nobody
+can see the size of.
+
+**Binding consequence: an ACK is not one of the three states.** DONE requires
+evidence, BLOCKED requires what-was-tried, IN PROGRESS requires what-remains.
+**"Acknowledged" is not a status and must never be recorded as one.**
+
 **The unifying pattern across all three instances, stated once:** each checked a
 proxy for the thing instead of the thing. The process instead of the registration.
 The local log instead of the remote. The sentence instead of the file.
