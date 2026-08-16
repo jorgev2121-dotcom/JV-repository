@@ -519,3 +519,41 @@ called "the window to our pipeline."
 
 **Four finished emails. None sent.** Sending stays your decision. I just don't think
 you knew it was four.
+
+---
+
+## 14. ONE WORD WILL MOVE 180 DOCUMENTS — ASK FIRST
+
+At 7:30 this morning your housekeeping file rewrote itself down to a single line:
+
+> **"DESKTOP: 180 old documents ready to sweep — say SWEEP to Claude"**
+
+**One word moves 180 documents.**
+
+**Do not say it yet.** I don't know what SWEEP does — where those documents go, whether
+it's reversible, or whether it files them by a rule that has been checked. **Moving 180
+client documents on one word, unattended, is exactly the failure that gets discovered
+months later by a client.**
+
+**Ask the desktop what SWEEP actually does before you say it.** If the answer is "moves
+them to a staging folder and logs it," that's fine. If the answer is "files them into
+job folders by best guess," that is the misfile risk at 180× scale.
+
+**The word is cheap. Finding out what it does first is cheaper.**
+
+---
+
+## 15. ANOTHER "NEVER BUILT" THAT IS ACTUALLY RUNNING
+
+The July audit lists **BACKUP-BRIDGE-01's heartbeat** as vapor — *"never appeared."*
+
+**It wrote a file at 7:20 this morning.** It exists and it's running.
+
+**That's the second thing in one night** that was recorded as never-built and turns out
+to be alive. The first was the watchdog.
+
+**Which suggests the audit's "vapor" list is worth re-testing item by item rather than
+trusted.** Some of what you were told didn't exist may simply never have been looked
+for in the right place — which is the same mistake I made twice last night.
+
+**Tracked. I'd like to re-test that whole list against what's actually on the machine.**
