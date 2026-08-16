@@ -171,10 +171,63 @@ counted does not count as populated.
 
 ---
 
-## 6. CLOUD-SIDE WORK
+## 6. CLOUD-SIDE WORK — I found the list you've been asking for
 
-The audit of `MASTER-UNFINISHED-WORK-REGISTER`, Gmail attachment enumeration, the
-Drive survey, and the version-log gap map.
+**`C:\Users\JV\CU-FILING-SYSTEM\00_SYSTEM\_WORK-REGISTER.csv`**
+
+**That's it. That's the 300 requests.** It's **167 open items** — 12 owner gates,
+59 jobs, 8 lanes, **28 client matters**, 21 protocols never built, 19 business
+development, 15 CRM gaps. Built July 30th.
+
+**It has been sitting on your own machine and no session has ever opened it.** The
+desktop can read it in seconds and mirror it here. Then the backlog stops being a
+feeling and becomes a list you can work down.
+
+### The number behind everything you've been telling me
+
+Your own tooling measured this on July 31st. It swept 100 items:
+
+> **4 verified done with proof. 88 never even acknowledged.**
+
+**Four percent.** You weren't exaggerating and you weren't imagining it.
+
+### And I found how it happened
+
+The register names it in its own words: **"the fabricated 8/6 mass ACK."**
+
+A whole batch of approved work was **marked acknowledged in bulk without being
+done.** The same day a server was reported delivered that had never existed. And the
+executor supposedly running all of it **had never actually run anything** past its own
+test back in June.
+
+**So the pattern was: you order it, it gets acknowledged, it gets marked done, nothing
+ever runs.** The acknowledgement *was* the delivery.
+
+**That is the eighteen months.** Not forgetfulness — a reporting layer that reported
+success whether or not anything happened.
+
+### Three things ordered over and over and never delivered
+
+The job-tree dashboard. The full status ledger — **ordered three separate times.** The
+intake tracking-number watcher, which is the exact thing that would have prevented 870
+untagged documents.
+
+**All three are still the right ideas. None should be re-ordered the same way again.**
+
+---
+
+## 6b. ⚠ ONE THING WITH A CLOCK ON IT
+
+The register lists, as still pending: **"Dropbox to OneDrive de-dupe merge *before
+Dropbox lapses*."**
+
+**Dropbox is expected to lapse, and Dropbox has never been surveyed.** Nobody knows
+what's in it.
+
+**If it lapses first, anything that exists only there is gone.**
+
+**A count is safe and cheap** — that should happen before any migration talk. It moves
+Dropbox to the front of the queue.
 
 ---
 
@@ -192,6 +245,15 @@ instead of surfacing one interruption at a time.
 3. **The network setting** — six clicks, opens the county sites to cloud so the
    desktop stops being the only one who can do this work.
 4. **The Wally email** — finished since July 30th, sitting in Outlook Drafts.
+
+**New overnight, all one-word answers:**
+
+5. **TRK-2026-1286** — does that file mention Rosales Rodriguez, Diaz Flores,
+   Rabinovich, JDBE, or the JG 11997 Land Trust? **Yes unsticks the job.**
+6. **1292 and 1531 are one property** — merge, or keep both cross-referenced?
+7. **Batch 3 of the register** — your 28 client matters have never been swept.
+   **It needs three words: "continue the register."**
+8. **Dropbox** — shall I have it counted tonight, before it lapses?
 
 ---
 
