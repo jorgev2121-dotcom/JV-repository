@@ -715,6 +715,42 @@ Before an executor takes ownership of work involving an external system, it make
 real request against that system and pastes the result. **A capability is proven by a
 successful call, never by the presence of a tool.**
 
+### 2026-08-16 — the same error, once more, in the opposite direction
+
+**A blocker was declared permanent on the strength of one tool's error message.**
+
+The original probes used `curl` and got `000`. From that, cloud wrote *"the entire
+Miami-Dade scrape is impossible from cloud"* into `MIAMI-DADE-SITES.md` and handed all
+22 sites away.
+
+Re-testing the same four hosts through **`WebFetch` instead of `curl`** returned a
+different and far more useful error: `EGRESS_BLOCKED — blocked by the network egress
+proxy`. That named the cause. **The cause is a Network access setting on Jorge's own
+cloud environment, currently on the default "Trusted" level, and he can change it in
+about six clicks.**
+
+**The correction to the rule, and it cuts both ways:**
+
+> Probing proves what you *can* do. It does not prove what you *cannot* do.
+> A failed probe establishes that **one path** failed — never that no path exists.
+
+**Before writing "impossible," try a second tool and read the actual error text.**
+`000` is not a diagnosis, it is the absence of one. The word "impossible" is reserved
+by the charter for things genuinely outside a session's capabilities, and spending it
+on a settings default is what handed 22 sites to an executor that did not need all of
+them.
+
+**Cost of the error:** all 22 county sources were assigned to the desktop, which is
+the throughput bottleneck, when a meaningful share of them are plain HTTP and could
+have run on cloud in parallel.
+
+**Also recorded: two different failures were being called by one name.** The desktop's
+Granicus **403** (site refuses non-browser clients — Chrome fixes it) and cloud's
+**EGRESS_BLOCKED** (connection never made — Chrome is irrelevant) are unrelated
+problems. Merging them nearly buried the real fix under a solution that could not
+apply. **When two sessions report "blocked," compare the error strings before
+concluding they share a cause.**
+
 **Standing note for cloud sessions:** the egress proxy is selective. Reachable so far —
 `github.com`, `code.claude.com`, general web search, and assorted commercial sites.
 Blocked so far — `miamidade.gov`, `miamidadepa.gov`, `search.sunbiz.org`,

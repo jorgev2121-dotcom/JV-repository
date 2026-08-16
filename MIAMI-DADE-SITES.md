@@ -78,6 +78,111 @@ out to be reachable. **Cloud is the librarian here, not the field agent.**
 
 ---
 
+## ✅ ROOT CAUSE FOUND 2026-08-16 — it is a setting Jorge owns, not a wall
+
+**The earlier entry above diagnosed the symptom correctly and the cause wrongly.**
+"The egress proxy refuses these domains" is true. "Therefore the scrape is impossible
+from cloud" does not follow.
+
+**Re-tested 2026-08-16 through a second, independent path.** The earlier probes used
+`curl` and returned a bare `000`, which says only "no connection." `WebFetch` returns
+the reason:
+
+```
+miamidade.gov                     -> EGRESS_BLOCKED "blocked by the network egress proxy"
+miamidadepa.gov                   -> EGRESS_BLOCKED
+search.sunbiz.org                 -> EGRESS_BLOCKED
+onlineservices.miamidadeclerk.gov -> EGRESS_BLOCKED
+code.claude.com                   -> 200 (control — fetched the full docs page)
+```
+
+**`EGRESS_BLOCKED` is not the county refusing. It is Jorge's own cloud environment
+refusing**, under a setting he chose — or more precisely, one that was chosen for him
+at onboarding and never revisited.
+
+Per the Claude Code documentation, every cloud environment carries one **Network
+access** level:
+
+| Level | Outbound connections |
+|---|---|
+| **None** | nothing |
+| **Trusted** | allowlisted domains only: package registries, GitHub, cloud SDKs |
+| **Full** | any domain |
+| **Custom** | your own allowlist, optionally including the defaults |
+
+**This environment is on Trusted, the default.** Miami-Dade is not a package registry,
+so it is not on that list. That single fact explains every failed probe.
+
+### The distinction that matters — two different failures wearing one name
+
+The desktop reported **403 bot-blocking** on Granicus portals and fixed it with
+Chrome. **That is a different failure from this one**, and conflating them wastes
+another cycle:
+
+- **Desktop's 403** — the site answered and refused a non-browser client. Chrome fixes
+  it, because the fix is *looking like a browser*.
+- **Cloud's EGRESS_BLOCKED** — no connection was ever made. The request died inside
+  Jorge's environment before it reached Miami-Dade. **Chrome cannot fix this, and
+  neither can any tool, because there is nothing to look like.**
+
+Both are real. Both have fixes. They are not the same fix.
+
+### Tier 2 — remove the cause. Roughly six clicks.
+
+Per Rule 4, the durability tier is named: **Tier 2, Removal.** It is a stored
+environment setting, so it does not decay and does not need re-applying.
+
+1. Go to **claude.ai/code**
+2. Find the **environment selector** — the cloud icon
+3. Hover the environment and click the **settings icon** on the right
+4. Set **Network access** to **Custom**
+5. Paste the domain list below into **Allowed domains**
+6. Tick **"Also include default list of common package managers"** — without it,
+   GitHub and the package registries stop working and this repo breaks
+7. Save
+
+```
+*.miamidade.gov
+*.miamidadeclerk.gov
+*.miamidadepa.gov
+*.sunbiz.org
+*.floridados.gov
+*.myfloridalicense.com
+*.floridabuilding.org
+*.miamigov.com
+*.miamibeachfl.gov
+*.ppines.com
+*.broward.org
+*.arcgis.com
+*.granicus.com
+```
+
+**`Full` would also work and is one click instead of a paste.** Custom is
+recommended over Full because it states what this environment is for; the practical
+difference for Jorge is nil. Either is his call.
+
+### What this does and does not buy — stated before testing, deliberately narrow
+
+**Do not read this as "cloud can now do all 22."** That is exactly the claim shape
+that produced RI-019, and it is not being made again.
+
+Opening the allowlist gets cloud the **top three rungs of the desktop's own ladder** —
+API, static endpoint, ArcGIS. Those are plain HTTP and work fine without a browser.
+Miami-Dade publishes a substantial ArcGIS and open-data surface, so this is not a
+small slice.
+
+**The bottom rung stays with the desktop permanently.** Granicus portals, JavaScript-
+rendered results and form-driven searches need a real browser. **Cloud has no browser
+tool of any kind** — not a blocked one, none — so those remain the desktop's work
+whatever the network setting says.
+
+**The honest split, once the setting changes: cloud takes the machine-readable
+sources, desktop takes the ones that need a browser.** Which sites fall on which side
+is unknown until probed, and will be probed one agent per site per Rule 5 — not
+guessed at here.
+
+---
+
 ## Method — per CLAUDE.md Rule 5
 
 **Phase 1 — feasibility probe. One agent per site.** For each: is it reachable, what
