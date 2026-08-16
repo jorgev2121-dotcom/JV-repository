@@ -604,3 +604,106 @@ deserves.
 ---
 
 **Question: did the Dropbox files go to OneDrive before they were deleted?**
+
+---
+---
+
+# PART FIVE — THE UNPROVEN CATEGORY, MEASURED
+
+**Added 2026-08-16 late evening. This completes the batch-2 pass** — VAPOR in Part
+Two, DECISION-PENDING in Part Four, and UNPROVEN here.
+
+**UNPROVEN is the largest category in both registers and it could not be re-tested
+job by job — it spans roughly sixty items.** So I measured it instead, by enumerating
+every `JOB-` file in Drive and asking one question: **does a result artifact exist?**
+
+---
+
+## 24. ⚠ THE MEASUREMENT — the completion record stops on 2026-07-14
+
+**Orders in Drive: JOB-0004 through JOB-0087. Roughly 78 distinct job numbers, each
+with an order file.**
+
+**Machine-written result artifacts in the entire Drive: three.**
+
+| Result file | Date |
+|---|---|
+| `JOB-0001-build-status_2026-06-28.json` | 2026-06-28 |
+| `JOB-0017-UCC-SEARCH.result.json` | 2026-07-14 |
+| `JOB-0018_PLAUD-AUTO-EMAIL-PIPELINE.result.json` | 2026-07-14 |
+
+Two others exist and are not jobs — `JOB-QUEUE-RELEASE-20260713.result.json` and
+`JOB-PING-20260713-CHAT.result.json`, both queue plumbing.
+
+### The finding, stated as a number
+
+**No job after JOB-0018 has produced a result file. That is sixty-nine consecutive job
+numbers — 0019 through 0087 — ordered, and none carrying the completion artifact the
+system defines for itself.**
+
+**The convention was not missing. It was working, and then it stopped.** It was in
+active use from 6/28 to 7/14, across four files in seventeen days. **The last one is
+dated 2026-07-14. The next batch of orders — JOB-0018 through 0027 — went out on
+2026-07-22.**
+
+**The execution loop broke in the eight days between those two dates.**
+
+### What this does NOT prove, and the limit matters
+
+**An absent `.result.json` is not proof that no work happened.** Tonight's own
+evidence says otherwise: the microfilm retrieval produced 220 real files and no result
+artifact, and `ACK_JOB-0061` describes machinery that is verifiably running. **Real
+work has continued the whole time.**
+
+**What it proves is narrower and worse:** the system's own way of recording completion
+was abandoned after JOB-0018, and **nothing replaced it for thirteen months of job
+numbers.**
+
+**This is §9 measured.** §9 found that ACKs backed by a build and ACKs backed by
+nothing were indistinguishable. **This is why: the artifact that would have
+distinguished them stopped being written on July 14.** The two findings are the same
+finding, one stated as a mechanism and one as a count.
+
+---
+
+## 25. Three job numbers each name two different jobs
+
+Found while enumerating. **On 2026-07-27 a batch was written twice under two different
+number sets** — apparently renumbered mid-flight, with both versions left in Drive:
+
+| Number | Job A | Job B |
+|---|---|---|
+| **JOB-0035** | `ZAPIER-PLAUD-DRIVE-AUTODELIVERY` (7/25) | `CODE-SELFHEAL-READONLY-RUNS-AND-OWNER-POPUP` (7/27) |
+| **JOB-0036** | `PASSWORD-MANAGER-CONSOLIDATION` (7/26) | `PERSISTENT-AUTO-PULL-CHAT-TO-CODE` (7/27) |
+
+The 7/27 versions were re-issued as **JOB-0039** and **JOB-0040** with identical
+titles and identical file sizes — so the renumber happened, but the originals were
+never withdrawn.
+
+**JOB-0018 collides across a wider gap:** `JOB-0018_PLAUD-AUTO-EMAIL-PIPELINE`
+(result, 7/14) and `JOB-0018_MZ-Submittal-Assembly_FieldMap-v1` (order, 7/22). **Eight
+days apart, same number, unrelated work.**
+
+**Consequence, and it is the reason this is worth a line:** the JOB-0079 ledger is
+supposed to carry *"one line per job."* **Three of those lines cannot be written
+unambiguously until someone says which job the number means.** It is the same defect
+as the `TRK-26-` / `TRK-2026-` drift, one level up — **an identifier that returns two
+answers is not an identifier.**
+
+---
+
+## 26. What the whole audit now says, in four sentences
+
+1. **The diagnosis has been correct and written down since 2026-08-12** (§ Part One).
+2. **The machinery is in better shape than the paperwork** — three VAPOR items are
+   running, the job tree exists, the CRM exists (§11, §14, §20).
+3. **The completion record stopped on 2026-07-14 and nothing replaced it**, which is
+   why nothing since can be sorted into done and not-done (§24).
+4. **One build closes it** — JOB-0079 §D, or JOB-0052 under its older name (§10).
+
+**Everything else found across five parts is downstream of the fourth sentence.**
+
+---
+
+**Question: shall the desktop rebuild the `.result.json` convention as part of the
+JOB-0079 verifier, rather than inventing a new format?**
