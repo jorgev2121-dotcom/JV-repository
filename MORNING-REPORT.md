@@ -336,3 +336,45 @@ Microsoft connector is still not authorized.
 **The single tracked thread is you emailing yourself a document.** That is how papers
 currently move around here — a workaround for the missing intake step, and one more
 argument for building it.
+
+---
+
+## 11. VERSION LOGS — counted, and a duplicate folder found
+
+**1 of your 19 job folders has a version log. Five percent.**
+
+Worth noting: your own tooling measured a **four percent** completion rate back in
+July. **Two completely different measurements landing on nearly the same number.**
+The standards here are written down and followed almost nowhere — and that is not
+because they are wrong.
+
+**The one job that has a log also has a backup file beside it**, exactly as the rule
+says. So the practice works where it exists. It just exists once.
+
+### ⚠ And this is the part that matters more
+
+**TRK-2026-1262 has two folders, in two different places.**
+
+```
+20001 SW 110 CT Unit 143 (TRK-2026-1262)   made July 3
+TRK-2026-1262                              made August 12
+```
+
+**One job, two homes.** A document filed correctly by its number can land in either
+one — and searching one of them gives you an answer that looks complete while missing
+whatever went to the other.
+
+**A missing version log is a gap you can see. A split job looks whole from both
+sides.** That is the more dangerous of the two.
+
+**I have not touched it** — merging job folders is your call, never mine.
+
+### What I would NOT do
+
+**Do not let anyone bulk-create nineteen version logs.** A log written after the fact
+just says "version 1, made today, changes unknown." **That is a file that looks like
+compliance and tells you nothing** — the same trick as the mass acknowledgement that
+cost you eighteen months.
+
+The log has to be written *when a version actually changes*. Same mechanism as the
+intake stamp.
