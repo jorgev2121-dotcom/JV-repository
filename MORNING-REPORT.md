@@ -378,3 +378,27 @@ cost you eighteen months.
 
 The log has to be written *when a version actually changes*. Same mechanism as the
 intake stamp.
+
+---
+
+## 12. THE NIGHT'S REAL LESSON
+
+**Everything on my side finished. Everything on the desktop's side stopped at 2:06am
+and nothing noticed for four hours.**
+
+That is not a small detail. **The night protocol says a dead run should be caught
+within fifteen minutes** — by checking whether its output file is still growing, not
+whether the program is still open.
+
+**That check is written down and has never been built.** It is the heartbeat, and it
+is still unverified.
+
+**So tonight proved both halves of the problem at once:** the work absolutely can get
+done unattended — twenty-two sources, a corrected job record, a found work register,
+all of it while you slept. **And a stopped executor can sit dead for four hours with
+nobody to restart it.**
+
+**I can see that it stopped. I cannot restart it.** That is the gap.
+
+**Fixing the heartbeat is worth more than any new task on the list.** A twelve-hour
+queue is worth nothing to a machine that quits at hour four.

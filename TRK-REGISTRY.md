@@ -235,3 +235,52 @@ The county carries the parcel as **VACANT RESIDENTIAL**, living area 0, year bui
 **That is the signature of unpermitted structure on a parcel the tax roll still shows
 as vacant.**
 
+---
+
+## 8. DRIVE SURVEY — second pass, 2026-08-16 overnight (TRK-2026-9033)
+
+**Both remaining searches from section 6 were run. Both returned MORE results than one
+page, so these are floors, not totals.** Stated up front because an unqualified count
+here would be the same error as the 15-file sample in section 3.
+
+### 8a. `TRK-26-` short form — two jobs, five-plus files
+
+| File | Job |
+|---|---|
+| `_JOB-TREE_TRK-26-1042.html` | 15222 due diligence |
+| `TRK-26-1042_LOG.md` | same |
+| `TRK-26-1042_DueDiligence-Checklist.html` | same |
+| `00 - MY HOME BASE - one Claude window + recall #TRK-26-1043` | desktop consolidation |
+| `04 - When Home - the one paste that starts everything (#TRK-26-1043)` | same |
+
+**Two defects visible in the same names, and they compound:**
+
+1. **Short form.** A search for `TRK-2026-1042` will never find `TRK-26-1042`. These
+   files are invisible to the canonical search. That is TRK-2026-9008.
+2. **The 1043 files carry the number as a hashtag *in the filename*** — `#TRK-26-1043`.
+   The protocol puts hashtags in the body, never the filename. **So these files use the
+   wrong form of the wrong field.**
+
+**Normalising 1042 is mechanical.** The 1043 files need a decision about whether they
+are a job at all — "MY HOME BASE" and "the one paste that starts everything" read as
+internal admin, which under the current rules would be NON-JOB, not a TRK.
+
+### 8b. Full-text `TRK-2026` where the title does not carry it
+
+**The most useful hit: `_ORANGE-TREE-PER-UNIT-INDEX_2026-08-12.pdf`** — with both a
+`.SEARCH.txt` and a `.TAGS.txt` sidecar beside it.
+
+**The Orange Tree per-unit index already exists.** The desktop pulled a copy into its
+Alec sweep at 02:01 before it stopped. **Part 2 of TASK-11 is not starting from
+nothing** — there is an existing index to populate against.
+
+Also surfaced: `PROTOCOL_MICROFILM-ORDERS-v1.0_MERGED_CONFIRMED-BY-CODE_2026-08-06.md`
+— the governing microfilm protocol, which any session ordering microfilm must read
+first rather than inventing a process.
+
+### 8c. What this pass still has not covered
+
+**Item 3 of section 6 — files with no TRK at all — remains the largest unknown and was
+not attempted.** It is not a search; it is an enumeration of everything and a
+subtraction, and it belongs with the orphan sweep rather than the registry survey.
+

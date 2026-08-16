@@ -125,3 +125,83 @@ written to `ORPHAN-REGISTER.md` or a count file that did not exist at midnight.
 
 **Question for the desktop: does the heartbeat task execute Claude Code with a
 prompt, or does it only write a timestamp to `claude-heartbeat.log`?**
+
+---
+
+# ═══ QUEUE REFILL — 2026-08-16, 04:00 ═══
+
+**The queue ran dry. Refilling it is itself a queue item** (`NIGHT-PROTOCOL.md` §3a),
+so this is that item being executed rather than a note that it should be.
+
+## What closed tonight
+
+| # | Item | Result |
+|---|---|---|
+| 1 | 22 county sources | **DONE — 20 proven, 2 partial, 0 silent** |
+| 5 | Gmail attachment enumeration | **DONE — 1 tracked thread in the whole account** |
+| 6 | Drive survey, short-form + full-text | **DONE — floors recorded, not totals** |
+| 7 | Version-log gap map | **DONE — 1 of 19, plus a duplicate folder found** |
+| — | Unfinished-work audit, batches 1 and 2 | **DONE — work register path recovered** |
+
+## What did not run, and why
+
+| # | Item | Why |
+|---|---|---|
+| 2 | `B:` capacity vs files found | Desktop stopped ~02:06 |
+| 3 | Dropbox enumeration | Desktop stopped |
+| 4 | OCR Queue A | Desktop stopped |
+| — | Orange Tree population | Desktop stopped after the research phase |
+
+**Every un-run item is desktop-side. Every cloud-side item closed.** That is the
+night's real finding about the split: **the constraint is not the work, it is that one
+executor has no watchdog.**
+
+---
+
+## NEXT 12 HOURS — CLOUD
+
+Ordered. An unattended executor takes the top unclaimed item.
+
+1. **Enumerate everything in Drive with no TRK at all** — the largest unknown in
+   `TRK-REGISTRY.md` §6 item 3. It is a full enumeration minus a subtraction, not a
+   search. Counts only.
+2. **Paginate the two Drive surveys to true totals** — the short-form and full-text
+   passes returned floors. Replace the floors with numbers.
+3. **Read `_ORANGE-TREE-PER-UNIT-INDEX_2026-08-12.pdf`** and map what the portal
+   already contains against what TASK-11 Part 2 would add. **Part 2 is not starting
+   from nothing.**
+4. **Cross-check the six provisional numbers 1614–1629** against everything now known,
+   and flag any collision before they are used.
+5. **Map which of the 19 job folders have a `_JOB-TREE_`, `_PORTAL_`, `_MANIFEST_` or
+   `_CAPSULE-INDEX_` overlay** — same shape as the version-log map, same value.
+6. **Refill this queue again.**
+
+## NEXT 12 HOURS — DESKTOP, when it is awake
+
+1. **Read `C:\Users\JV\CU-FILING-SYSTEM\00_SYSTEM\_WORK-REGISTER.csv`** and write it
+   to the mailbox. **167 rows. This is the single highest-value action available** and
+   it takes seconds.
+2. **`B:` and `E:` — capacity used versus files found.** Settles whether the Seagate is
+   empty or the scan missed it.
+3. **Count Dropbox.** It is expected to lapse and has never been surveyed.
+4. **Count PDFs versus `.SEARCH.txt` sidecars** — the denominator missing since the
+   start.
+5. **Orange Tree Part 2**, against the existing per-unit index.
+6. **OCR Queue A** — files already under a TRK folder.
+
+---
+
+## The structural gap this night exposed
+
+**The desktop stopped at 02:06 and nothing noticed for four hours.**
+
+`NIGHT-PROTOCOL.md` §3b says a dead run is detected within one cycle by checking
+whether the output file has grown. **That check exists on paper and has no
+implementation** — the heartbeat that would run it is TRK-2026-9070, still unverified.
+
+**Cloud detected the stop but cannot act on it.** It has no way to see or restart that
+machine. So the detection half works and the recovery half does not.
+
+**This is the first thing to fix, ahead of any new work.** A queue twelve hours deep is
+worth nothing to an executor that stops at hour four with nobody to restart it.
+
