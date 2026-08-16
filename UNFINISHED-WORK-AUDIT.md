@@ -332,3 +332,130 @@ paperwork is the thing that failed.**
 ---
 
 **Question: shall I re-test batch 1's VAPOR list the same way?**
+
+---
+---
+
+# PART THREE — THE BATCH-1 RE-TEST
+
+**Same method, same night. Batch 1's VAPOR list, tested against Drive and Gmail.**
+
+**Denominator: 5 batch-1 VAPOR claims testable from cloud. 1 flips to BUILT, 1 flips
+to PARTLY REAL and needs a decision, 3 confirmed.** The rest (LiteLLM/CrewAI, the
+0xc0000142 error, the 13 dead scheduled tasks) are desktop-only and were not tested —
+**stated as untested, not as absent.**
+
+---
+
+## 14. ⚠ THE JOB TREE EXISTS. Both batches are wrong about it.
+
+**Batch 1:** *"Job-tree dashboard promised, never delivered."* **VAPOR.**
+**Batch 2:** JOB-0026 MY JOBS JobTree — *"the promised job tree, never delivered."*
+**§4 above** names it the first of *"three items ordered repeatedly and never delivered."*
+
+**It is in Drive. `_JOB-TREE_TRK-26-1042.html`, generated 2026-08-09 8:12 PM — three
+days before batch 1 was compiled.**
+
+I read it. It is not a stub. It contains:
+
+- **A collapsible folder tree with a file count on every folder** — `01-Emails (1)`,
+  `02-Permit-Apps (0)`, `03-Research (30)`, 37 files total
+- **A clickable link to every individual document**
+- **A complete hashtag block** — 38 tags covering address forms, folio in both
+  notations, owner name variants, case numbers, citation numbers, CFN recording
+  numbers — explicitly labelled *"Orphan Matcher anchors"*
+
+**That last part matters beyond the job tree.** It means the anchor set the orphan
+skill needs already exists in a generated artifact, for at least one property.
+
+### What is genuinely missing, stated precisely
+
+JOB-0026 asked for **"MY JOBS"** — a tree across *all* jobs. **This is one property's
+tree.** So the correct status is not VAPOR and not DONE:
+
+> **The generator is built and works. It has been run for one job out of nineteen, and
+> there is no index page tying them together.**
+
+**That is a different and much smaller task than "never delivered."** The hard part —
+walking a folder, counting, linking, emitting the hashtag block — is finished.
+
+**Two caveats, both real:**
+
+1. It uses the **`TRK-26-` short form**, the drift named in `CLAUDE.md` §9. A search
+   for `TRK-2026-1042` will not find this file.
+2. Its links are `file:///C:/Users/JV/OneDrive/...`. **They resolve only on Jorge's
+   machine** — useful to him, dead to anyone else and dead from cloud.
+
+---
+
+## 15. ⚠ THE DIGITALOCEAN ACCOUNT IS LIVE. The server was not.
+
+Batch 1's action item on JOB-0069, quoted:
+
+> *"ACK posted 8/7 in mass sweep; **later admitted server never existed**. ACTION:
+> verify no DigitalOcean/provider account or card charge is live."*
+
+**I ran that check tonight. It re-confirms TRK-2026-9087, which already records the
+account as real — this is a second independent pass, not a new discovery.** The value
+it adds is the timeline below.
+
+| Date (UTC) | From | Subject |
+|---|---|---|
+| **2026-08-07 04:35** | team@info.digitalocean.com | **"Welcome to DigitalOcean"** |
+| 2026-08-09 19:11 | team@info.digitalocean.com | "Get started on your first project…" |
+| 2026-08-13 19:21 | team@info.digitalocean.com | "Security you can trust from the start" |
+
+**An account was created. The welcome email landed at 04:35 on 8/7 — one hour and
+nineteen minutes after the mass-ACK burst at 03:16.**
+
+**So the sequence was: owner ratifies the VPS 8/6 ~10:20 PM → bulk ACK 03:16 →
+account signup ~04:35 → no server → "server never existed" reported later.** The
+signup was real and sat inside a ratified order. **What did not happen is everything
+after it.**
+
+### On the money question, and I will not overstate this
+
+**No receipt, no invoice, and no charge confirmation appears in this mailbox.** All
+three emails are onboarding and marketing, and **all three are still unread.**
+
+**That is not proof that no charge exists.** Billing mail could route elsewhere, and
+DigitalOcean invoices monthly in arrears — an account opened 8/7 would not produce its
+first invoice until **around 2026-09-01**, which is exactly the date already sitting
+on TRK-2026-9087.
+
+**What is verifiable tonight:** the account is live, nothing has billed to this
+mailbox, and the first invoice window opens in about two weeks. **Not urgent tonight.
+Genuinely urgent before 2026-09-01.**
+
+---
+
+## 16. Confirmed, no flip
+
+- **BACKUP-BRIDGE-01 heartbeat never appeared.** `ACK_JOB_ACTIVATE-BACKUP-BRIDGE-01.md`
+  is in the 8/7 burst. **The live `HEARTBEAT-ROSTER.json` has two entries and neither
+  is BACKUP-BRIDGE.** Confirmed VAPOR — acknowledged, never instrumented.
+- **JOB-0067 durability spine, JOB-0068 Approval Console.** ACKs found — 0067 inside
+  the 03:16:38 burst, 0068 at 03:30:50. **No artifact for either.** Confirmed.
+- **"Review all past chat sessions and verify completion with proof"**, ordered 7/29.
+  Batch 1 says *"THIS REGISTER is that job finally executing."* **Correct — and Parts
+  Two and Three are that job being checked.**
+
+---
+
+## 17. Where the three-times-ordered list stands now
+
+§4 above named three items ordered repeatedly and never delivered. **After both
+re-tests, one of the three is not what we said:**
+
+1. **Job-tree dashboard** — **generator BUILT, run once of nineteen.** Needs a loop and
+   an index, not a fourth order.
+2. **Full status ledger** (0048 → 0051-A → 0079) — **still nothing.** Confirmed.
+3. **Intake tracking-number watcher** (0025 → 0058) — **still nothing.** Confirmed.
+
+**Two genuine repeat failures, not three. And the one that flipped flipped because
+somebody checked the folder instead of the register.**
+
+---
+
+**Question: shall the desktop be told to run the existing job-tree generator across all
+nineteen folders?**
