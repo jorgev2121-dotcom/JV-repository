@@ -10,13 +10,14 @@ itself a finding, and far better than nothing.
 
 ## THE HEADLINE
 
-**As at the 10pm check — updated hourly, final figure at 6am.**
+**The county run is FINISHED. 22 of 22 closed at 11:08pm.**
 
-**13 of 22 county sources proven with real retrieved data. 1 partial. 8 still
-running.**
+**20 proven with real retrieved data. 2 partial. Not one left without a status.**
 
-**And the run has already corrected three of Alec's job records** — including one job
-pointing at an address that does not exist.
+For comparison: **July returned 3 or 4 of 20 and never said so.**
+
+**It also corrected three of Alec's job records, found a gap that affects every report
+you write, and turned up an unpaid business tax account registered at your house.**
 
 ---
 
@@ -28,10 +29,15 @@ pointing at an address that does not exist.
 The desktop dispatched all 22 at 9:24pm, one subagent each, each writing its own file
 on completion. **A run that dies at site 14 still leaves thirteen results on disk.**
 
-**10pm:** 13 EXECUTED-WITH-PROOF — sites 01, 02, 08, 09, 10, 11, 13, 14, 15, 16, 19,
-20, 21. **1 PARTIAL** — site 04, Clerk Official Records, stopped at a Cloudflare
-captcha and correctly did not try to get around it. **8 still running** — 03, 05, 06,
-07, 12, 17, 18, 22.
+**Final: 20 worked. 2 came back partial.**
+
+- **Site 4, Clerk Official Records** — hit a captcha and stopped. It did not try to get
+  around it, which is right.
+- **Site 12, Certificates of Use** — the old records work, the new ones have no public
+  search at all. See below; this one matters to you.
+
+**Only 3 of the 20 needed Chrome** — the tax collector, court cases, and Sunbiz.
+Everything else worked with ordinary requests.
 
 Full detail in `COUNTY-PROOF-RESULTS.md`.
 
@@ -99,7 +105,49 @@ OPH — not borrowed from another job.
 
 ---
 
-## 3. ORANGE TREE PORTAL
+## 3. THE CERTIFICATE OF USE PROBLEM — this affects every report you write
+
+**For any Certificate of Use issued from 2012 to today, there is no public search
+anymore.** Not "hard to find" — it does not exist. The old search page was retired,
+the address Google still lists does not work at all, and the county's replacement
+asks for a login.
+
+**The pre-2012 records DO still work.** And the reason nobody could ever find them is
+almost funny: the page is titled **"Search for the Certificate of Use for Foreclosed
+Properties"** — but it is actually the general archive for everything. **And the
+county's own website says "for Certificates of Use issued before 2012 use this search
+engine" with no link attached.** Their link is broken.
+
+**Three things this changes:**
+
+1. **You cannot confirm a 2012-or-later CU online.** The ways in are a county account,
+   emailing `RER-CUINFO@miamidade.gov`, calling **(786) 315-2660**, or a public records
+   request. **This has to be said out loud in your reports** — otherwise "no CU found"
+   sounds like there isn't one.
+2. **City CUs are issued by the city, not the county.** 7823 NW 5 Ave is City of Miami,
+   so its CU is with the City and will never show in a county search.
+3. **Always search by folio, never by address.** The same block returned 18 records by
+   folio and zero by address.
+
+---
+
+## 4. SOMETHING AT YOUR OWN ADDRESS
+
+From the county's business tax records, 2026:
+
+**AVIS BUILDERS LLC** — Alec's company — has an **active contracting account
+registered at 13633 SW 142 TER.** That is your property; the Property Appraiser
+confirms it in the same run. **The 2026 tax shows UNPAID.**
+
+A second one under the same qualifier: **SEICO CONSTRUCTION CORPORATION**, at 14395
+SW 139 CT. **Also active, also unpaid.**
+
+**That is what the county record says. I have drawn no conclusion from it** — it is
+yours to look at or not.
+
+---
+
+## 5. ORANGE TREE PORTAL
 
 Capsules populated, with **real file-count badges.** A badge showing a number nobody
 counted does not count as populated.

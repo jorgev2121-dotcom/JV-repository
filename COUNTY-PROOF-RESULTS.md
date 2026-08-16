@@ -13,17 +13,22 @@ quotes preserved. Where a claim is checkable later, it should be.
 
 ---
 
-## Score at the 10pm check
+## FINAL — 22 of 22 closed at 11:08pm
 
-**12 of 22 EXECUTED-WITH-PROOF. 1 PARTIAL. 9 still running.**
+**20 EXECUTED-WITH-PROOF. 2 PARTIAL. 0 without a status.**
+
+**This is the first complete run.** July returned 3 or 4 of 20 and announced nothing.
 
 | Status | Sites |
 |---|---|
-| **EXECUTED-WITH-PROOF** | 01, 02, 08, 09, 10, 11, 13, 14, 15, 16, 19, 20, 21 |
-| **PARTIAL** | 04 Clerk Official Records — Cloudflare Turnstile captcha on the search form |
-| **Still running** | 03, 05, 06, 07, 12, 17, 18, 22 |
+| **EXECUTED-WITH-PROOF** | 01, 02, 03, 05, 06, 07, 08, 09, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22 |
+| **PARTIAL** | **04** Clerk Official Records — Cloudflare Turnstile captcha, correctly not worked around · **12** Certificates of Use — pre-2012 archive works, modern search retired |
 
-**Site 19 (Sunbiz) required Chrome. Site 01 did not** — see below.
+**Chrome required for 3 of 20:** site 03 Tax Collector, site 05 Clerk civil cases,
+site 19 Sunbiz. **Everything else worked with plain anonymous requests** — including
+site 01, where Chrome was expected to be necessary and was not.
+
+**Site 07 EPS:** permit status is public; folio search is login-gated.
 
 ---
 
@@ -165,3 +170,100 @@ captcha and was reported PARTIAL rather than worked around** — which is correc
 
 **Open question for the morning: 1292 and 1531 are proven the same parcel. Merge them,
 or leave both and cross-reference?**
+
+---
+
+## 6. Site 12 — the Certificate of Use gap. This one is about the business itself.
+
+**For any Certificate of Use issued 2012 to today, there is currently NO public
+search.** Confirmed, not assumed:
+
+- The host Google still indexes, `www8.miamidade.gov`, **does not resolve at all.**
+- Every modern CU search path 301-redirects to an **apply-only page with no search
+  box** — checked twice, headless and in Chrome.
+- The county's "Advanced Search" 302-redirects to a **login wall.** Not attempted —
+  public, non-authenticated sources only.
+
+**The pre-2012 archive does work**, and the reason nobody could find it is worth
+recording: it sits at a page titled **"Search for the Certificate of Use for
+Foreclosed Properties"** — which is not what it is; it is the general archived CU
+search. And **the county's own page says "For Certificates of Use issued before 2012
+use this search engine" with no link attached at all.** The anchor is broken in their
+CMS.
+
+**Proof it works — folio `3030230010470` returned `Total Records Found: 18`**, spanning
+1990 to 2012, with certificate numbers, business names and application dates.
+
+**Three things this changes for CU Inspections work:**
+
+1. **A 2012-or-later CU cannot be confirmed online.** The routes are a registered
+   miamidade.gov account, `RER-CUINFO@miamidade.gov` / (786) 315-2660, or a
+   public-records request. **This gap must be stated in any due-diligence report** —
+   silence would read as "no CU found."
+2. **Municipal CUs are issued by the city, not the county**, and never appear in
+   either county engine. **7823 NW 5 AVE is City of Miami**, so its CU lives with the
+   City.
+3. The archive's business-address field is **exact-match only.** The same block that
+   returned 18 records by folio returned **zero** by address string. **Always search by
+   folio.**
+
+---
+
+## 7. A live finding on Jorge's own address
+
+From the BusinessTracker layer, 2026 tax year, quoted literally:
+
+```
+BUSNAME=AVIS BUILDERS LLC
+OWNERNAME=AVIS BUILDERS LLC ALEC J VALDES, QUALIFIER
+ADDR=13633 SW 142ND TER , MIAMI 33186-8347
+RECEIPTNO=7522092 | ACCSTATUS=Active | RCPTSTATUS=Active | PAIDSTATUS=Unpaid
+BUSSDATE=2017-06-30 | CLASSDESC=Contracting
+```
+
+**`13633 SW 142 TER` is Jorge's own property** — confirmed in the same run by the
+Property Appraiser: `30-5923-017-0050 | 13633 SW 142 TER | JORGE VALDES`.
+
+So: **an active contracting business tax account, registered at Jorge's residential
+address, showing UNPAID for 2026.**
+
+A second entity under the same qualifier:
+
+```
+BUSNAME=SEICO CONSTRUCTION CORPORATION
+OWNERNAME=SEICO CONSTRUCTION CORPORATION C/O ALEC J VALDES QUALIFIER
+ADDR=14395 SW 139TH CT STE 101 , MIAMI 33186-5583
+ACCSTATUS=Active | PAIDSTATUS=Unpaid | BUSSDATE=2011-11-01 | CLASSDESC=Contracting
+```
+
+**Both active, both unpaid for 2026.** Reported as the county records them — no
+inference drawn. **Jorge's to act on or not.**
+
+---
+
+## 8. New sources found along the way
+
+**BusinessTracker — live local business tax accounts:**
+```
+https://gisweb.miamidade.gov/arcgis/rest/services/BusinessTracker/MapServer/0/query
+```
+46 fields including business name, owner, address, folio, receipt number, account
+status and paid status. **Answers "who holds a live business licence at this
+address" — and surfaces commercial activity at residential addresses**, which is
+directly the red flag CU work looks for.
+
+**PA Property Records via ArcGIS** — `EnerGov/MD_LandMgtViewer/MapServer/12` resolves
+address to folio with no key and no interstitial page.
+
+---
+
+## 9. The technical lesson worth keeping
+
+**Read the body, never the status code.**
+
+`miamidade.gov` returns **HTTP 200** with a Citrix NetScaler auto-submitting
+JavaScript form where JSON is expected. A script checking only the status code
+records success and stores garbage. **Both of tonight's false walls — the "dead"
+Property Appraiser endpoint and the "retired" CU search — were 200s and 301s that
+looked like refusals and were not.**
+
