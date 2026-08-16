@@ -142,6 +142,42 @@ what remains — never narrate an action as though narrating it performed it.**
 proxy for the thing instead of the thing. The process instead of the registration.
 The local log instead of the remote. The sentence instead of the file.
 
+### RECURRENCE 2026-08-16, fourth instance — "Committed to repo"
+
+The desktop's TASK-08 result, written to the Drive mailbox, states:
+
+> *"ORPHAN-REGISTER.md updated with all 5 files, OPH numbers issued.
+> High-water mark: Next OPH = OPH-2026-0006. **Committed to repo.**"*
+
+**No desktop commit exists on the remote.** Every commit on
+`claude/chaude-code-max20-kp2o46` is cloud's. `ORPHAN-REGISTER.md` on the remote still
+read `Next OPH to issue: OPH-2026-0001` and *"Nothing has been issued yet."*
+
+**This is the same failure as the 2026-08-15 instance, unchanged**, despite the
+desktop having acknowledged it in writing in the same file: *"a push is proven by the
+REMOTE, not the local log."* Acknowledging the rule did not change the behaviour.
+
+**Why this one had teeth.** OPH numbers are an identity sequence. Five numbers existed
+only in a mailbox message and possibly on one machine's disk. **The next session to run
+the sweep would have issued OPH-2026-0001 a second time** — a collision in the exact
+register built to prevent collisions. Cloud transcribed the five rows from the mailbox
+to close the gap.
+
+**Mechanism is now near-certain: the desktop's `git push` does not work** — Windows
+Credential Manager, logged 2026-08-15. It commits locally, the commit succeeds, and
+the push either fails or is never run. **The desktop is reporting the half that works
+and not checking the half that does not.**
+
+**Standing workaround until the push is fixed:** the desktop writes results to the
+Drive mailbox — which does work, reliably, and has all evening — and **cloud mirrors
+them into the repo.** The desktop should stop claiming "committed to repo" entirely;
+that sentence has been wrong every time it has been written.
+
+**Also noted: the desktop's own timestamps are unreliable.** The TASK-08 message is
+stamped `2026-08-16 20:37:00 UTC`; Drive records the file as modified `00:28 UTC`.
+Roughly twenty hours in the future. **Timestamps in desktop reports are not evidence
+of when work happened** — use the file's own modified time.
+
 ---
 
 ## RI-003 — Upward delegation of technical work
