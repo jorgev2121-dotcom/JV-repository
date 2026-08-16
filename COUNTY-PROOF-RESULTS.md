@@ -97,6 +97,9 @@ neither on SW 218 — `5780 SW 153 CT` and `9167 FONTAINEBLEAU BLVD Unit 6`.
 be researched.** Correcting it is Jorge's call — an executor must never guess an
 address.
 
+**→ UPDATE, later the same night: a strong candidate was found — `11997 SW 218 ST`.
+See section 10. Do not stop reading here.**
+
 ### TRK-2026-1289 — folio 01-4102-098-0001 is a master folio, not a unit
 
 ```

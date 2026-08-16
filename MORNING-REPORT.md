@@ -164,10 +164,25 @@ yours to look at or not.
 
 ---
 
-## 5. ORANGE TREE PORTAL
+## 5. ORANGE TREE PORTAL — this part did not happen
 
-Capsules populated, with **real file-count badges.** A badge showing a number nobody
-counted does not count as populated.
+**Part 1 of the order finished completely. Part 2 never started.**
+
+The desktop closed all 22 county sources at 11:08pm, ran an Alec property sweep until
+about **2:06am, and has written nothing since.**
+
+**So the portal capsules are not populated and no file-count badges exist.** Nothing
+was half-done and nothing was falsely marked complete — it simply stopped after the
+research phase.
+
+**Why, I cannot tell from here.** It could have finished its own plan, run out of
+context, or the window could have closed. **I have no way to see or restart that
+machine.**
+
+**What survived is everything that matters:** all 22 source results and the Alec
+property data are on disk in Drive and mirrored into this repo. **Part 2 is a
+population step over data that already exists** — it can run tonight without redoing
+any of tonight's work.
 
 ---
 
@@ -259,9 +274,33 @@ instead of surfacing one interruption at a time.
 
 ## 8. WHAT FAILED OR NEVER STARTED
 
-**This section is mandatory and must never be left empty by omission.** If nothing
-failed, it says "nothing failed." A silent gap is how a night with no work looks
-identical to a night that went well.
+**Nothing was falsely reported complete tonight. Here is the honest ledger.**
+
+**NEVER STARTED — the Orange Tree portal population.** Part 2 of the desktop's order.
+It stopped after the research phase at ~2:06am. The data it needs is all on disk.
+
+**NEVER STARTED — the OCR queue.** Both Queue A and Queue B. The desktop went to the
+county work instead, which was your later instruction, so this is a reordering rather
+than a failure.
+
+**NEVER STARTED — the desktop items from the original overnight queue:** the PDF vs
+sidecar count (item 1, the missing denominator), the `B:` capacity check, and the
+Dropbox enumeration. All still open.
+
+**PARTIAL — 2 of 22 county sources.** Site 4 stopped at a captcha, correctly. Site 12
+found the modern search genuinely retired. **Both are real answers, not failures.**
+
+**STOPPED EARLY — the desktop, at ~2:06am**, with no message. **I cannot see or
+restart that machine**, which is the one structural hole in the night protocol: the
+heartbeat that would have noticed and restarted it is TRK-2026-9070 and is still
+unverified.
+
+**LIMITED — Gmail counts.** Gmail's estimate saturates at 201, so annual figures are
+floors. Monthly windows gave true numbers, which answered the question more cheaply
+than pagination would have.
+
+**STILL BROKEN — the desktop's `git push`.** Everything it produced tonight reached
+this repo because I copied it across by hand. **That worked, and it is not a fix.**
 
 ---
 
@@ -276,3 +315,24 @@ identical to a night that went well.
   the only channel.
 - **Filing, moving, renaming and deleting client documents are RED** and never run
   unattended, however mundane.
+
+---
+
+## 10. GMAIL — counted, and the answer is "look somewhere else"
+
+**Exactly ONE thread in your whole Gmail account has both an attachment and a tracking
+number.** Against 200+ threads carrying PDFs in the last year.
+
+But the useful part is *why*: **your business address is `Jorge@teamusasales.com`, and
+that mailbox is in Outlook.** The Gmail account is personal — its recent attachments
+are Stripe receipts, PayPal, Microsoft notices, subscription invoices.
+
+**So Gmail is a low-yield holding area and does not deserve a night.** One focused
+pass, not a sweep.
+
+**Which makes Outlook the important one — and Outlook is desktop-only**, because the
+Microsoft connector is still not authorized.
+
+**The single tracked thread is you emailing yourself a document.** That is how papers
+currently move around here — a workaround for the missing intake step, and one more
+argument for building it.
