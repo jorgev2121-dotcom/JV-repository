@@ -164,9 +164,34 @@ yours to look at or not.
 
 ---
 
-## 5. ORANGE TREE PORTAL — this part did not happen
+## 5. ORANGE TREE PORTAL — corrected: it DID start
 
-**Part 1 of the order finished completely. Part 2 never started.**
+**⚠ I got this wrong earlier tonight and am fixing it here.** I wrote that Part 2
+"never started." **It did.** The desktop created two folders before it stopped:
+
+```
+_ALEC-VALDES-DD                                              1:57am
+OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units   2:01am
+```
+
+**I reported "never started" because I was watching the mailbox folder, and the
+desktop was writing into `01-JOBS` instead** — a place I had not checked. **That is
+the same mistake I have been flagging all night: check one place, report on the
+whole.** Logged.
+
+### And it did the hard part right
+
+I had told it: *Bal Harbour Plaza has no tracking number. Do not invent one and do not
+borrow another job's.*
+
+**It issued OPH-2026-0007 — the correct next orphan number, read from the register.**
+It used an orphan number instead of inventing a tracking number for a job whose
+identity isn't established.
+
+**That is the anti-misfiling rule working, on its own, at two in the morning, with
+nobody watching.** It's the first time that's happened.
+
+**Part 1 finished completely. Part 2 got about nine minutes in.**
 
 The desktop closed all 22 county sources at 11:08pm, ran an Alec property sweep until
 about **2:06am, and has written nothing since.**
@@ -402,3 +427,49 @@ nobody to restart it.**
 
 **Fixing the heartbeat is worth more than any new task on the list.** A twelve-hour
 queue is worth nothing to a machine that quits at hour four.
+
+---
+
+## 13. THE JOB FOLDER CENSUS — half your jobs are invisible to search
+
+I enumerated every folder in `01-JOBS`. **29 job folders.**
+
+| | |
+|---|---|
+| Carry a `TRK-2026-` number | **14** |
+| Carry `TRK-TBD` — no identity at all | **8** |
+| Use a different scheme entirely | **6** |
+| Carry no identifier of any kind | **1** |
+
+**A search for `TRK-2026` finds fourteen of twenty-nine.** The rest are invisible to
+it — not lost, just unfindable the way you'd normally look.
+
+**There are five naming schemes in use, not two:** `TRK-2026-`, `TRK-26-`, `TUS-`,
+`KAR-`, and `JOB-`.
+
+### ⚠ And one number I issued may be a duplicate
+
+**`TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St` already exists** — with the folio
+already recorded.
+
+That's the property that nearly got misfiled last week, and on the 15th **I gave it a
+new number, TRK-2026-1614, because it looked like it had none.** It had one. I
+couldn't see it because I searched for `TRK-2026` and it starts with `TUS`.
+
+**Don't use 1614 until you decide.** Retire it and keep the old number, or move the old
+job onto it. Either way it's your call — renaming a job folder is never mine.
+
+### Four unsent emails, not one
+
+Sitting in the `01-JOBS` root, all finished, all from July 30th and 31st:
+
+1. **Wally + Alec — the 5-report management package** (6.6 MB)
+2. **Alec CRM Welcome**
+3. **Cross-Collateral System Explainer**
+4. **Team CRM Launch**
+
+**Three of those four are the Alec CRM launch sequence** — the marketing pipeline you
+called "the window to our pipeline."
+
+**Four finished emails. None sent.** Sending stays your decision. I just don't think
+you knew it was four.

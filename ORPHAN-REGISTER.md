@@ -8,14 +8,14 @@
 ## High-water mark
 
 ```
-Next OPH to issue:  OPH-2026-0007
+Next OPH to issue:  OPH-2026-0008
 ```
 
 **Update this line every time a number is issued.** Orphan numbers increment by
 **1** — plain sequential. They are never client-facing, so the +3 obfuscation that
 applies to TRK numbers does not apply here.
 
-**OPH-2026-0001 through 0006 are ISSUED** — removable-drive sweep, desktop,
+**OPH-2026-0001 through 0007 are ISSUED** — removable-drive sweep, desktop,
 2026-08-16.
 
 **⚠ Transcribed by cloud from the Drive mailbox, not from a desktop push.** The
@@ -48,6 +48,7 @@ rows are the same five numbers and must not be duplicated.**
 | OPH-2026-0001 | 2026-08-16 | `E:\E-1.01-REV#2.pdf` (950 KB) | **Likely a real job document.** `E-1.01` is a standard electrical drawing sheet number and `REV#2` is a revision marker — this reads as a plan sheet from a permit set, not a stray file | **NOT YET EXTRACTED.** Needs address, folio, permit number, engineer of record from the title block | none tested yet |
 | OPH-2026-0005 | 2026-08-16 | `B:\Warranty.pdf` (1.6 MB) | Warranty document. Desktop flagged "may relate to property equipment" | **NOT YET EXTRACTED.** If it names a property or an installed system it may attach to a job; if it is the Seagate's own warranty it is NON-JOB | none tested yet |
 | OPH-2026-0006 | 2026-08-16 | PaperPort — scanned by Jorge in the moment | `JV A-P and creating a budget` — accounts payable / budget working document | Named by Jorge at scan time. **No date, no number, no type.** Internal admin, not client work | n/a — resolves NON-JOB, see below |
+| OPH-2026-0007 | 2026-08-16 02:01 | Google Drive `01-JOBS` | **Bal Harbour + Plaza — HOA-questioned units.** Folder created by the DESKTOP, unattended | Building identified: 10000 W Bay Harbor Dr. **Five `TRK-TBD` unit folders exist for the same building** — 221, 301, 302, 404, 425 | n/a — correctly left as an OPH rather than borrowing TRK-2026-1582 |
 
 ---
 
@@ -166,4 +167,27 @@ demanding the number at scan time guarantees the standard gets skipped.
 
 **Recorded as RI-020's clearest specimen:** *the filing convention exists for outputs,
 not inputs.*
+
+---
+
+## OPH-2026-0007 — the rule working unattended, at 2am
+
+**2026-08-16 02:01.** The desktop executor created
+`OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units` in `01-JOBS`.
+
+TASK-11 had told it: *"Bal Harbour Plaza has NO TRK. Do not invent one and do not
+borrow 1582. Issue the next number per the registry, or leave it as an OPH and say
+so."*
+
+**It read this register, took the next value — 0007 — and used an orphan number rather
+than inventing a tracking number for a job whose identity is not established.**
+
+**This is the first time the anti-fuzzy-match rule has been followed by a machine with
+nobody watching.** Worth recording, because every other entry in this file is about the
+rule being broken.
+
+**Related, and it makes 0007 more important than it looks:** the census found **five
+`TRK-TBD` folders for units in the same building** — 10000 W Bay Harbor Dr units 221,
+301, 302, 404 and 425. **They should be OPH numbers too.** `TRK-TBD` is a defect by
+the charter's own words, and eight of them collide with each other in any sort.
 
