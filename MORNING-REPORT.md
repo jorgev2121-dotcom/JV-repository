@@ -557,3 +557,59 @@ trusted.** Some of what you were told didn't exist may simply never have been lo
 for in the right place — which is the same mistake I made twice last night.
 
 **Tracked. I'd like to re-test that whole list against what's actually on the machine.**
+
+---
+
+## 16. ⚠ THE FIX WAS ALREADY DESIGNED. FOUR DAYS AGO. YOU APPROVED IT OUT LOUD.
+
+**This is the most important thing I found, and it makes everything above smaller.**
+
+`JOB-0079`, dated **August 12th**, marked **CLASS-A FAULT**, and it records:
+**"Owner-ratified: YES (spoken 'Yes' 8/12)."**
+
+**It already says everything I worked out overnight.**
+
+It names the fault in the same words: **acknowledgements posted while the work was not
+performed.** It even used the same test I used — *is the folder actually renamed?* —
+and found it wasn't, despite an acknowledgement saying so.
+
+**And it specifies the repair:**
+
+1. **Make the watcher run the job instead of logging it** — launch Claude Code
+   headless with the job file as the instruction.
+2. **A verifier that checks the promised thing actually exists** — and if it doesn't,
+   re-queues the job automatically.
+3. **Only two ways a job can end:** the thing exists with proof, or a blocker naming
+   the one action you must take. **"Silence is structurally impossible."**
+
+**That third line is the whole charter in five words, and it was written before I
+arrived.**
+
+### So the honest picture
+
+**The charter I wrote, the three states, the night protocol, the output check I speced
+this morning — all of it is a rediscovery of a document you already approved.**
+
+I'll take the correction: **I built things without checking whether they existed.**
+Twice — this, and a "never idle" directive you'd issued twelve days before I wrote
+mine.
+
+### But here's why I think this is good news
+
+**Nothing more needs designing.** There is **one build task**, it's four days old, you
+already said yes to it, and it has **no owner gates** — its own words: *"Owner is
+last-resort middleware only."*
+
+**And it already picked its own test case:** rename `01-JOBS` to
+`01-JOBS - ONE SOURCE OF TRUTH`. Prove the loop works on that one small job, three
+times, then widen.
+
+**That exact job is what your reconciler reissued at 5:40 this morning.**
+
+**The system has been asking for its own repair on a loop, and it can't start the
+loop.**
+
+---
+
+**One question, and it's the only one that matters today: shall the desktop build
+JOB-0079 Section D and nothing else until that pilot passes three times?**
