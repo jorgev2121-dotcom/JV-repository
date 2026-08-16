@@ -459,3 +459,148 @@ somebody checked the folder instead of the register.**
 
 **Question: shall the desktop be told to run the existing job-tree generator across all
 nineteen folders?**
+
+---
+---
+
+# PART FOUR — THE DECISION-PENDING RE-TEST
+
+**Added 2026-08-16 late evening. Same method.** These are the items the registers say
+are waiting on **one owner choice** — the highest-leverage category on the board,
+because each one is a single word from Jorge that releases work.
+
+**Denominator: 9 DECISION-PENDING items across both batches. 4 are already on
+`OWNER-GATES.md`. 1 has resolved itself. 4 are pending and on no list Jorge reads.**
+
+---
+
+## 18. First, a duplicate closed: the "17-item batch" is `OWNER-GATES.md`
+
+Batch 2 lists *"17-item owner approvals batch from 7/31"* as a standing
+DECISION-PENDING item. **That is the same seventeen gates already in
+`OWNER-GATES.md`**, which I built on 8/16 by recovering
+`OWNER-APPROVALS-PENDING_CODE_2026-07-31.md` from Drive.
+
+**One thing, two names. Not two backlogs.** Recorded so a third session does not
+rediscover it a third time.
+
+**And JOB-0051 itself should be re-marked.** Batch 2 files it under UNPROVEN. **It
+delivered** — the 7/31 file exists and I have read it. What went unanswered was the
+owner pass on its contents, which is a different and correctly-open item.
+
+---
+
+## 19. Four are already on the gate list — no action needed
+
+| Register item | Where it already lives |
+|---|---|
+| PREAUTH voucher cap amount | **REG-0005** |
+| Gemini API key | **REG-0004** |
+| iPhone Keychain → 1Password | **REG-0007** |
+| Client-report two-layer model tiers | **REG-0012** |
+
+---
+
+## 20. One resolved itself — the CRM
+
+Batch 1, quoted: *"Code offered to BUILD an Excel-based CRM with a non-standard
+follow-up feature. **That Excel CRM build was never delivered.** ACTION: re-order as a
+verified job."*
+
+**It was delivered on 2026-08-16** —
+`marketing/Wally-Marketing-CRM_TRK-2026-1614_v1.xlsx`, 502 lead rows, with the
+follow-up cadence engine the register describes as the non-standard feature.
+
+**Do not re-order it.** Second flip of the night, same cause as the job tree: **the
+register was right on the date it was written and nobody re-checked before acting on
+it.**
+
+---
+
+## 21. ⚠ Four are pending and on NO owner-facing list
+
+These are the ones this pass exists to find. **None appears in `OWNER-GATES.md`.**
+
+1. **Dropbox → OneDrive de-dupe merge, "before Dropbox lapses."** Carries a deadline
+   and is not tracked anywhere. See §22 — it is the serious one.
+2. **OpenPhone marketing line (~$15/mo) + the campaign email name choice**
+   (`help@teamusasales.com` was recommended). **This is Wally infrastructure —
+   Priority Zero under `JOB-0087` — and it is blocked on a name.**
+3. **EX21-BoardSubmit gate.** Appears in `OWNER-GATES.md` only inside a caution note
+   recording that it *"was disclosed as simulating votes."* **It is a live gate being
+   carried as a footnote.**
+4. **Bus-Dispatcher Gemini lane** — batch 2 marks it blocked on the key. Overlaps
+   REG-0004; listed here because the register treats them separately and someone
+   should confirm one paste closes both.
+
+**Item 2 is the cheap one and it is holding up the only workstream that makes money.**
+
+---
+
+## 22. ⚠ THE DROPBOX DELETIONS — stated carefully, because deletion is RED
+
+**The register lists the Dropbox→OneDrive de-dupe merge as an OPEN decision, still
+waiting. Meanwhile Dropbox has been sending Jorge deletion notices.** From his Gmail,
+`no-reply@dropbox.com`, verbatim counts:
+
+| Date | Files deleted |
+|---|---|
+| 2025-10-25 | **112,578** |
+| 2026-04-04 | 12,945 |
+| 2026-05-05 | 8,341 |
+| 2026-05-07 | **23,939** |
+| 2026-05-08 | 1,505 |
+| 2026-05-10 | 8,986 |
+| 2026-05-12 | 12,967 |
+| 2026-05-14 | **14,511** |
+
+**83,194 files in 2026 alone**, across six weeks. Every notice says the files can be
+restored until a stated date. **The last of those windows closed 2026-06-10. All of
+them have expired.**
+
+### What this does and does not mean
+
+**I cannot tell from Gmail whether this was intended.** There are two honest readings
+and I am not able to choose between them from here:
+
+- **Benign:** this *is* the migration. Files were copied to OneDrive and then removed
+  from Dropbox. Large deletion counts are exactly what a completed migration looks
+  like.
+- **Not benign:** files were deleted while the de-dupe merge the register is still
+  waiting on had not happened.
+
+**The register saying the merge is still pending is what makes the second reading
+possible.** It is not evidence for it.
+
+### Why this is not tonight's emergency
+
+**Every restore window closed more than two months ago.** Nothing done tonight, or
+tomorrow, changes the outcome. **There is no action that is more effective now than in
+the morning**, which is why Jorge is not being woken for it.
+
+**The renewal is the live date, not the deletions.** A *"Your Dropbox Plus subscription
+is about to renew"* notice is dated 2025-10-01, which puts the lapse the register
+worries about at roughly **2026-10-01 — about six weeks out.**
+
+**The one owner question, and it is answerable in a word:** *did you move those files
+to OneDrive before deleting them?* If yes, the register's item is stale and can be
+closed. If no, the merge item stops being housekeeping.
+
+**Nothing was touched. Reading a deletion notice is not a recovery attempt, and
+recovery is not available in any case.**
+
+---
+
+## 23. One security note, low confidence and low urgency
+
+**Two new Dropbox sign-ins on 2026-08-12, at 08:04 and 08:05 EDT** — the second logged
+as *"a new computer... an unknown location."* Both notices are still unread.
+
+**Most likely benign:** 8/12 is the day both register batches were compiled, and work
+was demonstrably happening on that account. **Flagged rather than raised** — a
+sign-in from an unknown location is worth one glance, and one glance is all this
+deserves.
+
+---
+
+**Question: did the Dropbox files go to OneDrive before they were deleted?**
