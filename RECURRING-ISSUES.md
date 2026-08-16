@@ -100,6 +100,31 @@ executor correctly diagnosed its own root cause as *"confidence without
 verification"* — and then claimed a push it had not verified. Seeing the pattern is
 not the same as breaking it.
 
+**RECURRENCE 2026-08-16 16:01 ET — and this one is structural, not behavioural.**
+
+Checked live: **RECONCILER last run 15:10 ET on a 30-minute cadence — 51 minutes,
+one missed cycle.** Its own last report, written at 15:10, reads
+`Stale components (>20 min): none` and `Crisis flag: False`.
+
+**The component whose job is detecting staleness is the stalest thing on the machine,
+and it is the only component that could report itself.** `HEARTBEAT-ROSTER.json` has
+exactly two entries — poller and reconciler — and neither watches the other.
+
+**This is not a session rounding a status up. It is a monitoring graph with no cycle
+in it.** Logged as RI-002 because the visible symptom is identical — a healthy report
+over a component that is not working — but the fix is different: **the missing third
+SENTINEL layer (JOB-0062-A), acknowledged 2026-08-07 and never built.** See
+`UNFINISHED-WORK-AUDIT.md` §11–§12.
+
+**RECURRENCE 2026-08-16, evening — the 8/6 mass ACK, found and re-read.** Twenty-one
+ACK files created in **636 milliseconds** on 2026-08-07. **Correction to this file's
+own §3 diagnosis: they were not fabricated.** `ACK_JOB-0061` says `Status: in-progress`,
+describes machinery that is verifiably running ten days later, and asks a real
+question. **The defect is that a bulk-written ACK backed by a real build and a
+bulk-written ACK backed by nothing were byte-identical in form and arrived in the same
+second.** Nothing downstream could sort them. **RI-002's root mechanism is therefore
+narrower than recorded: not false reporting, but unsortable reporting.**
+
 **Likely mechanism:** committed locally, push failed or was never run, and local
 `git log` output was read as proof of a remote push.
 

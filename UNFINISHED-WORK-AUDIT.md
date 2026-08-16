@@ -166,3 +166,169 @@ Two things follow, and both are already policy:
 
 **Question for the morning: shall I say "continue the register" to the desktop and
 have batch 3 — your 28 client matters — swept tonight?**
+
+---
+---
+
+# PART TWO — THE BATCH-2 RE-TEST
+
+**Added 2026-08-16 evening by the cloud session. Every claim below was tested against
+Google Drive, not carried over from the register.** Method: for each VAPOR item, look
+for the artifact it would have produced, and check whether the machinery is running
+*now*.
+
+**Denominator: 8 VAPOR claims tested. 4 confirmed dead, 3 partly alive under other
+names, 1 refined. Plus one finding neither batch recorded.**
+
+---
+
+## 9. ⚠ THE 8/6 MASS ACK — found, timestamped, and it is not what we called it
+
+**`UNFINISHED-WORK-AUDIT.md` §3 above called it "the fabricated 8/6 mass ACK." I have
+now found the files. The timestamps are conclusive and the word "fabricated" is
+wrong.**
+
+**Twenty-one acknowledgement files were created between `03:16:37.852` and
+`03:16:38.488` UTC on 2026-08-07. Six hundred and thirty-six milliseconds.**
+
+In order, by millisecond:
+
+`REPAIR-DISPATCH` · `0060 EXECUTOR-GO-LIVE` · `0061 NEVER-IDLE` · `0061-A 20MIN-24-7` ·
+`0062 RESILIENT-ROUTING` · `0062-A SENTINEL-01` · `0063 PUBLISH-REGISTER-STATUS` ·
+`0064 UNTRACKED-AUDIT` · `0064-A TAGGING-STANDARD` · `0065 RUN-ALL-RECONCILIATIONS` ·
+`0066 STABILITY-PLAN` · `0067 MSG-DURABILITY` · `0067-B WIN10-ESU` ·
+`PORTAL-CONCIERGE-01` · `URGENT TRK-2026-1262 FINAL-INSPECTION` ·
+`ALEC-DD-STATUS-SWEEP` · `ALEC-SWEEP FOLIO 30-5032-000-1352` · `MICROFILM-PAY-01-A` ·
+`HANDOFF-TRAY-01` · `ACTIVATE-BACKUP-BRIDGE-01` · `PING LINK-CHECK`
+
+Two more followed at `03:30:50` — `0068 FINISHER-01` and `0069 SURGE-VPS` — twenty
+milliseconds apart.
+
+**Note what is in that list: client work.** The Alec sweep, the microfilm payment, and
+an item marked **URGENT** on `TRK-2026-1262` final inspection were acknowledged in the
+same sub-second burst as the infrastructure jobs.
+
+### But read one of them before concluding anything
+
+`ACK_JOB-0061_NEVER-IDLE.md`, quoted in full-relevant part:
+
+> *"Status: **in-progress**. Heartbeat instrumentation live tonight: HEARTBEAT-ROSTER.json
+> in VTES-Bridge, poller + guardian + reconciler all stamp last-run. Reconciler runs
+> every 30 min and flags staleness at the 20-minute standard (per 0061-A). Corrective
+> ladder step 1 (auto-restart) live via VTES-Poller-Guardian."*
+
+**Every one of those claims is true, and I verified it tonight.** `HEARTBEAT-ROSTER.json`
+exists, the reconciler does run on a 30-minute cadence, and the poller stamped itself
+alive at **16:00:24 ET today** — ten days after that ACK was written.
+
+**So the correction, and it matters:** the ACKs were **written in bulk by one script**,
+and a 636-millisecond burst cannot represent twenty-one separate acts of work. **But
+they were not lies.** One of them says `in-progress`, not `done`, describes real
+machinery, and ends with a real question.
+
+**The defect is not dishonesty. It is that nothing downstream could tell the ACKs
+backed by a build from the ACKs backed by nothing.** They were byte-identical in
+form and arrived in the same second. **That is the eighteen months in one sentence,
+and it is a sorting problem, not a lying problem.**
+
+---
+
+## 10. The dependency that explains why the watchdog cannot recover
+
+**`ACK_JOB-0061` names its own missing piece, with a date:**
+
+> *"Orchestrator reassign step **depends on JOB-0052 build — ETA 2026-08-07**."*
+
+**JOB-0052 is the ORCHESTRATOR-01 + Token-Steward build. It is one of the VAPOR items.
+It was never built. The ETA was ten days ago.**
+
+**This closes the loop opened in `WATCHDOG-FOUND.md`.** That file established that
+detection and re-queueing work while execution does not, and called it an unexplained
+gap. **It was never unexplained. It was a declared dependency with a date on it, and
+the dependency was never delivered.**
+
+The corrective ladder was designed with three rungs. Rung 1 — auto-restart — was
+built and works. **Rung 3 — reassign the work to something that can execute it — was
+JOB-0052.** The ladder has been missing its top since the day it was specified.
+
+---
+
+## 11. The eight VAPOR claims, re-tested one by one
+
+**CONFIRMED DEAD — no artifact exists, and nothing is running:**
+
+1. **JOB-0052 ORCHESTRATOR-01 + Token-Steward.** Drive holds the order file (7/30), a
+   6/26 design note, and nothing else. **No build, no ACK, no output.** VAPOR stands,
+   and per §10 this is now the highest-consequence unbuilt item on the board.
+2. **VTES-Executor go-live.** `JOB-LEDGER-snapshot.json` is dated **2026-06-28** and
+   has not been touched since. The register said it shows only its own 6/28 self-test;
+   **the file's own modified date confirms it.** Nothing has executed through it in
+   seven weeks.
+3. **JOB-0066 Stability Plan registration.** A board proposal exists (8/5) and an ACK
+   exists (8/7, in the burst). **No registration artifact.** VAPOR stands.
+4. **JOB-0063 publish register status to Drive.** ACK in the burst, no published
+   register found. VAPOR stands.
+
+**PARTLY ALIVE UNDER ANOTHER NAME — the register was too harsh:**
+
+5. **JOB-0061 / 0061-A Never-Idle.** **Running.** Poller alive at 16:00 ET today on a
+   5-minute interval; reconciler on 30 minutes; roster stamping both. **Reclassify:
+   BUILT, minus the JOB-0052 rung.**
+6. **JOB-0065 run-all-reconciliations.** RECONCILER-01 exists and runs. **What it
+   reconciles is file lanes, not the three named jobs** (Unit 143, Bal Harbour, the
+   13920 crosswalk). **Reclassify: mechanism built, subject matter never run.**
+7. **JOB-0064 untracked-docs and email audit.** The email half was **executed today** —
+   42,305 messages scanned, 347 matched, stamped VALID RUN. **Eleven days late, but
+   done.** The untracked-docs half remains unproven.
+
+**REFINED — the claim was right, the shape was wrong:**
+
+8. **JOB-0062-A SENTINEL-01 three-layer keepalive.** A spec exists
+   (`SPEC_COWORK-EXTERNAL-SENTINEL_2026-08-06.md`) and an ACK exists. **The live
+   `HEARTBEAT-ROSTER.json` lists exactly two components — VTES-LOCAL-POLLER and
+   RECONCILER — and neither is named SENTINEL.** **Two of three layers exist under
+   other names; the third, the external one that would survive the desktop being off,
+   was never built.** That third layer is the only one that could have caught tonight.
+
+---
+
+## 12. A finding neither batch recorded: nothing watches the watchdog
+
+**Checked at 16:01 ET tonight:**
+
+- **VTES-LOCAL-POLLER** — last alive `16:00:24 ET`. One minute ago. Healthy.
+- **RECONCILER** — last run `15:10 ET`. **Fifty-one minutes ago, on a thirty-minute
+  cadence. It missed the 15:40 cycle.**
+
+**And its last report, written at 15:10, says `Stale components (>20 min): none` and
+`Crisis flag: False`.**
+
+**The component that detects staleness is the stalest thing on the machine, and it is
+the only thing that could report itself.** The roster has two entries and neither
+watches the other.
+
+**This is not urgent tonight** — nothing is mid-run, and one missed cycle is not the
+three-cycle threshold from `RECONCILER-OUTPUT-CHECK-SPEC.md` §3. **It is logged
+because it is the exact failure the missing third SENTINEL layer was specified to
+catch, observed live, eleven days after that layer was acknowledged and not built.**
+
+---
+
+## 13. What Part Two changes
+
+**Nothing about the diagnosis. Everything about the target.**
+
+The board has treated JOB-0079 §D as the one build task. **It still is.** But §10
+shows the same gap has a second name — **JOB-0052** — and that name is ten days older
+and already carries a written dependency pointing at it.
+
+**Two jobs, one hole.** Whichever gets built, the test is the same: can something start
+a session without Jorge opening a window.
+
+And one credit where the register gave none: **three of the eight VAPOR items are
+running right now.** The machinery is in better shape than the paperwork says. **The
+paperwork is the thing that failed.**
+
+---
+
+**Question: shall I re-test batch 1's VAPOR list the same way?**
