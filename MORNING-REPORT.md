@@ -10,10 +10,13 @@ itself a finding, and far better than nothing.
 
 ## THE HEADLINE
 
-*To be written at the last overnight check, 6am Miami.*
+**As at the 10pm check — updated hourly, final figure at 6am.**
 
-Format, and it is not optional: **"N of 22 county sources proven. M placeholders
-filled. Q capsules populated."** Never "good progress."
+**13 of 22 county sources proven with real retrieved data. 1 partial. 8 still
+running.**
+
+**And the run has already corrected three of Alec's job records** — including one job
+pointing at an address that does not exist.
 
 ---
 
@@ -25,15 +28,22 @@ filled. Q capsules populated."** Never "good progress."
 The desktop dispatched all 22 at 9:24pm, one subagent each, each writing its own file
 on completion. **A run that dies at site 14 still leaves thirteen results on disk.**
 
-| Site | Source | Status |
-|---|---|---|
-| | *filled in hourly from the Drive folder* | |
+**10pm:** 13 EXECUTED-WITH-PROOF — sites 01, 02, 08, 09, 10, 11, 13, 14, 15, 16, 19,
+20, 21. **1 PARTIAL** — site 04, Clerk Official Records, stopped at a Cloudflare
+captcha and correctly did not try to get around it. **8 still running** — 03, 05, 06,
+07, 12, 17, 18, 22.
 
-**Already known before dispatch — and it is a real finding:** the Property Appraiser
-endpoint stored in the desktop's own `county-data-sources` skill is **dead.** Four URL
-variants tested; one answers but refuses the request shape, three return 404. **A
-stored recipe stopped working and nothing announced it.** Site 01's agent is
-rediscovering the live endpoint through Chrome.
+Full detail in `COUNTY-PROOF-RESULTS.md`.
+
+**The Property Appraiser endpoint was never dead — it moved, and it lied about it.**
+
+The old address quietly forwards to a new one and **throws away the question on the
+way**, so the county answers "invalid request." That reads exactly like an API that
+was switched off. It was not. It has been working the whole time at a new address, and
+anything still pointing at the old one has been failing silently.
+
+**Chrome was not needed.** The fix was following the redirect and reading the county's
+own page code.
 
 ---
 
@@ -46,11 +56,46 @@ Properties under test, which is why the proof doubles as real work:
 - **TRK-2026-1292** — 7823 NW 5th Ave, Miami-Dade
 - **TRK-2026-1531** — 7823 NW 5 AV, City of Miami
 
-**Open question the run should settle:** are 1292 and 1531 the same property filed
-twice under two jurisdictions? The folio decides it.
+### Settled: 1292 and 1531 are the same property
 
-**Bal Harbour Plaza still has no TRK.** It must be issued from the registry or left as
-an OPH — not borrowed from another job.
+**Folio 01-3112-016-0030. Owner: ASF HOMES LLC. 7823 NW 5 AVE, Miami.**
+
+One was filed under "Miami-Dade" and the other under "City of Miami," which looked
+like two properties. **They are one.** The folio number's first two digits *are* the
+City of Miami code, so both labels describe the same parcel.
+
+**Your call in the morning: merge them, or keep both and cross-reference?** Merging job
+records is never done unattended.
+
+### TRK-2026-1286 — that address does not exist
+
+**"1997 SW 218 St" is not an address in Miami-Dade County.** Not "we couldn't find
+it" — it was checked against the county's master list of every address. House numbers
+on SW 218th Street run from 9721 to 20490. There is no 1997.
+
+**That job cannot be researched until you supply the real address.** Nobody should
+guess it.
+
+### TRK-2026-1289 — the folio on file is a parent record, not a unit
+
+`01-4102-098-0001` is the master record for a condominium building. It has no owner,
+no value and no sales **by design.** Research it and every source comes back empty —
+**and the job would look finished when nothing had been found.** The work has to run
+against the individual unit numbers underneath it.
+
+### Something worth your eye on 7823 NW 5 Ave
+
+The county lists it as **vacant land** — no living area, no year built — while the
+same record shows **6 bedrooms and 4 bathrooms**, and it sold for **$320,000** against
+a county value of **$222,523**.
+
+**That is what an unpermitted structure looks like on a parcel the tax roll still
+calls vacant.** Which is your business.
+
+### Still open
+
+**Bal Harbour Plaza has no TRK.** It needs one issued from the registry, or left as an
+OPH — not borrowed from another job.
 
 ---
 
