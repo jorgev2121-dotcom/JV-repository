@@ -25,13 +25,13 @@ wrong window, often unnoticed for a paragraph.
 - 2026-08-15 — **live instance captured.** Three modal dialogs stacked on screen at
   once: two `claude.exe` launch failures (see RI-006) and one Outlook
   "Cannot show your next reminder."
+  Note that neither was a *notification* — both were **modal error dialogs**, which no
+  notification setting can suppress. This confirms that Focus Assist was never going
+  to fix this class of pop-up, and explains two years of failed Tier 1 attempts.
 - 2026-08-16 — **PaperPort dialog returned, third sighting in one day.** Same text,
-  same single OK button. **Clicking OK demonstrably does not fix it** — which is the
-  Tier 1 forbidden-fix proven live rather than argued. The Send To Bar repair
-  (RI-021) has not been done yet, so its return is expected, not mysterious. Note that neither was a *notification* — both
-  were **modal error dialogs**, which no notification setting can suppress. This
-  confirms that Focus Assist was never going to fix this class of pop-up, and
-  explains two years of failed Tier 1 attempts.
+  same single OK button. **Clicking OK demonstrably does not fix it** — the Tier 1
+  forbidden fix proven live rather than argued. The Send To Bar repair (RI-021) has
+  not been done, so the return is expected, not mysterious.
 
 **Sub-cause identified 2026-08-15 — Outlook "Cannot show your next reminder"**
 Caused by a single corrupt reminder item in the mailbox, not by settings. Clicking
@@ -280,6 +280,27 @@ only; the config file reasserts itself next launch. Lifespan: one session.
 **Tier 2 — Removal. CORRECT FIX.** Edit `.claude\settings.json` and change the pinned
 model to Opus, or delete the `model` key so it defaults to the account's best
 available. Permanent until something rewrites the file.
+
+**RESOLVED 2026-08-16 — verified by observation, not by report.**
+
+Statusline captured in a screenshot:
+
+```
+Claude Code  v2.1.233
+Opus 5 · Claude Max
+C:\Users\JV
+```
+
+**Opus 5, not Haiku 4.5.** The restart completed and the change held. With
+`haiku-settings.json` renamed `.disabled`, the switcher can no longer cause a silent
+downgrade — a Haiku pick now fails loudly with file-not-found.
+
+**Note how this was confirmed.** Not by an executor reporting success — by reading the
+statusline itself. That is the discipline RI-019 points at: **the observable, not the
+claim.**
+
+**Still open:** the `CLAUDE - PICK MODEL` shortcut remains, deferred by Jorge until
+OCR is verified (TRK-2026-9042). Currently harmless — it fails loudly, not silently.
 
 **Tier 3 — Enforcement.** `CLAUDE.md` now requires every session to state which model
 it is running at session start. Model drift becomes visible immediately instead of
