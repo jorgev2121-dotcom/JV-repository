@@ -16,6 +16,43 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 
 ---
 
+## ⏱ OVERNIGHT 2026-08-16 → 17 — where to look, so nobody scrolls 260 lines
+
+**Full plain-language version: `MORNING-REPORT_2026-08-17.md`. This is the index to the
+rows.**
+
+**Money and client work**
+`9131` microfilm — **220 of 220 retrieved** · `9133` Alec email **staged, not sent** ·
+`9157` **five building jackets prepared, not sent** · `9185` **three Plaza permits ready
+and never issued**, plus unit 721 lapsed 2026-08-04
+
+**Needs Jorge — the decision rows**
+`9172` **eight `TRK-TBD` folders need numbers** · `9167` `1514 NW 73 St`, 104 files, no
+number · `9147` **Dropbox: did the files go to OneDrive first?** · `9184` **D9 may be a
+sync, not a filing pass — 10 seconds to settle** · `9087` DigitalOcean before 9/1 ·
+`9083` the two clicks
+
+**The audit's conclusions (TRK-2026-9086 — CLOSED, all three categories)**
+`9153` **the completion record stops 2026-07-14** — 3 result files against ~78 orders ·
+`9139` the mass ACK was **21 files in 636ms and not fabricated** · `9138` **JOB-0052 is
+the second name for the one hole** · `9155` three job numbers each name two jobs
+
+**The five false absences — and the rule that came out of them**
+`9178` the pattern · `9144` job tree · `9170` all-jobs index · `9151` Excel CRM ·
+`9176`/`9179`/`9181` Orange Tree — **8 of 8 folders, 46 generated files, zero
+documents** · `9180` **why it was reordered four times: filing is RED** ·
+**`RECURRING-ISSUES.md` RI-022** is the durable rule
+
+**Filing system, measured**
+`9173` **38 folders, eight identity schemes, 19 canonical** · `9174` **1 version log of
+35** · `9166` my own count was wrong · `9175` the `TUS-` collision I caused
+
+**Corrections I owed on my own work**
+`9165` Gmail "200+" was really **102** · `9166` 19 folders was really 38 · `9170` the
+index existed · `9183` **the ninth Plaza unit does not exist**
+
+---
+
 ## Active
 
 | TRK | Item | Status | Notes |
