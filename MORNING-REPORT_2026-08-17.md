@@ -143,10 +143,11 @@ skipped**, because nobody has asked Alec whether he has any interest in that bui
 
 ## SECTION C — THE FIVE THINGS THAT MATTER MOST
 
-**1. The completion record stopped on July 14.** Roughly 78 job numbers have been
-ordered. **Three carry a result file.** The convention worked for seventeen days and
-then stopped; the next batch of orders went out eight days later. **The loop broke in
-those eight days.**
+**1. The *automatic* completion record stopped on July 14.** Roughly 78 job numbers have
+been ordered. **Three carry a result file.** The convention worked seventeen days, then
+stopped. **But see the correction in Section A: a better hand-built ledger ran on July 31
+and August 3** — 97 items, artifact proof on every completed line. **So the capability
+exists and was demonstrated twice. What is missing is anything that makes it repeat.**
 
 **2. The "fabricated" mass acknowledgement was not fabricated.** Twenty-one
 acknowledgement files were written in **636 milliseconds** on August 7 — including
@@ -161,7 +162,12 @@ never built. That is why your watchdog can notice a stalled job and re-queue it 
 cannot start a session.** It was never a mystery; it was a declared dependency, ten
 days overdue.
 
-**4. Three things the registers call "never delivered" already exist.** The job-tree
+**4. EIGHT things recorded as "never delivered" already exist** — see Section F for the
+full list and the rule that came out of it. **The one that matters most is the full status
+ledger** (Section A). **Of the three items called chronic repeat failures, only one
+survives: the intake tracking-number watcher.** The other two were finished work nobody
+had checked. Originally written as: three things the registers call "never delivered"
+already exist — the job-tree
 dashboard, the index page over all your jobs, and the Excel CRM. **I got this wrong
 myself twice tonight before checking the folder instead of the record.** Do not
 re-order any of them.
