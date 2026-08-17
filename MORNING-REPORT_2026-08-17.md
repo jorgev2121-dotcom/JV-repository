@@ -41,6 +41,27 @@ proven yet.**
 
 **The honest state: the machine that was missing now exists and has passed once.**
 
+### ⚠ CORRECTION to what I said above — half the loop is proven, not all of it
+
+**I implied the loop ran those four jobs. I cannot show that, and I should not have
+implied it.**
+
+JOB-0079 has two halves. **§D.2 is the verifier** — check the artifact, no AI judgement.
+**§D.1 is the watcher that launches a session by itself** — the half that means work
+happens without you opening a window.
+
+**There is an `EXECUTED-WITH-PROOF` file for D.2. There is none for D.1.**
+
+And all four proof files were written **in the same second, 15:44:30** — that is a
+verifier sweeping over work that was *already done*, confirming it. **It is not four
+jobs being executed.**
+
+**So what is proven: the checking half works, and it works well.** The renames really
+happened and the old folders really are gone.
+
+**What is not proven: that anything ran without a person present.** That was always the
+whole problem, and it is still the open half.
+
 ### ⚠ One thing to fix while it is fresh — and it is small
 
 **The new verifier is not on the heartbeat roster.** I checked twice, two hours apart.
