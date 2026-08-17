@@ -1141,3 +1141,49 @@ component's own heartbeat file by ID and read its timestamp.**
 TRK-2026-9097 (read the body, never the status code). **Three different tools, one
 failure shape: a negative answer that means "I could not see," reported as "it is not
 there."**
+
+---
+
+## RI-023 — The channel that asks Jorge questions was pointing off his screen
+
+**Logged 2026-08-17 by cloud session. TRK-2026-9256.**
+
+**Symptom, as recorded for five sessions running:** "Jorge has not answered the board
+question." Ledgers, morning reports and handoffs all carried it as an owner delay.
+
+**Actual cause, found 2026-08-17 in `EXECUTION-VERIFICATION_JOB-0075_2026-08-17.html`
+and never surfaced to him until now:** the Ask-Jorge window has been opening at
+**x = -963** — the left monitor he does not face. A census of open windows found the ask
+window, the Orange Tree window, the deadline nudge and the control panel all sitting
+there. Two more — owner approvals and the stop-the-popups button — had been minimised
+since **2026-08-16 16:37**, the same minute as the most recent answer on file.
+
+**He was never shown the question. The record said he declined to answer.**
+
+### Why this is RI-022's family and not a new disease
+
+RI-022 is *absence reported from the record instead of the artifact*. This is the same
+shape with the owner in the loop: **a question's delivery was assumed from the fact that
+it was sent.** Nothing ever checked that it landed where a human could see it. An unread
+prompt and a refused prompt are indistinguishable in the log, and the log was believed.
+
+### The aggravating factor — a report can go unread by me too
+
+**This finding sat in a 7,536-byte file in VTES-Outbox from 15:55 ET and I did not open
+it until 23:40 ET, after Jorge asked why he had not been shown the four passed jobs.**
+I had summarised four sibling files and skipped the fifth. **A written report nobody
+opens is the same failure as a window nobody sees.**
+
+### Fix tier
+
+**Tier 3 — Enforcement, not suppression.** Moving the window once (Tier 1) is exactly
+what will decay: any script rewrite, monitor change or profile reset puts it back.
+
+1. **Every prompt to Jorge records where it landed.** The delivery check is a measured
+   coordinate, not the fact that a launch command returned success.
+2. **A prompt with no answer and no confirmed on-screen position is UNDELIVERED, never
+   UNANSWERED.** Those two words must never again be interchangeable in any ledger.
+3. **Anything written to VTES-Outbox is opened before its siblings are summarised.**
+   Reporting on 4 of 5 files in a folder is the folder-vs-record error again.
+
+**Do not, ever, log an owner non-response without evidence the owner saw it.**
