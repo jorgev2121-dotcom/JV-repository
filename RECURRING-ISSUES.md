@@ -1112,3 +1112,32 @@ the work.
 **Related:** the `TRK-26-` / `TUS-` / `KAR-` drift makes this worse — a folder that does
 not match the search string is indistinguishable from a folder that does not exist. See
 `CLAUDE.md` §9 and TRK-2026-9173.
+
+### RECURRENCE 2026-08-17 10:07 ET — caught in under a minute, and it is a tooling trap
+
+**A Drive search filtered by `modifiedTime` returned `{}` for the mailbox folder.** Read
+naively, that says the reconciler — which writes every 30 minutes — had stopped.
+
+**It had not.** A direct metadata check showed:
+
+- **Poller alive at 10:06:43 ET** — seconds earlier.
+- **Reconciler last run 09:40 ET** — 27 minutes prior, on a 30-minute cadence. **Its next
+  run was simply not due yet.**
+
+**The trap, stated for the next session:** this Drive search tool's date filtering is
+**not reliable enough to prove absence**. Earlier the same night the same filter returned
+folders *older* than the cutoff. **`get_file_metadata` on a known file ID is reliable;
+a filtered search is not.**
+
+**Why this belongs under RI-022 rather than its own entry:** an empty query result is a
+record, not a folder. Reporting "the reconciler is dead" from `{}` would be **absence
+claimed from the record instead of the artifact** — the same error, one layer down, in
+the monitoring itself.
+
+**Rule: never declare a component dead from a search that returned nothing. Fetch the
+component's own heartbeat file by ID and read its timestamp.**
+
+**Same family as:** TRK-2026-9132 (PowerShell 5.1 returns a silent false zero) and
+TRK-2026-9097 (read the body, never the status code). **Three different tools, one
+failure shape: a negative answer that means "I could not see," reported as "it is not
+there."**
