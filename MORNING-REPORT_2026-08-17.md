@@ -314,14 +314,20 @@ logs other people's errors is not an honest one.**
 
 5. **"Orange Tree never started."** Eight unit capsules exist, built August 5 and July 8.
    See Section G.
+6. **"The backup bridge was never instrumented."** **It is running.** It posted a
+   heartbeat at 7:20 this morning from its own scheduled task, reporting the poller alive
+   and 3.8 minutes fresh. I had checked the roster file, seen two entries, and concluded
+   it did not exist — **but it writes its own heartbeat file instead of a roster entry.**
+7. **"Nothing watches the watchdog."** Too strong. **The backup bridge does watch the
+   poller.** What is genuinely unwatched is the *reconciler* — the component that detects
+   staleness. **The gap is real but half the size I described.**
 
-**All five share one cause: I read the record instead of opening the folder.** It is the
+**All seven share one cause: I read the record instead of opening the folder.** It is the
 same failure this repository exists to catch, and it was mine tonight.
 
 ### And that is now the night's real conclusion
 
-**Five separate times tonight, something the board recorded as not-done turned out to
-exist**: the job tree, the all-jobs index, the Excel CRM, three of the eight "vapor"
+**Seven separate times, something recorded as not-done turned out to exist**: the job tree, the all-jobs index, the Excel CRM, three of the eight "vapor"
 items, and now the Orange Tree capsules.
 
 **The backlog is not as empty as the paperwork says.** The board has been recording
