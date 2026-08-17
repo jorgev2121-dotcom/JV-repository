@@ -365,3 +365,20 @@ not recorded anywhere — that is itself the problem this file exists to prevent
 ## Completed
 
 *Items move here with their verification evidence attached.*
+
+---
+
+### Added 2026-08-17 23:40 ET — cloud commitments run + RI-023
+
+| TRK | Item | Status |
+|---|---|---|
+| TRK-2026-9256 | **Owner prompts opened at x=-963 on the unwatched monitor.** Recorded as "Jorge has not answered" for five sessions. RI-023. Desktop claims fixed and measured; **cloud has not confirmed** | NEEDS JORGE — confirm the ask window now lands on your screen |
+| TRK-2026-9257 | Four cloud commitments delivered. Results in `CLOUD-COMMITMENTS-RESULT_2026-08-17.md` | DONE — with denominators |
+| TRK-2026-9258 | **Orange Tree Set B holds 19 real client documents.** Last night's "zero client documents" was wrong | CORRECTED — logged as RI-022 recurrence |
+| TRK-2026-9259 | **Set A transmittals claim "receipt of all evidence in hand" and list system-generated files.** Client-facing integrity risk | NEEDS JORGE — do not send any of the 8 until reviewed |
+| TRK-2026-9260 | Every Orange Tree transmittal names a statement-of-account file. **None of the 8 folders contains one** | BLOCKED — 8 documents point at a missing attachment |
+| TRK-2026-9261 | September board deck: **no .pptx and no Google Slides exists anywhere in Drive.** Not started | NOT STARTED — surfaced honestly |
+| TRK-2026-9262 | 7 register items have no artifact anywhere (1Password audit, segmented scheduler, guided tour, Fable status, subscription plan + board deck, Zapier-Plaud, reboot root cause) | CONFIRMED ABSENT |
+| TRK-2026-9263 | 3 register items live at `C:\AI\scripts` / Task Scheduler — GATES panel, intake watcher, downloads sweep | CANNOT-VERIFY-FROM-CLOUD — never call these missing |
+| TRK-2026-9264 | Outbox count settled at **134** at 23:32 ET. Naive count returns 142 — **8 duplicates across the page break** | DONE — de-dup by file ID before any automation |
+| TRK-2026-9265 | Four EXECUTED-WITH-PROOF files opened verbatim for owner review + the 5th file I had never opened | DELIVERED — 3 recommended for approval, JOB-0079-D2 recommended REFUSE |
