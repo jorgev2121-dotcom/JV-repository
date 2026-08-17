@@ -368,6 +368,34 @@ faces, and it is the same one Section C names.
 
 ---
 
+## SECTION F2 — I RE-TESTED THE "CONFIRMED DEAD" LIST. One of four survived.
+
+**Added 1:20pm. Last night I listed four things as confirmed dead with evidence. I went
+back and checked each one properly.**
+
+- **Still dead — the VTES executor.** Its job ledger was last touched **June 28**. Seven
+  weeks untouched, and I can see both files directly. **That one is real.**
+- **Alive — "publish register status to Drive."** The July 31 and August 3 status ledgers
+  *are* published register status, sitting in Drive. **Ninth false absence.**
+- **I cannot see it — the orchestrator.** Drive holds only the order. **But the July 31
+  ledger cites a file on your local disk, dated July 30, called
+  `AGENT-ORCHESTRATOR-STATUS`.** Something orchestrator-shaped was made. **Cloud cannot
+  read your C: drive, so I will not call it either way.** The desktop settles it by
+  opening one file.
+- **Ambiguous — the stability plan.** A seven-kilobyte board proposal exists. The job said
+  *register* it. **Whether posting to the board counts as registering is a reading of the
+  job, not a fact about the folder.**
+
+**So of four items I called confirmed dead with evidence twelve hours ago, exactly one
+survives contact with the folder.**
+
+**That is the ninth false absence in this run, and I want to be plain about what it
+means:** the backlog you have been carrying is meaningfully smaller than every record in
+this repository says. **Not because work vanished — because nobody was checking the
+folders, including me.**
+
+---
+
 ## SECTION G — WHAT NEVER STARTED
 
 - **Orange Tree — corrected at 12:20am, and it is the fifth one tonight.** I wrote
