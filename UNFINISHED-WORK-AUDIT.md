@@ -6,6 +6,36 @@ session overnight 2026-08-16 from Google Drive.**
 **This is the evidence base for Jorge's eighteen-month complaint. He was not
 imagining it, and the numbers are worse than "some things got dropped."**
 
+---
+
+# ⚠ READ THIS FIRST — PARTS ONE TO FIVE HAVE BEEN PARTLY SUPERSEDED
+
+**Added 2026-08-17 14:20 by the session that wrote them.** Re-testing on 8/17 overturned
+several conclusions below. **This banner exists because a document that stays
+true-looking after the folder changed is exactly the failure this audit is about
+(RI-022). Do not act on a section below without checking this list first.**
+
+| Section says | Now known |
+|---|---|
+| §24 **"the completion record stops 2026-07-14"** | **TOO STRONG.** The *automatic* `.result.json` stopped 7/14. **A hand-built ledger with artifact proof per line ran 7/31 (97 items) and 8/03.** See TRK-2026-9193/9195 |
+| §17 **"two genuine repeat failures"** | **ONE.** Job tree delivered; **full status ledger delivered 7/31.** Only the intake watcher (0025→0058) survives. TRK-2026-9196 |
+| §11 **"four confirmed dead"** | **ONE stands** (VTES-Executor, ledger untouched since 6/28). **JOB-0063 flips** — the status ledgers *are* published register status. **JOB-0052 and JOB-0066 downgrade to unverifiable from cloud.** TRK-2026-9197/9198/9199 |
+| §16 **"BACKUP-BRIDGE-01 confirmed VAPOR"** | **WRONG. It is running** — own heartbeat file, posted 8/17 07:20 ET, reporting the poller alive. TRK-2026-9191 |
+| §12 **"nothing watches the watchdog"** | **HALF WRONG.** BACKUP-BRIDGE watches the **poller**. The **reconciler** is what nothing watches. TRK-2026-9192 |
+| §14 **"job tree run once, no index"** | **WRONG twice.** Index exists (8/14); generator ran at four folder levels. TRK-2026-9170 |
+| §22 Orange Tree | **Resolved:** 8 of 8 folders, **46 files, all generated, zero client documents.** Scaffolding built 5×, population 0×, **because filing is RED.** TRK-2026-9179/9180/9181 |
+
+**Nine false absences were found in this document and in the registers it audits. Every
+one had the same cause: a claim of absence made from a record instead of from the
+folder.** The rule that came out of it is `RECURRING-ISSUES.md` **RI-022**.
+
+**The corrected, plain-language version for Jorge is `MORNING-REPORT_2026-08-17.md`.**
+
+**What still stands, unchanged and important:** the 8/6 mass ACK is real and
+timestamped (§9); JOB-0052 is a declared dependency with an overdue date (§10); the
+identifier collisions are real (§25); and **the one build that closes the loop is still
+JOB-0079 §D.**
+
 Status vocabulary, quoted from the source: **VAPOR** = *"claimed or acknowledged but
 proven never executed."* **UNPROVEN** = ordered, no artifact. **DECISION-PENDING** =
 waiting on one owner choice. **PROVEN** = artifact verified.
