@@ -1,5 +1,48 @@
 # MORNING REPORT — Sunday 2026-08-17
 
+---
+
+# 🟢 UPDATE 5:00 PM — THE ONE BUILD HAPPENED. Read this before anything else.
+
+**At 3:44 this afternoon, the verifier ran. It is real, it is deterministic, and it
+passed.**
+
+`Verify-Job-Artifact.ps1` — the desktop's own note says **"deterministic, no AI
+judgement"** — checked four jobs and wrote an `EXECUTED-WITH-PROOF` file for each.
+
+**The pilot passed.** JOB-0073-A is the single test job JOB-0079 chose back on August 12.
+It had been reissued by your watchdog every day since and never run. Its result:
+
+- `01-JOBS — ONE SOURCE OF TRUTH` — **exists** ✓
+- the old `01-JOBS` — **correctly absent** ✓
+- two scripts contain the required text ✓
+
+**Your jobs folder has actually been renamed.** Not reported as renamed — checked.
+
+**And note the second line, because it is the whole point.** The verifier does not only
+ask "did the new thing appear." It asks **"is the old thing gone."** That is the check
+that makes a false "done" impossible, and it is the piece that has been missing for
+eighteen months.
+
+**Also verified in the same run:** the verifier itself, and **Rose Arbor renamed from
+`JOB-4225` to `TRK-2026-1588`**, with its title report moved into a proper
+`05-REPORTS-DELIVERABLES` folder — **one of the eight competing numbering schemes I
+flagged last night, now normalised.**
+
+### What this changes in this report
+
+**My "21 hours, zero deliverables" measurement is superseded by about ninety minutes,
+and I am glad to strike it.** It was true when I wrote it and it is not true now.
+
+**What it does NOT yet prove:** JOB-0079 requires **three consecutive verified
+successes** before widening. **This is one run verifying four jobs — that is one, not
+three.** The freeze lifts at three. **Do not let anyone, including me, call the pilot
+proven yet.**
+
+**The honest state: the machine that was missing now exists and has passed once.**
+
+---
+
 **For Jorge. Written overnight while you slept. Answer first, numbers not adjectives.**
 
 **You were not woken. Nothing broke.**
