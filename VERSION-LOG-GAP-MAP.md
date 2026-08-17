@@ -53,9 +53,75 @@ folder found so far.
 "1 of at least 20 TRK-numbered folders, out of 34 folders total."** The gap is wider
 than five percent, not narrower.
 
-**A recount is warranted but was not run tonight** — enumerating 34 folders' contents
-is a night's work, and doing it badly a second time is worse than leaving the
-correction stated plainly.
+## ✅ RECOUNT COMPLETED 2026-08-16, later the same night
+
+**I said above that a recount "was not run tonight" because it was a night's work. It
+is night, the work is read-only, and difficulty is not a reason to defer. Run.**
+
+**Every folder in `G:\My Drive\01-JOBS` enumerated directly: 38 folders.**
+*(The index says 34 as of 2026-08-14; four were created on 8/16, after it was
+generated.)*
+
+### The 38, by identity scheme
+
+| Scheme | Count | Notes |
+|---|---|---|
+| **`TRK-2026-NNNN`** — canonical | **19** | the number my original count found, and it was right *for canonical folders* |
+| **`TRK-TBD`** — the defect marker | **8** | see below |
+| **`TUS-25-` / `TUS-26-`** | 3 | 8621 Pasadena Blvd · **14598 SW 110 St** · 7265 NW 74 St Medley |
+| **`TRK-26-`** — short form | 1 | 15222 SW 108 Pl (Daymara Yhanes) |
+| **`KAR-26-`** | 1 | 8850 SW 72 St, Groves at Sunset Pool |
+| **`JOB-`** | 1 | 4225 Rose Arbor Cir, Port Charlotte |
+| **`OPH-2026-`** — correct per the orphan standard | 1 | Bal Harbour + Plaza |
+| **No identity at all** | 1 | **`1514 NW 73 St - House Project`** |
+| Admin / staging | 3 | `_CONVERGE-STAGING` · `_ORPHANS` · `_ALEC-VALDES-DD` |
+
+**Eight distinct identity schemes coexist in one folder.**
+
+**19 of 35 job folders carry a canonical tracking number. Fifty-four percent.**
+
+### ⚠ EIGHT folders are named `TRK-TBD`
+
+`CLAUDE.md` §9 is unambiguous: **"`TRK-TBD` is a defect. Assign a real number."**
+
+All eight were created **2026-08-10, within one second of each other** — so this was
+one batch operation that stamped the placeholder rather than issuing numbers:
+
+```
+TRK-TBD _ FOLIO-TBD _ 13328 SW 113 CT (Nick)
+TRK-TBD _ FOLIO-TBD _ 535 NW 7 ST Homestead (Renzo Cahuana)
+TRK-TBD _ FOLIO-TBD _ 2362-2364 NW 32 ST City of Miami (2362 Acquisition LLC)
+TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 221
+TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 301
+TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 302
+TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 404 (Reyna Jovel)
+TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 425
+```
+
+**These are not placeholders for unknown work.** They carry named clients — Nick,
+Renzo Cahuana, Reyna Jovel, 2362 Acquisition LLC — and real addresses. **Five are
+units in one building at 10000 W Bay Harbor Dr**, which is a single job with five
+sub-matters, not five jobs.
+
+**Every one of them is invisible to a tracking-number search, and any document filed
+"by TRK" cannot reach them at all.**
+
+**Issuing eight numbers is Jorge's call** — the registry increments by 3 from a
+deliberately high seed, and inventing numbers is a charter violation. **What can be
+said without deciding anything: these eight are the single largest identity gap in
+the filing system, and they were created in one second by one operation that could
+just as easily have issued numbers.**
+
+### The version-log answer, finally
+
+**1 confirmed version log across 35 job folders. Under three percent.**
+
+A possible second — `TRK-26-1042_LOG.md` — sits in the short-form folder and was not
+opened, so it is counted as *possible*, not confirmed.
+
+**The original headline of 5% was arithmetically right and structurally wrong: it
+divided by the folders it could see.** The true figure is worse, and the reason it was
+worse is the same reason the folders were invisible.
 
 ---
 
