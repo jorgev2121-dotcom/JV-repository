@@ -41,6 +41,25 @@ proven yet.**
 
 **The honest state: the machine that was missing now exists and has passed once.**
 
+### ⚠ One thing to fix while it is fresh — and it is small
+
+**The new verifier is not on the heartbeat roster.** I checked twice, two hours apart.
+That roster still lists exactly two components — the poller and the reconciler.
+
+**So if the verifier stops running, nothing will notice.**
+
+That is the same failure that produced everything else in this report, now attached to
+the newest and most important part. **And it matters specifically because of the
+three-runs rule:** if run two quietly never happens, nobody finds out — the pilot simply
+looks like it is still in progress, forever. **That is exactly how the last eighteen
+months went.**
+
+**No second run has appeared in the two hours since the first.** I cannot tell from here
+whether it is scheduled or was run by hand, and I am not going to guess.
+
+**The fix is one line: add the verifier to the roster it already sits beside.** Worth
+doing before run two, not after run three fails to arrive.
+
 ---
 
 **For Jorge. Written overnight while you slept. Answer first, numbers not adjectives.**
