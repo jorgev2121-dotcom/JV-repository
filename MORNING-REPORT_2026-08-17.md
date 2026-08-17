@@ -59,6 +59,47 @@ guess.** Full table in Section D-BIS; the action is **D10**.
 
 ---
 
+## SECTION A2 — ADDED 10:45 AM. I missed four files for seventeen hours.
+
+**The desktop did not stop at 5:30pm. It worked until 7:04pm, writing into the
+`_ALEC-VALDES-DD` folder — not the mailbox I was watching.** I found them only by
+widening the search this morning. **Third time this exact mistake has been mine.**
+
+**Two of those files matter, and they point opposite ways.**
+
+### The good one — and it is real due-diligence value
+
+**Code Enforcement Case 97357, on 10362 SW 180 ST** (one of Alec's five), pulled live
+from the county's own viewer:
+
+- **Unsafe Structures case, opened 31 January 1997, closed 8 November 1997.**
+- **The county demolished the building in 1997** and recorded a lien in 1998.
+- **The lien was satisfied on 20 November 2001, Book 20026, Page 4594.**
+
+**Bottom line: closed, satisfied, nothing accruing.** But it stays a **material
+disclosure**, because a county-ordered demolition is something a buyer must be told.
+**That is the kind of finding the whole due-diligence product exists to produce.**
+
+### The broken one — and it is the more important of the two
+
+There is a file in Alec's folder called **`_22-SOURCE-RUN_TRK-2026-1289`**. It looks
+finished. **It is empty.**
+
+Every counter reads zero — **zero of 22 sources answered.** The single table row says
+`PLACEHOLDER — nothing retrieved`, with a blank source name and a dead link. **The
+styling and the legend are perfect; there is no data behind them.**
+
+**At a glance, in a client folder, that file reads as completed proof.** It is the same
+shape as the acknowledgements that said "received" and were read as "done" — **a
+container that looks like work.** I would not let it near Alec.
+
+**And one contradiction only you can settle.** That run targeted folio
+`01-4102-006-0250` at 1658 NW 1 ST — **the exact folio the jacket log deliberately
+skipped**, because nobody has asked Alec whether he has any interest in that building.
+**One of those two decisions is wrong, and it is not mine to pick.**
+
+---
+
 ## SECTION B — WHAT COMPLETED, WITH NUMBERS
 
 | Item | Result |
