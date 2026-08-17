@@ -447,6 +447,28 @@ missing third layer of a keepalive acknowledged on August 7 and never built.
 Claude Code is not a background service, so jobs are worked when a session is open."*
 **193 items are queued behind that sentence.**
 
+### The measurement, taken at 4pm Sunday — and it is the whole argument in one line
+
+**The desktop's last piece of work was at 7:04pm Saturday. It is now 4pm Sunday.**
+
+**Twenty-one hours. Zero deliverables produced.**
+
+In those same twenty-one hours, both watchdogs reported healthy **every single cycle** —
+the poller stamping itself alive every five minutes, the reconciler running every thirty,
+`Crisis flag: False` throughout. **Roughly 250 poller heartbeats and 42 reconciler runs,
+all green, over a day in which nothing was made.**
+
+**And 193 items sat in the queue the whole time.**
+
+That is not an accusation of anything. **Every component did exactly its job.** The
+machine is not broken — it is complete except for the one piece that starts a session,
+and **a day of perfect health with nothing produced is the clearest measurement of that
+gap anyone is going to get.**
+
+**This is what `Jobs closed with output: 0` would have said, if anything counted it.**
+
+---
+
 ### And it happened again at 7:31 this morning, while you were asleep
 
 A housekeeping job was posted. The poller acknowledged it honestly — `Status: received`
