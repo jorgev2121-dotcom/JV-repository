@@ -149,6 +149,14 @@ one at a time, and approve or redirect. **It will not run this unattended and it
 not.** *(A fifth job file would produce a sixth ring of scaffolding. Please don't order
 one.)*
 
+**A lead for whoever does it.** The filenames in those folders carry reference numbers
+— `BH-074`, `BH-088`, `BH-121`, `BH-460`, `BH-472`. **They run at least to BH-472, so
+the source document set is real, numbered, and considerably larger than the 46 files
+sitting in the unit folders.** That numbering is where the filing pass should start.
+
+**Also: eight units have folders. `OPH-2026-0007` counted nine.** One unit has no
+folder at all — worth finding out which before the pass, not during it.
+
 ---
 
 ## SECTION E — THE FILING SYSTEM, MEASURED
@@ -218,11 +226,13 @@ faces, and it is the same one Section C names.
   folders** — capsules existing is not the same as documents filed. **Status: largely
   built, extent unverified. Not "never started."**
 
-  **RESOLVED at 12:50am. I opened three of the eight unit folders.** Each holds five or
-  six files, and they are the same five or six every time: an index, a narrative, a
-  transmittal, a unit sheet, a contact sheet, and in some cases a capsule note.
+  **RESOLVED, and now counted in full. I opened all eight unit folders — 8 of 8, not a
+  sample.** Between them they hold **46 files**. Each folder has five or six, and they
+  are the same five or six every time: an index, a narrative, a transmittal, a unit
+  sheet, a contact sheet, and in six of the eight a capsule note.
 
-  **Not one client document. No permits, no PDFs, no county pulls. Zero.**
+  **All 46 are generated. Not one client document in any of the eight. No permits, no
+  PDFs, no county pulls. Zero of 46.**
 
   **So both stories were true about different halves.** The scaffolding for these units
   was built **five separate times** — June 10, July 8, August 5, August 11, August 15 —
