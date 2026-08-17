@@ -52,6 +52,7 @@ enough to identify it exactly, with no description needed.
 | PASTE-D-006 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | Fix model, restart, pull repo, work WORK-QUEUE.md. | SUPERSEDED by PASTE-D-007 |
 | PASTE-D-007 | 2026-08-15 | Desktop — "Investigate Claude Code se…" | **One sentence.** "Check the mailbox in Drive." Everything else now lives in `G:\My Drive\_CLAUDE-MAILBOX\TO-DESKTOP.md`, written by cloud directly. | SUPERSEDED by PASTE-D-008 |
 | PASTE-D-008 | 2026-08-16 | Desktop — "Investigate Claude Code se…" | Pull the repo for the new `orphan-onboarding` skill, then work `TASK-07` (heartbeat) and `TASK-08` (orphan sweep + the 22 county sites) from the Drive mailbox. | ISSUED |
+| PASTE-D-009 | 2026-08-17 | Desktop — live executor session, C:\Users\JV | **One pointer.** Read `G:\My Drive\VTES-Inbox\TONIGHT-QUEUE_2026-08-17_ORDERED.md` and work it top to bottom. Four items, shortest first: verifier→roster · jacket hunt (9230) · **the 22×5 proof of concept (9250)** · tray launchers (9246). Nothing filed while Jorge is out. | ISSUED |
 
 ---
 
