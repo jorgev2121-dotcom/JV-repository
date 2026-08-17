@@ -44,6 +44,19 @@ filed.
 is allowed to perform. **A fifth order would produce a sixth ring.** What it needs is
 twenty supervised minutes with you in the room — see D9.
 
+**And one business finding that outranks all the housekeeping above it.**
+
+Reading the Orange Tree index turned up a permit status for every Plaza unit. Three of
+them say the same thing:
+
+> **Units 815, 1016 and 307 have permits that are approved or ready — and were never
+> issued.**
+
+**That is work already done and already paid for, sitting one step from complete.** A
+fourth, **unit 721, expired on August 4th — thirteen days ago**, recent enough that a
+renewal window may still be open. **I do not know Bal Harbour's rule and did not
+guess.** Full table in Section D-BIS; the action is **D10**.
+
 ---
 
 ## SECTION B — WHAT COMPLETED, WITH NUMBERS
@@ -182,6 +195,17 @@ unauthorized. **This is the honest limit, and it changes what D9 is:**
 
 **Ten seconds at your machine settles which.** Open that folder and look. **Do that
 before allocating twenty minutes to the wrong job.**
+
+---
+### D10 — Three Plaza permits are ready and were never issued
+**Units 815, 1016 and 307.** Approved or ready, never issued — work already paid for,
+one step from done. **Unit 721 lapsed on August 4th**, thirteen days ago.
+
+**Two calls, and they are not the same call.** One to Bal Harbour asking what it takes
+to issue the three that are ready. One asking whether 721 is still inside a renewal
+window. **I do not know their rule and will not guess at it.**
+
+**This is the highest-value thing found last night and it is not a filing task.**
 
 ---
 
