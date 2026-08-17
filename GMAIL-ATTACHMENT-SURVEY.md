@@ -34,6 +34,66 @@ monthly figures above are trustworthy and the annual ones are floors.
 
 ---
 
+## ⚠ COMPLETED 2026-08-16 — the true twelve-month count, and a correction to this file
+
+**The counts above were floors, because Gmail's estimate saturates. Narrow date
+windows return true numbers, so I ran twelve of them.**
+
+| Month | Threads with an attachment |
+|---|---|
+| Sep 2025 | 4 |
+| Oct 2025 | 2 |
+| Nov 2025 | 6 |
+| Dec 2025 | **1** |
+| Jan 2026 | 6 |
+| Feb 2026 | 12 |
+| Mar 2026 | 11 |
+| Apr 2026 | 14 |
+| May 2026 | 10 |
+| Jun 2026 | 5 |
+| Jul 2026 | 18 |
+| Aug 2026 *(to the 16th only)* | 13 |
+| **TOTAL** | **102** |
+
+### The correction, and it goes against what this file said
+
+**This file recorded `200+` and reasoned that "201 means at least 200."** Summing
+twelve true windows gives **102**.
+
+**So the saturated estimate is not a reliable floor. It reported 201 where the real
+figure is about half that.** The method note above should read: **a query returning
+201 means "unknown, and possibly far fewer" — not "at least 200."**
+
+**The conclusion does not change; it gets stronger.** Gmail is not a low-yield holding
+area by a factor of two — it is low-yield by a factor of four. **102 attachment
+threads in a year, for an operation running 28 client matters, is roughly two a
+week.**
+
+**Denominator for TRK-2026-9073: 102 of 102 months-worth counted. The enumeration is
+complete.** No filing was done and none is recommended.
+
+### The senders, across all twelve months
+
+Sampled at every window: **OneDrive "memories from this day" photo digests, Anthropic
+receipts, Home Depot receipts, LastPass, Zoho CRM marketing, jam-software renewals.**
+
+**Not one job document appeared in any monthly sample.** That is the third independent
+confirmation that the business mail lives in Outlook under
+`Jorge@teamusasales.com`, not here.
+
+### One money item noticed in passing
+
+**March 2026, jam-software (UltraSearch / TreeSize).** Jorge wrote to their sales
+address: *"I duplicated the original subscription payment when I started using
+UltraSearch and TreeSize."* They replied 2026-03-30 that they were reviewing the
+account and the transactions.
+
+**Whether a refund was ever issued is not visible in this mailbox.** Recorded as
+TRK-2026-9164 — small, cold, and worth one search before the next renewal rather than
+a night's work.
+
+---
+
 ## What the shape says
 
 **5 to 18 attachment threads a month is a low rate for an operation running 28 client
