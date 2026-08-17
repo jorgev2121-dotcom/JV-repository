@@ -27,6 +27,23 @@ That is not "nothing happened." Real work has continued the whole time — last 
 microfilm run proves it. **It means nothing since July 14 can be sorted into done and
 not-done.** That is the whole problem, stated as a date.
 
+**And one thing more, which I think is the most useful sentence in this report.**
+
+The Orange Tree job has been ordered four times and never closed. I opened the folders
+last night and found out why:
+
+> **The scaffolding was built five separate times. The documents were never moved in,
+> not once.**
+
+**Filing a client document requires a person — it is the one action an unattended
+session is forbidden to take.** So every session did all the work *surrounding* the
+hole and stopped at its edge. Four orders, five rings of scaffolding, zero documents
+filed.
+
+**Nobody was dodging that job.** Its one essential step is the step no unattended run
+is allowed to perform. **A fifth order would produce a sixth ring.** What it needs is
+twenty supervised minutes with you in the room — see D9.
+
 ---
 
 ## SECTION B — WHAT COMPLETED, WITH NUMBERS
@@ -120,6 +137,17 @@ profiles. Under a minute.
 The marketing phone line and campaign email are waiting on you choosing an address —
 `help@teamusasales.com` was the recommendation. **This is Priority Zero work blocked by
 one word.**
+
+### D9 — Orange Tree: twenty supervised minutes, not a fifth order
+**The only thing missing is moving documents into folders that already exist.** The
+folders, sheets, narratives, transmittals and indexes are all built. **Filing is the
+step that needs you present** — not because it is hard, but because a misfile is found
+months later by the client, and that risk is yours to accept, not mine.
+
+**Concretely:** sit down with the desktop, let it propose each document's destination
+one at a time, and approve or redirect. **It will not run this unattended and it should
+not.** *(A fifth job file would produce a sixth ring of scaffolding. Please don't order
+one.)*
 
 ---
 
