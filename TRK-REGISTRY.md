@@ -216,6 +216,23 @@ An owner search for `VALDES ALEC` returns exactly two properties countywide —
 **The address must be corrected at source. An executor must never guess an address,
 so this waits for Jorge.**
 
+#### ✅ RESOLVED 2026-08-16 by the desktop — it was a missing leading digit
+
+The desktop's `PROPERTY JACKET ORDER LOG` (TRK-2026-9047) orders jacket #5 as:
+
+```
+11997 SW 218 ST, Miami FL 33170   folio 30-6912-004-0951   TRK-2026-1286
+```
+
+**`1997` was `11997` with the first digit lost.** `11997` falls inside the proven
+9721–20490 house-number range, and folio `30-6912-004-0951` is the same folio the
+desktop pulled county data for on 2026-08-16 at 13:24.
+
+**Two independent routes reached this: a cloud session proved `1997` cannot exist, a
+desktop session found the folio that does.** The registry line still reads
+`1997 SW 218 St` and should be corrected to `11997 SW 218 ST` — **a one-character
+registry edit, which is Jorge's call, not an executor's.**
+
 ### 1289 — researching the master folio would return empty and look complete
 
 `STATUS: RO Reference`, `DOR 0000 REFERENCE FOLIO`, legal `1658 NW 1 STREET CONDO`.
