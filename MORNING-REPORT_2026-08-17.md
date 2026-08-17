@@ -24,8 +24,33 @@ one number that explains a great deal:
 > **Sixty-nine job numbers have been ordered since. None produced a result file.**
 
 That is not "nothing happened." Real work has continued the whole time — last night's
-microfilm run proves it. **It means nothing since July 14 can be sorted into done and
-not-done.** That is the whole problem, stated as a date.
+microfilm run proves it.
+
+**⚠ CORRECTED 12:20pm — and this one matters, because I put it at the top.**
+
+I wrote that "nothing since July 14 can be sorted into done and not-done." **That is too
+strong, and I found the proof against it by searching one more time.**
+
+**`STATUS-LEDGER_ALL-WORK_CODE_2026-07-31` exists.** Twenty-one kilobytes, with an HTML
+twin. Its own header reads:
+
+> **40 COMPLETED · 28 IN PROGRESS · 29 BLOCKED — 97 items.**
+>
+> *"Every line in the COMPLETED section names a file that was opened or a scheduled task
+> that was queried on this machine today. Nothing sits in COMPLETED on somebody's
+> say-so. Items that were reported done but had no file behind them were moved down into
+> IN PROGRESS or BLOCKED."*
+
+**Every completed line carries a file path and a byte count.** A second ledger followed on
+August 3rd.
+
+**So the accurate statement is narrower:** the *automatic, per-job* result file stopped on
+July 14. **A far better hand-built ledger — with artifact proof per line, and items demoted
+when no file backed them — was produced on July 31 and again on August 3, and then
+stopped.**
+
+**That is a different and more hopeful problem.** It was not that nobody could build the
+verifier. **Somebody built it, by hand, twice, and it was never made to repeat.**
 
 **And one thing more, which I think is the most useful sentence in this report.**
 
@@ -322,12 +347,12 @@ logs other people's errors is not an honest one.**
    poller.** What is genuinely unwatched is the *reconciler* — the component that detects
    staleness. **The gap is real but half the size I described.**
 
-**All seven share one cause: I read the record instead of opening the folder.** It is the
+**All eight share one cause: I read the record instead of opening the folder.** It is the
 same failure this repository exists to catch, and it was mine tonight.
 
 ### And that is now the night's real conclusion
 
-**Seven separate times, something recorded as not-done turned out to exist**: the job tree, the all-jobs index, the Excel CRM, three of the eight "vapor"
+**Eight separate times, something recorded as not-done turned out to exist**: the job tree, the all-jobs index, the Excel CRM, three of the eight "vapor"
 items, and now the Orange Tree capsules.
 
 **The backlog is not as empty as the paperwork says.** The board has been recording
