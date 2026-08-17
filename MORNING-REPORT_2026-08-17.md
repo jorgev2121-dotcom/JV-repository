@@ -154,8 +154,59 @@ one.)*
 the source document set is real, numbered, and considerably larger than the 46 files
 sitting in the unit folders.** That numbering is where the filing pass should start.
 
-**Also: eight units have folders. `OPH-2026-0007` counted nine.** One unit has no
-folder at all — worth finding out which before the pass, not during it.
+**On the ninth unit — I raised it an hour ago and it is not real.** The index states its
+own scope in plain words: **"8 open/no-final Plaza units."** Eight is correct and
+intended. The "nine" came from a build note in the orphan record. **I trusted one record
+over another instead of opening the file — the same mistake I logged four times last
+night, caught this time before it cost anybody a wasted filing session.**
+
+### ⚠ And D9 may be far cheaper than I said. Read this before you start.
+
+**The capsule links in that index do not point into Google Drive. They point at
+OneDrive**, here:
+
+```
+C:\Users\JV\OneDrive\Documents\PERM-APP-PORTAL\Municipalities\
+    Miami-Dade - Bal Harbour\ORANGE-TREE-CAPSULES\Plaza-305\
+```
+
+**So the documents may not be missing at all — they may simply live on OneDrive and
+never have been mirrored into the Drive folders.**
+
+**I cannot check.** Cloud has no OneDrive access; the Microsoft 365 connector is still
+unauthorized. **This is the honest limit, and it changes what D9 is:**
+
+- **If the documents are on OneDrive** — this is a **sync**, largely mechanical, and much
+  smaller than a supervised filing pass.
+- **If they are not** — it is the filing pass described above.
+
+**Ten seconds at your machine settles which.** Open that folder and look. **Do that
+before allocating twenty minutes to the wrong job.**
+
+---
+
+## SECTION D-BIS — THE PLAZA PERMIT PICTURE, because it is business, not filing
+
+**The Orange Tree index carries a permit status for every unit. This is worth more than
+the filing question and nobody has put it in front of you.**
+
+| Unit | Permit status |
+|---|---|
+| **721** | **EXPIRED 2026-08-04 — thirteen days ago** |
+| **815** *(Duran)* | **READY, never issued** |
+| **1016** *(Duran)* | **READY, never issued** |
+| **307** *(Duran)* | BLC2024-1333 **approved, never issued** |
+| 423 | EXPIRED 2025-09-22 |
+| 321 | EXPIRED 2024-12-21 |
+| 305 | **UNPERMITTED** — no permit on file |
+| 1515 | Open — limited records |
+
+**Three permits are approved or ready and were never issued.** That is work already paid
+for and sitting one step from done.
+
+**And 721 lapsed less than two weeks ago** — recently enough that a renewal window may
+still be open. **I do not know Bal Harbour's rule and did not guess.** Worth one phone
+call early in the week rather than late.
 
 ---
 
