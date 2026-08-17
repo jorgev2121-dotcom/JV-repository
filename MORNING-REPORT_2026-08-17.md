@@ -341,6 +341,23 @@ missing third layer of a keepalive acknowledged on August 7 and never built.
 Claude Code is not a background service, so jobs are worked when a session is open."*
 **193 items are queued behind that sentence.**
 
+### And it happened again at 7:31 this morning, while you were asleep
+
+A housekeeping job was posted. The poller acknowledged it honestly — `Status: received`
+— and filed it *"queued for Claude Code's next work session."*
+
+**That session opens when you open a window. Nothing else opens it.**
+
+**You can watch the whole eighteen-month pattern in that one file**: a job arrives, is
+correctly received, is correctly queued, and waits for a human. **Not lost. Not ignored.
+Waiting.** That is what the one remaining build fixes, and why it is worth doing before
+anything else on the tidy-up list.
+
+*(One genuine improvement worth noting: today's acknowledgement now adds a line the
+August 16th one did not have — "ratified routine items execute there; owner-gate items
+get a pop-up." **It has started distinguishing what it may do alone from what needs
+you.** Small, and in exactly the right direction.)*
+
 ---
 
 ## THE ONE-LINE VERSION
