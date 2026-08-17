@@ -9,7 +9,57 @@ The charter requires a version log in every job folder:
 
 ---
 
-## The count
+## ⚠ CORRECTION 2026-08-16 — THE DENOMINATOR BELOW IS WRONG. It is 34, not 19.
+
+**Found by a later cloud session running a full-text search for the short form
+`TRK-26-` instead of a title search for `TRK-2026-`.**
+
+`01-JOBS\_INDEX.html`, generated 2026-08-14 10:14 PM Miami by the desktop, states its
+own count in the header:
+
+```
+G:\My Drive\01-JOBS        34 folders · 4 files
+```
+
+**This file counted 19 because it searched folder titles for `TRK-2026-`. Roughly
+fifteen folders in the jobs root do not match that string and were therefore invisible
+to it.** Among them:
+
+| Folder | Files | Why it was missed |
+|---|---|---|
+| `TRK-26-1042 _ FOLIO-TBD _ 15222 SW 108 Pl (Daymara Yhanes)` | 9+ | **short form** `TRK-26-` |
+| `1514 NW 73 St - House Project` | **104** | **no tracking number at all** |
+| `TRK-2026-1256 - Groves at Sunset (Karla)` | 159 | *(was counted)* |
+| `KAR-26-GROVES _ FOLIO-TBD _ 8850 SW 72 St Groves at Sunset Pool` | 23 | **a fourth numbering scheme** |
+| `JOB-4225 _ Rose Arbor _ 4225 Rose Arbor Cir` | 12 | `JOB-` prefix, not `TRK` |
+| `_CONVERGE-STAGING` | 44 | staging area |
+| `_ORPHANS` | 7 | orphan holding |
+
+**The most important line in that table is the second one. `1514 NW 73 St - House
+Project` holds 104 files and has no tracking number.** It is the largest untracked
+folder found so far.
+
+### Two things this proves at once
+
+1. **The `TRK-26-` / `TRK-2026-` drift is not theoretical.** `CLAUDE.md` §9 says
+   *"a search for `TRK-2026-NNNN` cannot find it. Normalise on sight."* **It just cost
+   this repository a wrong denominator in a file whose entire purpose was to count.**
+2. **`TRK-26-1042` is a full client job, not a stray number.** Nine-plus documents —
+   due-diligence report, violations-and-liens research, a violations log built from a
+   client photo, an actions file, a Cowork scrape job — **and a `TRK-26-1042_LOG.md`,
+   which may well be a second version log.**
+
+**So the headline figure below is unsafe in both directions and should be read as
+"1 of at least 20 TRK-numbered folders, out of 34 folders total."** The gap is wider
+than five percent, not narrower.
+
+**A recount is warranted but was not run tonight** — enumerating 34 folders' contents
+is a night's work, and doing it badly a second time is worse than leaving the
+correction stated plainly.
+
+---
+
+## The count *(as originally written — see the correction above)*
 
 **1 of 19 job folders has a version log. Five percent.**
 

@@ -379,6 +379,35 @@ tree.** So the correct status is not VAPOR and not DONE:
 **That is a different and much smaller task than "never delivered."** The hard part —
 walking a folder, counting, linking, emitting the hashtag block — is finished.
 
+### ⚠ CORRECTION, same night, two hours later — the sentence above is wrong twice
+
+**I wrote "run once" and "no index page." Both are false, and I found it by searching
+the short form instead of the long one.**
+
+**There is an index.** `01-JOBS\_INDEX.html`, generated **2026-08-14 10:14 PM Miami**.
+It is not a stub either — it has a **live filter box** with a running "items shown"
+counter, per-folder file counts and dates, and summary cards. Its header reads:
+
+```
+G:\My Drive\01-JOBS        34 folders · 4 files
+```
+
+**And the generator has been run more than twice** — `_INDEX.html` files exist at four
+separate folder levels, all stamped 2026-08-15, plus a second job tree
+`_JOB-TREE_TRK-TBD.html` alongside the 1042 one.
+
+**So JOB-0026 "MY JOBS JobTree" is substantially delivered.** Both registers call it
+never-delivered; **an hour ago I upgraded that to "built but run once"; it is actually
+built, run repeatedly, and indexed.** The remaining gap is that the per-job trees cover
+two jobs, not thirty-four.
+
+**Three sessions in a row got this wrong in the same direction — by reading the record
+instead of the folder.** That is the finding, more than the job tree is.
+
+**One defect worth carrying:** the second tree is named `_JOB-TREE_TRK-TBD.html`.
+`CLAUDE.md` §9 is explicit — **"`TRK-TBD` is a defect. Assign a real number."** A job
+tree was generated for a job that has no identity.
+
 **Two caveats, both real:**
 
 1. It uses the **`TRK-26-` short form**, the drift named in `CLAUDE.md` §9. A search
