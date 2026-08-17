@@ -160,15 +160,35 @@ logs other people's errors is not an honest one.**
 4. **"200+ Gmail attachments, at least 200."** Twelve true monthly windows sum to **102**.
    A saturated Gmail count is not a floor.
 
-**All four share one cause: I read the record instead of opening the folder.** It is the
+5. **"Orange Tree never started."** Eight unit capsules exist, built August 5 and July 8.
+   See Section G.
+
+**All five share one cause: I read the record instead of opening the folder.** It is the
 same failure this repository exists to catch, and it was mine tonight.
+
+### And that is now the night's real conclusion
+
+**Five separate times tonight, something the board recorded as not-done turned out to
+exist**: the job tree, the all-jobs index, the Excel CRM, three of the eight "vapor"
+items, and now the Orange Tree capsules.
+
+**The backlog is not as empty as the paperwork says.** The board has been recording
+absence where there was work, for the same reason the acknowledgements could not be
+sorted: **nothing writes down what was actually produced.** That is one problem with two
+faces, and it is the same one Section C names.
 
 ---
 
 ## SECTION G — WHAT NEVER STARTED
 
-- **Orange Tree population for Alec** — the desktop moved to jacket orders instead. Still
-  open, ordered four times.
+- **Orange Tree — corrected at 12:20am, and it is the fifth one tonight.** I wrote
+  "never started" here an hour ago. **Eight unit capsules already exist** — units 305,
+  307, 321, 423, 721, 815, 1016 and 1515 — each with its own folder, a detail sheet
+  built August 5, and a contact sheet built July 8. Plus a per-unit index, a capsules
+  index, and an 84-kilobyte PDF index with the searchable sidecar files. **What I
+  cannot confirm from a file listing is whether all ~200 documents are filed into those
+  folders** — capsules existing is not the same as documents filed. **Status: largely
+  built, extent unverified. Not "never started."**
 - **JOB-0079 Section D** — the one unfrozen build. Not begun.
 - **Batch 3 of the register** — your 28 client matters. Waits on you saying *continue the
   register*.
