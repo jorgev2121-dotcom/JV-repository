@@ -189,6 +189,23 @@ faces, and it is the same one Section C names.
   cannot confirm from a file listing is whether all ~200 documents are filed into those
   folders** — capsules existing is not the same as documents filed. **Status: largely
   built, extent unverified. Not "never started."**
+
+  **RESOLVED at 12:50am. I opened three of the eight unit folders.** Each holds five or
+  six files, and they are the same five or six every time: an index, a narrative, a
+  transmittal, a unit sheet, a contact sheet, and in some cases a capsule note.
+
+  **Not one client document. No permits, no PDFs, no county pulls. Zero.**
+
+  **So both stories were true about different halves.** The scaffolding for these units
+  was built **five separate times** — June 10, July 8, August 5, August 11, August 15 —
+  each pass adding another generated layer. **The documents were never moved in, not
+  once.**
+
+  **And that explains why this job kept being reordered.** Filing a client document is a
+  RED action; it needs a person. **Every unattended session did the green work around
+  the hole and stopped at the edge of it.** Four orders produced four rings of
+  scaffolding and no population. **Nobody was avoiding the job. The job's one essential
+  step is the one step an unattended session is not allowed to take.**
 - **JOB-0079 Section D** — the one unfrozen build. Not begun.
 - **Batch 3 of the register** — your 28 client matters. Waits on you saying *continue the
   register*.
