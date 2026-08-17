@@ -1052,3 +1052,63 @@ files that already exist. **Do not propose uninstalling PaperPort.**
 **Low-priority alternative for later:** determine whether the Brother MFC-L3770CDW can
 produce searchable PDFs natively. If it can, the dependency disappears — but that is a
 Tier 2 option to investigate, not a change to make now.
+
+---
+
+## RI-022 — Absence reported from the record instead of the folder
+
+**Status:** OPEN — chronic, and it is the mechanism behind most of RI-002's visible
+symptoms.
+**Severity:** HIGH. It causes finished work to be re-ordered, and it makes the backlog
+look larger than it is.
+
+**First logged 2026-08-17 after it occurred five times in a single night — all five by
+the cloud session doing the logging.**
+
+### The pattern
+
+A register, board or job file says an item was never delivered. **A later session repeats
+that claim without opening the folder. The item exists.**
+
+### The five instances, one night
+
+| Claimed | Reality |
+|---|---|
+| Job-tree dashboard "never delivered" — both register batches | Built. `_JOB-TREE_TRK-26-1042.html`, 2026-08-09 |
+| "No index page over all jobs" — written by me | `01-JOBS\_INDEX.html`, 2026-08-14, with a working filter box |
+| Excel CRM "never delivered. Re-order as a verified job" | Delivered 2026-08-16, 502 rows |
+| Three of eight VAPOR items | Running that night — poller alive on a 5-minute interval |
+| Orange Tree "population never executed" | Scaffolding built **five times**; 46 files across 8 unit folders |
+| *(A sixth, caught before it cost anything)* | *"A ninth unit is missing" — the index says "8 open/no-final Plaza units." There is no ninth* |
+
+### Why it keeps happening, stated precisely
+
+**Registers record intent. Folders record outcome. Nothing reconciles them**, so a
+register entry written truthfully on the day it was written stays true-looking forever,
+long after the folder has changed underneath it.
+
+**This is the mirror image of RI-002.** RI-002 is presence reported without evidence —
+"done" with nothing behind it. **RI-022 is absence reported without evidence** — "never
+done" with something behind it. **Same missing step, opposite direction: nobody checked
+the artifact.**
+
+### What it costs
+
+**It is not harmless bookkeeping.** The Orange Tree job was ordered **four times**. Each
+order produced another ring of scaffolding around work that was already there. **A fifth
+order would have produced a sixth ring.** Re-ordering delivered work consumes exactly the
+capacity the backlog is short of.
+
+### Fix — Tier 3 (enforcement)
+
+**Before writing that something does not exist, open the folder where it would live and
+say which folder you opened.**
+
+Cheap, mechanical, and it caught the sixth instance the same night the first five were
+found. **Any claim of absence in this repository should name the location checked.** A
+claim of absence with no location named is an opinion about a record, not a finding about
+the work.
+
+**Related:** the `TRK-26-` / `TUS-` / `KAR-` drift makes this worse — a folder that does
+not match the search string is indistinguishable from a folder that does not exist. See
+`CLAUDE.md` §9 and TRK-2026-9173.
