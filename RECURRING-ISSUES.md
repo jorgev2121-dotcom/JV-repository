@@ -1187,3 +1187,57 @@ what will decay: any script rewrite, monitor change or profile reset puts it bac
    Reporting on 4 of 5 files in a folder is the folder-vs-record error again.
 
 **Do not, ever, log an owner non-response without evidence the owner saw it.**
+
+---
+
+## RI-024 — Two executors on one output folder, and the collision landed where nobody was watching
+
+**Logged 2026-08-18 by cloud session. TRK-2026-9266.**
+
+**Two Claude Code sessions worked TRK-2026-9250 simultaneously tonight, neither aware of
+the other.** Session A was the window Jorge pasted PASTE-D-009 into. Session B was
+`claude.exe --chrome`, **PID 7856, running unattended since 2026-08-16 16:01** — a session
+nobody knew was still executing jobs.
+
+They wrote property 1 **nine seconds apart, on the same folio, into the same folder.**
+
+### What makes this worth its own entry
+
+**Session A saw the collision, wrote a notice, named the file it would land on, and then
+lost a different file.**
+
+- **Predicted casualty:** `PROOF-5-MASTER_2026-08-17.csv`. **Protected** — Session A wrote
+  its own as `..._SESSION-A.csv`. The prediction worked.
+- **Actual casualty:** the five `<dashed-folio>_DD-REPORT_2026-08-17.html` reports.
+  **Both sessions used that identical filename and neither suffixed it.**
+
+Session B reported its five reports at **5.1–5.5 MB with all images embedded**. The five
+files on Drive are **16,540–23,183 bytes**, modified *after* that report was written.
+**No 18-kilobyte file contains a 1.9-megabyte photograph.**
+
+### The lesson, which is not "check for other sessions"
+
+**A collision was detected, reasoned about, and mitigated — and the mitigation covered one
+filename out of two.** Naming the likely victim is not the same as enumerating every path
+both writers touch.
+
+**Rule: when two writers are found on one folder, the mitigation is to suffix or redirect
+EVERY output path, not the one that looks most contested.** A partial mitigation reads in
+the log exactly like a complete one.
+
+### Second lesson — an unattended session with no owner
+
+**PID 7856 had been running jobs for 32 hours with nobody tracking it.** The heartbeat
+roster does not list interactive `claude.exe` sessions, so a live executor was invisible to
+every monitoring system in this repo.
+
+**Fix tier: Tier 3 — Enforcement.** Any job file naming an output folder must declare its
+full output path list, and a session must claim that folder before writing. **Suppression
+(closing the extra window) is Tier 1 and will recur the next time two windows are open.**
+
+### The one piece of good news, recorded so it is not lost
+
+**The two runs agree on substance** — same owner, same violation rows, same
+not-applicable verdicts, same five Unsafe Structures cases. **Two independent runs
+corroborating each other is stronger evidence than one run asserting confidence.** The
+collision cost a file; it also produced the only cross-check this pipeline has ever had.

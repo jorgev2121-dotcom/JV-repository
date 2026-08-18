@@ -382,3 +382,18 @@ not recorded anywhere — that is itself the problem this file exists to prevent
 | TRK-2026-9263 | 3 register items live at `C:\AI\scripts` / Task Scheduler — GATES panel, intake watcher, downloads sweep | CANNOT-VERIFY-FROM-CLOUD — never call these missing |
 | TRK-2026-9264 | Outbox count settled at **134** at 23:32 ET. Naive count returns 142 — **8 duplicates across the page break** | DONE — de-dup by file ID before any automation |
 | TRK-2026-9265 | Four EXECUTED-WITH-PROOF files opened verbatim for owner review + the 5th file I had never opened | DELIVERED — 3 recommended for approval, JOB-0079-D2 recommended REFUSE |
+
+### Added 2026-08-18 00:25 UTC — overnight desktop results mirrored by cloud
+
+| TRK | Item | Status |
+|---|---|---|
+| TRK-2026-9250 | **The 22-sources proof of concept ran, with images.** 5 of 5 properties, 28 images verified by direct Drive listing, 5 of 5 Unsafe Structures cases confirmed against the county endpoint. Full record in `PROOF-5-CLOUD-VERIFICATION_2026-08-18.md` | DONE — with gaps stated |
+| TRK-2026-9266 | **Silent overwrite: the five DD-REPORT html files.** Two sessions, identical filenames. RI-024 | NEEDS JORGE — pick one window to own PROOF-5 |
+| TRK-2026-9267 | **The five reports are 16–23 KB and cannot hold embedded images.** Emailing one alone will not carry the photographs | BLOCKED — needs one re-run with images embedded or a zip |
+| TRK-2026-9268 | **$61,082.82 in open citations is proven against the OWNER of 11485 Quail Roost Dr, not against the parcel.** Citation address is 11865 SW 206 ST | DO NOT REPORT AS A LIEN until case detail is read |
+| TRK-2026-9269 | **Zoning layer 17 is municipal and returns ZONE=NONE for unincorporated parcels.** County zoning is layer 14 → RU-1. Any past report saying "no zoning" was wrong | CORRECTED in the runner |
+| TRK-2026-9270 | SITE-04 Clerk Official Records — **no deeds, mortgages or liens searched.** Turnstile captcha. Biggest gap in the package | NEEDS ONE SUPERVISED CHROME PASS |
+| TRK-2026-9271 | TASK-11 county proof delivered: **22 of 22 SITE files** in `_CLAUDE-MAILBOX\COUNTY-PROOF-TRK-2026-9078`, plus `_LIVE` and `_ALEC-SWEEP` | MIRRORED — verified by direct listing |
+| TRK-2026-9272 | Jacket hunt TRK-2026-9230 executed; `JACKET-RECONCILE` 12,214 bytes, 3 of 3 checks PASS | DONE — not yet read by cloud |
+| TRK-2026-9273 | Tray launchers TRK-2026-9246 reported built | DONE — not yet read by cloud |
+| TRK-2026-9274 | `claude.exe --chrome` **PID 7856 running unattended since 2026-08-16 16:01**, invisible to the heartbeat roster | NEEDS JORGE — one window to close |
