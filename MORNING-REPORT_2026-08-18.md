@@ -68,9 +68,13 @@ read back to prove nothing broke.
 
 1. **Microfilm on Alec's job: YES-ALL or ASK-PER-ITEM.** Nothing ordered, nothing paid. The
    charter dates microfilm retrieval before 2026-09-05.
-2. **Your 4-digit passcode**, to release a fix that is already built and proven. **Right now
-   0 of 38 job capsules count their documents correctly and 247 real documents are hidden with
-   no warning.** This is the largest single win available and it is one number.
+2. **Your 4-digit passcode. One number releases two finished fixes.**
+   **First:** right now **0 of 38 job capsules count their documents correctly and 247 real
+   documents are hidden with no warning.**
+   **Second:** the checker that proves our work has no way to prove something was *removed*. It
+   can show a sentence is there; it cannot show a wrong one is gone. **Last night's job was a
+   retraction, so that gap mattered for the first time.**
+   **This is the largest single win on the list and it is four digits.**
 3. **Sign in to Outlook once** so we can see what is filing **2,786 emails in 60 days** out of
    your sight. We still do not know what is doing it.
 4. **Which set of the five property reports is the delivery**, and do we package the folder
@@ -325,6 +329,36 @@ subfolders. **I have asked. It is a yes-or-no question and it is not answered ye
 
 ---
 
+## Section M — Added 06:25 UTC. The safety net has a hole where the valuable work sits
+
+**Everything is where it should be. Nothing is lost. But if it went missing, nothing would
+notice.**
+
+The ledger that tracks the outbox **covers 164 files. The folder holds 541.**
+
+**377 files are outside it, and 369 of those are last night's proof of concept** — all five
+client-ready reports, all 103 images, and all 241 raw county responses that sit underneath every
+finding as evidence.
+
+**The reason is simple: the ledger does not look inside subfolders.** So it reads as 164 of 164,
+one hundred percent complete — and it is thirty percent of the folder. **The top level is where
+small files pile up. Depth is where deliverables go.**
+
+**The second uncovered lane is the mailbox** — 96 files including the entire 22-source county
+proof, and the only readable copy of your operating rules.
+
+**Not urgent. Nothing is at risk tonight.** Worth fixing before the next big job, which on this
+week's pace is in the next few days.
+
+### Three of my own numbers were wrong and are corrected
+
+I said the mailbox held 25 files; it holds 96. I said the proof folder held roughly 30 at top
+level; it holds 25. **The image count of 103 was exact.**
+
+**Every one of those corrections came from the other executor measuring instead of agreeing.**
+
+---
+
 ## Denominators
 
 - **5 of 5** properties · **103** images · **5 of 5** Unsafe Structures cases confirmed
@@ -335,7 +369,8 @@ subfolders. **I have asked. It is a yes-or-no question and it is not answered ye
 - **10** decisions waiting on you, **all of them a word or a click**
 - Register batch 2: **8** resolved · **7** absent · **3** out of sight · **9** vapor · **5** proven
 - **167** open items in the register of record — **0** sessions have opened it
-- Reconciler ledgers **4** lanes; **2** more are uncovered
+- Ledger covers **164 of 541** files in the outbox — **369** of the gap is last night's proof of concept
+- Mailbox: **96** files, **0** ledgered
 - Heartbeat baselines recorded: **3 of 3** components, first time ever
 
 **Nothing was filed, moved, renamed or deleted overnight.**
