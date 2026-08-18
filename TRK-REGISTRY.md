@@ -325,3 +325,39 @@ subtraction, and it belongs with the orphan sweep rather than the registry surve
 the previously observed 1536 and 1611. **The stated range is out of date; this is the third
 confirmed number above it.** Reconcile before issuing anything new — the +3 increment cannot be
 trusted against a ceiling that three live numbers already exceed.
+
+---
+
+## TRK-2026-9336 and TRK-2026-9337 — THE TWO EXECUTOR WINDOWS (admin band)
+
+**Issued 2026-08-18 on Jorge's order: number the pair so neither can go missing again.**
+
+### TRK-2026-9336 — THE CLOUD WINDOW (this one)
+
+| | |
+|---|---|
+| **URL — bookmark this** | `https://claude.ai/code/session_01Pw9Z5c6w57prm2rnfa3Wvu` |
+| Session title | `TRK-2026-9336 · CLOUD EXECUTOR · #JorgeValdes #CU-Inspections #cloud-window` |
+| What it is | Claude Code on the web, Fable, connected to the repo and Google Drive |
+| How to find it if lost | claude.ai/code → session list → search **TRK-2026-9336** · or search this repo or Drive for the number |
+
+### TRK-2026-9337 — THE DESKTOP EXECUTOR WINDOW
+
+| | |
+|---|---|
+| **No URL exists** | It is a terminal on the machine, not a website |
+| How to open it | **The beige tray launcher** (TRK-2026-9246) |
+| How to find it if lost | Search this repo or Drive for **TRK-2026-9337** → this card names the launcher path |
+
+### The three locks, per window
+
+**Cloud (9336):** ① the number is in the session's own title, so the claude.ai list shows it ·
+② this registry card in the repo · ③ a twin card in Drive `_CLAUDE-MAILBOX` — three
+independent places, any one recovers the URL.
+
+**Desktop (9337):** ① launcher pinned to the tray · ② the shortcut file set read-only with a
+backup copy beside it · ③ a logon task that re-creates the launcher if it is ever missing —
+the self-healing lock, because pins and files decay and a re-creator does not.
+**Locks ①–③ are physical and are the desktop's to install — queued as TRK-2026-9337-LOCKS.**
+
+#JorgeValdes #CU-Inspections #cloud-window #desktop-window #executor-pair #TRK-2026-9336 #TRK-2026-9337 #find-my-window
