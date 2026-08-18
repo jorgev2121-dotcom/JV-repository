@@ -1700,3 +1700,37 @@ summary: `08:48 WOULD MOVE 0 (Days=60)` vs `08:55 WOULD MOVE 22 (Days=120)`.
 **The rule, again: a "zero result" is only as true as the filter it was measured under.
 State the setting next to the number, every time.** My mirror quoted the number without the
 setting, and the record briefly told the next session the button was spent when it was not.
+
+### RI-023 RECURRENCE 2026-08-18 19:10 — the ask windows were off-screen AGAIN, and it explains the "no response" click
+
+**Both owner-action windows were parked on DISPLAY2 (x −1920→0), the monitor Jorge cannot see**,
+measured at 15:05: STOP THE INTERRUPTIONS at −1919,8 and MAIL RESCUE at −963,8. The 11:05
+register had verified STOP THE INTERRUPTIONS *self-placing at 5,55 on the primary* — **it was
+verified, then it moved and resized (610x840 → 962x1071).** Cause not identified.
+
+**FancyZones is running on this machine and its whole job is moving windows — named as the
+first thing to check, not accused.** This is the same x=−963 coordinate as the original RI-023.
+
+**Desktop fix:** both windows moved to the visible monitor (STOP THEM at 5,55; MAIL RESCUE at
+1298,55), clear of the Claude chat, `SWP_NOACTIVATE` so no focus stolen. Screenshotted.
+
+### RI-030 — a window is only as fresh as the file it was launched from
+
+**TRK-2026-9377, resolved.** Jorge clicked MAIL RESCUE and saw "no response." The window he
+clicked (`mshta` PID 228912) was **launched 2026-08-17 21:03:56**; the file was **edited
+2026-08-18 08:54:18** — the window was **11 hours older than its own source.** Its face still
+read "2,786 emails / BRING BACK MY 116 / last 60 days"; the file on disk said DAYS=120 / 22.
+
+**An HTA is a snapshot taken at launch. Editing the file does not touch the running window —
+and `SINGLEINSTANCE="yes"` means relaunching silently re-activates the stale one instead of
+loading the fix.** So we "delivered a fix" to a file while the stale window sat on screen.
+
+**This is RI-025's shape at the UI layer, and the cloud's own line names it:** *a zero result
+is only as true as the filter it was measured under — and a window is only as true as the file
+it was launched from.* **Rule: after editing a script that has a live window, kill and relaunch
+the window, then read its face back — the file changing is not the window changing.**
+
+**Third case, neither of us had it: not "button failed," not "never pressed" — "button worked
+perfectly and would have done the wrong thing" (the stale Days=60 button returns 0 because the
+113 already came back).** Desktop killed the stale window and relaunched from the corrected
+file; its face now reads 3,116 / 22, screenshotted.
