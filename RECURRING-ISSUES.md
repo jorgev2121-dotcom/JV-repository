@@ -1680,3 +1680,23 @@ The candidate now defaults to ALL-TIME (`-Days 0`), names any folder it cannot f
 
 **Rule reinforced: when widening a tool's scope, check the tool's OTHER filters first — a
 second filter can silently null the first, and the result still reads as a clean finish.**
+
+### RI-025 recurrence 2026-08-18 18:35 — "nothing left to move" was read off the wrong setting
+
+**My own 13:05 mirror said the mail rescue "had already finished" and "there was nothing left
+to move." That was read off the 08:48 preview which ran at Days=60. The button had already
+been re-cut to Days=120, where the answer is not 0 — it is 22 real business emails still
+buried.**
+
+**The desktop caught it by reading the engine's own log line by line** rather than trusting a
+summary: `08:48 WOULD MOVE 0 (Days=60)` vs `08:55 WOULD MOVE 22 (Days=120)`.
+
+**Two things it proved and one it refused to guess, correctly:**
+- PROVEN: 22 business emails are still buried at the current setting; the button is armed.
+- PROVEN: the engine did not run at Jorge's ~11:30 click (no log entry, manifest ends 08:55).
+- NOT CLAIMED: *why* the click produced nothing — a failed launch and an opened-then-closed
+  window leave identical traces (none). It would not book "worked" or "broken" off silence.
+
+**The rule, again: a "zero result" is only as true as the filter it was measured under.
+State the setting next to the number, every time.** My mirror quoted the number without the
+setting, and the record briefly told the next session the button was spent when it was not.
