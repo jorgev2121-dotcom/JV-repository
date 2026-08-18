@@ -137,6 +137,24 @@ enough. **Nothing was applied and nothing was touched to prove it.**
 - **Gmail is a billing mailbox. The work arrives in Outlook.** The largest single sender is
   OneDrive's automated photo emails — **17 of 100.**
 
+
+**The job folders, counted properly at last**
+
+- **39 folders. Three are system folders. Thirty-six are jobs.** That number has been reported
+  wrong three times this week — as 19, then 34, then 38. **All three were honest counts of
+  different things, and none of them said which thing.**
+- **Seven different naming schemes are in use**, plus one folder with no number at all.
+- **Eight of the thirty-six say `TRK-TBD`** — more than a fifth have a placeholder where the
+  identity should be.
+
+**And one rule of yours is not being followed.** Numbers are supposed to jump by three, so a
+client cannot work out how many jobs you run. **Nine of them jump by one.** Five in a row were
+issued in a single sitting on July 31 — **which tells a reader exactly what the rule exists to
+hide.** Three times, on three dates.
+
+**Worth one decision from you: enforce it, or retire it.** A rule that is written down and not
+followed is worse than no rule, because everyone assumes it is protecting them.
+
 **The old work register**
 
 - **8 items resolved. Six of the eight already existed under a name nobody had searched for.**
