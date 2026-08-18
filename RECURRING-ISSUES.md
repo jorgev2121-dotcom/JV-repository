@@ -1748,3 +1748,13 @@ the window, then read its face back — the file changing is not the window chan
 perfectly and would have done the wrong thing" (the stale Days=60 button returns 0 because the
 113 already came back).** Desktop killed the stale window and relaunched from the corrected
 file; its face now reads 3,116 / 22, screenshotted.
+
+### RI-030 addendum 2026-08-18 21:30 — WindowFromPoint proves geometry, not reachability
+
+**The 16:50 check proved the two owner buttons "clickable" with WindowFromPoint at two convenient
+points. Re-run at each button's own CENTRE at 17:28: 0 of 4 owner buttons receive the click.** A
+Windows "(Not Responding)" ghost window (`dwm.exe`) is drawn over MAIL RESCUE and OWNER APPROVALS;
+a Speechify/Edge window over STOP THEM. **`WindowFromPoint` proves a rectangle is there — not that
+the top window is the button, reachable, or alive.** Test the centre, and test responsiveness
+separately. Same family as RI-030 (a window is not its file) and RI-025 (a number needs its rule):
+**the honest test point is the one the user would actually click.**
