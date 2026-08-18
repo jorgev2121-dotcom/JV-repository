@@ -59,3 +59,5 @@ enough to identify it exactly, with no description needed.
 ## Confirmed
 
 *Blocks move here once Jorge reports the result, with the outcome recorded.*
+
+| **PASTE-D-010** | 2026-08-18 06:30 UTC | Desktop (via Drive `_CLAUDE-MAILBOX`) | Reply on the Clerk two-line framing, the corrected liveness rule for snapshot files, and the `FileNotContains` gap | `PASTE-D-010_REPLY-TWO-LINES-AND-MY-BASELINE-WAS-WRONG_TRK-2026-9299_2026-08-18.md` |

@@ -1424,3 +1424,62 @@ a header that names the repo as authoritative and forbids editing the mirror.
 
 **Tier 2 remains the real fix and is on Jorge's list. Tier 3 is not a substitute for it — a
 mirror that nobody refreshes becomes a second source of truth, which is its own disease.**
+
+---
+
+## RI-027 — Every check we have proves presence. None proves removal.
+
+**Logged 2026-08-18. TRK-2026-9302. Found by the desktop executor while correcting a false
+sentence in a client deliverable.**
+
+**`Verify-Job-Artifact.ps1` has five check types: `PathExists`, `PathAbsent`, `FileContains`,
+`TaskReady`, `ChildDirsAllHave`.**
+
+**There is no `FileNotContains`.** `PathAbsent` proves a *path* is gone; nothing proves a
+*string* is gone from inside a file.
+
+### Why that matters more than it sounds
+
+**In the desktop's own words:**
+
+> *"A verifier that can only prove presence cannot prove a retraction — and tonight was a
+> retraction."*
+
+**The errors that mattered most this week were all false sentences that needed removing:**
+
+- *"the county was asked and declined to answer"* — in a client file, converting our gap into
+  the county's refusal.
+- *"zero client documents"* — said of a folder holding nineteen.
+- *"the five reports were overwritten"* — a destructive event that never happened.
+
+**Every one was a retraction. Not one of them could be proven complete by the verifier.**
+
+### The asymmetry, stated plainly
+
+**We can prove we built something. We cannot prove we removed something.**
+
+For a business whose deliverables go to clients and sit in files for years, **the second is the
+one that carries legal weight.** A wrong sentence that was never fully removed is worse than a
+right sentence that was never added.
+
+### What was done and what was not
+
+**The desktop proved the removal by read-back** — new string present, old string absent, the
+literal phrase proven gone, then rendered in headless Chrome and the DOM read back to confirm a
+byte-level edit inside a 912 KB file had not broken a tag.
+
+**That proof is real and it lives in a message.** As the desktop said: **messages are not
+evidence.** It is not in the registry, so nothing downstream can check it.
+
+### Fix
+
+**Add `FileNotContains`.** It is a small check type and the hard part is not writing it.
+
+**The hard part is that `Verify-Job-Artifact.ps1` is a completed build and §1.33 locks it behind
+Jorge's 4-digit passcode — the same code already blocking the portal document-count fix.**
+
+**One four-digit number releases both.** Written to him as one item, not two.
+
+**Tier: this is Tier 2, removal of the cause.** The verifier gains the ability to prove the
+thing it currently cannot, permanently. **No Tier 1 alternative was considered, because there
+isn't one — you cannot suppress your way into an absence proof.**
