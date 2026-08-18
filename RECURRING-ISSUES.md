@@ -1483,3 +1483,65 @@ Jorge's 4-digit passcode — the same code already blocking the portal document-
 **Tier: this is Tier 2, removal of the cause.** The verifier gains the ability to prove the
 thing it currently cannot, permanently. **No Tier 1 alternative was considered, because there
 isn't one — you cannot suppress your way into an absence proof.**
+
+---
+
+## RI-028 — Three layers of liveness test, and all three were wrong at once
+
+**Logged 2026-08-18 08:15 UTC. TRK-2026-9311.**
+
+**In six hours, three separate liveness tests were found to be producing confident wrong
+answers about the same components. They were found in order, each one exposing the next.**
+
+### Layer 1 — my baseline rule (found 06:15, mine)
+
+I wrote that a component proves life by its **output file growing** and recorded the reconciler
+at 464 bytes. **An hour later it was 444.** It is a snapshot file that overwrites itself; it can
+never grow. **My rule would have declared a healthy reconciler dead on its second reading.**
+
+**Fixed:** state the file type first — append log (size grows), snapshot (`modifiedTime`
+advances), per-item output (file count grows).
+
+### Layer 2 — the reconciler's own stale list (found 07:24, by the desktop)
+
+**The reconciler reports `Stale components (>20 min): UNATTENDED-EXECUTOR (401m),
+JOB-VERIFIER (92m)`. Both are false, and it has been saying so every thirty minutes for days.**
+
+- **`UNATTENDED-EXECUTOR` is a passive record, not a heartbeat.** Its own roster note says
+  *"NO watchdog re-starts this — the entry records the process, it does not monitor it. Stale
+  last_run means nothing refreshed it."* **It can only ever age.**
+- **`JOB-VERIFIER` is event-driven.** It is idle because no job asked for it.
+
+**The roster has no field distinguishing `heartbeat` from `record` from `on-demand`, so the
+staleness test is applied to entries where age carries no information.** A warning that fires
+on two healthy components twice an hour is not a warning; it is background noise that will hide
+the real death when it comes.
+
+### Layer 3 — my own measurement channel (found 08:10, mine again)
+
+**I have been checking the reconciler's liveness by reading its report's `modifiedTime` in
+Drive. Four observations: 04:40, 05:40, 06:40, 07:40 UTC — exactly hourly.**
+
+**The reconciler declares a 30-minute cadence, and the desktop measured it on disk at 07:21 UTC
+as "11 min since last run" — implying a 07:10 run that never reached Drive.**
+
+**So my liveness check is not measuring the reconciler. It is measuring Drive sync**, which
+appears to lag or coalesce, and can drop an entire run from the cloud's view.
+
+**Stated as an observation, not a verdict:** both explanations fit — Drive sync coalescing, or a
+missed run. **A fourth data point at hourly spacing cannot distinguish them, and I am not going
+to pick one.** The run counter now staged resolves it permanently: a monotonic number that jumps
+by 2 tells you a run was skipped in transit; one that stops tells you the reconciler stopped.
+
+### The general lesson, which is the point of this entry
+
+**Every one of the three was a test that returned a well-formed answer instead of an error, and
+each was only found because something else was being checked.**
+
+**Rule: a liveness test must state what it is actually measuring, not what it is named after.**
+Mine was named "is the reconciler alive" and was measuring Drive sync. The reconciler's was named
+"stale components" and was measuring age on entries where age is meaningless.
+
+**Related:** RI-002 (a process in the task list is not a run making progress) and RI-025 (a
+number true of a rule nobody wrote down). **RI-028 is what happens when RI-002's fix is written
+without RI-025's discipline.**
