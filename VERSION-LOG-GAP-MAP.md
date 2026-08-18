@@ -1,5 +1,15 @@
 # VERSION-LOG-GAP-MAP.md — TRK-2026-9103
 
+> ## ⚠ SUPERSEDED 2026-08-18 — see `VERSION-LOG-CENSUS-DEFINITIVE_2026-08-18.md`
+>
+> **Both denominators in this file are wrong. The real answer is 1 of 36.**
+>
+> A single Drive-wide search found **exactly one version log in existence**, and it does not
+> carry the charter's filename. **Zero files anywhere are named `_VERSION-LOG.md`.**
+>
+> **The recommendation in this file — do not bulk-create them — stands and is stronger at 35
+> than it was at 19.** Everything else here is superseded.
+
 **Counted by a cloud session overnight 2026-08-16 by enumerating Google Drive
 directly. Read-only. Nothing filed, moved or renamed.**
 
