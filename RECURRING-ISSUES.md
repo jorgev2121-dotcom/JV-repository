@@ -68,6 +68,17 @@ settings survive more Windows updates.
 **Next action:** desktop Claude Code session to inventory Task Manager → Startup and
 installed updaters, then execute Tier 2, then write the Tier 3 scheduled task.
 
+- 2026-08-18 — **Jorge issued a direct challenge and supplied two facts that narrow this
+  hard: the interruptions fire every 3–5 minutes (a timer, not an accident), and keys are
+  MISSED with brief freezes (the input queue stalls — not mere misdirected focus).** Full
+  deep dive in `ROOT-CAUSE_RI-001-POPUP-KEYBOARD_2026-08-18.md`. The catch-the-thief trap
+  job is queued to the desktop as TRK-2026-9331: find the forgotten spy's logs first, then
+  a one-working-day foreground logger + scheduled-task census (repetition ≤ 10 min) + USB
+  re-enumeration events + keyboard-hook roster, plus the three never-executed Tier 2 fixes
+  (`/cleanreminders`, RI-006 launcher, RI-021 PaperPort) and `-WindowStyle Hidden`
+  verification on every VTES launch. **The forgetting step is where all twelve prior
+  repairs died; this entry is the anti-forgetting.**
+
 ---
 
 ## RI-002 — False completion reports
