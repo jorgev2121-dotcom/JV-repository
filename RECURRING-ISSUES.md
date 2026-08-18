@@ -78,6 +78,15 @@ installed updaters, then execute Tier 2, then write the Tier 3 scheduled task.
   (`/cleanreminders`, RI-006 launcher, RI-021 PaperPort) and `-WindowStyle Hidden`
   verification on every VTES launch. **The forgetting step is where all twelve prior
   repairs died; this entry is the anti-forgetting.**
+- 2026-08-18, 10:35 ET — **THE THIEF IS NAMED.** Three independent witnesses — the forgotten
+  Focus-Spy (1,957 steals), Focus-Keeper (3,049 rescues, one per 1.14 min), and the live
+  trap (steal caught in 14 minutes) — all converge: **the PowerShell console class, opened
+  by our own scheduled-task fleet.** 23 timers ≤10 min, 8 on the exact 3–5 min cadence.
+  Hardware ruled out (0 USB events/48h). Stall detector caught the freeze itself: 1.2–1.5 s
+  stalls, six of seven with a PS console foreground, one continuing after focus returned —
+  the vanished-letters mechanism. Full record: `RI-001-THIEF-NAMED_2026-08-18.md`.
+  **Remaining: which timers. Six-hour table ~16:30 ET; Task Scheduler history needs Jorge's
+  one command to make it provable.**
 
 ---
 
