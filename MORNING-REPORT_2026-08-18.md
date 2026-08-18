@@ -23,23 +23,44 @@ the rulebook.**
 
 ---
 
-## Section B — The single most important decision, and it is free
+## Section B — The most important decision, and it is not one click
 
-**Sign in to the Clerk of Court's Official Records site. One click, no cost.**
+**Get signed in to the Clerk of Court's Official Records site. Check 1Password first — you may
+already have an account.**
 
-**Why it is first:** it is the only thing standing between Alec's report and the mortgages,
-liens, judgments and deed chain — **the category he is actually paying to have checked.** His
-site inspection is **Friday 2026-08-21 at 3:30 PM.**
+**Two lines, because the size of this depends on something only you can check:**
 
-**Everything else on that job is done.** This is one free sign-in, not a technical decision and
-not an afternoon's work.
+1. **If you already have a Clerk account, this is a login. One minute.**
+2. **If you do not, it is a registration** — open the page, choose *Individual*, type your email,
+   press one button, then finish whatever the confirmation email asks. **Call it a few minutes,
+   not a click.**
 
-**What we will do without it:** deliver Friday stamped **PRELIMINARY**, with Official Records
-recorded as **NOT SEARCHED**, never as *"the county declined to answer."* **The Clerk did not
-decline. We did not sign in.** That distinction stays in the file so the question can be
-re-opened; the invoice follows the FINAL, not the preliminary.
+**I originally wrote "one free sign-in, one click" in this report. That was wrong and it is
+corrected here.** The desktop fetched the actual page at 1:26 AM and measured it: there are two
+flows on it, and only one of them is a click. **Writing "one click" would have been an owner
+action dressed smaller than it is — the exact defect we spent last night removing from Alec's
+report.**
 
----
+**One honest caveat, and I would rather say it now than have you hit it:** the county's own page
+says registering clears the search limits, and that claim was verified. **But the registration
+benefits also mention paid "Units" for advanced searches.** A free account should clear the
+standard search, which is what the deed chain and liens need. **It has not been proven that the
+free tier reaches everything, and nobody is going to promise you "free" and then have you hit a
+paywall.**
+
+### Why it is still the first item
+
+It is the only thing standing between Alec's report and the **mortgages, liens, judgments and
+deed chain** — the category he is paying to have checked. **His site inspection is Friday
+2026-08-21 at 3:30 PM.** Everything else on that job is done.
+
+**What happens without it:** the job ships Friday stamped **PRELIMINARY**, with Official Records
+recorded as **NOT SEARCHED — requires a Clerk sign-in.**
+
+**That sentence is now in the client file, and the false one is out.** It previously read *"the
+county was asked and declined to answer"* — which was untrue. **The Clerk never declined. We
+never signed in.** The correction was made overnight, byte-verified, and the page rendered and
+read back to prove nothing broke.
 
 ## Section C — Everything else you have to decide, cheapest first
 

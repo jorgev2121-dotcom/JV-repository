@@ -15,7 +15,7 @@
 
 | Component | Output file | Size | Timestamp | Cadence |
 |---|---|---|---|---|
-| **RECONCILER** | `VTES-Outbox\RECONCILER-REPORT_20260818.md` | **464 bytes** | 04:40 UTC | 30 min |
+| **RECONCILER** | `VTES-Outbox\RECONCILER-REPORT_20260818.md` | **444 bytes** | 05:40 UTC | 30 min |
 | **UNATTENDED-EXECUTOR** | roster entry only | — | 251 min stale at 04:40 | none — `green-unmonitored` |
 | **JOB-VERIFIER** | `checks.json` / EXECUTED-WITH-PROOF files | 27 checks | last run 19:55 ET | on demand |
 
@@ -57,3 +57,32 @@ ledger and would not be noticed if it vanished.**
 of a rule nobody wrote down.**
 
 #TRK-2026-9300 #NightProtocol #RI-002 #RI-025 #JorgeValdes #CU-Inspections
+
+
+---
+
+## ⚠ CORRECTION 2026-08-18 06:15 UTC — the growth rule does not apply to this file
+
+**Measured at 05:40: the reconciler report is 444 bytes. At 04:40 it was 464. It SHRANK.**
+
+**It is not a hang. It is a snapshot file** — each run overwrites it with the current state, so
+its size tracks how many components are stale, not how much work was done. **It can never grow
+by design.**
+
+**My baseline rule as originally written would have declared a healthy reconciler hung on its
+second reading.** That is the same class of error as everything else logged tonight: a test that
+returns a confident wrong answer instead of an error.
+
+### The rule, corrected — check the right thing per file type
+
+| File type | Liveness test |
+|---|---|
+| **Append log** (`_LEDGER.csv`, transcripts) | **Size must grow.** Same size 3 cycles = hung. |
+| **Snapshot** (`RECONCILER-REPORT_*.md`, roster JSON) | **`modifiedTime` must advance.** Size is meaningless. Same timestamp 3 cycles = hung. |
+| **Per-item output** (`EXECUTED-WITH-PROOF_*`) | **Count of files must grow** while a run is active. |
+
+**The reconciler is a snapshot: its `modifiedTime` advanced 04:40 → 05:40 on a 30-minute
+cadence. It is alive. Its size is not evidence of anything.**
+
+**Before applying a liveness test, state which of the three kinds of file you are testing.**
+Applying the wrong test is worse than applying none, because it produces a confident verdict.
