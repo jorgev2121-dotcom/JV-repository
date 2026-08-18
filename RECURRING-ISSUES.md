@@ -1634,3 +1634,33 @@ Drive-sync diagnosis, and the desktop's own repetition of my "never reached Driv
 word without asking Drive.
 
 **Every one was found by checking something else. Not one was found by the test failing.**
+
+---
+
+## RI-029 — Windows reports a dead printer as "Ready"
+
+**Logged 2026-08-18. TRK-2026-9374.** The fifth instance this week of RI-025's shape — an
+error dressed as a success — and the first to threaten a client-facing deadline.
+
+**Jorge's default printer, `Brother MFC-L3770CDW` at 192.168.1.80, is off the network** —
+ping fails, all ports (9100/80/443/631/515) fail, absent from the ARP table on the same
+subnet. **Windows reports it `PrinterStatus 3 / WorkOffline False / DetectedErrorState 0` —
+"Ready."**
+
+**A job sent there spools, sits, and prints nothing while every status surface says green.**
+Jorge would have stood at an empty tray believing "Claude printed it."
+
+**Caught because the desktop pinged the printer instead of trusting Windows' status.** It
+printed to the reachable `MFC-8890DW` (mono) and *said so* rather than swapping silently.
+
+**The rule: never report a print as done from a spooler `printed` count or a "Ready" status.
+Confirm the target device answers on the network first, and state the one thing software
+cannot see — paper in the tray — as unverified.**
+
+**Fix tier: Tier 2 for the device (power it on / fix its network), Tier 3 for the process
+(a pre-print reachability check).** Both belong to the desktop; the L3770's actual state is a
+Jorge question — is it supposed to be alive?
+
+**Same family:** RI-025 (a number true of a rule nobody wrote down), RI-001 (the "hidden"
+flag that doesn't hide), the permit gate re-rendering its menu. **Software's self-report of
+its own success is the least trustworthy signal on the machine.**
