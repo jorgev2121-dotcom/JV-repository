@@ -65,6 +65,11 @@ the client file as of last night.
 
 **All three are already written and staged behind one switch. You type four digits once.**
 
+**The third one was proven overnight before asking you for anything** — five tests, including
+the one that matters: **a component that really had stalled was still reported.** A quiet alarm
+is also what a completely broken alarm produces, so "it went quiet" was never going to be
+enough. **Nothing was applied and nothing was touched to prove it.**
+
 ---
 
 ## Section D — Everything else, cheapest first
