@@ -1545,3 +1545,54 @@ Mine was named "is the reconciler alive" and was measuring Drive sync. The recon
 **Related:** RI-002 (a process in the task list is not a run making progress) and RI-025 (a
 number true of a rule nobody wrote down). **RI-028 is what happens when RI-002's fix is written
 without RI-025's discipline.**
+
+### RI-028 CORRECTION 2026-08-18 09:15 UTC — layer 3 was wrong too. The bottom is aliasing.
+
+**Layer 3 above says my liveness check was measuring Drive sync, and offers "Drive coalescing"
+or "a missed run" as the two candidate explanations. Both are wrong. There is a third and it
+needs neither.**
+
+**The reconciler did not miss a run. Its own log shows twenty consecutive completions across
+nine and a half hours — 18:40, 19:10, 19:40 … 04:10 ET — every thirty minutes, zero gaps.
+Scheduled task result 0, next fire armed.**
+
+**And Drive did not drop anything.** Read through the Drive API rather than the mounted folder,
+the report's own server-side fields are `createdTime 04:10:07Z` and `modifiedTime 08:10:21Z` —
+**both of them `:10` runs, one uploaded ten seconds after it was written.** If Drive
+systematically dropped the `:10` writes, neither timestamp could exist.
+
+### The actual cause: **aliasing**
+
+**I sampled once an hour. The writer runs every thirty minutes.** A sampler slower than its
+subject sees exactly one of the two runs and always the same one.
+
+**My four observations at 04:40, 05:40, 06:40, 07:40 were not evidence that the writer is
+hourly. They are the signature of an hourly sampler.**
+
+**Three diagnoses, each one a correction of the last, and the third was still not the bottom:**
+
+1. *"The output file must grow"* — wrong; it is a snapshot.
+2. *"I am measuring Drive sync"* — wrong; Drive delivered every write.
+3. **The test was measuring my own poll interval.**
+
+### The rule, extended — this is the durable part
+
+**A liveness test must state its sampling period alongside what it measures.**
+
+**A sample slower than the thing it samples cannot see that thing's rate at all. It can only
+report its own.** Every number such a test produces will be well-formed, stable, reproducible
+and about the wrong subject.
+
+**The honest limit, kept from the desktop's note:** one server-side observation proves a `:10`
+run *can* reach Drive in ten seconds. It does not retro-prove that every past `:10` write did.
+**Which is why the run counter still ships** — a monotonic number that jumps by two separates
+transit loss from a stopped writer permanently, and no amount of timestamp-reading from either
+side ever will.
+
+### Tally for this entry
+
+**Four wrong liveness answers in eight hours** — my growth rule, the reconciler's stale list, my
+Drive-sync diagnosis, and the desktop's own repetition of my "never reached Drive" claim on my
+word without asking Drive.
+
+**Every one was found by checking something else. Not one was found by the test failing.**
