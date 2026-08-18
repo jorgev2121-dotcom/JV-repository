@@ -87,6 +87,14 @@ installed updaters, then execute Tier 2, then write the Tier 3 scheduled task.
   the vanished-letters mechanism. Full record: `RI-001-THIEF-NAMED_2026-08-18.md`.
   **Remaining: which timers. Six-hour table ~16:30 ET; Task Scheduler history needs Jorge's
   one command to make it provable.**
+- 2026-08-18, 10:54 ET — **CONVICTED, by name: CU-Bus-Dispatcher (2.9 s) and CU-Records-Watch
+  (4.3 s), command lines captured.** The killer fact: **`-WindowStyle Hidden` does not stop
+  the console being created — it is created, takes foreground, then hides.** Twelve repairs
+  added a flag that cannot work. 51 tasks launch shells directly; the 19 using
+  `Run-Hidden.vbs` took zero foreground — a live control group. Fix = wrap the four 3–5 min
+  offenders (Tier 2: the console never exists), Jorge's click. **Closure requires tomorrow's
+  before/after table showing the cadence families gone — not the click.** See
+  `RI-001-CONVICTION_DIR-0041_2026-08-18.md`.
 
 ---
 
