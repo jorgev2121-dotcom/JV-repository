@@ -7,6 +7,25 @@ desktop, and I have confirmed it against Drive myself rather than believing the 
 
 **But it did not come out clean, and the part that is wrong is the part he would notice first.**
 
+
+> ## ⚠ CORRECTION — 2026-08-18 01:10 UTC. SECTION B BELOW IS WRONG.
+>
+> **There was no overwrite. No data was lost. I reported a loss that did not happen.**
+>
+> The two sessions used **different folio formats** in their filenames — session A wrote
+> `30-6006-001-0700_DD-REPORT…` (dashed), session B wrote `3060060010700_DD-REPORT…`
+> (undashed). **Both sets exist side by side, intact.**
+>
+> **My error:** I listed `PROOF-5` at 00:15 UTC and did not see the 5 MB reports. They were
+> written at 00:19–00:27 UTC — **after I looked.** I read a folder mid-write, saw the small
+> files, and declared the large ones destroyed.
+>
+> **That is RI-022 again, in a folder I had just been told had a live writer in it.** I did
+> the one thing this repo exists to stop: I turned "I could not see it" into "it is gone."
+>
+> **Section C onward stands. Section B's collision finding does not.** The real defect is in
+> the corrected Section B2 immediately below it.
+
 ---
 
 ## Section A — What is provably on disk
@@ -54,6 +73,36 @@ unless the `06-IMAGES` folder travels with it.
 **What I cannot determine from the cloud:** whether the 5 MB embedded versions existed and were
 overwritten at 00:01, or whether the 5 MB figure was never accurate. **Both are consistent with
 what I can see. I am not going to pick one and call it fact.**
+
+## Section B2 — The real defect, which is worse and which I had backwards
+
+**Found by desktop session C by counting `<img>` tags and base64 payloads in every report,
+against the PNGs actually on disk for each folio.**
+
+| Report | Size | `<img>` tags | Embedded | Images on disk for that folio |
+|---|---|---|---|---|
+| 3060060010700 (session B) | 5,199,775 B | **1** | 1 | **24** |
+| 3059330330170 (session B) | 5,313,689 B | **1** | 1 | **28** |
+| 3031280110800 (session B) | 5,172,761 B | **1** | 1 | **15** |
+| 30-6006-001-0700 (session A) | 21,091 B | 5 | 0 | 24 |
+| 30-5933-033-0170 (session A) | 16,971 B | 5 | 0 | 28 |
+
+**A 5.2 MB report does not contain nineteen photographs. It contains one.** The single payload
+is 5,178,076 base64 characters — one PNG, the 3.8 MB `gis-aerial-with-parcel-outline`,
+re-encoded. **That is the entire 5 MB.** The other 23 images appear in no report at all.
+
+**"5.1 MB, images embedded" is true only in the singular.** The size went up, so nobody
+checked what the size was made of.
+
+**Both halves are defective, in opposite directions:**
+
+- **Session A** — the right five pictures, **none of them travelling with the file.** My
+  broken-slot prediction was correct for these five, and session C confirmed it after
+  correcting its own regex (the files use single-quoted `src='…'`).
+- **Session B** — self-contained, but **1 picture of 24.**
+
+**Neither set is emailable to a client as it stands.** One fix, after the live run ends:
+embed all N images per report, verified by comparing tag count to disk count per folio.
 
 ---
 

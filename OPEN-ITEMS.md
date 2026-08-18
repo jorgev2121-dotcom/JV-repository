@@ -388,12 +388,15 @@ not recorded anywhere — that is itself the problem this file exists to prevent
 | TRK | Item | Status |
 |---|---|---|
 | TRK-2026-9250 | **The 22-sources proof of concept ran, with images.** 5 of 5 properties, 28 images verified by direct Drive listing, 5 of 5 Unsafe Structures cases confirmed against the county endpoint. Full record in `PROOF-5-CLOUD-VERIFICATION_2026-08-18.md` | DONE — with gaps stated |
-| TRK-2026-9266 | **Silent overwrite: the five DD-REPORT html files.** Two sessions, identical filenames. RI-024 | NEEDS JORGE — pick one window to own PROOF-5 |
-| TRK-2026-9267 | **The five reports are 16–23 KB and cannot hold embedded images.** Emailing one alone will not carry the photographs | BLOCKED — needs one re-run with images embedded or a zip |
+| TRK-2026-9266 | ~~Silent overwrite of the five DD-REPORT html files~~ **WITHDRAWN 2026-08-18 — no overwrite occurred.** Different folio formats; all ten files intact. My error: read the folder mid-write. See RI-024 correction | CORRECTED — claim withdrawn |
+| TRK-2026-9267 | **Neither report set is emailable.** Session A: 5 relative-path images, all break when sent alone. Session B: 5.2 MB but **1 embedded image of 24** — the size is one big aerial | BLOCKED — one embedding job after the live run ends |
 | TRK-2026-9268 | **$61,082.82 in open citations is proven against the OWNER of 11485 Quail Roost Dr, not against the parcel.** Citation address is 11865 SW 206 ST | DO NOT REPORT AS A LIEN until case detail is read |
 | TRK-2026-9269 | **Zoning layer 17 is municipal and returns ZONE=NONE for unincorporated parcels.** County zoning is layer 14 → RU-1. Any past report saying "no zoning" was wrong | CORRECTED in the runner |
 | TRK-2026-9270 | SITE-04 Clerk Official Records — **no deeds, mortgages or liens searched.** Turnstile captcha. Biggest gap in the package | NEEDS ONE SUPERVISED CHROME PASS |
 | TRK-2026-9271 | TASK-11 county proof delivered: **22 of 22 SITE files** in `_CLAUDE-MAILBOX\COUNTY-PROOF-TRK-2026-9078`, plus `_LIVE` and `_ALEC-SWEEP` | MIRRORED — verified by direct listing |
 | TRK-2026-9272 | Jacket hunt TRK-2026-9230 executed; `JACKET-RECONCILE` 12,214 bytes, 3 of 3 checks PASS | DONE — not yet read by cloud |
 | TRK-2026-9273 | Tray launchers TRK-2026-9246 reported built | DONE — not yet read by cloud |
-| TRK-2026-9274 | `claude.exe --chrome` **PID 7856 running unattended since 2026-08-16 16:01**, invisible to the heartbeat roster | NEEDS JORGE — one window to close |
+| TRK-2026-9274 | **PID 7856 is `pwsh`, not `claude.exe`** (claude.exe PIDs: 12416, 21996, 23508, 25004). Running since 2026-08-16 16:01. Now on the roster as `green-unmonitored` — **recorded, not monitored** | LOGGED — do not later report this as monitored |
+| TRK-2026-9275 | **A third desktop session (C) exists.** Three sessions now write to VTES-Outbox: A, B (`--chrome`, live), C | ASSIGNED — C owns the image-embedding fix |
+| TRK-2026-9276 | `C:\Users\JV\System.Collections.Hashtable` — 889-byte junk file from the shadowed-variable bug, holding a real JOB-VERIFIER heartbeat. **Left in place as evidence** | LEAVE — deletion is RED |
+| TRK-2026-9277 | `Verify-Job-Artifact.ps1` names `VTES-Poller-Guardian.ps1` and `Post-BackupBridge-Heartbeat.ps1` as still carrying the bug. **Neither script exists on disk** | CANNOT-VERIFY — not repeated as fact |

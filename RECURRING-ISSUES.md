@@ -1258,3 +1258,45 @@ Not "there is no jacket mail" — **"there is no jacket mail in Gmail; Outlook w
 
 **Three stores exist and I can see one of them.** Every absence I report about email is
 partial by construction until that changes.
+
+### CORRECTION 2026-08-18 01:15 UTC — RI-024's central claim was wrong, and the error was mine
+
+**RI-024 above says two sessions used the identical filename and one silently overwrote the
+other's five reports. That did not happen. Nothing was lost.**
+
+The two sessions used **different folio formats**: session A wrote
+`30-6006-001-0700_DD-REPORT…` (dashed), session B wrote `3060060010700_DD-REPORT…`
+(undashed). **All ten files exist side by side, intact.** Measured on disk at 20:29:48 ET by
+desktop session C — a *third* session neither of us knew about.
+
+### How I got it wrong
+
+**I listed `PROOF-5` at 00:15 UTC. The 5 MB reports were written at 00:19–00:27 UTC.**
+They did not exist yet when I looked. I saw five small files, matched them against a report
+claiming five large ones, and concluded the large ones had been destroyed.
+
+**I read a folder mid-write, in a folder I had been explicitly told had a live writer in it,
+and turned "I could not see it" into "it is gone."**
+
+**That is RI-022. Not a cousin of it — it.** And it is worse than the earlier instances,
+because those were absences of things that were merely hard to find. **This one invented a
+destructive event out of a timing gap**, wrote it into the recurring-issues file as a new
+disease, and sent a correction demand to another executor based on it.
+
+### What survives from RI-024, and it is not nothing
+
+**The second lesson stands and is independently confirmed:** an unattended executor had been
+running jobs since 2026-08-16 16:01 with nothing tracking it. It is now on the heartbeat
+roster with status `green-unmonitored` — **recorded, not monitored, and the entry says so in
+its own words.** That distinction must never be softened in a later report.
+
+**Correction to my own note on it: PID 7856 is `pwsh`, not `claude.exe`.** The `claude.exe`
+processes from that launch are 12416, 21996, 23508, 25004.
+
+### The rule this adds, which the earlier RI-022 entries did not cover
+
+**Never measure a folder that has a live writer in it and report the measurement as a state.**
+Either wait for the writer to finish, or label the number `AS-OF <timestamp>, RUN IN PROGRESS`
+and draw no conclusion about what is absent.
+
+**A snapshot of a moving folder is a snapshot, not an inventory.**
