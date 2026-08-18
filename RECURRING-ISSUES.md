@@ -1664,3 +1664,19 @@ Jorge question — is it supposed to be alive?
 **Same family:** RI-025 (a number true of a rule nobody wrote down), RI-001 (the "hidden"
 flag that doesn't hide), the permit gate re-rendering its menu. **Software's self-report of
 its own success is the least trustworthy signal on the machine.**
+
+### RI-025 addendum 2026-08-18 — the widen-the-rescue trap: a filter order that would fake success
+
+**Contributed by the desktop while STAGING (not running) the 37-email widening.**
+
+The mail rescue **filters by date before folder.** The 37 business emails in Bills/Permits/
+CU_Inspections are all **outside the date window.** So "just add the three folders" would have
+scanned them, matched zero by date, and **printed DONE on zero moved** — word for word the
+2026-07-30 failure the tool's own footer apologises for.
+
+**Caught by staging and reasoning about the filter order, not by running it and seeing zero.**
+The candidate now defaults to ALL-TIME (`-Days 0`), names any folder it cannot find, and
+**reports a zero result as "ZERO — this is NOT success."**
+
+**Rule reinforced: when widening a tool's scope, check the tool's OTHER filters first — a
+second filter can silently null the first, and the result still reads as a clean finish.**
