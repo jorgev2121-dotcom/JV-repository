@@ -155,6 +155,28 @@ hide.** Three times, on three dates.
 **Worth one decision from you: enforce it, or retire it.** A rule that is written down and not
 followed is worse than no rule, because everyone assumes it is protecting them.
 
+
+**Version logs — the rule has never been used once**
+
+Your charter says every job folder keeps a version log. **One exists. Out of thirty-six.**
+
+**And the one that exists is not named the way the rule says.** A search for the exact filename
+the charter asks for returns **nothing, anywhere in your Drive.**
+
+**I am not going to create the other thirty-five, and I want to be plain about why.** A log
+written after the fact says *"version one, created today, no changes known."* **That is a file
+that looks like compliance and contains nothing** — the same act as the fake sign-off in August
+that marked nine things done without anyone doing them.
+
+**A version log records a change at the moment it happens. It cannot be back-filled, because the
+information is already gone.** The right fix is to write one the next time a job is actually
+revised — which means the active jobs get them within weeks, and the dormant ones never need
+them.
+
+**One small irony worth a smile: the only folder that kept a version log is also one of only two
+that ignore your folder-naming convention.** Whoever set it up was working to their own standard,
+and theirs is the only one that produced a log.
+
 **The old work register**
 
 - **8 items resolved. Six of the eight already existed under a name nobody had searched for.**
