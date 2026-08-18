@@ -68,13 +68,16 @@ read back to prove nothing broke.
 
 1. **Microfilm on Alec's job: YES-ALL or ASK-PER-ITEM.** Nothing ordered, nothing paid. The
    charter dates microfilm retrieval before 2026-09-05.
-2. **Your 4-digit passcode. One number releases two finished fixes.**
+2. **Your 4-digit passcode. One number releases three finished fixes.**
    **First:** right now **0 of 38 job capsules count their documents correctly and 247 real
    documents are hidden with no warning.**
    **Second:** the checker that proves our work has no way to prove something was *removed*. It
    can show a sentence is there; it cannot show a wrong one is gone. **Last night's job was a
    retraction, so that gap mattered for the first time.**
-   **This is the largest single win on the list and it is four digits.**
+   **Third:** the monitor that is supposed to notice when something dies **has been reporting two
+   healthy things as dead, every thirty minutes, for days.** The fix is written and tested.
+   **This is the largest single win on the list and it is four digits. All three are already
+   built, backed up, and staged behind one switch.**
 3. **Sign in to Outlook once** so we can see what is filing **2,786 emails in 60 days** out of
    your sight. We still do not know what is doing it.
 4. **Which set of the five property reports is the delivery**, and do we package the folder
@@ -404,6 +407,45 @@ them.
 
 ---
 
+## Section O — Added 08:25 UTC. The alarm that has been crying wolf
+
+**The thing that is supposed to tell you when something has died has been reporting two healthy
+components as dead, every thirty minutes, for days.**
+
+**Neither one can be judged by age.** One is a passive record — its own note says nothing
+restarts it, so it can only ever get older. The other only runs when a job asks for it, so it is
+idle, not dead.
+
+**A warning that fires on healthy things twice an hour is not a warning. It is noise — and the
+real death, when it comes, will arrive on a line everyone has learned to skip.**
+
+**The fix is written, tested against the real file, backed up, and staged behind one switch.**
+It waits on the same four digits as the other two.
+
+### Three of my own tests were wrong tonight, in a row
+
+**I wrote the rule for proving something is alive, and my rule was wrong** — I said the file must
+grow, and the file is a snapshot that overwrites itself. **It would have declared a healthy
+monitor dead on its second reading.**
+
+**Then, checking that, I found I have not been measuring the monitor at all.** I was reading its
+report in Google Drive, and Drive appears to lag or skip. **My check was measuring Google's sync,
+not your machine.**
+
+**I am not going to guess which.** The run counter now staged settles it permanently — a number
+that jumps by two means a report was lost in transit; a number that stops means the monitor
+stopped. **Those are different problems and right now I cannot tell them apart from this side.**
+
+### The rule that came out of it
+
+**A test must say what it actually measures, not what it is named after.** Mine was named "is the
+monitor alive" and was measuring Google. The monitor's was named "stale components" and was
+measuring age on things where age means nothing.
+
+**Both were well formed. Neither failed. Both were wrong.**
+
+---
+
 ## Denominators
 
 - **5 of 5** properties · **103** images · **5 of 5** Unsafe Structures cases confirmed
@@ -417,6 +459,8 @@ them.
 - Ledger covers **164 of 541** files in the outbox — **369** of the gap is last night's proof of concept
 - Mailbox: **96** files, **0** ledgered
 - Gmail attachments: **100** threads examined · **2** governmental · **0** client job documents
+- Liveness tests found wrong in one night: **3 of 3** — mine, the monitor's, and mine again
+- Proven fixes waiting on **one** four-digit code: **3**
 - Heartbeat baselines recorded: **3 of 3** components, first time ever
 
 **Nothing was filed, moved, renamed or deleted overnight.**

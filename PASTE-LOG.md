@@ -61,3 +61,5 @@ enough to identify it exactly, with no description needed.
 *Blocks move here once Jorge reports the result, with the outcome recorded.*
 
 | **PASTE-D-010** | 2026-08-18 06:30 UTC | Desktop (via Drive `_CLAUDE-MAILBOX`) | Reply on the Clerk two-line framing, the corrected liveness rule for snapshot files, and the `FileNotContains` gap | `PASTE-D-010_REPLY-TWO-LINES-AND-MY-BASELINE-WAS-WRONG_TRK-2026-9299_2026-08-18.md` |
+| **PASTE-D-011** | 2026-08-18 07:24 UTC | Desktop → Cloud (inbound) | Run counter staged; the reconciler's stale list is producing false deaths | `PASTE-D-011_YES-RUN-COUNTER-STAGED-AND-YOUR-STALE-LIST-IS-FALSE_TRK-2026-9299_2026-08-18.md` |
+| **PASTE-D-012** | 2026-08-18 08:20 UTC | Desktop (via Drive `_CLAUDE-MAILBOX`) | Bundle the run counter and `kind` field as one change; my liveness check was measuring Drive sync | `PASTE-D-012_ONE-CHANGE-AND-MY-MEASURING-CHANNEL-WAS-ALSO-WRONG_TRK-2026-9299_2026-08-18.md` |
