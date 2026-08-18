@@ -1,0 +1,466 @@
+<title>Orange Tree — Due Diligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --blocked:#a32d1f; --blocked-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --na:#6b7280; --na-soft:#eef0f2;
+  --doc:#5b4a9e; --doc-soft:#ece8f8;
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme: dark){
+    --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26;
+    --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+    --accent:#ffb35c; --accent-soft:#2a1c0c;
+    --ok:#6ede9b; --ok-soft:#0f2417;
+    --blocked:#ff8b78; --blocked-soft:#2c1311;
+    --owner:#7fbfff; --owner-soft:#111d2b;
+    --na:#8b93a0; --na-soft:#191d23;
+    --doc:#b3a1f7; --doc-soft:#1d1830;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26;
+  --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c;
+  --ok:#6ede9b; --ok-soft:#0f2417;
+  --blocked:#ff8b78; --blocked-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b;
+  --na:#8b93a0; --na-soft:#191d23;
+  --doc:#b3a1f7; --doc-soft:#1d1830;
+}
+*{box-sizing:border-box}
+body{background:var(--ground); color:var(--ink);
+  font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  font-size:16.5px; line-height:1.5; margin:0; -webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px; margin:0 auto; padding:0 18px 72px}
+.bar{position:sticky; top:0; z-index:60; background:var(--surface);
+  border-bottom:1px solid var(--line); display:flex; flex-wrap:wrap; gap:7px;
+  padding:9px 18px; margin-bottom:20px; align-items:center}
+button{font-family:inherit; font-size:13.5px; font-weight:600; border:1px solid var(--line);
+  border-radius:7px; background:var(--raised); color:var(--ink); padding:6px 12px; cursor:pointer}
+button:hover{border-color:var(--accent); color:var(--accent)}
+button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+button.on{background:var(--accent); color:#fff; border-color:var(--accent)}
+button.go{background:var(--owner); color:#fff; border-color:var(--owner)}
+.spacer{flex:1}
+h1{font-family:Archivo,sans-serif; font-weight:700; font-size:clamp(26px,5vw,37px);
+  line-height:1.1; margin:18px 0 5px; color:var(--accent); text-wrap:balance}
+.sub{color:var(--muted); font-size:15.5px; max-width:64ch; margin:0 0 4px}
+.stamp{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted); margin:6px 0 18px}
+.key{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px}
+.k{display:flex; align-items:center; gap:6px; font-size:13.5px; background:var(--surface);
+  border:1px solid var(--line); border-radius:20px; padding:4px 12px 4px 8px; cursor:help}
+.dot{width:10px; height:10px; border-radius:3px; flex:none}
+.d-ok{background:var(--ok)} .d-bl{background:var(--blocked)}
+.d-ow{background:var(--owner)} .d-na{background:var(--na)} .d-doc{background:var(--doc)}
+.tot{background:var(--accent-soft); border:2px solid var(--accent); border-radius:12px;
+  padding:15px 18px; margin-bottom:22px}
+.tot p{margin:0 0 8px} .tot p:last-child{margin:0}
+.tot b{color:var(--accent)}
+.selbar{position:sticky; top:52px; z-index:55; display:none; align-items:center; gap:10px;
+  background:var(--owner-soft); border:1px solid var(--owner); border-radius:10px;
+  padding:8px 14px; margin-bottom:14px; font-size:14.5px}
+.selbar.show{display:flex; flex-wrap:wrap}
+.selbar b{color:var(--owner)}
+.job{background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  margin-bottom:12px; overflow:hidden}
+.jh{display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:13px 15px;
+  cursor:pointer; user-select:none; background:var(--surface); border:0; width:100%; text-align:left}
+.jh:hover{background:var(--raised)}
+.tw{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--accent); width:14px; flex:none}
+.jt{font-family:Archivo,sans-serif; font-size:18px; font-weight:600}
+.jm{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted)}
+.score{margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:12.5px;
+  font-variant-numeric:tabular-nums; background:var(--raised); border-radius:20px; padding:3px 11px}
+.jb{padding:0 15px 14px 15px; border-top:1px solid var(--line)}
+.cat{margin-top:12px}
+.ch{display:flex; align-items:center; gap:9px; padding:7px 10px; cursor:pointer; user-select:none;
+  background:var(--raised); border:0; border-radius:8px; width:100%; text-align:left;
+  font-family:"Source Sans 3",sans-serif; font-size:14.5px; font-weight:600; color:var(--ink)}
+.ch:hover{color:var(--accent)}
+.cn{margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted); font-weight:400}
+.cb{padding:8px 0 2px 22px; display:flex; flex-direction:column; gap:7px}
+.src{display:grid; grid-template-columns:auto auto 1fr; gap:9px; align-items:start;
+  border-left:3px solid var(--line); padding:6px 0 6px 10px}
+.src.ok{border-left-color:var(--ok)} .src.blocked{border-left-color:var(--blocked)}
+.src.owner{border-left-color:var(--owner)} .src.na{border-left-color:var(--na)}
+.src.doc{border-left-color:var(--doc)}
+.src input[type=checkbox]{width:17px; height:17px; margin-top:3px; accent-color:var(--accent); cursor:pointer}
+.sid{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--muted); padding-top:3px; white-space:nowrap}
+.sn{font-size:15px; font-weight:600}
+.pill{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:10.5px;
+  font-weight:500; border-radius:20px; padding:1px 8px; margin-left:7px; vertical-align:1px; white-space:nowrap}
+.p-ok{background:var(--ok-soft); color:var(--ok)} .p-bl{background:var(--blocked-soft); color:var(--blocked)}
+.p-ow{background:var(--owner-soft); color:var(--owner)} .p-na{background:var(--na-soft); color:var(--na)}
+.p-doc{background:var(--doc-soft); color:var(--doc)}
+.sd{font-size:14px; color:var(--muted); margin-top:2px}
+.sd b{color:var(--ink)}
+.live{display:inline-block; margin-top:3px; font-size:13.5px; font-weight:600;
+  color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent)}
+.live:hover{opacity:.75}
+.unblock{display:block; margin-top:3px; font-size:13.5px; color:var(--owner)}
+h2{font-family:Archivo,sans-serif; font-size:13.5px; font-weight:600; margin:30px 0 12px;
+  text-transform:uppercase; letter-spacing:.08em; color:var(--muted);
+  border-bottom:1px solid var(--line); padding-bottom:6px}
+.note{background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  padding:15px 18px; margin-bottom:12px}
+.note p{margin:0 0 8px} .note p:last-child{margin:0}
+.warn{border-left:3px solid var(--blocked); background:var(--blocked-soft)}
+.warn b{color:var(--blocked)}
+.flag{border-left:3px solid var(--owner); background:var(--owner-soft)}
+.flag b{color:var(--owner)}
+/* contiguous reader */
+#contig{display:none}
+#contig.show{display:block}
+#tree.hide, .selbar.hide{display:none!important}
+.sep{margin:26px 0 10px; padding:6px 12px; background:var(--raised); border-left:4px solid var(--accent);
+  border-radius:0 8px 8px 0; font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted)}
+.sep b{color:var(--accent); font-family:Archivo,sans-serif; font-size:14px}
+.sep .bl{color:var(--blocked); font-weight:600}
+.ctext{max-width:70ch; font-size:16.5px}
+.ctext b{color:var(--ink)}
+footer{margin-top:32px; padding-top:16px; border-top:1px solid var(--line); font-size:14.5px; color:var(--muted)}
+footer b{color:var(--ink)}
+.tag{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--muted); margin-top:10px; word-break:break-all}
+@media print{.bar,.selbar{display:none!important} body{background:#fff;color:#000}
+  .job{break-inside:avoid; border:1px solid #999} .jb{display:block!important} .cb{display:flex!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="bar">
+  <button id="ex" title="Open every property, every folder, every row">Expand all</button>
+  <button id="co" title="Close everything back to the seven property names">Collapse to root</button>
+  <button id="gapsOnly" title="Hide everything that worked. Show only what is blocked or waiting on you">Show gaps only</button>
+  <button id="readAll" class="go" title="One continuous page of everything, in order, for reading top to bottom or listening with Speechify">Contiguous — see all</button>
+  <button id="readSel" title="One continuous page of only the boxes you ticked">View selected</button>
+  <span class="spacer"></span>
+  <button id="shareSel" title="Copies a clean text summary of your ticked items, with links, ready to paste into any email">Copy selection for email</button>
+  <button onclick="window.print()" title="Print this page or save as PDF">Print</button>
+  <button onclick="navigator.clipboard.writeText(location.href)" title="Copies this page's address">Copy link</button>
+</div>
+
+<div class="wrap">
+
+<h1>Orange Tree — Due Diligence</h1>
+<p class="sub">Three layers: <b>property → folder → document or source.</b> Tick boxes to choose
+what you share. One button reads everything as a single continuous page. <b>Nothing is blank</b> —
+every slot we could not reach says who was blocked and what opens it.</p>
+<p class="stamp">TRK-2026-9344 · v2 · 2026-08-18 · 7 properties · sources + documents · statuses measured, not assumed</p>
+
+<div class="key">
+  <span class="k" title="We asked, it answered, the data is saved"><span class="dot d-ok"></span>Answered</span>
+  <span class="k" title="We tried and were refused — a captcha, a 403, a dead endpoint"><span class="dot d-bl"></span>Blocked</span>
+  <span class="k" title="One action of yours opens it — a sign-in, a yes, a passcode"><span class="dot d-ow"></span>Needs you</span>
+  <span class="k" title="There is nowhere to ask — the source has no input for this property"><span class="dot d-na"></span>Not applicable</span>
+  <span class="k" title="A real file you can open — click its link"><span class="dot d-doc"></span>Document on disk</span>
+</div>
+
+<div class="tot">
+  <p><b>About the original Orange Tree, honestly.</b> The single three-layer report you built has
+  not been found as one file — what survives are its pieces: the eight unit capsules, the per-unit
+  index, and the client documents. <b>This page is the rebuild</b>, and from today it lives in
+  Google Drive as the source of truth with a OneDrive backup — so it cannot go missing the same
+  way twice. A finder card in Drive answers any search for "orange tree."</p>
+  <p><b>"No permits found" and "we were refused" look identical in every report ever written
+  here.</b> That is why every slot carries a reason, and why a blank cell no longer exists.</p>
+</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these contiguously</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="note flag"><p><b>Contiguous view.</b> Everything below flows as one page, in order.
+  The only separators are the name of the website or screen each piece came from — and its
+  blocker, when there is one. <button id="backTree">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<h2>What is blocking us, gathered</h2>
+<div class="note flag">
+  <p><b>One free sign-in opens the biggest gap.</b> Deeds, mortgages, liens, judgments and the
+  ownership chain sit behind the Clerk's Official Records search. <b>Check 1Password first — you
+  may already have an account</b> (login, one minute). If not: pick <i>Individual</i>, type your
+  email, one button, finish the confirmation email. A few minutes.</p>
+  <p style="font-size:14.5px">The county says registering clears the limits — verified. Advanced
+  searches mention paid "Units". A free account <i>should</i> cover the standard search we need;
+  not proven, and nobody promises you free and then hands you a paywall.</p>
+</div>
+<div class="note warn">
+  <p><b>Microfilm — one word, YES-ALL or ASK-PER-ITEM.</b> Nothing ordered, nothing paid. The only
+  route to City of Miami permits before 2014, where two of Alec's three additions live.</p>
+</div>
+<div class="note">
+  <p><b>What the cloud cannot reach versus what is genuinely shut:</b> this session cannot open
+  county websites, Outlook, or your C: drive — your desktop can. Those slots say "needs the
+  desktop," never "missing." <b>Eleven false absences in one day taught this page that lesson.</b></p>
+</div>
+
+<footer>
+  <p><b>Seven properties. Sources and documents, three layers, not one blank cell.</b></p>
+  <p style="margin-top:8px">Source of truth: Google Drive (`_ORANGE-TREE-DD` in the jobs drive) ·
+  backup: OneDrive · live view: this page. Nothing was filed, moved, renamed or deleted.</p>
+  <p class="tag">TRK-2026-9344 · #OrangeTree #orange-tree #due-diligence #JorgeValdes #CU-Inspections
+  #three-layers #contiguous #single-source-of-truth #find-my-report #TRK-2026-9336</p>
+</footer>
+
+</div>
+
+<script>
+const D = "https://drive.google.com/file/d/";
+const F = "https://drive.google.com/drive/folders/";
+const SRC = [
+  ["SITE-01","Property Appraiser — property search","core"],
+  ["SITE-02","Property Appraiser — comparable sales","core"],
+  ["SITE-16","Zoning and land use","core"],
+  ["SITE-11","Unsafe Structures cases","enforce"],
+  ["SITE-09","Code enforcement online","enforce"],
+  ["SITE-10","Neighbourhood code cases","enforce"],
+  ["SITE-08","Building support cases","enforce"],
+  ["SITE-13","DERM code enforcement","enforce"],
+  ["SITE-14","DERM public records","enforce"],
+  ["SITE-06","County permit history","permit"],
+  ["SITE-07","EPS plan review","permit"],
+  ["SITE-17","City of Miami permits","permit"],
+  ["SITE-12","Certificates of use","permit"],
+  ["SITE-15","Notice of Acceptance search","permit"],
+  ["SITE-21","Florida product approval","permit"],
+  ["SITE-04","Clerk — official records (deeds, liens)","title"],
+  ["SITE-05","Clerk — civil cases","title"],
+  ["SITE-03","Tax Collector — bills and delinquency","title"],
+  ["SITE-19","Sunbiz — corporate registry","party"],
+  ["SITE-20","DBPR — contractor licences","party"],
+  ["SITE-18","Miami Beach permits","other"],
+  ["SITE-22","Pembroke Pines / Broward","other"]
+];
+const CATS = {
+  core:"Folder 01 — Who owns it and what it is",
+  enforce:"Folder 02 — What the county has open against it",
+  permit:"Folder 03 — What was built and whether it was allowed",
+  title:"Folder 04 — Money, liens and the ownership chain",
+  party:"Folder 05 — People and companies",
+  other:"Folder 06 — Other jurisdictions",
+  docs:"Folder 07 — Documents on disk (click to open)"
+};
+const COUNTY = {
+  "SITE-01":["ok","Owner, folio, values, sales history, extra features — 27 fields, pulled live."],
+  "SITE-02":["ok","Qualified arms-length comparables returned."],
+  "SITE-16":["ok","County zoning layer 14 returns RU-1. <b>Layer 17 is municipal and answers ZONE=NONE for unincorporated parcels</b> — any past “no zoning” was the wrong layer."],
+  "SITE-11":["ok","<b>Open Unsafe Structures case confirmed against the county's own endpoint</b>, raw response saved."],
+  "SITE-09":["ok","Citations returned. On property 1 the money ties to the <b>owner</b>, not the parcel — see its card."],
+  "SITE-10":["ok","Neighbourhood code cases returned."],
+  "SITE-08":["ok","Building support cases returned."],
+  "SITE-13":["ok","DERM returned total = 0."],
+  "SITE-14":["ok","DERM public records queried."],
+  "SITE-06":["ok","<b>Opened this week</b> with a real browser. <b>A low robot-score does not error — it silently re-draws the menu, which reads exactly like “no permits found.”</b>"],
+  "SITE-07":["ok","Ran from the process numbers the permit search returned."],
+  "SITE-17":["na","City of Miami only. This parcel is unincorporated county."],
+  "SITE-12":["na","<b>The county retired the public search in 2012.</b> Silence is not “no certificate.”"],
+  "SITE-15":["na","Product register — no property input."],
+  "SITE-21":["na","Product register — no property input."],
+  "SITE-04":["owner","<b>Not searched.</b> Robot-check. <b>The Clerk did not decline — we never signed in.</b> No deeds, no mortgages, no liens, no judgments.","One free Clerk sign-in"],
+  "SITE-05":["owner","Not searched. Same sign-in.","One free Clerk sign-in"],
+  "SITE-03":["blocked","<b>Refuses scripted requests, 403.</b> Needs a supervised browser pass."],
+  "SITE-19":["na","Owners are natural persons — no company to look up."],
+  "SITE-20":["ok","Run against every contractor the permits named."],
+  "SITE-18":["na","Different jurisdiction."],
+  "SITE-22":["na","Different jurisdiction."]
+};
+const TAMIAMI = Object.assign({}, COUNTY, {
+  "SITE-17":["ok","<b>City of Miami.</b> Zoning T3-R under Miami 21, NET Flagami, district 4. One permit on record: roofing, final, 2019."],
+  "SITE-06":["blocked","<b>County answered “ADDRESS NOT FOUND”</b> — it does not index city addresses. <b>Not a clean permit record.</b>"],
+  "SITE-07":["blocked","No county permit numbers exist for a city parcel."],
+  "SITE-11":["ok","Clean — no unsafe structures case."],
+  "SITE-16":["ok","T3-R. <b>Conflict: county and City card say Flood Zone X; FEMA 2021 says Zone AE</b>, BFE 7 ft. Flagged, not resolved."],
+  "SITE-19":["na","Owner is a natural person."],
+  "SITE-20":["ok","MG Excellent Services Corp, from the 2019 roofing permit."]
+});
+const PLAZA = {};
+SRC.forEach(([id])=>{ PLAZA[id]=["owner","<b>Not run.</b> The 22 sources have never been run against this job.","Say the word and it runs tonight"]; });
+PLAZA["SITE-01"]=["ok","Folio and unit identity established for all 8 units."];
+
+function docs5(fol, rep, ortho, pmap, block){
+  return [
+    ["Due-diligence report (opens from Drive)", D+rep+"/view", "The full 22-source report. Self-contained copies with every photo embedded also sit in the same folder, named v2-ALL-IMAGES."],
+    ["County aerial photograph", D+ortho+"/view", "The county's own orthophoto of the building."],
+    ["Parcel, lot and street map", D+pmap+"/view", "The folio labelled and centred."],
+    ["Block context aerial", D+block+"/view", "The property in its block."],
+    ["The whole PROOF-5 folder", F+"1ZFDGaOJhOIPZAetlPrcsu2Vpe0e7HImX", "Reports, 103 images, raw county responses, master spreadsheet."]
+  ];
+}
+const JOBS = [
+ {t:"331 Tamiami Canal Rd, Miami", m:"TRK-2026-1612 · 01-4002-003-1200 · Alec Valdes · CITY OF MIAMI", d:TAMIAMI,
+  note:"<b>Site inspection Friday 21 August, 3:30 PM.</b> Three build ages — 1947, 1958, 2009 — against one permit on record. Readable city permit data begins 2014. <b>Not proven unpermitted. Not proven permitted.</b>",
+  docs:[["Job capsule — 50 documents, six folders", F+"1qmv-tQKq0qwWRJ98nGJtL9KcBWKE8CAz","The full capsule, built to the standard."],
+        ["Alec sweep folder", F+"17Bg1qkk7IaF75Qa6ZkBK2EC-ukdErDYI","Earlier due-diligence material for Alec's properties."]]},
+ {t:"11485 Quail Roost Dr", m:"30-6006-001-0700 · Molina · sample 1", d:COUNTY,
+  note:"<b>Open Unsafe Structures case 20200202351, opened 13 January 2020, never closed.</b> Seven open citations totalling $61,082.82 — <b>printed address 11865 SW 206 ST, not this parcel. Proven against the owner, NOT proven to encumber this property.</b> Do not report as a lien until the case detail is read.",
+  docs:docs5("3060060010700","1ZCrd6ltZB6QsQBY_FQZbX0es2IZr5y1V","10-MqHbVKNi_EI8VBOH5MYpUJpK7C7ZCP","1_cherz0-XHkYcIxh2s7nlC7C7atTDjUV","1L7-pEUSfCfjzqTDCJ4t66Hzm2YYX9QPS")},
+ {t:"2745 NW 28 St", m:"30-3128-011-0800 · Baridon · sample 2", d:COUNTY,
+  note:"<b>Open Unsafe Structures case 20200202361.</b> Absentee owner — mail goes to 3828 NW 19 Ave. A 1925 bungalow court with a 2020 addition, transferred for $100.",
+  docs:docs5("3031280110800","19sK7FDw0-MOjvUQO7fFz0skcS9rUmYqt","1xbwwQ2kujYeqsuw3322_2tf1R-SCjaBM","1iYFV3VREbV9u0yFQSoDOfMeFlYIYBIGZ","1xyq6TW99sAFrPDmBavS3nEHoG0vAh24P")},
+ {t:"18302 SW 152 Ct", m:"30-5933-033-0170 · Villavicencio · sample 3", d:COUNTY,
+  note:"<b>Open Unsafe Structures case 20200202534.</b> Built 2013, pool, $621,169. <b>A case on a thirteen-year-old house usually means unpermitted work, not decay.</b>",
+  docs:docs5("3059330330170","1j4--qICwDzepyAECjXuHcIyTzAIVpNbN","1A-7XjxPge5KPTgMWKjEpX19N01-O8cRp","1h1fU3egLrUlFXqT1ab6QKfiaA77oE_3b","1DoBb-gLsetMy3pJ5ClwwduiXEIan8Lzp")},
+ {t:"3085 SW 79 Ave", m:"30-4015-018-0410 · Hernandez · sample 4", d:COUNTY,
+  note:"<b>Open Unsafe Structures case 20200202568.</b> A 2018 addition on a 1959 house, bought a year before the addition. Additions are the county's most common violation.",
+  docs:docs5("3040150180410","1cM2YE-j0TeYewpchwis2vCUs_3DK9HjC","15RqkcOCQ8yrtBEzdahyIKge7dSC1NfaA","1vuXvLhQ5ybkBLglenuuxIcp-JKmxk_f2","1zQL3YdIS6lWn7Rti5I041_WRPs_ywkzA")},
+ {t:"1055 NW 73 St", m:"30-3111-035-3740 · Nunez Velazco · sample 5", d:COUNTY,
+  note:"<b>Open Unsafe Structures case 20200202658.</b> A 1952 duplex with a 2016 addition — three and a half baths in 1,501 feet, worth checking against permits.",
+  docs:docs5("3031110353740","1Spwt-zzxw--G3WQC0x556TLou5GMuhms","116mF5tF3WOPuTJYGdmfi-eGf2tPdP8Q6","1l9L4vryZepBMGI2aO3nEeWG0yxUtKQRF","1Tpz-dc7PhOPDK1-mWBWRVGnjTmOvJzUa")},
+ {t:"Bal Harbour + Plaza — 8 units (the Orange Tree)", m:"OPH-2026-0007 · HOA-questioned units", d:PLAZA,
+  note:"<b>135 files across two sets — 8 finished capsule PDFs and 19 genuine client documents</b> (Units 305 and 321). <b>Before anything ships:</b> transmittals claim “all evidence in hand” but list system-made files; every transmittal names a statement-of-account that no folder contains; permit-records and invoice folders are empty, 0 of 8.",
+  docs:[["The Orange Tree job folder", F+"1EEs5OtizdbpziGzazmORBpwwKpGZMQTe","Both folder sets, capsules and client documents."],
+        ["Unit capsules — live view with PDF links", "https://claude.ai/code/artifact/868f5454-8c83-40eb-a3d1-a8e3e04055a5","All 8 units, HTML and PDF."],
+        ["Jobs-drive master index", D+"1EEydR7Y8qhbTPQqr-MSBLVXUbWDMZEYk/view","The _INDEX page for the whole jobs drive, with its live filter box."]]}
+];
+const PILL={ok:["p-ok","ANSWERED"],blocked:["p-bl","BLOCKED"],owner:["p-ow","NEEDS YOU"],na:["p-na","N/A"],doc:["p-doc","DOCUMENT"]};
+let items=[]; // registry for contiguous + selection
+
+function build(){
+  const root=document.getElementById('tree');
+  JOBS.forEach((job,ji)=>{
+    const counts={ok:0,blocked:0,owner:0,na:0};
+    SRC.forEach(([id])=>{const st=job.d[id]?job.d[id][0]:'na';counts[st]++;});
+    const wrap=document.createElement('div'); wrap.className='job';
+    const head=document.createElement('button'); head.className='jh';
+    head.title="Open or close this property";
+    head.innerHTML='<span class="tw">'+(ji===0?'▾':'▸')+'</span>'
+      +'<span><span class="jt">'+job.t+'</span><br><span class="jm">'+job.m+'</span></span>'
+      +'<span class="score">'+counts.ok+' of 22 · '+(job.docs?job.docs.length:0)+' docs</span>';
+    wrap.appendChild(head);
+    const body=document.createElement('div'); body.className='jb';
+    body.style.display=ji===0?'block':'none';
+    if(job.note){const n=document.createElement('div'); n.className='note'; n.style.marginTop='12px';
+      n.innerHTML='<p>'+job.note+'</p>'; body.appendChild(n);
+      items.push({job:job.t,cat:'THE CARD',name:job.t,status:'note',text:job.note,link:null,el:null});}
+    const cats=Object.keys(CATS);
+    cats.forEach(catKey=>{
+      let rows=[];
+      if(catKey==='docs'){ if(!job.docs) return;
+        rows=job.docs.map(d=>({kind:'doc',name:d[0],link:d[1],text:d[2]}));
+      } else {
+        rows=SRC.filter(s=>s[2]===catKey).map(([id,name])=>{
+          const e=job.d[id]||['na','No status recorded.'];
+          return {kind:'src',id:id,name:name,status:e[0],text:e[1],unblock:e[2]};
+        });
+        if(!rows.length) return;
+      }
+      const cat=document.createElement('div'); cat.className='cat';
+      const ch=document.createElement('button'); ch.className='ch';
+      ch.title="Open or close this folder";
+      let cOk=0,cGap=0;
+      rows.forEach(r=>{if(r.status==='ok')cOk++; if(r.status==='blocked'||r.status==='owner')cGap++;});
+      ch.innerHTML='<span class="tw">▾</span><span>'+CATS[catKey]+'</span>'
+        +'<span class="cn">'+(catKey==='docs'?rows.length+' files':cOk+' answered · '+cGap+' open')+'</span>';
+      cat.appendChild(ch);
+      const cb=document.createElement('div'); cb.className='cb';
+      rows.forEach(r=>{
+        const st=r.kind==='doc'?'doc':r.status;
+        const row=document.createElement('div'); row.className='src '+st; row.dataset.status=st;
+        const idx=items.length;
+        let html='<input type="checkbox" data-i="'+idx+'" title="Tick to include this in your selection for viewing or sharing">'
+          +'<span class="sid">'+(r.id||'FILE')+'</span><span><span class="sn">'+r.name
+          +'</span><span class="pill '+PILL[st][0]+'">'+PILL[st][1]+'</span>'
+          +'<span class="sd">'+r.text+'</span>';
+        if(r.link) html+='<a class="live" href="'+r.link+'" target="_blank" rel="noopener">Open live →</a>';
+        if(r.unblock) html+='<span class="unblock">↳ <b>Opens with:</b> '+r.unblock+'</span>';
+        html+='</span>';
+        row.innerHTML=html; cb.appendChild(row);
+        items.push({job:job.t,cat:CATS[catKey],id:r.id||'FILE',name:r.name,status:st,text:r.text,link:r.link||null,unblock:r.unblock||null});
+      });
+      cat.appendChild(cb);
+      ch.addEventListener('click',()=>{const open=cb.style.display!=='none';
+        cb.style.display=open?'none':'flex';
+        ch.querySelector('.tw').textContent=open?'▸':'▾';});
+      body.appendChild(cat);
+    });
+    head.addEventListener('click',()=>{const open=body.style.display!=='none';
+      body.style.display=open?'none':'block';
+      head.querySelector('.tw').textContent=open?'▸':'▾';});
+    wrap.appendChild(body); root.appendChild(wrap);
+  });
+  document.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.addEventListener('change',updateSel));
+}
+build();
+
+function setAll(open){
+  document.querySelectorAll('.jb').forEach(b=>b.style.display=open?'block':'none');
+  document.querySelectorAll('.cb').forEach(b=>b.style.display=open?'flex':'none');
+  document.querySelectorAll('.jh .tw, .ch .tw').forEach(t=>t.textContent=open?'▾':'▸');
+}
+document.getElementById('ex').addEventListener('click',()=>setAll(true));
+document.getElementById('co').addEventListener('click',()=>setAll(false));
+let gapsOnly=false;
+document.getElementById('gapsOnly').addEventListener('click',e=>{
+  gapsOnly=!gapsOnly; e.currentTarget.classList.toggle('on',gapsOnly);
+  e.currentTarget.textContent=gapsOnly?'Showing gaps only':'Show gaps only';
+  document.querySelectorAll('.src').forEach(r=>{const s=r.dataset.status;
+    r.style.display=(gapsOnly&&s!=='blocked'&&s!=='owner')?'none':'grid';});
+  if(gapsOnly)setAll(true);
+});
+
+function selected(){return Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(cb=>items[+cb.dataset.i]);}
+function updateSel(){const n=selected().length;
+  document.getElementById('selcount').textContent=n;
+  document.getElementById('selbar').classList.toggle('show',n>0);}
+document.getElementById('selclear').addEventListener('click',()=>{
+  document.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.checked=false); updateSel();});
+
+function sepLine(it){
+  let s='<div class="sep"><b>'+it.name+'</b> · '+it.job;
+  if(it.status==='blocked') s+=' · <span class="bl">BLOCKED</span>';
+  if(it.status==='owner') s+=' · <span class="bl">NEEDS YOU'+(it.unblock?' — '+it.unblock:'')+'</span>';
+  s+='</div>';
+  return s;
+}
+function renderContig(list){
+  const cb=document.getElementById('cbody'); let html='';
+  list.forEach(it=>{
+    html+=sepLine(it);
+    html+='<div class="ctext"><p>'+it.text+'</p>';
+    if(it.link) html+='<p><a class="live" href="'+it.link+'" target="_blank" rel="noopener">Open the live document →</a></p>';
+    html+='</div>';
+  });
+  cb.innerHTML=html||'<p class="ctext">Nothing selected. Tick boxes in the tree first.</p>';
+  document.getElementById('tree').classList.add('hide');
+  document.getElementById('selbar').classList.add('hide');
+  document.getElementById('contig').classList.add('show');
+  window.scrollTo({top:0});
+}
+document.getElementById('readAll').addEventListener('click',()=>renderContig(items));
+document.getElementById('readSel').addEventListener('click',()=>renderContig(selected()));
+document.getElementById('selview').addEventListener('click',()=>renderContig(selected()));
+document.getElementById('backTree').addEventListener('click',()=>{
+  document.getElementById('contig').classList.remove('show');
+  document.getElementById('tree').classList.remove('hide');
+  document.getElementById('selbar').classList.remove('hide'); updateSel();});
+
+function copyEmail(){
+  const list=selected(); if(!list.length){alert('Tick some boxes first.');return;}
+  let t='ORANGE TREE — SELECTED ITEMS · '+new Date().toISOString().slice(0,10)+'\n\n';
+  list.forEach(it=>{
+    t+='— '+it.name+' ('+it.job+')'+(it.status==='blocked'?' [BLOCKED]':it.status==='owner'?' [NEEDS ACTION]':'')+'\n';
+    t+=it.text.replace(/<[^>]+>/g,'')+'\n';
+    if(it.link)t+='Open: '+it.link+'\n';
+    t+='\n';
+  });
+  t+='Live tree: '+location.href+'\n#OrangeTree #CU-Inspections · TRK-2026-9344\n';
+  navigator.clipboard.writeText(t).then(()=>alert(list.length+' items copied. Paste into any email.'));
+}
+document.getElementById('shareSel').addEventListener('click',copyEmail);
+document.getElementById('selcopy').addEventListener('click',copyEmail);
+</script>
