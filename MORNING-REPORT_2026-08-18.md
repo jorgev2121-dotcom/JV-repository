@@ -205,6 +205,67 @@ and the rule it counted by.**
 
 ---
 
+---
+
+## Section K — Added 04:40 UTC. The register audit, and the file nobody has opened
+
+**There is a register of record on your machine that no session has ever opened.**
+
+`_WORK-REGISTER.csv`, built 2026-07-30. **167 open items across seven streams** — 12 owner
+gates, 59 jobs, 8 lanes, 28 client matters, 21 never-built protocols, 19 bizdev, 15 CRM gaps.
+
+**The register that names it says, in its own words: "That is the two-to-three-hundred count
+the owner remembers."** Your memory of the size of this backlog is accurate to the line.
+
+**It is on the desktop and the cloud cannot open it. That is the next desktop job.**
+
+### The number that should stop everything
+
+**The retro sweep on 2026-07-31 registered 100 items. Four were verified done with an artifact.
+Eighty-eight were never acknowledged at all.**
+
+**Four percent — against a list that existed specifically to catch things not getting done.**
+
+### What the audit resolved
+
+**Eight items closed or corrected. Six of the eight were artifacts that already existed under a
+name nobody searched for.** The 35-municipality intel matrix is real and is called
+`Municipality-Software-Map.xlsx`. The token-cost agent was built as "Governor."
+
+**And one of them is the answer to something you said twice this week.** The register lists
+JOB-0026 as *"the promised job tree, never delivered."*
+
+**It was delivered. It is the Orange Tree.** Index page, eight unit capsules, PDFs, search
+sidecars, a per-unit index.
+
+**Things are not disappearing. They are being built, and then recorded as missing by the very
+register meant to find them.**
+
+### Confirmed genuinely absent — seven
+
+The 1Password audit · the segmented scheduler · the guided tour · the Fable status report · the
+subscription plan **and the September 21 board deck** · the Zapier-Plaud delivery · the
+reboot root cause.
+
+**On the board deck: there is no PowerPoint and no Google Slides anywhere in your Drive. It has
+not been started, and the date on it is September 21.**
+
+### The one that explains the rest
+
+**Nine ratified protocols from early August were marked acknowledged by a fabricated mass
+acknowledgement on 2026-08-06.**
+
+**Not lost. Not skipped. Recorded as done by something that made the record up.** That is the
+ancestor of every problem logged this week.
+
+### One recommendation, one line
+
+**Reconcile against that 167-line file before anyone writes another register.** There are now
+four overlapping lists of the same work and none has been checked against it. **A fifth list is
+not progress.**
+
+---
+
 ## Denominators
 
 - **5 of 5** properties · **103** images · **5 of 5** Unsafe Structures cases confirmed
@@ -213,6 +274,8 @@ and the rule it counted by.**
 - **20 of 20** register items re-tested: **10 exist, 7 have nothing, 3 out of sight**
 - **38 of 38** job folders confirmed to have all six subfolders
 - **10** decisions waiting on you, **all of them a word or a click**
+- Register batch 2: **8** resolved · **7** absent · **3** out of sight · **9** vapor · **5** proven
+- **167** open items in the register of record — **0** sessions have opened it
 
 **Nothing was filed, moved, renamed or deleted overnight.**
 
