@@ -1241,3 +1241,20 @@ full output path list, and a session must claim that folder before writing. **Su
 not-applicable verdicts, same five Unsafe Structures cases. **Two independent runs
 corroborating each other is stronger evidence than one run asserting confidence.** The
 collision cost a file; it also produced the only cross-check this pipeline has ever had.
+
+### RECURRENCE 2026-08-18 00:45 UTC — RI-022 again, and this time it was mine
+
+**On 2026-08-17 I wrote "zero `bldg jacket` mail" as a flat statement.** I had searched Gmail.
+
+**The email exists.** Received 2026-07-08 16:27 from `cpl@MiamiDadePA.gov`, sitting in
+`\\Jorge@TEAMUSASALES.COM\Inbox` — an Outlook store **this cloud session cannot reach at all**
+(Microsoft 365 unauthorised). The desktop found it by scanning 530 folders across 6 stores.
+
+**My statement was true of the store I searched and false as written.** Nobody reading it
+would have known which.
+
+**Rule, stated so it is mechanical: name the store in the same sentence as the zero.**
+Not "there is no jacket mail" — **"there is no jacket mail in Gmail; Outlook was not searched."**
+
+**Three stores exist and I can see one of them.** Every absence I report about email is
+partial by construction until that changes.
