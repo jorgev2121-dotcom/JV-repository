@@ -1701,7 +1701,21 @@ summary: `08:48 WOULD MOVE 0 (Days=60)` vs `08:55 WOULD MOVE 22 (Days=120)`.
 State the setting next to the number, every time.** My mirror quoted the number without the
 setting, and the record briefly told the next session the button was spent when it was not.
 
-### RI-023 RECURRENCE 2026-08-18 19:10 — the ask windows were off-screen AGAIN, and it explains the "no response" click
+### RI-023 ROOT CAUSE FOUND 2026-08-18 20:35 — it was FancyZones all along, NOT a recurrence
+
+**Supersedes the "recurrence" framing below.** The desktop proved by arithmetic that the
+−1919/−963 positions are zones 0 and 1 of the "CU 4-Half" FancyZones layout applied to the
+invisible monitor (predicted rects match observed to the pixel; margins sum to 1920 with no
+residual). A Chrome window landed on the byte-identical rectangle. **Two years of "my windows
+disappear" has one cause: FancyZones with `moveWindowsBasedOnPosition=true`,
+`displayOrWorkAreaChange_moveWindows=true`, and `excluded_apps=""`.** 19 live apps remember a
+zone on the monitor Jorge cannot see. **Every owner button is `mshta.exe`, so one remembered
+zone governs all of them.** Fix staged (exclude mshta + clear the 29 memories), passcode-gated.
+Full record: `RI-023-ROOT-CAUSE-FANCYZONES_2026-08-18.md`. **RI-023 is hereby reclassified from
+"off-screen prompts" to "FancyZones relocates windows to the unwatched monitor" — the deeper
+and correct statement.**
+
+### RI-023 (earlier framing) 2026-08-18 19:10 — the ask windows were off-screen AGAIN
 
 **Both owner-action windows were parked on DISPLAY2 (x −1920→0), the monitor Jorge cannot see**,
 measured at 15:05: STOP THE INTERRUPTIONS at −1919,8 and MAIL RESCUE at −963,8. The 11:05
