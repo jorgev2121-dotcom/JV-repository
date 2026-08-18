@@ -27,7 +27,7 @@ only ever noticed the outbound half.
 
 ---
 
-## Section B — The decision with a deadline
+## Section B — The two decisions with a deadline. Both are Friday.
 
 **Get signed in to the Clerk of Court's Official Records site. Check 1Password first.**
 
@@ -48,6 +48,15 @@ and nobody is going to promise you free and then let you hit a paywall.**
 recorded as **NOT SEARCHED**. It previously said *"the county was asked and declined to answer"*
 — **which was untrue. The Clerk never declined; we never signed in.** That sentence is out of
 the client file as of last night.
+
+### The second Friday item — microfilm
+
+**Same job. One word: YES-ALL, or ASK-PER-ITEM.**
+
+**Nothing has been ordered and nothing has been paid.** Say YES-ALL and we order what the job
+needs without coming back to you each time. Say ASK-PER-ITEM and every order waits for you.
+
+**The charter dates microfilm retrieval before September 5, so this one has two clocks on it.**
 
 ---
 
@@ -81,19 +90,17 @@ enough. **Nothing was applied and nothing was touched to prove it.**
 
 **Each is a word or a click. None is a technical choice.**
 
-1. **Microfilm on Alec's job: YES-ALL or ASK-PER-ITEM.** Nothing ordered, nothing paid. The
-   charter dates this before September 5.
-2. **Sign in to Outlook once** so we can find what is filing **2,786 emails in 60 days** out of
+1. **Sign in to Outlook once** so we can find what is filing **2,786 emails in 60 days** out of
    your sight. We still do not know what is doing it.
-3. **Which set of the five property reports is the delivery**, and does the folder get packaged
+2. **Which set of the five property reports is the delivery**, and does the folder get packaged
    before it goes out.
-4. **The tax jacket cleanup: option A or option B.** Open since June 28.
-5. **The watcher that starts jobs by itself: yes or no.**
-6. **The Board-of-5 gate.** Thirty days old — **read Section H before you blame yourself.**
-7. **The HOA's list of units it claims are complete.**
-8. **Approve three of the four verified jobs and refuse the fourth.** I recommend refusing the
+3. **The tax jacket cleanup: option A or option B.** Open since June 28.
+4. **The watcher that starts jobs by itself: yes or no.**
+5. **The Board-of-5 gate.** Thirty days old — **read Section G before you blame yourself.**
+6. **The HOA's list of units it claims are complete.**
+7. **Approve three of the four verified jobs and refuse the fourth.** I recommend refusing the
    one whose single check only proves a file exists.
-9. **Fix the desktop's connection to the repository.** One action, and Section A explains why it
+8. **Fix the desktop's connection to the repository.** One action, and Section A explains why it
    matters more than it sounds.
 
 ---
@@ -219,7 +226,7 @@ rule it counted by.**
 - **167** open items in the register of record — **0** sessions have opened it
 - **38 of 38** job folders confirmed complete
 - **3** finished fixes waiting on **one** four-digit number
-- **9** decisions waiting on you, **all a word or a click**
+- **2** decisions with a Friday deadline · **8** more with no clock — **all a word or a click**
 
 **Nothing was filed, moved, renamed or deleted overnight.**
 
