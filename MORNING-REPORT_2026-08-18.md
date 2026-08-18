@@ -359,6 +359,51 @@ level; it holds 25. **The image count of 103 was exact.**
 
 ---
 
+## Section N — Added 07:25 UTC. Where your work actually arrives
+
+**I enumerated every email with an attachment in your Gmail for the last twelve months. One
+hundred threads, counted one at a time.**
+
+**Two of the hundred came from a government address. Zero carried a client job document.**
+
+**Gmail is a billing mailbox. It is not where the work comes in.**
+
+The largest single sender is **OneDrive's automated photo-memories email — seventeen of the
+hundred.** After that it is Stripe receipts, Zoho sales outreach, Microsoft and Anthropic
+billing. **Twelve are you, forwarding to yourself from your work address.**
+
+### Why this matters beyond curiosity
+
+**It settles the property-jacket question properly.** I told you there was no jacket email;
+there was, and it is in Outlook, which this side cannot reach. **That was a real error, and now
+it has a measured explanation instead of an excuse: the documents never come through Gmail at
+all.**
+
+**And it kills a whole class of future work before it gets built.** Any intake watcher, OCR feed
+or jacket catcher pointed at Gmail **would find two government emails a year.** Anything like
+that has to point at Outlook or it is watching the wrong door.
+
+### Two small things worth one look each
+
+**Four QuickBooks invoice threads in your inbox are addressed to somebody else entirely** — a
+`candy.almonte@iberostar.com`. Not you, not copied to you. All from January. **Either an old
+alias is forwarding or a sender mistyped an address.** Not urgent. Not touched.
+
+**And there are eight login-dot-gov emails clustered across two days in April** — the signature
+of a government identity check being attempted more than once.
+
+**Said carefully because it touches the Clerk decision: login-dot-gov is a federal service, not
+the Miami-Dade Clerk. It does not prove you have a Clerk account.** What it does suggest is that
+**checking 1Password first is worth the thirty seconds** before assuming you have to register.
+
+### One caution about counting
+
+Gmail's own result estimator said **201** on the first page and **53** on the second, for the
+identical search. **The estimate is not a count.** The hundred above were counted by listing
+them.
+
+---
+
 ## Denominators
 
 - **5 of 5** properties · **103** images · **5 of 5** Unsafe Structures cases confirmed
@@ -371,6 +416,7 @@ level; it holds 25. **The image count of 103 was exact.**
 - **167** open items in the register of record — **0** sessions have opened it
 - Ledger covers **164 of 541** files in the outbox — **369** of the gap is last night's proof of concept
 - Mailbox: **96** files, **0** ledgered
+- Gmail attachments: **100** threads examined · **2** governmental · **0** client job documents
 - Heartbeat baselines recorded: **3 of 3** components, first time ever
 
 **Nothing was filed, moved, renamed or deleted overnight.**
