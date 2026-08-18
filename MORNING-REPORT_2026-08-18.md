@@ -1,0 +1,219 @@
+# Morning report — Tuesday 2026-08-18
+
+**Written overnight by the cloud session. Last updated 04:15 UTC (12:15 AM Miami).**
+**You were not woken. Nothing broke that could not wait.**
+
+---
+
+## Section A — The answer first
+
+**Three real things finished overnight, and one of them is the proof of concept you said you
+never got a reply on.**
+
+1. **The 22 county sources ran against your five unsafe-structure addresses, with images.**
+   5 of 5 properties. **All five have a confirmed open Unsafe Structures case** — checked
+   against the county's own endpoint, not inferred from the list they came off.
+2. **Alec's job at 331 Tamiami Canal ran.** `TRK-2026-1612` issued, capsule built, 50 documents,
+   his portal extended. **Blocked on one free sign-in, and Friday is the deadline.**
+3. **The property-jacket question is answered.** Four of your six addresses never had a jacket
+   at all. **The one real jacket email in the entire mailbox belongs to a seventh property.**
+
+**And one thing was found that explains a great deal: the desktop has never been able to read
+the rulebook.**
+
+---
+
+## Section B — The single most important decision, and it is free
+
+**Sign in to the Clerk of Court's Official Records site. One click, no cost.**
+
+**Why it is first:** it is the only thing standing between Alec's report and the mortgages,
+liens, judgments and deed chain — **the category he is actually paying to have checked.** His
+site inspection is **Friday 2026-08-21 at 3:30 PM.**
+
+**Everything else on that job is done.** This is one free sign-in, not a technical decision and
+not an afternoon's work.
+
+**What we will do without it:** deliver Friday stamped **PRELIMINARY**, with Official Records
+recorded as **NOT SEARCHED**, never as *"the county declined to answer."* **The Clerk did not
+decline. We did not sign in.** That distinction stays in the file so the question can be
+re-opened; the invoice follows the FINAL, not the preliminary.
+
+---
+
+## Section C — Everything else you have to decide, cheapest first
+
+**Each one of these is a word or a click. None is a technical choice.**
+
+1. **Microfilm on Alec's job: YES-ALL or ASK-PER-ITEM.** Nothing ordered, nothing paid. The
+   charter dates microfilm retrieval before 2026-09-05.
+2. **Your 4-digit passcode**, to release a fix that is already built and proven. **Right now
+   0 of 38 job capsules count their documents correctly and 247 real documents are hidden with
+   no warning.** This is the largest single win available and it is one number.
+3. **Sign in to Outlook once** so we can see what is filing **2,786 emails in 60 days** out of
+   your sight. We still do not know what is doing it.
+4. **Which set of the five property reports is the delivery**, and do we package the folder
+   before it goes out. Right now the folder is not safe to browse — see Section F.
+5. **The tax jacket cleanup: option A or option B.** Open since 2026-06-28.
+6. **JOB-0079 D.1: yes or no** — whether the watcher that starts jobs by itself gets built.
+7. **The Board-of-5 gate, DIR-0001.** Thirty days old. **Read Section G before you blame
+   yourself for that one.**
+8. **The HOA's list of units it claims are complete** — DIR-0019.
+9. **Approve three of the four verified jobs and refuse the fourth.** I recommended refusing
+   `JOB-0079-D2` — one check, and it only proves a file exists.
+10. **Fix the desktop's git credential.** One action, and Section E explains why it matters far
+    more than it sounds.
+
+---
+
+## Section D — What completed, with numbers
+
+**The 22-source proof of concept, TRK-2026-9250**
+
+- **5 of 5** properties run, by two sessions independently, which **agree on substance**.
+- **5 of 5** open Unsafe Structures cases confirmed against the county's own endpoint.
+- **103 images** captured — aerials, block context, parcel maps, and screenshots of every
+  county screen that returned data.
+- **13 of 22** sources answered on the best run, **with the counting rule now printed beside
+  the number** so it cannot be read three different ways.
+- **The five final reports are self-contained** — 17 to 28 images embedded in each, verified
+  three ways: image tags, embedded payloads, and files on disk, all matching.
+
+**Alec's job, TRK-2026-1612**
+
+- Capsule built, **50 documents**, six standard subfolders.
+- **12 of 22** sources answered, every gap named with its reason.
+- Portal **extended, not replaced**. Verifier **9 of 9 pass**.
+
+**The jacket hunt, TRK-2026-9230**
+
+- **530 folders across 6 Outlook stores** scanned. **Exactly one** jacket email exists.
+- Matched to **14598 SW 110 St**, folio 30-5910-018-0210, capsule TUS-25-1023 — **by reading the
+  county form inside the attachments**, because the email body names neither address nor folio.
+- **0 of its 3 attachments were ever saved.** They are staged, not filed. Filing needs you.
+- **67 jacket folders exist, 5 of them completely empty.**
+
+---
+
+## Section E — The finding of the night
+
+**The desktop executor has never read the operating charter.**
+
+Its git has been logged for days as "broken push." **A broken push is also a broken pull.** The
+charter lives in the repository it cannot reach.
+
+**So it has been working without the numbering rules, without the freeze order, without the
+escalation standard, and without the recurring-issues file — including every entry written last
+night about its own work.**
+
+**It issued a real tracking number against a protocol it has never seen. It happened to be
+fine. Nothing guaranteed that.**
+
+**Fixed overnight without needing you:** the full charter is now mirrored into Drive, and the
+desktop has read it and confirmed the exact version. **The permanent fix is your one git
+action** — the mirror is a stopgap, and a mirror nobody refreshes becomes a second source of
+truth, which is its own problem.
+
+**Worth saying plainly: everything the desktop did last night, it did well, and it did without
+the rulebook.**
+
+**And nothing found this. A person did — the desktop refused to repeat a claim it could not
+verify, and that refusal is the only reason we know.**
+
+---
+
+## Section F — What is not ready, stated honestly
+
+**The five property reports are deliverable. The folder they sit in is not.**
+
+- **Ten superseded reports sit beside the five good ones**, with the same names and no marker.
+- **The superseded files were written one second later than the good ones**, so sorting by date
+  puts you on the wrong file.
+- **On four of the five properties the superseded file is also the bigger file**, so sorting by
+  size puts you on the wrong file too.
+- **The only reliable signal is the text `v2-ALL-IMAGES` in the filename.** A read-me has been
+  placed at the top of the folder saying exactly that.
+- **The build tooling and raw data are still inside the delivery folder.** A folder handed to an
+  owner should not contain the machinery that made it.
+
+**Still not answered anywhere:** deeds, mortgages and liens (Section B), tax status, City of
+Miami permits before 2014, and the Property Appraiser's building photos.
+
+---
+
+## Section G — Why some of these have sat for a month, and it was not you
+
+**The window that asks you questions has been opening at minus 963 across — the left monitor you
+do not face.**
+
+A census found the ask window, the Orange Tree window, the deadline nudge and the control panel
+all over there. Two more had been minimised since 4:37 PM on Saturday — **the same minute as the
+most recent answer on file.**
+
+**For five sessions the record said you had not answered. You were never shown the question.**
+
+**The ledgers said UNANSWERED where the truth was UNDELIVERED.** Those two words will never be
+interchangeable in this repository again.
+
+---
+
+## Section H — What never started
+
+- **The September board deck.** No PowerPoint and no Google Slides exists anywhere in your
+  Drive. Not started.
+- **Seven register items have no artifact anywhere** — the 1Password audit, the segmented
+  scheduler, the guided tour, the Fable status report, the subscription plan, the Zapier-Plaud
+  delivery, and the reboot root cause.
+- **Three more cannot be checked from the cloud at all** — they live on your machine. **Those
+  are not missing. They are out of sight**, and calling them missing is the mistake that was
+  made eleven times on Sunday.
+
+---
+
+## Section I — What I got wrong overnight, corrected in the files
+
+**I reported a silent overwrite that never happened.** I listed a folder while another session
+was still writing to it, saw five small files, and announced that five large ones had been
+destroyed. **They were written four minutes after I looked.**
+
+**I did the exact thing this repository exists to stop: I turned "I could not see it" into "it
+is gone."** Withdrawn, with a new rule — a snapshot of a moving folder is a snapshot, not an
+inventory.
+
+**I also told the desktop a rule was in a file without saying where the file lives**, to an
+executor I already knew could not reach it. It refused the citation. **That refusal is what
+found Section E.**
+
+---
+
+## Section J — The pattern worth knowing
+
+**Seven times in two days, a system reported success while failing.**
+
+The permit gate re-rendered its menu instead of erroring — **which reads exactly as "no permits
+found."** A portal builder reported "50 Drive links, 0 local" when all 50 were local. The
+Property Appraiser returned the county government centre for a Flagami address. The county said
+"address not found" for a City of Miami parcel. A button did nothing, silently. A 5-megabyte
+report held **one** image, not nineteen. And a count of "13 of 22" was published three different
+ways without anyone lying, because nobody had written down what was being counted.
+
+**Four of those would have gone into a client report as fact.**
+
+**Every one was caught by somebody asking what the number was made of.** Never by an error
+message. That is now the standing test: **a claim of success must state the quantity it counted
+and the rule it counted by.**
+
+---
+
+## Denominators
+
+- **5 of 5** properties · **103** images · **5 of 5** Unsafe Structures cases confirmed
+- **50** documents in Alec's capsule · **12 of 22** sources · **9 of 9** verifier checks
+- **530** Outlook folders scanned · **1** jacket email found · **0 of 3** attachments saved
+- **20 of 20** register items re-tested: **10 exist, 7 have nothing, 3 out of sight**
+- **38 of 38** job folders confirmed to have all six subfolders
+- **10** decisions waiting on you, **all of them a word or a click**
+
+**Nothing was filed, moved, renamed or deleted overnight.**
+
+#MorningReport #TRK-2026-9250 #TRK-2026-1612 #TRK-2026-9287 #JorgeValdes #CU-Inspections
