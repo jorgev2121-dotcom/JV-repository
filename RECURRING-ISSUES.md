@@ -1300,3 +1300,56 @@ Either wait for the writer to finish, or label the number `AS-OF <timestamp>, RU
 and draw no conclusion about what is absent.
 
 **A snapshot of a moving folder is a snapshot, not an inventory.**
+
+---
+
+## RI-025 — A failure wearing the costume of a success
+
+**Logged 2026-08-18 by cloud session. TRK-2026-9286.**
+
+**Five instances in two days, in five unrelated systems. Listing them together because
+separately each one looked like a one-off bug, and together they are a class.**
+
+| What was asked | What came back | What it actually meant |
+|---|---|---|
+| County ePermitting, permit history | the main menu re-rendered | **reCAPTCHA scored me low.** Reads as "no permits found" |
+| `Build-Job-Portal.ps1` link audit | *"drive links: 50, local links: 0"* | **all 50 are `file:///G:/…`.** The portal cannot be shared |
+| Property Appraiser, 331 Tamiami Canal Rd | 111 NW 1 ST, the government centre | **wrong operation.** A confident answer about a different building |
+| County ePermitting, a City of Miami parcel | *"ADDRESS NOT FOUND"* | **the county does not index city addresses.** Not a clean record |
+| Portal *Expand all* button | nothing, no error | **`onclick="all(1)"` bound to `document.all`.** Silent no-op |
+
+### The shape
+
+**Every one returned a well-formed, positive-looking result.** None threw an error. Four of the
+five would have been written into a client report as a finding — *no permits*, *portal shared*,
+*this is the property*, *no record*.
+
+### What caught each one
+
+**Not a test suite. In every case, somebody asked what the number was made of.**
+
+- 50 links → *which* 50?
+- 5.2 MB of embedded images → **one image, re-encoded.**
+- A button that "works" → **click it and count the sections that opened.**
+- An address that resolves → **does the returned address match the one I asked for?**
+
+### The standing test this adds
+
+**A self-reported success must state the quantity it counted, not merely that it counted.**
+
+- Not "images embedded" — **`<img>` tags == base64 payloads == files on disk, three numbers.**
+- Not "drive links: 50" — **50 hrefs matching `https://drive.google.com/`.**
+- Not "permits: none" — **the positive signature of a real result page, present.**
+
+**A source that can refuse without saying so must be given a positive signature to prove it
+answered.** The absence of an error is not evidence of an answer.
+
+### Why this is Tier 3 and not Tier 1
+
+Fixing the five bugs is Tier 2 and four of them are already fixed. **But the class regenerates**
+— every new source, script and portal can produce a sixth. The durable fix is the acceptance
+rule above, applied at the point where any executor writes the word DONE.
+
+**Related and already logged:** TRK-2026-9132 (PowerShell 5.1 silent false zero), TRK-2026-9097
+(read the body, never the status code), RI-022 (absence from the record, not the artifact).
+**RI-025 is the general case those three are instances of.**
