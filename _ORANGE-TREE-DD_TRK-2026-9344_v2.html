@@ -139,7 +139,7 @@ footer b{color:var(--ink)}
   <button id="ex" title="Open every property, every folder, every row">Expand all</button>
   <button id="co" title="Close everything back to the seven property names">Collapse to root</button>
   <button id="gapsOnly" title="Hide everything that worked. Show only what is blocked or waiting on you">Show gaps only</button>
-  <button id="readAll" class="go" title="One continuous page of everything, in order, for reading top to bottom or listening with Speechify">Contiguous — see all</button>
+  <button id="readAll" title="Every property back to back — the full book. For one property, open it and press its own Read-end-to-end button.">Contiguous — all properties</button>
   <button id="readSel" title="One continuous page of only the boxes you ticked">View selected</button>
   <span class="spacer"></span>
   <button id="shareSel" title="Copies a clean text summary of your ticked items, with links, ready to paste into any email">Copy selection for email</button>
@@ -151,7 +151,7 @@ footer b{color:var(--ink)}
 
 <h1>Orange Tree — Due Diligence</h1>
 <p class="sub">Three layers: <b>property → folder → document or source.</b> Tick boxes to choose
-what you share. One button reads everything as a single continuous page. <b>Nothing is blank</b> —
+what you share. Each property has its own <b>Read end to end</b> button — the whole file as one continuous page. <b>Nothing is blank</b> —
 every slot we could not reach says who was blocked and what opens it.</p>
 <p class="stamp">TRK-2026-9344 · v2 · 2026-08-18 · 7 properties · sources + documents · statuses measured, not assumed</p>
 
@@ -344,6 +344,11 @@ function build(){
     wrap.appendChild(head);
     const body=document.createElement('div'); body.className='jb';
     body.style.display=ji===0?'block':'none';
+    const rp=document.createElement('button'); rp.className='go'; rp.style.marginTop='12px';
+    rp.title='One continuous page of THIS property only — its card, every finding, every document, in order. No page breaks except the source name.';
+    rp.textContent='▶ Read this property end to end';
+    rp.addEventListener('click',ev=>{ev.stopPropagation(); renderContig(items.filter(it=>it.job===job.t));});
+    body.appendChild(rp);
     if(job.note){const n=document.createElement('div'); n.className='note'; n.style.marginTop='12px';
       n.innerHTML='<p>'+job.note+'</p>'; body.appendChild(n);
       items.push({job:job.t,cat:'THE CARD',name:job.t,status:'note',text:job.note,link:null,el:null});}
@@ -420,8 +425,9 @@ function updateSel(){const n=selected().length;
 document.getElementById('selclear').addEventListener('click',()=>{
   document.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.checked=false); updateSel();});
 
+let single=false;
 function sepLine(it){
-  let s='<div class="sep"><b>'+it.name+'</b> · '+it.job;
+  let s='<div class="sep"><b>'+it.name+'</b>'+(single?'':' · '+it.job);
   if(it.status==='blocked') s+=' · <span class="bl">BLOCKED</span>';
   if(it.status==='owner') s+=' · <span class="bl">NEEDS YOU'+(it.unblock?' — '+it.unblock:'')+'</span>';
   s+='</div>';
@@ -429,6 +435,9 @@ function sepLine(it){
 }
 function renderContig(list){
   const cb=document.getElementById('cbody'); let html='';
+  const jobsIn=[...new Set(list.map(it=>it.job))];
+  single = jobsIn.length===1;
+  if(single) html+='<h1 style="margin-top:0">'+jobsIn[0]+' — the complete file</h1>';
   list.forEach(it=>{
     html+=sepLine(it);
     html+='<div class="ctext"><p>'+it.text+'</p>';
