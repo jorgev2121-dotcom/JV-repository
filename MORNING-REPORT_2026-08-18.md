@@ -266,6 +266,44 @@ not progress.**
 
 ---
 
+## Section L — Added 05:20 UTC. Something that has been unenforceable for months
+
+**Your night protocol says a run is proved alive by its output file GROWING, not by the process
+existing.** It has been logged three separate times as a recurring failure.
+
+**Nobody ever wrote down a size to compare against.** So for months the rule could not actually
+be applied by anyone.
+
+**Fixed. The sizes are now in the repo** — the reconciler was 464 bytes at 12:40 AM. Every
+hourly check from now on compares against that number and updates it. **Same size three cycles
+running means hung, not busy.**
+
+### Two words that have been used interchangeably and should not be
+
+**Idle is not dead.** The verifier was flagged stale after 84 minutes when nothing had needed
+verifying. **A warning light that fires on healthy idle teaches everyone to ignore the warning
+light** — which is exactly how a real death gets missed.
+
+**On the roster is not monitored.** The unattended executor was added to the roster last night
+with its own status reading `green-unmonitored`. **It is recorded. Nothing restarts it and
+nothing alarms if it dies.** No future report may call it monitored just because it now appears
+in a list.
+
+### One gap found while doing this
+
+**The reconciler ledgers four lanes. Two are missing.**
+
+`_CLAUDE-MAILBOX` — 25 files, every task the desktop has ever been given, **and now the only
+copy of the rulebook either machine can read.** Not ledgered at all.
+
+And the folder holding last night's entire proof of concept — five reports, 103 images, every
+raw county response — **may be outside the ledger too**, depending on whether it counts
+subfolders. **I have asked. It is a yes-or-no question and it is not answered yet.**
+
+**Nothing is lost. But if it were, nothing would have noticed.**
+
+---
+
 ## Denominators
 
 - **5 of 5** properties · **103** images · **5 of 5** Unsafe Structures cases confirmed
@@ -276,6 +314,8 @@ not progress.**
 - **10** decisions waiting on you, **all of them a word or a click**
 - Register batch 2: **8** resolved · **7** absent · **3** out of sight · **9** vapor · **5** proven
 - **167** open items in the register of record — **0** sessions have opened it
+- Reconciler ledgers **4** lanes; **2** more are uncovered
+- Heartbeat baselines recorded: **3 of 3** components, first time ever
 
 **Nothing was filed, moved, renamed or deleted overnight.**
 
