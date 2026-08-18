@@ -335,7 +335,17 @@ Code session — desktop and cloud — reads it automatically at startup.
 
 ## RI-006 — Bridge launcher cannot start the Claude MS Store app
 
-**Status:** OPEN — root cause identified 2026-08-15
+**Status:** CLOSED 2026-08-18 — **already fixed on the machine, and the repo never heard.**
+Click-tested by the desktop: the button now launches via AppUserModelID (the Tier-2 fix,
+already in place), a visible Claude window appeared, zero error dialogs. Three repo claims
+corrected by measurement: the buttons call `.lnk` chains, not the WindowsApps path; no
+profile named "CLAUDE" exists (the live one is "Claude Code (Beige)", name-matched); the
+`.local\bin\claude.exe` target exists at 324 MB. **The 2026-08-15 dialogs were real and
+were fixed by someone who never told the record. Lesson — the mirror image of RI-022: a
+DEFECT claimed from the record can be as stale as an absence claimed from it. Re-test
+before re-fixing.**
+
+**Original status:** OPEN — root cause identified 2026-08-15
 **Severity:** MEDIUM — generates modal error pop-ups, feeding RI-001.
 
 **History**
