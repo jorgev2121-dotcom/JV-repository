@@ -65,6 +65,11 @@ the client file as of last night.
 
 **All three are already written and staged behind one switch. You type four digits once.**
 
+**Type it at the machine. Do not write it in a file, an email, or a message to me.** A code
+written into a shared folder is a secret that sits there permanently, on more than one computer,
+and any future session can read it and let itself in. **The lock is you confirming in the moment
+— not a number stored somewhere.**
+
 **The third one was proven overnight before asking you for anything** — five tests, including
 the one that matters: **a component that really had stalled was still reported.** A quiet alarm
 is also what a completely broken alarm produces, so "it went quiet" was never going to be
