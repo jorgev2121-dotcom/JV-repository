@@ -1353,3 +1353,74 @@ rule above, applied at the point where any executor writes the word DONE.
 **Related and already logged:** TRK-2026-9132 (PowerShell 5.1 silent false zero), TRK-2026-9097
 (read the body, never the status code), RI-022 (absence from the record, not the artifact).
 **RI-025 is the general case those three are instances of.**
+
+### RI-025 addendum 2026-08-18 03:20 UTC — the sixth instance, and it is the sharpest
+
+**Contributed by desktop session C, quoted verbatim because the wording is better than mine:**
+
+> *"The report front page said `13 of 22` and was true of a definition nobody had written down.
+> It was not wrong. It was **uncountable**, which is how it managed to be published as 7, 10 and
+> 13 without anyone lying. **A number with no stated unit is the same failure as a number
+> counted wrong, and it is harder to catch because it never disagrees with anything.**"*
+
+**That is the hardest member of the class.** The other five instances could each be caught by
+asking what the number was made of. **This one survives that question**, because every count
+was honestly derived under a rule its author never wrote down.
+
+**The fix, applied: the counting rule goes inside the count box, not in a footnote.** Session C
+applied it to 10 reports and 5 CSV cells, read back 11 of 11, and rendered one to look at it.
+
+**Additional reason the box matters here and not elsewhere: Jorge listens by text-to-speech.**
+A footnote is read minutes after the number and detached from it. In the box it is read in the
+same breath. **Placement is a legibility decision for this reader, not a formatting preference.**
+
+**RI-025 rule extended:** a self-reported success must state the quantity it counted **and the
+rule by which it counted.** Neither alone is enough.
+
+---
+
+## RI-026 — A broken push is also a broken pull
+
+**Logged 2026-08-18. TRK-2026-9287.**
+
+**`TRK-2026-9082` has been recorded for days as "the desktop's git push is broken," and every
+mitigation built around it — including my own standing instruction to mirror the desktop's
+output into the repo by hand — treated it as a *publishing* problem.**
+
+**It is a reading problem, and that half was never noticed.**
+
+**The desktop cannot pull `CLAUDE.md`. It has never read the operating charter.** Not §9
+numbering, not §12 FREEZE-AND-FINISH, not EXHAUST-FIRST-01, not Rules 1–8, not this file.
+
+### How it stayed invisible
+
+**Because the desktop kept producing correct-looking work**, including issuing a real tracking
+number tonight against a protocol it has never seen. **A missing input produces no error. It
+produces slightly-unmoored competence, which is indistinguishable from the real thing until it
+isn't.**
+
+**It surfaced only because a peer refused to repeat a citation it could not verify.** Nothing
+in any monitoring system would ever have found this.
+
+### The general form, which is worse than the instance
+
+**Every defect logged as "cannot write" should be re-read as "may also mean cannot read."**
+The same applies to: the dead mirror, the Outlook authorisation, the M365 connector, and any
+future one-directional-sounding failure. **Ask what the broken channel was also carrying
+inbound.**
+
+### Fix tiers
+
+- **Tier 1 — paste the charter into the window.** Dies on restart. `CLAUDE.md` §7 already names
+  this failure. **Not on the table under Rule 4.**
+- **Tier 2 — fix the git credential so the desktop pulls.** Deletes the cause. **Blocked on
+  Jorge; one owner action.**
+- **Tier 3 — mirror the charter to a Drive path both executors read on start, and require each
+  session to state the commit it loaded.** Survives the git problem entirely.
+
+**Tier 3 executed 2026-08-18 03:04 UTC**, unattended and without owner action:
+`_CLAUDE-MAILBOX\CHARTER-MIRROR_CLAUDE-MD_commit-2d01ea5_2026-08-18.md`, 22,220 bytes, carrying
+a header that names the repo as authoritative and forbids editing the mirror.
+
+**Tier 2 remains the real fix and is on Jorge's list. Tier 3 is not a substitute for it — a
+mirror that nobody refreshes becomes a second source of truth, which is its own disease.**
