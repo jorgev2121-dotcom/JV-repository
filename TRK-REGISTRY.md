@@ -301,3 +301,27 @@ first rather than inventing a process.
 not attempted.** It is not a search; it is an enumeration of everything and a
 subtraction, and it belongs with the orphan sweep rather than the registry survey.
 
+
+---
+
+## Issued 2026-08-17 — TRK-2026-1612
+
+| Field | Value |
+|---|---|
+| **Number** | **TRK-2026-1612** |
+| Property | **331 Tamiami Canal Rd, Miami** |
+| Folio | **01-4002-003-1200** (13-digit `0140020031200`) |
+| Client | **Alec Valdes / Avis Builders** |
+| Jurisdiction | **CITY OF MIAMI** (folio prefix 01) — *not* the county |
+| Directive | DIR-0038 |
+| Capsule | `01-JOBS — ONE SOURCE OF TRUTH\TRK-2026-1612 _ 01-4002-003-1200 _ 331 Tamiami Canal Rd Miami (ALEC VALDES)` |
+| Documents | 50 |
+| Hashtags | `#331TamiamiCanalRd #AlecValdes #AvisBuilders` |
+| Verifier | 9 of 9 PASS, exit 0 |
+| Issued by | desktop executor, 2026-08-17 23:58 ET · mirrored by cloud 2026-08-18 |
+| Status | **PRELIMINARY DELIVERED — blocked on MICROFILM-PAY-01** |
+
+**Registry note:** 1612 sits above the stated ceiling of 1367 recorded in `CLAUDE.md` §9, as do
+the previously observed 1536 and 1611. **The stated range is out of date; this is the third
+confirmed number above it.** Reconcile before issuing anything new — the +3 increment cannot be
+trusted against a ceiling that three live numbers already exceed.
