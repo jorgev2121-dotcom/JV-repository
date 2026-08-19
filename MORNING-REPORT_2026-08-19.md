@@ -10,27 +10,40 @@ clean finish, and I caught and reported one mistake of my own instead of hiding 
 
 ---
 
-## Section A — The three decisions waiting for you (all small, none urgent)
+## Section A — Everything waiting on you, each answerable in a word
 
-1. **The left screen — one word.** *On your left-hand monitor, do you glance at one
-   dashboard, or do you arrange several working windows there?* Your answer picks the
-   permanent fix for the vanishing buttons. **"Glance"** → we switch off auto-snapping
-   on that screen (you keep the screen). **"Arrange"** → we do a smaller per-button
-   fix. Either way I don't touch your machine until you say.
+**Nothing here is urgent except Friday, and Friday is two days out. Rip through these.**
 
-2. **Friday, 3:30 PM — the two-button popup on your screen.** It has been sitting there
-   since 11 PM, clickable: the **free Clerk sign-in** and the **microfilm YES-ALL / ASK-
-   PER-ITEM** choice. These open the biggest gap in your due-diligence (deeds, liens,
-   the ownership chain). Two days of runway. No rush tonight.
+**Two one-word answers:**
+1. **Left screen:** glance at one dashboard, or arrange several windows there? → picks the
+   permanent fix for the vanishing buttons. (Detail: Section A-note below.)
+2. **Bay Harbour:** the five units at 10000 W Bay Harbor Dr — **one building-job, or five
+   separate jobs?** → tells me how many tracking numbers to assign to the 8 un-numbered
+   folders. (`DRAFT-9033…`)
 
-3. **The Orange Tree report — one 10-second step for you in the morning.** Your favourite
-   report is built and live, but I never saved a real copy into Google Drive like I said
-   I would. The desktop and I built a clever automated way to fix it overnight without
-   you — and the safety check works — but my end kept sending the file slightly wrong, so
-   I stopped rather than ship a maybe-corrupt copy. **The clean fix takes you ten seconds:
-   open the report in your browser and "Save Page As" into the jobs drive.** That copy is
-   perfect, byte-for-byte, and it makes three leftover empty placeholder files disappear
-   at once. Section C has the detail.
+**Two quick yes/no's:**
+3. **Check the water bill?** The new 15601 SW 137 report has one open item — confirm the
+   Water & Sewer balance is cleared. Want me to check it? **Yes / no.**
+4. **File the insurance cert?** It belongs in the MZ Solutions company folder (not either
+   job). Move it there — **yes**, or leave it for you? (I don't move client files alone.)
+
+**One 10-second click:**
+5. **Orange Tree → Drive.** Press the **"Open the page"** button on your screen, then
+   **"Save Page As"** into the jobs drive. That lands your favourite report as a real file
+   and clears four empty placeholder shells at once. (Why I couldn't: Section C.)
+
+**Friday, 3:30 PM (two days out) — the two-button popup already on your screen:**
+6. The **free Clerk sign-in** and the **microfilm YES-ALL / ASK-PER-ITEM** choice — these
+   open the biggest gap in your due-diligence (deeds, liens, ownership chain). No rush now.
+
+**Later cleanups (no clock — a supervised batch when you have 20 minutes):** assign the 8
+TRK-TBD numbers; add version logs to job folders; rename the 2 short-form jobs
+(`TRK-26-1042`/`1043`) so they're findable. All written up; all wait for you because they
+rename client files.
+
+> **A-note (left screen):** "Glance" → we switch off auto-snapping on that screen (you keep
+> the screen). "Arrange" → a smaller per-button fix. Either way I don't touch your machine
+> until you say.
 
 ---
 
