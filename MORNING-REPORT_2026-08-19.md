@@ -78,8 +78,12 @@ are actually DONE with a file on disk** (the pay-charter amendment, the $971 per
 payment, the full ledger, six permit PDFs, the approvals sheet, and the status ledger).
 Two more are half-done, not zero. So the "verify everything" job would re-order **eight
 finished jobs** unless those get marked done first. (`RECON-9086…`)
-**One thing needs your eye:** your insurance certificate is recorded against *two
-different jobs* (20001 SW 110 CT vs 14598 SW 110 St) — one is pointed at the wrong file.
+**The insurance-certificate puzzle — I already solved it.** It looked like your cert was
+filed against two different jobs. I read the actual certificate: it's **MZ Solutions'
+company insurance** (Miguel's license CGC1528486), and the certificate holder is the county
+licensing office — so it belongs to **neither** job. Both records were wrong to pin it to a
+property. It should live in the MZ Solutions company folder, referenced by both jobs.
+Nothing to decide — just a filing move when you're ready. (`RESOLVE-9086…`)
 
 **Still open (rolls forward):** the Orange Tree file into Drive (your 10-second browser
 save — now a button on your screen), and the rest of the attachment/Drive sweeps.
