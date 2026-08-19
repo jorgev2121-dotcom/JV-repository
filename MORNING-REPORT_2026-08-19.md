@@ -23,12 +23,14 @@ clean finish, and I caught and reported one mistake of my own instead of hiding 
    PER-ITEM** choice. These open the biggest gap in your due-diligence (deeds, liens,
    the ownership chain). Two days of runway. No rush tonight.
 
-3. **The Orange Tree report — one mechanical step.** Your favourite report is built and
-   live, but I have to admit an error: **I only ever published it as a web page; I never
-   saved a real copy into Google Drive like I said I would.** The safe fix is one action
-   in the morning — open the page and "Save as" into the jobs drive. I'll walk you or
-   the desktop through it. **I could not do it safely from my side, and I explain why in
-   Section C rather than pretend it's done.**
+3. **The Orange Tree report — one 10-second step for you in the morning.** Your favourite
+   report is built and live, but I never saved a real copy into Google Drive like I said
+   I would. The desktop and I built a clever automated way to fix it overnight without
+   you — and the safety check works — but my end kept sending the file slightly wrong, so
+   I stopped rather than ship a maybe-corrupt copy. **The clean fix takes you ten seconds:
+   open the report in your browser and "Save Page As" into the jobs drive.** That copy is
+   perfect, byte-for-byte, and it makes three leftover empty placeholder files disappear
+   at once. Section C has the detail.
 
 ---
 
