@@ -1758,3 +1758,16 @@ a Speechify/Edge window over STOP THEM. **`WindowFromPoint` proves a rectangle i
 the top window is the button, reachable, or alive.** Test the centre, and test responsiveness
 separately. Same family as RI-030 (a window is not its file) and RI-025 (a number needs its rule):
 **the honest test point is the one the user would actually click.**
+
+## RI-023 recurrence — 2026-08-19 (the count, not the diagnosis)
+FancyZones banishment quantified for the first time: the desktop parsed
+`app-zone-history.json` read-only and found **32 of 51 zone-history entries point
+at DISPLAY2 (the dark monitor)** — including `explorer.exe` and `chrome.exe`, not
+just the `mshta.exe` owner buttons. The old MEMORY note `project_fancyzones_hides_windows`
+undercounted at "19 apps." **Rule 4 consequence, recorded so no future session
+re-opens the patch debate:** clearing remembered entries (at any blast radius) is
+Tier-1 — FancyZones rewrites the file from memory (~3 min), and the buttons' launch
+race reforms even a surgical single-entry delete. The Tier-2 removal is to stop
+monitor 2 from being a snap target at all (disable the phantom display, or restrict
+FancyZones to the one real monitor). Gate before any fix: confirm read-only whether
+DISPLAY2 is a live monitor or a phantom. Refs TRK-2026-9390 / 9391 / 9392.
