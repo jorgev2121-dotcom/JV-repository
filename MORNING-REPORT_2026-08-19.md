@@ -41,6 +41,10 @@ TRK-TBD numbers; add version logs to job folders; rename the 2 short-form jobs
 (`TRK-26-1042`/`1043`) so they're findable. All written up; all wait for you because they
 rename client files.
 
+> **One job may be untracked:** an HOA application you sent for **10510 SW 153 CT Unit 1**
+> has no job folder anywhere in Drive. Looks like a real job that never got a number.
+> Worth a quick check when you're up. (`ENUM-9073b…`)
+
 > **A-note (left screen):** "Glance" → we switch off auto-snapping on that screen (you keep
 > the screen). "Arrange" → a smaller per-button fix. Either way I don't touch your machine
 > until you say.
