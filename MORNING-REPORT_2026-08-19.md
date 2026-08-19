@@ -51,9 +51,16 @@ clean finish, and I caught and reported one mistake of my own instead of hiding 
 **Not done (1):**
 - **Orange Tree DD → Google Drive copy.** Blocked, honestly. See Section C.
 
-**Never started (deliberately — your standing queue, nothing broke):**
-- The unfinished-work audit, Gmail attachment count, Drive survey — the button thread
-  and the Orange Tree gap took the whole cycle. They roll to tonight.
+**Also done overnight — the unfinished-work audit (Batch 2):**
+- I checked 6 items your register lists as "not done" against what's actually in Google
+  Drive. **Three of them are actually finished** — the full status ledger (built twice),
+  the $971 county payment (permit issued), and your per-job trees. The register was
+  wrong to call them undone. **Two are genuinely still open** (the 13920 SW 34 St report,
+  the UCC search that errored out). Full detail in `AUDIT-9086_BATCH-2_2026-08-19.md`.
+- **Why it matters in one line:** before the big "verify everything" ledger runs, those
+  three need flipping to done — otherwise it will re-order work already sitting in Drive.
+
+**Not yet started (roll to tonight):** Gmail attachment count, the rest of the Drive survey.
 
 ---
 
