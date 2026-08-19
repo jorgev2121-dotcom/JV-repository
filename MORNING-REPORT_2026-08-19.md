@@ -71,8 +71,18 @@ clean finish, and I caught and reported one mistake of my own instead of hiding 
   emergencies. I drafted the 8-folder list ready for you to number — the only real
   decision is whether the 5 Bay Harbor units are one building-job or five. (`DRAFT-9033…`)
 
+**Biggest find of the night — your "unfinished work" list is wrong in your favor again:**
+I cross-checked your unfinished-work register against your July 31 status ledger (which
+names a real file for every finished item). **Six more jobs the register calls "not done"
+are actually DONE with a file on disk** (the pay-charter amendment, the $971 permit
+payment, the full ledger, six permit PDFs, the approvals sheet, and the status ledger).
+Two more are half-done, not zero. So the "verify everything" job would re-order **eight
+finished jobs** unless those get marked done first. (`RECON-9086…`)
+**One thing needs your eye:** your insurance certificate is recorded against *two
+different jobs* (20001 SW 110 CT vs 14598 SW 110 St) — one is pointed at the wrong file.
+
 **Still open (rolls forward):** the Orange Tree file into Drive (your 10-second browser
-save), and the rest of the attachment/Drive sweeps.
+save — now a button on your screen), and the rest of the attachment/Drive sweeps.
 
 ---
 
