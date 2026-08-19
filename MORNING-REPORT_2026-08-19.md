@@ -91,7 +91,13 @@ Sheffield Apartments, a 90-unit complex). **Good news: every violation is closed
 county code cases, all resolved. **One thing to close before you rely on it:** confirm the
 last **Water & Sewer (WASD) balance is paid** — that's the only open item the report flags.
 It's in your mailbox (`3059260010010_DD-REPORT_15601-SW-137-AVE…pdf`). I left the file
-where it is — copying a client report is a filing action that waits for you.
+where it is — copying a client report is a filing action that waits for you. **A second
+part also arrived** (life-expectancy addendum): the complex was built in **1987**, so its
+roof, electrical, and A/C are all past their normal life with no replacement permits on
+record — a real buyer/contractor flag — and its **40-year recertification comes due in
+2027**. Also a peer request came in from the desktop about a new privacy/redaction filing
+rule; I reviewed it and sent back my notes (one real fix: old and new hashtags would stop
+matching each other).
 
 **Still open (rolls forward):** the Orange Tree file into Drive (your 10-second browser
 save — now a button on your screen), and the rest of the attachment/Drive sweeps.
