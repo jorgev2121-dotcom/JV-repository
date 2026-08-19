@@ -41,6 +41,13 @@ TRK-TBD numbers; add version logs to job folders; rename the 2 short-form jobs
 (`TRK-26-1042`/`1043`) so they're findable. All written up; all wait for you because they
 rename client files.
 
+> **Bigger filing picture (overnight):** your job files are scattered across **four**
+> separate folder "trees" on Drive, and several jobs have duplicate copies in more than one
+> (Groves has five, 14598 has a wrongly-issued extra number). None of it is lost — but a future
+> cleanup script has a real trap I caught: two folders one character apart, and the wrong one
+> holds ~4,100 of your original field-inspection reports. I've written the safe-guard down so it
+> can never delete them. All the merges wait for you. (`MIRROR-9073…`)
+>
 > **One job may be untracked:** an HOA application you sent for **10510 SW 153 CT Unit 1**
 > has no job folder anywhere in Drive. Looks like a real job that never got a number.
 > Worth a quick check when you're up. (`ENUM-9073b…`)
