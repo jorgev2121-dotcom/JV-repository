@@ -85,6 +85,14 @@ licensing office — so it belongs to **neither** job. Both records were wrong t
 property. It should live in the MZ Solutions company folder, referenced by both jobs.
 Nothing to decide — just a filing move when you're ready. (`RESOLVE-9086…`)
 
+**A new client report finished overnight (not by me — the desktop/agent side):** a full
+due-diligence report for **Miguel / MZ Solutions on 15601 SW 137 Ave** (Pine Brook /
+Sheffield Apartments, a 90-unit complex). **Good news: every violation is closed** — 44
+county code cases, all resolved. **One thing to close before you rely on it:** confirm the
+last **Water & Sewer (WASD) balance is paid** — that's the only open item the report flags.
+It's in your mailbox (`3059260010010_DD-REPORT_15601-SW-137-AVE…pdf`). I left the file
+where it is — copying a client report is a filing action that waits for you.
+
 **Still open (rolls forward):** the Orange Tree file into Drive (your 10-second browser
 save — now a button on your screen), and the rest of the attachment/Drive sweeps.
 
