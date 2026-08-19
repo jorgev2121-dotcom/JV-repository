@@ -17,7 +17,8 @@ TRK folder") is, in practice, unimplemented everywhere except the one job someon
 worked end-to-end.
 
 ## Second defect found in the same list: TRK-TBD folders (charter §9: "TRK-TBD is a defect")
-Seven folders carry `TRK-TBD` — a real number was never assigned:
+**Correction:** EIGHT folders carry `TRK-TBD`, not seven (a first-pass miscount — 5 Bay
+Harbor units + 3 standalone = 8). A real number was never assigned to any:
 - 13328 SW 113 CT (Nick)
 - 535 NW 7 ST Homestead (Renzo Cahuana)
 - 2362-2364 NW 32 ST (2362 Acquisition LLC)

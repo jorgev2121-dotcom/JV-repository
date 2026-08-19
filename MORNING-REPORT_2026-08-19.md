@@ -66,9 +66,10 @@ clean finish, and I caught and reported one mistake of my own instead of hiding 
 - **Email attachments:** ~201 in the last year, but ~4 of 5 are automated billing/sales;
   the real filable set is small (9 self-sends + ~2 client threads). (`ENUM-9073…`)
 - **Filing discipline check:** of ~35 job folders in Drive, **only 1 has a version log**
-  — the charter rule is essentially unimplemented. Also **7 folders still say "TRK-TBD"**
+  — the charter rule is essentially unimplemented. Also **8 folders still say "TRK-TBD"**
   (no real tracking number assigned). (`SURVEY-9033…`) These are cleanup targets, not
-  emergencies.
+  emergencies. I drafted the 8-folder list ready for you to number — the only real
+  decision is whether the 5 Bay Harbor units are one building-job or five. (`DRAFT-9033…`)
 
 **Still open (rolls forward):** the Orange Tree file into Drive (your 10-second browser
 save), and the rest of the attachment/Drive sweeps.
