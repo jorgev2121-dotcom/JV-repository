@@ -8,7 +8,7 @@
 ## High-water mark
 
 ```
-Next OPH to issue:  OPH-2026-0008
+Next OPH to issue:  OPH-2026-0009
 ```
 
 **Update this line every time a number is issued.** Orphan numbers increment by
@@ -49,6 +49,7 @@ rows are the same five numbers and must not be duplicated.**
 | OPH-2026-0005 | 2026-08-16 | `B:\Warranty.pdf` (1.6 MB) | Warranty document. Desktop flagged "may relate to property equipment" | **NOT YET EXTRACTED.** If it names a property or an installed system it may attach to a job; if it is the Seagate's own warranty it is NON-JOB | none tested yet |
 | OPH-2026-0006 | 2026-08-16 | PaperPort — scanned by Jorge in the moment | `JV A-P and creating a budget` — accounts payable / budget working document | Named by Jorge at scan time. **No date, no number, no type.** Internal admin, not client work | n/a — resolves NON-JOB, see below |
 | OPH-2026-0007 | 2026-08-16 02:01 | Google Drive `01-JOBS` | **Bal Harbour + Plaza — HOA-questioned units.** Folder created by the DESKTOP, unattended | Building identified: 10000 W Bay Harbor Dr. **Five `TRK-TBD` unit folders exist for the same building** — 221, 301, 302, 404, 425 | n/a — correctly left as an OPH rather than borrowing TRK-2026-1582 |
+| OPH-2026-0008 | 2026-08-19 | PaperPort `Business Cards` (source PDF, OCR'd 2026-07-14) + Gmail self-send 2025-11-17 | **HOA Architectural-Review application, 10510 SW 153 CT Unit 1.** Confirmed by desktop: on disk at `…\My PaperPort Documents\Business Cards\`, 8.4 MB | HOA/manager: **Courtesy Property Management, 13250 SW 135th Ave, Miami FL 33186, 305-254-3888.** Owner name / address / folio / permit **NOT extractable** — form filled by hand, OCR returns garbage on those fields | none tested — no folio and no permit number to search on. Needs a human or handwriting-capable read of page 1, or the Gmail body (cloud has Gmail) |
 
 ---
 

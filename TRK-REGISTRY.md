@@ -361,3 +361,17 @@ the self-healing lock, because pins and files decay and a re-creator does not.
 **Locks ①–③ are physical and are the desktop's to install — queued as TRK-2026-9337-LOCKS.**
 
 #JorgeValdes #CU-Inspections #cloud-window #desktop-window #executor-pair #TRK-2026-9336 #TRK-2026-9337 #find-my-window
+
+---
+
+## DISCOVERED COLLISIONS — pending Jorge ratification (2026-08-19, cloud mirror of desktop sweep)
+
+**These are FINDINGS, not decisions. No number was issued, retired, or merged. All merges/retirements are RED/owner-gated. Full evidence: `MIRROR-9073_FILING-INTEGRITY-FOUR-TREES_2026-08-19.md`.**
+
+- **TRK-2026-1614 — likely a wrongly-minted duplicate.** It was issued for 14598 SW 110 St on the belief the property had no number; it already had **TUS-25-1023** (117 files, folio 30-5910-018-0210) since 2025. Recommend: retire 1614, TUS-25-1023 survives. **Awaiting Jorge.** (line 57 of this file describes 1614.)
+- **TUS-26-1022 — retired → TUS-26-1033**, recorded ONLY as a folder name (`_SUPERSEDED_TUS-26-1022-USE-1033` in `G:\My Drive\CU-Jobs`); appears in zero repo `.md`. Recorded here so no session re-issues 1022.
+- **TUS-26-1033 (Medley) — one number on two folders** (123-file capsule in 01-JOBS + 22-file folder at Drive root). Both resolve. Needs adjudication.
+- **Groves at Sunset — five identities:** TRK-2026-1256 (165 files, recommended survivor), KAR-26-GROVES (30), TUS-26-1021 root (9), TUS-26-1021 CU-Jobs (0), "Sunset Cove Pool" gdoc (unproven).
+- **Unregistered capsules (no ledger entry):** `3180 Munroe Dr` (2019), `2037 NW 1 TER` (2019), `3811 NE 166 ST Unit 3 - Sean Wayne`, `Garden walk builing 3 2019052465` (148.9 MB, TEDC), `TUS-26-1029 - Recording Device DD`. **Number issuance pending OD-02: does the registry cover pre-2020 work or start at a cut-off date?**
+
+**Related orphan:** OPH-2026-0008 (10510 SW 153 CT Unit 1 HOA app) recorded in ORPHAN-REGISTER.md this cycle.
