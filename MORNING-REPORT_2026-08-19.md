@@ -120,6 +120,17 @@ rename client files.
 >   from your personal account over the past year. That's *your* money going in, never counted as income —
 >   just flagging it so nothing mistakes it for a client payment. (`MIRROR-9430-9431…`)
 >
+> **The money accounting is now finished on our side.** Every one of your 128 invoices has a dollar figure
+> attached — about **$135,000 billed in total** across the years. Of that, we can prove $11,000 paid and
+> $4,000 still open from the paperwork alone; the rest (about $120,000) is simply "no receipt on this
+> computer either way" — **not** money owed, just unconfirmed. Your QuickBooks login is the one thing that
+> turns those into a real answer. Nothing more for you to decide on the money.
+>
+> **One privacy heads-up worth a look:** while reading job files, the other window noticed that one client's
+> folder (labeled "Belkis / 5035 SW 112 Ave") has **your own personal papers mixed into it** — some 2023
+> medical records and your SBA settlement filing — sitting where they don't belong. **Nothing was moved.**
+> Want me to have it tidy those into your private area (not a client folder) when you're up? **Yes / no.**
+>
 > **Bigger filing picture (overnight):** your job files are scattered across **four**
 > separate folder "trees" on Drive, and several jobs have duplicate copies in more than one
 > (Groves has five, 14598 has a wrongly-issued extra number). None of it is lost — but a future
