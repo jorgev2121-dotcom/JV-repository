@@ -23,14 +23,16 @@ most; the full list, with the exact time each was asked, is in that file.
 > "$44 by Friday 3:30" traced back to a label I created by mistake — not to anything you actually said. The
 > microfilm's real target is **September 5, more than two weeks away** — no rush.
 >
-> **And it moved forward on its own overnight:** the microfilm request was already **sent to the City at
-> 2:33 AM**, and the City has **already replied and billed you the $44.** So your part is now three concrete
-> steps, whenever you're up (calm, not urgent):
-> 1. Go to **miamigov.com/pay**, choose **"Pay by Transaction ID,"** enter **1330901**, pay **$44**.
-> 2. **Reply to the City's email** (from Nancy Aguilar) to confirm you paid — *this is the step that
->    actually starts their search; paying without replying does nothing.*
-> 3. That's it. **Do NOT send any second microfilm email** — a duplicate one got drafted, and sending it
->    would charge you a second $44. I've flagged it to be set aside.
+> **And it moved forward on its own overnight, and the other window turned it into one button for you.**
+> The microfilm request was already **sent to the City at 2:33 AM**, the City **already billed the $44**, and
+> there's now a button on your desktop that does the rest:
+> - Double-click **"PAY THE 44 DOLLARS - City of Miami"** on your desktop.
+> - Press **1** — it fills in the payment and opens the pay page (you just confirm the $44).
+> - Press **2** — it opens the "I paid it" email to the City, already written; you just press **Send.**
+>   *(That reply is what actually starts their search — don't skip it.)*
+>
+> That's the whole thing, no rush (real target Sept 5). One caution the button also shows: **don't send any
+> other microfilm email** — a duplicate got drafted and would charge a second $44.
 >
 > **The "Friday 3:30" itself looks like it was meant to be a meeting with Alec — but I checked your Google
 > calendar just now and there is no such meeting on it, on Friday or any day.** So either it was only ever a
@@ -141,6 +143,18 @@ rename client files.
 > - The window also noticed you've been **putting your own money into the business** — about **$29,700**
 >   from your personal account over the past year. That's *your* money going in, never counted as income —
 >   just flagging it so nothing mistakes it for a client payment. (`MIRROR-9430-9431…`)
+> - **New, and worth your memory:** a company called **"AMN Doral" paid you $6,000** last year, marked
+>   *"50% permit processing"* and *"2nd down payment"* — but there's **no invoice for it in any of your
+>   records.** If that $4,500 was really half, the job was ~$9,000 and the back half may never have been
+>   billed. **Do you remember this job — was it finished and fully billed?** (`BANK-9452…`)
+>
+> **The biggest thing we figured out overnight — and it explains a lot of "we discussed it and it never got
+> done":** the machine has quietly been saving most of the things it builds for you — task lists, approval
+> pop-ups, briefings — into a **desktop folder that isn't actually your desktop and never shows on your
+> screen.** 19 of the 21 things it made for you today landed there, unseen. That's very likely why past
+> requests seemed to vanish. **Nothing is lost** — it's all still on the machine — and the other window is
+> re-pointing those tools to your real desktop so they stop disappearing. (This is also why the $44 finally
+> became a visible button.) Nothing for you to do; just so you know the mystery has a name now.
 >
 > **The money accounting is essentially finished on our side — with one careful last check running.** Every
 > one of your 128 invoices has a dollar figure attached — about **$135,000 billed in total** across the
