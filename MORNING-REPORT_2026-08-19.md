@@ -23,6 +23,16 @@ most; the full list, with the exact time each was asked, is in that file.
 
 **Nothing else here is urgent. Rip through these.**
 
+> **The things you asked me for directly are handled — no action needed from you:**
+> - **The Adobe pop-up is gone for good.** Acrobat was removed from the machine overnight and your PDFs now
+>   open in Edge, so the nagging window can't come back. (This was a two-year problem; it's the *remove-it*
+>   fix, not a patch.)
+> - **The unit-404 signature pages are ready to print.** The other window read the condo form and found the
+>   builder signs **pages 5, 9 and 10**; those three pages are being pulled into one small file and printed
+>   on the 3770. (My first attempt named a printing tool your PC didn't have — that's fixed.)
+> - **The old August-1 job you forwarded was already done** (the Rose Arbor title search) — filed, not
+>   repeated.
+
 **Two one-word answers:**
 1. **Left screen:** glance at one dashboard, or arrange several windows there? → picks the
    permanent fix for the vanishing buttons. (Detail: Section A-note below.)
