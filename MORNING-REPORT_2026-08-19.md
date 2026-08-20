@@ -90,8 +90,8 @@ rename client files.
 > Aronson billed you dozens of $65–$90 charges; by night's end **at least seven** other companies' bills
 > were mixed in). Some are not invoices at all — they're **folio or house numbers** with four digits.
 > Some were **already paid.** And an old records file it found ($33,712 from 2017) is **too old to
-> collect** — the deadline to sue on it passed years ago, and a third of it was you billing your own
-> companies anyway. **So the real "owed to you" number is much smaller than the $75k headline.**
+> collect** — the deadline to sue on it passed years ago. **So the real "owed to you" number is much
+> smaller than the $75k headline.**
 >
 > **And the window settled the shortcut question for good:** it searched all your email for a
 > ready-made QuickBooks report and there isn't one — 213 QuickBooks emails, none of them a report. **So
