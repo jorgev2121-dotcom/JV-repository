@@ -50,9 +50,16 @@ rename client files.
 > lists of your tracking numbers, and they don't match; the repo copy is missing rows the main
 > one has. That mismatch made a duplicate number get created for the 14598 SW 110 St (Miguelez)
 > job. The fix is a decision only you make: **which list is the official one** (I recommend the
-> ClaudeMemory one — it has the full history). Separately, the **13920 SW 34 St** folder has 114
-> documents but names *different people* than the record it's matched to — worth confirming whose
-> job it really is before anything ships. Nothing was merged; all of it waits for you.
+> ClaudeMemory one — it has the full history). **The 13920 SW 34 St worry I raised is now cleared —
+> I over-called it and the other window caught me:** the "different people" are just the architect
+> firm and the referrer, not a mix-up; the owner on the record is correct. Nothing to do there. The
+> registry-choice decision still waits for you.
+>
+> **Where the money actually is (overnight):** the other window found **two paid-and-invoiced jobs
+> sitting outside every list** — 13920 SW 34 St (Invoice 6039, a $926 county fee) and **20723 SW 119
+> PL (Invoice 6066)**, a job that was worked but never got a tracking number at all. Two invoices in
+> six hours, same overlooked Dropbox area. Not lost — just uncounted. Flagging because these are
+> dollars, not paperwork; a supervised pass through that Dropbox area is worth scheduling.
 >
 > **Bigger filing picture (overnight):** your job files are scattered across **four**
 > separate folder "trees" on Drive, and several jobs have duplicate copies in more than one
