@@ -20,6 +20,11 @@ most; the full list, with the exact time each was asked, is in that file.
 > **⏰ The one thing with a real clock: Friday 2026-08-21, 3:30 PM.** You already said yes to the **$44
 > City of Miami microfilm search** — it just hasn't been paid yet, and I don't spend without you. **When
 > you're up, approve the $44 and it goes in before the Friday cutoff.** Everything else can wait.
+>
+> **Good news on the same job (331 Tamiami / Alec): your free tax-jacket request was already sent** — a
+> day ago, confirmed, receipt on file. So the $44 above is the *only* thing left. The jacket reply will
+> land in your email in about a week — **from "PAWebMail," with the subject "bldg jacket"** (searching
+> "tax jacket" won't find it, so watch for those words).
 
 **Nothing else here is urgent. Rip through these.**
 
