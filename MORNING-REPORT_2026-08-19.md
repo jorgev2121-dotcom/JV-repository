@@ -31,8 +31,10 @@ most; the full list, with the exact time each was asked, is in that file.
 > - Press **2** — it opens the "I paid it" email to the City, already written; you just press **Send.**
 >   *(That reply is what actually starts their search — don't skip it.)*
 >
-> That's the whole thing, no rush (real target Sept 5). One caution the button also shows: **don't send any
-> other microfilm email** — a duplicate got drafted and would charge a second $44.
+> That's the whole thing, no rush (real target Sept 5). Two cautions the button also shows: **don't send any
+> other microfilm email** (a duplicate got drafted and would charge a second $44); and **your credit card
+> tends to get declined on the county's payment page — expect to press Submit a few times** before it goes
+> through (it's done that before; it's the card, not you).
 >
 > **The "Friday 3:30" itself looks like it was meant to be a meeting with Alec — but I checked your Google
 > calendar just now and there is no such meeting on it, on Friday or any day.** So either it was only ever a
@@ -149,12 +151,13 @@ rename client files.
 >   power-of-attorney, and **wound it back ~two weeks later.** You **kept about $3,500 net**, and there's
 >   still no invoice for that piece. **Do you remember it — was that $3,500 ever billed?** (Much smaller than
 >   I first said.) (`BANK-9453…`)
-> - **One that could actually be costing you real money:** last year you **paid Miami-Dade about $7,600 in
->   permit fees on a credit card** — that's roughly 18 jobs' worth of county fees — and you paid about
->   **$3,600 in card interest** carrying it (the card stayed unpaid most of the year). The question is
->   whether those county fees got **billed back to your clients.** I can't tell from here — that's the kind
->   of thing your QuickBooks would show. **If they weren't re-billed, that's real out-of-pocket money.**
->   Worth a look when you do the QuickBooks login. (`CARD-9457…`)
+> - **One that could actually be costing you real money:** last year you **paid Miami-Dade about $7,400 in
+>   permit fees on a credit card** — the other window can now read the fees closely enough to count **seven
+>   Certificate-of-Use jobs** paid that way, while your invoice list shows only **three** invoices for the
+>   whole year. And you paid about **$3,600 in card interest** carrying it. **That gap doesn't prove
+>   anything is unbilled** — your billing may just live somewhere the machine can't see — but it's exactly
+>   what your **QuickBooks login** would settle: did those county fees get billed back to clients? If not,
+>   that's real out-of-pocket money. (`CARD-9457`, `COUNTY-9459`)
 >
 > **The biggest thing we figured out overnight — and it explains a lot of "we discussed it and it never got
 > done":** the machine has quietly been saving most of the things it builds for you — task lists, approval
