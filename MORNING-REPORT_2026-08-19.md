@@ -84,6 +84,15 @@ rename client files.
 > Garcia and MZ Solutions. Nothing is owed-money-confirmed until then, and nothing was numbered.
 > (`MIRROR-9337c-e…`)
 >
+> **One important walk-back, so you don't picture more than is really there:** later in the night the
+> window kept digging and found that a lot of what *looked* like your uncounted billed work **isn't your
+> money at all.** Some of those "invoices" are **bills from other companies to you** (a firm called
+> Aronson billed you dozens of $65–$90 charges; two other vendors are mixed in too). Some are not invoices
+> at all — they're **folio numbers or house numbers** that happen to have four digits and got mistaken for
+> invoice numbers. And at least one it had marked unpaid was **already paid.** So the real "money owed to
+> you" number is **smaller** than the $75k headline, and the honest answer stays the same: **only your
+> QuickBooks login turns this into a real list.** Nothing here needed you overnight. (`MIRROR-9414-9415…`)
+>
 > **Bigger filing picture (overnight):** your job files are scattered across **four**
 > separate folder "trees" on Drive, and several jobs have duplicate copies in more than one
 > (Groves has five, 14598 has a wrongly-issued extra number). None of it is lost — but a future
