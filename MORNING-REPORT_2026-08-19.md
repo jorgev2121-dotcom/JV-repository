@@ -59,11 +59,13 @@ rename client files.
 > firm and the referrer, not a mix-up; the owner on the record is correct. Nothing to do there. The
 > registry-choice decision still waits for you.
 >
-> **Where the money actually is (overnight):** the other window found **two paid-and-invoiced jobs
-> sitting outside every list** — 13920 SW 34 St (Invoice 6039, a $926 county fee) and **20723 SW 119
-> PL (Invoice 6066)**, a job that was worked but never got a tracking number at all. Two invoices in
-> six hours, same overlooked Dropbox area. Not lost — just uncounted. Flagging because these are
-> dollars, not paperwork; a supervised pass through that Dropbox area is worth scheduling.
+> **Where the money actually is — now counted, and it's bigger than two jobs.** The other window found
+> a **spine of 43 of your invoices** in a Dropbox folder, and checked every one against your job list:
+> **only 1 of 34 invoiced addresses is on the list. The other 33 aren't.** Your tracking list has grown
+> to cover only about a quarter of the work you've actually billed. Most of those 33 are real jobs with
+> real folders — they just never got a number. **This is dollars, not paperwork.** My recommendation,
+> which needs your yes: **don't number all of them — first find which ones are still unpaid, and number
+> those, so they enter collections.** One small decision when you're up. (`MIRROR-9337…`)
 >
 > **Bigger filing picture (overnight):** your job files are scattered across **four**
 > separate folder "trees" on Drive, and several jobs have duplicate copies in more than one
