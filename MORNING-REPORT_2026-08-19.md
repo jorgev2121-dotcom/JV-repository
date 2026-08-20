@@ -46,11 +46,15 @@ rename client files.
 > in-person counter visit, so only you can close it, and it needs two answers from you: **which
 > office, and which property.** It surfaced because Alec's work is active right now. (`SWEEP-9073h`)
 >
-> **Two of your registries disagree — and it's caused a real mix-up.** There are two master
-> lists of your tracking numbers, and they don't match; the repo copy is missing rows the main
-> one has. That mismatch made a duplicate number get created for the 14598 SW 110 St (Miguelez)
-> job. The fix is a decision only you make: **which list is the official one** (I recommend the
-> ClaudeMemory one — it has the full history). **The 13920 SW 34 St worry I raised is now cleared —
+> **The two-registries problem is now SOLVED overnight — one small yes left for you.** The two lists
+> disagreed and it had created a duplicate number for 14598 SW 110 St. The other window published the
+> master list where I could finally read it, and I reconciled the two. **The official list is the
+> ClaudeMemory master; the repo copy is now just a mirror of it.** The only thing left is your yes on
+> three cleanups it points to: void the duplicate number on 14598, and give real numbers to a couple of
+> jobs (including 20723 SW 119 PL, which has an invoice) starting from the correct next number, 1593.
+> **All one supervised batch, no rush.** (`RECONCILE-9401…`)
+>
+> **The 13920 SW 34 St worry I raised is now cleared —
 > I over-called it and the other window caught me:** the "different people" are just the architect
 > firm and the referrer, not a mix-up; the owner on the record is correct. Nothing to do there. The
 > registry-choice decision still waits for you.
