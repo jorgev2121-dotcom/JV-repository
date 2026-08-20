@@ -8,14 +8,16 @@
 ## High-water mark
 
 ```
-Next OPH to issue:  OPH-2026-0009
+Next OPH to issue:  OPH-2026-0010
 ```
 
 **Update this line every time a number is issued.** Orphan numbers increment by
 **1** — plain sequential. They are never client-facing, so the +3 obfuscation that
 applies to TRK numbers does not apply here.
 
-**OPH-2026-0001 through 0007 are ISSUED** — removable-drive sweep, desktop,
+**OPH-2026-0001 through 0009 are ISSUED** (0008 = 10510 HOA app, cloud+desktop independently agreed; 0009 = Sandra Suleta 2015 permit set, desktop-found)
+
+**Prior note: OPH-2026-0001 through 0007 were ISSUED** — removable-drive sweep, desktop,
 2026-08-16.
 
 **⚠ Transcribed by cloud from the Drive mailbox, not from a desktop push.** The
@@ -50,6 +52,7 @@ rows are the same five numbers and must not be duplicated.**
 | OPH-2026-0006 | 2026-08-16 | PaperPort — scanned by Jorge in the moment | `JV A-P and creating a budget` — accounts payable / budget working document | Named by Jorge at scan time. **No date, no number, no type.** Internal admin, not client work | n/a — resolves NON-JOB, see below |
 | OPH-2026-0007 | 2026-08-16 02:01 | Google Drive `01-JOBS` | **Bal Harbour + Plaza — HOA-questioned units.** Folder created by the DESKTOP, unattended | Building identified: 10000 W Bay Harbor Dr. **Five `TRK-TBD` unit folders exist for the same building** — 221, 301, 302, 404, 425 | n/a — correctly left as an OPH rather than borrowing TRK-2026-1582 |
 | OPH-2026-0008 | 2026-08-19 | PaperPort `Business Cards` (source PDF, OCR'd 2026-07-14) + Gmail self-send 2025-11-17 | **HOA Architectural-Review application, 10510 SW 153 CT Unit 1.** Confirmed by desktop: on disk at `…\My PaperPort Documents\Business Cards\`, 8.4 MB | HOA/manager: **Courtesy Property Management, 13250 SW 135th Ave, Miami FL 33186, 305-254-3888.** Owner name / address / folio / permit **NOT extractable** — form filled by hand, OCR returns garbage on those fields | none tested — no folio and no permit number to search on. Needs a human or handwriting-capable read of page 1, or the Gmail body (cloud has Gmail) |
+| OPH-2026-0009 | 2026-08-19 | Google Drive root `Sandra Suleta.zip (Unzipped Files)\Sandra Suleta\` — desktop verified it came off a **third SanDisk USB stick** (factory SanDiskSecureAccess files sit beside it) | **Complete 2015 permit set — 31 PDFs, ~28 MB**: architectural/structural/MEP/site/as-built sheets + **six NOAs**, two revision rounds (04/16 & 05/13/2015). Client **Sandra Suleta** per folder | Keys: process **2015095890**, county prefix **X2018226249** — all three = **zero hits** across every repo `.md`. No address machine-readable (scanned images, no text layer); nothing to fuzzy-match — stays an orphan pending a county lookup on 2015095890 (desktop/Jorge — cloud is egress-blocked on Miami-Dade) |
 
 ---
 

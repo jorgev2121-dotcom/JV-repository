@@ -41,6 +41,11 @@ TRK-TBD numbers; add version logs to job folders; rename the 2 short-form jobs
 (`TRK-26-1042`/`1043`) so they're findable. All written up; all wait for you because they
 rename client files.
 
+> **⚠ One thing that's actually overdue** (buried in a folder nobody was watching): a note to
+> **pick up a permit application for A. Valdes was due Nov 17 — nine months ago.** It needs an
+> in-person counter visit, so only you can close it, and it needs two answers from you: **which
+> office, and which property.** It surfaced because Alec's work is active right now. (`SWEEP-9073h`)
+>
 > **Bigger filing picture (overnight):** your job files are scattered across **four**
 > separate folder "trees" on Drive, and several jobs have duplicate copies in more than one
 > (Groves has five, 14598 has a wrongly-issued extra number). None of it is lost — but a future
