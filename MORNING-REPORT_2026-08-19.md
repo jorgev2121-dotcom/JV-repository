@@ -176,6 +176,15 @@ rename client files.
 > computer either way" — **not** money owed, just unconfirmed. Your QuickBooks login is the one thing that
 > turns those into a real answer. Nothing more for you to decide on the money.
 >
+> **Good news you already paid for: 993 county records came back overnight.** A full building history you'd
+> *already bought* from the county — 993 microfilm pages for **5000 SW 75 Ave** (Palmer Trust, 35 permits
+> back to 1992) — had been sitting un-downloaded for weeks. The download tool was quietly reporting "no
+> images" every time, and the other window found why: it was being run with an old version of Windows'
+> script engine that returns nothing, while the current version returns all 993. They're all on the machine
+> now (0 failures). **Nothing for you to do** — you already paid for these. The one thing worth noting: this
+> same "no images" glitch may have hidden *other* orders you paid for too, so the window is re-checking the
+> rest. (`MICROFILM-9460`)
+>
 > **One privacy heads-up worth a look:** while reading job files, the other window noticed that one client's
 > folder (labeled "Belkis / 5035 SW 112 Ave") has **your own personal papers mixed into it** — some 2023
 > medical records and your SBA settlement filing — sitting where they don't belong. **Nothing was moved.**
