@@ -59,13 +59,18 @@ rename client files.
 > firm and the referrer, not a mix-up; the owner on the record is correct. Nothing to do there. The
 > registry-choice decision still waits for you.
 >
-> **Where the money actually is — now counted, and it's bigger than two jobs.** The other window found
-> a **spine of 43 of your invoices** in a Dropbox folder, and checked every one against your job list:
-> **only 1 of 34 invoiced addresses is on the list. The other 33 aren't.** Your tracking list has grown
-> to cover only about a quarter of the work you've actually billed. Most of those 33 are real jobs with
-> real folders — they just never got a number. **This is dollars, not paperwork.** My recommendation,
-> which needs your yes: **don't number all of them — first find which ones are still unpaid, and number
-> those, so they enter collections.** One small decision when you're up. (`MIRROR-9337…`)
+> **Where the money is — the full read is in, and it needs one thing only you can give.** The other
+> window found a **spine of 43 of your invoices** in a Dropbox folder and, overnight, opened and read
+> every one. Two things came out of it. **First:** your tracking list covers only about a quarter of the
+> work you've actually billed — most billed jobs never got a number. **Second, and this surprised me:**
+> the "PAID" labels on your folders are not reliable — the window proved that folders marked PAID had no
+> proof of payment, and some folders with no label were already paid. **So a collections list can't be
+> built from the folder names.** The window read the invoices themselves: of $56,950 in total invoices,
+> only **$4,800 across four invoices** can be shown as still-owed, and even that is a snapshot from about
+> 19 months ago — so it's not a clean number yet either. **The one thing that turns this into a real
+> "who owes me" list is your QuickBooks login** — the window can't get in without it. That's the single
+> decision here: **let it into QuickBooks (or you log in), and it builds the real list.** Nothing is
+> owed-money-confirmed until then, and nothing was numbered. (`MIRROR-9337c-e…`)
 >
 > **Bigger filing picture (overnight):** your job files are scattered across **four**
 > separate folder "trees" on Drive, and several jobs have duplicate copies in more than one
