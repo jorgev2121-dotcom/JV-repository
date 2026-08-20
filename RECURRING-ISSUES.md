@@ -715,6 +715,16 @@ history titled *"Fix stale TRK registry counter and collisions."*
 
 **Reconcile the registry against Drive before issuing any new number.**
 
+- 2026-08-20 — **RECURRENCE (prefix-reuse class, same root cause as the 1614 collision). Desktop
+  SPINE-9428 found the June-2026 bulk-OCR rename plan minted 1,018 `TUS-26-NNNN` filing serials, 26 of
+  which exactly equal real invoice numbers in the 128-invoice spine.** Because `TUS` = Team USA Sales,
+  a file named `TUS-26-5933_…Field-Inspection.pdf` PASSES the "names TEAM USA as issuer" test yet is not
+  an invoice — the first trap that survives the issuer rule. **Landmine, not fire: the renames were never
+  applied (only 16 `TUS-26-*` files exist, all legitimate 1021/1033).** Root cause is identical to 1614:
+  reusing a numbering prefix that already means "job identity." **Fix if the plan is ever executed
+  (Jorge-gated, registry-adjacent): change the serial prefix to something that is not `TUS-` and not a
+  bare 4-digit run — e.g. `FI-2026-NNNNNN`.** Logged in OPEN-ITEMS as TRK-2026-9428.
+
 
 ---
 
