@@ -158,11 +158,17 @@ rename client files.
 >   anything is unbilled** — your billing may just live somewhere the machine can't see — but it's exactly
 >   what your **QuickBooks login** would settle: did those county fees get billed back to clients? If not,
 >   that's real out-of-pocket money. (`CARD-9457`, `COUNTY-9459`)
->   - **Update: the single biggest one now has a name.** The largest county charge on the card — **$2,666**,
->     paid last August — turned out **not** to be a microfilm order at all (those are a flat $18.75); it's a
->     permit-processing fee for the **Miguelez job at 14598 SW 110 St** (the one you have as TRK-1283). So of
->     that $7,400, this $2,666 chunk is tied to one specific job — **the cleanest "did I bill this back?"
->     question of the bunch, for the QuickBooks check.** (`MICROFILM-9461`)
+>   - **Update: the single biggest one now has a name — and it looks unbilled.** The largest county charge
+>     on the card — **$2,666**, paid last August — turned out **not** to be a microfilm order (those are a flat
+>     $18.75); it's a permit fee for the **Miguelez job at 14598 SW 110 St** (your TRK-1283). The other window
+>     then put an address on **every one** of your invoices, and this $2,666 shows up on **none** of them —
+>     so it appears you fronted it and never billed it. (Careful note: that could also just mean the job
+>     isn't finished yet, not that it's lost — the QuickBooks check settles it.)
+>   - **And one small one is now certain, not a maybe.** On the **Guzman job (9907 NW 9 St)**, you paid the
+>     county a **$276.81** fee in January and your invoice for that job (6098, $1,750) has **no line adding it
+>     back** — so that $276.81 came out of your pocket. We know this is a real miss and not your style,
+>     because a *different* invoice (6096) **does** add its permit fee back. Small money, but it's the first
+>     one we can point to with certainty. (`COUNTY-9462`)
 >
 > **The biggest thing we figured out overnight — and it explains a lot of "we discussed it and it never got
 > done":** the machine has quietly been saving most of the things it builds for you — task lists, approval
