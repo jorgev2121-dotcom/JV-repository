@@ -46,6 +46,14 @@ rename client files.
 > in-person counter visit, so only you can close it, and it needs two answers from you: **which
 > office, and which property.** It surfaced because Alec's work is active right now. (`SWEEP-9073h`)
 >
+> **Two of your registries disagree — and it's caused a real mix-up.** There are two master
+> lists of your tracking numbers, and they don't match; the repo copy is missing rows the main
+> one has. That mismatch made a duplicate number get created for the 14598 SW 110 St (Miguelez)
+> job. The fix is a decision only you make: **which list is the official one** (I recommend the
+> ClaudeMemory one — it has the full history). Separately, the **13920 SW 34 St** folder has 114
+> documents but names *different people* than the record it's matched to — worth confirming whose
+> job it really is before anything ships. Nothing was merged; all of it waits for you.
+>
 > **Bigger filing picture (overnight):** your job files are scattered across **four**
 > separate folder "trees" on Drive, and several jobs have duplicate copies in more than one
 > (Groves has five, 14598 has a wrongly-issued extra number). None of it is lost — but a future
