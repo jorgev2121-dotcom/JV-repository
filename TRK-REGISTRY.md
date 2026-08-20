@@ -61,17 +61,30 @@ Sequence resumed from the highest observed number (1611), +3 increment per proto
 | **TRK-2026-1626** | 20723 SW 119 PL | — | CU report |
 | **TRK-2026-1629** | 1185 SW 183 ST | — | Heating permit 2-14-2018 |
 
-**⚠ PROVISIONAL UNTIL VERIFIED AGAINST THE MASTER REGISTRY.**
+**⚠⚠ RECONCILED AGAINST THE MASTER 2026-08-20 — DO NOT ISSUE ANY OF 1614–1629. See below.**
 
-Cloud cannot read `C:\Users\JV\OneDrive\Documents\ClaudeMemory\Tracking-Registry.md`.
-These numbers continue from the highest value **observed in Drive**, which is not the
-same as the highest value **issued**. Section 2 below documents that the registry and
-reality already disagree.
+> **RECONCILIATION BANNER (cloud TRK-2026-9336, pending Jorge's ratification — issues/voids
+> nothing).** The desktop published the master `Tracking-Registry.md` into Drive on 2026-08-19
+> (`MASTER-REGISTRY-MIRROR_Tracking-Registry_2026-08-19.md`, SHA-identical to the C: master), so
+> cloud could finally verify this block. **The verification failed the whole block:**
+>
+> 1. **The master's true next-available is `TRK-2026-1593`, not 1614.** This block continued from
+>    "1611 observed in Drive," but 1611 is not an issued number in the master (the master runs
+>    1247→1592). **1611 was itself a phantom, so every number built on top of it is off-base.**
+> 2. **`TRK-2026-1614` must VOID** — 14598 SW 110 ST already carries `TRK-2026-1283` (MASTER
+>    REFERENCE, active 2026-07-03) plus `TRK-2026-1424` (electrical sub-permit). Four independent
+>    confirmations now (REGISTRY-9401b, TEAM-9401, MIRROR-9401, this master read).
+> 3. **1617 / 1620 / 1623 / 1626 / 1629 are all *free* numbers in the master** (nobody issued them),
+>    but the five properties they were provisionally stuck to should be numbered **from 1593 upward
+>    on the +3 step**, not from 1614 — so the count stays honest. `TRK-2026-1626` for 20723 SW 119 PL
+>    is therefore NOT issued; and 20723 is a *worked, invoiced* job (Invoice 6066), so it earns a real
+>    number when Jorge ratifies.
+> 4. **All of the above is registry surgery = RED / owner-gated.** Nothing here is executed. Full
+>    analysis: `RECONCILE-9401_MASTER-vs-REPO-REGISTRY_2026-08-20.md`.
 
-**Before these are treated as final, the desktop must confirm none of 1614–1629
-already exists.** If any collide, the whole block shifts up and this table is amended
-— the properties keep their documents either way, and nothing has been filed against
-these numbers yet.
+Cloud previously could not read `C:\Users\JV\OneDrive\Documents\ClaudeMemory\Tracking-Registry.md`;
+that is what produced this whole phantom block. **The master is now readable in the mailbox — always
+verify against it before issuing.** Nothing was filed against any of these numbers.
 
 **Why issuing now was still correct:** roughly fifteen documents were frozen because
 they had no identity to be filed under. `14598 SW 110 ST` was nearly absorbed into
@@ -98,8 +111,10 @@ Also +3-inconsistent: 1262 → 1265 → 1268 follows the rule, then 1280, 1286, 
 **Consequence:** "next number = last + 3" will collide. Any new number must be checked
 against this list, not calculated.
 
-**Next safe number, on the evidence: `TRK-2026-1614`** (1611 + 3). Verify against the
-OneDrive registry before issuing — there may be numbers this survey has not seen.
+~~**Next safe number, on the evidence: `TRK-2026-1614`** (1611 + 3).~~ **SUPERSEDED 2026-08-20:**
+the master registry (now readable in the mailbox) gives the true next-available as **`TRK-2026-1593`**.
+1611 was a phantom, so "1611 + 3" was wrong. Issue from 1593 on the +3 step and always verify against
+the master first. See the reconciliation banner in §1b.
 
 ---
 
