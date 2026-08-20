@@ -19,12 +19,18 @@ and corrected a false deadline of my own instead of letting it ride.**
 had sat unread for 2 and 23 days). This section is the plain-language version of the ones that matter
 most; the full list, with the exact time each was asked, is in that file.
 
-> **I owe you a correction: there is NO Friday deadline. I had that wrong for days, and I fixed it.** For
-> about ten of these hourly notes I told you the $44 City of Miami microfilm had to be paid by "Friday 3:30."
-> **It doesn't.** That date traced back to a label I created by mistake — not to anything you actually said
-> (your answer had no date on it). The microfilm's real target is **September 5 — more than two weeks away** —
-> and the order is already written and staged, so approving the $44 is a calm, do-it-when-you-can thing, not
-> an emergency.
+> **I owe you a correction: there is NO Friday deadline. I had that wrong for days, and I fixed it.** That
+> "$44 by Friday 3:30" traced back to a label I created by mistake — not to anything you actually said. The
+> microfilm's real target is **September 5, more than two weeks away** — no rush.
+>
+> **And it moved forward on its own overnight:** the microfilm request was already **sent to the City at
+> 2:33 AM**, and the City has **already replied and billed you the $44.** So your part is now three concrete
+> steps, whenever you're up (calm, not urgent):
+> 1. Go to **miamigov.com/pay**, choose **"Pay by Transaction ID,"** enter **1330901**, pay **$44**.
+> 2. **Reply to the City's email** (from Nancy Aguilar) to confirm you paid — *this is the step that
+>    actually starts their search; paying without replying does nothing.*
+> 3. That's it. **Do NOT send any second microfilm email** — a duplicate one got drafted, and sending it
+>    would charge you a second $44. I've flagged it to be set aside.
 >
 > **The "Friday 3:30" itself looks like it was meant to be a meeting with Alec — but I checked your Google
 > calendar just now and there is no such meeting on it, on Friday or any day.** So either it was only ever a
