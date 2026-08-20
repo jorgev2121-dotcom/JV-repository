@@ -149,6 +149,12 @@ rename client files.
 >   power-of-attorney, and **wound it back ~two weeks later.** You **kept about $3,500 net**, and there's
 >   still no invoice for that piece. **Do you remember it — was that $3,500 ever billed?** (Much smaller than
 >   I first said.) (`BANK-9453…`)
+> - **One that could actually be costing you real money:** last year you **paid Miami-Dade about $7,600 in
+>   permit fees on a credit card** — that's roughly 18 jobs' worth of county fees — and you paid about
+>   **$3,600 in card interest** carrying it (the card stayed unpaid most of the year). The question is
+>   whether those county fees got **billed back to your clients.** I can't tell from here — that's the kind
+>   of thing your QuickBooks would show. **If they weren't re-billed, that's real out-of-pocket money.**
+>   Worth a look when you do the QuickBooks login. (`CARD-9457…`)
 >
 > **The biggest thing we figured out overnight — and it explains a lot of "we discussed it and it never got
 > done":** the machine has quietly been saving most of the things it builds for you — task lists, approval

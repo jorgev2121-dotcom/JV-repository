@@ -1,94 +1,64 @@
 # STATUS — where everything stands
 
-**Last updated: 2026-08-16, 00:0x UTC (evening of 2026-08-15 Eastern)**
+**Last updated: 2026-08-20 (evening ET), by the cloud executor.** Refreshed because the desktop flagged
+this file as 5 days stale and cannot push its own fix.
 
-**Read this first.** The repo now holds 19 files and 70+ tracked items. This page is
-the one-screen version. Everything else is detail.
-
----
-
-## The one thing blocking the most
-
-**Remote Control is not connected.** The desktop started a process; no session
-registered. Until cloud's `ListAgents` shows the desktop, the two executors cannot
-talk directly and Jorge relays by hand.
-
-**Everything below either works around that, or waits on it.**
+**Read this first.** This is the one-screen version. The live detail lives in three places:
+- **`OWNER-QUEUE.md`** — the canonical register of every decision waiting on Jorge (authored by the
+  desktop in the Drive mailbox; the repo copy is a pointer). Sections: open questions / answered-not-yet-
+  executed / blocked / closed.
+- **`OPEN-ITEMS.md`** — the full running ledger of findings and work, newest at the relevant spot.
+- **`MORNING-REPORT_2026-08-19.md`** — the plain-language summary Jorge reads first.
 
 ---
 
-## What is genuinely fixed
+## The one live action waiting on Jorge
 
-- **The model.** Desktop was silently running Haiku 4.5, pinned by
-  `.claude\settings.json`. The switcher was found — `OneDrive\Scripts\Start-Claude-Model.ps1`,
-  launched by a Desktop icon — and `haiku-settings.json` is renamed `.disabled` so a
-  silent downgrade now fails loudly. **Restart still pending.**
-- **Shared memory.** `CLAUDE.md` is in the repo and loads into every session, desktop
-  and cloud. Before today there was no charter anywhere and every session started blank.
-- **A working channel.** Google Drive `_CLAUDE-MAILBOX`. Proven both directions.
-- **A ledger.** `OPEN-ITEMS.md` — nothing lives only in a conversation now.
+**Pay the $44 City of Miami microfilm, then confirm it.** There's a one-click button on his real desktop
+(`PAY THE 44 DOLLARS - City of Miami.hta`): press 1 to pay (Transaction ID 1330901), press 2 to send the
+"I paid" reply to the City. **No deadline** — real target is 2026-09-05. Do NOT send any duplicate
+microfilm email (second $44).
 
-## What was found that nobody knew
+Everything else on the board is "no rush" or already handled.
 
-- **`_WORK-REGISTER.csv` exists** — 183 rows, and as of 2026-07-31 it read
-  *"183 of 183 open."* The backlog was never scattered; a register existed. **Not yet
-  located on the PC. Still the highest-value single item.**
-- **17 owner approvals** presented once on 2026-07-31 and never answered. By their own
-  count they block ~40 downstream jobs.
-- **~870 orphaned documents** across 6 holding areas, ~1% carrying a tracking number.
-- **6 properties with documents and no tracking number at all.** Now issued
-  1614–1629, provisional.
-- **The OCR run of 2026-08-13 did not fail.** 54+ sidecars were written. Jorge spent
-  hours believing that work was destroyed.
-- **A routine has been running hourly since 2026-07-20** — PAD verification-code
-  monitor, ~650 unattended runs, auto-requesting security codes and pushing to his
-  phone. Nobody was watching it.
-- **Remote Control was already set up and went dark 2026-08-09.** Six days, unnoticed.
+---
 
-## Waiting on Jorge — and only these
+## What's genuinely settled
 
-1. **Send the Wally Milian / Alec Valdes email?** Drafted with attachments, sitting in
-   Outlook Drafts since 2026-07-30.
-2. **Approve two skip traces, ~$99 total?** Unblocks 5 jobs and the mailing campaign.
-   *Check the 6 recovered business-card contacts first — he may already own the data.*
-3. **Leave the PAD routine running, or review it?**
-4. **Authorize the Microsoft 365 connector?** Optional — only needed if cloud should
-   read OneDrive directly.
+- **The two executors work as a pair.** Desktop's git push is broken (TRK-2026-9082), so cloud carries the
+  repo: it mirrors the desktop's mailbox reports into `OPEN-ITEMS.md` + the morning report every hour, and
+  answers what the desktop can't reach (e.g. Google Calendar). The OWNER-QUEUE co-edit collision is fixed
+  (cloud owns the repo copy as a pointer).
+- **The money review is essentially done.** 128 invoices priced (~$135,000 billed over the years); an
+  exhaustive page-by-page OCR re-audit confirmed the invoice list holds at **129 numbers** with nothing
+  hidden. Honest split: ~51 paid, a few overdue, ~66 "no receipt on this machine either way" (NOT unpaid).
+- **The real answer to "who owes me" is the QuickBooks login (OD-22)** — but note it's a *partial* book:
+  in 2019 QuickBooks held only 2 customers while the bank shows ~8× that flowing through, so much billing
+  happened outside it.
 
-**Everything else runs without him.**
+## The biggest root cause found (2026-08-20)
 
-## Next actions for the desktop, in order
+- **The invisible desktop folder.** Most tools/approvals the machine built for Jorge were written to
+  `C:\Users\JV\Desktop` — which is NOT his real desktop (`OneDrive\Desktop`) and never shows on screen. 19
+  of 21 of today's artifacts landed there unseen. This likely explains years of "we agreed and it never got
+  done." Fix = OD-30 (re-point the ~10 daily writers). **The repo/morning-report channel already bypasses
+  it — that's why the owner-facing view rides cloud's side.**
 
-1. **Restart.** It was at 100% context and still on Haiku.
-2. **Finish Remote Control.** Process running ≠ registered. Find the auth step.
-3. **Find `_WORK-REGISTER.csv`.**
-4. Restore the daily health report — the last one was 2026-06-19, and it is the sensor
-   for everything else.
-5. Then: OCR, the holding areas, the six new job folders.
+## Money leads surfaced for Jorge (received ≠ owed; none claimed as receivable)
 
-**Do not do git auth. Cloud mirrors Drive → repo; the relay works.**
-
-## Next actions for cloud
-
-- Hourly mailbox and repo checks, day and night. Already running.
-- Watch for the desktop to appear in `ListAgents`.
-- Marketing campaign drafts — done, in `marketing/`.
-- **Cannot do:** Miami-Dade or Sunbiz scraping. Egress-blocked, tested. That work
-  belongs to the desktop.
+- Zelle/bank sweeps found **~$43k+ of client payments already received** never tied to invoices, incl.
+  **Karibe Dance Studio (~$10,697)** with no file. A ~$3,500 net on the refunded Adolfo Moreno job, still
+  uninvoiced. And **~$7,593 of county permit fees fronted on a credit card in 2025** (with ~$3,634 of
+  interest carrying it) against only 3 invoices on record for that year — the QuickBooks session should
+  check whether those fees were re-billed.
 
 ---
 
 ## The pattern worth remembering
 
-Four times today an executor reported something true-adjacent instead of true: a log
-read instead of an output, a 15-file sample instead of a library, a tool present
-instead of a call succeeding, a process alive instead of a connection registered.
+Name the observable before claiming the result. A log read is not an output; a process alive is not a
+connection; "N of N files" is not "all the pages"; a zero from a column is a claim about the column; a
+banner is not a source. Both windows have caught themselves and each other on exactly these this month.
 
-**Two of the four were cloud's.**
-
-The fix is not more discipline — three warnings did not stop it. **Name the observable
-before claiming the result.** If the proof is "a process exists" and the claim is
-"a connection exists," those are different facts.
-
-**And the reason two agents beat one: not two opinions, but two vantage points where
-one can falsify the other.** A single agent, however capable, agrees with itself.
+**Why two agents beat one: not two opinions, but two vantage points where one can falsify the other.** A
+single agent agrees with itself.
