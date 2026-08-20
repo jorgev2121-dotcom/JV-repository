@@ -104,9 +104,21 @@ rename client files.
 > smaller than the $75k headline.**
 >
 > **And the window settled the shortcut question for good:** it searched all your email for a
-> ready-made QuickBooks report and there isn't one — 213 QuickBooks emails, none of them a report. **So
-> there is now exactly one way to get a real "who owes me" list: your QuickBooks login.** That's the whole
-> decision. Nothing here needed you overnight. (`OWNER-QUEUE.md`, `MIRROR-9414-9415…`)
+> ready-made QuickBooks report and there isn't one — 213 QuickBooks emails, none of them a report. To
+> settle which of the remaining **75 invoices ($70,000)** were actually paid, **your QuickBooks login is
+> still the way.** Nothing here needed you overnight. (`OWNER-QUEUE.md`, `MIRROR-9414-9415…`)
+>
+> **The biggest surprise came last: a whole way you get paid had never been counted.** You're paid by
+> **Zelle**, and a Zelle alert never says the word "invoice" — so every earlier search missed it. Once the
+> window searched your bank alerts, it found **89 payments — about $43,000 of real client money you
+> already received** that wasn't in any of your records. This isn't *more owed to you* — it's money
+> already in the bank; it just was never written down. Two things in it are worth your eye:
+> - **A big client you have no file on at all: "Karibe Dance Studio" paid you $10,697** (four payments).
+>   It's your largest single client by cash on the computer and it's in none of your records. **Do you
+>   remember what that work was, and did it ever get invoiced?** (One-word fine: "yes" if it was billed.)
+> - The window also noticed you've been **putting your own money into the business** — about **$29,700**
+>   from your personal account over the past year. That's *your* money going in, never counted as income —
+>   just flagging it so nothing mistakes it for a client payment. (`MIRROR-9430-9431…`)
 >
 > **Bigger filing picture (overnight):** your job files are scattered across **four**
 > separate folder "trees" on Drive, and several jobs have duplicate copies in more than one
