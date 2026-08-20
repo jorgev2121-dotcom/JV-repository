@@ -87,11 +87,16 @@ rename client files.
 > **One important walk-back, so you don't picture more than is really there:** later in the night the
 > window kept digging and found that a lot of what *looked* like your uncounted billed work **isn't your
 > money at all.** Some of those "invoices" are **bills from other companies to you** (a firm called
-> Aronson billed you dozens of $65–$90 charges; two other vendors are mixed in too). Some are not invoices
-> at all — they're **folio numbers or house numbers** that happen to have four digits and got mistaken for
-> invoice numbers. And at least one it had marked unpaid was **already paid.** So the real "money owed to
-> you" number is **smaller** than the $75k headline, and the honest answer stays the same: **only your
-> QuickBooks login turns this into a real list.** Nothing here needed you overnight. (`MIRROR-9414-9415…`)
+> Aronson billed you dozens of $65–$90 charges; by night's end **at least seven** other companies' bills
+> were mixed in). Some are not invoices at all — they're **folio or house numbers** with four digits.
+> Some were **already paid.** And an old records file it found ($33,712 from 2017) is **too old to
+> collect** — the deadline to sue on it passed years ago, and a third of it was you billing your own
+> companies anyway. **So the real "owed to you" number is much smaller than the $75k headline.**
+>
+> **And the window settled the shortcut question for good:** it searched all your email for a
+> ready-made QuickBooks report and there isn't one — 213 QuickBooks emails, none of them a report. **So
+> there is now exactly one way to get a real "who owes me" list: your QuickBooks login.** That's the whole
+> decision. Nothing here needed you overnight. (`OWNER-QUEUE.md`, `MIRROR-9414-9415…`)
 >
 > **Bigger filing picture (overnight):** your job files are scattered across **four**
 > separate folder "trees" on Drive, and several jobs have duplicate copies in more than one
