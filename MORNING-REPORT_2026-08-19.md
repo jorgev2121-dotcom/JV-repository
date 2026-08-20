@@ -12,7 +12,16 @@ clean finish, and I caught and reported one mistake of my own instead of hiding 
 
 ## Section A — Everything waiting on you, each answerable in a word
 
-**Nothing here is urgent except Friday, and Friday is two days out. Rip through these.**
+**The complete, always-current list of every decision waiting on you now lives in one file —
+`OWNER-QUEUE.md`.** The other window built it overnight so your answers stop getting lost (two of them
+had sat unread for 2 and 23 days). This section is the plain-language version of the ones that matter
+most; the full list, with the exact time each was asked, is in that file.
+
+> **⏰ The one thing with a real clock: Friday 2026-08-21, 3:30 PM.** You already said yes to the **$44
+> City of Miami microfilm search** — it just hasn't been paid yet, and I don't spend without you. **When
+> you're up, approve the $44 and it goes in before the Friday cutoff.** Everything else can wait.
+
+**Nothing else here is urgent. Rip through these.**
 
 **Two one-word answers:**
 1. **Left screen:** glance at one dashboard, or arrange several windows there? → picks the
@@ -65,12 +74,15 @@ rename client files.
 > work you've actually billed — most billed jobs never got a number. **Second, and this surprised me:**
 > the "PAID" labels on your folders are not reliable — the window proved that folders marked PAID had no
 > proof of payment, and some folders with no label were already paid. **So a collections list can't be
-> built from the folder names.** The window read the invoices themselves: of $56,950 in total invoices,
-> only **$4,800 across four invoices** can be shown as still-owed, and even that is a snapshot from about
-> 19 months ago — so it's not a clean number yet either. **The one thing that turns this into a real
-> "who owes me" list is your QuickBooks login** — the window can't get in without it. That's the single
-> decision here: **let it into QuickBooks (or you log in), and it builds the real list.** Nothing is
-> owed-money-confirmed until then, and nothing was numbered. (`MIRROR-9337c-e…`)
+> built from the folder names.** The window read the invoices themselves, and overnight found **12 more
+> it had never counted** — so the total is now **at least $75,465 across 55 invoices**, not the $56,950 I
+> said earlier (that older number only counted invoices with a file on the computer, and was a quarter
+> short). Still, only **$4,800 across four invoices** can be shown as actually still-owed, and even that
+> is a snapshot from about 19 months ago. **The one thing that turns this into a real "who owes me" list
+> is your QuickBooks login** — the window can't get in without it. That's the single decision: **let it
+> into QuickBooks (or you log in), and it builds the real list.** Two lookups cover a third of it — Cesar
+> Garcia and MZ Solutions. Nothing is owed-money-confirmed until then, and nothing was numbered.
+> (`MIRROR-9337c-e…`)
 >
 > **Bigger filing picture (overnight):** your job files are scattered across **four**
 > separate folder "trees" on Drive, and several jobs have duplicate copies in more than one
