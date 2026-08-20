@@ -143,10 +143,12 @@ rename client files.
 > - The window also noticed you've been **putting your own money into the business** — about **$29,700**
 >   from your personal account over the past year. That's *your* money going in, never counted as income —
 >   just flagging it so nothing mistakes it for a client payment. (`MIRROR-9430-9431…`)
-> - **New, and worth your memory:** a company called **"AMN Doral" paid you $6,000** last year, marked
->   *"50% permit processing"* and *"2nd down payment"* — but there's **no invoice for it in any of your
->   records.** If that $4,500 was really half, the job was ~$9,000 and the back half may never have been
->   billed. **Do you remember this job — was it finished and fully billed?** (`BANK-9452…`)
+> - **A small correction on last hour's "AMN Doral" note (the other window caught it, and so do I):** that
+>   wasn't a big half-billed job. Reading the *outgoing* side of the account showed you **refunded most of
+>   it** — the real story is a small job (Adolfo Moreno, 3650 NW 82 Ave) where you took money, did a
+>   power-of-attorney, and **wound it back ~two weeks later.** You **kept about $3,500 net**, and there's
+>   still no invoice for that piece. **Do you remember it — was that $3,500 ever billed?** (Much smaller than
+>   I first said.) (`BANK-9453…`)
 >
 > **The biggest thing we figured out overnight — and it explains a lot of "we discussed it and it never got
 > done":** the machine has quietly been saving most of the things it builds for you — task lists, approval
