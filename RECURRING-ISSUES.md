@@ -95,6 +95,15 @@ installed updaters, then execute Tier 2, then write the Tier 3 scheduled task.
   offenders (Tier 2: the console never exists), Jorge's click. **Closure requires tomorrow's
   before/after table showing the cadence families gone — not the click.** See
   `RI-001-CONVICTION_DIR-0041_2026-08-18.md`.
+- 2026-08-20 — **RECURRENCE (Adobe class). Jorge reported an Adobe Acrobat Pro marketing pop-up
+  and asked that it "never come back."** This is the Adobe-updater re-adder named in the
+  "Known re-adders" list above, surfacing as its own modal. Cloud cannot touch the machine, so a
+  Tier-2 kill was routed to the desktop (`WORK-ORDER…UNIT-404…ADOBE-NAG-KILL_2026-08-20.md` in the
+  mailbox): disable `AdobeARMservice` + Adobe Genuine service, disable the Adobe update/genuine
+  scheduled tasks, and set `HKLM\...\FeatureLockDown\bAcroSuppressUpsell=1` (machine policy survives
+  app updates). **Tier 1 (click the X / one setting) explicitly refused per Rule 4.** Tier 3, if it
+  returns, folds into the RI-001 enforcement fleet — and MUST launch via `Run-Hidden.vbs` (per the
+  2026-08-18 conviction) or it becomes a focus-stealer itself. TRK-2026-9410.
 
 ---
 
