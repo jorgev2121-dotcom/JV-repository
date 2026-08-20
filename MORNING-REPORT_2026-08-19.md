@@ -2,11 +2,13 @@
 
 **For Jorge. Read the first three lines; the rest is backup.**
 
-**Nothing broke overnight. Nothing needs a rushed decision.** The one thing on a
-real clock is Friday (the Clerk sign-in + microfilm), and that is two days out.
+**Nothing broke overnight. Nothing needs a rushed decision — and nothing is actually due Friday.**
+I had been telling you a "$44 by Friday 3:30" deadline that turned out not to exist; its real target is
+Sept 5. The one real question waiting on you is small: **do you have a meeting with Alec on Friday?** (see
+Section A).
 
-**Your whole night in one line: the two Claude windows worked a hard problem to a
-clean finish, and I caught and reported one mistake of my own instead of hiding it.**
+**Your whole night in one line: the two Claude windows finished the big money review clean, and I caught
+and corrected a false deadline of my own instead of letting it ride.**
 
 ---
 
@@ -17,14 +19,23 @@ clean finish, and I caught and reported one mistake of my own instead of hiding 
 had sat unread for 2 and 23 days). This section is the plain-language version of the ones that matter
 most; the full list, with the exact time each was asked, is in that file.
 
-> **⏰ The one thing with a real clock: Friday 2026-08-21, 3:30 PM.** You already said yes to the **$44
-> City of Miami microfilm search** — it just hasn't been paid yet, and I don't spend without you. **When
-> you're up, approve the $44 and it goes in before the Friday cutoff.** Everything else can wait.
+> **I owe you a correction: there is NO Friday deadline. I had that wrong for days, and I fixed it.** For
+> about ten of these hourly notes I told you the $44 City of Miami microfilm had to be paid by "Friday 3:30."
+> **It doesn't.** That date traced back to a label I created by mistake — not to anything you actually said
+> (your answer had no date on it). The microfilm's real target is **September 5 — more than two weeks away** —
+> and the order is already written and staged, so approving the $44 is a calm, do-it-when-you-can thing, not
+> an emergency.
 >
-> **Good news on the same job (331 Tamiami / Alec): your free tax-jacket request was already sent** — a
-> day ago, confirmed, receipt on file. So the $44 above is the *only* thing left. The jacket reply will
-> land in your email in about a week — **from "PAWebMail," with the subject "bldg jacket"** (searching
-> "tax jacket" won't find it, so watch for those words).
+> **The "Friday 3:30" itself looks like it was meant to be a meeting with Alec — but I checked your Google
+> calendar just now and there is no such meeting on it, on Friday or any day.** So either it was only ever a
+> proposed entry that never got made, or it lives on your work (Outlook) calendar, which I can't see from
+> here. **One question: do you actually have a meeting with Alec on Friday?** If yes, the thing that matters
+> is his report page, which is a little out of date — say the word and it gets refreshed. If no, nothing at
+> all is due Friday.
+>
+> **Separately, good news on the same job:** your free tax-jacket request was already sent (receipt on file);
+> the reply lands in your email in about a week, **from "PAWebMail," subject "bldg jacket"** (searching "tax
+> jacket" won't find it).
 
 **Nothing else here is urgent. Rip through these.**
 
@@ -56,9 +67,9 @@ most; the full list, with the exact time each was asked, is in that file.
    **"Save Page As"** into the jobs drive. That lands your favourite report as a real file
    and clears four empty placeholder shells at once. (Why I couldn't: Section C.)
 
-**Friday, 3:30 PM (two days out) — the two-button popup already on your screen:**
+**No deadline (the "Friday" here was the same mistaken clock — corrected above):**
 6. The **free Clerk sign-in** and the **microfilm YES-ALL / ASK-PER-ITEM** choice — these
-   open the biggest gap in your due-diligence (deeds, liens, ownership chain). No rush now.
+   open the biggest gap in your due-diligence (deeds, liens, ownership chain). No rush.
 
 **Later cleanups (no clock — a supervised batch when you have 20 minutes):** assign the 8
 TRK-TBD numbers; add version logs to job folders; rename the 2 short-form jobs
