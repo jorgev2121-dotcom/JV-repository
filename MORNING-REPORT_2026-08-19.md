@@ -120,8 +120,11 @@ rename client files.
 >   from your personal account over the past year. That's *your* money going in, never counted as income —
 >   just flagging it so nothing mistakes it for a client payment. (`MIRROR-9430-9431…`)
 >
-> **The money accounting is now finished on our side.** Every one of your 128 invoices has a dollar figure
-> attached — about **$135,000 billed in total** across the years. Of that, we can prove $11,000 paid and
+> **The money accounting is essentially finished on our side — with one careful last check running.** Every
+> one of your 128 invoices has a dollar figure attached — about **$135,000 billed in total** across the
+> years. (Honest note: the earlier reads opened only the first page of your multi-page scanned files, so a
+> deeper pass is now re-reading every page to make sure no invoice is buried inside a stack — it's found
+> none so far, and this is a double-check, not a reversal.) Of that, we can prove $11,000 paid and
 > $4,000 still open from the paperwork alone; the rest (about $120,000) is simply "no receipt on this
 > computer either way" — **not** money owed, just unconfirmed. Your QuickBooks login is the one thing that
 > turns those into a real answer. Nothing more for you to decide on the money.
