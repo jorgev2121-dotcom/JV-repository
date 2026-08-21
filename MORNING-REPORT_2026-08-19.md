@@ -198,6 +198,21 @@ rename client files.
 > computer either way" — **not** money owed, just unconfirmed. Your QuickBooks login is the one thing that
 > turns those into a real answer.
 >
+> **★ The most useful money result of the night — a real "who owes me" answer you can act on:** the other
+> window matched your open invoices against your actual bank deposits and found **two that are genuinely
+> unpaid and still collectible:**
+> - **$1,400 — Miguel Zaldivar (MZ Solutions)**, invoice from over a year ago, never showed up in the bank.
+> - **$2,500 — Sunset Apartments**, invoice from ~4 months ago, same story.
+> **That's $3,900 you can go collect, from two people you can reach.** (Honest limits: your bank records on
+> the machine only go back to Jan 2025, so this only tested 8 of your ~77 open invoices — the older ones
+> still need the QuickBooks login. And the data's about a month stale.)
+>
+> **One that runs the *other* way — worth knowing before it becomes awkward:** a **$575** title-search cost
+> you billed back to TEDC (invoice 6093) looks like it **may have been paid to you twice** — once by bank
+> transfer, once by check seven weeks later, because a "second request" email went out after the first
+> payment had already landed. If they did pay twice, **you'd owe them $575 back** (or apply it to another
+> TEDC bill). One question to Sheldon Powell settles it. (`BANKJOIN-9488`, `GW-9487`)
+>
 > **But there's an important catch we found overnight, and it's worth 30 seconds: that "all done" only
 > covered ONE of your two invoice stacks.** It turns out you bill on two different number styles — the old
 > QuickBooks one we counted, and a second style (`INV-2026-...`) you use for your **biggest current client,
