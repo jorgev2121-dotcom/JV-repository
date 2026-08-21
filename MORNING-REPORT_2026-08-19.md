@@ -161,7 +161,8 @@ rename client files.
 >   - **Update: the single biggest one now has a name — and it looks unbilled.** The largest county charge
 >     on the card — **$2,666**, paid last August — turned out **not** to be a microfilm order (those are a flat
 >     $18.75); it's a permit fee for the **Miguelez job at 14598 SW 110 St** (your TRK-1283). The other window
->     then put an address on **every one** of your invoices, and this $2,666 shows up on **none** of them —
+>     then put an address on **every one** of your invoices, and this charge (now **$2,921** once a matching
+>     upfront fee on the same job is added in) shows up on **none** of them —
 >     so it appears you fronted it and never billed it. (Careful note: that could also just mean the job
 >     isn't finished yet, not that it's lost — the QuickBooks check settles it.)
 >   - **And one small one is now certain, not a maybe.** On the **Guzman job (9907 NW 9 St)**, you paid the
@@ -185,7 +186,22 @@ rename client files.
 > none so far, and this is a double-check, not a reversal.) Of that, we can prove $11,000 paid and
 > $4,000 still open from the paperwork alone; the rest (about $120,000) is simply "no receipt on this
 > computer either way" — **not** money owed, just unconfirmed. Your QuickBooks login is the one thing that
-> turns those into a real answer. Nothing more for you to decide on the money.
+> turns those into a real answer.
+>
+> **But there's an important catch we found overnight, and it's worth 30 seconds: that "all done" only
+> covered ONE of your two invoice stacks.** It turns out you bill on two different number styles — the old
+> QuickBooks one we counted, and a second style (`INV-2026-...`) you use for your **biggest current client,
+> Miguel Zaldivar** (MZ Solutions / the Edison Tower / Tacolcy jobs). Because those numbers look different,
+> every search we ran skipped right over them. We've now found **three of them, about $5,800, and all three
+> were definitely sent.** So your true billed total is a bit higher than $135,000, and this newer stack was
+> never really checked. Two things in it are worth your eye:
+> - **The one bill that actually looks collectible right now: $1,800 on the Edison Tower job**, sent 34 days
+>   ago, with no payment showing up yet. I'm **not** saying it's unpaid — we just haven't been able to read
+>   bank records recent enough to tell. **Want me to have the other window chase down whether that $1,800
+>   came in?** (yes/no)
+> - **A $15,000 job you quoted but never billed** — Garden Walk East, for the same Miguel — was left waiting
+>   on "the project moving forward." **Did that project move forward?** If yes, that's a $15,000 invoice
+>   that hasn't gone out. (`BILLBACK-9463`, `SERIES-9464`)
 >
 > **Good news you already paid for: 993 county records came back overnight.** A full building history you'd
 > *already bought* from the county — 993 microfilm pages for **5000 SW 75 Ave** (Palmer Trust, 35 permits

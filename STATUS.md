@@ -29,9 +29,15 @@ Everything else on the board is "no rush" or already handled.
   repo: it mirrors the desktop's mailbox reports into `OPEN-ITEMS.md` + the morning report every hour, and
   answers what the desktop can't reach (e.g. Google Calendar). The OWNER-QUEUE co-edit collision is fixed
   (cloud owns the repo copy as a pointer).
-- **The money review is essentially done.** 128 invoices priced (~$135,000 billed over the years); an
-  exhaustive page-by-page OCR re-audit confirmed the invoice list holds at **129 numbers** with nothing
-  hidden. Honest split: ~51 paid, a few overdue, ~66 "no receipt on this machine either way" (NOT unpaid).
+- **The money review is essentially done *for the QuickBooks series* — but that is not the whole invoice
+  universe.** 128 invoices priced (~$135,000 billed over the years); an exhaustive page-by-page OCR re-audit
+  confirmed the QuickBooks `\d{4}` list holds at **129 numbers** with nothing hidden. Honest split: ~51
+  paid, a few overdue, ~66 "no receipt on this machine either way" (NOT unpaid). **⚠ 2026-08-21 correction
+  (9463/9464): Jorge also bills on a SECOND series, `INV-YYYY-NNNNN`, outside QuickBooks — 3 invoices found,
+  all delivered, $5,822.14, all to Miguel Zaldivar (MZ Solutions / TEDC), his current largest client. Wrong
+  shape for every `\d{4}` sweep, so it was invisible. Billed total is really ≥ ~$140,905, and the `INV-`
+  series has never been fully swept.** The one live-looking collectible on the whole board: **$1,800 Edison
+  Tower acceptance payment**, out 34 days, no payment visible (not proven unpaid — bank window unread).
 - **The real answer to "who owes me" is the QuickBooks login (OD-22)** — but note it's a *partial* book:
   in 2019 QuickBooks held only 2 customers while the bank shows ~8× that flowing through, so much billing
   happened outside it.
