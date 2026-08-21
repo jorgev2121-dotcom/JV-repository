@@ -199,9 +199,11 @@ rename client files.
 >   ago, with no payment showing up yet. I'm **not** saying it's unpaid — we just haven't been able to read
 >   bank records recent enough to tell. **Want me to have the other window chase down whether that $1,800
 >   came in?** (yes/no)
-> - **A $15,000 job you quoted but never billed** — Garden Walk East, for the same Miguel — was left waiting
->   on "the project moving forward." **Did that project move forward?** If yes, that's a $15,000 invoice
->   that hasn't gone out. (`BILLBACK-9463`, `SERIES-9464`)
+> - **One I need to walk back a little: Garden Walk East.** Last hour I called it "a $15,000 job you never
+>   billed." Reading the actual file, that $15,000 only ever lived in your registry note — there's **no
+>   invoice, no draw, and no payment** for it anywhere, and the real money in that file is the **law firm's**
+>   (Berger Singerman), not yours. So it's not a $15,000 bill waiting to go out. The honest version is just:
+>   **is Garden Walk East dead or still alive?** Nobody's written on it since last May. (`GWE-9472`)
 >
 > **Then the window turned the money around and looked at what's going OUT — and at a bank we'd never
 > opened.** Two more things there are worth your eye, both just questions, nothing wrong:
