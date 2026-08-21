@@ -218,6 +218,24 @@ rename client files.
 >   but nobody's written down why. No action needed unless one looks wrong to you. (`OUTBOUND-9465`,
 >   `BOFA-9466`, `PAYER-9467`)
 >
+> **One correction that matters, because it changes what you think you're owed — the "Sugar Hill $19,000."**
+> The other window read the whole Sugar Hill file, and here's the honest picture: **it was never signed,
+> never funded, and never invoiced — and the $38,000 proposal on it isn't even yours; it's another firm's
+> (Reinaldo Remedios / South Florida Building Inspections).** The **$19,000 you've been chasing is the 50%
+> deposit on *that* proposal — money that never came in.** So it isn't a bill someone owes you; it's the
+> opposite — the work got done (site walked, report drafted, engineer 70% in) because **you personally told
+> the engineer you'd stand behind the deposit**, and TEDC has gone quiet since January 7. **Two questions,
+> both only you can answer: is Sugar Hill dead or still alive — and did that engineer ever get paid?** If
+> not, this is an exposure hanging over you, not an asset. (`SH-9471`)
+>
+> **On the flip side, one that likely *is* real money you were never credited for — Garden Walk.** Back in
+> 2018–2019 you had a **$57,000 contract there, paid in ten pieces, plus a $2,850-a-month retainer after.**
+> The computer can prove **about $15,800 of it came in** — but **not a single one of those invoices was ever
+> in your books** (Tacolcy paid you by paper check, so QuickBooks never saw them). There's roughly **$39,900
+> more the contract describes** that we have no paperwork for. **Did Garden Walk run its full course, or stop
+> early?** Your answer tells me whether those are lost invoices or work that never happened. (`TEDC-9469`,
+> `GW-9470`)
+>
 > **Good news you already paid for: 993 county records came back overnight.** A full building history you'd
 > *already bought* from the county — 993 microfilm pages for **5000 SW 75 Ave** (Palmer Trust, 35 permits
 > back to 1992) — had been sitting un-downloaded for weeks. The download tool was quietly reporting "no
