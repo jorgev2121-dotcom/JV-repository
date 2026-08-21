@@ -286,9 +286,13 @@ rename client files.
 >   came in from him on July 21.** The one thing only you know: **is that money for work you did for him, or
 >   family money moving around?** (`ALEC-9477`)
 > - **A $6,500 invoice from 2024 turned up with no job folder** — 543 East 61 St in Hialeah, for "ESL
->   Holdings," closing out old permits. It fills a gap in your invoice list (so the count is now 130). Can't
->   tell if it was paid — it's older than any bank record we have. **Want a folder made for it so it stops
->   floating?** (`TEDC-9478`)
+>   Holdings," closing out old permits. **Good update, found later in the night: it WAS paid** — a $6,500
+>   check hit your account on March 4, 2024. (`TEDC-9478`, `XLSX-9496`)
+>   - **Two more got confirmed paid the same way, from a 2024 bank record we'd never opened:** another
+>     **$5,000** and **$3,000** invoice — so **$14,500 total moved from "unknown" to "paid."** But one small
+>     thing on that Hialeah job may still be *owed to you*: by your own spreadsheet you fronted about
+>     **$3,120** in permit/legal costs there that the $6,500 bill doesn't appear to cover — worth a look,
+>     since it's recent enough to still collect. (`COST-9495`, `XLSX-9496`)
 >
 > **Good news you already paid for: 993 county records came back overnight.** A full building history you'd
 > *already bought* from the county — 993 microfilm pages for **5000 SW 75 Ave** (Palmer Trust, 35 permits
