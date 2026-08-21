@@ -254,6 +254,17 @@ rename client files.
 > early?** Your answer tells me whether those are lost invoices or work that never happened. (`TEDC-9469`,
 > `GW-9470`)
 >
+> **Two more the window turned up overnight, both just needing a word from you:**
+> - **Alec looks like a client, not just family.** The computer had been setting aside money from Alec
+>   because he shares your last name — but he actually has **eight job numbers on your books, two old
+>   invoices ($7,050), and $112 of county fees you paid out of pocket for his jobs** this month. **$5,000
+>   came in from him on July 21.** The one thing only you know: **is that money for work you did for him, or
+>   family money moving around?** (`ALEC-9477`)
+> - **A $6,500 invoice from 2024 turned up with no job folder** — 543 East 61 St in Hialeah, for "ESL
+>   Holdings," closing out old permits. It fills a gap in your invoice list (so the count is now 130). Can't
+>   tell if it was paid — it's older than any bank record we have. **Want a folder made for it so it stops
+>   floating?** (`TEDC-9478`)
+>
 > **Good news you already paid for: 993 county records came back overnight.** A full building history you'd
 > *already bought* from the county — 993 microfilm pages for **5000 SW 75 Ave** (Palmer Trust, 35 permits
 > back to 1992) — had been sitting un-downloaded for weeks. The download tool was quietly reporting "no
