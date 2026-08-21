@@ -14,6 +14,16 @@ and corrected a false deadline of my own instead of letting it ride.**
 
 ## Section A — Everything waiting on you, each answerable in a word
 
+> **⚠ DO THIS FIRST — your son's phone abroad.** Last night we were adding AT&T's **International Day Pass
+> (~$12/day)** to your son's line, and it didn't get finished (three logins and 1Password fought us). **The
+> real danger isn't the delay — it's your son using his phone overseas with no plan, which can run into the
+> hundreds or a thousand dollars.** So two things: (1) **text your son now — "keep your phone on airplane
+> mode, Wi-Fi only, until I turn on international"** — that removes the money risk instantly; and (2) when
+> you're fresh, add the pass in about two minutes on the **myAT&T app** (his line → Add-ons → International
+> Day Pass) or a **quick call** to AT&T. It only charges $12 on days he actually uses it, so putting it on
+> anytime before he travels costs nothing. **I owe you an apology: I let that drift into an internet-signup
+> last night instead of staying on your son's line. That was my mistake.**
+
 **The complete, always-current list of every decision waiting on you now lives in one file —
 `OWNER-QUEUE.md`.** The other window built it overnight so your answers stop getting lost (two of them
 had sat unread for 2 and 23 days). This section is the plain-language version of the ones that matter
@@ -230,6 +240,12 @@ rename client files.
 > both only you can answer: is Sugar Hill dead or still alive — and did that engineer ever get paid?** If
 > not, this is an exposure hanging over you, not an asset. (`SH-9471`)
 >
+> **Update, and it's smaller and clearer than it sounded:** reading Sugar Hill's actual numbers, the money
+> that could genuinely come back to bite you is **not $19,000 — it's about $3,360**, owed to your structural
+> engineer, **Alejandro Tejeda**, who finished about 70% of a $4,800 job while everyone waited on a signature
+> that never came. The $19,000 was only revenue that never arrived — no one's chasing *you* for that. So the
+> one real question is simply: **did Tejeda ever get paid for that work?** (Whole job was worth ~$47,780, and
+> your slice would've been ~$30,000 — but only if it had gone forward, which it didn't.) (`TEDC-9474`)
 > **On the flip side, one that likely *is* real money you were never credited for — Garden Walk.** Back in
 > 2018–2019 you had a **$57,000 contract there, paid in ten pieces, plus a $2,850-a-month retainer after.**
 > The computer can prove **about $15,800 of it came in** — but **not a single one of those invoices was ever
