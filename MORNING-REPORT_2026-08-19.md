@@ -246,6 +246,12 @@ rename client files.
 > that never came. The $19,000 was only revenue that never arrived — no one's chasing *you* for that. So the
 > one real question is simply: **did Tejeda ever get paid for that work?** (Whole job was worth ~$47,780, and
 > your slice would've been ~$30,000 — but only if it had gone forward, which it didn't.) (`TEDC-9474`)
+> **One more Sugar Hill piece, found at 2am:** it actually got *further* than "never started" — the window
+> uncovered **24 finished, signed engineering reports** (12 buildings, structural and electrical) that were
+> hidden inside zip files, all signed by an engineer named **Donald Dixon** in early 2024. That raises a
+> real question about who's owed what: the ~$3,360 we thought was owed to your engineer **Tejeda** may be a
+> *separate* job from Dixon's — **were those two different engineers on two different pieces of Sugar Hill?**
+> (`TEDC-9481`)
 > **On the flip side, one that likely *is* real money you were never credited for — Garden Walk.** Back in
 > 2018–2019 you had a **$57,000 contract there, paid in ten pieces, plus a $2,850-a-month retainer after.**
 > The computer can prove **about $15,800 of it came in** — but **not a single one of those invoices was ever
