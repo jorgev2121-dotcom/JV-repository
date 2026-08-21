@@ -203,6 +203,21 @@ rename client files.
 >   on "the project moving forward." **Did that project move forward?** If yes, that's a $15,000 invoice
 >   that hasn't gone out. (`BILLBACK-9463`, `SERIES-9464`)
 >
+> **Then the window turned the money around and looked at what's going OUT — and at a bank we'd never
+> opened.** Two more things there are worth your eye, both just questions, nothing wrong:
+> - **A whole second bank account of yours was never checked** — your personal Bank of America. Its 2025 was
+>   sitting on the computer the entire time; every search only ever looked at Chase. Inside it are **two
+>   $20,000 events** nobody had seen: a **$20,000 wire in from "Luis Padron"** (marked "personal loan"), and
+>   a **$20,000 deposit made at a branch counter with no name on it.** Neither is counted as income — they're
+>   just two things only you can explain. **Do either of those $20,000 items ring a bell?** (a word is fine)
+> - **A client named "Little Bear Property Services" paid you $3,400** (two payments, 2025) — and the computer
+>   has **not one page** about them: no job, no invoice, nothing. **Who is Little Bear, and what did you do
+>   for them?**
+> - Smaller, and just a heads-up: you've also **sent money out to two of your own clients** — about $4,000 to
+>   Chris Forry over the year, and $3,000 to Miguel — which is normal if those are refunds or shared costs,
+>   but nobody's written down why. No action needed unless one looks wrong to you. (`OUTBOUND-9465`,
+>   `BOFA-9466`, `PAYER-9467`)
+>
 > **Good news you already paid for: 993 county records came back overnight.** A full building history you'd
 > *already bought* from the county — 993 microfilm pages for **5000 SW 75 Ave** (Palmer Trust, 35 permits
 > back to 1992) — had been sitting un-downloaded for weeks. The download tool was quietly reporting "no
