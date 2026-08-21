@@ -273,7 +273,11 @@ rename client files.
 > in your books** (Tacolcy paid you by paper check, so QuickBooks never saw them). There's roughly **$39,900
 > more the contract describes** that we have no paperwork for. **Did Garden Walk run its full course, or stop
 > early?** Your answer tells me whether those are lost invoices or work that never happened. (`TEDC-9469`,
-> `GW-9470`)
+> `GW-9470`)  *(Update: the window has since found five of those old Garden Walk invoices tucked in your job
+> folders — two of them literally say "Draw 3 of 10" and "Draw 4 of 10" at $5,700 each, so the ten-part
+> contract is now proven on paper, and one even came with the cancelled check that paid it. The catch: they're
+> all from 2018–2019, which is past Florida's 5-year limit to collect — so they're **good for your records,
+> not money you can still chase.** `GW-9492`)*
 >
 > **Two more the window turned up overnight, both just needing a word from you:**
 > - **Alec looks like a client, not just family.** The computer had been setting aside money from Alec
