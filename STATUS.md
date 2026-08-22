@@ -35,9 +35,14 @@ Everything else on the board is "no rush" or already handled.
   paid, a few overdue, ~66 "no receipt on this machine either way" (NOT unpaid). **⚠ 2026-08-21 correction
   (9463/9464): Jorge also bills on a SECOND series, `INV-YYYY-NNNNN`, outside QuickBooks — 3 invoices found,
   all delivered, $5,822.14, all to Miguel Zaldivar (MZ Solutions / TEDC), his current largest client. Wrong
-  shape for every `\d{4}` sweep, so it was invisible. Billed total is really ≥ ~$140,905, and the `INV-`
-  series has never been fully swept.** The one live-looking collectible on the whole board: **$1,800 Edison
-  Tower acceptance payment**, out 34 days, no payment visible (not proven unpaid — bank window unread).
+  shape for every `\d{4}` sweep, so it was invisible. Billed total is really ≥ ~$140,905. **The `INV-`
+  series is now FULLY swept (9511): confirmed exactly 3 across five surfaces (Dropbox+D:, all 6 Outlook
+  stores); two blind spots named (email attachment filenames, sidecar-less Dropbox PDFs).** The one
+  live-looking collectible on the whole board: **$1,800 Edison Tower acceptance payment**, now out ~36 days
+  — and 9511 found it has **no delivery/read evidence because none was requested** (not proven unpaid; a
+  follow-up email to `mzaldivar@tedcbuilds.org` is the cleanest next action, gated on Jorge). Also newly
+  named: **Juan Carlos Martinez / Impact Windows may owe $4,285.85 — the only named debtor with a written
+  demand on file.**
 - **The real answer to "who owes me" is the QuickBooks login (OD-22)** — but note it's a *partial* book:
   in 2019 QuickBooks held only 2 customers while the bank shows ~8× that flowing through, so much billing
   happened outside it.

@@ -223,10 +223,15 @@ rename client files.
 > every search we ran skipped right over them. We've now found **three of them, about $5,800, and all three
 > were definitely sent.** So your true billed total is a bit higher than $135,000, and this newer stack was
 > never really checked. Two things in it are worth your eye:
-> - **The one bill that actually looks collectible right now: $1,800 on the Edison Tower job**, sent 34 days
->   ago, with no payment showing up yet. I'm **not** saying it's unpaid — we just haven't been able to read
->   bank records recent enough to tell. **Want me to have the other window chase down whether that $1,800
->   came in?** (yes/no)
+> - **The one bill that actually looks collectible right now: $1,800 on the Edison Tower job** (Miguel's),
+>   now sent about **36 days ago**. New detail the window found: unlike your other invoices to Miguel — which
+>   we can prove he received *and* opened — this one was sent **without a read-receipt**, so there's simply
+>   **no record of whether it reached him.** That's not proof he didn't get it; it just means the cleanest
+>   next step is a **short follow-up email to him** about it. **Want me to draft that follow-up for you to
+>   send?** (yes/no)
+> - **A second name to chase, and this one has a paper trail: Juan Carlos Martinez / Impact Windows may owe
+>   you $4,285.85** — he's the only person on the whole board with a **written demand already on file against
+>   him.** Worth a look alongside the $3,900. (`INVSERIES-9511`)
 > - **One I need to walk back a little: Garden Walk East.** Last hour I called it "a $15,000 job you never
 >   billed." Reading the actual file, that $15,000 only ever lived in your registry note — there's **no
 >   invoice, no draw, and no payment** for it anywhere, and the real money in that file is the **law firm's**
