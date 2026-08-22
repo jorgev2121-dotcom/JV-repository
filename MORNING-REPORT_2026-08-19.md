@@ -196,7 +196,10 @@ rename client files.
 > none so far, and this is a double-check, not a reversal.) Of that, we can prove $11,000 paid and
 > $4,000 still open from the paperwork alone; the rest (about $120,000) is simply "no receipt on this
 > computer either way" — **not** money owed, just unconfirmed. Your QuickBooks login is the one thing that
-> turns those into a real answer.
+> turns those into a real answer. **(And it got even more worth doing: the window found whole past years —
+> 2014, 2016, 2021 — where you took in about $245,000 that your invoice list never recorded at all. It's all
+> old money, long since banked, nothing to collect — but in years like 2016, 98% of the deposits don't say
+> who paid you. QuickBooks is the one place those client names still exist.)**
 >
 > **★ The most useful money result of the night — a real "who owes me" answer you can act on:** the other
 > window matched your open invoices against your actual bank deposits and found **two that are genuinely
