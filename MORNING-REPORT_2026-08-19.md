@@ -241,6 +241,9 @@ rename client files.
 > - **A small billing question, in case it wasn't on purpose:** you invoiced Miguel **$0.00** for two Bay
 >   Harbor permits, and a **third unit** at that same building was **never invoiced at all.** If that was a
 >   favor, fine — just flagging it in case it slipped. **Free, or bill it?** (`OD-56`)
+> - **A 3.6-terabyte backup drive on your desk has never been opened** — not because it's empty, but because
+>   it asks for a permission you'd have to grant. Could hold more of your old records. **Want me to look
+>   inside?** (open / leave it) (`OD-58`)
 > - **One I need to walk back a little: Garden Walk East.** Last hour I called it "a $15,000 job you never
 >   billed." Reading the actual file, that $15,000 only ever lived in your registry note — there's **no
 >   invoice, no draw, and no payment** for it anywhere, and the real money in that file is the **law firm's**
