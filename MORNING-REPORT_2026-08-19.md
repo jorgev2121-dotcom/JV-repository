@@ -24,6 +24,12 @@ and corrected a false deadline of my own instead of letting it ride.**
 > anytime before he travels costs nothing. **I owe you an apology: I let that drift into an internet-signup
 > last night instead of staying on your son's line. That was my mistake.**
 
+> **⚠ SECURITY — worth a "yes" when you're up.** The other window found a **plain, unlocked spreadsheet in
+> your OneDrive that holds your Social Security number, your passport, 17 card numbers *with their security
+> codes*, and about 20 passwords — and there are three copies of it.** Nothing has happened to it, but that
+> is a lot of your identity sitting in the open. **Want me to have it locked down?** (yes / leave it) — one
+> word and it's handled. (`OD-57`)
+
 **The complete, always-current list of every decision waiting on you now lives in one file —
 `OWNER-QUEUE.md`.** The other window built it overnight so your answers stop getting lost (two of them
 had sat unread for 2 and 23 days). This section is the plain-language version of the ones that matter
@@ -232,6 +238,9 @@ rename client files.
 > - **A second name to chase, and this one has a paper trail: Juan Carlos Martinez / Impact Windows may owe
 >   you $4,285.85** — he's the only person on the whole board with a **written demand already on file against
 >   him.** Worth a look alongside the $3,900. (`INVSERIES-9511`)
+> - **A small billing question, in case it wasn't on purpose:** you invoiced Miguel **$0.00** for two Bay
+>   Harbor permits, and a **third unit** at that same building was **never invoiced at all.** If that was a
+>   favor, fine — just flagging it in case it slipped. **Free, or bill it?** (`OD-56`)
 > - **One I need to walk back a little: Garden Walk East.** Last hour I called it "a $15,000 job you never
 >   billed." Reading the actual file, that $15,000 only ever lived in your registry note — there's **no
 >   invoice, no draw, and no payment** for it anywhere, and the real money in that file is the **law firm's**
