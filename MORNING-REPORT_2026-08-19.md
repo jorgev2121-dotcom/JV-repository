@@ -25,7 +25,9 @@ own mistakes before they mattered, and turned up this one live client matter tha
 > 20th** — that can only be found out by asking them.
 > - **The one action: call the city code officer, Yairis Chapelli, at 305-224-5577** (cell 786-650-5673), and ask
 >   what the Magistrate ordered on August 20 in case **CE25080356**. A word-for-word script is already written and
->   waiting for you. The office is closed Sunday, so **Monday morning** is the moment.
+>   waiting for you. The office is closed Sunday, so **Monday morning** is the moment. *(I checked whether the
+>   result is posted anywhere online so you wouldn't have to call — Homestead has no public case-lookup, so the
+>   phone call really is the only way to find out.)*
 > - **Two honest caveats so you're not misled:** (1) I could not check your **Gmail** — if that proposal actually
 >   went out from your Gmail, then it *was* sent and this is far less serious; the phone call clears that up too.
 >   (2) The "how big is the fine" number floating around (~$150/day) came from the referrer, not from the order
