@@ -246,6 +246,10 @@ rename client files.
 >   from 2017, covers the exact years** I'm reconstructing your 2016 billing from (SEAPA and all). It may hold
 >   the emails that finally explain the $92k-vs-$58k gap. **Want me to read that 2017 archive?** (yes / not
 >   now) (`HEALTH-2026-08-23 §8a`)
+> - **One tiny thing only you can unlock.** Out of every old file I've gone through, there is **exactly one I
+>   can't open** — a spreadsheet literally named **"Missing statement data Jorge Valdes.xls."** It's password-
+>   locked, and its name suggests it might hold the old bank records I've been hunting for. **Do you know the
+>   password for it?** (I'll type it / I don't remember) — no rush. (`TRK-2026-9542/9543`)
 >
 > **★ The most useful money result of the night — a real "who owes me" answer you can act on:** the other
 > window matched your open invoices against your actual bank deposits and found **two that are genuinely
