@@ -355,6 +355,14 @@ rename client files.
 > while this work would be for the *seller*. But it could be a real lead instead of just a favor you got stuck
 > in. **Want me to look into whether there's a clean way for you to pick up that recert work?** (yes / not
 > now) (`TEDC-9556/9557`)
+> - **And here's the reason not to wait on that one.** The window then checked the *finished* sister property,
+>   **Garden Walk** — and it looks like **ten of these exact recertification jobs got done there last year for
+>   the same client (Miguel / TEDC), and they did not go to you.** The only thing that reached your books for
+>   that whole property in 2025 was a single **$575 runner fee.** No sign in your files, your emails, or your
+>   bank that you did or paid for any of the ten. *(Not 100% certain — a couple of old email archives haven't
+>   been opened yet — but three separate checks all came back empty.)* **Plain version: your biggest client's
+>   recertification work — which is your core business — may be going to someone else, building by building.**
+>   That's the real reason the Sugar Hill question above is worth a look now rather than later. (`TEDC-9558/9559/9560`)
 >
 > **Two more the window turned up overnight, both just needing a word from you:**
 > - **Alec looks like a client, not just family.** The computer had been setting aside money from Alec
