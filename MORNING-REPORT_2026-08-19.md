@@ -230,6 +230,14 @@ rename client files.
 >   some **personal spending went through the business account** that year (a few store purchases, a $3,000
 >   transfer to a personal account). Both are the kind of detail **Gregorio** should just be aware of. Again:
 >   **nothing for you to do** — I'm only noting them so they're in one place. (`TRK-2026-9532/9533`)
+> - **A big piece of the 2016 puzzle just clicked into place — and it's reassuring, not alarming.** It turns
+>   out **about a third of what your old books called "2016 income" ($45,725) was never actually your own
+>   billing** — it was **your share of another company's invoices.** A firm called **Aronson Estates** did
+>   the weekly inspection billing and split each invoice three ways on its own paper: a cut to you, a cut to
+>   Wally Milian, a cut to itself. Your old book copied Aronson's invoice numbers and your share amounts and
+>   recorded them as if they were your own invoices. **Your total 2016 income didn't change — only the story
+>   of where it came from.** Nothing is lost and nothing is owed. It also explains why those old 2016 numbers
+>   never lined up cleanly. **Nothing for you to do** — just so the picture makes sense. (`TRK-2026-9534/9535`)
 > - **One offer that could actually help close the old-invoice puzzle.** There are **12 old email archives
 >   sitting on your disk (about 51 GB) that nothing has ever opened** — and one of them, an **8.5 GB archive
 >   from 2017, covers the exact years** I'm reconstructing your 2016 billing from (SEAPA and all). It may hold
