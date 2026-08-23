@@ -342,6 +342,20 @@ rename client files.
 > all from 2018–2019, which is past Florida's 5-year limit to collect — so they're **good for your records,
 > not money you can still chase.** `GW-9492`)*
 >
+> **New on Sugar Hill overnight — and this one might actually be worth something to you, not just cleanup.**
+> The other window pulled the county's own records on the Sugar Hill property itself. Two things stand out.
+> **First, it's bigger than the file said: 192 apartments, not 134** — the "134" turned out to be the
+> *seller's* number that quietly became our number, so any job there is about 40% larger than the paperwork
+> assumed. **Second, the buildings are in trouble with the county: 11 of the 12 are overdue on their required
+> 40/50-year recertification, and the county has put "repair-or-demolish" orders on several of them.** The
+> owner has been paying the county penalties in five-figure checks to keep it from getting worse — so this is
+> an owner who pays. **Here's why it matters to you: recertification is exactly the kind of work your
+> inspection company does, and right now only 1 or 2 of those 12 buildings have someone on them.** You're not
+> owed anything here and it's early — and there's a wrinkle, since you've been the middleman for the *buyer*
+> while this work would be for the *seller*. But it could be a real lead instead of just a favor you got stuck
+> in. **Want me to look into whether there's a clean way for you to pick up that recert work?** (yes / not
+> now) (`TEDC-9556/9557`)
+>
 > **Two more the window turned up overnight, both just needing a word from you:**
 > - **Alec looks like a client, not just family.** The computer had been setting aside money from Alec
 >   because he shares your last name — but he actually has **eight job numbers on your books, two old
