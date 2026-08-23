@@ -230,6 +230,11 @@ rename client files.
 >   some **personal spending went through the business account** that year (a few store purchases, a $3,000
 >   transfer to a personal account). Both are the kind of detail **Gregorio** should just be aware of. Again:
 >   **nothing for you to do** — I'm only noting them so they're in one place. (`TRK-2026-9532/9533`)
+> - **One offer that could actually help close the old-invoice puzzle.** There are **12 old email archives
+>   sitting on your disk (about 51 GB) that nothing has ever opened** — and one of them, an **8.5 GB archive
+>   from 2017, covers the exact years** I'm reconstructing your 2016 billing from (SEAPA and all). It may hold
+>   the emails that finally explain the $92k-vs-$58k gap. **Want me to read that 2017 archive?** (yes / not
+>   now) (`HEALTH-2026-08-23 §8a`)
 >
 > **★ The most useful money result of the night — a real "who owes me" answer you can act on:** the other
 > window matched your open invoices against your actual bank deposits and found **two that are genuinely
