@@ -396,6 +396,13 @@ rename client files.
 > "thank you, received" reply to Lucrecia that same minute, and it's been **sitting unsent in your Drafts**
 > for two days. No rush at all — **want me to remind you to send it, or leave it?** (`INTAKE-9601`)
 >
+> **Possible customer, and it's gone quiet for 5 days.** On August 18, someone named **Doron Barnes** emailed
+> you **14 photos with the subject line "Windows"** — and there's **no reply, and no other email with him at
+> all.** For your kind of work, a stranger sending a batch of window photos usually means *"can you quote/
+> inspect this?"* — so this looks like it could be a **new customer who hasn't heard back.** The reason it
+> never got flagged is a computer mix-up (some of his photos got confused with your own old phone pictures).
+> **Want me to pull his email up so you can take a look?** (yes / it's nothing) (`OD-66`)
+>
 > **Two more the window turned up overnight, both just needing a word from you:**
 > - **Alec looks like a client, not just family.** The computer had been setting aside money from Alec
 >   because he shares your last name — but he actually has **eight job numbers on your books, two old
