@@ -244,6 +244,10 @@ rename client files.
 > - **A 3.6-terabyte backup drive on your desk has never been opened** — not because it's empty, but because
 >   it asks for a permission you'd have to grant. Could hold more of your old records. **Want me to look
 >   inside?** (open / leave it) (`OD-58`)
+> - **Worth closing the loop on: your 2018 taxes.** The IRS wrote you back in 2019 saying it **couldn't
+>   finish your 2018 return until you sent one form** — and there's no sign on the computer of what happened
+>   next. It was probably handled by your accountant, but it's the kind of thing worth being sure about.
+>   **Want me to dig into how it ended?** (find out / accountant had it / leave it) (`OD-60`)
 > - **One I need to walk back a little: Garden Walk East.** Last hour I called it "a $15,000 job you never
 >   billed." Reading the actual file, that $15,000 only ever lived in your registry note — there's **no
 >   invoice, no draw, and no payment** for it anywhere, and the real money in that file is the **law firm's**
