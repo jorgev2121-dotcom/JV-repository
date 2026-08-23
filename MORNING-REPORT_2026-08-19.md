@@ -366,6 +366,15 @@ rename client files.
 >   recertification work — which is your core business — may be going to someone else, building by building.**
 >   That's the real reason the Sugar Hill question above is worth a look now rather than later. (`TEDC-9558/9559/9560`)
 >
+> **A live one, and a small catch worth knowing about — the Bay Harbor window job (unit 404).** Two days ago
+> the **signed condo-association form** you needed for that job came back by email from the owner's daughter
+> (Lucrecia). The catch: it had **saved itself nowhere on your computer** — it lived *only* inside that one
+> email, and if the email had been deleted it was gone. The window fixed that: it's now **safely filed** in
+> the job folder. The condo's management already has their copy, so **the job isn't stuck** — this was just
+> your own records almost missing it. **One tiny thing that's yours:** you actually wrote a one-line
+> "thank you, received" reply to Lucrecia that same minute, and it's been **sitting unsent in your Drafts**
+> for two days. No rush at all — **want me to remind you to send it, or leave it?** (`INTAKE-9601`)
+>
 > **Two more the window turned up overnight, both just needing a word from you:**
 > - **Alec looks like a client, not just family.** The computer had been setting aside money from Alec
 >   because he shares your last name — but he actually has **eight job numbers on your books, two old
