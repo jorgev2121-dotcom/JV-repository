@@ -2,18 +2,37 @@
 
 **For Jorge. Read the first three lines; the rest is backup.**
 
-**Nothing broke overnight. Nothing needs a rushed decision — and nothing is actually due Friday.**
-I had been telling you a "$44 by Friday 3:30" deadline that turned out not to exist; its real target is
-Sept 5. The one real question waiting on you is small: **do you have a meeting with Alec on Friday?** (see
-Section A).
+**One live client matter surfaced overnight and it's the first thing to handle Monday — everything else is calm.**
+The other window found that a code-enforcement case you took on for a client (Renzo, **535 NW 7 St, Homestead**)
+had a **fine hearing on August 20 — 3 days ago** — and it looks like the proposal that could have helped him
+was **never sent**. You can't fix it today (the city office is closed Sunday), but it's **the first call to make
+Monday morning.** Full details are the very first item in Section A. *(Honest caveat: I can't see your Gmail, so
+there's a chance it went out from there — the phone call settles it either way.)*
 
-**Your whole night in one line: the two Claude windows finished the big money review clean, and I caught
-and corrected a false deadline of my own instead of letting it ride.**
+**Your night in one line: the two Claude windows finished the big money review clean, caught several of their
+own mistakes before they mattered, and turned up this one live client matter that needs a Monday phone call.**
 
 ---
 
 ## Section A — Everything waiting on you, each answerable in a word
 
+> **⚠ MONDAY, FIRST CALL — a client's code case (Renzo, 535 NW 7 St, Homestead).** Here's the situation, plainly:
+> your client had a city code-enforcement case (fence and some work done without permits). The city held a **fine
+> hearing on August 20** — and if he didn't show or respond, the city can start a **daily fine and record a lien
+> on his house.** Your side had a **legalization proposal, a request to the city for more time, and an engineer
+> request all written and ready — but the computer can find no record that any of them was ever sent.** The job
+> file even *said* the proposal was sent; it wasn't. **Nobody here knows what the city actually decided on the
+> 20th** — that can only be found out by asking them.
+> - **The one action: call the city code officer, Yairis Chapelli, at 305-224-5577** (cell 786-650-5673), and ask
+>   what the Magistrate ordered on August 20 in case **CE25080356**. A word-for-word script is already written and
+>   waiting for you. The office is closed Sunday, so **Monday morning** is the moment.
+> - **Two honest caveats so you're not misled:** (1) I could not check your **Gmail** — if that proposal actually
+>   went out from your Gmail, then it *was* sent and this is far less serious; the phone call clears that up too.
+>   (2) The "how big is the fine" number floating around (~$150/day) came from the referrer, not from the order
+>   itself, so treat the dollar figure as unconfirmed until the city says.
+> - **Separately, and only with your say-so:** the proposal is finished and sitting ready. **Want me to have it
+>   sent to Renzo and Jaddrey?** (yes / not yet) — I never send anything without your word. (`HEARING-9603` · `OD-65`)
+>
 > **⚠ DO THIS FIRST — your son's phone abroad.** Last night we were adding AT&T's **International Day Pass
 > (~$12/day)** to your son's line, and it didn't get finished (three logins and 1Password fought us). **The
 > real danger isn't the delay — it's your son using his phone overseas with no plan, which can run into the
