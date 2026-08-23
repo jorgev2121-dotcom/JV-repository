@@ -224,6 +224,12 @@ rename client files.
 >   owes you anything here — the only question it raises is **"did all of 2016's income get declared?"**,
 >   which is a one-line thing to mention to **Gregorio Herrera** so it's never a surprise. Nothing for you to
 >   do today. (`TRK-2026-9531`)
+> - **Two more small things for that same accountant chat — both from 2016, both ten years old, neither is
+>   money to chase.** First: you have **two invoices you sent on your own letterhead (~$2,200 total) that your
+>   own 2016 income sheet never counted** — so your old book was missing some of your own billing. Second:
+>   some **personal spending went through the business account** that year (a few store purchases, a $3,000
+>   transfer to a personal account). Both are the kind of detail **Gregorio** should just be aware of. Again:
+>   **nothing for you to do** — I'm only noting them so they're in one place. (`TRK-2026-9532/9533`)
 >
 > **★ The most useful money result of the night — a real "who owes me" answer you can act on:** the other
 > window matched your open invoices against your actual bank deposits and found **two that are genuinely
