@@ -1,7 +1,7 @@
 # STATUS — where everything stands
 
-**Last updated: 2026-08-20 (evening ET), by the cloud executor.** Refreshed because the desktop flagged
-this file as 5 days stale and cannot push its own fix.
+**Last updated: 2026-08-23 (overnight ET), by the cloud executor.** Refreshed because the desktop flagged
+the stamp stale for five cycles and cannot push its own fix. This pass folds in the overnight 2016 forensics.
 
 **Read this first.** This is the one-screen version. The live detail lives in three places:
 - **`OWNER-QUEUE.md`** — the canonical register of every decision waiting on Jorge (authored by the
@@ -46,6 +46,23 @@ Everything else on the board is "no rush" or already handled.
 - **The real answer to "who owes me" is the QuickBooks login (OD-22)** — but note it's a *partial* book:
   in 2019 QuickBooks held only 2 customers while the bank shows ~8× that flowing through, so much billing
   happened outside it.
+
+## The 2016 deep-dive (overnight 2026-08-23) — reframed, and one old alarm cancelled
+
+- **A third of Jorge's "2016 income" ($45,725) was never his own billing** — it was his cut of **Aronson
+  Estates'** weekly inspection invoices, which split each bill three ways (Jorge / Wally Milian / Aronson) on
+  their own face. His total 2016 income is unchanged; only its composition. (9534/9535, self-verified 9537.)
+- **The scary "$34,402 SEAPA 1099 gap" is essentially resolved — it collapses to ~$1,825 and flips sign.**
+  SEAPA's 1099 ($92,472) was never the outlier; **one cell in Jorge's own summary sheet ($58,070) was typed
+  in low.** When his real 2016 invoices are added up (incl. 23 SEAPA invoices his summary omitted), he billed
+  and was paid right around the 1099. Not collectible either way (2016, time-barred). (9540.)
+- **Open thread (not collectible):** the signed 2016 TEAM return declares **$205,715**, ~$41.5k above the
+  deposits file — the CPA derived it off-machine. No unread 2016 bank year exists on disk (116 docs checked);
+  two of three off-Chase channels are Jorge's own personal accounts by his own notes. The one file that could
+  still hold missing records — **`Missing statement data Jorge Valdes.xls`** — is password-locked (owner ask).
+- **Method note worth keeping:** across ~10 cycles the two windows repeatedly caught *their own* errors before
+  publishing (a $13,152 merge bug, a mis-read minus sign, three false "zero" search results). Self-correction
+  is working as designed.
 
 ## The biggest root cause found (2026-08-20)
 
