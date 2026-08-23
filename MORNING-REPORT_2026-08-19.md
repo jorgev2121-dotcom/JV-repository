@@ -207,6 +207,18 @@ rename client files.
 > old money, long since banked, nothing to collect — but in years like 2016, 98% of the deposits don't say
 > who paid you. QuickBooks is the one place those client names still exist.)**
 >
+> **⚠ One big one from your tax returns — it may change what "your money" even means.** Your tax filings say
+> **CU Inspections is owned 50/50 — half you, half Chris Forry.** (Team USA is 100% you.) We'd been treating
+> all of that ~$135,000 of billing as yours; if CU Inspections is genuinely a half-and-half company with
+> Chris, then some of it isn't. **Is CU Inspections still 50/50 with Chris Forry today?** That one answer
+> changes the whole money picture, so it's the most important question on the board. (`TAXOWNER-9528`)
+> - **And a tax heads-up worth one call to your accountant:** across both companies, both years, your returns
+>   show you paid yourself **$0 salary and took $0 in distributions.** For an owner who works in the
+>   business, that's the exact thing the IRS flags. I'm **not** your accountant and this isn't tax advice —
+>   it's just worth asking **Gregorio Herrera** about, so it's not a surprise later. (`TAXOWNER-9528`)
+> - Good side-answer: the **"is AVIS Builders my company?"** question looks settled — that's **Alec's**
+>   company (he's the licensed qualifier), so the ~$4,000 tied to it most likely isn't yours to collect.
+>
 > **★ The most useful money result of the night — a real "who owes me" answer you can act on:** the other
 > window matched your open invoices against your actual bank deposits and found **two that are genuinely
 > unpaid and still collectible:**
