@@ -218,12 +218,15 @@ rename client files.
 >   it's just worth asking **Gregorio Herrera** about, so it's not a surprise later. (`TAXOWNER-9528`)
 > - Good side-answer: the **"is AVIS Builders my company?"** question looks settled — that's **Alec's**
 >   company (he's the licensed qualifier), so the ~$4,000 tied to it most likely isn't yours to collect.
-> - **One more for the accountant, from an old 1099 (2016) — not money to chase, just a number that should
->   match and doesn't.** A client's 2016 1099 says they paid Team USA **~$92,472** that year; your own 2016
->   book only shows about **~$58,070**. That's a **~$34,000 gap.** It's **too old to collect** and nobody
->   owes you anything here — the only question it raises is **"did all of 2016's income get declared?"**,
->   which is a one-line thing to mention to **Gregorio Herrera** so it's never a surprise. Nothing for you to
->   do today. (`TRK-2026-9531`)
+> - **UPDATE — that scary "$34,000 gap" from the old 2016 1099 turned out to be almost nothing, and it was
+>   never the client's mistake.** Earlier this week I flagged that a client (SEAPA / Southeast Property) told
+>   the tax authority they paid you **~$92,472** in 2016, while your own book showed only **~$58,070** — a
+>   ~$34,000 gap. **Digging further tonight, that gap collapses to about $1,825, and it flips the other way.**
+>   The client's number was basically right; **the low figure was one cell in your own old spreadsheet that
+>   was simply typed in wrong.** When your actual 2016 invoices are added up properly (including 23 SEAPA
+>   invoices your summary sheet left out), you billed and were paid right around what the 1099 says. **So
+>   there's no missing income and nothing owed** — it was a bookkeeping typo, not a real discrepancy.
+>   Still worth one calm mention to **Gregorio Herrera**, but the alarm is gone. (`TRK-2026-9540`)
 > - **Two more small things for that same accountant chat — both from 2016, both ten years old, neither is
 >   money to chase.** First: you have **two invoices you sent on your own letterhead (~$2,200 total) that your
 >   own 2016 income sheet never counted** — so your old book was missing some of your own billing. Second:
