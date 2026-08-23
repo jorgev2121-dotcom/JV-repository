@@ -350,8 +350,10 @@ rename client files.
 > 40/50-year recertification, and the county has put "repair-or-demolish" orders on several of them.** The
 > owner has been paying the county penalties in five-figure checks to keep it from getting worse — so this is
 > an owner who pays. **Here's why it matters to you: recertification is exactly the kind of work your
-> inspection company does, and right now only 1 or 2 of those 12 buildings have someone on them.** You're not
-> owed anything here and it's early — and there's a wrinkle, since you've been the middleman for the *buyer*
+> inspection company does.** The owner *does* already have an engineer on it — but he's gotten only **1 of
+> the 12 buildings past the county so far and keeps failing their review on the rest,** so the door is
+> genuinely open. There's even a **bank (the property's lender) that needs these reports filed** — another
+> party who'd want it solved. You're not owed anything here and it's early — and there's a wrinkle, since you've been the middleman for the *buyer*
 > while this work would be for the *seller*. But it could be a real lead instead of just a favor you got stuck
 > in. **Want me to look into whether there's a clean way for you to pick up that recert work?** (yes / not
 > now) (`TEDC-9556/9557`)
