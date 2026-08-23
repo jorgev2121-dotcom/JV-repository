@@ -218,6 +218,12 @@ rename client files.
 >   it's just worth asking **Gregorio Herrera** about, so it's not a surprise later. (`TAXOWNER-9528`)
 > - Good side-answer: the **"is AVIS Builders my company?"** question looks settled — that's **Alec's**
 >   company (he's the licensed qualifier), so the ~$4,000 tied to it most likely isn't yours to collect.
+> - **One more for the accountant, from an old 1099 (2016) — not money to chase, just a number that should
+>   match and doesn't.** A client's 2016 1099 says they paid Team USA **~$92,472** that year; your own 2016
+>   book only shows about **~$58,070**. That's a **~$34,000 gap.** It's **too old to collect** and nobody
+>   owes you anything here — the only question it raises is **"did all of 2016's income get declared?"**,
+>   which is a one-line thing to mention to **Gregorio Herrera** so it's never a surprise. Nothing for you to
+>   do today. (`TRK-2026-9531`)
 >
 > **★ The most useful money result of the night — a real "who owes me" answer you can act on:** the other
 > window matched your open invoices against your actual bank deposits and found **two that are genuinely
