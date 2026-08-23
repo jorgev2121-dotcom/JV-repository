@@ -30,8 +30,11 @@ Everything else on the board is "no rush" or already handled.
   answers what the desktop can't reach (e.g. Google Calendar). The OWNER-QUEUE co-edit collision is fixed
   (cloud owns the repo copy as a pointer).
 - **The money review is essentially done *for the QuickBooks series* — but that is not the whole invoice
-  universe.** 128 invoices priced (~$135,000 billed over the years); an exhaustive page-by-page OCR re-audit
-  confirmed the QuickBooks `\d{4}` list holds at **129 numbers** with nothing hidden. Honest split: ~51
+  universe.** **⚠ 2026-08-23 update (9544/9545): the full invoice spine now stands at 188 invoices Jorge
+  issued, ~$225,582 billed across all eras — the old "128 / ~$135,000" headline counted only the QuickBooks
+  slice and was short by 60 invoices and ~$90,499.** The joinable spine file was also rebuilt to 137 (129 +
+  8 recovered Garden Walk/ESL invoices that had never been written into the published list). An exhaustive
+  page-by-page OCR re-audit confirmed the QuickBooks `\d{4}` list holds at **129 numbers** with nothing hidden. Honest split: ~51
   paid, a few overdue, ~66 "no receipt on this machine either way" (NOT unpaid). **⚠ 2026-08-21 correction
   (9463/9464): Jorge also bills on a SECOND series, `INV-YYYY-NNNNN`, outside QuickBooks — 3 invoices found,
   all delivered, $5,822.14, all to Miguel Zaldivar (MZ Solutions / TEDC), his current largest client. Wrong
@@ -58,8 +61,12 @@ Everything else on the board is "no rush" or already handled.
   and was paid right around the 1099. Not collectible either way (2016, time-barred). (9540.)
 - **Open thread (not collectible):** the signed 2016 TEAM return declares **$205,715**, ~$41.5k above the
   deposits file — the CPA derived it off-machine. No unread 2016 bank year exists on disk (116 docs checked);
-  two of three off-Chase channels are Jorge's own personal accounts by his own notes. The one file that could
-  still hold missing records — **`Missing statement data Jorge Valdes.xls`** — is password-locked (owner ask).
+  two of three off-Chase channels are Jorge's own personal accounts by his own notes. **(Retracted: the one
+  locked file, `Missing statement data Jorge Valdes.xls`, was probed and is a 1999 file from a company called
+  I.F.M.C. — it cannot hold 2016 data, so the earlier "ask Jorge for the password" note is withdrawn. No owner
+  action.)** Separately, the other window has now matched 2016 deposits to the invoices from the bank side and
+  shown **66.5% of the year's receipts were named by Jorge himself** in an annotation column — the reconciliation
+  is far more complete than the raw bank descriptions suggested.
 - **Method note worth keeping:** across ~10 cycles the two windows repeatedly caught *their own* errors before
   publishing (a $13,152 merge bug, a mis-read minus sign, three false "zero" search results). Self-correction
   is working as designed.
