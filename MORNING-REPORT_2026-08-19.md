@@ -403,6 +403,13 @@ rename client files.
 > never got flagged is a computer mix-up (some of his photos got confused with your own old phone pictures).
 > **Want me to pull his email up so you can take a look?** (yes / it's nothing) (`OD-66`)
 >
+> **Reassuring — your own business license looks fine.** The computer noticed it had **no copy of your
+> business tax receipt newer than 2021**, which for a second looked like you'd been operating without a
+> current license for years. **You haven't** — your credit card shows you **paid Miami-Dade County on
+> September 23 last year**, right before the deadline, for both companies. The receipts just never got saved
+> on the computer, that's all. **One thing to put in your calendar: it renews again on September 30** (about
+> 5 weeks out) — same as every year. Nothing to do now; I'll flag it again closer to the date. (`TRK-2026-9614`)
+>
 > **Two more the window turned up overnight, both just needing a word from you:**
 > - **Alec looks like a client, not just family.** The computer had been setting aside money from Alec
 >   because he shares your last name — but he actually has **eight job numbers on your books, two old
