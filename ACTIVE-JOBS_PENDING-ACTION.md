@@ -16,10 +16,13 @@
 - **Task:** ⚠ **SEND the current invoice to the client — it was never sent** (Aug 10 it went to you + Manny only).
   They still have the old June version. The relationship is live.
 
-### 3. 20001 SW 110 CT #143 — code violation  ·  `TRK-2026-1262` · MDC case 2026-0245510
-- **Contact:** Miguel Zaldivar / MZ Solutions · miguel@mzsolutions.org · (inspector: Boris Luis, MDC) · owner: 10960 SW 200th Ave LLC
-- **Task:** ⚠ **The job isn't finished** — permit 2026061642 is only *pulled*, not *finalized* (no Certificate of
-  Completion), so the NOV can't close. Get the final inspection + CC done. (And OK the folder rename.)
+### 3. 20001 SW 110 CT #143 — code violation  ·  `TRK-2026-1262` · MDC case 2026-0245510  ·  `OD-75`
+- **Contact:** MDC **Building Support · 786-315-2424** · Miguel Zaldivar miguel@mzsolutions.org · owner 10960 SW 200th Ave LLC
+- **Task:** ✅ **CORRECTION — the work IS done: permit 2026061642 FINALED 2026-08-07 (Miami-Dade confirmed by email).**
+  You emailed the NOV-closure request the same day; **the county has sat on it 17 days**, and the finaled permit isn't
+  even *linked* to the case in their system (likely why it didn't auto-close). → **Call Building Support (786-315-2424)**
+  — case 2026-0245510, permit 2026061642, folio 30-6007-011-0020 — ask them to link the permit and issue the closed-NOV.
+  *(Email already failed once — use the phone.)*
 
 ### 4. MZ Solutions — overdue collections
 - **Contact:** Miguel Zaldivar · miguel@mzsolutions.org
@@ -31,9 +34,11 @@
 - **Task:** ⏳ **A $1,000 invoice (5975) stops being collectible Aug 30 — 6 days.** Check it first. Then the
   rest — ~43 invoices / ~$77.5k of "can't-tell-if-paid" that only QuickBooks Online can settle.
 
-### 6. 535 NW 7 St, Homestead — code hearing  ·  `TRK-2026-1532`
-- **Contact:** code officer **Yairis Chapelli · 305-224-5577** · client Renzo Cahuana (ref Jaddrey de Armas)
-- **Task:** Call to find out what the magistrate ruled at the **Aug 20** hearing (lien risk); decide whether to send the proposal.
+### 6. 535 NW 7 St, Homestead — code hearing  ·  `TRK-2026-1532` · case CE25080356 · folio 10-7813-003-0120
+- **Contact:** code officer **Yairis Chapelli · 305-224-5577 or 786-650-5673** · client Renzo Cahuana
+- **Task:** ⚠ **Hearing outcome STILL unknown** — no mail in/out in 4 days, but this case's real channel is *certified
+  mail* the computer can't see. Exposure **~$38,400** and growing ~$4,500/mo. **Call Chapelli** (case CE25080356) and ask:
+  (1) what the Magistrate ordered 8/20, (2) was an Order Imposing Fine entered & for how much, (3) is it recorded as a lien.
 
 ### 7. City of Miami microfilm — $44
 - **Contact:** City of Miami · Transaction **1330901**
