@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invoice 2026-0823-AJ — Alabama Jack's</title>
+<style>
+  :root{ --ink:#1a1a1a; --muted:#666; --line:#ddd; --accent:#0b3d91; --bg:#fff; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#f3f4f6; color:var(--ink);
+        font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  .sheet{ max-width:760px; margin:24px auto; background:var(--bg); padding:48px 52px;
+          box-shadow:0 1px 4px rgba(0,0,0,.12); }
+  .top{ display:flex; justify-content:space-between; align-items:flex-start;
+        border-bottom:3px solid var(--accent); padding-bottom:20px; margin-bottom:28px; }
+  .co{ font-size:20px; font-weight:700; color:var(--accent); letter-spacing:.3px; }
+  .co small{ display:block; font-size:13px; font-weight:400; color:var(--muted);
+             margin-top:6px; line-height:1.5; letter-spacing:0; }
+  .inv-label{ text-align:right; }
+  .inv-label h1{ margin:0; font-size:26px; letter-spacing:3px; color:var(--ink); font-weight:600; }
+  .inv-label div{ font-size:13px; color:var(--muted); margin-top:6px; }
+  .parties{ display:flex; justify-content:space-between; gap:32px; margin-bottom:32px; }
+  .parties h2{ font-size:11px; text-transform:uppercase; letter-spacing:1.2px;
+               color:var(--muted); margin:0 0 6px; font-weight:600; }
+  .parties p{ margin:0; line-height:1.6; }
+  table{ width:100%; border-collapse:collapse; margin-bottom:8px; }
+  th{ text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:1px;
+      color:#fff; background:var(--accent); padding:10px 12px; font-weight:600; }
+  th.amt, td.amt{ text-align:right; }
+  td{ padding:14px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  td .sub{ display:block; color:var(--muted); font-size:13px; margin-top:4px; }
+  .totals{ display:flex; justify-content:flex-end; margin-top:16px; }
+  .totals table{ width:auto; min-width:280px; }
+  .totals td{ border:none; padding:6px 12px; }
+  .totals .grand td{ border-top:2px solid var(--ink); font-size:18px; font-weight:700;
+                     padding-top:12px; }
+  .foot{ margin-top:40px; padding-top:20px; border-top:1px solid var(--line);
+         font-size:13px; color:var(--muted); line-height:1.6; }
+  @media print{ body{ background:#fff; } .sheet{ box-shadow:none; margin:0; } }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="top">
+      <div class="co">Team USA Sales, Inc.
+        <small>Jorge Valdes<br>13633 SW 142 Terrace, Miami, FL 33186<br>Jorge@TEAMUSASALES.COM</small>
+      </div>
+      <div class="inv-label">
+        <h1>INVOICE</h1>
+        <div><strong>No.:</strong> 2026-0823-AJ</div>
+        <div><strong>Date:</strong> 2026-08-23</div>
+        <div><strong>Terms:</strong> Due upon receipt</div>
+      </div>
+    </div>
+
+    <div class="parties">
+      <div>
+        <h2>Bill To</h2>
+        <p><strong>Rick Santander</strong><br>Alabama Jack's<br>ricksmobile@mail.com</p>
+      </div>
+      <div>
+        <h2>Job / Property</h2>
+        <p>58000 Card Sound Rd<br>FPL order 14458086</p>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Description</th><th class="amt">Amount</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Temporary power permitting — Alabama Jack's
+            <span class="sub">Permitting and coordination for temporary electrical service, 58000 Card Sound Rd (FPL order 14458086).</span>
+          </td>
+          <td class="amt">$4,750.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="totals">
+      <table>
+        <tr><td>Subtotal</td><td class="amt">$4,750.00</td></tr>
+        <tr class="grand"><td>Total Due</td><td class="amt">$4,750.00</td></tr>
+      </table>
+    </div>
+
+    <div class="foot">
+      Please remit payment to Team USA Sales, Inc. Thank you for your business.
+    </div>
+  </div>
+</body>
+</html>
