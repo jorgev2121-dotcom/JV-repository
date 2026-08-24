@@ -1,41 +1,59 @@
-# MIAMI-DADE COUNTY — Building Department / inspection escalation contacts
-**Pulled 2026-08-24 by cloud, for Jorge (re: 20001 SW 110 CT NOV closure + general escalation).**
-*#MDC #Building-Department #inspection-supervisor #TRK-2026-1262 #JorgeValdes*
+# MIAMI-DADE COUNTY — Building Department / inspection & code contacts
+**COUNTY-CONFIRMED 2026-08-24 by the desktop** (it fetched miamidade.gov directly — the Building
+"Contact Us" page + the Building Officials PDF; emails were Cloudflare-obfuscated and decoded, 87 pairs).
+Cloud mirrored it here because the desktop's GitHub push is down. *#MDC #Building-Department #inspection-supervisor #TRK-2026-1262 #JorgeValdes*
 
-> **⚠ Confidence note (read first).** These come from **web search**, because the county's own site
-> (`miamidade.gov`) is blocked from this cloud window. The **authoritative source is the county's
-> "Building Officials of Miami-Dade County" PDF, revised 2026-07-22** — the desktop or Jorge can open it
-> to confirm exact names, direct lines, and emails before relying on them. Two independent searches
-> **agree** on the two senior contacts below (Ascunce, Jean) and the address; the mid-level names are
-> single-source and marked as such.
+> **These are county-confirmed, not web guesses.** Two web-search "corrections" cloud made earlier were
+> BOTH wrong and are retracted below — *a web-search correction is a claim about the search, not about
+> the county.*
 
-## The escalation ladder (lowest → highest)
-1. **Building Support (department mailbox line)** — **786-315-2424** · `BuildingSupport@miamidade.gov`
-   — ✅ **verified/known-good.** This is the number already on the 20001 job, and Jorge emailed this
-   mailbox the NOV-closure request 2026-08-07. **Start here for the 20001 closure.**
-2. **Building inspections line (general)** — **786-315-2100** — ✅ **corroborated by two searches.** This
-   is the number to request an inspection / reach the inspections unit; ask to be routed to the inspection
-   supervisor by name.
-3. ~~**Building Field Unit Supervisor — Daniel Torres — 786-315-2104**~~ **[CORRECTED 2026-08-24: a second
-   search places Daniel Torres in the ROOFING Section (plan reviews/inspection), NOT as the general
-   building field supervisor. 786-315-2104 is his roofing line — right contact ONLY for roofing matters,
-   wrong for the 20001 job.]**
-4. **Assistant Director — Chaveli Moreno** — **786-315-2506** *(single-source — verify)*.
-5. **Unsafe Structures — Chief — Marc Jean** — **786-315-2505** *(corroborated by two searches)*.
-6. **Building Official — Sergio T. Ascunce** — **786-315-2338** *(corroborated by two searches;
-   the top of the building-inspection chain for unincorporated Miami-Dade)*.
+## ⭐ The inspection supervisor Jorge asked for
+- **Daniel Torres — Building Division, Inspection / Enforcement (the inspection supervisor)**
+  - **786-315-2218** · `Daniel.Torres@miamidade.gov`
+  - Also listed as **Building Field Unit Supervisor** on a second line: **786-315-2104** (same man).
+  - **Both 2218 and 2104 are correct for the 20001 SW 110 CT job.**
+- **The "assistant inspection supervisor" does NOT exist — the post is VACANT.** Both deputy-level
+  posts (the assistant Building Field Unit Supervisor **and** the Deputy Building Official) are printed
+  **Vacant** on the county's own page. It's empty, not un-found.
 
-## Office / in-person
-**Herbert S. Saffir Permitting and Inspection Center (RER)** — **11805 SW 26 St, Miami, FL 33175**
-(Unsafe Structures Unit: Room 230).
+## The escalation ladder (county-confirmed, lowest → highest)
+1. **Building Support (mailbox line)** — **786-315-2424** · `BuildingSupport@miamidade.gov` — start here
+   for the 20001 closure; this is where Jorge's 08-07 request went.
+2. **Daniel Torres — Inspection / Enforcement supervisor** — **786-315-2218** · `Daniel.Torres@miamidade.gov`.
+3. **Gilberto Martin — Director, Building Division** — **786-315-2082** · `gilberto.martin@miamidade.gov`
+   *(the rung between Torres and the Building Official)*.
+4. **Sergio T. Ascunce — Building Official (unincorporated MDC)** — **786-315-2338** ·
+   `Sergio.Ascunce@miamidade.gov` · 11805 SW 26 St, **Suite 209**, Miami FL 33175 · Exec. Sec.
+   **Madeline Gomez**, same line, `Madeline.Gomez@miamidade.gov`.
 
-## What I could NOT verify from here
-- **Individual email addresses** — search did not surface direct emails for the named people. The
-  working department mailbox is `BuildingSupport@miamidade.gov`; permit-cancellation is
-  `RERPERCAN@miamidade.gov`. Get individual emails from the official PDF or by phone.
-- The **exact title "building inspection supervisor"** and who currently holds it — the org uses
-  "Building Official," "Field Unit Supervisor," and division chiefs. The PDF names them precisely.
+## Code enforcement / unsafe structures / liens (county-confirmed)
+- **Unsafe Structures — Chief — Mare "Marc" Jean** — **786-315-2505** · `Mare.Jean@miamidade.gov`
+  *(note the county spelling: `Mare`, not `Marc`, in the email)*.
+- **Code Compliance — Chief — Pedro Estopinan** — 786-315-2510.
+- **Lien Unit — Supervisor — Joe Lopez** — 786-315-2521 · `joe.lopez@miamidade.gov`.
+- **Neighborhood Compliance — Chief — Beverly Washington** — 786-315-2524.
+- **Contractor Enforcement — Ivette Notario** — 786-315-2562.
+- **Assistant Director — Chaveli Moreno** — 786-315-2506 · `chaveli.moreno@miamidade.gov`.
+- **CHAT supervisor — Karen Quattrocchi** — 786-315-2387.
 
-**Sources:** county "Building Officials" PDF (rev. 2026-07-22, `miamidade.gov/resources/economy/board-and-code/documents/building-officials.pdf`);
-Miami-Dade Building "Building Officials" and "Contact Us" pages. *Retrieved via web search; not
-independently confirmed against the live county page (proxy-blocked). #unverified-pending-PDF*
+## Roofing (the desktop confirmed Torres is NOT roofing — these are the roofing people)
+- **Roofing — Plan Reviews / Inspection — Freddy Semino** — 786-315-2052 · `freddy.semino@miamidade.gov`.
+- **Roofing Field Unit Supervisor — Charles Walton, Jr.** — 786-315-2210 · `sydney1@miamidade.gov`.
+
+## Microfilm (county desk — note: distinct from the City of Miami $44 item)
+- **Microfilm Section — Supervisor Alina Garcia** — 786-315-2340 · `alinaga@miamidade.gov`
+  (section mailbox `Microfilm@miamidade.gov`).
+
+## Two RETRACTIONS (cloud's earlier web-sourced errors)
+1. ~~"Daniel Torres is Roofing Section, not the field supervisor."~~ **WRONG — retracted.** Torres is
+   **Building** Inspection/Enforcement, and IS the supervisor. Roofing is Semino / Walton.
+2. ~~"786-315-2100 is the general building inspections line."~~ **WRONG — retracted.** 786-315-2100 is
+   the **Permit Plans Coordination Section** (Supervisor Michelle Augustin, 786-315-2034,
+   `BldgDept@miamidade.gov`).
+
+## Office
+**Herbert S. Saffir Permitting & Inspection Center** — 11805 SW 26 St, Miami FL 33175 (Building
+Official in Suite 209; Unsafe Structures Unit Room 230).
+
+*Source: miamidade.gov Building "Contact Us" page + Building Officials PDF (rev. 2026-07-31), fetched
+and decoded by the desktop 2026-08-24 (RESULT-D2C). County-confirmed. #county-confirmed #TRK-2026-1262*
