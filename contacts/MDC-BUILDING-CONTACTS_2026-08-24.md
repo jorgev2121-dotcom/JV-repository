@@ -13,9 +13,13 @@
 1. **Building Support (department mailbox line)** — **786-315-2424** · `BuildingSupport@miamidade.gov`
    — ✅ **verified/known-good.** This is the number already on the 20001 job, and Jorge emailed this
    mailbox the NOV-closure request 2026-08-07. **Start here for the 20001 closure.**
-2. **Building inspection supervisory assistance (general)** — **786-315-2100** *(single-source — verify)*.
-3. **Building Field Unit Supervisor — Daniel Torres** — **786-315-2104** (also listed 786-315-2218)
-   *(single-source — verify the exact name/line on the official PDF)*.
+2. **Building inspections line (general)** — **786-315-2100** — ✅ **corroborated by two searches.** This
+   is the number to request an inspection / reach the inspections unit; ask to be routed to the inspection
+   supervisor by name.
+3. ~~**Building Field Unit Supervisor — Daniel Torres — 786-315-2104**~~ **[CORRECTED 2026-08-24: a second
+   search places Daniel Torres in the ROOFING Section (plan reviews/inspection), NOT as the general
+   building field supervisor. 786-315-2104 is his roofing line — right contact ONLY for roofing matters,
+   wrong for the 20001 job.]**
 4. **Assistant Director — Chaveli Moreno** — **786-315-2506** *(single-source — verify)*.
 5. **Unsafe Structures — Chief — Marc Jean** — **786-315-2505** *(corroborated by two searches)*.
 6. **Building Official — Sergio T. Ascunce** — **786-315-2338** *(corroborated by two searches;
