@@ -1822,3 +1822,43 @@ banner + emoji-prefix + `ID` keyword on all windows, with the emoji mapped to th
 prefix (🖥️=D, ☁️=C, 🤝=X). The cloud/web executor adopted the ☁️ prefix immediately. The
 desktop sets its terminal statusline to `🖥️ CODE · DESKTOP EXECUTOR` via PASTE-D-024. Cowork
 has no Code statusline but its UI is already distinct and it carries the 🤝 banner/prefix.
+
+---
+
+## RI-032 — a no-BOM PowerShell script run under 5.1 mis-decodes a non-ASCII path literal and silently builds a parallel tree
+**Logged 2026-08-24. Root-caused by desktop TRK-2026-9671; scoped by TRK-2026-9672. Prior occurrence: TRK-2026-9602 (2026-08-23).**
+
+**The mechanism:** a `.ps1` with a non-ASCII character (e.g. an em-dash `—`) inside a hardcoded path
+literal, saved **without a UTF-8 BOM**, launched by `powershell.exe` (Windows PowerShell **5.1**, not
+`pwsh` 7). PS 5.1 reads a no-BOM file as **Windows-1252**, so `—` (`E2 80 94`) becomes the mojibake
+`â€"` — and `New-Item`/`Move-Item -Force` then happily create/populate a **phantom folder** the human
+never sees. The real capsules stay empty while `SAVED: N FAILED: 0` prints — "true and useless."
+
+**Why it's a recurrence, not a one-off:** it has fired at least twice. On 2026-08-23 (9602) it moved
+**7 real documents** into a ghost `01-JOBS â€" ONE SOURCE OF TRUTH` tree. On 2026-08-24 it was caught
+again in `Doc-Filing-Arm.ps1` (0 files lost that time — only because 9602 was caught).
+
+**This is what produced the cloud's "two folders named 01-JOBS" data-quality flag** (JOBS-CAPSULE-INDEX
+flags 1 & 4). It is one bug, not four.
+
+**Fix tiers (per the charter — a logged recurrence forbids a Tier-1-only patch):**
+- **Tier 1 (applied, fast, fragile):** add a UTF-8 BOM to the script. Protects that one file until any
+  editor re-saves it without the BOM.
+- **Tier 2 (durable, recommended — resolve the path, never type it):**
+  ```powershell
+  $DriveJobs = @(Get-Item 'G:\My Drive\01-JOBS*ONE SOURCE OF TRUTH')
+  if ($DriveJobs.Count -ne 1) { throw "jobs root resolved to $($DriveJobs.Count) folders - refusing" }
+  ```
+  Cannot be broken by an encoding, and fails loudly instead of silently forking the tree. Apply to the
+  **41 files / 68 lines** the 9672 sweep found carrying this shape (≥30 carry the jobs root).
+- **Tier 3 (enforcement):** before re-enabling `CU-Inspections-Auto-Filing-OCR` (it *moves* originals,
+  a harder-to-recover variant), fix its path literal (L20) first.
+
+**Detection method (for any future sweep):** the useful filter is NOT "does the file contain non-ASCII"
+(288 mostly-harmless comment/`Write-Host` em-dashes) but **"is the non-ASCII inside something that gets
+written to"** (41). Then engine (5.1 vs 7), then enabled-state. **Compare the bytes, not the rendered
+folder name** — the phantom and the real folder look identical on screen.
+
+**Blind spot named:** a scheduled-task sweep cannot see the **ad-hoc `.ps1` run once by hand** — which is
+exactly the class that caused the 9602 casualty. The 41 files are the standing exposure because any of
+them can be run manually tomorrow.

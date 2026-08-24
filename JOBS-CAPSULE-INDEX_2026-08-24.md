@@ -2,10 +2,21 @@
 **Source:** `01-JOBS — ONE SOURCE OF TRUTH` in Google Drive. #jobs #capsules #single-source-of-truth
 
 ## ⚠ Data-quality flags (read first — they undercut "one source of truth")
-1. **There are TWO folders both named `01-JOBS — ONE SOURCE OF TRUTH`** (created 2026-06-22 and again 2026-08-23). A source of truth can't be two folders.
+
+> **UPDATE 2026-08-24 (desktop root-caused this — TRK-2026-9671 / 9672):** flags **1 and 4 are NOT a
+> duplication — they are ONE encoding bug, now fixed at source.** A filing script (`Doc-Filing-Arm.ps1`)
+> hardcoded the jobs path with an em-dash, had no BOM, and ran under PowerShell 5.1, which read the file
+> as Windows-1252 and created a **phantom folder** `01-JOBS â€" ONE SOURCE OF TRUTH`. The phantom holds
+> **0 files / 8 empty dirs** — but the same defect **swallowed 7 real documents into a ghost tree once
+> before, on 2026-08-23 (TRK-2026-9602).** Desktop added a BOM (fix on disk, verified) and a sweep of
+> all 180 scheduled tasks confirmed **no enabled task can recreate it now.** **Do not merge or trust any
+> job list built from the phantom folder.** Flags 5–6 (and my flag 7) still stand. See RI-032.
+
+1. ~~**There are TWO folders both named `01-JOBS — ONE SOURCE OF TRUTH`**~~ **[RESOLVED — one encoding bug, fixed at source; see the UPDATE box above. The second folder is a mojibake phantom, not a real source of truth.]**
 2. **TRK-2026-1262 exists in ≥2 places** (`20001 SW 110 CT Unit 143 (TRK-2026-1262)` and a bare `TRK-2026-1262`) — the "one job, two homes" issue (OPEN-ITEMS 9104).
 3. **TRK-2026-1265 exists in ≥2 places** (`Bal Harbour Permit Status` and `TRK-2026-1265_The-Plaza`).
-4. **TRK-2026-1536 and TRK-2026-1292 each appear twice** (once under each 01-JOBS folder).
+4. ~~**TRK-2026-1536 and TRK-2026-1292 each appear twice**~~ **[RESOLVED — same encoding phantom as flag 1. One of the two appearances was the ghost folder; not a real duplicate.]**
+   *(Flags 2 and 3 — TRK-1262 and TRK-1265 in ≥2 places — are NOT the phantom; those names aren't in the ghost tree, so they remain genuine and still need checking.)*
 5. **Split across two clouds:** these are the Google-Drive capsules; the **TEDC money-lock capsules (Sugar Hill 1414, Garden Walk 1412/1413) live in OneDrive `Jobs-Master`**, not here. Two homes.
 6. **No capsule yet** for **Alabama Jack's (JOB-0086)** or **Miami Art House (TUS-26-1033)** — active jobs with no folder in 01-JOBS.
 7. **⭐ Alec Valdes is ONE client with EIGHT tracking numbers — but the list makes him look like 4.** This is the "6–9 addresses not reflecting" problem, and it is a *labeling* failure, not a *dropped-job* failure. The folders exist; three of them (1534/1535/1536) are titled by address only, with no client name, and **TRK-2026-1531 (the ALEC MICROFILM BATCH parent) has no capsule folder at all** — it lives only as a registry row + a jacket `.eml`. Desktop report **TRK-2026-9477** proved the same failure runs down into the money layer: $5,640 that Alec Zelle'd was set aside as "family, not claimed" purely because he shares Jorge's surname. **The full 8: 1286, 1289, 1292, 1531, 1534, 1535, 1536, 1612** (see `ALEC-VALDES_ALL-JOBS_2026-08-24.md`).
