@@ -403,6 +403,15 @@ rename client files.
 > never got flagged is a computer mix-up (some of his photos got confused with your own old phone pictures).
 > **Want me to pull his email up so you can take a look?** (yes / it's nothing) (`OD-66`)
 >
+> **A job that's basically done — it just needs you to say the price.** The **Alabama Jack's** temporary-power
+> job (the FPL "Tempost" one, on Card Sound Rd) has a **finished proposal ready to send at $4,750.** The only
+> hold-up is a tiny mismatch: one of the computer's decision boxes has **$4,780** typed in instead — a **$30**
+> difference. **I recommend $4,750** (that's the number on both finished documents). The one catch: **the
+> customer emailed you and hasn't heard back in about three days**, so a quick "got it, sending shortly" would
+> keep him warm. Two smaller things to know when you look: the proposal doesn't include an FPL **deposit/
+> temporary-service charge** shown on one of his drawings, and there's a **pool-clearance** note. **Is the
+> price $4,750?** (yes / other) (`OD-69`)
+>
 > **Reassuring — your own business license looks fine.** The computer noticed it had **no copy of your
 > business tax receipt newer than 2021**, which for a second looked like you'd been operating without a
 > current license for years. **You haven't** — your credit card shows you **paid Miami-Dade County on
