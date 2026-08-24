@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Call Card — 20001 SW 110 CT</title>
+<style>
+  :root{ --bg:#f4f6f8; --card:#fff; --ink:#12232e; --muted:#5a6b76;
+         --line:#d7dee3; --ok:#0a7d3c; --warn:#b26a00; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:18px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:20px;}
+  .card{max-width:600px;margin:0 auto;background:var(--card);border:1px solid var(--line);
+        border-radius:14px;padding:18px 20px 12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  h1{font-size:20px;margin:0 0 2px}
+  .sub{color:var(--muted);margin:0 0 14px;font-size:14px}
+  .row{display:flex;align-items:baseline;gap:12px;border-top:1px solid var(--line);padding:11px 0}
+  .lab{width:130px;flex:none;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  .val{flex:1;font-size:22px;font-weight:700;letter-spacing:.02em;
+       -webkit-user-select:all;user-select:all;cursor:text}
+  .val small{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0}
+  .ok{color:var(--ok);font-size:13px;font-weight:700}
+  .warnbox{max-width:600px;margin:14px auto 0;background:#fff6e9;border:1px solid #f0d6a8;
+           border-radius:10px;padding:12px 14px;font-size:14px}
+  .warnbox b{color:var(--warn)}
+  .ask{max-width:600px;margin:14px auto 0;background:#eef4f1;border:1px solid var(--line);
+       border-radius:10px;padding:12px 14px;font-size:15px}
+  .stamp{max-width:600px;margin:12px auto 0;color:var(--muted);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>20001 SW 110 CT, Unit 143</h1>
+    <p class="sub">TRK-2026-1262 · owner 10960 SW 200th Ave LLC · contractor MZ Solutions (Miguel Zaldivar)</p>
+
+    <div class="row"><div class="lab">Permit #</div>
+      <div class="val">2026061642 <span class="ok">✓ FINALED 08-07-2026</span><br><small>no "C" — this is the permit</small></div></div>
+    <div class="row"><div class="lab">Process #</div>
+      <div class="val">C2026116502 <br><small>keeps the "C" — application/process, not the permit</small></div></div>
+    <div class="row"><div class="lab">Case #</div>
+      <div class="val">20260245510 <br><small>a.k.a. 2026-0245510 · opened 01-20-2026 · code case, NOT a confirmed NOV — see below</small></div></div>
+    <div class="row"><div class="lab">Folio</div><div class="val">30-6007-011-0020</div></div>
+    <div class="row"><div class="lab">Inspector</div><div class="val">Boris Luis</div></div>
+    <div class="row"><div class="lab">Building Support</div><div class="val">786-315-2424</div></div>
+  </div>
+
+  <div class="warnbox">
+    <b>⚠ On the NOV / citation:</b> 20260245510 is the <b>case</b> number — that is not proof an NOV or
+    citation was <i>issued</i> in 2026. Most likely the county opened the case, the work was
+    <b>permitted and finaled (08-07)</b>, and <b>no citation or fine was ever issued</b> — so there may be
+    nothing to "close" but the case itself. <b>Verify on the RER portal</b> (by case or folio) what notices,
+    if any, are attached and their dates before asking for a "closed NOV."
+  </div>
+
+  <div class="ask">
+    <b>On the call, say:</b> "Case <b>20260245510</b>, permit <b>2026061642</b>, folio
+    <b>30-6007-011-0020</b>. The permit finaled 08-07 — please <b>link it to the case</b> and issue the
+    <b>case-closed / compliance letter</b>. And confirm whether any NOV or citation was ever issued."
+  </div>
+
+  <div class="stamp">TRK-2026-1262 · built by cloud 2026-08-24 · CURRENT · #20001-SW-110-CT #MDC #NOV</div>
+</body>
+</html>
