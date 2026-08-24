@@ -301,18 +301,19 @@ rename client files.
 > - **A small billing question, in case it wasn't on purpose:** you invoiced Miguel **$0.00** for two Bay
 >   Harbor permits, and a **third unit** at that same building was **never invoiced at all.** If that was a
 >   favor, fine — just flagging it in case it slipped. **Free, or bill it?** (`OD-56`)
-> - **⏳ One of these has a six-day clock.** Overnight the money review turned up **three finished, delivered
->   bills that were never entered in your master list** — and I can't tell from your computer whether any were
->   paid. **The time-sensitive one: $1,000 to a client named Herrero (H&H Investment Bros), a
->   certificate-of-use inspection from August 2021.** Under Florida's five-year rule it **stops being legally
->   collectible on August 30 — six days from now — *if* it was never paid.** The other two have more runway:
->   **$2,500 to Robert Wayne (lien mitigation, Jan 2022)** and **$995 to Michelle Basile (a CU inspection,
->   Feb 2023)**. All three jobs were done and closed out. **The honest catch is the same for all three: your
->   email, your bank, and the QuickBooks report saved on your computer can't say whether they were paid —
->   they're older than your saved bank data. Only QuickBooks Online, behind your login, knows.** So this is
->   not "you're owed $4,495" — it's "these three are worth a two-minute look in QuickBooks, and the $1,000 one
->   is worth doing this week." **Want me to tee them up so it's one quick check?** (yes / leave it) (`OD-72`,
->   `OD-73`)
+> - **⏳ Your QuickBooks login is worth far more than I first told you — and one bill on it has a six-day
+>   clock.** Yesterday I said there were three bills I couldn't confirm were paid. Overnight the review went
+>   deeper and the real number is much bigger: **about 43 of your invoices — roughly $75,000 worth — sit in a
+>   "can't tell from this computer whether they were paid" pile.** Please read the next sentence carefully,
+>   because it matters: **this is NOT $75,000 you're owed. Most of these were almost certainly paid.** It just
+>   means the proof isn't on your computer — these are older than your saved bank records — and **the one
+>   place that can settle every last one of them is QuickBooks Online, behind your login.** One login, one
+>   screen, and you'd know. **The piece with a deadline stays the same: a $1,000 inspection for a client named
+>   Herrero stops being legally collectible on August 30 (six days) if it was never paid — so that's the first
+>   one to look at.** And a bit of good news the same review found: **one $2,205 bill (the Iberostar hotel on
+>   Miami Beach) is now confirmed paid** — the hotel typed your invoice number right into the bank transfer.
+>   **Want me to build you a single QuickBooks checklist — the deadline one first, then the rest by size — so
+>   it's one sitting?** (yes / leave it) (`OD-72`, `OD-73`)
 > - **A 3.6-terabyte backup drive on your desk has never been opened** — not because it's empty, but because
 >   it asks for a permission you'd have to grant. Could hold more of your old records. **Want me to look
 >   inside?** (open / leave it) (`OD-58`)
