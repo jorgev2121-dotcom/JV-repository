@@ -8,14 +8,15 @@
 4. **TRK-2026-1536 and TRK-2026-1292 each appear twice** (once under each 01-JOBS folder).
 5. **Split across two clouds:** these are the Google-Drive capsules; the **TEDC money-lock capsules (Sugar Hill 1414, Garden Walk 1412/1413) live in OneDrive `Jobs-Master`**, not here. Two homes.
 6. **No capsule yet** for **Alabama Jack's (JOB-0086)** or **Miami Art House (TUS-26-1033)** — active jobs with no folder in 01-JOBS.
+7. **⭐ Alec Valdes is ONE client with EIGHT tracking numbers — but the list makes him look like 4.** This is the "6–9 addresses not reflecting" problem, and it is a *labeling* failure, not a *dropped-job* failure. The folders exist; three of them (1534/1535/1536) are titled by address only, with no client name, and **TRK-2026-1531 (the ALEC MICROFILM BATCH parent) has no capsule folder at all** — it lives only as a registry row + a jacket `.eml`. Desktop report **TRK-2026-9477** proved the same failure runs down into the money layer: $5,640 that Alec Zelle'd was set aside as "family, not claimed" purely because he shares Jorge's surname. **The full 8: 1286, 1289, 1292, 1531, 1534, 1535, 1536, 1612** (see `ALEC-VALDES_ALL-JOBS_2026-08-24.md`).
 
 ## Job capsules (under the main `01-JOBS`)
 1. TRK-2026-1612 — 331 Tamiami Canal Rd, Miami (Alec Valdes)
 2. TRK-2026-1611 — Pembroke Pines Contractor Registration (MZ Solutions)
 3. TRK-2026-1588 — 4225 Rose Arbor Cir, Port Charlotte
-4. TRK-2026-1536 — 10362 SW 180 ST
-5. TRK-2026-1535 — 18020 SW 103 AVE
-6. TRK-2026-1534 — 1840 NW 63 ST
+4. TRK-2026-1536 — 10362 SW 180 ST **(Alec Valdes DD)**
+5. TRK-2026-1535 — 18020 SW 103 AVE **(Alec Valdes DD)**
+6. TRK-2026-1534 — 1840 NW 63 ST **(Alec Valdes DD)**
 7. TRK-2026-1310 — 10980 SW 202 Dr, Cutler Bay (Concrete Restoration)
 8. TRK-2026-1297 — Tuscany Cove, City of Miami Code Case 00009753 (TEDC)
 9. TRK-2026-1296 — TEDC Tacolcy EDC Company Credentials (TEDC)
