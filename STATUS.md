@@ -30,9 +30,13 @@ Everything else on the board is "no rush" or already handled.
   answers what the desktop can't reach (e.g. Google Calendar). The OWNER-QUEUE co-edit collision is fixed
   (cloud owns the repo copy as a pointer).
 - **The money review is essentially done *for the QuickBooks series* — but that is not the whole invoice
-  universe.** **⚠ 2026-08-23 update (9544/9545): the full invoice spine now stands at 188 invoices Jorge
-  issued, ~$225,582 billed across all eras — the old "128 / ~$135,000" headline counted only the QuickBooks
-  slice and was short by 60 invoices and ~$90,499.** The joinable spine file was also rebuilt to 137 (129 +
+  universe.** **⚠ 2026-08-24 update (9640/9641): the full invoice spine now stands at 196 invoices Jorge
+  issued, $257,132.54 billed across all eras** (rebuilt from the superseded 188 / ~$225,582 figure by
+  absorbing 8 Garden Walk 2017-2020 draw invoices that had been read by cycles 9616/9617/9619 but never
+  written into the spine, plus one status fix; cite `SPINE-9640_MASTER-SPINE-196`). **This is a FLOOR (one
+  county-permit reimbursement, 5923, is still unpriced) and the entire +$31,550.64 is NOT collectible — all
+  eight added invoices are 2017-2020 and time-barred.** The old "128 / ~$135,000" headline had counted only
+  the QuickBooks slice; this 196 figure is all eras. The joinable spine file was also rebuilt to 137 (129 +
   8 recovered Garden Walk/ESL invoices that had never been written into the published list). An exhaustive
   page-by-page OCR re-audit confirmed the QuickBooks `\d{4}` list holds at **129 numbers** with nothing hidden. Honest split: ~51
   paid, a few overdue, ~66 "no receipt on this machine either way" (NOT unpaid). **⚠ 2026-08-21 correction
