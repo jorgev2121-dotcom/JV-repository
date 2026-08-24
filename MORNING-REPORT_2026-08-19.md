@@ -314,6 +314,17 @@ rename client files.
 >   Miami Beach) is now confirmed paid** — the hotel typed your invoice number right into the bank transfer.
 >   **Want me to build you a single QuickBooks checklist — the deadline one first, then the rest by size — so
 >   it's one sitting?** (yes / leave it) (`OD-72`, `OD-73`)
+> - **⚠ Your biggest current bill never reached the client — it went to you by mistake.** Your **$16,000
+>   Miami Art House job in Medley** (the one with Daniel and Miall, through Synergyn) has a current invoice
+>   with **$8,000 due**. You wrote it out beautifully — "Dear Daniel and Miall…" — but on August 10 it was
+>   **sent to your own address and to Manny, never to the client.** I checked your Gmail Sent folder myself to
+>   be sure. The clients still only have the **older version** from June. They're still emailing you, so the
+>   job is alive — **the fix is simply to send them the current invoice.** **Want me to prepare that email for
+>   you to send?** (yes / leave it) (`MONEY-9660`)
+> - **A follow-up you can send today, on money that's real.** Two invoices to Miguel Zaldivar (MZ Solutions),
+>   **$2,222 together**, were **delivered and opened by him 38 days ago** and haven't been paid — the strongest
+>   "sent and gone quiet" money on the board. A short nudge would go with the Edison Tower $1,800 follow-up
+>   already waiting (same person). **Want one email that covers all of it?** (yes / leave it) (`MONEY-9660`)
 > - **A 3.6-terabyte backup drive on your desk has never been opened** — not because it's empty, but because
 >   it asks for a permission you'd have to grant. Could hold more of your old records. **Want me to look
 >   inside?** (open / leave it) (`OD-58`)
