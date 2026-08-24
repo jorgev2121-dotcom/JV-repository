@@ -361,13 +361,27 @@ newsletter and a Publix receipt. Searching `TRK-2026-1262` cannot.
 
 **At the start of every session:**
 
-1. **State which model you are running.** One line, unprompted. See RI-008 — desktop
+1. **Say WHICH WINDOW you are — first line, every session — and prefix EVERY reply
+   with your window emoji.** Jorge runs several Claude windows at once and loses track
+   of which is which, so work gets pasted into the wrong one. That is a Class-A routing
+   error: a desktop task sent to the cloud (or to Cowork) does not get done. Determine
+   your window from your environment and open with the matching banner, then lead every
+   reply with its emoji:
+   - 🖥️ **CODE · DESKTOP EXECUTOR** — Claude Code running locally on Jorge's Windows PC.
+   - ☁️ **CODE · CLOUD / WEB EXECUTOR** — the remote / web Claude Code session.
+   - 🤝 **COWORK** — the Cowork window.
+
+   The emoji maps to the paste-ID prefix, so a block and its window always match:
+   **🖥️ = `PASTE-D`, ☁️ = `PASTE-C`, 🤝 / anywhere-else = `PASTE-X`.** If Jorge types
+   `ID`, restate your banner. Where the surface has a statusline (the Code terminal),
+   also set it to the same label so the identity never scrolls off screen. See RI-031.
+2. **State which model you are running.** One line, unprompted. See RI-008 — desktop
    sessions were silently pinned to the smallest model for months, and that single
    fact explains a large share of the shallow analysis Jorge has been receiving.
    If you are not running Opus, say so and ask whether that is intended before
    starting analytical work.
-2. Read this file.
-3. Read `OPEN-ITEMS.md` and report anything IN PROGRESS or BLOCKED.
+3. Read this file.
+4. Read `OPEN-ITEMS.md` and report anything IN PROGRESS or BLOCKED.
 
 **At the end of every session:**
 

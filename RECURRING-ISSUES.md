@@ -1790,3 +1790,35 @@ race reforms even a surgical single-entry delete. The Tier-2 removal is to stop
 monitor 2 from being a snap target at all (disable the phantom display, or restrict
 FancyZones to the one real monitor). Gate before any fix: confirm read-only whether
 DISPLAY2 is a live monitor or a phantom. Refs TRK-2026-9390 / 9391 / 9392.
+
+---
+
+## RI-031 — Claude windows don't announce which one they are
+
+**Logged 2026-08-24. Raised by Jorge directly, live.** *"If Claude windows don't identify
+themselves I will continue to make mistakes and send work to the web versus desktop executor
+and to Cowork when it should be Code and vice versa."*
+
+Jorge runs several Claude surfaces at once — Code **DESKTOP**, Code **CLOUD/WEB**, and
+**Cowork** — and nothing inside a window says which it is. So a desktop task gets pasted into
+the cloud, a cloud task into Cowork, and the work silently goes nowhere. This is the same
+failure the whole PASTE-ID system (`PASTE-D` / `PASTE-C` / `PASTE-X`) was built to fight —
+but the paste-ID labels the **work**, not the **window**, so it can't stop him standing in the
+wrong window when he pastes.
+
+**Tier ranking (Rule 4):**
+- **Tier 1 — Suppression:** each window *says* its identity when asked. Gets forgotten between
+  turns; relies on Jorge asking. Days.
+- **Tier 2 — Removal / structural:** a **persistent statusline** on each Code window
+  (`🖥️ CODE · DESKTOP EXECUTOR` / `☁️ CODE · CLOUD/WEB EXECUTOR`) that renders every turn and
+  never scrolls away — set once per machine, can't be forgotten. This is the durable fix for
+  the Code windows.
+- **Tier 3 — Enforcement:** a charter rule (§10 item 1) that makes **every** window open with
+  its banner and **prefix every reply with its emoji** (🖥️ / ☁️ / 🤝), re-applied every
+  session so it survives restarts; plus the `ID` keyword to re-state on demand.
+
+**Fix adopted 2026-08-24 (Tier 2 + Tier 3 together):** charter §10 item 1 now requires the
+banner + emoji-prefix + `ID` keyword on all windows, with the emoji mapped to the paste
+prefix (🖥️=D, ☁️=C, 🤝=X). The cloud/web executor adopted the ☁️ prefix immediately. The
+desktop sets its terminal statusline to `🖥️ CODE · DESKTOP EXECUTOR` via PASTE-D-024. Cowork
+has no Code statusline but its UI is already distinct and it carries the 🤝 banner/prefix.
