@@ -62,7 +62,18 @@ half-size parcel.** That's the exact mistake this whole filing effort exists to 
 2. **Copy the ~1,205 found documents into the job folders?** ~5 GB, add-only, nothing overwritten — one yes.
 3. **Rebuild Sugar Hill invoice 2486** — it can't be sent, it claims a signature that was never given.
 4. **Send the Miami Art House $8,000 invoice** — it was never sent to the client.
-5. **QuickBooks:** invoice **5975 ($1,000, Herrero/H&H) stops being collectible Aug 30 — 5 days.**
+5. **QuickBooks — bigger than we thought:** it's a **live, paid subscription** ($38/month, never missed —
+   you're paying for it right now), and it's the **only place that can settle ~$75,000 of "did they pay
+   me?" invoices.** **Do NOT cancel it — log in.** (And inside it, invoice **5975 ($1,000) stops being
+   collectible Aug 30 — 5 days.**)
+7. **⭐ A real lead the desktop found: AMN DORAL LLC wired you $6,000 in April 2025** — the wire itself says
+   "50% permit processing" + "2nd down payment," which points to a ~$9,000 job — **and there's no invoice
+   for it anywhere.** A named client, money already in hand, still inside the window. Want me to dig up what
+   that job was?
+8. **⭐ Your SBA loan ($232,900) shows no payment coming out of the business account in 19 months.** That's
+   **not** proof you're behind — it may be paid from another account or in deferment — but it's worth a
+   straight answer: **which account pays the SBA loan, and is it current?** (Your three checking accounts
+   held about **$6,072** at the last statement.)
 6. **⭐ Garden Walk money — the picture cleared up overnight, and it changes what to chase:**
    - **Good news / bad news:** the desktop proved the 2018 extension **was accepted and paid** (a Tacolcy
      check cleared it), so that question's answered. But **the old Garden Walk invoices are time-barred** —
