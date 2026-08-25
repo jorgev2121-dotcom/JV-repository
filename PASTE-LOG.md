@@ -82,3 +82,4 @@ enough to identify it exactly, with no description needed.
 
 - **PASTE-D-027** · 2026-08-25 · Desktop → points at `mailbox/to-desktop/WORK-QUEUE_2026-08-25.md` (open ChatGPT, verify label, stage beige app, stage Grok/LiteLLM; heavy MDC scrape + TEDC after OCR)
 - **PASTE-D-028** · 2026-08-25 · Desktop → git pull first; wire Grok into litellm_config_4001.yaml using existing XAI_API_KEY + lock host to 127.0.0.1 (backed up, reversible); beige installer already in Downloads (run newest, Jorge signs in); do NOT restart Ollama
+- **PASTE-D-030** · 2026-08-25 · Desktop → copy ONE set of the tax-jacket test scans we have been working with into Desktop\Tray 6 (COPY, originals untouched = GREEN); report which image tools are installed (Topaz/Adobe/ScanTailor/ImageMagick/Tesseract) so the enhancement protocol targets real tools
