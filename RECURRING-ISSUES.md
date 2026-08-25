@@ -1823,6 +1823,18 @@ prefix (🖥️=D, ☁️=C, 🤝=X). The cloud/web executor adopted the ☁️ 
 desktop sets its terminal statusline to `🖥️ CODE · DESKTOP EXECUTOR` via PASTE-D-024. Cowork
 has no Code statusline but its UI is already distinct and it carries the 🤝 banner/prefix.
 
+**RECURRENCE 2026-08-25 (tray branch of the same disease — third ask):** Jorge asked again
+for every executor window to have a tray icon. Prior asks: TRK-2026-9341 (2026-08-17, "neither
+code-window icon is on the tray — only the terminal icon") and TRK-2026-9363 (the 3-row-tray
+spec, "discussed, never implemented"). The 9246 shortcut-pinning approach failed twice: once
+landing on the invisible `C:\Users\JV\Desktop` (DESKTOP-9450 / PASTE-D-019), once leaving the
+icons behind the Win11 `^` overflow (9341). **Rule 4 applied — patches forbidden.** Fix shipped
+under TRK-2026-9740: Tier-2 replacement (a self-contained tray program,
+`tools/tray/CU-ExecutorTray.ps1`, that draws its own D/C/X badge icons and self-promotes out of
+the overflow via `HKCU\Control Panel\NotifyIconSettings\IsPromoted`) + Tier-3 enforcement
+(re-asserts its own HKCU Run key on every launch; heartbeat file watched by the roster).
+Tier 1 (pin it again by hand) was rejected — lifespan days, already failed twice.
+
 ---
 
 ## RI-032 — a no-BOM PowerShell script run under 5.1 mis-decodes a non-ASCII path literal and silently builds a parallel tree

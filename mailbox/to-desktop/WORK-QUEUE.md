@@ -214,6 +214,47 @@ Jorge's words: *"We discussed. We agreed. And ultimately it was not done."* Find
 
 ---
 
+## 12. TRK-2026-9740 — Executor tray icons: D / C / X, always visible  (Jorge asked 2026-08-25)
+
+**Jorge's ask, third time on record (9341 → 9363 → today): every Claude executor
+window gets an icon on his tray.** The FREEZE deferral in PASTE-D-019 is lifted for
+this item by his direct request. This is the Tier-2 replacement Rule 4 requires —
+no more shortcut-pinning patches (that was 9246, and it failed twice).
+
+**The build is already done.** Cloud wrote `tools/tray/CU-ExecutorTray.ps1` on
+branch `claude/executor-tray-icon-1cazza`. It draws three badge icons itself
+(green **D** = Desktop executor, blue **C** = Cloud/web executor, orange **X** =
+Cowork), left-click focuses-or-opens that window, right-click has Open/Exit,
+re-asserts its own HKCU Run key every launch (Tier 3, no UAC — RI-036),
+self-promotes out of the Win11 tray overflow (the 9341 failure), writes a
+heartbeat file every 5 min (9249), and is pure-ASCII + BOM (RI-032).
+
+Your steps — nothing here needs Jorge except the final look:
+
+1. `git fetch origin claude/executor-tray-icon-1cazza && git checkout claude/executor-tray-icon-1cazza && git pull`
+2. **Verify the three `$Targets` lines** against the real machine: the desktop
+   terminal's actual window title (statusline says `🖥️ CODE · DESKTOP EXECUTOR`
+   per D-024 — confirm what the OS title bar says), the browser tab title for
+   claude.ai/code, and how Cowork actually opens on this PC (app vs URL). Fix the
+   `TitlePattern` / `OpenCommand` values, **keeping the file ASCII-only** (RI-032).
+3. Copy the script to a stable local path outside the repo checkout (e.g.
+   `%LOCALAPPDATA%\CU-ExecutorTray\CU-ExecutorTray.ps1`) so a repo move never
+   kills the logon entry, then run:
+   `powershell -NoProfile -STA -ExecutionPolicy Bypass -File <that path>`
+4. **Register it in `HEARTBEAT-ROSTER.json`** watching
+   `%LOCALAPPDATA%\CU-ExecutorTray\heartbeat.log` for growth — a new component
+   nothing watches is how the last one died (TRK-2026-9249 / RI-002).
+5. **Acceptance evidence (Rule 2 — all four, pasted):**
+   a. All three icons visible on the tray itself, NOT behind the `^` overflow —
+      Jorge eyeballs, you paste his answer.
+   b. Left-click each icon does the right thing (focus if open, open if not).
+   c. Kill the process, log off/on (or re-run the Run-key command) — it comes back
+      alone. That is the 9337-LOCKS self-healing test.
+   d. `heartbeat.log` has grown after 10+ minutes.
+6. Report via `TO-CLOUD.md`, update `OPEN-ITEMS.md` row TRK-2026-9740.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
