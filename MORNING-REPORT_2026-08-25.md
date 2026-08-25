@@ -63,12 +63,17 @@ half-size parcel.** That's the exact mistake this whole filing effort exists to 
 3. **Rebuild Sugar Hill invoice 2486** — it can't be sent, it claims a signature that was never given.
 4. **Send the Miami Art House $8,000 invoice** — it was never sent to the client.
 5. **QuickBooks:** invoice **5975 ($1,000, Herrero/H&H) stops being collectible Aug 30 — 5 days.**
-6. **⭐ Garden Walk money — one question only you can answer:** the desktop found your **2017 Garden Walk
-   contract ($250/unit × 228 = $57,000)** signed by you but with the **owner's signature line blank**, and
-   a **2018 extension at $2,850/month** that's **unsigned entirely.** *Was that 2018 extension ever
-   accepted, and were you ever paid the $2,850/month?* And note: both contracts are under **Team USA Sales,
-   not CU Inspections** — so any TEDC invoice has to be issued by Team USA Sales. (An unsigned copy here
-   doesn't prove there's no signed one — it may be in your email or with TEDC; I can hunt for it.)
+6. **⭐ Garden Walk money — the picture cleared up overnight, and it changes what to chase:**
+   - **Good news / bad news:** the desktop proved the 2018 extension **was accepted and paid** (a Tacolcy
+     check cleared it), so that question's answered. But **the old Garden Walk invoices are time-barred** —
+     everything is 2018–2020, past the 5-year collection window. **~$20,000 shows unpaid on paper but is
+     NOT collectible — don't chase it; it's a bookkeeping cleanup, not money.**
+   - **The one real question, only you can answer:** on **May 26, 2026 you sent Miguel Zaldivar $3,000
+     by Zelle** — your biggest single payment to anyone that year, and the *only* money that's ever moved
+     between you two on your bank records. **What was that $3,000 for?** (You've been carrying Miguel as
+     someone who owes *you* — this is the opposite direction.)
+   - **Still true:** any TEDC invoice must go out as **Team USA Sales, not CU Inspections.** And I can
+     still hunt your email for a counter-signed copy of the contract if you want the paper nailed down.
 
 ## Section E — Small things only you can do on your PC
 - **Press "No" on the 7 TreeSize permission pop-ups** on your screen (or just reboot). Never "Yes."
