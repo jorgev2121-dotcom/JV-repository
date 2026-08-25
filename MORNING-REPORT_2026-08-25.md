@@ -113,13 +113,20 @@ it just has no invoice on your books. **You owe Habitat 23 $825 back.** Want me 
 
 12. **⭐⭐ The biggest opportunity of the night — a sales list you already have and never opened.** A file
     in your Downloads named `MyExcelFile.xls` (looked like a junk duplicate) is actually the **Miami-Dade
-    Unsafe Structures case register — 3,863 open cases.** Strip out the county-owned ones and you're left
-    with **1,895 open cases where a building's recertification lapsed and escalated to Unsafe Structures —
-    923 private owners, each with a name, a mailing address, the folio, and the violation.** That is not a
-    cold list — **it's a list of people who have the exact problem you get paid to fix,** and it's weighted
-    to the last two years. (Honest caveat: it needs qualifying — a 47-unit condo is one building, not 47
-    customers — and there's no phone column yet.) **This belongs in your Wally pipeline as a call sheet.**
-    Want me to turn it into a ranked call list?
+    Unsafe Structures case register.** The clean, current-window count is **~1,287 open cases where a
+    building's recertification lapsed and escalated to Unsafe Structures — 622 private owners, each with a
+    name, a mailing address, the folio, and the violation.** *(An earlier draft said "1,895 / 923" — that
+    was an inflated total across a year of overlapping exports; the honest current number is ~1,287 / 622.)*
+    That is not a cold list — **it's people who have the exact problem you get paid to fix.** The desktop
+    already built the first cut of the list. (Caveats: needs a phone column, a 47-unit condo is one
+    building not 47 customers, and the freshest data is ~82 days old — worth a fresh pull.) **This belongs
+    in your Wally pipeline.** Want me to turn it into a ranked call list?
+13. **Alec Valdes — the microfilm job is DONE, but Alec doesn't know it.** All 420 documents were pulled
+    and verified (517 MB, sitting in his folders) — **but the email telling him is a draft that was never
+    sent.** So for 18 days Alec has thought *he* has to go pull 420 files by a Sept 5 deadline. Worse, the
+    one thing you asked him for (a corrected address) **the county already answered** — Yaira Campbell
+    replied there's no building jacket for 11997 SW 218 St, and that reply is sitting unread. **The email to
+    Alec is written and one click from going out.** Want me to send it (with that address paragraph fixed)?
 
 ## Section E — Small things only you can do on your PC
 - **Press "No" on the 7 TreeSize permission pop-ups** on your screen (or just reboot). Never "Yes."
