@@ -1934,3 +1934,13 @@ cloud→desktop channel this whole session has actually been **Google Drive `_CL
 cannot open. The repo is cloud's durable ledger; Drive is the shared mailbox. Do not confuse the two.
 **Mitigation that saved this run:** the paste block carried enough task detail in its own text, so the
 desktop fell back to executing from the prompt instead of stalling. Keep paste blocks self-sufficient.
+
+**CORRECTION 2026-08-25 (same day, from the desktop's own search):** the earlier root cause was wrong.
+The desktop **DOES have a clone** at `C:\Users\JV\JV-repository\` — but it is **STALE**: it held only the
+08-15 `WORK-QUEUE.md`, never the 08-25 file, because **the desktop never runs `git pull` before working.**
+Cloud pushes to `origin/claude/chaude-code-max20-kp2o46`; the desktop's clone doesn't fetch it, so cloud's
+new files are invisible locally though they exist on the remote. **Real fix, and it's cheap: the desktop
+must `git pull origin <branch>` at session start (and before reading any cloud-written file). PULL is
+read-only and does NOT violate the no-push rule — only push/commit needs Jorge's in-session say-so.** If
+pull fails on auth (the desktop's push is known-broken), THEN fall back to Google Drive `_CLAUDE-MAILBOX`.
+Belt-and-suspenders: keep paste blocks self-sufficient regardless.
