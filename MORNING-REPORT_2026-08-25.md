@@ -86,6 +86,14 @@ half-size parcel.** That's the exact mistake this whole filing effort exists to 
    - **Still true:** any TEDC invoice must go out as **Team USA Sales, not CU Inspections.** And I can
      still hunt your email for a counter-signed copy of the contract if you want the paper nailed down.
 
+9. **⭐ Your Alabama Jack's deposit invoice ($2,375) is finished on the disk and was never sent** — and the
+   *only* thing holding it up is a **$30 question:** on Aug 23 you wrote the price as **$4,780**, but the
+   proposal and invoice both say **$4,750**. Say **"4780" or "4750"** and it goes out. (You emailed Rick
+   the task list on the 24th, so he's warm — this is money sitting one word away.)
+10. **14598 SW 110 St (Eddie Miguelez):** a live job with **no invoice**, and you fronted **$2,666 in county
+    fees** — were you paid outside QuickBooks, and should that $2,666 be reimbursed or was it priced into a
+    flat fee? Also newly surfaced with no invoice: **Groves at Sunset** and **Einar (Pembroke Pines)**.
+
 ## Section E — Small things only you can do on your PC
 - **Press "No" on the 7 TreeSize permission pop-ups** on your screen (or just reboot). Never "Yes."
 - **Sign this PC into GitHub once** (fixes the push) · **run the disk-report as administrator** (OD-77).
