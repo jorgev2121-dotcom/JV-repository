@@ -99,8 +99,17 @@ it just has no invoice on your books. **You owe Habitat 23 $825 back.** Want me 
    proposal and invoice both say **$4,750**. Say **"4780" or "4750"** and it goes out. (You emailed Rick
    the task list on the 24th, so he's warm — this is money sitting one word away.)
 10. **14598 SW 110 St (Eddie Miguelez):** a live job with **no invoice**, and you fronted **$2,666 in county
-    fees** — were you paid outside QuickBooks, and should that $2,666 be reimbursed or was it priced into a
-    flat fee? Also newly surfaced with no invoice: **Groves at Sunset** and **Einar (Pembroke Pines)**.
+    fees** — should that $2,666 be reimbursed or was it priced into a flat fee? (You *were* paid $140 outside
+    QuickBooks, nothing more.) Also newly surfaced with no invoice: **Groves at Sunset** and **Einar
+    (Pembroke Pines)**, and **20610 NE 7 Ct (US Excellence, $1,450)** — that one's *finished and delivered
+    but unpaid*, with the report sealed in a zip that was never opened.
+11. **⭐ A lead worth chasing — a "monster producer" you lost to your spam folder.** **Little Bear /
+    Principal Realty (Sean & Patricia Orsini, Miami Lakes)** — an account you took from Chris Forry, and
+    your own note calls them *"monster producer, 27 in the pipeline."* They **paid you $1,850 in March
+    2025**, then emailed you **June 20, 2025** asking for a CU report on **9033 SW 123rd Ct, Unit 101** (with
+    the lockbox code) — **and it landed in your Junk folder. You never saw it, never replied.** 14 months
+    later there's no file, no invoice, no answer. **Do you remember doing that job?** Either way, that's a
+    paying producer worth reaching back out to. Want me to draft a warm reconnect email?
 
 ## Section E — Small things only you can do on your PC
 - **Press "No" on the 7 TreeSize permission pop-ups** on your screen (or just reboot). Never "Yes."
