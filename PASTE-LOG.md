@@ -81,3 +81,4 @@ enough to identify it exactly, with no description needed.
 | **PASTE-X-003** | 2026-08-24 | Jorge → email (MDC Building Support / Code Compliance) | Follow-up requesting closure of code case/NOV 20260245510 (permit 2026061642 finaled 08-07) + a copy of the closed-case page as proof; drafted in Gmail, not sent | (Gmail draft threadId 1a035b50bb25a74b) |
 
 - **PASTE-D-027** · 2026-08-25 · Desktop → points at `mailbox/to-desktop/WORK-QUEUE_2026-08-25.md` (open ChatGPT, verify label, stage beige app, stage Grok/LiteLLM; heavy MDC scrape + TEDC after OCR)
+- **PASTE-D-028** · 2026-08-25 · Desktop → git pull first; wire Grok into litellm_config_4001.yaml using existing XAI_API_KEY + lock host to 127.0.0.1 (backed up, reversible); beige installer already in Downloads (run newest, Jorge signs in); do NOT restart Ollama
