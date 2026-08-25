@@ -58,6 +58,14 @@ half-size parcel.** That's the exact mistake this whole filing effort exists to 
 
 ## Section D — Decisions waiting for you (each is a yes/no or one click)
 
+**⭐ Do this one first — it's the only one where you owe money out, and you gave your word.** Back in May,
+**Habitat 23 LLC (Ana Almandoz / Alfredo Fadel)** paid you **twice by accident** — their first Zelle got
+stuck, so you told them *in writing* to wire the balance and promised *"trust in me that if/when the Zelle
+ever makes it to me, I will return the Zelle money immediately."* **The Zelle landed May 22. It's now 95
+days later and the $825 was never returned.** The CU job (14961 SW 30 Ter) was delivered and fully paid —
+it just has no invoice on your books. **You owe Habitat 23 $825 back.** Want me to draft that refund note?
+
+
 1. **Fix the 3 wrong facts in the Garden Walk folders?** (owner West, owner East, West acreage) — one yes.
 2. **Copy the ~1,205 found documents into the job folders?** ~5 GB, add-only, nothing overwritten — one yes.
 3. **Rebuild Sugar Hill invoice 2486** — it can't be sent, it claims a signature that was never given.
