@@ -65,3 +65,33 @@ load? **(3)** is its banner correct? If any is wrong, that window is misconfigur
 
 *Built by cloud 2026-08-24. This window's rows are live-confirmed; B/C are the target spec to verify on
 each surface. #window-config #one-Opus-everywhere #RI-031 #RI-008*
+
+---
+
+## D. Microphone map — the beige windows with built-in mics (added 2026-08-25)
+**Source: the desktop session's own run report, 2026-08-25, mirrored here by cloud so it survives a
+restart.** Nothing below needs installing — it is already on the PC.
+
+**The three beige windows WITH a built-in mic** (desktop opened all three, cascaded 30 px apart on the
+left screen; mic device confirmed free):
+
+1. **Claude desktop app** — the beige MS Store app (`Claude_pzs8sxrjxfjjc!Claude`). This is "Claude BEIGE."
+2. **Claude Cowork** — claude.ai/cowork in its own Chrome window (not a tab).
+3. **Claude Code (web)** — claude.ai/code in its own Chrome window.
+
+**The one that CANNOT have a mic:** the Claude Code **terminal** (the beige console). It is a
+command-line window — no mic button exists for it. **Dictation there = `Win+H`**, which
+`Dictation-Tray.ps1` and `Mic-Button-Overlay.ps1` already run.
+
+**The launchers already on the desktop** (this is the "installed" part — they exist, nothing to add):
+- `1 - Claude BEIGE (Chat-Cowork-Code).lnk` → the desktop app
+- `5 - Claude COWORK (browser).url` → claude.ai/cowork
+- `4 - Claude CODE (browser).url` → claude.ai/code
+- `3 - Claude CHAT (browser).url` → claude.ai/new
+
+**Open defect from that run (desktop's own admission):** its window-matcher caught every window titled
+"Claude" and **moved 9 windows, including six Code terminals; their previous positions are not
+restorable.** Logged here so the next desktop session knows the cascade on the left screen is
+post-move, not the original layout.
+
+*#mic #dictation #window-config #RI-031*
