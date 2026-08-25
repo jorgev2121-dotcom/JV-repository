@@ -1,6 +1,6 @@
 # TAX-JACKET ENHANCEMENT — NO-COST TEST-RUN INSTRUCTIONS (3 test jackets)
 **Cloud → executing agent, 2026-08-25. Free tools only (ImageMagick + Tesseract + pdftoppm/poppler).**
-**Zero cost. Copy-only. No page deleted, no page reordered, no content fabricated. #tax-jacket #test-run**
+**Zero cost. Originals untouched. Cleaned copy DROPS blank/junk pages (logged); no page reordered; no content fabricated. #tax-jacket #test-run**
 
 ## THE GOVERNING RULE
 **Classify each page BEFORE enhancing it, and treat each type differently.** The hard black-and-white
@@ -8,8 +8,10 @@ threshold that rescues a faint form will DESTROY a photograph. One-size passes a
 
 ## GUARDRAILS (hard limits)
 - Output ONLY to `...\Tray 6\enhanced\`. Originals untouched.
-- **Page count out = page count in.** Never delete, drop, or reorder a page — not even blanks.
-- **Never fabricate content** on a blank or faint page. If a page is blank, keep it blank and FLAG it.
+- **DROP confirmed-blank and junk pages from the cleaned copy** (that's the goal) — but ONLY the copy;
+  the original is never altered. **Log every dropped page (original page # + reason)** so any can be restored.
+- **A faint-marked page is NOT blank — keep it** (treat as handwriting). When unsure, keep and flag, don't drop.
+- **Never reorder** the kept pages. **Never fabricate content** on a faint page — enhance it, don't invent.
 - **Never binarize a photo.** That is the #1 mistake here.
 
 ## STEP 1 — SPLIT to 300-DPI page images (non-destructive)
@@ -17,7 +19,8 @@ threshold that rescues a faint form will DESTROY a photograph. One-size passes a
 
 ## STEP 2 — CLASSIFY each page: TEXT/FORM · HANDWRITING · PHOTO · BLANK
 Heuristics (ImageMagick `identify -verbose` / `-format`):
-- **BLANK:** standard deviation very low AND ink coverage < ~0.5% (almost all one tone). → flag, do not enhance.
+- **BLANK / JUNK:** standard deviation very low AND ink coverage < ~0.5% (almost all one tone). → DROP from
+  the cleaned copy, log it. (A faint stamp/mark means NOT blank — keep it.)
 - **PHOTO:** continuous tone — high count of distinct gray levels, few pure-black/pure-white pixels (mid-tone heavy).
 - **TEXT/FORM:** near-bimodal, moderate dark coverage, straight lines/tables.
 - **HANDWRITING:** like text but sparser, softer strokes. If unsure between text and handwriting, treat as handwriting (gentler).
@@ -36,14 +39,14 @@ Heuristics (ImageMagick `identify -verbose` / `-format`):
 - **PHOTO (overexposed historical):** recover highlights, NO threshold, NO despeckle:
   `magick in.png -colorspace Gray -level 0%,88% -sigmoidal-contrast 3x50% out.png`
   (pull detail out of blown highlights; keep continuous tone). If already dark, use `-gamma 1.2` instead.
-- **BLANK:** copy through unchanged; record in the manifest as BLANK (kept in place).
+- **BLANK / JUNK:** do NOT enhance; DROP from the cleaned PDF and record in the manifest (original page # + reason).
 
 ## STEP 5 — OCR the readable pages (searchable text layer)
 Text + handwriting pages: `tesseract page_enh.png out_page pdf txt --oem 1 --psm 6` (`--psm 4` for columns).
 Photos: no text layer (or OSD only). Never force OCR onto a photo.
 
 ## STEP 6 — REASSEMBLE + PROVE
-- Recombine enhanced pages into one PDF per jacket, SAME order, SAME count (blanks in place):
+- Recombine the KEPT enhanced pages into one PDF per jacket, original order, blanks/junk removed (report in vs out counts):
   `magick p-*.png -quality 90 jacket_ENHANCED.pdf` (or `img2pdf` for lossless).
 - Build a **before/after montage** of 3–4 representative pages per jacket (one text, one handwriting,
   one photo): `magick before.png after.png +append page_compare.png`.
@@ -55,7 +58,7 @@ Jorge judges the montage with his own eyes — no payment on promises.
 
 ## ON THE "PARTIALLY-CLEANED REFERENCE" + INTENTIONAL BLANKS
 I can't identify sight-unseen which specific pages are deliberate "what-not-to-reproduce" examples —
-that's fine, because the guardrails cover it: **blanks are kept and flagged, never fabricated or deleted,**
+that's fine, because the guardrails cover it: **blanks/junk are DROPPED from the clean copy and LOGGED (never fabricated),**
 and an already-clean page won't be harmed (the classifier sends it through the gentlest path). If a page
 is already high-contrast/clean, skip Step 4 for it (detect: coverage normal + already near-bimodal).
 

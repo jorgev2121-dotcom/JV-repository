@@ -11,9 +11,13 @@ GOVERNING RULE: classify each page BEFORE enhancing, and treat each type differe
 threshold that rescues a faint form will DESTROY a photograph — never binarize a photo.
 
 HARD GUARDRAILS:
-- Page count out MUST equal page count in. Never delete, drop, or reorder any page — including blanks.
-- Never fabricate content on a blank or faint page. Keep blanks blank; just flag them.
-- Work on copies; deliver new files, don't claim you changed my originals (you can't — they're uploads).
+- REMOVE confirmed-blank and junk/blunder pages from the cleaned output — that is the goal. But do it ONLY
+  on the copy; never alter my original. List every removed page (its ORIGINAL page number + the reason) in
+  the manifest, so nothing is lost silently and any page can be restored.
+- If a page that looks blank actually has a faint stamp, note, or mark, treat it as HANDWRITING and KEEP it —
+  when unsure, keep and flag rather than drop.
+- Never reorder the pages you keep. Never fabricate content on a faint page — enhance it, don't invent.
+- You're working on an upload, so my original is untouched by definition.
 
 STEPS:
 1) Render each PDF page to a 300-DPI image with PyMuPDF.
@@ -29,10 +33,12 @@ STEPS:
    - HANDWRITING: grayscale -> CLAHE contrast -> gentle unsharp. Do NOT hard-binarize (preserve faint strokes).
    - PHOTO: grayscale optional -> recover blown highlights with a gamma/levels/sigmoidal curve. NO threshold,
      NO despeckle. Keep continuous tone.
-   - BLANK: pass through unchanged; record as BLANK.
+   - BLANK / JUNK: do NOT enhance; DROP it from the cleaned PDF and record it in the manifest (original
+     page # + reason). (See the guardrail: a faint-marked page is NOT blank — keep it.)
 5) OCR (optional): if pytesseract AND the tesseract binary are available, OCR the TEXT/HANDWRITING pages and
    add a text layer. If tesseract is NOT installed, SKIP OCR and say so — do not fail the whole run over it.
-6) Rebuild one enhanced PDF per jacket, SAME order and SAME page count (blanks in place).
+6) Rebuild one cleaned PDF: the KEPT pages in their original order, blanks/junk removed. Report both counts
+   (pages in vs pages out) and the list of removed pages.
 7) Build a before/after montage of 3-4 representative pages per jacket (one text, one handwriting, one photo)
    so I can judge with my eyes.
 8) Print a manifest table: page# | type | rotation applied | treatment | blank-flag | OCR-confidence (or "no OCR").
