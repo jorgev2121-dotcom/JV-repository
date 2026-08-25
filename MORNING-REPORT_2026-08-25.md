@@ -111,6 +111,16 @@ it just has no invoice on your books. **You owe Habitat 23 $825 back.** Want me 
     later there's no file, no invoice, no answer. **Do you remember doing that job?** Either way, that's a
     paying producer worth reaching back out to. Want me to draft a warm reconnect email?
 
+12. **⭐⭐ The biggest opportunity of the night — a sales list you already have and never opened.** A file
+    in your Downloads named `MyExcelFile.xls` (looked like a junk duplicate) is actually the **Miami-Dade
+    Unsafe Structures case register — 3,863 open cases.** Strip out the county-owned ones and you're left
+    with **1,895 open cases where a building's recertification lapsed and escalated to Unsafe Structures —
+    923 private owners, each with a name, a mailing address, the folio, and the violation.** That is not a
+    cold list — **it's a list of people who have the exact problem you get paid to fix,** and it's weighted
+    to the last two years. (Honest caveat: it needs qualifying — a 47-unit condo is one building, not 47
+    customers — and there's no phone column yet.) **This belongs in your Wally pipeline as a call sheet.**
+    Want me to turn it into a ranked call list?
+
 ## Section E — Small things only you can do on your PC
 - **Press "No" on the 7 TreeSize permission pop-ups** on your screen (or just reboot). Never "Yes."
 - **Sign this PC into GitHub once** (fixes the push) · **run the disk-report as administrator** (OD-77).
