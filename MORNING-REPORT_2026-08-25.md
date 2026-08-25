@@ -9,10 +9,12 @@
 Overnight the desktop checked your **Garden Walk** job folders against the county's live records and found
 **three facts in them are wrong — and they're exactly the facts a due-diligence report certifies:**
 
-1. **Both folders name an owner who already sold.** Garden Walk **West** is now owned by *Tacolcy Garden
-   Walk I LLC* (sold in **2018** — your folder is 8 years out of date and was even marked "✅ resolved,"
-   off a 2017 printout that predated the sale). Garden Walk **East** is now *Tacolcy Paradise Cove LLC*
-   (sold **Nov 2024**).
+1. **Both folders name an owner that no longer exists.** The name in your folders — *Garden Walk
+   Associates Ltd* — was **administratively dissolved in 2021**. The good news the desktop confirmed
+   overnight: the *current* owners (*Tacolcy Garden Walk I* for West, *Tacolcy Paradise Cove* for East)
+   are **TEDC's own affiliates — so your client does own both halves.** But a due-diligence report that
+   names a dissolved company as the owner is still wrong, and there are now about **11 fields to correct**
+   before anything goes out.
 2. **The West parcel is stated at half its real size.** The folder says ~5 acres; the county says
    **10.75 acres**. Someone swapped the land and building numbers. Any density math is off — and density
    is the whole point of the re-plat idea.
@@ -61,6 +63,12 @@ half-size parcel.** That's the exact mistake this whole filing effort exists to 
 3. **Rebuild Sugar Hill invoice 2486** — it can't be sent, it claims a signature that was never given.
 4. **Send the Miami Art House $8,000 invoice** — it was never sent to the client.
 5. **QuickBooks:** invoice **5975 ($1,000, Herrero/H&H) stops being collectible Aug 30 — 5 days.**
+6. **⭐ Garden Walk money — one question only you can answer:** the desktop found your **2017 Garden Walk
+   contract ($250/unit × 228 = $57,000)** signed by you but with the **owner's signature line blank**, and
+   a **2018 extension at $2,850/month** that's **unsigned entirely.** *Was that 2018 extension ever
+   accepted, and were you ever paid the $2,850/month?* And note: both contracts are under **Team USA Sales,
+   not CU Inspections** — so any TEDC invoice has to be issued by Team USA Sales. (An unsigned copy here
+   doesn't prove there's no signed one — it may be in your email or with TEDC; I can hunt for it.)
 
 ## Section E — Small things only you can do on your PC
 - **Press "No" on the 7 TreeSize permission pop-ups** on your screen (or just reboot). Never "Yes."
