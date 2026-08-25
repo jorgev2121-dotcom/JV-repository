@@ -1944,3 +1944,18 @@ must `git pull origin <branch>` at session start (and before reading any cloud-w
 read-only and does NOT violate the no-push rule — only push/commit needs Jorge's in-session say-so.** If
 pull fails on auth (the desktop's push is known-broken), THEN fall back to Google Drive `_CLAUDE-MAILBOX`.
 Belt-and-suspenders: keep paste blocks self-sufficient regardless.
+
+## RI-038 — LiteLLM "unreliable" is a FALSE-GREEN health check, not flakiness
+**Logged 2026-08-25 (cloud), from desktop cycles 9739 + live probe. Recurrence of the LiteLLM issue.**
+
+The :4001 proxy answers `/health` with 200 "I'm alive!" and lists 5 models — but EVERY model 401s because
+the keys are placeholders (ANTHROPIC not set; OPENAI 14 chars; OPENROUTER 10 chars — real keys are 100+).
+Ollama :11434 (the local backup) is DOWN. So the proxy serves ZERO models while reporting healthy. Any
+watchdog checking liveness has been reporting green on a dead proxy — THAT is the "unreliability," not
+intermittent failure. **The only real credential on the machine is XAI_API_KEY (84 chars), and Grok is the
+one model NOT wired into the config.** Also flagged: :4001 binds `0.0.0.0` behind a hardcoded master key —
+network-exposed.
+**Durability ranking (Rule 4):** Tier 2 — wire the real Grok key (fixes the cause: no working key) = one
+live model today. Tier 3 — replace the liveness check with one that actually round-trips a model, so it can
+never again report green while empty. Tier 1 (weak) — restart Ollama for free local backups (returns, may
+die again). **Do NOT accept a plain /health check as proof the router works — round-trip a real model.**
