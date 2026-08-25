@@ -42,6 +42,12 @@ Grok/xAI key is already on the machine.
   it back to cloud for QC. **Do NOT paste the live key into the file yet** — that's Jorge's
   credential step. Do NOT restart the LiteLLM service during the CPU peak.
 
+### 5. Pause Dropbox sync to free RAM (Jorge's request)
+**Pause Dropbox syncing** (tray icon → account → Pause syncing). **Do NOT uninstall it** —
+open ledger item 9147 has not confirmed whether Dropbox files were backed up to OneDrive
+first, so removal could strand files. Pause is reversible; that's all Jorge wants.
+Note: the real CPU hog is the OCR job, not Dropbox — pausing helps only a little.
+
 ---
 
 ## HEAVY — ONLY after tonight's OCR job finishes
