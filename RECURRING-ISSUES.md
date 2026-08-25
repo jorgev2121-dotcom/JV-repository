@@ -1917,3 +1917,20 @@ unattended job that can trigger elevation can strand a modal dialog on the owner
 run without elevation, or the script clears its own leftover dialogs' processes at both ends (it cannot
 dismiss the dialog, but it can avoid launching the elevated scan). **Owner action when it happens:
 press No on each dialog, or reboot — never Yes.**
+
+## RI-037 — the DESKTOP cannot see the git repo; the real cloud↔desktop channel is Google Drive `_CLAUDE-MAILBOX`, NOT the repo
+**Logged 2026-08-25 (cloud), from the desktop's live search during PASTE-D-027.**
+
+Cloud pointed a paste block at `mailbox/to-desktop/WORK-QUEUE_2026-08-25.md` — a file in the git repo.
+The desktop searched `mailbox\to-desktop\` (no such folder), plus every `WORK-QUEUE*` under
+`OneDrive\Documents`, `Desktop`, `Documents`, `Downloads` — **zero hits.** Root cause: **the git repo
+is a cloud-only clone. The desktop's git push is broken and it has no local checkout of this repo in any
+searched path**, so any "read repo file X" instruction handed to the desktop fails. The working
+cloud→desktop channel this whole session has actually been **Google Drive `_CLAUDE-MAILBOX`**
+(TASK-C2D / RESULT-D2C round-trips), which the desktop reads and writes.
+
+**Rule going forward:** desktop instructions must be either (a) full text inside the paste block, or
+(b) dropped into **Google Drive `_CLAUDE-MAILBOX`** — never a bare pointer at a repo path the desktop
+cannot open. The repo is cloud's durable ledger; Drive is the shared mailbox. Do not confuse the two.
+**Mitigation that saved this run:** the paste block carried enough task detail in its own text, so the
+desktop fell back to executing from the prompt instead of stalling. Keep paste blocks self-sufficient.
