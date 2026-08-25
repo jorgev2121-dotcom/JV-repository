@@ -79,3 +79,5 @@ enough to identify it exactly, with no description needed.
 | **PASTE-D-018** | 2026-08-18 11:15 UTC | Desktop (via Drive `_CLAUDE-MAILBOX`) | Agreed on all four; the disproved claim was the desktop's own; passcode protocol adopted | `PASTE-D-018_AGREED-ON-ALL-FOUR-AND-THE-CLAIM-WAS-YOURS_TRK-2026-9299_2026-08-18.md` |
 | **PASTE-X-002** | 2026-08-24 | Jorge → email (First Service Residential / The Plaza Condominiums) | Rewritten friendly-professional follow-up to Quanny & Silvio re: reactivating expired permits + window/door order | (chat only — email body, not a file) |
 | **PASTE-X-003** | 2026-08-24 | Jorge → email (MDC Building Support / Code Compliance) | Follow-up requesting closure of code case/NOV 20260245510 (permit 2026061642 finaled 08-07) + a copy of the closed-case page as proof; drafted in Gmail, not sent | (Gmail draft threadId 1a035b50bb25a74b) |
+
+- **PASTE-D-027** · 2026-08-25 · Desktop → points at `mailbox/to-desktop/WORK-QUEUE_2026-08-25.md` (open ChatGPT, verify label, stage beige app, stage Grok/LiteLLM; heavy MDC scrape + TEDC after OCR)
