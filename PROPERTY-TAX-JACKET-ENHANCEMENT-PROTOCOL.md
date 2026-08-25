@@ -45,8 +45,13 @@ tesseract clean_input.png out_input pdf txt --oem 1 --psm 6
 - **QC:** spot-check the OCR text against the image. Microfilm OCR is never 100%; flag low-confidence pages.
 - **Stamp identity** per CLAUDE.md §9.2: footer `TRK-2026-#### · vN · pNNN · YYYY-MM-DD · CURRENT`, and
   write the `.SEARCH.txt` sidecar so the page stays findable after it's extracted.
-- **FILE = RED.** Moving the finished jacket into a client's capsule is the one step that waits for Jorge
-  (a one-digit misfile lands in the wrong job). Nights prepare filing; a human executes it.
+- **FILE = RED, and it has a proper HOME — never a scratch folder.** The finished jacket belongs in its
+  **capsule under the job's master TRK** (filed by address + volume number + TRK), named per §9.1
+  (`DATE _ TRK _ TaxJacket _ Address ENHANCED _ vN.pdf`), footer-stamped, with `_VERSION-LOG.md` updated and
+  the original kept. **If the job is unknown, it goes to the ORPHAN folder (`OPH-2026-NNNN`) — not loose,
+  not a "Trey 6" test folder.** Because filing a client document is RED, cloud STAGES the correctly-named
+  file and the move into the capsule is previewed + owner-approved (or desktop executes with a rollback
+  manifest). Scratch folders like "Trey 6" are for a throwaway test ONLY, never the resting place.
 
 ## WHICH READER, once the page is clean (per AI-ROUTING-GUIDE)
 - **Long multi-page jacket → Claude (me).** Raw single-page OCR accuracy → Tesseract/ChatGPT.
