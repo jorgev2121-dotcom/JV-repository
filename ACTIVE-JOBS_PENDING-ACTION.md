@@ -11,10 +11,13 @@
   then draft POA + FPL letter + permit apps, then file. **Immediate:** send the county process-number inquiry
   (drafted in your Gmail); send the **$4,750** invoice; give me your contact info + the electrical sub's license.
 
-### 2. Miami Art House / Medley — legalization  ·  `TUS-26-1033`  ·  $16,000 (**$8,000 due**)
+### 2. Miami Art House / Medley — legalization  ·  `TUS-26-1033`  ·  $16,000 (**$8,000 DEPOSIT PAID ✅**)
 - **Contact:** Miall Mulkay · **elmija74@gmail.com** · 786-537-9154 (Mulkay Productions) + Daniel (email TBD) · via Synergyn
-- **Task:** ⚠ **SEND the current invoice to the client — it was never sent** (Aug 10 it went to you + Manny only).
-  They still have the old June version. The relationship is live.
+- **✅ UPDATE 2026-08-25 (Jorge): the $8,000 deposit is PAID — wired into Team USA Sales last week.** The
+  "never-sent invoice" is moot for the deposit. **Now the task flips from *collect* to *deliver*:** do the
+  legalization work the deposit bought, keep Miall informed, and invoice/collect the remaining $8,000 on
+  delivery. *(Reconcile the $8,000 wire against the bank ledger — it's likely one of the unnamed 2026
+  deposits the money audit flagged.)*
 
 ### 3. 20001 SW 110 CT #143 — code violation  ·  `TRK-2026-1262` · MDC case 2026-0245510  ·  `OD-75`
 - **Contact:** MDC **Building Support · 786-315-2424** · Miguel Zaldivar miguel@mzsolutions.org · owner 10960 SW 200th Ave LLC

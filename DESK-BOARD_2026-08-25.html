@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jorge's Desk Board</title>
+<style>
+  :root{ --bg:#f3f5f7; --card:#fff; --ink:#14232c; --muted:#5c6b74; --line:#dbe2e7;
+         --you:#b23b00; --done:#0a7d3c; --factory:#0b5cad; --chip:#eef3f1; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:20px;}
+  h1{font-size:23px;margin:0 auto 2px;max-width:820px}
+  .sub{color:var(--muted);max-width:820px;margin:0 auto 18px;font-size:14px}
+  .band{max-width:820px;margin:0 auto 18px;background:#eaf2fb;border:1px solid #cfe0f3;
+        border-radius:12px;padding:14px 16px}
+  .band h2{margin:0 0 8px;font-size:16px;color:var(--factory)}
+  .band b{color:var(--ink)}
+  .grid{max-width:820px;margin:0 auto;display:grid;gap:14px}
+  .cardx{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+         box-shadow:0 1px 2px rgba(0,0,0,.05)}
+  .cardx h3{margin:0 0 2px;font-size:17px}
+  .meta{color:var(--muted);font-size:13px;margin:0 0 10px}
+  .lab{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+       margin:8px 0 2px}
+  .you{color:var(--you);font-weight:700}
+  .done{color:var(--done);font-weight:700}
+  .factory{color:var(--factory);font-weight:700}
+  .tag{display:inline-block;background:var(--chip);border:1px solid var(--line);border-radius:20px;
+       padding:1px 9px;font-size:12px;color:var(--muted);margin:2px 4px 0 0}
+  .foot{max-width:820px;margin:16px auto 0;color:var(--muted);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+  <h1>Jorge's Desk Board</h1>
+  <p class="sub">Every project that's been stuck at "almost done." Each card = status, what's left, and the
+     <span class="you">one thing only you can do</span>. Built 2026-08-25 by cloud.</p>
+
+  <div class="band">
+    <h2>How this works — so the factory runs and your desk stays light</h2>
+    <b>Your hours: 9–12 and 2–6.</b> In those blocks I hand you a short list of <span class="you">decisions
+    only you can make</span> — a yes/no, a "which one," a signature. <b>12–2 is yours</b> (buffer, new deals,
+    goofing off). <b>Nights and the 12–2 gap, the windows run the factory</b> — <span class="factory">OCR,
+    hashtagging, filing prep, drafting, reconciling</span> — so each work block you get fewer, cleaner
+    decisions instead of a pile. <br><br>
+    <b>Off your desk (I/the windows do it):</b> OCR, hashtags, research, drafts, reconciliation, building lists.
+    <b>Stays on your desk (only you):</b> sending money, signing, approving an invoice to send, picking which
+    of five logins is live, moving a client's file. That line is the whole system.
+  </div>
+
+  <div class="grid">
+
+    <div class="cardx">
+      <h3>Miami Art House / Medley</h3>
+      <p class="meta">TUS-26-1033 · Miall Mulkay · legalization</p>
+      <div class="lab">Status</div><span class="done">✅ $8,000 deposit PAID (wired to Team USA Sales last week).</span>
+      <div class="lab">What's left</div>Do the legalization work the deposit bought; invoice + collect the remaining $8,000 on delivery.
+      <div class="lab">Needs you</div><span class="you">Confirm what the deposit covers and the target delivery date.</span> I reconcile the wire and draft the delivery updates.
+      <div><span class="tag">#Medley</span><span class="tag">#TUS-26-1033</span><span class="tag">#Team-USA-Sales</span></div>
+    </div>
+
+    <div class="cardx">
+      <h3>14598 SW 110 St — Eddie Miguelez</h3>
+      <p class="meta">TUS-25-1023 · live job, no invoice</p>
+      <div class="lab">Status</div>Work done; you were paid $140 outside QuickBooks, nothing else. You fronted <b>$2,666</b> in county fees.
+      <div class="lab">What's left</div>Decide if the $2,666 is reimbursed or was priced into a flat fee, then invoice.
+      <div class="lab">Needs you</div><span class="you">One answer: reimburse the $2,666, or was it in the fee?</span> I draft the invoice from your answer.
+      <div><span class="tag">#14598-SW-110-ST</span><span class="tag">#MiguelezEddie</span></div>
+    </div>
+
+    <div class="cardx">
+      <h3>Julia's Place — Piwko bond release</h3>
+      <p class="meta">TRK-2026-0708-JULIA</p>
+      <div class="lab">Status</div>Capsule exists (~5 docs). The bond-release itself is the open deliverable.
+      <div class="lab">What's left</div>Confirm what step the bond release is stuck on (filed / awaiting county / awaiting client).
+      <div class="lab">Needs you</div><span class="you">One line: where does the Piwko bond stand?</span> Then I build its A-to-Z checklist like Alabama Jack's.
+      <div><span class="tag">#TRK-2026-0708</span><span class="tag">#Piwko</span><span class="tag">#bond-release</span></div>
+    </div>
+
+    <div class="cardx">
+      <h3>Tax jackets (county building jackets)</h3>
+      <p class="meta">Alec Valdes DD + others</p>
+      <div class="lab">Status</div><span class="factory">Puller now works;</span> 15 delivered jackets accounted for; some pulled-but-not-filed.
+      <div class="lab">What's left</div>File each delivered jacket into its capsule with a tracking number; finish the ones still owed.
+      <div class="lab">Needs you</div><span class="you">Nothing to decide</span> — this is factory work. It just needs to run to the end and not stop.
+      <div><span class="tag">#tax-jacket</span><span class="tag">#county-jacket</span></div>
+    </div>
+
+    <div class="cardx">
+      <h3>OCR protocol — the never-ending one</h3>
+      <p class="meta">the reason your capsule is missing documents</p>
+      <div class="lab">Status</div>Runs in bursts, then stops. That's why your "favorite report" (the capsule) reads as missing docs — the docs are there, just not OCR'd/searchable yet.
+      <div class="lab">What's left</div><span class="factory">Run it continuously</span> — every un-OCR'd doc gets a text layer + hashtags, forever, in the background.
+      <div class="lab">Needs you</div><span class="you">One yes:</span> point the windows at this as standing background work (see the note under the board).
+      <div><span class="tag">#OCR</span><span class="tag">#intake-gate</span><span class="tag">#search-layer</span></div>
+    </div>
+
+    <div class="cardx">
+      <h3>Orphan numbers + hashtags for all</h3>
+      <p class="meta">OPH-2026-NNNN · every document tagged</p>
+      <div class="lab">Status</div>System is defined (orphan numbers, hashtag rules); not applied across the whole library.
+      <div class="lab">What's left</div><span class="factory">Assign an OPH to every un-numbered doc; stamp hashtags in every body.</span> Factory work, runs with the OCR pass.
+      <div class="lab">Needs you</div><span class="you">Nothing per document</span> — only a decision when an orphan can't be matched to a job (I queue those for you).
+      <div><span class="tag">#OPH</span><span class="tag">#hashtags</span><span class="tag">#single-source-of-truth</span></div>
+    </div>
+
+  </div>
+
+  <div class="band" style="background:#fdf3e8;border-color:#f0d9b8">
+    <h2 style="color:var(--you)">The honest part about "assign agents / run it 24/7"</h2>
+    <b>Yes — and I can start today without building anything new.</b> The OCR + hashtag factory doesn't need a
+    new system; it needs the windows you already have (cloud on its cycles, the desktop when the PC is on,
+    Cowork) pointed at it as standing work. <b>That's finishing existing work, not a new project — so it
+    doesn't trip your own freeze.</b> A true always-on 24/7 version is the JOB-0079 pilot you already have;
+    let that prove itself before we build the always-on factory, so it doesn't become one more half-built
+    thing. <b>The freeze exists precisely to stop that.</b>
+  </div>
+
+  <p class="foot">Money items (Habitat $825 refund · Alabama Jack's $2,375 · QuickBooks $75k) live in
+     MORNING-REPORT_2026-08-25. #desk-board #JorgeValdes #2026-08-25</p>
+</body>
+</html>
