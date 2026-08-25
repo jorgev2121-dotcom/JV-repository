@@ -1862,3 +1862,58 @@ folder name** — the phantom and the real folder look identical on screen.
 **Blind spot named:** a scheduled-task sweep cannot see the **ad-hoc `.ps1` run once by hand** — which is
 exactly the class that caused the 9602 casualty. The 41 files are the standing exposure because any of
 them can be run manually tomorrow.
+
+---
+
+## RI-033 — an `.hta` panel with non-ASCII and no declared charset renders as CP-1252 (garbled)
+**Logged 2026-08-25 (cloud), from desktop TRK-2026-9677. Family: RI-032 (mojibake).**
+
+`mshta` picks an encoding in the order **BOM → `<meta charset>` → system ANSI codepage**. This machine's
+ANSI codepage is **1252**, so an HTA with non-ASCII (em-dash, bullet, emoji, check-mark) and no
+declaration is decoded as Windows-1252 and renders wrong — **guaranteed, not probable**. Of 142 `.hta`
+files, 44 held non-ASCII and **24 had neither a BOM nor a `<meta charset>`** — they greeted Jorge with
+`â€"`, `ðŸ"`, `âœ“` in titles and buttons. **These are his one-click approval panels (CHARTER §1.38):
+cosmetic — the buttons still work — but a panel that looks broken does not get clicked, and once a
+garbled file is re-saved by any CP-1252 tool it becomes permanent mojibake (RI-032 Class A).**
+
+**Fix (desktop applied to all 24):** insert `<meta http-equiv="Content-Type" content="text/html;
+charset=utf-8">` right after `<head>` **and** write the file with a UTF-8 BOM (belt-and-braces).
+**Tier 3 (enforcement, NOT yet built):** every HTA the machine writes from now on must carry the meta
+tag — the 20 already-safe HTAs got there by accident (18 via meta, 4 via BOM); there is no builder
+enforcing it. **A build rule, not a one-time fix.**
+
+## RI-034 — `Process.MainWindowHandle` on `mshta.exe` is NOT the HTA's window
+**Logged 2026-08-25 (cloud), from desktop TRK-2026-9677.**
+
+It returns a **0×0 bootstrap window**, so it cannot be used as the observable for "the panel is on
+screen." Any past or future claim of "I verified the panel on screen" that rests on `MainWindowHandle`
+is hollow. Bears on `#button-reachability-test` and RI-023 (windows placed off-screen). A real HTA
+window has to be located by enumerating the process's top-level windows, not by asking .NET for the
+main one.
+
+## RI-035 — `&` (call operator) does not wait for a GUI-subsystem .exe
+**Logged 2026-08-25 (cloud), from desktop TRK-2026-9678. Family: #false-success-reporting / #run-hidden-vbs-exit-code-is-not-evidence.**
+
+`& $guiApp …` hands off and returns **immediately** for a GUI-subsystem binary (e.g. TreeSize.exe). So
+every `"step done" / "scan done"` line written after it is a claim about **PowerShell returning**, not
+about the work finishing. Real damage: the `CU-Overnight-TreeReport` task (daily 02:30, created
+2026-08-03) "finished" a 12-drive scan in **8 seconds**, launched all 12 scans at once to race each
+other, built its index before any scan finished, and **wrote an empty table to Jorge's desktop button
+every single morning for three weeks** behind a log that read clean. **Also: TreeSize `rc=0` carries no
+information** — reproduced 3× with identical arguments and opposite results; only the **output file
+existing and being non-zero** proves success. **Fix pattern:** `Start-Process` + `WaitForExit` with a
+hard cap, decide success by the file not the exit code, add a grace poll before calling it a failure.
+**Sweep the other scheduled-task scripts for `& someGuiApp`.**
+
+## RI-036 — a UAC prompt is an unattended job's DEADLOCK, not a delay
+**Logged 2026-08-25 (cloud), from desktop TRK-2026-9678.**
+
+A scheduled task at `RunLevel: Limited` that triggers elevation raises a `consent.exe` UAC dialog which
+runs as **SYSTEM** — and the Limited task **cannot dismiss its own dialog** (Access denied, by design).
+So the dialog **waits forever** with nobody awake to answer it, and they **stack**: the TreeSize task
+parked **7 "TreeSize is requesting your permission" dialogs on Jorge's screen for 17 hours**. Any
+unattended job that can trigger elevation can strand a modal dialog on the owner's desktop indefinitely.
+**Night-eligibility rule (ties to CLAUDE.md §11): a task that can raise UAC is not night-safe.** Fixes:
+run without elevation, or the script clears its own leftover dialogs' processes at both ends (it cannot
+dismiss the dialog, but it can avoid launching the elevated scan). **Owner action when it happens:
+press No on each dialog, or reboot — never Yes.**
