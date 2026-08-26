@@ -32,5 +32,39 @@ Read the last entries before adding yours. Don't repeat what's already resolved.
 Cost: metered API dollars per call. Benefit: true team collaboration AND load spread across models,
 so no single usage limit (like this week's Claude limit) can stop the whole operation.
 
+## PROS / CONS (added 2026-08-26)
+**Pros:** one shared memory (nothing lost between windows) · kills the relay for Claude agents · auditable
+log of who did what · the foundation load-spreading needs.
+**Cons:** only Claude agents read it autonomously today (apps still relayed) · a shared log BLOATS if
+unmanaged (see the 2.4MB TO-CLOUD.md) · agents must read-before-acting = latency/cost · without a
+dispatcher, agents collide/duplicate · it's one more thing to maintain (freeze tension).
+
+## DISPATCHER ("FOREMAN") — yes, that's the right pattern
+A dispatcher agent reads the queue and hands each task to the best model, routing AWAY from any model near
+its limit — that's how "everyone stays within limits." It protects quality by task-matching (judgment→big
+model, grunt→cheap model). **This IS the JOB-0079 pilot / the FOREMAN — a real build, freeze-gated.**
+
+## QUALITY — is it compromised? Controlled, not automatic
+- Grunt work (OCR, classify, first drafts, long-doc reading) on cheap models: minimal loss.
+- Judgment/analysis/agentic work on cheap models: REAL loss — keep it on Claude.
+- The dispatcher's whole job is to protect quality by never sending judgment work to a grunt model.
+
+## "FABLE-CLASS" cheap-fast models — how many are out there?
+Fable (claude-fable-5) is Anthropic's small/fast tier. Equivalents, ~one per vendor + open-source:
+Anthropic Haiku/Fable · OpenAI GPT-5-mini/nano, 4o-mini · Google Gemini Flash/Flash-Lite · xAI Grok-mini ·
+open: Llama, Mistral, local Ollama (gemma, dolphin). **Plenty of cheap grunts available; reserve the big
+models (Opus, GPT-5, Gemini Pro) for hard work.**
+
+## ETA TO BUILD
+- **Phase 1 — keys in the router, MANUAL routing:** ~hours (mostly the desktop wiring keys). Basically
+  ready once keys exist. Free (Gemini free + Grok you own).
+- **Full AUTO-dispatcher (limit-aware FOREMAN):** not hours — **weeks**, and freeze-gated behind the
+  JOB-0079 pilot proving 3×. A basic budget-capped router is faster than a truly limit-aware one.
+
+## OWNER INTERVENTION REQUIRED
+- **Setup: HIGH** — only you can get the API keys, confirm billing/spend, and decide the subscription
+  rebalance (all RED / money / credentials).
+- **Running: LOW** — once built, only RED steps (money, sending, filing) stop for you; the rest runs.
+
 ---
 *Start free: Claude-autonomous + others-relayed. Fund the APIs later to remove the relay. #roundtable*
