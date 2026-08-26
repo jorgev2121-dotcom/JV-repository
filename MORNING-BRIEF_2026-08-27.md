@@ -4,13 +4,14 @@
 ## ✅ WHAT RAN WHILE YOU SLEPT
 - **OCR-remaining (free, local):** launched on **1,093 documents** and running. The "zero pages/hour"
   scare was a false alarm — it's working.
-- **The lead filter (corrective-action check) — the real prize — RAN overnight:** all **1,287** leads,
-  ~13 seconds each, one row written per lead, finishing ~4:30am ET. It caught and *fixed* three traps
-  instead of failing silently: a parser bug that would've marked all 1,287 "open" (caught before the run),
-  false zeros from a tired browser (caught by the heartbeat), and — the big one — **61% of your addresses
-  are odd shapes** (ranges like "7010-7038 NW 50 ST", "BLDG 1", spelled-out "NORTH KENDALL DRIVE") that the
-  county search rejects. **The desktop built a normalizer to fix those**, so almost all get checked; only
-  **~4 addresses** are genuinely unsearchable (stamped honestly, not faked).
+- **The lead filter (corrective-action check) — the real prize — got ~324 leads done, then the COUNTY
+  WEBSITE WENT DOWN at 12:59am.** Not our fault — the desktop proved it (three separate browsers, all dead).
+  Everything after 12:59 came back as honestly-labeled "unchecked," never faked as "clear." **I authorized
+  stopping the run** (it was only producing garbage) — a watcher is now pinging the county every 10 minutes
+  and will **auto-resume from row 324 the moment the county is back**, whether or not anyone's awake. So:
+  **324 good, the rest resumes on county recovery.** Along the way the desktop also diagnosed that **61% of
+  your addresses are odd shapes** the county search rejects — and *built a normalizer to fix them*, so once
+  the county's back, nearly all get checked (only ~4 are genuinely unsearchable).
 
 ## 🟢 THINGS THAT TURNED OUT ALREADY DONE
 - **The "12 remaining MDC sites" don't exist — all 22 were finished 10 days ago.** The work was real; the
