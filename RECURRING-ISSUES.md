@@ -1980,3 +1980,7 @@ load-bearing piece again.** Redundancy = a simple try/fallback verified by a REA
 
 ---
 **RI-042 · 2026-08-26 — Address normalization: the trailing "1"/"2" and duplicated street numbers are the COUNTY'S own register text, not pipeline corruption.** 687 of 708 failures were already queried character-identical to the Unsafe Structures Report. The county's search box refuses the shape its own export publishes. Fix is the variant ladder (9765b), not verbatim re-query and not folio. (Source: desktop TRK-2026-9818.)
+
+
+---
+**RI-043 · 2026-08-26 — Owner over-involvement (EXHAUST-FIRST-01 violation).** Cloud coached Jorge through ~5 messages of manual Gemini login (Microsoft-account hijack, YubiKey/PIN confusion) before offering the desktop-drives-it-to-one-key-tap path that existed the whole time. **Rule going forward:** when a manual owner-path starts FAILING, that failure is the trigger to switch to delegation, not to coach more clicks. Every owner handoff carries a WORKAROUND-CERT: alternatives tried + why each failed + the single smallest owner action.
