@@ -2,14 +2,16 @@
 **The one daily batch, cut to the minimum. Everything else the agent + cloud QC handle. #daily-red #JorgeValdes**
 **Made as short as honestly possible 2026-08-26. Anything reversible was moved to a cloud-set default and taken OFF this list.**
 
-## THE LIST (5 — several are 2-minute jobs)
-1. **One 5-minute browser sit:** create the **free Gemini API key** (turns on multi-LLM), and glance at
-   **console.x.ai** to say whether the Grok key is valid, missing, or revoked. Both are "sit at the browser once."
-2. **Two sends — one yes each:** MZ Solutions collections (**$4,022**) · Alabama Jack's proposal (**$4,750**).
-   Both are drafted and staged; you're only saying "send."
-3. **Two quick calls:** MDC Building Support (close the NOV) · code officer Chapelli (Homestead hearing outcome).
-4. **QuickBooks — one login:** invoice **5975 ($1,000)** is the time-sensitive one; confirm it's collectible.
-5. **Click the new Claude tray icons, keep the one whose mic works** (and tell me: is your left/second monitor on?).
+## THE LIST (now just 2 — financials cleared 2026-08-26)
+1. **Create the free Gemini API key** (~2 min) — this is the FIRST step of the multi-LLM transition.
+2. **Click the new Claude tray icons, keep the one whose mic works** (and tell me: is your left monitor on?).
+
+## CLEARED / ON HOLD (per Jorge 2026-08-26 — off the list)
+- **MZ Solutions — PAID.** Received via **Zelle yesterday** (~$4,022). Closed. (Reconcile the Zelle deposit.)
+- **Alabama Jack's $4,750** — **ON HOLD** (proposal went cold, unlikely to close).
+- **Homestead hearing (Chapelli call)** — **ON HOLD** (unlikely to happen).
+- **QuickBooks invoice 5975 ($1,000)** — **ON HOLD.** (What it is: a 2026 invoice flagged as maybe-unpaid,
+  only QuickBooks Online can confirm; it had an Aug-30 collectibility date. Parked for now.)
 
 ## TAKEN OFF YOUR LIST (cloud set a safe, reversible default — you can override anytime)
 - **The 86 building-specific leads (property-level answer):** default = **accept for the call sheet + flag them**
