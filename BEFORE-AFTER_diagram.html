@@ -1,0 +1,104 @@
+<title>Before &amp; After</title>
+<style>
+  :root{
+    --bg:#eef1f4; --ink:#16242c; --muted:#5f6e77; --card:#fff; --line:#d7dee4;
+    --bad:#b4392a; --bad-bg:#fdf1ef; --bad-line:#eecbc4;
+    --good:#0a7d3c; --good-bg:#eef7f0; --good-line:#c5e4cf;
+    --hub:#0b5cad; --box:#f5f8fa; --boxln:#dbe4ea;
+  }
+  :root[data-theme="dark"], :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --bg:#0c1216; --ink:#e8eef2; --muted:#93a2ac; --card:#141d24; --line:#243139;
+      --bad-bg:#241413; --bad-line:#4a2620; --good-bg:#0f2018; --good-line:#234634;
+      --box:#101922; --boxln:#22303a; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:20px}
+  h1{max-width:1000px;margin:0 auto 4px;font-size:22px}
+  .sub{max-width:1000px;margin:0 auto 20px;color:var(--muted);font-size:14px}
+  .cols{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:720px){.cols{grid-template-columns:1fr}}
+  .panel{border-radius:16px;padding:16px 16px 18px;border:1px solid var(--line);background:var(--card)}
+  .p-bad{background:var(--bad-bg);border-color:var(--bad-line)}
+  .p-good{background:var(--good-bg);border-color:var(--good-line)}
+  .ptitle{font-size:16px;font-weight:800;margin:0 0 2px}
+  .p-bad .ptitle{color:var(--bad)} .p-good .ptitle{color:var(--good)}
+  .ptag{font-size:12px;color:var(--muted);margin:0 0 14px}
+  .box{background:var(--box);border:1px solid var(--boxln);border-radius:10px;padding:9px 11px;
+       font-size:13.5px;text-align:center}
+  .box b{display:block;font-size:14px}
+  .box .s{color:var(--muted);font-size:12px}
+  .you{background:var(--hub);color:#fff;border:none;font-weight:700}
+  .hub{border:2px solid var(--hub)}
+  .arrow{display:flex;justify-content:center;color:var(--muted);font-size:15px;margin:5px 0}
+  .fan{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+  .chip{font-size:12px;padding:4px 9px;border-radius:20px;border:1px solid var(--boxln);background:var(--box)}
+  .dead{position:relative;color:var(--muted)}
+  .x{color:var(--bad);font-weight:800}
+  .foot{border-top:1px dashed var(--line);margin-top:14px;padding-top:10px;font-size:12.5px;color:var(--muted)}
+  .foot b{color:var(--ink)}
+  .good .k{color:var(--good);font-weight:700}
+  .floor{background:var(--hub);color:#fff;border-radius:10px;padding:8px 11px;text-align:center;
+         font-size:12.5px;margin-top:8px}
+</style>
+
+<h1>What you had &nbsp;→&nbsp; What you're getting</h1>
+<p class="sub">The problem was never too few AIs. It was one fragile door in the middle, and no finish line.</p>
+
+<div class="cols">
+
+  <!-- BEFORE -->
+  <div class="panel p-bad">
+    <div class="ptitle">✕ What you had</div>
+    <p class="ptag">One door in the middle. When it broke, everything went dark.</p>
+
+    <div class="box you">YOU — relaying by hand to every window</div>
+    <div class="arrow">│ &nbsp; many manual copies &nbsp; │</div>
+
+    <div class="box" style="border-color:var(--bad-line)">
+      <b>LiteLLM router (on your PC)</b>
+      <span class="s">single point of failure · said “alive” while serving nothing · no real keys</span>
+    </div>
+    <div class="arrow">▼</div>
+    <div class="fan">
+      <span class="chip dead">Claude <span class="x">✕</span></span>
+      <span class="chip dead">GPT key <span class="x">✕ fake</span></span>
+      <span class="chip dead">OpenRouter <span class="x">✕ fake</span></span>
+      <span class="chip dead">Ollama <span class="x">✕ down</span></span>
+    </div>
+
+    <div class="foot">
+      <b>Result:</b> nothing closes · night runs die silently · $200 Claude, hitting the weekly wall ·
+      <b>you</b> are the wire that never rests.
+    </div>
+  </div>
+
+  <!-- AFTER -->
+  <div class="panel p-good good">
+    <div class="ptitle">✓ What you're getting</div>
+    <p class="ptag">No middle door. Independent brains. A finish line and a checker.</p>
+
+    <div class="box you">YOU — talk to ONE hub</div>
+    <div class="arrow">▼</div>
+
+    <div class="box hub"><b>Cloud Claude — your hub &amp; QC</b>
+      <span class="s">drives the work, pushes back, verifies “done”</span></div>
+    <div class="arrow">▼ &nbsp; direct calls, with fallback &nbsp; ▼</div>
+    <div class="fan">
+      <span class="chip">Desktop Claude <span class="k">hands</span></span>
+      <span class="chip">Grok <span class="k">✓ cheap</span></span>
+      <span class="chip">Gemini <span class="k">✓ free</span></span>
+      <span class="chip">ChatGPT <span style="color:var(--muted)">· on bench</span></span>
+    </div>
+
+    <div class="floor">⚓ This window = always-on floor — no piece can ever sit in front of it</div>
+
+    <div class="foot">
+      <b>Result:</b> <span class="k">local OCR runs all night, free</span> · no single point of failure ·
+      hard <b>$100 API cap + live meter</b> · night runs with a <b>finish line + death-detector + QC</b>
+      = things actually <b>close</b> · net cost flat or lower.
+    </div>
+  </div>
+
+</div>
