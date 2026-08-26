@@ -1959,3 +1959,20 @@ network-exposed.
 live model today. Tier 3 — replace the liveness check with one that actually round-trips a model, so it can
 never again report green while empty. Tier 1 (weak) — restart Ollama for free local backups (returns, may
 die again). **Do NOT accept a plain /health check as proof the router works — round-trip a real model.**
+
+## RI-038 follow-up 2026-08-26 — "the router/orchestrator has been EXTREMELY unreliable" (Rule-4 options)
+**Terms:** a ROUTER (LiteLLM) is the traffic cop — one door, routes each call to a model. An
+ORCHESTRATOR / FOREMAN decides WHAT work goes where and tracks limits. Jorge's bad experience is the
+self-hosted ROUTER on his PC. RI-038 showed the "unreliability" was mostly (a) never keyed, (b) a
+false-green health check making a dead proxy look alive, (c) it ran on his own unreliable PC — config +
+monitoring failed, not necessarily the binary (it ran 7 days). His lived experience is still valid, so
+per Rule 4 (recurring → no patch), three durability-ranked options:
+- **Tier 1 — PATCH the same LiteLLM** (add keys, fix health check). Fragile: same component, same PC.
+  Charter says don't propose Tier 1 for a logged recurring issue.
+- **Tier 2 — REMOVE the router.** For 2-3 models you don't need one. Each agent calls the model API
+  DIRECTLY with a 3-line fallback (try Grok -> Gemini -> escalate). Nothing to go down; reliability = the
+  vendor API itself. RECOMMENDED default now.
+- **Tier 3 — REPLACE with a HOSTED router (e.g. OpenRouter):** one key, many models, professional
+  failover/redundancy, NOT on Jorge's PC. Paid but durable. Add only when scale/failover demands.
+**Recommendation: Tier 2 now; Tier 3 later if scale demands; NEVER self-hosted LiteLLM-on-the-PC as the
+load-bearing piece again.** Redundancy = a simple try/fallback verified by a REAL round-trip, not a ping.
