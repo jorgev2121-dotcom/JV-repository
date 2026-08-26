@@ -36,3 +36,7 @@ very beginning." So every owner task below is pre-solved to ELIMINATED, MINIMIZE
 ---
 *Net: of 8 owner tasks, 5 eliminated, 2 minimized, 1 deferred. The irreducible core = money + new
 credentials + RED approvals, each made as small as honestly possible. #owner-relief*
+
+---
+**RATIFIED by Jorge 2026-08-26: this relief plan is the standing way we work.** The three rules —
+mailbox-not-pasting, free-first, batch-the-RED — apply to every future setup. #ratified
