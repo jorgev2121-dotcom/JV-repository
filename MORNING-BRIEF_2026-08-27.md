@@ -4,11 +4,13 @@
 ## ✅ WHAT RAN WHILE YOU SLEPT
 - **OCR-remaining (free, local):** launched on **1,093 documents** and running. The "zero pages/hour"
   scare was a false alarm — it's working.
-- **The lead filter (corrective-action check) — the real prize — is RUNNING:** started ~11pm, **~4.6 hours**
-  projected across all **1,287** leads, one row written per lead as it completes. It uses a real browser
-  (Edge) because the county needs it. **Two silent-death traps were caught, not missed:** a parser bug that
-  would have falsely marked all 1,287 as "open" (caught by a control test *before* the run), and a dead
-  browser that spat 117 false zeros mid-run (caught by the heartbeat). This is the guardrail working.
+- **The lead filter (corrective-action check) — the real prize — RAN overnight:** all **1,287** leads,
+  ~13 seconds each, one row written per lead, finishing ~4:30am ET. It caught and *fixed* three traps
+  instead of failing silently: a parser bug that would've marked all 1,287 "open" (caught before the run),
+  false zeros from a tired browser (caught by the heartbeat), and — the big one — **61% of your addresses
+  are odd shapes** (ranges like "7010-7038 NW 50 ST", "BLDG 1", spelled-out "NORTH KENDALL DRIVE") that the
+  county search rejects. **The desktop built a normalizer to fix those**, so almost all get checked; only
+  **~4 addresses** are genuinely unsearchable (stamped honestly, not faked).
 
 ## 🟢 THINGS THAT TURNED OUT ALREADY DONE
 - **The "12 remaining MDC sites" don't exist — all 22 were finished 10 days ago.** The work was real; the
@@ -33,6 +35,9 @@ screen and even rescued a "2 things need your click" button that was stranded ov
 5. **Approve the staged sends** (MZ $4,022, Alabama Jack's $4,750) and the **two calls** (NOV, Homestead).
 6. *Optional:* want the deeper "who showed up / sent an architect" engagement pull added? It's a separate
    county source (stage 3) — the desktop will add it on your word.
+7. *Tiny call (desktop recommends yes):* for **86 leads that name a specific building**, the county answers
+   at the whole-property level. Accept that for the call sheet (it only ever *over*-includes a lead to
+   call, never hides one) and flag those 86 — **yes?**
 
 ## WHERE IT ALL LIVES
 One Board · CAPSULE-INVENTORY · NIGHT-VS-DAY split · OWNER-TASK-RELIEF · the RESULT files in Drive mailbox.
