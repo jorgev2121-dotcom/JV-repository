@@ -9,14 +9,14 @@
   and — importantly — **it caught a trap that would've written the *wrong* company onto 5 leads** (names
   matched but the unit/street *numbers* didn't). It refused to fuzzy-match and flagged them instead. That's
   the "confident-wrong" guard working.
-- **The lead filter (corrective-action check) — the real prize — got ~324 leads done, then the COUNTY
-  WEBSITE WENT DOWN at 12:59am.** Not our fault — the desktop proved it (three separate browsers, all dead).
-  Everything after 12:59 came back as honestly-labeled "unchecked," never faked as "clear." **I authorized
-  stopping the run** (it was only producing garbage) — a watcher is now pinging the county every 10 minutes
-  and will **auto-resume from row 324 the moment the county is back**, whether or not anyone's awake. So:
-  **324 good, the rest resumes on county recovery.** Along the way the desktop also diagnosed that **61% of
-  your addresses are odd shapes** the county search rejects — and *built a normalizer to fix them*, so once
-  the county's back, nearly all get checked (only ~4 are genuinely unsearchable).
+- **The lead filter (corrective-action check) — the real prize — has worked through nearly all of it.**
+  The desktop's address-normalizer now **covers 773 of 779** oddly-shaped addresses (ranges, "BLDG 1",
+  spelled-out streets) — so almost every lead got checked. The one recurring headwind is the **county
+  website itself, which went down twice** (12:59am, again ~10:50am); each time the desktop *proved* it was
+  the county (three browsers, all dead), **quarantined the false zeros** (never faked them "clear"), and
+  resumed when the site returned. **Net: stage 1 is essentially done and honest.** The deeper "already-fixed
+  vs lapsed-permit" split (stage 2) is paused until the county stops flaking — a resource note the desktop
+  flagged, not a failure.
 
 ## 🟢 THINGS THAT TURNED OUT ALREADY DONE
 - **The "12 remaining MDC sites" don't exist — all 22 were finished 10 days ago.** The work was real; the
