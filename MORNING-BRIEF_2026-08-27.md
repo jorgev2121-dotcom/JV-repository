@@ -2,8 +2,13 @@
 **2026-08-26 overnight. Honest numbers, decisions gathered in one place. #morning-brief**
 
 ## ✅ WHAT RAN WHILE YOU SLEPT
-- **OCR-remaining (free, local):** launched on **1,093 documents** and running. The "zero pages/hour"
-  scare was a false alarm — it's working.
+- **OCR-remaining (free, local):** running steadily — **~224 of 1,093** at 2am, ~13s each, finishing ~5:15am.
+- **Bonus — the desktop used the county outage well:** while the county was down it pivoted to **Sunbiz
+  corporate lookups** (622 owners, most done). Honest finding: about **2/3 of owners genuinely have no
+  company**, ~1/6 are real companies just missed on punctuation (fixable by a quick post-pass, no re-scrape),
+  and — importantly — **it caught a trap that would've written the *wrong* company onto 5 leads** (names
+  matched but the unit/street *numbers* didn't). It refused to fuzzy-match and flagged them instead. That's
+  the "confident-wrong" guard working.
 - **The lead filter (corrective-action check) — the real prize — got ~324 leads done, then the COUNTY
   WEBSITE WENT DOWN at 12:59am.** Not our fault — the desktop proved it (three separate browsers, all dead).
   Everything after 12:59 came back as honestly-labeled "unchecked," never faked as "clear." **I authorized
