@@ -66,3 +66,32 @@ A full recursive count (every document, however deep) is a separate pass — off
 
 ---
 *Top-level counts by 4 agents 2026-08-26. Recursive (all-nested) count available on request. #capsule-inventory*
+
+---
+
+## RECURSIVE (ALL-LEVELS) TOTALS — added 2026-08-26, all 7 counters complete
+**True document count, every file at every depth (top-level count badly understated this).**
+
+**GRAND TOTAL: ~3,975 files across the 41 capsules** (vs 279 at the front door — ~14× deeper).
+
+Heaviest capsules (recursive):
+- **_CONVERGE-STAGING — 1,046** ⚠ (a STAGING folder — and it hides a whole unfiled job: "5000 SW 75 Ave
+  Palmer Trust" with 35 permit subfolders. A real job buried in staging = drift; it needs its own capsule + TRK.)
+- **TRK-2026-1535 18020 SW 103 Ave — 502** · **TRK-2026-1536 10362 SW 180 St — 501** · **TRK-2026-1534
+  1840 NW 63 St — 361** (all dominated by `07-Microfilm-Records` permit-scan trees)
+- **OPH-2026-0007 Bal Harbour+Plaza — 213** (9 Plaza unit sub-capsules) · **TUS-26-1018 Pasadena — 213**
+- **1256 Groves — 164** · **1023 14598 SW 110 — 127** · **1033 Medley — 125** · **1612 331 Tamiami — 123**
+  · **1262 20001 SW 110 CT — 111** · **1514 NW 73 St — 106**
+- Everything else: under 50 each; the TRK-TBD unit shells hold ~5 real docs inside empty scaffolds.
+
+## ⚠ WHAT THIS MEANS FOR OCR (the honest read)
+**~3,975 is FILES, not OCR-work-remaining.** In the microfilm/permit trees, each scanned PDF is stored
+with **two sidecar text files — `.TAGS.txt` and `.SEARCH.txt`.** The `.SEARCH.txt` sidecar IS the OCR
+output — **its presence means that document is ALREADY OCR'd.** So:
+- Roughly **1/3 of the 3,975 are the actual scans**; the other ~2/3 are sidecars (many already-done OCR).
+- The **real OCR-remaining pile is the scans that DON'T yet have a `.SEARCH.txt`** — far smaller than 3,975,
+  and concentrated in the un-processed jackets, not the microfilm (which looks largely done).
+- **Next step for a true OCR ETA:** a targeted pass counting PDFs-without-a-`.SEARCH.txt` sidecar. That
+  number × ~1,000 pages/hour = the honest compute figure.
+
+*Recursive totals by 7 Sonnet agents (cheaper model, per the burn lesson) 2026-08-26. #capsule-inventory #OCR*
