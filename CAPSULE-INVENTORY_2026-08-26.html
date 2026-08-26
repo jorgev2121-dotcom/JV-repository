@@ -1,0 +1,93 @@
+<title>Capsule Inventory</title>
+<style>
+  :root{--bg:#f4f6f8;--card:#fff;--ink:#152229;--muted:#5c6b74;--line:#dbe2e7;--warn:#b23b00;--ok:#0a7d3c;--acc:#0b5cad;--chip:#eef3f1;}
+  :root:not([data-theme="light"]){@media (prefers-color-scheme:dark){--bg:#0d1418;--card:#151f26;--ink:#e7edf3;--muted:#9aa8b2;--line:#25333c;--chip:#1c2a25;}}
+  :root[data-theme="dark"]{--bg:#0d1418;--card:#151f26;--ink:#e7edf3;--muted:#9aa8b2;--line:#25333c;--chip:#1c2a25;}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:20px;}
+  h1{font-size:22px;margin:0 auto 4px;max-width:900px} .sub{color:var(--muted);max-width:900px;margin:0 auto 16px;font-size:13.5px}
+  .wrap{max-width:900px;margin:0 auto}
+  .flags{background:#fdf3e8;border:1px solid #f0d9b8;border-radius:12px;padding:12px 16px;margin-bottom:16px}
+  :root:not([data-theme="light"]) .flags{@media(prefers-color-scheme:dark){background:#2a1e12;border-color:#4a3720}}
+  .flags h2{margin:0 0 6px;font-size:15px;color:var(--warn)} .flags li{margin:3px 0}
+  h3{margin:20px 0 6px;font-size:15px;color:var(--acc);border-bottom:1px solid var(--line);padding-bottom:3px}
+  .row{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+  .nm{flex:1 1 340px;font-weight:600} .ct{color:var(--muted);font-size:12.5px;white-space:nowrap}
+  .tags{flex:1 1 100%;margin-top:2px} .tag{display:inline-block;background:var(--chip);border:1px solid var(--line);border-radius:20px;padding:0 8px;font-size:11.5px;color:var(--muted);margin:2px 3px 0 0}
+  .tbd{color:var(--warn);font-weight:700} .big{color:var(--ok);font-weight:700}
+  .tot{max-width:900px;margin:16px auto 0;font-size:13px;color:var(--muted)}
+</style>
+<div class="wrap">
+<h1>Capsule Inventory — Google Drive "01-JOBS"</h1>
+<p class="sub">41 capsules in the main jobs folder. Counts below are <b>root-level files</b> per capsule.
+Built by cloud 2026-08-26 from a 4-agent Drive count.</p>
+
+<div class="flags">
+<h2>Read this first — 4 things eating your "one source of truth"</h2>
+<ul>
+<li><b>Two "01-JOBS — ONE SOURCE OF TRUTH" folders exist.</b> A duplicate (08-23) holds 4 folders, 0 docs — pure drift. One must be retired.</li>
+<li><b>~10 capsules are "TRK-TBD"</b> — no real tracking number. Your charter calls that a defect. Marked <span class="tbd">TBD</span> below.</li>
+<li><b>Doubled folder structure inside capsules</b> — a new numbered set (01-INTAKE, 02-PERMITS…) sits next to an old set (01_Emails, 02_Files…). That's why subfolder counts look high, and it splits each job in two.</li>
+<li><b>Counts are inflated by sidecars</b> (.SEARCH.txt / .TAGS.txt / .bak). Roughly half the files in the big capsules are sidecars, not primary documents. And <b>most real documents live INSIDE the subfolders, not at the root</b> — so these root counts UNDERCOUNT the true document totals.</li>
+</ul>
+</div>
+
+<h3>Alec Valdes (one client, many capsules) — #Alec-Valdes</h3>
+<div class="row"><span class="nm">TRK-2026-1612 — 331 Tamiami Canal Rd</span><span class="ct">4 docs · 8 subf</span><div class="tags"><span class="tag">#Alec-Valdes</span><span class="tag">#tax-jacket</span><span class="tag">#331-Tamiami-Canal-Rd</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1534 — 1840 NW 63 St</span><span class="ct">2 docs · 16 subf</span><div class="tags"><span class="tag">#Alec-Valdes</span><span class="tag">#1840-NW-63-St</span><span class="tag">#microfilm</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1535 — 18020 SW 103 Ave</span><span class="ct">2 docs · 15 subf</span><div class="tags"><span class="tag">#Alec-Valdes</span><span class="tag">#18020-SW-103-Ave</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1536 — 10362 SW 180 St</span><span class="ct">2 docs · 16 subf</span><div class="tags"><span class="tag">#Alec-Valdes</span><span class="tag">#10362-SW-180-St</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1292 — 7823 NW 5th Ave</span><span class="ct">2 docs · 14 subf</span><div class="tags"><span class="tag">#Alec-Valdes</span><span class="tag">#7823-NW-5-Ave</span><span class="tag">#Avis-Builders</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1289 — City of Miami folio</span><span class="ct">3 docs · 12 subf</span><div class="tags"><span class="tag">#Alec-Valdes</span><span class="tag">#City-of-Miami</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1286 — 1997 SW 218 St</span><span class="ct">2 docs · 11 subf</span><div class="tags"><span class="tag">#Alec-Valdes</span><span class="tag">#1997-SW-218-St</span><span class="tag">#Avis-Builders</span></div></div>
+<div class="row"><span class="nm">_ALEC-VALDES-DD (grouping folder)</span><span class="ct">19 docs · 8 subf</span><div class="tags"><span class="tag">#Alec-Valdes</span><span class="tag">#DD</span></div></div>
+
+<h3>MZ Solutions — #MZ-Solutions</h3>
+<div class="row"><span class="nm">TRK-2026-1293 — MZ Solutions Credentials 2026</span><span class="ct">1 doc · 9 subf</span><div class="tags"><span class="tag">#MZ-Solutions</span><span class="tag">#credentials</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1265 — Bal Harbour Permit Status</span><span class="ct">6 docs · 12 subf</span><div class="tags"><span class="tag">#MZ-Solutions</span><span class="tag">#Bal-Harbour</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1611 — Pembroke Pines Contractor Reg</span><span class="ct">2 docs · 10 subf</span><div class="tags"><span class="tag">#MZ-Solutions</span><span class="tag">#Pembroke-Pines</span></div></div>
+
+<h3>TEDC / Tacolcy — #TEDC (all near-empty skeletons)</h3>
+<div class="row"><span class="nm">TRK-2026-1294 — Edison Towers II</span><span class="ct">1 doc · 9 subf</span><div class="tags"><span class="tag">#TEDC</span><span class="tag">#Edison-Towers</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1295 — Principio 5401 NW 7 Ave</span><span class="ct">1 doc · 9 subf</span><div class="tags"><span class="tag">#TEDC</span><span class="tag">#Principio</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1296 — TEDC Credentials 2026</span><span class="ct">1 doc · 9 subf</span><div class="tags"><span class="tag">#TEDC</span><span class="tag">#credentials</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1297 — Tuscany Cove code case</span><span class="ct">1 doc · 9 subf</span><div class="tags"><span class="tag">#TEDC</span><span class="tag">#Tuscany-Cove</span></div></div>
+
+<h3>Bal Harbour / Bay Harbor units — mostly <span class="tbd">TBD</span></h3>
+<div class="row"><span class="nm">OPH-2026-0007 — Bal Harbour + Plaza (HOA units)</span><span class="ct">20 docs · 15 subf</span><div class="tags"><span class="tag">#Bal-Harbour</span><span class="tag">#Plaza</span><span class="tag">#OPH</span></div></div>
+<div class="row"><span class="nm"><span class="tbd">TRK-TBD</span> — 10000 W Bay Harbor Dr Unit 425</span><span class="ct">1 doc · 13 subf</span><div class="tags"><span class="tag">#Bay-Harbor</span><span class="tag">#Unit-425</span><span class="tag">#TRK-TBD</span></div></div>
+<div class="row"><span class="nm"><span class="tbd">TRK-TBD</span> — Unit 404 (Reyna Jovel)</span><span class="ct">1 doc · 13 subf</span><div class="tags"><span class="tag">#Bay-Harbor</span><span class="tag">#Unit-404</span><span class="tag">#TRK-TBD</span></div></div>
+<div class="row"><span class="nm"><span class="tbd">TRK-TBD</span> — Unit 302</span><span class="ct">1 doc · 13 subf</span><div class="tags"><span class="tag">#Bay-Harbor</span><span class="tag">#Unit-302</span><span class="tag">#TRK-TBD</span></div></div>
+<div class="row"><span class="nm"><span class="tbd">TRK-TBD</span> — Unit 301</span><span class="ct">1 doc · 13 subf</span><div class="tags"><span class="tag">#Bay-Harbor</span><span class="tag">#Unit-301</span><span class="tag">#TRK-TBD</span></div></div>
+<div class="row"><span class="nm"><span class="tbd">TRK-TBD</span> — Unit 221</span><span class="ct">1 doc · 13 subf</span><div class="tags"><span class="tag">#Bay-Harbor</span><span class="tag">#Unit-221</span><span class="tag">#TRK-TBD</span></div></div>
+
+<h3>Team USA Sales — #Team-USA-Sales</h3>
+<div class="row"><span class="nm">TUS-26-1033 — 7265 NW 74 St Medley</span><span class="ct">9 docs · 17 subf</span><div class="tags"><span class="tag">#Medley</span><span class="tag">#Team-USA-Sales</span><span class="tag">#legalization</span></div></div>
+<div class="row"><span class="nm">TUS-25-1023 — 14598 SW 110 St</span><span class="ct">4 docs · 17 subf</span><div class="tags"><span class="tag">#14598-SW-110-St</span><span class="tag">#Miguelez</span></div></div>
+<div class="row"><span class="nm">TUS-26-1018 — 8621 Pasadena Blvd</span><span class="ct">5 docs · 16 subf</span><div class="tags"><span class="tag">#8621-Pasadena-Blvd</span><span class="tag">#Pembroke-Pines</span></div></div>
+
+<h3>Other jobs & code cases</h3>
+<div class="row"><span class="nm">20001 SW 110 CT Unit 143 (TRK-2026-1262)</span><span class="ct"><span class="big">80 docs</span> · 8 subf</span><div class="tags"><span class="tag">#MDC</span><span class="tag">#20001-SW-110-Ct</span><span class="tag">#NOV</span></div></div>
+<div class="row"><span class="nm">1514 NW 73 St — House Project</span><span class="ct"><span class="big">72 docs</span> · 7 subf</span><div class="tags"><span class="tag">#1514-NW-73-St</span><span class="tag">#house-project</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1588 — 4225 Rose Arbor Cir (Port Charlotte)</span><span class="ct">7 docs · 7 subf</span><div class="tags"><span class="tag">#4225-Rose-Arbor</span><span class="tag">#Port-Charlotte</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1256 — Groves at Sunset (Karla)</span><span class="ct">4 docs · 11 subf</span><div class="tags"><span class="tag">#Groves-at-Sunset</span><span class="tag">#Karla</span></div></div>
+<div class="row"><span class="nm">KAR-26-GROVES — 8850 SW 72 St Groves at Sunset</span><span class="ct">5 docs · 16 subf</span><div class="tags"><span class="tag">#Groves-at-Sunset</span><span class="tag">#Karla</span><span class="tag">#possible-duplicate</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1268 — 1500 Ocean Drive (roof permit)</span><span class="ct">2 docs · 11 subf</span><div class="tags"><span class="tag">#1500-Ocean-Drive</span><span class="tag">#roof-permit</span></div></div>
+<div class="row"><span class="nm">TRK-2026-1310 — 10980 SW 202 Dr Cutler Bay</span><span class="ct">1 doc · 14 subf</span><div class="tags"><span class="tag">#Cutler-Bay</span><span class="tag">#concrete-restoration</span></div></div>
+<div class="row"><span class="nm">14953 SW 34 St (TRK-2026-1280)</span><span class="ct">2 docs · 10 subf</span><div class="tags"><span class="tag">#14953-SW-34-St</span></div></div>
+<div class="row"><span class="nm">TRK-2026-0708-JULIA — Julia's Place (Piwko)</span><span class="ct">1 doc · 7 subf</span><div class="tags"><span class="tag">#Piwko</span><span class="tag">#bond-release</span></div></div>
+<div class="row"><span class="nm">TRK-26-1042 — 15222 SW 108 Pl (Daymara Yhanes)</span><span class="ct">1 doc · 14 subf</span><div class="tags"><span class="tag">#Daymara-Yhanes</span><span class="tag">#15222-SW-108-Pl</span><span class="tag">#short-form-drift</span></div></div>
+<div class="row"><span class="nm"><span class="tbd">TRK-TBD</span> — 535 NW 7 St Homestead (Renzo Cahuana)</span><span class="ct">1 doc · 14 subf</span><div class="tags"><span class="tag">#Homestead</span><span class="tag">#Renzo-Cahuana</span><span class="tag">#TRK-TBD</span></div></div>
+<div class="row"><span class="nm"><span class="tbd">TRK-TBD</span> — 15601 SW 137 Ave</span><span class="ct">1 doc · 8 subf</span><div class="tags"><span class="tag">#15601-SW-137-Ave</span><span class="tag">#TRK-TBD</span></div></div>
+<div class="row"><span class="nm"><span class="tbd">TRK-TBD</span> — 13920 SW 34 St (Medina-Rodriguez)</span><span class="ct">1 doc · 8 subf</span><div class="tags"><span class="tag">#Medina-Rodriguez</span><span class="tag">#TRK-TBD</span></div></div>
+<div class="row"><span class="nm"><span class="tbd">TRK-TBD</span> — 13328 SW 113 Ct (Nick)</span><span class="ct">1 doc · 14 subf</span><div class="tags"><span class="tag">#Nick</span><span class="tag">#TRK-TBD</span></div></div>
+<div class="row"><span class="nm"><span class="tbd">TRK-TBD</span> — 2362-2364 NW 32 St (2362 Acquisition LLC)</span><span class="ct">1 doc · 14 subf</span><div class="tags"><span class="tag">#2362-NW-32-St</span><span class="tag">#TRK-TBD</span></div></div>
+
+<h3>Admin / staging (not jobs)</h3>
+<div class="row"><span class="nm">_ORPHANS (orphan holding)</span><span class="ct">6 docs · 9 subf</span><div class="tags"><span class="tag">#OPH</span><span class="tag">#orphans</span></div></div>
+<div class="row"><span class="nm">_CONVERGE-STAGING</span><span class="ct">1 doc · 19 subf</span><div class="tags"><span class="tag">#staging</span></div></div>
+
+</div>
+<p class="tot">Total capsules: <b>41</b> (main folder) + 1 duplicate drift folder. Root-level files across all: <b>~279</b>,
+but ~152 of those sit in just two capsules (20001 Unit 143 = 80, 1514 NW 73 St = 72), and many are sidecars.
+<b>True document totals require counting inside the subfolders</b> — a deeper dig I can run on request.
+#capsule-inventory #JorgeValdes #2026-08-26</p>

@@ -1,0 +1,123 @@
+<title>Jorge's One Board</title>
+<style>
+  :root{
+    --bg:#eef1f4; --ink:#16242c; --muted:#5f6e77; --card:#fff; --line:#d7dee4;
+    --you:#b23b00; --you-bg:#fdf3ee; --you-ln:#f0d6c6;
+    --lib:#0b5cad; --lib-bg:#eef4fb; --lib-ln:#cfe0f3;
+    --flag:#9a6a00; --flag-bg:#fdf7ea; --flag-ln:#efe0bd;
+    --ok:#0a7d3c; --chip:#eef2f5;
+  }
+  :root[data-theme="dark"], :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --bg:#0c1216; --ink:#e8eef2; --muted:#93a2ac; --card:#141d24; --line:#243139;
+      --you-bg:#241612; --you-ln:#4a2a1c; --lib-bg:#0f1c2a; --lib-ln:#22415f;
+      --flag-bg:#211a0d; --flag-ln:#453814; --chip:#1b2730; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:15.5px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:20px}
+  .wrap{max-width:840px;margin:0 auto}
+  h1{font-size:23px;margin:0 0 2px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+  .sec{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:16px}
+  .sec h2{font-size:16px;margin:0 0 4px;display:flex;align-items:center;gap:8px}
+  .sec .cap{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+  .you{background:var(--you-bg);border-color:var(--you-ln)}
+  .you h2{color:var(--you)}
+  .lib{background:var(--lib-bg);border-color:var(--lib-ln)} .lib h2{color:var(--lib)}
+  .flag{background:var(--flag-bg);border-color:var(--flag-ln)} .flag h2{color:var(--flag)}
+  .item{display:flex;gap:11px;padding:9px 0;border-top:1px solid var(--line)}
+  .item:first-of-type{border-top:none}
+  .n{flex:none;width:22px;height:22px;border-radius:50%;background:var(--you);color:#fff;font-size:12px;
+     font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .flag .n{background:var(--flag)}
+  .it b{display:block;font-size:14.5px}
+  .it .s{color:var(--muted);font-size:13px}
+  .ask{font-size:12px;font-weight:700;color:var(--you);white-space:nowrap;margin-left:auto;align-self:center}
+  .flag .ask{color:var(--flag)}
+  .libgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+  .lc{background:var(--card);border:1px solid var(--lib-ln);border-radius:9px;padding:8px 11px;font-size:13.5px}
+  .lc b{font-size:20px;color:var(--lib)} .lc span{color:var(--muted);font-size:12.5px}
+  .big{font-size:34px;font-weight:800;color:var(--lib);margin:2px 0}
+  .status .row{display:flex;gap:8px;padding:4px 0;font-size:13.5px;align-items:center}
+  .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .foot{color:var(--muted);font-size:12px;text-align:center;margin-top:6px}
+</style>
+<div class="wrap">
+  <h1>Jorge's One Board</h1>
+  <p class="sub">What needs you, then what you have. Built by cloud · 2026-08-26.</p>
+
+  <!-- NEEDS YOU -->
+  <div class="sec you">
+    <h2>● Needs your one-word yes</h2>
+    <p class="cap">The only things the machine can't do without you. Answer any, in a word.</p>
+
+    <div class="item"><div class="n">1</div><div class="it">
+      <b>File the enhanced 331 Tamiami jacket into its capsule (TRK-2026-1612)</b>
+      <span class="s">Done & searchable, 28→24 pages. Just needs your OK to drop it in.</span></div>
+      <span class="ask">File it?</span></div>
+
+    <div class="item"><div class="n">2</div><div class="it">
+      <b>Send the MZ Solutions collections email — $4,022</b>
+      <span class="s">Drafted, warm, lists all 3 invoices. Ready to send.</span></div>
+      <span class="ask">Send?</span></div>
+
+    <div class="item"><div class="n">3</div><div class="it">
+      <b>Send the Alabama Jack's proposal to Rick — $4,750</b>
+      <span class="s">Package locked (split, payee Team USA Sales). Awaiting your go.</span></div>
+      <span class="ask">Send?</span></div>
+
+    <div class="item"><div class="n">4</div><div class="it">
+      <b>Two phone calls only you can make</b>
+      <span class="s">Scripts ready: MDC Building Support (close the NOV) · Chapelli (Homestead hearing outcome).</span></div>
+      <span class="ask">Call?</span></div>
+
+    <div class="item"><div class="n">5</div><div class="it">
+      <b>QuickBooks login — invoice 5975 ($1,000)</b>
+      <span class="s">Only your login can confirm it's collectible before it lapses.</span></div>
+      <span class="ask">Check?</span></div>
+  </div>
+
+  <!-- WHAT YOU HAVE -->
+  <div class="sec lib">
+    <h2>▤ What you have (it's not lost)</h2>
+    <p class="cap">Counted tonight — every file, every folder deep. Much is already OCR'd and tagged.</p>
+    <div class="big">~3,975 documents · 41 capsules</div>
+    <div class="libgrid" style="margin-top:10px">
+      <div class="lc"><b>567</b> <span>Alec Valdes (6 jobs)</span></div>
+      <div class="lc"><b>1,003</b> <span>Big DD / microfilm (1535, 1536, Pasadena…)</span></div>
+      <div class="lc"><b>238</b> <span>Bal Harbour + Plaza units</span></div>
+      <div class="lc"><b>194</b> <span>Karla / Groves</span></div>
+      <div class="lc"><b>125</b> <span>Medley</span></div>
+      <div class="lc"><b>1,094</b> <span>Staging + orphans (needs sorting)</span></div>
+    </div>
+  </div>
+
+  <!-- FLAGS -->
+  <div class="sec flag">
+    <h2>⚑ Filing drift to fix (staged for your OK)</h2>
+    <p class="cap">Found tonight. Each fix is a RED move, so it waits for you — but it's prepped.</p>
+    <div class="item"><div class="n">A</div><div class="it">
+      <b>Two "ONE SOURCE OF TRUTH" folders exist</b>
+      <span class="s">A duplicate from 08-23. Two "single" sources causes misfiling — merge to one.</span></div>
+      <span class="ask">Merge?</span></div>
+    <div class="item"><div class="n">B</div><div class="it">
+      <b>A whole job is buried in staging — "5000 SW 75 Ave, Palmer Trust"</b>
+      <span class="s">1,046 files inside _CONVERGE-STAGING. It needs its own capsule + tracking number.</span></div>
+      <span class="ask">Rescue?</span></div>
+    <div class="item"><div class="n">C</div><div class="it">
+      <b>10 capsules still say "TRK-TBD"</b>
+      <span class="s">No real number yet — the charter calls this a defect. Assign numbers from the registry.</span></div>
+      <span class="ask">Number?</span></div>
+  </div>
+
+  <!-- STATUS -->
+  <div class="sec status">
+    <h2>◷ Where the engine stands</h2>
+    <div class="row"><span class="dot" style="background:var(--ok)"></span> OCR proven — runs free, locally ($0 per page)</div>
+    <div class="row"><span class="dot" style="background:var(--ok)"></span> Denominator started · QC in place · $100 cap + meter designed · rules ratified</div>
+    <div class="row"><span class="dot" style="background:var(--you)"></span> <b>The one gap: an always-on engine</b> — your desktop on a schedule, so it runs while you're away</div>
+  </div>
+
+  <p class="foot">Full detail: CAPSULE-INVENTORY & OWNER-TASK-RELIEF in the repo. #one-board #JorgeValdes</p>
+</div>

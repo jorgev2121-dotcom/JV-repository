@@ -1,3 +1,8 @@
+> **STATUS 2026-08-26 (cloud, from desktop RESULT-9765 / COUNTY-9744): ALL 22 SITES WERE ACCESSED 2026-08-15/16 — 0 REMAINING.**
+> 20 = EXECUTED-WITH-PROOF, 2 = PARTIAL (SITE-04 Clerk = Cloudflare Turnstile; SITE-12 Certs of Use = no public search post-2012).
+> Proof: `_CLAUDE-MAILBOX\COUNTY-PROOF-TRK-2026-9078\` (25 files). The per-row `NOT_STARTED` below is STALE — the work exists, the index didn't hear.
+> DO NOT RE-QUEUE this as a heavy overnight item. DD-report gaps to state: SITE-17 City of Miami iBuild is login-blocked (affects TRK-1289/1292/1531); SITE-07 EPS folio search login-gated.
+
 # MIAMI-DADE-SITES.md — TRK-2026-9007
 
 **Built by a cloud session 2026-08-15 from public research. Jorge did not have to
