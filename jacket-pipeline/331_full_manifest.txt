@@ -1,0 +1,33 @@
+331 TAMIAMI CANAL RD — TRK-2026-1612 — full jacket enhancement manifest
+PAGES IN: 28   KEPT: 24   DROPPED(blank/junk): 4
+DROPPED global pages: [4, 6, 14, 26]  (['pt1p4', 'pt1p6', 'pt1p14', 'pt3p2'])
+
+global | source | type | status | rotation | ocr_chars
+  p01 | pt1p1 | TEXT/FORM | KEPT | 0 | 103
+  p02 | pt1p2 | TEXT/FORM | KEPT | 0 | 2
+  p03 | pt1p3 | TEXT/FORM | KEPT | 270 | 330
+  p04 | pt1p4 | BLANK/JUNK | DROPPED | 0 | 0
+  p05 | pt1p5 | TEXT/FORM | KEPT | 270 | 296
+  p06 | pt1p6 | BLANK/JUNK | DROPPED | 0 | 0
+  p07 | pt1p7 | TEXT/FORM | KEPT | 0 | 302
+  p08 | pt1p8 | TEXT/FORM | KEPT | 0 | 93
+  p09 | pt1p9 | TEXT/FORM | KEPT | 270 | 1137
+  p10 | pt1p10 | TEXT/FORM | KEPT | 180 | 13
+  p11 | pt1p11 | TEXT/FORM | KEPT | 270 | 852
+  p12 | pt1p12 | TEXT/FORM | KEPT | 0 | 30
+  p13 | pt1p13 | TEXT/FORM | KEPT | 270 | 945
+  p14 | pt1p14 | BLANK/JUNK | DROPPED | 0 | 0
+  p15 | pt1p15 | TEXT/FORM | KEPT | 0 | 136
+  p16 | pt1p16 | TEXT/FORM | KEPT | 0 | 0
+  p17 | pt2p1 | TEXT/FORM | KEPT | 0 | 12
+  p18 | pt2p2 | TEXT/FORM | KEPT | 0 | 16
+  p19 | pt2p3 | TEXT/FORM | KEPT | 0 | 0
+  p20 | pt2p4 | TEXT/FORM | KEPT | 0 | 0
+  p21 | pt2p5 | TEXT/FORM | KEPT | 0 | 12
+  p22 | pt2p6 | TEXT/FORM | KEPT | 0 | 11
+  p23 | pt2p7 | TEXT/FORM | KEPT | 0 | 17
+  p24 | pt2p8 | TEXT/FORM | KEPT | 0 | 10
+  p25 | pt3p1 | TEXT/FORM | KEPT | 270 | 325
+  p26 | pt3p2 | BLANK/JUNK | DROPPED | 0 | 0
+  p27 | pt3p3 | TEXT/FORM | KEPT | 0 | 433
+  p28 | pt3p4 | TEXT/FORM | KEPT | 0 | 75
