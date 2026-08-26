@@ -2,9 +2,13 @@
 **The one daily batch, cut to the minimum. Everything else the agent + cloud QC handle. #daily-red #JorgeValdes**
 **Made as short as honestly possible 2026-08-26. Anything reversible was moved to a cloud-set default and taken OFF this list.**
 
-## THE LIST (now just 2 — financials cleared 2026-08-26)
-1. **Create the free Gemini API key** (~2 min) — this is the FIRST step of the multi-LLM transition.
-2. **Click the new Claude tray icons, keep the one whose mic works** (and tell me: is your left monitor on?).
+## THE LIST (financials cleared 2026-08-26; transition gaps added — TRK-2026-9203)
+1. **Create the free Gemini API key** (~2 min) — the FIRST step; without it no other LLM can act.
+2. **Connect the new LLM to Google Drive + Gmail** — one "Allow" screen only you can click; gives it hands.
+3. **Set an always-on schedule** (a Routine) — the one engine piece so work runs while you're away.
+4. **Click the new Claude tray icons, keep the one whose mic works** (and tell me: is your left monitor on?).
+
+*(Items 1–3 are the smooth-transition gaps from TRANSITION-GAP-CHECKLIST_TRK-2026-9203. Everything else is already transferred.)*
 
 ## CLEARED / ON HOLD (per Jorge 2026-08-26 — off the list)
 - **MZ Solutions — PAID.** Received via **Zelle yesterday** (~$4,022). Closed. (Reconcile the Zelle deposit.)
