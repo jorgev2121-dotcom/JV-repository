@@ -21,6 +21,15 @@
 
 ## LIGHT — safe to do now, during the CPU peak
 
+### 0. TRK-2026-9740 — Executor tray icons (Jorge's direct ask, third time — do not skip)
+**Added 2026-08-26.** Merge/pull branch `claude/executor-tray-icon-1cazza` (it already
+contains this branch merged in), then work **item 12 in the old `WORK-QUEUE.md`**:
+install `tools/tray/CU-ExecutorTray.ps1` — three always-visible tray icons (green D =
+desktop executor, blue C = cloud, orange X = Cowork), click = focus-or-open. Its
+open-commands reuse your four verified OneDrive-Desktop shortcuts from RESULT-D2C-9740.
+Light: no CPU load, no downloads, no elevation. Evidence = the 4 acceptance proofs in
+item 12, via TO-CLOUD.md.
+
 ### 1. Open ChatGPT in Chrome (take-me-there)
 Jorge asked for ChatGPT open. **Open `chatgpt.com` in Chrome and leave it on screen** —
 don't just point at it. Whatever ChatGPT model is live is fine.

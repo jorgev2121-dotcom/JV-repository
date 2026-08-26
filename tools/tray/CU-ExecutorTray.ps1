@@ -99,25 +99,58 @@ function Focus-WindowByTitle {
 # --- The three windows --------------------------------------------------------
 # TitlePattern: regex tried against every open window title first (focus wins
 # over opening a duplicate - RI-007). OpenCommand: what to run if not found.
-# DESKTOP EXECUTOR VERIFIES THESE THREE LINES against the real machine.
+#
+# UPDATED 2026-08-26 from the desktop's RESULT-D2C-9740 findings:
+# the desktop already built verified launcher shortcuts on the REAL desktop
+# (C:\Users\JV\OneDrive\Desktop - NOT the phantom C:\Users\JV\Desktop):
+#   CODE  -> Open-Code-Executor.vbs (local executor)
+#   CLOUD -> Chrome app-window on claude.ai/code, CU-Business profile
+#   COWORK/CHAT -> the installed Claude desktop app (Cowork is a tab in it)
+# The tray reuses those shortcuts instead of guessing launch commands.
+# DESKTOP EXECUTOR: verify the shortcut names below match what exists.
+$RealDesktop = Join-Path $env:OneDrive 'Desktop'
+
+function Open-DesktopShortcut {
+    # Launch the first .lnk/.vbs/.url on the real desktop matching any pattern;
+    # return $false if none exists so the caller can fall back.
+    param([string[]]$Patterns)
+    foreach ($pat in $Patterns) {
+        $hit = Get-ChildItem -Path $RealDesktop -Filter $pat -ErrorAction SilentlyContinue | Select-Object -First 1
+        if ($hit) { Start-Process $hit.FullName; return $true }
+    }
+    return $false
+}
+
 $Targets = @(
     @{
         Key = 'D'; ColorName = 'ForestGreen'
         Tip = 'CODE - DESKTOP EXECUTOR  (terminal on this PC)'
-        TitlePattern = 'DESKTOP EXECUTOR|Claude Code'
-        OpenCommand  = { Start-Process 'wt.exe' -ArgumentList '-w','0','nt','powershell','-NoExit','-Command','claude' }
+        TitlePattern = 'DESKTOP - Claude Code|DESKTOP EXECUTOR|Claude Code'
+        OpenCommand  = {
+            if (-not (Open-DesktopShortcut @('CODE*.lnk','Open-Code-Executor*.vbs','CODE*.vbs'))) {
+                Start-Process 'wt.exe'
+            }
+        }
     },
     @{
         Key = 'C'; ColorName = 'RoyalBlue'
         Tip = 'CODE - CLOUD/WEB EXECUTOR  (claude.ai/code)'
-        TitlePattern = 'claude\.ai/code|CLOUD/WEB EXECUTOR|CLOUD EXECUTOR'
-        OpenCommand  = { Start-Process 'https://claude.ai/code' }
+        TitlePattern = 'claude\.ai/code|CLOUD/WEB EXECUTOR|CLOUD EXECUTOR|Claude Code - '
+        OpenCommand  = {
+            if (-not (Open-DesktopShortcut @('CLOUD*.lnk','CLOUD*.url'))) {
+                Start-Process 'https://claude.ai/code'
+            }
+        }
     },
     @{
         Key = 'X'; ColorName = 'DarkOrange'
-        Tip = 'COWORK  (Claude Cowork window)'
-        TitlePattern = 'Cowork'
-        OpenCommand  = { Start-Process 'https://claude.ai/' }
+        Tip = 'COWORK  (tab inside the Claude desktop app)'
+        TitlePattern = '^Claude$|Cowork'
+        OpenCommand  = {
+            if (-not (Open-DesktopShortcut @('COWORK*.lnk','CHAT*.lnk'))) {
+                Start-Process 'https://claude.ai/'
+            }
+        }
     }
 )
 

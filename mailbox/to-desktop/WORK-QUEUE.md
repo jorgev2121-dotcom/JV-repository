@@ -216,6 +216,12 @@ Jorge's words: *"We discussed. We agreed. And ultimately it was not done."* Find
 
 ## 12. TRK-2026-9740 — Executor tray icons: D / C / X, always visible  (Jorge asked 2026-08-25)
 
+**ADDENDUM 2026-08-26:** your RESULT-D2C-9740 (the four OneDrive-Desktop shortcuts,
+TRK-2026-9903) answered a DIFFERENT task — this tray item is still open. The script's
+`$Targets` now REUSE your four verified shortcuts (`CODE*/CLOUD*/COWORK*/CHAT*` on
+`%OneDrive%\Desktop`) as its open-commands, so step 2 below shrinks to: confirm the
+shortcut filenames match those wildcard patterns. Everything else stands.
+
 **Jorge's ask, third time on record (9341 → 9363 → today): every Claude executor
 window gets an icon on his tray.** The FREEZE deferral in PASTE-D-019 is lifted for
 this item by his direct request. This is the Tier-2 replacement Rule 4 requires —
