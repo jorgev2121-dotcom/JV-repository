@@ -136,6 +136,12 @@ No fix may be proposed until all three are answered.
 
 He listens to replies via text-to-speech and has dyslexia.
 
+- **NO BLANK LINES BETWEEN PARAGRAPHS in chat replies — owner directive, Jorge,
+  2026-08-27.** His auto reader stops at every vertical gap. Write replies as one
+  continuous flow: sentences and single line breaks only, numbers inline ("First,…
+  Second,…") instead of vertically spaced lists, no headers or horizontal rules
+  mid-reply. This applies to chat messages he will listen to; repo files, mailbox
+  files and code keep normal formatting.
 - Short paragraphs. Numbered lists. Bold the load-bearing sentence.
 - **Minimise tables** — they read aloud badly. Prose or lists instead.
 - Put the answer first, the reasoning after.
