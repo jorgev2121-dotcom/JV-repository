@@ -41,6 +41,13 @@ desktop found a **one-line code fix** that makes it automatic (never counts a no
 `recreate-jv-executor.ps1` (fire-proof rebuild script) is **safe in the Drive mailbox** but its **GitHub
 commit is still pending** (a transfer corrupted; I won't commit a truncated script). First cloud task this morning.
 
+## 🎁 BONUS — the county outage wasn't wasted
+While the county was down, the desktop pivoted to filing/DD work (good downtime use):
+- **Recovered 572 permit documents** — all Garden Walk — and honestly **self-corrected its own "804" count
+  down to 572** when the first number turned out to be an over-count.
+- **Surfaced 85 uncapsuled properties** and matched Lezcano paper by permit key where no name match worked.
+(Both are RESULT files in the Drive mailbox — filing findings, not the priority, but the night kept earning.)
+
 ## THE VERDICT
 **The engine delivered a clean 502-lead call list overnight. The front door still waits on your login** —
 one key, one right-click.
