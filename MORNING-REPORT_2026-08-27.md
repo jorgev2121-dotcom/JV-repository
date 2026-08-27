@@ -37,9 +37,10 @@ The rescue survived three outages, and each one needed a **hand-run cleanup** to
 desktop found a **one-line code fix** that makes it automatic (never counts a non-answer as "done"). It's
 **gated on your okay** (the freeze bars new builds). **Say the word and it stops being a nightly chore.**
 
-## 📌 HONEST PENDING (cloud)
-`recreate-jv-executor.ps1` (fire-proof rebuild script) is **safe in the Drive mailbox** but its **GitHub
-commit is still pending** (a transfer corrupted; I won't commit a truncated script). First cloud task this morning.
+## 📌 HONEST PENDING (cloud) — ✅ CLEARED
+`recreate-jv-executor.ps1` is now **on GitHub** (commit `8747a24`, `scripts/recreate-jv-executor.ps1`,
+branch `claude/working-status-check-chuqwt`). Re-downloaded from the Drive mailbox and **byte-verified:
+7,513 bytes, exact match to the desktop's original.** The fire-proof copy exists. Done 2026-08-27 morning.
 
 ## 🎁 BONUS — the county outage wasn't wasted
 While the county was down, the desktop pivoted to filing/DD work (good downtime use):
