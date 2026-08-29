@@ -1,0 +1,137 @@
+<title>VTES Control Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --ground:#f7f5f0; --surface:#ffffff; --raised:#efece4;
+  --line:#ded9cd; --ink:#1c2420; --muted:#5c665f;
+  --accent:#1d5c45; --accent-soft:#e3efe8;
+  --warn:#a3451f; --warn-soft:#f8e9e1;
+  --cloud:#245a8f; --cloud-soft:#e7eef6;
+  --desk:#6b4a12; --desk-soft:#f5edda;
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme: dark){
+    --ground:#0d1210; --surface:#161d1a; --raised:#1e2723;
+    --line:#2c3833; --ink:#e8ede9; --muted:#98a69e;
+    --accent:#5fc79a; --accent-soft:#14291f;
+    --warn:#f09a72; --warn-soft:#2e1810;
+    --cloud:#7db4e8; --cloud-soft:#122130;
+    --desk:#e0b566; --desk-soft:#2a2210;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0d1210; --surface:#161d1a; --raised:#1e2723;
+  --line:#2c3833; --ink:#e8ede9; --muted:#98a69e;
+  --accent:#5fc79a; --accent-soft:#14291f;
+  --warn:#f09a72; --warn-soft:#2e1810;
+  --cloud:#7db4e8; --cloud-soft:#122130;
+  --desk:#e0b566; --desk-soft:#2a2210;
+}
+*{box-sizing:border-box}
+body{background:var(--ground); color:var(--ink); margin:0;
+  font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  font-size:17.5px; line-height:1.55; -webkit-font-smoothing:antialiased}
+.wrap{max-width:920px; margin:0 auto; padding:28px 20px 80px}
+h1{font-family:"Archivo","Segoe UI",sans-serif; font-weight:700; font-size:2rem;
+  margin:0 0 4px; letter-spacing:-.01em; text-wrap:balance}
+.sub{color:var(--muted); margin:0 0 26px; font-size:1rem}
+h2{font-family:"Archivo","Segoe UI",sans-serif; font-weight:700; font-size:1.22rem;
+  margin:38px 0 6px; text-wrap:balance}
+h2 .eyebrow{display:block; font-size:.72rem; letter-spacing:.13em; color:var(--accent);
+  font-weight:600; text-transform:uppercase; margin-bottom:2px}
+.note{color:var(--muted); font-size:.95rem; margin:0 0 12px}
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  overflow:hidden; margin-top:10px}
+.row{display:flex; align-items:center; gap:14px; padding:13px 16px;
+  border-top:1px solid var(--line); text-decoration:none; color:var(--ink); min-height:52px}
+.row:first-child{border-top:none}
+a.row:hover{background:var(--accent-soft)}
+a.row:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+.row .name{flex:1; font-weight:600}
+.row .name small{display:block; font-weight:400; color:var(--muted); font-size:.86rem}
+.chip{font-family:"IBM Plex Mono",monospace; font-size:.7rem; letter-spacing:.06em;
+  padding:3px 9px; border-radius:99px; white-space:nowrap; font-weight:500}
+.c-drive{background:var(--accent-soft); color:var(--accent)}
+.c-git{background:var(--desk-soft); color:var(--desk)}
+.c-gmail{background:var(--cloud-soft); color:var(--cloud)}
+.c-art{background:var(--cloud-soft); color:var(--cloud)}
+.c-miss{background:var(--warn-soft); color:var(--warn)}
+.row.dead{color:var(--muted)}
+.row.dead .name{font-weight:400}
+.idkey{display:grid; grid-template-columns:1fr; gap:0; background:var(--surface);
+  border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-top:10px}
+.idrow{display:flex; gap:14px; padding:13px 16px; border-top:1px solid var(--line); align-items:baseline}
+.idrow:first-child{border-top:none}
+.idrow .who{flex:0 0 232px; font-weight:700}
+.idrow .tell{color:var(--muted)}
+.verdict{background:var(--accent-soft); border:1px solid var(--line); border-radius:10px;
+  padding:14px 18px; margin-top:12px}
+.verdict strong{color:var(--accent)}
+.facts{background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:14px 18px; margin-top:10px; font-size:.98rem}
+.facts b{font-weight:700}
+.mono{font-family:"IBM Plex Mono",monospace; font-size:.88em}
+footer{margin-top:44px; color:var(--muted); font-size:.88rem; border-top:1px solid var(--line); padding-top:14px}
+@media (max-width:560px){ .idrow{flex-direction:column; gap:2px} .idrow .who{flex:auto} }
+</style>
+
+<div class="wrap">
+<h1>VTES Control Panel</h1>
+<p class="sub">Every link is live. Built by ☁️ CODE·CLOUD · 2026-08-29 · links only — the board stays the board.</p>
+
+<h2><span class="eyebrow">Section A</span>Which window am I in?</h2>
+<p class="note">The three-second test, plus the verdict on the window you pasted from.</p>
+<div class="idkey">
+  <div class="idrow"><span class="who">☁️ Claude Code — cloud</span><span class="tell">Browser window, address bar says <span class="mono">claude.ai/code</span>. Has mic, agent view, screenshot paste. Cannot touch the PC.</span></div>
+  <div class="idrow"><span class="who">🖥️ Claude Code — desktop</span><span class="tell">Black console/terminal on the PC. No mic button (Win+H dictates). Can touch files, Outlook, county sites.</span></div>
+  <div class="idrow"><span class="who">🤝 Cowork / Chat</span><span class="tell">Beige app or <span class="mono">claude.ai</span> chat page. Talking and planning, not the repo executor.</span></div>
+  <div class="idrow"><span class="who">🟩 Grok capsule app</span><span class="tell">Has <b>Publish · Enqueue · Packages · QUEUE</b> buttons and <span class="mono">/report/…</span> pages. Builds capsules and templates. Not a Claude window at all.</span></div>
+</div>
+<div class="verdict"><strong>Verdict on your mystery window:</strong> the Capsule·10980 page with the QUEUE bar and Publish button is the <b>Grok capsule app</b> — the cloud seat SIT-DOWN assigns capsules to. To make it introduce itself from now on, paste the ready-made block (last link in Section C) into its custom instructions. Any Claude window will identify itself if you type <span class="mono">ID</span>.</div>
+
+<h2><span class="eyebrow">Section B</span>Capsule 10980 SW 202 DR · TRK-2026-1310</h2>
+<div class="facts">Active balcony / spalling job, Cutler Bay 33189 · Owner <b>10960 SW 200th Avenue LLC</b> (contact Cinde Velazquez) · GC <b>MZ Solutions / Miguel Zaldivar</b> CGC1528486 · PE <b>Pedro L. Fiallo</b> PE 76100 · Grok card is <b>draft only — not filed</b>, and its folio + "same folio as 20001 SW 110 CT #143" claims are unverified (the Drive folder still says FOLIO-TBD).</div>
+<div class="panel">
+  <a class="row" href="https://drive.google.com/drive/folders/1nW4BWBBxU3SJEZtKWawkIm-GJQoIv3BM" target="_blank" rel="noopener"><span class="name">Job capsule folder <small>TRK-2026-1310 · 10980 SW 202 Dr (Concrete Restoration)</small></span><span class="chip c-drive">DRIVE</span></a>
+  <a class="row" href="https://drive.google.com/file/d/1jkdtQVeXyXKD20oZxc_R15OfwWvvCLIi/view" target="_blank" rel="noopener"><span class="name">Capsule _INDEX <small>the folder's own index page</small></span><span class="chip c-drive">DRIVE</span></a>
+  <a class="row" href="https://drive.google.com/drive/folders/1Xab_irg3ScQVxeWp8Cf6uR6_qjsYBHyT" target="_blank" rel="noopener"><span class="name">Tax jacket 2026-08-24 <small>3 PDFs · 22 pages · verified against the PA email</small></span><span class="chip c-drive">DRIVE</span></a>
+  <a class="row" href="https://mail.google.com/mail/u/0/#all/1a0355da80f48cdf" target="_blank" rel="noopener"><span class="name">PA email — "bldg jacket for 10980 SW 202 DR" <small>2026-08-24 · the 3 original ACS PDFs</small></span><span class="chip c-gmail">GMAIL</span></a>
+  <span class="row dead"><span class="name">REVIEW-ALL-10980-CONTIGUOUS.pdf <small>named on the Grok card — not in Drive</small></span><span class="chip c-miss">MISSING</span></span>
+  <span class="row dead"><span class="name">PACKET-10980-PERMIT-NOC-POA.pdf <small>named on the Grok card — not in Drive</small></span><span class="chip c-miss">MISSING</span></span>
+  <span class="row dead"><span class="name">Structural-Plans-Balcony.pdf <small>named on the Grok card — not in Drive</small></span><span class="chip c-miss">MISSING</span></span>
+  <span class="row dead"><span class="name">MZ-Balcony-Revised-Proposal-08.28.2026.pdf <small>named on the Grok card — not in Drive</small></span><span class="chip c-miss">MISSING</span></span>
+  <span class="row dead"><span class="name">PLF-Invoice-260518-001.pdf <small>named on the Grok card — not in Drive</small></span><span class="chip c-miss">MISSING</span></span>
+</div>
+<p class="note">The five MISSING rows are why the card said "no docs attached": Grok listed names, but no file with any of those names exists in Google Drive. If they exist anywhere, it's inside the Grok app or on the PC — they need to be exported into the capsule folder above before they can be linked.</p>
+
+<h2><span class="eyebrow">Section C</span>Continuity board — #sitdown</h2>
+<div class="panel">
+  <a class="row" href="https://drive.google.com/drive/folders/11Ivh48dUOmp8m0UYydRf7vk61xKo-Olb" target="_blank" rel="noopener"><span class="name">00-CONTINUITY-BOARD <small>the whole folder</small></span><span class="chip c-drive">DRIVE</span></a>
+  <a class="row" href="https://drive.google.com/file/d/1XJPcDiXBdbv1NDn8MNeDvDNlklXR1ygn/view" target="_blank" rel="noopener"><span class="name">SIT-DOWN <small>the front door every fresh seat reads first</small></span><span class="chip c-drive">DRIVE</span></a>
+  <a class="row" href="https://drive.google.com/file/d/19MHAx3p2sV3VEFPABW0RwZB0LBQ-Lf4m/view" target="_blank" rel="noopener"><span class="name">LAST-BUS-OUT <small>what each seat did before it left</small></span><span class="chip c-drive">DRIVE</span></a>
+  <a class="row" href="https://drive.google.com/file/d/1UrDcoGBXdiNN8afVUB5RuFFi5Ryn5aZ0/view" target="_blank" rel="noopener"><span class="name">Cloud's beat — 2026-08-29 <small>verified 10980 count + seat-map correction, awaiting desktop merge</small></span><span class="chip c-drive">DRIVE</span></a>
+  <a class="row" href="https://drive.google.com/file/d/1t1Mlw-q1UsKciiDosmyQPpgOt3Kvvxh1/view" target="_blank" rel="noopener"><span class="name">PASTE-INTO-EVERY-LLM <small>drop this into Grok / ChatGPT / Gemini custom instructions so every seat identifies itself</small></span><span class="chip c-drive">DRIVE</span></a>
+</div>
+
+<h2><span class="eyebrow">Section D</span>Boards &amp; registers — the repo</h2>
+<div class="panel">
+  <a class="row" href="https://github.com/jorgev2121-dotcom/JV-repository" target="_blank" rel="noopener"><span class="name">JV-repository <small>the Claude seats' shared filing cabinet</small></span><span class="chip c-git">GITHUB</span></a>
+  <a class="row" href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/slack-app-overview-3i0w4g/OPEN-ITEMS.md" target="_blank" rel="noopener"><span class="name">OPEN-ITEMS <small>the work ledger (latest branch)</small></span><span class="chip c-git">GITHUB</span></a>
+  <a class="row" href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/slack-app-overview-3i0w4g/RECURRING-ISSUES.md" target="_blank" rel="noopener"><span class="name">RECURRING-ISSUES <small>the chronic-problems log</small></span><span class="chip c-git">GITHUB</span></a>
+  <a class="row" href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/slack-app-overview-3i0w4g/mailbox/to-desktop/WORK-ORDER_M365-RESET_PAPERPORT_OVERLAY_2026-08-29.md" target="_blank" rel="noopener"><span class="name">Today's desktop work order <small>M365 reset · PaperPort · dead buttons · #sitdown merge</small></span><span class="chip c-git">GITHUB</span></a>
+  <a class="row" href="https://drive.google.com/drive/folders/1U4hnBp5Tt0qb1sxvO6dd3csBCWjhdQJt" target="_blank" rel="noopener"><span class="name">01-JOBS — jobs root <small>one source of truth, all capsules</small></span><span class="chip c-drive">DRIVE</span></a>
+  <a class="row" href="https://drive.google.com/drive/folders/1ksoxBbUnCBJf7uddi9lPN7O9aFGKWVRr" target="_blank" rel="noopener"><span class="name">VTES-Bridge <small>the bridge folder</small></span><span class="chip c-drive">DRIVE</span></a>
+  <a class="row" href="https://docs.google.com/spreadsheets/d/14Ic43WkrnQEIAmt2j4SJUWn8gDA83KhsuRLBxer6Pu4/edit" target="_blank" rel="noopener"><span class="name">VTES Job Ledger <small>spreadsheet</small></span><span class="chip c-drive">SHEET</span></a>
+</div>
+
+<h2><span class="eyebrow">Section E</span>Live windows — artifacts</h2>
+<div class="panel">
+  <a class="row" href="https://claude.ai/code/artifact/868f5454-8c83-40eb-a3d1-a8e3e04055a5" target="_blank" rel="noopener"><span class="name">Orange Tree — master tracking <small>the live v2 dashboard</small></span><span class="chip c-art">ARTIFACT</span></a>
+  <a class="row" href="https://claude.ai/code/artifact/0438d497-7ea7-4b48-ad3f-86718534c7dd" target="_blank" rel="noopener"><span class="name">The One-List Plan <small>the plan board</small></span><span class="chip c-art">ARTIFACT</span></a>
+</div>
+
+<footer>This panel is a <b>door rack, not a task list</b> — THE ONE BOARD and OPEN-ITEMS stay the only work lists. Source lives in the repo (<span class="mono">VTES-CONTROL-PANEL.html</span>), so any seat can update it. TRK-2026-9718 · #VTES #control-panel #sitdown #TRK-2026-1310</footer>
+</div>
