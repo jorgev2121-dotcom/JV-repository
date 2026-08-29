@@ -107,6 +107,12 @@ cross-pointer: Claude seats' own front door is the repo `jorgev2121-dotcom/JV-re
 REAL desktop (`OneDrive\Desktop`)** — SIT-DOWN points them at `C:\Users\JV\Desktop`, which
 DESKTOP-9450 proved is the invisible one.
 
+**JORGE CORRECTION 2026-08-29 (typo resolved): "J drive" was a dictation typo for G: — Google
+Drive.** There is no J: drive and none is coming. The board is already in its right home
+(`G:\My Drive\00-CONTINUITY-BOARD\`). **Delete the "if a J: ever appears, mirror to
+J:\TeamUSA\LIBRARY" clauses from SIT-DOWN.md and CHARTER.md §1.83** so no future seat hunts for a
+phantom drive.
+
 ---
 
 **Report all three via TO-CLOUD.md. Which of the three did you start with, and is anything above
