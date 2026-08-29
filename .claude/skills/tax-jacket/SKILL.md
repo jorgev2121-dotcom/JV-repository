@@ -83,6 +83,34 @@ from the deliverable** (do not number it as content). It stays in ORIGINAL only.
 **Documents/cards enhance well as-is** (deskew, hole/streak removal, background clean, keep table
 rules) — that branch of the recipe is good; leave it. The defect is photos only.
 
+**IMAGE-ENHANCEMENT RULES (Jorge's v2→v3 grade, 2026-08-29 — "all your tools applied = a perfect outcome"):**
+- **Copier blackout → WHITE.** The solid black bands/frames a copier leaves are not data — crop them
+  off (photos) or map them to white (documents). Never leave black borders.
+- **Handwriting is NEVER dark enough — always deepen the ink to maximum black.** Faint pencil/pen is
+  the recurring failure; push contrast so handwritten folios, dates, permit numbers, and remarks go
+  as black as possible without touching the photo branch.
+- **Low-contrast / gray-background pages: darken the whole page for contrast** (deepen writing AND
+  typing). Some pages need a harder push than others — turn the dial per page until legible.
+- **Straighten every card/handwritten page head-up** (90°/180° as needed).
+- **Photos + their backs go on ONE sheet** (photo cropped on top, back cropped + ink-darkened below),
+  and **add the folio + date as text for OCR** so the sheet is searchable.
+- **The `PERMIT NO.` field is a template argument:** these forms have a TYPED "PERMIT NO." label. If
+  the label is present and the handwritten entry is faint/illegible, that is NOT "no permit" — it is
+  **"permitted, number not legible"**, which is arguable. Snip the labeled cell, paste it into the
+  deliverable as a transcription, and cite the blank-template from the library to prove the field
+  exists. Re-scan that exact cell at high DPI before calling it blank.
+
+**COVER PAGE + AI CONCLUSION (Jorge, 2026-08-29):** the deliverable opens with a COVER PAGE and an
+**AI CONCLUSION that synthesizes every page comment into the forensic storyline** (built → PA
+outside-only guesses → documented changes → permitted or exposure → code-era red flags). State it as
+analysis for the reader; **the final call on whether an addition was legally built belongs to the
+Building Department's human judgment** (they may send an inspector to check consistency with code as
+understood at the time — and code changes over time). Cross-reference the CODE-ERA red-flags
+reference (defective materials by era, flood/sunroom, bathroom/shower sizing, HVAC, the
+"legalize→bring to the code of the year of the infraction" rule) — all entries source-tagged and
+VERIFIED, never asserted from memory. Keep the green top-of-page comments Jorge likes; they feed the
+conclusion.
+
 **FORM-TEMPLATE METHOD (Jorge, 2026-08-29) — this is how you recover a permit number from a blurred
 card.** These are STANDARDIZED county forms: the printed LABELS are fixed and known, so the label
 tells you what a blank means even when the handwriting is faint.
