@@ -258,6 +258,21 @@ pages: still EXCLUDE from this contiguous set (Job 10 rule) but list their runni
 index so nothing looks missing.** This is the deliverable Jorge scrolls tonight — put it ahead of
 the cheque-OCR self-queue. Report total page count.
 
+**JOB 17 — ⚠ ENHANCEMENT DEFECT, verified page-by-page by cloud + Jorge (2026-08-29). The recipe is
+BINARIZING PHOTOGRAPHS.** Cloud rendered 10980 ENHANCED and confirmed:
+- **Document/card/plan pages = EXCELLENT** (10980 running p11 = the PA card: clean, deskewed, sharp,
+  handwritten grades legible, table rules kept). Keep the recipe for these.
+- **PHOTOGRAPH pages = DESTROYED** (10980 running p1 = the house photo: harshly 1-bit binarized into
+  black blobs, trees→smears, lawn→speckle). Recipe v10's "test photograph-vs-document and never
+  binarise a photo" **DID NOT hold on this page** — the photo detector misfired or the wrong branch
+  ran. **Fix: photo pages must be kept GRAYSCALE with gentle contrast/deskew, NEVER thresholded.
+  Re-run only the photo/album pages of all 13 properties in grayscale; leave the document pages as
+  they are (they're good).**
+- **Rotation: some pages render 90° sideways** (10980 p11). Straighten by anchor-word/orientation so
+  every page is upright for grading (reuse the 9884 anchor-rotation method).
+Report which running pages are photos vs documents so cloud maps the re-run. This is Jorge's actual
+grade on the enhancement — it outranks cosmetic work.
+
 **JORGE CORRECTION 2026-08-29 (typo resolved): "J drive" was a dictation typo for G: — Google
 Drive.** There is no J: drive and none is coming. The board is already in its right home
 (`G:\My Drive\00-CONTINUITY-BOARD\`). **Delete the "if a J: ever appears, mirror to
