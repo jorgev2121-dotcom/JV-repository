@@ -1,0 +1,137 @@
+<title>The Run Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f7f5f0; --surface:#ffffff; --line:#ded9cd; --ink:#1c2420; --muted:#5c665f;
+  --accent:#1d5c45; --accent-soft:#e3efe8;
+  --you:#1a5fb4; --you-soft:#e6eef9;
+  --desk:#6b4a12; --desk-soft:#f5edda;
+  --cloud:#245a8f; --cloud-soft:#e7eef6;
+  --wait:#a3451f; --wait-soft:#f8e9e1;
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme: dark){
+    --ground:#0d1210; --surface:#161d1a; --line:#2c3833; --ink:#e8ede9; --muted:#98a69e;
+    --accent:#5fc79a; --accent-soft:#14291f;
+    --you:#7fbfff; --you-soft:#111d2b;
+    --desk:#e0b566; --desk-soft:#2a2210;
+    --cloud:#7db4e8; --cloud-soft:#122130;
+    --wait:#f09a72; --wait-soft:#2e1810;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0d1210; --surface:#161d1a; --line:#2c3833; --ink:#e8ede9; --muted:#98a69e;
+  --accent:#5fc79a; --accent-soft:#14291f;
+  --you:#7fbfff; --you-soft:#111d2b;
+  --desk:#e0b566; --desk-soft:#2a2210;
+  --cloud:#7db4e8; --cloud-soft:#122130;
+  --wait:#f09a72; --wait-soft:#2e1810;
+}
+*{box-sizing:border-box}
+body{background:var(--ground); color:var(--ink); margin:0;
+  font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif; font-size:17.5px; line-height:1.55}
+.wrap{max-width:940px; margin:0 auto; padding:28px 20px 80px}
+h1{font-family:"Archivo",sans-serif; font-size:2rem; margin:0 0 4px}
+.sub{color:var(--muted); margin:0 0 10px}
+.key{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 24px}
+.chip{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.05em;
+  padding:3px 10px; border-radius:99px; white-space:nowrap; font-weight:500}
+.c-you{background:var(--you-soft); color:var(--you)}
+.c-desk{background:var(--desk-soft); color:var(--desk)}
+.c-cloud{background:var(--cloud-soft); color:var(--cloud)}
+.c-tonight{background:var(--accent-soft); color:var(--accent)}
+.c-morning{background:var(--accent-soft); color:var(--accent)}
+.c-wait{background:var(--wait-soft); color:var(--wait)}
+h2{font-family:"Archivo",sans-serif; font-size:1.25rem; margin:34px 0 8px}
+h2 .eyebrow{display:block; font-size:.72rem; letter-spacing:.13em; color:var(--accent);
+  font-weight:600; text-transform:uppercase; margin-bottom:2px}
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-top:8px}
+.row{padding:12px 16px; border-top:1px solid var(--line)}
+.row:first-child{border-top:none}
+.row .t{font-weight:700}
+.row .chips{margin:3px 0 2px; display:flex; flex-wrap:wrap; gap:6px}
+.row .d{color:var(--muted); font-size:.95rem}
+.row .d b{color:var(--ink)}
+footer{margin-top:40px; color:var(--muted); font-size:.88rem; border-top:1px solid var(--line); padding-top:14px}
+</style>
+
+<div class="wrap">
+<h1>The Run Board</h1>
+<p class="sub">Everything staged 2026-08-29 — what runs, who runs it, when, and what "done" looks like. Mirrors OPEN-ITEMS; the ledger stays the board of record.</p>
+<div class="key">
+  <span class="chip c-you">👤 YOU</span><span class="chip c-desk">🖥️ DESKTOP</span><span class="chip c-cloud">☁️ CLOUD</span>
+  <span class="chip c-tonight">TONIGHT</span><span class="chip c-morning">MORNING SITTING</span><span class="chip c-wait">WAITING ON YOU</span>
+</div>
+
+<h2><span class="eyebrow">Category 1</span>Money &amp; clients</h2>
+<div class="panel">
+  <div class="row"><div class="t">Alec — send the "microfilm is done" email</div>
+    <div class="chips"><span class="chip c-desk">🖥️ stages it</span><span class="chip c-tonight">TONIGHT</span><span class="chip c-wait">YOUR CLICK SENDS</span></div>
+    <div class="d">Done when: <b>email sent</b> → then the $100.25 invoice goes. This is the save-the-account move.</div></div>
+  <div class="row"><div class="t">Jacket pipeline — the other 12 properties</div>
+    <div class="chips"><span class="chip c-wait">YOUR GO on the sample</span><span class="chip c-desk">🖥️ runs</span><span class="chip c-tonight">TONIGHT</span></div>
+    <div class="d">Done when: <b>"12 of 12 complete"</b> with page counts vs originals + NOA flags.</div></div>
+  <div class="row"><div class="t">Unsafe Structures — Top-20 deep pockets</div>
+    <div class="chips"><span class="chip c-desk">🖥️</span><span class="chip c-tonight">TONIGHT</span></div>
+    <div class="d">Done when: a file in Drive — owner · case # · date · permit # · <b>expired-after-citation flag</b> · lien. You qualify by hand.</div></div>
+  <div class="row"><div class="t">Deeb — $1,750 never-invoiced job</div>
+    <div class="chips"><span class="chip c-wait">YOUR YES</span><span class="chip c-desk">🖥️ drafts</span></div>
+    <div class="d">Done when: invoice draft ready (nothing sends without you).</div></div>
+</div>
+
+<h2><span class="eyebrow">Category 2</span>Access &amp; security</h2>
+<div class="panel">
+  <div class="row"><div class="t">Microsoft 365 password reset</div>
+    <div class="chips"><span class="chip c-you">👤 phone tap</span><span class="chip c-desk">🖥️ drives</span><span class="chip c-morning">MORNING SITTING · ~5 min</span></div>
+    <div class="d">Done when: new password in 1Password + Outlook signed in + connector consent. <b>Unblocks the whole Microsoft side.</b></div></div>
+  <div class="row"><div class="t">1Password cleanup + card relabeling</div>
+    <div class="chips"><span class="chip c-you">👤 unlock</span><span class="chip c-desk">🖥️ EXECUTOR-01</span><span class="chip c-morning">MORNING SITTING</span></div>
+    <div class="d">Done when: dupes quarantined, cards read <b>TEAMUSA-DEBIT …1234 — CURRENT</b>, autofill engages.</div></div>
+  <div class="row"><div class="t">Amazon — return USB-C drive, order USB-A (≤$40)</div>
+    <div class="chips"><span class="chip c-desk">🖥️ EXECUTOR-01</span><span class="chip c-you">👤 first Pay click</span><span class="chip c-morning">MORNING</span></div>
+    <div class="d">Done when: label printed + order confirmation logged. First run of the budget lane.</div></div>
+  <div class="row"><div class="t">iPhone — Screen 6 (1Password) tonight · Screens 1–5 after the sitting</div>
+    <div class="chips"><span class="chip c-you">👤 the card walks you</span><span class="chip c-tonight">SCREEN 6 TONIGHT</span></div>
+    <div class="d">Done when: Face ID opens everything; contacts land in Outlook; photos imported with a count when you plug the cable in.</div></div>
+</div>
+
+<h2><span class="eyebrow">Category 3</span>Machine fixes</h2>
+<div class="panel">
+  <div class="row"><div class="t">Full test sweep — every panel link, the 3-in-1, every button</div>
+    <div class="chips"><span class="chip c-desk">🖥️</span><span class="chip c-tonight">TONIGHT</span></div>
+    <div class="d">Done when: <b>"N of M PASS"</b> report + fixes applied + the good microphone set as default.</div></div>
+  <div class="row"><div class="t">Kill the two dead buttons + popup bundle + Outlook (3).EXE + blue stack badges</div>
+    <div class="chips"><span class="chip c-desk">🖥️</span><span class="chip c-tonight">TONIGHT</span></div>
+    <div class="d">Done when: buttons gone with relaunchers removed, typing shield ON, Outlook button opens the real Outlook, badges rebuilt durable.</div></div>
+</div>
+
+<h2><span class="eyebrow">Category 4</span>Filing &amp; mail</h2>
+<div class="panel">
+  <div class="row"><div class="t">The Big Inventory — every file 2022 → today</div>
+    <div class="chips"><span class="chip c-desk">🖥️ overnight</span><span class="chip c-tonight">TONIGHT</span></div>
+    <div class="d">Done when: morning report carries <b>4 numbers</b> — unique files · ≥3 hashtags · TRK/OPH stamped · the unstamped backlog.</div></div>
+  <div class="row"><div class="t">Mail into capsules — category stamping + Outlook layout + the 88k→34.6k audit</div>
+    <div class="chips"><span class="chip c-desk">🖥️ argues Job 14, then runs</span><span class="chip c-tonight">TONIGHT/MORNING</span></div>
+    <div class="d">Done when: one mutual plan back to you; stamping starts; the missing-mail question answered with per-folder counts.</div></div>
+  <div class="row"><div class="t">Email loop test — where do codes get lost?</div>
+    <div class="chips"><span class="chip c-cloud">☁️ half done</span><span class="chip c-desk">🖥️ Outlook half</span><span class="chip c-tonight">TONIGHT</span></div>
+    <div class="d">Gmail proven instant. Done when: Outlook logs test-B's arrival + forwards it back, and the BellSouth/iCloud hop map is on paper.</div></div>
+</div>
+
+<h2><span class="eyebrow">Category 5</span>Agents &amp; protocol</h2>
+<div class="panel">
+  <div class="row"><div class="t">Overnight watcher — switch it ON</div>
+    <div class="chips"><span class="chip c-desk">🖥️</span><span class="chip c-tonight">TONIGHT — your yes is standing</span></div>
+    <div class="d">Done when: watcher logged as running. This is the "nothing starts a session" cure.</div></div>
+  <div class="row"><div class="t">Mutual determinations — Gemini plan · Grok Bot · synergy answer</div>
+    <div class="chips"><span class="chip c-desk">🖥️ argues</span><span class="chip c-cloud">☁️ relays one answer</span></div>
+    <div class="d">Done when: you get ONE merged verdict per question, via my check-ins.</div></div>
+  <div class="row"><div class="t">Onboard the other LLMs — the 4 pastes</div>
+    <div class="chips"><span class="chip c-you">👤 only your hands</span><span class="chip c-wait">~2 min per app</span></div>
+    <div class="d">Done when: Grok, ChatGPT, Gemini, Copilot each banner themselves and post beats. Then the board is the roundtable.</div></div>
+</div>
+
+<footer>Built by ☁️ CODE·CLOUD · 2026-08-29 evening · one dependency for every TONIGHT row: <b>the desktop terminal opened once</b> · TRK-2026-9731 · #run-board #JorgeValdes</footer>
+</div>
