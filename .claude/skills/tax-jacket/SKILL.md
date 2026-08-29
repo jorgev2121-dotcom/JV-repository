@@ -105,6 +105,28 @@ tells you what a blank means even when the handwriting is faint.
   BLANK · DATE CK'D 11-20-67 · FOLIO 30-6007-09-003 · REMARKS "add CB wall/Lanai 4/23/70" →
   documented alteration, permit-year present, permit-number MISSING → exposure flag.
 
+## THE FORENSIC STORYLINE (Jorge, 2026-08-29) — what a jacket is actually FOR
+
+A tax jacket is evidence for a **timeline**, and the timeline is the deliverable:
+1. **Built** (original construction + its permit, or its absence).
+2. **The Property Appraiser sent a human inspector** who eyeballed the property **from the OUTSIDE only**
+   and recorded his BEST GUESS — periodically re-driving and hand-adjusting the card.
+3. **A change appears on the card** (addition, enclosed lanai, CB wall, extra bath) on some later date.
+4. **Was it permitted?** Permit number present → safe. Absent → legalization exposure.
+
+**Critical consequence — the PA card is a GUESS, not ground truth, and guesses have errors.** Because
+the inspector only saw the outside, he could record a "2BR/1BA addition" when the bathroom never
+existed, miscount units, or attribute a feature wrongly. **A discrepancy between the PA card and
+reality is often the OWNER'S DEFENSE:** if the PA recorded an addition that isn't there, or guessed a
+feature that was never built, that undercuts the "unpermitted work" claim. **So flag every
+PA-recorded feature that (a) has no permit AND (b) may not physically exist — those are both risks
+AND potential defenses.** Never present a PA entry as fact; present it as "what the appraiser recorded
+on [date], to be verified against the physical building and the permit record."
+
+**The PA is a TAXING authority and does NOT talk to the Building Department.** It catches an illegal
+addition years after the fact to raise taxes — so a PA date is "noticed/valued by," lagging the real
+work by potentially 5–6 years, and it is never proof of when (or whether) something was permitted.
+
 ## Never
 - Never process only the first pages of an attachment.
 - Never write into ORIGINAL, never supersede without `_Superseded\` + `.bak` per charter.
