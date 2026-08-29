@@ -61,6 +61,13 @@ and deliver without a briefing. This is the first. Gold-standard worked example:
 
 **Orientation:** every page goes HEAD-FIRST / upright. Straighten 90°-sideways and small skews
 (≈9°). A page that is fine except for rotation is "perfect once straightened" — fix it, don't reshoot.
+- **Orient PHOTOS by real-world cues, not character count (Jorge, 2026-08-29): trees grow UP, sky is
+  UP, the ground/lawn is DOWN, cars sit on wheels, buildings stand on foundations.** If the trees
+  point down, flip it. On a scanned photo there's no text to score, so gravity in the image is the
+  tell. (This is why an upside-down house slipped through — the cue was that the trees were growing
+  downward.)
+- **Orient DOCUMENTS by the text baseline / the printed label row** (the PA card's `DATE PERMIT …`
+  header sits at the top when upright).
 
 **Two-up to save paper:** when a page has empty space, pair the next page onto the same sheet
 (shrink slightly only to make two real pages share one sheet — this is fine; shrinking a single
