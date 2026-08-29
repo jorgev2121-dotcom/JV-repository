@@ -122,6 +122,24 @@ disease as Trio-Hub) **and stale by design**. His Edge link check says 19 workin
    "Wrong Chrome Profile" issue). Verify each class opens from HIS default profile and report the
    remaining dead count.
 
+**JOB 6 (Jorge, later 2026-08-29) — ADOPT THE RIDER AND GO.** Pull the repo and read
+`AGENT-RIDER_EXECUTOR-01_2026-08-29.md` (TRK-2026-9724). Jorge's "let's go" is the standing YES for:
+1. **Turn the JOB-0079 §D.1 watcher ON** (the DIR-0079-D1 YES that's been sitting unused) — that IS
+   onboarding the overnight agent. Log it with proof.
+2. **Execute the popup bundle** (typing shield ON, wrap the 10 noisy tasks, nudge → board) — undo
+   script first, as you offered.
+3. **Run EXECUTOR-01's first lane** under the rider: Amazon return of the USB-C drive + label print
+   + ≤$40 USB-A reorder on the signed-in Amazon session, card-on-file, everything logged. Jorge has
+   delegated the Pay click inside the cap (OD-BUDGET-01). His two physical moments (Authenticator
+   tap for M365, vault Hello/PIN) get batched into ONE ~10-minute window — tell him when.
+4. **Outlook Classic button incident (screenshot in Jorge's chat):** the button launched
+   `OUTLOOK (3).EXE` → "OutlookServicing.dll not found". That's a stray copied exe, not a broken
+   Office. Repoint the shortcut to the real `OUTLOOK.EXE` under Program Files, rename the stray
+   `ZZ-BROKEN-…`, test-fire it per the rider's TEST-BEFORE-SHIP law, log PASS/FAIL. No reinstall
+   unless the REAL exe also fails.
+5. **TEST-BEFORE-SHIP is now law** (rider §1): test-fire every button/link/panel before it reaches
+   Jorge's screen — starting with every link on the VTES panel and every HTA still live.
+
 **JORGE CORRECTION 2026-08-29 (typo resolved): "J drive" was a dictation typo for G: — Google
 Drive.** There is no J: drive and none is coming. The board is already in its right home
 (`G:\My Drive\00-CONTINUITY-BOARD\`). **Delete the "if a J: ever appears, mirror to
