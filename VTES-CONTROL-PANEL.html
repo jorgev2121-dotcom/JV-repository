@@ -76,11 +76,56 @@ a.row:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
 .mono{font-family:"IBM Plex Mono",monospace; font-size:.88em}
 footer{margin-top:44px; color:var(--muted); font-size:.88rem; border-top:1px solid var(--line); padding-top:14px}
 @media (max-width:560px){ .idrow{flex-direction:column; gap:2px} .idrow .who{flex:auto} }
+.searchbar{background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:14px 16px; margin:4px 0 8px; display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.searchbar input{flex:1 1 220px; font:inherit; font-size:1.05rem; padding:10px 14px;
+  border:1.5px solid var(--line); border-radius:8px; background:var(--ground); color:var(--ink)}
+.searchbar input:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+.searchbar button{font:inherit; font-weight:700; font-size:.95rem; padding:10px 16px;
+  border:none; border-radius:8px; cursor:pointer; background:var(--accent); color:var(--surface)}
+.searchbar button.alt{background:var(--cloud)}
+.searchbar button:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 0}
+.chips a{font-family:"IBM Plex Mono",monospace; font-size:.82rem; padding:5px 12px;
+  border-radius:99px; background:var(--accent-soft); color:var(--accent); text-decoration:none;
+  border:1px solid var(--line)}
+.chips a:hover{border-color:var(--accent)}
 </style>
 
 <div class="wrap">
 <h1>VTES Control Panel</h1>
 <p class="sub">Every link is live. Built by ☁️ CODE·CLOUD · 2026-08-29 · links only — the board stays the board.</p>
+
+<div class="searchbar">
+  <input id="q" type="search" placeholder="Type a hashtag, name, or TRK — e.g. #Carla or TRK-2026-1310" aria-label="Search term">
+  <button onclick="go('drive')">Search Drive</button>
+  <button class="alt" onclick="go('gmail')">Search Gmail</button>
+</div>
+<div class="chips" aria-label="One-click searches">
+  <a href="https://drive.google.com/drive/search?q=%23Carla" target="_blank" rel="noopener">#Carla</a>
+  <a href="https://drive.google.com/drive/search?q=%23arttheater" target="_blank" rel="noopener">#arttheater</a>
+  <a href="https://drive.google.com/drive/search?q=%2314598" target="_blank" rel="noopener">#14598</a>
+  <a href="https://drive.google.com/drive/search?q=%23sitdown" target="_blank" rel="noopener">#sitdown</a>
+  <a href="https://drive.google.com/drive/search?q=%23OrangeTree" target="_blank" rel="noopener">#OrangeTree</a>
+  <a href="https://drive.google.com/drive/search?q=TRK-2026-" target="_blank" rel="noopener">all TRK-2026</a>
+</div>
+<p class="note">These search the files themselves — every page the night OCR has read (the
+<span class="mono">.SEARCH.txt</span> sidecars) is findable here by its hashtags. OCR itself runs on
+the PC at night; there is no button for it here on purpose — new scans become searchable the
+morning after they're read.</p>
+<script>
+function go(where){
+  var t = document.getElementById('q').value.trim();
+  if(!t) return;
+  var u = where==='gmail'
+    ? 'https://mail.google.com/mail/u/0/#search/' + encodeURIComponent('"'+t+'"')
+    : 'https://drive.google.com/drive/search?q=' + encodeURIComponent(t);
+  window.open(u, '_blank', 'noopener');
+}
+document.getElementById('q').addEventListener('keydown', function(e){
+  if(e.key==='Enter') go('drive');
+});
+</script>
 
 <h2><span class="eyebrow">Section A</span>Which window am I in?</h2>
 <p class="note">The three-second test, plus the verdict on the window you pasted from.</p>

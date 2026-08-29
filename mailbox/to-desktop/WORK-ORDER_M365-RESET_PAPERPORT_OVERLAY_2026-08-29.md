@@ -107,6 +107,21 @@ cross-pointer: Claude seats' own front door is the repo `jorgev2121-dotcom/JV-re
 REAL desktop (`OneDrive\Desktop`)** — SIT-DOWN points them at `C:\Users\JV\Desktop`, which
 DESKTOP-9450 proved is the invisible one.
 
+**JOB 5 (added later on 2026-08-29) — kill the corrupt local ControlPanel copy, fix the sign-ins.**
+Jorge is using `C:\Users\JV\Desktop\ControlPanel.html` — a LOCAL save of cloud's VTES panel that is
+**mojibake-corrupted** (the emoji are the classic UTF-8-read-as-CP1252 soup — same BOM/encoding
+disease as Trio-Hub) **and stale by design**. His Edge link check says 19 working / 11 dead there.
+1. **Rename it `ZZ-BROKEN-ControlPanel.html.bak-20260829` and replace it with a `.url` shortcut**
+   named `VTES Control Panel.url` → `https://claude.ai/code/artifact/a8f34e99-9bce-4607-9e4b-ecb10c7de77c`
+   (the live panel; it now also carries the Drive/Gmail hashtag search strip). A shortcut can't rot;
+   a local copy always will. If a local copy is ever truly needed, re-save from the repo
+   (`VTES-CONTROL-PANEL.html`) as UTF-8 NO BOM.
+2. **The dead links are sign-ins, not dead destinations:** the 4 GitHub links 404 in any browser not
+   signed into GitHub (the known 9674 gap — sign the PC's browser into GitHub), the artifact links
+   need claude.ai signed in, and Drive/Gmail links need the jorgev2121 Chrome/Edge profile (the
+   "Wrong Chrome Profile" issue). Verify each class opens from HIS default profile and report the
+   remaining dead count.
+
 **JORGE CORRECTION 2026-08-29 (typo resolved): "J drive" was a dictation typo for G: — Google
 Drive.** There is no J: drive and none is coming. The board is already in its right home
 (`G:\My Drive\00-CONTINUITY-BOARD\`). **Delete the "if a J: ever appears, mirror to
