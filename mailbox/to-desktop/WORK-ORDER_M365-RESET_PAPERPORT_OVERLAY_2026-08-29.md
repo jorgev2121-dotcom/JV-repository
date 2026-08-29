@@ -231,6 +231,19 @@ then we bring him ONE plan.** Cloud's opening position:
 5. Business/personal split ruling (Jorge): Team USA + CU = business (365/Exchange), Gmail + iCloud
    = personal. Defaults follow the split (new contacts → Exchange; personal mail stays personal).
 
+**JOB 15 — THE BIG INVENTORY (Jorge ordered, overnight GREEN — queue it in OVERNIGHT-QUEUE).**
+Scope: every unique file dated 2022-01-01 → today across the work surfaces (Drive `01-JOBS`,
+OneDrive work trees, the C: work folders — state which surfaces you covered). Report FOUR numbers
+with denominators, per surface and total:
+1. **Unique files** (dedupe by content hash where cheap, else path+size; say which method).
+2. **Files with ≥3 hashtags** (count from `.TAGS.txt` / `.SEARCH.txt` sidecars + body hashtags).
+3. **Files carrying a TRK-#### or OPH-#### identity** (filename OR sidecar OR body stamp).
+4. The remainder = **the unstamped backlog** — that number becomes the nightly intake sweep's
+   denominator going forward ("stamped X of Y").
+Per NIGHT-PROTOCOL: write results per surface as each completes; heartbeat = output file growth;
+morning report carries the denominators. This is the baseline for the mail-and-file
+hashtags-into-capsules push Jorge ratified today (B-yes).
+
 **JORGE CORRECTION 2026-08-29 (typo resolved): "J drive" was a dictation typo for G: — Google
 Drive.** There is no J: drive and none is coming. The board is already in its right home
 (`G:\My Drive\00-CONTINUITY-BOARD\`). **Delete the "if a J: ever appears, mirror to
