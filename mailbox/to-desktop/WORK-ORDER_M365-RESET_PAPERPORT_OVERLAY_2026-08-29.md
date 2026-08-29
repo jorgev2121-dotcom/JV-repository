@@ -166,6 +166,25 @@ just ratified (original always stays; enhanced right under it). He reviews 10980
 gate). **On his GO: run the remaining 12 of 13 properties through the same pipeline overnight**
 (GREEN — writes only new files). Report denominator: X of 12 complete.
 
+**JOB 10 AMENDMENT (Jorge, owner directive) — NOA / Florida Product Approval rule.** In every
+jacket: **identify NOA / FL product-approval sections, EXCLUDE them from the ENHANCED deliverable
+(they're huge and not needed for review), but FLAG their presence on the cover/proof sheet** — e.g.
+"NOA present: pp. 44–96 (53 pp), excluded, in ORIGINAL." Original keeps everything, always.
+
+**JOB 11 — blue stack-count badges, built to LAST.** Jorge wants back the blue circles showing the
+window count on each stack, and notes "they always disappear." Diagnose WHY they decay (overlay
+killed on restart = the usual), then rebuild Tier-2/3: into the Trio-Hub/stack switcher itself or
+with a relauncher task via Run-Hidden.vbs — not another orphan overlay. TEST-BEFORE-SHIP applies.
+
+**JOB 12 — Alec contiguous-reader inventory.** For the Orange-Tree-style review window cloud will
+build: produce the file list (name · pages · Drive link · ORIGINAL/ENHANCED pair · NOA flag) for
+TRK-1534/1535/1536 jackets AND the 07-Microfilm-Records sets (421 files). Drop it as
+`ALEC-READER-INVENTORY_2026-08-29.tsv` in the 1534 capsule; cloud builds the reader from it.
+**Also answer in your report: were the MICROFILM sets ever enhanced, or ORIGINAL-only?** (Cloud
+verified the 1534 TAX JACKET is fully enhanced side-by-side; the microfilm was never in the 8/24
+pipeline — confirm.) And verify page-completeness of the enhanced jackets vs originals (Jorge's
+"pages missing" bet — settle it with counts).
+
 **JORGE CORRECTION 2026-08-29 (typo resolved): "J drive" was a dictation typo for G: — Google
 Drive.** There is no J: drive and none is coming. The board is already in its right home
 (`G:\My Drive\00-CONTINUITY-BOARD\`). **Delete the "if a J: ever appears, mirror to
