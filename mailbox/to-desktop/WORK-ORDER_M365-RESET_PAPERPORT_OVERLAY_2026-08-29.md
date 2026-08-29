@@ -84,6 +84,29 @@ or Edge, cloud or desktop — the ABCD labeling that never happened."*
 - Its *purpose* (which window is which) is already solved the durable way: charter §10 banners +
   D-024 statusline + the browser-vs-terminal rule in `WINDOW-CONFIG_ALL-SURFACES_2026-08-24.md` §E.
 
+**EXTENDED 2026-08-29 (later the same day, Jorge again):** there is a **SECOND dead button** — the
+one "intended to control my desktop tray that did not work but has left this button that doesn't
+work either." Remove it the same Tier-2 way (process + relauncher, rename `.disabled`). And the
+pop-ups are **still disrupting his typing and dictation** (RI-001 recurrence, logged). Jorge proposed
+reinstalling the clipboard — **do NOT start there**: the symptom (lost keystrokes, dictation cut off)
+is RI-001 focus theft, and RI-001's Tier-2 offender sweep is the on-record fix. Only if a popup-free
+test still shows paste/dictation failure does the clipboard pipeline (Win+V history, ctfmon, the
+Dictation-Tray/Mic-Button scripts) get diagnosed — report findings before reinstalling anything.
+
+---
+
+## JOB 4 — #sitdown continuity board: merge cloud's beat + fix the seat map
+
+`G:\My Drive\00-CONTINUITY-BOARD\` now contains `LAST-BUS-OUT_BEAT_CODE-CLOUD_2026-08-29.md` from
+the cloud seat (cloud can create Drive files but not edit in place). Merge its beat to the TOP of
+`LAST-BUS-OUT.md`, delete the sidecar, and fold its **seat-map correction into SIT-DOWN's "WHO DOES
+WHAT"**: add seat **CODE-CLOUD** (Claude Code in Anthropic's cloud — CAN reach Google Drive, Gmail,
+Calendar, the repo, and the open web; CANNOT reach C:, Outlook, county logins, 1Password), and add a
+cross-pointer: Claude seats' own front door is the repo `jorgev2121-dotcom/JV-repository`
+(CLAUDE.md + OPEN-ITEMS.md). Also verify **PROJECT-QUEUE-LIVE.hta and PENDING-JOBS.txt are on the
+REAL desktop (`OneDrive\Desktop`)** — SIT-DOWN points them at `C:\Users\JV\Desktop`, which
+DESKTOP-9450 proved is the invisible one.
+
 ---
 
 **Report all three via TO-CLOUD.md. Which of the three did you start with, and is anything above

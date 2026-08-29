@@ -32,6 +32,16 @@ wrong window, often unnoticed for a paragraph.
   same single OK button. **Clicking OK demonstrably does not fix it** — the Tier 1
   forbidden fix proven live rather than argued. The Send To Bar repair (RI-021) has
   not been done, so the return is expected, not mysterious.
+- 2026-08-29 — **RECURRENCE: pop-ups again disrupting Jorge's typing and dictation**
+  (his words: "the pop ups continue disrupting my typing and dictation"). He proposed
+  diagnosing/reinstalling the clipboard — **the evidence points to this RI's focus
+  theft, not the clipboard**: a popup that steals focus mid-sentence dumps keystrokes
+  and kills a dictation stream, which is exactly the reported symptom. He also
+  identified a SECOND dead self-built button (a desktop-tray control that never
+  worked) sitting over window corners, alongside the ABCD labeler. Both ordered
+  removed permanently (Tier 2 — process + relauncher). Routed in TRK-2026-9716/9717 /
+  PASTE-D-027: remove both dead buttons, then run this RI's Tier-2 offender sweep
+  before anyone touches the clipboard.
 
 **Sub-cause identified 2026-08-15 — Outlook "Cannot show your next reminder"**
 Caused by a single corrupt reminder item in the mailbox, not by settings. Clicking
