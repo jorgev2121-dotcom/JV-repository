@@ -1,0 +1,423 @@
+<title>Wake Every AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#eef1f5;
+    --surface:#ffffff;
+    --surface-2:#f4f6fa;
+    --ink:#171a1f;
+    --muted:#5b6472;
+    --line:#dbe0e8;
+    --accent:#2f5fd0;
+    --accent-ink:#ffffff;
+    --accent-soft:#e6edfb;
+    --good:#1f8a54;
+    --good-soft:#e2f2e9;
+    --warn:#a9691a;
+    --warn-soft:#f6ecda;
+    --shadow:0 1px 2px rgba(20,30,50,.06),0 8px 24px rgba(20,30,50,.07);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0f1217;
+      --surface:#1a1e26;
+      --surface-2:#141821;
+      --ink:#eef1f5;
+      --muted:#9aa4b2;
+      --line:#2b313c;
+      --accent:#6d92f0;
+      --accent-ink:#0f1217;
+      --accent-soft:#1e2740;
+      --good:#4bbd82;
+      --good-soft:#152a20;
+      --warn:#e0a252;
+      --warn-soft:#2c2415;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0f1217;
+    --surface:#1a1e26;
+    --surface-2:#141821;
+    --ink:#eef1f5;
+    --muted:#9aa4b2;
+    --line:#2b313c;
+    --accent:#6d92f0;
+    --accent-ink:#0f1217;
+    --accent-soft:#1e2740;
+    --good:#4bbd82;
+    --good-soft:#152a20;
+    --warn:#e0a252;
+    --warn-soft:#2c2415;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Atkinson Hyperlegible",system-ui,-apple-system,Segoe UI,sans-serif;
+    line-height:1.5;
+    letter-spacing:.005em;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 64px}
+
+  /* ---- Banner ---- */
+  .banner{
+    background:var(--accent);
+    color:var(--accent-ink);
+    border-radius:16px;
+    padding:26px 30px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .banner .kicker{
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-weight:700;
+    opacity:.85;
+  }
+  .banner h1{
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    font-weight:800;
+    font-size:clamp(1.6rem,4.2vw,2.5rem);
+    line-height:1.08;
+    margin:2px 0 0;
+    text-wrap:balance;
+  }
+  .banner .sub{font-size:1.02rem;font-weight:400;opacity:.95;max-width:60ch}
+
+  /* ---- How-it-works strip ---- */
+  .how{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 22px;
+    align-items:center;
+    margin:22px 2px 4px;
+    color:var(--muted);
+    font-size:.98rem;
+  }
+  .how b{color:var(--ink)}
+  .how .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+
+  /* ---- Card grid ---- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:22px;
+    margin-top:22px;
+  }
+  @media (max-width:820px){ .grid{grid-template-columns:1fr} }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:22px 22px 24px;
+    display:flex;
+    flex-direction:column;
+  }
+  .card-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding-bottom:14px;
+    margin-bottom:16px;
+    border-bottom:1px solid var(--line);
+  }
+  .app{
+    display:flex;
+    align-items:center;
+    gap:11px;
+  }
+  .app .mark{
+    width:38px;height:38px;border-radius:10px;flex:none;
+    display:grid;place-items:center;
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:800;font-size:1.1rem;
+    background:var(--accent-soft);color:var(--accent);
+  }
+  .app h2{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:700;font-size:1.35rem;margin:0;line-height:1;
+  }
+  .chip{
+    font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;
+    padding:5px 10px;border-radius:999px;white-space:nowrap;
+  }
+  .chip.ok{background:var(--good-soft);color:var(--good)}
+  .chip.verify{background:var(--warn-soft);color:var(--warn)}
+
+  /* ---- Steps ---- */
+  .step{display:flex;gap:13px;margin-bottom:14px}
+  .step:last-of-type{margin-bottom:0}
+  .num{
+    width:30px;height:30px;flex:none;border-radius:50%;
+    background:var(--accent);color:var(--accent-ink);
+    display:grid;place-items:center;
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1rem;
+  }
+  .step .body{padding-top:2px}
+  .step .label{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;margin-bottom:1px}
+  .step p{margin:0;font-size:1.02rem}
+  .step b{font-weight:700}
+  .path{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:.92rem;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:7px 10px;
+    margin-top:6px;
+    display:inline-block;
+    color:var(--ink);
+    word-break:break-word;
+  }
+  .verify-note{
+    font-size:.86rem;color:var(--warn);margin-top:6px;font-style:italic;
+  }
+
+  /* ---- Paste box ---- */
+  .paste-wrap{margin-top:6px}
+  .paste-top{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:7px;flex-wrap:wrap;
+  }
+  .paste-hint{
+    font-size:.82rem;color:var(--muted);
+  }
+  .paste-hint kbd{
+    font-family:"JetBrains Mono",monospace;font-size:.78rem;
+    background:var(--surface-2);border:1px solid var(--line);border-bottom-width:2px;
+    border-radius:5px;padding:1px 6px;color:var(--ink);
+  }
+  .copy-btn{
+    font-family:"Atkinson Hyperlegible",sans-serif;
+    font-weight:700;font-size:.92rem;
+    background:var(--accent);color:var(--accent-ink);
+    border:none;border-radius:9px;padding:9px 16px;cursor:pointer;
+    transition:transform .08s ease, filter .12s ease;
+  }
+  .copy-btn:hover{filter:brightness(1.06)}
+  .copy-btn:active{transform:translateY(1px)}
+  .copy-btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .copy-btn.done{background:var(--good)}
+  .paste-box{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:.8rem;line-height:1.55;
+    white-space:pre-wrap;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 15px;
+    margin:0;
+    max-height:230px;
+    overflow:auto;
+    color:var(--ink);
+    cursor:pointer;
+    -webkit-user-select:all;user-select:all;
+  }
+  .paste-box:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+  footer.note{
+    margin-top:30px;color:var(--muted);font-size:.9rem;text-align:center;max-width:70ch;
+    margin-left:auto;margin-right:auto;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none!important}
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="banner">
+    <div class="kicker">The one thing an AI cannot do for you</div>
+    <h1>4 pastes, ~2 minutes, and every AI wakes up knowing the protocol.</h1>
+    <div class="sub">One block goes into each app's custom-instructions box. After that, every window says who it is, checks #sitdown, and knows its lane before it answers.</div>
+  </div>
+
+  <div class="how">
+    <span class="dot"></span><span><b>Do one card at a time.</b> Open the app, find the box, paste, save.</span>
+    <span class="dot"></span><span>The <b>same block</b> is inside every card, so you never have to hunt for it.</span>
+    <span class="dot"></span><span>Green chip = <b>path confirmed</b>. Amber chip = <b>check it once</b>.</span>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <footer class="note">
+    The paste block is identical in all four cards. Source of truth: PASTE-INTO-EVERY-LLM.txt in your Google Drive. If an app moves its menu, the block still works — only the path to the box changes.
+  </footer>
+
+</div>
+
+<script>
+/* ---- The canonical block (verbatim from PASTE-INTO-EVERY-LLM.txt, rules only) ---- */
+const BLOCK =
+`PASTE THIS BLOCK INTO EVERY MODEL'S CUSTOM INSTRUCTIONS / SYSTEM PROMPT
+(Grok, ChatGPT, Gemini, Copilot, Claude projects, any agent - one time each)
+
+RULE 1 - SAY WHO YOU ARE. Start EVERY reply with one short tag line:
+  SEAT - where it runs - what it can touch
+  e.g. GROK - cloud - no access to C:, G:, Outlook or county logins
+       CLAUDE CODE - desktop terminal, this PC - files, drives, Outlook, scripts
+       CLAUDE CHAT - beige app - no file access
+  Jorge has about fifteen AI windows open at once. Without that line he cannot tell
+  who is talking, and an untagged paste cannot be acted on.
+
+RULE 2 - #sitdown. Before you answer anything, get yourself current:
+  1. Search #sitdown and open SIT-DOWN.md in Jorge's continuity board
+     (G:\\My Drive\\00-CONTINUITY-BOARD\\ on the PC; ask Claude Code for a copy if you
+     cannot reach the drive).
+  2. Read LAST-BUS-OUT.md in the same folder - the last thing every seat did.
+  3. Then work.
+  4. Before you finish, append ONE line to the TOP of LAST-BUS-OUT.md:
+     YYYY-MM-DD HH:MM - SEAT - what changed - proof (a path that exists)
+  No beat = you were never here. A promise with no file path is not DONE.
+
+RULE 3 - KNOW YOUR LANE. If you are a cloud seat you cannot see C:, G:, Outlook, or
+  county logins - hand that work to Claude Code on the PC. Claude Code owns files,
+  drives, Outlook, scripts, county clicks, OCR, and any J: mirror.
+
+RULE 4 - HOW TO TALK TO JORGE. He is a non-technical owner. Give him the WHAT - the
+  result, the recommendation, the one thing to do. No how, no why-essays. Never send
+  email, spend money, delete permanently, type his passwords, or click UAC / installer
+  dialogs without his click. Everything reversible and routine, just do it.
+
+RULE 5 - DO NOT ANSWER A PROBLEM WITH A NEW WINDOW. Pop-up helper windows have frozen,
+  stolen his keyboard, and made things worse. Fix the thing that is broken instead.
+
+Master rules: C:\\Users\\JV\\OneDrive\\Documents\\ClaudeMemory\\CHARTER.md
+The only task list: C:\\Users\\JV\\Desktop\\PROJECT-QUEUE-LIVE.hta`;
+
+const APPS = [
+  {
+    mark:"G", name:"Grok", status:"ok",
+    open:"Go to <b>grok.com</b> and sign in.",
+    pathLabel:"Open the box",
+    pathHtml:'Click <b>your picture</b> (top right), then <b>Customize</b> / Custom instructions.',
+    path:"grok.com  →  your picture  →  Customize / Custom instructions",
+    click:'Click into the big <b>custom instructions</b> text box.'
+  },
+  {
+    mark:"C", name:"ChatGPT", status:"ok",
+    open:"Open <b>ChatGPT</b> and sign in.",
+    pathLabel:"Open the box",
+    pathHtml:'Go to <b>Settings</b>, then <b>Personalization</b>, then <b>Custom instructions</b>.',
+    path:"Settings  →  Personalization  →  Custom instructions",
+    click:'Click into the <b>custom instructions</b> field.'
+  },
+  {
+    mark:"G", name:"Gemini", status:"ok",
+    open:"Open <b>Gemini</b> and sign in.",
+    pathLabel:"Open the box",
+    pathHtml:'Open <b>Saved info</b> — or make a <b>Gem</b> and use its instructions box.',
+    path:"Saved info   /   Gems  →  instructions",
+    click:'Click into <b>Saved info</b> (or the Gem\u2019s instructions).'
+  },
+  {
+    mark:"C", name:"Copilot", status:"verify",
+    open:"Open <b>copilot.microsoft.com</b> and sign in.",
+    pathLabel:"Open the box",
+    pathHtml:'Click <b>your profile picture</b> (top right), then <b>Settings</b>, then <b>Personalization</b>.',
+    path:"copilot.microsoft.com  →  profile  →  Settings  →  Personalization",
+    click:'Click into the <b>personalization / about-you</b> box.',
+    verify:"This one path isn\u2019t in the master file yet — take a quick look and tell me if the menu names match."
+  }
+];
+
+const grid = document.getElementById('grid');
+
+APPS.forEach((a, i) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  const chip = a.status === 'ok'
+    ? '<span class="chip ok">Path confirmed</span>'
+    : '<span class="chip verify">Check this one</span>';
+  const verifyNote = a.verify ? `<p class="verify-note">${a.verify}</p>` : '';
+
+  card.innerHTML = `
+    <div class="card-head">
+      <div class="app">
+        <div class="mark">${a.mark}</div>
+        <h2>${a.name}</h2>
+      </div>
+      ${chip}
+    </div>
+
+    <div class="step">
+      <div class="num">1</div>
+      <div class="body">
+        <div class="label">${a.pathLabel}</div>
+        <p>${a.open}</p>
+        <p style="margin-top:4px">${a.pathHtml}</p>
+        <span class="path">${a.path}</span>
+        ${verifyNote}
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">2</div>
+      <div class="body">
+        <div class="label">Click here</div>
+        <p>${a.click}</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">3</div>
+      <div class="body" style="flex:1;min-width:0">
+        <div class="label">Paste this, then Save</div>
+        <div class="paste-wrap">
+          <div class="paste-top">
+            <span class="paste-hint">Select all is <kbd>Ctrl</kbd>+<kbd>A</kbd> · copy is <kbd>Ctrl</kbd>+<kbd>C</kbd></span>
+            <button class="copy-btn" type="button">Copy the block</button>
+          </div>
+          <pre class="paste-box" tabindex="0" aria-label="Protocol block for ${a.name}"></pre>
+        </div>
+      </div>
+    </div>
+  `;
+
+  card.querySelector('.paste-box').textContent = BLOCK;
+
+  const box = card.querySelector('.paste-box');
+  box.addEventListener('click', () => {
+    const r = document.createRange();
+    r.selectNodeContents(box);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(r);
+  });
+
+  const btn = card.querySelector('.copy-btn');
+  btn.addEventListener('click', async () => {
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(BLOCK);
+      ok = true;
+    } catch (e) {
+      try {
+        const r = document.createRange();
+        r.selectNodeContents(box);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(r);
+        ok = document.execCommand('copy');
+      } catch (e2) { ok = false; }
+    }
+    btn.textContent = ok ? 'Copied' : 'Press Ctrl+C now';
+    btn.classList.add('done');
+    setTimeout(() => { btn.textContent = 'Copy the block'; btn.classList.remove('done'); }, 2200);
+  });
+
+  grid.appendChild(card);
+});
+</script>
