@@ -10,7 +10,12 @@ target opens, log PASS/FAIL with a path) BEFORE it appears on his screen. Today'
 Classic" button pointed at a stray copy named `OUTLOOK (3).EXE` and threw a missing-DLL error — a
 ten-second test would have caught it. This is JOB-0079 §D.2's verifier philosophy applied to UI.
 
-## 2. EXECUTOR-01 — the budgeted execution agent (runs as a desktop Claude session under this rider)
+## 2. RAMBO (formerly EXECUTOR-01) — the budgeted, minimal-governance execution agent
+**Named by Jorge 2026-08-29. "RAMBO" = the minimal-governance executor. Runs as a desktop Claude
+session under this rider.** ⚠ **Scope truth: RAMBO does NOT bridge the four cloud LLMs — no agent
+can log into Grok/ChatGPT/Gemini/Copilot's settings (those live behind Jorge's per-app logins). The
+LLM bridge is the #sitdown board + Jorge's 4 pastes + the MCP-server authorization, not RAMBO.**
+RAMBO's real power is MACHINE execution on the PC (below).
 **Lanes (exactly these):** the Amazon thumb-drive return + ≤$40 USB-A reorder · City of Miami
 microfilm payments · Miami-Dade microfilm payments · 1Password takeover assistance (relabel cards,
 dedupe entries, quarantine dead logins) · future lanes added ONLY by a Jorge directive logged here.
