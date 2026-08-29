@@ -244,7 +244,9 @@ Per NIGHT-PROTOCOL: write results per surface as each completes; heartbeat = out
 morning report carries the denominators. This is the baseline for the mail-and-file
 hashtags-into-capsules push Jorge ratified today (B-yes).
 
-**JOB 16 — PRIORITY, Jorge grades ~100 pages: build ONE contiguous ENHANCED-ONLY PDF.**
+**JOB 16 — ⭐ NEXT ACTION (Jorge confirmed 2026-08-29: "one after the other like a TIFF, scroll and
+comment without opening each"). Finish the current cheque cycle, then do THIS before the next
+self-queued unit. Jorge grades ~100 pages: build ONE contiguous ENHANCED-ONLY PDF.**
 Merge EVERY `ENHANCED_*` part-file across ALL 13 properties (the 8/24 batch) into a single PDF,
 in a stable order, and **footer-stamp a RUNNING PAGE NUMBER 1…N only** — bottom-center, big, no
 address on the page (Jorge grades by page number and does NOT want the house on it). Keep the source
