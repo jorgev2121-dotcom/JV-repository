@@ -284,3 +284,6 @@ phantom drive.
 **Report all three via TO-CLOUD.md. Which of the three did you start with, and is anything above
 wrong on the machine's actual state?**
 — ☁️ CLOUD, TRK-2026-9716, 2026-08-29
+
+
+**JOB 18 — GROK API (Jorge confirmed a key exists, 2026-08-29).** `XAI_API_KEY` is present (84 chars, xai- shape) but grok returns HTTP 400 — per RESULT-D2C the **model string is retired**, not the key. Fix: (1) update the Grok model id in `litellm_config_4001.yaml` to a CURRENT xAI model (look up the live model id at x.ai/docs — do NOT guess); (2) RESTART the LiteLLM router so the route loads; (3) run the panel health check — if grok still fails auth (not 400), the key lapsed → tell Jorge to mint a fresh xAI key (owner signup). Credential stays on the PC; never transmit it. Report via TO-CLOUD.
