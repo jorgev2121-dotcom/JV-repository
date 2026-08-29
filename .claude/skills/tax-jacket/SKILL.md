@@ -76,6 +76,28 @@ from the deliverable** (do not number it as content). It stays in ORIGINAL only.
 **Documents/cards enhance well as-is** (deskew, hole/streak removal, background clean, keep table
 rules) — that branch of the recipe is good; leave it. The defect is photos only.
 
+**FORM-TEMPLATE METHOD (Jorge, 2026-08-29) — this is how you recover a permit number from a blurred
+card.** These are STANDARDIZED county forms: the printed LABELS are fixed and known, so the label
+tells you what a blank means even when the handwriting is faint.
+- **Build a template per known form once it's clear enough to OCR** (the PA card, the permit slip,
+  the points/value card). Store the field map; reuse it on every jacket.
+- **Anchor by label, then read the value beside it.** The PA card's top row is always:
+  `DATE PERMIT · AMT. PERMIT · PERMIT NO. · DATE CK'D · DEPUTY`; then `FOLIO · LEGAL DESC ·
+  ADDRESS · PB`; then the `BUILDINGS` points column and the `OPERATORS/FOLIO/PLATES/YR/LAND/IMPR/
+  TOTAL/REMARKS` grid. Because the layout is fixed, **a typed "PERMIT NO." label means the 4–5
+  digits sitting next to it ARE the permit number** — that positional certainty substantiates "it
+  was permitted" even when the digits are marginal.
+- **The points/value card totals ~100** across construction portions (exterior, roof, plumbing,
+  electric, etc.), each a value or % of value. **Fill in every value you can read; put `?` where you
+  can't** — never guess a digit, never leave the field unlabeled.
+- **REMARKS is where the CHANGE hides** (e.g. "add CB wall / Lanai 4/23/70" = an enclosed lanai /
+  addition). Pair every REMARKS change with: is there a PERMIT NO.? If yes → safe. If the permit
+  field is blank → flag legalization exposure, and note the permit YEAR (here 1966) separately from
+  the PA "date checked" (11-20-67) — the PA noticing lags the actual work.
+- **Worked example (10980 PA card, verified by cloud 2026-08-29):** DATE PERMIT 1966 · PERMIT NO.
+  BLANK · DATE CK'D 11-20-67 · FOLIO 30-6007-09-003 · REMARKS "add CB wall/Lanai 4/23/70" →
+  documented alteration, permit-year present, permit-number MISSING → exposure flag.
+
 ## Never
 - Never process only the first pages of an attachment.
 - Never write into ORIGINAL, never supersede without `_Superseded\` + `.bak` per charter.
