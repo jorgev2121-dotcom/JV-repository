@@ -1110,6 +1110,16 @@ files that already exist. **Do not propose uninstalling PaperPort.**
 produce searchable PDFs natively. If it can, the dependency disappears — but that is a
 Tier 2 option to investigate, not a change to make now.
 
+- 2026-08-29 — **PaperPort degraded again (RI-021 recurrence, new symptom):** Jorge reports
+  the NEWER items in the PaperPort desktop show only generic white-document icons while
+  older items render real page thumbnails; he suspects the content is being forwarded
+  elsewhere. Screenshot committed (`mailbox/to-desktop/screens_2026-08-29/`). Routed to
+  desktop as part of TRK-2026-9716 / PASTE-D-027: determine stub-vs-preview-fault before
+  any fix is proposed. Same day, Jorge ordered **Tier-2 removal of the dead "ABCD window
+  labeler" overlay** (RI-027/031 family — an always-on-top button parked over window close
+  corners, built to label Chrome/Edge/cloud/desktop, never worked) — remove process AND
+  its relauncher, rename script `.disabled`, log what it was.
+
 ---
 
 ## RI-022 — Absence reported from the record instead of the folder

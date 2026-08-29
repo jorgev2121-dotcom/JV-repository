@@ -95,3 +95,25 @@ restorable.** Logged here so the next desktop session knows the cascade on the l
 post-move, not the original layout.
 
 *#mic #dictation #window-config #RI-031*
+
+---
+
+## E. "I want ALL my windows to look like this one" — the rule (added 2026-08-29, Jorge's ask)
+
+The window Jorge likes — mic button, shows the agent working, accepts pasted screenshots — is
+**Claude Code in the browser (claude.ai/code)**. That style is not a setting; it IS the browser
+version. So:
+
+1. **To get that style, open Claude through the browser launchers** — `4 - Claude CODE (browser).url`
+   and `5 - Claude COWORK (browser).url`. Every browser window has the mic, the running-agent view,
+   and screenshot paste.
+2. **The terminal can never look like this.** The beige console is a command-line program: no mic
+   button, no agent panel; images paste via `Alt+V` (RI-009), dictation via `Win+H`. Its identity
+   comes from the 🖥️ statusline (PASTE-D-024).
+3. **Cloud vs desktop, the 3-second test:** if the window has a **browser address bar with
+   claude.ai** in it → it runs in **Anthropic's cloud** (☁️ — can't touch the PC). If it's a **black
+   console/terminal** → it runs **on the PC** (🖥️ — can touch files, Outlook, Chrome). The beige
+   MS Store app is chat/Cowork on the PC's screen, but its "Code" tab still runs in the cloud.
+4. Any window can also be asked directly: type **`ID`** and the charter (§10) obliges it to restate
+   its banner, surface, and model.
+
