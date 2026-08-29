@@ -244,6 +244,18 @@ Per NIGHT-PROTOCOL: write results per surface as each completes; heartbeat = out
 morning report carries the denominators. This is the baseline for the mail-and-file
 hashtags-into-capsules push Jorge ratified today (B-yes).
 
+**JOB 16 — PRIORITY, Jorge grades ~100 pages: build ONE contiguous ENHANCED-ONLY PDF.**
+Merge EVERY `ENHANCED_*` part-file across ALL 13 properties (the 8/24 batch) into a single PDF,
+in a stable order, and **footer-stamp a RUNNING PAGE NUMBER 1…N only** — bottom-center, big, no
+address on the page (Jorge grades by page number and does NOT want the house on it). Keep the source
+identity OUT of his view but IN a sidecar: write `ENHANCED-CONTIGUOUS_INDEX.tsv` mapping
+`runningPage → property/TRK → sourceFile → originalPageNo`, so when Jorge says "page 47 is bad"
+cloud maps 47 → the house silently. Drop `ENHANCED-CONTIGUOUS_2026-08-29.pdf` + the index in
+`00-CONTINUITY-BOARD\` (visible to cloud) AND note the path in TO-CLOUD. **NOA/FL-product-approval
+pages: still EXCLUDE from this contiguous set (Job 10 rule) but list their running-page gaps in the
+index so nothing looks missing.** This is the deliverable Jorge scrolls tonight — put it ahead of
+the cheque-OCR self-queue. Report total page count.
+
 **JORGE CORRECTION 2026-08-29 (typo resolved): "J drive" was a dictation typo for G: — Google
 Drive.** There is no J: drive and none is coming. The board is already in its right home
 (`G:\My Drive\00-CONTINUITY-BOARD\`). **Delete the "if a J: ever appears, mirror to
