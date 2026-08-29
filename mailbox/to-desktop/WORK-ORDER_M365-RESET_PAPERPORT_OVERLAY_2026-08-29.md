@@ -185,6 +185,25 @@ verified the 1534 TAX JACKET is fully enhanced side-by-side; the microfilm was n
 pipeline — confirm.) And verify page-completeness of the enhanced jackets vs originals (Jorge's
 "pages missing" bet — settle it with counts).
 
+**JOB 13 — EMAIL DEEP-DIVE (Jorge: codes missing / 2–3 hr late; forward view broken).** Cloud's
+evidence so far: **Gmail self-loop test = INSTANT** (MAIL-TEST-9728-A, sent+landed 20:20:52Z, Inbox)
+and **Gmail spam holds zero verification codes (7-day check)** → Gmail internally is healthy; the
+sickness is the cross-domain / M365 path. **Cloud sent MAIL-TEST-9728-B to jorge@teamusasales.com at
+4:25 PM ET** — your half:
+1. Log 9728-B's RECEIVED time vs 4:25 PM and its landing folder (Inbox vs Junk — the Little Bear
+   junk precedent). Then **FORWARD it back to jorgev2121@gmail.com from Outlook** — cloud measures
+   the reverse leg + formatting/attachment survival (bold, green line, numbered list, .txt attach).
+2. **Prime suspect to inventory: the legacy BellSouth + iCloud mail FORWARDS** (already Phase 4 of
+   the One-List Plan) — map every hop mail takes to reach jorge@teamusasales.com and jorgev2121:
+   forwards, rules, junk settings, connected accounts. Multi-hop forwarding is the classic cause of
+   2–3-hour delays and vanishing codes. Report the hop map; killing the forwards stays Jorge-gated.
+3. **The broken forward view in Outlook classic** (email disappears, no controls, can't see
+   attachments): diagnose the compose/reading-pane state (inline-compose setting, hardware
+   acceleration, the damaged `OUTLOOK (3).EXE` launch path from Job 6 may be implicated). Fix,
+   test-fire per rider §1, report.
+4. Note: M365 web/connector side stays blind to cloud until the password reset + connector consent
+   (Job 1) — one more reason Job 1 leads the morning sitting.
+
 **JORGE CORRECTION 2026-08-29 (typo resolved): "J drive" was a dictation typo for G: — Google
 Drive.** There is no J: drive and none is coming. The board is already in its right home
 (`G:\My Drive\00-CONTINUITY-BOARD\`). **Delete the "if a J: ever appears, mirror to
