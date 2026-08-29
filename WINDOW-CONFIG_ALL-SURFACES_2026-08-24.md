@@ -117,3 +117,29 @@ version. So:
 4. Any window can also be asked directly: type **`ID`** and the charter (§10) obliges it to restate
    its banner, surface, and model.
 
+---
+
+## F. HUB-AND-EXECUTOR — Jorge's standing working model (owner directive, 2026-08-29)
+
+**Jorge talks to ☁️ CODE·CLOUD (this browser window — mic, paste, advice) as his one communication
+seat. Cloud ALWAYS collaborates with 🖥️ CODE·DESKTOP and brings back the MUTUAL determination, and
+relays the desktop's replies to Jorge** so he doesn't have to shuttle between windows.
+
+**The channels, in order:**
+1. **GitHub repo** — cloud writes work orders to `mailbox/to-desktop/`; desktop pulls, works,
+   answers via `TO-CLOUD.md` / its own commits. Survives everything.
+2. **Google Drive continuity board** (`00-CONTINUITY-BOARD\` + `_CLAUDE-MAILBOX`) — both seats read
+   it; cloud can create files there, desktop can edit in place. LAST-BUS-OUT carries each seat's beat.
+3. **Jorge as courier (backup of last resort)** — numbered PASTE-D blocks, only when the desktop
+   hasn't pulled.
+
+**Pacing:** cloud is not always-on — it runs when Jorge writes or a scheduled check-in fires. While
+a handoff is OPEN, cloud keeps a ~30-minute self check-in scheduled to poll Drive + TO-CLOUD and
+relay the desktop's answer proactively. (A 15-second poll is not possible and would burn the shared
+usage allowance that froze the iPhone; 30 minutes is the deliberate trade.)
+
+**Backup if a channel dies:** Drive down → repo; repo push down on the PC (RI: GitHub sign-in) →
+Drive; both down → paste blocks. And if THIS session dies, nothing is lost: every determination is
+committed to the repo and boarded on Drive, so a fresh cloud session reads CLAUDE.md + OPEN-ITEMS +
+#sitdown and continues without Jorge re-briefing anyone.
+
