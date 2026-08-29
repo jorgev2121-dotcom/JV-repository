@@ -1,0 +1,466 @@
+<title>Build-Year Red Flags</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#EDEFF2;
+    --surface:#FFFFFF;
+    --surface-2:#F5F7FA;
+    --ink:#1B2430;
+    --ink-soft:#55606E;
+    --ink-faint:#7C8794;
+    --line:#D2D8E0;
+    --line-strong:#B7C0CC;
+    --accent:#24405E;
+    --accent-soft:#E4EAF1;
+    /* confidence semantic set — separate from accent */
+    --ok:#2F6D5B;        --ok-bg:#E3EFEA;
+    --approx:#B07816;    --approx-bg:#F6ECD8;
+    --warn:#9B3A2E;      --warn-bg:#F5E2DE;
+    --shadow:0 1px 2px rgba(27,36,48,.06), 0 4px 14px rgba(27,36,48,.05);
+    --maxw:940px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#12181F;
+      --surface:#1A222C;
+      --surface-2:#212B36;
+      --ink:#E7ECF1;
+      --ink-soft:#A8B3BF;
+      --ink-faint:#7E8A97;
+      --line:#2C3742;
+      --line-strong:#3A4753;
+      --accent:#8FB2D8;
+      --accent-soft:#22323F;
+      --ok:#6FBFA5;        --ok-bg:#1C2E2A;
+      --approx:#D9AC5C;    --approx-bg:#2E2717;
+      --warn:#DC8778;      --warn-bg:#33211E;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.28);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#12181F;
+    --surface:#1A222C;
+    --surface-2:#212B36;
+    --ink:#E7ECF1;
+    --ink-soft:#A8B3BF;
+    --ink-faint:#7E8A97;
+    --line:#2C3742;
+    --line-strong:#3A4753;
+    --accent:#8FB2D8;
+    --accent-soft:#22323F;
+    --ok:#6FBFA5;        --ok-bg:#1C2E2A;
+    --approx:#D9AC5C;    --approx-bg:#2E2717;
+    --warn:#DC8778;      --warn-bg:#33211E;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.28);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px 72px}
+
+  /* ---------- title block ---------- */
+  .jacket{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-top:5px solid var(--accent);
+    border-radius:4px;
+    box-shadow:var(--shadow);
+    padding:26px 26px 22px;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);font-weight:500;
+    display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  }
+  .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block}
+  h1{
+    font-family:"Oswald",Impact,sans-serif;
+    font-weight:600;letter-spacing:.01em;line-height:1.02;
+    text-wrap:balance;
+    font-size:clamp(34px,6.5vw,54px);
+    margin:.28em 0 .18em;
+    text-transform:uppercase;
+  }
+  .lede{color:var(--ink-soft);max-width:62ch;font-size:16.5px;margin:0}
+  .lede b{color:var(--ink)}
+
+  /* ---------- grandfather banner ---------- */
+  .rule-banner{
+    margin-top:18px;
+    background:var(--accent-soft);
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent);
+    border-radius:4px;
+    padding:14px 16px;
+    display:flex;gap:12px;align-items:flex-start;
+  }
+  .rule-banner .tag{
+    font-family:"Oswald",sans-serif;text-transform:uppercase;
+    font-weight:600;letter-spacing:.06em;font-size:13px;
+    color:var(--accent);white-space:nowrap;padding-top:2px;
+  }
+  .rule-banner p{margin:0;font-size:15px;line-height:1.5}
+  .rule-banner b{color:var(--ink)}
+
+  /* ---------- section headings ---------- */
+  .sec-head{
+    display:flex;align-items:baseline;gap:12px;
+    margin:38px 0 6px;
+  }
+  .sec-head h2{
+    font-family:"Oswald",sans-serif;text-transform:uppercase;
+    font-weight:600;letter-spacing:.03em;font-size:22px;margin:0;
+  }
+  .sec-head .n{
+    font-family:"IBM Plex Mono",monospace;font-size:13px;
+    color:var(--ink-faint);font-weight:500;
+  }
+  .sec-sub{color:var(--ink-soft);font-size:14.5px;margin:0 0 16px;max-width:64ch}
+
+  /* ---------- legend ---------- */
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+  .chip{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;
+    letter-spacing:.06em;text-transform:uppercase;
+    padding:3px 9px;border-radius:3px;white-space:nowrap;
+    border:1px solid transparent;line-height:1.35;display:inline-block;
+  }
+  .chip.ok{color:var(--ok);background:var(--ok-bg);border-color:color-mix(in srgb,var(--ok) 30%,transparent)}
+  .chip.approx{color:var(--approx);background:var(--approx-bg);border-color:color-mix(in srgb,var(--approx) 30%,transparent)}
+  .chip.warn{color:var(--warn);background:var(--warn-bg);border-color:color-mix(in srgb,var(--warn) 35%,transparent)}
+  .legend .desc{font-size:13px;color:var(--ink-soft);align-self:center}
+
+  /* ---------- timeline ---------- */
+  .tl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--surface);box-shadow:var(--shadow)}
+  .tl{min-width:720px;padding:14px 18px 10px;position:relative}
+  .tl-axis{position:relative;height:20px;margin-left:190px;border-bottom:1px solid var(--line-strong)}
+  .tl-tick{position:absolute;top:0;transform:translateX(-50%);font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint)}
+  .tl-tick::after{content:"";position:absolute;left:50%;top:16px;width:1px;height:6px;background:var(--line-strong)}
+  .tl-row{display:flex;align-items:center;height:26px;position:relative}
+  .tl-row:nth-child(odd) .tl-track{background:linear-gradient(var(--surface-2),var(--surface-2))}
+  .tl-label{
+    width:190px;flex:0 0 190px;padding-right:12px;
+    font-family:"Oswald",sans-serif;font-size:12.5px;text-transform:uppercase;
+    letter-spacing:.02em;color:var(--ink);text-align:right;line-height:1.05;
+    font-weight:500;
+  }
+  .tl-track{position:relative;flex:1;height:100%}
+  .tl-grid{position:absolute;inset:0;pointer-events:none}
+  .tl-grid span{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+  .tl-bar{
+    position:absolute;top:6px;height:14px;border-radius:3px;
+    display:flex;align-items:center;
+    font-family:"IBM Plex Mono",monospace;font-size:10px;color:#fff;
+    padding-left:6px;white-space:nowrap;overflow:visible;
+  }
+  .tl-bar.ok{background:var(--ok)}
+  .tl-bar.approx{background:var(--approx)}
+  .tl-bar .yr{color:var(--ink-soft);position:absolute;left:calc(100% + 6px);font-size:10.5px}
+  .tl-bar.open::after{content:"▶";position:absolute;right:-13px;top:-1px;color:var(--ok);font-size:9px}
+  .tl-note{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);margin:10px 0 0;margin-left:190px}
+
+  /* ---------- checklist rows ---------- */
+  .rows{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+  .row{
+    background:var(--surface);border:1px solid var(--line);border-radius:4px;
+    box-shadow:var(--shadow);overflow:hidden;
+    display:grid;grid-template-columns:150px 1fr;
+  }
+  .row .win{
+    background:var(--surface-2);border-right:1px solid var(--line);
+    padding:14px 14px;display:flex;flex-direction:column;gap:6px;justify-content:flex-start;
+  }
+  .row .win .yrs{
+    font-family:"Oswald",sans-serif;font-weight:600;font-size:19px;
+    line-height:1.05;color:var(--ink);letter-spacing:.01em;
+    font-variant-numeric:tabular-nums;
+  }
+  .row .win .what{font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);line-height:1.3}
+  .row .body{padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+  .action{font-size:16px;line-height:1.5;margin:0}
+  .action b{color:var(--ink);font-weight:600}
+  .action .win-in{font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--accent);font-weight:500}
+  .src{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);line-height:1.45;margin:0}
+  .tagrow{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:1px}
+  .qual{font-size:12.5px;color:var(--ink-soft);font-style:italic}
+
+  /* ---------- unverified zone ---------- */
+  .danger{
+    margin-top:14px;border:1px solid color-mix(in srgb,var(--warn) 45%,var(--line));
+    border-radius:4px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow);
+  }
+  .danger-head{
+    background:repeating-linear-gradient(45deg,var(--warn-bg),var(--warn-bg) 12px,transparent 12px,transparent 24px);
+    border-bottom:1px solid color-mix(in srgb,var(--warn) 40%,transparent);
+    padding:12px 16px;display:flex;align-items:center;gap:10px;
+  }
+  .danger-head .t{
+    font-family:"Oswald",sans-serif;text-transform:uppercase;font-weight:700;
+    letter-spacing:.05em;font-size:16px;color:var(--warn);
+  }
+  .danger-body{padding:4px 16px 12px}
+  .drow{padding:12px 0;border-bottom:1px solid var(--line)}
+  .drow:last-child{border-bottom:none}
+  .drow .h{font-family:"Oswald",sans-serif;text-transform:uppercase;font-weight:500;letter-spacing:.02em;font-size:14.5px;margin:0 0 3px}
+  .drow p{margin:0;font-size:14.5px;color:var(--ink-soft);line-height:1.5}
+  .drow p b{color:var(--warn)}
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top:40px;padding-top:16px;border-top:1px solid var(--line);
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint);
+    line-height:1.7;
+  }
+  footer .stamp{color:var(--ink-soft);font-weight:500}
+
+  a{color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+
+  @media (max-width:560px){
+    .row{grid-template-columns:1fr}
+    .row .win{border-right:none;border-bottom:1px solid var(--line);flex-direction:row;gap:12px;align-items:baseline}
+  }
+  @media print{
+    body{background:#fff;color:#000;font-size:12px}
+    .tl-scroll,.row,.jacket,.danger{box-shadow:none}
+    .wrap{padding:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header class="jacket">
+    <div class="eyebrow">
+      <span>CU Inspections</span><span class="dot"></span>
+      <span>Tax-Jacket Field Companion</span><span class="dot"></span>
+      <span>Forensic DD</span>
+    </div>
+    <h1>Build-Year Red Flags</h1>
+    <p class="lede">Read the property's <b>build year</b> and any <b>addition years</b> off the tax jacket, then run this list. Each window tells the inspector one thing to check on site. Every item carries its confidence tag from the verified reference &mdash; nothing here is invented.</p>
+  </header>
+
+  <div class="rule-banner">
+    <span class="tag">Rule first</span>
+    <p><b>Untouched, permitted, code-at-the-time work stays grandfathered.</b> The moment work is altered or legalized, grandfathering is lost &mdash; the after-the-fact permit is judged against current code (or the code when the work was done), at the <b>building official's discretion</b>, usually with a higher fee. So an <b>addition year</b> matters as much as the build year.</p>
+  </div>
+
+  <!-- CONFIDENCE LEGEND -->
+  <div class="legend" aria-label="Confidence legend">
+    <span class="chip ok">Confirmed</span>
+    <span class="desc">solid year &mdash; cite it.</span>
+    <span class="chip approx" style="margin-left:6px">Approx</span>
+    <span class="desc">treat the year as a window, not a line.</span>
+    <span class="chip warn" style="margin-left:6px">Unverified</span>
+    <span class="desc">do not cite without a primary source.</span>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="sec-head"><span class="n">A</span><h2>At a glance</h2></div>
+  <p class="sec-sub">Where the era-triggered hazards fall on the calendar. Bars overlap &mdash; a single house can sit in several at once. Scroll sideways to read the full span.</p>
+
+  <div class="tl-scroll">
+    <div class="tl" role="img" aria-label="Build-year timeline of era-triggered hazards from 1920 to 2026">
+      <div class="tl-axis" id="axis"></div>
+
+      <div class="tl-row"><div class="tl-label">Lead paint</div><div class="tl-track"><div class="tl-grid gridhost"></div><div class="tl-bar ok" style="left:0%;width:54.7%"><span class="yr">pre-1978</span></div></div></div>
+      <div class="tl-row"><div class="tl-label">Asbestos materials</div><div class="tl-track"><div class="tl-grid gridhost"></div><div class="tl-bar ok" style="left:0%;width:56.6%"><span class="yr">pre-1980</span></div></div></div>
+      <div class="tl-row"><div class="tl-label">Galvanized supply</div><div class="tl-track"><div class="tl-grid gridhost"></div><div class="tl-bar approx" style="left:9.4%;width:42.5%"><span class="yr">~1930&ndash;mid-70s</span></div></div></div>
+      <div class="tl-row"><div class="tl-label">Cast-iron drain · SoFla</div><div class="tl-track"><div class="tl-grid gridhost"></div><div class="tl-bar ok" style="left:0%;width:51.9%"><span class="yr">pre-1975</span></div></div></div>
+      <div class="tl-row"><div class="tl-label">FPE Stab-Lok panel</div><div class="tl-track"><div class="tl-grid gridhost"></div><div class="tl-bar ok" style="left:28.3%;width:37.7%"><span class="yr">1950&ndash;1990</span></div></div></div>
+      <div class="tl-row"><div class="tl-label">Aluminum branch wiring</div><div class="tl-track"><div class="tl-grid gridhost"></div><div class="tl-bar ok" style="left:42.5%;width:7.5%"><span class="yr">1965&ndash;73</span></div></div></div>
+      <div class="tl-row"><div class="tl-label">Zinsco panel</div><div class="tl-track"><div class="tl-grid gridhost"></div><div class="tl-bar ok" style="left:40.6%;width:17.0%"><span class="yr">1963&ndash;81</span></div></div></div>
+      <div class="tl-row"><div class="tl-label">Central duct A/C · SoFla</div><div class="tl-track"><div class="tl-grid gridhost"></div><div class="tl-bar ok open" style="left:37.7%;width:62.3%"><span class="yr">1960s &rarr; now</span></div></div></div>
+      <div class="tl-row"><div class="tl-label">Polybutylene pipe</div><div class="tl-track"><div class="tl-grid gridhost"></div><div class="tl-bar ok" style="left:54.7%;width:16.0%"><span class="yr">1978&ndash;95</span></div></div></div>
+      <div class="tl-row"><div class="tl-label">Chinese drywall · FL</div><div class="tl-track"><div class="tl-grid gridhost"></div><div class="tl-bar ok" style="left:76.4%;width:7.5%"><span class="yr">2001&ndash;09</span></div></div></div>
+
+      <p class="tl-note">Not on the calendar &mdash; condition-triggered at any build year: FEMA below-BFE enclosure &middot; bathroom fixture clearance. See the list below.</p>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="sec-head"><span class="n">B</span><h2>The checklist</h2></div>
+  <p class="sec-sub">One row per threshold. Lead with the bolded action; the source note is the why.</p>
+
+  <div class="rows">
+
+    <!-- LEAD -->
+    <div class="row">
+      <div class="win"><span class="yrs">Pre-1978</span><span class="what">Lead-based paint</span></div>
+      <div class="body">
+        <p class="action">If built <span class="win-in">before 1978</span> &rarr; <b>presume lead paint; trigger federal disclosure.</b></p>
+        <div class="tagrow"><span class="chip ok">Confirmed</span><span class="qual">the cleanest threshold in the reference.</span></div>
+        <p class="src">Federal residential lead-paint ban, 1978. ~75% of pre-1978 homes still contain some lead; the rule never required removal, only disclosure on sale or lease.</p>
+      </div>
+    </div>
+
+    <!-- ASBESTOS -->
+    <div class="row">
+      <div class="win"><span class="yrs">Pre-~1980</span><span class="what">Asbestos materials</span></div>
+      <div class="body">
+        <p class="action">If built or renovated <span class="win-in">before ~1980</span> &rarr; <b>presume asbestos until tested</b> &mdash; floor tile, mastic, popcorn ceiling, pipe wrap, siding, joint compound.</p>
+        <div class="tagrow"><span class="chip ok">Confirmed</span><span class="qual">a window, not a ban year.</span></div>
+        <p class="src">Heavy residential use ~1920&ndash;1980. There was never a clean cutoff &mdash; say "presume before ~1980," never a single ban year.</p>
+      </div>
+    </div>
+
+    <!-- POLYBUTYLENE -->
+    <div class="row">
+      <div class="win"><span class="yrs">1978&ndash;1995</span><span class="what">Polybutylene pipe</span></div>
+      <div class="body">
+        <p class="action">If built <span class="win-in">1978&ndash;1995</span> &rarr; <b>look for gray (sometimes blue or black) plastic supply pipe.</b> Often uninsurable or a forced re-pipe.</p>
+        <div class="tagrow"><span class="chip ok">Confirmed</span><span class="qual">say "discontinued / removed from code after 1995," not "banned."</span></div>
+        <p class="src">Chlorine in city water degrades poly-B from the inside; fittings crack and burst. Replaced by CPVC and PEX. Production ceased ~1996.</p>
+      </div>
+    </div>
+
+    <!-- ALUMINUM -->
+    <div class="row">
+      <div class="win"><span class="yrs">1965&ndash;1973</span><span class="what">Aluminum wiring</span></div>
+      <div class="body">
+        <p class="action">If built <span class="win-in">1965&ndash;1973</span> &rarr; <b>inspect for solid aluminum branch circuits</b> &mdash; a named fire hazard, not cosmetic.</p>
+        <div class="tagrow"><span class="chip ok">Confirmed</span><span class="qual">some sources stretch the window to ~1975.</span></div>
+        <p class="src">Copper-price spike drove single-strand aluminum into ~2 million homes. Connections loosen and arc; pre-1972 homes ran ~55x more likely to reach fire-hazard conditions. Fix: full re-wire or COPALUM crimps.</p>
+      </div>
+    </div>
+
+    <!-- CAST IRON -->
+    <div class="row">
+      <div class="win"><span class="yrs">Pre-1975</span><span class="what">Cast-iron drain · SoFla</span></div>
+      <div class="body">
+        <p class="action">If built <span class="win-in">before 1975</span> in South Florida &rarr; <b>scope / camera-inspect any original cast-iron drain line.</b> It is past its failure window.</p>
+        <div class="tagrow"><span class="chip ok">Confirmed</span><span class="chip approx">Approx</span><span class="qual">era confirmed; exact failure age varies 25&ndash;50 yr.</span></div>
+        <p class="src">Standard drain material through the 1970s. Salt-rich soil, humidity and hard water make SoFla lines fail at just 25&ndash;30 years &mdash; a regional acceleration, not a national number.</p>
+      </div>
+    </div>
+
+    <!-- GALVANIZED -->
+    <div class="row">
+      <div class="win"><span class="yrs">~1930&ndash;mid-70s</span><span class="what">Galvanized supply</span></div>
+      <div class="body">
+        <p class="action">If built <span class="win-in">before ~1970</span> &rarr; <b>expect galvanized supply pipe at end of life</b> &mdash; low pressure, rusty water, imminent re-pipe.</p>
+        <div class="tagrow"><span class="chip ok">Confirmed</span><span class="qual">era &amp; lifespan solid.</span></div>
+        <p class="src">Standard water-supply material ~1930s&ndash;late 1960s; gone from new work by the mid-1970s. Rusts from the inside out. Caution: "black pipe" can mean gas line, not galvanized &mdash; confirm which before writing it in a report.</p>
+      </div>
+    </div>
+
+    <!-- CHINESE DRYWALL -->
+    <div class="row">
+      <div class="win"><span class="yrs">2001&ndash;2009</span><span class="what">Chinese drywall · FL</span></div>
+      <div class="body">
+        <p class="action">If built or remodeled <span class="win-in">2001&ndash;2009</span> (peak 2005&ndash;2008) &rarr; <b>check for blackened A/C coils, corroded ground wires, and a sulfur odor.</b></p>
+        <div class="tagrow"><span class="chip ok">Confirmed</span><span class="qual">Florida was the epicenter &mdash; &gt;60% of complaints.</span></div>
+        <p class="src">Imported during a drywall shortage; off-gasses sulfur that corrodes copper &mdash; worse in hot, humid climates. ~100,000+ homes affected.</p>
+      </div>
+    </div>
+
+    <!-- PANELS -->
+    <div class="row">
+      <div class="win"><span class="yrs">FPE 1950&ndash;90<br>Zinsco 1963&ndash;81</span><span class="what">Hazard panels</span></div>
+      <div class="body">
+        <p class="action">In these windows &rarr; <b>check the panel brand for Federal Pacific (Stab-Lok) or Zinsco</b> &mdash; a stand-alone fire hazard whatever the build year.</p>
+        <div class="tagrow"><span class="chip ok">Confirmed</span><span class="qual">presence alone is the red flag.</span></div>
+        <p class="src">Both can fail to trip on overload or short. CPSC: 85% of FPE double-pole breakers failed UL criteria; a 2005 NJ court found FPE fraudulently labeled. Zinsco breakers can fuse to the bus bar. Remedy: replace the whole panel.</p>
+      </div>
+    </div>
+
+    <!-- CENTRAL AC -->
+    <div class="row">
+      <div class="win"><span class="yrs">1960s +</span><span class="what">Central duct A/C · SoFla</span></div>
+      <div class="body">
+        <p class="action">If built <span class="win-in">before 1960</span> in SoFla &rarr; any central system is a <b>retrofit &mdash; scope the ductwork.</b> Ducts "lying around" or making no sense flag an unpermitted addition.</p>
+        <div class="tagrow"><span class="chip ok">Confirmed</span><span class="chip approx">Approx</span><span class="qual">adoption era confirmed; no single "required by code" year.</span></div>
+        <p class="src">By the 1960s&ndash;70s central duct A/C was standard in new SoFla homes. Abandoned or illogical runs mean a retrofit or reconfiguration &mdash; possibly conditioned space added without a mechanical permit.</p>
+      </div>
+    </div>
+
+    <!-- FEMA -->
+    <div class="row">
+      <div class="win"><span class="yrs">Any era</span><span class="what">FEMA below-BFE</span></div>
+      <div class="body">
+        <p class="action">In a flood zone, any year &rarr; <b>look for a step-DOWN into a glassed rear room below the main slab with no flood vents.</b> That is the "sunroom" tell.</p>
+        <div class="tagrow"><span class="chip ok">Confirmed</span><span class="qual">the relabel is the recognized dodge, not a statute.</span></div>
+        <p class="src">Below-BFE enclosures may only be parking, access or storage, with flood-resistant materials and vents. Finishing one as living space (or blocking vents) violates the floodplain permit &mdash; a live NFIP and insurance problem. The name "sunroom" does not change the elevation.</p>
+      </div>
+    </div>
+
+    <!-- BATHROOM -->
+    <div class="row">
+      <div class="win"><span class="yrs">Any era</span><span class="what">Bathroom clearance</span></div>
+      <div class="body">
+        <p class="action">On any added or expanded bath &rarr; <b>measure the fixture clearances, not the room size.</b> A toilet under 15&nbsp;in to center / 21&nbsp;in in front, or a shower under 30&times;30, is objective evidence the work would not have passed permit.</p>
+        <div class="tagrow"><span class="chip ok">Confirmed</span><span class="qual">clearance is the code; there is no minimum room size.</span></div>
+        <p class="src">Current clearances: water closet &ge;15 in centerline to any wall, &ge;21 in clear in front; shower &ge;30&times;30 in (fits a 30-in disc). A crammed vanity beside an enlarged shower is the signature of an unpermitted conversion.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- UNVERIFIED -->
+  <div class="sec-head"><span class="n">C</span><h2>Do not cite</h2></div>
+  <p class="sec-sub">The reference flagged these as unverified. They are listed so no one reintroduces them as fact. Verify with a primary source or the building department before any use.</p>
+
+  <div class="danger">
+    <div class="danger-head"><span class="chip warn">Unverified</span><span class="t">Do not cite without a primary source</span></div>
+    <div class="danger-body">
+      <div class="drow">
+        <p class="h">The "5&prime;&times;7&prime; &rarr; 5&prime;&times;7.5&prime;" bathroom minimum</p>
+        <p><b>UNVERIFIED.</b> No source documents this code change. What is supported is the traditional ~5&times;7 to 5&times;8 footprint, and that layout is really driven by fixture clearances (above), not a stated minimum. Do not cite the 5&times;7.5 figure.</p>
+      </div>
+      <div class="drow">
+        <p class="h">A specific "showers required by code" year</p>
+        <p><b>UNVERIFIED.</b> Showers became the norm with the post-WWII boom, but no single "required by code" year was found. Do not state a year.</p>
+      </div>
+      <div class="drow">
+        <p class="h">"Code of the year of the infraction"</p>
+        <p><b>APPROX &mdash; jurisdiction-dependent.</b> The right instinct (altering or legalizing loses grandfathering) holds. But whether an after-the-fact permit is judged against the code at the time of the work or current code is the building official's call &mdash; confirm with the relevant building department per job.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="stamp">CU-INSPECTIONS &middot; BUILD-YEAR-CHECKLIST &middot; v1 &middot; 2026-08-29 &middot; CURRENT</div>
+    Sourced only from: <b>tax-jacket / reference / CODE-ERA-REDFLAGS.md</b> and <b>PA-SKETCH-LEGEND.md</b>.<br>
+    No year-threshold invented. Confidence tags carried through verbatim. Unverified items fenced, never presented as fact.<br>
+    #CU-Inspections #TaxJacket #ForensicDD #CodeEraRedFlags #BuildYear
+  </footer>
+
+</div>
+
+<script>
+  // Build decade ticks (1920–2026) and gridlines from one source of truth.
+  (function(){
+    var START=1920, END=2026, SPAN=END-START;
+    function pct(y){return ((y-START)/SPAN*100);}
+    var axis=document.getElementById('axis');
+    var years=[];
+    for(var y=1920;y<=2020;y+=10) years.push(y);
+    years.push(2026);
+    years.forEach(function(y){
+      var t=document.createElement('span');
+      t.className='tl-tick';
+      t.style.left=pct(y)+'%';
+      t.textContent="'"+String(y).slice(2);
+      axis.appendChild(t);
+    });
+    // gridlines inside every track
+    document.querySelectorAll('.gridhost').forEach(function(host){
+      years.forEach(function(y){
+        var g=document.createElement('span');
+        g.style.left=pct(y)+'%';
+        host.appendChild(g);
+      });
+    });
+  })();
+</script>
