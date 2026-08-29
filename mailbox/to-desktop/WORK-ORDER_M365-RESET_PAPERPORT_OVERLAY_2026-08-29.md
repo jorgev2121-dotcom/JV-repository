@@ -204,6 +204,33 @@ sickness is the cross-domain / M365 path. **Cloud sent MAIL-TEST-9728-B to jorge
 4. Note: M365 web/connector side stays blind to cloud until the password reset + connector consent
    (Job 1) — one more reason Job 1 leads the morning sitting.
 
+**JOB 14 — OUTLOOK LAYOUT + MAIL-INTO-CAPSULES PLAN (Jorge, evening 2026-08-29). Argue with cloud,
+then we bring him ONE plan.** Cloud's opening position:
+1. **Left pane, fixed order:** rename each account's display name so they sort and READ right —
+   `1-TEAM USA (business)` · `2-CU Inspections (business)` · `3-Gmail (personal)` · `4-iCloud
+   (personal)` — and pin the five Inboxes to Favorites in that order. **VERIFY on the machine
+   whether New Outlook offers a true "All accounts" unified inbox**; if not, the honest substitute
+   is: Favorites pinned in fixed order + the search box scoped to "All folders" as the all-mail
+   view. Do not promise a folder that doesn't exist.
+2. **Jorge is RIGHT about hashtags-in-search — the mechanism is CATEGORIES, not renaming:** emails
+   can't be renamed, but Outlook CATEGORIES and Gmail LABELS can carry `TRK-2026-NNNN` / `OPH-2026-
+   NNNN` / `#tags`. Extend the nightly intake sweep (orphan-onboarding skill) to STAMP mail:
+   job-matched → TRK category; unknown → OPH category. Then typing a TRK/hashtag in Outlook or
+   Gmail search pops everything, and mail joins the capsules. **Categories are non-destructive
+   (GREEN, night-eligible). Creating/moving to per-account `0-ORPHANS` folders = filing = RED,
+   mornings, Jorge-gated.**
+3. **⚠ The 88,000 → 34,600 inbox mystery — AUDIT, don't guess:** count every store/folder
+   (Inbox/Archive/Junk/Deleted per account), compare against the 6-store index counts we already
+   have, and report where the ~53k rows live (most likely: a filtered view, Focused-vs-Other, a
+   per-account count vs all-accounts count, or the earlier archive sweeps). Report with
+   denominators; nothing is "lost" until an audit says so.
+4. **iPhone follow-through:** after the morning sitting, Jorge follows cloud's iPhone Setup Card
+   (artifact af41deac…) — Exchange account + Contacts ON + business default. Desktop's parts: when
+   he plugs the phone in, run the photo import with a count report; and export/merge contact
+   duplicates per the D-023 rule once Exchange contacts appear.
+5. Business/personal split ruling (Jorge): Team USA + CU = business (365/Exchange), Gmail + iCloud
+   = personal. Defaults follow the split (new contacts → Exchange; personal mail stays personal).
+
 **JORGE CORRECTION 2026-08-29 (typo resolved): "J drive" was a dictation typo for G: — Google
 Drive.** There is no J: drive and none is coming. The board is already in its right home
 (`G:\My Drive\00-CONTINUITY-BOARD\`). **Delete the "if a J: ever appears, mirror to
