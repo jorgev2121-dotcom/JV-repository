@@ -140,6 +140,32 @@ disease as Trio-Hub) **and stale by design**. His Edge link check says 19 workin
 5. **TEST-BEFORE-SHIP is now law** (rider §1): test-fire every button/link/panel before it reaches
    Jorge's screen — starting with every link on the VTES panel and every HTA still live.
 
+**JOB 7 (Jorge, evening 2026-08-29) — FULL TEST SWEEP TONIGHT, with a report.** The 3-in-1 hub is
+broken AGAIN (post-BOM-fix — log the recurrence) and "many other tabs not active." Per rider §1
+TEST-BEFORE-SHIP: test-fire EVERY link/button on the VTES panel, the 3-in-1 hub, and every live HTA;
+report **N of M PASS** with the failure list and fixes applied. Also: Jorge says the browser mic is
+substandard — check the Windows default input device (webcam mic vs. the good mic) and set the right
+default. Report via TO-CLOUD; cloud relays.
+
+**JOB 8 (PRIORITY — the Alec account).** Jorge fears losing Alec. The record: microfilm DONE (421
+files/517MB, TRK-1534/1535/1536) but `REPLY-ALEC_Microfilm-RETRIEVED_2026-08-16.eml` still UNSENT
+(18+ days); the 218 ST address blocker is ANSWERED (11997 SW 218 ST; Yaira Campbell 08-24 "no bldg
+jacket" — unread); two jackets arrived 08-21 unread/uncapsuled. **Tonight: stage the corrected email
+ready-to-send + read the two unread county replies + capsule the two new jackets (prep only, filing
+decisions wait for morning). Jorge's one click sends it; then the $100.25 invoice.**
+
+**JOB 9 (Wally/Priority-Zero lane — tonight, GREEN read-only).** From the CODE-9712 call sheet
+(1,287 open private recert-driven Unsafe Structures cases): build **TOP-20 DEEP POCKETS** — rank by
+corporate/institutional owner + lien size already reflected in RER. Per row: owner name · case/
+process number · date initiated · permit number if any · **flag: permit expired AFTER citation**
+(the already-hired-someone-and-stalled tell) · lien amount. No phones/emails needed — Jorge
+qualifies manually. Deliver as a file in Drive + note the path; cloud will link it on the panel.
+
+**JOB 10 — jacket pipeline batch.** 10980's ORIGINAL+ENHANCED+FINAL pipeline = the standard Jorge
+just ratified (original always stays; enhanced right under it). He reviews 10980 NOW (stop-work
+gate). **On his GO: run the remaining 12 of 13 properties through the same pipeline overnight**
+(GREEN — writes only new files). Report denominator: X of 12 complete.
+
 **JORGE CORRECTION 2026-08-29 (typo resolved): "J drive" was a dictation typo for G: — Google
 Drive.** There is no J: drive and none is coming. The board is already in its right home
 (`G:\My Drive\00-CONTINUITY-BOARD\`). **Delete the "if a J: ever appears, mirror to
