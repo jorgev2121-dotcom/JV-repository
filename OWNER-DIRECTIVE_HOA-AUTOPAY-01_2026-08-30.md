@@ -2,7 +2,7 @@
 **Issued by Jorge 2026-08-30 · standing directive · TRK-2026-9757**
 
 **Directive:** Enroll autopay for the homestead HOA — **Precious Homes at Twin Lakes** (T&G
-Management, tgmgmt.com), account **`PH13633142`**, property 13633 SW 142 Terrace, Miami FL 33186.
+Management, tgmgmt.cincwebaxis.com), account **`PH13633142`**, property 13633 SW 142 Terrace, Miami FL 33186.
 
 - **Source of funds:** Jorge's **Bank of America checking** account (+ routing) for auto-debit.
 - **First payment:** **$555.00** (clears $375 past-due + September's $180 — "paid through September"), one-time at enrollment.
@@ -19,3 +19,6 @@ Management, tgmgmt.com), account **`PH13633142`**, property 13633 SW 142 Terrace
 - Any charge that is not this HOA, or any amount other than $180/mo, stops and asks Jorge.
 
 #OD-HOA-AUTOPAY-01 #TRK-2026-9757 #autopay #RED #owner-directive
+
+
+> **URL CORRECTION 2026-08-30:** the live portal is **tgmgmt.cincwebaxis.com** (branded T&G Management Services Inc). `tgmgmt.com` was a dead parked domain — RAMBO found the real one. Manager verified current via twinlakes-hoa.com (@tgms.com), the portal branding, and Tony Lester's 2026-07-30 community email.
