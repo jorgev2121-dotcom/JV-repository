@@ -11,10 +11,8 @@ together; **ask Jorge if anything is needed or if any blocker is hit.**
   (County folio: 30-5923-017-0050 · JORGE VALDES.)
 - **Community (exact):** **Precious Homes at Twin Lakes** (this is the community name — not a separate field).
 - **Management company:** **T&G Management** — **https://tgmgmt.com** → the **Twin Lakes 2026** page.
-- **⚠ Account number — CONFLICT, do NOT guess:** Jorge dictated it two ways in one message —
-  **`PH13633142`** (P-H-1-3-6-3-3-1-4-2) **and** **`PH136142`**. **Confirm the exact string with Jorge
-  before entering it. Do not submit against an unconfirmed account number** (wrong account on an HOA
-  portal is a real misfile).
+- **Account number (CONFIRMED by Jorge 2026-08-30):** **`PH13633142`**. (He had dictated a second
+  variant `PH136142`; he confirmed PH13633142 is correct.)
 - **Balance owed / money (NEW):** **$375.00 past-due balance** and a **$180.00 recurring monthly.**
 
 ## MONEY GUARDRAIL — RED, and over the cap. READ THIS.
