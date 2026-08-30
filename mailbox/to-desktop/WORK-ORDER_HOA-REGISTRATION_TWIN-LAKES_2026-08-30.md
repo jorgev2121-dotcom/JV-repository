@@ -24,10 +24,11 @@ specific to this HOA and does NOT lift OD-BUDGET-01 for anything else.
     THESE FROM 1PASSWORD.** If they are not in 1Password yet, Jorge adds them there on the desktop.
     **The account and routing numbers must NEVER be typed into any chat, written to the repo, to
     TO-CLOUD.md, or to any file. Portal + 1Password only.**
-  - **Amount / schedule:** **$180.00 recurring monthly, debited on the 1st, commencing 2026-09-01.**
-  - **Past-due $375.00: HOLD — Jorge has NOT decided (he dismissed the question 2026-08-30). RAMBO
-    does NOTHING about the $375 until Jorge explicitly says. Set up only the going-forward $180/mo
-    autopay if/when Jorge releases this task.**
+  - **FIRST PAYMENT: $555.00** — "paid through September" (= $375.00 past-due + $180.00 September).
+    One-time, at enrollment.
+  - **RECURRING: $180.00/month, debited on the 1st, COMMENCING 2026-10-01, with NO end date —
+    continues until Jorge manually changes it.** (Note the change: recurring now starts OCTOBER 1,
+    because the $555 first payment already covers September.)
 
 ### Safety rails before the first debit (do all of these)
 1. **Verify the payee** is exactly *Precious Homes at Twin Lakes / T&G Management* and the account is

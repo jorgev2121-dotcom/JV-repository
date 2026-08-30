@@ -5,8 +5,9 @@
 Management, tgmgmt.com), account **`PH13633142`**, property 13633 SW 142 Terrace, Miami FL 33186.
 
 - **Source of funds:** Jorge's **Bank of America checking** account (+ routing) for auto-debit.
-- **Schedule:** **$180.00/month, debited on the 1st, commencing 2026-09-01.**
-- **Past-due at enrollment:** $375.00 — Jorge to confirm pay-now vs start-forward.
+- **First payment:** **$555.00** (clears $375 past-due + September's $180 — "paid through September"), one-time at enrollment.
+- **Recurring:** **$180.00/month on the 1st, COMMENCING 2026-10-01, no end date — until Jorge manually changes it.**
+- Decision recorded 2026-08-30 (supersedes the earlier "$180 from 9/1" and the past-due HOLD).
 
 ## Scope and limits (these do NOT change)
 - This is the **owner's explicit RED approval** for this one payee. It is a standing authorization for
