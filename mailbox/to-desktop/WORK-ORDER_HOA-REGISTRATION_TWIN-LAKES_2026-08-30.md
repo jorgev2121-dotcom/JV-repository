@@ -15,11 +15,27 @@ together; **ask Jorge if anything is needed or if any blocker is hit.**
   variant `PH136142`; he confirmed PH13633142 is correct.)
 - **Balance owed / money (NEW):** **$375.00 past-due balance** and a **$180.00 recurring monthly.**
 
-## MONEY GUARDRAIL — RED, and over the cap. READ THIS.
-- The $375 past-due and the $180/month are **RED and far above OD-BUDGET-01 ($40/day).**
-- **RAMBO REGISTERS ONLY. RAMBO DOES NOT PAY, does not enter card details, does not enroll autopay.**
-- Surface the balance to Jorge and stop. Payment is Jorge's separate, explicit decision — never
-  RAMBO's, and never inside the caps.
+## PAYMENT — OWNER STANDING DIRECTIVE (OD-HOA-AUTOPAY-01, Jorge 2026-08-30)
+**Jorge has explicitly authorized autopay for THIS payee.** This is the owner's RED approval; it is
+specific to this HOA and does NOT lift OD-BUDGET-01 for anything else.
+
+- **Set up auto-debit** on the T&G / Precious Homes at Twin Lakes portal:
+  - **Source:** Jorge's **Bank of America CHECKING** account + its routing number — **RAMBO SELECTS
+    THESE FROM 1PASSWORD.** If they are not in 1Password yet, Jorge adds them there on the desktop.
+    **The account and routing numbers must NEVER be typed into any chat, written to the repo, to
+    TO-CLOUD.md, or to any file. Portal + 1Password only.**
+  - **Amount / schedule:** **$180.00 recurring monthly, debited on the 1st, commencing 2026-09-01.**
+  - **Past-due $375.00:** ⚠ CONFIRM with Jorge whether to pay it now at enrollment or only start the
+    $180/mo going forward — do not assume.
+
+### Safety rails before the first debit (do all of these)
+1. **Verify the payee** is exactly *Precious Homes at Twin Lakes / T&G Management* and the account is
+   `PH13633142` BEFORE saving any bank details. A wrong payee on an auto-debit is worse than a misfile.
+2. **Confirm the first debit amount and date back to Jorge** before enrolling autopay.
+3. Store the portal login (not the bank numbers as loose text) in 1Password.
+4. If the portal requires a verification code or a final confirm click, that stays **Jorge's** action.
+- This authorization covers this HOA autopay only. Any other charge, or an amount different from
+  $180/mo, stops and asks Jorge.
 
 ## Reporting
 - Jorge asked: on any blocker, **report in BOTH places** — reply in the desktop's own chat, and post
