@@ -3,13 +3,19 @@
 
 **Owner directive (verbatim):** "also run OCR protocol on everything after 01/01/2022."
 
-## Scope (stated so it's not guessed — adjust if Jorge says otherwise)
-- **Where:** Google Drive `G:\My Drive\01-JOBS\` (job folders) and the OneDrive filing cabinet
-  `C:\Users\JV\OneDrive\...`. Also PaperPort exports and Downloads if quick to reach.
+## Scope — EVERYWHERE ON THE SYSTEM (owner widened it 2026-08-30: "search everywhere, on the system")
+- **Where — the entire machine and every store attached to it:** all local drives (`C:\` and any
+  others), the mapped Google Drive (`G:\My Drive`), **OneDrive**, **Dropbox**, the **PaperPort**
+  repository, **Downloads**, **Desktop**, **OneDrive/Documents**, and any **removable / USB** drives
+  currently mounted. Also **Gmail attachments** (the desktop can pull them down locally to OCR).
 - **Which files:** documents with **last-modified date ≥ 2022-01-01** — PDFs and images
-  (`.pdf .tif .tiff .jpg .jpeg .png`) that are **scanned/image-only** (no existing text layer).
-- **Skip:** files that already have a current `.SEARCH.txt` sidecar or already contain a text layer;
-  files under `_Superseded\`.
+  (`.pdf .tif .tiff .jpg .jpeg .png .bmp .heic`) that are **scanned/image-only** (no text layer).
+- **Enumerate first, then OCR:** build the full candidate list across all locations and write a
+  **count** to TO-CLOUD.md *before* OCR starts, so the night has a real denominator.
+- **Skip (noise, not documents — so we OCR files, not the operating system):** `C:\Windows\`,
+  `Program Files\`, `ProgramData\`, `AppData\`, application install dirs, `node_modules`, `.git`,
+  and anything that isn't a scanned document/image. Skip files that already have a current
+  `.SEARCH.txt` sidecar or already contain a text layer; skip `_Superseded\`.
 
 ## Action (GREEN — new files only, never touch the original)
 1. OCR each qualifying file (tesseract or the desktop's existing OCR tool).
