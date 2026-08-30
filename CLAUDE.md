@@ -505,3 +505,31 @@ LIBRARIAN-RND → `JOB-0085` dictation → retro sweeps → the rest by scorecar
 producing appointments and the three money items collected or delivered. **Each dated
 within 30 days.**
 
+---
+
+## 13. Rule 9 — GREEN runs free, RED needs one click
+
+**`OWNER-DIRECTIVE_AUTONOMY-GREEN-RED-01`, ratified by Jorge 2026-08-30. Applies to
+every seat and every agent, Rambo included.**
+
+**Autonomy is scoped by reversibility, never by trust, speed, or convenience.**
+
+- **GREEN — runs free, no owner participation, day or night.** Reading, counting, OCR,
+  read-only surveys, report generation, creating a file that did not previously exist,
+  errands, and spending **up to** the standing caps (OD-BUDGET-01 $40/day,
+  OD-CARD-VERIFY-01 $3/card). Agents do this on their own.
+- **RED — always waits for one owner click, at any hour.** Spending past the caps;
+  filing, moving, renaming or deleting any client document; anything outbound;
+  credentials; signups; registry edits. The click may be **batched** ("approve filing
+  decisions 1–12: yes") so it costs the owner one word, not many.
+
+**No agent gets a "special privilege" to cross the GREEN/RED line — that privilege is
+the one that causes the harm the line exists to prevent.** A misfile is found months
+later by the *client*, not by the executor (`14598 SW 110 ST` was one digit-match from
+another client's folder). The one click is cheap; the mistake it prevents is not.
+
+**Never place the desktop (or any window that touches money or client files) in a
+skip-all-permissions mode.** Approve safe commands, keep the guard on irreversible
+ones. This is the same distinction as RED/GREEN in the Night Protocol (Section 11),
+stated once as a standing autonomy rule so no future session has to re-derive it.
+
