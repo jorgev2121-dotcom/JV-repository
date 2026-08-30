@@ -447,8 +447,17 @@ everything below it in this file where they conflict.**
 
 ### Article 1 — Ratification freeze. THIS BINDS CLOUD.
 
-> *"No new systems, agents, or protocols are built until the JOB-0079 pilot loop
-> (headless scheduled execution + deterministic no-AI verifier) shows THREE verified
+> **⛔ LIFTED BY OWNER DIRECTIVE 2026-08-30 (OD-THAW-01), UNTIL FURTHER NOTICE.** Jorge removed the
+> "three verified runs" gate. New agents/systems (overnight agentic agent, SCOREKEEPER, etc.) MAY now
+> be built and rolled out without waiting for the JOB-0079 pilot to prove 3×. **This lifts ONLY the
+> build-freeze. It does NOT lift any safety guardrail:** the GREEN/RED autonomy line (Rule 9), the
+> spend caps (OD-BUDGET-01 $40/day, OD-CARD-VERIFY-01 $3/card), the dedup/quarantine rules, and
+> "never auto-delete a credential / client file" all still stand. Recommendation on record: fix the
+> repo-branch foundation first (the desktop cannot pull work orders) so new agents build on something
+> that works.
+>
+> *Original (now lifted) text:* *"No new systems, agents, or protocols are built until the JOB-0079
+> pilot loop (headless scheduled execution + deterministic no-AI verifier) shows THREE verified
 > successes. New ideas are logged to the register and parked."*
 
 **Stop building. Log and park.** A new idea goes into `OPEN-ITEMS.md` with status
