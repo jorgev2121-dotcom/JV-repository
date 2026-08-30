@@ -1,0 +1,305 @@
+<title>Jacket Gaps — 10980 SW 202 DR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Newsreader:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+  :root{
+    --paper:#f4f2ec; --surface:#ffffff; --surface-2:#faf8f3;
+    --ink:#1b1e24; --muted:#5c6470; --hairline:#e2ddd1;
+    --accent:#1f4e79;            /* ledger blue */
+    --accent-soft:#e8eef5;
+    --missing:#a9362f; --missing-soft:#f6e6e2;   /* red-clay: no access */
+    --degraded:#9a6413; --degraded-soft:#f6ecd6; /* amber: illegible */
+    --resolved:#2c6e49; --resolved-soft:#e2efe6; /* green: on file */
+    --pending:#4a5563;  --pending-soft:#eceef1;  /* slate: not built yet */
+    --shadow:0 1px 2px rgba(27,30,36,.06),0 6px 20px rgba(27,30,36,.06);
+    --radius:14px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#13161b; --surface:#1b1f27; --surface-2:#20242d;
+      --ink:#e9eaee; --muted:#9aa3b0; --hairline:#2c313b;
+      --accent:#7aa9d8; --accent-soft:#22303f;
+      --missing:#e08a83; --missing-soft:#3a2321;
+      --degraded:#e0b25c; --degraded-soft:#38301c;
+      --resolved:#7fc39a; --resolved-soft:#1e2f26;
+      --pending:#a9b2bf; --pending-soft:#262b33;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#13161b; --surface:#1b1f27; --surface-2:#20242d;
+    --ink:#e9eaee; --muted:#9aa3b0; --hairline:#2c313b;
+    --accent:#7aa9d8; --accent-soft:#22303f;
+    --missing:#e08a83; --missing-soft:#3a2321;
+    --degraded:#e0b25c; --degraded-soft:#38301c;
+    --resolved:#7fc39a; --resolved-soft:#1e2f26;
+    --pending:#a9b2bf; --pending-soft:#262b33;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"Atkinson Hyperlegible",system-ui,sans-serif;
+    font-size:18px; line-height:1.65; margin:0;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px; margin:0 auto; padding:40px 22px 160px}
+
+  /* ---- Header ---- */
+  .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--accent); font-weight:600; margin:0 0 10px}
+  h1{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:2.15rem;
+    line-height:1.1; text-wrap:balance; margin:0 0 6px}
+  .sub{font-family:"Newsreader",Georgia,serif; font-size:1.15rem; color:var(--muted); margin:0 0 22px}
+  .lede{background:var(--surface); border:1px solid var(--hairline); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:20px 22px; margin:0 0 26px}
+  .lede p{margin:0 0 10px}
+  .lede p:last-child{margin:0}
+  .lede b{color:var(--ink)}
+
+  /* ---- Legend ---- */
+  .legend{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 30px}
+  .legend .chip{cursor:default}
+  .chip{display:inline-flex; align-items:center; gap:7px; font-family:"IBM Plex Mono",monospace;
+    font-size:.7rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    padding:5px 11px; border-radius:999px; border:1px solid transparent; white-space:nowrap}
+  .chip::before{content:""; width:9px; height:9px; border-radius:50%; background:currentColor; flex:none}
+  .c-missing{color:var(--missing); background:var(--missing-soft)}
+  .c-degraded{color:var(--degraded); background:var(--degraded-soft)}
+  .c-resolved{color:var(--resolved); background:var(--resolved-soft)}
+  .c-pending{color:var(--pending); background:var(--pending-soft)}
+
+  /* ---- Gap cards ---- */
+  .card{background:var(--surface); border:1px solid var(--hairline); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:0; margin:0 0 22px; overflow:hidden}
+  .card.missing{border-left:5px solid var(--missing)}
+  .card.degraded{border-left:5px solid var(--degraded)}
+  .card.pending{border-left:5px solid var(--pending)}
+  .card-head{display:flex; align-items:flex-start; gap:14px; padding:20px 24px 4px}
+  .gid{font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:.95rem; color:var(--accent);
+    background:var(--accent-soft); padding:3px 9px; border-radius:8px; flex:none; margin-top:3px}
+  .card h2{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:1.35rem;
+    line-height:1.2; margin:0; text-wrap:balance}
+  .card-body{padding:6px 24px 22px}
+  .card-body .chip{margin:8px 0 14px}
+  .row{margin:14px 0 0}
+  .row .lbl{font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--muted); font-weight:600; margin:0 0 3px}
+  .row p{margin:0}
+  .code{font-family:"IBM Plex Mono",monospace; font-size:.86em; background:var(--surface-2);
+    border:1px solid var(--hairline); border-radius:6px; padding:1px 6px}
+  .fix{background:var(--surface-2); border-radius:10px; padding:13px 16px; margin-top:14px}
+  .fix .lbl{color:var(--accent)}
+
+  /* ---- Comment box ---- */
+  .comment{margin-top:18px; border-top:1px dashed var(--hairline); padding-top:16px}
+  .comment label{display:block; font-family:"IBM Plex Mono",monospace; font-size:.68rem;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:600; margin:0 0 8px}
+  textarea{width:100%; min-height:76px; resize:vertical; font-family:"Atkinson Hyperlegible",sans-serif;
+    font-size:1rem; line-height:1.55; color:var(--ink); background:var(--paper);
+    border:1.5px solid var(--hairline); border-radius:10px; padding:12px 14px}
+  textarea:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+  .saved{font-size:.78rem; color:var(--resolved); margin:6px 2px 0; min-height:1.1em; font-weight:700}
+
+  /* ---- Sticky action bar ---- */
+  .bar{position:fixed; left:0; right:0; bottom:0; background:var(--surface);
+    border-top:1px solid var(--hairline); box-shadow:0 -4px 18px rgba(27,30,36,.08);
+    padding:14px 22px; display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap; z-index:20}
+  .bar .note{font-size:.85rem; color:var(--muted); margin:0}
+  button.act{font-family:"Atkinson Hyperlegible",sans-serif; font-weight:700; font-size:1rem;
+    color:#fff; background:var(--accent); border:none; border-radius:10px; padding:12px 22px; cursor:pointer}
+  button.act:hover{filter:brightness(1.08)}
+  button.act:focus-visible{outline:3px solid var(--accent-soft); outline-offset:2px}
+  button.ghost{color:var(--accent); background:transparent; border:1.5px solid var(--accent)}
+
+  /* ---- Copy modal ---- */
+  .modal{position:fixed; inset:0; background:rgba(10,12,16,.55); display:none; z-index:40;
+    align-items:center; justify-content:center; padding:22px}
+  .modal.open{display:flex}
+  .modal-inner{background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow);
+    max-width:640px; width:100%; padding:22px; max-height:82vh; display:flex; flex-direction:column}
+  .modal-inner h3{font-family:"Newsreader",serif; margin:0 0 6px; font-size:1.3rem}
+  .modal-inner p{margin:0 0 12px; font-size:.92rem; color:var(--muted)}
+  .modal-inner textarea{flex:1; min-height:220px; font-family:"IBM Plex Mono",monospace; font-size:.82rem}
+  .modal-actions{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
+  .stamp{font-family:"IBM Plex Mono",monospace; font-size:.72rem; color:var(--muted);
+    text-align:center; margin:40px 0 0; letter-spacing:.04em}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media (max-width:520px){ h1{font-size:1.7rem} .card-head{flex-wrap:wrap} }
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Contiguous jacket · gaps &amp; placeholders</p>
+  <h1>Where the 10980 jacket is still incomplete</h1>
+  <p class="sub">TRK-2026-1310 · Cabana Club Gardens Apts · 10980 SW 202 DR · built 1966</p>
+
+  <div class="lede">
+    <p><b>The good news first:</b> the whole jacket is transcribed — 22 original pages, every card, photo and permit slip read and typed out. The <b>1989 permit 89037613</b> (add-alt, alter exterior, roof) is on file and <b>SAFE</b>.</p>
+    <p><b>Four things are still open.</b> Only one is a truly missing document; two are handwriting I can't read with certainty from the cloud; one is page rotation I set by eye instead of by machine. Each has a plan, and each has a comment box for you.</p>
+    <p><b>Write in any box below.</b> Your notes save on this device automatically. When you're done, tap <b>“Copy all my comments”</b> at the bottom and paste them back to me.</p>
+  </div>
+
+  <div class="legend">
+    <span class="chip c-missing">Missing — no access</span>
+    <span class="chip c-degraded">Illegible — degraded</span>
+    <span class="chip c-pending">Not built yet</span>
+    <span class="chip c-resolved">On file — SAFE</span>
+  </div>
+
+  <!-- G-1 -->
+  <div class="card missing">
+    <div class="card-head"><span class="gid">G-1</span>
+      <h2>The permit for the CBS perimeter wall is not in the jacket</h2></div>
+    <div class="card-body">
+      <span class="chip c-missing">Missing — no access</span>
+      <div class="row"><p class="lbl">What's missing</p>
+        <p>The Property Appraiser cards record a <span class="code">CBS WALL</span> added around <b>1970</b> (“add CB Wall,” yr-70 line) and carry it as an extra feature worth points. But <b>every PERMIT box on those cards is blank.</b> From the jacket alone, that wall reads as an <b>unpermitted change → legalization exposure.</b></p></div>
+      <div class="row"><p class="lbl">Why I can't close it from here</p>
+        <p>If a 1970 building permit exists, it lives in <b>Miami-Dade Building Department microfilm</b>, which I cannot reach from the cloud. The PA jacket and the Building Department are two different offices — the PA card never proves a permit either way.</p></div>
+      <div class="fix"><p class="lbl">How I'll overcome it</p>
+        <p>The <b>microfilm-retrieval errand is already queued (due before 2026-09-05).</b> It pulls the 1970 permit record for this folio. <b>If found → the wall becomes SAFE.</b> If none exists → we document it as a known legalization item so the buyer isn't blindsided. The 1989 permit already on file is unaffected.</p></div>
+      <div class="comment"><label for="c1">Your comment on G-1</label>
+        <textarea id="c1" data-key="gap10980_c1" placeholder="e.g. I already have this permit / check microfilm reel X / this wall is fine, drop it…"></textarea>
+        <p class="saved" id="s1"></p></div>
+    </div>
+  </div>
+
+  <!-- G-2 -->
+  <div class="card degraded">
+    <div class="card-head"><span class="gid">G-2</span>
+      <h2>Signatures and initials on the photo backs can't be read for sure</h2></div>
+    <div class="card-body">
+      <span class="chip c-degraded">Illegible — degraded</span>
+      <div class="row"><p class="lbl">What's unreadable</p>
+        <p>The cursive <b>initials on the backs of the 1967 Polaroids</b> (pages 2, 4, 6) and the sign-off initials on the 1989 permit card — I read them as <span class="code">J.Steph?</span> and <span class="code">A.Ryers?</span>, but the question marks are honest. The <b>folio (30-6007-009-0030)</b> and the <b>date (11-20-67)</b> on those backs <b>are</b> clear.</p></div>
+      <div class="row"><p class="lbl">Why it's hard from here</p>
+        <p>These are copier scans of 58-year-old handwriting. Cloud rendering can darken them, but can't invent detail that the copy already lost.</p></div>
+      <div class="fix"><p class="lbl">How I'll overcome it</p>
+        <p>Desktop re-scans the <b>original Polaroid backs at high resolution</b> and runs OCR on them. If they're still unreadable, I mark them <span class="code">[initials, illegible]</span> — they're low-value and don't change the safe-vs-exposure call. <b>Nothing important rides on a name here.</b></p></div>
+      <div class="comment"><label for="c2">Your comment on G-2</label>
+        <textarea id="c2" data-key="gap10980_c2" placeholder="e.g. that's the county inspector, leave it / I can read it, it says…"></textarea>
+        <p class="saved" id="s2"></p></div>
+    </div>
+  </div>
+
+  <!-- G-3 -->
+  <div class="card degraded">
+    <div class="card-head"><span class="gid">G-3</span>
+      <h2>Some handwritten reference numbers on the 1966 card are partly guessed</h2></div>
+    <div class="card-body">
+      <span class="chip c-degraded">Illegible — degraded</span>
+      <div class="row"><p class="lbl">What's uncertain</p>
+        <p>On the 1966 master card: a field note reads <span class="code">L?nie – 4/23/70</span> (I believe that word is <b>“Lanai”</b>), a couple of TAB reference numbers (<span class="code">TAB-455?</span>), and one address digit printed as <span class="code">109?0</span>. <b>The address is already confirmed as 10980</b> by the later computer labels, so that one is effectively resolved.</p></div>
+      <div class="row"><p class="lbl">Why it matters (a little)</p>
+        <p>If <span class="code">L?nie</span> really is <b>“Lanai,”</b> that's a possible <b>enclosed-porch change</b> to check for its own permit — same permitted-vs-legalization question as the wall.</p></div>
+      <div class="fix"><p class="lbl">How I'll overcome it</p>
+        <p>Desktop OCR pass on the original card, plus I <b>fold “Lanai” into the same microfilm request</b> as G-1 — one trip to the county answers both the wall and the porch.</p></div>
+      <div class="comment"><label for="c3">Your comment on G-3</label>
+        <textarea id="c3" data-key="gap10980_c3" placeholder="e.g. yes that's a lanai / no, it says something else / ignore the TAB numbers…"></textarea>
+        <p class="saved" id="s3"></p></div>
+    </div>
+  </div>
+
+  <!-- G-4 -->
+  <div class="card degraded">
+    <div class="card-head"><span class="gid">G-4</span>
+      <h2>Page rotations were set by my eye, not measured by a machine</h2></div>
+    <div class="card-body">
+      <span class="chip c-degraded">Illegible — degraded</span>
+      <div class="row"><p class="lbl">What's approximate</p>
+        <p>Several pages came in sideways or upside-down (180°, 90°, 270°, and one at ~9°). I straightened each one <b>by looking at it</b>, because the automatic orientation tool isn't available to me in the cloud. That's how the house photo was once upside-down until the “trees grow up” cue caught it.</p></div>
+      <div class="row"><p class="lbl">Why that's a risk</p>
+        <p>By-eye is usually right but not certain — a page could sit a degree or two off, which reads badly and can trip up OCR.</p></div>
+      <div class="fix"><p class="lbl">How I'll overcome it</p>
+        <p>Desktop <b>Job 17 re-runs orientation with the real detection tool</b>, squaring every page to the degree instead of by eye. This becomes the standard so the photo defect never ships again.</p></div>
+      <div class="comment"><label for="c4">Your comment on G-4</label>
+        <textarea id="c4" data-key="gap10980_c4" placeholder="e.g. looked fine to me / page 10 is still crooked / don't worry about it…"></textarea>
+        <p class="saved" id="s4"></p></div>
+    </div>
+  </div>
+
+  <!-- G-5 -->
+  <div class="card pending">
+    <div class="card-head"><span class="gid">G-5</span>
+      <h2>The next properties aren't assembled yet — no gaps to show for them</h2></div>
+    <div class="card-body">
+      <span class="chip c-pending">Not built yet</span>
+      <div class="row"><p class="lbl">Status</p>
+        <p><b>10980 is the only contiguous jacket built so far.</b> The next one (1840) and the rest of the batch are queued but not assembled, so they have no placeholders to review today.</p></div>
+      <div class="fix"><p class="lbl">What happens next</p>
+        <p>Each new jacket is built on the <b>corrected recipe</b> (grayscale photos, cropped Polaroid frames, machine-checked rotation). When each is done, <b>its own gaps land on this same board</b> for you to comment on — same format, same comment boxes.</p></div>
+      <div class="comment"><label for="c5">Your comment on G-5</label>
+        <textarea id="c5" data-key="gap10980_c5" placeholder="e.g. do 1840 next / prioritize a different address / hold the batch…"></textarea>
+        <p class="saved" id="s5"></p></div>
+    </div>
+  </div>
+
+  <p class="stamp">TRK-2026-1310 · v1 · 2026-08-30 · CURRENT · #tax-jacket #gaps-board</p>
+</div>
+
+<div class="bar">
+  <p class="note">Your comments save on this device as you type.</p>
+  <button class="act" id="copyBtn">Copy all my comments</button>
+  <button class="act ghost" id="clearBtn">Clear my comments</button>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-inner">
+    <h3>Your comments — paste this back to Cloud</h3>
+    <p>The text is selected below. It should already be on your clipboard; if not, select it and copy, then paste it into the chat with me.</p>
+    <textarea id="outBox" readonly></textarea>
+    <div class="modal-actions">
+      <button class="act" id="copyAgain">Copy again</button>
+      <button class="act ghost" id="closeModal">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  var boxes = Array.prototype.slice.call(document.querySelectorAll("textarea[data-key]"));
+
+  // restore
+  boxes.forEach(function(t){
+    try{ var v = localStorage.getItem(t.dataset.key); if(v){ t.value = v; } }catch(e){}
+    var saved = document.getElementById("s"+t.id.slice(1));
+    t.addEventListener("input", function(){
+      try{ localStorage.setItem(t.dataset.key, t.value); if(saved){ saved.textContent="Saved"; setTimeout(function(){saved.textContent="";},1200);} }catch(e){}
+    });
+  });
+
+  function assemble(){
+    var lines = ["COMMENTS ON 10980 GAPS BOARD (TRK-2026-1310) — "+new Date().toLocaleString(), ""];
+    var titles = {c1:"G-1 CBS wall permit (missing)", c2:"G-2 Signatures/initials (illegible)",
+      c3:"G-3 1966 card handwriting / Lanai (illegible)", c4:"G-4 Page rotation by eye",
+      c5:"G-5 Next properties (not built)"};
+    var any=false;
+    boxes.forEach(function(t){
+      var v=(t.value||"").trim();
+      if(v){ any=true; lines.push("["+ (titles[t.id]||t.id) +"]"); lines.push(v); lines.push(""); }
+    });
+    if(!any){ lines.push("(no comments entered yet)"); }
+    return lines.join("\n");
+  }
+
+  function tryCopy(text){
+    try{ if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text); } }catch(e){}
+  }
+
+  var modal=document.getElementById("modal"), outBox=document.getElementById("outBox");
+  document.getElementById("copyBtn").addEventListener("click", function(){
+    var text=assemble(); outBox.value=text; modal.classList.add("open");
+    outBox.focus(); outBox.select(); tryCopy(text);
+  });
+  document.getElementById("copyAgain").addEventListener("click", function(){
+    outBox.focus(); outBox.select(); tryCopy(outBox.value);
+  });
+  document.getElementById("closeModal").addEventListener("click", function(){ modal.classList.remove("open"); });
+  modal.addEventListener("click", function(e){ if(e.target===modal){ modal.classList.remove("open"); } });
+
+  document.getElementById("clearBtn").addEventListener("click", function(){
+    if(!confirm("Clear all your comments on this device?")) return;
+    boxes.forEach(function(t){ t.value=""; try{ localStorage.removeItem(t.dataset.key); }catch(e){} });
+  });
+</script>
