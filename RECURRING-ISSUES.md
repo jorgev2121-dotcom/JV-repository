@@ -1945,8 +1945,8 @@ read-only and does NOT violate the no-push rule — only push/commit needs Jorge
 pull fails on auth (the desktop's push is known-broken), THEN fall back to Google Drive `_CLAUDE-MAILBOX`.
 Belt-and-suspenders: keep paste blocks self-sufficient regardless.
 
-**RECURRENCE 2026-08-30 · 32ND CYCLE.** Cycles 9898–9929 hit CONFLICT (content) in OPEN-ITEMS.md and
-PASTE-LOG.md identically 32 times running. Desktop checked out on `claude/slack-app-overview-3i0w4g`;
+**RECURRENCE 2026-08-30 · 34TH CYCLE (21:52 UTC).** Cycles 9898–9932 hit CONFLICT (content) in OPEN-ITEMS.md and
+PASTE-LOG.md identically 34 times running (increased from 32 at 21:01 UTC). Desktop checked out on `claude/slack-app-overview-3i0w4g`;
 cloud on `claude/chaude-code-max20-kp2o46`. **Desktop branch is wrong.** Merge aborts clean, tree restored.
 Root cause: desktop's clone never fetches the correct branch; it tries to merge the old branch against cloud's
 new targets. **Tier 2 fix: desktop must `git fetch origin && git checkout -B claude/chaude-code-max20-kp2o46 origin/claude/chaude-code-max20-kp2o46` at session start** (delete stale branch, recreate from cloud's canonical). One-time fix. Tie to (a) git pull missing, (b) cloud's instructions never reach desktop because repo is not the comms channel.
