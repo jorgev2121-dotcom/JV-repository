@@ -5,17 +5,27 @@
 management-company account for Jorge's **homestead** property. RAMBO and 1Password work on this
 together; **ask Jorge if anything is needed or if any blocker is hit.**
 
-## The facts as dictated (READ-BACK — Jorge to confirm the two flagged items)
+## The facts (updated 2026-08-30 from Jorge's clarification)
 - **Owner:** Jorge Valdes (homestead).
-- **Property / homestead address:** **13633 SW 142 Terrace, Miami, FL 33186.**
-  (County folio for this address, from prior county run: 30-5923-017-0050 · JORGE VALDES.)
-- **Account number (as dictated "P as in Paul, H, 1 3 6 3 3 1 4 2"):** **`PH13633142`**
-  — ⚠ **CONFIRM this exact string with Jorge before submitting anything.**
-- **Community / HOA:** **Twin Lakes** (year **2026**).
-- **Management company:** **T&G Management** — registration site **https://tgmgmt.com** → the
-  **"Twin Lakes 2026"** registration page.
-- **"for precious homes":** ⚠ **UNCLEAR from dictation** — possibly the builder/community name
-  ("Precious Homes") or a homeowner-type field. **Ask Jorge what this refers to** before using it.
+- **Property / reference address:** **13633 SW 142 Terrace, Miami, FL 33186.**
+  (County folio: 30-5923-017-0050 · JORGE VALDES.)
+- **Community (exact):** **Precious Homes at Twin Lakes** (this is the community name — not a separate field).
+- **Management company:** **T&G Management** — **https://tgmgmt.com** → the **Twin Lakes 2026** page.
+- **⚠ Account number — CONFLICT, do NOT guess:** Jorge dictated it two ways in one message —
+  **`PH13633142`** (P-H-1-3-6-3-3-1-4-2) **and** **`PH136142`**. **Confirm the exact string with Jorge
+  before entering it. Do not submit against an unconfirmed account number** (wrong account on an HOA
+  portal is a real misfile).
+- **Balance owed / money (NEW):** **$375.00 past-due balance** and a **$180.00 recurring monthly.**
+
+## MONEY GUARDRAIL — RED, and over the cap. READ THIS.
+- The $375 past-due and the $180/month are **RED and far above OD-BUDGET-01 ($40/day).**
+- **RAMBO REGISTERS ONLY. RAMBO DOES NOT PAY, does not enter card details, does not enroll autopay.**
+- Surface the balance to Jorge and stop. Payment is Jorge's separate, explicit decision — never
+  RAMBO's, and never inside the caps.
+
+## Reporting
+- Jorge asked: on any blocker, **report in BOTH places** — reply in the desktop's own chat, and post
+  a line to TO-CLOUD.md so ☁️ cloud relays it to Jorge here. (Cloud cannot post into the desktop chat.)
 
 ## Why this is a desktop + RAMBO job (cloud attempted, per EXHAUST-FIRST)
 Cloud has **no browser** and is **egress-blocked from tgmgmt.com** (tested 2026-08-30 — the network
