@@ -60,6 +60,15 @@ RAMBO's lane on the desktop.
    (and any verification code that lands in Jorge's email/phone) to Jorge. Ask him.
 5. Report the outcome to TO-CLOUD.md: registered / already-existed / blocked-and-why.
 
+### 1PASSWORD — save as a vendor login with a strong password (owner instruction 2026-08-30)
+- **Let 1Password engage and SAVE this site as a vendor login** — item e.g. "Precious Homes at Twin
+  Lakes — T&G Management", URL `https://tgmgmt.cincwebaxis.com`, username = Jorge's login, tagged
+  **vendor**.
+- **Use 1Password's default auto-generated (recommended) STRONG password** whenever a password is
+  chosen. Note the flow: T&G first **emails a temporary password** to Jorge@TeamUsaSales.com — save
+  that in the item to get in, then **at first login change it to 1Password's strong generated
+  password** and update the saved item. Do not settle for a weak/hand-typed password.
+
 ## Guardrails
 - No payment unless Jorge approves (RED); if a fee is required, stop and ask.
 - Confirm the account number and "precious homes" meaning BEFORE submitting — a wrong account on an
