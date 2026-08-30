@@ -1937,3 +1937,5 @@ unattended job that can trigger elevation can strand a modal dialog on the owner
 run without elevation, or the script clears its own leftover dialogs' processes at both ends (it cannot
 dismiss the dialog, but it can avoid launching the elevated scan). **Owner action when it happens:
 press No on each dialog, or reboot — never Yes.**
+
+- **RI-032 (2026-08-30):** 1Password auto-cleanup quarantined LIVE logins (Jorge + girlfriend) as "dead," renaming them ZZ-ATT-QUARANTINE. Not deleted (reversible). Cause: dedupe/quarantine heuristic too aggressive + no personal-account exclusion. Fix: guardrail added to AGENT-RIDER; auto-cleanup PAUSED; restore the four items. Recurrence of the pattern "agent judges something dead and acts without confirming."

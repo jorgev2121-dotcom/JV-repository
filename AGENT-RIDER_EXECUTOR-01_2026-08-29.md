@@ -45,3 +45,14 @@ shortcut to the real `OUTLOOK.EXE` under Program Files, rename the stray to `ZZ-
 per §1, log PASS. Do NOT reinstall Office off this error alone — test the real exe first.
 
 *Footer: TRK-2026-9724 · 2026-08-29 · CURRENT · #agents #EXECUTOR-01 #test-before-ship #JorgeValdes*
+
+## 1PASSWORD QUARANTINE — HARD GUARDRAIL (added 2026-08-30 after a false positive)
+The "quarantine dead logins" part of the 1Password-takeover lane (TRK-2026-9346) **quarantined LIVE
+logins by mistake** — Jorge's and his girlfriend's real accounts got the `ZZ-ATT-QUARANTINE-<date>`
+prefix. New hard rules:
+- **NEVER quarantine a login unless it is PROVEN dead** — site truly gone AND unused 2+ years AND
+  confirmed with Jorge first. "Looks dead / duplicate" is NOT enough.
+- **NEVER touch personal / family / girlfriend accounts.** Out of scope entirely.
+- Quarantine = rename (reversible), **never delete**. Restore any wrongly-flagged item on request.
+- **The auto dedupe/quarantine cleanup is PAUSED** until this false-positive logic is fixed and Jorge
+  re-approves. Relabeling cards / saving NEW logins is fine; bulk quarantining is not.
