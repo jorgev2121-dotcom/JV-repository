@@ -87,3 +87,5 @@ enough to identify it exactly, with no description needed.
 | **PASTE-X-003** | 2026-08-24 | Jorge → email (MDC Building Support / Code Compliance) | Follow-up requesting closure of code case/NOV 20260245510 (permit 2026061642 finaled 08-07) + a copy of the closed-case page as proof; drafted in Gmail, not sent | (Gmail draft threadId 1a035b50bb25a74b) |
 
 - **PASTE-D-032** · 2026-08-30 · Desktop · Point desktop at the Alec DD-books work order (build jacket books + one Outlook draft per property, popped up for review/send); continue WORK-QUEUE; ignore OD-73. Issued after Grok Bot uninstall completed.
+
+- **PASTE-D-033** · 2026-08-30 · Desktop · Add overnight OCR sweep of everything dated >=2022-01-01 (Drive 01-JOBS + OneDrive), writing .SEARCH.txt sidecars only; WORK-ORDER_OCR-SWEEP_POST-2022. GREEN.
