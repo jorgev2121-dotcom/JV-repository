@@ -56,3 +56,11 @@ prefix. New hard rules:
 - Quarantine = rename (reversible), **never delete**. Restore any wrongly-flagged item on request.
 - **The auto dedupe/quarantine cleanup is PAUSED** until this false-positive logic is fixed and Jorge
   re-approves. Relabeling cards / saving NEW logins is fine; bulk quarantining is not.
+
+## DEDUP PROTOCOL for duplicate logins (owner-approved 2026-08-30)
+1. **Confirm ONE login WORKS per site** — test it; fix or create one if none works. Save it clean:
+   strong 1Password-generated password, correct item name and URL.
+2. **Rename the duplicates to a `ZZ-DELETE-<site>-<date>` group — QUARANTINE, never delete.**
+3. **Jorge reviews the ZZ-DELETE group and deletes in a batch** (or says "approved, delete the group").
+**NEVER auto-delete a credential.** A wrong delete permanently loses account access; deletion is the
+owner's click (batchable). Quarantine is reversible; deletion is not.
