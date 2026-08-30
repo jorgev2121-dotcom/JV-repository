@@ -1,0 +1,160 @@
+<title>Which Window Am I?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --paper:#f4f2ec; --surface:#ffffff; --ink:#1b1e24; --muted:#5c6470; --hairline:#e2ddd1;
+    --accent:#1f4e79; --accent-soft:#e8eef5;
+    --cloud:#1f6f8b; --cloud-soft:#e2eef2;
+    --desktop:#5a3e8c; --desktop-soft:#ece5f5;
+    --cowork:#2c6e49; --cowork-soft:#e2efe6;
+    --chat:#9a6413; --chat-soft:#f6ecd6;
+    --shadow:0 1px 2px rgba(27,30,36,.06),0 10px 30px rgba(27,30,36,.10);
+    --radius:16px;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --paper:#13161b; --surface:#1b1f27; --ink:#e9eaee; --muted:#9aa3b0; --hairline:#2c313b;
+    --accent:#7aa9d8; --accent-soft:#22303f;
+    --cloud:#6bb6cf; --cloud-soft:#1c2e33; --desktop:#b79ce0; --desktop-soft:#2a2338;
+    --cowork:#7fc39a; --cowork-soft:#1e2f26; --chat:#e0b25c; --chat-soft:#38301c;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.4);
+  }}
+  :root[data-theme="dark"]{
+    --paper:#13161b; --surface:#1b1f27; --ink:#e9eaee; --muted:#9aa3b0; --hairline:#2c313b;
+    --accent:#7aa9d8; --accent-soft:#22303f;
+    --cloud:#6bb6cf; --cloud-soft:#1c2e33; --desktop:#b79ce0; --desktop-soft:#2a2338;
+    --cowork:#7fc39a; --cowork-soft:#1e2f26; --chat:#e0b25c; --chat-soft:#38301c;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.4);
+  }
+  *{box-sizing:border-box}
+  body{background:var(--paper); color:var(--ink); margin:0;
+    font-family:"Atkinson Hyperlegible",system-ui,sans-serif; font-size:17px; line-height:1.55;
+    display:flex; min-height:100vh; align-items:flex-start; justify-content:center; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:560px; width:100%; padding:34px 20px 60px}
+  .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent); font-weight:600; margin:0 0 8px}
+  h1{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:1.9rem; margin:0 0 6px; text-wrap:balance}
+  .lede{color:var(--muted); margin:0 0 22px}
+
+  label.sel{display:block; font-family:"IBM Plex Mono",monospace; font-size:.7rem; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--muted); font-weight:600; margin:0 0 8px}
+  .selrow{position:relative}
+  select{width:100%; -webkit-appearance:none; appearance:none; cursor:pointer;
+    font-family:"Atkinson Hyperlegible",sans-serif; font-size:1.15rem; font-weight:700; color:var(--ink);
+    background:var(--surface); border:2px solid var(--hairline); border-radius:14px; padding:16px 46px 16px 18px}
+  select:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-soft)}
+  .selrow::after{content:"▾"; position:absolute; right:18px; top:50%; transform:translateY(-50%);
+    pointer-events:none; color:var(--accent); font-size:1.3rem}
+  .sub{margin-top:14px; display:none}
+  .sub.show{display:block}
+  .segrow{display:flex; gap:10px}
+  .seg{flex:1; text-align:center; cursor:pointer; font-weight:700; font-size:1rem;
+    padding:13px 10px; border-radius:12px; border:2px solid var(--hairline); background:var(--surface); color:var(--ink)}
+  .seg[aria-pressed="true"]{border-color:var(--accent); background:var(--accent-soft); color:var(--accent)}
+  .seg:focus-visible{outline:3px solid var(--accent-soft); outline-offset:2px}
+
+  /* identity card */
+  .card{margin-top:26px; border-radius:var(--radius); box-shadow:var(--shadow); padding:26px 24px;
+    background:var(--surface); border:1px solid var(--hairline); border-top:8px solid var(--accent)}
+  .card .emoji{font-size:3.4rem; line-height:1; margin:0 0 6px}
+  .card .name{font-family:"Newsreader",serif; font-size:1.75rem; font-weight:600; margin:0 0 4px; text-wrap:balance}
+  .card .desc{color:var(--muted); margin:0 0 16px}
+  .badges{display:flex; flex-wrap:wrap; gap:10px}
+  .badge{font-family:"IBM Plex Mono",monospace; font-size:.78rem; font-weight:600; letter-spacing:.04em;
+    padding:7px 12px; border-radius:999px; background:var(--accent-soft); color:var(--accent)}
+  .thisflag{display:none; margin-top:16px; font-weight:700; font-size:.95rem}
+  .thisflag.show{display:block}
+  .tick{color:var(--cowork)}
+
+  .note{margin-top:26px; font-size:.86rem; color:var(--muted); border-top:1px solid var(--hairline); padding-top:16px}
+  .note b{color:var(--ink)}
+  @media (max-width:420px){h1{font-size:1.6rem}}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Window identity</p>
+  <h1>Which window am I?</h1>
+  <p class="lede">Pick the window type. Keep this open in each window so you never paste into the wrong one.</p>
+
+  <label class="sel" for="pick">Select this window</label>
+  <div class="selrow">
+    <select id="pick" aria-label="Window type">
+      <option value="code">Code</option>
+      <option value="cowork">Cowork</option>
+      <option value="chat">Chat</option>
+    </select>
+  </div>
+
+  <div class="sub" id="codesub">
+    <label class="sel">Which Code window?</label>
+    <div class="segrow">
+      <button class="seg" id="segcloud" aria-pressed="true">☁️ Cloud · Web (Chrome)</button>
+      <button class="seg" id="segdesktop" aria-pressed="false">🖥️ Desktop (PC)</button>
+    </div>
+  </div>
+
+  <div class="card" id="card">
+    <div class="emoji" id="cEmoji">☁️</div>
+    <div class="name" id="cName">CODE · CLOUD / WEB</div>
+    <div class="desc" id="cDesc">Remote Claude Code in the browser. This window, running on Chrome.</div>
+    <div class="badges">
+      <span class="badge" id="cPaste">Paste ID: PASTE-C</span>
+      <span class="badge" id="cWho">You talk to me here</span>
+    </div>
+    <div class="thisflag" id="thisflag"><span class="tick">✓</span> Flagged as <b>this</b> window.</div>
+  </div>
+
+  <p class="note"><b>The rule this enforces:</b> ☁️ Cloud → <b>PASTE-C</b> · 🖥️ Desktop → <b>PASTE-D</b> ·
+  🤝 Cowork / 💬 Chat → <b>PASTE-X</b>. A desktop task pasted into the cloud doesn't get done — that's
+  the mix-up this stops. Your choice is remembered on this device.</p>
+</div>
+
+<script>
+  var IDENT = {
+    cloud:  {e:"☁️", n:"CODE · CLOUD / WEB",  d:"Remote Claude Code in the browser. This window, running on Chrome.", p:"PASTE-C", who:"You talk to me here", c:"var(--cloud)", cs:"var(--cloud-soft)"},
+    desktop:{e:"🖥️", n:"CODE · DESKTOP",       d:"Claude Code running locally on your Windows PC — the executor at the machine.", p:"PASTE-D", who:"Runs on your PC", c:"var(--desktop)", cs:"var(--desktop-soft)"},
+    cowork: {e:"🤝", n:"COWORK",               d:"The Cowork window.", p:"PASTE-X", who:"Cowork surface", c:"var(--cowork)", cs:"var(--cowork-soft)"},
+    chat:   {e:"💬", n:"CHAT",                 d:"Claude in a plain chat window (browser or app) — not Claude Code.", p:"PASTE-X", who:"Plain chat", c:"var(--chat)", cs:"var(--chat-soft)"}
+  };
+  var pick=document.getElementById("pick"), codesub=document.getElementById("codesub"),
+      segCloud=document.getElementById("segcloud"), segDesktop=document.getElementById("segdesktop"),
+      card=document.getElementById("card"), thisflag=document.getElementById("thisflag");
+
+  function key(sel, code){ return sel==="code" ? code : sel; }
+
+  function render(){
+    var sel=pick.value;
+    codesub.classList.toggle("show", sel==="code");
+    var code = segCloud.getAttribute("aria-pressed")==="true" ? "cloud" : "desktop";
+    var id = IDENT[key(sel, code)];
+    document.getElementById("cEmoji").textContent=id.e;
+    document.getElementById("cName").textContent=id.n;
+    document.getElementById("cDesc").textContent=id.d;
+    document.getElementById("cPaste").textContent="Paste ID: "+id.p;
+    document.getElementById("cWho").textContent=id.who;
+    card.style.borderTopColor=id.c;
+    document.getElementById("cPaste").style.background=id.cs;
+    document.getElementById("cPaste").style.color=id.c;
+    // "this window" is flagged as cloud-on-chrome by default
+    var isThis = (sel==="code" && code==="cloud");
+    thisflag.classList.toggle("show", isThis);
+    try{ localStorage.setItem("winsel", JSON.stringify({sel:sel, code:code})); }catch(e){}
+  }
+  function setSeg(which){
+    segCloud.setAttribute("aria-pressed", which==="cloud"?"true":"false");
+    segDesktop.setAttribute("aria-pressed", which==="desktop"?"true":"false");
+    render();
+  }
+  pick.addEventListener("change", render);
+  segCloud.addEventListener("click", function(){ setSeg("cloud"); });
+  segDesktop.addEventListener("click", function(){ setSeg("desktop"); });
+
+  // restore, else default to cloud-on-chrome (this window's flag)
+  (function(){
+    var saved=null; try{ saved=JSON.parse(localStorage.getItem("winsel")); }catch(e){}
+    if(saved && saved.sel){ pick.value=saved.sel; setSeg(saved.code||"cloud"); }
+    else { pick.value="code"; setSeg("cloud"); }
+    render();
+  })();
+</script>
