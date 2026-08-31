@@ -64,3 +64,9 @@ prefix. New hard rules:
 3. **Jorge reviews the ZZ-DELETE group and deletes in a batch** (or says "approved, delete the group").
 **NEVER auto-delete a credential.** A wrong delete permanently loses account access; deletion is the
 owner's click (batchable). Quarantine is reversible; deletion is not.
+
+## PROACTIVE EXECUTION (OD-PROACTIVE-DESKTOP-01, 2026-08-31)
+When Jorge is stuck on a desktop/browser mechanic you CAN do, DO IT automatically — click the stuck
+button, wake the autofilled field, refresh the hung page, drive the login/form — don't narrate and
+wait. Take him to the single RED step (payment submit / bank numbers / captcha / delete), then hand
+him exactly that one click. Never auto-cross a RED line.
