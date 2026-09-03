@@ -1,3 +1,82 @@
+\# 2026-09-03 04:25 -04:00 — RAMBO cycle — EIGHT SCRIPTS CAN STILL WRITE YOUR JOB FILES INTO A FOLDER THAT IS NOT YOUR JOB FOLDER, AND \`Test-Path\` SAYS IT IS FINE.  
+  
+\`Get-Date\` \*\*04:05:10 -04:00\*\* at cycle start. \`HEALTH-2026-09-03.md\` already written at \*\*00:16:06\*\* —  
+not the first run of the day, \*\*no second health file written\*\*.  
+  
+\#\# Clear, checked, no stand-off  
+  
+Newest job file is still \`JOB-0114\` at 00:26 and answered; nothing new in \`\_CLAUDE-MAILBOX\` or  
+\`VTES-Inbox\`. Walked \`ParentProcessId\` from \`$PID\` — exactly \*\*one\*\* headless \`claude.exe -p\`, PID 80912  
+created \*\*04:04:50\*\*, and that is me. The 03:49 \`TO-CLOUD.md\` write is the previous cycle's own output.  
+\`APPROVALS-QUEUE.json\` restamped 04:00:02 and \`CU-Approvals-Queue-Mirror\` ran 04:15 — the 15-minute mirror  
+task, not another agent. \*\*Ordered \`git pull\` not run\*\* (\`AP-0026\`): fetched read-only, divergence  
+\*\*67 local / 81 remote\*\* unchanged, same three conflicts, no merge, no abort, no forged stamp.  
+  
+\#\# A correction about my own first measurement  
+  
+My first \`Test-Path\` on the jobs root returned \*\*False\*\* and I nearly reported the root missing. It is not  
+— the folder is spelled with an \*\*em dash\*\* and I had typed a hyphen. False zero, quarantined, not  
+reported. Chasing it is what turned up the rest.  
+  
+\#\# The finding — the em dash in the jobs folder name is a trap that conceals itself  
+  
+\`G:\\My Drive\\01-JOBS — ONE SOURCE OF TRUTH\`. A script saved \*\*without a byte-order mark\*\* and launched with  
+the \*\*old\*\* PowerShell (\`powershell.exe\` 5.1) misreads that dash and uses  
+\`G:\\My Drive\\01-JOBS â€” ONE SOURCE OF TRUTH\` instead — \*\*and that folder exists on the Drive\*\*, created  
+2026-08-23, holding 5 empty capsule shells.  
+  
+\*\*Why nothing crashes:\*\* the path is in \*\*single\*\* quotes. In double quotes the mangled text contains a  
+smart quote, 5.1 throws \`Unexpected token\`, and the script dies loudly. In single quotes it is just text,  
+so the script \*\*runs to completion and prints a clean success line\*\* at the wrong address. And the obvious  
+guard — \*does the folder exist?\* — \*\*answers True\*\*, because the phantom is really there. Proved three  
+ways with a two-line test file: 5.1+no-BOM resolves to the phantom, 5.1+BOM and pwsh-7 both resolve  
+correctly, and all three report \`EXISTS: True\`.  
+  
+\*\*Method note:\*\* do \*\*not\*\* test this with \`Parser::ParseFile\` — it decodes BOM-less files as UTF-8 and  
+returns \`PARSE-OK\`, which is not what the \`-File\` loader does. Model the loader: raw bytes →  
+\`\[Text.Encoding\]::Default\` → \`ParseInput\`.  
+  
+\*\*Counted, not estimated: 38\*\* scripts embed that path. \*\*30 already carry the mark. 8 do not\*\* —  
+\`Matter-Stage-Engine.ps1\`, \*\*\`VTS\\Build-Job-Portal.ps1\` (the Orange Tree builder)\*\*,  
+\`VTS\\Build-Master-Capsule-Portal.ps1\`, \*\*\`Count-OCR-Denominator.ps1\`\*\*, \`Build-VTES-Control-Panel.ps1\`,  
+\`SystemAudit\\System-Audit-01.ps1\`, \`VTS\\Retrieve-Microfilm-Order.ps1\`, and  
+\*\*\`VTS\\Set-Capsule-Hashtags.ps1\` — the canonical hashtag writer last cycle used at 03:46.\*\* Run the Orange  
+Tree builder or the OCR counter from the old PowerShell and it reports on \*\*5\*\* capsules instead of \*\*42\*\*  
+and calls it a complete run.  
+  
+\*\*Honest size: landmine, not fire.\*\* No scheduled task is exposed — the only one of the 8 that is  
+scheduled (\`CU-Matter-Board-4h\`) launches with \`pwsh\`. It bites only on manual or agent-initiated runs,  
+which is exactly what happened at \*\*22:34 on 09-02\*\*. Nothing is lost now: the phantom's 5 files, 7,129  
+bytes, are all superseded by the real ones written \*\*01:43 today\*\*, and last cycle's Groves tag fix landed  
+in the \*\*real\*\* root (its newest file is \`\_TAGS.txt\` at \*\*03:46:53\*\*).  
+  
+\#\# Filed — \`AP-0054\`, and the fix is three bytes  
+  
+Card added to the \*\*store\*\* \`MY-DESK\\APPROVALS-QUEUE.json\` (not the \`.md\`, which is regenerated and would  
+delete it inside 15 minutes). Store 53 → \*\*54\*\*, backup first, add script idempotent. Board rebuilt  
+\*\*04:21:41\*\* — \*"44 open, 11 urgent, mirrored to VTES-Outbox"\* — and \*\*\`AP-0054\` is on line 38 of  
+\`APPROVALS-NOW.md\` in both \`MY-DESK\` and \`VTES-Outbox\`\*\*, read back after the rebuild.  
+  
+Patch written, parse-checked \*\*0 errors\*\*, \*\*not applied\*\*:  
+\`Reports\\Undo\_Manifests\\PATCH\_AddBomToJobsRootScripts\_2026-09-03.ps1\` — prepends 3 bytes to each of the 8,  
+changes no character of code, backs each up to \`.bak-20260903\`, skips any file that already has the mark,  
+and proves on disk after each write that the file grew by exactly 3 bytes with every other byte unchanged.  
+\*\*Rollback:\*\* \`Reports\\Undo\_Manifests\\Rollback\_AddBomToJobsRootScripts\_2026-09-03.ps1\`.  
+\*\*The one thing Jorge does: say GO.\*\*  
+  
+\*\*Separate decision, deliberately not taken:\*\* the phantom folder is still on the Drive. Deleting it is a  
+second call and is not in this GO.  
+  
+\#\# Deliberately not re-reported  
+  
+\`AP-0035\` (the FINISHER gate's 5 false \`PATH-MISSING\` rows) is still printing every 15 minutes. Measured  
+and filed 09-02 with the patch written. A third report adds nothing. No second card opened.  
+  
+Full write-up:  
+\`VTES-Outbox\\REPLY-TO-CHAT\_EIGHT-SCRIPTS-CAN-STILL-WRITE-INTO-THE-PHANTOM-JOBS-ROOT\_2026-09-03-0425.md\`  
+  
+\---  
+  
 \# 2026-09-03 03:50 -04:00 — RAMBO cycle — ONE JOB, TWO CAPSULES, FOUR NUMBERS. THE NEWEST WORK ON GROVES AT SUNSET IS IN THE FOLDER NOBODY OPENS.  
   
 \`Get-Date\` \*\*03:35:16 -04:00\*\* at cycle start. \`HEALTH-2026-09-03.md\` already written at \*\*00:16:06\*\* —  
@@ -13812,79 +13891,4 @@ Nothing new inbound on any surface (PENDING-JOBS 08:35: 334 open, \*\*New since 
 \*\*FOR JORGE, no clicks, two questions:\*\* (1) carried from 9963 — UPS or straight into the wall? (2) \*\*NEW —  
 leave the OD-30 "invisible desktop" writers where they are?\*\* Today's reading says moving them hides them.  
   
-JOB-0093 ITEM 1 EXECUTED-WITH-PROOF. Items 2-6 not attempted. JOB-0095 partial, JOB-0096 not started,  
-JOB-0097 BLOCKED ON OWNER. AP-0001 ($555 HOA, due TODAY) now \~11 h old.  
-Full verdict: VERDICT-9964\_FINISHER-01-WAS-NEVER-NOT-BUILT-IT-HAS-BEEN-SWEEPING-EVERY-10-MINUTES.md  
-\#TRK-2026-9964 \#JOB-0093 \#JOB-0096 \#FINISHER-01 \#OD-30  
-\#\# 2026-08-31 08:34 -04:00 — TRK-2026-9963 — JOB-0095 ORDER A: THE MACHINE NEVER SLEPT; IT WAS CUT OFF 4 TIMES  
-  
-JOB-0095 orders sleep turned off. \*\*Sleep, hibernate and hybrid sleep are ALREADY set to Never on AC and DC\*\*  
-(scheme 8c5e7fda..., STANDBYIDLE/HIBERNATEIDLE/HYBRIDSLEEP all 0x0). ORDER B is a cure for a disease this box  
-does not have. The one real gap: \*\*Fast Startup is ON\*\* (HiberbootEnabled=1). Uptime 301.0 h since 2026-08-18 19:19.  
-  
-\*\*What actually happened: 4 restarts in 30 days, every one UNCLEAN\*\* — Kernel-Power 41 on 08-03 14:24, 08-08 16:33,  
-08-16 15:52, 08-18 19:19; \*\*0 clean shutdowns (1074)\*\*; boots (6005) match all four; \*\*0 WER bugcheck events\*\*.  
-Unclean + no crash dump = power removed or hard reset. ORDER B would have prevented none of them.  
-  
-\*\*POSITIVE CONTROL VOID, SAID PLAINLY.\*\* Kernel-Power ID 42 = 0 events across the WHOLE retained log  
-(89 days, 36,069 records, IsEnabled=True). Zero all-time means either it never slept or this box never emits 42 —  
-a control whose subject never appears cannot pass. powercfg /requests blocked (needs admin). \*\*The no-sleep  
-finding rests on the CONFIG channel, not the event channel.\*\* Uptime does not settle it either: S3 sleep does not  
-reset LastBootUpTime.  
-  
-\*\*The 8.5-day stall: sleep is EXCLUDED.\*\* August uptime runs 8/3-8/8 (5.1d), \*\*8/8-8/16 (7.97d)\*\*, 8/16-8/18 (2.1d).  
-The machine was powered and running the whole 8-day run. The 2026-08-07 freeze (75 tasks disabled) lands one day  
-before it starts — prior record, cited not re-measured; disabled today = 123 of 365.  
-  
-ORDER C baseline (measured, unchanged): 365 tasks / 237 Ready / 123 Disabled. Of 115 VTES-roster tasks —  
-\*\*24 run-if-missed OFF, 41 restart-on-failure 0, 97 Interactive\*\* (the real headless exposure).  
-  
-\*\*CHANGED NOTHING.\*\* ORDERS B/C/D not started: elevation required, and D is new infrastructure barred by the  
-ZERO-AA money lock. D is also moot by its own text ("if it is doing real work, Order B failed") — B is already in place.  
-  
-\*\*FOR JORGE, one question, no clicks: is this desktop on a battery backup (UPS), or straight into the wall?\*\*  
-Four power losses in 30 days, \~one every 7.5 days — same cadence as the stalls. A UPS is a spend, so it is his call.  
-  
-JOB-0095 PARTIAL (ORDER A EXECUTED-WITH-PROOF). JOB-0093, JOB-0096 unworked. JOB-0097 BLOCKED ON OWNER — one  
-password; AP-0001 ($555 HOA, due today) now 10.4 h old. STATUS.md 7.0 days stale.  
-Full verdict: VERDICT-9963\_THE-MACHINE-NEVER-SLEPT-IT-WAS-CUT-OFF-FOUR-TIMES.md  
-\#TRK-2026-9963 \#JOB-0095 \#JOB-0097 \#AP-0001  
-\# 2026-08-31 8:15 AM - CODE (DESKTOP) - TRK-2026-9962 - THE QUEUE SURVIVED THE DESKTOP GOING TO SLEEP; THE NOTIFICATION NEVER EXISTED TO SURVIVE  
-  
-\*\*DONE.\*\* Full working: \`VERDICT-9962\_THE-QUEUE-SURVIVED-THE-SLEEP-THE-NOTIFICATION-DID-NOT.md\` (this board).  
-  
-Nothing new inbound on any of the four surfaces since 07:30 (\`PENDING-JOBS.txt\` refreshed 08:05: \*\*334 open,  
-"New since last check: 0"\*\*). \`HEALTH-2026-08-31.md\` already written 00:12 - no health file this cycle.  
-Repo: \`git pull --ff-only\`, no branch arg - \*\*\`Already up to date.\`\*\*, exit 0, on \`claude/slack-app-overview-3i0w4g\`.  
-Fourth consecutive clean pull. \`STATUS.md\` LastWriteTime \*\*2026-08-24 11:21 - 7.0 days stale.\*\*  
-  
-\#\# THE DOORS, NOT THE QUEUE  
-\`JOB-0094\` item 3 orders three independent answer paths so the desktop panel is "never the only door."  
-9959/9960 built and maintained the Drive queue. This cycle tested \*\*the doors\*\*.  
-  
-| path | measured today |  
-|---|---|  
-| (a) Remote Control | \*\*NOT REGISTERED\*\* |  
-| (b) phone push for urgent items | \*\*NO SENDER EXISTS\*\* |  
-| (c) Chat, answer by AP number | works - but only when Jorge opens a session |  
-  
-\*\*19 open / 7 urgent, including the $555 HOA due TODAY, and none of them can reach him off this desk.\*\*  
-  
-\#\# METHOD RULE - ASK THE DELIVERY CHANNEL, DO NOT INFER IT FROM CONFIG  
-The push tool was invoked on the genuinely-urgent \`AP-0001\` (money, due today, 9.9h old). It replied:  
-  
-\`\`\`  
-Mobile push not sent (Remote Control inactive).  
-\`\`\`  
-  
-\`settings.json\` carries \`"agentPushNotifEnabled": true\` and \`"inputNeededNotifEnabled": true\`. Read alone those  
-two lines say push is on. They are the \*\*preference\*\*, not the \*\*route\*\*. \*\*A notification setting set to true is  
-not a phone that rings.\*\* Corroborated: 16 peer sessions listed, \*\*zero Remote Control rows\*\*; no registration  
-artifact under \`\~\\.claude\` (only a \`daemon\\control.key\` dated 2026-06-28).  
-  
-\#\# (b) IS UNBUILT, NOT BROKEN - THE COUNT IS COMPUTED AND THEN DISCARDED  
-\`Approvals-Queue.ps1\` lines 46-55 select the push-worthy set exactly as the directive specifies, write  
-\`push\_worthy\_count = 7\`, \*\*and stop\*\*. Grep across \`OneDrive\\Scripts\` for \`push\_worthy|PushNotification|ntfy|pushover\`  
-returns \*\*one hit: the line that writes it.\*\* Nothing reads it.  
-  
-\#\# THE DOOR EXISTS AND NOBODY OPENS 
+JOB-0093 ITEM 1 EXECUTED-WITH-PROOF. Ite
