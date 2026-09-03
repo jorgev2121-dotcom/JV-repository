@@ -1,12 +1,12 @@
 # Morning Report — 2026-09-03
 
-**Desktop Overnight Execution · RAMBO Autonomous Cycles · Completed 00:05–08:24 UTC**
+**Desktop Overnight Execution · RAMBO Autonomous Cycles · Completed 00:05–10:00 UTC**
 
 ---
 
 ## Executive Summary
 
-**Desktop ran four high-value RAMBO cycles overnight while Jorge slept.** All cycles completed successfully with detailed findings. Two require Jorge's approval to proceed further (AP-0053, AP-0049, AP-0054). Three owner decisions outstanding for 48+ hours are blocking cash-collection work. Mirrored to repo (desktop push broken, TRK-2026-9082).
+**Desktop ran six high-value RAMBO cycles overnight while Jorge slept.** All cycles completed successfully with detailed findings. Four require Jorge's approval or decision (AP-0053, AP-0049, AP-0054, AP-0055, AP-0056). Critical correction: Bal Harbour filing discovered two contradict prior cards — signature count is SIXTEEN (not eight) and permit fee is paid IN FULL (not 50%). Three owner decisions outstanding for 48+ hours are blocking cash-collection work. Mirrored to repo (desktop push broken, TRK-2026-9082).
 
 ---
 
@@ -81,13 +81,54 @@
 
 ---
 
+### ✅ Cycle 05:52 UTC — Bal Harbour Permit: Signature Count Correction (AP-0055)
+
+**Critical Finding — CONTRADICTS AP-0049 and All Prior Boards:**
+
+The permit application form has **TWO notary blocks**, not one:
+
+- **Left block:** Signature of **Owner** (8 units = 8 owner signatures needed)
+- **Right block:** Signature of **Qualifier** (8 units = 8 qualifier signatures needed)
+
+**Prior cards said 8 signatures total. Actual requirement is 16 signatures total (both blocks notarised).**
+
+**The qualifier is:** Miguel Zaldivar, CGC1528486 (MZ Solutions), miguel@mzsolutions.org  
+Both Doron Barnes and Miguel will need to sign and be notarised for each of the eight units.
+
+**Timing impact:** Tuesday filing (2026-09-08 09:00) at Bal Harbour Village Hall. Two notarisation requirements double the logistics — both owners and Miguel must be available or the application cannot file.
+
+**Status:** AP-0055 — **CRITICAL CORRECTION.** Prior AP-0049 and all boards' signature count estimates are wrong. Requires Jorge's confirmation that Miguel is the qualifier and escalation decision on how to obtain Miguel's 8 notarised signatures by Tuesday.
+
+---
+
+### ✅ Cycle 06:00 UTC — Bal Harbour Permit: Fee Schedule and Double-Fee Risk (AP-0056)
+
+**Finding:** Analysed Village permit fee schedule against Team USA's invoice history.
+
+**Permit fee (by Village schedule):** Eight units × $700–$900 = **$5,600–$7,200**.
+- **Status in Team USA invoices:** Already **paid IN FULL** (not 50%) — appears in three separate invoices (2024, 2025) totalling $7,400 including county add-ons.
+
+**But there is a **DOUBLE-FEE RISK**:**
+- Village code **AD010** (Double Fees): If work was commenced before permit issuance, the Village **doubles the permit fee** to $11,200–$14,400.
+- **Trigger question:** Was any work started on these eight units before the permit was obtained?
+  - If YES: The Village will assess double fees on filing.
+  - If NO: Single fee ($5,600–$7,200, already paid) applies.
+
+**Prior card (AP-0051) incorrectly stated:** "Building Permit Fees Over $1000 = WILL PAY 50%." — This is false. The Village's published schedule shows full payment required at filing, and Team USA's invoices confirm payment was made in full.
+
+**Status:** AP-0056 — **FEE VERIFICATION NEEDED.** One phone call to Bal Harbour Building Department (ask: "Has work commenced on units 220, 321, 423, 721, 922, and their mirrors before permit?") will resolve the double-fee risk. If no work commenced, filing proceeds at the already-paid single fee.
+
+---
+
 ## Critical Blocking Items
 
 | Item | Status | Urgency |
 |---|---|---|
 | **AP-0054** — Add UTF-8 BOM to 8 scripts (em-dash trap fix) | GO REQUIRED | High — prevents silent miscounts |
+| **AP-0055** — Bal Harbour signature count correction: SIXTEEN needed, not eight | CORRECTION ONLY | **DEADLINE: 2026-09-08** — affects filing logistics |
+| **AP-0056** — Bal Harbour double-fee risk: Confirm work not commenced before permit | ONE PHONE CALL | **DEADLINE: 2026-09-08** — one-minute call to Village |
 | **AP-0053** — Merge Groves at Sunset capsules | AWAITING DECISION | Routine |
-| **AP-0049** — Email or address? Eight owner signatures due Tuesday | AWAITING DECISION | **DEADLINE: 2026-09-08** |
+| **AP-0049** — Email or address? Sixteen signatures now (8 owners + 8 qualifiers) due Tuesday | AWAITING DECISION | **DEADLINE: 2026-09-08** |
 | **AP-0028** — Which RFA agency? | ONE-PIECE REMAINING | Moderate |
 | **OD-39** — $5,000 from Alec Valdes (44 days old) | UNANSWERED | Cash flow |
 | **OD-47** — Collect $3,900 (cleared by bank, two invoices) | UNANSWERED 13 days | **CASH COLLECTION** |
@@ -124,9 +165,14 @@ All committed and pushed (desktop push broken, TRK-2026-9082).
 
 ## Next Steps (Awaiting Jorge)
 
+**CRITICAL — Tuesday Bal Harbour Filing (2026-09-08 09:00):**
+1. **AP-0055** — Signature correction: Filing requires **SIXTEEN notarised signatures** (8 owners + 8 qualifiers), not eight. Confirm Miguel Zaldivar (CGC1528486, miguel@mzsolutions.org) is the qualifier and escalate how to obtain his 8 notarised signatures by Tuesday.
+2. **AP-0056** — One phone call: Contact Bal Harbour Building Department and ask "Has work commenced on units 220, 321, 423, 721, 922, and their mirrors before permit?" — determines whether double fees apply ($11.2K–$14.4K) or single fees ($5.6K–$7.2K, already paid).
+3. **AP-0049** — Email or physical address contact strategy for the eight owners. Prior answer "eight signatures" is now "sixteen signatures" — contact strategy affects both owner and qualifier.
+
 **Immediate (approve today if possible):**
-1. **AP-0049** — Email Bal Harbour association for the five missing owner emails (owners: Metta, Oiknine, Raboh, Azoulay, Adenat/Schwartz). Tuesday filing deadline.
-2. **AP-0053** — Approve or decline merge of Groves at Sunset capsules (cheaper to merge while both are warm).
+1. **AP-0053** — Approve or decline merge of Groves at Sunset capsules (cheaper to merge while both are warm).
+2. **AP-0054** — GO on UTF-8 BOM fix (8 scripts, patch written, rollback staged).
 
 **Cash decisions (oldest overdue):**
 1. **OD-39** — Alec Valdes $5,000 (2026-07-21, 44 days). Which job?
