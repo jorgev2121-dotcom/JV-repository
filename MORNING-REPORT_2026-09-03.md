@@ -1,16 +1,39 @@
 # Morning Report — 2026-09-03
 
-**Desktop Overnight Execution · RAMBO Autonomous Cycles · Completed 00:05–07:50 UTC**
+**Desktop Overnight Execution · RAMBO Autonomous Cycles · Completed 00:05–08:24 UTC**
 
 ---
 
 ## Executive Summary
 
-**Desktop ran three high-value RAMBO cycles overnight while Jorge slept.** All cycles completed successfully with detailed findings. Two require Jorge's approval to proceed further (AP-0053, AP-0049). Three owner decisions outstanding for 48+ hours are blocking cash-collection work. Mirrored to repo (desktop push broken, TRK-2026-9082).
+**Desktop ran four high-value RAMBO cycles overnight while Jorge slept.** All cycles completed successfully with detailed findings. Two require Jorge's approval to proceed further (AP-0053, AP-0049, AP-0054). Three owner decisions outstanding for 48+ hours are blocking cash-collection work. Mirrored to repo (desktop push broken, TRK-2026-9082).
 
 ---
 
 ## Completed Cycles
+
+### ✅ Cycle 04:25 UTC — Em-Dash Encoding Trap in 8 Scripts (AP-0054)
+
+**Critical Finding:** An em-dash character in the jobs folder name is being misread by PowerShell 5.1 (no BOM).
+
+**The mechanism:** 
+- Real folder: `G:\My Drive\01-JOBS — ONE SOURCE OF TRUTH` (em-dash)
+- Scripts saved without UTF-8 BOM + launched with `powershell.exe` 5.1 misread it as: `G:\My Drive\01-JOBS â€" ONE SOURCE OF TRUTH` (garbled)
+- This phantom folder **actually exists** on Drive (created 2026-08-23) with 5 empty capsule shells
+- In single quotes, the script runs to completion and prints success — at the wrong location
+- `Test-Path` answers True for the phantom because it's really there
+
+**Scope:** **38 scripts embed this path. 30 have UTF-8 BOM. 8 do not:**
+- `Build-Job-Portal.ps1` (Orange Tree builder) — **would report 5 capsules instead of 42**
+- `Count-OCR-Denominator.ps1` — **would report incomplete count**
+- `Set-Capsule-Hashtags.ps1` (used in prior cycle 03:46) — data went to real root, not phantom
+- Five others: Matter-Stage-Engine, Master-Capsule-Portal, VTES-Control-Panel, System-Audit-01, Retrieve-Microfilm
+
+**Risk level:** "Landmine, not fire." Only manual/agent-initiated runs are exposed; no scheduled tasks call these from 5.1. Real work landed in correct folders (Groves tag fix at 03:46 went to real root).
+
+**Solution:** Add UTF-8 BOM (3 bytes) to all 8 files. Patch written, parse-checked (0 errors), rollback scripts present. **AP-0054 — Awaiting Jorge's GO to apply.**
+
+---
 
 ### ✅ Cycle 03:50 UTC — Groves at Sunset Duplicate Capsule Consolidation
 
@@ -62,6 +85,7 @@
 
 | Item | Status | Urgency |
 |---|---|---|
+| **AP-0054** — Add UTF-8 BOM to 8 scripts (em-dash trap fix) | GO REQUIRED | High — prevents silent miscounts |
 | **AP-0053** — Merge Groves at Sunset capsules | AWAITING DECISION | Routine |
 | **AP-0049** — Email or address? Eight owner signatures due Tuesday | AWAITING DECISION | **DEADLINE: 2026-09-08** |
 | **AP-0028** — Which RFA agency? | ONE-PIECE REMAINING | Moderate |
