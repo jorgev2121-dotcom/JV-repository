@@ -60,6 +60,7 @@ backlog is full of.
 | 09-04 | Jorge | **OCR sweep 2022→present** (needs an interactive desktop window) | RAMBO | BLOCKED — interactive | OCR sweep |
 | 09-04 | Jorge | **Alec big jacket books** (10362, 1840) | RAMBO | NOT STARTED | Alec DD books |
 | 09-04 | Jorge | **⚡ KILL the frozen looping "onlineservices.miamidade" window** (2h stuck) + prevent recurrence | RAMBO | URGENT | HANDOFF_…kill-frozen-miamidade-window |
+| 09-04 | Jorge | **OCR inventory Jan-2022→present** — done vs remaining, with a denominator | Cloud (Drive est., running) + RAMBO (authoritative) | IN PROGRESS | HANDOFF_…ocr-inventory-denominator |
 
 ## DONE (recent)
 | Date | Task | Proof |
