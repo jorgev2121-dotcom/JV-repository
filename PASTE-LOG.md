@@ -89,3 +89,5 @@ enough to identify it exactly, with no description needed.
 - **PASTE-D-032** · 2026-08-30 · Desktop · Point desktop at the Alec DD-books work order (build jacket books + one Outlook draft per property, popped up for review/send); continue WORK-QUEUE; ignore OD-73. Issued after Grok Bot uninstall completed.
 
 - **PASTE-D-033** · 2026-08-30 · Desktop · Add overnight OCR sweep of everything dated >=2022-01-01 (Drive 01-JOBS + OneDrive), writing .SEARCH.txt sidecars only; WORK-ORDER_OCR-SWEEP_POST-2022. GREEN.
+
+- **PASTE-D-049** · 2026-09-04 · Desktop (RAMBO) · Pull repo; act on 3 new mailbox/to-desktop files — HOA reset-link-dead finding (fresh Forgot-Password → Jorge clicks → pay AP-0001 $555), desktop cleanup+icons work order (client docs via orphan-onboarding OCR, moves wait for one click), then continue audit cycle. Report via TO-CLOUD. Points at files pushed 2026-09-04.
