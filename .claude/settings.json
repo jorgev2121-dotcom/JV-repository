@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"${CLAUDE_PROJECT_DIR:-.}/TASK-REGISTER.md\"; [ -f \"$f\" ] && { echo \"=== TASK-REGISTER - OPEN items (capture-first accountability; log any new task here BEFORE working it) ===\"; awk '/^## OPEN/{x=1} /^## DONE/{x=0} x' \"$f\"; } 2>/dev/null; true",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
