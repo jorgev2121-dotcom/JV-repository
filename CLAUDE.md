@@ -542,3 +542,26 @@ skip-all-permissions mode.** Approve safe commands, keep the guard on irreversib
 ones. This is the same distinction as RED/GREEN in the Night Protocol (Section 11),
 stated once as a standing autonomy rule so no future session has to re-derive it.
 
+---
+
+## 14. Rule 10 — One executor, many brains
+
+**`OWNER-DIRECTIVE_ONE-EXECUTOR-MANY-BRAINS-01`, ratified by Jorge 2026-09-04. Applies
+to every seat and agent.**
+
+**One hand on the machine, many brains behind it.**
+
+- **Only RAMBO (🖥️ Code Desktop) runs commands / touches files on Jorge's PC.** Cloud
+  is the second Claude seat with no PC access. **Do not install rival vendor desktop
+  executors** (Codex CLI, Gemini CLI, aider, Cline, OpenHands, etc.) to act on the machine.
+- **Other LLMs (Grok/GPT/Gemini) contribute as brains via API only** — reasoning, second
+  opinions, modular builds — never as agents with their own hands on the files.
+- **Modular builds come back as artifacts; RAMBO reviews, then installs.** Code from any
+  outside model is untrusted until RAMBO reads it — never blind-install it.
+- **Diversify by model, not by executor.** Cheapest capable worker wins: free local
+  compute → cheap model → Opus for hard reasoning. API delegation is **metered new spend**
+  and counts against OD-BUDGET-01; it is not free subscription capacity.
+- **Keys live in 1Password / env only** — never in a repo file, mailbox, or chat.
+- A **second executor** is added only with explicit owner approval, for genuine parallel
+  long-runs, still under RAMBO's review + RED/GREEN.
+
