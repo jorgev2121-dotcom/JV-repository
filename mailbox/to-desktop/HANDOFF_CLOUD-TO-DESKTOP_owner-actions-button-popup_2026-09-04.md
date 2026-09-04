@@ -1,8 +1,14 @@
 # HANDOFF — ☁️ CLOUD → 🖥️ RAMBO: build a ONE-CLICK owner-actions popup (Jorge can't do terminal steps)
 **TRK-2026-9772 · 2026-09-04 · owner: "I cannot execute as requested. If you provide one-click buttons on a pop up, I will execute."**
 
+**⚡ PRIORITY 2026-09-04 (owner going to bed, wants the button NOW): AUTO-POP THIS ON YOUR VERY NEXT
+HEARTBEAT — do not wait for Jorge to open the terminal.** Building and popping a button-menu is GREEN
+(it shows options; the buttons themselves still gate every RED action), so the running heartbeat may
+build and bring it to the front on its own. Get the popup onto his screen this cycle.
+
 **WHAT I FOUND / WHY IT'S YOURS:** Jorge won't type terminal commands (dyslexia/TTS) — correct, don't
-ask him to. Cloud cannot pop a window on his PC; you can. Build/refresh a single `.hta` button board
+ask him to. Cloud cannot pop a window on his PC; you can — and your 3-min heartbeat is already running,
+so use it to surface this popup without him opening anything. Build/refresh a single `.hta` button board
 (the APPROVALS-NOW pattern) and **pop it to the front.** OD-PROACTIVE-DESKTOP-01 applies: drive the
 mechanics, take him to the one click.
 
