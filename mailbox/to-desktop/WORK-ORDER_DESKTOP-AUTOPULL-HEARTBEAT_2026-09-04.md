@@ -7,7 +7,9 @@ decisions reach Jorge. See `HANDOFF-PROTOCOL_TWO-SEAT-01.md`.
 Right now the repo only updates when Jorge opens the terminal. Build a **Windows Scheduled Task** that
 gives the desktop its own heartbeat:
 
-1. **Name:** `VTES-Repo-Heartbeat`. **Every 10 minutes.** Run-if-missed ON, restart-on-failure ON,
+1. **Name:** `VTES-Repo-Heartbeat`. **Every 3 minutes** (owner-set 2026-09-04 — the desktop poll is
+   local and cheap, so a tight interval is fine; Windows Task Scheduler allows a 1-min minimum).
+   Run-if-missed ON, restart-on-failure ON,
    **run whether logged on or not.** (This is the acceptance test — report the task name + next run
    time, per JOB-0096 style: if you can't name both, it isn't built.)
 2. **Each run, a script does:**
@@ -27,9 +29,12 @@ gives the desktop its own heartbeat:
    A silent dead heartbeat is the failure mode to avoid (RI-002 pattern).
 
 ## Pairs with the Cloud heartbeat
-Cloud will run its own scheduled check-in to read `mailbox/to-cloud/`, do the Gmail/Drive/Outlook work
-the notes ask for, and push handoffs back to `mailbox/to-desktop/`. Between the two heartbeats, a
-handoff round-trips in ~10 minutes with no paste from Jorge.
+Cloud runs its own scheduled check-in to read `mailbox/to-cloud/`, do the Gmail/Drive/Outlook work the
+notes ask for, and push handoffs back to `mailbox/to-desktop/`. **Desktop polls every 3 min (cheap,
+local); Cloud polls slower (~10 min while there is active traffic, standing down when quiet) because
+each Cloud wake is a paid model turn against OD-BUDGET-01 $40/day — 3-min Cloud polling would burn the
+cap by mid-morning.** So a Cloud→Desktop reply lands within 3 min; a Desktop→Cloud item is picked up
+within ~10 min. No paste from Jorge either way.
 
 ## Reporting
 Report build + first run via `mailbox/to-cloud/` and TO-CLOUD.md, three-state. Proof = the scheduled
