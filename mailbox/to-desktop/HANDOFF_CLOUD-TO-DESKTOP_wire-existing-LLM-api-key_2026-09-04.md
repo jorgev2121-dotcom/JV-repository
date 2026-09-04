@@ -7,10 +7,18 @@ no enabled actions). The key almost certainly lives where only YOU can reach it:
 env var, or a file on the PC. So you complete the integration; the "owner participation" part is already
 done (he got the key).
 
+**LIKELY PROVIDER: GROK / xAI** (Jorge's best guess, 2026-09-04). Start there:
+- 1Password items named/tagged **grok / xAI / x.ai**; env vars **`XAI_API_KEY`** or `GROK_API_KEY`;
+  a key beginning **`xai-...`** in `.env` / notes / Downloads.
+- xAI is **OpenAI-compatible**: base URL **`https://api.x.ai/v1`**, chat-completions shape, a current
+  model id (e.g. `grok-2-latest` / newest available — query `/v1/models` if unsure). A one-line test:
+  POST `/v1/chat/completions` with `Authorization: Bearer $XAI_API_KEY`.
+- If it turns out NOT to be Grok, fall back to the general search below.
+
 **EXACT NEXT ACTION:**
-1. **Locate the existing key** — search 1Password (items tagged api/openai/grok/gemini/anthropic), then
-   Windows env vars (`OPENAI_API_KEY`, `GEMINI_API_KEY`, `XAI_API_KEY`, etc.), then likely files
-   (`.env`, a notes file, Downloads). Identify **which provider** it is.
+1. **Locate the existing key** — Grok/xAI first (above); else search 1Password (items tagged
+   api/openai/grok/gemini/anthropic), then Windows env vars (`OPENAI_API_KEY`, `GEMINI_API_KEY`,
+   `XAI_API_KEY`, etc.), then likely files (`.env`, a notes file, Downloads). Identify **which provider** it is.
 2. **Wire a "second-opinion" call** from the desktop seat that reads the key **from 1Password/env at call
    time** and asks the outside model a question, returning its answer into the loop (this is the
    JOB-0096 second-opinion bus: route a finding to the model, log its reply verbatim).
