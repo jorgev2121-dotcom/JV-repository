@@ -45,6 +45,22 @@ backlog is full of.
 | 09-04 | Jorge | **AI-BUILD LIBRARY** — keep inventoried; run the multi-LLM flaw-review pass on each item | both seats | ESTABLISHED — reviews pending Grok | AI-BUILD-LIBRARY.md |
 | 09-04 | Cloud | **SessionStart hook** — prints TASK-REGISTER OPEN every session | Cloud | DONE (self-tested) | .claude/settings.json |
 
+| 09-04 | Jorge | **ENABLE ALL-NIGHT RUNS** — elevated re-register heartbeat to run logged-off | Jorge | PENDING — owner elevation click | OWNER-ACTIONS popup ③ |
+| 09-04 | Cloud | Pre-approve the GREEN command set (allow-list, NOT bypass) for smooth night runs | RAMBO | PENDING | Rule 9 / fewer-permission-prompts |
+| 09-04 | Cloud | Test the wake-nudge webhook (plain curl wakes Cloud?) | RAMBO | PENDING | HANDOFF_…wake-nudge-webhook |
+| 09-02 | Jorge | **Plaza — DRAFT letter to the Association** (Quanny/Silvio), NOT SENT | Jorge | AWAITING SEND DECISION (RED) | Plaza draft letter (TRK-1582-LC) |
+| 09-02 | Jorge | **Plaza Unit 220** permit-extension request — unsent in Outlook Drafts | Jorge/RAMBO | AWAITING SEND | Unit-220 extension draft |
+| 09-02 | Cloud | **Plaza Unit 721** — expired permit, ~151-day reissue window (to ~2027-01-31) | RAMBO | FLAGGED — time-sensitive | Plaza report §5 |
+| 09-01 | Cloud | **Plaza — 4 Impact Windows COIs all expired**, none names The Plaza | RAMBO | LOGGED — surface if Association asks | GC-Insurance-Cert report |
+| 09-04 | Jorge | **3 safe follow-up emails** (close NOV; Plaza follow-up; Monroe permit) | Cloud | HOLD — awaiting owner "send" | Gmail drafts |
+| 09-04 | Jorge | **4 attachment emails** (Miami Art House ×2; Unit 404 docs; MZ COI) | RAMBO | TO SEND (attachments) | Gmail drafts |
+| 09-04 | Jorge | **Local business tax license** login + pay (Miami-Dade Clerk/consenthub) | Jorge/RAMBO | BLOCKED — owner login | Clerk temp pw in mail |
+| 09-04 | Cloud | **Multi-LLM flaw-review pass** on AI-BUILD-LIBRARY items | both seats | PENDING GROK (independent reviewer) | AI-BUILD-LIBRARY |
+| 09-04 | Cloud | Reconcile the stray branch `claude/chaude-code-max20-kp2o46` (unmerged commits) | RAMBO | OPEN | branch cleanup |
+| 09-04 | Jorge | **OCR sweep 2022→present** (needs an interactive desktop window) | RAMBO | BLOCKED — interactive | OCR sweep |
+| 09-04 | Jorge | **Alec big jacket books** (10362, 1840) | RAMBO | NOT STARTED | Alec DD books |
+| 09-04 | Jorge | **⚡ KILL the frozen looping "onlineservices.miamidade" window** (2h stuck) + prevent recurrence | RAMBO | URGENT | HANDOFF_…kill-frozen-miamidade-window |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
