@@ -35,22 +35,46 @@ will create on my desktop and name with the type."*
    `Word`, `Excel`, `Installers`, `Screenshots`, `Text`, `Zips`, `Shortcuts`, `Other`.
 3. Move each **non-client, safe** item into its type folder. GREEN, reversible (same-desktop move).
 
-**HARD GUARDRAIL — do NOT blind-file client documents (RED, per Rule 9 / Night Protocol):**
-- Any item that looks like a **client / job document** — a `TRK-2026-####` or `OPH-2026-####`
-  file, a permit PDF, a job report, anything address- or owner-named — is a **filing decision, not a
-  type sort.** Misfiling a client doc is the exact harm the charter warns about (`14598 SW 110 ST`
-  was one digit from another client's folder).
-- Put those in a single **`_NEEDS-JORGE-FILING`** folder on the Desktop and **list them for his one
-  click** — do NOT sweep them into `PDF/` by extension, and do NOT move them to Drive/OneDrive on
-  your own. Nights prepare filing decisions; the owner executes them.
-- **Never delete anything.** No item leaves the Desktop tree except into the folders above.
-- Do NOT touch the four new shortcut icons from Part A, or anything the owner is actively using.
-- Back up first: write the enumerated "before" list, and a rollback script to
-  `...\Undo_Manifests\Rollback_DesktopCleanup_2026-09-04.ps1`, before moving anything.
+**CLIENT DOCUMENTS — run the ORPHAN-ONBOARDING / OCR protocol so hashtags route each to its capsule
+(owner instruction 2026-09-04). Follow `.claude/skills/orphan-onboarding/SKILL.md` exactly.**
+
+Any item that looks like a **client / job document** — a `TRK-2026-####` / `OPH-2026-####` file, a
+permit PDF, a job report, anything address-, folio-, permit- or owner-named — is NOT a type sort. For
+each one, per the skill:
+1. **Issue an OPH number first** and write its row in `ORPHAN-REGISTER.md` BEFORE any analysis (so a
+   dead session still leaves the number + location).
+2. **OCR it** if it is an image-only scan with no text layer (this is the piece Cloud cannot do and
+   why it is on the desktop).
+3. **Extract identity evidence** — literal strings: full address+unit, folio `NN-NNNN-NNN-NNNN`,
+   permit number, party names, date on the document, issuing body, any TRK already in the body.
+4. **Write the hashtag sidecar** — a `.SEARCH.txt` / `.TAGS.txt` next to the file carrying those
+   identifiers + the footer stamp (`TRK/OPH · v · date · CURRENT`), so the page stays findable and
+   can route to its capsule even after it is moved. **This tagging step is GREEN** (read-only, creates
+   a new sidecar, moves nothing).
+5. **Attempt an EXACT match** (folio → permit → full address+unit → party+address). Stop at the first
+   exact hit.
+
+**THE ONE RULE THAT OUTRANKS THE REST — never file against a fuzzy match.** `14598 SW 110 ST` was
+one digit-match from landing in another client's folder. **`SW 110 ST` ≠ `SW 110 CT`; `Unit 143` ≠
+no unit.** If two candidate TRKs survive, that is a NO-match — record the rejected candidates and why,
+and it **stays an orphan.** An orphan is a success, not a failure.
+
+**GREEN vs RED line on this:**
+- **GREEN (do it now):** OCR, identity extraction, writing the `.SEARCH.txt` hashtag sidecar, and
+  proposing the capsule each doc belongs to.
+- **RED (owner's one click):** the actual **MOVE of a client doc into its TRK/capsule folder.** Stage
+  the proposed moves in a **`_NEEDS-JORGE-FILING`** folder on the Desktop with, for each, its
+  proposed capsule and the exact-match evidence — batch them so the owner approves with one word
+  ("file 1–12: yes"). Do the moves only on that click.
+- **Never delete anything.** DUPLICATE / DISCARD is `DISCARD-PENDING`, the owner's call alone.
+- **Batch rule (Rule 5):** more than 5 client docs → one subagent per doc with a status registry,
+  each result written the moment it completes. Report the denominator ("14 of 22 matched").
+- Do NOT touch the four Part-A shortcuts or anything the owner is actively using. Back up first: the
+  "before" list + a rollback script to `...\Undo_Manifests\Rollback_DesktopCleanup_2026-09-04.ps1`.
 
 **Note for the owner (one line, from the charter):** the Desktop is a *launchpad, not storage* — so
-the real home for any job file is its Drive `01-JOBS\TRK-####\` folder. The `_NEEDS-JORGE-FILING`
-list is exactly the set that should end up there on his OK.
+the real home for any matched job file is its Drive `01-JOBS\TRK-####\` capsule. The
+`_NEEDS-JORGE-FILING` list is exactly the set headed there on your OK.
 
 ## Reporting
 - Report both parts via the canonical VTES-Outbox (three-state: EXECUTED-WITH-PROOF / PARTIAL /
