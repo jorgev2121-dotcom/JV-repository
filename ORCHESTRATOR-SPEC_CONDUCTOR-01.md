@@ -48,6 +48,14 @@ PC — it costs zero tokens to run and is never itself rate-limited.
 - **Gate:** Phase 1 starts once the two-way loop is proven once (your GitHub sign-in) so the Conductor can
   report what it does.
 
+## KNOWN CONSTRAINT — the heartbeat currently runs INTERACTIVE only (learned from RAMBO 2026-09-04)
+Registering the scheduled task to "run whether logged on or not" returned **Access is denied** (needs
+elevation; the alternative stores Jorge's password, which RAMBO won't handle). So **today the heartbeat —
+and therefore the Conductor built on it — only runs while Jorge is logged in.** That undercuts true
+"always-on overnight." **Owner decision:** either Jorge does one **elevated** task registration so it runs
+logged-off, or the Conductor is scoped to "runs while logged in" and overnight coverage waits on that one
+elevated click. Do not claim overnight coverage until this is resolved.
+
 ## Why this hasn't been built before (recurrence note, Rule 4)
 Discussed many times, never built, because (a) the build-freeze (lifted OD-THAW-01), and (b) the desktop
 couldn't even pull work orders across the branch conflict — the foundation didn't work. **Both are now
