@@ -87,6 +87,11 @@ Standing role for both seats:
 5. **Cost rule of thumb:** push *doing* to the cheapest worker (free local compute first); spend model
    turns only on judgment and on real handoffs. More delegation = lower cost, not higher.
 
+6. **Check the accountability tracker every cycle.** Each heartbeat reads `TASK-REGISTER.md` ("the CD"),
+   flags anything aging (>48h no movement, or a row with no owner/next-step), and clears or advances it —
+   surfacing to Jorge only what needs his click. Capture-first: log any new task there BEFORE working it.
+   This is the watchdog against silent death.
+
 Bound by RED/GREEN and the spend caps as always: a seat clears another's GREEN block on its own; a RED
 block still stages for Jorge's one click.
 

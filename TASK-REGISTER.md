@@ -1,0 +1,55 @@
+# TASK REGISTER — the canonical intake log ("the CD"). Capture-first: nothing is worked before it's written here.
+**TRK-2026-9776 · established 2026-09-04 on owner directive: "any request for a task automatically added to the register, so nothing gets forgotten."**
+
+## THE RULE (standing, both Code seats)
+**No task is acted on before it is written here.** The instant Jorge (or a seat) requests a task, the
+receiving seat **appends a row to this file first, then works it.** A task that lives only in a
+conversation dies when the conversation does (charter §10, OD-01). This is the intake gate — same
+principle as orphan-onboarding's "write the row before any analysis."
+
+- **Auto-capture is a hard rule for ☁️ Cloud and 🖥️ RAMBO** — on receiving any ask, log it here immediately.
+- **Paste-tier surfaces (Chat, Cowork, phone, other LLMs) can't write here themselves** — so a task from
+  them must be **echoed into this register** by whichever Code seat sees it. That is the honest limit of
+  "automatic."
+- Each row: **date · requested-by · task · owner-seat · status (NOT STARTED / IN PROGRESS / BLOCKED-why / DONE) · pointer** (the mailbox order or TRK).
+- RED/GREEN and the caps still govern *doing*; this register only guarantees nothing is *lost*.
+
+## ACCOUNTABILITY — both seats check this every cycle (owner directive 2026-09-04)
+This file is the **accountability tracker.** On every heartbeat, each seat **reads the OPEN table and
+flags what's falling through the cracks:**
+- **Aging:** anything `NOT STARTED` or `IN PROGRESS` with no movement in **>48h**, or `BLOCKED` on the
+  same reason for **>48h**, gets flagged.
+- **Ownership:** every OPEN row must name a live owner-seat and a next step; a row with neither is itself a defect.
+- **Surfacing:** stale/stuck items go to Jorge **only if they need his click**, batched; otherwise the
+  seats clear or advance them between themselves (mutual aid). "Quiet" is only honest when the OPEN table
+  has nothing aging.
+- Update each row's status the moment it changes; move finished rows to DONE with proof. A row marked DONE
+  without proof is not done (charter Rule 2).
+This is the SCOREKEEPER function in its simplest form — the watchdog that catches the silent death the
+backlog is full of.
+
+---
+
+## OPEN (as of 2026-09-04)
+| Date | By | Task | Owner | Status | Pointer |
+|---|---|---|---|---|---|
+| 09-04 | Jorge | **GitHub sign-in on desktop** (closes the two-way loop) | Jorge | BLOCKED — owner click | OWNER-ACTIONS popup |
+| 09-04 | Jorge | Build the OWNER-ACTIONS popup (sign-in + connect chrome) | RAMBO | ORDERED | HANDOFF_…owner-actions-button-popup |
+| 09-04 | Jorge | Desktop cleanup by type + orphan OCR + **6 OPH numbers** | RAMBO | IN PROGRESS | WORK-ORDER_DESKTOP-CLEANUP-AND-ICONS |
+| 09-04 | Jorge | **1Password single-source migration** (per-site loop) | RAMBO | ORDERED | WORK-ORDER_1PASSWORD-SINGLE-SOURCE-MIGRATION |
+| 09-04 | Jorge | Document the **10–12 stored tasks** into the repo | RAMBO | ORDERED | HANDOFF_…document-the-10-12-stored-tasks |
+| 09-04 | Jorge | Wire **Grok API** (find existing key, second-opinion bus) | RAMBO | ORDERED | HANDOFF_…wire-existing-LLM-api-key |
+| 09-04 | Jorge | Build the desktop **VS Code chat panel** | RAMBO | NOT STARTED | FINDING_…replace-terminal-with-chat-panel |
+| 09-04 | Jorge | Build the **Conductor** (after loop proven) | RAMBO | QUEUED | ORCHESTRATOR-SPEC_CONDUCTOR-01 |
+| 09-04 | Cloud | Audit what else the 6pm pre-guardrail filing moved | RAMBO | ORDERED | FINDING_…reconcile-from-desktop-transcript |
+
+## DONE (recent)
+| Date | Task | Proof |
+|---|---|---|
+| 09-04 | HOA $555 paid (by phone) — AP-0001 closed | owner report |
+| 09-04 | HOA $180/mo = bank ACH auto-debit + monthly verify reminder | calendar 6jbgnb2hjs693fgsqvbm8gm9k4 |
+| 09-04 | File the nine client docs into capsules | RAMBO DONE report |
+| 09-04 | Desktop heartbeat VTES-Repo-Heartbeat live (3-min) | RAMBO DONE report |
+| 09-04 | Four Claude launcher icons built | RAMBO DONE report |
+
+#TRK-2026-9776 #task-register #capture-first #the-CD #dont-lose-work
