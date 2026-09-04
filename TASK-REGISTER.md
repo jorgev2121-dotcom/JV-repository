@@ -39,7 +39,7 @@ backlog is full of.
 | 09-04 | Jorge | **1Password single-source migration** (per-site loop) | RAMBO | ORDERED | WORK-ORDER_1PASSWORD-SINGLE-SOURCE-MIGRATION |
 | 09-04 | Jorge | Document the **10–12 stored tasks** into the repo | RAMBO | ORDERED | HANDOFF_…document-the-10-12-stored-tasks |
 | 09-04 | Jorge | Wire **Grok API** (find existing key, second-opinion bus) | RAMBO | ORDERED | HANDOFF_…wire-existing-LLM-api-key |
-| 09-04 | Jorge | Build the desktop **VS Code chat panel** | RAMBO | NOT STARTED | FINDING_…replace-terminal-with-chat-panel |
+| 09-04 | Jorge | Build the desktop **VS Code chat panel** — the "sexy window" replacing the black terminal (owner reminded 2x — WANTED) | RAMBO | PRIORITY — not started | FINDING_…replace-terminal-with-chat-panel |
 | 09-04 | Jorge | Build the **Conductor** (after loop proven) | RAMBO | QUEUED | ORCHESTRATOR-SPEC_CONDUCTOR-01 |
 | 09-04 | Cloud | Audit what else the 6pm pre-guardrail filing moved | RAMBO | ORDERED | FINDING_…reconcile-from-desktop-transcript |
 | 09-04 | Jorge | **AI-BUILD LIBRARY** — keep inventoried; run the multi-LLM flaw-review pass on each item | both seats | ESTABLISHED — reviews pending Grok | AI-BUILD-LIBRARY.md |
