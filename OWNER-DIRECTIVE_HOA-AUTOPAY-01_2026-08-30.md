@@ -1,6 +1,14 @@
 # OWNER DIRECTIVE — OD-HOA-AUTOPAY-01
 **Issued by Jorge 2026-08-30 · standing directive · TRK-2026-9757**
 
+> **UPDATE 2026-09-04 — SUPERSEDES THE PORTAL-AUTOPAY PLAN BELOW.** The **$555 first payment is PAID by
+> phone** (owner, 2026-09-04) — AP-0001 closed. For the recurring **$180/mo**, the owner delegated the
+> method to Cloud ("your call") and the decision is: **pay by phone monthly, NOT portal auto-debit** —
+> no bank numbers stored in a portal, no silent-autopay risk, no portal-login battle. A **recurring
+> Google Calendar reminder** now fires the 1st of each month (9 AM ET, event id `6jbgnb2hjs693fgsqvbm8gm9k4`,
+> with a day-before heads-up) and the seats **verify the receipt cleared** in jorgev2121@gmail.com. The
+> portal auto-debit enrollment below is **not** to be pursued unless the owner later reverses this.
+
 **Directive:** Enroll autopay for the homestead HOA — **Precious Homes at Twin Lakes** (T&G
 Management, tgmgmt.cincwebaxis.com), account **`PH13633142`**, property 13633 SW 142 Terrace, Miami FL 33186.
 
