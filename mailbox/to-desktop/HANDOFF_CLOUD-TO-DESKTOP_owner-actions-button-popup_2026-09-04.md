@@ -6,7 +6,8 @@ ask him to. Cloud cannot pop a window on his PC; you can. Build/refresh a single
 (the APPROVALS-NOW pattern) and **pop it to the front.** OD-PROACTIVE-DESKTOP-01 applies: drive the
 mechanics, take him to the one click.
 
-**BUILD: one popup titled "OWNER ACTIONS" with two big labeled buttons (the two live blockers):**
+**BUILD: one popup titled "OWNER ACTIONS" with THREE big labeled buttons (owner wants to enable
+all-night runs before bed, 2026-09-04):**
 
 1. **① SIGN IN TO GITHUB — closes the two-way loop.**
    - Runs the browser sign-in for you: `gh auth login --web -h github.com -p https` if `gh` is present,
@@ -23,8 +24,24 @@ mechanics, take him to the one click.
      tgmgmt.cincwebaxis.com under **jorgev2121@gmail.com**, then a **③ CLICK RESET LINK** and
      **④ PAY $555** button appear on the SAME board when each is ready.
 
-**Guardrails:** these buttons only perform **Jorge's own** actions (his sign-in, his connect, his final
-pay click) — they never cross RED autonomously. The eventual PAY button still only stages to the final
+3. **③ ENABLE ALL-NIGHT RUNS — so the heartbeat runs while he's logged off.**
+   - Re-register `VTES-Repo-Heartbeat` to **run whether logged on or not** (the S4U registration that
+     returned Access-denied unattended). Launch it so Jorge's **one elevation click (UAC)** approves it
+     while he's present — that is attended, so no stranded-dialog risk (RI-031). Show the result:
+     "All-night runs: ON — heartbeat will run while you sleep."
+   - **Also pre-approve the GREEN command set** (NOT bypass): add allow-rules for the safe commands the
+     night needs — `git pull/fetch/status`, `Read`, the heartbeat script — so night runs don't stall on
+     prompts. **Do NOT enable a skip-all-permissions / bypass mode** (Rule 9): RED (pay/move/delete/
+     credentials) must still prompt. Use an allow-list (the fewer-permission-prompts approach), not a
+     blanket allow.
+
+**Honest scope to show Jorge on the popup:** tonight these clicks enable (a) the two-way loop and (b) the
+heartbeat running while he's away. **The full Conductor (failover to Grok / code-only queue) is not built
+yet** — so tonight's "all-night runs" = the heartbeat + existing GREEN queue work, not yet the orchestrated
+version. Don't over-state it.
+
+**Guardrails:** these buttons only perform **Jorge's own** actions (his sign-in, his connect, his
+elevation approval, his final pay click) — they never cross RED autonomously. The eventual PAY button still only stages to the final
 confirm screen; he presses it; bank/ACH numbers are his to enter, never typed by any agent.
 
 **RED or GREEN:** building and popping the board is **GREEN**. Each button is the delivery mechanism for
