@@ -69,4 +69,25 @@ DONE_<JOB>_<SLUG>_<YYYY-MM-DD>.md                  a close-out the other seat sh
 
 **Is this the shape you want — the two heartbeats plus the RED-only escalations — before I wire it up?**
 
-#TRK-2026-9772 #two-seat-handoff #out-of-the-middle #RED-GREEN #heartbeat
+## 7. Mutual aid — help-first, ask the OTHER SEAT before the owner (ratified 2026-09-04)
+**Owner intent:** *"establish an ongoing role where you ask each other on a constant basis — what's blocked,
+how can I help, offer to run things, work in synergy."* Implemented the cheap way — **event-driven, not a
+timer.** (Delegating *execution* to RAMBO's local compute is near-free; only *chatter* costs tokens, so
+seats speak on a real block, not on a schedule.)
+
+Standing role for both seats:
+1. **The instant you are blocked, ask the other seat first** — a `HANDOFF_…-TO-…_BLOCKED_…` note + a nudge:
+   "stuck on X, can you clear it in your lane?" This is EXHAUST-FIRST between seats.
+2. **A block reaches Jorge ONLY if BOTH seats are stuck.** Seat→seat is the first line; the owner is the
+   last resort, never the relay. That is what keeps him out of the middle.
+3. **Every handoff offers what you can run in your lane** ("I can pull that from Gmail/Drive/Outlook" /
+   "I can OCR/script/drive the portal locally") — don't wait to be asked.
+4. **Silence when there is nothing to ask.** No empty "checking in" turns — those are wasted model tokens.
+   Readiness is constant; speaking is event-driven.
+5. **Cost rule of thumb:** push *doing* to the cheapest worker (free local compute first); spend model
+   turns only on judgment and on real handoffs. More delegation = lower cost, not higher.
+
+Bound by RED/GREEN and the spend caps as always: a seat clears another's GREEN block on its own; a RED
+block still stages for Jorge's one click.
+
+#TRK-2026-9772 #two-seat-handoff #out-of-the-middle #RED-GREEN #heartbeat #mutual-aid #help-first
