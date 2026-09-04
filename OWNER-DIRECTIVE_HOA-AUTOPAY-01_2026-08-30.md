@@ -9,6 +9,13 @@
 > with a day-before heads-up) and the seats **verify the receipt cleared** in jorgev2121@gmail.com. The
 > portal auto-debit enrollment below is **not** to be pursued unless the owner later reverses this.
 
+> **CORRECTION 2026-09-04b — the $180 method is settled and better than the line just above.** The owner
+> set up **bank-side ACH monthly auto-debit** (the bank pushes it — most reliable form). So: NOT phone,
+> NOT portal auto-debit. The calendar reminder `6jbgnb2hjs693fgsqvbm8gm9k4` is now a **light monthly
+> VERIFY** the ACH drafted (guards silent failure). **Still open, separate from payment:** 1Password has
+> no working access to the T&G portal (`tgmgmt.cincwebaxis.com`) — routed to RAMBO to diagnose+fix,
+> recurring RI-032-family issue.
+
 **Directive:** Enroll autopay for the homestead HOA — **Precious Homes at Twin Lakes** (T&G
 Management, tgmgmt.cincwebaxis.com), account **`PH13633142`**, property 13633 SW 142 Terrace, Miami FL 33186.
 
