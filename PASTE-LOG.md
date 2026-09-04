@@ -91,3 +91,5 @@ enough to identify it exactly, with no description needed.
 - **PASTE-D-033** · 2026-08-30 · Desktop · Add overnight OCR sweep of everything dated >=2022-01-01 (Drive 01-JOBS + OneDrive), writing .SEARCH.txt sidecars only; WORK-ORDER_OCR-SWEEP_POST-2022. GREEN.
 
 - **PASTE-D-049** · 2026-09-04 · Desktop (RAMBO) · Pull repo; act on 3 new mailbox/to-desktop files — HOA reset-link-dead finding (fresh Forgot-Password → Jorge clicks → pay AP-0001 $555), desktop cleanup+icons work order (client docs via orphan-onboarding OCR, moves wait for one click), then continue audit cycle. Report via TO-CLOUD. Points at files pushed 2026-09-04.
+
+- **PASTE-D-050** · 2026-09-04 · Desktop (RAMBO) · Build the desktop heartbeat (Windows Scheduled Task VTES-Repo-Heartbeat, 10-min git-pull + auto-reply by RED/GREEN, push to mailbox/to-cloud) per WORK-ORDER_DESKTOP-AUTOPULL-HEARTBEAT + HANDOFF-PROTOCOL_TWO-SEAT-01. Pairs with the armed Cloud heartbeat (trig_013pYLQtS9Z4poEMfwdFU1MG). Gets Jorge out of the middle. TRK-2026-9772.
