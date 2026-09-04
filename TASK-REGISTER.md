@@ -42,6 +42,8 @@ backlog is full of.
 | 09-04 | Jorge | Build the desktop **VS Code chat panel** | RAMBO | NOT STARTED | FINDING_…replace-terminal-with-chat-panel |
 | 09-04 | Jorge | Build the **Conductor** (after loop proven) | RAMBO | QUEUED | ORCHESTRATOR-SPEC_CONDUCTOR-01 |
 | 09-04 | Cloud | Audit what else the 6pm pre-guardrail filing moved | RAMBO | ORDERED | FINDING_…reconcile-from-desktop-transcript |
+| 09-04 | Jorge | **AI-BUILD LIBRARY** — keep inventoried; run the multi-LLM flaw-review pass on each item | both seats | ESTABLISHED — reviews pending Grok | AI-BUILD-LIBRARY.md |
+| 09-04 | Cloud | **SessionStart hook** — prints TASK-REGISTER OPEN every session | Cloud | DONE (self-tested) | .claude/settings.json |
 
 ## DONE (recent)
 | Date | Task | Proof |
