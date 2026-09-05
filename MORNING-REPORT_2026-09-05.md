@@ -56,7 +56,7 @@ One more small thing settled along the way, not needing a decision: it also conf
 - **AP-0078** — a finished Certificate-of-Insurance request has sat unsent in Outlook Drafts 28+ hours. Open it, read it once, press Send.
 - **AP-0064** — Alabama Jack's, a $4,780 job stalled on an unsent email to Rick asking for two things it needs.
 - **AP-0002** — the $44 City of Miami microfilm fee is confirmed real (a different property from the one already paid in August, not a duplicate). The one-click payment button had gone missing from your Desktop; the desktop lane found and restored it, hash-verified. No urgency — already stalled two weeks, a few more days changes nothing. Two clicks when you get to it: pay, then send the "I paid" reply (the City won't start the search otherwise). Also sitting in Drafts: an old duplicate request for the same property that must **not** be sent — it would trigger a second $44.
-- **AP-0080** — new, and deliberately not raised as urgent by the desktop itself. Your August 25th voice order ("let him do anything and everything he can do without owner participation") only exists on the cloud repo branch — no file the desktop reads at startup carries it, so it's been invisible to every session since the git-merge problem below started blocking pulls. Nothing was self-applied. One word (**ADOPT**) puts it properly into CLAUDE.md whenever you're up.
+- **The max-autonomy adoption ask (correction: this is NOT "AP-0080" — that number is already taken by an unrelated desktop card about a different build, a numbering collision I caused last night and am correcting here).** Your August 25th voice order ("let him do anything and everything he can do without owner participation") only exists on the cloud repo branch — no file the desktop reads at startup carries it, so it's been invisible to every session since the git-merge problem below started blocking pulls. Nothing was self-applied. One word (**ADOPT**) puts it properly into CLAUDE.md whenever you're up — just don't confuse it with anything labeled AP-0080 on the desktop's own board, which is a separate question about a stalled build.
 
 ---
 
@@ -93,6 +93,12 @@ Whether an actual 1515 payment exists at all is still open. Nothing found proves
 ## One more worth knowing, not urgent
 
 **A signature package already sent Wednesday (10980 SW 202 Dr, Unit 29) has two small problems.** It went out to the property manager (Cinde Velazquez, cc Miguel Zaldivar) carrying tracking number TRK-2026-1667 — which doesn't match anything in this matter's own file. The desktop confirmed the real number is TRK-2026-1310 (used on this property since July) and cross-referenced the two so nothing gets lost. Separately, the email tells her "everything is done except one field, see item 1" — but item 1 just says "sign both documents," not what field is missing. The actual blank field is the **EIN for the owning LLC**, and she was never actually asked for it — see the one-click fix for that below. Also confirmed: a separate insurance-certificate request for this same job was never sent at all.
+
+---
+
+## Caught before it went out — not urgent, but worth knowing
+
+**Five due-diligence books for Alec Valdes look finished to every automated check on the machine and are actually about 80% done.** Each one has a cover, summary, and analysis — but stops right before the actual supporting documents that a due-diligence book exists to deliver. They looked complete because the search-index files that get generated alongside them don't distinguish "text-only summary" from "the real thing." **Nothing has been sent to Alec** — this was caught by directly counting pages and photos in each file, not by trusting the file's own paperwork. The fix (attaching the missing documents) is known and not started; no rush, since nothing is going out the door yet.
 
 ---
 
