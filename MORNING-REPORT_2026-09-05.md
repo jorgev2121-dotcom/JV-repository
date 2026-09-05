@@ -20,7 +20,7 @@ Only 3 of 8 unit owners have a reachable address or email for the Tuesday 2026-0
 
 **WRITE IT** — email the Association (`obhadmin@` / `qmarte@plazaofbalharbour.com`) for the 5 missing owner emails, or **SKIP** — mail all 5 at their county-listed addresses instead.
 
-If you're reading this without having answered overnight, it's now the weekend — the email route may cost less time than it would have Friday, since the Association still has all weekend to reply before Tuesday morning.
+**Update as of Saturday afternoon: still unanswered, and the mail option is now effectively off the table** — there's no longer a business day left for anything routed through an office or a notary before Tuesday. That leaves two live paths: **email the Association** and hope for a weekend reply, or **call the reachable owners directly by mobile** — three of the eight (units 220, 721, and PH11) have working cell numbers on file and can be reached today or tomorrow even though it's the weekend. The other five have no channel that works on a weekend regardless of which option you pick. This is still the same one-word question as last night; nothing new is needed from you beyond answering it.
 
 ---
 
