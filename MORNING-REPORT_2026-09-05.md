@@ -36,11 +36,14 @@ Your options: (A) file the other six Tuesday and let the mailed package for 321/
 
 ## New decision needed before Tuesday — not urgent yet, but don't let it slide
 
-**All eight Bal Harbour permit applications print with your own tracking number missing.** The desktop measured it directly: the TRK stamp on every one of the eight units sits 1.2 points past the actual edge of the paper — not a printer setting, not fixable by choosing "fit" or "actual size," it's baked into the file that far off the page. It's also already cut off mid-character inside the PDF itself. This is separate from the general shrink/clip problem the county's own blank form has (that part isn't fixable by anyone and isn't your fault).
+**Update, checked twice now and it's worse than first thought: all ten Bal Harbour permit applications print with your tracking number completely missing — not some of them, all of them.** The first pass found two units losing the stamp off the right edge of the page. A full re-check of all ten (220, 307, 321, 423, 714, 721, 914, 922, 1016, PH11) found the real problem is the stamp running off the *bottom* of the page on every single one — including the two that looked fine on the right edge. Not a printer setting; it's baked into the files. Separately, three of the ten (321, 922, and now also PH11) have the date cut off mid-character inside the file itself.
 
-The desktop built a fix — redraws just the tracking stamp further inboard so it actually prints — tested it six ways, and deliberately did **not** apply it to the real files three days before a counter filing without your say-so. One word decides it:
+Fixing this now needs **two** decisions, not one, because they're tangled together:
 
-**ADOPT** — the corrected files (already sitting in a staging folder) replace the ones you'd print for Tuesday, and your tracking number actually shows up on the paper. **KEEP** — print as-is, knowing the tracking number won't be on the physical copies filed at Village Hall.
+1. **Where should the tracking number go — bottom-right (current spot, just moved inboard so it actually prints) or up top under "REVIEWED"?** Either works; the desktop has a ready fix for the bottom-right option, tested and staged for two of the ten units.
+2. **Which copy of these files is the real one — the copy on Google Drive, or the copy on OneDrive?** Two different folders both claim to be the master, and they don't fully match. The desktop won't extend its fix to the other eight units until this is settled, because fixing the wrong copy three days before a counter filing is worse than not fixing it yet.
+
+Answer both and the fix finishes itself. Until then: printing now means filing paperwork Tuesday with no visible tracking number on any of it.
 
 One more small thing settled along the way, not needing a decision: it also confirmed which of the two tracking numbers on the 10980 SW 202 Dr matter above is the real one — TRK-2026-1310 (used since July), with TRK-2026-1667 being a later duplicate that's already been cross-referenced so nothing gets lost.
 
