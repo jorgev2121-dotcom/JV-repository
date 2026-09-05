@@ -59,6 +59,12 @@ Whether an actual 1515 payment exists at all is still open. Nothing found proves
 
 ---
 
+## One more worth knowing, not urgent
+
+**A signature package already sent Wednesday (10980 SW 202 Dr, Unit 29) has two small problems.** It went out to the property manager (Cinde Velazquez, cc Miguel Zaldivar) carrying tracking number TRK-2026-1667 — which doesn't match anything in this matter's own file (the real number is TRK-2026-1310). The desktop already fixed that quietly so a reply won't get lost. Separately, the email tells her "everything is done except one field, see item 1" — but item 1 just says "sign both documents," not what field is missing. The actual blank field is the **EIN for the owning LLC**, and she was never actually asked for it. Nothing to do tonight — she hasn't replied yet, and the fix is just remembering to ask for the EIN when she does. Also confirmed: a separate insurance-certificate request for this same job was never sent at all.
+
+---
+
 ## Denominators
 
 - **91 desktop cycles** reviewed and mirrored (2026-09-03 09:30 UTC → 2026-09-04 22:54 UTC), full text in `TO-CLOUD_MIRROR_2026-09-04.md` (9,770 lines).
