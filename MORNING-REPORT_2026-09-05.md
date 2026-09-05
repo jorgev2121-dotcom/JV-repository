@@ -71,6 +71,11 @@ Whether an actual 1515 payment exists at all is still open. Nothing found proves
 
 **TASK-11 (county proof + Orange Tree population) — closed, nothing owed.** No new activity in this window; its results were already mirrored into `COUNTY-PROOF-RESULTS.md`.
 
+**Three small plumbing items, no client impact, one-click cards already on your screen:**
+- Two of your own daily system-health emails (Aug 31, Sep 1) are stuck in Outlook's Outbox, plus a 373-day-old test email that's the real cause of the "2 did not send" you'd noticed. A card is open on your main monitor with three buttons: send the two stuck reports, park the old test email, and fix Outlook so a closed mail app doesn't silently swallow the report (which is also why yesterday's report never arrived).
+- The "Authorize Overnight Runs" button you pressed Tuesday doesn't connect to anything yet — nothing on the machine reads what it writes. A different card ("Fix it now") is already open to correct the piece that's fixable unattended; separately, worth you deciding at some point whether that overnight button should be wired up or retired, since right now it implies a permission it can't deliver.
+- A funding-research file for an unrelated matter (Edison Towers) was found using two different naming conventions where the "correct-looking" one is actually the weaker version. Already flagged for whoever's building that file next; nothing for you to do.
+
 ---
 
 ## One more worth knowing, not urgent
