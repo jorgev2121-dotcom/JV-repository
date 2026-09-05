@@ -34,6 +34,20 @@ Your options: (A) file the other six Tuesday and let the mailed package for 321/
 
 ---
 
+## New decision needed before Tuesday — not urgent yet, but don't let it slide
+
+**All eight Bal Harbour permit applications print with your own tracking number missing.** The desktop measured it directly: the TRK stamp on every one of the eight units sits 1.2 points past the actual edge of the paper — not a printer setting, not fixable by choosing "fit" or "actual size," it's baked into the file that far off the page. It's also already cut off mid-character inside the PDF itself. This is separate from the general shrink/clip problem the county's own blank form has (that part isn't fixable by anyone and isn't your fault).
+
+The desktop built a fix — redraws just the tracking stamp further inboard so it actually prints — tested it six ways, and deliberately did **not** apply it to the real files three days before a counter filing without your say-so. One word decides it:
+
+**ADOPT** — the corrected files (already sitting in a staging folder) replace the ones you'd print for Tuesday, and your tracking number actually shows up on the paper. **KEEP** — print as-is, knowing the tracking number won't be on the physical copies filed at Village Hall.
+
+One more small thing settled along the way, not needing a decision: it also confirmed which of the two tracking numbers on the 10980 SW 202 Dr matter above is the real one — TRK-2026-1310 (used since July), with TRK-2026-1667 being a later duplicate that's already been cross-referenced so nothing gets lost.
+
+**And the EIN request from the item above is now one click, not a to-do.** A ready-to-send reply is sitting in Outlook Drafts, and a desktop button (**"SEND IT - ask the client for the EIN"**) will send it — the desktop confirmed the button actually reaches the right draft but did not press Send itself, since sending is your step.
+
+---
+
 ## Small, no-rush items
 
 - **AP-0078** — a finished Certificate-of-Insurance request has sat unsent in Outlook Drafts 28+ hours. Open it, read it once, press Send.
@@ -61,7 +75,7 @@ Whether an actual 1515 payment exists at all is still open. Nothing found proves
 
 ## One more worth knowing, not urgent
 
-**A signature package already sent Wednesday (10980 SW 202 Dr, Unit 29) has two small problems.** It went out to the property manager (Cinde Velazquez, cc Miguel Zaldivar) carrying tracking number TRK-2026-1667 — which doesn't match anything in this matter's own file (the real number is TRK-2026-1310). The desktop already fixed that quietly so a reply won't get lost. Separately, the email tells her "everything is done except one field, see item 1" — but item 1 just says "sign both documents," not what field is missing. The actual blank field is the **EIN for the owning LLC**, and she was never actually asked for it. Nothing to do tonight — she hasn't replied yet, and the fix is just remembering to ask for the EIN when she does. Also confirmed: a separate insurance-certificate request for this same job was never sent at all.
+**A signature package already sent Wednesday (10980 SW 202 Dr, Unit 29) has two small problems.** It went out to the property manager (Cinde Velazquez, cc Miguel Zaldivar) carrying tracking number TRK-2026-1667 — which doesn't match anything in this matter's own file. The desktop confirmed the real number is TRK-2026-1310 (used on this property since July) and cross-referenced the two so nothing gets lost. Separately, the email tells her "everything is done except one field, see item 1" — but item 1 just says "sign both documents," not what field is missing. The actual blank field is the **EIN for the owning LLC**, and she was never actually asked for it — see the one-click fix for that below. Also confirmed: a separate insurance-certificate request for this same job was never sent at all.
 
 ---
 
