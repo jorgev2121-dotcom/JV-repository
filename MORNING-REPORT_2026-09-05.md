@@ -76,6 +76,10 @@ Whether an actual 1515 payment exists at all is still open. Nothing found proves
 - The "Authorize Overnight Runs" button you pressed Tuesday doesn't connect to anything yet — nothing on the machine reads what it writes. A different card ("Fix it now") is already open to correct the piece that's fixable unattended; separately, worth you deciding at some point whether that overnight button should be wired up or retired, since right now it implies a permission it can't deliver.
 - A funding-research file for an unrelated matter (Edison Towers) was found using two different naming conventions where the "correct-looking" one is actually the weaker version. Already flagged for whoever's building that file next; nothing for you to do.
 
+**Why some of tonight's "one-click" buttons might not have actually been on your screen — found and fixed.** Some buttons the desktop builds land in a OneDrive folder that looks like your Desktop to the machine but never actually shows up on your screen. Two buttons built earlier tonight (the EIN request, and the stuck-Outlook fix) were sitting there instead of on your real Desktop — both have now been copied to the real one and confirmed working. Also found along the way: **Speechify is switched off in the browser profile you actually use day-to-day** (it's on in a different, less-used one) — a new button, **"SPEECHIFY IS OFF - turn it back on"**, is on your real Desktop now; the actual switch has to be your click, browsers won't let it be flipped by script.
+
+**A silent future problem was caught before it happened.** The tax-jacket marking board (508 pages, six buttons per page) had three of its six buttons — the ones for deleting blank pages and merging photo-backs — wired to a file nothing ever read. If you'd spent time marking pages and pressing Save, none of those three actions would have actually changed anything, and you wouldn't have found out until the final document came out wrong. Fixed and tested before you ever used it — nothing lost. The turn/rotate buttons were always fine.
+
 ---
 
 ## One more worth knowing, not urgent
