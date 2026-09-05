@@ -40,4 +40,14 @@ A push notification already went to your phone with this question.
 
 **Nothing here was filed, sent, or spent — every cycle in this window marked itself GREEN.**
 
-Answer AP-0049 tonight if you can; everything else keeps until morning. Which is it — WRITE IT or SKIP?
+---
+
+## Addendum — 2026-09-05, overnight (03:00 UTC)
+
+**AP-0002 update: the $44 City of Miami payment is confirmed real and not a duplicate** — it's a second property (331 Tamiami Canal Rd), separate from the one already paid in August. The button for it (`PAY THE 44 DOLLARS - City of Miami.hta`) had gone missing from your Desktop; the desktop lane found the working copy elsewhere and put it back, hash-verified. It's ready whenever you get to it — no rush today specifically, this has already been stalled two weeks. Two clicks when you do: pay, then send the "I paid" reply (the City won't start the search without it). Also found sitting in Drafts: an old duplicate request for the same property that must NOT be sent — it would trigger a second $44. Your call whether to delete it.
+
+**New item, deliberately not urgent — AP-0080.** The desktop found that your August 25th voice order ("let him do anything and everything he can do without owner participation") only exists on the cloud repo branch — it's not in any file the desktop reads at startup, so it's been invisible to every session since the git-merge problem (RI-037/AP-0036) started blocking pulls. It worked for one day, then went dark. Nothing was self-applied — widening its own permissions isn't something the desktop will do on its own signature. A ready-to-paste block exists to adopt it properly into CLAUDE.md; needs one word (**ADOPT**) whenever you're up. No clock on this one.
+
+---
+
+Answer AP-0049 when you can; everything else keeps until morning. Which is it — WRITE IT or SKIP?
