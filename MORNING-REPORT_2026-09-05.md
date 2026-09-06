@@ -114,6 +114,10 @@ Around 7:18pm Saturday, eight of your background tasks got switched off in the s
 
 ---
 
+## A genuinely risky button was found and fixed before anyone clicked it
+
+One of the green "Approve" buttons on your Desktop — the one that sets which AI model Claude Code uses by default — would have silently wiped out an unrelated piece of setup (the part that prints your open task list at the start of every session) if pressed, with no warning. It was caught and fixed before anyone touched it; the button is now safe. Separately, the actual model-default change behind that button (switching to "opusplan") has now been applied — it had been stuck waiting on a technical restriction that turned out to no longer apply. **One thing to know:** your old setting kept a much larger memory window for conversations; the new one doesn't automatically carry that over. If you want the bigger memory window kept, one word — "opusplan with the big context" — puts it back; otherwise no action needed.
+
 ## A small, forgotten invoice — one tap, whenever you're up
 
 A $93.75 microfilm/plan-copy invoice from a job ordered August 6th slipped through a real crack: it's slightly above your standard approval limit, which normally means it waits for your tap — but it never actually made it onto your approval board at all. 31 days invisible, not because you said no, but because nobody put it in front of you. Also found in the same sweep: nearly 1,000 documents you already paid for (563 MB, a month ago) are sitting correctly on disk but in a folder with no matter number, so they don't show up in any of your job trackers. Nothing urgent — the documents are safe and the invoice amount is tiny — just flagging so it doesn't stay lost.
