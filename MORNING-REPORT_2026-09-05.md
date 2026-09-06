@@ -102,13 +102,17 @@ Last night's report said five of Alec's due-diligence books were 80% done and mi
 
 ---
 
-## Eight scheduled tasks went dark last night — almost certainly you, but worth one word to confirm
+## Update: seven scheduled tasks are dark, not eight — worth one word to confirm
 
-Around 7:18pm Saturday, eight of your background tasks got switched off in the space of 36 seconds — including the mail sorter (already flagged as **AP-0016**, asking permission for a change that turns out to already be done) and, notably, **the watchdog that normally catches exactly this kind of silent change.** This lines up almost exactly with a stretch where you were actively typing into a desktop window giving other instructions, so this is very likely something you did yourself while reorganizing things — not a malfunction.
+Around 7:18pm Saturday, eight of your background tasks got switched off in the space of 36 seconds. **One came back on its own overnight** — a weekly cleanup script noticed the watchdog (the task that catches this kind of silent change) was off and restored it automatically, so that blind spot has already closed itself. The other seven, including the mail sorter (already flagged as **AP-0016**, asking permission for a change that turns out to already be done), will stay off until someone acts — nothing on the machine will restore them by itself. This still lines up almost exactly with a stretch where you were actively typing into a desktop window giving other instructions, so it's very likely something you did yourself while reorganizing things.
 
-**One word settles it:** did you turn these off Saturday evening? If **yes** — nothing to do, and AP-0016 can be closed since it's asking about something already done. If **no** — say so and they get switched back on in one command each.
+**One word settles it:** did you turn these off Saturday evening? If **yes** — nothing to do, AP-0016 can close, and one small follow-up: the watchdog coming back on its own actually goes against what you wanted, and it'll keep happening every Sunday unless you say so, so worth a one-line note if you want it to stay off. If **no** — say so and all seven get switched back on in one command each.
 
-Until this is confirmed, nothing is watching for further silent task changes (the watchdog itself is one of the eight that's off) — not urgent, but the blind spot doesn't close itself.
+---
+
+## A small, forgotten invoice — one tap, whenever you're up
+
+A $93.75 microfilm/plan-copy invoice from a job ordered August 6th slipped through a real crack: it's slightly above your standard approval limit, which normally means it waits for your tap — but it never actually made it onto your approval board at all. 31 days invisible, not because you said no, but because nobody put it in front of you. Also found in the same sweep: nearly 1,000 documents you already paid for (563 MB, a month ago) are sitting correctly on disk but in a folder with no matter number, so they don't show up in any of your job trackers. Nothing urgent — the documents are safe and the invoice amount is tiny — just flagging so it doesn't stay lost.
 
 ---
 
