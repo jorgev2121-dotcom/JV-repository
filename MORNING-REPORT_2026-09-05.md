@@ -1,6 +1,6 @@
-# Morning Report — 2026-09-05
+# Weekend Report — 2026-09-05 / 2026-09-06
 
-**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through 2026-09-05 04:00 UTC.**
+**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Sunday morning 2026-09-06.** (This file carries Saturday's date in its name but has been kept current through Sunday — read every date reference below at face value, not as "yesterday.")
 
 ---
 
@@ -12,23 +12,27 @@
 
 ---
 
+**Note on how to answer:** none of the items below have a button on your Desktop yet — that's a separate gap the desktop found and is not fixing tonight (building a new one is paused under the current freeze). Just tell me or the desktop your answer in words, the same way you'd dictate anything else.
+
 ## The one thing still waiting on you
 
 ### AP-0049 — Bal Harbour signatures, one word answers it
 
-Only 3 of 8 unit owners have a reachable address or email for the Tuesday 2026-09-08 filing. The other 5 need time to receive, sign, and notarize documents. **Friday (yesterday) was the last business day before Tuesday** — Saturday, Sunday, and Labor Day Monday are all non-working days — so this was pushed to your phone last night rather than held for this report.
+Only 3 of 8 unit owners have a reachable address or email for the Tuesday 2026-09-08 filing. The other 5 need time to receive, sign, and notarize documents. **Friday was the last business day before Tuesday** — Saturday, Sunday, and Labor Day Monday are all non-working days — so this was pushed to your phone Friday night rather than held for this report.
 
 **WRITE IT** — email the Association (`obhadmin@` / `qmarte@plazaofbalharbour.com`) for the 5 missing owner emails, or **SKIP** — mail all 5 at their county-listed addresses instead.
 
-**Update as of Saturday afternoon: still unanswered, and the mail option is now effectively off the table** — there's no longer a business day left for anything routed through an office or a notary before Tuesday. That leaves two live paths: **email the Association** and hope for a weekend reply, or **call the reachable owners directly by mobile** — three of the eight (units 220, 721, and PH11) have working cell numbers on file and can be reached today or tomorrow even though it's the weekend. The other five have no channel that works on a weekend regardless of which option you pick. This is still the same one-word question as last night; nothing new is needed from you beyond answering it.
+**Still unanswered as of Sunday morning, and the mail option is now completely off the table** — zero business hours remain before Tuesday's 8:30am filing; Monday is Labor Day. That leaves two live paths: **email the Association** and hope for a weekend/holiday reply, or **call the reachable owners directly by mobile** — three of the eight (units 220, 721, and PH11) have working cell numbers on file. The other five have no channel that works before Tuesday regardless of which option you pick. This is still the same one-word question from Friday night; nothing new is needed from you beyond answering it.
 
 ---
 
 ## Two corrections the desktop caught in its own work
 
-**AP-0077 — a Tuesday double-filing risk, corrected before it could happen.** The calendar event for Tuesday's filing lists units 321 and 922 for in-person lodging. Your own 9/3 instruction says those two were already mailed as renewals (original + cheque), expected back 9/10. The calendar was never updated after that instruction. Following it as written on Tuesday would file both units a second time — a second set of fees, a second process number.
+**AP-0077 — a Tuesday double-filing risk, corrected before it could happen — and its own alarm fires Monday night.** The calendar event for Tuesday's filing lists units 321 and 922 for in-person lodging. Your own 9/3 instruction says those two were already mailed as renewals (original + cheque), expected back 9/10. **The calendar event has not been touched since it was created September 2nd** and still tells you to file both units in person. Its reminder pops up **Monday at 8:30pm, on Labor Day** — the last nudge you'll get before walking in Tuesday morning — and as of right now it would be nudging you toward the wrong list.
 
-Your options: (A) file the other six Tuesday and let the mailed package for 321/922 run to 9/10, (B) treat the mail as likely returned and re-file both at the counter, or (C) — added after a second look — simply ask the clerk (Olga) whether a renewal will be accepted for 321/922 the same way it was for a different unit (PH11) the day before, before filing anything new. Option C costs one question and could save two full new-permit fees.
+Your options: (A) file the other six Tuesday and let the mailed package for 321/922 run to 9/10, (B) treat the mail as likely returned and re-file both at the counter, or (C) simply ask the clerk (Olga) whether a renewal will be accepted for 321/922 the same way it was for a different unit (PH11) the day before, before filing anything new. Option C costs one question and could save two full new-permit fees.
+
+**One more thing to ask at the same counter, unconfirmed:** there's a note that PH11's own renewal may have already been accepted by the Village on September 3rd — which would make it a *third* unit that shouldn't be filed fresh Tuesday. Nobody has been able to find the paperwork that proves this one way or the other, so it's a question to ask alongside the others, not something to act on yet.
 
 **AP-0048 — the "nothing is on your calendar" claim was wrong, and now corrected.** An earlier card said no calendar held the Tuesday filing. It's actually on your Google calendar (created 84 seconds after you asked for it) and, separately found, on your Outlook calendar too — 30 minutes apart, under two different names. What's still genuinely open: your **GO, or who's going in your place**, and a two-weekly written progress report you promised the Association, first due **2026-09-16**.
 
