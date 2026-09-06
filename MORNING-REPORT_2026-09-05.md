@@ -102,6 +102,16 @@ Whether an actual 1515 payment exists at all is still open. Nothing found proves
 
 ---
 
+## Eight scheduled tasks went dark last night — almost certainly you, but worth one word to confirm
+
+Around 7:18pm Saturday, eight of your background tasks got switched off in the space of 36 seconds — including the mail sorter (already flagged as **AP-0016**, asking permission for a change that turns out to already be done) and, notably, **the watchdog that normally catches exactly this kind of silent change.** This lines up almost exactly with a stretch where you were actively typing into a desktop window giving other instructions, so this is very likely something you did yourself while reorganizing things — not a malfunction.
+
+**One word settles it:** did you turn these off Saturday evening? If **yes** — nothing to do, and AP-0016 can be closed since it's asking about something already done. If **no** — say so and they get switched back on in one command each.
+
+Until this is confirmed, nothing is watching for further silent task changes (the watchdog itself is one of the eight that's off) — not urgent, but the blind spot doesn't close itself.
+
+---
+
 ## Denominators
 
 - **91 desktop cycles** reviewed and mirrored (2026-09-03 09:30 UTC → 2026-09-04 22:54 UTC), full text in `TO-CLOUD_MIRROR_2026-09-04.md` (9,770 lines).
