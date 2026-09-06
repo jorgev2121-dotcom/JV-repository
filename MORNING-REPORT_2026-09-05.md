@@ -96,9 +96,9 @@ Whether an actual 1515 payment exists at all is still open. Nothing found proves
 
 ---
 
-## Caught before it went out — not urgent, but worth knowing
+## Correction to the item above — the Alec DD books were fine; wrong copy was checked
 
-**Five due-diligence books for Alec Valdes look finished to every automated check on the machine and are actually about 80% done.** Each one has a cover, summary, and analysis — but stops right before the actual supporting documents that a due-diligence book exists to deliver. They looked complete because the search-index files that get generated alongside them don't distinguish "text-only summary" from "the real thing." **Nothing has been sent to Alec** — this was caught by directly counting pages and photos in each file, not by trusting the file's own paperwork. The fix (attaching the missing documents) is known and not started; no rush, since nothing is going out the door yet.
+Last night's report said five of Alec's due-diligence books were 80% done and missing their supporting documents. **That was wrong — a follow-up check found the real, complete deliverables sitting in the job folders themselves, not in the analysis-only reference copies that were checked.** Four books (331 Tamiami, 7823 NW 5th, 1840 NW 63rd, 10362 SW 180th) are already whole, with all supporting county documents included and correctly filed. Nothing was missing and nothing needs fixing. The remaining four properties are genuinely waiting on county paperwork that hasn't come back yet — normal and expected, not a defect. One small, no-rush item did turn up: a free county records request for 18020 SW 103rd Ave has been sitting unanswered for 21 days (was promised in 1-2 days) and nobody's followed up — costs nothing to re-ask, whenever it's convenient.
 
 ---
 
