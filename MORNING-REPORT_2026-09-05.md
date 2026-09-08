@@ -2,7 +2,9 @@
 
 **Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Tuesday evening 2026-09-08.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
 
-**Update, Tuesday 3pm ET: the 8:30-11am Village Hall filing window has come and gone, and nothing on any system says what happened.** AP-0049 and AP-0077 still show as open questions on the board — not because you said no, but because nothing recorded an answer either way. If you went and filed, or decided to hold off, **that's the one thing worth telling me** so the board stops asking. If you didn't get to it, nothing here has gotten worse — see the sections below for where things stand.
+**Update, Tuesday 3pm ET, now confirmed rather than assumed: the 8:30-11am Village Hall filing window has come and gone, and a full check of the desktop's own record — every cycle through 2:55pm today — found no answer anywhere.** AP-0049 and AP-0077 still show as open questions on the board — not because you said no, but because nothing recorded an answer either way. Neither decision popup on your Desktop was ever clicked. If you went and filed, or decided to hold off, **that's the one thing worth telling me** so the board stops asking. If you didn't get to it, nothing here has gotten worse — see the sections below for where things stand.
+
+**And now there's a likely explanation for the silence: the desktop itself was dark for the filing window.** It went quiet for 29.4 hours straight — last check-in Monday 8:43am, next one not until today 2:08pm — covering the entire 8:30-11am window with no automation running at all. That's a new, first-time finding (logged to `RECURRING-ISSUES.md` as RI-044) and explains why nothing got recorded even if you did make a decision Tuesday morning: there was nobody home on the automation side to hear it. Nothing paged anyone when the gap crossed the normal "something's wrong" threshold — that's the part worth fixing, separate from today's filing question.
 
 **One more thing from overnight, unexplained:** the Google Calendar event for this filing was edited at 12:56am last night — during the many hours the desktop was otherwise silent. The filing details on it didn't change, so whatever touched it didn't alter the plan, but nobody knows who or what made that edit. Worth a mention if you remember doing anything with your calendar around midnight.
 
@@ -143,6 +145,7 @@ A $93.75 microfilm/plan-copy invoice from a job ordered August 6th slipped throu
 ## Denominators
 
 - **91 desktop cycles** reviewed and mirrored (2026-09-03 09:30 UTC → 2026-09-04 22:54 UTC), full text in `TO-CLOUD_MIRROR_2026-09-04.md` (9,770 lines).
+- **122 of 122** dated desktop cycles from 2026-09-04 19:10 through 2026-09-08 14:55 checked directly against the live mailbox file for a Bal Harbour filing outcome — **0 found.** Full verbatim record in `BAL-HARBOUR-OUTCOME-CHECK_2026-09-08.md`.
 - **7 of 16** backlog threads reconstructed from your own verbatim words (172 utterances, 2026-08-29→2026-09-04) have been re-tested and measured; **9 remain unproven** — treat any status on those nine as unverified until re-checked.
 - **0** items filed, sent, spent, or deleted overnight.
 - **1** push notification sent (AP-0049), **0** replies received as of this report.
