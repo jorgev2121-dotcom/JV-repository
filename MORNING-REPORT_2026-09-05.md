@@ -1,8 +1,10 @@
-# Weekend Report — 2026-09-05 / 2026-09-06 / 2026-09-08 (TODAY IS THE FILING DAY)
+# Report — 2026-09-05 through 2026-09-08 (Tuesday evening update: the filing window has closed)
 
-**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Tuesday morning 2026-09-08 — the day of the Bal Harbour Village Hall filing (8:30am ET).** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Tuesday evening 2026-09-08.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
 
-**Two questions from the weekend are still unanswered, and today is the day they matter: AP-0049 (owner signatures) and AP-0077 (which units to file). Both were pushed to your phone; neither has a reply. See "The one thing still waiting on you" and "Two corrections" below before you leave for Village Hall.**
+**Update, Tuesday 3pm ET: the 8:30-11am Village Hall filing window has come and gone, and nothing on any system says what happened.** AP-0049 and AP-0077 still show as open questions on the board — not because you said no, but because nothing recorded an answer either way. If you went and filed, or decided to hold off, **that's the one thing worth telling me** so the board stops asking. If you didn't get to it, nothing here has gotten worse — see the sections below for where things stand.
+
+**One more thing from overnight, unexplained:** the Google Calendar event for this filing was edited at 12:56am last night — during the many hours the desktop was otherwise silent. The filing details on it didn't change, so whatever touched it didn't alter the plan, but nobody knows who or what made that edit. Worth a mention if you remember doing anything with your calendar around midnight.
 
 ---
 
@@ -35,6 +37,10 @@ Only 3 of 8 unit owners have a reachable address or email for the Tuesday 2026-0
 Your options: (A) file the other six Tuesday and let the mailed package for 321/922 run to 9/10, (B) treat the mail as likely returned and re-file both at the counter, or (C) simply ask the clerk (Olga) whether a renewal will be accepted for 321/922 the same way it was for a different unit (PH11) the day before, before filing anything new. Option C costs one question and could save two full new-permit fees.
 
 **One more thing to ask at the same counter, unconfirmed:** there's a note that PH11's own renewal may have already been accepted by the Village on September 3rd — which would make it a *third* unit that shouldn't be filed fresh Tuesday. Nobody has been able to find the paperwork that proves this one way or the other, so it's a question to ask alongside the others, not something to act on yet.
+
+**Update, Tuesday afternoon — the PH11 question got a little stranger, not clearer.** The county's own capsule record for PH11 (BLC2026-1438) doesn't show up where it should, which cuts both ways: it could mean the September 3rd acceptance never actually went through the system, or it could just mean the county's records lag behind the counter. Either way it's still unresolved, not worse — the same "ask Olga" question from above covers it.
+
+**A decision screen for this exact question was built and put in front of you, and it was never clicked.** The desktop made a popup (options A/B/C, matching the three above) so you could pick one without dictating anything. It checked repeatedly through Tuesday for an answer file and never found one — the popup sat open, unanswered, the whole time. That's now confirmed, not just assumed: nothing indicates you saw it or chose an option.
 
 **AP-0048 — the "nothing is on your calendar" claim was wrong, and now corrected.** An earlier card said no calendar held the Tuesday filing. It's actually on your Google calendar (created 84 seconds after you asked for it) and, separately found, on your Outlook calendar too — 30 minutes apart, under two different names. What's still genuinely open: your **GO, or who's going in your place**, and a two-weekly written progress report you promised the Association, first due **2026-09-16**.
 
@@ -116,13 +122,21 @@ Around 7:18pm Saturday, eight of your background tasks got switched off in the s
 
 ---
 
+## Your dictation may have been silently broken — worth confirming, not urgent tonight
+
+Two scheduled tasks tied to dictation — `CU-Dictation-Tray` and `CU-MicButton` — are switched on but dead: they show as enabled, yet nothing about them will actually run again unless someone restarts them by hand. This is the same shape as the seven-tasks-went-dark item above (a task looking "on" while doing nothing), so it's being logged as a repeat of that pattern rather than a new one-off. Since you dictate daily, this is worth knowing even though nothing here is time-sensitive tonight — **has your mic button or dictation tray felt like it stopped responding recently?** If yes, restarting those two is a one-word fix; if you haven't noticed anything wrong, it may only affect a tray you don't currently use, and it can wait for a normal-hours look.
+
+---
+
 ## A genuinely risky button was found and fixed before anyone clicked it
 
 One of the green "Approve" buttons on your Desktop — the one that sets which AI model Claude Code uses by default — would have silently wiped out an unrelated piece of setup (the part that prints your open task list at the start of every session) if pressed, with no warning. It was caught and fixed before anyone touched it; the button is now safe. Separately, the actual model-default change behind that button (switching to "opusplan") has now been applied — it had been stuck waiting on a technical restriction that turned out to no longer apply. **One thing to know:** your old setting kept a much larger memory window for conversations; the new one doesn't automatically carry that over. If you want the bigger memory window kept, one word — "opusplan with the big context" — puts it back; otherwise no action needed.
 
 ## A small, forgotten invoice — one tap, whenever you're up
 
-A $93.75 microfilm/plan-copy invoice from a job ordered August 6th slipped through a real crack: it's slightly above your standard approval limit, which normally means it waits for your tap — but it never actually made it onto your approval board at all. 31 days invisible, not because you said no, but because nobody put it in front of you. Also found in the same sweep: nearly 1,000 documents you already paid for (563 MB, a month ago) are sitting correctly on disk but in a folder with no matter number, so they don't show up in any of your job trackers. Nothing urgent — the documents are safe and the invoice amount is tiny — just flagging so it doesn't stay lost.
+A $93.75 microfilm/plan-copy invoice from a job ordered August 6th slipped through a real crack: it's slightly above your standard approval limit, which normally means it waits for your tap — but it never actually made it onto your approval board at all. 31 days invisible, not because you said no, but because nobody put it in front of you.
+
+**AP-0085 — nearly 1,000 already-paid documents, sitting safe but unlabeled.** Same sweep found 993 county documents (563 MB, already paid for a month ago) sitting correctly on disk but in a staging folder with no matter number, so they don't show up in any of your job trackers. Nothing urgent — the files themselves are safe — but they need one word to become findable: **NEW** (give them their own fresh TRK number) or **1270** (file them under existing matter TRK-2026-1270 — flagged with a caveat that 1270 may turn out to be a different, unrelated matter, so worth a second look before committing to it). Either way this stays parked until you say the word; nothing here decays by waiting.
 
 ---
 
