@@ -1,6 +1,8 @@
-# Weekend Report — 2026-09-05 / 2026-09-06
+# Weekend Report — 2026-09-05 / 2026-09-06 / 2026-09-08 (TODAY IS THE FILING DAY)
 
-**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Sunday morning 2026-09-06.** (This file carries Saturday's date in its name but has been kept current through Sunday — read every date reference below at face value, not as "yesterday.")
+**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Tuesday morning 2026-09-08 — the day of the Bal Harbour Village Hall filing (8:30am ET).** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+
+**Two questions from the weekend are still unanswered, and today is the day they matter: AP-0049 (owner signatures) and AP-0077 (which units to file). Both were pushed to your phone; neither has a reply. See "The one thing still waiting on you" and "Two corrections" below before you leave for Village Hall.**
 
 ---
 
