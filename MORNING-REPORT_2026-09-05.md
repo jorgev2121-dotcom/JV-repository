@@ -1,6 +1,8 @@
-# Report — 2026-09-05 through 2026-09-08 (Tuesday evening update: the filing window has closed)
+# Report — 2026-09-05 through 2026-09-09 (Wednesday morning update)
 
-**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Tuesday evening 2026-09-08.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Wednesday morning 2026-09-09.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+
+**Wednesday morning, ~10:30am ET: overnight was quiet and clean — the desktop ran steadily all night, no gaps, nothing filed/sent/spent.** One thing worth your attention below: a decision file the desktop keeps (`OWNER-QUEUE.md`) picked up four new questions overnight, two of which are free money sitting one click away. See "Four new questions overnight" below — that's the one new section since last night; everything else is unchanged from the Tuesday update.
 
 **Update, Tuesday 3pm ET, now confirmed rather than assumed: the 8:30-11am Village Hall filing window has come and gone, and a full check of the desktop's own record — every cycle through 2:55pm today — found no answer anywhere.** AP-0049 and AP-0077 still show as open questions on the board — not because you said no, but because nothing recorded an answer either way. Neither decision popup on your Desktop was ever clicked. If you went and filed, or decided to hold off, **that's the one thing worth telling me** so the board stops asking. If you didn't get to it, nothing here has gotten worse — see the sections below for where things stand.
 
@@ -19,6 +21,24 @@
 ---
 
 **Note on how to answer:** none of the items below have a button on your Desktop yet — that's a separate gap the desktop found and is not fixing tonight (building a new one is paused under the current freeze). Just tell me or the desktop your answer in words, the same way you'd dictate anything else.
+
+## Four new questions overnight — two are free money, one click away
+
+Your desktop keeps a running decision log (`OWNER-QUEUE.md`, mirrored into this repo periodically — last refresh was 2026-09-03, now caught up to today). It picked up four new items overnight; the other ~48 questions already on that log are unchanged since the last time this was reported, so nothing new to redecide there.
+
+**The easy pair — two finished, paid-for reports just sitting there:**
+- A due-diligence report for Kathryn Slack (12248 SW 125 Ter) has been done since 09-05. Four drafted emails to send it are sitting unsent, and there's no invoice on file.
+- A Bal Harbour permit-status report for MZ Solutions has been done since 09-04 — four days overdue with nothing sent or billed.
+
+Both are the same one-word question: **SEND** (send both and invoice both clients) — or tell me if one's being held back on purpose. Nothing else needs deciding here; the work is already done.
+
+**One with a real regulatory clock, already past due:** the Edison Towers II project (TEDC) had a county environmental deadline that was due August 4th — **36 days ago.** Your own consultant was actively debating whether it was even needed, three weeks before it hit, but nothing shows how that debate ended. The question isn't "did we miss it" — it's **whose job is it to chase: yours, or TEDC's?** That answer likely only lives in your head or Miguel Zaldivar's, not on any machine. No action changes by waiting a bit longer, since the date's already passed either way — just flag it next time you talk to Miguel.
+
+**One low-priority housekeeping item:** a 10-12 item task list you gave the desktop on 09-04 was never written down — it only exists in a conversation. The fastest fix is just re-saying or re-pasting that list somewhere (30 seconds); searching for it blind isn't a safe use of an unattended cycle. No deadline attached that anyone knows of.
+
+Full text of all four (and the ~48 older ones) is in `OWNER-QUEUE_MIRROR_2026-09-09.md` in this repo if you want the detail.
+
+---
 
 ## The one thing still waiting on you
 
