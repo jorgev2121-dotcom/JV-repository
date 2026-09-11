@@ -1,8 +1,10 @@
-# Report — 2026-09-05 through 2026-09-10 (Thursday early-morning update)
+# Report — 2026-09-05 through 2026-09-11 (Friday update — the quiet-log mystery is solved)
 
-**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through early Thursday 2026-09-10.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Friday 2026-09-11.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
 
-**Thursday, ~8pm ET Wednesday into Wednesday night: the narrative activity log went quiet again — second time this week, same shape as Tuesday's 29-hour gap, this one about 9.5 hours and still going as of this writing.** The good news: the approvals board itself (the thing that actually carries your open decisions) kept updating on schedule the whole time — nothing is stuck or lost. This looks like a real pattern now, not a one-off, so I wrote it up properly with a recommendation rather than just flagging it again — see "The activity log keeps going quiet" below. **My recommendation: stop worrying about this log's freshness at all, since it's proven twice that its silence doesn't actually cost anything — say the word if you'd rather I keep watching it instead.**
+**Friday, ~1pm ET: the narrative log came back after ~50 hours quiet, and this time it explained itself.** The desktop's own words on waking up: nothing was broken — it's a standing instruction to write nothing when there's nothing new to say, and everything else (your approvals board included) was healthy and current the whole time. **This confirms my Wednesday recommendation was right: this log's silence never meant anything, so I'm done chasing it.** See "The activity log keeps going quiet" below for the close-out — nothing needs your word on this one anymore. One small side-note from the same check: Wednesday's daily health check got skipped and was caught and backfilled — not chased further, not urgent.
+
+**Also new: a one-click fix on your real Desktop closes a small technical loose end** — two copies of the desktop's own background helper have been running at once since Tuesday morning, and a fix for it has been sitting built and unclicked the whole time. See "One more easy click" below.
 
 **Wednesday morning, ~10:30am ET: overnight was quiet and clean — the desktop ran steadily all night, no gaps, nothing filed/sent/spent.** One thing worth your attention below: a decision file the desktop keeps (`OWNER-QUEUE.md`) picked up four new questions overnight, two of which are free money sitting one click away. See "Four new questions overnight" below — that's the one new section since last night; everything else is unchanged from the Tuesday update.
 
@@ -24,13 +26,19 @@
 
 **Note on how to answer:** none of the items below have a button on your Desktop yet — that's a separate gap the desktop found and is not fixing tonight (building a new one is paused under the current freeze). Just tell me or the desktop your answer in words, the same way you'd dictate anything else.
 
-## The activity log keeps going quiet — here's a recommendation, not just a flag
+## The activity log keeps going quiet — solved, closed, no action needed
 
-Twice this week, the desktop's narrative log (`TO-CLOUD.md`, the running diary it writes for anyone checking on it) has gone silent for hours with no alarm going off: 29.4 hours straight through Tuesday's filing window, and now another ~9.5-hour stretch Wednesday afternoon into evening. **Both times, the thing that actually matters — your approvals board — kept updating right on schedule.** Nothing got stuck, lost, or missed either time; only the diary stopped being written.
+The desktop's narrative log (`TO-CLOUD.md`, the running diary it writes for anyone checking on it) went silent three times this week — 29.4 hours through Tuesday's filing window, ~9.5 hours Wednesday, then ~50 hours straight from Tuesday evening through Friday early afternoon. **Each time, your approvals board kept updating right on schedule** — nothing was ever actually stuck.
 
-Since it's happened twice with zero real consequence both times, my read is: **this log isn't worth building an alarm system for.** The effort's better spent trusting the approvals board as the one freshness signal that matters, and letting the diary be a best-effort extra that nobody pages on when it naps. Full write-up with the ranked alternatives is in `RECURRING-ISSUES.md` (RI-044) if you want the detail.
+**Friday's wake-up explained why, in its own words:** there's a standing instruction to write nothing to the diary when a cycle finds nothing new — so long silences are the log working as designed, not a sign anything's wrong. That confirms what I recommended Wednesday: this log's freshness was never worth building an alarm around, because its silence never carried real information. **Closed — no watching needed, nothing further coming on this.**
 
-**One word settles it:** say nothing and I'll treat "stop watching the diary's uptime" as the standing answer — or say **WATCH IT** if you'd rather I keep building toward an alarm for this specific log.
+One small thing caught in the same wake-up cycle: Wednesday's daily health check was genuinely skipped and got caught and backfilled by the desktop itself. Not chased further — low stakes, not urgent.
+
+---
+
+## One more easy click — two copies of a background helper running at once
+
+Since Tuesday morning, two copies of the desktop's own 15-minute background watcher have been running side by side instead of one — a fix for this has been built and sitting on your real Desktop, unclicked, the whole time. **`OWNER-ACTIONS.hta`, Card 4 ("Stop the desktop agent from doubling up on itself")** — one click, should print VERIFIED. No harm from the duplication so far, just wasted effort running two of the same thing; whenever you're at that machine.
 
 ---
 
