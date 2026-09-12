@@ -33,6 +33,26 @@ Email is a **primary intake source** and email addresses are **identity + routin
 4. **Task/document intake channel:** anything sent to the `JOB:` gmail (from the iPhone or elsewhere) is
    read by the cloud seat, and any attached document enters this OCR protocol.
 
+## The cross-reference / entity layer — "who was in the deal" (owner spec 2026-09-12)
+A relationship graph keyed to the **master TRK**, built from documents AND email headers:
+
+1. **Tag every party to the job's TRK.** For each document/email, capture who **sent, received, or was
+   CC'd**, plus every **phone number** on it, and tag them all with that job's TRK. Find one → find the
+   job → find everyone connected. Phones are indexed exactly like names/emails.
+2. **Entity resolution — one person, many identities.** A single real person may hold several contact
+   identities (Javi = **Javier Vasquez**, attorney for Garden Walk West: **two firms, two emails, two
+   addresses** because he changed firms mid-deal). Unify them under one person so history **before and
+   after** the switch stays linked.
+3. **The exact-vs-fuzzy rule still governs (charter §9 / Rule 9).** Index automatically by an **exact
+   identifier** — a specific email address or phone number. **Merging two identities into "one person" is
+   a judgment, never automatic** — the seat *proposes* the merge (e.g. "these two emails look like the
+   same Javi"), the owner confirms with one click. Same principle as filing: exact = auto, fuzzy = flag,
+   never silently merge. Jorge's own words: "we'll filter them out manually if needed."
+4. **Save format:** the graph is relational data, so it lives in a **structured file — `PEOPLE-REGISTER.csv`
+   (or `.json`)** — columns: person · aliases · emails · phones · firms · addresses · TRKs-they-appear-in ·
+   confidence · merged?(owner-confirmed). A human-readable `.md` view can render from it, but the queryable
+   source is the CSV/JSON, not prose.
+
 ## Honest limits
 - **The heavy OCR sweep is desktop-only** (pytesseract on RAMBO). Cloud can read a Drive PDF/image's text
   representation for one-off checks, but not run the bulk sweep or pull Gmail attachments.
