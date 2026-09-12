@@ -56,13 +56,14 @@ backlog is full of.
 | 09-04 | Jorge | **4 attachment emails** (Miami Art House ×2; Unit 404 docs; MZ COI) | RAMBO | TO SEND (attachments) | Gmail drafts |
 | 09-04 | Jorge | **Local business tax license** login + pay (Miami-Dade Clerk/consenthub) | Jorge/RAMBO | BLOCKED — owner login | Clerk temp pw in mail |
 | 09-04 | Cloud | **Multi-LLM flaw-review pass** on AI-BUILD-LIBRARY items | both seats | PENDING GROK (independent reviewer) | AI-BUILD-LIBRARY |
-| 09-04 | Cloud | Reconcile the stray branch `claude/chaude-code-max20-kp2o46` (unmerged commits) | RAMBO | OPEN | branch cleanup |
+| 09-04 | Cloud | Reconcile the stray branch `claude/chaude-code-max20-kp2o46` — **MEASURED 2026-09-04 03:37: 82 ahead / 87 behind, merge-base `3b7fa67`; the same 3 registers conflict (`OPEN-ITEMS.md`, `PASTE-LOG.md`, `RECURRING-ISSUES.md`) → AP-0026 CONFIRMED STILL OPEN.** The ordered pull was attempted, conflicted, and was **aborted clean** — HEAD unchanged at `793974f`, both dirty files preserved, nothing lost. | Jorge | BLOCKED — owner call (AP-0026) | branch cleanup |
 | 09-04 | Jorge | **OCR sweep 2022→present** (needs an interactive desktop window) | RAMBO | BLOCKED — interactive | OCR sweep |
 | 09-04 | Jorge | **Alec big jacket books** (10362, 1840) | RAMBO | NOT STARTED | Alec DD books |
-| 09-04 | Jorge | **⚡ KILL the frozen looping "onlineservices.miamidade" window** (2h stuck) + prevent recurrence | RAMBO | URGENT | HANDOFF_…kill-frozen-miamidade-window |
 | 09-12 | Cloud | **⚠ AP-0002 — $44 City of Miami microfilm** (Txn 1330901): deadline was 2026-09-05, now PASSED. Verify still payable; pay via the desktop .hta button (RED, owner click) or the order lapsed. | Jorge/RAMBO | URGENT — deadline passed | STATUS.md / 'PAY THE 44 DOLLARS' .hta |
 | 09-12 | Cloud | **Reconcile the 33 open approval cards** (VTES panel 09-02; 10 need sign-in, 1 money) + the 76 receipt-only handoffs into the CD | both seats | OPEN — morning brief to surface | MY-DESK APPROVALS-NOW.md |
-| 09-04 | Jorge | **OCR inventory Jan-2022→present** — DRIVE ESTIMATE: ~2,156 of 3,641 done (~59%), ~1,485 remaining (Drive-only; % likely higher — denominator includes born-digital PDFs). RAMBO's authoritative count (incl. OneDrive/local) due overnight. | Cloud done (est.) + RAMBO (authoritative) | ESTIMATE IN; authoritative pending | HANDOFF_…ocr-inventory-denominator |
+| 09-04 | Jorge/RAMBO | **OCR inventory — AUTHORITATIVE (RAMBO, 03:47): OCR'd 8,774 of 9,758 client docs = 89.9%, remaining 984** (raw 29,379/29.9% includes 19,621 pipeline scratch — 17,413 TaxJacket `_QUARANTINE` PNGs + 1,016 thumbs). **Does NOT reconcile with Cloud's Drive-only 59%** (Cloud's 3,641 denominator ≈2× RAMBO's 1,877; canonical 01-JOBS reads 91.8%). Reconcile whose denominator is right before either number reaches a brief. | Cloud to reconcile | DONE w/ proof; reconcile OPEN | DONE_OCR-INVENTORY-DENOMINATOR |
+| 09-04 | RAMBO | **PaperPort = 569 files at 0% OCR — 58% of ALL remaining work, never touched** (`2023 PaperPort - NOT SORTED YET`=475; `2022 …`=94). GREEN + night-eligible (NOT interactive) — re-test the "OCR BLOCKED-interactive" assumption. | RAMBO | NOT STARTED — proposed tonight | DONE_OCR-INVENTORY-DENOMINATOR |
+| 09-04 | RAMBO | **Mojibake twin `01-JOBS` on G:** — 5 unreadable files (BOM-less-script defect); merge/delete is a filing decision. | Jorge | OPEN — owner call | DONE_OCR-INVENTORY-DENOMINATOR |
 
 ## DONE (recent)
 | Date | Task | Proof |
@@ -72,5 +73,7 @@ backlog is full of.
 | 09-04 | File the nine client docs into capsules | RAMBO DONE report |
 | 09-04 | Desktop heartbeat VTES-Repo-Heartbeat live (3-min) | RAMBO DONE report |
 | 09-04 | Four Claude launcher icons built | RAMBO DONE report |
+| 09-04 | **⚡ URGENT — frozen "onlineservices.miamidade" window KILLED.** It was not a browser tab: an orphaned COM-activated `iexplore` (PID 13644, parent 36076 `IEXPLORE.EXE -Embedding` under svchost), started 2026-09-01 17:57:14, **29 CPU-hours over 57 hours at 83.3% of one core.** Chrome's Official Records tab measured 0.1% — innocent. | Re-verified 2026-09-04 03:38: `Get-Process iexplore` returns **NONE — kill held**. Chrome/Edge/Outlook untouched. |
+| 09-04 | **Desktop unblocked — 16 withheld commits landed.** The heartbeat had been blind for 3h50m (83 `PULL FAILED`, every run `Result=0`). Cause: its own unpushable commit `793974f` broke `--ff-only`. Merged the branch's own upstream (`merge-tree` = **zero conflicts**, not AP-0026); now **behind 0**. Landed the URGENT order, `TASK-REGISTER`, `AI-BUILD-LIBRARY`, `ORCHESTRATOR-SPEC`, SessionStart hook + 6 to-desktop handoffs. | Merge commit on `claude/slack-app-overview-3i0w4g`; rollback `git reset --hard 793974f`. Push still needs `gh auth login`. |
 
 #TRK-2026-9776 #task-register #capture-first #the-CD #dont-lose-work
