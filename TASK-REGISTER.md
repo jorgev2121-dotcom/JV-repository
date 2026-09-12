@@ -60,6 +60,8 @@ backlog is full of.
 | 09-04 | Jorge | **OCR sweep 2022→present** (needs an interactive desktop window) | RAMBO | BLOCKED — interactive | OCR sweep |
 | 09-04 | Jorge | **Alec big jacket books** (10362, 1840) | RAMBO | NOT STARTED | Alec DD books |
 | 09-04 | Jorge | **⚡ KILL the frozen looping "onlineservices.miamidade" window** (2h stuck) + prevent recurrence | RAMBO | URGENT | HANDOFF_…kill-frozen-miamidade-window |
+| 09-12 | Cloud | **⚠ AP-0002 — $44 City of Miami microfilm** (Txn 1330901): deadline was 2026-09-05, now PASSED. Verify still payable; pay via the desktop .hta button (RED, owner click) or the order lapsed. | Jorge/RAMBO | URGENT — deadline passed | STATUS.md / 'PAY THE 44 DOLLARS' .hta |
+| 09-12 | Cloud | **Reconcile the 33 open approval cards** (VTES panel 09-02; 10 need sign-in, 1 money) + the 76 receipt-only handoffs into the CD | both seats | OPEN — morning brief to surface | MY-DESK APPROVALS-NOW.md |
 | 09-04 | Jorge | **OCR inventory Jan-2022→present** — DRIVE ESTIMATE: ~2,156 of 3,641 done (~59%), ~1,485 remaining (Drive-only; % likely higher — denominator includes born-digital PDFs). RAMBO's authoritative count (incl. OneDrive/local) due overnight. | Cloud done (est.) + RAMBO (authoritative) | ESTIMATE IN; authoritative pending | HANDOFF_…ocr-inventory-denominator |
 
 ## DONE (recent)
