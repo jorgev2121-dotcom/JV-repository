@@ -53,6 +53,54 @@ A relationship graph keyed to the **master TRK**, built from documents AND email
    confidence · merged?(owner-confirmed). A human-readable `.md` view can render from it, but the queryable
    source is the CSV/JSON, not prose.
 
+## Prior art — this protocol already existed (recovered 2026-09-12)
+Cloud searched Google Drive and confirmed the owner's memory: **a fuller version was written and filed
+2026-08-19 as TRK-2026-1582 / DIR-0047** — the "Identity-Hashtags & Discretion/Redaction protocol" plus an
+`IDENTITY-MAP_People-Addresses-Circles` file. Proof:
+`MSG-CODE-TO-CODE_PROTOCOL-IDENTITY-DISCRETION_TRK-2026-1582_2026-08-19.md`. What it already defined:
+- **`#p-<person>` / `#c-<company>` / `#j-<jurisdiction>`** tags beside each job's TRK; one stable tag per entity.
+- Tags resolve to **addresses + phones through the Identity Map in one hop**; raw phones live in the map, not scattered.
+- Search one tag → round up every job that person touched. (This IS the people register, already started.)
+The two full library files sit in OneDrive `PERM-APP-PORTAL\_LIBRARY-Forms\` — **Cloud can't reach them; RAMBO must**.
+**We reconcile onto that map; we do not start a third parallel copy.** (TRK-2026-9780 for the reconciled build.)
+
+## The misspelling / typo (fuzzy) factor
+Exact identifiers (email, phone) auto-link. Everything softer — a misspelled name, a transposed digit, an
+abbreviated firm — gets a **`fuzzy_flag` and is surfaced for owner review, never merged automatically.** A
+similarity pass (name edit-distance, phone last-7, normalized address) proposes "these two might be one
+person"; the owner confirms with one batched click. This is the owner's own rule: *"we'll filter them out
+manually if needed."* Same law as filing: **exact = auto, fuzzy = flag, never silently merge.**
+
+## TRK + hashtags on reports and programs
+- **A report/analysis is a deliverable and gets its own TRK** in the body + footer stamp (`TRK · v · pNNN · date · CURRENT`),
+  plus category hashtags (`#people-register`, `#cross-reference`). The people *inside* it still resolve to
+  the *job* TRKs they appear in — one identity per job, many categories per file.
+- **A program/script/connector gets an admin-band TRK** (9xxx) recorded in AI-BUILD-LIBRARY.md and stamped
+  in a header comment, so a search returns the tool and its provenance, not just prose about it.
+
+## Modular filing convention — an agent reads a module, not the whole story
+Structure so a seat jumps straight to the one module it needs and stops:
+1. **One concern per file, named by its module** (`PEOPLE-REGISTER.csv`, `OCR-PROTOCOL.md`, `TASK-REGISTER.md`) —
+   never a giant "everything" doc.
+2. **Each module opens with a 2-line header:** what it is + its TRK. That header is all an agent should need to
+   decide "this is my module" or "not here."
+3. **Cross-link by TRK, don't inline.** A module points to another by its TRK (e.g. "people → TRK-2026-9780"),
+   so following one hop replaces re-reading a narrative.
+4. **Queryable data in `.csv`/`.json`; prose views in `.md`.** The register is the source; a `.md` renders from it.
+
+## How OCR search finds a match across ALL clouds/drives — index, don't re-crawl
+An agent (or a person) does NOT re-OCR everything on every search. Retrieval rides the **sidecars this
+protocol already writes**:
+1. Every scanned doc has a `.SEARCH.txt` (full text) + `.TAGS.txt` (identifiers/hashtags) next to it.
+2. A search for `TRK-2026-1262`, a folio, an address, a `#p-<name>`, an email, or a phone is a **text search
+   over those sidecars** — fast, exact, and it works the same in Google Drive (`fullText contains`), Gmail
+   (`"exact phrase"`), and local/OneDrive (literal file-text search).
+3. The footer stamp puts the identity **on the page itself**, so a printed/screenshotted/pasted page stays
+   findable after it leaves its folder — the sidecar picks the stamp back up.
+4. **The one cross-drive gap, stated honestly:** each surface indexes only what it can see. Cloud sees Google
+   Drive + Gmail; RAMBO sees OneDrive + local + the desktop sweep. A single unified index across all of them
+   is not built yet — today it's "search each surface, union the results," and the sidecars are what make that cheap.
+
 ## Honest limits
 - **The heavy OCR sweep is desktop-only** (pytesseract on RAMBO). Cloud can read a Drive PDF/image's text
   representation for one-off checks, but not run the bulk sweep or pull Gmail attachments.
