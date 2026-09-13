@@ -34,8 +34,26 @@ Once you have "the house as permitted," **compare it against the tax jacket.** E
   sq ft, a unit) — that is the exposure to investigate.
 
 ## THE MICROFILM GAP RULE (owner spec 2026-09-13) — state it, never paper over it
-**Miami-Dade County microfilm is only available for roughly 1961–1978. Outside that range there is no
-microfilm — a genuine gap.** (Confirm the exact coverage years against the county when citing them.)
+
+**(a) What the county ACTUALLY discloses — VERIFIED, quotable (Miami-Dade RER Microfilm Section appointment
+email, `noreply@miamidade.gov`, re Process X2026148681, 2026-08-06):**
+> "in accordance to General Records Retention Schedule **GS1-SL** for State and Local Government Agencies
+> records retention for residential properties are for **10 anniversary years after issuance of certificate of
+> occupancy**, therefore, we cannot guarantee that the Department has all records available pertaining to your
+> property."
+
+This retention rule is the county's own written basis for a gap. Quote it in reports — it is sourced fact.
+
+**(b) Owner's operational timeline (Jorge, 2026-09-13) — his experience, NOT yet a county-printed quote:**
+- **1961–1973: 100% missing.**
+- **1973–1978: partial** — may or may not be there.
+- **1978 – ~1985/86: continues manually** (handwritten records).
+- **~1985/86 → present: computerized** — typewritten/printer output, little/no handwriting.
+
+**(c) The exact printed year ranges are disclosed on the microfilm APPLICATION (first/second page of the order
+form). Cloud is EGRESS-BLOCKED from `miamidade.gov`, so RAMBO/browser must read that page and quote the years
+verbatim before any hard range is stated in a client report.** Until then, cite (a) as fact and (b) as
+operational context — never present (b)'s years as a county quote.
 
 **When the Property Appraiser reflects an addition during a gap period with no permit/microfilm to
 substantiate it, the write-up says — verbatim shape:**

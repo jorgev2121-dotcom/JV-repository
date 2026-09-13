@@ -161,7 +161,11 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   "Reroofing permit [#], dated Jan 11 1964 — Final, in good standing." The result = "the house as permitted."
 - **Then compare permits vs the tax jacket.** Year-dependent: a permit may or may not carry a number to
   substantiate it; flag any addition/sq-ft the PA shows that the permit record does not.
-- **Microfilm gap rule:** Miami-Dade microfilm is only available ~**1961–1978** (confirm exact years on cite).
+- **Microfilm gap rule:** County VERIFIED disclosure (microfilm appointment email): records retention is
+  "10 anniversary years after issuance of certificate of occupancy … we cannot guarantee that the Department
+  has all records available" (GS1-SL). Owner's operational timeline (NOT a county quote): 1961–73 fully
+  missing; 73–78 partial; 78–~85/86 handwritten; ~85/86+ computerized. **Exact printed year ranges are on the
+  microfilm application page — RAMBO must quote them (Cloud is egress-blocked from miamidade.gov).**
   For an addition the PA records in a gap period with no permit/microfilm to substantiate → say it is
   **UNDETERMINED** (not clean, not illegal): "gap in microfilm; PA shows an addition of ~X sq ft in that gap;
   unable to determine legal/compliant/unpermitted; subject to a county walk-through inspection to verify
