@@ -91,6 +91,8 @@ backlog is full of.
 
 | 09-13 | Jorge | **Operations module library + one source of truth.** Architecture (Cloud set): **Google Drive = shared source of truth all seats read; OneDrive = backup; git repo = machine layer; one canonical copy + mirror (no 2 hand-edited trees).** Build assigned to **Cowork** (owner: "Code forgets") — Drive `VTES-OPERATIONS`, one module per program/tool/connector/comms-methodology/contacts. **Turnkey program NOT in repo → Cowork re-scouts the 2 options; RAMBO installs** (superior if hands-off, else easier) + OneDrive backup. | Cowork (build+scout) + RAMBO (install+backup) | ORDERED | OPERATIONS-ARCHITECTURE_SOURCE-OF-TRUTH.md (9784) + COWORK_… + HANDOFF_…onedrive-backup-and-turnkey-install |
 
+| 09-13 | Cloud | **Morning brief (7 AM) built. LOOP IS ONE-WAY:** no RAMBO commits overnight; newest to-cloud reply is 09-06; heartbeat findings are STALL reports through 09-08 ("cannot push — no credential," "cannot fast-forward"). Root cause = **GitHub sign-in on desktop still not done** (open since 09-04). Every overnight order (Cowork jackets, inbox OCR sweep, site sweep, permit modules, subscriptions, 14598/Einar) is QUEUED + pulled-able but UNCONFIRMED until the sign-in lets RAMBO push results back. OCR still 89.9% (RAMBO 09-04); no fresh count. | Jorge (sign-in click) | BRIEF DELIVERED — loop blocked on sign-in | (this brief) |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
