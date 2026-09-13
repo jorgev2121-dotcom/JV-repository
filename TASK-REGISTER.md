@@ -89,6 +89,8 @@ backlog is full of.
 
 | 09-13 | Jorge | **Alec DD — sweep all ~22–30 DD sources WITH SNIPS + log blockers → prepare package.** NOT previously assigned as a discrete task (data was pulled in DD Master but no snips). Assigned now: 1 worker per source, per-item registry. Don't re-scrape from zero — snip the done sources + break known blockers (Clerk Turnstile / EPS login+reCAPTCHA / iBuild login / ArcGIS 404). Cloud hits public (PA/City-permits/Sunbiz/DBPR); RAMBO the gated. | Cloud (public) + RAMBO (gated) | ORDERED — registry live | WORK-ORDER_ALEC-DD_site-sweep-with-snips-and-blockers + ALEC-DD_SITE-SWEEP-REGISTRY.md |
 
+| 09-13 | Jorge | **Operations module library + one source of truth.** Architecture (Cloud set): **Google Drive = shared source of truth all seats read; OneDrive = backup; git repo = machine layer; one canonical copy + mirror (no 2 hand-edited trees).** Build assigned to **Cowork** (owner: "Code forgets") — Drive `VTES-OPERATIONS`, one module per program/tool/connector/comms-methodology/contacts. **Turnkey program NOT in repo → Cowork re-scouts the 2 options; RAMBO installs** (superior if hands-off, else easier) + OneDrive backup. | Cowork (build+scout) + RAMBO (install+backup) | ORDERED | OPERATIONS-ARCHITECTURE_SOURCE-OF-TRUTH.md (9784) + COWORK_… + HANDOFF_…onedrive-backup-and-turnkey-install |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
