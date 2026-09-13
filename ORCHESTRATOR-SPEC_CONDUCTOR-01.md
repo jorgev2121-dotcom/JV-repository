@@ -13,12 +13,16 @@ PC — it costs zero tokens to run and is never itself rate-limited.
   thing to avoid — it would hit the same lockout and burn the same budget.
 
 ## Four parts
-1. **Budget & availability monitor.** Tracks measurable API $ spent today per provider vs OD-BUDGET-01
-   ($40/day), the clock, and which brains answer a health-ping (Claude? Grok? none?). Writes a live
-   `CONDUCTOR-STATUS.md`. **Honest limit:** there is no clean API to read how much of a Claude *subscription*
-   is left — so the monitor **reacts** to a lockout (a call returns a usage/rate error → fail over) and
-   **caps measurable API spend**; it cannot predict the subscription meter in advance. Reactive failover +
-   a hard spend cap is enough to "keep working all the time."
+1. **Budget & availability monitor — a.k.a. the TOKEN AGENT (owner 2026-09-13: "one of four completed").**
+   Tracks measurable API $ spent today per provider vs OD-BUDGET-01 ($40/day), the clock, and which brains
+   answer a health-ping (Claude? Grok? none?). Writes a live `CONDUCTOR-STATUS.md`.
+   **Token-read mechanism (owner directive 2026-09-13):** the token agent **runs `/usage` (lowercase, Enter)
+   in the Code CLI on a schedule and LOGS the output** to a usage log + `CONDUCTOR-STATUS.md`. This upgrades
+   the monitor from purely *reactive* to *readable*: `/usage` gives an actual subscription/limit read, so the
+   agent can throttle or fail over BEFORE a hard lockout, not only after. **Runs on the desktop (RAMBO's
+   interactive Code seat) — Cloud can't run `/usage` for the account.** Falls back to reactive failover (a
+   call returns a usage/rate error → fail over) + the hard API spend cap when `/usage` is unavailable.
+   **STATUS: SPEC COMPLETE — 1 of the 4 parts nailed down (owner 2026-09-13).**
 2. **Queue runner.** Pulls the next GREEN item from `OVERNIGHT-QUEUE.md`, picks the **cheapest capable
    worker**, runs it, and **writes the per-item result the moment it completes** (a kill at item 40 leaves
    39 results, never zero — Rule 11).
