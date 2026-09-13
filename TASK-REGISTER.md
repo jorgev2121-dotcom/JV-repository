@@ -67,6 +67,8 @@ backlog is full of.
 | 09-04 | RAMBO | **Mojibake twin `01-JOBS` on G:** — 5 unreadable files (BOM-less-script defect); merge/delete is a filing decision. | Jorge | OPEN — owner call | DONE_OCR-INVENTORY-DENOMINATOR |
 | 09-12 | Jorge | **Entity cross-reference layer** — tag every sender/recipient/CC + phone# to the job's TRK; resolve one-person-many-identities (Javi Vasquez case); PEOPLE-REGISTER.csv; owner confirms merges. **RECOVERY 2026-09-12: prior art FOUND — a fuller version was filed 2026-08-19 as TRK-2026-1582 / DIR-0047 (Identity-Hashtags & Discretion protocol + `IDENTITY-MAP_People-Addresses-Circles`). The people register was already started.** Build order rewritten to RECONCILE onto it, not rebuild. Full 2026-08-19 library files are on OneDrive — RAMBO must retrieve (Cloud can't reach). Fuzzy/typo factor added to protocol; RAMBO to confirm whether the original file already contains it. | RAMBO (retrieve+build) + Cloud (email side) | ORDERED — reconcile prior art | HANDOFF_…build-people-register-reconcile-prior-identity-map (TRK-2026-9780) |
 
+| 09-13 | Jorge | **Set default app so job-portal `.html` auto-opens in the browser** (opened in wrong app). GREEN desktop mechanic. Cloud can't touch associations — RAMBO to set `.html` → Chrome durably; owner can also do it in 4 clicks now. | RAMBO | ORDERED | HANDOFF_…set-html-portal-default-app |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
