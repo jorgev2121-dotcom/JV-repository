@@ -184,10 +184,12 @@ KNOWN from the subject (address + folio + often the TRK), NOT the anonymous 89% 
 
 1. **FIRST, produce 2 fully-enhanced tax jackets as the owner stop/go sample** — use the two `mirandar@mdcpa.net`
    building jackets already in Outlook (1055 NW 73 ST / 30-3111-035-3740 and 2745 NW 28 ST / 30-3128-011-0800,
-   Alec TRK-2026-9047). Full tax-jacket recipe: ORIGINAL untouched → ENHANCED (deskew, handwriting to black,
-   photos GRAYSCALE never binarized, transcribe folio/date/permit, NOA excluded-but-flagged) → FINAL PDF with
-   cover + AI conclusion + footer stamp. **Drop both to Drive AND `mailbox/to-cloud/`** so Cloud can hand them
-   to Jorge in the morning for review BEFORE the rest of the batch files.
+   Alec TRK-2026-9047). **Owner standard (2026-09-13): each jacket ships as TWO PDFs — ORIGINAL (byte-for-byte)
+   + ENHANCED** (deskew, ink to black, photos GRAYSCALE never binarized, transcribe folio/date/permit, NOA
+   flagged, footer stamp). **PLUS a Cloud narrative comparing the jacket to the microfilm** (microfilm = what was
+   drawn/pre-2014; jacket/permit = what was permitted + whether it closed; do they agree?). **Drop ORIGINAL PDF +
+   ENHANCED PDF + narrative to Drive AND `mailbox/to-cloud/`** so Cloud hands them to Jorge in the morning BEFORE
+   the rest files. Full standard: HANDOFF_…alec-dd-report-standards-snip-narrative-2pdf.
 2. **THEN sweep the rest** (all paid microfilm/jacket attachments, per HANDOFF_…inbox-paid-reports-OCR-sweep):
    OCR + stamp + match to capsule + match to the $44.94/8-21 charge.
 3. **Write per-item results as each completes** (Night Protocol §2) so a stall leaves N done, never zero.

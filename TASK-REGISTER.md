@@ -72,6 +72,8 @@ backlog is full of.
 
 | 09-13 | Jorge | **Set default app so job-portal `.html` auto-opens in the browser** (opened in wrong app). GREEN desktop mechanic. Cloud can't touch associations — RAMBO to set `.html` → Chrome durably; owner can also do it in 4 clicks now. | RAMBO | ORDERED | HANDOFF_…set-html-portal-default-app |
 
+| 09-13 | Jorge | **DD REPORT STANDARD (owner, 09-13)** — applies to every jacket/microfilm/report: (1) permit-history + every data claim backed by a **SNIP** (reports were ~5 scrapes, unsupported); (2) **keep working papers** (raw scrapes+snips = the supporting/original set); (3) **Cloud narrative on BOTH jacket AND microfilm, comparing them** (drawn vs permitted+closed); (4) **tax jacket = 2 PDFs: ORIGINAL + ENHANCED**; (5) client write-up states plainly **is something wrong or not, and what**. Cloud wrote the Alec permit-history laymen's write-up as the model. | RAMBO (produce) + Cloud (narratives) | STANDARD SET — applied to overnight run | HANDOFF_…alec-dd-report-standards-snip-narrative-2pdf + DELIVERABLE_ALEC-DD_permit-history-laymans-writeup |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
