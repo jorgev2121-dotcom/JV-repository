@@ -11,8 +11,24 @@
   locks them into the template as sourced fact (replacing the owner-recollection timeline: 1961–73 missing,
   73–78 partial, 78–~85/86 handwritten, ~85/86+ computerized — confirm or correct against the printed page).
 
-## PART 2 — Einar Suarez, Broward property — Impact-Windows RECERTIFICATION / LEGALIZATION — electrical SUBPERMIT
-**Owner needs the electrical subpermit application prepped. Broward municipality name TBD (owner to confirm).**
+## PART 2 — Einar Suarez, Broward — Impact-Windows LEGALIZATION — electrical SUBPERMIT
+**IDENTIFIED 2026-09-13 by reverse lookup (owner name → job):**
+- Property **8621 Pasadena Blvd, Pembroke Pines, FL 33024** (Broward / HVHZ). Owners **Einar H. Suarez & Barbara Rodriguez.**
+- **Broward folio 5141-09-12-0810 · file TUS-26-1018 ·** scope: after-the-fact legalization of impact windows/doors, **15 openings.**
+- **Municipality = City of Pembroke Pines Building Department, 601 City Center Way, Pembroke Pines, FL 33025.**
+- **ALREADY ON FILE (June 2026):** a FILLED Pembroke permit app (`Pembroke-Permit_Einar_NEW-FORM_FINAL_2026-06-11.pdf`)
+  + a FILLED NOC (`Pembroke-NOC_Einar-8621Pasadena_FILLED_2026-06-05.pdf`), engineer as-built letter, working-papers zip, `_PORTAL_TUS-26-1018`.
+  **Use these — the electrical subpermit references THAT master permit, and the sub-vs-GC NOC question is answered by reading the NOC already on file (who's named, what trades it covers).**
+**⚠ ELECTRICAL CONTRACTOR LICENSE — MUST RECOVER (owner: "he uses someone else's license").** The MASTER permit
+is MZ Solutions LLC / Miguel Zaldivar, **CGC1528486 — a GENERAL contractor license (building trade only).** An
+electrical subpermit needs a licensed ELECTRICAL contractor (EC#). **Cloud searched the Einar job files, the
+master permit, and Outlook — the electrical contractor's license is NOT on file.** Recover it:
+1. Check the **working-papers zip** (`Working-Papers_Einar-8621-Pasadena_2026-06-09.zip`) and the job capsule for any electrical sub / COI / EC number.
+2. Check **prior MZ Solutions jobs** for the electrical subcontractor MZ normally uses (recurring EC#).
+3. If a NAME is known, **DBPR (myfloridalicense.com) reverse-lookup by name → EC license** (that's the "reverse license search").
+4. If still not found, it's an owner/ Miguel input — flag it, don't invent a license number.
+
+**Prep the electrical subpermit application (once the EC license is recovered):**
 1. **Read the electrical plan**, determine what is being inspected / what to mark on the fee schedule.
 2. **Fill the fee schedule:** mark each applicable row, each has a price; **add the rows to a TOTAL** = the
    amount submitted with the electrical subpermit application.
