@@ -23,7 +23,17 @@ is a silent-death case: the product exists, the work is invisible.
 5. **Prevent recurrence (ties to the generator/intake root-fix):** any inbound attachment from a county /
    microfilm sender should **auto-enter this OCR protocol on arrival** so a paid doc never sits unprocessed again.
 
-**RED or GREEN:** pull + OCR + stamp + propose = GREEN. Moving the enhanced doc INTO a client capsule = RED (owner batched click).
+**⭐ OWNER DIRECTIVE 2026-09-13 — RUN OVERNIGHT + 2 SAMPLE JACKETS:**
+- **Run the whole sweep overnight** (Night Protocol; now TOP of OVERNIGHT-QUEUE.md). Hand Jorge the finished
+  filed set in the morning.
+- **Produce 2 fully-enhanced tax jackets FIRST** as his stop/go review sample — the two `mirandar@mdcpa.net`
+  jackets (1055 NW 73 ST / 30-3111-035-3740 + 2745 NW 28 ST / 30-3128-011-0800). Full recipe: ORIGINAL →
+  ENHANCED (deskew, ink to black, photos GRAYSCALE, transcribe folio/date/permit, NOA flagged) → FINAL PDF
+  w/ footer stamp. **Drop both to Drive + `mailbox/to-cloud/` so Cloud delivers them to Jorge in the morning
+  BEFORE the rest files.** He reviews 2, then the batch proceeds.
+- **Per-item writes** so a stall leaves N done, not zero (last run died at hour 4 unnoticed — real risk).
+
+**RED or GREEN:** pull + OCR + stamp + enhance + propose = GREEN. Moving the enhanced doc INTO a client capsule = RED (owner batched click).
 
 **CLOSING QUESTION:** How many paid deliverables are sitting in the inbox un-OCR'd (N), and does the $44.94 / 8/21 charge match to a specific order so payment and document are linked?
 

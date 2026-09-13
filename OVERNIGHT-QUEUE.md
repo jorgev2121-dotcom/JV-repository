@@ -176,6 +176,29 @@ Ordered. An unattended executor takes the top unclaimed item.
    `_CAPSULE-INDEX_` overlay** — same shape as the version-log map, same value.
 6. **Refill this queue again.**
 
+## ⭐ TONIGHT — TOP PRIORITY (owner directive 2026-09-13): paid-inbox jacket/microfilm sweep + 2 sample jackets
+
+**Owner: "Run the whole sweep overnight and hand me the file set. I want to see at least 2 tax jackets after
+OCR and enhancement."** This is **Queue-A SAFE** — these are county-email attachments whose identity is
+KNOWN from the subject (address + folio + often the TRK), NOT the anonymous 89% pile the hold protects.
+
+1. **FIRST, produce 2 fully-enhanced tax jackets as the owner stop/go sample** — use the two `mirandar@mdcpa.net`
+   building jackets already in Outlook (1055 NW 73 ST / 30-3111-035-3740 and 2745 NW 28 ST / 30-3128-011-0800,
+   Alec TRK-2026-9047). Full tax-jacket recipe: ORIGINAL untouched → ENHANCED (deskew, handwriting to black,
+   photos GRAYSCALE never binarized, transcribe folio/date/permit, NOA excluded-but-flagged) → FINAL PDF with
+   cover + AI conclusion + footer stamp. **Drop both to Drive AND `mailbox/to-cloud/`** so Cloud can hand them
+   to Jorge in the morning for review BEFORE the rest of the batch files.
+2. **THEN sweep the rest** (all paid microfilm/jacket attachments, per HANDOFF_…inbox-paid-reports-OCR-sweep):
+   OCR + stamp + match to capsule + match to the $44.94/8-21 charge.
+3. **Write per-item results as each completes** (Night Protocol §2) so a stall leaves N done, never zero.
+4. **Filing into a client capsule stays RED** — propose it; Jorge's morning batched click executes.
+
+**⚠ Known risk (do not hide it):** last run the desktop stopped at hour 4 and nothing restarted it (recovery
+half of the heartbeat unimplemented, TRK-2026-9070). Mitigation: the 2 sample jackets go FIRST, per-item
+writes, and Cloud checks the mailbox in the morning — so even a short run yields Jorge's review sample.
+
+---
+
 ## NEXT 12 HOURS — DESKTOP, when it is awake
 
 1. **Read `C:\Users\JV\CU-FILING-SYSTEM\00_SYSTEM\_WORK-REGISTER.csv`** and write it
