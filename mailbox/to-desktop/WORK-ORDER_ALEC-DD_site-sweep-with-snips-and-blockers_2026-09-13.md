@@ -11,7 +11,8 @@ tax roll/bills · recorded liens (Clerk) · county EPS permit history · City iB
 
 **SPLIT:**
 - **Cloud can hit (public, not egress-blocked):** Property Appraiser, City open-permit data, Sunbiz, DBPR — Cloud
-  captures those + their snips on request.
+  pulls the DATA (text) to give RAMBO a head start. **But a SNIP is a screenshot = a browser capture, so the snip
+  itself is always RAMBO's step, even for public sources.** Cloud can't screenshot.
 - **RAMBO/browser (gated — Cloud blocked):** Clerk (Cloudflare Turnstile), county EPS (login+reCAPTCHA), City iBuild
   (login), county ArcGIS permits (404). These are the KNOWN blockers — owner-attended where a login is required.
 
