@@ -9,8 +9,29 @@
   filled APPLICATION, not an ISSUED permit.** Full package on the Desktop: **'14598 SW 110 St - Miami (TEST SAMPLE)'.**
   Tax jacket already processed (ORIGINAL/ENHANCED/FINAL exist) — good.
 
-**THE GAP:** Cloud does NOT see an **issued master permit NUMBER** in email/Drive — only the filled application.
-The number top-right of the subpermit must be the real issued master #.
+**✅ MASTER PERMIT # RECOVERED (verified from `PlanRevisionSheet_14598-SW-110-ST.md`, Drive):**
+- **MASTER PERMIT # = 2026012823** → goes **top-right** of the subpermit application.
+- Older process # C2023071746 · Legalization process # 2024-P057595 · Code case 2024-0228754.
+- Categories under the master: **02 (building)** and **082 (impact windows/doors)**. Cat 02/082 sub-permit #s = _CONFIRM_.
+- **Engineer of record = TomTech Engineering / Tomas E. Hernandez, P.E.** (NOT Synergyn — Synergyn is a
+  different job, TUS-26-1033; don't cross them). Scope on file = legalization of impact windows/doors installed
+  2012, governing code 2010 FBC 4th Ed HVHZ.
+
+**⚠ OWNER ORDER 2026-09-13 — prep the ELECTRICAL subpermit (fill on CHROME — that's the seat that types into the forms):**
+- **Contractor section: LEAVE BLANK** (electrician's EC license not recovered yet — owner's instruction).
+- **Fill:** property info (above) · **owner contact = Jorge Valdes, Team USA Sales, 305-300-4500, Jorge@TeamUsaSales.com** ·
+  **electrical ENGINEER info taken from the ELECTRICAL PLANS** (read them — confirm whether the electrical EOR is
+  TomTech or another; use what the electrical plans state, don't assume).
+- **Read the electrical plans** (local / desktop package — Cloud can't see them) to set the **scope of work**.
+- **Complete the V (value/fee) sheet by scope:** it's a **legalization**, so it's **probably a FINAL only — but VERIFY
+  against the fee schedule + the actual electrical scope; don't assume.**
+- **Master permit # 2026012823 top-right.**
+
+**HONEST GAPS Cloud couldn't close:** the ELECTRICAL plans (local only) and the electrical EOR/scope — RAMBO reads
+them. Also a standing BLOCKER on the impact-windows side: TomTech's signed/sealed as-built for 14598 not yet
+received (unsigned draft sent 2026-06-12) — confirm whether that gates the electrical sub too.
+
+**The old GAP note (superseded): the master # is now recovered (2026012823).**
 
 **EXACT NEXT ACTIONS (GREEN — prep/lookup; submit/pay/sign = RED):**
 1. **Get the issued master permit number:** open the Desktop '14598 … (TEST SAMPLE)' package, and/or look up
