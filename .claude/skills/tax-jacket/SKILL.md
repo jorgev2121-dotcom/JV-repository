@@ -155,6 +155,18 @@ on [date], to be verified against the physical building and the permit record."
 addition years after the fact to raise taxes — so a PA date is "noticed/valued by," lagging the real
 work by potentially 5–6 years, and it is never proof of when (or whether) something was permitted.
 
+## PERMIT-CODE TRANSLATION + MICROFILM GAP (Jorge, 2026-09-13) — see DD-WRITEUP-TEMPLATE.md (TRK-2026-9781)
+- **Permit cards are county CODES, not homeowner language. The legend is on the page BEHIND the permit
+  application.** Cross-reference EVERY code into plain narrative, permit by permit: e.g. reroofing code "999" →
+  "Reroofing permit [#], dated Jan 11 1964 — Final, in good standing." The result = "the house as permitted."
+- **Then compare permits vs the tax jacket.** Year-dependent: a permit may or may not carry a number to
+  substantiate it; flag any addition/sq-ft the PA shows that the permit record does not.
+- **Microfilm gap rule:** Miami-Dade microfilm is only available ~**1961–1978** (confirm exact years on cite).
+  For an addition the PA records in a gap period with no permit/microfilm to substantiate → say it is
+  **UNDETERMINED** (not clean, not illegal): "gap in microfilm; PA shows an addition of ~X sq ft in that gap;
+  unable to determine legal/compliant/unpermitted; subject to a county walk-through inspection to verify
+  built-to-code." Never round a gap to "clean."
+
 ## Never
 - Never process only the first pages of an attachment.
 - Never write into ORIGINAL, never supersede without `_Superseded\` + `.bak` per charter.
