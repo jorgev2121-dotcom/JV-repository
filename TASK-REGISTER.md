@@ -48,7 +48,7 @@ backlog is full of.
 | 09-04 | Jorge | **ENABLE ALL-NIGHT RUNS** — elevated re-register heartbeat to run logged-off | Jorge | PENDING — owner elevation click | OWNER-ACTIONS popup ③ |
 | 09-04 | Cloud | Pre-approve the GREEN command set (allow-list, NOT bypass) for smooth night runs | RAMBO | PENDING | Rule 9 / fewer-permission-prompts |
 | 09-04 | Cloud | Test the wake-nudge webhook (plain curl wakes Cloud?) | RAMBO | PENDING | HANDOFF_…wake-nudge-webhook |
-| 09-02 | Jorge | **Plaza — DRAFT letter to the Association** (Quanny/Silvio), NOT SENT | Jorge | AWAITING SEND DECISION (RED) | Plaza draft letter (TRK-1582-LC) |
+| 09-02 | Jorge | **Plaza — DRAFT letter to the Association** (Quanny/Silvio), NOT SENT. **Dedupe checked 09-13 (Cloud): NO duplicate + NOT sent in Gmail/Outlook/Drive** — only a sent 7/10 window/permit thread + a bounced Unit 220/721 extension (both different). Desktop copy (TRK-1582-LC) = RAMBO to confirm single. Send remains owner decision (RED). | Jorge (send) + RAMBO (confirm desktop single) | DEDUPE CLEAR — awaiting send decision (RED) | Plaza draft letter (TRK-1582-LC) |
 | 09-02 | Jorge | **Plaza Unit 220** permit-extension request — unsent in Outlook Drafts | Jorge/RAMBO | AWAITING SEND | Unit-220 extension draft |
 | 09-02 | Cloud | **Plaza Unit 721** — expired permit, ~151-day reissue window (to ~2027-01-31) | RAMBO | FLAGGED — time-sensitive | Plaza report §5 |
 | 09-01 | Cloud | **Plaza — 4 Impact Windows COIs all expired**, none names The Plaza | RAMBO | LOGGED — surface if Association asks | GC-Insurance-Cert report |
