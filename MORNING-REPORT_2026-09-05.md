@@ -1,6 +1,8 @@
-# Report — 2026-09-05 through 2026-09-11 (Friday update — the quiet-log mystery is solved)
+# Report — 2026-09-05 through 2026-09-13 (Sunday update)
 
-**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Friday 2026-09-11.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Sunday 2026-09-13.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+
+**Sunday, noon ET: two small new items, one worth a second look before you click it.** A "Mr. IT" folder-shortcut card is harmless — skip or click anytime. The other (AP-0087) asks for one click to authorize **building something new**: a permanent status panel for your AI seats, plus an onboarding row for Mr. IT. **That's worth pausing on, not because it's a bad idea, but because you and I already agreed nothing new gets built until the JOB-0079 pilot proves itself three times over** — and this would be new. Your call either way; I'm not blocking it, just flagging the conflict so you're choosing it on purpose rather than by habit.
 
 **Friday, ~1pm ET: the narrative log came back after ~50 hours quiet, and this time it explained itself.** The desktop's own words on waking up: nothing was broken — it's a standing instruction to write nothing when there's nothing new to say, and everything else (your approvals board included) was healthy and current the whole time. **This confirms my Wednesday recommendation was right: this log's silence never meant anything, so I'm done chasing it.** See "The activity log keeps going quiet" below for the close-out — nothing needs your word on this one anymore. One small side-note from the same check: Wednesday's daily health check got skipped and was caught and backfilled — not chased further, not urgent.
 
