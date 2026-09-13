@@ -87,6 +87,8 @@ backlog is full of.
 | 09-13 | Jorge | **Auto-read arrow on the chat** — TTS auto-read control. **IMPOSSIBLE for Cloud: it's a UI feature of the app/Speechify, not something a seat can add.** Owner enables it in Speechify (floating auto-read) or the app's read-aloud. | Jorge (enable in Speechify/app) | ANSWERED — client-side, not seat-controllable | (this reply) |
 | 09-13 | Jorge | **Claude "new release with bots" — integrate.** Owner says he signed up; wants integration for the microfilm-years/expert language. **Cloud UNVERIFIED what feature this is — must confirm before claiming integration (no guessing on Claude features).** | Cloud (verify) + Jorge (say which feature) | OPEN — needs identification | (this reply) |
 
+| 09-13 | Jorge | **Alec DD — sweep all ~22–30 DD sources WITH SNIPS + log blockers → prepare package.** NOT previously assigned as a discrete task (data was pulled in DD Master but no snips). Assigned now: 1 worker per source, per-item registry. Don't re-scrape from zero — snip the done sources + break known blockers (Clerk Turnstile / EPS login+reCAPTCHA / iBuild login / ArcGIS 404). Cloud hits public (PA/City-permits/Sunbiz/DBPR); RAMBO the gated. | Cloud (public) + RAMBO (gated) | ORDERED — registry live | WORK-ORDER_ALEC-DD_site-sweep-with-snips-and-blockers + ALEC-DD_SITE-SWEEP-REGISTRY.md |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
