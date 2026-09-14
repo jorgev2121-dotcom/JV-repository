@@ -1,4 +1,10 @@
 # 🤝 COWORK — re-scout the two turnkey infrastructure platforms and RECOMMEND one (do NOT install)
+> **⛔ SUPERSEDED 2026-09-14 — Cloud produced this directly.** This was a dead drop: Cowork can't read the git
+> mailbox (documented 09-13). Cloud did the re-scout with its own web tools. **Result: recommend n8n (self-hosted,
+> hands-off install); Dify is superior but Docker-on-Windows needs owner clicks.** See
+> `mailbox/to-desktop/HANDOFF_turnkey-platform-RECOMMENDATION-and-install-n8n_2026-09-14.md` (TRK-2026-9786).
+> **Do NOT re-run this order.** Left on disk as the record of what was asked.
+
 **2026-09-14 · owner assigned this to Cowork. Flow: Cowork completes → Cloud verifies → Cloud advises RAMBO to execute (install) + save. Architecture: OPERATIONS-ARCHITECTURE_SOURCE-OF-TRUTH.md (TRK-2026-9784).**
 
 **GOAL:** the "plug in our modules / get ahead" turnkey platform. Owner recalls two options — one **superior but
