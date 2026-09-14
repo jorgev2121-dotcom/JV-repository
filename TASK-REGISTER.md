@@ -100,6 +100,8 @@ backlog is full of.
 | 09-14 | Jorge | **"My AI Subscriptions" launcher — published as an ARTIFACT (companion to the router)**: card per LLM (Claude/ChatGPT/Gemini/Grok) + tools (1Password/Speechify/Drive), each with Open + Usage links; NO secrets on page (1Password only); plan/usage = "confirming" until RAMBO fills from live accounts. | Cloud | DONE — published | https://claude.ai/code/artifact/f6ff8faf-970d-4589-af8a-ccbeb16a4504 |
 | 09-14 | Jorge | **Wire the router to desktop + tray + an F-key** (recommend F8). Machine-only → RAMBO: .lnk on Desktop, tray icon w/ the 4 Claude icons, AutoHotkey/PowerToys hotkey. GREEN, reversible; no skip-all-permissions. | RAMBO | ORDERED | HANDOFF_…window-router-desktop-tray-Fkey |
 
+| 09-14 | Jorge | **Off-the-shelf BUTTON DECK as the window/subscription router (don't build).** Cloud researched: recommend **Touch Portal** (free/$14, spare phone/tablet = labeled button deck, launches/focuses windows); hardware alt VSDINSIDE ~$60 / Razer ~$80 / Elgato ~$150. RAMBO: confirm window-focus works, install helper, wire buttons = the 4 seats + 4 LLMs labeled w/ emoji + paste-tag. Purchase = RED. | RAMBO (install+wire) + Jorge (device choice, RED spend) | ORDERED | HANDOFF_…install-button-deck-window-router |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
