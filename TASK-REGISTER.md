@@ -103,6 +103,9 @@ backlog is full of.
 
 | 09-14 | Jorge | **Off-the-shelf BUTTON DECK as the window/subscription router (don't build).** Cloud researched: recommend **Touch Portal** (free/$14, spare phone/tablet = labeled button deck, launches/focuses windows); hardware alt VSDINSIDE ~$60 / Razer ~$80 / Elgato ~$150. RAMBO: confirm window-focus works, install helper, wire buttons = the 4 seats + 4 LLMs labeled w/ emoji + paste-tag. Purchase = RED. | RAMBO (install+wire) + Jorge (device choice, RED spend) | ORDERED | HANDOFF_…install-button-deck-window-router |
 
+| 09-14 | Jorge | **Panels v2: search box + "needs-your-click" strip added to BOTH** (matched). Router 56122b47 v2, subscriptions f6ff8faf v2. Strip = dated snapshot (5 items), refreshes on republish. | Cloud | DONE — published v2 | artifact URLs |
+| 09-14 | Jorge | **1Password status (asked 09-14):** NO dedicated migration report ran overnight — the single-source migration touches credentials = **RED / owner-attended, never headless.** 09-13 infra report found the **1Password CLI installed (v2.34.1) but the desktop app LOCKED / not running** (`op whoami` failed), so even read access is blocked until Jorge unlocks it (master pw/biometric = his gate). Migration stays ORDERED, blocked on: 1Password unlocked + owner-attended session. | Jorge (unlock) + RAMBO (attended loop) | BLOCKED — needs unlock | INFRA-ACCOUNT-STATUS_2026-09-13 (Drive) |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
