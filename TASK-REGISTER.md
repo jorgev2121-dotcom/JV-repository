@@ -106,6 +106,8 @@ backlog is full of.
 | 09-14 | Jorge | **Panels v2: search box + "needs-your-click" strip added to BOTH** (matched). Router 56122b47 v2, subscriptions f6ff8faf v2. Strip = dated snapshot (5 items), refreshes on republish. | Cloud | DONE — published v2 | artifact URLs |
 | 09-14 | Jorge | **1Password status (asked 09-14):** NO dedicated migration report ran overnight — the single-source migration touches credentials = **RED / owner-attended, never headless.** 09-13 infra report found the **1Password CLI installed (v2.34.1) but the desktop app LOCKED / not running** (`op whoami` failed), so even read access is blocked until Jorge unlocks it (master pw/biometric = his gate). Migration stays ORDERED, blocked on: 1Password unlocked + owner-attended session. | Jorge (unlock) + RAMBO (attended loop) | BLOCKED — needs unlock | INFRA-ACCOUNT-STATUS_2026-09-13 (Drive) |
 
+| 09-14 | Jorge | **Outlook Sort-Inbox FIX — it moves good mail out of the inbox, hiding it.** RAMBO: (1) PAUSE the mover now; (2) revise to **categorize/label in place — original stays in inbox** (inbox = master; folder view = filter, not relocation); (3) list where already-moved mail went + offer move-back; (4) log recurrence. GREEN (his mailbox, reversible); never auto-delete mail. | RAMBO | ORDERED — urgent (mail being hidden) | HANDOFF_…fix-sort-inbox-stop-moving-good-mail |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
