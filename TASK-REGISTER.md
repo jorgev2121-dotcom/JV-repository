@@ -96,6 +96,9 @@ backlog is full of.
 | 09-14 | Cloud | **Money + aging from finisher (09-12):** top defect **TUS-26-1033 $10,600 invoiced 81 days** (Medley, "due on acceptance," no signed proposal — owner call); Alec DD $100.25 (25d); **11 money defects total**; oldest aging = **TUS-26-1018 Einar 8621 Pasadena, 82 days at 05-DRAFT.** 2 sample jackets NOT delivered (finisher is read-only; enhancement not run). | both seats | SURFACED | FINISHER-STANDUP_2026-09-12 |
 | 09-13 | Cloud | **Morning brief (7 AM) built. LOOP IS ONE-WAY:** no RAMBO commits overnight; newest to-cloud reply is 09-06; heartbeat findings are STALL reports through 09-08 ("cannot push — no credential," "cannot fast-forward"). Root cause = **GitHub sign-in on desktop still not done** (open since 09-04). Every overnight order (Cowork jackets, inbox OCR sweep, site sweep, permit modules, subscriptions, 14598/Einar) is QUEUED + pulled-able but UNCONFIRMED until the sign-in lets RAMBO push results back. OCR still 89.9% (RAMBO 09-04); no fresh count. | Jorge (sign-in click) | BRIEF DELIVERED — loop blocked on sign-in | (this brief) |
 
+| 09-14 | Jorge | **"Which Window Am I?" router — published as an ARTIFACT** (more buttons: 4 seats w/ lane + paste-tag, env toggle, paste-tag legend, RED/GREEN, OD-01, "copy this window's banner line"). Tap-to-set, remembers last pick. | Cloud | DONE — published | https://claude.ai/code/artifact/56122b47-e833-4189-a2d2-81acee5c7dd4 |
+| 09-14 | Jorge | **Wire the router to desktop + tray + an F-key** (recommend F8). Machine-only → RAMBO: .lnk on Desktop, tray icon w/ the 4 Claude icons, AutoHotkey/PowerToys hotkey. GREEN, reversible; no skip-all-permissions. | RAMBO | ORDERED | HANDOFF_…window-router-desktop-tray-Fkey |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
