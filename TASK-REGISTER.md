@@ -36,7 +36,7 @@ backlog is full of.
 | 09-04 | Jorge | **GitHub sign-in on desktop** (closes the two-way loop) | Jorge | BLOCKED — owner click | OWNER-ACTIONS popup |
 | 09-04 | Jorge | Build the OWNER-ACTIONS popup (sign-in + connect chrome) | RAMBO | ORDERED | HANDOFF_…owner-actions-button-popup |
 | 09-04 | Jorge | Desktop cleanup by type + orphan OCR + **6 OPH numbers** | RAMBO | IN PROGRESS | WORK-ORDER_DESKTOP-CLEANUP-AND-ICONS |
-| 09-04 | Jorge | **1Password single-source migration** (per-site loop) | RAMBO | ORDERED | WORK-ORDER_1PASSWORD-SINGLE-SOURCE-MIGRATION |
+| 09-04 | Jorge | **1Password single-source migration — ~280 logins. METHOD CHANGED 09-14 to BULK IMPORT** (export browsers → import to 1Password → verify/dedup → clear browsers → secure-delete the export). ~30–60 min ATTENDED (1Password unlocked, owner present); export CSV = local-only, shredded after, NEVER to repo/Drive. Per-site loop retired (280 one-by-one not viable). Autofill-fail sites (T&G/HOA) flagged separately. | Jorge (attended) + RAMBO (run) | ORDERED — bulk import, needs attended session | HANDOFF_…1password-migration-BULK-IMPORT-280 |
 | 09-04 | Jorge | Document the **10–12 stored tasks** into the repo | RAMBO | ORDERED | HANDOFF_…document-the-10-12-stored-tasks |
 | 09-04 | Jorge | Wire **Grok API** (find existing key, second-opinion bus) | RAMBO | ORDERED | HANDOFF_…wire-existing-LLM-api-key |
 | 09-04 | Jorge | Build the desktop **VS Code chat panel** — the "sexy window" replacing the black terminal (owner reminded 2x — WANTED) | RAMBO | PRIORITY — not started | FINDING_…replace-terminal-with-chat-panel |
