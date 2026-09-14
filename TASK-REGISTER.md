@@ -109,6 +109,8 @@ backlog is full of.
 
 | 09-14 | Jorge | **Outlook Sort-Inbox FIX — it moves good mail out of the inbox, hiding it.** RAMBO: (1) PAUSE the mover now; (2) revise to **categorize/label in place — original stays in inbox** (inbox = master; folder view = filter, not relocation); (3) list where already-moved mail went + offer move-back; (4) log recurrence. GREEN (his mailbox, reversible); never auto-delete mail. | RAMBO | ORDERED — urgent (mail being hidden) | HANDOFF_…fix-sort-inbox-stop-moving-good-mail |
 
+| 09-14 | Cowork/Jorge | **⚠ ROOT CAUSE of the one-way loop found: the desktop Claude JOB RUNNER is dead** — 2-min FAILED-VERIFICATION on every job since 9/07 (CDM-REISSUE, FREEZE-WAIVER-01, IT-HIRE-ONBOARD-01). PowerShell sweeps run fine (machine up); only the Claude runner fails. So the loop is DOUBLY blocked: (a) git push = GitHub sign-in, (b) execution = dead runner. Prime suspect: **9Router wiring changed 9/07.** Ordered RAMBO Order-0: read `C:\AI\state\job-executor\…out.txt`, name cause (9Router/allowance/hook), fix, run 1 test. Cloud declined to clone RAMBO (would hit same broken pipe; Rule 10). **RFA 2026-205 due 9/22 3PM, CDM 64%.** | RAMBO (Order 0) + Jorge (.out.txt paste) | URGENT | HANDOFF_…CDM-runner-dead-read-outfile-name-cause |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
