@@ -21,6 +21,14 @@ Best fit for "know what I'm pasting into" with no clutter on the main screen. (M
 **RED or GREEN:** installing the free helper + configuring buttons = GREEN. **Any purchase (the $14 unlock, or a
 hardware deck) = RED — owner's one click, within OD-BUDGET-01.** Never a skip-all-permissions mode.
 
-**CLOSING QUESTION:** Does Touch Portal focus a named window reliably on his machine — and did the buttons come up labeled with the right emoji + paste-tag?
+**EXPAND THE BUTTONS (owner 2026-09-14): more buttons are wanted beyond the 4 seats.**
+- **Measure ACTUAL usage frequency** on the PC (Windows launch/usage data, jump-list/most-used, or a quick tally)
+  and order the app buttons by real frequency — Cloud's inferred order is only a starting guess.
+- **Cloud's inferred descending list** (to reorder against real data): Chrome · Outlook (TeamUSA) · Google Drive ·
+  1Password · Gmail · Adobe Acrobat · Speechify · ChatGPT · Excel · Gemini/Grok · Dropbox/OneDrive.
+- Add the top ~10 as launch/focus buttons alongside the 4 seats + 4 LLMs. **Keep the deck matched to the two
+  artifacts** (same identity set) — Cloud syncs the panels, RAMBO the deck.
+
+**CLOSING QUESTION:** Does Touch Portal focus a named window reliably, did the seat buttons come up labeled with emoji + paste-tag, and what's the REAL most-used order from the machine?
 
 #button-deck #touch-portal #off-the-shelf #window-router #no-build #paste-tag #RED-on-spend #cloud-to-desktop
