@@ -114,6 +114,7 @@ backlog is full of.
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
+| 09-14 | **OPEN-TASKS CAPSULE saved to Google Drive (TRK-2026-9787)** — all open tasks mirrored to a Drive Doc, grouped by owner + a "needs Jorge" Section A, so nothing is lost if a window closes. Cloud refreshes it from this register; Cowork's Drive ops-library lives beside it. Each task keeps its correct owner (not all Cowork-shaped). | https://docs.google.com/document/d/1xoGn5ImM55lutqJwEyY-Iecelu4zVEObkVgX97WttYA/edit |
 | 09-14 | **Turnkey platform re-scouted + recommended (TRK-2026-9786)** — n8n self-hosted (hands-off) over Dify (superior but Docker/WSL2 = owner clicks); RAMBO install order filed | HANDOFF_…turnkey-platform-RECOMMENDATION-and-install-n8n_2026-09-14.md + 2 web sources |
 | 09-04 | HOA $555 paid (by phone) — AP-0001 closed | owner report |
 | 09-04 | HOA $180/mo = bank ACH auto-debit + monthly verify reminder | calendar 6jbgnb2hjs693fgsqvbm8gm9k4 |
