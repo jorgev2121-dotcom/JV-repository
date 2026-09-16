@@ -77,6 +77,12 @@ photo to "fit" is not). Group related front/back and card/continuation pairs.
 number, and any change-keywords** so the page is OCR-findable and the key facts are captured even if
 the scan is faint. Low-value pages still get a short transcription so search can pick them up.
 
+**MDC FOLIO = 13 DIGITS (Jorge, 2026-09-16 — do not repeat).** Every Miami-Dade folio has **exactly 13 digits**,
+formatted **NN-NNNN-NNN-NNNN (2-4-3-4)** — e.g. `30-6007-009-0030`. A transcribed folio with fewer than 13 digits is
+**incomplete** (an old short-form card or a mis-read) — reconcile it to the full 13-digit folio before writing it in a
+report; count the digits every time. (Defect caught 2026-09-16: a photo-back folio transcribed as the 10-digit
+`30-6007-0003` instead of `30-6007-009-0030`.) Broward and other counties use their own folio length/format — verify per jurisdiction.
+
 **Blank forms = no value:** a blank form template adds nothing — **label it "BLANK FORM" and drop it
 from the deliverable** (do not number it as content). It stays in ORIGINAL only.
 
