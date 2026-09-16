@@ -111,9 +111,19 @@ backlog is full of.
 
 | 09-14 | Cowork/Jorge | **⚠ ROOT CAUSE of the one-way loop found: the desktop Claude JOB RUNNER is dead** — 2-min FAILED-VERIFICATION on every job since 9/07 (CDM-REISSUE, FREEZE-WAIVER-01, IT-HIRE-ONBOARD-01). PowerShell sweeps run fine (machine up); only the Claude runner fails. So the loop is DOUBLY blocked: (a) git push = GitHub sign-in, (b) execution = dead runner. Prime suspect: **9Router wiring changed 9/07.** Ordered RAMBO Order-0: read `C:\AI\state\job-executor\…out.txt`, name cause (9Router/allowance/hook), fix, run 1 test. Cloud declined to clone RAMBO (would hit same broken pipe; Rule 10). **RFA 2026-205 due 9/22 3PM, CDM 64%.** | RAMBO (Order 0) + Jorge (.out.txt paste) | URGENT | HANDOFF_…CDM-runner-dead-read-outfile-name-cause |
 
+## OWNER DECISIONS — 2026-09-16 (batch approval of the "needs your click" board; "ALL APPROVED UNLESS SPECIFIED")
+| Date | Item | Owner decision | Executor + status |
+|---|---|---|---|
+| 09-16 | **Medley invoice TUS-26-1033 — $10,600** | **VOID** (owner directive: void the invoice; treated not-collectible — no signed proposal). Note for the record: voiding forfeits the $10,600 claim; reversing a void is messy. | RAMBO to void it in the books/invoicing system (owner-authorized). Cloud recorded the decision. |
+| 09-16 | **Business tax license (consenthub)** | **PAID** (owner marked paid). | Record AP as PAID + RAMBO verify the receipt/confirmation on file. No further owner click. |
+| 09-16 | **33 approval cards** | **BATCH-APPROVED**; lost-job cards CANCEL. | RAMBO to clear approved + cancel lost-job cards. **STILL NEED: which job was lost** (likely Medley — confirm) to cancel the right cards. |
+| 09-16 | **Plaza letter to the Association** | **APPROVED TO SEND** (not specified as hold). | Blocked on the file-fix first (name/TRK/hashtags/clean PDF), then send — RAMBO on the desktop. Send channel to confirm (Outlook). |
+| 09-16 | **GitHub sign-in on desktop** | Still needed — the keystone (owner's own click; code failed on last attempt). | Jorge. Everything RAMBO-side waits on this. |
+
 ## DONE (recent)
 | Date | Task | Proof |
 |---|---|---|
+| 09-16 | **10980 SW 202 Dr (TRK-2026-1310) ENHANCED jacket — correction pass by Cloud** per owner: rotated 7 pages head-up (3 photo backs 180°, 4 sideways docs 90°), deleted 3 blank/no-writing pages (18→15), added per-page captions, flagged possible dup (pp.10/11). **Open:** 3 photos (pp.1,3,5) binarized — need grayscale re-render from ORIGINAL scans (RAMBO/originals; cannot recover from binarized copy). Republished same link (v2). | https://claude.ai/artifact/7Gh6cPUT6wg5tR7jJ6tc3u |
 | 09-14 | **OPEN-TASKS CAPSULE saved to Google Drive (TRK-2026-9787)** — all open tasks mirrored to a Drive Doc, grouped by owner + a "needs Jorge" Section A, so nothing is lost if a window closes. Cloud refreshes it from this register; Cowork's Drive ops-library lives beside it. Each task keeps its correct owner (not all Cowork-shaped). | https://docs.google.com/document/d/1xoGn5ImM55lutqJwEyY-Iecelu4zVEObkVgX97WttYA/edit |
 | 09-14 | **Turnkey platform re-scouted + recommended (TRK-2026-9786)** — n8n self-hosted (hands-off) over Dify (superior but Docker/WSL2 = owner clicks); RAMBO install order filed | HANDOFF_…turnkey-platform-RECOMMENDATION-and-install-n8n_2026-09-14.md + 2 web sources |
 | 09-04 | HOA $555 paid (by phone) — AP-0001 closed | owner report |
