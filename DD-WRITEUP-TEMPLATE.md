@@ -73,6 +73,14 @@ enclosed lanai or CB wall; a reroof covers only the roof). The named next step i
 if it reaches the gap-era work, the exposure is **CURED**; only if no post-build permit covers it does the item stay
 *undetermined-pending-inspection*. Lead the verdict with this, not with the gap.
 
+**PRESUMPTION RULE (owner, 2026-09-16).** Any **added/enclosed space or attached/detached structure not supported by
+a permit is PRESUMED unpermitted work (a violation)**, rebuttable only by evidence (usually a later covering permit).
+State enclosures and additions as presumed-unpermitted-unless-shown-otherwise, never as neutral facts.
+
+**LOT-COVERAGE RULE (owner, 2026-09-16).** Where footprints are known, compare total footprint to the parcel's
+**maximum lot coverage**. If it exceeds the max, **search for a variance or resolution**; if found, **adjust the
+approved coverage to match it**; if none, the excess is a violation. Report the coverage %, the max, and the result.
+
 ## Tone
 Plain words, short sentences, answer first. The homeowner should finish each property knowing: clean, loose
 end, or undetermined-pending-inspection — and what to do about it.

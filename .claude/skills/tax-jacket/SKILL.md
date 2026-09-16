@@ -183,6 +183,21 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   Lead the CONCLUSION with this analysis. A gap-era item is only UNDETERMINED **after** ruling out that a
   later permit covers it — do not flag exposure while an un-read post-build permit could legalize it.
 
+- **PRESUMPTION — unpermitted until shown otherwise (Jorge, 2026-09-16).** Any **added or enclosed space, or an
+  attached/detached structure, not supported by a permit is PRESUMED unpermitted work (a violation)** — rebuttable
+  only by evidence (most often a later permit whose scope covers it, per the gap-coverage rule). Write enclosures
+  and additions this way in the conclusion, not as neutral facts.
+
+- **LOT COVERAGE + VARIANCE (Jorge, 2026-09-16).** Where footprints can be determined, compare total footprint to
+  the parcel's **maximum lot coverage**. If it **exceeds** the max, **search county records for a variance or
+  resolution**; if one is found, **adjust the approved lot-coverage figure to match it**. An excess with no
+  variance/resolution is itself a violation. (Seats egress-blocked from the county hand the variance search to RAMBO.)
+
+- **PHOTO-BACK SNIP PROCEDURE (Jorge, 2026-09-16) — RULE: when a picture is followed by a page carrying folio +
+  date** (the photo's back with folio, date, agent signature): **snip that folio/date/signature block, paste it onto
+  the picture's own page, and transcribe it (OCR).** One sheet = photo (top) + its back-snip + transcription. Apply
+  to every photo/back pair — never leave the back as a separate loose page.
+
 ## Never
 - Never process only the first pages of an attachment.
 - Never write into ORIGINAL, never supersede without `_Superseded\` + `.bak` per charter.
