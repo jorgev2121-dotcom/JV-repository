@@ -215,6 +215,19 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   the on-site inspection and building department make the call. (10980 worked example: aluminum wiring, lead, asbestos,
   cast-iron drain, galvanized, FPE/Zinsco all APPLY to a 1966 SoFla build; poly-B POSSIBLE via the 1989 work.)
 
+- **APPLIANCE / SYSTEM CHANGE-OUT vs. GRANDFATHER — code-by-year (Jorge, 2026-09-16).** For fixtures/appliances like
+  **washers & dryers** (and by extension AC, water heaters, panels): determine the code by year. In South Florida the
+  jurisdiction code was the **South Florida Building Code (SFBC)** — first edition Ordinance 57-22 (Oct 29, 1957),
+  editions through **1994** — until it was retired and replaced by the statewide **Florida Building Code (FBC),
+  effective March 1, 2002** (VERIFIED: Miami-Dade/Broward Board of Rules & Appeals; FBC 3/1/2002). Rule: **before a
+  requirement existed in the applicable SFBC edition, an untouched permitted install is grandfathered; after it became
+  code, new/replaced installs meet the edition in force; at a CHANGE-OUT, a like-for-like appliance swap is maintenance,
+  but touching the circuit / vent / drain / gas pulls THAT portion up to CURRENT FBC (permit + inspection), losing
+  grandfather for it — building official's discretion.** State the exact edition provisions and current FBC/NEC clauses
+  as **TO-VERIFY** against primary code text (RAMBO / permit-expert Miami-Dade module) — never assert clause numbers from
+  memory. The four buckets for laundry: electrical (dedicated circuits + GFCI/AFCI), dryer venting (rigid metal to
+  exterior, backdraft damper, length limits), plumbing (standpipe height/trap), gas (line + venting).
+
 - **FAINT-PAGE LEGIBILITY PASS (Jorge, 2026-09-16 — ratified after 10980 pp. 11 & 13).** For a page whose text is
   faint / low-contrast (dot-matrix and screen-dump printouts especially): **grayscale → autocontrast → deepen the ink
   (stretch mid-grays toward black, keep the background white — never binarize a photo) → crop to the content bounding
