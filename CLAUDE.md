@@ -309,11 +309,14 @@ TRK-2026-1262 / Report / Job File Summary / v2 / p047
 ```
 
 **Footer stamp** — the established stamp is
-`TRK-2026-#### · v[N] · [YYYY-MM-DD] · CURRENT/SUPERSEDED`, bottom-right of every
-page. Page identity slots in after the version:
+`TRK-2026-#### · v[N] · p[NNN] · [YYYY-MM-DD] · [HH:MM TZ] · supersedes v[N-1]`,
+bottom-right of every page. **Updated 2026-09-16 (owner directive): the trailing
+status word `CURRENT/SUPERSEDED` is replaced by the actual TIME and the version this
+one supersedes** — the newest version names what it replaced; a superseded page keeps
+its own old stamp. The first version reads `· original` in place of `supersedes v…`.
 
 ```
-TRK-2026-1247 · v3 · p047 · 2026-08-15 · CURRENT
+TRK-2026-1247 · v3 · p047 · 2026-08-15 · 15:24 EDT · supersedes v2
 ```
 
 **Do not use `.NNN` appended to the tracking number.** `TRK-2026-1262.047` is
