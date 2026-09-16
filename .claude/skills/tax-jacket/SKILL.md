@@ -182,6 +182,9 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
      gap exposure is **CURED**; if not, fall back to microfilm pull / county walk-through.
   Lead the CONCLUSION with this analysis. A gap-era item is only UNDETERMINED **after** ruling out that a
   later permit covers it — do not flag exposure while an un-read post-build permit could legalize it.
+  **When the build year itself falls INSIDE the microfilm gap (e.g. built 1966, gap 1961–1978), the coverer must be
+  dated AFTER the gap ends, not merely after the build year** — a permit issued within the gap is itself in the
+  missing-records window and cannot be relied on. Say "permits found after the 1961–1978 gap," not "after 1966."
 
 - **PRESUMPTION — unpermitted until shown otherwise (Jorge, 2026-09-16).** Any **added or enclosed space, or an
   attached/detached structure, not supported by a permit is PRESUMED unpermitted work (a violation)** — rebuttable
@@ -202,6 +205,15 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   date** (the photo's back with folio, date, agent signature): **snip that folio/date/signature block, paste it onto
   the picture's own page, and transcribe it (OCR).** One sheet = photo (top) + its back-snip + transcription. Apply
   to every photo/back pair — never leave the back as a separate loose page.
+
+- **ERA-HAZARD / DEFECTIVE-MATERIAL LIST (Jorge, 2026-09-16).** Every report includes the full era-triggered
+  hazard/defective-material list from the **verified Build-Year Red-Flags reference (`reference/CODE-ERA-REDFLAGS.md`)**,
+  with an **indicator per item flagged against the build year + every addition year** (and the SoFla location where the
+  reference is regional): **APPLIES** (a year lands in the window), **POSSIBLE** (only via a later addition year),
+  **CONDITION** (any era — check on site, e.g. FEMA below-BFE, bathroom clearances), **N/A** (out of range). Carry the
+  reference's confidence tags and its "do not cite" fences verbatim. These are **inspection triggers, not findings** —
+  the on-site inspection and building department make the call. (10980 worked example: aluminum wiring, lead, asbestos,
+  cast-iron drain, galvanized, FPE/Zinsco all APPLY to a 1966 SoFla build; poly-B POSSIBLE via the 1989 work.)
 
 - **FAINT-PAGE LEGIBILITY PASS (Jorge, 2026-09-16 — ratified after 10980 pp. 11 & 13).** For a page whose text is
   faint / low-contrast (dot-matrix and screen-dump printouts especially): **grayscale → autocontrast → deepen the ink
