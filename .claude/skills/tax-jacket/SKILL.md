@@ -267,6 +267,14 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   box → enlarge (~1.8×, LANCZOS) → center on a white page with a small margin.** Documents only (the photo branch
   stays grayscale-from-original). Always eyeball the result to confirm it is actually more legible before adopting it.
 
+- **PARTIALLY-LEGIBLE PAGES: transcribe-clear + zoom-crop + ink-deepen (Jorge, 2026-09-16).** When a document is only
+  partly readable: **(1) transcribe the parts that OCR clearly**; **(2) for any faded / uncertain cell, add a CROP of
+  that section below the transcription, enlarged and ink-deepened** (deepen the ink to fill faded strokes — never
+  binarize a photo), so the reader can verify the entry against the original; **(3) label the crop** (what band it is).
+  Don't drop a value because the whole page is faint — pull the readable ones and show the rest at zoom. (10980
+  examples: an ink-deepened zoom of the PA operators/values/REMARKS band on the PA page; the faded Building Extra
+  Features printout ink-deepened before merging.)
+
 ## Never
 - Never process only the first pages of an attachment.
 - Never write into ORIGINAL, never supersede without `_Superseded\` + `.bak` per charter.
