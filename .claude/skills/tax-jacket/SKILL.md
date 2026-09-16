@@ -5,6 +5,19 @@ description: Process a county tax jacket (building jacket) into Jorge's ratified
 
 # Tax-jacket protocol — Jorge's recipe (ratified 2026-08-29, TRK-2026-9725/9727)
 
+> ## 🔒 PROTOCOL LOCK — CURRENT APPROVED ENHANCEMENT PROTOCOL · TRK-2026-9788 · APPROVED 2026-09-16
+> **Owner locked this as the most recent approved tax-jacket enhancement protocol (2026-09-16), superseding all
+> prior.** Worked reference deliverable: 10980 SW 202 Dr (TRK-2026-1310) v11 — https://claude.ai/artifact/7Gh6cPUT6wg5tR7jJ6tc3u
+> **Enhancements ratified in this lock (all in the rules below):** gap-coverage (permits after the microfilm gap) ·
+> presumption of unpermitted for unsupported enclosures/structures · lot-coverage + variance (era-of-addition max,
+> plain-language + example) · photo-back snip onto the photo page + OCR · reference dated photo evidence in the
+> conclusion + page cross-index · faint-page legibility pass · transcribe-clear + zoom-crop + ink-deepen for faded
+> cells · **MDC folio = 13 digits** · era-hazard/defective-material list flagged by year with insurance/mortgage
+> impact + "N of M apply" count · listing-vs-record cross-check (in-law/guest red flags) + added-sqft cross-ref to the
+> jacket · annexation/dual-municipality records custody · change-out/grandfather (SFBC→FBC) · footer stamp = time +
+> supersedes. **Any seat runs it cold; it is turn-key A-to-Z for a jacket whose image files it can reach.**
+> #tax-jacket #enhancement-protocol #protocol-lock #approved-2026-09-16 #TRK-2026-9788 #TRK-2026-1310 #CU-Inspections #MDC
+
 **Why this skill exists:** Jorge's spoken protocols become written skills so any agent can jump in
 and deliver without a briefing. This is the first. Gold-standard worked example:
 `01-JOBS…\TRK-2026-1310…\07-TAX-JACKET_2026-08-24\` (10980 SW 202 DR).
