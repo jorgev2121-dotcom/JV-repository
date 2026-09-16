@@ -239,6 +239,11 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   (10980 example: search snippets showed ~14,178 sq ft "finished" vs the PA's 11,146 adjusted — a ~27% gap to confirm
   is not unpermitted enclosed space — and a "2–4 units" aggregator tag vs the record's 16 units.)
 
+- **FOOTER STAMP — time + supersession, not "CURRENT" (Jorge, 2026-09-16).** Every page footer reads
+  `TRK-#### · v[N] · p[NN] · [YYYY-MM-DD] · [HH:MM TZ] · supersedes v[N-1]` — i.e. **replace the CLAUDE.md §9.2
+  "CURRENT" status word with the actual time and which version this one supersedes.** A superseded page keeps its own
+  old stamp; the new version names what it replaced. (Charter §9.2 to be updated to match.)
+
 - **FAINT-PAGE LEGIBILITY PASS (Jorge, 2026-09-16 — ratified after 10980 pp. 11 & 13).** For a page whose text is
   faint / low-contrast (dot-matrix and screen-dump printouts especially): **grayscale → autocontrast → deepen the ink
   (stretch mid-grays toward black, keep the background white — never binarize a photo) → crop to the content bounding
