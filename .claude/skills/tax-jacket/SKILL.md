@@ -228,6 +228,17 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   memory. The four buckets for laundry: electrical (dedicated circuits + GFCI/AFCI), dryer venting (rigid metal to
   exterior, backdraft damper, length limits), plumbing (standpipe height/trap), gas (line + venting).
 
+- **LISTING-HISTORY CROSS-CHECK (Jorge, 2026-09-16).** Search the public listing sites (**realtor.com, Zillow,
+  Redfin, LoopNet, Compass**) for the address and compare what the property was **marketed as** to the county record.
+  **Anything the listing claims BEYOND the record is a RED FLAG** — more beds/baths, more square feet, an extra unit,
+  or marketing language like **"mother-in-law quarters / in-law suite / guest house / detached (or attached) quarters /
+  bonus room / converted garage / enclosed patio-lanai / extra or income unit."** A listing describing space the permit
+  record does not support → **presume unpermitted until shown otherwise** (ties to the presumption rule). Any listing
+  claim that contradicts the record gets flagged. **Cloud is egress-blocked from realtor.com/Redfin/LoopNet/Compass** —
+  it can read search snippets but the full listing text + description + listing history is a **RAMBO browser pull**.
+  (10980 example: search snippets showed ~14,178 sq ft "finished" vs the PA's 11,146 adjusted — a ~27% gap to confirm
+  is not unpermitted enclosed space — and a "2–4 units" aggregator tag vs the record's 16 units.)
+
 - **FAINT-PAGE LEGIBILITY PASS (Jorge, 2026-09-16 — ratified after 10980 pp. 11 & 13).** For a page whose text is
   faint / low-contrast (dot-matrix and screen-dump printouts especially): **grayscale → autocontrast → deepen the ink
   (stretch mid-grays toward black, keep the background white — never binarize a photo) → crop to the content bounding
