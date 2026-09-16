@@ -204,7 +204,10 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
 - **PHOTO-BACK SNIP PROCEDURE (Jorge, 2026-09-16) — RULE: when a picture is followed by a page carrying folio +
   date** (the photo's back with folio, date, agent signature): **snip that folio/date/signature block, paste it onto
   the picture's own page, and transcribe it (OCR).** One sheet = photo (top) + its back-snip + transcription. Apply
-  to every photo/back pair — never leave the back as a separate loose page.
+  to every photo/back pair — never leave the back as a separate loose page. **Then REFERENCE the dated photo evidence
+  in the CONCLUSION** — a photo stamped with a folio + date (e.g. 11-20-67) is the visual baseline for the build year;
+  cite it by page ("baseline photos, pp. 3–5") and read later changes against it. **Cross-index the whole conclusion
+  with page numbers** (PA card p.X, permits p.Y) so the report is self-indexing.
 
 - **ERA-HAZARD / DEFECTIVE-MATERIAL LIST (Jorge, 2026-09-16).** Every report includes the full era-triggered
   hazard/defective-material list from the **verified Build-Year Red-Flags reference (`reference/CODE-ERA-REDFLAGS.md`)**,
