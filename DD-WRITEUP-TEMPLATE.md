@@ -65,6 +65,14 @@ substantiate it, the write-up says — verbatim shape:**
 **Never round a gap off to "clean" and never round it off to "illegal."** It is *undetermined*, and the
 resolution is a named next step (the county walk-through), not a guess.
 
+**GAP-COVERAGE RULE — check this BEFORE calling a gap item undetermined (owner, 2026-09-16).** The most telling
+evidence in a jacket is a **permit number dated after the original year built** — it can be the legally-permitted
+addition that *covers* the microfilm gap. So the write-up must first **list every post-build permit number**, and
+for each ask **which gap-era change it could legalize** (an "alter exterior" / "add-alt" permit can cover an earlier
+enclosed lanai or CB wall; a reroof covers only the roof). The named next step is then **"pull permit [#]'s scope"**:
+if it reaches the gap-era work, the exposure is **CURED**; only if no post-build permit covers it does the item stay
+*undetermined-pending-inspection*. Lead the verdict with this, not with the gap.
+
 ## Tone
 Plain words, short sentences, answer first. The homeowner should finish each property knowing: clean, loose
 end, or undetermined-pending-inspection — and what to do about it.

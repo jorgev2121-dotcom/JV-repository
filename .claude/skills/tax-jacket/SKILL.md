@@ -171,6 +171,18 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   unable to determine legal/compliant/unpermitted; subject to a county walk-through inspection to verify
   built-to-code." Never round a gap to "clean."
 
+- **THE GAP-COVERAGE RULE — most telling evidence (Jorge, 2026-09-16).** The single most telling thing in a
+  jacket is a **permit number dated AFTER the original year built.** Because 1961–1978 microfilm is missing/partial,
+  a later permit is often the only proof that gap-era work was legalized — so a post-build permit can be the
+  **legally-permitted addition that COVERS the microfilm gap.** Every report must therefore:
+  1. **Enumerate every permit number found after the year built**, newest context first.
+  2. For each, ask **which gap-era change (if any) it could cover** — an "alter exterior" / "add-alt" scope can
+     legalize an earlier enclosed lanai, CB wall, or addition; a reroof covers the roof only; etc.
+  3. State the action: **pull that later permit's scope** to confirm it reaches the gap-era work → if it does, the
+     gap exposure is **CURED**; if not, fall back to microfilm pull / county walk-through.
+  Lead the CONCLUSION with this analysis. A gap-era item is only UNDETERMINED **after** ruling out that a
+  later permit covers it — do not flag exposure while an un-read post-build permit could legalize it.
+
 ## Never
 - Never process only the first pages of an attachment.
 - Never write into ORIGINAL, never supersede without `_Superseded\` + `.bak` per charter.
