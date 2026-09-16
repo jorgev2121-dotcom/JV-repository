@@ -223,6 +223,12 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   reference's confidence tags and its "do not cite" fences verbatim. These are **inspection triggers, not findings** —
   the on-site inspection and building department make the call. (10980 worked example: aluminum wiring, lead, asbestos,
   cast-iron drain, galvanized, FPE/Zinsco all APPLY to a 1966 SoFla build; poly-B POSSIBLE via the 1989 work.)
+  **Where a hazard affects INSURABILITY or the MORTGAGE, say so** — it is often the deciding DD fact: e.g. **cast-iron
+  drains** (pipe usually excluded as wear/tear, some FL carriers won't write, a Service Line rider can help — insurer-
+  dependent) and **cloth/rubber-insulated wiring** (many FL insurers won't write / require a full copper rewire; the
+  4-point inspection flags it; **no insurance = no mortgage**). **Show a COUNT FLAG on the index and the hazards page —
+  "N of M APPLY" (e.g. "6 of 12 apply")** — so the owner sees at a glance how many need attention. All new hazard items
+  and insurer/lender notes go into `reference/CODE-ERA-REDFLAGS.md` (VERIFIED + sourced), never asserted from memory.
 
 - **APPLIANCE / SYSTEM CHANGE-OUT vs. GRANDFATHER — code-by-year (Jorge, 2026-09-16).** For fixtures/appliances like
   **washers & dryers** (and by extension AC, water heaters, panels): determine the code by year. In South Florida the

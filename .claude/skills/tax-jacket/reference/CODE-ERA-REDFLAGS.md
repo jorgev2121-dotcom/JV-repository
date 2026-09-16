@@ -66,6 +66,12 @@ reads). Full URLs in `SOURCES.md`.
 - **DD meaning:** **Any original cast iron in a pre-1975 South Florida home is past
   its failure window** and should be scoped/camera-inspected. This is a
   South-Florida-specific acceleration, not a national number.
+- **Insurance angle (VERIFIED 2026-09-16):** most homeowners policies **exclude** the
+  pipe repair/replacement itself as corrosion/wear-and-tear; **resulting water damage
+  may still be covered** depending on policy language; **some FL/LA carriers now
+  exclude, limit, or won't write** homes with original cast-iron drains; a **Service
+  Line Endorsement** rider can add coverage. Net: coverage **depends on the insurer +
+  policy** — flag it, don't assume. (Sources: FL cast-iron-claim attorney/insurance guides.)
 - **Tag: CONFIRMED** (era + accelerated SoFla failure) / **APPROX** (exact failure age
   varies 25–50 yr).
 
@@ -117,6 +123,23 @@ reads). Full URLs in `SOURCES.md`.
 - **Tag: CONFIRMED.**
 
 ---
+
+### A9. Cloth / rubber-insulated branch wiring
+- **Years:** Rubber-insulated conductors (frequently in a cloth sheath — "cloth wiring")
+  were standard through **~mid-1960s**, before thermoplastic (PVC / NM cable) insulation
+  took over. A **~1966 build straddles the changeover** — could be either.
+- **Why hazardous:** Rubber/cloth insulation dries out, turns brittle and crumbles,
+  exposing live conductor — a fire hazard, accelerated in **~150°F Florida attics**.
+- **Insurance / mortgage (VERIFIED 2026-09-16):** many FL insurers **won't write, or
+  will cancel,** a policy on a home with rubber-insulated (cloth) wiring, and often
+  **require a full copper rewire** first; the mandatory **4-point inspection reports it,
+  and no insurance = no mortgage.** **Distinction:** modern thermoplastic wire inside a
+  cloth SHEATH is acceptable — it is the **rubber-insulated conductor** that fails.
+- **DD meaning:** a pre-mid-1960s (or ~1966 transition) build → inspect for rubber/cloth
+  conductor insulation; treat as an **insurance/mortgage blocker**, not just a safety note.
+- **Tag: CONFIRMED** (hazard + insurer/lender treatment) / **APPROX** (exact
+  rubber→thermoplastic cutoff varies by region/builder). (Sources: FL home-insurance
+  wiring guides; home-inspection references, 2026.)
 
 ## Section B — Flood elevation / FEMA (the "sunroom vs. enclosed patio" dodge)
 
