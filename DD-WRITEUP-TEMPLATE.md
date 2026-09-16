@@ -77,9 +77,13 @@ if it reaches the gap-era work, the exposure is **CURED**; only if no post-build
 a permit is PRESUMED unpermitted work (a violation)**, rebuttable only by evidence (usually a later covering permit).
 State enclosures and additions as presumed-unpermitted-unless-shown-otherwise, never as neutral facts.
 
-**LOT-COVERAGE RULE (owner, 2026-09-16).** Where footprints are known, compare total footprint to the parcel's
-**maximum lot coverage**. If it exceeds the max, **search for a variance or resolution**; if found, **adjust the
-approved coverage to match it**; if none, the excess is a violation. Report the coverage %, the max, and the result.
+**LOT-COVERAGE RULE (owner, 2026-09-16, expanded).** Where footprints are known, compare total footprint to the
+parcel's **maximum lot coverage**. Use the max/setback from the zoning code **in effect the year the addition was
+added** if easy to find; otherwise the **current** standard (say which). **Search all zoning + variances/resolutions
+and state the number** of any found; if a variance exists, adjust the approved coverage to match. An excess with no
+variance is a violation. **Explain in five-year-old-plain language with a worked example** — dinner-plate analogy:
+the lot is a plate, the building is the food, coverage = how much of the plate is covered, setback = the empty rim,
+a variance = a permission slip to cover more (cite its number). Report the coverage %, the max, and the result.
 
 ## Tone
 Plain words, short sentences, answer first. The homeowner should finish each property knowing: clean, loose

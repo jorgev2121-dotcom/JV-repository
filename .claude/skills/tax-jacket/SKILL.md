@@ -188,10 +188,15 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   only by evidence (most often a later permit whose scope covers it, per the gap-coverage rule). Write enclosures
   and additions this way in the conclusion, not as neutral facts.
 
-- **LOT COVERAGE + VARIANCE (Jorge, 2026-09-16).** Where footprints can be determined, compare total footprint to
-  the parcel's **maximum lot coverage**. If it **exceeds** the max, **search county records for a variance or
-  resolution**; if one is found, **adjust the approved lot-coverage figure to match it**. An excess with no
-  variance/resolution is itself a violation. (Seats egress-blocked from the county hand the variance search to RAMBO.)
+- **LOT COVERAGE + VARIANCE (Jorge, 2026-09-16, expanded).** Where footprints can be determined, compare total
+  footprint to the parcel's **maximum lot coverage**. State the max/setback from the **zoning code IN EFFECT THE YEAR
+  THE ADDITION WAS ADDED** if that is readily findable; **otherwise fall back to the CURRENT setback + lot-coverage
+  standard, and say which was used.** **Search all applicable zoning + variances/resolutions and STATE THE NUMBER** of
+  any found; if a variance exists, **adjust the approved coverage to match it.** An excess with no variance/resolution
+  is itself a violation. **Write it in plain, five-year-old-simple language and give a worked example** — the
+  plate/food analogy: the lot is a dinner plate, the building is the food, "coverage" is how much of the plate the food
+  covers, "setback" is the empty rim you must leave, a "variance" is a permission slip to cover more (cite its number).
+  (Seats egress-blocked from the county hand the code/variance lookup to RAMBO.)
 
 - **PHOTO-BACK SNIP PROCEDURE (Jorge, 2026-09-16) — RULE: when a picture is followed by a page carrying folio +
   date** (the photo's back with folio, date, agent signature): **snip that folio/date/signature block, paste it onto
