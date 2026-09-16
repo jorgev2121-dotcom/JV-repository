@@ -198,6 +198,12 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   the picture's own page, and transcribe it (OCR).** One sheet = photo (top) + its back-snip + transcription. Apply
   to every photo/back pair — never leave the back as a separate loose page.
 
+- **FAINT-PAGE LEGIBILITY PASS (Jorge, 2026-09-16 — ratified after 10980 pp. 11 & 13).** For a page whose text is
+  faint / low-contrast (dot-matrix and screen-dump printouts especially): **grayscale → autocontrast → deepen the ink
+  (stretch mid-grays toward black, keep the background white — never binarize a photo) → crop to the content bounding
+  box → enlarge (~1.8×, LANCZOS) → center on a white page with a small margin.** Documents only (the photo branch
+  stays grayscale-from-original). Always eyeball the result to confirm it is actually more legible before adopting it.
+
 ## Never
 - Never process only the first pages of an attachment.
 - Never write into ORIGINAL, never supersede without `_Superseded\` + `.bak` per charter.
