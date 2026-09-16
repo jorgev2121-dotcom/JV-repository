@@ -242,6 +242,14 @@ work by potentially 5–6 years, and it is never proof of when (or whether) some
   (10980 example: search snippets showed ~14,178 sq ft "finished" vs the PA's 11,146 adjusted — a ~27% gap to confirm
   is not unpermitted enclosed space — and a "2–4 units" aggregator tag vs the record's 16 units.)
 
+- **ADDED-SQ-FT + YEAR CROSS-REFERENCE (Jorge, 2026-09-16).** Any added square footage flagged (from a listing, a
+  sketch, or the PA) must be **cross-referenced to the TAX JACKET's own stated sq-ft and the year** — they should
+  agree; a mismatch is itself a flag. **But this PA / tax-jacket sq-ft record is MIAMI-DADE-COUNTY (MDC) only** —
+  incorporated municipalities keep their own records and may not update the county's. So for a property in an
+  incorporated / annexed city, **determine the incorporation date and search dual-municipality** (county for the
+  pre-annexation period, the city after) — see the permit-expert annexation rule. (10980 example: Cutler Bay
+  incorporated Nov 2005, so its 1966+1989 records are MDC; post-2005 work would be Town of Cutler Bay.)
+
 - **FOOTER STAMP — time + supersession, not "CURRENT" (Jorge, 2026-09-16).** Every page footer reads
   `TRK-#### · v[N] · p[NN] · [YYYY-MM-DD] · [HH:MM TZ] · supersedes v[N-1]` — i.e. **replace the CLAUDE.md §9.2
   "CURRENT" status word with the actual time and which version this one supersedes.** A superseded page keeps its own

@@ -20,6 +20,18 @@ sites (miamidade.gov etc.) — so RAMBO/browser fetches the source docs and quot
 - **Microfilm / records coverage + retention** (missing-year ranges) · **Portals** (URLs, login/reCAPTCHA gates)
 - **Particularities / gotchas** (HVHZ, private-provider, legalization/after-the-fact path)
 
+## Annexation & records custody — search BOTH municipalities across the annexation date (owner, 2026-09-16)
+When a property sits in a **recently incorporated / annexed** municipality, **building records split by date**: the
+**county (unincorporated MDC) keeps records only up to ~the incorporation/annexation date**; the **new city keeps them
+after**. A complete search therefore may need **dual-municipality searches** — MDC for the pre-annexation period, the
+city for the post-annexation period. **The added-square-footage + year figures on the PA tax jacket are the COUNTY's
+(MDC) record — reliable for MDC-jurisdiction periods only; incorporated cities keep their own records and may not update
+the county's.** So always **determine the incorporation/annexation date first**, then decide whether one search or two.
+- **Cutler Bay** (worked, VERIFIED): town charter adopted by referendum **Nov 8, 2005, effective Nov 9, 2005** — 35th
+  MDC municipality, formed from unincorporated Cutler Ridge / Lakes-by-the-Bay (source: Cutler Bay town history / Wikipedia).
+  → **MDC holds a Cutler Bay property's building records through ~Nov 2005; Town of Cutler Bay after.** Example:
+  10980 SW 202 Dr (folio 30-6007-009-0030) — 1966 build + 1989 permits are all MDC-era; any post-2005 work → Cutler Bay.
+
 ## Modules — build ONE municipality at a time (Rule 5: never grind all at once)
 Priority = the municipalities with active jobs.
 | Module | Jurisdiction | Status | Seed (VERIFIED so far) |
@@ -28,6 +40,7 @@ Priority = the municipalities with active jobs.
 | `city-of-miami` | City of Miami | SEED | Open building-permit layer 2014→present (free, no login); pre-2014 = $44 microfilm; iBuild login-gated. |
 | `pembroke-pines` | Pembroke Pines (Broward) | SEED | **Broward County Uniform Building Permit Application (rev 01-08-2026)**; Bldg Dept 601 City Center Way, Pembroke Pines FL 33025; HVHZ; separate ELECTRICAL subpermit required; master lists GC qualifier + license. (from the filled Einar 8621 Pasadena app — VERIFIED form fields.) |
 | `broward-county` | Broward County (uniform app baseline) | SEED | Uniform Building Permit Application form fields (VERIFIED from filled app). |
+| `cutler-bay` | Town of Cutler Bay (Miami-Dade) | SEED | Incorporated **Nov 9, 2005** (from unincorporated MDC). **Records split: MDC through ~Nov 2005, Cutler Bay after** → dual-municipality search for post-2005 work. Building/permits via Town of Cutler Bay Building Dept. (VERIFIED incorporation date; forms/portal UNVERIFIED — fetch per job.) |
 | _more_ | (add per job) | — | — |
 
 ## Build procedure (per module)
