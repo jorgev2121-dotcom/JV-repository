@@ -61,3 +61,19 @@ OWNER-DIRECTIVE_ALWAYS-END-WITH-QUESTION-01 · HOA-AUTOPAY-01 · ONE-EXECUTOR-MA
 **Inventory:** all batches re-cut into the owner's Business-Brain columns (File · Category · Purpose · Dependencies · Confidence) in `atlas/ATLAS-INDEX.md`.
 **Data loss:** none — 5 in, 5 out, 2 intentionally held.
 **Rollback:** `git mv atlas/sops/<file> ./<file>` per file, or `git revert` the batch commit.
+
+---
+
+## Batch 4 — Connectors  → `atlas/connectors/`  (2026-09-17 ~04:52 UTC)
+
+**Moved (3, via `git mv`, verified):** INTEGRATION-MAP_ALL-SURFACES-01 · LLM-SUBSCRIPTIONS · WINDOW-CONFIG_ALL-SURFACES_2026-08-24.
+**Automation/hook/skill references to old paths:** NONE.
+**Forward dependency recorded (not blocking):** LLM-SUBSCRIPTIONS says a future "token agent / Conductor Part 1" will read it — that agent is not built yet, so the move is safe now; flagged in BUSINESS-BRAIN so whoever builds the Conductor points at the new path.
+**Data loss:** none — 3 in, 3 out, contents intact.
+**Rollback:** `git mv atlas/connectors/<file> ./<file>` per file, or `git revert` the batch commit.
+
+### Governance changes captured this batch
+- **Index renamed** `atlas/ATLAS-INDEX.md` → `atlas/BUSINESS-BRAIN.md` (owner: ATLAS is the project; the Business Brain is the company's memory).
+- **Rule 1.2** added — Migration Status column (Moved/Held/Locked/Needs Rewrite/Deprecated/Archive Candidate); the Brain is now the migration dashboard.
+- **ED-001** adopted — 3-way dependency split (Operational/Automation/Knowledge); discovery-not-optimization; Held-on-conflict.
+- **Principle 0 — Portability/Model-Neutrality** recorded — the Brain belongs to the company, not to any AI; a future model inherits it. Memory lives in open repo/Drive files, never a vendor's private memory feature.
