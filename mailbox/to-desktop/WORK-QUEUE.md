@@ -214,6 +214,33 @@ Jorge's words: *"We discussed. We agreed. And ultimately it was not done."* Find
 
 ---
 
+## 12. TRK-2026-9348 — RII read-only 1Password inventory (Jorge present, ~10 minutes)
+
+Script: `mailbox/to-desktop/RII-Inventory-ReadOnly.ps1`. Read-only, start to finish —
+verified against `CLAUDE.md` TRK-2026-9346 Section A (no executor ever sees, types,
+stores, or transmits a password value). It only reads `op whoami`, vault list, item
+list, and each item's username field — never the password/OTP fields, never
+`--reveal`. It never modifies, rotates, or deletes anything.
+
+1. Sit with Jorge, unlock 1Password.
+2. Run `.\RII-Inventory-ReadOnly.ps1` from this folder.
+3. It writes `Inventory.csv`, `Duplicates.csv`, `IdentityMap.json`, `UrlMap.json`,
+   `Top60.csv`, `Summary.md` to `C:\Users\JV\OneDrive\Documents\Reports\RII\<date>\` —
+   **local only. Do not commit that folder to this repo or paste its contents into
+   chat** — it contains real usernames/emails per account, which is personal data
+   even without a single password in it.
+4. Paste back only the console summary block (the `DONE.` line and the counts) —
+   that has no personal data in it, and it is what closes out TRK-2026-9348.
+5. Note in the paste: **the "Top 60" list is a heuristic (recency + identity-group
+   weight), not a measured usage ranking** — the `op` CLI doesn't expose real
+   usage-frequency data, so don't report it as if it were.
+
+**If `op` is not signed in or the CLI isn't enabled yet**, that's TRK-2026-9346
+Section C step 5 (1Password app → Settings → Developer → enable CLI) — do that first,
+then re-run.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
