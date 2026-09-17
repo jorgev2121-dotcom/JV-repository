@@ -66,6 +66,15 @@ Status vocabulary: **Moved · Held · Locked · Needs Rewrite · Deprecated · A
 | RECONCILER-OUTPUT-CHECK-SPEC.md | SOP | Spec for checking reconciler output (TRK-9114) | — | reconciler runs | Ledger/invoice data | Moved | Medium |
 | OCR-PROTOCOL.md | SOP | How a scanned/photographed doc becomes findable and filed | ORPHAN-NUMBERING | orphan-onboarding skill, night OCR sweep | OCR, folio format | Moved | High |
 
+## Executive layer → atlas/executive/  (created 2026-09-17, not migrated — born here)
+| File | Category | Purpose | Operational Deps | Automation Deps | Knowledge Deps | Migration Status | Confidence |
+|---|---|---|---|---|---|---|---|
+| EXECUTIVE-DASHBOARD.md | Executive | One screen: workstreams, blockers, migration status; links the other 4 | BUSINESS-BRAIN, the other 4 | — | Whole-business state | Moved | High |
+| CAPABILITY-REGISTRY.md | Executive | What the system can do; LIVE/PARTIAL/DOWN/PLANNED | RAMBO sheet, connectors | reflects skills/heartbeat | Capability landscape | Moved | High |
+| DECISION-LOG.md | Executive | Every decision, dated, with the reason | — | — | Session/owner history | Moved | High |
+| RISK-REGISTER.md | Executive | Ranked risks + mitigations + owners | — | reflects automation health | Operational risk | Moved | High |
+| BUSINESS-VOCABULARY.md | Executive | Plain-language glossary of our terms | — | — | All domains | Moved | High |
+
 ## Batch 4 — Connectors → atlas/connectors/
 | File | Category | Purpose | Operational Deps | Automation Deps | Knowledge Deps | Migration Status | Confidence |
 |---|---|---|---|---|---|---|---|

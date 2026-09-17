@@ -77,3 +77,10 @@ OWNER-DIRECTIVE_ALWAYS-END-WITH-QUESTION-01 · HOA-AUTOPAY-01 · ONE-EXECUTOR-MA
 - **Rule 1.2** added — Migration Status column (Moved/Held/Locked/Needs Rewrite/Deprecated/Archive Candidate); the Brain is now the migration dashboard.
 - **ED-001** adopted — 3-way dependency split (Operational/Automation/Knowledge); discovery-not-optimization; Held-on-conflict.
 - **Principle 0 — Portability/Model-Neutrality** recorded — the Brain belongs to the company, not to any AI; a future model inherits it. Memory lives in open repo/Drive files, never a vendor's private memory feature.
+
+---
+
+## Executive layer created (2026-09-17, before Batch 5) → `atlas/executive/`  · TRK-2026-9797
+Owner decision: five living documents that sit above the migration. **Born here, not migrated** (no source path, no move risk):
+EXECUTIVE-DASHBOARD · CAPABILITY-REGISTRY · DECISION-LOG · RISK-REGISTER · BUSINESS-VOCABULARY.
+All seeded with real content from work to date (not empty templates); all indexed in BUSINESS-BRAIN; the Dashboard links the other four.
