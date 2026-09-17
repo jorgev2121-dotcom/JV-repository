@@ -78,6 +78,7 @@ Registry: `atlas/automations/AUTOMATION-REGISTRY.md`. Desktop-only automations C
 | DECISION-LOG.md | Executive | Every decision, dated, with the reason | — | — | Session/owner history | Moved | High |
 | RISK-REGISTER.md | Executive | Ranked risks + mitigations + owners | — | reflects automation health | Operational risk | Moved | High |
 | BUSINESS-VOCABULARY.md | Executive | Plain-language glossary of our terms | — | — | All domains | Moved | High |
+| SYSTEM-OBSERVABILITY.md | Executive | What we can/can't see; blind spots + health status cards + first-light plan | AUTOMATION-REGISTRY, RISK-REGISTER | reflects every automation's sensor | Dead-sensor history (RI-015) | Moved | High |
 
 ## Batch 4 — Connectors → atlas/connectors/
 | File | Category | Purpose | Operational Deps | Automation Deps | Knowledge Deps | Migration Status | Confidence |

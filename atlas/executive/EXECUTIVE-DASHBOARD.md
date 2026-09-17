@@ -4,14 +4,15 @@
 
 ---
 
-## The executive layer (this + 4 siblings)
+## The executive layer (this + 5 siblings)
 1. **Executive Dashboard** (this file) — top-level status.
 2. **Capability Registry** — what the system can do, and what's down.
 3. **Decision Log** — every decision, dated, with the reason.
 4. **Risk Register** — what could bite us, ranked, with the mitigation.
 5. **Business Vocabulary** — plain-language glossary of our terms.
+6. **System Observability** — what we can/can't see; automation health cards + blind spots.
 
-All five sit above the migration. The migration dashboard itself is `atlas/BUSINESS-BRAIN.md`.
+All six sit above the migration. The migration dashboard itself is `atlas/BUSINESS-BRAIN.md`.
 
 ---
 
