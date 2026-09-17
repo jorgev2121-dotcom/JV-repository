@@ -45,3 +45,19 @@ OWNER-DIRECTIVE_ALWAYS-END-WITH-QUESTION-01 · HOA-AUTOPAY-01 · ONE-EXECUTOR-MA
 **Data loss:** none — 9 in, 9 out, contents intact.
 **Metadata:** indexed in `atlas/ATLAS-INDEX.md`.
 **Rollback:** `git mv atlas/owner-directives/<file> ./<file>` per file, or `git revert` the batch commit.
+
+---
+
+## Batch 3 — SOPs  → `atlas/sops/`  (2026-09-17 ~04:42 UTC)
+
+**Moved (5, via `git mv`, verified):** NIGHT-PROTOCOL · HANDOFF-PROTOCOL_TWO-SEAT-01 · ORPHAN-ONBOARDING-SWEEP · RECONCILER-OUTPUT-CHECK-SPEC · OCR-PROTOCOL.
+
+**⛔ STOP-AND-RECORD (Rule 6) — 2 files HELD at root, NOT moved:**
+- **ORPHAN-NUMBERING.md** — `.claude/skills/orphan-onboarding/SKILL.md` reads it by bare name twice ("Read ORPHAN-NUMBERING.md for the current high-water mark"). Moving it would break the orphan-onboarding skill.
+- **DD-WRITEUP-TEMPLATE.md** — `permit-expert` and `tax-jacket` skills reference it by bare name. Moving it would break those skills.
+- **Resolution (deferred to standardize phase):** move the file AND update the skill's path reference in the SAME commit, then verify the skill loads. Recorded, not fixed now.
+
+**Other automation/hook references to the 5 moved files:** NONE.
+**Inventory:** all batches re-cut into the owner's Business-Brain columns (File · Category · Purpose · Dependencies · Confidence) in `atlas/ATLAS-INDEX.md`.
+**Data loss:** none — 5 in, 5 out, 2 intentionally held.
+**Rollback:** `git mv atlas/sops/<file> ./<file>` per file, or `git revert` the batch commit.
