@@ -214,6 +214,42 @@ Jorge's words: *"We discussed. We agreed. And ultimately it was not done."* Find
 
 ---
 
+## 13. TRK-2026-1667 — Cutlerwood Apartments (10980 SW 202nd Dr, Unit 29) permit package (Jorge present)
+
+**Not for RAMBO — every step here needs a human watching.** Password sign-in and a
+CAPTCHA-gated county portal are both RED under the Night Protocol; RAMBO runs
+unattended and must not touch either.
+
+1. **Open the Outlook email directly** (Miguel Zaldivar → Jorge, 2026-09-14, subject
+   "FOR SIGNATURE - Permit Application and Notice of Commencement - 10980 SW 202nd Dr,
+   Unit 29 - TRK-2026-1667"). Open the attachment `3225_001.pdf`. Check whether the
+   signature and notary lines next to **Eli Bleeman**'s name are filled in and
+   notarized, or still blank (the last version cloud could read, from 9/10, had them
+   blank). Report which.
+2. **Fix the Microsoft sign-in loop**, with Jorge present: the sign-in popup showed
+   `Microsoft - personal account, jorge@teamusasales.com` — that's a personal-MSA vs
+   work-tenant (Azure AD) mismatch, not a wrong password. Dismiss that popup, go to
+   `login.microsoftonline.com` fresh (no autofill), and try Windows Hello / PIN /
+   security key first if offered. Only reset the password if still required —
+   1Password suggests and saves it, Jorge clicks and types, nobody else touches it.
+   If it still fails with the same error after that, it's a different problem —
+   report the exact error text back, don't keep retrying blind (lockout risk).
+3. **Once signed in**, use the blue Miami-Dade "Application for Plan Revision / Shop
+   Drawing" form for the balcony repair job at this same address (folder `109❖
+   Property` on the visible Desktop) — Job Address and Owner's Name are already
+   confirmed (10980 SW 202nd Dr, Unit 29, Miami FL 33189 / Eli Bleeman); Master Permit
+   Number and Contractor/Qualifier fields are still open — pull them from the same
+   PDF or the master permit record once logged in.
+4. **The MDC building permitting portal login is CAPTCHA-gated** — this is desktop +
+   Jorge only, never cloud, never RAMBO. Log in under `jorge@teamusasales.com` as he
+   already confirmed he's registered.
+
+**Evidence required:** signed/blank status of the PDF, the actual MS365 error text if
+the fix in step 2 doesn't work, and confirmation of portal login (`whoami`-equivalent
+screenshot or account name shown after login).
+
+---
+
 ## 12. TRK-2026-9348 — RII read-only 1Password inventory (Jorge present, ~10 minutes)
 
 Script: `mailbox/to-desktop/RII-Inventory-ReadOnly.ps1`. Read-only, start to finish —
