@@ -18,6 +18,16 @@
 
 **Read in one line:** the memory, the code, and the connectors are green; **everything that runs on the Desktop is a question mark, and the link that would let Cloud see it is offline.**
 
+## 📈 MATURITY INDEX (owner scorecard, 2026-09-17) — overall ≈ 70%
+- **95%** Executive Layer ▓▓▓▓▓▓▓▓▓░
+- **92%** Permit Processing ▓▓▓▓▓▓▓▓▓░
+- **84%** County Lookup ▓▓▓▓▓▓▓▓░░
+- **72%** Business Brain ▓▓▓▓▓▓▓░░░
+- **61%** Automation ▓▓▓▓▓▓░░░░
+- **18%** Infrastructure ▓▓░░░░░░░░ ← **the weak link**
+
+**Read in one line:** the *thinking* layers are strong (permits, lookups, the Brain, the executive view); **the *plumbing* is weak.** Infrastructure at 18% is Remote Control offline + desktop blind + computer-use not on Windows. **That's where the next real gain is — not more documents.**
+
 ---
 
 ## ⛔ NEEDS JORGE (RED — one click each)
