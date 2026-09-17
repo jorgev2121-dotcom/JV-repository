@@ -15,6 +15,7 @@
 | 2026-09-17 | Principle 0 — Business Brain is vendor-neutral; a future model inherits it | No single AI is a point of failure | Jorge | ACTIVE |
 | 2026-09-17 | Never fix a blocker quietly — mark Held, record the reference, move on | One catch saved hours/days of later debugging | Jorge | ACTIVE |
 | 2026-09-17 | Add the 5-doc executive layer | An executive view above the migration | Jorge | ACTIVE |
+| 2026-09-17 | ED-003 — every automation gets an Execution Profile | Operational visibility; catch silent death early (RI-015) | Jorge | ACTIVE |
 | 2026-09-17 | Approve Cloud as 2nd executor (Rule 10) | Pre-authorize for when computer-use reaches Windows | Jorge | RECORDED — pending Windows |
 | (prior) | VOID the Medley $10,600 invoice | Owner batch-approval decision | Jorge | DONE |
 | (prior) | Business tax license — PAID | Owner batch-approval decision | Jorge | DONE |

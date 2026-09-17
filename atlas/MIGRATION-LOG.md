@@ -84,3 +84,14 @@ OWNER-DIRECTIVE_ALWAYS-END-WITH-QUESTION-01 · HOA-AUTOPAY-01 · ONE-EXECUTOR-MA
 Owner decision: five living documents that sit above the migration. **Born here, not migrated** (no source path, no move risk):
 EXECUTIVE-DASHBOARD · CAPABILITY-REGISTRY · DECISION-LOG · RISK-REGISTER · BUSINESS-VOCABULARY.
 All seeded with real content from work to date (not empty templates); all indexed in BUSINESS-BRAIN; the Dashboard links the other four.
+
+---
+
+## Batch 5 — Automations  → `atlas/automations/`  (2026-09-17 ~05:10 UTC)
+
+**Moved (6, via `git mv`, verified):** AUTONOMY · AUTONOMY-ARCHITECTURE · ORCHESTRATOR-SPEC_CONDUCTOR-01 · OVERNIGHT-QUEUE · HEARTBEAT-BASELINES · PANEL-ENHANCEMENTS.
+**Automation/hook/skill references to old paths:** NONE. No Held items this batch.
+**ED-003 applied:** created `atlas/automations/AUTOMATION-REGISTRY.md` — Execution Profiles for 8 automations (3 repo-side LIVE & Cloud-verified; 3 desktop-side Unknown-from-Cloud; 1 cloud trigger Unknown; 1 PLANNED Conductor).
+**KEY FINDING:** Cloud cannot verify desktop scheduled-task health (heartbeat, overnight watcher, OCR sweep). Recorded as Unknown; ties to Risk R2 (silent death) and R4 (Remote Control down). Needs a RAMBO last-run + output-growth report.
+**Data loss:** none — 6 in, 6 out.
+**Rollback:** `git mv atlas/automations/<file> ./<file>` per file, or `git revert` the batch commit.

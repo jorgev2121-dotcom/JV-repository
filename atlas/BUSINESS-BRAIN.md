@@ -26,6 +26,10 @@ Status vocabulary: **Moved · Held · Locked · Needs Rewrite · Deprecated · A
 
 **On a movement-blocking dependency: do NOT repair, do NOT work around. Mark Held, record exactly what references it, continue the batch.** Objective of this phase is **discovery, not optimization.**
 
+**Executive Directive ED-003 (owner, 2026-09-17):** every automation discovered gets an **Execution Profile** —
+Name · Trigger · Frequency · Runs On · Dependencies · Failure Mode · Human Approval · Current Health.
+Registry: `atlas/automations/AUTOMATION-REGISTRY.md`. Desktop-only automations Cloud cannot verify read **Unknown (not verifiable from Cloud)** until RAMBO confirms.
+
 **Confidence key:** High = Cloud has read the file · Medium = inferred from title + context · Low = guess.
 
 ---
@@ -81,6 +85,17 @@ Status vocabulary: **Moved · Held · Locked · Needs Rewrite · Deprecated · A
 | INTEGRATION-MAP_ALL-SURFACES-01.md | Connector | Every AI surface and how far each can join the loop (Tier 1/2/3) | HANDOFF-PROTOCOL_TWO-SEAT-01 | Cloud + RAMBO heartbeats; Zapier/CData | Cross-LLM capability ceilings | Moved | High |
 | LLM-SUBSCRIPTIONS.md | Connector | Contact sheet + usage/balance, one block per provider | — | **FUTURE: token agent / Conductor Part 1 reads it (not yet built — flag if built expecting root path)** | Provider account/usage | Moved | High |
 | WINDOW-CONFIG_ALL-SURFACES_2026-08-24.md | Connector | Claude windows configuration & restore sheet | WINDOW-HYGIENE-01 | Per-session specs | — | Moved | Medium |
+
+## Batch 5 — Automations → atlas/automations/
+| File | Category | Purpose | Operational Deps | Automation Deps | Knowledge Deps | Migration Status | Confidence |
+|---|---|---|---|---|---|---|---|
+| AUTONOMY.md | Automation | What an executor may do without asking | RED/GREEN, OWNER-GATES | enforced by every seat | — | Moved | High |
+| AUTONOMY-ARCHITECTURE.md | Automation | How to get Jorge out of the loop (Remote Control / heartbeat / files) | HANDOFF-PROTOCOL | heartbeat, cloud triggers | — | Moved | High |
+| ORCHESTRATOR-SPEC_CONDUCTOR-01.md | Automation | Spec for the always-on local orchestrator (redundancy) | LLM-SUBSCRIPTIONS | PLANNED Conductor | Token/subscription mgmt | Moved | High |
+| OVERNIGHT-QUEUE.md | Automation | Mundane batch work queued for the night | NIGHT-PROTOCOL | overnight watcher | — | Moved | High |
+| HEARTBEAT-BASELINES_2026-08-18.md | Automation | Baselines so a hang can be told from a run | — | heartbeat health check | — | Moved | Medium |
+| PANEL-ENHANCEMENTS.md | Automation | Backlog for window router (F8) + subscriptions launcher (F9) | WINDOW-CONFIG | desktop panels | — | Moved | Medium |
+| AUTOMATION-REGISTRY.md *(born here, ED-003)* | Automation | Execution Profiles for every automation | AUTONOMY-ARCHITECTURE | catalogs all automations | — | Moved | High |
 
 ---
 
