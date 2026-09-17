@@ -73,7 +73,8 @@ Registry: `atlas/automations/AUTOMATION-REGISTRY.md`. Desktop-only automations C
 ## Executive layer → atlas/executive/  (created 2026-09-17, not migrated — born here)
 | File | Category | Purpose | Operational Deps | Automation Deps | Knowledge Deps | Migration Status | Confidence |
 |---|---|---|---|---|---|---|---|
-| EXECUTIVE-DASHBOARD.md | Executive | One screen: workstreams, blockers, migration status; links the other 4 | BUSINESS-BRAIN, the other 4 | — | Whole-business state | Moved | High |
+| OPERATIONS-CENTER.md | Executive | The front door / console: live status board, RED-needs-Jorge, the whole map | all executive docs, BUSINESS-BRAIN | reflects system status | Whole-business state | Moved | High |
+| EXECUTIVE-DASHBOARD.md | Executive | One screen: workstreams, blockers, migration status; links the others | BUSINESS-BRAIN, the other execs | — | Whole-business state | Moved | High |
 | CAPABILITY-REGISTRY.md | Executive | What the system can do; LIVE/PARTIAL/DOWN/PLANNED | RAMBO sheet, connectors | reflects skills/heartbeat | Capability landscape | Moved | High |
 | DECISION-LOG.md | Executive | Every decision, dated, with the reason | — | — | Session/owner history | Moved | High |
 | RISK-REGISTER.md | Executive | Ranked risks + mitigations + owners | — | reflects automation health | Operational risk | Moved | High |

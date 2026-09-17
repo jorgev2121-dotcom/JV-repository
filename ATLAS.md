@@ -9,7 +9,7 @@
 ## 🧠 The Business Brain & Executive layer  → `atlas/`
 - **atlas/BUSINESS-BRAIN.md** — the company's memory + the migration dashboard (start here).
 - **atlas/MIGRATION-LOG.md** — every batch: source, destination, time, issues.
-- **atlas/executive/** — EXECUTIVE-DASHBOARD · CAPABILITY-REGISTRY · DECISION-LOG · RISK-REGISTER · BUSINESS-VOCABULARY · SYSTEM-OBSERVABILITY.
+- **atlas/executive/** — OPERATIONS-CENTER · EXECUTIVE-DASHBOARD · CAPABILITY-REGISTRY · DECISION-LOG · RISK-REGISTER · BUSINESS-VOCABULARY · SYSTEM-OBSERVABILITY.
 
 ---
 
