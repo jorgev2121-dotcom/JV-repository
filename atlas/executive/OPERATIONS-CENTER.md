@@ -55,6 +55,7 @@
 - **DECISION-LOG** — every decision, dated
 - **RISK-REGISTER** — ranked risks + mitigations
 - **SYSTEM-OBSERVABILITY** — what we can/can't see + health cards
+- **INFRASTRUCTURE-REGISTER** — the plumbing punch list behind the 18%
 - **BUSINESS-VOCABULARY** — glossary
 **Automations:** `atlas/automations/` (+ AUTOMATION-REGISTRY execution profiles)
 **Connectors:** `atlas/connectors/` · **RAMBO:** `atlas/rambo/` · **SOPs:** `atlas/sops/`

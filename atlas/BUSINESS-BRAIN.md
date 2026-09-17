@@ -80,6 +80,7 @@ Registry: `atlas/automations/AUTOMATION-REGISTRY.md`. Desktop-only automations C
 | RISK-REGISTER.md | Executive | Ranked risks + mitigations + owners | — | reflects automation health | Operational risk | Moved | High |
 | BUSINESS-VOCABULARY.md | Executive | Plain-language glossary of our terms | — | — | All domains | Moved | High |
 | SYSTEM-OBSERVABILITY.md | Executive | What we can/can't see; blind spots + health status cards + first-light plan | AUTOMATION-REGISTRY, RISK-REGISTER | reflects every automation's sensor | Dead-sensor history (RI-015) | Moved | High |
+| INFRASTRUCTURE-REGISTER.md | Executive | The plumbing punch list behind "Infra 18%": component · status · blocker · action | SYSTEM-OBSERVABILITY, RISK-REGISTER | Remote Control, hooks, scheduled tasks | Machine/network infra | Moved | High |
 
 ## Batch 4 — Connectors → atlas/connectors/
 | File | Category | Purpose | Operational Deps | Automation Deps | Knowledge Deps | Migration Status | Confidence |
