@@ -28,6 +28,12 @@ Apply `atlas/sops/OCR-PROTOCOL.md` to EVERY snip and jacket page:
 2. **Include both jacket copies (original + enhanced) and the microfilm.**
 3. **Drop the package into desktop Tray 3.** Then tell Jorge it's there.
 
+## JOB 5 — Two lookups the 7823 NW 5 Ave ADU analysis is waiting on (City of Miami)
+The infill-duplex-ADU addendum (ALEC-7823-NW-5-AVE_..._TRK-2026-1292) is complete EXCEPT one data point it can't get (county/GIS egress-blocked from Cloud). Pull these two so the subject-vs-required comparison can close:
+1. **County/City property card → the lot area + width + dimensions** for folio **01-3112-016-0030** (13-digit 0131120160030).
+2. **Zoning transect** for the parcel on gis.miami.gov (confirm T3-O vs T4-R) + confirm the City ADU ordinance adoption date.
+Then hand the two figures back so the addendum's Section F (5%/variance check) can be finished.
+
 ## RED / GREEN
 - GREEN: OCR, snips, report assembly, Tray 3 placement (new files only).
 - **RED (one owner click each):** the 4 login-gated sources; **any filing/move/rename of a client document** stays RED — this order PREPARES filing, it does not execute it.
