@@ -241,6 +241,37 @@ then re-run.
 
 ---
 
+## 13. TRK-2026-9949 — Owner directive 2026-09-19: 3 desktop-executable approvals, plus dead-automation reactivation and 5 missing task-board files
+
+**Jorge said "all approved as recommended" live in chat.** Full split in `OWNER-GATES.md`
+under "OWNER DIRECTIVE 2026-09-19." Your three:
+
+1. **`REG-0006`** — send the drafted COI refile email to RER Licensing (Outlook Drafts).
+2. **`NEW-03`** — send the drafted 5-report email to Wally Milian + Alec Valdes (Outlook Drafts, since 2026-07-30).
+3. **`NEW-05`** — close the line: confirm Zoho CRM dropped / shared workbook is CRM of record (already true, just mark it CLOSED in the register).
+
+**"Reactivate if dead"** — `MY-TASK-BOARD.html`'s own live check reported **7 working, 2 out
+of date, 5 dead**. Enumerate which of the "RUNNING FOR YOU" automations (skip-trace merge,
+follow-up radar, REGISTRAR-01, inbox job watcher, typing shield, housekeeper, doc-intake)
+are actually dead vs just showing stale output, and reactivate the true dead ones. Same
+RI-001/RI-015 shape: a disabled task looks identical to one that ran and found nothing —
+check Task Scheduler history, don't just re-enable and hope.
+
+**Separately — 5 buttons on `MY-TASK-BOARD.html` are grayed out because the files they
+point at don't exist on disk:** `OWNER-APPROVALS-PENDING.hta`, `RUNNING-LOG.html`,
+`MARKETING-REPORTS.hta`, `SKIP-TRACE-ONE-CLICK.hta`, `TODAY-CALL-LIST.html`. Find whatever
+script generates the task board and find out why these five were never written — that's
+the actual defect, not the missing files themselves (regenerating them by hand would just
+go stale again).
+
+**Also reported: Jorge could not click the OK/action button on this same task board.**
+Possible RI-023 family (that RI is windows opening off-screen / behind others / minimized
+on this exact control-panel setup) rather than a broken button — before assuming the button
+itself is broken, check whether the dialog is rendering off the visible monitor or behind
+another window. If it's a genuinely broken `onclick`, that's a new finding — log it.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
