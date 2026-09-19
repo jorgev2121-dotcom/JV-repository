@@ -334,6 +334,19 @@ started yet" is a valid answer — silence is not.
 
 ---
 
+## 17. TRK-2026-9956 — MY-TASK-BOARD.html still shows "13 waiting on YOU" after Jorge's live approval
+
+Jorge approved all 13 recommended-APPROVE gates live in chat on 2026-09-19 (full detail
+in `OWNER-GATES.md` under "OWNER DIRECTIVE 2026-09-19"). He just pasted the board again
+and it still reads **13 waiting on you** — the approval hasn't reached whatever generates
+that count. This is the RI-005 recurrence already logged (repo ledger and desktop board
+don't share a source). **Find whatever writes the board's "APPROVALS — YOUR YES/NO"
+section (the approvals sheet / REGISTRAR-01 feed) and mark those 13 answered there**, not
+just in this repo — otherwise the board will keep telling him he owes 13 answers he
+already gave, forever.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
