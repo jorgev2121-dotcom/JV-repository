@@ -89,3 +89,4 @@ enough to identify it exactly, with no description needed.
 - **PASTE-X-005** · 2026-08-25 · ChatGPT → operating-agreement/handshake (honest: no direct channel exists; makes Jorge a pass-through not a thinker). File: CHATGPT-OPERATING-AGREEMENT_PASTE-X-005.md
 - **PASTE-D-033** · 2026-09-17 · Desktop → run `mailbox/to-desktop/RII-Inventory-ReadOnly.ps1` (item 12 in `WORK-QUEUE.md`) — read-only 1Password inventory for TRK-2026-9348; paste back only the console summary, never the local CSV/JSON output
 - **PASTE-X-006** · 2026-09-19 · Cloud → Cowork (🤝) → click "Finish setup" on CData Connect AI, Google Calendar, Google Drive in the ChatGPT desktop Plugins page; sign in as Jorge at each login prompt (Chrome, his default browser)
+- **PASTE-X-007** · 2026-09-19 · Cloud → Cowork (🤝) → re-authenticate the expired ChatGPT desktop plugins (whichever now show "reconnect"/expired, not just unfinished setup); sign in as Jorge at each prompt (Chrome)
