@@ -241,6 +241,89 @@ then re-run.
 
 ---
 
+## 13. OD-107 — Two sign-in failures, ONE cause: 1Password is locked and not answering (rides on TRK-2026-9346)
+
+**Issued by cloud 2026-09-19 from Jorge's four screenshots. Both the Desktop Executor and
+Cowork are authorized to work this item; Jorge only touches Windows Hello or his master
+password — nobody else ever types, reads, or records a password value.**
+
+**Symptom A — Word.** Account page shows "Account Error — please sign in again" → Fix me →
+Microsoft says "We couldn't sign you in — something went wrong when trying to sign in
+with a passkey" → Windows Security pops "Insert your security key into the USB port."
+Jorge has no USB key. Sign-in dies.
+
+**Symptom B — 9Router.** The local AI-router dashboard (`localhost`, orange "9Router"
+page) rejects the password 1Password fills. It now says **"3 attempt(s) left before
+lockout."** The page itself prints "Default password is 123456."
+
+**Root cause (cloud's read).** Microsoft has a **passkey** registered for
+`jorge@teamusasales.com`. When Word asks for it, Windows hands the request to the
+passkey provider on this PC — that is 1Password. **1Password has been sitting on its
+own unlock screen for days** (MORNING-REPORT_2026-09-05, "1Password is sitting on its
+own unlock screen"). A locked provider cannot answer, so Windows falls back to
+"insert a hardware key," and the sign-in fails. **The same lock explains B:** locked,
+the extension either fills nothing or fills the wrong `localhost` item — every local
+app (LiteLLM, the VTS panel, 9Router) shares the hostname `localhost`, so 1Password
+cannot tell their entries apart unless the saved URL carries the port.
+
+This is not 1Password failing. It is 1Password locked, plus Section C of
+TRK-2026-9346 (Hello unlock, default-manager, passkey provider) never finished.
+Logged as **RI-046**.
+
+### Steps — in this order
+
+1. **Unlock 1Password** (Jorge present: face/PIN, or his master password). Then turn on
+   1Password app → Settings → Security → **Unlock with Windows Hello** (Section C
+   step 4) so this cannot silently happen again. **Evidence:** `op whoami` prints the
+   account (paste the account name line only).
+2. **Make 1Password the Windows passkey provider.** Windows Settings → Accounts →
+   Passkeys → Advanced options → **1Password ON**. Then 1Password app → Settings →
+   Security → **"Save and sign in with passkeys" ON**. Report each toggle's
+   before-and-after state in words.
+3. **Retry Word.** Word → Account → **Fix me**. If the passkey prompt now goes to
+   1Password and signs in: done — report "Account page shows no yellow box."
+   If Windows still asks for a USB key: click **"Sign in another way"** → password →
+   Authenticator/phone code → sign in. That gets Word working today. Then report
+   "passkey path still broken" — it means the passkey lives on the iPhone, not this PC.
+   Fix for that: at `mysignins.microsoft.com` → Security info → **Add sign-in method →
+   Passkey** → save it to 1Password on this PC (1Password's generated credential is
+   pre-approved under TRK-2026-9346 Section B).
+4. **9Router — stop guessing first** (lockout). Find the install and its config:
+   `Get-Process | Where-Object { $_.Path -like '*9router*' }` and
+   `Get-ChildItem $env:USERPROFILE -Filter '*9router*' -Recurse -Depth 3`.
+   Read the dashboard-password setting in its config or `.env` — **read it, never paste
+   it.** If it is still the default, dismiss the 1Password popup (Esc) and type `123456`
+   by hand. If it is not the default, reset it per 9Router's README to a
+   1Password-generated value and save it as a **new 1Password item titled
+   `9Router (localhost:<port>)` with the full URL including the port**, so autofill
+   matches the port and stops colliding with the other localhost apps. Do the same
+   port-in-URL fix for every other localhost login (LiteLLM, VTS panel).
+5. **Suspect to check once in — RI-018.** The hourly PAD routine
+   `PAD - Verification Code Monitor (Hourly)` auto-re-requests Microsoft security codes.
+   Repeated code requests are exactly what trips Microsoft's risk detection and
+   invalidates Office's sign-in token, which would make Symptom A come back every few
+   weeks. **Recommendation: disable it** (Task Scheduler / Power Automate → turn off,
+   do not delete) and log the before/after state. Jorge told cloud today "get the
+   situation under control"; cloud reads that as a yes on this — proceed unless he
+   objects. Closes TRK-2026-9051.
+
+### Evidence to paste back (TO-CLOUD.md)
+
+- `op whoami` account line.
+- Passkey-provider toggle: before → after.
+- Word Account page: yellow box gone, yes/no. Passkey path fixed, or password path used.
+- 9Router dashboard reached, yes/no. Lockout counter cleared, yes/no.
+- RI-018 routine: still enabled / disabled, with the task's last-run time.
+
+### Never
+
+- Never type, screenshot, or store a password value anywhere — chat, repo, Drive.
+- Never insert an unknown USB device to satisfy the "security key" prompt.
+- Never turn Edge's or Chrome's password manager back on to "help."
+- Never keep guessing at 9Router — a lockout turns a five-minute fix into a reinstall.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
