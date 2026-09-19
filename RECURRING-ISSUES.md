@@ -340,6 +340,20 @@ Code session — desktop and cloud — reads it automatically at startup.
 
 **Verification still required:** confirm a desktop session actually loads this file.
 
+**RECURRENCE 2026-09-19 — one layer up: the LEDGERS aren't shared, not just the sessions.**
+Jorge pasted the full contents of his desktop `MY-TASK-BOARD.html`. Its "BLOCKED" section
+lists 10 items (`REG-R0020` through `REG-R0045`) — old `NEEDS-OWNER` popups and missed ACKs
+from 2026-07-29 through 2026-08-03. **None of them exist anywhere in this repo** —
+`OPEN-ITEMS.md`, `OWNER-GATES.md`, `RECURRING-ISSUES.md` — checked by grep, zero hits.
+The desktop board and the repo ledger are two independent partial views of "what Jorge is
+owed an answer on," each missing items the other has. The CLAUDE.md fix (§10, session
+start) prevents a session from forgetting the charter; it does nothing to keep two
+**different storage locations** in sync with each other. Same root cause, one level
+higher: whichever system last touched a decision is the only one that knows it exists.
+**Not yet re-tiered — first: pull the 10 REG-R00xx items' full source so they can be
+answered at all; only then decide whether the fix is one-way mirroring (repo authoritative,
+board reads from it) or two-way reconciliation.**
+
 ---
 
 ## RI-006 — Bridge launcher cannot start the Claude MS Store app
