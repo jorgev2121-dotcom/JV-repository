@@ -822,6 +822,18 @@ only the filename. **The OCR pipeline is not honouring the charter.**
 OCR time**, derived from the containing job folder. Retrofitting later is far more
 expensive and, for generic sheet names, sometimes impossible.
 
+**RECURRENCE — 2026-09-19 (owner):** *"The DD reports are failing to use the OCR protocol
+to make the matches."* Same defect, now blocking the Alec DD package (TRK-2026-9047):
+OCR runs but documents aren't tied to a TRK/folio, so the report can't match them.
+Because this is now logged 2+ times (RI-016 + the ingestion-gate variant + RI-015 family),
+**patches are forbidden per charter Rule 4. Three ranked options owed to owner (see reply
+2026-09-19):** (1) Tier-1 per-run reminder to OCR-and-stamp — decays, days; (2) Tier-2 fix
+the OCR builder to stamp TRK at OCR time — durable per file; (3) Tier-2/3 an **ingestion gate**
+that refuses to emit a sidecar with no TRK + a nightly enforcement sweep that re-stamps drift.
+Recommended: option 3 (gate + enforcement), because option 2 alone still lets a mis-configured
+run produce unstamped sidecars silently. The 2026-09-19 RAMBO work order applies the OCR-match
+gate to the Alec package as the immediate stopgap while the durable fix is chosen.
+
 ---
 
 ## RI-017 — Long-path PDF failures in the OCR pipeline
