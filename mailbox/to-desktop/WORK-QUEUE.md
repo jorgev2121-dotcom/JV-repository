@@ -243,6 +243,11 @@ then re-run.
 
 ## 13. OD-107 — Two sign-in failures, ONE cause: 1Password is locked and not answering (rides on TRK-2026-9346)
 
+**Delivery note:** the desktop checkout cannot fast-forward (`git pull --ff-only`
+refused, 15 ahead / 92 behind — TO-CLOUD.md 7 PM ET), so this item was ALSO filed to
+`G:\My Drive\VTES-Inbox\MSG-CLOUD-TO-CODE_OD-107-SIGNIN-REPAIR_2026-09-19.md`. Same
+text; work from whichever copy you can read.
+
 **Issued by cloud 2026-09-19 from Jorge's four screenshots. Both the Desktop Executor and
 Cowork are authorized to work this item; Jorge only touches Windows Hello or his master
 password — nobody else ever types, reads, or records a password value.**
@@ -309,19 +314,28 @@ Logged as **RI-046**.
    `C:\Users\JV\.9router\db\data.sqlite` (check `%APPDATA%\.9router` too); the
    dashboard port is `20128`; `INITIAL_PASSWORD` (default `123456`) is honoured
    **only when no saved password hash exists.** So:
-   a. Dismiss the 1Password popup (Esc) and type `123456` by hand, once. If it works,
-      go to Settings and change it to a 1Password-generated value (pre-approved,
-      TRK-2026-9346 Section B) and save it as a **new 1Password item titled
-      `9Router (127.0.0.1:20128)` with the full URL including the port** so autofill
-      matches the port and stops colliding with the other localhost apps
-      (`localhost:8731`, LiteLLM, VTS panel — give each its own port-in-URL item).
-   b. If `123456` fails, someone set a password and it was never saved. **Do not
-      guess again.** Stop the 9router process (that also clears any in-memory attempt
-      counter), copy `data.sqlite` to `data.sqlite.bak-20260919`, then delete the
-      saved-password row from its settings table (`sqlite3 data.sqlite` → look in
-      the `settings` table for the password/hash key; delete only that row — the same
-      file holds every provider API key, so never delete the file). Restart 9router;
-      `123456` works again; then do step a.
+   **Cloud found the answer in TO-CLOUD.md (RAMBO, 2026-09-15 4:17 PM):** *"9Router:
+   logged into the dashboard with the password on file."* **The password is NOT
+   `123456` — the desktop lane set one and has it on file, and it was never put into
+   1Password.** That is the whole reason Jorge's attempts fail. So:
+   a. Desktop: find where you keep that 9Router password "on file" (your own
+      credential store / settings / the 09-06 install notes) and **save it as a new
+      1Password item titled `9Router (127.0.0.1:20128)` with the full URL including
+      the port** so autofill matches the port and stops colliding with the other
+      localhost apps (`localhost:8731`, LiteLLM, VTS panel — give each its own
+      port-in-URL item). Then Jorge's next visit fills correctly. Never paste the
+      value anywhere else.
+   b. Only if the on-file value cannot be found: stop the 9router process (that also
+      clears any in-memory attempt counter), copy `data.sqlite` to
+      `data.sqlite.bak-20260919`, then delete the saved-password row from its
+      settings table (`sqlite3 data.sqlite` → look in the `settings` table for the
+      password/hash key; delete only that row — the same file holds every provider
+      API key, so never delete the file). Restart 9router; `123456` works again;
+      change it in Settings to a 1Password-generated value (pre-approved,
+      TRK-2026-9346 Section B) and save per step a.
+   d. While in the dashboard: the 12-day standing blocker `9ROUTER-WIRE-NOW` is
+      Providers → Claude Code → Add New Connection → consent. If Jorge is present,
+      have him click it then and there — one click closes a 12-day blocker.
    c. Confirm at the end that 9router binds to `127.0.0.1` only, not `0.0.0.0` — the
       README's production example exposes it to the LAN, and the database holds live
       API keys (this is CVE-2026-63732, the default-password takeover).
