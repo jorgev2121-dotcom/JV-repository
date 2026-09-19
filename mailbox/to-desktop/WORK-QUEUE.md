@@ -272,6 +272,33 @@ another window. If it's a genuinely broken `onclick`, that's a new finding — l
 
 ---
 
+## 14. TRK-2026-9950 — Jorge asked to "refresh" LiteLLM, Ollama, 9Router — here's what each actually needs (not a uniform restart)
+
+**LiteLLM** (per TRK-2026-9738/9739, 2026-08-26): was healthy at `localhost:4001` for 7
+straight days, `db: Not connected` (admin UI loads but does nothing), and **every model
+route 401s because no real keys are wired in** — `ANTHROPIC_API_KEY` absent, OpenAI/
+OpenRouter placeholders. **The fix that was already found and never applied: a real
+Grok/xAI key (84 chars) is already sitting on the machine, unused.** Wire that in first
+(cheapest, no owner action needed) — 4-line config block into `litellm_config_4001.yaml`
+per the 2026-08-25 wiring note. Jorge still needs to paste a real `ANTHROPIC_API_KEY`
+himself for the Anthropic route (never accept it relayed through a report — paste-only,
+directly into the config, same rule as every other key).
+
+**Ollama** — confirmed down, nothing listening on `:11434` as of 08-26. Check whether the
+service exists and start it, or confirm intentionally not run.
+
+**9Router — do NOT install or restart. This one is not a refresh.** Per the RAMBO cycles
+2026-09-06 (11:41 / 11:57 / 12:50, mirrored in `TO-CLOUD_MIRROR_2026-09-08.md`), 9Router
+**was never installed** — it was correctly held BLOCKED three cycles running, including
+once refusing an "approval" that arrived relayed through another AI session rather than
+from Jorge directly, because it's an obscure, low-visibility package that would sit in
+front of provider credentials once installed globally. That reasoning hasn't been
+answered or overturned since. **If Jorge's "refresh...9Router" today is a fresh, direct
+yes to installing it, treat it as that — a new direct confirmation — and say so back to
+him in the register; don't fold it silently into a generic refresh pass.**
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
