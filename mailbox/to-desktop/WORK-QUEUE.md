@@ -323,6 +323,17 @@ one-click as Box or Slack.
 
 ---
 
+## 16. TRK-2026-9955 — Jorge wants a status check on the 14-connector work (item 15), not silence
+
+Report back now, whatever state you're in: how many of the 14 (Box, Codex Security,
+Figma, GitHub, Google Calendar, Google Drive, Linear, Notion, OpenAI Developers,
+Outlook Calendar, Outlook Email, SharePoint, Slack, Teams) are installed, how many
+still need Jorge's sign-in, and whether Codex Security / OpenAI Developers turned out
+to need more than a login (flagged in item 15 as possible org-admin scopes). "Not
+started yet" is a valid answer — silence is not.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
