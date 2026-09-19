@@ -340,6 +340,20 @@ Code session — desktop and cloud — reads it automatically at startup.
 
 **Verification still required:** confirm a desktop session actually loads this file.
 
+**RECURRENCE 2026-09-19 — one layer up: the LEDGERS aren't shared, not just the sessions.**
+Jorge pasted the full contents of his desktop `MY-TASK-BOARD.html`. Its "BLOCKED" section
+lists 10 items (`REG-R0020` through `REG-R0045`) — old `NEEDS-OWNER` popups and missed ACKs
+from 2026-07-29 through 2026-08-03. **None of them exist anywhere in this repo** —
+`OPEN-ITEMS.md`, `OWNER-GATES.md`, `RECURRING-ISSUES.md` — checked by grep, zero hits.
+The desktop board and the repo ledger are two independent partial views of "what Jorge is
+owed an answer on," each missing items the other has. The CLAUDE.md fix (§10, session
+start) prevents a session from forgetting the charter; it does nothing to keep two
+**different storage locations** in sync with each other. Same root cause, one level
+higher: whichever system last touched a decision is the only one that knows it exists.
+**Not yet re-tiered — first: pull the 10 REG-R00xx items' full source so they can be
+answered at all; only then decide whether the fix is one-way mirroring (repo authoritative,
+board reads from it) or two-way reconciliation.**
+
 ---
 
 ## RI-006 — Bridge launcher cannot start the Claude MS Store app
@@ -1074,6 +1088,18 @@ not missing effort.**
 or address is marked UNKNOWN and left where it is. **Filing to the wrong job folder is
 worse than leaving it unfiled**, because an unfiled document is merely missing while a
 misfiled one corrupts a job record.
+
+**RECURRENCE 2026-09-19 — the exact holding area named as item #1 above, now with a
+screenshot.** Jorge sent his real visible Desktop: ~150 icons, and asked for it fully
+cleaned, OCR'd, orphan-numbered, and moved to Master Tracking "A to Z" in one pass,
+handed to Cowork to execute immediately. **This is item 1 from this RI's own 2026-08-15
+list, unaddressed for five weeks, now bigger.** The Tier 1 ban above still applies —
+"hand it to Cowork, do it all now" is exactly the forbidden shape, at a larger blast
+radius than anything this RI has seen (150 icons, unknown file count behind the real
+folders, on a live unbacked-up desktop). **Split applied: survey + OCR + provisional
+OPH tagging (GREEN, new files only, nothing moved) dispatched immediately; the actual
+move-to-Master-Tracking step held for one owner review of the resulting plan**, per
+this RI's own Tier 3 answer and `AUTONOMY.md`'s filing=RED rule.
 
 ---
 

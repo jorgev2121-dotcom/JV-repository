@@ -241,6 +241,164 @@ then re-run.
 
 ---
 
+## 13. TRK-2026-9949 — Owner directive 2026-09-19: 3 desktop-executable approvals, plus dead-automation reactivation and 5 missing task-board files
+
+**Jorge said "all approved as recommended" live in chat.** Full split in `OWNER-GATES.md`
+under "OWNER DIRECTIVE 2026-09-19." Your three:
+
+1. **`REG-0006`** — send the drafted COI refile email to RER Licensing (Outlook Drafts).
+2. **`NEW-03`** — send the drafted 5-report email to Wally Milian + Alec Valdes (Outlook Drafts, since 2026-07-30).
+3. **`NEW-05`** — close the line: confirm Zoho CRM dropped / shared workbook is CRM of record (already true, just mark it CLOSED in the register).
+
+**"Reactivate if dead"** — `MY-TASK-BOARD.html`'s own live check reported **7 working, 2 out
+of date, 5 dead**. Enumerate which of the "RUNNING FOR YOU" automations (skip-trace merge,
+follow-up radar, REGISTRAR-01, inbox job watcher, typing shield, housekeeper, doc-intake)
+are actually dead vs just showing stale output, and reactivate the true dead ones. Same
+RI-001/RI-015 shape: a disabled task looks identical to one that ran and found nothing —
+check Task Scheduler history, don't just re-enable and hope.
+
+**Separately — 5 buttons on `MY-TASK-BOARD.html` are grayed out because the files they
+point at don't exist on disk:** `OWNER-APPROVALS-PENDING.hta`, `RUNNING-LOG.html`,
+`MARKETING-REPORTS.hta`, `SKIP-TRACE-ONE-CLICK.hta`, `TODAY-CALL-LIST.html`. Find whatever
+script generates the task board and find out why these five were never written — that's
+the actual defect, not the missing files themselves (regenerating them by hand would just
+go stale again).
+
+**Also reported: Jorge could not click the OK/action button on this same task board.**
+Possible RI-023 family (that RI is windows opening off-screen / behind others / minimized
+on this exact control-panel setup) rather than a broken button — before assuming the button
+itself is broken, check whether the dialog is rendering off the visible monitor or behind
+another window. If it's a genuinely broken `onclick`, that's a new finding — log it.
+
+---
+
+## 14. TRK-2026-9950 — Jorge asked to "refresh" LiteLLM, Ollama, 9Router — here's what each actually needs (not a uniform restart)
+
+**LiteLLM** (per TRK-2026-9738/9739, 2026-08-26): was healthy at `localhost:4001` for 7
+straight days, `db: Not connected` (admin UI loads but does nothing), and **every model
+route 401s because no real keys are wired in** — `ANTHROPIC_API_KEY` absent, OpenAI/
+OpenRouter placeholders. **The fix that was already found and never applied: a real
+Grok/xAI key (84 chars) is already sitting on the machine, unused.** Wire that in first
+(cheapest, no owner action needed) — 4-line config block into `litellm_config_4001.yaml`
+per the 2026-08-25 wiring note. Jorge still needs to paste a real `ANTHROPIC_API_KEY`
+himself for the Anthropic route (never accept it relayed through a report — paste-only,
+directly into the config, same rule as every other key).
+
+**Ollama** — confirmed down, nothing listening on `:11434` as of 08-26. Check whether the
+service exists and start it, or confirm intentionally not run.
+
+**9Router — do NOT install or restart. This one is not a refresh.** Per the RAMBO cycles
+2026-09-06 (11:41 / 11:57 / 12:50, mirrored in `TO-CLOUD_MIRROR_2026-09-08.md`), 9Router
+**was never installed** — it was correctly held BLOCKED three cycles running, including
+once refusing an "approval" that arrived relayed through another AI session rather than
+from Jorge directly, because it's an obscure, low-visibility package that would sit in
+front of provider credentials once installed globally. That reasoning hasn't been
+answered or overturned since. **If Jorge's "refresh...9Router" today is a fresh, direct
+yes to installing it, treat it as that — a new direct confirmation — and say so back to
+him in the register; don't fold it silently into a generic refresh pass.**
+
+---
+
+## 15. TRK-2026-9951 — RAMBO half of the Codex-lane connector partition: install 14, don't sign into any
+
+**Source: a Codex-lane status report Jorge relayed, 2026-09-19 14:44.** It reports its own
+lane as "coordination-only — cannot install plugins or change connector configuration,"
+and partitions the remaining work: **RAMBO installs, Cowork signs in.** Already available
+per that report (no action): Documents, PDF, Gmail, Spreadsheets.
+
+**Your half — install/enable only, do NOT attempt to sign into any of these:**
+Box, Codex Security, Figma, GitHub, Google Calendar, Google Drive, Linear, Notion,
+OpenAI Developers, Outlook Calendar, Outlook Email, SharePoint, Slack, Teams.
+
+Whatever admin/plugin panel these live in (same Codex/ChatGPT workspace as the earlier
+ChatGPT Plugins page, unless the report means a separate Codex environment — check which
+before installing), click add/install so each moves from "not installed" to "needs
+sign-in." That's the whole of your half — leave every login screen for Cowork.
+
+**Flag, don't just wave through:** `Codex Security` and `OpenAI Developers` read like
+org-admin/API scopes, not personal-account connectors like the other 12. If installing
+either asks for anything beyond "add to workspace" — an org-level permission grant, an
+API key, a billing scope — stop and report back rather than treating it as the same
+one-click as Box or Slack.
+
+---
+
+## 16. TRK-2026-9955 — Jorge wants a status check on the 14-connector work (item 15), not silence
+
+Report back now, whatever state you're in: how many of the 14 (Box, Codex Security,
+Figma, GitHub, Google Calendar, Google Drive, Linear, Notion, OpenAI Developers,
+Outlook Calendar, Outlook Email, SharePoint, Slack, Teams) are installed, how many
+still need Jorge's sign-in, and whether Codex Security / OpenAI Developers turned out
+to need more than a login (flagged in item 15 as possible org-admin scopes). "Not
+started yet" is a valid answer — silence is not.
+
+---
+
+## 17. TRK-2026-9956 — MY-TASK-BOARD.html still shows "13 waiting on YOU" after Jorge's live approval
+
+Jorge approved all 13 recommended-APPROVE gates live in chat on 2026-09-19 (full detail
+in `OWNER-GATES.md` under "OWNER DIRECTIVE 2026-09-19"). He just pasted the board again
+and it still reads **13 waiting on you** — the approval hasn't reached whatever generates
+that count. This is the RI-005 recurrence already logged (repo ledger and desktop board
+don't share a source). **Find whatever writes the board's "APPROVALS — YOUR YES/NO"
+section (the approvals sheet / REGISTRAR-01 feed) and mark those 13 answered there**, not
+just in this repo — otherwise the board will keep telling him he owes 13 answers he
+already gave, forever.
+
+---
+
+## 18. TRK-2026-9957 — Outlook fix already endorsed (TRK-2026-9336) — execute now, this part doesn't need a fresh approval
+
+Jorge asked for an email status report; this piece was already reviewed and endorsed
+read-only-safe on 2026-08-xx (TRK-2026-9336), just never executed:
+
+1. **Set a default Outlook profile.** Root cause of the automation freezes: Outlook
+   pops a "Choose Profile" dialog (confirmed stuck 01:59–02:5x on 2026-09-xx per
+   TRK-2026-9417) that silently no-ops every automated task waiting behind it.
+2. **Disable the `CU-Sort-Inbox-3h` scheduled task (OD-23).** This is the task most
+   likely responsible for Outlook's subfolder structure drifting from defaults —
+   turning it off is what makes "restore to default subfolder names" (Jorge's new
+   ask, item 19 below) actually stick instead of drifting back in 3 hours.
+
+**Do NOT do the full Outlook restructure/refile beyond these two steps** — that's the
+bigger, unapproved half, in item 19.
+
+---
+
+## 19. TRK-2026-9958 — Jorge's new ask: restore Outlook/Gmail/"online COU" to default folders, full OCR, refile to revised names — STAGED, not approved yet
+
+**Status report, not a completed job.** Live Gmail numbers pulled just now (cloud has
+a working Gmail connector): **46,845 Inbox messages, 44,013 unread — essentially
+untriaged.** Label list has real defects, not cosmetic ones:
+- IMAP-migration artifacts sitting as active labels: `[Gmail]/Trash/Personal`,
+  `[Gmail]/Trash/UBER`, `[Gmail]/Trash/Payments`, `[Gmail]/Trash/Payments/Robert
+  Wayne`, `[Gmail]/Trash/Payments/ClickPay`, `[Imap]/Trash`, `[Imap]/Sent` — these are
+  old Outlook/IMAP folder paths baked into Gmail label names during some past sync,
+  not real Gmail structure.
+- Inconsistent naming: flat `Receipts` (1 msg) vs `Receipts & Bills` (263 msg) vs
+  `Receipts/Apple` vs `Receipts/SunPass` — the same category, four different names.
+- `Claude-Sorted`, `Claude-Sorted/Promotions`, `Claude-Sorted/Social` — a prior
+  Claude sort attempt, mostly empty (0/14/0 messages) — looks abandoned mid-attempt.
+- `Work`, `Junk`, `Notes` — 0 messages each, likely dead stubs.
+
+**Why this is staged, not executed:** 44,000+ unread messages is two to three orders
+of magnitude past anything this repo has run "full OCR + refile" against, and this
+exact shape (bulk auto-refile of a live mailbox) is the same RI-020 misfile risk as
+the Desktop plan (TRK-2026-9954), just far bigger. Recommend the same discipline:
+survey and propose first, one owner yes on a written plan, execute in batches.
+
+**"Online COU" identified 2026-09-19: `Jorge@onlineCOU.com`, a third real mailbox**,
+separate from Gmail and Outlook. Cloud has no connector to it (not the Gmail account
+this session authenticates as, not the Microsoft 365 connector) — **still need to know
+what platform hosts it** (Google Workspace, Microsoft 365, or separate webmail/cPanel)
+before anyone can survey it. If it's browser-only webmail, that's Cowork/desktop
+reach, not cloud, regardless of platform.
+
+**Cowork/Desktop: hold the OCR+refile execution for all three (Outlook, Gmail, online
+COU) until a written plan comes back for Jorge's yes — same as the Desktop plan.**
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
