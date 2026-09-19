@@ -81,4 +81,10 @@ the real home for any matched job file is its Drive `01-JOBS\TRK-####\` capsule.
   BLOCKED), and post a line to TO-CLOUD.md so ☁️ relays to Jorge. Part B proof = the before-list,
   the folders created, the counts moved per type, and the `_NEEDS-JORGE-FILING` list awaiting his click.
 
-#TRK-2026-9771 #desktop-cleanup #launcher-icons #RI-001 #RI-031 #rambo #RED-filing-guardrail
+---
+## ⏫ RE-FLAG 2026-09-19 (owner asked why this hasn't run + wanted it on Cowork)
+**Why it stalled:** this is a **PC task — RAMBO-only (Rule 10). Cowork/Cloud cannot reach `C:\Users\JV\Desktop`**, so it cannot be handed to Cowork (that would be a Class-A routing error). It has sat IN PROGRESS since 2026-09-04 because (a) desktop execution has been intermittent (desktop heartbeat health = Unknown, Remote Control down since 2026-08-09 — the observability gap), and (b) Part B's client-doc **moves are RED** (need the owner's batched click), so at most it can stage, not finish.
+**Re-prioritized to RAMBO.** Next desktop session: run Part A icons + Part B GREEN half (type-sort + OCR + `.SEARCH.txt` sidecars + the `_NEEDS-JORGE-FILING` staged list), report the denominator, then owner approves the filing moves 1–N with one word.
+**Cowork's role (once its board test passes):** only the non-PC prep it can own; the desktop file moves stay RAMBO by physics.
+
+#TRK-2026-9771 #desktop-cleanup #launcher-icons #RI-001 #RI-031 #rambo #RED-filing-guardrail #re-flag-2026-09-19
