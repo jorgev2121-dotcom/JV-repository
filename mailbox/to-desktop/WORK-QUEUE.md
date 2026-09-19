@@ -333,10 +333,10 @@ Logged as **RI-046**.
       API key, so never delete the file). Restart 9router; `123456` works again;
       change it in Settings to a 1Password-generated value (pre-approved,
       TRK-2026-9346 Section B) and save per step a.
-   d. While in the dashboard: the 12-day standing blocker `9ROUTER-WIRE-NOW` is
+   c. While in the dashboard: the 12-day standing blocker `9ROUTER-WIRE-NOW` is
       Providers → Claude Code → Add New Connection → consent. If Jorge is present,
       have him click it then and there — one click closes a 12-day blocker.
-   c. Confirm at the end that 9router binds to `127.0.0.1` only, not `0.0.0.0` — the
+   d. Confirm at the end that 9router binds to `127.0.0.1` only, not `0.0.0.0` — the
       README's production example exposes it to the LAN, and the database holds live
       API keys (this is CVE-2026-63732, the default-password takeover).
 5. **Suspect to check once in — RI-018.** The hourly PAD routine
