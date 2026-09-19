@@ -2070,3 +2070,16 @@ invalidating tokens — it would explain why Office keeps demanding re-sign-in.
 phishing chain and told Jorge to disconnect the device. Every dialog was genuine
 Microsoft/Windows UI and 9Router is his own local tool. Corrected in the same session;
 recorded here so the next session does not repeat the over-call.
+
+**RI-046 · 2026-09-19 later the same day — third symptom, same family: Outlook "has
+exhausted all shared resources, please close all messaging applications and restart
+Outlook," three dialogs stacked.** Each Outlook Data File retry spawns another copy; the
+broken M365 token makes every re-auth leak a MAPI session until the pool is empty.
+Stacked modal dialogs is also the RI-001 signature (2026-08-15: three modals at once).
+Issued as step 0 of WORK-QUEUE item 13 / PASTE-D-035: kill every zombie `OUTLOOK.EXE`
+plus Teams/Skype, reopen; `/resetnavpane` on a second return; count data files and
+add-ins on a third. Jorge's note this pass: "the other agents are just not at your
+level" — the desktop executor has not yet reported on D-034, so cloud also gave Jorge
+the three direct clicks himself (Outlook kill, Word "Sign in another way," 9Router
+`123456` typed by hand) rather than leave him waiting on an executor that is not
+answering.
