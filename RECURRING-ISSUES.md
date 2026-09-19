@@ -1089,6 +1089,18 @@ or address is marked UNKNOWN and left where it is. **Filing to the wrong job fol
 worse than leaving it unfiled**, because an unfiled document is merely missing while a
 misfiled one corrupts a job record.
 
+**RECURRENCE 2026-09-19 — the exact holding area named as item #1 above, now with a
+screenshot.** Jorge sent his real visible Desktop: ~150 icons, and asked for it fully
+cleaned, OCR'd, orphan-numbered, and moved to Master Tracking "A to Z" in one pass,
+handed to Cowork to execute immediately. **This is item 1 from this RI's own 2026-08-15
+list, unaddressed for five weeks, now bigger.** The Tier 1 ban above still applies —
+"hand it to Cowork, do it all now" is exactly the forbidden shape, at a larger blast
+radius than anything this RI has seen (150 icons, unknown file count behind the real
+folders, on a live unbacked-up desktop). **Split applied: survey + OCR + provisional
+OPH tagging (GREEN, new files only, nothing moved) dispatched immediately; the actual
+move-to-Master-Tracking step held for one owner review of the resulting plan**, per
+this RI's own Tier 3 answer and `AUTONOMY.md`'s filing=RED rule.
+
 ---
 
 ## RI-021 — PaperPort Send To Bar empty; link modules unregistered
