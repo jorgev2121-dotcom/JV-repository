@@ -387,10 +387,12 @@ exact shape (bulk auto-refile of a live mailbox) is the same RI-020 misfile risk
 the Desktop plan (TRK-2026-9954), just far bigger. Recommend the same discipline:
 survey and propose first, one owner yes on a written plan, execute in batches.
 
-**What "online COU" means is not yet clear — needs Jorge's one-word answer, not a
-guess:** is that the `onlinecou.com` webmail (his own domain, referenced elsewhere in
-this repo as separate from Gmail/Outlook), or something else? Cloud has no connector
-to it either way, so this can't even be surveyed until that's named.
+**"Online COU" identified 2026-09-19: `Jorge@onlineCOU.com`, a third real mailbox**,
+separate from Gmail and Outlook. Cloud has no connector to it (not the Gmail account
+this session authenticates as, not the Microsoft 365 connector) — **still need to know
+what platform hosts it** (Google Workspace, Microsoft 365, or separate webmail/cPanel)
+before anyone can survey it. If it's browser-only webmail, that's Cowork/desktop
+reach, not cloud, regardless of platform.
 
 **Cowork/Desktop: hold the OCR+refile execution for all three (Outlook, Gmail, online
 COU) until a written plan comes back for Jorge's yes — same as the Desktop plan.**
