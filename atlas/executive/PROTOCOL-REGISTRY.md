@@ -1,0 +1,97 @@
+# 🧾 PROTOCOL REGISTRY — every protocol, its trigger language, versions, and duplicates
+**TRK-2026-9800 · living document · 2026-09-17..19 · ☁️ Cloud · owner asked: list protocols + the language that invokes them, note versions, group by type to streamline duplicates.**
+**"Language" = the exact word/phrase/format that invokes or names the protocol. ⚠ = streamline candidate (same idea in 2+ homes).**
+
+---
+
+## TYPE 1 — Charter rules (CLAUDE.md, the master rulebook)
+| Protocol | Trigger language | Versions | Home | Note |
+|---|---|---|---|---|
+| No upward delegation | (behavioral) | Rule 1 → **superseded by EXHAUST-FIRST-01** for the escalation format | §2 + §12 Art.4 | ⚠ two escalation formats (Rule 1 vs EXHAUST-FIRST + WORKAROUND-CERT) |
+| Three honest states | "DONE / BLOCKED / IN PROGRESS" | v1 | §3 | — |
+| Don't agree reflexively | (behavioral) | v1 | §4 | — |
+| Recurrence rule | reference `RECURRING-ISSUES.md` | v1 | §5 | pairs with Type 6 |
+| Batch fan-out | ">5 similar items" | v1 | §6 | — |
+| **ROOT CAUSE** | the literal words **"ROOT CAUSE"** → 3-question protocol | v1 | §7 | strongest keyword |
+| Write-for-TTS + **end every message with a question** | **OD-01** | v1 | §8 | ⚠ duplicated in OWNER-DIRECTIVE_ALWAYS-END-WITH-QUESTION-01 |
+| Session start/end | **"ID"** → restate banner; window emojis 🖥️/☁️/🤝 | v1 | §10 | ⚠ overlaps WINDOW-HYGIENE-01 + WINDOW-CONFIG |
+| Nights are for long runs | (schedule) | Rule 8 | §11 | ⚠ overlaps NIGHT-PROTOCOL + OVERNIGHT-QUEUE |
+| FREEZE AND FINISH | **"FREEZE"**, "three workstreams" | supersedes lower conflicts; **thawed by OD-THAW-01** | §12 | version: freeze (8-16) → thaw (8-30) |
+| GREEN/RED autonomy | **"RED" / "GREEN"** | v1 | §13 | ⚠ **biggest duplicate** — see Type 5 |
+| One executor, many brains | (behavioral) | Rule 10 | §14 | ⚠ dup ONE-EXECUTOR-MANY-BRAINS-01 |
+| Migration Status | **Rule 1.2** | new 2026-09-17 | BUSINESS-BRAIN | ATLAS-phase |
+| Discovery-not-optimization | **ED-001** | new 2026-09-17 | BUSINESS-BRAIN | ATLAS-phase |
+| Execution Profiles | **ED-003** | new 2026-09-17 | BUSINESS-BRAIN | ATLAS-phase |
+| Model-neutrality | **Principle 0** | new 2026-09-17 | BUSINESS-BRAIN | ATLAS-phase |
+
+## TYPE 2 — Owner / Executive Directives (atlas/owner-directives/ + BUSINESS-BRAIN)
+| Directive | Language | Version | Note |
+|---|---|---|---|
+| ALWAYS-END-WITH-QUESTION-01 | OD-01 | v1 | ⚠ = charter §8 |
+| ONE-EXECUTOR-MANY-BRAINS-01 | Rule 10 | v1 | ⚠ = charter §14 |
+| PROACTIVE-DESKTOP-01 | OD-PROACTIVE-DESKTOP-01 | v1 | in RAMBO rider too |
+| THAW-01 | OD-THAW-01 | v1 | reverses part of §12 |
+| WINDOW-HYGIENE-01 | (window identity) | v1 | ⚠ = §10 + WINDOW-CONFIG |
+| HOA-AUTOPAY-01 | OD-HOA-AUTOPAY-01 | v1 | pairs with portal-registration skill |
+| DIRECTIVE_MANAGER-01 | MANAGER-01 | v1 | intake/managing-partner |
+| ED-001 / ED-003 | ED-NNN | new | this session |
+
+## TYPE 3 — Skills (.claude/skills/ — auto-load by trigger)
+| Skill | Trigger language | Version | Note |
+|---|---|---|---|
+| tax-jacket | "tax jacket", "building jacket", PA PDFs | ratified 8-29; enhancements locked **TRK-2026-9788** 9-16 | footer stamp v1→v2 (see Type 7) |
+| permit-expert | municipality / permit questions | v1; + annexation & Cutler Bay module | one module per city |
+| orphan-onboarding | loose doc, **"OPH"**, sweep a holding area | v1 | ⚠ reads ORPHAN-NUMBERING (Held) |
+| portal-registration | vendor/HOA portal signup, autopay | ratified 8-30 | pairs OD-HOA-AUTOPAY-01 |
+| **county-data-sources** | (referenced in OPEN-ITEMS 9088) | **⚠ NOT in .claude/skills — desktop-side or retired** | reconcile vs new MDC source menu |
+
+## TYPE 4 — SOP / process protocols (atlas/sops/ + new)
+| Protocol | Language | Version | Note |
+|---|---|---|---|
+| NIGHT-PROTOCOL | "night run", overnight queue | v1 | ⚠ = Rule 8 + OVERNIGHT-QUEUE |
+| HANDOFF-PROTOCOL_TWO-SEAT-01 | "handoff", Cloud⇄Desktop | **-01** (implies future versions) | ⚠ also HANDOFF.md + INTEGRATION-MAP |
+| OCR-PROTOCOL | "OCR", `.SEARCH.txt` | v1 | ⚠ = orphan-onboarding + RI-016 gate (Type 6) |
+| ORPHAN-ONBOARDING-SWEEP | "sweep" | v1 | pairs orphan-onboarding skill |
+| RECONCILER-OUTPUT-CHECK-SPEC | reconciler runs | v1 | — |
+| DD-WRITEUP-TEMPLATE | DD write-up | v1 (Held) | read by 2 skills |
+| **BLOCKER-ACCESS-PROTOCOL** | Chrome + 1Password + one click | **new 2026-09-19, UNVERIFIED** | folds in PERMIT-GATE-BEATEN |
+| **OCR ingestion gate** | RI-016 fix | **build order 2026-09-19** | the durable OCR protocol |
+
+## TYPE 5 — Autonomy / gating (the biggest duplicate cluster) ⚠⚠
+**RED / GREEN** is defined or restated in: charter **§13 (Rule 9)** · **AUTONOMY.md** · **OWNER-GATES.md** · **NIGHT-PROTOCOL §RED/GREEN** · the RAMBO rider · and every work order.
+**Streamline:** make charter §13 the ONE canonical definition; everywhere else points to it, never redefines.
+
+## TYPE 6 — Tracking / identity protocols
+| Protocol | Language | Version | Note |
+|---|---|---|---|
+| Tracking numbers | **TRK-2026-NNNN** (seed 1247, +3) | v1 | ⚠ homes: §9 + TRK-REGISTRY + drift notes |
+| Orphan numbers | **OPH-2026-NNNN** | v1 | ORPHAN-NUMBERING (Held) |
+| Admin band | **9xxx** reserved | v1 | §9 |
+| Paste routing | **PASTE-D / -C / -X-NNN** | many superseded (see PASTE-LOG) | D/C/X = Desktop/Cloud/anywhere |
+| Hashtags | **#category** | v1 | category, not identity |
+| Page identity | **_ pNNN** | adopted 8-15; **.NNN forbidden** | §9.2 |
+
+## TYPE 7 — Formatting / stamp protocols (versioned)
+| Protocol | Language | Versions |
+|---|---|---|
+| Footer stamp | `TRK · vN · pNNN · date · …` | **v1 = "CURRENT/SUPERSEDED"** → **v2 (2026-09-16) = TIME + "supersedes vN-1"** |
+| Filename grammar | `DATE _ TRK _ TYPE _ DESC _ vN.ext` | v1; ⚠ RI-012 = two conventions in use |
+| Tax-jacket footer | same stamp | v1→v2 with the charter §9.2 change |
+
+## TYPE 8 — Method changes (explicit version history worth keeping)
+- **1Password migration:** per-site loop (8-04) → **BULK IMPORT (8-14)** — old method retired.
+- **JOB-0079 freeze:** build-freeze (8-16) → **OD-THAW-01 (8-30)** lifted it.
+- **Index name:** ATLAS-INDEX → **BUSINESS-BRAIN** (9-17).
+- **Escalation:** Rule 1 format → **EXHAUST-FIRST-01 + WORKAROUND-CERT** (§12).
+
+---
+
+## TOP STREAMLINE RECOMMENDATIONS (ranked)
+1. **RED/GREEN — collapse to one home (charter §13).** It's restated in ≥5 places; drift risk is high. Everything else links to it.
+2. **End-with-question + window-identity — dedupe the directive files into the charter** (§8, §10 already say it; OD-01 + WINDOW-HYGIENE-01 + WINDOW-CONFIG repeat it).
+3. **OCR — one protocol chain.** Merge OCR-PROTOCOL + the orphan-onboarding OCR steps + the RI-016 ingestion gate into a single "OCR + match" SOP.
+4. **Night runs — one home.** Rule 8 + NIGHT-PROTOCOL + OVERNIGHT-QUEUE overlap; make NIGHT-PROTOCOL canonical, charter points to it.
+5. **county-data-sources skill vs MDC-DD-SOURCE-MENU — reconcile.** The referenced skill isn't in `.claude/skills`; decide: rebuild it from the new menu, or retire the reference.
+6. **Handoff — one home.** HANDOFF-PROTOCOL_TWO-SEAT-01 vs HANDOFF.md vs INTEGRATION-MAP.
+
+*Footer: TRK-2026-9800 · v1 · p001 · 2026-09-19 · original · #protocol-registry #streamline #business-brain*
