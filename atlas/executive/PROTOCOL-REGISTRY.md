@@ -94,4 +94,33 @@
 5. **county-data-sources skill vs MDC-DD-SOURCE-MENU — reconcile.** The referenced skill isn't in `.claude/skills`; decide: rebuild it from the new menu, or retire the reference.
 6. **Handoff — one home.** HANDOFF-PROTOCOL_TWO-SEAT-01 vs HANDOFF.md vs INTEGRATION-MAP.
 
-*Footer: TRK-2026-9800 · v1 · p001 · 2026-09-19 · original · #protocol-registry #streamline #business-brain*
+---
+
+## ACCESSIBILITY TO OTHER LLMs — do Grok/ChatGPT/Gemini auto-know these? (owner Q, 2026-09-19)
+**Short answer: Claude seats YES, other LLMs NO (not automatically).**
+- **Claude Code (Cloud + RAMBO):** auto-load `CLAUDE.md` + skills every session. Automatic. ✅
+- **Other LLMs (Grok, ChatGPT, Gemini, Copilot):** **cannot** read the repo/Drive on their own and get NO protocol unless it's pasted into their custom-instructions. Today that's the **#sitdown board** (`PASTE-INTO-EVERY-LLM.txt`, PASTE-X-004) — Jorge pastes it once per app. It's manual and doesn't auto-update. ❌
+
+**How to make protocols auto-available to other LLMs (ranked, Principle 0 / model-neutral):**
+1. **PROTOCOLS DIGEST (recommended, cheapest durable):** maintain ONE condensed, model-neutral digest of the load-bearing rules (a compressed CLAUDE.md). Any model can be pointed at it. Feed it BOTH ways below so there's one source, not four.
+2. **API bus (real automation):** a Code seat calls the other model via API and injects the digest as the system prompt on every call — the protocols are then present automatically, no paste. Needs an API key (xAI key already exists per TRK-2026-9748); RED to wire, GREEN to run within caps.
+3. **#sitdown paste (exists, manual):** keep for chat-window use; point it at the same digest so it never drifts.
+4. **MCP / shared-context server (heaviest):** expose the Business Brain over MCP for agentic clients that support it. Most build; do last.
+**Recommendation:** build the digest (1), inject via API bus (2) as models are wired, and repoint #sitdown (3) at it. One digest, three delivery paths, model-neutral.
+
+## ⛔ OBSOLETE / CONFLICT — FLAGGED FOR QUARANTINE (owner to approve; deletion is RED)
+**Real conflicts (a naive reader/LLM could act on the wrong one — fix first):**
+1. **§12 FREEZE ("no new systems") vs OD-THAW-01 ("build freely").** THAW wins, but the freeze text still sits live in CLAUDE.md §12 Art.1 (marked lifted). **Quarantine:** collapse to one line — "thawed 2026-08-30, guardrails stand" — remove the contradictory body.
+2. **Rule 1 escalation format vs EXHAUST-FIRST-01.** §12 says EXHAUST-FIRST *replaces* Rule 1's format; both still printed. **Quarantine:** Rule 1 points to EXHAUST-FIRST, drops its own format.
+
+**Obsolete (a more-enhanced version exists — the old one is dead weight):**
+3. **Footer stamp v1 ("CURRENT/SUPERSEDED")** → superseded by **v2 (time + "supersedes vN-1")**, 2026-09-16. Retire v1 wording on sight.
+4. **1Password per-site loop** → superseded by **BULK IMPORT** (2026-09-14). Per-site method obsolete.
+5. **OCR-PROTOCOL (standalone)** → subsumed by the **RI-016 OCR ingestion gate** (2026-09-19). Merge into one "OCR + match" SOP; the gate is canonical.
+6. **`county-data-sources` skill (referenced in OPEN-ITEMS 9088, not in `.claude/skills`)** → replace with / fold into the new **MDC-DD-SOURCE-MENU**. Retire the dead reference.
+7. **RED/GREEN restated in 5+ homes** → keep charter §13 canonical; the copies in AUTONOMY.md / OWNER-GATES / Night Protocol / rider become pointers (not redefinitions).
+8. **HANDOFF.md vs HANDOFF-PROTOCOL_TWO-SEAT-01** → the `-01` is the enhanced one; HANDOFF.md is a quarantine candidate.
+
+**Action rule:** these are FLAGGED, not deleted. Charter/skill edits and file deletion are RED — await one owner "approve quarantine 1–8: yes." Quarantine = move to `_SUPERSEDED/` or mark obsolete in place; never hard-delete governance without the owner's click.
+
+*Footer: TRK-2026-9800 · v2 · p001 · 2026-09-19 · supersedes v1 · #protocol-registry #streamline #obsolete-flags #business-brain*

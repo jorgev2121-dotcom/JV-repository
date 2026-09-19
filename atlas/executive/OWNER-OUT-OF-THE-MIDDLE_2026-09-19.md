@@ -8,7 +8,7 @@
 | # | What keeps you in the middle | The one owner action | What removing it buys | Owner of the fix |
 |---|---|---|---|---|
 | 1 | **1Password has ~15 of 280 logins** → agents can't autofill ~265 sites | One attended bulk-import session (you unlock; RAMBO runs) | Kills most login steps at once — the single biggest lever | Jorge + RAMBO |
-| 2 | **4 DD sources are login/CAPTCHA-gated** (Clerk, EPS, iBuild, ArcGIS) | Solve the CAPTCHA + log in ONCE per site (1Password fills the rest) | Session persists → future reads run without you | Jorge + RAMBO |
+| 2 | **4 DD sources are login/CAPTCHA-gated** (Clerk, EPS, iBuild, ArcGIS) | Solve the CAPTCHA + log in ONCE per site (1Password fills the rest) | Session persists → future reads run without you | Jorge + RAMBO — **protocol now WRITTEN (BLOCKER-ACCESS-PROTOCOL, 9-19); awaiting RAMBO's 5-step test** |
 | 3 | **Remote Control offline** (since 8/9) → you relay between Cloud and Desktop by hand | One PC-side reconnect | Cloud and Desktop talk directly; you stop being the messenger | RAMBO |
 | 4 | **GitHub sign-in on desktop not done** | One sign-in click | Desktop pushes unattended; no manual relay | Jorge |
 | 5 | **Computer-use not on Windows** → Cloud can't act on the PC | (wait — Anthropic; approval already recorded) | Cloud becomes a live 2nd executor | Anthropic / Jorge |
@@ -24,9 +24,16 @@
 ## C. The order that removes the most middle, fastest
 1. **1Password bulk import** (kills the most login friction in one session).
 2. **Reconnect Remote Control** (ends the hand-relay + turns on phone push).
-3. **One-click access protocol for the 4 blockers** (being designed now — 2026-09-19).
+3. **One-click access protocol for the 4 blockers** — **WRITTEN 2026-09-19; awaiting RAMBO's 5-step test.**
 4. Batch the RED approvals into a single daily "approve 1–N: yes."
 
 **After 1–3, the only thing left that needs you is the intentional RED click — and that's supposed to stay.**
+
+## D. Status delta since first written (2026-09-19, later same day)
+- **OCR match failure (kept you re-checking DD reports): FIX ORDERED** — RI-016 ingestion gate build order queued to RAMBO. Removes the "reports didn't match documents" friction.
+- **Blocker-access protocol: WRITTEN** (was "being designed"). Needs one RAMBO test pass, then the 4 blockers stop needing you per-visit.
+- **Alec 7823 analysis: DONE except one lot-dimension lookup** (added to RAMBO's order).
+- **Still pending on you (unchanged):** 1Password import (biggest lever), Remote Control reconnect, GitHub desktop sign-in.
+- **New pending (from the protocol review):** approve the **quarantine of 8 obsolete/conflicting protocols** (one "yes") so the rules stop contradicting each other.
 
 *Footer: TRK-2026-9047 · 2026-09-19 · #owner-out-of-the-middle #RED-GREEN*
