@@ -30,6 +30,25 @@ Balance method · Support contact · Access/scope (what it unlocks) · 1P item r
 - **Google / Gemini** — TO SCRAPE. `#LLM-subscription #google #gemini`
 - **xAI / Grok** — TO SCRAPE. `#LLM-subscription #xai #grok`
 
+## 💳 BILLING RECONCILIATION from Gmail invoices (☁️ Cloud, 2026-09-19, TRK-2026-9047) — non-secret; last-4 only
+**OpenAI — THREE separate billing lines under jorgev2121@gmail.com (acct 8c5603d8…):**
+1. **ChatGPT Plus** — **$20.00/mo**, auto-renew monthly, since **Nov 29 2025** (order sub_1SYypr…), card **Visa-0012**. Confirmed by receipt.
+2. **ChatGPT Business** ("Jorge Valdes's Workspace") — onboarded **~Sept 7–9 2026**; seats + shared credit pool (Codex/Work/Excel/Agents). **Screenshot 2026-09-19: "out of Codex and Work usage / out of credits."** ⚠ No Business receipt found in Gmail — **price/seat-count UNVERIFIED; confirm in ChatGPT → Settings → Billing.**
+3. **OpenAI API** (pay-as-you-go) — **$10.00** top-up **Jul 27 2026**, card ending **0058**, moved to **Usage Tier 1**. Separate from the ChatGPT subs.
+
+**Cross-referenced OTHER AI/related subs found in the same Stripe invoices (bonus):**
+- **xAI / Grok (SuperGrok)** — monthly receipts ~the **17th** (acct 1Pksdd…). Active.
+- **X / X Premium** — monthly receipts ~the **11th** (acct 1Ika5J…). Active. (So X Premium AND SuperGrok are BOTH billing.)
+- **Speechify** — receipt Jul 15 2026. **PLAUD** — trial Jul 16 → paid Jul 23 2026.
+- Non-AI seen: JAM Software (TreeSize/UltraSearch), Future Share LLC.
+
+**OpenAI RESET MECHANICS (WebSearch 2026-09-19 — verify on the live Usage dashboard):**
+- Business seats include usage; when exhausted, the **workspace credit pool** covers overflow (Codex/Work/Excel/Agents share ONE pool).
+- **Two independent windows: a ~5-hour rolling window + a weekly window.** A weekly reset refills weekly only; the 5-hour returns on its own rolling clock.
+- **"Out of credits" ≠ a window limit** — the paid credit pool is empty. It refills only by **adding credits (RED/spend)** or at the **monthly workspace renewal** (~Oct 7–9, one month after onboarding).
+- Goodwill resets happened **Aug 8 / Aug 29 / Sept 7 2026** but are **one-time, not guaranteed.**
+- **Contrast with Claude:** Claude's plan usage auto-resets on a rolling window at no extra cost; ChatGPT's free windows also auto-reset, but the Business **credit pool is pay-as-you-go** and does not refill for free.
+
 ## Fable watch (owner directive 2026-09-13)
 **Confirm `claude-fable-5-1` (Fable) is rarely used** — check the per-model breakdown on the Claude usage page.
 If any window is defaulted to Fable unintentionally, flag it (this is the RI-008 class: a window silently pinned
