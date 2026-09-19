@@ -35,5 +35,6 @@
 - **Alec 7823 analysis: DONE except one lot-dimension lookup** (added to RAMBO's order).
 - **Still pending on you (unchanged):** 1Password import (biggest lever), Remote Control reconnect, GitHub desktop sign-in.
 - **New pending (from the protocol review):** approve the **quarantine of 8 obsolete/conflicting protocols** (one "yes") so the rules stop contradicting each other.
+- **New pending (OD-COWORK-FIRST-01):** confirm **Cowork can read AND write the repo/Drive** — the one check that lets Cowork-first routing be fully trusted (until then, Code handles anything that must be committed).
 
 *Footer: TRK-2026-9047 · 2026-09-19 · #owner-out-of-the-middle #RED-GREEN*
