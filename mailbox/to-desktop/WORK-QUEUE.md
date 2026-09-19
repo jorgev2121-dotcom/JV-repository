@@ -299,6 +299,30 @@ him in the register; don't fold it silently into a generic refresh pass.**
 
 ---
 
+## 15. TRK-2026-9951 — RAMBO half of the Codex-lane connector partition: install 14, don't sign into any
+
+**Source: a Codex-lane status report Jorge relayed, 2026-09-19 14:44.** It reports its own
+lane as "coordination-only — cannot install plugins or change connector configuration,"
+and partitions the remaining work: **RAMBO installs, Cowork signs in.** Already available
+per that report (no action): Documents, PDF, Gmail, Spreadsheets.
+
+**Your half — install/enable only, do NOT attempt to sign into any of these:**
+Box, Codex Security, Figma, GitHub, Google Calendar, Google Drive, Linear, Notion,
+OpenAI Developers, Outlook Calendar, Outlook Email, SharePoint, Slack, Teams.
+
+Whatever admin/plugin panel these live in (same Codex/ChatGPT workspace as the earlier
+ChatGPT Plugins page, unless the report means a separate Codex environment — check which
+before installing), click add/install so each moves from "not installed" to "needs
+sign-in." That's the whole of your half — leave every login screen for Cowork.
+
+**Flag, don't just wave through:** `Codex Security` and `OpenAI Developers` read like
+org-admin/API scopes, not personal-account connectors like the other 12. If installing
+either asks for anything beyond "add to workspace" — an org-level permission grant, an
+API key, a billing scope — stop and report back rather than treating it as the same
+one-click as Box or Slack.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
