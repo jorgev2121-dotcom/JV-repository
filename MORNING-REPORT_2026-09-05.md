@@ -1,6 +1,8 @@
-# Report — 2026-09-05 through 2026-09-18 (Friday update)
+# Report — 2026-09-05 through 2026-09-19 (Saturday update)
 
-**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Friday 2026-09-18.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Saturday 2026-09-19.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+
+**Two small housekeeping asks, whenever you're next at the machine — neither is urgent.** (1) 1Password is sitting on its own unlock screen, blocking a small login-cleanup job — just touch Windows Hello or enter your unlock. (2) A while back you gave the desktop 10-12 tasks verbally and the record of exactly what they were got lost structurally (not neglect) — it just needs you to re-list them, about 30 seconds. Both have been waiting a couple of days; neither is going to cause a problem by waiting a bit longer.
 
 **New one-click item, not yet on the approvals board because that board is the frozen one (see below) — a second runaway process, same shape as the OneDrive one.** A background app called `WWAHost.exe` has pegged a full CPU core for 13.6+ hours straight and is still climbing (started running away 09-17 ~9am, confirmed worsening across three straight daily checks). **Simplest fix: open Task Manager, find `WWAHost.exe` under Background processes, click End Task.** If it comes right back, that means some Store-style app is relaunching it and needs a look in Settings → Apps, but try the simple end-task first. This is logged as OD-106; no money or data risk either way.
 
