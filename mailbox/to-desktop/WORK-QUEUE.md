@@ -476,3 +476,27 @@ Jorge's yes (installed software = pause-and-ask). Just measure and report.
 
 **Three honest states:** DONE = step 4 shows `[answered by: ollama]` · BLOCKED = the exact
 error line · IN PROGRESS = what remains. Which is it?
+
+---
+
+## 16. TRK-2026-9970 — Filing Tree: add the LOCAL scans (OneDrive + the G: mirror) to the panel
+
+**What exists (cloud, 2026-09-20):** `tools/filetree/` — a TreeSize-style panel with the filing rules
+laid over it. Back engines: Google Drive API for `01-JOBS` (cloud, no owner, done by cloud) and
+`Scan-Tree.ps1` for local trees (desktop, no admin). Build: `python tools\filetree\build_panel.py`
+→ `tools\filetree\dist\filetree-panel.html`. Overlays: TRK-TBD / NO-ID / short-form / legacy prefix /
+number-last / UNREGISTERED (vs TRK-REGISTRY.md) / FOLIO-TBD / NO-VERSION-LOG / EMPTY / DUPLICATE /
+STALE / TRUNCATED, each with the charter reason in the detail pane.
+
+**Steps (GREEN, read-only, ~5 minutes):**
+1. `git fetch origin claude/new-session-1j77e1` then narrow-checkout the folder:
+   `git checkout origin/claude/new-session-1j77e1 -- tools/filetree`
+2. `powershell -File tools\filetree\Scan-Tree.ps1 -Root 'C:\Users\JV\OneDrive\Documents' -Depth 4 -Out tools\filetree\data\local\onedrive-documents.json`
+3. `powershell -File tools\filetree\Scan-Tree.ps1 -Root 'G:\My Drive\01-JOBS — ONE SOURCE OF TRUTH' -Depth 4 -Out tools\filetree\data\local\gdrive-01-jobs-local.json`
+   (metadata only; Drive-for-Desktop placeholders are NOT hydrated)
+4. `python tools\filetree\build_panel.py` and paste its denominator lines (folders / files / bytes per
+   source) to TO-CLOUD.md. Copy the two JSONs to `VTES-Outbox` so cloud can rebuild the published page.
+5. Do NOT run TreeSize or WizTree for this — both want elevation and leave UAC dialogs on Jorge's screen (RI-002 family).
+
+**Three honest states:** DONE = both JSONs exist and the build prints their counts · BLOCKED = the exact
+line · IN PROGRESS = what remains. Which is it?
