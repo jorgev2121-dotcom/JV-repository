@@ -571,6 +571,18 @@ live window.
 
 ---
 
+## 23. Confirm VTES-Repo-Heartbeat is alive; fold into the open CPU-pileup check (TRK-2026-10002)
+
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HEARTBEAT-AND-CPU-CHECK_2026-09-20.md` (PASTE-D-047).
+Jorge asked to restore the "3-minute Drive mailbox checker" — history confirms `VTES-Repo-Heartbeat`
+(`git fetch origin` every 3 min) was real and alive as of 09-08, but it is a git-ref refresher, not the
+task-relay (VTES-Inbox/TO-CLOUD.md, already live today on all three lanes). Read-only: report the
+task's current state/interval, and fold in TRK-2026-10002's powershell-process-count + CPU check while
+in there. No changes made — cloud will not recommend re-tightening any cadence until the CPU picture
+from 10002 is understood.
+
+---
+
 ## 22. TRK-2026-9999 — Grok/XAI diagnostic (not a LiteLLM repair) + retire the offline router's noise
 
 Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_GROK-DIAGNOSTIC-NO-LITELLM-REPAIR_2026-09-20.md`
