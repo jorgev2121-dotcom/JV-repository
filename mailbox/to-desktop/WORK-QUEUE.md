@@ -241,6 +241,131 @@ then re-run.
 
 ---
 
+## 13. OD-107 — Two sign-in failures, ONE cause: 1Password is locked and not answering (rides on TRK-2026-9346)
+
+**Delivery note:** the desktop checkout cannot fast-forward (`git pull --ff-only`
+refused, 15 ahead / 92 behind — TO-CLOUD.md 7 PM ET), so this item was ALSO filed to
+`G:\My Drive\VTES-Inbox\MSG-CLOUD-TO-CODE_OD-107-SIGNIN-REPAIR_2026-09-19.md`. Same
+text; work from whichever copy you can read.
+
+**Issued by cloud 2026-09-19 from Jorge's four screenshots. Both the Desktop Executor and
+Cowork are authorized to work this item; Jorge only touches Windows Hello or his master
+password — nobody else ever types, reads, or records a password value.**
+
+**Symptom A — Word.** Account page shows "Account Error — please sign in again" → Fix me →
+Microsoft says "We couldn't sign you in — something went wrong when trying to sign in
+with a passkey" → Windows Security pops "Insert your security key into the USB port."
+Jorge has no USB key. Sign-in dies.
+
+**Symptom B — 9Router.** The local AI-router dashboard (`http://127.0.0.1:20128/login`,
+orange "9Router" page) rejects the password 1Password fills. It said **"3 attempt(s)
+left before lockout"**; the page itself prints "Default password is 123456."
+
+**Symptom C — Outlook (added 2026-09-19, second screenshot set).** "Outlook has
+exhausted all shared resources, please close all messaging applications and restart
+Outlook" — **three copies stacked**, each Outlook Data File retry spawning another.
+Same family: Outlook's M365 account is in the same broken-token state as Word's, and
+every failed re-auth leaks a MAPI session until the pool is empty. Fix is step 0.
+
+**Root cause (cloud's read).** Microsoft has a **passkey** registered for
+`jorge@teamusasales.com`. When Word asks for it, Windows hands the request to the
+passkey provider on this PC — that is 1Password. **1Password has been sitting on its
+own unlock screen for days** (MORNING-REPORT_2026-09-05, "1Password is sitting on its
+own unlock screen"). A locked provider cannot answer, so Windows falls back to
+"insert a hardware key," and the sign-in fails. **The same lock explains B:** locked,
+the extension either fills nothing or fills the wrong `localhost` item — every local
+app (LiteLLM, the VTS panel, 9Router) shares the hostname `localhost`, so 1Password
+cannot tell their entries apart unless the saved URL carries the port.
+
+This is not 1Password failing. It is 1Password locked, plus Section C of
+TRK-2026-9346 (Hello unlock, default-manager, passkey provider) never finished.
+Logged as **RI-046**.
+
+### Steps — in this order
+
+0. **Outlook first, it is blocking everything else.** Click OK on all three dialogs.
+   Then Task Manager (Ctrl+Shift+Esc) → Details tab → **End task on every
+   `OUTLOOK.EXE`** (there will be more than one — zombies are the cause), and on
+   Teams / Skype / any other messaging app. Reopen Outlook. If the dialog returns
+   within the session: close Outlook, Win+R → `outlook.exe /resetnavpane`, reopen.
+   If it returns a third time, count the data files (File → Account Settings → Data
+   Files) and add-ins (File → Options → Add-ins) and report both numbers — the MAPI
+   pool has a hard ceiling and something on this machine is eating it. **Evidence:**
+   number of `OUTLOOK.EXE` processes found before the kill; Outlook reopened without
+   the dialog, yes/no.
+1. **Unlock 1Password** (Jorge present: face/PIN, or his master password). Then turn on
+   1Password app → Settings → Security → **Unlock with Windows Hello** (Section C
+   step 4) so this cannot silently happen again. **Evidence:** `op whoami` prints the
+   account (paste the account name line only).
+2. **Make 1Password the Windows passkey provider.** Windows Settings → Accounts →
+   Passkeys → Advanced options → **1Password ON**. Then 1Password app → Settings →
+   Security → **"Save and sign in with passkeys" ON**. Report each toggle's
+   before-and-after state in words.
+3. **Retry Word.** Word → Account → **Fix me**. If the passkey prompt now goes to
+   1Password and signs in: done — report "Account page shows no yellow box."
+   If Windows still asks for a USB key: click **"Sign in another way"** → password →
+   Authenticator/phone code → sign in. That gets Word working today. Then report
+   "passkey path still broken" — it means the passkey lives on the iPhone, not this PC.
+   Fix for that: at `mysignins.microsoft.com` → Security info → **Add sign-in method →
+   Passkey** → save it to 1Password on this PC (1Password's generated credential is
+   pre-approved under TRK-2026-9346 Section B).
+4. **9Router — stop guessing first** (lockout). Facts from the project README
+   (github.com/decolua/9router): data lives in `~/.9router` → on this PC
+   `C:\Users\JV\.9router\db\data.sqlite` (check `%APPDATA%\.9router` too); the
+   dashboard port is `20128`; `INITIAL_PASSWORD` (default `123456`) is honoured
+   **only when no saved password hash exists.** So:
+   **Cloud found the answer in TO-CLOUD.md (RAMBO, 2026-09-15 4:17 PM):** *"9Router:
+   logged into the dashboard with the password on file."* **The password is NOT
+   `123456` — the desktop lane set one and has it on file, and it was never put into
+   1Password.** That is the whole reason Jorge's attempts fail. So:
+   a. Desktop: find where you keep that 9Router password "on file" (your own
+      credential store / settings / the 09-06 install notes) and **save it as a new
+      1Password item titled `9Router (127.0.0.1:20128)` with the full URL including
+      the port** so autofill matches the port and stops colliding with the other
+      localhost apps (`localhost:8731`, LiteLLM, VTS panel — give each its own
+      port-in-URL item). Then Jorge's next visit fills correctly. Never paste the
+      value anywhere else.
+   b. Only if the on-file value cannot be found: stop the 9router process (that also
+      clears any in-memory attempt counter), copy `data.sqlite` to
+      `data.sqlite.bak-20260919`, then delete the saved-password row from its
+      settings table (`sqlite3 data.sqlite` → look in the `settings` table for the
+      password/hash key; delete only that row — the same file holds every provider
+      API key, so never delete the file). Restart 9router; `123456` works again;
+      change it in Settings to a 1Password-generated value (pre-approved,
+      TRK-2026-9346 Section B) and save per step a.
+   c. While in the dashboard: the 12-day standing blocker `9ROUTER-WIRE-NOW` is
+      Providers → Claude Code → Add New Connection → consent. If Jorge is present,
+      have him click it then and there — one click closes a 12-day blocker.
+   d. Confirm at the end that 9router binds to `127.0.0.1` only, not `0.0.0.0` — the
+      README's production example exposes it to the LAN, and the database holds live
+      API keys (this is CVE-2026-63732, the default-password takeover).
+5. **Suspect to check once in — RI-018.** The hourly PAD routine
+   `PAD - Verification Code Monitor (Hourly)` auto-re-requests Microsoft security codes.
+   Repeated code requests are exactly what trips Microsoft's risk detection and
+   invalidates Office's sign-in token, which would make Symptom A come back every few
+   weeks. **Recommendation: disable it** (Task Scheduler / Power Automate → turn off,
+   do not delete) and log the before/after state. Jorge told cloud today "get the
+   situation under control"; cloud reads that as a yes on this — proceed unless he
+   objects. Closes TRK-2026-9051.
+
+### Evidence to paste back (TO-CLOUD.md)
+
+- Outlook: zombie `OUTLOOK.EXE` count before the kill; reopened clean, yes/no.
+- `op whoami` account line.
+- Passkey-provider toggle: before → after.
+- Word Account page: yellow box gone, yes/no. Passkey path fixed, or password path used.
+- 9Router dashboard reached, yes/no. Lockout counter cleared, yes/no.
+- RI-018 routine: still enabled / disabled, with the task's last-run time.
+
+### Never
+
+- Never type, screenshot, or store a password value anywhere — chat, repo, Drive.
+- Never insert an unknown USB device to satisfy the "security key" prompt.
+- Never turn Edge's or Chrome's password manager back on to "help."
+- Never keep guessing at 9Router — a lockout turns a five-minute fix into a reinstall.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by

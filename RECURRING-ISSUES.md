@@ -2021,3 +2021,65 @@ load-bearing piece again.** Redundancy = a simple try/fallback verified by a REA
 **RI-045 · 2026-09-18 ~00:00 UTC — the load-bearing signal itself went dark this time: `APPROVALS-QUEUE.json` stopped refreshing for ~23 hours while `TO-CLOUD.md` kept writing normally the whole time.** This is the exact reverse of RI-044's pattern, and it directly undercuts that entry's Tier 2 recommendation ("let the approvals board be the sole freshness signal... it never missed a beat"). **The file's own Drive `modifiedTime` — not a content-index snippet, the real write timestamp — last moved at 2026-09-17T01:15:23Z; still unchanged as of this check, 2026-09-18T00:01Z, ~23 hours later.** `HEALTH-2026-09-17.md` (desktop's own first-cycle-of-day check) had already caught the first symptom hours earlier: `CU-Approvals-Queue-Mirror` returned exit code `1` (generic failure) on its 00:15:15 AM run that day, logged at the time as "flagged, not chased (single occurrence, no pattern yet)." It was not a single occurrence — the task never recovered for the rest of the day. **Not yet a full Rule-4 write-up (this is the first time THIS shape — approvals-mirror silence rather than narrative-log silence — has been confirmed): recommend continuing to watch for a second occurrence before proposing tiered options.** Practical consequence while it lasts: any card-state changes desktop made on 09-17 (e.g. confirmation that AP-0048 was sent, or new cards opened) would not be visible in `APPROVALS-QUEUE.json`/`APPROVALS-NOW.md` until the mirror task recovers — the narrative log (`TO-CLOUD.md`) is, for once, the more current of the two surfaces. Not woken Jorge over this; it's a monitoring-reliability finding, not a live deadline, and it's going in the morning report instead.
 
 **Root cause confirmed, 2026-09-18 ~04:42 ET (`HEALTH-2026-09-18.md` + `FINDING_APPROVALS-QUEUE-JSON-EMPTY_2026-09-17.md`).** Not a task-scheduler fault: a Google Drive sync collided with the mirror script's `Set-Content` write at 2026-09-16 21:30:02 ET, truncating `MY-DESK\APPROVALS-QUEUE.json` to 0 bytes mid-stream. Every run since throws `PropertyNotFound` on the empty file and exits before it can touch `APPROVALS-NOW.md` — so the human-facing view was never corrupted; it's frozen at the last good 21:15:07 ET snapshot, not blanked. Desktop deliberately did not attempt a fix live (restoring the 09-15 5:30 AM backup would silently drop ~40 hours of card changes; hand-reconstructing JSON from the markdown table risks inventing/dropping card fields — the markdown view drops each card's `notes` field entirely, so any rebuild from it is lossy by construction). Recommended step, assigned to Cloud/a dedicated session, not the 15-minute cycle: rebuild the JSON from the last-good markdown, spot-check against known cards, swap in only after verification. **Assessed as low urgency** — nothing displays wrong, no decision is silently lost, only new card additions/closures since 09-16 21:15 ET fail to land until fixed. Recommendation given to Jorge: leave as-is, take the rebuild on as a dedicated task rather than rush it inside a monitoring pass.
+
+---
+
+## RI-046 — 1Password "fails" at sign-in: it is locked, and it is not the Windows passkey provider
+
+**Status:** OPEN — logged 2026-09-19 (cloud, from Jorge's screenshots). **Second
+occurrence** of the 1Password-not-filling shape: the first was the "reluctance" that
+produced TRK-2026-9346 on 2026-08-18. Rule 4 applies — patches are forbidden; three
+options below.
+
+**What happened.** Word's M365 account went into "Account Error — sign in again."
+Fix-me sends Microsoft's login straight to a **passkey** ceremony; Windows hands that to
+the passkey provider on the PC (1Password), which has been **sitting locked for days**
+(morning report 09-05). Windows then falls back to "insert your security key into the
+USB port" — Jorge has none — and the sign-in dies. The same lock made the browser
+extension fill the wrong (or no) credential into the local **9Router** dashboard,
+burning it down to "3 attempts left before lockout." Every local app shares the
+hostname `localhost`, so 1Password cannot separate their entries unless the saved URL
+carries the port.
+
+**Why the previous fix did not hold.** TRK-2026-9346 Section C named the six settings
+(Edge/Chrome managers OFF, 1Password default ON, Hello unlock, CLI, iPhone AutoFill) on
+2026-08-18. Its own Section D lists "Hello not enrolled, the M365 sign-in still
+pending" as known blockers — and a month later they are still not done. The settings
+were written down; nobody verified they were applied. Documentation was mistaken for
+completion (Rule 2).
+
+**Likely aggravator:** RI-018's hourly `PAD - Verification Code Monitor` auto-re-requests
+Microsoft security codes. That is the pattern Microsoft's risk engine reacts to by
+invalidating tokens — it would explain why Office keeps demanding re-sign-in.
+
+**Three options, ranked by lifespan:**
+
+1. **Tier 1 — Suppression.** Click "Sign in another way," use the password, get Word
+   working today. Lifespan: until the next token refresh, days to weeks. Comes back.
+2. **Tier 2 — Removal (recommended, issued as OD-107 / PASTE-D-034).** Unlock 1Password
+   with Hello turned ON so it stays reachable; make it the Windows passkey provider;
+   register the M365 passkey on this PC into 1Password; save every localhost login with
+   the port in its URL; disable the RI-018 code-monitor routine. Removes the cause.
+   Lifespan: permanent, unless a Windows or 1Password update flips the provider toggle.
+3. **Tier 3 — Enforcement.** A daily desktop health line: `op whoami` succeeds (vault
+   reachable), passkey-provider toggle is ON, and no Office "Account Error" event in the
+   Windows event log. Re-applies faster than it decays. Add to the health email once
+   Tier 2 has landed and been verified twice.
+
+**Cloud's own fault this session:** the first reply called the four screenshots a
+phishing chain and told Jorge to disconnect the device. Every dialog was genuine
+Microsoft/Windows UI and 9Router is his own local tool. Corrected in the same session;
+recorded here so the next session does not repeat the over-call.
+
+**RI-046 · 2026-09-19 later the same day — third symptom, same family: Outlook "has
+exhausted all shared resources, please close all messaging applications and restart
+Outlook," three dialogs stacked.** Each Outlook Data File retry spawns another copy; the
+broken M365 token makes every re-auth leak a MAPI session until the pool is empty.
+Stacked modal dialogs is also the RI-001 signature (2026-08-15: three modals at once).
+Issued as step 0 of WORK-QUEUE item 13 / PASTE-D-035: kill every zombie `OUTLOOK.EXE`
+plus Teams/Skype, reopen; `/resetnavpane` on a second return; count data files and
+add-ins on a third. Jorge's note this pass: "the other agents are just not at your
+level" — the desktop executor has not yet reported on D-034, so cloud also gave Jorge
+the three direct clicks himself (Outlook kill, Word "Sign in another way," 9Router
+`123456` typed by hand) rather than leave him waiting on an executor that is not
+answering.
