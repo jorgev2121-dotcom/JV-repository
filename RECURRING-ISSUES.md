@@ -2157,3 +2157,10 @@ now carrying two reported critical default-password/auth-bypass CVEs (TRK-2026-9
 applied instead of a patch: no router — the existing VTS panel now tries local **Ollama first
 (no key, already running)**, then Gemini free, then keyed vendors. Rule from now on: **any
 "install a router" request is answered with "which key exists?" first.** #RI-038 #TRK-2026-9958
+
+**RI-046 · 2026-09-20 ~09:40 AM ET — Symptom C recurred (Jorge's screenshot: two stacked "Outlook has
+exhausted all shared resources" dialogs).** The desktop's 09-19 check found it not reproducing and
+correctly left the one healthy OUTLOOK.EXE alone. Cloud re-issued step 0 as PASTE-D-039 with a
+detection rule (the dialog window itself is the kill criterion) so the desktop never kills a healthy
+Outlook. Root cause unchanged: broken M365 token → each retry leaks a MAPI session → pool empties.
+It will keep returning until the one owner touch (Windows Hello → 1Password) repairs the token.
