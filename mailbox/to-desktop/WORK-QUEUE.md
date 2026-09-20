@@ -545,3 +545,14 @@ Desktop-folder size check. Cloud is doing the "research cleanup options" half it
 `WSearch` (halts the 19k-item indexing), search every scheduled task for one that launches Outlook
 and DISABLE (never delete) any match, then restart Outlook normally if that's clean or in Safe Mode
 if not. Owner pre-authorized every step in his own message — do not re-ask.
+
+---
+
+## 20. TRK-2026-9995 — Fix morning_report.ps1: surface every watchdog-checked connector (Ollama, Grok, future ones) in System Status
+
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_MORNING-REPORT-ADD-OLLAMA-CONNECTORS_2026-09-20.md`
+(PASTE-D-044). Root-cause fix: make the System Status block render from the SAME list the watchdog
+already checks (Ollama and Grok router are already checked, just not surfaced), so the next connector
+Jorge adds shows up automatically with no further script edit. Two small bugs also flagged for a
+two-minute look: VerticalTray shows OFFLINE in summary but OK in the same run's log, and "Repair
+attempt of 3" is missing its attempt number.
