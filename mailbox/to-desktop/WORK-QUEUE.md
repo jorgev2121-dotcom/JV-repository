@@ -571,6 +571,16 @@ live window.
 
 ---
 
+## 28. URGENT — TRK-2026-10017 — Check RAMBO is alive, finalize the Human IT Work Package, print it
+
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HUMAN-IT-WORK-PACKAGE-FINALIZE-AND-PRINT_TRK-2026-10017_2026-09-20.md`
+(PASTE-D-052). Jump the queue — items 24-27 on this same document have sat unpicked ~45 minutes,
+longer than the normal cycle; check whether this lane is even running (may tie to TRK-2026-10002's
+open CPU/process finding) before anything else. Then run any of 24-27 not yet done, export the
+finished document as one PDF, and print it to the default printer.
+
+---
+
 ## 27. TRK-2026-10017 — Add the shared folder-index structure to the dependency diagram + Work Package
 
 Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HUMAN-IT-WORK-PACKAGE-SHARED-INDEX-DIAGRAM_TRK-2026-10017_2026-09-20.md`
