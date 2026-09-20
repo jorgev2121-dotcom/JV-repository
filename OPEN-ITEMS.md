@@ -80,7 +80,7 @@ index existed · `9183` **the ninth Plaza unit does not exist**
 | TRK-2026-9017 | Migrate OneDrive ClaudeMemory into this repo | NOT_STARTED | Message queued in mailbox/to-desktop/. Desktop only — cloud cannot read OneDrive |
 | TRK-2026-9018 | Enable /voice in desktop Claude Code | NOT_STARTED | Type `/voice`, hold space. Windows: allow desktop apps mic access |
 | TRK-2026-9019 | Evaluate Wispr Flow for system-wide dictation | NOT_STARTED | **v2.1.83 injection bug is moot — desktop is on v2.1.233.** That warning no longer applies |
-| TRK-2026-9020 | Authorize Microsoft 365 connector (OneDrive read) | BLOCKED | Only Jorge can click the consent screen in claude.ai connector settings |
+| TRK-2026-9020 | Authorize Microsoft 365 connector (OneDrive read) | **AUTHORIZED 2026-09-20 ~16:00Z** | Cloud `get_me` returned Jorge@TEAMUSASALES.COM; granted scopes: Mail.Read, Files.Read.All, Sites.Read.All, Calendars.Read, Chat/Channel read, User.Read (read-only, no send). Cloud can now read Outlook mail and OneDrive/SharePoint directly — the "cloud cannot read Outlook" wall in TRK-2026-9231 is gone. Also evidence for OD-107: a successful Microsoft sign-in by Jorge happened within the last day |
 | TRK-2026-9021 | Unpin Haiku 4.5 in desktop `.claude\settings.json` | **DONE** | **VERIFIED 2026-08-16 by statusline screenshot: `Claude Code v2.1.233 / Opus 5 · Claude Max`.** Restart completed. `haiku-settings.json.disabled` blocks silent reversion |
 | TRK-2026-9022 | Audit model used by every saved session | NOT_STARTED | Drift found across haiku-4-5, fable-5, opus-4-8. See RI-008 |
 | TRK-2026-9023 | Adopt `_ pNNN` page-identity standard | DONE | Written into CLAUDE.md 9.1-9.3, verified on remote 2026-08-15 |
