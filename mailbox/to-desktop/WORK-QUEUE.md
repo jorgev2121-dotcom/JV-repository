@@ -556,3 +556,15 @@ already checks (Ollama and Grok router are already checked, just not surfaced), 
 Jorge adds shows up automatically with no further script edit. Two small bugs also flagged for a
 two-minute look: VerticalTray shows OFFLINE in summary but OK in the same run's log, and "Repair
 attempt of 3" is missing its attempt number.
+
+---
+
+## 21. TRK-2026-9998 — Verify the native OWNER-ACTIONS.hta popup is still live, repop if buried
+
+Cloud built a phone-accessible twin of this board (link in TO-CLOUD.md / OPEN-ITEMS 9998). The
+native desktop popup should still be Jorge's fastest option when he's at that PC. Check by window
+handle, not process title (the 09-04 lesson: `mshta.exe`'s process-level `MainWindowTitle` reads
+blank even when the window is live — enumerate windows, don't trust `Get-Process | Select
+MainWindowTitle`). If it's buried or closed, rebuild `OWNER-ACTIONS.hta` from the same 17 gates in
+`OWNER-GATES.md` and pop it. If it's still live and unanswered, leave it — don't rebuild on top of a
+live window.
