@@ -20,34 +20,53 @@ BLOCKED and escalated rather than worked around.
 
 ## Site registry
 
-| # | Source | What it yields | Status | Notes |
-|---|---|---|---|---|
-| 1 | Property Appraiser — property search | Folio, owner, legal, characteristics, values | NOT_STARTED | The spine. Folio drives most other lookups |
-| 2 | Property Appraiser — comparable sales | Sales history, comps | NOT_STARTED | |
-| 3 | Tax Collector — real estate tax | Bills, payment status, delinquency | NOT_STARTED | |
-| 4 | Clerk of Courts — Official Records | Deeds, mortgages, liens, satisfactions | NOT_STARTED | Highest due-diligence value after #1 |
-| 5 | Clerk of Courts — civil case search | Litigation, foreclosures | NOT_STARTED | |
-| 6 | Building Permit Selection Menu | Permit + inspection history by folio, open permits | NOT_STARTED | Best source for permit history |
-| 7 | EPS e-permitting portal | Application and plan review status | NOT_STARTED | Best for in-flight applications |
-| 8 | Building Support Case Search | Building code enforcement cases | NOT_STARTED | |
-| 9 | Code Enforcement Online System | Citations, appeals | NOT_STARTED | |
-| 10 | Neighborhood Code Case Search | Code violations | NOT_STARTED | |
-| 11 | Unsafe Structures search | Unsafe structure cases | NOT_STARTED | Directly relevant to CU Inspections work |
-| 12 | Certificates of Use search | Active CU on file | NOT_STARTED | Pre-2012 needs the archived engine — treat as 12b |
-| 13 | Environmental Code Enforcement (DERM) | Environmental violations | NOT_STARTED | |
-| 14 | DERM environmental public records | 2M+ environmental records | NOT_STARTED | |
-| 15 | Building products / NOA search | Notice of Acceptance by product | NOT_STARTED | |
-| 16 | Zoning / land use lookup | Zoning designation, overlays | NOT_STARTED | |
-| 17 | City of Miami permits | Municipal permits | NOT_STARTED | Live jobs: TRK-2026-1289, 1292, 1531 |
-| 18 | Miami Beach permits | Municipal permits | NOT_STARTED | Live job: TRK-2026-1268, 1500 Ocean Dr |
-| 19 | Florida Sunbiz | Entity status, officers, registered agent | NOT_STARTED | Owner-entity verification |
-| 20 | DBPR licensee search | Contractor licence status | NOT_STARTED | Live use: M. Zaldivar CGC renewal |
-| 21 | Florida Product Approval | FL##### approvals | NOT_STARTED | Matches his FL13872, FL20359, FL29078 files |
-| 22 | Pembroke Pines / Broward permits | Municipal permits | NOT_STARTED | **BROWARD, not Miami-Dade.** Live job TRK-2026-1611 |
+**Updated 2026-09-20 (cloud) — the STATUS/ACCESS/METHOD columns below replace the stale
+`NOT_STARTED` values with the real 2026-08-16 proof run (`COUNTY-PROOF-RESULTS.md`,
+TRK-2026-9078). The last three columns are new, requested by Jorge, and are honestly
+**NOT YET TRACKED** — the 08-16 run proved *data* access (JSON API responses), not
+*document-image* retrieval, report conversion, or supporting-copy retention. Those are
+a distinct, not-yet-done piece of work, flagged rather than guessed at.**
+
+| # | Source | What it yields | Access method | Status | Image copies retrieved | Converted to report | Image kept as supporting |
+|---|---|---|---|---|---|---|---|
+| 1 | Property Appraiser — property search | Folio, owner, legal, characteristics, values | Direct (anonymous GET, no login) | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 2 | Property Appraiser — comparable sales | Sales history, comps | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 3 | Tax Collector — real estate tax | Bills, payment status, delinquency | **Chrome required** | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 4 | Clerk of Courts — Official Records | Deeds, mortgages, liens, satisfactions | Blocked — Cloudflare Turnstile captcha | **PARTIAL** | not tracked | not tracked | not tracked |
+| 5 | Clerk of Courts — civil case search | Litigation, foreclosures | **Chrome required** | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 6 | Building Permit Selection Menu | Permit + inspection history by folio, open permits | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 7 | EPS e-permitting portal | Application/plan review status public; folio search login-gated | Direct (public part only) | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 8 | Building Support Case Search | Building code enforcement cases | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 9 | Code Enforcement Online System | Citations, appeals | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 10 | Neighborhood Code Case Search | Code violations | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 11 | Unsafe Structures search | Unsafe structure cases | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 12 | Certificates of Use search | Pre-2012 archive works; 2012-present has NO public search | Direct (pre-2012 only) | **PARTIAL** | not tracked | not tracked | not tracked |
+| 13 | Environmental Code Enforcement (DERM) | Environmental violations | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 14 | DERM environmental public records | 2M+ environmental records | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 15 | Building products / NOA search | Notice of Acceptance by product | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 16 | Zoning / land use lookup | Zoning designation, overlays | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 17 | City of Miami permits | Municipal permits | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 18 | Miami Beach permits | Municipal permits | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 19 | Florida Sunbiz | Entity status, officers, registered agent | **Chrome required** | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 20 | DBPR licensee search | Contractor licence status | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 21 | Florida Product Approval | FL##### approvals | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
+| 22 | Pembroke Pines / Broward permits | Municipal permits — **BROWARD, not Miami-Dade** | Direct | EXECUTED-WITH-PROOF | not tracked | not tracked | not tracked |
 
 **Note on #22:** Jorge has active work in Pembroke Pines, which is Broward County.
 The brief says "Miami-Dade" but the job list does not respect that boundary. Flagged
 rather than silently dropped.
+
+**On the "successfully accessed" question directly:** yes for 20 of 22 — proven with
+saved proof files (`_CLAUDE-MAILBOX\COUNTY-PROOF-TRK-2026-9078\`, one `SITE-NN` report
+per source). Sites 4 and 12 are genuinely partial for the reasons in their own rows,
+not silently dropped.
+
+**On "image copies... left as supporting":** the 08-16 run pulled structured JSON data
+(folio numbers, values, dates, case numbers) — that is not the same as retrieving the
+actual document images (a deed scan, a permit card PDF, a tax bill image) and keeping
+them as supporting evidence alongside a converted report. That is real, additional
+scope this registry does not yet cover. It overlaps directly with the tax-jacket
+protocol below — see the note there.
 
 ---
 
