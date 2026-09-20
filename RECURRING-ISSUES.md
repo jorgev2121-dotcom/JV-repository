@@ -2182,3 +2182,32 @@ M365 token (one Hello touch away), not indexing or memory. `outlook.exe /safe` i
 and will NOT clear this on its own since it doesn't touch the auth cycle. Sources: Microsoft Q&A
 threads on this exact error (learn.microsoft.com/answers, two threads), corroborated via search
 (direct fetch blocked by this session's egress policy).
+
+## RI-048 — Outlook auto-relaunches itself within seconds of being killed, via COM/DCOM activation, and the resource-exhaustion dialog comes back with it
+
+**Status:** OPEN — logged 2026-09-20 (desktop RAMBO, pushed to the base branch directly; merged
+into this branch's history here). Downstream of the same OD-107/1Password chain (RI-046) but a
+distinct mechanism, so it gets its own number. **Numbering note:** the desktop's own Drive-side
+recurring-issues copy filed this as "RI-046" too and the incoming branch merge here first collided
+it with RI-047 (already taken by the classifier self-modification issue) — renumbered to RI-048 on
+merge so this repo's copy stays internally consistent. At least 4 different `RECURRING-ISSUES.md`
+copies exist (this repo's, the Drive-side one, `00-CONTINUITY-BOARD`, `Shared Folders for all
+LLMs`) and they can drift out of sync on numbering — treat this repo's copy as authoritative for
+git-tracked work, and normalize a copy's number to whatever is free here when merging its findings.
+
+**What was found:** killing Outlook gets a replacement process back in 2-4 seconds, command line
+`-Embedding` (COM-launched, not a direct relaunch), parent PID is `svchost.exe` — something is
+calling `Outlook.Application` via COM and winning the race against even a manual `/safe`-mode
+launch. The known auto-launch scripts on disk were ruled out (one explicitly skips the COM call
+when Outlook isn't running; the other's own log shows no activity today). Root cause still
+unidentified. **Second cycle in a row hitting the same wall: fixing it needs `Stop-Service
+WSearch`, which needs admin rights the desktop session doesn't have** (matches this repo's own
+TRK-2026-9981/9989 findings from the same day). Per Rule 4, two Tier-1-only attempts (kill +
+relaunch) in a row means the next step can't be a third kill-and-relaunch. **Needs one of: (1) an
+elevated session runs `Stop-Service WSearch`, or (2) Jorge watches a live kill in Task Manager's
+Details tab (or Process Explorer) to catch the exact parent process the instant Outlook reappears**
+— a headless session can only see it after the fact. Also noted, likely related and separately
+tracked as TRK-2026-10002: 30-39 PowerShell processes have been alive since 2026-09-19 13:14, and
+CPU has been pinned 88-100% continuously since ~2026-09-20 00:29.
+
+#RI-048 #OD-107 #WSearch #COM-DCOM #JorgeValdes
