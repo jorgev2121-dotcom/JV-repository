@@ -2164,3 +2164,9 @@ correctly left the one healthy OUTLOOK.EXE alone. Cloud re-issued step 0 as PAST
 detection rule (the dialog window itself is the kill criterion) so the desktop never kills a healthy
 Outlook. Root cause unchanged: broken M365 token → each retry leaks a MAPI session → pool empties.
 It will keep returning until the one owner touch (Windows Hello → 1Password) repairs the token.
+
+**RI-038 · 2026-09-20 — update, not a new recurrence.** Router-on-the-PC question closed
+for now: Ollama-first proven live (mistral answered a real prompt), 9Router queued for
+removal per owner approval (TRK-2026-9961). Leaving this line so a future session doesn't
+re-propose 9Router: it is gone as of this date, and the reason (two reported critical CVEs,
+never wired into working infrastructure) stands even though it was loopback-only.

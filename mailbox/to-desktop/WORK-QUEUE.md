@@ -500,3 +500,27 @@ STALE / TRUNCATED, each with the charter reason in the detail pane.
 
 **Three honest states:** DONE = both JSONs exist and the build prints their counts · BLOCKED = the exact
 line · IN PROGRESS = what remains. Which is it?
+
+---
+
+## 17. TRK-2026-9961 — Remove 9Router (owner approved 2026-09-20)
+
+**Owner approval, verbatim:** "Remove 9router as recommended." Confirmed installed:
+`9router@0.5.69` (npm global), listening on `127.0.0.1:20128` only — **not LAN-exposed**,
+so the two reported CVEs (default-password takeover / auth bypass) need a local attacker
+or another process on the same machine to matter, not the internet. Still: never wired
+into anything that works, and the owner said remove it. GREEN, ~2 minutes.
+
+**Steps:**
+1. `Get-Process -Id (Get-NetTCPConnection -LocalPort 20128).OwningProcess | Stop-Process -Force`
+   (or `taskkill /PID <pid> /F` using the PID `netstat -ano | findstr 20128` reports)
+2. `npm uninstall -g 9router`
+3. `Remove-Item -Recurse -Force "$env:USERPROFILE\.9router"` if that config directory exists
+   (confirm the path first with `Test-Path` — do not guess a path and delete blind)
+4. `npm ls -g 9router` should now report "(empty)"; `netstat -ano | findstr 20128` should
+   return nothing. Paste both to TO-CLOUD.md.
+5. Update `RECURRING-ISSUES.md` RI-038's own note if it still points at 9Router as a live
+   option — it should read "removed 2026-09-20."
+
+**Three honest states:** DONE = both checks empty · BLOCKED = exact error · IN PROGRESS =
+what remains.
