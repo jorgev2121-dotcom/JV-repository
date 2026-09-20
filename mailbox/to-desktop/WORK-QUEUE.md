@@ -571,6 +571,17 @@ live window.
 
 ---
 
+## 29. URGENT — Exit code -1073741510 (STATUS_CONTROL_C_EXIT) — likely explains tonight's stall
+
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_EXIT-CODE-FOUND-STATUS-CONTROL-C_2026-09-20.md`
+(PASTE-D-053). Jorge reported this exit code directly. Decoded: a process was interrupted
+(Ctrl+C/Ctrl+Break/console closed), not crashed. If this is RAMBO's own task, it explains why jobs
+24-28 have sat unpicked for hours — an interrupted cycle, not a dead one. Confirm the source (Event
+Viewer, `Get-ScheduledTaskInfo` LastTaskResult), find what's sending the interrupt, then resume the
+queue from item 24 onward.
+
+---
+
 ## 28. URGENT — TRK-2026-10017 — Check RAMBO is alive, finalize the Human IT Work Package, print it
 
 Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HUMAN-IT-WORK-PACKAGE-FINALIZE-AND-PRINT_TRK-2026-10017_2026-09-20.md`
