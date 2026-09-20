@@ -535,3 +535,13 @@ Full job text filed to Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_OUTLOOK-SAFEMODE-INDE
 Search Indexer (or report what else is actually running first), try Copilot and report what happens
 (cloud's read: it likely hits the same broken M365 token as RI-046), and a two-command read-only
 Desktop-folder size check. Cloud is doing the "research cleanup options" half itself, in parallel.
+
+---
+
+## 19. URGENT — TRK-2026-9989 — Kill Outlook's stuck indexing, hunt the auto-relaunch schedule, restart
+
+**Owner is live and blocked right now.** Full job filed to Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_OUTLOOK-KILL-INDEX-DISABLE-SCHEDULE_2026-09-20.md`
+(PASTE-D-043). Do this ahead of anything else queued. Summary: kill any stray OUTLOOK.EXE, stop
+`WSearch` (halts the 19k-item indexing), search every scheduled task for one that launches Outlook
+and DISABLE (never delete) any match, then restart Outlook normally if that's clean or in Safe Mode
+if not. Owner pre-authorized every step in his own message — do not re-ask.
