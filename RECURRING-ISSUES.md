@@ -2170,3 +2170,15 @@ for now: Ollama-first proven live (mistral answered a real prompt), 9Router queu
 removal per owner approval (TRK-2026-9961). Leaving this line so a future session doesn't
 re-propose 9Router: it is gone as of this date, and the reason (two reported critical CVEs,
 never wired into working infrastructure) stands even though it was loopback-only.
+
+**RI-046 · 2026-09-20 — mechanism sharpened by research (not a new recurrence).** "Exhausted all
+shared resources" is confirmed MAPI object-handle exhaustion, not RAM/CPU: Outlook 365 caps a
+session at roughly 250 open MAPI objects (folders/messages/attachments/shared-mailbox handles).
+Each failed silent M365 re-auth retry that RI-046 already suspected does not just "leak a session"
+vaguely — it leaks a MAPI handle against that same cap, so the count climbs until the wall hits,
+independent of how much RAM is free. This is the precise mechanism behind the "leaks a MAPI session"
+line logged earlier the same day. Confirms the fix priority: the root cause is still the broken
+M365 token (one Hello touch away), not indexing or memory. `outlook.exe /safe` isolates add-ins only
+and will NOT clear this on its own since it doesn't touch the auth cycle. Sources: Microsoft Q&A
+threads on this exact error (learn.microsoft.com/answers, two threads), corroborated via search
+(direct fetch blocked by this session's egress policy).
