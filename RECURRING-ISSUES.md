@@ -2183,7 +2183,7 @@ and will NOT clear this on its own since it doesn't touch the auth cycle. Source
 threads on this exact error (learn.microsoft.com/answers, two threads), corroborated via search
 (direct fetch blocked by this session's egress policy).
 
-## RI-048 — Outlook auto-relaunches itself within seconds of being killed, via COM/DCOM activation, and the resource-exhaustion dialog comes back with it
+## RI-048 — Outlook auto-relaunches itself within seconds of being killed, via COM/DCOM activation, and the resource-exhaustion dialog comes back with it (THIRD occurrence same day)
 
 **Status:** OPEN — logged 2026-09-20 (desktop RAMBO, pushed to the base branch directly; merged
 into this branch's history here). Downstream of the same OD-107/1Password chain (RI-046) but a
@@ -2209,5 +2209,13 @@ Details tab (or Process Explorer) to catch the exact parent process the instant 
 — a headless session can only see it after the fact. Also noted, likely related and separately
 tracked as TRK-2026-10002: 30-39 PowerShell processes have been alive since 2026-09-19 13:14, and
 CPU has been pinned 88-100% continuously since ~2026-09-20 00:29.
+
+**Third confirmation, ~12:10-12:20 same day.** Same DCOM signature reproduced a third independent
+time (different PIDs each time, same `ParentProcessId` pattern, same `-Embedding` command line).
+This narrows the cause — ruled out as a scheduled task or an add-in across all three cycles — but
+still doesn't name the actual caller. **This is now a third occurrence of the same finding in one
+day, so Rule 4 applies strictly**: the next pass on this needs three durability-ranked options with
+at least one Tier-2 removal, not another Tier-1 kill-and-relaunch — that full treatment has not
+been done yet and is owed before this is touched again, not assumed to already exist here.
 
 #RI-048 #OD-107 #WSearch #COM-DCOM #JorgeValdes
