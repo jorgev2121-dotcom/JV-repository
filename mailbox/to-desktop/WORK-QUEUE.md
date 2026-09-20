@@ -571,6 +571,17 @@ live window.
 
 ---
 
+## 27. TRK-2026-10017 — Add the shared folder-index structure to the dependency diagram + Work Package
+
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HUMAN-IT-WORK-PACKAGE-SHARED-INDEX-DIAGRAM_TRK-2026-10017_2026-09-20.md`
+(PASTE-D-051). Jorge asked for a shared, structural way LLMs can look things up without reading
+everything — this already exists (per-folder `_INDEX.html`, per-job `_PORTAL_<TRK>.html`, per-
+document `.SEARCH.txt`/`.TAGS.txt` sidecars, the Filing Tree panel on top) but its build date isn't
+one single day — verify real file timestamps before stating a date, then add to section 3 (diagram)
+and the narrative report.
+
+---
+
 ## 26. TRK-2026-10017 — Check for / add cloud-server coverage in the Human IT Work Package
 
 Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HUMAN-IT-WORK-PACKAGE-CLOUD-SECTION_TRK-2026-10017_2026-09-20.md`
