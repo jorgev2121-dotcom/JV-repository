@@ -1,6 +1,8 @@
-# Report — 2026-09-05 through 2026-09-19 (Saturday update)
+# Report — 2026-09-05 through 2026-09-20 (Sunday update)
 
-**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Saturday 2026-09-19.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Sunday 2026-09-20.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+
+**You worked through a real account-access incident yesterday with a different session — recapping so this file stays the full picture, not re-litigating it.** Word's Microsoft sign-in started looping ("Account Error" → passkey → "insert a USB security key"), and your 9Router dashboard got down to 3 login attempts before lockout. Root cause: 1Password has been sitting locked for days, so it couldn't hand Windows the passkey or fill 9Router correctly. That session routed the hands-on fix to Cowork (cloud can't touch your desktop directly) — **as of the last status check, it's filed and queued but not yet executed.** Today's fallback if Word acts up again: click "Sign in another way" and use your password instead of the passkey. Logged as RI-046 / OD-107 for tracking; I'll flag here once it's actually done.
 
 **Two small housekeeping asks, whenever you're next at the machine — neither is urgent.** (1) 1Password is sitting on its own unlock screen, blocking a small login-cleanup job — just touch Windows Hello or enter your unlock. (2) A while back you gave the desktop 10-12 tasks verbally and the record of exactly what they were got lost structurally (not neglect) — it just needs you to re-list them, about 30 seconds. Both have been waiting a couple of days; neither is going to cause a problem by waiting a bit longer.
 
