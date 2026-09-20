@@ -571,6 +571,16 @@ live window.
 
 ---
 
+## 25. TRK-2026-10017 — Add "OWNER / JORGE REQUIRED" section to the Human IT Work Package
+
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HUMAN-IT-WORK-PACKAGE-OWNER-SECTION_TRK-2026-10017_2026-09-20.md`
+(PASTE-D-049). Adds the full ranked list of tasks only Jorge can complete (cash-flow sends, one-click
+unlocks, the two infrastructure root causes, the smaller items) as its own section, verbatim text
+supplied in the job — insert after "Contents," before section 1, and renumber. Same document/TRK as
+item 24 (PASTE-D-048); fold together if item 24 hasn't run yet.
+
+---
+
 ## 24. TRK-2026-10017 — Format the Human IT Work Package: title block, TRK stamp, page numbers, book index
 
 Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HUMAN-IT-WORK-PACKAGE-FRONTMATTER_TRK-2026-10017_2026-09-20.md`
