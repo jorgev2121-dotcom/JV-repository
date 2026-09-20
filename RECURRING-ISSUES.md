@@ -2149,3 +2149,11 @@ to the existing RAMBO runner via `VTES-Inbox`; the RED step (1Password unlock) c
 to one Windows Hello touch by Jorge, prompted at the moment everything else is staged.
 Bundling that touch into an unattended run is exactly what every lane's classifier
 refuses, and it is right to. Saved as `.claude/skills/desktop-blocked-task/SKILL.md`.
+
+**RI-038 · 2026-09-20 — recurrence (router-on-the-PC, third time).** Jorge asked for yet another
+router install (LiteLLM or 9Router) "with no owner participation." Same shape as 08-25/08-26: the
+missing piece is keys, not a router; LiteLLM :4001 still DOWN and unkeyed; 9Router locked out and
+now carrying two reported critical default-password/auth-bypass CVEs (TRK-2026-9961). Tier 2
+applied instead of a patch: no router — the existing VTS panel now tries local **Ollama first
+(no key, already running)**, then Gemini free, then keyed vendors. Rule from now on: **any
+"install a router" request is answered with "which key exists?" first.** #RI-038 #TRK-2026-9958

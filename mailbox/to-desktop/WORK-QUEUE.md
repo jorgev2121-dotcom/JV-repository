@@ -445,3 +445,34 @@ extends item 13 step 4 and TRK-2026-9346 Section C.
 **Three honest states for this item:** DONE = re-parse OK + a fresh session runs
 `git status` without a prompt · BLOCKED = say which line failed · IN PROGRESS = say what
 remains. Which state is it?
+
+---
+
+## 15. TRK-2026-9958 — Prove the first ZERO-KEY model through the VTS panel (Ollama, already running on this PC)
+
+**Why:** Jorge asked (2026-09-20) for a router "installed with no owner participation that gets
+all LLMs to whichever LLM holds the orchestrator role." Deep dive verdict (OPEN-ITEMS 9958):
+no router removes the need for a key, and every real vendor API needs a key only Jorge can make.
+The ONE model that needs no key, no install and no owner is **Ollama on this PC** (:11434, 6
+models, kept alive by `CU-Ollama-Serve-Guard`). Cloud added it as provider #1 of the existing
+`vts-llm-panel/vts_llm_panel.py` (RI-038 design: no router, real round-trip). This item is the proof.
+
+**Steps (GREEN, ~2 minutes):**
+1. `git fetch origin claude/new-session-1j77e1`
+2. `git checkout origin/claude/new-session-1j77e1 -- vts-llm-panel/vts_llm_panel.py`
+   (narrow-file exception; file = 7134 bytes, sha256 `cea495dafc7f50d0…` before autocrlf).
+3. `python vts-llm-panel\vts_llm_panel.py --health` — expected: `ollama LIVE answered`, the four
+   keyed providers `NO-KEY`. If ollama shows DEAD, paste the exact error (it names the cause).
+4. `python vts-llm-panel\vts_llm_panel.py "In one sentence, what is a Certificate of Use in Miami-Dade?"`
+   — expected first line `[answered by: ollama]`. Paste the console output to TO-CLOUD.md.
+5. Optional, same run: set `OLLAMA_MODEL` to the best model `/api/tags` lists (e.g. a llama3 or
+   qwen tag) if the auto-pick chose a weak one; report which model answered.
+
+**Also this cycle, READ-ONLY (TRK-2026-9961, security):** report the installed 9Router version
+(`npm ls -g 9router` or the dashboard footer) and what `:20128` is bound to (`netstat -ano | findstr 20128`).
+Two security sites report **CVE-2026-63732 (9.9, default password 123456 → takeover)** and
+**CVE-2026-59800 (9.8, auth bypass)** as actively exploited. Do NOT uninstall or change it — that is
+Jorge's yes (installed software = pause-and-ask). Just measure and report.
+
+**Three honest states:** DONE = step 4 shows `[answered by: ollama]` · BLOCKED = the exact
+error line · IN PROGRESS = what remains. Which is it?
