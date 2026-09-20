@@ -524,3 +524,14 @@ into anything that works, and the owner said remove it. GREEN, ~2 minutes.
 
 **Three honest states:** DONE = both checks empty · BLOCKED = exact error · IN PROGRESS =
 what remains.
+
+---
+
+## 18. Outlook safe-mode restart + kill the indexer + Copilot diagnostic check (2026-09-20)
+
+Full job text filed to Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_OUTLOOK-SAFEMODE-INDEXER-CLEANUP_2026-09-20.md`
+(PASTE-D-042) — owner request, relayed verbatim, five steps: close Outlook, restart it in Safe Mode
+(assumption stated: Outlook Safe Mode not a full Windows boot — correct me if wrong), stop Windows
+Search Indexer (or report what else is actually running first), try Copilot and report what happens
+(cloud's read: it likely hits the same broken M365 token as RI-046), and a two-command read-only
+Desktop-folder size check. Cloud is doing the "research cleanup options" half itself, in parallel.
