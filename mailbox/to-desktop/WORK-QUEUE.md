@@ -571,6 +571,17 @@ live window.
 
 ---
 
+## 26. TRK-2026-10017 — Check for / add cloud-server coverage in the Human IT Work Package
+
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HUMAN-IT-WORK-PACKAGE-CLOUD-SECTION_TRK-2026-10017_2026-09-20.md`
+(PASTE-D-050). Jorge asked whether "the cloud server" is covered — check the complete document
+first (cloud has only seen a fragment), and if genuinely missing, add the two-part section supplied:
+(A) this Claude Code cloud/web lane's own architecture (egress-blocked from county sites, Drive-only
+channel to the desktop), and (B) the still-unconfirmed DigitalOcean account (VAPOR finding JOB-0069)
+with the one owner action to check it.
+
+---
+
 ## 25. TRK-2026-10017 — Add "OWNER / JORGE REQUIRED" section to the Human IT Work Package
 
 Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HUMAN-IT-WORK-PACKAGE-OWNER-SECTION_TRK-2026-10017_2026-09-20.md`
