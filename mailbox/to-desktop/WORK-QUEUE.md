@@ -568,3 +568,15 @@ blank even when the window is live — enumerate windows, don't trust `Get-Proce
 MainWindowTitle`). If it's buried or closed, rebuild `OWNER-ACTIONS.hta` from the same 17 gates in
 `OWNER-GATES.md` and pop it. If it's still live and unanswered, leave it — don't rebuild on top of a
 live window.
+
+---
+
+## 22. TRK-2026-9999 — Grok/XAI diagnostic (not a LiteLLM repair) + retire the offline router's noise
+
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_GROK-DIAGNOSTIC-NO-LITELLM-REPAIR_2026-09-20.md`
+(PASTE-D-045). Jorge pasted another assistant's plan to repair LiteLLM and route Grok through it —
+cloud checked xAI's own status page: the public API is up, this is not a Grok outage. Cloud is NOT
+reviving LiteLLM (RI-038 already decided against that twice). Confirm XAI_API_KEY is still unset (it
+was this morning), test a fresh key directly if Jorge has since made one, confirm the existing VTS
+panel already picks it up with no config, and disable (never delete) whatever scheduled task starts
+LiteLLM/VerticalTray so they stop showing as a false alarm every morning.
