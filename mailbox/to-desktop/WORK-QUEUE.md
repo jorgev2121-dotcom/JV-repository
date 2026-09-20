@@ -571,6 +571,20 @@ live window.
 
 ---
 
+## 24. TRK-2026-10017 — Format the Human IT Work Package: title block, TRK stamp, page numbers, book index
+
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HUMAN-IT-WORK-PACKAGE-FRONTMATTER_TRK-2026-10017_2026-09-20.md`
+(PASTE-D-048). Jorge is assembling a "Human IT Work Package" doc (Team USA Automation Platform,
+Technical execution guide v1.0, DESKTOP-OTB90LR, 2026-09-18) in `C:\Users\JV\Documents\CU
+Inspections\`. Cloud only saw a truncated excerpt — do not guess at content cloud hasn't read. Add:
+a title block (vendor name/account/appointments/email fields marked TBD until Jorge supplies them),
+a real book-style alphabetical index above "Contents" built from the complete paginated document,
+running page numbers, the footer stamp `TRK-2026-10017 · v1 · p[NNN] · 2026-09-18 · CURRENT`, and
+the hashtag line in the body. Confirm searchability by export setting, not a blind OCR pass, unless
+part of the source is an actual scan.
+
+---
+
 ## 23. Confirm VTES-Repo-Heartbeat is alive; fold into the open CPU-pileup check (TRK-2026-10002)
 
 Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HEARTBEAT-AND-CPU-CHECK_2026-09-20.md` (PASTE-D-047).
