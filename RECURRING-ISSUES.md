@@ -2136,3 +2136,16 @@ blocker to report upward. Stage outside `.claude`, commit, hand the merge to the
 lane with the owner's approval quoted verbatim.
 
 #RI-047 #classifier #self-modification #settings-json #TRK-2026-9946
+
+**RI-047 · 2026-09-20 — FOURTH occurrence, Cowork lane.** Cowork tried to create a
+recurring unattended scheduled task that would fetch and run the PowerShell script AND
+handle the 1Password/credential steps of OD-107 by itself. Refused by the classifier as
+"Cowork Scheduled Task Write". Cowork's proposed fallback was a new hourly "bridge
+reconnect alert" task. **Cloud's ruling:** the bridge is not down (the Drive poller
+auto-ACKed TRK-2026-9946 in five minutes and RAMBO executed it in an hour), so the alert
+watches the wrong sensor, and a second scheduled runner is a new system under FREEZE
+Article 1. The cure is the split in the new `desktop-blocked-task` skill: GREEN steps go
+to the existing RAMBO runner via `VTES-Inbox`; the RED step (1Password unlock) collapses
+to one Windows Hello touch by Jorge, prompted at the moment everything else is staged.
+Bundling that touch into an unattended run is exactly what every lane's classifier
+refuses, and it is right to. Saved as `.claude/skills/desktop-blocked-task/SKILL.md`.
