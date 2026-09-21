@@ -313,3 +313,85 @@ require separate registrations, and what the county actually expects in the Qual
 **Findings go here when they land, including if the answer is "this market is served."**
 
 #TRK-2026-10064 #PARKED-FREEZE #credential-card #contractor-compliance #product
+
+---
+
+# RESEARCH FINDING 01 — TRK-2026-10064 competitive scan, 2026-09-21
+
+**Commissioned ~02:35 UTC, returned ~02:55 UTC. Verdict: the tracking half is crowded and well
+served. The submission half is genuinely open — no vendor found files municipal contractor
+registration packages on a contractor's behalf.**
+
+## Who already owns the tracking half
+
+**Certificate-of-insurance and subcontractor compliance networks:** Jones, myCOI, TrustLayer, BCS
+(~98,000 pre-verified contractors), SmartCompliance, Billy, Vertikal RMS/CertFocus, TrackMyVendor,
+VendorJot. They collect and verify COIs, W9s and licences and flag expirations.
+
+**Every one is sold to the party policing somebody else** — general contractors, developers,
+property managers, risk and accounts-payable teams. Jones says so outright: built for "commercial
+real estate owners/operators and property managers, and construction general contractors."
+
+**This confirms the hypothesis that mattered: the small contractor is the *subject* of these
+systems, not the customer.** He receives nag emails from someone else's portal. Nobody is selling
+him his own readiness.
+
+**Closest real competitors, and they are contractor-side:** Harbor Compliance and Avalara License
+Managed Services genuinely file — Avalara "gathers information, handles applications, remits fees,
+and procures licenses in the appropriate jurisdictions," local ones included. NCL / Nationwide
+Contractor Licensing tracks and renews contractor licences with bonds, insurance and continuing
+education.
+
+**Permit software:** PermitFlow and Pulley prepare and submit *permit applications* to
+jurisdictions. They do not touch the contractor-registration prerequisite. Buyers are builders,
+developers, retailers and larger GCs.
+
+**Generic expiry trackers:** Remindax, ExpiryEdge, RemindCal, Expiration Reminder — $12–49/month,
+reminders only, nothing construction-specific. **This is what tracking is worth as a standalone
+product, and it is not a business.**
+
+## The one gap the research could NOT close
+
+Avalara and Harbor Compliance file **local business licences / business tax receipts**. That is
+adjacent to but **not the same artifact** as a building-department contractor registration package.
+Their own pages are unreachable from the cloud lane (egress proxy), so whether they touch
+building-department registration is **unconfirmed in both directions**.
+
+**Follow-up, LOW priority — do not let it compete with live client work.** When a browser lane is
+idle, read Avalara's, Harbor Compliance's and NCL's own service pages and settle whether municipal
+building-department contractor registration is in scope. Not filed as a job: the TRK-2026-1667
+package and the Wally pipeline outrank a competitive-research gap.
+
+## The objection that matters more than the opportunity
+
+The only multi-jurisdiction contractor-registration flow found anywhere is **MyBuildingPermit.com —
+a government consortium in Washington State**, not a vendor. It proves the workflow is automatable
+and that nobody has commercialised it in Florida.
+
+**Why nobody has is the finding, not an oversight.** The defensible part is the *filing labour* —
+the per-municipality registration package — and that labour does not scale nationally. Each city's
+requirements differ, and that fragmentation is exactly what deters a software vendor.
+
+**So the honest read, against Jorge's stated hope of "selling annual subscriptions or the app
+itself": this is most likely a regional service business, not SaaS.** The South Florida permit
+knowledge already in this company is the moat, and a moat that narrow does not support a national
+subscription product.
+
+**That is not a reason to drop it — it is a reason to reshape it, and the reshaped version is
+better for this company right now.** A productised service line sold to South Florida contractors
+("we keep you permit-ready in every city you work in, annually") can be sold next month using
+knowledge Jorge already has, with no build and no freeze conflict. An app would take a year, needs
+maintenance, and competes with vendors who already own the tracking half. **Given Article 2 — no
+incoming pipeline, cash flow is Priority Zero — the service line is the version that fits the
+business Jorge actually has.**
+
+**Status: still PARKED as a build. The service-line framing is a sales question, not a construction
+question, and Jorge should decide whether it belongs in the Wally pipeline conversation.**
+
+**Sources:** getjones.com/general-contractors · getbcs.com subcontractor-insurance-tracking
+comparison · avalara.com business-licenses/license-services · harborcompliance.com
+compliance-solutions-construction-firms · contractor-state-license.com/license-renewals-maintenance ·
+permitflow.com · withpulley.com · mybuildingpermit.com/contractor-registration ·
+mdctaxcollector.gov/services/local-business-tax-receipt · vertikalrms.com prequalification-software
+
+#TRK-2026-10064 #research-finding #contractor-compliance #PARKED-FREEZE
