@@ -47,9 +47,12 @@ the county "found" anything, both wait on the routed retrieval above.
 full detail in `agent-results/CORRECTIONS_10980-SW-202-DR-UNIT-29_TRK-2026-10052.md`:
 (a) **the license copy already exists in Jorge's own files** — a Dropbox PDF and the 2026-08-15
 Outlook thread "Contractor Registration - MZ Solutions LLC - CGC1528486," so no DBPR scrape is
-needed to produce one; (b) **⚠ that license PDF's own filename gives a renewal date of 31 August
-2026** — the application was signed 17 September 2026, so if it was not renewed the license was
-delinquent at signing, which would make the county's contractor comment CORRECT; (c) a **Miami-Dade
+needed to produce one; (b) ~~that license PDF's filename gives a renewal date of 31 August 2026, so the license may have
+been delinquent at signing~~ **CORRECTED SAME DAY — WRONG. The license is ACTIVE through 31 August
+2028**, renewed and reissued 11 May 2026; Drive holds both the superseded 2026 document and the
+current 2028 one, and the filename of the superseded one is what misled the first pass. Expiry is
+ruled out as the county's objection, and the copy to attach to the rework package already exists at
+Drive id `1MfvBnXjgor40FWuyW-r1NF7QYaoR_fZ4`; (c) a **Miami-Dade
 licensing hold on Zaldivar existed in May 2026** (GL/insurance), package sent to MT045@miamidade.gov
 on 2026-05-01; (d) **no county reply exists in either mailbox** — Jorge advises the package was
 hand-delivered to the clerk, which explains the silence but does not evidence release. Contractor

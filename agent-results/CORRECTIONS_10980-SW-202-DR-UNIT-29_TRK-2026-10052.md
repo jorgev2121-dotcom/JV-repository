@@ -140,20 +140,75 @@ No DBPR scrape is needed to produce a copy for the document set:
    contractor registration is normally the state license, the liability certificate and workers'
    comp. Different city, same licence documents.
 
-### B. ⚠ The license's renewal date was 31 August 2026. The application was signed 17 September 2026.
+### B. RESOLVED — the license is ACTIVE through 31 August 2028. My earlier expiry concern was WRONG.
 
-Jorge's own license PDF carries the renewal date **in its filename**: *"Renewal date August 31 2026."*
-That date is three weeks in the past. Florida CGC licenses run on a two-year cycle ending 31 August
-of even years, so 31 August 2026 was a real renewal deadline, not an arbitrary date.
+**Correction, recorded deliberately.** Earlier in this same job I flagged that a license PDF in
+Jorge's files carried the renewal date *"August 31 2026"* and warned the license might have gone
+delinquent before the 17 September signature. **That was wrong, and acting on it would have sent
+Jorge to apologise for a defect that does not exist.**
 
-**If Miguel did not renew on time, the license went delinquent on 1 September 2026 — sixteen days
-before he signed this application and before it was submitted.** That is the single most likely
-reason an intake reviewer would comment on the contractor, and if so **the county is right and there
-is nothing to rebut.**
+A search of Drive found **two** DBPR license documents for CGC1528486, of different vintages:
 
-This is still not proof. The filename gives the renewal date, not the renewal *status*. But it means
-the license copy must be checked for a current expiration before any rebuttal is written — and it
-makes a rebuttal considerably less likely to be the right move.
+**Superseded** — `Miguel Zaldivar - CGC1528486 - State Licence Renewal 2026.pdf`
+(in `TRK-2026-1611 - Pembroke Pines Contractor Registration`):
+ISSUED 06/04/2024 · **EXPIRATION DATE: AUGUST 31, 2026**
+
+**Current** — same license, renewed:
+ISSUED **05/11/2026** · **EXPIRATION DATE: AUGUST 31, 2028**
+ZALDIVAR, MIGUEL · MZ SOLUTIONS, LLC · 9770 SW 215TH LANE, CUTLER BAY FL 33189
+Certified General Contractor under Chapter 489, Florida Statutes.
+
+Held in Drive in at least three places, all OCR-indexed:
+- `[Unit-404] BHI-028_04_LICENSE_DBPR_MZ-Solutions_Miguel-Zaldivar_CGC1528486.pdf`
+  (Drive id `1MfvBnXjgor40FWuyW-r1NF7QYaoR_fZ4`) — **use this one for the document set**
+- `[ASSOCIATION-PACKAGE_2026-08-04] 04_LICENSE_DBPR_MZ-Solutions_Miguel-Zaldivar_CGC1528486.pdf`
+- `2026-09-03 _ TRK-2026-1265 _ Licensing _ M. Zaldivar CGC License Renewal 2028.pdf`
+
+**Miguel renewed on 11 May 2026. The license was current and valid when he signed on 17 September
+2026 and is valid today.** No DBPR scrape is needed, and **"expired license" is not what the county
+is objecting to.** The file to attach to the rework package already exists and is named above.
+
+Note the trap for any future session: the *filename* of the superseded document says "Renewal date
+August 31 2026," and reading filenames instead of contents produces exactly the wrong answer. The
+2028 renewal is the operative document.
+
+### B2. So what IS the mismatch? Jorge's reading, and one counter-signal
+
+With expiry ruled out, the reviewer's *"contractor information does not match county records"* points
+at a data field, and Jorge's candidate is the **"Last four (4) digits of Qualifier No."** box, filled
+in as **8486** — which is simply the last four of CGC1528**486**. His position, from years at this
+counter: the county uses the **last four of the qualifier's Social Security number** as a second
+authenticator that the signer is the license holder, and this mismatch is a routine trigger for
+precisely this comment.
+
+**One counter-signal, stated so the rebuttal is not built on sand:** the same form asks the owner for
+*"Last four (4) digits of Owner's Social Security No."* — explicitly labelled as SSN — while the
+contractor box says only *"Qualifier No."* The form distinguishes the two labels, which argues the
+contractor field may want a county qualifier/competency number rather than an SSN.
+
+Both can be true: the field is labelled "Qualifier No." while the clerk validates against the SSN
+last-4 held on the county's contractor record. **Jorge has stood at that counter and I have not — his
+reading is the leading theory.** It is settled by two things and neither is a guess: the actual text
+of the reviewer comment, and what the county's contractor record holds for CGC1528486.
+
+### B3. The SSN last-4 — BLOCKED from this lane, precisely
+
+Jorge directs that the correct value is in **Miguel's Outlook contact card, Notes field**.
+
+**The cloud lane cannot read Outlook contacts.** The Microsoft 365 connector for
+Jorge@TEAMUSASALES.COM is granted `Mail.Read`, `Calendars.Read`, `Files.Read`, `Sites.Read.All` and
+related scopes, but **neither `People.Read` nor `Contacts.Read`** — the call returns a hard 403 from
+Microsoft Graph. This is a permission boundary, not a difficulty: mailbox search works, contacts do
+not. Granting the scope requires an Entra admin consent.
+
+**Route to desktop/Cowork**, where Outlook is open on Jorge's own PC and the contact card is one
+click. That is also the better handling: a Social Security number should be read locally and used to
+fill one form field, not pulled into a cloud session transcript.
+
+**Handling rule for this value, binding on every lane:** only the **last four digits** are ever
+needed. The full number is never written into this repository (it is pushed to GitHub), never into a
+Drive file, and never into an email. Same principle the charter already applies to payment cards in
+Article 5 — nickname and last-4 only.
 
 ### C. There was already a Miami-Dade licensing HOLD on Miguel Zaldivar this year
 
