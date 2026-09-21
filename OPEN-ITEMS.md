@@ -59,9 +59,50 @@ hand-delivered to the clerk, which explains the silence but does not evidence re
 standing is **unverified in both directions** — not approved, not defective — pending a receipted
 counter copy or one call to the licensing section.
 
-**Still unseen by cloud: the county's actual reviewer comment.** Nothing about the contractor has
-been quoted to this lane, so no comparison against a license copy is possible yet. Cheapest unblock
-is Jorge reading or forwarding the comment, not the portal scrape.
+**The reviewer's comment is now known** (Jorge, 2026-09-21): *the contractor information on the
+application does not match county records.* With expiry ruled out, the leading candidate is the
+**"Last four (4) digits of Qualifier No."** field, entered as **8486** — the last four of the
+license number. Jorge's reading, from experience at the counter, is that the county authenticates
+against the qualifier's **SSN last-4**. Counter-signal noted in the corrections file: the same form
+labels the *owner's* equivalent field as "Social Security No." explicitly while the contractor's
+says only "Qualifier No." One call to licensing settles it. **The rejection document itself is
+queued for portal retrieval — it is the allegation, and the rework package must carry it.**
+
+**Cloud is BLOCKED on the SSN last-4.** It lives in Miguel's Outlook contact Notes; the M365
+connector holds `Mail.Read` but not `Contacts.Read`/`People.Read`, so Graph returns a hard 403.
+Routed to desktop (PASTE-D-055, Drive job v2). Handling rule set: last four digits only, never the
+full number into the repo, Drive or email.
+
+**⚠ Open question that could moot the whole notary defect:** the signature block reads "Signature of
+Owner **or Owner's Agent**," and Jorge is an Attorney-In-Fact already named on the application. If
+Miami-Dade accepts an agent signature under POA, Jorge signs in Florida before a Florida notary and
+Eli Bleeman never has to be chased in New Jersey. Two questions to the permit counter, written up in
+the corrections file. **Not to be acted on until answered** — some jurisdictions require the owner's
+own signature regardless of POA, and guessing produces a second rejection.
+
+---
+
+## 2026-09-21 — TRK-2026-10055 — OWNER DIRECTIVE: permit-form methodology
+
+**PARKED — FREEZE.** Jorge issued `OWNER-DIRECTIVE_PERMIT-FORM-METHODOLOGY-01` (full text in the
+repo root): stand up an expert agent that learns the methodology and logic of completing permit
+applications — every jurisdiction's format variant, the character capacity of each writable field,
+whether an official completion manual exists, when an agent may sign versus when only the owner can,
+when notarized documents need witnesses, field-level hover notes, and a side note to the plans
+reviewer explaining compliance judgement calls.
+
+**Logged and parked, not built.** `OWNER-DIRECTIVE_FREEZE-AND-FINISH-01` Article 1 freezes new
+systems, agents and protocols until the JOB-0079 pilot shows three verified successes, and this
+directive asks for a protocol and an agent by name. The specification is captured in full so nothing
+is lost when the freeze lifts.
+
+**Cloud's recommendation to Jorge, pending his call:** unpark the *research* half only — the
+signature-authority and witness questions are needed for live jobs this week and are research rather
+than construction — and keep the form catalogue, character counts and hover tooling frozen. **Awaits
+one sentence from Jorge either way.**
+
+**Pulled forward under the live job, not built as a system:** the agent-signature question and the
+draft side note to the plans reviewer, both now in the TRK-2026-10052 corrections file.
 
 ---
 

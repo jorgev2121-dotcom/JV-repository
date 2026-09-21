@@ -279,6 +279,67 @@ contractor comment is correct.
 
 ---
 
+## ⚠ THE QUESTION THAT MAY MAKE THE NOTARY PROBLEM DISAPPEAR
+
+Carried forward from `OWNER-DIRECTIVE_PERMIT-FORM-METHODOLOGY-01`, section 4, because it bears on
+this job right now.
+
+The Miami-Dade signature block reads **"Signature of Owner or Owner's Agent."** Jorge signs
+professionally as **Owner's Agent | Plans Expeditor | Attorney-In-Fact** and is already named on
+this very application as the Permit Contact.
+
+**If an owner's agent under a power of attorney can validly sign this application, then the entire
+notary defect is avoidable — Jorge signs it in Florida before a Florida notary, and Eli Bleeman
+never has to be chased in New Jersey at all.** That is a same-week fix instead of a multi-party one.
+
+**This is a question, not a finding, and it must not be acted on until answered.** Many jurisdictions
+accept an agent's signature on the permit application but require the owner's own notarized
+signature on the Notice of Commencement — and some require a *recorded* POA on file before any agent
+signature is accepted at all. Getting this wrong produces a second rejection on top of the first.
+
+**Ask the Miami-Dade permit counter two things, in one call:**
+
+1. Will they accept this application signed by the owner's agent under POA, with the POA attached
+   or recorded — or does the owner's own signature stand regardless?
+2. If an agent signature is accepted, what evidence of authority do they require with it?
+
+**On witnesses, for this specific form:** the Miami-Dade application's signature blocks carry notary
+jurats only — there are no witness lines on the page. Witness requirements attach to other
+instruments in the package, the Notice of Commencement in particular. Jorge's position that a notary
+may also serve as a witness where the notary is not related to the signer is consistent with general
+Florida practice for most instruments, **but it is not in play on this form** and should be confirmed
+against whichever instrument actually carries witness lines.
+
+---
+
+## SIDE NOTE TO THE PLANS REVIEWER — draft, to accompany the resubmittal
+
+Per the owner directive: where compliance turns on a judgement call, say so on the face of the
+submittal rather than leaving the reviewer to guess. Short, factual, no argument.
+
+> **Re: 10980 SW 202 DR, Unit 29 — Folio 30-6007-009-0030 — resubmittal notes**
+>
+> 1. **Owner's notarization — corrected.** The prior submittal carried a New Jersey notary
+>    commission on a jurat written for Florida. The signature page has been re-executed before a
+>    Florida-commissioned notary. The earlier stamp was also illegible; the replacement resolves both.
+>
+> 2. **Contractor licensing — for the record.** MZ Solutions, LLC, qualifier Miguel Zaldivar,
+>    CGC1528486, is a Certified General Contractor in good standing. The license was renewed and
+>    reissued **11 May 2026** and carries an expiration date of **31 August 2028**. A copy of the
+>    current DBPR license is attached. The license was current on the date of signature and remains
+>    current.
+>
+> 3. **Qualifier No. field.** [Complete once the reviewer's comment and the county record are in
+>    hand — state what the corrected entry is and why, in one sentence. Do not speculate here.]
+>
+> 4. **Scope.** Balcony concrete and rebar repair, Alteration Level 1, valued at $11,500, is within
+>    the scope of a Certified General Contractor license.
+
+**Do not issue items 2 or 3 of that note until the reviewer's actual comment is in hand.** Item 2 is
+verified and safe; item 3 is a placeholder and must not go out as written.
+
+---
+
 ## DRAFT email — MZ Solutions. NOT SENT. Do not send yet.
 
 **Held** because the contractor-license portion is unverified and because asserting the county

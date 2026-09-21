@@ -2219,3 +2219,40 @@ at least one Tier-2 removal, not another Tier-1 kill-and-relaunch — that full 
 been done yet and is owed before this is touched again, not assumed to already exist here.
 
 #RI-048 #OD-107 #WSearch #COM-DCOM #JorgeValdes
+
+---
+
+### RI-049 — a filename is not evidence. Read the contents.
+
+**Logged 2026-09-21, from TRK-2026-10052 (MZ Solutions permit rework).**
+
+**What happened.** Cloud searched for the contractor's license and found a PDF in Jorge's files
+named `... Miguel Zaldivar CGC License _ Renewal date August 31 2026.pdf`. Today is 2026-09-21 and
+the permit was signed 2026-09-17, so cloud warned the license may have been delinquent at signature
+— a serious allegation against a client's contractor.
+
+**It was wrong.** Drive held a second document: the same license, **renewed and reissued 11 May
+2026, expiring 31 August 2028.** The first file was the superseded copy. Its filename had simply
+never been updated, because filenames record what a document was called when it was saved, not what
+is true now.
+
+**The cost if it had gone out.** Jorge was preparing to write to the contractor about county-found
+errors. Acting on the filename would have had him assert a lapsed license to a licensed contractor
+whose license was, in fact, current — against a party who is also an active client with open
+invoices. That is a reputational error, not a clerical one.
+
+**The rule.** A filename, a folder name and a subject line are *search aids*. They are never the
+finding. Before stating anything about a document's substance — a date, a status, an amount, an
+identity — open it and read the content, and check whether a later version exists. The `.SEARCH.txt`
+sidecars exist for exactly this and made the correction possible in one query.
+
+**Sharper form, because this is the generalisable part:** when a filename encodes a *fact that can
+expire* — a renewal date, an expiration, a balance, a status word like CURRENT or ACTIVE — treat the
+filename as the weakest possible evidence, because it is the field most likely to have gone stale
+while the file sat still. Documents that expire are precisely the documents that get superseded, so
+the stale name and the fresh replacement almost always coexist in the same tree.
+
+**Related:** the charter's own versioning rule (`_VERSION-LOG.md`, highest `vN` is current,
+superseded copies move to `_Superseded\`) exists to prevent this. It works only where it has been
+applied — these two license copies sat in different job folders with no version relationship
+recorded between them.
