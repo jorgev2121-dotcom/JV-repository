@@ -605,8 +605,12 @@ and the narrative report.
 
 ## 30. TRK-2026-10052 — MZ Solutions permit: license copy + Miami-Dade C-number/reviewer-comment retrieval
 
-Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_MZ-SOLUTIONS-PERMIT-LICENSE-CHECK_TRK-2026-10052_2026-09-21.md`
-(PASTE-D-054). Jorge uploaded a 1-page Miami-Dade permit application for 10980 SW 202 DR Unit 29
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_MZ-SOLUTIONS-PERMIT-LICENSE-CHECK_TRK-2026-10052_2026-09-21_v2.md`
+— **read v2, not v1** (v1 renamed `_SUPERSEDED_BY_v2`; two of its four tasks are already done).
+**The license is ACTIVE to 31 Aug 2028 — do not scrape DBPR, and do not tell anyone it lapsed.** The
+remaining work is the SSN last-4 from Miguel's Outlook contact Notes (cloud has no contacts scope —
+403), the portal rejection/C-number screenshots, and one call to the licensing section.
+(PASTE-D-054.) Jorge uploaded a 1-page Miami-Dade permit application for 10980 SW 202 DR Unit 29
 (contractor MZ Solutions LLC / Miguel Zaldivar, CGC1528486) and asked cloud to check the contractor
 license, get a copy of it, find the process ("C") number and screenshot the county's reviewer
 comments for a rework submittal, then draft an email to MZ Solutions. **Owner correction, binding:**
