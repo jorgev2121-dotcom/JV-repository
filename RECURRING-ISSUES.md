@@ -2506,3 +2506,53 @@ appearance of work.** Until the executor is confirmed alive, route anything time
 directly with exact steps, and say plainly that the desktop lane is not currently delivering.
 
 #RI-052 #RI-002 #RAMBO #executor #receipt-without-execution #TRK-2026-10058
+
+### RI-053 — the desktop bridge exists and is OFFLINE. That is why cloud keeps saying "I can't."
+
+**Logged 2026-09-21 ~03:35 UTC.** Jorge surfaced a status line in his claude.ai window:
+
+> **"Claude Desktop (Windows) — Not connected. The files and apps on Claude Desktop (Windows)
+> can't be used until it's back online. You can still chat with Claude."**
+
+**Verified from this session: there are no remote-device tools available.** A direct search for
+computer-use and remote-device tooling returns nothing — no `mcp__remote-devices__*`, no
+`enable__mcp__remote-devices__computer`, no `mcp__computer-use__*`. Consistent with the device being
+registered to the account but offline.
+
+## Why this reframes hours of work
+
+**A device link exists. It is simply down.** Earlier in this session the conclusion was recorded as
+"cloud has no device link — IMPOSSIBLE from cloud, not blocked." **That was true but incomplete.**
+The accurate statement is: **the bridge is built and switched off.**
+
+Nearly every "cloud cannot do this" tonight traces to the same missing link:
+
+- Cannot put the two corrected PDFs on Desktop Tray 3 → needs file access on that PC
+- Cannot create the Outlook draft → the connector is read-only, **but a device link sidesteps the
+  connector entirely by driving the actual Outlook window**
+- Cannot read Miguel Zaldivar's contact card → same
+- Cannot navigate Windows for him (RI-051) → **a device link could drive the screen directly, which
+  is the strongest possible answer to a navigation problem**
+
+**One reconnection plausibly collapses four separate blockers.** That makes it the highest-leverage
+single action currently identified, ahead of the credential work and ahead of chasing RAMBO.
+
+## How it comes back
+
+The Claude desktop application must be **running and signed in** on DESKTOP-OTB90LR. Jorge is
+working in a browser at claude.ai; the desktop app appears to be closed.
+
+**Route, per RI-051 — no menu path:** press the **Windows key**, type `Claude`, press **Enter**.
+
+## Honest limits, so this is not oversold
+
+1. **Bringing it online may not expose the tools to THIS session.** Tool availability is decided when
+   a session starts, so a fresh cloud session may be required to pick them up.
+2. **Connected does not automatically mean full access.** Computer use and file access are separately
+   gated and may need their own approval.
+3. **It does not fix RAMBO.** The executor problem (RI-052) is independent and remains.
+
+**Even with all three caveats, this is worth attempting before any further work is routed to the
+desktop lane.** The cost is one keystroke sequence.
+
+#RI-053 #device-link #ClaudeDesktop #computer-use #RI-051 #RI-052
