@@ -124,6 +124,43 @@ record — not the registration, which is already done.
 
 ---
 
+## 2026-09-21 (afternoon) — TRK-2026-1667 Cinde resend, and two standing items Jorge added
+
+**BLOCKED — cannot fix/verify the corrected Permit Application PDF from cloud.** Two independent
+reasons, not one workaround: (1) searched Drive for a Sept-21-dated corrected copy of the
+Permit Application (form 123_01-52) for 10980 SW 202 Dr Unit 29 — found only a Sept 3 FOR-SIGNATURE
+draft (pre-correction, id `1TaysN_PKJWNWaayLxZuYpRqCG1WXefaw`) and an unrelated Sept 17 Plan
+Revision/Shop Drawing app (already Florida-notarized, fine, but a different document). **The actual
+hand-corrected PDF Jorge worked on lives only on his own Desktop (`Tray 3`), never uploaded here.**
+(2) Even if it were reachable, confirming the "Last four digits of Qualifier No." field is a PII
+verification task — per the standing Part 2 §12 routing rule (client SSN-adjacent data stays on
+the local desktop lane, never cloud), this cloud session should not be the one reading or
+confirming that field anyway.
+**Smallest next action for Jorge:** attach the corrected PDF from Desktop\Tray 3 into a reply here
+(or to a Drive upload), and cloud will read back every field on it — including confirming the
+qualifier digits are present — before anything goes to Cinde.
+**Recall:** no Outlook-recall tool is available from this cloud session (Graph API doesn't expose
+message recall; that's a desktop-Outlook-only action). Delivery to Cinde is confirmed (postmaster
+receipt); no reply from her yet on the thread either way. **Recommendation: don't rely on recall —
+send the fix as an explicit correction/replacement, referencing that the last attachment had a
+file error**, since we can't prove she hasn't already opened it.
+
+**New standing default, from Jorge 2026-09-21:** every signature/submission package from here on
+includes a Contact Sheet and a Scope of Work, both stamped with the job's tracking number(s) and
+hashtags, by default — not just the core signature documents.
+
+**Search-button request — PARKED, per the Article 1 freeze.** Jorge asked whether a tracking-
+number/hashtag search button already exists on the desktop tray. Honest answer: **no, this has not
+been built.** It would be a new desktop-side tool, and per `OWNER-DIRECTIVE_FREEZE-AND-FINISH-01`,
+new builds are parked until the JOB-0079 pilot shows three verified successes. Logged here as
+PARKED — FREEZE. **What already works today, no build needed:** Google Drive's own search bar
+(drive.google.com or the Drive app), searching the literal tracking number or hashtag, already
+finds every matching document *and* every `.SEARCH.txt` OCR sidecar — this cloud session has been
+using exactly that all day. If the magnifier icon Jorge tried was Windows' own search or a
+different desktop widget, that's likely why it came up empty, not a missing feature.
+
+---
+
 ## 2026-09-21 04:10 UTC — MORNING HANDOFF. Read this first.
 
 **Written at the end of a long night session so nothing has to be reconstructed from the
