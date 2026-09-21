@@ -82,6 +82,48 @@ own signature regardless of POA, and guessing produces a second rejection.
 
 ---
 
+## 2026-09-21 (afternoon) — THREE-JOB PUNCH LIST, per Jorge's request to track these separately
+
+**Package 1 — TRK-2026-1611, Pembroke Pines GC registration (MZ Solutions).**
+**Status: DONE, not pending.** Registered 2026-08-17, Contractor ID-000049083, confirmed by the
+city's own reply (Toni Hamilton, CGA). Jorge is already on file too, as plans processor/owner's
+agent. **Correction to the 2026-09-21 request:** there is nothing left to "prep" in the portal for
+this — re-submitting would just duplicate an already-approved registration. What's actually still
+open is the *permit application itself* for the specific Pembroke Pines job (see Package 3).
+
+**Package 2 — TRK-2026-1283 / TRK-2026-1424, 14598 SW 110 St (Miguelez) — WWP affidavit + electrical
+sub-permit.** Status: IN_PROGRESS.
+- Found Miami-Dade BORA's actual memo: "Work without Permit (WWP) Guidelines for Architects and
+  Engineers," dated 2026-01-26, endorsed by the Board 2026-01-15 (Drive file `WORK WITHOUT PERMIT
+  FORM.pdf`, id `1jhEO57lgUhZfTsvqHV3kxthFx8FIvoeh`). **It is NOT currently filed inside the
+  TRK-2026-1283 folder** — it lives in a different job's folder (a Medley property). Needs to be
+  copied into 1283 if Jorge wants it on file there.
+- **The memo itself answers the "is there a county form" question: no separate fillable county
+  form exists.** Per its own text, the design professional (PE or architect) prepares, signs and
+  seals a narrative "Work Without Permit Certificate" — the memo names the required content
+  (project address, folio, owner, description of work, certifying professional's info/license/
+  discipline, and a certification statement) but there's no blank PDF the county issues beyond that
+  template.
+- **Cannot complete the affidavit yet — missing two facts, not guessing them:** (1) which PE or
+  architect will sign and seal it for 14598 SW 110 St, and (2) the exact description of the work
+  being legalized. Also could not find any document literally titled "affidavit" tied to Miguelez/
+  14598 — flagging in case a different document is meant.
+- Electrical sub-permit TRK-2026-1424 (under master 2026012823): registry says "filled + FLATTENED"
+  already exists, but the master permit's approval record (to find "category requested for
+  inspection") and the plans PDF (needed to compute the fee sheet) have not yet been located/read
+  this session — next step, not yet started.
+
+**Package 3 — TUS-26-1018, 8621 Pasadena Blvd (Pembroke Pines, Einar Suarez) — permit application
+itself.** Status: NOT_STARTED beyond the 2026-06-05 checklist.
+Per `GC-QUALIFICATION-CHECKLIST_Pembroke_2026-06-05.md`, most of the actual submittal package is
+still unchecked: BORA 20-01 retrofit schedule, wind pressures (ASCE 7-16), inspection procedure
+sheet, floor plan, HOA Affidavit of Awareness, Notice of Commencement. Only the Broward Uniform
+Permit App was drafted. As-Built letter exists only as an unsent draft. This is very likely what
+Jorge meant by "complete all sections of the permit applications" for MZ Solutions as GC of
+record — not the registration, which is already done.
+
+---
+
 ## 2026-09-21 04:10 UTC — MORNING HANDOFF. Read this first.
 
 **Written at the end of a long night session so nothing has to be reconstructed from the
