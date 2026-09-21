@@ -2556,3 +2556,44 @@ working in a browser at claude.ai; the desktop app appears to be closed.
 desktop lane.** The cost is one keystroke sequence.
 
 #RI-053 #device-link #ClaudeDesktop #computer-use #RI-051 #RI-052
+
+### RI-054 — Outlook COM refused with RPC_E_CALL_REJECTED. Outlook is blocked on a dialog.
+
+**Logged 2026-09-21 ~03:50 UTC, from a live run of `Fix-PermitPackage_TRK-2026-1667_v2.ps1`.**
+
+```
+Retrieving the COM class factory for component with CLSID
+{0006F03A-0000-0000-C000-000000000046} failed:
+80010001 Call was rejected by callee. (RPC_E_CALL_REJECTED)
+```
+
+**This is not a script fault and not a permissions fault.** `RPC_E_CALL_REJECTED` means Outlook is
+**running but refusing calls** — the COM server is alive and will not accept a connection because it
+is busy or blocked. The CLSID is Outlook.Application, so it found Outlook fine.
+
+**In practice this almost always means a modal dialog is open in Outlook and waiting for input** —
+frequently behind other windows, sometimes only visible as a flashing taskbar button. Other causes:
+Outlook still loading its profile, a Send/Receive in progress, or an elevation mismatch (which
+usually raises `MK_E_UNAVAILABLE` instead, so it is not the likely one here).
+
+**Strong prior, given this owner's situation:** Jorge's Microsoft and Windows credentials are broken
+(RI-050) and Outlook has a logged history of exactly this shape — the "Outlook Data File /
+exhausted all shared resources" modal (OD-107 step 0, PASTE-D-039) and zombie `OUTLOOK.EXE`
+processes (PASTE-D-043). **A sign-in or password prompt sitting unanswered in Outlook would produce
+this error precisely.**
+
+**Order to resolve:**
+1. Look at Outlook. Dismiss any dialog. Check the taskbar for a flashing window.
+2. If nothing is visible, wait a minute — it may still be starting.
+3. If it persists, close Outlook, kill any leftover `OUTLOOK.EXE`, reopen, and re-run.
+
+**Design note for the script:** `RPC_E_CALL_REJECTED` is often transient, and the standard remedy is
+a retry with an OLE message filter. **Not added, deliberately** — if Outlook is blocked on a login
+prompt, retrying loops forever against a dialog only a human can clear. A clear error the owner can
+act on beats a silent retry.
+
+**Timing judgement recorded:** this surfaced near midnight local time after several hours of work,
+on an email whose recipient will not read it until morning. **Pressing on had no value; stopping was
+offered.**
+
+#RI-054 #Outlook #COM #RPC_E_CALL_REJECTED #OD-107 #TRK-2026-1667
