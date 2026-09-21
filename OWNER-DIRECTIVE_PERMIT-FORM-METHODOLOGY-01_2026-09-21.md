@@ -218,3 +218,98 @@ subscription or outright licence — not an internal tool. That changes what "go
 it should be built that way from the first line rather than retrofitted from an internal script.
 
 #TRK-2026-10061 #PARKED-FREEZE #permit-autofill #product
+
+---
+
+# AMENDMENT 02 — 2026-09-21, the credential block and the compliance-automation idea
+
+## The naming question — recommendation: **CREDENTIAL CARD**
+
+Jorge asked what to call the reference block holding a licensed party's identifying and compliance
+data, and suggested "title block," covering contractors, design professionals, licensed contractors
+and subcontractors/trades.
+
+**Recommend against "title block," for one concrete reason:** in construction that term already
+means the block on a drawing sheet carrying the project name, sheet number, date and the design
+professional's seal. Design professionals are among the people this data describes, so the collision
+would land with exactly the audience least able to tolerate it — an engineer told to "check the
+title block" will look at the drawing.
+
+**Recommend `CREDENTIAL CARD`.** It fits the naming family already in use in this system —
+`CASE-CARD_*`, `CALL-CARD_*`, `Contact Sheet` — so it needs no explaining, and "credential" is the
+accurate common noun for a licence, a registration, an insurance certificate and a tax receipt
+together. **One card per licensed party**, not one per job: the GC, each sub/trade, and each design
+professional gets their own, and jobs reference the card rather than re-typing it. That is the point
+— the data that was mistyped on TRK-2026-1667 is data that should have been read from a card, not
+retyped from memory.
+
+### What a Credential Card holds
+
+Identity: legal entity name, DBA, qualifier's name, role (General Contractor, Engineer, Architect,
+trade), address, mobile, email.
+Licence: state licence number and class, issue and expiration dates, the qualifier authentication
+value (**last four only, never the full number**).
+County: contractor registration status and its renewal date.
+Insurance: general liability and workers' comp, carrier, policy numbers, expiration dates.
+Local: the Local Business Tax Receipt and its renewal date.
+Per-municipality: which cities this party is registered in, and when each expires.
+
+### The two cross-references Jorge named, and a correction
+
+- **DBPR** (`myfloridalicense.com`) — the state licence of record.
+- **The county licence registry** — Miami-Dade's own contractor record, which is the one the permit
+  clerk actually checks. **These two disagreeing is the likely root of the TRK-2026-1667 rejection**,
+  and the card exists partly to make that disagreement visible before a clerk finds it.
+
+**Terminology correction, because it matters at the counter and in search.** Jorge referred to
+"LBT — License Business Tax." The Florida term is the **Local Business Tax Receipt** — commonly
+**BTR** or **LBTR**, and still called an "occupational license" by older staff. His files already
+carry it under the plain name (`MZ Solutions Local Tax 2024.pdf`, `... 2025.pdf`). His description
+of the mechanics — annual renewal, online, roughly $75 per corporation — is being verified against
+the county's own published schedule rather than taken as read.
+
+### The annual cycle is the whole point
+
+Jorge's observation: these packages renew roughly annually, to capture reactivated insurance and
+licences. **That makes expiry, not data entry, the real failure mode** — and it is a failure that
+surfaces at the worst possible moment, when a permit is being pulled.
+
+---
+
+## NEW PRODUCT — contractor credential compliance, automated. PARKED. `TRK-2026-10064`.
+
+> *"The key to this service would be having AI request documents and submit documents on a timely
+> basis, so the design professional, contractors and other licensed professionals can always feel
+> confident if they get a job in the different city. They don't need to go through the rigorous
+> process of submitting the contractor registration and or have expired insurance or license
+> information at time of trying to get a permit executed, which is the most typical for contractors,
+> especially small to midsized contractors."*
+
+**This is a different product from `TRK-2026-10061`** (the Miami-Dade permit-application autofill),
+though the two share a customer and would sell as one platform. 10061 fills a form. **10064 keeps a
+contractor permit-ready in any jurisdiction, continuously.**
+
+**The thesis, stated so it can be tested rather than admired:** the pain is not filling the
+registration form once. It is that a small contractor wins a job in an unfamiliar city and finds out
+at permit time that they are not registered there, or that a certificate lapsed. The product
+proposition is that AI chases the renewal documents ahead of expiry and **submits** the municipal
+registration packages, so the contractor never discovers the gap at the counter.
+
+**The differentiator to protect is SUBMISSION, not tracking.** Plenty of software can remind someone
+that an insurance certificate expires. Whether anything actually files municipal contractor
+registrations on a contractor's behalf is the question the whole idea turns on.
+
+**Status: PARKED — FREEZE.** Article 1 stands and Jorge's own ruling this morning kept construction
+frozen. **What is NOT frozen is finding out whether this already exists** — Jorge asked for that
+deep dive directly, and a competitive scan builds nothing. It also serves the freeze: the worst
+outcome here is building something that three vendors already sell.
+
+**Research commissioned 2026-09-21 ~02:35 UTC**, two parallel agents: (1) the existing landscape —
+certificate-of-insurance tracking, contractor prequalification networks, professional-licence
+management, permit-expediting software — and specifically whether any of them *submit* rather than
+merely track, and who the buyer is; (2) the Florida and Miami-Dade administrative facts — the Local
+Business Tax Receipt cycle, the county registration package, whether municipalities genuinely
+require separate registrations, and what the county actually expects in the Qualifier No. field.
+**Findings go here when they land, including if the answer is "this market is served."**
+
+#TRK-2026-10064 #PARKED-FREEZE #credential-card #contractor-compliance #product
