@@ -82,6 +82,34 @@ own signature regardless of POA, and guessing produces a second rejection.
 
 ---
 
+## 2026-09-21 — TRK-2026-10070 — BTR renewals: Jorge current, Alec reminded (SENT)
+
+**Jorge's own Local Business Tax Receipts are PAID** — $150 covering both Miami-Dade entities,
+Team USA Sales, Inc. and CU Inspections of South Florida. Receipts in hand. No action.
+
+**Avis Builders LLC (Alec Valdes) — reminder SENT 2026-09-21 to `alec@avisbuilders.com`** from
+jorgev2121@gmail.com. Address verified against years of correspondence in Jorge's own mail, not
+guessed. **Note the spelling: every record in the system says ALEC, not Alex.**
+
+**Could not verify whether Avis Builders has already renewed** — mdctaxcollector.gov is
+egress-blocked from the cloud lane, as is every other county domain. **Rather than stall on a check
+that cannot run, the email was written conditionally** — "if you've already taken care of it, ignore
+this." A redundant reminder costs nothing; a missed 30 September deadline costs 10% in October and
+5% every month after.
+
+**The address question was handed to the person who can actually answer it.** Jorge asked whether
+Avis Builders still lists 13633 SW 142 Terrace (Jorge's own address) as its default. That record is
+equally unreachable from here, so the email asks Alec to check it while he is in BTExpress and
+decide whether to keep it — which resolves it faster than any lookup would have.
+
+**Supporting context found while searching, and it matters:** on 2024-01-17, HomeRun Financing wrote
+to Jorge that *"our records indicate your Liability Insurance for FL has now expired and your
+account with us is..."* regarding Avis Builders LLC. **So this company has lapsed credentials before
+and had a financing account affected by it.** That is both a reason this reminder was worth sending
+and a live, in-family illustration of exactly the failure TRK-2026-10064 is designed to prevent.
+
+---
+
 ## 2026-09-21 — TRK-2026-10067 — Test this vision read against the tax-jacket OCR. WITH A KNOWN ANSWER.
 
 **Jorge's ask:** cloud read the notary stamp on the TRK-2026-1667 permit application — including
