@@ -205,3 +205,22 @@ machine. So the detection half works and the recovery half does not.
 **This is the first thing to fix, ahead of any new work.** A queue twelve hours deep is
 worth nothing to an executor that stops at hour four with nobody to restart it.
 
+
+---
+
+## 2026-09-21 addition — TRK-2026-10067, tax-jacket OCR comparison
+
+**GREEN, night-eligible.** Read-only against source PDFs; writes only new result files.
+Full spec in `OPEN-ITEMS.md` under TRK-2026-10067 (logged 2026-09-21).
+
+**Do this, not a bulk run:** pick tax-jacket pages whose correct values are already known
+(already transcribed, or legible in a second copy — staged material exists from
+PASTE-D-030/031/032). Run the current OCR pipeline and a vision read over the same pages.
+Score three outcomes, not two: **correct**, **wrong**, **correctly declined** — a system
+that says "cannot read" is worth more here than one that guesses, because a wrong digit in
+a tax record propagates silently. Report a denominator: "N of M pages, X correct, Y wrong,
+Z declined."
+
+**Do not let this become a bulk OCR run.** Section 0 above still applies — the 89%
+unattributed-sidecar defect is unresolved, so a full unattended pass tonight still enlarges
+the pile rather than clearing it.
