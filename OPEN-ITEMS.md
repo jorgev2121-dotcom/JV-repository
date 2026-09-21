@@ -16,6 +16,35 @@ and `CLAUDE.md` section 9. Never issue a job number from 9xxx.
 
 ---
 
+## 2026-09-21 — MZ Solutions permit rework (10980 SW 202 DR Unit 29)
+
+**TRK-2026-10052 — IN_PROGRESS.** Jorge uploaded a 1-page Miami-Dade permit application (contractor
+MZ Solutions LLC / Miguel Zaldivar, CGC1528486) and asked: check the contractor license for
+inconsistencies, get a copy of the license, find the "C number" and screenshot Miami-Dade's reviewer
+comments for a rework submittal, then email MZ Solutions explaining the county's findings.
+
+**Done so far:** confirmed by directly reading the uploaded page — the owner's-agent (Eli Bleeman)
+signature block, sworn under Florida jurisdiction, carries a **New Jersey** notary stamp (Susan M.
+Morrissey, Comm. #2308227) — facially invalid for a Florida-sworn document; Jorge separately flagged
+the stamp's numbers as smudged. The qualifier's (Zaldivar's) notary is properly Florida (Vivian C.
+Marrero) — no issue there. The uploaded PDF is confirmed (`pdfinfo`) to be only 1 page — the form
+prints "PAGE 1 OF 6" as the *application packet's* own pagination, not a property of this file; pages
+2-6 were never uploaded, so no "C number" is visible to cloud. A web search located what is very
+likely the correct DBPR record for CGC1528486 (name/DBA match), but **owner directive (2026-09-21)
+requires an actual saved copy of the source page, not a search summary** — so license status is
+NOT yet confirmed. Draft (unsent) rework email prepared in `agent-results/`.
+
+**BLOCKED on:** desktop/Cowork retrieval — routed via Drive `VTES-Inbox` job
+`MSG-CLOUD-TO-CODE_MZ-SOLUTIONS-PERMIT-LICENSE-CHECK_TRK-2026-10052_2026-09-21.md`
+(WORK-QUEUE item 30, PASTE-D-054): actual copies of the DBPR license page, the Sunbiz entity page,
+the Miami-Dade C-number, and reviewer-comment screenshots — all require sites egress-blocked from
+the cloud lane (`myfloridalicense.com`, `search.sunbiz.org`, the Miami-Dade e-permitting portal).
+
+**RED, held for Jorge:** the email to MZ Solutions is drafted, not sent — sending it, and asserting
+the county "found" anything, both wait on the routed retrieval above.
+
+---
+
 ## ⏱ OVERNIGHT 2026-08-16 → 17 — where to look, so nobody scrolls 260 lines
 
 **Full plain-language version: `MORNING-REPORT_2026-08-17.md`. This is the index to the

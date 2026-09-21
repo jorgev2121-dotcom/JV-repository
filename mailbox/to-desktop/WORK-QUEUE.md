@@ -603,6 +603,22 @@ and the narrative report.
 
 ---
 
+## 30. TRK-2026-10052 — MZ Solutions permit: license copy + Miami-Dade C-number/reviewer-comment retrieval
+
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_MZ-SOLUTIONS-PERMIT-LICENSE-CHECK_TRK-2026-10052_2026-09-21.md`
+(PASTE-D-054). Jorge uploaded a 1-page Miami-Dade permit application for 10980 SW 202 DR Unit 29
+(contractor MZ Solutions LLC / Miguel Zaldivar, CGC1528486) and asked cloud to check the contractor
+license, get a copy of it, find the process ("C") number and screenshot the county's reviewer
+comments for a rework submittal, then draft an email to MZ Solutions. **Owner correction, binding:**
+"Must have copies of pages. You are taking information from us supporting documents" — every item in
+the Drive job must be an actual saved page copy (PDF/screenshot), never a search-engine paraphrase.
+Needs desktop/Cowork because it requires `myfloridalicense.com` (DBPR), `search.sunbiz.org`, and the
+Miami-Dade e-permitting portal — all egress-blocked from the cloud lane. Full GREEN/RED breakdown and
+what cloud already confirmed by reading the one page it has (the notary-jurisdiction defect) is in
+the Drive file. Do NOT email MZ Solutions — that stays with Jorge.
+
+---
+
 ## 26. TRK-2026-10017 — Check for / add cloud-server coverage in the Human IT Work Package
 
 Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_HUMAN-IT-WORK-PACKAGE-CLOUD-SECTION_TRK-2026-10017_2026-09-20.md`
