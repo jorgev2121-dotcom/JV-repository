@@ -1,7 +1,9 @@
 # OWNER DIRECTIVE — PERMIT-FORM-METHODOLOGY-01
 
 **Issued by Jorge Valdes, 2026-09-21.** Recorded verbatim in substance.
-**Status: LOGGED AND PARKED under the Article 1 freeze. See "Why this is parked" below.**
+**Status: SPLIT by Jorge's ruling the same day — see AMENDMENT 01 at the foot of this file, which
+governs. Sections 4 and 5 (signature authority, witness rules) are ACTIVE. Sections 1, 2 and 6
+(format variants, character counts, hover tooling) remain PARKED under the Article 1 freeze.**
 **TRK-2026-10055.**
 
 ---
@@ -104,3 +106,115 @@ Nothing from this directive was built. Two questions from sections 4 and 5 were 
 an open permit rework, and answering them there is job work rather than system building.
 
 #JorgeValdes #CU-Inspections #TRK-2026-10055 #owner-directive #permit-methodology #PARKED-FREEZE
+
+---
+
+# AMENDMENT 01 — 2026-09-21, later the same day
+
+## Jorge's ruling on the freeze: RESEARCH HALF UNPARKED
+
+> *"Yes; unpark only the research half. The signature-authority and witness questions are needed for
+> live jobs this week and finding answers is research, not construction. Keep the form catalogue,
+> the character counts and the hover tooling frozen — those genuinely build something."*
+
+**ACTIVE — sections 4 and 5 (signature authority, witness rules).**
+**STILL FROZEN — sections 1, 2 and 6 (format variants, character counts, hover tooling).**
+
+### Requirement added by Jorge: cite the law
+
+> *"We may want to save supporting law, statutes, and references as plans reviewers will challenge
+> and call you out."*
+
+**Every answer produced under the research half must carry its citation** — the statute, the county
+code section, or the published county instruction, saved as an actual copy, not a paraphrase. An
+answer a reviewer can challenge and that cannot be backed on the spot is worth nothing at the
+counter. This makes the standing rule from 2026-09-21 ("copies of pages, not summaries") binding on
+this research too.
+
+### Jorge's correction on signature authority — cloud's read was probably wrong
+
+Cloud raised that "Signature of Owner **or Owner's Agent**" might let Jorge sign as Attorney-In-Fact
+and make the whole notary problem disappear. **Jorge's position, which carries more weight than
+cloud's inference:**
+
+> *"I know that my limited power of attorney and or equivalent being a resolution when it's an LLC.
+> I believe do not allow me to sign the permit application or anything at that level. I know that is
+> certainly the case when it's an individual homeowner. Not sure as it relates to corporate or LLC."*
+
+So: **certain** that a limited POA does not carry it for an individual homeowner; **uncertain** for a
+corporation or LLC. The research question is therefore narrower and sharper than cloud framed it:
+
+**Does Miami-Dade accept a permit application signed by an agent of a corporate or LLC owner under a
+limited POA or a corporate/LLC resolution — and if so, what evidence of authority must accompany
+it?** Answer with the code section or written county policy, saved as a copy.
+
+**Do not act on the agent-signature idea for TRK-2026-1667.** Jorge's read is that it does not apply,
+and his read governs until a citation says otherwise.
+
+---
+
+## NEW SKILL SPEC 01 — Florida notary narrative: the boxes must be squares
+
+**Owner-reported, with a real kickback behind it.** On the notarization block, the section recording
+whether the signer was **personally known** or **produced identification** must present as **two
+square checkboxes**, checked accordingly.
+
+> *"Some of my documents have open and closed parenthesis with a space in the middle to accept the
+> check mark or similar, and it was kickbacked because it was not a square."*
+
+`( )` is not acceptable. The marker must be an actual square box. This is a real rejection cause,
+already paid for once.
+
+**Scope of the skill:** the current Florida notarial certificate wording, the personally-known versus
+produced-identification election, how the box must render, and what goes on the "Type of
+Identification Produced" line. **Checked on every document before it leaves.**
+
+**Status: spec only.** Writing the skill is construction and stays frozen. The *rule* above is
+active immediately as a pre-send check — it is applied by looking, not by building anything, and is
+already written into the TRK-2026-1667 send job.
+
+---
+
+## NEW SKILL SPEC 02 — Identify the signer BEFORE preparing the package
+
+**Owner-reported, and this job is the proof.** The package for TRK-2026-1667 went out on 2026-09-04
+naming one authorized signer, then had to be reissued on 2026-09-10 with the signer changed to Eli
+Bleeman, because the first signer was not going to be around to sign.
+
+> *"This becomes a lot easier if we take the time to identify who the signer is going to be, period.
+> Because this already happened on this case where we sent a package for another authorized signer,
+> and he was not going to be around to sign it. So we wound up sending another package."*
+
+**The rule:** before any document is prepared, establish **which specific person will sign**, and
+confirm they are authorized to — an officer or authorized signer of the corporation, LLC or trust,
+or one of the individuals named on the **Property Appraiser page under owner names** when the
+property is held personally. Where several potential signers exist, the point is not to list them.
+**The point is to pick the one, confirm availability, and build the whole package around that name.**
+
+Then: a continuum of documentation sent out for execution, with a checklist, and the unique property
+address, property information and owner information filled in per package.
+
+**Status: the rule is active now; the checklist and the autofill are construction and stay frozen.**
+
+**Live instance:** TRK-2026-1667 currently carries an unresolved version of exactly this problem —
+the covering email says "Eli Bleeman, **Vice President**" while the executed application prints
+"ELI BLEEMAN, **President**." Flagged in the send job.
+
+---
+
+## NEW PROJECT — Miami-Dade AI autofill for permit applications. PARKED.
+
+> *"Ideally, I would like to make this Miami Dade County autofill with AI intelligence to complete
+> permit applications and app. Therefore, make it a project with hopes of selling annual
+> subscriptions or the app itself, but must be fine tuned and maintained with AI."*
+
+**Logged as `TRK-2026-10061`. PARKED — FREEZE.** This is a product build, and Jorge's own ruling in
+this same amendment keeps construction frozen. It is also the natural downstream of the frozen half
+of this directive: the form catalogue and the field character counts are precisely the dataset such
+an app would need, so the parked research and the parked product unpark together, in that order.
+
+**Recorded so the commercial intent is not lost:** the deliverable is a saleable product — annual
+subscription or outright licence — not an internal tool. That changes what "good enough" means, and
+it should be built that way from the first line rather than retrofitted from an internal script.
+
+#TRK-2026-10061 #PARKED-FREEZE #permit-autofill #product

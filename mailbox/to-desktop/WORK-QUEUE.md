@@ -679,3 +679,16 @@ reviving LiteLLM (RI-038 already decided against that twice). Confirm XAI_API_KE
 was this morning), test a fresh key directly if Jorge has since made one, confirm the existing VTS
 panel already picks it up with no config, and disable (never delete) whatever scheduled task starts
 LiteLLM/VerticalTray so they stop showing as a false alarm every morning.
+
+---
+
+## 31. TRK-2026-1667 — Resend the corrected signature package to Cinde (OWNER-AUTHORIZED SEND)
+
+Full job: Drive `VTES-Inbox\MSG-CLOUD-TO-CODE_RESEND-SIGNATURE-PACKAGE-CORRECTED_TRK-2026-1667_2026-09-21.md`
+(PASTE-D-057). **Note the TRK: this job is 1667, not the 10052 admin number cloud used earlier.**
+Jorge authorized this outbound send today by name, recipient and content. Reproduce the 2026-09-10
+package to `cvelazquez@asdenproperties.com`, CC `miguel@mzsolutions.org`, changing only: the
+Qualifier No. last-4 (pull the SSN last-4 from Miguel Zaldivar's Outlook contact Notes — cloud is
+403'd out of contacts), the document date (2026-09-21), and the filenames to match. Show Jorge the
+one corrected value for a one-word confirm, then send; skip the confirm if he says to. Flag the
+President/Vice-President title mismatch and check the notary boxes are squares before it goes.
