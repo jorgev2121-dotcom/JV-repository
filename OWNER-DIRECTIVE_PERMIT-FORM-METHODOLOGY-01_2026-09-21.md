@@ -476,3 +476,29 @@ Forms sit at `miamidade.gov/global/economy/building/all-forms.page` with per-per
 and means the methodology knowledge this company builds has no published equivalent to compete with.
 
 #TRK-2026-10055 #TRK-2026-10064 #research-finding #BTR-deadline #qualifier-field
+
+---
+
+## SPEC ADDENDUM — credential naming convention, for the eventual 250-credential sort
+
+**Jorge, 2026-09-21:** *"Name the credential something relative to its relevance. Example, Hialeah
+permitting portal."*
+
+**Rule, for whichever lane eventually runs the read-only sort-and-flag pass (RED credential resets
+stay separately gated per RI-050 — this governs naming only, applies the moment any entry is
+touched or re-titled):**
+
+Every credential gets named **`[Jurisdiction/Entity] [Purpose]`** — not the raw domain, not the
+saved-site title a password manager defaults to. Examples in this account's own vocabulary:
+`Hialeah Permitting Portal`, `Miami-Dade e-Permitting`, `Bal Harbour Building Department`,
+`MDCTaxCollector — Business Tax Receipt`, `Asden Properties — Cinde Velazquez`.
+
+**Why it matters for a 250-entry vault with ~70% expected duplicates:** a name like
+`login.hialeahfl.gov` or `Untitled 47` tells nobody what the credential is for at a glance, which is
+exactly how duplicates and expired entries survive undetected for ten years. A name built from
+jurisdiction + purpose is scannable and sorts naturally next to its siblings (every Hialeah
+credential together, every Miami-Dade one together), which is also what makes duplicates visible in
+the first place.
+
+**Applies going forward to every new credential this session or any lane creates**, and is the
+target name for existing entries once the read-only sort identifies what each one actually is.
