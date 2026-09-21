@@ -2404,3 +2404,50 @@ enshrining it — which is what Rule 4 means by preferring removal over suppress
 **1Password becomes a password manager again, not the gate on his own identity.**
 
 #RI-050 #OD-107 #passkey #WindowsHello #correction
+
+### RI-051 — the barrier is navigation, not authentication. Give routes, not tours.
+
+**Logged 2026-09-21. Jorge, correcting cloud's passkey theory:**
+
+> *"It typically works, but getting there is challenging as navigating through the system is my
+> biggest challenge as a non tech person."*
+
+**Cloud was wrong twice in a row here** — first reading DRYRUN as a defect, then theorising that
+passkeys failed because he was hunting for a text box. **Both were cloud inventing an explanation
+instead of asking.** The actual answer, once asked for, was one sentence.
+
+## The real finding
+
+**Jorge can perform every individual step. He cannot find the steps.** Authentication is not the
+blocker. **Wayfinding is.** Menu trees, settings hierarchies and multi-screen flows are where the
+time goes — and for an owner with ADHD and dyslexia working by dictation, each hop in a path is a
+place to lose the thread.
+
+This reframes a large amount of accumulated history. The OD-107 chain, the 9Router login, the Word
+sign-in loop, the connector settings — these were never knowledge failures. **They were route
+failures.** Every one of them was a case of "the right screen exists and he could not get to it."
+
+## The rule
+
+**Never hand Jorge a path. Hand him a teleport.**
+
+- ❌ "Go to Settings, then Accounts, then Sign-in options, then scroll to Passkeys."
+- ✅ "Press the Windows key and R together. Paste `ms-settings:signinoptions`. Press Enter."
+
+A four-hop menu path has four places to go wrong and needs sight-reading at each one. **A single
+paste has one step and lands exactly on target.** This is the same principle as `PASTE-` IDs and the
+`WORK-QUEUE` pointer: reduce the thing he must hold in working memory to one item.
+
+**Direct routes worth knowing** (Windows+R, paste, Enter):
+- `ms-settings:signinoptions` — Hello, PIN, passkeys
+- `control /name Microsoft.CredentialManager` — stored Windows credentials
+- `ms-settings:emailandaccounts` — connected work/school accounts
+
+**This supersedes nothing in CLAUDE.md Rule 7 — it sharpens it.** Rule 7 says do not make him choose
+between technical options. **RI-051 adds: do not make him navigate to them either.**
+
+**Standing instruction for every lane, cloud and desktop:** when an instruction involves a Windows
+or web screen, lead with the direct command, keystroke or URL that opens it. Describe the menu path
+only as a fallback, underneath.
+
+#RI-051 #navigation #accessibility #Rule-7 #OD-107
