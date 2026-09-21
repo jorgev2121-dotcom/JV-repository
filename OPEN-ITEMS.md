@@ -82,6 +82,72 @@ own signature regardless of POA, and guessing produces a second rejection.
 
 ---
 
+## 2026-09-21 04:10 UTC — MORNING HANDOFF. Read this first.
+
+**Written at the end of a long night session so nothing has to be reconstructed from the
+conversation. Jorge stopped around midnight local, at my suggestion.**
+
+### The one job that matters: TRK-2026-1667, 10980 SW 202 DR Unit 29
+
+**Where it actually stands — further along than it feels.**
+
+- ✅ **Both documents are already saved** on `C:\Users\JV\OneDrive\Desktop\Tray 3`, renamed to
+  today's date. Step 3 of the script ran cleanly.
+- ✅ **The email body is written** and is PASTE-X-010.
+- ✅ **The recipient is confirmed**: Cinde Velazquez, `cvelazquez@asdenproperties.com`, CC
+  `miguel@mzsolutions.org`, from Jorge@TeamUsaSales.com.
+- ✅ **The script works.** `Fix-PermitPackage_TRK-2026-1667_v2.ps1` in Drive `VTES-Inbox`.
+- ❌ **Outlook refused the connection** — `RPC_E_CALL_REJECTED`, see RI-054. Outlook is running but
+  blocked, almost certainly on a dialog waiting for input.
+
+**Morning sequence, in order:**
+
+1. **Open Outlook and clear whatever dialog is waiting.** Check the taskbar for a flashing window.
+   Given RI-050, expect a sign-in or password prompt.
+2. Run, from the Windows Run box (Windows+R):
+   `powershell -NoExit -ExecutionPolicy Bypass -File "G:\My Drive\VTES-Inbox\Fix-PermitPackage_TRK-2026-1667_v2.ps1"`
+3. It pauses and asks for **one change**: the box reading **8486** becomes the SSN last-4 from
+   Miguel Zaldivar's Outlook contact card. Ctrl+S, same filename.
+4. It builds the Outlook draft with both attachments and shows it. **Jorge clicks Send.**
+
+**Two things still unanswered and worth one phone call to 786-315-2880:**
+- Is **Eli Bleeman** President or Vice President? The 09-10 covering note says Vice President; the
+  executed form prints President. **Do not change it unilaterally on a sworn document.**
+- Did the **DRYRUN courtesy window** lapse? It ran three to four days from 18 September and today is
+  the 21st. The same call also settles what the Qualifier field wants and whether the May insurance
+  hold on Zaldivar ever cleared.
+
+### What broke tonight, and what it means for tomorrow
+
+**RAMBO is not executing.** Five jobs filed, five automatic acknowledgements, zero results
+(RI-052). Its heartbeat, ledger, reconciler and finisher-standup all keep updating, so watcher
+scripts run fine while the Claude Code executor produces nothing. **Do not file a sixth job into
+that queue** — it looks like work and is not. Likely cause: the git pull failing with exit 128
+(TRK-2026-10058) kills the cycle before any job is reached. Unconfirmed.
+
+**The credential lockout is the binding constraint on everything** (RI-050). A correct fix has
+existed for two days and has been dispatched four times without one execution. **It is not a
+diagnosis problem.** Revised plan in the RI-050 addendum: make **Windows Hello** the passkey
+provider, not 1Password — the original plan put a vault he cannot open into the path of every
+sign-in.
+
+**The highest-leverage single action available** is RI-053: **Claude Desktop (Windows) is registered
+but offline.** Bringing it back — Windows key, type `Claude`, Enter — would expose device tools in a
+fresh session and plausibly collapse the Tray 3 delivery, the Outlook draft, the contact lookup and
+the navigation problem at once.
+
+**And the rule that reframes all of it, RI-051: the barrier is navigation, not knowledge.** Jorge
+can do every step; he cannot find the steps. Every instruction from every lane should be a single
+paste that lands on the target, never a menu path.
+
+### Money item with a deadline
+
+**The Local Business Tax Receipt tax year ends 30 September — nine days.** Jorge's own two are paid
+($150, Team USA Sales and CU Inspections). Alec Valdes at Avis Builders was emailed a reminder
+(TRK-2026-10070). No further action unless Alec replies.
+
+---
+
 ## 2026-09-21 — TRK-2026-10070 — BTR renewals: Jorge current, Alec reminded (SENT)
 
 **Jorge's own Local Business Tax Receipts are PAID** — $150 covering both Miami-Dade entities,
