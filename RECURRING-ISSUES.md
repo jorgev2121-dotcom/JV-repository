@@ -2256,3 +2256,96 @@ the stale name and the fresh replacement almost always coexist in the same tree.
 superseded copies move to `_Superseded\`) exists to prevent this. It works only where it has been
 applied — these two license copies sat in different job folders with no version relationship
 recorded between them.
+
+---
+
+### RI-050 — the credential lockout is not a diagnosis problem. The fix was written two days ago and never run.
+
+**Logged 2026-09-21, after Jorge described being "very crippled in access" and named 1Password and
+Power Automate Desktop as his two blockers.**
+
+**This is the fourth occurrence of the RI-046 shape** (RI-046 itself was logged as the third), with
+RI-018 as a standing aggravator and RI-047/RI-048 downstream. **Rule 4 is in force: patches are
+forbidden.** Three options with lifespans are below.
+
+## The finding that matters
+
+**A correct Tier 2 fix already exists.** RI-046 specified it and it was issued as OD-107 —
+PASTE-D-034, re-issued as D-035, again as D-039, and handed to Cowork as PASTE-X-006. **Four
+dispatches across three lanes over two days. Not one confirmed executed.**
+
+So the pain right now is **not** that nobody knows what to do. It is that the one step that matters
+has never been taken. **Re-diagnosing this would be the mistake. Re-dispatching it a fifth time
+would be a bigger one.**
+
+## The premise that actually failed
+
+Jorge's own account of the original design:
+
+> *"Everything was merged into 1Password with the intent that automation would convert and/or reset
+> all the apps and or programs or credentials needed for access and it's been a huge failure."*
+
+**That plan could not have worked, and this is worth saying plainly rather than treating it as an
+execution failure.** Credential recovery is *deliberately engineered to resist automation* — proof
+of human presence is the entire product. Every vendor in that chain builds it that way on purpose.
+Asking an automation layer to convert and reset credentials at scale is asking it to defeat the one
+control those systems exist to enforce.
+
+**So more automation aimed at this will fail in exactly the same way.** Power Automate Desktop is
+not underperforming here; it is being pointed at a wall built to stop it. RI-018 shows PAD's hourly
+verification-code monitor is actively *aggravating* the problem by re-requesting codes.
+
+**And merging everything into 1Password concentrated the blast radius.** One locked vault now gates
+Microsoft, Windows and everything downstream. The consolidation that was supposed to simplify
+recovery is what makes a single lock total.
+
+## The circular dependency, and where it breaks
+
+Jorge's framing: cloud needs 1Password cleared so he can reach Microsoft, so he can grant cloud the
+permissions that would let cloud help. **That loop has an exit, and it is not a password.**
+
+**Windows Hello is a PIN or a fingerprint against the TPM. It does not require any of the
+credentials that are broken.** Jorge is demonstrably logged into Windows right now — he is running
+Claude Code and sending screenshots from that machine. **So the wedge is almost certainly
+available**, and it unlocks 1Password, which unlocks the rest in order.
+
+**The chain has a root. Fix the root once, by hand, and the rest cascade. Fixing fifteen dependent
+things in parallel is why two days produced nothing.**
+
+## Three options, ranked by durability
+
+**Tier 1 — Suppression. Keep automating the resets.** More PAD scripts, more retries.
+*Failure mode:* anti-automation controls block it, and repeated attempts risk tripping real
+lockouts. *Lifespan:* days, and it has already failed four times.
+**Proposing this for a logged recurring issue is a charter violation. Recorded only to rule out.**
+
+**Tier 2 — Removal. RECOMMENDED, and it is two removals, not one.**
+(a) **Remove automation from the credential path entirely.** The OD-107 sequence gets executed by
+hand, in one sitting, with Jorge present: unlock 1Password with Hello ON so it stays reachable, make
+it the Windows passkey provider, re-register the M365 passkey, save localhost logins with the port
+in the URL.
+(b) **Remove Power Automate Desktop from this path, and disable the RI-018 verification-code
+monitor outright.** It is an aggravator, not a tool.
+*Failure mode:* a Windows or 1Password update flips the passkey-provider toggle.
+*Lifespan:* permanent until that happens.
+
+**Tier 3 — Enforcement, after Tier 2 holds.** A scheduled check that re-asserts the passkey-provider
+setting and alerts on drift, running faster than the setting decays.
+*Lifespan:* indefinite, because it repairs faster than it breaks.
+
+## The honest boundary
+
+**Cloud cannot do any of this.** No access to that PC, no device link, and the decisive step is
+physical. This is IMPOSSIBLE from this lane, not blocked — and four dispatches prove that routing it
+to another lane has not worked either, because the automated lanes cannot perform a fingerprint
+touch either.
+
+**The shortest path is Jorge doing roughly five minutes of it himself with exact click-by-click
+steps in front of him.** Every alternative attempted so far has cost a day and delivered nothing.
+
+**Also recorded: cloud asked Jorge at ~03:00 UTC to reconnect the Microsoft 365 connector to grant
+mail-write scope. That request was impossible on its face** — reconnecting requires signing into
+Microsoft, which is precisely what he cannot do. Cloud did not know that at the time. **Before
+asking for any permission grant, establish whether the owner can currently authenticate.**
+
+#JorgeValdes #CU-Inspections #RI-050 #OD-107 #1Password #credential-lockout #rule-4
