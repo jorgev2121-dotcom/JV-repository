@@ -1124,3 +1124,33 @@ not recorded anywhere — that is itself the problem this file exists to prevent
 | TRK-2026-10011 | **Jorge (2026-09-20): confirmed Codex = OpenAI's coding agent (ChatGPT's company), currently down because his ChatGPT usage has been exhausted for a week+; asked to log reactivating it once usage resets.** No evidence anywhere in this repo that a Codex lane was ever built or armed (checked against the 09-02/09-03 mirror history a prior window cited). Two auth paths exist for when it's back: sign in with the ChatGPT subscription directly (no key), or a standalone `OPENAI_API_KEY` — a stale, expired one already sits in the desktop's shell env (found incidentally during TRK-2026-9958's proof run) and should be cleared, not reused, to avoid two conflicting auth paths. **Per FREEZE Article 1: logged and parked, not built** — a new Codex lane is a new system; nothing wires it in until Jorge's usage resets and he says go. | **PARKED — FREEZE, awaiting ChatGPT usage reset (owner's own account/billing, not automatable)** |
 | TRK-2026-10008 | **Jorge asked again, dictated: "When am I out of the middle?"** — plus asked whether Grok is now executing or handed off per his 9975 spec, and for one status pass across everything: done-not-reported, running, queued, not-queued. This is the same underlying question as 9967, asked a second time — durable fix per Rule 4 logic: built `OWNER-TOUCHES-REMAINING.md`, the complete bounded list of the 7 things left that only he can do (Hello touch, one Admin command, a fresh XAI key, and 4 yes/no's already logged). Grok specifically: **not executing, not handed off — structurally can't be either, `XAI_API_KEY` is still unset** (confirmed twice, 9958 and 9999); no data has moved between Ollama and Grok, they are independent fallback entries in the same panel, nothing was implied there. | **DONE — see `OWNER-TOUCHES-REMAINING.md`; status roll-up given directly in chat this turn** |
 | TRK-2026-9999 | **Jorge pasted a long plan from another AI assistant recommending LiteLLM be repaired and Grok routed through it as "consultant."** Cloud checked independently: xAI's own status page shows the public API up, last real outage 2026-09-03 — confirms Grok itself is fine, matching the pasted plan's own diagnosis on that one point. **Where cloud disagrees and did not execute the pasted plan: reviving LiteLLM as the router.** `RI-038` already tried exactly that twice (2026-08-25, 2026-08-26) and explicitly concluded "NEVER self-hosted LiteLLM-on-the-PC as the load-bearing piece again" — a Rule-4 decision this session is not reopening because a different assistant, without this repo's history, proposed it again. **Actual fix, minimal:** `XAI_API_KEY` is simply unset (confirmed by this morning's own 9958 proof run) — once Jorge creates a fresh key himself and sets it as a local env var, the Ollama-first VTS panel already built this morning picks it up automatically, no router, nothing to configure. Routed to desktop as PASTE-D-045 / WORK-QUEUE item 22: confirm the key state, test a fresh one if it exists, confirm the panel picks it up, and disable (not delete) whatever scheduled task starts LiteLLM/VerticalTray so it stops false-alarming every morning. | **IN PROGRESS — desktop next cycle; owner action still needed: create a fresh XAI key at console.x.ai, set it as a User env var, never paste it into any chat** |
+
+---
+
+## TRK-2026-10055 Claude Desktop + Ollama Service + LangChain + LlamaIndex RAG
+
+**Status:** IN_PROGRESS (GREEN phases staged for RAMBO; RED manual items pending)  
+**Owner Authorization:** Owner Directive Override (Freeze-and-Finish exception) — 2026-09-21 17:55 ET  
+**Assigned to:** RAMBO (desktop executor), Jorge (manual RED steps)  
+**Description:** Install Claude Code Desktop on Windows 10, configure Ollama as auto-restarting Windows Service, install LangChain + LlamaIndex with OCR, index Desktop + Google Drive files, integrate RAG with Claude Code  
+**Linked Files:**  
+- `mailbox/to-desktop/MSG-CLAUDE-DESKTOP-RAG-SETUP_TRK-2026-10055_2026-09-21.md` (PASTE-D-058)
+- `mailbox/to-desktop/Install-ClaudeDesktop-Ollama-RAG_2026-09-21.ps1` (6810 bytes)
+- Drive: `VTES-Inbox/MSG-CLOUD-TO-CODE_CLAUDE-DESKTOP-RAG_TRK-2026-10055_2026-09-21.md` (to be filed)
+
+**GREEN (RAMBO):**  
+1. Verify Ollama + configure Windows Service  
+2. Install Python packages (LangChain, LlamaIndex, pytesseract)  
+3. Create RAG indexing script  
+4. Test Ollama API  
+5. Log execution report  
+
+**RED (Jorge manual):**  
+1. Pull Ollama model: `ollama pull mistral`  
+2. Test RAG: `python C:\temp\rag-indexing.py`  
+3. Install Claude Code Desktop from https://claude.ai/code  
+4. Configure Claude Code plugin for RAG  
+
+**Timeline:** 5-10 min GREEN + RED manual steps  
+**Next:** File to Drive VTES-Inbox, monitor RAMBO output, confirm RED items, document plugin integration
+
