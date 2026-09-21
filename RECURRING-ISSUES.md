@@ -2597,3 +2597,53 @@ on an email whose recipient will not read it until morning. **Pressing on had no
 offered.**
 
 #RI-054 #Outlook #COM #RPC_E_CALL_REJECTED #OD-107 #TRK-2026-1667
+
+### RI-055 — a registry-and-DLL Outlook "fix" arrived unsourced. Declined, safe version written instead.
+
+**Logged 2026-09-21 ~05:35 UTC.** Jorge pasted a five-step batch/PowerShell block for "Outlook
+Task-Manager Reboot," attributed to no one, in response to RI-054's COM refusal. **It was not run.**
+
+## Why it was declined, step by step
+
+1. **`taskkill /F` on Outlook** — force-kills, no attempt at a clean close first. A forced kill while
+   Outlook is mid-write to the mailbox file can damage it. The safe order is: ask it to close, wait,
+   force only if it refuses.
+2. **Killing `searchindexer.exe`, `searchprotocolhost.exe`, `searchfilterhost.exe`** — these are
+   **Windows Search**, not Outlook. Unrelated to the RPC error. Their host processes restart
+   automatically; killing them fixes nothing here and needlessly interrupts an unrelated system
+   component while everything else is already unstable (RI-050).
+3. **`reg delete` on `Outlook\AutoDiscover` and `Outlook\Search`** — ⚠ **this is the dangerous line.**
+   Deleting the AutoDiscover key can force Outlook to **re-run first-time account discovery on next
+   launch** — which means **a new round of Microsoft sign-in prompts**, on the exact machine whose
+   Microsoft credentials are already broken (RI-050). This risked converting "one dialog is stuck"
+   into "the mailbox will not reconnect at all." Deleting the Search key discards indexing
+   preferences for no benefit to a COM refusal.
+4. **`regsvr32` re-registering `mapi32.dll` / `msmapi32.dll` / `olmapi32.dll`** — a real repair for
+   MAPI *registration corruption*, but that is not this symptom. `RPC_E_CALL_REJECTED` means the COM
+   server answered and refused a call because it is busy; a broken MAPI registration produces a
+   different failure (the class factory cannot be created at all). Right tool, wrong diagnosis — and
+   it is a needless registry write on a night that has already spent hours on registry-adjacent
+   damage.
+5. **No source given.** Handed to a non-technical, dictating owner with no line explaining what any
+   step does or why — exactly what RI-051 says not to do, at the exact moment the actual fix is a
+   safer four-step version of steps 1 and 5 alone.
+
+## What was done instead
+
+`Restart-Outlook-Safely.ps1`, filed to Drive `VTES-Inbox`: checks it is not running elevated (an
+admin PowerShell talking to a non-admin Outlook is itself a known cause of COM refusals), closes
+Outlook politely with `CloseMainWindow()` and only force-kills if that fails, clears genuinely
+Outlook-adjacent leftover processes (Teams, Lync, Skype — not Windows Search), reopens Outlook, and
+tells Jorge explicitly to **watch for a dialog** rather than assume the fix alone resolves it. No
+registry writes. No DLL re-registration.
+
+## The rule this adds
+
+**An unsourced fix pasted into this system gets read before it gets run, every time — including,
+maybe especially, from a well-formatted block that looks authoritative.** Ops scripts commit-and-
+paste around the internet in exactly this shape: plausible section headers, real commands, wrong
+diagnosis. The tell here was step 3: a registry delete with a blast radius (forced re-authentication)
+far larger than the problem it claims to fix (a stuck COM call), on a machine that cannot currently
+re-authenticate.
+
+#RI-055 #Outlook #declined-fix #RI-054 #RI-050 #registry-risk
