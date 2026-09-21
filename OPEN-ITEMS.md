@@ -43,6 +43,23 @@ the cloud lane (`myfloridalicense.com`, `search.sunbiz.org`, the Miami-Dade e-pe
 **RED, held for Jorge:** the email to MZ Solutions is drafted, not sent — sending it, and asserting
 the county "found" anything, both wait on the routed retrieval above.
 
+**UPDATE, same day — mailbox sweep (Gmail + Outlook, cloud lane, no portal needed).** Four findings,
+full detail in `agent-results/CORRECTIONS_10980-SW-202-DR-UNIT-29_TRK-2026-10052.md`:
+(a) **the license copy already exists in Jorge's own files** — a Dropbox PDF and the 2026-08-15
+Outlook thread "Contractor Registration - MZ Solutions LLC - CGC1528486," so no DBPR scrape is
+needed to produce one; (b) **⚠ that license PDF's own filename gives a renewal date of 31 August
+2026** — the application was signed 17 September 2026, so if it was not renewed the license was
+delinquent at signing, which would make the county's contractor comment CORRECT; (c) a **Miami-Dade
+licensing hold on Zaldivar existed in May 2026** (GL/insurance), package sent to MT045@miamidade.gov
+on 2026-05-01; (d) **no county reply exists in either mailbox** — Jorge advises the package was
+hand-delivered to the clerk, which explains the silence but does not evidence release. Contractor
+standing is **unverified in both directions** — not approved, not defective — pending a receipted
+counter copy or one call to the licensing section.
+
+**Still unseen by cloud: the county's actual reviewer comment.** Nothing about the contractor has
+been quoted to this lane, so no comparison against a license copy is possible yet. Cheapest unblock
+is Jorge reading or forwarding the comment, not the portal scrape.
+
 ---
 
 ## ⏱ OVERNIGHT 2026-08-16 → 17 — where to look, so nobody scrolls 260 lines
