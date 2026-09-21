@@ -2451,3 +2451,58 @@ or web screen, lead with the direct command, keystroke or URL that opens it. Des
 only as a fallback, underneath.
 
 #RI-051 #navigation #accessibility #Rule-7 #OD-107
+
+### RI-052 — the relay works. The executor does not. They are different processes.
+
+**Logged 2026-09-21 ~03:25 UTC, from a clean natural experiment run over three hours tonight.**
+
+## The evidence
+
+Five jobs filed to Drive `VTES-Inbox` for TRK-2026-1667 and TRK-2026-10058. **Every one
+acknowledged within two to five minutes. Not one executed.**
+
+| Filed | Job | ACK | Result |
+|---|---|---|---|
+| 02:01 | TRK-2026-10058 git divergence, report-only | — | none after 90 min |
+| 02:18 | Resend package | 02:21 | none |
+| 02:39 | Addendum 01 | 02:41 | none |
+| 02:52 | Addendum 02 | 02:56 | none |
+| 02:59 | **URGENT** produce files to Tray 3 | 03:01 | none after 25 min |
+
+**So the mailbox channel is not the problem and never was.** Delivery is fast and reliable. This
+kills the theory that the handoff needs a different transport — Jorge asked tonight whether LiteLLM
+would help, and the data says the transport was never broken.
+
+## The distinction that explains it
+
+**The thing that writes `ACK_..._AUTO.md` and the thing that performs the work are two different
+processes.** The acknowledger is a small watcher and it is healthy — sub-1KB receipts, every time,
+within minutes. The executor is headless Claude Code, and it is producing nothing.
+
+**A receipt proves a file was seen. It proves nothing was done.** This is the RI-002 family
+restated: *a process in the task list is not a run making progress* — and now also, *an
+acknowledgement is not an execution.*
+
+## Two candidate causes, both already on file, neither confirmed applied
+
+1. **The git pull failure (TRK-2026-10058).** RAMBO's `git pull --ff-only` refuses with exit 128 —
+   25 local against 92 origin commits, the AP-0026 diverged-branch guard. **If the executor pulls
+   the repo as an early step in its cycle, it dies there, before reaching any job.** The
+   acknowledger would not care, because it only watches a Drive folder. **This would explain the
+   exact pattern observed.** Hypothesis, not confirmed.
+2. **The process-group interrupt.** Already root-caused earlier in this session — detached jobs die
+   to a console CTRL+C through a shared process group, fix `CREATE_NEW_PROCESS_GROUP`. Related:
+   PASTE-D-053, exit code -1073741510 (STATUS_CONTROL_C_EXIT). **A root cause was found and there is
+   no record of the fix being applied.**
+
+## The pattern under the pattern
+
+**Three separate correct fixes now exist on file and none has been executed:** the OD-107 credential
+sequence (RI-050, four dispatches), the `CREATE_NEW_PROCESS_GROUP` repair, and the git divergence
+report. **The bottleneck in this system is not diagnosis. It has not been diagnosis for some time.**
+
+**Consequence for dispatch: filing a sixth job into a queue nothing drains is not work, it is the
+appearance of work.** Until the executor is confirmed alive, route anything time-critical to Jorge
+directly with exact steps, and say plainly that the desktop lane is not currently delivering.
+
+#RI-052 #RI-002 #RAMBO #executor #receipt-without-execution #TRK-2026-10058
