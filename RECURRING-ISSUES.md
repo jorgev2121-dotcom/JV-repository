@@ -2349,3 +2349,58 @@ Microsoft, which is precisely what he cannot do. Cloud did not know that at the 
 asking for any permission grant, establish whether the owner can currently authenticate.**
 
 #JorgeValdes #CU-Inspections #RI-050 #OD-107 #1Password #credential-lockout #rule-4
+
+### RI-050 addendum — 2026-09-21: the passkey answer, and a correction to OD-107's Tier 2
+
+**Jorge, asked directly whether he can unlock with PIN or fingerprint:**
+
+> *"I've never been able to enter a passkey, which is one of the most commonly requested options.
+> However, I do have Hello, and I have a PIN. And none of my password credentials work, but I do
+> double authentication with my phone and wiggle my way around, but it's far from even adequate."*
+
+## What this establishes
+
+**He has TWO working authenticators**, which is a far better position than "locked out":
+
+1. **Windows Hello + PIN on the PC** — TPM-backed, needs none of the broken passwords. **The wedge
+   is confirmed available.**
+2. **Phone-based two-factor** — working, if awkward.
+
+**And one broken thing: passkeys, which have never once worked.**
+
+## The most likely cause, and it is not technical
+
+**A passkey is not something you type. There is no field to enter it into.** The phrase "never been
+able to *enter* a passkey," from a non-technical owner who works by dictation, is the signature of
+someone hunting for a text box that does not exist.
+
+If that is what has been happening, **it explains the entire history in one sentence** and the
+remedy is thirty seconds of explanation, not another automation project. **This must be confirmed
+with him before anything else is built or dispatched.**
+
+Secondary candidate, consistent with RI-046: the passkey ceremony is being handed to 1Password as
+the registered provider, and 1Password is locked, so the ceremony dies with no useful error.
+
+## ⚠ CORRECTION to the Tier 2 fix recorded in RI-046 and issued as OD-107
+
+**RI-046's Tier 2 said: make 1Password the Windows passkey provider.**
+
+**On what is now known, that is backwards and should not be executed as written.** It places a vault
+he cannot unlock directly into the critical path of every future sign-in. If the vault locks again —
+and RI-046 records it sitting locked for days — every passkey ceremony fails again, and the
+recurrence repeats a fifth time.
+
+**Revised Tier 2: make WINDOWS HELLO the passkey provider.** Windows 11 stores passkeys in the TPM
+and Hello already works. This **removes** the broken component from the critical path rather than
+enshrining it — which is what Rule 4 means by preferring removal over suppression.
+
+**Order of operations, revised:**
+
+1. Confirm what Jorge actually sees when a passkey prompt appears. **Diagnose before acting.**
+2. Get one passkey registered to **Windows Hello** and prove a sign-in end to end.
+3. Only then unlock and repair 1Password, from a position where access no longer depends on it.
+4. Disable the RI-018 PAD verification-code monitor, which is aggravating throughout.
+
+**1Password becomes a password manager again, not the gate on his own identity.**
+
+#RI-050 #OD-107 #passkey #WindowsHello #correction
