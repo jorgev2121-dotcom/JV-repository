@@ -149,6 +149,25 @@ file error**, since we can't prove she hasn't already opened it.
 includes a Contact Sheet and a Scope of Work, both stamped with the job's tracking number(s) and
 hashtags, by default — not just the core signature documents.
 
+**Multi-LLM orchestrator / subscription-router request — PARKED, per the Article 1 freeze.**
+Jorge asked (2026-09-21, prompted by seeing this session's usage panel showing a large session
+cost) for a whole new architecture: a cheap "executive" LLM that routes/delegates work across his
+paid subscriptions (Claude, ChatGPT, Gemini, Grok, Copilot) instead of metered API calls, plus a
+one-click desktop launcher panel and a fix for Ollama going down. **This is unambiguously a new
+system under Article 1 — logged and parked, not built.** Objection on record (not just difficulty):
+driving ChatGPT/Gemini/Grok's consumer web chat programmatically as an "orchestrator" target is
+against most of those services' own terms of use for the plans Jorge holds (they sell that kind of
+automation separately, as their own paid APIs) — this isn't a build that should be attempted even
+after the freeze lifts without checking each vendor's ToS first.
+**What's actually usable today, no build required:** Claude Code already has cheaper/faster model
+switching built in (model picker, Fast mode) — using Sonnet/Haiku by default and reserving Opus for
+genuinely hard problems cuts cost without any new architecture.
+**Ollama diagnosis, answerable now:** on Windows, Ollama installs as a per-user tray app, not a true
+Windows service, by default — it dies on logoff/crash and does not auto-restart unless wrapped as an
+actual service (e.g. via NSSM or a small Task Scheduler job set to "run whether user is logged in or
+not" with restart-on-failure). That's the likely cause of "constantly going down" — not yet
+confirmed against Jorge's actual machine, so routed as a desktop diagnostic task, not assumed fixed.
+
 **Search-button request — PARKED, per the Article 1 freeze.** Jorge asked whether a tracking-
 number/hashtag search button already exists on the desktop tray. Honest answer: **no, this has not
 been built.** It would be a new desktop-side tool, and per `OWNER-DIRECTIVE_FREEZE-AND-FINISH-01`,
