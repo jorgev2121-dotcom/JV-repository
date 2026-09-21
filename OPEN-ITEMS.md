@@ -82,6 +82,49 @@ own signature regardless of POA, and guessing produces a second rejection.
 
 ---
 
+## 2026-09-21 — TRK-2026-10067 — Test this vision read against the tax-jacket OCR. WITH A KNOWN ANSWER.
+
+**Jorge's ask:** cloud read the notary stamp on the TRK-2026-1667 permit application — including
+digits he and another AI had both failed to read — and he wants that capability tested against the
+property tax jackets as a comparable to the OCR currently running.
+
+**⚠ Before anyone treats this as a proven capability, read this.** Cloud did not run OCR. The PDF
+page was rendered to an image and read directly by the vision model. On the large high-contrast
+text — **"Notary Public, State of New Jersey"** — confidence is high. On the small degraded digits,
+the commission number and expiry date, **confidence is materially lower, and a vision model's
+characteristic failure on degraded text is to emit plausible digits rather than report that it
+cannot read them.** A confident-sounding wrong number is the expected failure mode, not a rare one.
+
+**So the honest position: it is unknown whether cloud read those digits or reconstructed them.**
+Nothing downstream should depend on `#2308227` or `03/08/2028` being correct. **Nothing does** — the
+defect is jurisdictional, and holds whatever the digits say.
+
+**Which is exactly why the test must be built with a known answer.** A comparison where nobody knows
+the truth cannot distinguish reading from confabulation, and would confirm whatever we hoped.
+
+**Test design:**
+1. Use tax-jacket pages whose correct values are **independently known** — already transcribed, or
+   legible in another copy. Staged test material exists from PASTE-D-030/031/032.
+2. Run the current pipeline and a vision read over the same pages.
+3. Score on three outcomes, not two: **correct**, **wrong**, and **correctly declined**. A system
+   that says "cannot read" is far more valuable here than one that guesses, because a wrong digit
+   in a tax record propagates silently.
+4. Report a denominator, per Rule 8: "N of M pages, X correct, Y wrong, Z declined."
+
+**Status: NOT_STARTED.** Read-only and additive, so it is night-eligible under Rule 8 GREEN. Relates
+to TRK-2026-9034/9035 and RI-015.
+
+**Related research question, for the unparked half of TRK-2026-10055:** the jurat reads "STATE OF
+FLORIDA, COUNTY OF MIAMI-DADE" while the notary's commission is New Jersey. The defect may be better
+described as **the venue contradicting the commission** than as "a New Jersey notary is invalid in
+Florida." If Eli Bleeman actually signed in New Jersey, the question worth settling is whether
+Miami-Dade accepts a properly-executed out-of-state notarization with a New Jersey venue — because
+if it does, **that is the far easier fix for every out-of-state owner this company deals with.**
+**Does not change the current instruction to Cinde** — the Florida seal is the safe path and is
+already authorized. Settle it with a citation for future jobs.
+
+---
+
 ## 2026-09-21 02:00 UTC — check-in: the stall is OVER, but RAMBO's git is diverged
 
 **TRK-2026-10058 — the automation stall is resolved, and it was never a stall in the Drive lane.**

@@ -395,3 +395,84 @@ permitflow.com · withpulley.com · mybuildingpermit.com/contractor-registration
 mdctaxcollector.gov/services/local-business-tax-receipt · vertikalrms.com prequalification-software
 
 #TRK-2026-10064 #research-finding #contractor-compliance #PARKED-FREEZE
+
+---
+
+# RESEARCH FINDING 02 — Florida / Miami-Dade administrative facts, 2026-09-21
+
+**⚠ METHOD CAVEAT, BINDING ON EVERYTHING BELOW.** Every government domain was blocked at the
+network layer for this lane — miamidade.gov, bldgadmin.miamidade.gov, mdctaxcollector.gov,
+myfloridalicense.com, miami.gov, archive.org. Only indexed search was available. **Nothing here is
+verbatim-verified against a live page, so by Jorge's own standing rule this is a set of leads, not
+evidence.** URLs are recorded so the desktop lane, which is not behind this proxy, can confirm.
+
+## ⚠ TIME-CRITICAL — the Local Business Tax Receipt renews in NINE DAYS
+
+Tax year runs **1 October – 30 September**. **Delinquent after 30 September** — 10% penalty in
+October, then a further 5% per month. **Today is 21 September 2026.**
+
+This applies to Team USA Sales and to every contractor whose readiness this company depends on.
+**Surfaced to Jorge immediately on finding; it is the most time-bound item in either research pass.**
+
+Contractor classification fees as listed: **$45 for 1–10 employees ($3 each additional) inside a
+municipality; $75 for 1–10 ($5 each additional) unincorporated.** Jorge's recalled "$75 per
+corporation" matches the unincorporated figure. Renewal is genuinely online via **BTExpress**.
+
+**Terminology, now sourced:** Florida's term since 2007 is the **Local Business Tax Receipt
+(BTR / LBTR)**; "occupational license" is the pre-2007 name and still appears on county forms. It is
+a **tax receipt, not a licence — it confers no competency.** Prerequisite is a county Certificate of
+Competency or a state certificate.
+
+`mdctaxcollector.gov/services/local-business-tax-receipt` ·
+`miamidade.gov/taxcollector/building-contractors.asp` · `miamidade.county-taxes.com/btexpress`
+
+## The Qualifier No. field — the strongest evidence yet, and it supports Jorge
+
+Miami-Dade's own Municipal Plan Review data dictionary defines:
+
+> *"Qualifier Number is a nine character numeric field used to uniquely identify a qualifier"*
+
+`bldgadmin.miamidade.gov/mpr/MPRDocumentation.pdf`
+
+**Nine numeric characters is the shape of an SSN or FEIN. It is not the shape of a CGC licence
+number, which is alphanumeric — `CGC1528486` is three letters and seven digits.** So the field
+cannot be asking for the licence number, and **Jorge's reading that it wants the qualifier's Social
+Security number is materially supported by the county's own documentation.**
+
+**Still not closed.** A data dictionary for one county system is strong but is not the instruction
+for form 123_01-52, and search results contradicted each other on intent. **One call to the
+Contractor Licensing Section, 786-315-2880, reading the company's file back, settles it.**
+
+## County registration
+
+A state-certified contractor files a **Voluntary Registration of State Florida Certified
+Contractor** with the **Contractor Licensing Section, 11805 SW 26 St, Room 207, 786-315-2880**.
+Package: state licence verification, driver's licence copy, current general liability, workers' comp
+or exemption. Form: `miamidade.gov/building/library/forms/voluntary-registration-app.pdf`.
+
+It is a records and verification file, not a competency exam. County Certificate holders renew every
+two years with 16 hours of continuing education; state-certified registration is maintained by
+keeping insurance and DBPR status current. **No fixed annual renewal date could be confirmed.**
+
+**That same phone number answers the open May 2026 question** — whether the GL hold on Miguel
+Zaldivar was ever released. One call, two answers.
+
+## Municipal re-registration — one by one, confirmed, and it strengthens TRK-2026-10064
+
+**No reciprocal system exists.** Bay Harbor Islands: separate registration, no fee, COI naming the
+Town, via Citizenserve. Pembroke Pines: state certificate or Broward Certificate of Competency,
+liability, comp or exemption, by email. Bal Harbour: registration verified by the Building
+Department before a portal login is issued.
+
+**Leverage worth knowing: Florida Statute 205.065** bars a second local business tax *"or any
+registration or regulatory fee equivalent to the business tax"* once the home-jurisdiction tax is
+paid, and allows attorney-fee recovery. Registration itself remains permissible — but a municipality
+charging a *fee* for it may be exposed. **Verify the statute text directly before relying on it.**
+
+## No completion manual exists
+
+Forms sit at `miamidade.gov/global/economy/building/all-forms.page` with per-permit checklists, but
+**no instruction sheet for form 123_01-52 was found** — which answers section 3 of this directive,
+and means the methodology knowledge this company builds has no published equivalent to compete with.
+
+#TRK-2026-10055 #TRK-2026-10064 #research-finding #BTR-deadline #qualifier-field
