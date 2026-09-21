@@ -1,0 +1,310 @@
+<title>Filing Tree</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F4F6F4; --panel:#FFFFFF; --panel-2:#EEF2F0; --ink:#16202A; --ink-2:#55616C; --ink-3:#8A949D;
+  --line:#D6DDE1; --accent:#0E6B70; --accent-soft:#D5EAEA; --accent-ink:#0A4F53;
+  --crit:#B3261E; --crit-soft:#F9E3E1; --warn:#8F5A00; --warn-soft:#FBEBCF; --good:#2B7A3B; --good-soft:#DDF0E0; --info:#3A5FA0; --info-soft:#E0E7F6;
+  --sel:#EAF4F4; --shadow:0 1px 2px rgba(22,32,42,.08), 0 6px 18px rgba(22,32,42,.06);
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --cond:"IBM Plex Sans Condensed","IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#10171D; --panel:#182129; --panel-2:#1F2A33; --ink:#E7ECF0; --ink-2:#A6B1BB; --ink-3:#6F7C88;
+  --line:#2C3842; --accent:#4FB4B8; --accent-soft:#163A3D; --accent-ink:#8ED6D9;
+  --crit:#F09189; --crit-soft:#3C1F1D; --warn:#E3B655; --warn-soft:#3A2D12; --good:#7FCC8E; --good-soft:#17321C; --info:#93B4F2; --info-soft:#1C2A45;
+  --sel:#1C3234; --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+}}
+:root[data-theme="dark"]{
+  --bg:#10171D; --panel:#182129; --panel-2:#1F2A33; --ink:#E7ECF0; --ink-2:#A6B1BB; --ink-3:#6F7C88;
+  --line:#2C3842; --accent:#4FB4B8; --accent-soft:#163A3D; --accent-ink:#8ED6D9;
+  --crit:#F09189; --crit-soft:#3C1F1D; --warn:#E3B655; --warn-soft:#3A2D12; --good:#7FCC8E; --good-soft:#17321C; --info:#93B4F2; --info-soft:#1C2A45;
+  --sel:#1C3234; --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:14px/1.45 var(--sans);margin:0}
+.wrap{max-width:1280px;margin:0 auto;padding-block:0 32px;padding-inline:16px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:12px 10px}
+.brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
+.brand h1{font:600 22px/1.1 var(--cond);letter-spacing:.01em;margin:0;text-wrap:balance}
+.brand .sub{color:var(--ink-2);font-size:13px}
+.sources{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.src{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:3px 10px 3px 6px;background:var(--panel);font-size:12px;color:var(--ink-2);cursor:pointer}
+.src[aria-pressed="true"]{border-color:var(--accent);color:var(--accent-ink);background:var(--accent-soft)}
+.src .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.src.shadow .dot{background:var(--warn)} .src.local .dot{background:var(--info)}
+.src time{font-family:var(--mono);font-size:11px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:8px;margin-block:14px 12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 12px;cursor:pointer;text-align:left}
+.tile:hover,.tile:focus-visible{border-color:var(--accent);outline:none}
+.tile[aria-pressed="true"]{background:var(--sel);border-color:var(--accent)}
+.tile .n{font:600 24px/1 var(--cond);font-variant-numeric:tabular-nums;display:block;margin-bottom:4px}
+.tile .l{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.tile.crit .n{color:var(--crit)} .tile.warn .n{color:var(--warn)} .tile.info .n{color:var(--info)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.controls input[type=search]{flex:1 1 220px;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);font:inherit}
+.controls select,.controls button,.filebtn{padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);font:inherit;cursor:pointer}
+.controls button[aria-pressed="true"]{background:var(--sel);border-color:var(--accent)}
+.controls input:focus-visible,.controls select:focus-visible,.controls button:focus-visible,.row:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;background:var(--panel);cursor:pointer;color:var(--ink-2)}
+.chip[aria-pressed="true"]{background:var(--sel);border-color:var(--accent);color:var(--accent-ink)}
+.chip .c{font-family:var(--mono);margin-left:4px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+@media (min-width:960px){.layout.has-detail{grid-template-columns:minmax(0,1fr) 340px}}
+.tree{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.thead{display:grid;grid-template-columns:minmax(0,1fr) 150px 74px 56px 84px;gap:8px;padding:6px 10px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);border-bottom:1px solid var(--line);background:var(--panel-2)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 150px 74px 56px 84px;gap:8px;align-items:center;padding:5px 10px;border-bottom:1px solid var(--line);cursor:pointer}
+.row:hover{background:var(--panel-2)} .row[aria-selected="true"]{background:var(--sel)}
+.name{display:flex;align-items:center;gap:6px;min-width:0}
+.caret{width:16px;height:16px;flex:none;display:inline-flex;align-items:center;justify-content:center;color:var(--ink-3);transition:transform .12s}
+.caret.open{transform:rotate(90deg)} .caret.leaf{visibility:hidden}
+.ico{width:14px;height:14px;flex:none;color:var(--ink-3)}
+.ico.folder{color:var(--accent)}
+.label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.tag{font:500 11px/1 var(--mono);border-radius:4px;padding:3px 5px;flex:none}
+.tag.trk{background:var(--accent-soft);color:var(--accent-ink)}
+.tag.crit{background:var(--crit-soft);color:var(--crit)} .tag.warn{background:var(--warn-soft);color:var(--warn)} .tag.info{background:var(--info-soft);color:var(--info)} .tag.good{background:var(--good-soft);color:var(--good)}
+.bar{position:relative;height:14px;background:var(--panel-2);border-radius:3px;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:0 3px 3px 0;min-width:2px}
+.bar b{position:absolute;right:6px;top:0;font:500 10px/14px var(--mono);color:var(--ink-2)}
+.num{font-family:var(--mono);font-size:12px;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.num.warn{color:var(--warn)} .num.crit{color:var(--crit)}
+@media (max-width:640px){
+  .thead,.row{grid-template-columns:minmax(0,1fr) 92px 84px}
+  .thead .h3,.thead .h4,.row .c3,.row .c4{display:none}
+}
+.detail{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 120px);align-self:start;max-height:calc(100vh - 140px);overflow:auto}
+@media (max-width:959px){.detail{position:fixed;left:0;right:0;bottom:0;top:auto;max-height:55vh;border-radius:12px 12px 0 0;box-shadow:var(--shadow);padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:6}}
+.detail h2{font:600 16px/1.25 var(--cond);margin:0 0 2px;text-wrap:balance}
+.detail .path{font:11px/1.4 var(--mono);color:var(--ink-2);word-break:break-all;margin-bottom:8px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:12px;margin-bottom:10px}
+.kv dt{color:var(--ink-2)} .kv dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.flags{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.flag{display:flex;gap:8px;align-items:flex-start;font-size:12px;padding:6px 8px;border-radius:6px;border:1px solid var(--line)}
+.flag.crit{background:var(--crit-soft);border-color:transparent} .flag.warn{background:var(--warn-soft);border-color:transparent} .flag.info{background:var(--info-soft);border-color:transparent} .flag.good{background:var(--good-soft);border-color:transparent}
+.flag .k{font-family:var(--mono);font-weight:500;flex:none}
+.detail a{color:var(--accent-ink)}
+.biggest{font-size:12px} .biggest li{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px dashed var(--line)} .biggest span:last-child{font-family:var(--mono);color:var(--ink-2);flex:none}
+.closebtn{float:right;border:0;background:none;color:var(--ink-2);font:inherit;cursor:pointer}
+.tablewrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:12px;min-width:720px}
+th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);background:var(--panel-2)}
+td.n{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.foot{margin-top:14px;color:var(--ink-2);font-size:12px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.empty{padding:24px;text-align:center;color:var(--ink-2)}
+.tip{position:fixed;pointer-events:none;z-index:9;background:var(--ink);color:var(--bg);font:12px/1.35 var(--sans);padding:6px 8px;border-radius:5px;max-width:280px;box-shadow:var(--shadow)}
+.tip .m{font-family:var(--mono)}
+@media (prefers-reduced-motion:reduce){.caret{transition:none}}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="brand">
+    <h1>Filing Tree</h1>
+    <span class="sub">01-JOBS the way TreeSize shows a disk, with the filing rules laid over it. Bars are bytes. Chips are defects.</span>
+  </div>
+  <div class="sources" id="sources"></div>
+</header>
+
+<section class="tiles" id="tiles" aria-label="Summary"></section>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Search name, TRK, folio, address" aria-label="Search">
+  <select id="sort" aria-label="Sort">
+    <option value="size">Sort: size</option><option value="files">Sort: files</option><option value="name">Sort: name</option><option value="age">Sort: oldest activity</option><option value="flags">Sort: most defects</option>
+  </select>
+  <select id="rel" aria-label="Bar scale"><option value="parent">Bar vs parent</option><option value="root">Bar vs root</option></select>
+  <button id="expand" type="button">Expand jobs</button>
+  <button id="collapse" type="button">Collapse</button>
+  <button id="view" type="button" aria-pressed="false">Table view</button>
+  <label class="filebtn">Add local scan <input type="file" id="file" accept=".json" hidden></label>
+</div>
+<div class="chips" id="chips" aria-label="Filters"></div>
+
+<div class="layout" id="layout">
+  <div id="main"></div>
+  <aside class="detail" id="detail" hidden></aside>
+</div>
+
+<div class="foot" id="foot"></div>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script id="tree-data" type="application/json">/*__DATA__*/</script>
+<script>
+(function(){
+'use strict';
+const raw = document.getElementById('tree-data').textContent.trim();
+const DATA = raw.startsWith('{') ? JSON.parse(raw) : {sources:[],registry:[],builtAt:''};
+const REG = new Set(DATA.registry||[]);
+const NOW = Date.now();
+const STALE_DAYS = 60;
+const $ = s=>document.querySelector(s);
+
+// ---------- rules (the overlay) ----------
+const RX = {
+  canon: /\bTRK-2026-(\d{4})(?:-[A-Z]+)?\b/, short: /\bTRK-26-(\d{4})\b/, tbd: /\bTRK-TBD\b/, oph: /\bOPH-2026-\d{4}\b/,
+  legacy: /^(TUS|KAR)-\d{2}-/, paren: /\(TRK-2026-\d{4}\)\s*$/, folioTbd: /FOLIO-TBD/
+};
+function jobFlags(n, ctx){
+  // n is a depth-1 folder under the root. Returns [{k,level,text}]
+  const f=[]; const t=n.title||'';
+  if(!n.isFolder) return f;
+  if(t.startsWith('_')) return f; // system folder
+  const canon=t.match(RX.canon), short=t.match(RX.short), tbd=RX.tbd.test(t), oph=RX.oph.test(t), legacy=RX.legacy.test(t), paren=RX.paren.test(t);
+  if(tbd) f.push({k:'TRK-TBD',level:'crit',text:'Placeholder where the identity should be. The charter calls TRK-TBD a defect: issue a real number from the registry (+3 rule) or an OPH.'});
+  else if(short) f.push({k:'SHORT-FORM',level:'warn',text:'Uses TRK-26-'+short[1]+'. A search for TRK-2026-'+short[1]+' cannot find it (RI-012 drift). Normalise on sight.'});
+  else if(oph) f.push({k:'ORPHAN',level:'info',text:'Carries an OPH number. Must resolve to a TRK, NON-JOB, DUPLICATE or DISCARD-PENDING within 30 days.'});
+  else if(legacy) f.push({k:'LEGACY-ID',level:'warn',text:'Pre-TRK prefix (TUS-/KAR-). Not searchable as a tracking number; needs a TRK issued and stamped.'});
+  else if(paren) f.push({k:'NUMBER-LAST',level:'warn',text:'Tracking number sits at the end in parentheses instead of first. Two filename grammars in use (RI-012).'});
+  else if(!canon) f.push({k:'NO-ID',level:'crit',text:'No tracking number of any kind in the folder name.'});
+  if(canon && !REG.has('TRK-2026-'+canon[1]) && ![...REG].some(r=>r.startsWith('TRK-2026-'+canon[1]))) f.push({k:'UNREGISTERED',level:'warn',text:'TRK-2026-'+canon[1]+' is not in TRK-REGISTRY.md (the Drive-derived registry). Either the registry is behind or the number was issued outside it.'});
+  if(RX.folioTbd.test(t)) f.push({k:'FOLIO-TBD',level:'info',text:'Folio still unknown. Property-appraiser lookup will fill it.'});
+  const kids=n.children||[];
+  if(!kids.some(c=>/^_VERSION-LOG\.md$/i.test(c.title))) f.push({k:'NO-VERSION-LOG',level:'warn',text:'No _VERSION-LOG.md at the top of the job folder. Every TRK folder needs one (Version · Date · What changed · Status).'});
+  if(kids.length===0 && !n.truncated) f.push({k:'EMPTY',level:'warn',text:'Folder has nothing in it.'});
+  if(ctx.dupTitles.get(norm(t))>1) f.push({k:'DUPLICATE',level:'crit',text:'The same folder name exists in more than one place (for example in the shadow root). Two homes for one job is how misfiles happen.'});
+  const age=ageDays(n); if(age!=null && age>STALE_DAYS) f.push({k:'STALE '+Math.round(age)+'d',level:'info',text:'Nothing in this folder has changed for '+Math.round(age)+' days.'});
+  if(n.truncated) f.push({k:'TRUNCATED',level:'info',text:'Scan kept the first 300 items only; counts are a floor.'});
+  return f;
+}
+function norm(s){return (s||'').toLowerCase().replace(/\s+/g,' ').trim();}
+
+// ---------- tree stats ----------
+function walk(n, depth, parent){
+  n._depth=depth; n._parent=parent; n._bytes=n.isFolder?0:(n.size||0); n._files=n.isFolder?0:1; n._dirs=n.isFolder?1:0;
+  let latest=Date.parse(n.modifiedTime||'')||0;
+  for(const c of (n.children||[])){ walk(c,depth+1,n); n._bytes+=c._bytes; n._files+=c._files; n._dirs+=c._dirs; if(c._latest>latest) latest=c._latest; }
+  n._latest=latest; return n;
+}
+function ageDays(n){ return n._latest? (NOW-n._latest)/86400000 : null; }
+function fmtBytes(b){ if(b>=1e9) return (b/1e9).toFixed(2)+' GB'; if(b>=1e6) return (b/1e6).toFixed(1)+' MB'; if(b>=1e3) return (b/1e3).toFixed(0)+' KB'; return b+' B'; }
+function fmtDate(ms){ return ms? new Date(ms).toISOString().slice(0,10):'—'; }
+
+// ---------- state ----------
+const state={ src:new Set(), q:'', sort:'size', rel:'parent', open:new Set(), filter:null, sel:null, table:false };
+let SOURCES=DATA.sources.map(s=>{ walk(s.root,0,null); return s; });
+SOURCES.forEach(s=>state.src.add(s.name));
+function ctxFor(){
+  const dup=new Map();
+  for(const s of SOURCES) for(const c of s.root.children||[]) if(c.isFolder&&!c.title.startsWith('_')) dup.set(norm(c.title),(dup.get(norm(c.title))||0)+1);
+  return {dupTitles:dup};
+}
+function annotate(){
+  const ctx=ctxFor();
+  for(const s of SOURCES){ for(const c of s.root.children||[]){ c._flags=jobFlags(c,ctx); c._flagScore=c._flags.reduce((a,f)=>a+(f.level==='crit'?3:f.level==='warn'?2:1),0); } s.root._flags=[]; }
+}
+annotate();
+
+// ---------- rendering ----------
+const ICO={ folder:'<svg class="ico folder" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M1.5 3.5A1.5 1.5 0 0 1 3 2h3.2l1.6 1.5H13a1.5 1.5 0 0 1 1.5 1.5v7A1.5 1.5 0 0 1 13 13.5H3A1.5 1.5 0 0 1 1.5 12z"/></svg>',
+  file:'<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 1.5h5l3.5 3.5v9.5A1 1 0 0 1 11.5 15.5h-7.5a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1zM9 2.5V5h2.5z"/></svg>',
+  caret:'<svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true"><path fill="currentColor" d="M5 2l6 6-6 6z"/></svg>' };
+
+function renderSources(){
+  const el=$('#sources'); el.innerHTML='';
+  if(!SOURCES.length){ el.innerHTML='<span class="sub">No scan loaded yet.</span>'; return; }
+  for(const s of SOURCES){
+    const b=document.createElement('button'); b.type='button'; b.className='src '+(s.kind==='drive-shadow'?'shadow':s.kind==='local'?'local':''); b.setAttribute('aria-pressed',state.src.has(s.name));
+    b.innerHTML='<span class="dot"></span>'+esc(s.name)+' <time>'+esc((s.scannedAt||'').replace('T',' ').slice(0,16))+(s.scannedAt?'Z':'')+'</time>';
+    b.onclick=()=>{ state.src.has(s.name)?state.src.delete(s.name):state.src.add(s.name); render(); };
+    el.appendChild(b);
+  }
+}
+function jobs(){ const out=[]; for(const s of SOURCES){ if(!state.src.has(s.name)) continue; for(const c of s.root.children||[]) if(c.isFolder) out.push(c);} return out; }
+function renderTiles(){
+  const J=jobs(); const bytes=J.reduce((a,n)=>a+n._bytes,0), files=J.reduce((a,n)=>a+n._files,0);
+  const cnt=k=>J.filter(n=>n._flags.some(f=>f.k===k||f.k.startsWith(k))).length;
+  const tiles=[
+    {n:fmtBytes(bytes),l:'in scanned jobs'},{n:J.length,l:'job + system folders'},{n:files.toLocaleString(),l:'files'},
+    {n:cnt('TRK-TBD')+cnt('NO-ID'),l:'no real ID',cls:'crit',f:'noid'},{n:cnt('UNREGISTERED'),l:'not in registry',cls:'warn',f:'UNREGISTERED'},
+    {n:cnt('NO-VERSION-LOG'),l:'no version log',cls:'warn',f:'NO-VERSION-LOG'},{n:cnt('DUPLICATE'),l:'duplicated',cls:'crit',f:'DUPLICATE'},{n:cnt('STALE'),l:'stale > '+STALE_DAYS+' d',cls:'info',f:'STALE'}
+  ];
+  const el=$('#tiles'); el.innerHTML='';
+  for(const t of tiles){ const b=document.createElement('button'); b.type='button'; b.className='tile '+(t.cls||''); b.innerHTML='<span class="n">'+esc(String(t.n))+'</span><span class="l">'+esc(t.l)+'</span>';
+    if(t.f){ b.setAttribute('aria-pressed',state.filter===t.f); b.onclick=()=>{state.filter=state.filter===t.f?null:t.f; render();}; } else b.disabled=true; el.appendChild(b); }
+}
+const CHIPS=[['noid','No real ID'],['SHORT-FORM','Short form'],['LEGACY-ID','Legacy prefix'],['NUMBER-LAST','Number last'],['UNREGISTERED','Unregistered'],['FOLIO-TBD','Folio TBD'],['NO-VERSION-LOG','No version log'],['EMPTY','Empty'],['DUPLICATE','Duplicate'],['STALE','Stale'],['ORPHAN','Orphan (OPH)'],['TRUNCATED','Truncated scan']];
+function hasFlag(n,f){ if(f==='noid') return n._flags.some(x=>x.k==='TRK-TBD'||x.k==='NO-ID'); return n._flags.some(x=>x.k===f||x.k.startsWith(f)); }
+function renderChips(){ const el=$('#chips'); el.innerHTML=''; const J=jobs();
+  for(const [f,l] of CHIPS){ const c=J.filter(n=>hasFlag(n,f)).length; if(!c) continue; const b=document.createElement('button'); b.type='button'; b.className='chip'; b.setAttribute('aria-pressed',state.filter===f); b.innerHTML=esc(l)+'<span class="c">'+c+'</span>'; b.onclick=()=>{state.filter=state.filter===f?null:f; render();}; el.appendChild(b);} }
+
+function matches(n){ if(!state.q) return true; const q=state.q.toLowerCase(); if((n.title||'').toLowerCase().includes(q)) return true; return (n.children||[]).some(matches); }
+function sorted(list){ const s=state.sort; return list.slice().sort((a,b)=>{
+  if(s==='name') return a.title.localeCompare(b.title,undefined,{numeric:true});
+  if(s==='files') return b._files-a._files; if(s==='age') return (a._latest||0)-(b._latest||0); if(s==='flags') return (b._flagScore||0)-(a._flagScore||0);
+  return b._bytes-a._bytes; }); }
+
+function renderTree(){
+  const main=$('#main'); main.innerHTML='';
+  if(state.table) return renderTable(main);
+  const tree=document.createElement('div'); tree.className='tree'; tree.setAttribute('role','tree');
+  tree.innerHTML='<div class="thead"><span>Name</span><span>Size</span><span class="h3">Bytes</span><span class="h4">Files</span><span>Last change</span></div>';
+  let rows=0;
+  for(const s of SOURCES){ if(!state.src.has(s.name)) continue; const root=s.root; const rootBytes=root._bytes||1;
+    const kids=sorted((root.children||[]).filter(c=>matches(c)&&(!state.filter||(c.isFolder&&hasFlag(c,state.filter)))));
+    if(SOURCES.length>1){ const h=document.createElement('div'); h.className='thead'; h.style.background='var(--panel)'; h.innerHTML='<span>'+esc(s.name)+' · '+fmtBytes(root._bytes)+' · '+root._files.toLocaleString()+' files</span>'; tree.appendChild(h); }
+    for(const c of kids){ rows+=emit(tree,c,root,rootBytes); }
+  }
+  if(!rows){ const e=document.createElement('div'); e.className='empty'; e.textContent=SOURCES.length?'Nothing matches. Clear the filter or the search.':'No scan loaded. Run the Drive scan (cloud) or Scan-Tree.ps1 (desktop) and rebuild.'; tree.appendChild(e); }
+  main.appendChild(tree);
+}
+function emit(tree,n,parent,rootBytes){
+  let count=1; const open=state.open.has(n.id); const base=state.rel==='root'?rootBytes:(parent._bytes||1); const pct=Math.min(100,(n._bytes/base)*100);
+  const r=document.createElement('div'); r.className='row'; r.setAttribute('role','treeitem'); r.tabIndex=0; r.setAttribute('aria-selected',state.sel===n.id); r.setAttribute('aria-expanded',n.isFolder?open:'');
+  const flags=(n._flags||[]).slice(0,3).map(f=>'<span class="tag '+f.level+'">'+esc(f.k)+'</span>').join('');
+  const more=(n._flags||[]).length>3?'<span class="tag info">+'+((n._flags.length)-3)+'</span>':'';
+  const trk=(n.title.match(RX.canon)||[])[0]; const labelHtml=trk?'<span class="tag trk">'+esc(trk)+'</span><span class="label">'+esc(n.title.replace(trk,'').replace(/^[\s_\-]+/,''))+'</span>':'<span class="label">'+esc(n.title)+'</span>';
+  const age=ageDays(n); const ageCls=age==null?'':age>180?'crit':age>STALE_DAYS?'warn':'';
+  r.innerHTML='<div class="name" style="padding-left:'+((n._depth-1)*18)+'px"><span class="caret '+(n.isFolder&&(n.children||[]).length?(open?'open':''):'leaf')+'">'+ICO.caret+'</span>'+(n.isFolder?ICO.folder:ICO.file)+labelHtml+flags+more+'</div>'
+    +'<div class="bar" data-tip="'+esc(fmtBytes(n._bytes)+' · '+pct.toFixed(1)+'% of '+(state.rel==='root'?'root':'parent'))+'"><i style="width:'+pct.toFixed(2)+'%"></i><b>'+pct.toFixed(0)+'%</b></div>'
+    +'<div class="num c3">'+esc(fmtBytes(n._bytes))+'</div><div class="num c4">'+(n.isFolder?n._files.toLocaleString():'')+'</div><div class="num '+ageCls+'">'+fmtDate(n._latest)+'</div>';
+  r.onclick=e=>{ if(e.target.closest('.caret')&&n.isFolder){ toggle(n); return; } select(n); };
+  r.ondblclick=()=>{ if(n.isFolder) toggle(n); };
+  r.onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault(); select(n);} if(e.key==='ArrowRight'&&n.isFolder&&!open){toggle(n);} if(e.key==='ArrowLeft'&&open){toggle(n);} };
+  tree.appendChild(r);
+  if(n.isFolder&&open){ for(const c of sorted((n.children||[]).filter(matches))) count+=emit(tree,c,n,rootBytes); }
+  return count;
+}
+function toggle(n){ state.open.has(n.id)?state.open.delete(n.id):state.open.add(n.id); render(); }
+function select(n){ state.sel=n.id; renderDetail(n); render(); }
+function renderDetail(n){
+  const d=$('#detail'); d.hidden=false; $('#layout').classList.add('has-detail');
+  const path=[]; let p=n; while(p){ path.unshift(p.title); p=p._parent; }
+  const flags=(n._flags||[]);
+  const big=[]; (function col(x){ for(const c of x.children||[]){ if(c.isFolder) col(c); else big.push(c);} })(n); big.sort((a,b)=>b.size-a.size);
+  d.innerHTML='<button class="closebtn" type="button" aria-label="Close">Close</button><h2>'+esc(n.title)+'</h2><div class="path">'+esc(path.join(' / '))+'</div>'
+    +'<dl class="kv"><dt>Size</dt><dd>'+esc(fmtBytes(n._bytes))+' ('+n._bytes.toLocaleString()+' B)</dd><dt>Files</dt><dd>'+n._files.toLocaleString()+'</dd><dt>Folders</dt><dd>'+Math.max(0,n._dirs-1)+'</dd><dt>Last change</dt><dd>'+fmtDate(n._latest)+'</dd><dt>Created</dt><dd>'+esc((n.createdTime||'').slice(0,10)||'—')+'</dd></dl>'
+    +(flags.length?'<div class="flags">'+flags.map(f=>'<div class="flag '+f.level+'"><span class="k">'+esc(f.k)+'</span><span>'+esc(f.text)+'</span></div>').join('')+'</div>':(n._depth===1&&n.isFolder&&!n.title.startsWith('_')?'<div class="flag good"><span class="k">CLEAN</span><span>Named with a canonical TRK, registered, version log present.</span></div>':''))
+    +(n.webUrl?'<p><a href="'+esc(n.webUrl)+'" target="_blank" rel="noopener">Open in Drive</a></p>':'')
+    +(big.length?'<p style="margin:8px 0 4px;font-size:12px;color:var(--ink-2)">Biggest files</p><ul class="biggest" style="list-style:none;padding:0;margin:0">'+big.slice(0,8).map(f=>'<li><span>'+esc(f.title)+'</span><span>'+esc(fmtBytes(f.size))+'</span></li>').join('')+'</ul>':'');
+  d.querySelector('.closebtn').onclick=()=>{ d.hidden=true; $('#layout').classList.remove('has-detail'); state.sel=null; render(); };
+}
+function renderTable(main){
+  const J=jobs().filter(n=>matches(n)&&(!state.filter||hasFlag(n,state.filter)));
+  const w=document.createElement('div'); w.className='tablewrap';
+  w.innerHTML='<table><thead><tr><th>Job folder</th><th>Bytes</th><th>Files</th><th>Last change</th><th>Defects</th></tr></thead><tbody>'
+    +sorted(J).map(n=>'<tr><td>'+esc(n.title)+'</td><td class="n">'+n._bytes.toLocaleString()+'</td><td class="n">'+n._files.toLocaleString()+'</td><td class="n">'+fmtDate(n._latest)+'</td><td>'+(n._flags.map(f=>f.k).join(', ')||'clean')+'</td></tr>').join('')+'</tbody></table>';
+  main.appendChild(w);
+}
+function renderFoot(){ $('#foot').innerHTML='<span>Built '+esc((DATA.builtAt||'').replace('T',' '))+'</span><span>Registry: '+REG.size+' TRK numbers from TRK-REGISTRY.md</span><span>Stale = no change in '+STALE_DAYS+' days</span><span>Back engines: Google Drive API (cloud, no owner) · Scan-Tree.ps1 (desktop, no admin)</span>'; }
+function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function render(){ renderSources(); renderTiles(); renderChips(); renderTree(); renderFoot(); }
+
+// ---------- controls ----------
+$('#q').addEventListener('input',e=>{ state.q=e.target.value.trim(); render(); });
+$('#sort').addEventListener('change',e=>{ state.sort=e.target.value; render(); });
+$('#rel').addEventListener('change',e=>{ state.rel=e.target.value; render(); });
+$('#expand').onclick=()=>{ for(const n of jobs()) state.open.add(n.id); render(); };
+$('#collapse').onclick=()=>{ state.open.clear(); render(); };
+$('#view').onclick=e=>{ state.table=!state.table; e.currentTarget.setAttribute('aria-pressed',state.table); render(); };
+$('#file').addEventListener('change',e=>{ const f=e.target.files[0]; if(!f) return; const rd=new FileReader(); rd.onload=()=>{ try{ const n=JSON.parse(rd.result); walk(n,0,null); SOURCES.push({name:'Local · '+(n.title||f.name),kind:'local',scannedAt:n.scannedAt||'',root:n}); state.src.add('Local · '+(n.title||f.name)); annotate(); render(); }catch(err){ alert('That file is not a Scan-Tree JSON: '+err.message); } }; rd.readAsText(f); });
+// tooltip
+const tip=$('#tip');
+document.addEventListener('mousemove',e=>{ const t=e.target.closest('[data-tip]'); if(!t){ tip.hidden=true; return; } tip.textContent=t.dataset.tip; tip.hidden=false; tip.style.left=Math.min(window.innerWidth-300,e.clientX+12)+'px'; tip.style.top=(e.clientY+14)+'px'; });
+try{ const saved=localStorage.getItem('filetree.sort'); if(saved){ state.sort=saved; $('#sort').value=saved; } }catch(_){}
+$('#sort').addEventListener('change',e=>{ try{ localStorage.setItem('filetree.sort',e.target.value);}catch(_){} });
+render();
+})();
+</script>

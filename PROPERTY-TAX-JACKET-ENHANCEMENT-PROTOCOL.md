@@ -53,6 +53,29 @@ tesseract clean_input.png out_input pdf txt --oem 1 --psm 6
   file and the move into the capsule is previewed + owner-approved (or desktop executes with a rollback
   manifest). Scratch folders like "Trey 6" are for a throwaway test ONLY, never the resting place.
 
+## TWO-VERSION OUTPUT + CONTIGUOUS VIEW — added 2026-09-20 (Jorge's request)
+
+**Every tax jacket / microfilm job produces TWO kept versions, never just one:**
+1. **Original** — exactly as received from the Property Appraiser / microfilm source.
+   Untouched, per Rule 0 above.
+2. **Enhanced** — the output of this pipeline (steps 1–8), plus a short **summary
+   report** in front of it (what the jacket contains, page count, any pages flagged
+   low-confidence in QC).
+
+**Contiguous view** — both versions read back-to-back as one continuous document
+(original pages, then enhanced pages, then the summary — or summary first, Jorge's
+call), not as separate files someone has to hunt for. **This UI pattern already
+exists and works** — `_ORANGE-TREE-DD_TRK-2026-9344_v2.html` has a live "Contiguous —
+all properties" reader that flows everything as one page with only a source label as
+a separator. That page is the template to reuse for tax-jacket/microfilm contiguous
+views, not a new build from scratch.
+
+**Not yet built:** applying this two-version + contiguous-view structure to the actual
+Miami-Dade site registry's document sources (deed images, permit card PDFs, tax bill
+images) — see `MIAMI-DADE-SITES.md`'s "image copies retrieved" columns, currently
+marked not-tracked. That is the next piece if Jorge wants the county-source documents
+handled the same way as the tax jackets.
+
 ## WHICH READER, once the page is clean (per AI-ROUTING-GUIDE)
 - **Long multi-page jacket → Claude (me).** Raw single-page OCR accuracy → Tesseract/ChatGPT.
 - The reader only matters AFTER cleaning. A clean page reads well in almost anything.

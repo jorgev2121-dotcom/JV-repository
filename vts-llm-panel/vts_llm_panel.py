@@ -9,10 +9,12 @@ Direct API calls with real try/fallback. The old router gave FALSE-GREEN health
 (said "up" when it had no key). This does a REAL ping per provider instead.
 
 Keys are read from environment variables so no secret is ever written to a file:
-    GEMINI_API_KEY   (FREE - make at aistudio.google.com/app/apikey)  <- priority 1
+    (none)           Ollama on this PC  http://127.0.0.1:11434  NO KEY  <- priority 1 (2026-09-20)
+    GEMINI_API_KEY   (FREE - make at aistudio.google.com/app/apikey)  <- priority 2
     XAI_API_KEY      (Grok - console.x.ai; current key is DEAD)
     OPENAI_API_KEY   (paid)
     ANTHROPIC_API_KEY(Claude - weekly-limited)                        <- last resort
+Optional overrides: OLLAMA_HOST, OLLAMA_MODEL, GEMINI_MODEL, XAI_MODEL, OPENAI_MODEL, ANTHROPIC_MODEL
 
 Usage:
     python vts_llm_panel.py --health            # real ping of every provider
@@ -28,9 +30,30 @@ def _post(url, headers, body, timeout=45):
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return json.loads(r.read().decode())
 
+def _get(url, timeout=10):
+    with urllib.request.urlopen(urllib.request.Request(url), timeout=timeout) as r:
+        return json.loads(r.read().decode())
+
+def _ollama_host():
+    return os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11434").rstrip("/")
+
+def call_ollama(_key, prompt):
+    """Local Ollama: no key, no spend. Uses its OpenAI-compatible /v1 endpoint.
+    Model = OLLAMA_MODEL, else the first model Ollama reports in /api/tags."""
+    host = _ollama_host()
+    model = os.environ.get("OLLAMA_MODEL")
+    if not model:
+        tags = _get(host + "/api/tags").get("models") or []
+        if not tags:
+            raise RuntimeError("Ollama is up but has no models pulled")
+        names = [m["name"] for m in tags]
+        # prefer a small general chat model if several are present
+        model = next((n for n in names if n.startswith(("llama", "mistral", "qwen", "gemma", "phi"))), names[0])
+    return call_openai_style(host + "/v1/chat/completions", "ollama", model, prompt)
+
 def call_gemini(key, prompt):
     url = ("https://generativelanguage.googleapis.com/v1beta/models/"
-           "gemini-1.5-flash:generateContent?key=" + key)
+           + os.environ.get("GEMINI_MODEL", "gemini-2.5-flash") + ":generateContent?key=" + key)
     out = _post(url, {"Content-Type": "application/json"},
                 {"contents": [{"parts": [{"text": prompt}]}]})
     return out["candidates"][0]["content"]["parts"][0]["text"]
@@ -42,21 +65,22 @@ def call_openai_style(url, key, model, prompt):
     return out["choices"][0]["message"]["content"]
 
 def call_grok(key, prompt):
-    return call_openai_style("https://api.x.ai/v1/chat/completions", key, "grok-2-latest", prompt)
+    return call_openai_style("https://api.x.ai/v1/chat/completions", key, os.environ.get("XAI_MODEL", "grok-2-latest"), prompt)
 
 def call_openai(key, prompt):
-    return call_openai_style("https://api.openai.com/v1/chat/completions", key, "gpt-4o-mini", prompt)
+    return call_openai_style("https://api.openai.com/v1/chat/completions", key, os.environ.get("OPENAI_MODEL", "gpt-4o-mini"), prompt)
 
 def call_anthropic(key, prompt):
     out = _post("https://api.anthropic.com/v1/messages",
                 {"Content-Type": "application/json", "x-api-key": key,
                  "anthropic-version": "2023-06-01"},
-                {"model": "claude-3-5-haiku-latest", "max_tokens": 1024,
+                {"model": os.environ.get("ANTHROPIC_MODEL", "claude-haiku-4-5"), "max_tokens": 1024,
                  "messages": [{"role": "user", "content": prompt}]})
     return out["content"][0]["text"]
 
-# priority order: free first, paid/limited last
+# priority order: free first, paid/limited last.  env=None means "needs no key".
 PROVIDERS = [
+    {"name": "ollama",    "env": None,                "call": call_ollama},
     {"name": "gemini",    "env": "GEMINI_API_KEY",    "call": call_gemini},
     {"name": "grok",      "env": "XAI_API_KEY",       "call": call_grok},
     {"name": "openai",    "env": "OPENAI_API_KEY",    "call": call_openai},
@@ -75,7 +99,7 @@ def ask(prompt, prefer=None):
     """Try providers in order; return (provider_name, answer). Raise if all fail."""
     errors = []
     for p in _ordered(prefer):
-        key = os.environ.get(p["env"])
+        key = os.environ.get(p["env"]) if p["env"] else "none-needed"
         if not key:
             errors.append(f"{p['name']}: no key ({p['env']} not set)")
             continue
@@ -91,7 +115,7 @@ def health():
     """REAL ping of every provider. Returns list of (name, status, detail)."""
     rows = []
     for p in PROVIDERS:
-        key = os.environ.get(p["env"])
+        key = os.environ.get(p["env"]) if p["env"] else "none-needed"
         if not key:
             rows.append((p["name"], "NO-KEY", f"{p['env']} not set"))
             continue
@@ -109,7 +133,7 @@ def main():
     ap = argparse.ArgumentParser(description="VTS Multi-LLM Control Panel (TRK-2026-9200)")
     ap.add_argument("prompt", nargs="*", help="the question to ask")
     ap.add_argument("--health", action="store_true", help="ping every provider and exit")
-    ap.add_argument("--prefer", help="force this provider first (gemini|grok|openai|anthropic)")
+    ap.add_argument("--prefer", help="force this provider first (ollama|gemini|grok|openai|anthropic)")
     a = ap.parse_args()
 
     if a.health:
