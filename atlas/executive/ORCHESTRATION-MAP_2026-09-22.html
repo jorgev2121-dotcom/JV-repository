@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orchestration Map</title>
+<style>
+  :root{--ink:#17243b;--muted:#5d6878;--green:#1e7a3e;--amber:#b8860b;--red:#c00000;--grey:#8a929b;--line:#c9d2dd;--bg:#eef2f6;--card:#fff}
+  :root:not([data-theme="light"]) @media (prefers-color-scheme: dark){}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ink:#e7ecf2;--muted:#9aa6b4;--bg:#0d1117;--card:#161c26;--line:#2b3442}}
+  :root[data-theme="dark"]{--ink:#e7ecf2;--muted:#9aa6b4;--bg:#0d1117;--card:#161c26;--line:#2b3442}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5}
+  .wrap{max-width:1000px;margin:0 auto;padding:20px 16px 48px}
+  h1{font-size:24px;margin:6px 0 2px}
+  .sub{color:var(--muted);margin:0 0 14px;font-size:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px}
+  svg{width:100%;height:auto;display:block}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin:14px 2px;font-size:13.5px;color:var(--muted)}
+  .dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:middle}
+  .note{font-size:13.5px;color:var(--muted);margin-top:10px}
+  b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🧭 One Executor, Many Hands — task handoff map</h1>
+  <p class="sub">Jorge gives one task → the Cloud coordinator routes it to the seat that can finish it A-to-Z. Real tasks shown. Status as of 2026-09-22.</p>
+  <div class="card">
+  <svg viewBox="0 0 980 660" role="img" aria-label="Orchestration diagram">
+    <defs>
+      <marker id="arw" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#8a929b"/></marker>
+      <marker id="arwR" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#c00000"/></marker>
+    </defs>
+
+    <!-- Owner -->
+    <rect x="390" y="16" width="200" height="46" rx="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+    <text x="490" y="38" text-anchor="middle" font-weight="700" fill="var(--ink)">👤 JORGE (Owner)</text>
+    <text x="490" y="54" text-anchor="middle" font-size="12" fill="var(--muted)">gives one task · approves RED</text>
+
+    <line x1="490" y1="62" x2="490" y2="98" stroke="var(--line)" stroke-width="2" marker-end="url(#arw)"/>
+
+    <!-- Coordinator -->
+    <rect x="325" y="100" width="330" height="70" rx="12" fill="var(--card)" stroke="var(--green)" stroke-width="2.5"/>
+    <text x="490" y="126" text-anchor="middle" font-weight="700" fill="var(--ink)">☁️ CLOUD — COORDINATOR / EXECUTOR</text>
+    <text x="490" y="146" text-anchor="middle" font-size="12.5" fill="var(--muted)">reads the board · routes by capability · commits</text>
+    <text x="490" y="162" text-anchor="middle" font-size="12.5" fill="var(--green)" font-weight="700">ACTIVE (this seat)</text>
+
+    <!-- fan-out lines -->
+    <line x1="420" y1="170" x2="175" y2="232" stroke="var(--line)" stroke-width="2" marker-end="url(#arw)"/>
+    <line x1="490" y1="170" x2="490" y2="232" stroke="var(--line)" stroke-width="2" marker-end="url(#arw)"/>
+    <line x1="560" y1="170" x2="805" y2="232" stroke="var(--line)" stroke-width="2" marker-end="url(#arw)"/>
+    <line x1="410" y1="170" x2="175" y2="402" stroke="var(--line)" stroke-width="1.5" marker-end="url(#arw)" opacity="0.7"/>
+    <line x1="490" y1="170" x2="490" y2="402" stroke="var(--line)" stroke-width="1.5" marker-end="url(#arw)" opacity="0.7"/>
+    <line x1="570" y1="170" x2="805" y2="402" stroke="var(--line)" stroke-width="1.5" marker-end="url(#arw)" opacity="0.7"/>
+
+    <!-- Row 1 -->
+    <!-- RAMBO -->
+    <rect x="30" y="234" width="290" height="120" rx="11" fill="var(--card)" stroke="var(--green)" stroke-width="2"/>
+    <text x="45" y="258" font-weight="700" fill="var(--ink)">🖥️ RAMBO — Desktop</text>
+    <text x="45" y="277" font-size="12.5" fill="var(--muted)">the ONLY seat that touches the PC</text>
+    <text x="45" y="300" font-size="12.5" fill="var(--ink)">Real task: reconnect Remote Control;</text>
+    <text x="45" y="316" font-size="12.5" fill="var(--ink)">desktop cleanup TRK-9771; snip sweep → Tray 3</text>
+    <text x="45" y="342" font-size="12.5" font-weight="700" fill="var(--green)">● ACTIVE (PC / 1Password / OCR)</text>
+
+    <!-- Cowork -->
+    <rect x="345" y="234" width="290" height="120" rx="11" fill="var(--card)" stroke="var(--amber)" stroke-width="2"/>
+    <text x="360" y="258" font-weight="700" fill="var(--ink)">🤝 COWORK</text>
+    <text x="360" y="277" font-size="12.5" fill="var(--muted)">A-to-Z deliverables (default, OD-COWORK-1)</text>
+    <text x="360" y="300" font-size="12.5" fill="var(--ink)">Real task: assemble the Alec DD</text>
+    <text x="360" y="316" font-size="12.5" fill="var(--ink)">contiguous PDF from staged parts</text>
+    <text x="360" y="342" font-size="12.5" font-weight="700" fill="var(--amber)">● PENDING board-access test</text>
+
+    <!-- Subagents -->
+    <rect x="660" y="234" width="290" height="120" rx="11" fill="var(--card)" stroke="var(--green)" stroke-width="2"/>
+    <text x="675" y="258" font-weight="700" fill="var(--ink)">🧩 CLAUDE SUBAGENTS</text>
+    <text x="675" y="277" font-size="12.5" fill="var(--muted)">parallel research, one per item (Rule 5)</text>
+    <text x="675" y="300" font-size="12.5" fill="var(--ink)">Real task: MDC source menu · blocker</text>
+    <text x="675" y="316" font-size="12.5" fill="var(--ink)">protocol · Alec ADU analysis (3 ran)</text>
+    <text x="675" y="342" font-size="12.5" font-weight="700" fill="var(--green)">● ACTIVE (done today)</text>
+
+    <!-- Row 2 -->
+    <!-- Grok -->
+    <rect x="30" y="404" width="290" height="120" rx="11" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+    <text x="45" y="428" font-weight="700" fill="var(--ink)">⚫ GROK / xAI (API)</text>
+    <text x="45" y="447" font-size="12.5" fill="var(--muted)">second-opinion brain (API only)</text>
+    <text x="45" y="470" font-size="12.5" fill="var(--ink)">Real task: adversarially review the</text>
+    <text x="45" y="486" font-size="12.5" fill="var(--ink)">Alec 5%-variance conclusion</text>
+    <text x="45" y="512" font-size="12.5" font-weight="700" fill="var(--red)">● DOWN — retired model string</text>
+
+    <!-- ChatGPT -->
+    <rect x="345" y="404" width="290" height="120" rx="11" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+    <text x="360" y="428" font-weight="700" fill="var(--ink)">🟢 CHATGPT / CODEX</text>
+    <text x="360" y="447" font-size="12.5" fill="var(--muted)">code-gen / drafting</text>
+    <text x="360" y="470" font-size="12.5" fill="var(--ink)">Real task: generate the OCR</text>
+    <text x="360" y="486" font-size="12.5" fill="var(--ink)">ingestion-gate code (RI-016)</text>
+    <text x="360" y="512" font-size="12.5" font-weight="700" fill="var(--red)">● BLOCKED — out of credits</text>
+
+    <!-- Gemini -->
+    <rect x="660" y="404" width="290" height="120" rx="11" fill="var(--card)" stroke="var(--grey)" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="675" y="428" font-weight="700" fill="var(--muted)">🔵 GEMINI</text>
+    <text x="675" y="447" font-size="12.5" fill="var(--muted)">(optional brain)</text>
+    <text x="675" y="470" font-size="12.5" fill="var(--muted)">Real task: none assigned</text>
+    <text x="675" y="486" font-size="12.5" fill="var(--muted)">until a plan/key exists</text>
+    <text x="675" y="512" font-size="12.5" font-weight="700" fill="var(--grey)">● NOT WIRED</text>
+
+    <!-- failover arrow: ChatGPT blocked -> reroute to Claude -->
+    <path d="M345,464 C250,470 230,300 320,300" fill="none" stroke="var(--red)" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arwR)"/>
+    <text x="150" y="392" font-size="12" font-weight="700" fill="var(--red)">FAILOVER: blocked → reroute to Claude/Cowork</text>
+
+    <!-- RED gate note -->
+    <rect x="325" y="560" width="330" height="40" rx="9" fill="var(--card)" stroke="var(--red)" stroke-width="1.5"/>
+    <text x="490" y="578" text-anchor="middle" font-size="12.5" fill="var(--red)" font-weight="700">RED line (spend / file moves / outbound)</text>
+    <text x="490" y="593" text-anchor="middle" font-size="12" fill="var(--muted)">always waits for Jorge's one click</text>
+  </svg>
+  </div>
+
+  <div class="legend">
+    <span><span class="dot" style="background:#1e7a3e"></span>ACTIVE — working now</span>
+    <span><span class="dot" style="background:#b8860b"></span>PENDING — needs one test/confirm</span>
+    <span><span class="dot" style="background:#c00000"></span>BLOCKED / DOWN — routed around</span>
+    <span><span class="dot" style="background:#8a929b"></span>NOT WIRED — no plan/key</span>
+  </div>
+
+  <p class="note"><b>How to read it:</b> you hand one task to the Cloud coordinator; it sends the job to whichever seat can carry it start-to-finish. <b>RAMBO</b> for anything on your PC, <b>Cowork</b> for standalone deliverables (once its test passes), <b>Claude subagents</b> for parallel research, <b>Grok/ChatGPT/Gemini</b> as extra brains when they're available. Today, ChatGPT is out of credits and Grok's API is down, so those jobs fail over to Claude. The RED line never moves without your click.</p>
+  <p class="note"><b>Honest status:</b> full auto handoff isn't live yet — Remote Control is being reconnected (RAMBO's next action), and Cowork's access is still unproven until its test comes back. This map is the target, with today's real state marked on it.</p>
+</div>
+</body>
+</html>
