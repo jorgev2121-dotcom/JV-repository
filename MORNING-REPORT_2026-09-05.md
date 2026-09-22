@@ -204,6 +204,16 @@ A $93.75 microfilm/plan-copy invoice from a job ordered August 6th slipped throu
 
 ---
 
+## Overnight (Tuesday into Wednesday): the desktop's status log went quiet for a while — worth a look, not urgent
+
+Your desktop machine had been writing a status update to Drive every 15-20 minutes all evening, reliably, since mid-afternoon. Then, starting around **19:31 UTC Tuesday**, it just stopped — no error, no warning, just silence. By the time I'm writing this it had been quiet for at least a couple of hours with nothing landing.
+
+I can't see your screen or restart anything from here, so I can't tell you *why* — the machine may have gone to sleep, restarted for a Windows update, or the background watcher itself may have crashed. **Nothing time-sensitive was riding on it overnight**, so I didn't wake you.
+
+**When you're at the machine:** check whether it's still on and awake, and if the RAMBO watcher looks stopped, restart it. If everything looks normal and it just picked back up on its own, no action needed — just let me know it's alive again so I stop flagging it.
+
+---
+
 ## Denominators
 
 - **91 desktop cycles** reviewed and mirrored (2026-09-03 09:30 UTC → 2026-09-04 22:54 UTC), full text in `TO-CLOUD_MIRROR_2026-09-04.md` (9,770 lines).

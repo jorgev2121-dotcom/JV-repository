@@ -273,6 +273,24 @@ stamped `2026-08-16 20:37:00 UTC`; Drive records the file as modified `00:28 UTC
 Roughly twenty hours in the future. **Timestamps in desktop reports are not evidence
 of when work happened** — use the file's own modified time.
 
+**RECURRENCE 2026-09-22, overnight — the RAMBO heartbeat itself went quiet, silently.**
+`TO-CLOUD.md` and its `.bak-YYYYMMDD-HHMM` snapshots had been landing every ~15-20 min
+all evening (last one **19:31 UTC**, matching the main file's `modifiedTime` of
+**19:34:08 UTC**). Two consecutive hourly cloud checks (21:05, 22:05 UTC) found the
+same timestamp — **~2.5 hours with zero growth**, well past the charter's own "alive
+but not growing for three cycles means hung" bar (§11.3), measured against RAMBO's
+normal ~15-min cadence rather than cloud's 1-hour poll. No error, no stale-flag, no
+self-report of any kind — the log simply stopped, exactly the RI-002 shape ("a process
+in the task list is not a run making progress" is not visible from inside the process).
+Cloud cannot see Task Manager or restart anything on Jorge's machine — this is
+IMPOSSIBLE from here, not merely hard. **Not escalated tonight**: no deadline is at
+risk in the next several hours, and the standing overnight rule is stay silent unless
+something is time-sensitive. Flagged for the morning report instead: check whether the
+desktop machine slept, rebooted (Windows Update is a common cause), or RAMBO's host
+process died, and restart it. TRK-2026-9946 covers the sibling finding that the hourly
+trigger's own fallback work list is stale — this is the same "nobody is watching the
+watcher" failure mode in a different component.
+
 ---
 
 ## RI-003 — Upward delegation of technical work
