@@ -11,4 +11,8 @@ It is written for Claude, but every rule applies to you unchanged. That includes
 
 The state lives in these files, not in any agent's memory. That is what makes the role replaceable.
 
+**Sending a job to the PC through Drive (`VTES-Inbox\MSG-CLOUD-TO-CODE_*.md`)?** The PC's headless executor
+accepts only two exit files: `VTES-Outbox\EXECUTED_<exact job filename>` or `VTES-Outbox\BLOCKER_<exact job filename>`.
+Any other name counts as FAILED-VERIFICATION (TRK-2026-9952l). Always put that exit contract in the job.
+
 #TRK-2026-9952f
