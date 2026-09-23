@@ -33,15 +33,25 @@ usage limits — that needs your own accounts."* Nothing has changed that since.
   plan name, not a guess.
 - **Price:** Pro $20/mo · Max ~$100/mo (5x) · Max ~$200/mo (20x) — public list price, confirm
   against your actual invoice (AI-ROUTING-GUIDE, 2026-08-25).
-- **Tank size (quota per cycle):** NEEDS JORGE — Anthropic states Max usage as a weekly
-  rolling window measured in "hours of Claude Code" or message volume depending on plan;
-  the exact number isn't visible from inside a session. Check `claude.ai/settings/usage`.
-- **Reset date:** NEEDS JORGE — rolling weekly window; the exact anchor day isn't visible
-  from inside a session, check the same usage page.
-- **Current fuel level:** **Not the same thing as this conversation's token counter.** This
-  session shows a per-conversation context budget (currently reported inline in the
-  transcript) — that is this ONE conversation's working-memory limit, not your account's
-  weekly usage allowance. Don't conflate the two when filling this in.
+- **Tank size (quota per cycle):** partially known — a **weekly rolling window**, split into
+  a main pool and a separate, smaller **Fable (cheap/fast tier)** pool. Exact numeric size of
+  either pool still NEEDS JORGE (not shown on the usage page itself, only percentages).
+- **Reset date:** rolling weekly window. **Jorge checked 2026-09-23 ~01:50 UTC:** main pool
+  reported **~14% remaining for the week**; the separate Fable pool was **fully exhausted**,
+  with **at least 2 hours until Fable's own reset**. At the observed burn rate, the page
+  itself projected the **main pool running out by ~10:00 AM tomorrow (2026-09-24, local
+  time, presumed America/New_York)** if usage continues unchanged. Confirm the exact
+  main-pool reset day/time on a future check — still not pinned down.
+- **Current fuel level:** **~14% remaining (main pool), 0% (Fable pool)** — as read directly
+  off `claude.ai/settings/usage` by Jorge, 2026-09-23. **Note the distinct number that is
+  NOT this:** this conversation's own per-message context-budget counter (shown inline in
+  the transcript) is a completely different figure — this ONE session's working-memory
+  limit, not the account's weekly plan allowance above. Do not conflate the two.
+- **What this means right now:** the account is close to a forced pause. If usage keeps
+  going at the current rate, expect Claude (this session, RAMBO, and any other Claude
+  window) to stop responding for new work sometime before ~10am tomorrow, until the
+  weekly window resets. Non-essential Claude work should be deferred or handed to another
+  model until then — see the Token Monitor idea (TRK-2026-9949).
 - **Quality rank (from AI-ROUTING-GUIDE):** best for long reports, contracts, code, and long
   multi-page handwriting/scans. Top pick for judgment work, per ROUNDTABLE-CHANNEL's own rule
   ("judgment/analysis on cheap models = REAL loss — keep it on Claude").

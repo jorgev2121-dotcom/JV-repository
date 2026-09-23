@@ -402,6 +402,48 @@ a password or MFA code for this task. Never store a number that came from a gues
 of the page itself — if a number isn't visible, say "not visible on this page" rather than
 estimating.
 
+**Addendum, 2026-09-23, Jorge direct:** re-confirmed as an owner directive in a second
+message — his words: *"consider this a owner directive and pass it on to Rambo in that
+fashion so he accesses."* **This does not loosen the Never list above** — cloud read his
+"modifying my rule" as authorizing you to check pages already logged in, not as permission
+to enter passwords or click through new sign-ins. If Jorge meant something broader, that
+needs his own unambiguous confirmation, not an inference from here. **Jorge already
+checked Claude's own number himself** (see `LLM-USAGE-INVENTORY.md`, filled in): main pool
+~14% left for the week, Fable pool exhausted, page projects the main pool running out by
+~10am tomorrow at the current rate. That part of item 14 is done — focus the rest of this
+pass on ChatGPT/Gemini/Grok/Copilot.
+
+---
+
+## 15. TRK-2026-9082 — Repair the broken git push (this is "the communication" Jorge means)
+
+**Jorge's words, 2026-09-23: "instruct Rambo to repair your communication."** This is the
+long-standing, already-diagnosed defect: **the desktop's `git push` does not work**
+(Windows Credential Manager, first logged 2026-08-15, RI-002's mechanism section). You
+commit locally and the push either fails silently or is never actually run — which is why
+every one of your results has to go through the Drive mailbox for cloud to mirror in,
+instead of landing directly. Fixing this removes that whole detour.
+
+1. **Reproduce it first, don't guess.** Make a trivial local commit, run `git push` for
+   real, and capture the exact error text — timeout, 403, wrong credential, expired token,
+   whichever it is. Paste the raw error, not a paraphrase.
+2. **Check Windows Credential Manager** (`Control Panel → Credential Manager → Windows
+   Credentials`) for the stored GitHub entry — is it present, expired, or pointing at the
+   wrong account/token scope?
+3. **If it's an expired or scope-mismatched personal access token:** a new token needs to
+   be generated **on GitHub, by Jorge, in his own browser session** — this is account
+   credential creation, so it is Jorge's click, not yours to generate or type in for him.
+   Stage the exact steps for him (which GitHub settings page, what scopes to tick) rather
+   than doing the sign-in yourself.
+4. **If it's something else** (e.g. `credential.helper` misconfigured, a cached bad
+   credential, git itself pointing at the wrong remote) — that part you can fix directly,
+   it isn't a secret-entry step.
+5. **Prove the fix**, don't just claim it: after whatever change, make a real commit and a
+   real `git push`, and paste the command output showing it reached `origin` — the same
+   standard RI-002 already demands for every claimed fix in this repo.
+6. **Report the outcome in `TO-CLOUD.md`** either way — fixed-and-proven, or exactly which
+   step needs Jorge's one click, with the smallest possible ask spelled out.
+
 ---
 
 ## Standing note for the desktop session
