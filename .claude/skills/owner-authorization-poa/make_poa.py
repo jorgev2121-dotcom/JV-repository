@@ -69,78 +69,100 @@ TERM = "one (1) year"
 PREPARER = ["Jorge Valdes", "Team USA Sales, Inc.", "13633 SW 142 Terrace", "Miami, Florida 33186"]
 
 def build_certificate(job, out, agents):
+    """Attorney-style layout (Jorge, 2026-09-23): Times serif, justified, 12 pt, 1.5 spacing,
+    page 1 filled at least 3/4, execution + notary on page 2 with generous signature spacing,
+    'Page X of Y' on every page, signer names typed in when known."""
     corp = job["owner_type"] == "corp"
     kind = "Florida Corporation" if corp else "Florida Limited Liability Company"
     word = "Corporation" if corp else "Company"
-    owner = job["owner_name"]; signer = job.get("signer_name") or "_" * 26
+    owner = job["owner_name"]; signer = job.get("signer_name")
     title = job.get("signer_title") or ("President" if corp else "Manager")
+    who = signer or "_" * 26
     unit = f', {job["unit"]}' if job.get("unit") else ""
     prop = f'{job["address"]}{unit}, {job["city_state_zip"]} (Folio No. {job["folio"]})'
     agency = job.get("agency", "Miami-Dade County")
     matter = job.get("matter", "the permit(s) and any related code enforcement case(s)")
+    REG, BOLD = "tiro", "tibo"
     doc = f.open()
-    X0, X1 = 72, 540; st = {"y": 60, "p": doc.new_page(width=612, height=792)}
+    X0, X1, TOP, BOT = 72, 540, 72, 730
+    st = {"y": TOP, "p": doc.new_page(width=612, height=792)}
     tl = lambda s_, fn, fs: f.get_text_length(s_, fontname=fn, fontsize=fs)
-    def rich(segs, fs=10.5, center=False, gap=8, indent=0):
+
+    def newpage():
+        st["p"] = doc.new_page(width=612, height=792); st["y"] = TOP
+
+    def rich(segs, fs=12, center=False, gap=10, indent=0, justify=True, lh=1.5):
         words = []
         for text, bold in segs:
             for k, w in enumerate(text.split(" ")):
                 if not w: continue
-                if k == 0 and words and w[0] in ",.;:" :   # glue punctuation to the previous word
-                    words.append(("\x00" + w, "hebo" if bold else "helv")); continue
-                words.append((w, "hebo" if bold else "helv"))
+                fn = BOLD if bold else REG
+                if k == 0 and words and w[0] in ",.;:)":
+                    words.append(("\x00" + w, fn)); continue
+                words.append((w, fn))
         wl = lambda w, fn: tl("[]", fn, fs) + 7 if w == "[]" else tl(w.lstrip("\x00"), fn, fs)
-        sp = tl(" ", "helv", fs); x0 = X0 + indent; wmax = X1 - x0
+        sp = tl(" ", REG, fs); x0 = X0 + indent; wmax = X1 - x0
         lines, cur, width = [], [], 0
         for w, fn in words:
             add = (sp if cur and not w.startswith("\x00") else 0) + wl(w, fn)
             if cur and width + add > wmax: lines.append((cur, width)); cur, width, add = [], 0, wl(w, fn)
             cur.append((w, fn)); width += add
         if cur: lines.append((cur, width))
-        for ln, wid in lines:
-            if st["y"] > 740:
-                st["p"] = doc.new_page(width=612, height=792); st["y"] = 60
+        for li, (ln, wid) in enumerate(lines):
+            if st["y"] > BOT: newpage()
+            gaps = sum(1 for w, _ in ln[1:] if not w.startswith("\x00"))
+            last = li == len(lines) - 1
+            extra = (wmax - wid) / gaps if (justify and not last and not center and gaps) else 0
             x = x0 + ((wmax - wid) / 2 if center else 0)
-            for w, fn in ln:
+            for i, (w, fn) in enumerate(ln):
+                if w.startswith("\x00"): w = w[1:]; x -= sp + (extra if i else 0)
                 if w == "[]":
                     st["p"].insert_text((x, st["y"]), "[", fontname=fn, fontsize=fs); x += tl("[", fn, fs) + 7
-                    st["p"].insert_text((x, st["y"]), "]", fontname=fn, fontsize=fs); x += tl("]", fn, fs) + sp
+                    st["p"].insert_text((x, st["y"]), "]", fontname=fn, fontsize=fs); x += tl("]", fn, fs) + sp + extra
                 else:
-                    if w.startswith("\x00"): w = w[1:]; x -= sp
-                    st["p"].insert_text((x, st["y"]), w, fontname=fn, fontsize=fs); x += tl(w, fn, fs) + sp
-            st["y"] += fs * 1.35
+                    st["p"].insert_text((x, st["y"]), w, fontname=fn, fontsize=fs); x += tl(w, fn, fs) + sp + extra
+            st["y"] += fs * lh
         st["y"] += gap
+
     names = lambda: [seg for i, a in enumerate(agents) for seg in
-                     ([(" and/or ", 0)] if i else []) + [(a["name"].title() if False else a["name"], 1), (f' of {a["org"]}', 0)]]
-    rich([("This Instrument Prepared by:", 0)], 9, gap=0)
-    for l in PREPARER: rich([(l, 0)], 9, gap=0)
-    st["y"] += 14
-    rich([("CERTIFICATE OF COMPANY RESOLUTION" if not corp else "CERTIFICATE OF CORPORATE RESOLUTION", 1)], 13, True, 12)
-    rich([("The undersigned, as authorized representative of ", 0), (owner, 1), (f', a {kind} (the "{word}"), hereby certifies that:', 0)])
+                     ([(" and/or ", 0)] if i else []) + [(a["name"], 1), (f' of {a["org"]}', 0)]]
+    for i, l in enumerate(["This Instrument Prepared by:"] + PREPARER):
+        rich([(l, i == 0)], 10, gap=0, justify=False, lh=1.25)
+    st["y"] += 22
+    rich([("CERTIFICATE OF COMPANY RESOLUTION" if not corp else "CERTIFICATE OF CORPORATE RESOLUTION", 1)], 14, True, 18)
+    rich([("The undersigned, as authorized representative of ", 0), (owner, 1), (f', a {kind} (the "{word}"), hereby certifies that:', 0)], gap=12)
     rich([(f"1. The {word} is a duly formed, validly existing {kind} in good standing under the laws of the State of "
-           f"Florida and is qualified to do business under the laws of the State of Florida.", 0)], indent=18)
-    rich([("2. That ", 0), (signer, 1), (f" is the {title} of the {word}.", 0)], indent=18)
-    rich([("3. That ", 0), (signer, 1), (f", as the {title} of {owner}, a {kind}, has appointed ", 0)] + names()
+           f"Florida and is qualified to do business under the laws of the State of Florida.", 0)], indent=24)
+    rich([("2. That ", 0), (who, 1), (f" is the {title} of the {word}.", 0)], indent=24)
+    rich([("3. That ", 0), (who, 1), (f", as the {title} of ", 0), (owner, 1), (f", a {kind}, has appointed ", 0)] + names()
          + [(f" to represent the {word} before {agency}, including at any administrative hearing(s), and to request "
-             f"extensions of time, in all matters pertaining to {matter} for the real property located at {prop}.", 0)], indent=18)
+             f"extensions of time, in all matters pertaining to {matter} for the real property located at {prop}.", 0)], indent=24)
     legal = job.get("legal_full") or job.get("legal") or ""
-    rich([("4. That ", 0), (signer, 1), (f", as the {title} of {owner}, a {kind}, has appointed ", 0)] + names()
+    rich([("4. That ", 0), (who, 1), (f", as the {title} of ", 0), (owner, 1), (f", a {kind}, has appointed ", 0)] + names()
          + [(f" to act on behalf of the {word} to execute all permit applications, plans revisions and documents on behalf "
              f"of the {word} pertaining to {matter} for the real property located at {prop}"
-             + (f", and described as follows: {legal}." if legal else "."), 0)], indent=18)
-    rich([("RESOLVED,", 1), (f" that this Resolution shall continue in full force and effect for {job.get('term', TERM)} from the date of its execution, "
-           f"unless sooner revoked in writing by the {word}, and may be relied upon by {agency} during that period.", 0)])
-    if st["y"] > 740 - 300:   # keep the execution + notary block together on one page
-        st["p"] = doc.new_page(width=612, height=792); st["y"] = 60
-    rich([("IN WITNESS WHEREOF,", 1), (" the undersigned has executed this Certificate this ______ day of ________________, 20____.", 0)], gap=34)
-    rich([("_" * 40, 0)], gap=0)
-    rich([(signer, 1)], gap=0); rich([(f"{title}, {owner}", 0)], gap=18)
-    rich([("State of Florida", 0)], gap=0); rich([("County of " + ("_" * 20), 0)], gap=10)
+             + (f", and described as follows: {legal}." if legal else "."), 0)], indent=24)
+    rich([("RESOLVED,", 1), (f" that this Resolution shall continue in full force and effect for {job.get('term', TERM)} from the "
+           f"date of its execution, unless sooner revoked in writing by the {word}, and may be relied upon by {agency} during that period.", 0)])
+    if st["p"].number == 0 and st["y"] < 792 * 0.75:
+        print(f"NOTE: page 1 text ends at {st['y']/792:.0%} of the page (target: at least 75%)")
+
+    # ---- page 2: IN WITNESS + execution + notary, generous spacing
+    newpage()
+    rich([("IN WITNESS WHEREOF,", 1), (" the undersigned has executed this Certificate this ______ day of ____________________, 20____.", 0)], gap=50)
+    rich([("_" * 44, 0)], gap=2, justify=False)
+    rich([(signer or "Print name: " + "_" * 30, 1 if signer else 0)], gap=0, justify=False, lh=1.3)
+    rich([(f"{title}, {owner}", 0)], gap=46, justify=False)
+    rich([("STATE OF FLORIDA", 1)], gap=0, justify=False, lh=1.3)
+    rich([("COUNTY OF " + ("_" * 22), 1)], gap=22, justify=False)
     rich([("The foregoing instrument was sworn to and subscribed before me via [] physical presence or via [] online "
-           "notarization, this ______ day of ________________, 20____, by " + (signer if job.get("signer_name") else "_" * 26)
-           + ", who [] is personally known to me or [] has produced ______________________ as identification.", 0)], gap=30)
-    rich([("_" * 40, 0)], gap=0); rich([("Notary Public, State of Florida", 0)], gap=0)
-    rich([("Printed Name: " + "_" * 26, 0)], gap=0); rich([("Commission Expires: " + "_" * 20, 0)], gap=0)
+           "notarization, this ______ day of ____________________, 20____, by ", 0), (who, 1),
+          (f", as {title} of {owner}, who [] is personally known to me or [] has produced ______________________ as identification.", 0)], gap=64)
+    rich([("_" * 44, 0)], gap=2, justify=False)
+    rich([("Notary Public, State of Florida", 0)], gap=14, justify=False, lh=1.3)
+    rich([("Printed Name: " + "_" * 30, 0)], gap=14, justify=False)
+    rich([("Commission No.: " + "_" * 16 + "     Commission Expires: " + "_" * 16, 0)], gap=14, justify=False)
+    rich([("(NOTARY SEAL)", 0)], gap=0, justify=False)
     return doc, st["p"]
 
 def build(job, out):
@@ -240,7 +262,10 @@ def finish(job, out, doc, p, docname):
     stamp = f'{job["trk"]} | {docname} | {job["address"]}{unit} | Folio {job["folio"]} | v{job.get("version", 1)} | {job["date"]}'
     n = len(doc)
     for i, pg in enumerate(doc):
-        pg.insert_text((54, 772), stamp + (f" | p{i+1:03d} of {n:03d}" if n > 1 else ""), fontname="helv", fontsize=6.5)
+        label = f"Page {i+1} of {n}"
+        w = f.get_text_length(label, fontname="tiro", fontsize=10)
+        pg.insert_text(((612 - w) / 2, 758), label, fontname="tiro", fontsize=10)
+        pg.insert_text((54, 776), stamp + f" | p{i+1:03d} of {n:03d}", fontname="helv", fontsize=6.5)
     doc.set_metadata({"title": f'{docname} - {job["owner_name"]} - {job["address"]}{unit}',
                       "keywords": f'{job["trk"]} Folio {job["folio"]}'})
     doc.save(out, garbage=4, deflate=True, clean=True)

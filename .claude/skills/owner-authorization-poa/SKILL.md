@@ -16,6 +16,11 @@ with the legal description), RESOLVED reliance clause, IN WITNESS WHEREOF, signe
 template has none; the two-witness rule in Fla. Stat. 709.2105 applies to a power of attorney).
 Job keys for it: `signer_name`, `signer_title`, `matter`, `legal_full`, `agency`.
 
+**Layout (Jorge, 2026-09-23):** Times serif like attorney documents, justified, 12 pt with
+1.5 line spacing; page 1 at least three-quarters full; "Page X of Y" centered on every page;
+page 2 holds IN WITNESS WHEREOF, the signer block and the notary block with wide spacing;
+signer name and title are typed in when `signer_name` / `signer_title` are known.
+
 **Default term (Jorge, 2026-09-23): valid one (1) year from execution unless the owner revokes
 it sooner in writing.** Override with `"term"`. What changes per job: the owner and owner
 type, the signer, the property, and the scope (`matter`). Preparer is always Jorge Valdes,
