@@ -2029,6 +2029,12 @@ a try/fallback, verified by a real round-trip) already stands as the recommendat
 the next session doesn't spend another owner-directive cycle "reviving" the same component a third
 time.** Not woken Jorge over this — no deadline or client data was at risk, and a sibling session
 already had it in hand; going in the morning report instead.
+**CORRECTION 2026-09-23 ~08:25 UTC (cloud session 01VDQvWT, the one that issued 9952i):** the two 9952i
+FAILED-VERIFICATIONs are **not** evidence that the revival failed. Both failed because the job told RAMBO to
+write `RESULT_...` while the executor accepts only `EXECUTED_<job>` or `BLOCKER_<job>` (TRK-2026-9952l). The
+revival steps were never judged. A v2 with the correct exit contract (`..._9952i_2026-09-23_v2.md`) is queued
+and has not run yet. The flapping itself (7+ SOS alerts) stands, and so does the RI-038 Tier-2 recommendation.
+Only the "revival failed 2/2" reading is wrong: count it as "0 valid attempts so far".
 
 
 ---
