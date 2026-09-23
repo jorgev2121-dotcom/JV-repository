@@ -2010,6 +2010,24 @@ per Rule 4 (recurring → no patch), three durability-ranked options:
 **Recommendation: Tier 2 now; Tier 3 later if scale demands; NEVER self-hosted LiteLLM-on-the-PC as the
 load-bearing piece again.** Redundancy = a simple try/fallback verified by a REAL round-trip, not a ping.
 
+**RI-038 recurrence 2026-09-23 ~03:00-07:38 UTC — the exact thing this entry warned against, one month
+later.** The LLM-Watchdog fired **at least 7 SOS-ALL-DOWN/PRIMARY-DOWN alerts in under 4 hours**
+(2026-09-22 23:32, 23:43, 23:55 ET, then 2026-09-23 01:53, 02:15, 02:33, 03:33 ET) — ports :4001 and
+:4002 repeatedly down, Ollama :11434 the only route staying up. **A sibling cloud session's own fix
+attempt was itself a Tier-1 patch — `OWNER-DIRECTIVE_LITELLM-REVIVAL-TO-SKILL` (TRK-2026-9952i) — and
+it failed verification on both of its two allowed attempts** (2026-09-23 01:53:20, "produced NEITHER
+legal exit," job-executor's own retry budget now exhausted, will not retry again automatically).
+**This confirms the 2026-08-26 conclusion rather than contradicting it: patching a self-hosted LiteLLM
+that has already failed this way keeps failing this way.** The overall reconciler still reported
+`Crisis flag: False` throughout (02:22 ET check) — the wider system tolerates the flapping via the
+Ollama fallback, so nothing client-facing was lost tonight, but the router itself has now
+demonstrably not been fixed by two more patch attempts a month apart.
+**Not re-litigating tiers — RI-038's own Tier 2 (remove the self-hosted router, direct API calls with
+a try/fallback, verified by a real round-trip) already stands as the recommendation. Recording this so
+the next session doesn't spend another owner-directive cycle "reviving" the same component a third
+time.** Not woken Jorge over this — no deadline or client data was at risk, and a sibling session
+already had it in hand; going in the morning report instead.
+
 
 ---
 **RI-042 · 2026-08-26 — Address normalization: the trailing "1"/"2" and duplicated street numbers are the COUNTY'S own register text, not pipeline corruption.** 687 of 708 failures were already queried character-identical to the Unsafe Structures Report. The county's search box refuses the shape its own export publishes. Fix is the variant ladder (9765b), not verbatim re-query and not folio. (Source: desktop TRK-2026-9818.)
