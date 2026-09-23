@@ -366,6 +366,44 @@ Logged as **RI-046**.
 
 ---
 
+## 14. TRK-2026-9952 — OWNER DIRECTIVE: fill in the LLM Usage Inventory (read-only, GREEN even overnight)
+
+**Jorge said this directly to cloud, in his own words: "Instruct RAMBO as an owner's
+directive to do that work."** This is not a cloud-invented task — it is an explicit
+instruction, passed on verbatim. `LLM-USAGE-INVENTORY.md` (repo root) is the shared
+race-car table for every AI subscription Jorge pays for — tank size, refuel cost, reset
+date, current fuel level, quality rank. Cloud filled in price and quality from the
+existing routing guide; every plan/reset-date/current-usage cell is marked **NEEDS
+JORGE** because no session has login access to any billing page. Read that file first
+so the shape of what's needed is clear before starting.
+
+**What to do — one pass, whatever is already logged in on this machine's browsers:**
+
+1. **Claude first, it matters most** — open `claude.ai/settings/usage` (or the current
+   equivalent settings page) in whichever browser profile is already signed into Jorge's
+   Anthropic account. Read off: confirmed plan tier (Pro / Max 5x / Max 20x), the usage
+   window's reset day, and current usage (used or remaining, whichever the page shows).
+2. **Then whichever of these are already logged in** — do not sign into anything that
+   isn't already logged in, see the rule below: `chatgpt.com` → Settings → usage/limits
+   (ChatGPT), `one.google.com` subscriptions/usage or the Gemini app's account page
+   (Gemini), Grok's app account settings (Grok), the M365 admin/usage page if visible
+   (Copilot — confirm it's the Premium bundle, not the retired standalone Pro tier).
+3. **Paste the raw numbers back to `TO-CLOUD.md`**, one line per service: plan tier,
+   reset date, usage used or remaining (whichever the page states — say which). Cloud
+   will fold them into `LLM-USAGE-INVENTORY.md` and mark it live from that point.
+4. **If a service isn't already logged in on this machine, say so and skip it** — "ChatGPT:
+   not logged in on this profile, skipped" is a complete and correct answer for that line.
+   This is read-only browsing of pages you're already signed into — never a new sign-in,
+   never a password, never an MFA code, never a "keep me signed in" click on an unfamiliar
+   device prompt.
+
+**Never:** sign into any of these five accounts that isn't already logged in. Never enter
+a password or MFA code for this task. Never store a number that came from a guess instead
+of the page itself — if a number isn't visible, say "not visible on this page" rather than
+estimating.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
