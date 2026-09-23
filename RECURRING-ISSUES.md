@@ -1993,6 +1993,8 @@ live model today. Tier 3 — replace the liveness check with one that actually r
 never again report green while empty. Tier 1 (weak) — restart Ollama for free local backups (returns, may
 die again). **Do NOT accept a plain /health check as proof the router works — round-trip a real model.**
 
+- **2026-09-23 recurrence (cloud):** RAMBO LLM-Watchdog posting SOS-LLM ALL-DOWN every ~10 min from 23:13 ET. :4001 LiteLLM, :4002 and :11434 Ollama all DOWN. The local fallback lane is dead again, so a patch is forbidden. The Tier-2 answer in progress is a real backup executor (Codex CLI, TRK-2026-9952g), not reviving LiteLLM.
+
 ## RI-038 follow-up 2026-08-26 — "the router/orchestrator has been EXTREMELY unreliable" (Rule-4 options)
 **Terms:** a ROUTER (LiteLLM) is the traffic cop — one door, routes each call to a model. An
 ORCHESTRATOR / FOREMAN decides WHAT work goes where and tracks limits. Jorge's bad experience is the
