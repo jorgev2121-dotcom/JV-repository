@@ -1,0 +1,2 @@
+# APPROVED-JOBS.txt — SHA-256 of job files cleared for unattended (read-only) runs. One per line: <sha256>  <filename>  <TRK>  <date>.
+# Only the repo default branch counts. See WORK-QUEUE item 18 (TRK-2026-9952k).

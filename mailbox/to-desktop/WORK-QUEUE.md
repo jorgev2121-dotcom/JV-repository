@@ -499,6 +499,28 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
 
 **If blocked** (e.g. the subcommand needs an interactive prompt): write BLOCKED in the RESULT with the exact error text. Do not ask Jorge to debug it.
 
+## 18. TRK-2026-9952k — OWNER DIRECTIVE: unattended job runs, SAFE version (JOB-0079 §D.1)
+
+**Approved by Jorge 2026-09-23 (iPhone): "Yes" to the safe version.** Do this after item 17. It addresses RI-044 (4 occurrences): the executor only exists while a human-opened session is alive.
+
+**Why the safe version:** an unattended run that executes *any* file in a Drive folder lets anyone who can write to that folder steer the PC. The first draft of this item was rejected for exactly that reason. The limits below are the point of this item and are not optional.
+
+**Safety limits (all required):**
+- **Trust anchor:** a job runs unattended only if its SHA-256 appears in `mailbox/to-desktop/APPROVED-JOBS.txt` on the repo's default branch. Read it with `git fetch` + `git show origin/<default>:mailbox/to-desktop/APPROVED-JOBS.txt`; do not merge. A job whose hash is not listed gets an ACK only, exactly as today.
+- **Tools:** the headless run gets read-only tools plus writing new files under `G:\My Drive\VTES-Outbox\` only. Use an explicit `--allowedTools` allowlist. No shell, no installs, no settings or registry changes, no network sends, no moving or deleting files. **Never use a bypass-permissions mode.**
+- **Anything beyond that** (installs, powercfg, scheduled tasks, filing, email) is not run unattended. The run writes `NEEDS-HUMAN-SESSION_<job>.md` to the Outbox and exits. The job stays queued for the next interactive Rambo session.
+- **Never wait on a person:** any prompt or popup means the run writes its note and exits (RI-036).
+- One run at a time (lock file), 30-minute timeout, and every run logged to `VTES-Outbox\HEADLESS-RUNS.log`.
+
+**Do:**
+1. Find the VTES-LOCAL-POLLER script and task. Save a `.bak-20260923` copy and write an undo script to `Undo_Manifests`.
+2. Add the hash check and the restricted `claude -p` launch after the ACK, per the limits above.
+3. **Prove it with nobody present:** close all Claude windows. Have cloud add a test job to APPROVED-JOBS.txt that writes nonce `D1-NONCE-WREN-6027-20260923` to a new Outbox file. The RESULT must say `STARTED-BY: VTES-LOCAL-POLLER`.
+4. **Prove the lock:** drop an *unlisted* job. It must get an ACK only, and no run.
+5. Write `G:\My Drive\VTES-Outbox\RESULT_HEADLESS-SAFE_TRK-2026-9952k_2026-09-23.md`. First line: nonce `HEADLESS-NONCE-TERN-4412-20260923`. Include the outputs of steps 1–4 and the undo path. Mark it DONE only if both proofs passed.
+
+**If blocked:** write BLOCKED with the exact error. Do not ask Jorge to debug it.
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
