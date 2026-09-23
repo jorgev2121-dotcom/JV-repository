@@ -1,0 +1,7 @@
+#TRK-2026-1667 #TRK-2026-1310 #10980-SW-202-Dr #Unit-29 #Folio-30-6007-009-0030 #10960-SW-200TH-AVENUE-LLC #Cutler-Bay
+# source: native text
+# anchored: True
+# trk: TRK-2026-1667
+# alt-trk: TRK-2026-1310
+# anchor-source: folder + document content (address, folio)
+# file: 2026-09-23 _ TRK-2026-1667 _ Permit _ Permit-Application-Eli-Bleeman-Qualifier-4053-CURRENT _ v5.pdf

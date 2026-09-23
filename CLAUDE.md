@@ -161,6 +161,13 @@ loses track of which block belongs where.
 - **The only reason to issue two blocks** is two different windows. If that happens,
   say so explicitly on the first line of each.
 
+**Documents are delivered as real files he can drag and drop. Owner directive, 2026-09-23.**
+Any document for Jorge (PDF, form, letter) goes to him as an actual file: a file card
+in the chat (SendUserFile), plus an email attachment when he will forward it. Never
+deliver it only as pasted text or only as a link that needs access. Before saying it
+was sent, read the sent message back and confirm each attachment is there and is not
+0 KB (RI-048: a POA arrived blank on 2026-09-23).
+
 **END EVERY MESSAGE WITH A QUESTION. No exceptions.**
 **Owner directive OD-01, issued 2026-08-15. See `OWNER-DIRECTIVE_ALWAYS-END-WITH-QUESTION-01_2026-08-15.md`.**
 
@@ -499,6 +506,20 @@ oversight.**
 Payment cards show **nickname + last-4 only**; full numbers never written to any file.
 **Live bank-balance display was declined as a risk** — a "last-known balance" line the
 owner updates by voice, stamped with its date, is the substitute.
+
+**Payment pop-ups (owner directive, 2026-09-23).** Every payment that comes due (county fees,
+invoices, renewals) is brought to Jorge as a **pop-up window on his PC**, with the payment page
+already open and the amount, payee, reference number and due date shown. **Jorge presses Pay. No AI
+ever pays**, because spending is RED. Because the pop-up depends on the desktop executor being up,
+every pending payment also goes in the daily summary until it is paid.
+**Added 2026-09-23:**
+
+1. **The pop-up always comes to the front.** It opens on top of every other window and stays there
+   until Jorge closes it.
+2. **County fees show the county process number (the "C number", e.g. `C2026170181`) in large type,
+   with a Copy button, plus the property address and TRK.** The county payment page asks for it.
+
+Full protocol: `.claude/skills/payment-popup/SKILL.md`.
 
 ### Article 6 — Build order (was the thaw order; active now that Article 1 is repealed)
 
