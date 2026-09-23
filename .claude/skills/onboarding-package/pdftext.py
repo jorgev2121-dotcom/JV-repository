@@ -27,7 +27,7 @@ class Doc:
         for text, bold in segs:
             for w in text.split(" "):
                 if w: words.append((w, "hebo" if bold else "helv"))
-        wl = lambda w, fn: self.tl("[]", fn, fs) + 7 if w == "[]" else self.tl(w, fn, fs)
+        wl = lambda w, fn: fs * 0.75 if w == "[]" else self.tl(w, fn, fs)
         sp = self.tl(" ", "helv", fs)
         lines, cur, width = [], [], 0
         for w, fn in words:
@@ -41,8 +41,8 @@ class Doc:
             x = x0 + ((width_max - wid) / 2 if center else 0)
             for w, fn in ln:
                 if w == "[]":
-                    self.page.insert_text((x, self.y), "[", fontname=fn, fontsize=fs); x += self.tl("[", fn, fs) + 7
-                    self.page.insert_text((x, self.y), "]", fontname=fn, fontsize=fs); x += self.tl("]", fn, fs) + sp
+                    b = fs * 0.75   # square check box
+                    self.page.draw_rect(f.Rect(x, self.y - b + 1, x + b, self.y + 1), width=0.8); x += b + sp
                 else:
                     self.page.insert_text((x, self.y), w, fontname=fn, fontsize=fs); x += self.tl(w, fn, fs) + sp
             self.y += fs * 1.32

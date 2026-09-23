@@ -12,8 +12,10 @@ v2_.docx`, 4100 Palm Ave LLC, March 2025). `make_poa.py` reproduces its structur
 "This Instrument Prepared by" block, certifications 1-4 (good standing, signer's office,
 appointment to represent at hearings, appointment to execute permit applications and documents,
 with the legal description), RESOLVED reliance clause, IN WITNESS WHEREOF, signer block, and the
-"sworn to and subscribed" notary block. No witness lines on the certificate (the attorney's
-template has none; the two-witness rule in Fla. Stat. 709.2105 applies to a power of attorney).
+"sworn to and subscribed" notary block. **Two witness rows are required (Jorge, 2026-09-23)**, each with signature, printed name and
+address, under the signer. **Every check box is a drawn square box, never typed brackets**,
+before "physical presence", "online notarization", "personally known" and "has produced"
+(Jorge, 2026-09-23; applies to every generated document). The heading is 18 pt heavy bold.
 Job keys for it: `signer_name`, `signer_title`, `matter`, `legal_full`, `agency`.
 
 **Layout (Jorge, 2026-09-23):** Times serif like attorney documents, justified, 12 pt with

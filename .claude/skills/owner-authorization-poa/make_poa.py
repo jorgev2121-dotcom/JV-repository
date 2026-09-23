@@ -100,7 +100,7 @@ def build_certificate(job, out, agents):
                 if k == 0 and words and w[0] in ",.;:)":
                     words.append(("\x00" + w, fn)); continue
                 words.append((w, fn))
-        wl = lambda w, fn: tl("[]", fn, fs) + 7 if w == "[]" else tl(w.lstrip("\x00"), fn, fs)
+        wl = lambda w, fn: fs * 0.75 + 2 if w == "[]" else tl(w.lstrip("\x00"), fn, fs)
         sp = tl(" ", REG, fs); x0 = X0 + indent; wmax = X1 - x0
         lines, cur, width = [], [], 0
         for w, fn in words:
@@ -117,8 +117,8 @@ def build_certificate(job, out, agents):
             for i, (w, fn) in enumerate(ln):
                 if w.startswith("\x00"): w = w[1:]; x -= sp + (extra if i else 0)
                 if w == "[]":
-                    st["p"].insert_text((x, st["y"]), "[", fontname=fn, fontsize=fs); x += tl("[", fn, fs) + 7
-                    st["p"].insert_text((x, st["y"]), "]", fontname=fn, fontsize=fs); x += tl("]", fn, fs) + sp + extra
+                    b = fs * 0.75   # square check box (Florida notarial certificate style)
+                    st["p"].draw_rect(f.Rect(x, st["y"] - b + 1, x + b, st["y"] + 1), width=0.8); x += b + sp + 2 + extra
                 else:
                     st["p"].insert_text((x, st["y"]), w, fontname=fn, fontsize=fs); x += tl(w, fn, fs) + sp + extra
             st["y"] += fs * lh
@@ -129,7 +129,11 @@ def build_certificate(job, out, agents):
     for i, l in enumerate(["This Instrument Prepared by:"] + PREPARER):
         rich([(l, i == 0)], 10, gap=0, justify=False, lh=1.25)
     st["y"] += 22
-    rich([("CERTIFICATE OF COMPANY RESOLUTION" if not corp else "CERTIFICATE OF CORPORATE RESOLUTION", 1)], 14, True, 18)
+    head = "CERTIFICATE OF COMPANY RESOLUTION" if not corp else "CERTIFICATE OF CORPORATE RESOLUTION"
+    hw = tl(head, BOLD, 18); hx = (612 - hw) / 2; hy = st["y"] + 6
+    for dx in (0, 0.35, 0.7):   # triple-strike for a heavier bold
+        st["p"].insert_text((hx + dx, hy), head, fontname=BOLD, fontsize=18)
+    st["y"] = hy + 34
     rich([("The undersigned, as authorized representative of ", 0), (owner, 1), (f', a {kind} (the "{word}"), hereby certifies that:', 0)], gap=12)
     rich([(f"1. The {word} is a duly formed, validly existing {kind} in good standing under the laws of the State of "
            f"Florida and is qualified to do business under the laws of the State of Florida.", 0)], indent=24)
@@ -152,12 +156,19 @@ def build_certificate(job, out, agents):
     rich([("IN WITNESS WHEREOF,", 1), (" the undersigned has executed this Certificate this ______ day of ____________________, 20____.", 0)], gap=50)
     rich([("_" * 44, 0)], gap=2, justify=False)
     rich([(signer or "Print name: " + "_" * 30, 1 if signer else 0)], gap=0, justify=False, lh=1.3)
-    rich([(f"{title}, {owner}", 0)], gap=46, justify=False)
+    rich([(f"{title}, {owner}", 0)], gap=30, justify=False)
+    rich([("Signed in the presence of:", 1)], gap=26, justify=False)
+    for n in (1, 2):
+        for x_, lab in ((X0, f"Witness {n} signature"), (X0 + 250, f"Witness {n} printed name")):
+            st["p"].draw_line(f.Point(x_, st["y"]), f.Point(x_ + 218, st["y"]), width=0.6)
+            st["p"].insert_text((x_, st["y"] + 12), lab, fontname=REG, fontsize=10)
+        st["y"] += 26
+        rich([("Address: " + "_" * 62, 0)], 10, gap=24, justify=False)
     rich([("STATE OF FLORIDA", 1)], gap=0, justify=False, lh=1.3)
-    rich([("COUNTY OF " + ("_" * 22), 1)], gap=22, justify=False)
+    rich([("COUNTY OF " + ("_" * 22), 1)], gap=14, justify=False)
     rich([("The foregoing instrument was sworn to and subscribed before me via [] physical presence or via [] online "
            "notarization, this ______ day of ____________________, 20____, by ", 0), (who, 1),
-          (f", as {title} of {owner}, who [] is personally known to me or [] has produced ______________________ as identification.", 0)], gap=64)
+          (f", as {title} of {owner}, who [] is personally known to me or [] has produced ______________________ as identification.", 0)], gap=46)
     rich([("_" * 44, 0)], gap=2, justify=False)
     rich([("Notary Public, State of Florida", 0)], gap=14, justify=False, lh=1.3)
     rich([("Printed Name: " + "_" * 30, 0)], gap=14, justify=False)
@@ -192,7 +203,7 @@ def build(job, out):
         for text, bold in segs:
             for w in text.split(" "):
                 if w: words.append((w, "hebo" if bold else "helv"))
-        wl = lambda w, fn: tl("[]", fn, fs) + 7 if w == "[]" else tl(w, fn, fs)
+        wl = lambda w, fn: fs * 0.75 if w == "[]" else tl(w, fn, fs)
         lines, cur, width = [], [], 0
         for w, fn in words:
             sp = tl(" ", "helv", fs) if cur else 0
@@ -204,8 +215,8 @@ def build(job, out):
             x = X0 + ((X1 - X0 - wid) / 2 if center else 0)
             for w, fn in ln:
                 if w == "[]":
-                    p.insert_text((x, st["y"]), "[", fontname=fn, fontsize=fs); x += tl("[", fn, fs) + 7
-                    p.insert_text((x, st["y"]), "]", fontname=fn, fontsize=fs); x += tl("]", fn, fs) + tl(" ", "helv", fs)
+                    b = fs * 0.75   # square check box
+                    p.draw_rect(f.Rect(x, st["y"] - b + 1, x + b, st["y"] + 1), width=0.8); x += b + tl(" ", "helv", fs)
                 else:
                     p.insert_text((x, st["y"]), w, fontname=fn, fontsize=fs); x += tl(w, fn, fs) + tl(" ", "helv", fs)
             st["y"] += fs * 1.32
@@ -272,8 +283,7 @@ def finish(job, out, doc, p, docname):
 
     # Blank-file guard: re-open and prove the content is really there.
     chk = f.open(out); txt = "".join(pg.get_text() for pg in chk)
-    musts = [job["owner_name"], job["folio"], "JORGE VALDES", "Notary Public"]
-    if not docname.startswith("Certificate"): musts.append("Witness 2")
+    musts = [job["owner_name"], job["folio"], "JORGE VALDES", "Notary Public", "Witness 2"]
     for must in musts:
         if must not in txt: raise SystemExit(f"VERIFY FAILED: '{must}' not found in {out}")
     if sum(len(list(pg.widgets())) for pg in chk): raise SystemExit("VERIFY FAILED: form fields present")
