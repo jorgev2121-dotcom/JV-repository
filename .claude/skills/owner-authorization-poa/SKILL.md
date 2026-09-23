@@ -92,7 +92,19 @@ plan (for example, sign now and notarize later).
 which documents an agent or attorney-in-fact may sign and which the owner must sign
 personally, with a source link or an UNCONFIRMED label on every line.
 
-**Standing rule until that file says otherwise:** Jorge reports that Miami-Dade will
-not accept an owner's agent signature on a building permit application for an
-**individual homeowner**. Treat that as true. Do not rely on this POA to sign a
-permit application for an individual homeowner.
+**Standing rules (from that file, 2026-09-23):**
+
+1. **Notice of Commencement: the owner signs personally.** Fla. Stat. 713.13(1)(g):
+   "no one else may be permitted to sign in his or her stead." For an LLC, corporation
+   or trust, "the owner" means its manager, officer or trustee. **Do not have an
+   attorney-in-fact sign an NOC** until the Clerk or a lawyer confirms it.
+2. **Owner-builder permits: the owner appears and signs personally.** Individuals
+   only; Miami-Dade does not allow owner-builder permits for companies or trusts.
+3. **Building permit application: an owner's authorized agent may sign**
+   (Florida Building Code 105.1; the 9/25 Miami-Dade form's signature line reads
+   "Owner or Owner's Agent"). Jorge's experience says otherwise for individual
+   homeowners. **Until that conflict is resolved, have the owner sign when the owner
+   is an individual.**
+4. **This POA must name each power specifically** (Fla. Stat. 709.2201). "Do
+   everything I could do" grants nothing. That is why the scope line lists permits,
+   NOCs, revisions, extensions and hearings by name.
