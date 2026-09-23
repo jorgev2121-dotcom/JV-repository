@@ -2132,3 +2132,23 @@ answering.
 **RI-047 · 2026-09-20 — Outlook auto-relaunches itself within seconds of being killed, via COM/DCOM activation, and the resource-exhaustion dialog comes back with it.** Downstream of the same OD-107/1Password chain (RI-046) but a distinct mechanism worth its own number — the desktop's own Drive-side recurring-issues copy independently logged this as "RI-046" too, a genuine numbering collision across the two copies (worth knowing: at least 4 different RECURRING-ISSUES.md copies exist — this repo's, the Drive-side one, `00-CONTINUITY-BOARD`, and `Shared Folders for all LLMs` — and they can drift out of sync on numbering). **What was found:** killing Outlook gets a replacement process back in 2-4 seconds, command line `-Embedding` (COM-launched, not a direct relaunch), parent PID is `svchost.exe` — something is calling `Outlook.Application` via COM and winning the race against even a manual `/safe`-mode launch. The known auto-launch scripts on disk were ruled out (one explicitly skips the COM call when Outlook isn't running; the other's own log shows no activity today). Root cause still unidentified. **Second cycle in a row hitting the same wall: fixing it needs `Stop-Service WSearch`, which needs admin rights the desktop session doesn't have.** Per Rule 4, two Tier-1-only attempts (kill + relaunch) in a row means the next step can't be a third kill-and-relaunch. **Needs one of: (1) an elevated session runs `Stop-Service WSearch`, or (2) Jorge watches a live kill in Task Manager's Details tab (or Process Explorer) to catch the exact parent process the instant Outlook reappears** — a headless session can only see it after the fact. Also noted, likely related: 30-39 PowerShell processes have been alive since 2026-09-19 13:14, and CPU has been pinned 88-100% continuously since ~2026-09-20 00:29.
 
 **Third confirmation, ~12:10-12:20 same day.** Same DCOM signature reproduced a third independent time (different PIDs each time, same `ParentProcessId` pattern, same `-Embedding` command line). This narrows the cause — ruled out as a scheduled task or an add-in across all three cycles — but still doesn't name the actual caller. No new action beyond the Tier-2 ask above; not re-attempting Tier-1 kill-and-relaunch a fourth time.
+
+---
+**RI-048 · 2026-09-23 — client PDF attachment arrives blank / will not open (TRK-2026-1667, Cinde package).**
+Occurrence 1, 2026-09-22: the permit package sent to Cinde Velazquez "does not open". Cause
+found by Chat: AcroForm checkbox fields with malformed `/V` values; strict webmail and phone
+viewers refuse or blank them. Fixed by flattening (`_v4_FIXED`, `_v3_QUALFIXED_FLAT`).
+Occurrence 2, 2026-09-23: the Limited Power of Attorney looked perfect in chat but was
+**empty when attached to Jorge's email.** Also, the 14:14 draft "Revised Permit Application"
+was addressed to the placeholder `cinde@example.com` with no attachment at all.
+**Two occurrences, so the Rule 4 recurrence rule applies. Patches are forbidden.**
+1. Tier 1 (rejected): re-flatten or re-send by hand each time. Lifespan: until the next
+   hand-built file.
+2. **Tier 2, adopted: removal.** The POA is now generated only by
+   `.claude/skills/owner-authorization-poa/make_poa.py`, which uses built-in fonts, has no
+   form fields and fails if content is missing. Any client form must be flattened
+   (no widgets) before attaching. Lifespan: permanent for the POA.
+3. Tier 3, adopted: enforcement. Every send is followed by reading back the sent message
+   and checking the attachment size is not 0 (done 2026-09-23: 19 KB message, 2 PDFs).
+Cloud delivered both POA versions to Jorge by email 2026-09-23 15:45 UTC (message
+1a0cef1683a14ef4).
