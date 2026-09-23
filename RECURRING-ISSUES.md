@@ -2152,3 +2152,5 @@ was addressed to the placeholder `cinde@example.com` with no attachment at all.
    and checking the attachment size is not 0 (done 2026-09-23: 19 KB message, 2 PDFs).
 Cloud delivered both POA versions to Jorge by email 2026-09-23 15:45 UTC (message
 1a0cef1683a14ef4).
+
+**RI-038 recurrence 2026-09-23 (evening, cloud):** Jorge relayed Grok's morning report (9/20: LiteLLM :4001 OFFLINE) and Grok's advice to repair LiteLLM first. That is the Tier 1 patch again. Declined per Rule 4. Tier 2 adopted: direct-API `ask.ps1`, LiteLLM restarts disabled (desktop job GROK-ONBOARD, TRK-2026-9976). **Also on 2026-09-23:** Outlook crashed that morning and both buttons on the "2 Things Left" HTA panel returned "Could not start it." Every Outlook-dependent desktop job stalled after ACK with no exit file. Watch for a repeat; see RI-034 (HTA launch).
