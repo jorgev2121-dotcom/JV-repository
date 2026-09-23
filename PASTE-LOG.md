@@ -94,3 +94,4 @@ enough to identify it exactly, with no description needed.
 - **PASTE-D-051** · 2026-09-23 · Desktop → WORK-QUEUE item 14, addendum 2 (TRK-2026-9952d): run `ccusage`, which turns tokens into dollars, paste the result to TO-CLOUD.md, and make the "LLM Usage Report" desktop shortcut.
 - **PASTE-D-052** · 2026-09-23 · Desktop → type `/remote-control` once so the session can be driven from the iPhone Claude app and messaged by cloud; then do PASTE-D-051 (TRK-2026-9952d).
 - **PASTE-D-053** · 2026-09-23 · Desktop → run the 3 MSG-CLOUD-TO-CODE jobs in `G:\My Drive\VTES-Inbox` (TRK-2026-9952d, e, g); `git pull` first. *It was pasted into Cloud by mistake (RI-031); it is still valid for the Desktop window.*
+- **PASTE-D-054** · 2026-09-23 · Desktop → supersedes D-053. `git pull`, then run the 4 MSG-CLOUD-TO-CODE jobs in `G:\My Drive\VTES-Inbox` in order: 9952d, 9952e, 9952g, 9952j (Remote Control auto-start, WORK-QUEUE item 17).
