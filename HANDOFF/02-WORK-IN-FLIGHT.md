@@ -33,7 +33,13 @@ Draft PR https://github.com/jorgev2121-dotcom/JV-repository/pull/11 (branch `cla
 The skills are listed in `03-SKILLS-INDEX.md`. **The master resolution template is locked** (v8, from
 attorney Jacqueline R. Hernandez-Valdes's template).
 
-## 3. E-signature and online notary research - SENT TO COWORK, reply pending
+## 3. E-signature and online notary research - DONE (reply 1:13 PM ET)
+
+The reply is saved at `../.claude/skills/onboarding-package/ESIGN-RON-RESEARCH_2026-09-23.md`.
+Recommendation: Zoho Sign ($10/month) and BlueNotary ($37/month for 2 sessions) or Proof ($25/session).
+Florida RON is legal; the Miami-Dade Clerk e-records; City of Miami accepts RON. Nine cities are still UNCONFIRMED.
+
+## 3b. (old) E-signature research as originally sent
 
 Drive mailbox `MSG-CLOUD-TO-COWORK_ESIGN-AND-REMOTE-NOTARY-RESEARCH_TRK-2026-9961_2026-09-23.md`.
 **Caution:** the desktop poller acknowledged it as queued for *Claude Code desktop*, not Cowork.
@@ -44,7 +50,16 @@ Confirm that Cowork actually got it.
 The fix: Jorge adds `search.sunbiz.org` to the cloud environment's allowed domains, or the desktop runs
 `../.claude/skills/sunbiz-signer-check/sunbiz_lookup.py`.
 
-## 5. Standing infrastructure faults (see ../OPEN-ITEMS.md)
+## 4b. Jobs sent to the desktop today (Drive mailbox), pending
+
+1. Save 2 Outlook attachments (county reviewer comments C2026170181 + signed scan 3225_001.pdf):
+   **FAILED-VERIFICATION, attempt 1 of 2, re-queued.**
+2. Payment pop-up for the Unit 29 county upfront fee C2026170181: sent 1:13 PM ET, no result yet.
+   **The payment pop-up rule is now standing policy** (CLAUDE.md §12 Art. 5).
+3. **Sunbiz titles: the most recent filing wins** (skill rule, 2026-09-23). Jorge: the Unit 29 re-sign
+   email already went out as written.
+
+## 5. Standing infrastructure faults (see ../OPEN-ITEMS.md and module 08)
 
 - RI-038: the LiteLLM router flapped 3+ times today. Recommendation: remove it.
 - The backup executor (Codex CLI) install is waiting on Jorge's one sign-in.

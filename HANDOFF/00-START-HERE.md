@@ -15,6 +15,8 @@ Stop when you have what the task in front of you needs.
    fuel and health and hands work off before anyone runs dry.
 6. `06-ROUNDTABLE-CHAT.md` - **your second build task:** put all the AIs in one chat.
 7. `07-HANDING-BACK.md` - how to hand the role to the next AI without losing anything.
+8. `08-LLM-ROSTER-AND-ROUTER-STATUS.md` - who is alive, what is down (local routers: ALL DOWN at
+   12:54 PM ET 2026-09-23), and the removal plan.
 
 **Deeper sources, only when a module points you there:** `../CLAUDE.md` (full charter),
 `../OPEN-ITEMS.md` (every open item, newest at the bottom), `../RECURRING-ISSUES.md` (problems that

@@ -15,6 +15,8 @@ Stop when you have what the task in front of you needs.
    fuel and health and hands work off before anyone runs dry.
 6. `06-ROUNDTABLE-CHAT.md` - **your second build task:** put all the AIs in one chat.
 7. `07-HANDING-BACK.md` - how to hand the role to the next AI without losing anything.
+8. `08-LLM-ROSTER-AND-ROUTER-STATUS.md` - who is alive, what is down (local routers: ALL DOWN at
+   12:54 PM ET 2026-09-23), and the removal plan.
 
 **Deeper sources, only when a module points you there:** `../CLAUDE.md` (full charter),
 `../OPEN-ITEMS.md` (every open item, newest at the bottom), `../RECURRING-ISSUES.md` (problems that
@@ -60,7 +62,9 @@ operation. He has ADHD and dyslexia, dictates, and listens to replies through te
    there and is not 0 KB (RI-048).
 10. **Label paste blocks** `PASTE-D/C/X-NNN` (logged in `../PASTE-LOG.md`), one block per window.
     Label sections A, B, C.
-11. **Write results to files as you go.** Nothing lives only in a chat.
+11. **Payments pop up** on Jorge's PC with the payment page open. He presses Pay; no AI ever pays (CLAUDE.md §12 Art. 5).
+12. **Sunbiz titles: the most recent filing wins.** Use that exact title on every document.
+13. **Write results to files as you go.** Nothing lives only in a chat.
 
 ---
 
@@ -99,7 +103,13 @@ Draft PR https://github.com/jorgev2121-dotcom/JV-repository/pull/11 (branch `cla
 The skills are listed in `03-SKILLS-INDEX.md`. **The master resolution template is locked** (v8, from
 attorney Jacqueline R. Hernandez-Valdes's template).
 
-## 3. E-signature and online notary research - SENT TO COWORK, reply pending
+## 3. E-signature and online notary research - DONE (reply 1:13 PM ET)
+
+The reply is saved at `../.claude/skills/onboarding-package/ESIGN-RON-RESEARCH_2026-09-23.md`.
+Recommendation: Zoho Sign ($10/month) and BlueNotary ($37/month for 2 sessions) or Proof ($25/session).
+Florida RON is legal; the Miami-Dade Clerk e-records; City of Miami accepts RON. Nine cities are still UNCONFIRMED.
+
+## 3b. (old) E-signature research as originally sent
 
 Drive mailbox `MSG-CLOUD-TO-COWORK_ESIGN-AND-REMOTE-NOTARY-RESEARCH_TRK-2026-9961_2026-09-23.md`.
 **Caution:** the desktop poller acknowledged it as queued for *Claude Code desktop*, not Cowork.
@@ -110,7 +120,16 @@ Confirm that Cowork actually got it.
 The fix: Jorge adds `search.sunbiz.org` to the cloud environment's allowed domains, or the desktop runs
 `../.claude/skills/sunbiz-signer-check/sunbiz_lookup.py`.
 
-## 5. Standing infrastructure faults (see ../OPEN-ITEMS.md)
+## 4b. Jobs sent to the desktop today (Drive mailbox), pending
+
+1. Save 2 Outlook attachments (county reviewer comments C2026170181 + signed scan 3225_001.pdf):
+   **FAILED-VERIFICATION, attempt 1 of 2, re-queued.**
+2. Payment pop-up for the Unit 29 county upfront fee C2026170181: sent 1:13 PM ET, no result yet.
+   **The payment pop-up rule is now standing policy** (CLAUDE.md §12 Art. 5).
+3. **Sunbiz titles: the most recent filing wins** (skill rule, 2026-09-23). Jorge: the Unit 29 re-sign
+   email already went out as written.
+
+## 5. Standing infrastructure faults (see ../OPEN-ITEMS.md and module 08)
 
 - RI-038: the LiteLLM router flapped 3+ times today. Recommendation: remove it.
 - The backup executor (Codex CLI) install is waiting on Jorge's one sign-in.
@@ -261,4 +280,54 @@ click or yes/no.
 
 ---
 
-Can you confirm, in one word, that you have read modules 00 to 02 and are taking the orchestrator role?
+# 08 - LLM roster and router status (live check 2026-09-23 ~1:15 PM ET)
+
+**Sources: Drive status folder `1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN` (SOS-LLM_*, FAILED-VERIFICATION_*,
+_UPTIME-HEARTBEAT.md), `HEARTBEAT-ROSTER.json`, `../RECURRING-ISSUES.md` RI-038.**
+
+## Who is alive
+
+1. **Cloud Claude Code (outgoing orchestrator): ALIVE.** Opus, about 14.9M tokens left in this session.
+   It has repo, Drive, Gmail, Outlook and GitHub tools. It is blocked from county sites and Sunbiz.
+2. **Jorge's PC: AWAKE** for 6.2 days (since 9/17 8:16 AM) and set never to sleep. `CU-Uptime-Heartbeat`
+   runs every 5 minutes.
+3. **Desktop mailbox poller (VTES-LOCAL-POLLER): GREEN** (last run 1:11 PM ET). **Reconciler: GREEN**
+   (12:45 PM ET).
+4. **Desktop job executor (Claude Code headless, "RAMBO"): ALIVE but UNRELIABLE.**
+   - It completed Cowork's e-sign/RON research (REPLY delivered 1:13 PM ET).
+   - **It FAILED the Outlook-attachment job** (FAILED-VERIFICATION 12:54 PM, attempt 1 of 2, re-queued once).
+   - The payment pop-up job (sent 1:13 PM ET) is pending.
+5. **Cowork: UNVERIFIED.** The e-sign research was addressed to Cowork, but the desktop lane
+   (RAMBO) answered it. Nothing shows Cowork itself reading the mailbox.
+
+## Local routers: ALL DOWN
+
+1. **`127.0.0.1:4001` and `:4002` (LiteLLM self-hosted router): DOWN.**
+2. **`127.0.0.1:11434` (Ollama): DOWN.**
+3. **Today's pattern:** SOS alerts at 10:36, 11:00, 11:33, 11:41, 11:45, 12:00 and 12:54 ET, after an
+   overnight run of failures 23:32-03:33. **It has flapped 4+ separate times today.**
+4. **RI-038, a recurring issue, so patching is not allowed.**
+   - Restarting it is a Tier 1 patch. It has failed as a fix since August.
+   - **Recommended, Tier 2: remove the self-hosted LiteLLM router.** Call each provider's API directly
+     with a verified try-then-fallback order, and keep Ollama only as an optional offline backup.
+   - Tier 3, on top of that: the Token + LLM Monitor (module 05) auto-restarts Ollama and routes
+     around any dead route.
+5. **What the router outage breaks:** only the cheap local-model lane (bulk OCR summaries,
+   classification). Claude Code desktop and cloud run on Anthropic's own service, not on these
+   routes, so Jorge's main executors keep working.
+
+## Roster (target, per module 05)
+
+1. **Orchestrator: Grok** (owner directive 2026-09-23). **NOT CONNECTED YET.** No repo, Drive or email
+   access. The handoff pack was delivered to Jorge as a file (PASTE-X-007).
+2. **Backup orchestrator: Claude (Opus)**, meaning this cloud session or the next one.
+3. **Executors:** Claude Code desktop (alive, unreliable), then Codex CLI (install waiting on Jorge's
+   one sign-in, TRK-2026-9952g).
+4. **Consultants:** Claude, ChatGPT, Gemini, plus a light model (Haiku / GPT mini / Gemini Flash).
+   **None of them are wired into a shared chat yet** (module 06).
+5. **Grok key:** an unused Grok API key already exists inside the LiteLLM config (OPEN-ITEMS
+   TRK-2026-9737/9739). If LiteLLM is removed, move that key into the direct-API caller.
+
+---
+
+Can you confirm, in one word, that you have read modules 00 to 02 and 08 and are taking the orchestrator role?

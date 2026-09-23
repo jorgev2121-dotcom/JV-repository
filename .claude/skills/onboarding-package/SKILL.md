@@ -104,8 +104,8 @@ To force it on or off for one job, set `"non_disparagement": true` or `false`.
 5. Can Team USA claim a construction lien (Fla. Stat. Chapter 713) for permit
    expediting fees, or only a contract claim?
 6. Will Miami-Dade and the municipalities accept these documents with electronic
-   signatures and remote online notarization? Cowork is researching this
-   (Drive mailbox, `MSG-CLOUD-TO-COWORK_ESIGN-AND-REMOTE-NOTARY-RESEARCH_TRK-2026-9961_2026-09-23.md`).
+   signatures and remote online notarization? **Answered 2026-09-23 (mostly yes):** see
+   `ESIGN-RON-RESEARCH_2026-09-23.md` in this folder. Nine cities and Monroe County are still unconfirmed.
 
 ---
 
