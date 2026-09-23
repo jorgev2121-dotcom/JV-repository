@@ -126,6 +126,23 @@ To force it on or off for one job, set `"non_disparagement": true` or `false`.
 
 ---
 
+## Before any county form goes out for signature (lessons from TRK-2026-1667, 2026-09-23)
+
+1. **Open every file before you trust its name.** On Unit 29, two Drive files were named the
+   opposite of their content ("SHOP DRAWING APP" was the signed permit application).
+2. **Compare the new form with the last SIGNED version:** signer title, value of work, square
+   feet, units, qualifier number, owner address. Unit 29 went out with "Vice President" and $15,000
+   while the signed original said "President" and $11,500.
+3. **Florida notary only.** Eli's 9/10 signature was notarized in New Jersey, and the county rejected it.
+   A notary cannot notarize a signature made outside their presence, so "sign now, notarize later" does
+   not work. Use a Florida notary in person or online.
+4. **Look for county fee notices** ("Upfront Fee Payment Due") on the process number. An unpaid fee
+   can hold the file on its own. Paying is RED: Jorge decides.
+5. **Look for unsent drafts** in Outlook. On Unit 29, 11 job emails (including the COI request) were
+   sitting as drafts and were never sent.
+6. **The cloud cannot download email attachments.** Route "save this attachment to Drive" jobs to the
+   desktop through the Drive mailbox.
+
 ## How to run it
 
 1. Copy `examples/SAMPLE_LLC.json` to a new job file. Fill in the owner, property,
