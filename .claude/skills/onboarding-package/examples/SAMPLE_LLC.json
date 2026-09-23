@@ -1,0 +1,4 @@
+{"owner_type":"llc","owner_name":"SAMPLE HOLDINGS LLC","address":"123 Sample St","unit":"Unit 1","city_state_zip":"Miami, FL 33186","folio":"30-0000-000-0000","legal":"Sample Sub, Lot 1, Blk 1, PB 1-1",
+ "services":["Prepare and submit the building permit application and supporting documents.","Coordinate plan review comments with the design professionals and resubmit.","Schedule required inspections and track results until the permit is finaled.","Prepare the Notice of Commencement and Notice of Termination for the Owner's signature and recording."],
+ "fee_total":3000,"payment_schedule":[{"desc":"Retainer at signing","amount":1500,"due":"on signing"},{"desc":"Permit issued","amount":1000,"due":"on permit issuance"},{"desc":"Final inspection passed","amount":500,"due":"on final approval"}],
+ "invoice_no":"INV-TEST-001","trk":"TRK-TEST","date":"2026-09-23","version":1,"extra_agents":[]}
