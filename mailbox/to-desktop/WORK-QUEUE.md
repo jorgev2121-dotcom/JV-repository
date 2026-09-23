@@ -463,6 +463,23 @@ instead of landing directly. Fixing this removes that whole detour.
 
 ---
 
+## 16. TRK-2026-9952e — OWNER DIRECTIVE: PC never sleeps + line up the night runs (mid-tier, price-controlled)
+
+Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full text is
+`G:\My Drive\VTES-Inbox\MSG-CLOUD-TO-CODE_OWNER-DIRECTIVE_STAY-ON-AND-NIGHT-RUNS_TRK-2026-9952e_2026-09-23.md`
+(Drive ID 1zRQX0fCMd5ZkDgwZzpnKSfSE8j_3rNYj). In short:
+
+1. **Save the current power settings first** (that saved copy is the undo). Then run
+   `powercfg /change standby-timeout-ac 0` and `powercfg /change hibernate-timeout-ac 0`,
+   and add a daily task `CU-Keep-Awake` that re-applies them, because Windows Update resets them.
+   If admin rights are needed, report BLOCKED and stop there.
+2. **Rebuild `OVERNIGHT-QUEUE.md`** from what is really pending: OCR Queue A only, GREEN only.
+   OCR stays a plain Tesseract script with zero LLM tokens. Use `--model sonnet` only for
+   QC sampling (1 in 20) and judgment steps. Stop the LLM steps if the weekly pool drops under ~5%.
+3. **Result file** goes to VTES-Outbox with nonce `NIGHT-NONCE-OSPREY-7734-20260923` + `STARTED-BY:`.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
