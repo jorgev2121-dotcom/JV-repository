@@ -28,7 +28,7 @@ TYPES = {
         short="Company",
         intro='The undersigned, being the Manager(s)/Member(s) of {owner}, a {state} limited liability company and owner of the real property described above (the "Property"), hereby adopt the following resolution:',
         lead="RESOLVED,", who="the Company's",
-        until="This authorization remains in effect until revoked in writing by the Company.",
+        until="This authorization remains in effect for {term} from the date of its execution, unless sooner revoked in writing by the Company.",
         by="COMPANY: {owner}", title_line="Title: Manager / Managing Member",
         ack_as="as {blank} of {owner}, a {state} limited liability company, on behalf of the company,"),
     "corp": dict(
@@ -36,7 +36,7 @@ TYPES = {
         short="Corporation",
         intro='The undersigned, being the Officer(s)/Director(s) of {owner}, a {state} corporation and owner of the real property described above (the "Property"), hereby adopt the following resolution:',
         lead="RESOLVED,", who="the Corporation's",
-        until="This authorization remains in effect until revoked in writing by the Corporation.",
+        until="This authorization remains in effect for {term} from the date of its execution, unless sooner revoked in writing by the Corporation.",
         by="CORPORATION: {owner}", title_line="Title: President / Vice President / Director",
         ack_as="as {blank} of {owner}, a {state} corporation, on behalf of the corporation,"),
     "trust": dict(
@@ -44,7 +44,7 @@ TYPES = {
         short="Trust",
         intro='The undersigned, being the Trustee(s) of the {owner}, dated {trust_date}, which holds title to the real property described above (the "Property"), hereby authorize as follows:',
         lead="IT IS HEREBY AUTHORIZED", who="the Trust's",
-        until="This authorization remains in effect until revoked in writing by the Trustee(s).",
+        until="This authorization remains in effect for {term} from the date of its execution, unless sooner revoked in writing by the Trustee(s).",
         by="TRUSTEE(S) OF THE {owner}", title_line="Title: Trustee",
         ack_as="as Trustee of the {owner}, on behalf of the trust,"),
     "ladybird": dict(
@@ -52,7 +52,7 @@ TYPES = {
         short="Owner",
         intro='The undersigned, being the life tenant(s) holding an enhanced life estate (Lady Bird deed) in the real property described above (the "Property"), recorded in Official Records Book {or_book}, Page {or_page}, hereby authorize as follows:',
         lead="IT IS HEREBY AUTHORIZED", who="the undersigned's",
-        until="This authorization remains in effect until revoked in writing by the undersigned.",
+        until="This authorization remains in effect for {term} from the date of its execution, unless sooner revoked in writing by the undersigned.",
         by="LIFE TENANT(S): {owner}", title_line="Capacity: Life Tenant",
         ack_as="as life tenant,"),
 }
@@ -64,6 +64,8 @@ TYPES = {
 # violation 2025 MSword for editing v2_.docx", 4100 Palm Ave LLC, March 2025). Jorge directed
 # 2026-09-23 that this is the legal standard for entity owners.
 # ------------------------------------------------------------------------------------------
+# Default term (Jorge, 2026-09-23): one year unless the owner revokes it sooner. Override per job with "term".
+TERM = "one (1) year"
 PREPARER = ["Jorge Valdes", "Team USA Sales, Inc.", "13633 SW 142 Terrace", "Miami, Florida 33186"]
 
 def build_certificate(job, out, agents):
@@ -126,8 +128,8 @@ def build_certificate(job, out, agents):
          + [(f" to act on behalf of the {word} to execute all permit applications, plans revisions and documents on behalf "
              f"of the {word} pertaining to {matter} for the real property located at {prop}"
              + (f", and described as follows: {legal}." if legal else "."), 0)], indent=18)
-    rich([("RESOLVED,", 1), (f" that this Resolution shall continue in full force and effect until revoked in writing by the {word}, "
-           f"and may be relied upon by {agency}.", 0)])
+    rich([("RESOLVED,", 1), (f" that this Resolution shall continue in full force and effect for {job.get('term', TERM)} from the date of its execution, "
+           f"unless sooner revoked in writing by the {word}, and may be relied upon by {agency} during that period.", 0)])
     if st["y"] > 740 - 300:   # keep the execution + notary block together on one page
         st["p"] = doc.new_page(width=612, height=792); st["y"] = 60
     rich([("IN WITNESS WHEREOF,", 1), (" the undersigned has executed this Certificate this ______ day of ________________, 20____.", 0)], gap=34)
@@ -205,7 +207,7 @@ def build(job, out):
         segs += [(a["name"], 1), (f' ({a["org"]})', 0)]
     segs.append((f' {"is" if len(agents) == 1 else "are each individually"} authorized to act as {t["who"]} agent and attorney-in-fact {scope}', 0))
     rich(segs)
-    rich([(t["until"], 0)], gap=12)
+    rich([(t["until"].format(term=job.get("term", TERM)), 0)], gap=12)
     rich([(t["by"].format(**v), 1)], gap=14)
     rich([("By: " + u(46) + "     Date: " + u(18), 0)], gap=10)
     rich([("Print name: " + u(36) + "     " + t["title_line"], 0)], gap=12)

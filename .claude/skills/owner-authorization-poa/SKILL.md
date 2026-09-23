@@ -15,6 +15,11 @@ with the legal description), RESOLVED reliance clause, IN WITNESS WHEREOF, signe
 "sworn to and subscribed" notary block. No witness lines on the certificate (the attorney's
 template has none; the two-witness rule in Fla. Stat. 709.2105 applies to a power of attorney).
 Job keys for it: `signer_name`, `signer_title`, `matter`, `legal_full`, `agency`.
+
+**Default term (Jorge, 2026-09-23): valid one (1) year from execution unless the owner revokes
+it sooner in writing.** Override with `"term"`. What changes per job: the owner and owner
+type, the signer, the property, and the scope (`matter`). Preparer is always Jorge Valdes,
+Team USA Sales, Inc., 13633 SW 142 Terrace, Miami, Florida 33186.
 Trusts (TRUSTEE AUTHORIZATION) and Lady Bird life tenants (LIMITED POWER OF ATTORNEY, two
 witnesses and notary) still use the older layout until an attorney template exists for them.
 
