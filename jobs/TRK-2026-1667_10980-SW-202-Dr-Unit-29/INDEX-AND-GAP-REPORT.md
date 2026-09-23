@@ -28,6 +28,18 @@ Built 2026-09-23 by Claude Code (cloud). Status: IN PROGRESS.**
    presence (Fla. Stat. 117.107). The permit affidavit and the NOC must be signed in front of a
    Florida notary (in person or online).
 
+6. **County process C2026170181: "Upfront Fee Payment Due"**, emailed five times, one a day from 9/18 to
+   9/22. An unpaid upfront fee can hold the file on its own. Payment is Jorge's (RED).
+7. **Email harvest (helper agent, 2026-09-23):** 38 job emails, 11 of them unsent DRAFTS (including the
+   9/23 "Re-Work" to Cinde, the 9/3 COI request and the 9/5 EIN follow-up). Cinde read the 9/21 request
+   at 7:42 AM on 9/21 and has not replied. The county's written reviewer comments are the attachment
+   `C2026170181 ... Reviewer comments.pdf` on Jorge's 9/21 email. The signed scan `3225_001.pdf` came
+   from Alexis Lamela (9/11 → Cinde → Miguel → Jorge, 9/14). Neither can be downloaded by the cloud;
+   **the desktop has been asked to save both** (Drive mailbox
+   `MSG-CLOUD-TO-CODE_SAVE-2-OUTLOOK-ATTACHMENTS-UNIT-29_TRK-2026-1667_2026-09-23.md`). Full index on
+   Drive: `2026-09-23 _ TRK-2026-1667 _ Correspondence-Index _ All-Emails-and-Attachments _ v1.md`
+   (id 19W7OdRY91RzjpwcYvLRHOV2hsSipgjHb).
+
 ## Section B - What is in the Complete Folder (copies)
 
 **02-County-Permit-Application-NOC-NOT**
@@ -86,8 +98,8 @@ folder 07 is pending.** Each sidecar carries the TRK footer and the hashtags.
 1. **Sunbiz record** for 10960 SW 200TH AVENUE LLC: status ACTIVE, and whether Eli is President or VP.
    Blocked in the cloud; desktop or domain allow-list needed.
 2. **Eli's driver's license** copy (requested in today's email).
-3. **Certificate of Insurance.** Requested from Miguel 2026-09-03; not found on Drive.
-4. **Executed MZ Solutions proposal.** Only the unsigned 2026-08-28 revision is on file.
+3. **Certificate of Insurance for this property.** The 9/3 request to Miguel was **never sent** (it is still a draft). Only a generic MZ COI from 7/28 exists, with Miami-Dade County as holder.
+4. **Executed MZ Solutions proposal.** Miguel asked Cinde to sign it on 8/28; there has been no reply.
 5. **County rejection notice** for UP26075409: the written notice is not on Drive (the harvest agent is checking).
 6. **Signed and notarized re-work documents** from Cinde: not received yet.
 7. **Recorded NOC** (Clerk book and page): not yet; the permit is not issued.
