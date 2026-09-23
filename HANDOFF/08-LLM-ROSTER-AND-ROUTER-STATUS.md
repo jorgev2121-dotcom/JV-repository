@@ -49,3 +49,6 @@ _UPTIME-HEARTBEAT.md), `HEARTBEAT-ROSTER.json`, `../RECURRING-ISSUES.md` RI-038.
    **None of them are wired into a shared chat yet** (module 06).
 5. **Grok key:** an unused Grok API key already exists inside the LiteLLM config (OPEN-ITEMS
    TRK-2026-9737/9739). If LiteLLM is removed, move that key into the direct-API caller.
+
+
+**Check-in 2026-09-23 18:52 UTC:** the desktop mailbox is still acknowledging jobs (ACKs at 17:58), but it has not finished them. SAVE-2 v2 and PAYMENT-POPUP ADDENDUM-01 have no EXECUTED_ or BLOCKER_ yet. The new PLAZA-ETRAKIT-RESCRAPE job (TRK-2026-1265) was queued at 18:51. The status is the same: alive but unreliable.
