@@ -95,3 +95,4 @@ enough to identify it exactly, with no description needed.
 - **PASTE-D-052** · 2026-09-23 · Desktop → type `/remote-control` once so the session can be driven from the iPhone Claude app and messaged by cloud; then do PASTE-D-051 (TRK-2026-9952d).
 - **PASTE-D-053** · 2026-09-23 · Desktop (Jorge-PC, opened from the iPhone Claude app → Code) → execute the 3 MSG-CLOUD-TO-CODE jobs in Drive VTES-Inbox (TRK-2026-9952d/e/g).
 - **PASTE-D-054** · 2026-09-23 · Desktop (Jorge-PC via the iPhone Claude app → Code). Supersedes D-053: run the 4 MSG-CLOUD-TO-CODE jobs in Drive VTES-Inbox (TRK-2026-9952d, e, g, i). Item i: turn the 09-22 LiteLLM revival into a skill and a protocol step, and repeat it.
+- **PASTE-D-055** · 2026-09-23 · Desktop (Jorge-PC via the iPhone Claude app → Code) → run the 4 `*_v2.md` jobs in Drive VTES-Inbox directly (the executor has been idle since 05:53 UTC), and say why the executor stalled. Supersedes D-054.
