@@ -151,29 +151,30 @@ def build_certificate(job, out, agents):
     if st["p"].number == 0 and st["y"] < 792 * 0.75:
         print(f"NOTE: page 1 text ends at {st['y']/792:.0%} of the page (target: at least 75%)")
 
-    # ---- page 2: IN WITNESS + execution + notary, generous spacing
-    newpage()
-    rich([("IN WITNESS WHEREOF,", 1), (" the undersigned has executed this Certificate this ______ day of ____________________, 20____.", 0)], gap=50)
+    # ---- page 2: IN WITNESS + execution + notary, generous spacing; 1.5-inch top margin (Jorge, 2026-09-23)
+    newpage(); st["y"] = 108 + 12
+    rich([("IN WITNESS WHEREOF,", 1), (" the undersigned has executed this Certificate this ______ day of ____________________, 20____.", 0)], gap=38)
     rich([("_" * 44, 0)], gap=2, justify=False)
     rich([(signer or "Print name: " + "_" * 30, 1 if signer else 0)], gap=0, justify=False, lh=1.3)
-    rich([(f"{title}, {owner}", 0)], gap=30, justify=False)
-    rich([("Signed in the presence of:", 1)], gap=26, justify=False)
+    rich([(f"{title}, {owner}", 0)], gap=20, justify=False)
+    rich([("Signed in the presence of:", 1)], gap=22, justify=False)
     for n in (1, 2):
         for x_, lab in ((X0, f"Witness {n} signature"), (X0 + 250, f"Witness {n} printed name")):
             st["p"].draw_line(f.Point(x_, st["y"]), f.Point(x_ + 218, st["y"]), width=0.6)
             st["p"].insert_text((x_, st["y"] + 12), lab, fontname=REG, fontsize=10)
         st["y"] += 26
-        rich([("Address: " + "_" * 62, 0)], 10, gap=24, justify=False)
+        rich([("Address: " + "_" * 62, 0)], 10, gap=16, justify=False)
     rich([("STATE OF FLORIDA", 1)], gap=0, justify=False, lh=1.3)
     rich([("COUNTY OF " + ("_" * 22), 1)], gap=14, justify=False)
     rich([("The foregoing instrument was sworn to and subscribed before me via [] physical presence or via [] online "
            "notarization, this ______ day of ____________________, 20____, by ", 0), (who, 1),
-          (f", as {title} of {owner}, who [] is personally known to me or [] has produced ______________________ as identification.", 0)], gap=46)
+          (f", as {title} of {owner}, who is personally known to me or has produced ______________________ as identification.", 0)], gap=38)
     rich([("_" * 44, 0)], gap=2, justify=False)
-    rich([("Notary Public, State of Florida", 0)], gap=14, justify=False, lh=1.3)
-    rich([("Printed Name: " + "_" * 30, 0)], gap=14, justify=False)
-    rich([("Commission No.: " + "_" * 16 + "     Commission Expires: " + "_" * 16, 0)], gap=14, justify=False)
+    rich([("Notary Public, State of Florida", 0)], gap=8, justify=False, lh=1.3)
+    rich([("Printed Name: " + "_" * 30, 0)], gap=8, justify=False)
+    rich([("Commission No.: " + "_" * 16 + "     Commission Expires: " + "_" * 16, 0)], gap=8, justify=False)
     rich([("(NOTARY SEAL)", 0)], gap=0, justify=False)
+    if len(doc) != 2: raise SystemExit(f"LAYOUT: certificate must be exactly 2 pages, got {len(doc)}")
     return doc, st["p"]
 
 def build(job, out):

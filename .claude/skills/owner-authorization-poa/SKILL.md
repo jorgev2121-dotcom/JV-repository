@@ -12,11 +12,16 @@ v2_.docx`, 4100 Palm Ave LLC, March 2025). `make_poa.py` reproduces its structur
 "This Instrument Prepared by" block, certifications 1-4 (good standing, signer's office,
 appointment to represent at hearings, appointment to execute permit applications and documents,
 with the legal description), RESOLVED reliance clause, IN WITNESS WHEREOF, signer block, and the
-"sworn to and subscribed" notary block. **Two witness rows are required (Jorge, 2026-09-23)**, each with signature, printed name and
-address, under the signer. **Every check box is a drawn square box, never typed brackets**,
-before "physical presence", "online notarization", "personally known" and "has produced"
+"sworn to and subscribed" notary block. **MASTER TEMPLATE, locked 2026-09-23: `examples/TRK-2026-1667_LLC.json` -> v8.** Do not change
+its structure, wording or layout without Jorge's say-so.
+
+**Two witness rows are required (Jorge, 2026-09-23)**, each with signature, printed name and
+address, under the signer. **Every check box is a drawn square box, never typed brackets.** On the certificate there are
+exactly two, before "physical presence" and "online notarization"; do not add boxes before
+"personally known" or "has produced"
 (Jorge, 2026-09-23; applies to every generated document). The heading is 18 pt heavy bold.
-Job keys for it: `signer_name`, `signer_title`, `matter`, `legal_full`, `agency`.
+**Signer names come from the `sunbiz-signer-check` skill** (or the client's answer to its
+email). Job keys for it: `signer_name`, `signer_title`, `matter`, `legal_full`, `agency`.
 
 **Layout (Jorge, 2026-09-23):** Times serif like attorney documents, justified, 12 pt with
 1.5 line spacing; page 1 at least three-quarters full; "Page X of Y" centered on every page;
