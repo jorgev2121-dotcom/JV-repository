@@ -28,7 +28,7 @@ Built 2026-09-23 by Claude Code (cloud). Status: IN PROGRESS.**
    presence (Fla. Stat. 117.107). The permit affidavit and the NOC must be signed in front of a
    Florida notary (in person or online).
 
-6. **County process C2026170181: "Upfront Fee Payment Due"**, emailed five times, one a day from 9/18 to
+6. **County process (C number) C2026170181: "Upfront Fee Payment Due"** (now shown on the payment pop-up, TopMost, 2026-09-23 18:54 UTC), emailed five times, one a day from 9/18 to
    9/22. An unpaid upfront fee can hold the file on its own. Payment is Jorge's (RED). **2026-09-23:** the desktop was
    asked to pop up the payment page on Jorge's screen (`MSG-CLOUD-TO-CODE_PAYMENT-POPUP-...`).
    Jorge: the re-sign email already went out as written ("it is what it is").

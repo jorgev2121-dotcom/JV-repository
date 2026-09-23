@@ -512,6 +512,14 @@ invoices, renewals) is brought to Jorge as a **pop-up window on his PC**, with t
 already open and the amount, payee, reference number and due date shown. **Jorge presses Pay. No AI
 ever pays**, because spending is RED. Because the pop-up depends on the desktop executor being up,
 every pending payment also goes in the daily summary until it is paid.
+**Added 2026-09-23:**
+
+1. **The pop-up always comes to the front.** It opens on top of every other window and stays there
+   until Jorge closes it.
+2. **County fees show the county process number (the "C number", e.g. `C2026170181`) in large type,
+   with a Copy button, plus the property address and TRK.** The county payment page asks for it.
+
+Full protocol: `.claude/skills/payment-popup/SKILL.md`.
 
 ### Article 6 — Build order (was the thaw order; active now that Article 1 is repealed)
 
