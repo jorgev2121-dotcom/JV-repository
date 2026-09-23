@@ -91,6 +91,9 @@ def working_paper(d, url, fetched, outdir, trk):
         doc.rich([(s["name"], 1), (f"  -  {s['title']} ({', '.join(s['title_codes'])})", 0)], gap=1)
         if s["address"]: doc.rich("      " + " | ".join(s["address"]), 9, gap=5)
     if not d["signers"]: doc.rich("None listed.")
+    mr = d.get("most_recent_filing", {}).get("annual_report")
+    doc.heading("MOST RECENT FILING (titles above are taken from it)")
+    doc.rich((f"Annual report {mr['year']}, filed {mr['filed']}" if mr else "No annual report listed") + (f"; last event: {d['last_event']}" if d["last_event"] else ""))
     doc.heading("ANNUAL REPORTS")
     doc.rich(", ".join(f"{a['year']} (filed {a['filed']})" for a in d["annual_reports"]) or "None listed.")
     if d["principal_address"]: doc.heading("PRINCIPAL ADDRESS"); doc.rich(" | ".join(d["principal_address"]))
@@ -124,6 +127,10 @@ def main():
     os.makedirs(outdir, exist_ok=True)
     open(os.path.join(outdir, "sunbiz_detail.html"), "w", encoding="utf-8").write(h)
     d = parse_detail(h); d.update(source_url=url, fetched=fetched)
+    # Title rule (Jorge 2026-09-23): the most recent filing wins. Record which filing that is.
+    reps = sorted(d["annual_reports"], key=lambda a: (a["year"], a["filed"][-4:], a["filed"]))
+    d["most_recent_filing"] = {"annual_report": reps[-1] if reps else None, "last_event": d["last_event"],
+                               "rule": "Use signer titles exactly as listed on this most recent filing."}
     json.dump(d, open(os.path.join(outdir, "sunbiz.json"), "w"), indent=2)
     wp = working_paper(d, url, fetched, outdir, trk)
     print(f"{d['name']} | {d['document_number']} | STATUS {d['status']} | {len(d['signers'])} signer(s)")

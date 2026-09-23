@@ -45,6 +45,19 @@ Run it before `owner-authorization-poa` or `onboarding-package`. Its result fill
 6. When the client answers, put the chosen name and title in `job.json` and build the
    documents.
 
+## Title rule: the most recent filing wins (Jorge, 2026-09-23)
+
+1. **Take the signer's title from the most recent Sunbiz filing**: the latest annual report or
+   amendment. The officer/manager section of the live detail page reflects that filing. The lookup
+   records the latest annual report year and date and the "Last Event" in `sunbiz.json` and on the
+   working paper.
+2. **Apply that exact title on every document**: the permit application, NOC, resolution and
+   onboarding package. Write the title in words ("President", "Manager", "Authorized Member").
+3. **If an earlier signed document, a client email or our own form shows a different title, the latest
+   Sunbiz filing wins.** Flag the difference to Jorge before anything goes out for signature.
+4. **Why:** on Unit 29 (TRK-2026-1667) Eli Bleeman signed on 9/10 as "President", but the re-sign
+   package of 9/23 went out saying "Vice President". Nobody had checked Sunbiz.
+
 ## Trusts and other non-Sunbiz owners
 
 **Ordinary trusts are not registered on Sunbiz.** Ask the client for a **Certification of

@@ -29,7 +29,9 @@ Built 2026-09-23 by Claude Code (cloud). Status: IN PROGRESS.**
    Florida notary (in person or online).
 
 6. **County process C2026170181: "Upfront Fee Payment Due"**, emailed five times, one a day from 9/18 to
-   9/22. An unpaid upfront fee can hold the file on its own. Payment is Jorge's (RED).
+   9/22. An unpaid upfront fee can hold the file on its own. Payment is Jorge's (RED). **2026-09-23:** the desktop was
+   asked to pop up the payment page on Jorge's screen (`MSG-CLOUD-TO-CODE_PAYMENT-POPUP-...`).
+   Jorge: the re-sign email already went out as written ("it is what it is").
 7. **Email harvest (helper agent, 2026-09-23):** 38 job emails, 11 of them unsent DRAFTS (including the
    9/23 "Re-Work" to Cinde, the 9/3 COI request and the 9/5 EIN follow-up). Cinde read the 9/21 request
    at 7:42 AM on 9/21 and has not replied. The county's written reviewer comments are the attachment

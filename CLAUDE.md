@@ -507,6 +507,12 @@ Payment cards show **nickname + last-4 only**; full numbers never written to any
 **Live bank-balance display was declined as a risk** — a "last-known balance" line the
 owner updates by voice, stamped with its date, is the substitute.
 
+**Payment pop-ups (owner directive, 2026-09-23).** Every payment that comes due (county fees,
+invoices, renewals) is brought to Jorge as a **pop-up window on his PC**, with the payment page
+already open and the amount, payee, reference number and due date shown. **Jorge presses Pay. No AI
+ever pays**, because spending is RED. Because the pop-up depends on the desktop executor being up,
+every pending payment also goes in the daily summary until it is paid.
+
 ### Article 6 — Build order (was the thaw order; active now that Article 1 is repealed)
 
 `JOB-0082` one-click relay → `JOB-0084`/`0084-A` SCOREKEEPER → `JOB-0086`

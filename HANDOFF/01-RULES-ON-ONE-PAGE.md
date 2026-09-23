@@ -24,4 +24,6 @@ operation. He has ADHD and dyslexia, dictates, and listens to replies through te
    there and is not 0 KB (RI-048).
 10. **Label paste blocks** `PASTE-D/C/X-NNN` (logged in `../PASTE-LOG.md`), one block per window.
     Label sections A, B, C.
-11. **Write results to files as you go.** Nothing lives only in a chat.
+11. **Payments pop up** on Jorge's PC with the payment page open. He presses Pay; no AI ever pays (CLAUDE.md §12 Art. 5).
+12. **Sunbiz titles: the most recent filing wins.** Use that exact title on every document.
+13. **Write results to files as you go.** Nothing lives only in a chat.
