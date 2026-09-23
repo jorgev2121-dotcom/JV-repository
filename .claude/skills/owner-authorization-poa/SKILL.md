@@ -3,7 +3,14 @@ name: owner-authorization-poa
 description: Build the Owner Authorization / Limited Power of Attorney (corporate resolution) that goes in a permit package whenever the property owner is NOT a plain individual - an LLC, a corporation (Inc.), a trust, or a Lady Bird deed (enhanced life estate). Also says which documents an agent or attorney-in-fact may and may not sign. Use whenever a permit, Notice of Commencement, or county matter involves an entity or trust owner, or whenever someone asks for "the resolution", "the POA", or "the authorization letter".
 ---
 
-# Owner Authorization / Limited Power of Attorney
+# Owner Authorization: Corporate Resolution / Limited Power of Attorney
+
+**Heading rule (Jorge, 2026-09-23):** an LLC's document is titled **CORPORATE / COMPANY
+RESOLUTION**; a corporation's is **CORPORATE RESOLUTION**. Do not add "and Limited
+Power of Attorney" to those headings. Both keep the wording of the approved original
+(TRK-2026-1310, 2026-07-05), including its "Sworn to (or affirmed) and subscribed"
+notary block. Trusts use TRUSTEE AUTHORIZATION; a Lady Bird deed life tenant, who is
+an individual and cannot pass a resolution, uses LIMITED POWER OF ATTORNEY.
 
 **Tracking: TRK-2026-1667 (first approved use, 2026-09-23). Recurring document, part of the permit package.**
 

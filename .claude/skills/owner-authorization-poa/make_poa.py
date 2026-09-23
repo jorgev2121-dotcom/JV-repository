@@ -24,7 +24,7 @@ DEFAULT_AGENTS = {"jade": {"name": "JADE DE ARMAS", "org": "Team USA Sales, Inc.
 # Wording per owner type. {owner} = owner name exactly as on the deed/Sunbiz.
 TYPES = {
     "llc": dict(
-        title=["CORPORATE / COMPANY RESOLUTION", "AND LIMITED POWER OF ATTORNEY"],
+        title=["CORPORATE / COMPANY RESOLUTION"], notary="jurat",
         short="Company",
         intro='The undersigned, being the Manager(s)/Member(s) of {owner}, a {state} limited liability company and owner of the real property described above (the "Property"), hereby adopt the following resolution:',
         lead="RESOLVED,", who="the Company's",
@@ -32,7 +32,7 @@ TYPES = {
         by="COMPANY: {owner}", title_line="Title: Manager / Managing Member",
         ack_as="as {blank} of {owner}, a {state} limited liability company, on behalf of the company,"),
     "corp": dict(
-        title=["CORPORATE RESOLUTION", "AND LIMITED POWER OF ATTORNEY"],
+        title=["CORPORATE RESOLUTION"], notary="jurat",
         short="Corporation",
         intro='The undersigned, being the Officer(s)/Director(s) of {owner}, a {state} corporation and owner of the real property described above (the "Property"), hereby adopt the following resolution:',
         lead="RESOLVED,", who="the Corporation's",
@@ -125,19 +125,27 @@ def build(job, out):
     for n in (1, 2):
         rich([(f"Witness {n}: " + u(32) + "   Print: " + u(32), 0)], gap=5)
         rich([("Address: " + u(76), 0)], gap=12)
-    rich([("STATE OF FLORIDA, COUNTY OF ", 1), (u(24), 0)], gap=8)
-    rich([("The foregoing instrument was acknowledged before me by means of [] physical presence or [] online "
-           "notarization, this " + u(5) + " day of " + u(15) + ", 20" + u(4) + ", by " + u(28) + ", "
-           + t["ack_as"].format(**v) + " who is [] personally known to me or [] has produced " + u(22)
-           + " as identification.", 0)], gap=22)
+    if t.get("notary") == "jurat":
+        # Wording of the approved original resolution (TRK-2026-1310, 2026-07-05), kept as Jorge directed 2026-09-23.
+        rich([("STATE OF " + u(18) + ", COUNTY OF " + u(18), 0)], gap=8)
+        rich([("Sworn to (or affirmed) and subscribed before me by means of [] physical presence [] online notarization, this "
+               + u(6) + " day of " + u(16) + ", 20" + u(4) + ", by " + u(28) + ", who is [] personally known to me or [] produced "
+               + u(22) + " as identification.", 0)], gap=22)
+    else:
+        rich([("STATE OF FLORIDA, COUNTY OF ", 1), (u(24), 0)], gap=8)
+        rich([("The foregoing instrument was acknowledged before me by means of [] physical presence or [] online "
+               "notarization, this " + u(5) + " day of " + u(15) + ", 20" + u(4) + ", by " + u(28) + ", "
+               + t["ack_as"].format(**v) + " who is [] personally known to me or [] has produced " + u(22)
+               + " as identification.", 0)], gap=22)
     rich([(u(44) + "   (SEAL)", 0)], gap=0)
     rich([("Notary Public - State of Florida", 0)], gap=0)
     rich([("Print name: " + u(28) + "   My commission expires: " + u(16), 0)])
     if st["y"] > 760: raise SystemExit(f"LAYOUT OVERFLOW: text ends at y={st['y']:.0f} (> 760). Shorten scope/legal.")
 
-    stamp = f'{job["trk"]} | Owner Authorization & Limited Power of Attorney | {job["address"]}{unit} | Folio {job["folio"]} | v{job.get("version", 1)} | {job["date"]}'
+    docname = " ".join(t["title"]).title().replace(" / ", "/")
+    stamp = f'{job["trk"]} | {docname} | {job["address"]}{unit} | Folio {job["folio"]} | v{job.get("version", 1)} | {job["date"]}'
     p.insert_text((54, 772), stamp, fontname="helv", fontsize=6.5)
-    doc.set_metadata({"title": f'Limited Power of Attorney - {job["owner_name"]} - {job["address"]}{unit}',
+    doc.set_metadata({"title": f'{docname} - {job["owner_name"]} - {job["address"]}{unit}',
                       "keywords": f'{job["trk"]} Folio {job["folio"]}'})
     doc.save(out, garbage=4, deflate=True, clean=True)
 
