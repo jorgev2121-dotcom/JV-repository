@@ -2028,6 +2028,14 @@ the next session doesn't spend another owner-directive cycle "reviving" the same
 time.** Not woken Jorge over this — no deadline or client data was at risk, and a sibling session
 already had it in hand; going in the morning report instead.
 
+**RI-038 recurrence 2026-09-23 10:36–11:00 AM ET — third flap window the same day, now in business
+hours (TRK-2026-9954).** `SOS-LLM_PRIMARY-DOWN` at 10:36 (`:4001`/`:4002` down, Ollama `:11434` still
+up, watchdog auto-switched traffic) then `SOS-LLM_ALL-DOWN` at 11:00 (all three local routes down,
+including the Ollama fallback that caught the prior two windows). Read via VTES-Outbox, not
+TO-CLOUD.md. No new fix attempted — the router's retry budget for automated revival was already
+exhausted this same day (see above), and Tier 2 stands unchanged. Flagging purely so the denominator
+is honest: this is flap #3 in under 12 hours, not a fresh incident.
+
 
 ---
 **RI-042 · 2026-08-26 — Address normalization: the trailing "1"/"2" and duplicated street numbers are the COUNTY'S own register text, not pipeline corruption.** 687 of 708 failures were already queried character-identical to the Unsafe Structures Report. The county's search box refuses the shape its own export publishes. Fix is the variant ladder (9765b), not verbatim re-query and not folio. (Source: desktop TRK-2026-9818.)
