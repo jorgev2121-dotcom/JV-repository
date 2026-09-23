@@ -5,12 +5,18 @@ description: Build the Owner Authorization / Limited Power of Attorney (corporat
 
 # Owner Authorization: Corporate Resolution / Limited Power of Attorney
 
-**Heading rule (Jorge, 2026-09-23):** an LLC's document is titled **CORPORATE / COMPANY
-RESOLUTION**; a corporation's is **CORPORATE RESOLUTION**. Do not add "and Limited
-Power of Attorney" to those headings. Both keep the wording of the approved original
-(TRK-2026-1310, 2026-07-05), including its "Sworn to (or affirmed) and subscribed"
-notary block. Trusts use TRUSTEE AUTHORIZATION; a Lady Bird deed life tenant, who is
-an individual and cannot pass a resolution, uses LIMITED POWER OF ATTORNEY.
+**Legal standard for LLCs and corporations (Jorge, 2026-09-23):** use the attorney-prepared
+**CERTIFICATE OF COMPANY RESOLUTION** template by Jacqueline R. Hernandez-Valdes, Esq.
+(OneDrive: `Attachments/Template POA for LLC Resolution violation 2025 MSword for editing
+v2_.docx`, 4100 Palm Ave LLC, March 2025). `make_poa.py` reproduces its structure and wording:
+"This Instrument Prepared by" block, certifications 1-4 (good standing, signer's office,
+appointment to represent at hearings, appointment to execute permit applications and documents,
+with the legal description), RESOLVED reliance clause, IN WITNESS WHEREOF, signer block, and the
+"sworn to and subscribed" notary block. No witness lines on the certificate (the attorney's
+template has none; the two-witness rule in Fla. Stat. 709.2105 applies to a power of attorney).
+Job keys for it: `signer_name`, `signer_title`, `matter`, `legal_full`, `agency`.
+Trusts (TRUSTEE AUTHORIZATION) and Lady Bird life tenants (LIMITED POWER OF ATTORNEY, two
+witnesses and notary) still use the older layout until an attorney template exists for them.
 
 **Tracking: TRK-2026-1667 (first approved use, 2026-09-23). Recurring document, part of the permit package.**
 
