@@ -413,6 +413,23 @@ checked Claude's own number himself** (see `LLM-USAGE-INVENTORY.md`, filled in):
 ~10am tomorrow at the current rate. That part of item 14 is done — focus the rest of this
 pass on ChatGPT/Gemini/Grok/Copilot.
 
+**Addendum 2, 2026-09-23 (TRK-2026-9952d), Jorge direct — the tokens-to-dollars button.**
+Jorge asked for an on-demand report that turns tokens into dollars. The only tool that
+does this for real is **`ccusage`**, a free read-only tool that reads Claude Code's own
+log files on this PC (`~/.claude/projects`) and prints tokens and what they would cost
+at API list price. It needs no login, sends nothing out and changes nothing. GREEN.
+
+1. In PowerShell run: `npx ccusage@latest monthly` then `npx ccusage@latest daily --since 20260901`.
+2. Paste both outputs, unedited, into `TO-CLOUD.md` under the heading `TRK-2026-9952d`.
+3. If `npx` is missing, say "npx not installed" and stop. Do not install Node for this.
+4. If it works, make a desktop shortcut called **"LLM Usage Report"** that runs command 1
+   and pauses so he can read the result. That shortcut is the button. It only
+   launches, so it is not storage.
+
+**Say it plainly in the report:** these dollars are *what the tokens would have cost on
+the API*. They are not what Jorge paid, because Max 20 is a flat $200/month. They show
+whether the subscription is paying for itself.
+
 ---
 
 ## 15. TRK-2026-9082 — Repair the broken git push (this is "the communication" Jorge means)
@@ -443,6 +460,23 @@ instead of landing directly. Fixing this removes that whole detour.
    standard RI-002 already demands for every claimed fix in this repo.
 6. **Report the outcome in `TO-CLOUD.md`** either way — fixed-and-proven, or exactly which
    step needs Jorge's one click, with the smallest possible ask spelled out.
+
+---
+
+## 16. TRK-2026-9952e — OWNER DIRECTIVE: PC never sleeps + line up the night runs (mid-tier, price-controlled)
+
+Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full text is
+`G:\My Drive\VTES-Inbox\MSG-CLOUD-TO-CODE_OWNER-DIRECTIVE_STAY-ON-AND-NIGHT-RUNS_TRK-2026-9952e_2026-09-23.md`
+(Drive ID 1zRQX0fCMd5ZkDgwZzpnKSfSE8j_3rNYj). In short:
+
+1. **Save the current power settings first** (that saved copy is the undo). Then run
+   `powercfg /change standby-timeout-ac 0` and `powercfg /change hibernate-timeout-ac 0`,
+   and add a daily task `CU-Keep-Awake` that re-applies them, because Windows Update resets them.
+   If admin rights are needed, report BLOCKED and stop there.
+2. **Rebuild `OVERNIGHT-QUEUE.md`** from what is really pending: OCR Queue A only, GREEN only.
+   OCR stays a plain Tesseract script with zero LLM tokens. Use `--model sonnet` only for
+   QC sampling (1 in 20) and judgment steps. Stop the LLM steps if the weekly pool drops under ~5%.
+3. **Result file** goes to VTES-Outbox with nonce `NIGHT-NONCE-OSPREY-7734-20260923` + `STARTED-BY:`.
 
 ---
 
