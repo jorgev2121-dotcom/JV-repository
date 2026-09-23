@@ -14,5 +14,6 @@ The state lives in these files, not in any agent's memory. That is what makes th
 **Sending a job to the PC through Drive (`VTES-Inbox\MSG-CLOUD-TO-CODE_*.md`)?** The PC's headless executor
 accepts only two exit files: `VTES-Outbox\EXECUTED_<exact job filename>` or `VTES-Outbox\BLOCKER_<exact job filename>`.
 Any other name counts as FAILED-VERIFICATION (TRK-2026-9952l). Always put that exit contract in the job.
+The executor is headless, so nobody can answer a prompt: use `npx --yes`, never plain `npx`, and put a timeout on every command (TRK-2026-9952d v3).
 
 #TRK-2026-9952f
