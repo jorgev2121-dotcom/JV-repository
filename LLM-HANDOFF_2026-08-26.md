@@ -2,6 +2,10 @@
 **Owner: Jorge Valdes · Team USA Sales, Inc. / CU Inspections of South Florida**
 **Handed off 2026-08-26 · Reason: Claude weekly limit hit (99%). Paste this whole file into the next LLM. #handoff #JorgeValdes**
 
+> **⚠ 2026-09-23 note (TRK-2026-9952f): parts of this brief are frozen at 2026-08-26.** The rules in sections 1–2 still hold.
+> **For CURRENT state, do not trust this file.** Read `OPEN-ITEMS.md` (bottom rows = newest) and `mailbox/to-desktop/WORK-QUEUE.md`.
+> Cloud↔desktop traffic now also runs through Google Drive `VTES-Inbox` (`MSG-CLOUD-TO-CODE_*.md`) → `VTES-Outbox` (`RESULT_*.md`).
+
 ---
 
 ## 1. WHO YOU ARE WORKING FOR (read first)

@@ -445,18 +445,22 @@ brakes.**
 Code DESKTOP, Code CLOUD, Cowork and Chat — this session included. It outranks
 everything below it in this file where they conflict.**
 
-### Article 1 — Ratification freeze. THIS BINDS CLOUD.
+### Article 1 — Ratification freeze. **REPEALED 2026-09-23 by owner directive.**
 
-> *"No new systems, agents, or protocols are built until the JOB-0079 pilot loop
-> (headless scheduled execution + deterministic no-AI verifier) shows THREE verified
-> successes. New ideas are logged to the register and parked."*
+> Jorge, 2026-09-23 (iPhone): *"Owners directive permanently delete the three proof rule,
+> execute the proposed immediately."*
 
-**Stop building. Log and park.** A new idea goes into `OPEN-ITEMS.md` with status
-`PARKED — FREEZE`, and no further work is done on it.
+**The three-proof freeze is gone, permanently. Do not reinstate it, and do not park new
+work with `PARKED — FREEZE`.** Items already parked under it are now normal backlog,
+pulled by scorecard priority.
 
-**Cloud built several things on 2026-08-15/16 before this directive existed.** Those
-stay, but nothing further is added. **Writing more documents is not progress and is
-now explicitly forbidden.**
+**What still stands, and is not part of the repeal:** Rule 2 (DONE needs verification
+output), Article 3's "finish = artifact proof", GREEN/RED, and the recurrence rule.
+The freeze was a brake on *starting* things. The proof rules are a brake on *claiming*
+things, and they remain.
+
+History: the freeze was ratified 2026-08-16 (TRK-2026-9121). At repeal, the JOB-0079
+pilot stood at 1 of 3 verified successes. Repeal recorded as TRK-2026-9952g.
 
 ### Article 2 — The one exemption: WALLY. Priority Zero.
 
@@ -496,7 +500,7 @@ Payment cards show **nickname + last-4 only**; full numbers never written to any
 **Live bank-balance display was declined as a risk** — a "last-known balance" line the
 owner updates by voice, stamped with its date, is the substitute.
 
-### Article 6 — Thaw order, after the pilot proves
+### Article 6 — Build order (was the thaw order; active now that Article 1 is repealed)
 
 `JOB-0082` one-click relay → `JOB-0084`/`0084-A` SCOREKEEPER → `JOB-0086`
 LIBRARIAN-RND → `JOB-0085` dictation → retro sweeps → the rest by scorecard priority.

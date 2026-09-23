@@ -273,6 +273,24 @@ stamped `2026-08-16 20:37:00 UTC`; Drive records the file as modified `00:28 UTC
 Roughly twenty hours in the future. **Timestamps in desktop reports are not evidence
 of when work happened** — use the file's own modified time.
 
+**RECURRENCE 2026-09-22, overnight — the RAMBO heartbeat itself went quiet, silently.**
+`TO-CLOUD.md` and its `.bak-YYYYMMDD-HHMM` snapshots had been landing every ~15-20 min
+all evening (last one **19:31 UTC**, matching the main file's `modifiedTime` of
+**19:34:08 UTC**). Two consecutive hourly cloud checks (21:05, 22:05 UTC) found the
+same timestamp — **~2.5 hours with zero growth**, well past the charter's own "alive
+but not growing for three cycles means hung" bar (§11.3), measured against RAMBO's
+normal ~15-min cadence rather than cloud's 1-hour poll. No error, no stale-flag, no
+self-report of any kind — the log simply stopped, exactly the RI-002 shape ("a process
+in the task list is not a run making progress" is not visible from inside the process).
+Cloud cannot see Task Manager or restart anything on Jorge's machine — this is
+IMPOSSIBLE from here, not merely hard. **Not escalated tonight**: no deadline is at
+risk in the next several hours, and the standing overnight rule is stay silent unless
+something is time-sensitive. Flagged for the morning report instead: check whether the
+desktop machine slept, rebooted (Windows Update is a common cause), or RAMBO's host
+process died, and restart it. TRK-2026-9946 covers the sibling finding that the hourly
+trigger's own fallback work list is stale — this is the same "nobody is watching the
+watcher" failure mode in a different component.
+
 ---
 
 ## RI-003 — Upward delegation of technical work
@@ -2109,3 +2127,8 @@ level" — the desktop executor has not yet reported on D-034, so cloud also gav
 the three direct clicks himself (Outlook kill, Word "Sign in another way," 9Router
 `123456` typed by hand) rather than leave him waiting on an executor that is not
 answering.
+
+---
+**RI-047 · 2026-09-20 — Outlook auto-relaunches itself within seconds of being killed, via COM/DCOM activation, and the resource-exhaustion dialog comes back with it.** Downstream of the same OD-107/1Password chain (RI-046) but a distinct mechanism worth its own number — the desktop's own Drive-side recurring-issues copy independently logged this as "RI-046" too, a genuine numbering collision across the two copies (worth knowing: at least 4 different RECURRING-ISSUES.md copies exist — this repo's, the Drive-side one, `00-CONTINUITY-BOARD`, and `Shared Folders for all LLMs` — and they can drift out of sync on numbering). **What was found:** killing Outlook gets a replacement process back in 2-4 seconds, command line `-Embedding` (COM-launched, not a direct relaunch), parent PID is `svchost.exe` — something is calling `Outlook.Application` via COM and winning the race against even a manual `/safe`-mode launch. The known auto-launch scripts on disk were ruled out (one explicitly skips the COM call when Outlook isn't running; the other's own log shows no activity today). Root cause still unidentified. **Second cycle in a row hitting the same wall: fixing it needs `Stop-Service WSearch`, which needs admin rights the desktop session doesn't have.** Per Rule 4, two Tier-1-only attempts (kill + relaunch) in a row means the next step can't be a third kill-and-relaunch. **Needs one of: (1) an elevated session runs `Stop-Service WSearch`, or (2) Jorge watches a live kill in Task Manager's Details tab (or Process Explorer) to catch the exact parent process the instant Outlook reappears** — a headless session can only see it after the fact. Also noted, likely related: 30-39 PowerShell processes have been alive since 2026-09-19 13:14, and CPU has been pinned 88-100% continuously since ~2026-09-20 00:29.
+
+**Third confirmation, ~12:10-12:20 same day.** Same DCOM signature reproduced a third independent time (different PIDs each time, same `ParentProcessId` pattern, same `-Embedding` command line). This narrows the cause — ruled out as a scheduled task or an add-in across all three cycles — but still doesn't name the actual caller. No new action beyond the Tier-2 ask above; not re-attempting Tier-1 kill-and-relaunch a fourth time.
