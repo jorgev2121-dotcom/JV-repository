@@ -47,10 +47,11 @@ exactly.** Never shorten or fuzzy-match an owner name.
 **Fork 2: who is authorized?**
 
 1. **Jorge Valdes is always named**, in bold. Nothing to set.
-2. Add `"miguel"` when MZ Solutions (Miguel Zaldivar) is the contractor of record.
-3. Add `"jade"` when Jorge says to add Jade. **Spelling "JADE DE ARMAS" is
-   unconfirmed** - Jorge dictated it. Confirm with him and fix `KNOWN_AGENTS` in
-   `make_poa.py` once he answers.
+2. **Jade De Armas is named by default** (owner directive 2026-09-23; spelling confirmed
+   by Jorge). To leave her off one job, set `"omit_agents": ["jade"]`. Documents
+   created before 2026-09-23 (TRK-2026-1667) do not name her and stay that way.
+3. Add `"miguel"` in `extra_agents` when MZ Solutions (Miguel Zaldivar) is the
+   contractor of record.
 
 ---
 

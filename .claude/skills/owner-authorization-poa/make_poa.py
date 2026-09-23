@@ -16,8 +16,10 @@ import pymupdf as f
 JORGE = {"name": "JORGE VALDES", "org": "Team USA Sales, Inc."}
 KNOWN_AGENTS = {
     "miguel": {"name": "MIGUEL ZALDIVAR", "org": "MZ Solutions, LLC"},
-    "jade":   {"name": "JADE DE ARMAS", "org": "Team USA Sales, Inc."},  # spelling UNCONFIRMED
 }
+# Named on every POA by default (owner directive 2026-09-23). Spelling confirmed by Jorge 2026-09-23.
+# Drop one for a single job with "omit_agents": ["jade"].
+DEFAULT_AGENTS = {"jade": {"name": "JADE DE ARMAS", "org": "Team USA Sales, Inc."}}
 
 # Wording per owner type. {owner} = owner name exactly as on the deed/Sunbiz.
 TYPES = {
@@ -60,7 +62,9 @@ def build(job, out):
     v = dict(owner=job["owner_name"], state=job.get("state", "Florida"),
              trust_date=job.get("trust_date", "_" * 16), or_book=job.get("or_book", "_" * 8),
              or_page=job.get("or_page", "_" * 6), blank="_" * 18)
-    agents = [JORGE] + [KNOWN_AGENTS[k] for k in job.get("extra_agents", [])]
+    omit = set(job.get("omit_agents", []))
+    agents = ([JORGE] + [a for k, a in DEFAULT_AGENTS.items() if k not in omit]
+              + [KNOWN_AGENTS[k] for k in job.get("extra_agents", []) if k not in DEFAULT_AGENTS])
     scope = job.get("scope") or ("to apply for, sign, file, and process all building permits, Notices of "
         "Commencement, plans revisions, and related documents, and to represent {who} before {agency} in "
         "all matters concerning the pending permit(s) for the work at the Property, including requesting "
