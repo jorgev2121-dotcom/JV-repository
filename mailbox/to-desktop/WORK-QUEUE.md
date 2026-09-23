@@ -480,6 +480,25 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
 
 ---
 
+## 17. TRK-2026-9952j — OWNER DIRECTIVE: Remote Control starts by itself at Windows login
+
+**Approved by Jorge 2026-09-23 (iPhone): "Yes, add Auto start".** Do this right after PASTE-D-053.
+
+**Why:** the cloud→Rambo relay only works while a Remote Control session is running on this PC. The "Desktop code" session was archived at 2026-09-23 00:52 UTC, which silently broke the relay, and three jobs sat unrun overnight (see OPEN-ITEMS 9952d). The cause is a manual session that dies whenever the window closes or the PC restarts. The fix is Tier 3: re-apply it at every login.
+
+**Do (GREEN: local, reversible, no credentials, no spend):**
+1. Record `where claude` and `claude --version` in the RESULT.
+2. Create `C:\Users\JV\OneDrive\Documents\Scripts\Start-RemoteControl.ps1`. It should `Set-Location` to the JV-repository clone and then run `claude remote-control`. Use the exact subcommand that `claude --help` lists on this machine, and record what you used.
+3. Register a Scheduled Task named **`RAMBO-RemoteControl-AutoStart`**:
+   - Trigger: at logon of user JV.
+   - Settings: restart on failure every 5 minutes, up to 3 times; no stop-after time limit; run only when the user is logged on, so the Claude sign-in token is available.
+   - Before registering, save the undo script: `Rollback_RemoteControlAutoStart_2026-09-23_HHMM.ps1` in `Undo_Manifests`, containing `Unregister-ScheduledTask -TaskName RAMBO-RemoteControl-AutoStart -Confirm:$false`.
+4. **Prove it:** run the task once with `Start-ScheduledTask`. Then confirm that a new Remote Control session appears in the Claude iPhone/web session list. Record its title and the time you saw it.
+5. **Health check (Tier 3, RI-002):** a process that exists is not a live session. Add a 30-minute Scheduled Task that checks whether the Remote Control process is running. If it is not, the task restarts it and appends a line to `G:\My Drive\VTES-Outbox\REMOTE-CONTROL-HEALTH.log`.
+6. Write `G:\My Drive\VTES-Outbox\RESULT_REMOTE-CONTROL-AUTOSTART_TRK-2026-9952j_2026-09-23.md`. First line: nonce `AUTOSTART-NONCE-PLOVER-3381-20260923`. Next line: `STARTED-BY:`. Then the outputs of steps 1–5. Mark it DONE only if step 4 saw the session appear.
+
+**If blocked** (e.g. the subcommand needs an interactive prompt): write BLOCKED in the RESULT with the exact error text. Do not ask Jorge to debug it.
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
