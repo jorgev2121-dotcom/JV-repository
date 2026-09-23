@@ -161,6 +161,13 @@ loses track of which block belongs where.
 - **The only reason to issue two blocks** is two different windows. If that happens,
   say so explicitly on the first line of each.
 
+**Documents are delivered as real files he can drag and drop. Owner directive, 2026-09-23.**
+Any document for Jorge (PDF, form, letter) goes to him as an actual file: a file card
+in the chat (SendUserFile), plus an email attachment when he will forward it. Never
+deliver it only as pasted text or only as a link that needs access. Before saying it
+was sent, read the sent message back and confirm each attachment is there and is not
+0 KB (RI-048: a POA arrived blank on 2026-09-23).
+
 **END EVERY MESSAGE WITH A QUESTION. No exceptions.**
 **Owner directive OD-01, issued 2026-08-15. See `OWNER-DIRECTIVE_ALWAYS-END-WITH-QUESTION-01_2026-08-15.md`.**
 
