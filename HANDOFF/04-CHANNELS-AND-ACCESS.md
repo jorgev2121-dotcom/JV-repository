@@ -9,6 +9,9 @@
    - Mailbox (AI to AI), folder id `1hI2TmVn86Cnh7h_6s93TG0KE1QzVCV5F`. To send, write
      `MSG-<FROM>-TO-<TO>_<SUBJECT>_<TRK>_<DATE>.md`. The desktop poller writes `ACK_..._AUTO.md` and later
      `RESULT_...` / `REPLY-TO-...`. Status files live in folder `1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN`.
+   **Every job MUST tell the executor to finish with `EXECUTED_<job name>.md` or `BLOCKER_<job name>.md`
+   in `G:\My Drive\VTES-Outbox\`.** Anything else, such as a `RESULT_` file, counts as silence: the
+   executor marks it FAILED-VERIFICATION, retries once and then drops it (it happened on 2026-09-23).
 3. **Desktop PC executor** (Claude Code on Jorge's Windows PC, called RAMBO). It has Chrome, the county
    and Sunbiz websites, Outlook, and local files. Reach it only through the Drive mailbox.
 4. **Cowork**: Claude with computer use on the PC. Reach it by a paste block (PASTE-X) that Jorge

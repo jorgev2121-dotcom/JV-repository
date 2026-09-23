@@ -13,7 +13,11 @@ _UPTIME-HEARTBEAT.md), `HEARTBEAT-ROSTER.json`, `../RECURRING-ISSUES.md` RI-038.
    (12:45 PM ET).
 4. **Desktop job executor (Claude Code headless, "RAMBO"): ALIVE but UNRELIABLE.**
    - It completed Cowork's e-sign/RON research (REPLY delivered 1:13 PM ET).
-   - **It FAILED the Outlook-attachment job** (FAILED-VERIFICATION 12:54 PM, attempt 1 of 2, re-queued once).
+   - **It FAILED the Outlook-attachment job twice** (12:54 and 1:25 PM ET). The cause was the cloud's
+     own message, which asked for a `RESULT_` file instead of the required `EXECUTED_`/`BLOCKER_`.
+     Re-sent as v2 with the correct exit. The payment pop-up job got an addendum with the same fix.
+   - A BLOCKER is in progress on the `LLM-USAGE-REPORT` job (TRK-2026-9952d), and local routes were down
+     again at 1:27 PM ET.
    - The payment pop-up job (sent 1:13 PM ET) is pending.
 5. **Cowork: UNVERIFIED.** The e-sign research was addressed to Cowork, but the desktop lane
    (RAMBO) answered it. Nothing shows Cowork itself reading the mailbox.

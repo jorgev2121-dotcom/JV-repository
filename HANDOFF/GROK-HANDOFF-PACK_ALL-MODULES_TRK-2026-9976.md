@@ -175,6 +175,9 @@ produce a blank attachment (RI-048).**
    - Mailbox (AI to AI), folder id `1hI2TmVn86Cnh7h_6s93TG0KE1QzVCV5F`. To send, write
      `MSG-<FROM>-TO-<TO>_<SUBJECT>_<TRK>_<DATE>.md`. The desktop poller writes `ACK_..._AUTO.md` and later
      `RESULT_...` / `REPLY-TO-...`. Status files live in folder `1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN`.
+   **Every job MUST tell the executor to finish with `EXECUTED_<job name>.md` or `BLOCKER_<job name>.md`
+   in `G:\My Drive\VTES-Outbox\`.** Anything else, such as a `RESULT_` file, counts as silence: the
+   executor marks it FAILED-VERIFICATION, retries once and then drops it (it happened on 2026-09-23).
 3. **Desktop PC executor** (Claude Code on Jorge's Windows PC, called RAMBO). It has Chrome, the county
    and Sunbiz websites, Outlook, and local files. Reach it only through the Drive mailbox.
 4. **Cowork**: Claude with computer use on the PC. Reach it by a paste block (PASTE-X) that Jorge
@@ -295,7 +298,11 @@ _UPTIME-HEARTBEAT.md), `HEARTBEAT-ROSTER.json`, `../RECURRING-ISSUES.md` RI-038.
    (12:45 PM ET).
 4. **Desktop job executor (Claude Code headless, "RAMBO"): ALIVE but UNRELIABLE.**
    - It completed Cowork's e-sign/RON research (REPLY delivered 1:13 PM ET).
-   - **It FAILED the Outlook-attachment job** (FAILED-VERIFICATION 12:54 PM, attempt 1 of 2, re-queued once).
+   - **It FAILED the Outlook-attachment job twice** (12:54 and 1:25 PM ET). The cause was the cloud's
+     own message, which asked for a `RESULT_` file instead of the required `EXECUTED_`/`BLOCKER_`.
+     Re-sent as v2 with the correct exit. The payment pop-up job got an addendum with the same fix.
+   - A BLOCKER is in progress on the `LLM-USAGE-REPORT` job (TRK-2026-9952d), and local routes were down
+     again at 1:27 PM ET.
    - The payment pop-up job (sent 1:13 PM ET) is pending.
 5. **Cowork: UNVERIFIED.** The e-sign research was addressed to Cowork, but the desktop lane
    (RAMBO) answered it. Nothing shows Cowork itself reading the mailbox.
