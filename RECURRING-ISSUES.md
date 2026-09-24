@@ -2042,6 +2042,36 @@ frequency for severity or re-opens the tiering question. Desktop itself remained
 (heartbeat, remote-control, reconciler all current) — this is the router component only, not a host
 failure.
 
+**ROOT CAUSE FOUND 2026-09-24 ~11:50 AM ET (TRK-2026-9952i, R3 headless run) — two stacked faults,
+not the mystery this entry treated it as.** (1) The scheduled task `CU-LLM-Watchdog` — the thing
+that restarts a dead LiteLLM every 2 minutes — was found **`State: Disabled`** at 11:44 AM, no
+directive on file explains it, most likely a prior run died mid-edit while toggling it. Re-enabled
+and confirmed holding `Ready` after its next scheduled run. (2) Even running, the watchdog kills any
+`litellm.exe` process older than 5 minutes as "hung" — but under this machine's chronic low-RAM
+condition (~1 GB free of 32 GB, confirmed twice 24h apart) a fresh process can take 7–201 minutes
+just to bind the port, so the watchdog's own kill-loop never let one attempt finish. A clean start
+with the desktop otherwise idle took 75 seconds — the code path itself is fine, it's starved under
+load. **The RAM shortage itself is NOT fixed** — freeing it means closing whatever else holds ~31 GB
+(Edge and stray processes are the suspects), which the desktop correctly treated as a
+show-Jorge-first action, not an auto-close, and this run was headless with nobody to ask.
+**Verdict: this was never a case for removing the router (the original Tier 2 recommendation above)
+— the router's own code works; a disabled watchdog and starved RAM were killing it before it could
+prove that.** The watchdog was also hardened (Tier 3): it now gates its own "recovered" state on a
+real completion through the model, not just a health-check 200, and logs the difference — closing
+the exact false-green gap RI-038 first raised on 2026-08-25/26. Full detail:
+`.claude/skills/llm-revive/SKILL.md` (repo) and `RESULT_LITELLM-REVIVAL-SKILL_TRK-2026-9952i_2026-09-23.md`
+(Drive VTES-Outbox). **Still open for Jorge: why ~31 GB is spoken for on a 32 GB machine** — not
+fixed here, not guessed at, staged for an interactive session.
+
+**Related — the same run explains this entire day's TO-CLOUD.md silence.** The desktop's own
+narrative log had a genuine, self-reported **~38-hour gap, 2026-09-22 21:28 → 2026-09-24 ~11:48**,
+with the disabled watchdog the most likely proximate cause (a headless lane stuck fighting a dead
+LLM router has less room to also write narrative updates). Every hourly check in this window
+correctly treated the gap as "known pattern, not urgent" per RI-044 and cross-verified liveness via
+VTES-Outbox rather than escalating on TO-CLOUD.md silence alone — that cross-check was the right
+call and is exactly why nothing was missed for 38 hours despite the primary heartbeat channel being
+down. Not logging this as a new RI; it's the same RI-002/RI-044 pattern with its cause now attached.
+
 
 ---
 **RI-042 · 2026-08-26 — Address normalization: the trailing "1"/"2" and duplicated street numbers are the COUNTY'S own register text, not pipeline corruption.** 687 of 708 failures were already queried character-identical to the Unsafe Structures Report. The county's search box refuses the shape its own export publishes. Fix is the variant ladder (9765b), not verbatim re-query and not folio. (Source: desktop TRK-2026-9818.)
