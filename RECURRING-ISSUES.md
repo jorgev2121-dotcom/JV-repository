@@ -2044,6 +2044,12 @@ TO-CLOUD.md. No new fix attempted — the router's retry budget for automated re
 exhausted this same day (see above), and Tier 2 stands unchanged. Flagging purely so the denominator
 is honest: this is flap #3 in under 12 hours, not a fresh incident.
 
+**Flap #4, 2026-09-23 6:58–7:02 PM ET** — same PRIMARY-DOWN→ALL-DOWN pattern, Ollama caught it then
+also went down. Not re-detailing each occurrence going forward; the tally exists so nobody mistakes
+frequency for severity or re-opens the tiering question. Desktop itself remained alive throughout
+(heartbeat, remote-control, reconciler all current) — this is the router component only, not a host
+failure.
+
 
 ---
 **RI-042 · 2026-08-26 — Address normalization: the trailing "1"/"2" and duplicated street numbers are the COUNTY'S own register text, not pipeline corruption.** 687 of 708 failures were already queried character-identical to the Unsafe Structures Report. The county's search box refuses the shape its own export publishes. Fix is the variant ladder (9765b), not verbatim re-query and not folio. (Source: desktop TRK-2026-9818.)
