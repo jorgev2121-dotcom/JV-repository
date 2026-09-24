@@ -96,3 +96,4 @@ enough to identify it exactly, with no description needed.
 - **PASTE-D-053** · 2026-09-23 · Desktop → run the 3 MSG-CLOUD-TO-CODE jobs in `G:\My Drive\VTES-Inbox` (TRK-2026-9952d, e, g); `git pull` first. *It was pasted into Cloud by mistake (RI-031); it is still valid for the Desktop window.*
 - **PASTE-D-054** · 2026-09-23 · Desktop → supersedes D-053. `git pull`, then run the 4 MSG-CLOUD-TO-CODE jobs in `G:\My Drive\VTES-Inbox` in order: 9952d, 9952e, 9952g, 9952j (Remote Control auto-start, WORK-QUEUE item 17).
 - **PASTE-D-055** · 2026-09-23 · Desktop → supersedes D-054. `git pull`, then run the 5 MSG-CLOUD-TO-CODE jobs in `G:\My Drive\VTES-Inbox` in order: 9952d, 9952e, 9952g, 9952j (auto-start), 9952k (safe unattended runs).
+- **PASTE-D-056** · 2026-09-24 · Desktop (via iPhone Claude app → **Jorge-PC** tile, which counts as in-session) → owner yes for 9952g (install Codex CLI) and 9952k (add approved-jobs gate to `Inbox-Job-Watcher.ps1`).
