@@ -216,6 +216,16 @@ I can't see your screen or restart anything from here, so I can't tell you *why*
 
 ---
 
+## Big overnight move: you repealed your own freeze, and a lot happened
+
+You told a session on your iPhone to permanently delete the three-proof freeze rule, and it's done — the charter reflects it. Off the back of that, a Codex backup AI got sent to the desktop for install (it needs your one sign-in to finish), the charter now has copies any AI tool can read on its own (so a role isn't stuck to one AI brand), and a "keep the PC on overnight, run cheaper models, watch the cost" policy went out.
+
+**Your Claude usage was tight tonight — you checked it yourself around 14% left for the week, with the cheap tier already used up.** I kept my own overnight checks lean because of that.
+
+**One thing worth knowing about, not urgent:** the local backup AI router on your desktop (the thing that's supposed to step in if Claude gets busy) went down and came back up **at least seven times overnight**. A fix was already tried twice and didn't take. Nothing client-facing was affected — the desktop's own health checks stayed green the whole time — but this exact component has now failed this exact way on two separate nights a month apart, so patching it again probably won't hold either. **My recommendation: stop trying to revive it and route around it instead** — call the AI services directly instead of through that local router. That's a slightly bigger change, so it's your call, not something I did unasked.
+
+---
+
 ## Denominators
 
 - **91 desktop cycles** reviewed and mirrored (2026-09-03 09:30 UTC → 2026-09-04 22:54 UTC), full text in `TO-CLOUD_MIRROR_2026-09-04.md` (9,770 lines).

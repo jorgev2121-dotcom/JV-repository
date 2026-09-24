@@ -2010,6 +2010,68 @@ per Rule 4 (recurring → no patch), three durability-ranked options:
 **Recommendation: Tier 2 now; Tier 3 later if scale demands; NEVER self-hosted LiteLLM-on-the-PC as the
 load-bearing piece again.** Redundancy = a simple try/fallback verified by a REAL round-trip, not a ping.
 
+**RI-038 recurrence 2026-09-23 ~03:00-07:38 UTC — the exact thing this entry warned against, one month
+later.** The LLM-Watchdog fired **at least 7 SOS-ALL-DOWN/PRIMARY-DOWN alerts in under 4 hours**
+(2026-09-22 23:32, 23:43, 23:55 ET, then 2026-09-23 01:53, 02:15, 02:33, 03:33 ET) — ports :4001 and
+:4002 repeatedly down, Ollama :11434 the only route staying up. **A sibling cloud session's own fix
+attempt was itself a Tier-1 patch — `OWNER-DIRECTIVE_LITELLM-REVIVAL-TO-SKILL` (TRK-2026-9952i) — and
+it failed verification on both of its two allowed attempts** (2026-09-23 01:53:20, "produced NEITHER
+legal exit," job-executor's own retry budget now exhausted, will not retry again automatically).
+**This confirms the 2026-08-26 conclusion rather than contradicting it: patching a self-hosted LiteLLM
+that has already failed this way keeps failing this way.** The overall reconciler still reported
+`Crisis flag: False` throughout (02:22 ET check) — the wider system tolerates the flapping via the
+Ollama fallback, so nothing client-facing was lost tonight, but the router itself has now
+demonstrably not been fixed by two more patch attempts a month apart.
+**Not re-litigating tiers — RI-038's own Tier 2 (remove the self-hosted router, direct API calls with
+a try/fallback, verified by a real round-trip) already stands as the recommendation. Recording this so
+the next session doesn't spend another owner-directive cycle "reviving" the same component a third
+time.** Not woken Jorge over this — no deadline or client data was at risk, and a sibling session
+already had it in hand; going in the morning report instead.
+
+**RI-038 recurrence 2026-09-23 10:36–11:00 AM ET — third flap window the same day, now in business
+hours (TRK-2026-9954).** `SOS-LLM_PRIMARY-DOWN` at 10:36 (`:4001`/`:4002` down, Ollama `:11434` still
+up, watchdog auto-switched traffic) then `SOS-LLM_ALL-DOWN` at 11:00 (all three local routes down,
+including the Ollama fallback that caught the prior two windows). Read via VTES-Outbox, not
+TO-CLOUD.md. No new fix attempted — the router's retry budget for automated revival was already
+exhausted this same day (see above), and Tier 2 stands unchanged. Flagging purely so the denominator
+is honest: this is flap #3 in under 12 hours, not a fresh incident.
+
+**Flap #4, 2026-09-23 6:58–7:02 PM ET** — same PRIMARY-DOWN→ALL-DOWN pattern, Ollama caught it then
+also went down. Not re-detailing each occurrence going forward; the tally exists so nobody mistakes
+frequency for severity or re-opens the tiering question. Desktop itself remained alive throughout
+(heartbeat, remote-control, reconciler all current) — this is the router component only, not a host
+failure.
+
+**ROOT CAUSE FOUND 2026-09-24 ~11:50 AM ET (TRK-2026-9952i, R3 headless run) — two stacked faults,
+not the mystery this entry treated it as.** (1) The scheduled task `CU-LLM-Watchdog` — the thing
+that restarts a dead LiteLLM every 2 minutes — was found **`State: Disabled`** at 11:44 AM, no
+directive on file explains it, most likely a prior run died mid-edit while toggling it. Re-enabled
+and confirmed holding `Ready` after its next scheduled run. (2) Even running, the watchdog kills any
+`litellm.exe` process older than 5 minutes as "hung" — but under this machine's chronic low-RAM
+condition (~1 GB free of 32 GB, confirmed twice 24h apart) a fresh process can take 7–201 minutes
+just to bind the port, so the watchdog's own kill-loop never let one attempt finish. A clean start
+with the desktop otherwise idle took 75 seconds — the code path itself is fine, it's starved under
+load. **The RAM shortage itself is NOT fixed** — freeing it means closing whatever else holds ~31 GB
+(Edge and stray processes are the suspects), which the desktop correctly treated as a
+show-Jorge-first action, not an auto-close, and this run was headless with nobody to ask.
+**Verdict: this was never a case for removing the router (the original Tier 2 recommendation above)
+— the router's own code works; a disabled watchdog and starved RAM were killing it before it could
+prove that.** The watchdog was also hardened (Tier 3): it now gates its own "recovered" state on a
+real completion through the model, not just a health-check 200, and logs the difference — closing
+the exact false-green gap RI-038 first raised on 2026-08-25/26. Full detail:
+`.claude/skills/llm-revive/SKILL.md` (repo) and `RESULT_LITELLM-REVIVAL-SKILL_TRK-2026-9952i_2026-09-23.md`
+(Drive VTES-Outbox). **Still open for Jorge: why ~31 GB is spoken for on a 32 GB machine** — not
+fixed here, not guessed at, staged for an interactive session.
+
+**Related — the same run explains this entire day's TO-CLOUD.md silence.** The desktop's own
+narrative log had a genuine, self-reported **~38-hour gap, 2026-09-22 21:28 → 2026-09-24 ~11:48**,
+with the disabled watchdog the most likely proximate cause (a headless lane stuck fighting a dead
+LLM router has less room to also write narrative updates). Every hourly check in this window
+correctly treated the gap as "known pattern, not urgent" per RI-044 and cross-verified liveness via
+VTES-Outbox rather than escalating on TO-CLOUD.md silence alone — that cross-check was the right
+call and is exactly why nothing was missed for 38 hours despite the primary heartbeat channel being
+down. Not logging this as a new RI; it's the same RI-002/RI-044 pattern with its cause now attached.
+
 
 ---
 **RI-042 · 2026-08-26 — Address normalization: the trailing "1"/"2" and duplicated street numbers are the COUNTY'S own register text, not pipeline corruption.** 687 of 708 failures were already queried character-identical to the Unsafe Structures Report. The county's search box refuses the shape its own export publishes. Fix is the variant ladder (9765b), not verbatim re-query and not folio. (Source: desktop TRK-2026-9818.)
