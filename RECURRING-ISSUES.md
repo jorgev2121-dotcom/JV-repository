@@ -806,6 +806,20 @@ every scheduled task and emails or writes a status line. Jorge already receives
 **2026-06-19**. That reporting itself stopped two months ago and nobody noticed.
 **Restore the health report first; it is the sensor for everything else.**
 
+**Recurrence 2026-09-24 ~11:44 AM ET — third confirmed instance, same shape.** `CU-LLM-Watchdog`
+found `State: Disabled` (see RI-038 root-cause note above); no directive on file explains it.
+Re-enabled that run. **Watch item, flagged 2026-09-25 ~03:00 UTC, not yet confirmed as a fourth
+instance:** `CU-Uptime-Heartbeat` — a separate 5-minute scheduled task, independent of any Claude
+Code session — has not written to VTES-Outbox since 2026-09-24 13:14 UTC, ~14 hours stale at time
+of flagging, and no VTES-Outbox file of any kind has landed since ~15:55 UTC that day either. This
+could be the same disabled-task pattern hitting a second task, or the whole desktop asleep/off
+despite the "sleep=Never" setting proven correct earlier that day, or something else entirely —
+**not diagnosed, only flagged**, since cloud has no way to check Task Scheduler state or PC power
+state directly. Not escalated to Jorge overnight: nothing client-facing is at risk and this is
+squarely a "check when at the machine" item, not a "wake him up" one. If this heartbeat is still
+silent when someone is next at the desktop, checking `Get-ScheduledTask -TaskName
+"CU-Uptime-Heartbeat"` for `State: Disabled` is the first thing to try, per this RI's own history.
+
 ---
 
 ## RI-016 — OCR output is not attached to tracking numbers
