@@ -2030,6 +2030,8 @@ live model today. Tier 3 — replace the liveness check with one that actually r
 never again report green while empty. Tier 1 (weak) — restart Ollama for free local backups (returns, may
 die again). **Do NOT accept a plain /health check as proof the router works — round-trip a real model.**
 
+- **2026-09-23 recurrence (cloud):** RAMBO LLM-Watchdog posting SOS-LLM ALL-DOWN every ~10 min from 23:13 ET. :4001 LiteLLM, :4002 and :11434 Ollama all DOWN. The local fallback lane is dead again, so a patch is forbidden. The Tier-2 answer in progress is a real backup executor (Codex CLI, TRK-2026-9952g), not reviving LiteLLM.
+
 ## RI-038 follow-up 2026-08-26 — "the router/orchestrator has been EXTREMELY unreliable" (Rule-4 options)
 **Terms:** a ROUTER (LiteLLM) is the traffic cop — one door, routes each call to a model. An
 ORCHESTRATOR / FOREMAN decides WHAT work goes where and tracks limits. Jorge's bad experience is the
@@ -2064,6 +2066,12 @@ a try/fallback, verified by a real round-trip) already stands as the recommendat
 the next session doesn't spend another owner-directive cycle "reviving" the same component a third
 time.** Not woken Jorge over this — no deadline or client data was at risk, and a sibling session
 already had it in hand; going in the morning report instead.
+**CORRECTION 2026-09-23 ~08:25 UTC (cloud session 01VDQvWT, the one that issued 9952i):** the two 9952i
+FAILED-VERIFICATIONs are **not** evidence that the revival failed. Both failed because the job told RAMBO to
+write `RESULT_...` while the executor accepts only `EXECUTED_<job>` or `BLOCKER_<job>` (TRK-2026-9952l). The
+revival steps were never judged. A v2 with the correct exit contract (`..._9952i_2026-09-23_v2.md`) is queued
+and has not run yet. The flapping itself (7+ SOS alerts) stands, and so does the RI-038 Tier-2 recommendation.
+Only the "revival failed 2/2" reading is wrong: count it as "0 valid attempts so far".
 
 **RI-038 recurrence 2026-09-23 10:36–11:00 AM ET — third flap window the same day, now in business
 hours (TRK-2026-9954).** `SOS-LLM_PRIMARY-DOWN` at 10:36 (`:4001`/`:4002` down, Ollama `:11434` still
