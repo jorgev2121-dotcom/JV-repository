@@ -832,6 +832,17 @@ Task-Scheduler-level 5-minute job with no LLM dependency. This now matches the
 -TaskName "CU-Uptime-Heartbeat"` and check `State`/`LastRunTime`/`LastTaskResult`, per
 Tier 2 of this RI.
 
+**Fifth instance, different system: Cowork's own "five-a-day" CDM schedule, 2026-09-26.**
+`COWORK-CDM-PROGRESS.md` (run 53) self-reports `ROUTINE-OUTAGE-02` — no firing from
+2026-09-21 ~5 PM ET through 2026-09-26 ~9 AM ET, about 30 missed runs over ~4.5 days,
+with no error surfaced anywhere and nobody noticing until the routine resumed on its
+own. Same shape as every other instance in this RI (a scheduled thing goes quiet,
+produces no output and no error, is indistinguishable from "nothing to do") — just on
+Cowork's own internal scheduler instead of Windows Task Scheduler, so Tier 2's usual
+fix (find and remove what disables it) isn't available from here; only Cowork's own
+side could diagnose why its schedule stopped firing. Logged as a data point for the
+pattern, not investigated further — out of reach from cloud or desktop.
+
 ---
 
 ## RI-016 — OCR output is not attached to tracking numbers
