@@ -183,7 +183,44 @@ stands. **Ask something; just make it answerable in a word.**
 
 ---
 
-## 9. Tracking numbers
+## 9. Rule 9 — Task assignment governance: Nothing lives in conversation only
+
+**EVERY task mentioned in ANY chat (Code sessions, Cowork, Chat, email, issue threads) gets a TRK number and a formal work queue item within the same session. Nothing is ever left only in conversation.**
+
+### The rule
+
+1. **If you identify a task in chat**, immediately:
+   - Assign a TRK (check the registry, increment properly).
+   - Create a work queue item (WORK-QUEUE_*_TRK-*.md file in `mailbox/to-desktop/`, `mailbox/to-cowork/`, or equivalent).
+   - Queue it to the appropriate executor (desktop, cloud, Cowork, or equal).
+   - Commit and push the work queue item so it's durable and visible.
+
+2. **If a task is mentioned but never gets queued**, that is a charter violation. The task is then lost when the session ends.
+
+3. **Work queue items are the source of truth.** If a task exists only in conversation, it does not exist from the perspective of someone reading the mailbox later.
+
+4. **Every work queue item must have:**
+   - A TRK number (canonical format: `TRK-2026-NNNN`).
+   - Clear assignment (which executor: desktop, cloud, Cowork, bot name, or human).
+   - Dependencies (what must finish before this starts, if any).
+   - Execution scope (what to do, how to know it's done).
+   - Timeline (start, ETA, deadline if time-sensitive).
+
+5. **If multiple bots/windows/people are involved**, chain the assignments clearly:
+   - Job A → Desktop (queued to mailbox/to-desktop/)
+   - Job B → Cowork (queued to mailbox/to-cowork/)
+   - Job C → Cloud (auto-fire if scheduled, else loop back for explicit trigger).
+   - No job sits unassigned waiting for someone to "figure out" who should do it.
+
+6. **At session end**, every non-complete task must be recorded in OPEN-ITEMS.md with its TRK, status (IN PROGRESS / BLOCKED / PARKED), and the executor it's waiting on.
+
+### Why this rule exists
+
+Sessions are ephemeral. Conversations are archived but not machine-readable. **The only durable record is the file on disk (repo, Drive, or mailbox).** A task mentioned in chat but never queued disappears when the session ends, and the next person to read the repo has no way to know it was supposed to happen. This is the mechanism behind "we leave nothing to chance" — every task is tracked, every assignment is visible, and every executor knows what they're responsible for.
+
+---
+
+## 10. Tracking numbers
 
 **Canonical format: `TRK-2026-NNNN`** (four-digit year, four-digit sequence).
 Suffixes are allowed: `TRK-2026-0708-JULIA`.
