@@ -2202,7 +2202,39 @@ the three direct clicks himself (Outlook kill, Word "Sign in another way," 9Rout
 `123456` typed by hand) rather than leave him waiting on an executor that is not
 answering.
 
+**RI-046 · 2026-09-20 01:35Z — ROOT CAUSE FOUND IN GMAIL: the M365 sign-in secret for
+Jorge@TEAMUSASALES.COM is reset over and over, and the new value is never captured.**
+Microsoft's own "has been reset" notices to jorgev2121@gmail.com: **9 resets between
+2026-08-09 and 2026-09-19** (Aug 9, Aug 10, Aug 17, Aug 22 ×2, Aug 28 ×3, **Sep 19 23:01Z —
+tonight, two hours before Jorge typed the value he remembered and got "incorrect"**), and
+**~25 more threads back to 2025-03-26**, several with 2–4 resets in a single day. Each is
+preceded minutes earlier by an "account email verification code" to the Gmail address — the
+self-service Forgot flow. **Mechanism:** sign-in fails → someone (Jorge, or an agent following
+a "fix the sign-in" order) runs the Forgot flow → a new value is set → it is not saved into
+1Password (locked / not the default manager; Section C never applied) → the next sign-in fails
+→ repeat. **The passkey-on-iPhone / "insert USB key" prompt sits on top of this** and stops
+him reaching the entry box at all without the "Sign in another way" detour. Jorge tonight:
+"I have gone in this circle for 3 months." The mail record says eighteen months.
+
+**Why every previous fix failed:** each reset was a Tier-1 patch that changed the value
+without recording it. Nothing ever made the *result* durable.
+
+**Suspect to rule in or out (desktop/Cowork, AP-107-02):** RI-018's Power Automate flow
+"Verification Code Monitor (Hourly)" scans Gmail for verification codes and re-requests them
+on Microsoft security pages. Reset clusters on Aug 10 (3 codes in 90 min) and Aug 28 (3 in
+2 h) look machine-paced. Read the flow's run history against the reset times before switching
+it off; if it completes resets, it is the engine of this RI.
+
+**Tier-2 fix executed live 2026-09-20 ~01:40Z:** one more Forgot-flow reset, cloud reading
+the Gmail code, Jorge saving the new value into the now-unlocked 1Password before anything
+else; then AP-107-06 (passkey on this PC into 1Password) to end the USB prompt.
+**Tier-3 enforcement for the daily health check:** if a new "has been reset" mail arrives and
+the 1Password item for Microsoft 365 was not modified within 10 minutes after it, raise a red
+flag the same day.
+
 ---
 **RI-047 · 2026-09-20 — Outlook auto-relaunches itself within seconds of being killed, via COM/DCOM activation, and the resource-exhaustion dialog comes back with it.** Downstream of the same OD-107/1Password chain (RI-046) but a distinct mechanism worth its own number — the desktop's own Drive-side recurring-issues copy independently logged this as "RI-046" too, a genuine numbering collision across the two copies (worth knowing: at least 4 different RECURRING-ISSUES.md copies exist — this repo's, the Drive-side one, `00-CONTINUITY-BOARD`, and `Shared Folders for all LLMs` — and they can drift out of sync on numbering). **What was found:** killing Outlook gets a replacement process back in 2-4 seconds, command line `-Embedding` (COM-launched, not a direct relaunch), parent PID is `svchost.exe` — something is calling `Outlook.Application` via COM and winning the race against even a manual `/safe`-mode launch. The known auto-launch scripts on disk were ruled out (one explicitly skips the COM call when Outlook isn't running; the other's own log shows no activity today). Root cause still unidentified. **Second cycle in a row hitting the same wall: fixing it needs `Stop-Service WSearch`, which needs admin rights the desktop session doesn't have.** Per Rule 4, two Tier-1-only attempts (kill + relaunch) in a row means the next step can't be a third kill-and-relaunch. **Needs one of: (1) an elevated session runs `Stop-Service WSearch`, or (2) Jorge watches a live kill in Task Manager's Details tab (or Process Explorer) to catch the exact parent process the instant Outlook reappears** — a headless session can only see it after the fact. Also noted, likely related: 30-39 PowerShell processes have been alive since 2026-09-19 13:14, and CPU has been pinned 88-100% continuously since ~2026-09-20 00:29.
 
 **Third confirmation, ~12:10-12:20 same day.** Same DCOM signature reproduced a third independent time (different PIDs each time, same `ParentProcessId` pattern, same `-Embedding` command line). This narrows the cause — ruled out as a scheduled task or an add-in across all three cycles — but still doesn't name the actual caller. No new action beyond the Tier-2 ask above; not re-attempting Tier-1 kill-and-relaunch a fourth time.
+
+- **2026-09-26 (cloud, OD-107 watcher):** the cloud hourly check-in on PR #6 / OD-107 stopped silently after 2026-09-21 13:40Z (the trigger fired, the turn died before re-arming) and nobody noticed for five days. Same mechanism as RI-002: a scheduled watcher that dies leaves no trace unless something checks that it re-armed. Tier-1 fix applied: re-armed on 09-26. Tier-3 needed: a second, independent check (desktop watchdog or a recurring Routine) that flags when the cloud check-in has not filed anything for more than 2 h.
