@@ -16,6 +16,12 @@
 
 ---
 
+## Money sitting on the table — worth a look today
+
+**The TUS-26-1033 signature package — a $16,000 invoice — has been waiting on the client's signature since August 10th. That's about seven weeks with nobody following up.** A sweep of 30 open jobs this afternoon found it sitting in an "out for signature" folder, untouched. Nothing's been sent yet — this needs your call: should someone chase the client for that signature now, or is there a reason it's on hold? One word — **CHASE** or **HOLD** — and it moves.
+
+---
+
 ## One thing that just needs eyes at the desktop, not a decision
 
 **A small always-on task (`CU-Uptime-Heartbeat`) has gone quiet for about 43 hours straight — even while other desktop activity was happening.** This is the same "task looks fine, does nothing" pattern already found once this week with a different task (the local AI router's watchdog, which was found disabled and got fixed). Nobody needs to decide anything here — it just needs someone at the machine to check Task Scheduler and see if this one's been switched off too. Not urgent, not client-facing.
@@ -31,7 +37,7 @@ The thing that kept knocking your local backup AI router offline this week (RI-0
 ## Denominators
 
 - **0** items filed, sent, spent, or deleted.
-- **4** items staged and waiting on your one-word answer (above).
+- **5** items staged and waiting on your one-word answer (above).
 - **1** item flagged for a desktop-side look, no decision needed.
 - **0** new commits from anyone but Claude on the repo branch.
 - **1** new piece of real activity in the whole window: the CDM research update at 17:35 UTC (item 3/4 above). Everything else stayed exactly where it was since 2026-09-25 ~20:40 UTC.
