@@ -820,6 +820,18 @@ squarely a "check when at the machine" item, not a "wake him up" one. If this he
 silent when someone is next at the desktop, checking `Get-ScheduledTask -TaskName
 "CU-Uptime-Heartbeat"` for `State: Disabled` is the first thing to try, per this RI's own history.
 
+**Confirmed as a likely fourth instance 2026-09-26 ~02:20 UTC.** `CU-Uptime-Heartbeat`'s
+last write is still 2026-09-24 13:14:44 UTC — now **~43 hours** stale, spanning a period
+where the desktop was independently confirmed writing other files (the 2026-09-25
+~20:24-20:40 UTC handoff/queue files). A 5-minute task going quiet for 43 hours while the
+same machine writes other files in that window is no longer explainable by "PC asleep" or
+"session out of budget" — those explain the desktop's *Claude Code* silence, not a
+Task-Scheduler-level 5-minute job with no LLM dependency. This now matches the
+`CU-LLM-Watchdog` shape closely enough to treat as the same pattern until proven otherwise.
+**Cannot be fixed remotely** — needs someone at the desktop to run `Get-ScheduledTask
+-TaskName "CU-Uptime-Heartbeat"` and check `State`/`LastRunTime`/`LastTaskResult`, per
+Tier 2 of this RI.
+
 ---
 
 ## RI-016 — OCR output is not attached to tracking numbers
