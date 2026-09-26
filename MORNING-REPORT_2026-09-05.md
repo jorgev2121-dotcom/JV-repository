@@ -1,6 +1,6 @@
-# Report — 2026-09-05 through 2026-09-20 (Sunday update)
+# Report — 2026-09-05 through 2026-09-21 (Monday update)
 
-**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Sunday 2026-09-20.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.")
+**Desktop overnight execution + cloud mailbox reconciliation. Covers 2026-09-03 09:30 UTC through Monday 2026-09-21.** (This file carries Saturday's date in its name but has been kept current every day since — read every date reference below at face value, not as "yesterday.") **It's a business day — the 535 NW 7 ST item below (city offices open today) and the 9/30 tax renewal are both worth a look now that offices are open.**
 
 **Top of the list — a month-old client decision that's still sitting: 535 NW 7 ST, Homestead (Renzo Cahuana, referred by Jaddrey de Armas).** That property had a code-enforcement fine hearing on 2026-08-20 — a legalization proposal, a postponement request, and an engineer request were all written but **none were ever sent**, and nobody knows what the Magistrate ruled. A missed hearing can mean a civil penalty plus a recordable lien on the property. This has been asking you the same question since 2026-08-23 with no answer yet: **send all three now, send just the proposal, or hold while you call the code officer yourself first** (Yairis Chapelli, 305-224-5577, City of Homestead). There's no deadline left to catch — the hearing already happened — so this is about stopping further damage, not making one. **My recommendation: send all three today** — a late proposal plus a postponement request is a stronger position than continued silence, and it costs nothing to send. Say **GO** to send all three, or tell me to hold.
 
@@ -201,6 +201,26 @@ One of the green "Approve" buttons on your Desktop — the one that sets which A
 A $93.75 microfilm/plan-copy invoice from a job ordered August 6th slipped through a real crack: it's slightly above your standard approval limit, which normally means it waits for your tap — but it never actually made it onto your approval board at all. 31 days invisible, not because you said no, but because nobody put it in front of you.
 
 **AP-0085 — nearly 1,000 already-paid documents, sitting safe but unlabeled.** Same sweep found 993 county documents (563 MB, already paid for a month ago) sitting correctly on disk but in a staging folder with no matter number, so they don't show up in any of your job trackers. Nothing urgent — the files themselves are safe — but they need one word to become findable: **NEW** (give them their own fresh TRK number) or **1270** (file them under existing matter TRK-2026-1270 — flagged with a caveat that 1270 may turn out to be a different, unrelated matter, so worth a second look before committing to it). Either way this stays parked until you say the word; nothing here decays by waiting.
+
+---
+
+## Overnight (Tuesday into Wednesday): the desktop's status log went quiet for a while — worth a look, not urgent
+
+Your desktop machine had been writing a status update to Drive every 15-20 minutes all evening, reliably, since mid-afternoon. Then, starting around **19:31 UTC Tuesday**, it just stopped — no error, no warning, just silence. By the time I'm writing this it had been quiet for at least a couple of hours with nothing landing.
+
+I can't see your screen or restart anything from here, so I can't tell you *why* — the machine may have gone to sleep, restarted for a Windows update, or the background watcher itself may have crashed. **Nothing time-sensitive was riding on it overnight**, so I didn't wake you.
+
+**When you're at the machine:** check whether it's still on and awake, and if the RAMBO watcher looks stopped, restart it. If everything looks normal and it just picked back up on its own, no action needed — just let me know it's alive again so I stop flagging it.
+
+---
+
+## Big overnight move: you repealed your own freeze, and a lot happened
+
+You told a session on your iPhone to permanently delete the three-proof freeze rule, and it's done — the charter reflects it. Off the back of that, a Codex backup AI got sent to the desktop for install (it needs your one sign-in to finish), the charter now has copies any AI tool can read on its own (so a role isn't stuck to one AI brand), and a "keep the PC on overnight, run cheaper models, watch the cost" policy went out.
+
+**Your Claude usage was tight tonight — you checked it yourself around 14% left for the week, with the cheap tier already used up.** I kept my own overnight checks lean because of that.
+
+**One thing worth knowing about, not urgent:** the local backup AI router on your desktop (the thing that's supposed to step in if Claude gets busy) went down and came back up **at least seven times overnight**. A fix was already tried twice and didn't take. Nothing client-facing was affected — the desktop's own health checks stayed green the whole time — but this exact component has now failed this exact way on two separate nights a month apart, so patching it again probably won't hold either. **My recommendation: stop trying to revive it and route around it instead** — call the AI services directly instead of through that local router. That's a slightly bigger change, so it's your call, not something I did unasked.
 
 ---
 

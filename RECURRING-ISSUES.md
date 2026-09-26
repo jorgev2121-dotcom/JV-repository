@@ -273,6 +273,24 @@ stamped `2026-08-16 20:37:00 UTC`; Drive records the file as modified `00:28 UTC
 Roughly twenty hours in the future. **Timestamps in desktop reports are not evidence
 of when work happened** — use the file's own modified time.
 
+**RECURRENCE 2026-09-22, overnight — the RAMBO heartbeat itself went quiet, silently.**
+`TO-CLOUD.md` and its `.bak-YYYYMMDD-HHMM` snapshots had been landing every ~15-20 min
+all evening (last one **19:31 UTC**, matching the main file's `modifiedTime` of
+**19:34:08 UTC**). Two consecutive hourly cloud checks (21:05, 22:05 UTC) found the
+same timestamp — **~2.5 hours with zero growth**, well past the charter's own "alive
+but not growing for three cycles means hung" bar (§11.3), measured against RAMBO's
+normal ~15-min cadence rather than cloud's 1-hour poll. No error, no stale-flag, no
+self-report of any kind — the log simply stopped, exactly the RI-002 shape ("a process
+in the task list is not a run making progress" is not visible from inside the process).
+Cloud cannot see Task Manager or restart anything on Jorge's machine — this is
+IMPOSSIBLE from here, not merely hard. **Not escalated tonight**: no deadline is at
+risk in the next several hours, and the standing overnight rule is stay silent unless
+something is time-sensitive. Flagged for the morning report instead: check whether the
+desktop machine slept, rebooted (Windows Update is a common cause), or RAMBO's host
+process died, and restart it. TRK-2026-9946 covers the sibling finding that the hourly
+trigger's own fallback work list is stale — this is the same "nobody is watching the
+watcher" failure mode in a different component.
+
 ---
 
 ## RI-003 — Upward delegation of technical work
@@ -787,6 +805,43 @@ every scheduled task and emails or writes a status line. Jorge already receives
 "[AI Report] CU Inspections System Health" emails — the last one is dated
 **2026-06-19**. That reporting itself stopped two months ago and nobody noticed.
 **Restore the health report first; it is the sensor for everything else.**
+
+**Recurrence 2026-09-24 ~11:44 AM ET — third confirmed instance, same shape.** `CU-LLM-Watchdog`
+found `State: Disabled` (see RI-038 root-cause note above); no directive on file explains it.
+Re-enabled that run. **Watch item, flagged 2026-09-25 ~03:00 UTC, not yet confirmed as a fourth
+instance:** `CU-Uptime-Heartbeat` — a separate 5-minute scheduled task, independent of any Claude
+Code session — has not written to VTES-Outbox since 2026-09-24 13:14 UTC, ~14 hours stale at time
+of flagging, and no VTES-Outbox file of any kind has landed since ~15:55 UTC that day either. This
+could be the same disabled-task pattern hitting a second task, or the whole desktop asleep/off
+despite the "sleep=Never" setting proven correct earlier that day, or something else entirely —
+**not diagnosed, only flagged**, since cloud has no way to check Task Scheduler state or PC power
+state directly. Not escalated to Jorge overnight: nothing client-facing is at risk and this is
+squarely a "check when at the machine" item, not a "wake him up" one. If this heartbeat is still
+silent when someone is next at the desktop, checking `Get-ScheduledTask -TaskName
+"CU-Uptime-Heartbeat"` for `State: Disabled` is the first thing to try, per this RI's own history.
+
+**Confirmed as a likely fourth instance 2026-09-26 ~02:20 UTC.** `CU-Uptime-Heartbeat`'s
+last write is still 2026-09-24 13:14:44 UTC — now **~43 hours** stale, spanning a period
+where the desktop was independently confirmed writing other files (the 2026-09-25
+~20:24-20:40 UTC handoff/queue files). A 5-minute task going quiet for 43 hours while the
+same machine writes other files in that window is no longer explainable by "PC asleep" or
+"session out of budget" — those explain the desktop's *Claude Code* silence, not a
+Task-Scheduler-level 5-minute job with no LLM dependency. This now matches the
+`CU-LLM-Watchdog` shape closely enough to treat as the same pattern until proven otherwise.
+**Cannot be fixed remotely** — needs someone at the desktop to run `Get-ScheduledTask
+-TaskName "CU-Uptime-Heartbeat"` and check `State`/`LastRunTime`/`LastTaskResult`, per
+Tier 2 of this RI.
+
+**Fifth instance, different system: Cowork's own "five-a-day" CDM schedule, 2026-09-26.**
+`COWORK-CDM-PROGRESS.md` (run 53) self-reports `ROUTINE-OUTAGE-02` — no firing from
+2026-09-21 ~5 PM ET through 2026-09-26 ~9 AM ET, about 30 missed runs over ~4.5 days,
+with no error surfaced anywhere and nobody noticing until the routine resumed on its
+own. Same shape as every other instance in this RI (a scheduled thing goes quiet,
+produces no output and no error, is indistinguishable from "nothing to do") — just on
+Cowork's own internal scheduler instead of Windows Task Scheduler, so Tier 2's usual
+fix (find and remove what disables it) isn't available from here; only Cowork's own
+side could diagnose why its schedule stopped firing. Logged as a data point for the
+pattern, not investigated further — out of reach from cloud or desktop.
 
 ---
 
@@ -1992,6 +2047,69 @@ per Rule 4 (recurring → no patch), three durability-ranked options:
 **Recommendation: Tier 2 now; Tier 3 later if scale demands; NEVER self-hosted LiteLLM-on-the-PC as the
 load-bearing piece again.** Redundancy = a simple try/fallback verified by a REAL round-trip, not a ping.
 
+**RI-038 recurrence 2026-09-23 ~03:00-07:38 UTC — the exact thing this entry warned against, one month
+later.** The LLM-Watchdog fired **at least 7 SOS-ALL-DOWN/PRIMARY-DOWN alerts in under 4 hours**
+(2026-09-22 23:32, 23:43, 23:55 ET, then 2026-09-23 01:53, 02:15, 02:33, 03:33 ET) — ports :4001 and
+:4002 repeatedly down, Ollama :11434 the only route staying up. **A sibling cloud session's own fix
+attempt was itself a Tier-1 patch — `OWNER-DIRECTIVE_LITELLM-REVIVAL-TO-SKILL` (TRK-2026-9952i) — and
+it failed verification on both of its two allowed attempts** (2026-09-23 01:53:20, "produced NEITHER
+legal exit," job-executor's own retry budget now exhausted, will not retry again automatically).
+**This confirms the 2026-08-26 conclusion rather than contradicting it: patching a self-hosted LiteLLM
+that has already failed this way keeps failing this way.** The overall reconciler still reported
+`Crisis flag: False` throughout (02:22 ET check) — the wider system tolerates the flapping via the
+Ollama fallback, so nothing client-facing was lost tonight, but the router itself has now
+demonstrably not been fixed by two more patch attempts a month apart.
+**Not re-litigating tiers — RI-038's own Tier 2 (remove the self-hosted router, direct API calls with
+a try/fallback, verified by a real round-trip) already stands as the recommendation. Recording this so
+the next session doesn't spend another owner-directive cycle "reviving" the same component a third
+time.** Not woken Jorge over this — no deadline or client data was at risk, and a sibling session
+already had it in hand; going in the morning report instead.
+
+**RI-038 recurrence 2026-09-23 10:36–11:00 AM ET — third flap window the same day, now in business
+hours (TRK-2026-9954).** `SOS-LLM_PRIMARY-DOWN` at 10:36 (`:4001`/`:4002` down, Ollama `:11434` still
+up, watchdog auto-switched traffic) then `SOS-LLM_ALL-DOWN` at 11:00 (all three local routes down,
+including the Ollama fallback that caught the prior two windows). Read via VTES-Outbox, not
+TO-CLOUD.md. No new fix attempted — the router's retry budget for automated revival was already
+exhausted this same day (see above), and Tier 2 stands unchanged. Flagging purely so the denominator
+is honest: this is flap #3 in under 12 hours, not a fresh incident.
+
+**Flap #4, 2026-09-23 6:58–7:02 PM ET** — same PRIMARY-DOWN→ALL-DOWN pattern, Ollama caught it then
+also went down. Not re-detailing each occurrence going forward; the tally exists so nobody mistakes
+frequency for severity or re-opens the tiering question. Desktop itself remained alive throughout
+(heartbeat, remote-control, reconciler all current) — this is the router component only, not a host
+failure.
+
+**ROOT CAUSE FOUND 2026-09-24 ~11:50 AM ET (TRK-2026-9952i, R3 headless run) — two stacked faults,
+not the mystery this entry treated it as.** (1) The scheduled task `CU-LLM-Watchdog` — the thing
+that restarts a dead LiteLLM every 2 minutes — was found **`State: Disabled`** at 11:44 AM, no
+directive on file explains it, most likely a prior run died mid-edit while toggling it. Re-enabled
+and confirmed holding `Ready` after its next scheduled run. (2) Even running, the watchdog kills any
+`litellm.exe` process older than 5 minutes as "hung" — but under this machine's chronic low-RAM
+condition (~1 GB free of 32 GB, confirmed twice 24h apart) a fresh process can take 7–201 minutes
+just to bind the port, so the watchdog's own kill-loop never let one attempt finish. A clean start
+with the desktop otherwise idle took 75 seconds — the code path itself is fine, it's starved under
+load. **The RAM shortage itself is NOT fixed** — freeing it means closing whatever else holds ~31 GB
+(Edge and stray processes are the suspects), which the desktop correctly treated as a
+show-Jorge-first action, not an auto-close, and this run was headless with nobody to ask.
+**Verdict: this was never a case for removing the router (the original Tier 2 recommendation above)
+— the router's own code works; a disabled watchdog and starved RAM were killing it before it could
+prove that.** The watchdog was also hardened (Tier 3): it now gates its own "recovered" state on a
+real completion through the model, not just a health-check 200, and logs the difference — closing
+the exact false-green gap RI-038 first raised on 2026-08-25/26. Full detail:
+`.claude/skills/llm-revive/SKILL.md` (repo) and `RESULT_LITELLM-REVIVAL-SKILL_TRK-2026-9952i_2026-09-23.md`
+(Drive VTES-Outbox). **Still open for Jorge: why ~31 GB is spoken for on a 32 GB machine** — not
+fixed here, not guessed at, staged for an interactive session.
+
+**Related — the same run explains this entire day's TO-CLOUD.md silence.** The desktop's own
+narrative log had a genuine, self-reported **~38-hour gap, 2026-09-22 21:28 → 2026-09-24 ~11:48**,
+with the disabled watchdog the most likely proximate cause (a headless lane stuck fighting a dead
+LLM router has less room to also write narrative updates). Every hourly check in this window
+correctly treated the gap as "known pattern, not urgent" per RI-044 and cross-verified liveness via
+VTES-Outbox rather than escalating on TO-CLOUD.md silence alone — that cross-check was the right
+call and is exactly why nothing was missed for 38 hours despite the primary heartbeat channel being
+down. Not logging this as a new RI; it's the same RI-002/RI-044 pattern with its cause now attached.
+
+**Related-but-distinct desktop annoyance, found and fixed 2026-09-26 ~15:02 ET (`REPLY-TO-OWNER_HTTP-400-ERROR-BLOCKED_2026-09-26_1502.md`, DIR-0089).** A separate scheduled task ("CU Inspections LiteLLM 4001") was checking LiteLLM's health by opening an Edge browser tab to `localhost:4001`; when the router was unresponsive, Edge got an HTTP 400 it couldn't render, froze, and the task re-fired into the same freeze — a repeating pop-up loop, not a data problem. Desktop killed Edge, disabled the task, cleared Edge's crash-recovery state, and staged a rollback script — **EXECUTED-WITH-PROOF, closed, no owner action needed.** Correctly diagnosed as a monitoring-method defect (a health check should curl a URL and log to a file, never open a visible browser window) rather than reflaring RI-038's router-reliability question; not merged into that entry since the cause is different, just adjacent.
 
 ---
 **RI-042 · 2026-08-26 — Address normalization: the trailing "1"/"2" and duplicated street numbers are the COUNTY'S own register text, not pipeline corruption.** 687 of 708 failures were already queried character-identical to the Unsafe Structures Report. The county's search box refuses the shape its own export publishes. Fix is the variant ladder (9765b), not verbatim re-query and not folio. (Source: desktop TRK-2026-9818.)

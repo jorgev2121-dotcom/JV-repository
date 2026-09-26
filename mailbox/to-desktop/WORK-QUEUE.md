@@ -369,6 +369,120 @@ Logged as **RI-046**.
 
 ---
 
+## 14. TRK-2026-9952 — OWNER DIRECTIVE: fill in the LLM Usage Inventory (read-only, GREEN even overnight)
+
+**Jorge said this directly to cloud, in his own words: "Instruct RAMBO as an owner's
+directive to do that work."** This is not a cloud-invented task — it is an explicit
+instruction, passed on verbatim. `LLM-USAGE-INVENTORY.md` (repo root) is the shared
+race-car table for every AI subscription Jorge pays for — tank size, refuel cost, reset
+date, current fuel level, quality rank. Cloud filled in price and quality from the
+existing routing guide; every plan/reset-date/current-usage cell is marked **NEEDS
+JORGE** because no session has login access to any billing page. Read that file first
+so the shape of what's needed is clear before starting.
+
+**What to do — one pass, whatever is already logged in on this machine's browsers:**
+
+1. **Claude first, it matters most** — open `claude.ai/settings/usage` (or the current
+   equivalent settings page) in whichever browser profile is already signed into Jorge's
+   Anthropic account. Read off: confirmed plan tier (Pro / Max 5x / Max 20x), the usage
+   window's reset day, and current usage (used or remaining, whichever the page shows).
+2. **Then whichever of these are already logged in** — do not sign into anything that
+   isn't already logged in, see the rule below: `chatgpt.com` → Settings → usage/limits
+   (ChatGPT), `one.google.com` subscriptions/usage or the Gemini app's account page
+   (Gemini), Grok's app account settings (Grok), the M365 admin/usage page if visible
+   (Copilot — confirm it's the Premium bundle, not the retired standalone Pro tier).
+3. **Paste the raw numbers back to `TO-CLOUD.md`**, one line per service: plan tier,
+   reset date, usage used or remaining (whichever the page states — say which). Cloud
+   will fold them into `LLM-USAGE-INVENTORY.md` and mark it live from that point.
+4. **If a service isn't already logged in on this machine, say so and skip it** — "ChatGPT:
+   not logged in on this profile, skipped" is a complete and correct answer for that line.
+   This is read-only browsing of pages you're already signed into — never a new sign-in,
+   never a password, never an MFA code, never a "keep me signed in" click on an unfamiliar
+   device prompt.
+
+**Never:** sign into any of these five accounts that isn't already logged in. Never enter
+a password or MFA code for this task. Never store a number that came from a guess instead
+of the page itself — if a number isn't visible, say "not visible on this page" rather than
+estimating.
+
+**Addendum, 2026-09-23, Jorge direct:** re-confirmed as an owner directive in a second
+message — his words: *"consider this a owner directive and pass it on to Rambo in that
+fashion so he accesses."* **This does not loosen the Never list above** — cloud read his
+"modifying my rule" as authorizing you to check pages already logged in, not as permission
+to enter passwords or click through new sign-ins. If Jorge meant something broader, that
+needs his own unambiguous confirmation, not an inference from here. **Jorge already
+checked Claude's own number himself** (see `LLM-USAGE-INVENTORY.md`, filled in): main pool
+~14% left for the week, Fable pool exhausted, page projects the main pool running out by
+~10am tomorrow at the current rate. That part of item 14 is done — focus the rest of this
+pass on ChatGPT/Gemini/Grok/Copilot.
+
+**Addendum 2, 2026-09-23 (TRK-2026-9952d), Jorge direct — the tokens-to-dollars button.**
+Jorge asked for an on-demand report that turns tokens into dollars. The only tool that
+does this for real is **`ccusage`**, a free read-only tool that reads Claude Code's own
+log files on this PC (`~/.claude/projects`) and prints tokens and what they would cost
+at API list price. It needs no login, sends nothing out and changes nothing. GREEN.
+
+1. In PowerShell run: `npx ccusage@latest monthly` then `npx ccusage@latest daily --since 20260901`.
+2. Paste both outputs, unedited, into `TO-CLOUD.md` under the heading `TRK-2026-9952d`.
+3. If `npx` is missing, say "npx not installed" and stop. Do not install Node for this.
+4. If it works, make a desktop shortcut called **"LLM Usage Report"** that runs command 1
+   and pauses so he can read the result. That shortcut is the button. It only
+   launches, so it is not storage.
+
+**Say it plainly in the report:** these dollars are *what the tokens would have cost on
+the API*. They are not what Jorge paid, because Max 20 is a flat $200/month. They show
+whether the subscription is paying for itself.
+
+---
+
+## 15. TRK-2026-9082 — Repair the broken git push (this is "the communication" Jorge means)
+
+**Jorge's words, 2026-09-23: "instruct Rambo to repair your communication."** This is the
+long-standing, already-diagnosed defect: **the desktop's `git push` does not work**
+(Windows Credential Manager, first logged 2026-08-15, RI-002's mechanism section). You
+commit locally and the push either fails silently or is never actually run — which is why
+every one of your results has to go through the Drive mailbox for cloud to mirror in,
+instead of landing directly. Fixing this removes that whole detour.
+
+1. **Reproduce it first, don't guess.** Make a trivial local commit, run `git push` for
+   real, and capture the exact error text — timeout, 403, wrong credential, expired token,
+   whichever it is. Paste the raw error, not a paraphrase.
+2. **Check Windows Credential Manager** (`Control Panel → Credential Manager → Windows
+   Credentials`) for the stored GitHub entry — is it present, expired, or pointing at the
+   wrong account/token scope?
+3. **If it's an expired or scope-mismatched personal access token:** a new token needs to
+   be generated **on GitHub, by Jorge, in his own browser session** — this is account
+   credential creation, so it is Jorge's click, not yours to generate or type in for him.
+   Stage the exact steps for him (which GitHub settings page, what scopes to tick) rather
+   than doing the sign-in yourself.
+4. **If it's something else** (e.g. `credential.helper` misconfigured, a cached bad
+   credential, git itself pointing at the wrong remote) — that part you can fix directly,
+   it isn't a secret-entry step.
+5. **Prove the fix**, don't just claim it: after whatever change, make a real commit and a
+   real `git push`, and paste the command output showing it reached `origin` — the same
+   standard RI-002 already demands for every claimed fix in this repo.
+6. **Report the outcome in `TO-CLOUD.md`** either way — fixed-and-proven, or exactly which
+   step needs Jorge's one click, with the smallest possible ask spelled out.
+
+---
+
+## 16. TRK-2026-9952e — OWNER DIRECTIVE: PC never sleeps + line up the night runs (mid-tier, price-controlled)
+
+Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full text is
+`G:\My Drive\VTES-Inbox\MSG-CLOUD-TO-CODE_OWNER-DIRECTIVE_STAY-ON-AND-NIGHT-RUNS_TRK-2026-9952e_2026-09-23.md`
+(Drive ID 1zRQX0fCMd5ZkDgwZzpnKSfSE8j_3rNYj). In short:
+
+1. **Save the current power settings first** (that saved copy is the undo). Then run
+   `powercfg /change standby-timeout-ac 0` and `powercfg /change hibernate-timeout-ac 0`,
+   and add a daily task `CU-Keep-Awake` that re-applies them, because Windows Update resets them.
+   If admin rights are needed, report BLOCKED and stop there.
+2. **Rebuild `OVERNIGHT-QUEUE.md`** from what is really pending: OCR Queue A only, GREEN only.
+   OCR stays a plain Tesseract script with zero LLM tokens. Use `--model sonnet` only for
+   QC sampling (1 in 20) and judgment steps. Stop the LLM steps if the weekly pool drops under ~5%.
+3. **Result file** goes to VTES-Outbox with nonce `NIGHT-NONCE-OSPREY-7734-20260923` + `STARTED-BY:`.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
