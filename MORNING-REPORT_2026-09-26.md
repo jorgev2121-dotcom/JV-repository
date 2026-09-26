@@ -1,16 +1,26 @@
 # Morning Report — 2026-09-26
 
-**Covers overnight 2026-09-25 evening through 2026-09-26 ~04:00 UTC. Nothing was filed, sent, spent, or deleted. Quiet night — two things need your one-word answer, one thing just needs eyes at the desktop.**
+**Covers 2026-09-25 evening through 2026-09-26 ~17:35 UTC. Nothing was filed, sent, spent, or deleted. Quiet stretch — four things need a one-word answer from you, one thing just needs eyes at the desktop.**
 
 
 **📌 PINNED COUNTER — the PC runs jobs unattended, but with NO safety lock. Day 45 as of 2026-09-26.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
 ---
 
-## Two things waiting on you, both quick
+## Four things waiting on you, all quick
 
 **1. A county fee amount is hiding behind a form — type one thing, click one thing.** The Miami-Dade ePayment page is already open to invoice **C2026170181** (Unit 29 county fee). The county's email never says the dollar amount — you only see it after typing **C2026170181** into the "Process/Invoice Number" box and clicking **Add** (not Pay, not Submit). That reveals the number; nothing gets charged by that click.
 
 **2. A backup AI (Codex) is ready to install on your desktop — it just needs your one sign-in.** This is the backup executor in case Claude Code itself is busy or down. Someone offered to install it without asking you first — the desktop correctly said no and is waiting for your real yes. Say **YES** to proceed, or **NO** to skip it for now.
+
+**3. A tax-credit analysis tool (CDM) has been sitting at 84% done for about three weeks because nobody's said go.** This is the model that compares housing-tax-credit deals (the Edison Towers II work and similar). All the research is done and checked; the only thing stopping it from becoming a working tool is one line from you: **"CDM: GO"** to let it start writing the actual code, or **"CDM: hold"** to leave it as research-only for now. This has been open since 2026-09-05 (~3 weeks) — not urgent, just sitting.
+
+**4. A smaller, older question tied to the same project: which agency's application were you actually referring to?** Open since August 31st — the original deadline for one candidate program has already passed, so this is now about clarifying for next time, not catching a deadline. One word (which program you meant) closes it.
+
+---
+
+## Money sitting on the table — worth a look today
+
+**The TUS-26-1033 signature package — a $16,000 invoice — has been waiting on the client's signature since August 10th. That's about seven weeks with nobody following up.** A sweep of 30 open jobs this afternoon found it sitting in an "out for signature" folder, untouched. Nothing's been sent yet — this needs your call: should someone chase the client for that signature now, or is there a reason it's on hold? One word — **CHASE** or **HOLD** — and it moves.
 
 ---
 
@@ -28,12 +38,12 @@ The thing that kept knocking your local backup AI router offline this week (RI-0
 
 ## Denominators
 
-- **0** items filed, sent, spent, or deleted overnight.
-- **2** items staged and waiting on your one-word answer (above).
+- **0** items filed, sent, spent, or deleted.
+- **5** items staged and waiting on your one-word answer (above).
 - **1** item flagged for a desktop-side look, no decision needed.
-- **0** new commits from anyone but Claude on the repo branch overnight.
-- **0** new files in the desktop's result outbox since 2026-09-25 ~20:40 UTC (last real desktop activity: two files queuing research work to Cowork, still running).
+- **0** new commits from anyone but Claude on the repo branch.
+- **1** new piece of real activity in the whole window: the CDM research update at 17:35 UTC (item 3/4 above). Everything else stayed exactly where it was since 2026-09-25 ~20:40 UTC.
 
 ---
 
-Anything here you want handled differently, or a go-ahead on the two waiting items?
+Anything here you want handled differently, or a go-ahead on any of the four waiting items?
