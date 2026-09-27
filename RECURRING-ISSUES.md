@@ -2237,3 +2237,6 @@ against this RI's standing recommendation: never again make self-hosted LiteLLM 
 to pay-per-token API billing. The ccusage figure for September was ~$3,400 API-equivalent (TRK-2026-9952d).
 The `.bat` as drafted also had a bug: `set /p` shows the `op read` command as a prompt and never runs it.
 The recommendation still stands: Tier 2, meaning no router in front of Claude Code.
+**Decision 2026-09-27 (Jorge): LiteLLM-in-front-of-Claude-Code plan DROPPED** — "It breaks RI-038 and risks
+per-token billing." The cloud-generated config and master key were deleted from the cloud container; any
+future master key is generated on the PC and never pasted into chat.
