@@ -2272,3 +2272,9 @@ per-token billing." The cloud-generated config and master key were deleted from 
 future master key is generated on the PC and never pasted into chat.
 
 - **2026-09-26 (cloud, OD-107 watcher):** the cloud hourly check-in on PR #6 / OD-107 stopped silently after 2026-09-21 13:40Z (the trigger fired, the turn died before re-arming) and nobody noticed for five days. Same mechanism as RI-002: a scheduled watcher that dies leaves no trace unless something checks that it re-armed. Tier-1 fix applied: re-armed on 09-26. Tier-3 needed: a second, independent check (desktop watchdog or a recurring Routine) that flags when the cloud check-in has not filed anything for more than 2 h.
+
+**RI-038 recurrence, 2026-09-27 (cloud), second time today:** Jorge asked for self-hosted LiteLLM as the
+gateway for *all* LLMs, agents and bots, plus agent handoff through it. Not built. Rule 4 applied: three
+options in `GATEWAY-DECISION_2026-09-27.md`; recommended hosted gateway (OpenRouter) for bots, no router in
+front of Claude Code, handoff via the repo mailbox (a router cannot carry sessions between agents).
+Waiting on one yes/no.
