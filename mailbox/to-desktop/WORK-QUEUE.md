@@ -480,6 +480,36 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
 
 ---
 
+## 17. Install Grok Build desktop app (jonyb21/grok-build-app) — owner request 2026-09-27 · PASTE-D-053
+
+Jorge asked cloud to install this and said **do not ask him to run it**. Cloud cannot: the
+installer is Windows-only (it throws on non-Windows) and cloud has no link to the PC.
+**You run it. Jorge does nothing except sign in to grok.com at the end if asked.**
+
+Cloud reviewed the whole repo before queuing it (install.ps1, src/*.cs, scripts/Build-Icons.ps1):
+it downloads only the official x.ai CLI installer, compiles a small launcher with the
+built-in `csc.exe`, and makes Desktop + Start Menu shortcuts. No admin needed. Nothing
+sends data anywhere else. It is reversible with `uninstall.ps1`.
+
+Steps:
+
+1. `git clone --depth 1 https://github.com/jonyb21/grok-build-app C:\Users\JV\grok-build-app`
+   (if the folder already exists: `git -C C:\Users\JV\grok-build-app pull`).
+2. `cd C:\Users\JV\grok-build-app` then
+   `powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1`
+3. Do **not** touch `%USERPROFILE%\.grok\auth.json` or `config.toml` if they already exist.
+4. Proof of DONE: paste the printed summary and the contents of
+   `%USERPROFILE%\.grok\grok-build-app-install.json` into `mailbox/TO-CLOUD.md`.
+5. If `login_needed` is true, tell Jorge in one line: "Double-click Grok Build on the
+   Desktop and sign in at grok.com." That is his only step.
+6. Failure rules: missing `csc.exe` = BLOCKED, report the path. If the official x.ai
+   installer fails, stop — never download an unofficial grok binary. A failed taskbar pin
+   is still a success.
+
+Undo: `powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\JV\grok-build-app\uninstall.ps1`
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
