@@ -589,6 +589,13 @@ different binding.
    `C:\Users\JV\Pictures\Screenshots\shot.png`
 2. Use the Claude Code VS Code extension, which handles clipboard images natively.
 
+**Recurrence 2026-09-27 (cloud):** "snip not working, please fix ASAP", plus a request that
+cloud take a screenshot of a window on the desktop as proof. Cloud can't see or control
+the PC: this session has no remote-device tools, so that part is IMPOSSIBLE from cloud.
+Pointed Jorge back to `Alt+V` and the paperclip button. If the Snipping Tool itself won't
+open, the fix is Settings → Apps → Installed apps → Snipping Tool → Advanced options →
+Reset. Unverified until Jorge confirms.
+
 ---
 
 ## RI-010 — Dictation is load-bearing, not a convenience
