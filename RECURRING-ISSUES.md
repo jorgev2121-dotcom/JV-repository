@@ -832,6 +832,21 @@ Task-Scheduler-level 5-minute job with no LLM dependency. This now matches the
 -TaskName "CU-Uptime-Heartbeat"` and check `State`/`LastRunTime`/`LastTaskResult`, per
 Tier 2 of this RI.
 
+**Root cause confirmed 2026-09-27 13:19 UTC by a second, independent watchdog (Cowork's, not this session's).**
+Cowork declared a formal BRIDGE-INCIDENT (`CDM-BI-2026-09-27`) after three unanswered reissues to the desktop
+lane and named the actual mechanism: **`heartbeat.json` frozen since 2026-09-24 11:33:47 ET** (within an hour
+of this RI's independently-clocked `CU-Uptime-Heartbeat` staleness — two different signals, same failure
+window), and **two scheduled tasks on DESKTOP-OTB90LR are down: `VTES-LOCAL-POLLER` and
+`CU-Inbox-Job-Watcher`.** Critically, **the PC itself was used by hand through 2026-09-26 8:33 PM ET** (matches
+the Codex-install session logged the same evening) — so this is a dead watcher/heartbeat layer sitting on top
+of a machine that is otherwise awake and being used, the same shape as `CU-LLM-Watchdog` (RI-038) and not
+explainable by sleep, budget exhaustion, or "nobody's home." Seven Inbox job messages from 9/24-9/26 sit
+unacknowledged as a direct consequence. **This is now a fourth/fifth confirmed RI-015 instance, cross-verified
+by two independent watchdogs, needing a Task Scheduler fix on three named tasks
+(`CU-Uptime-Heartbeat`, `VTES-LOCAL-POLLER`, `CU-Inbox-Job-Watcher`) the next time someone is at the machine.**
+Cowork already emailed Jorge directly about the stall ("VTES GO — CDM stalled," 13:19 UTC) — no duplicate
+alert sent from this session.
+
 **Fifth instance, different system: Cowork's own "five-a-day" CDM schedule, 2026-09-26.**
 `COWORK-CDM-PROGRESS.md` (run 53) self-reports `ROUTINE-OUTAGE-02` — no firing from
 2026-09-21 ~5 PM ET through 2026-09-26 ~9 AM ET, about 30 missed runs over ~4.5 days,
