@@ -508,6 +508,33 @@ Steps:
 
 Undo: `powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\JV\grok-build-app\uninstall.ps1`
 
+### Item 17 addendum — 2026-09-27 · PASTE-X-008 → COWORK (supersedes PASTE-D-053 as the pointer)
+
+Jorge re-sent the install request and added two more. All three need his screen, so
+**Cowork does all three**; the desktop lane backs it up. Order:
+
+**A. Grok approval pop-up that is waiting for him.** Cloud searched Gmail (x.ai mail, last
+7 days) and the OD-107 approvals board: **no Grok approval is waiting in either.** So the
+prompt is on the PC screen. Take a screenshot and find it: a Grok CLI / Grok Build permission
+prompt, a Windows "Do you want to allow" (UAC) box, or a browser sign-in tab at grok.com / x.ai.
+Bring it to the front and read it aloud to Jorge in one sentence. **He clicks Allow himself**
+(Cowork never approves on his behalf). If it is a sign-in, he types the password; you do not.
+
+**B. Install Grok Build.** Steps 1–6 above (clone, `install.ps1`, proof to TO-CLOUD.md).
+Cowork can open PowerShell and run them. If the pop-up in A turns out to be this installer's own
+x.ai CLI prompt, that is expected.
+
+**C. "Router password issue."** Cloud's records: **9Router was UNINSTALLED 2026-09-20 at Jorge's
+request (TRK-2026-9961)**, and the 09-24 morning report shows the **Grok router and LiteLLM :4001
+OFFLINE**. Check which one is on screen:
+1. If 9Router is back and asking for a password: the working password is "on file" with the
+   desktop lane (RAMBO 09-15). Use it, then save it to 1Password as `9Router (127.0.0.1:20128)`.
+   Never guess — it locks after 3 tries.
+2. If it is the Grok router / LiteLLM: it does not use a password; it uses `XAI_API_KEY`.
+   Start it bound to 127.0.0.1 only, confirm `http://127.0.0.1:4001/health` answers.
+3. If it is the Wi-Fi router: stop and tell cloud; that is a different job.
+Report which one it was and the proof to TO-CLOUD.md.
+
 ---
 
 ## Standing note for the desktop session
