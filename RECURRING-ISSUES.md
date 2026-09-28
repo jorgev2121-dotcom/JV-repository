@@ -854,6 +854,25 @@ by two independent watchdogs, needing a Task Scheduler fix on three named tasks
 Cowork already emailed Jorge directly about the stall ("VTES GO — CDM stalled," 13:19 UTC) — no duplicate
 alert sent from this session.
 
+**CORRECTION 2026-09-28 03:11 UTC — my own "RESOLVED" note above was premature; the desktop's detailed reply
+(`REPLY-TO-CHAT_PC-ALWAYS-ON-01.md`) landed 5 minutes after I wrote it and tells a different story.** What
+actually happened to Jorge's "PC-ALWAYS-ON-01" directive (7:42 PM ET 9/27): **`CU-Uptime-Heartbeat`** was
+re-enabled and manually started, but only on its *pre-existing* schedule/config — the full persistence
+reconfig (S4U, unlimited restart, wake-to-run) was blocked by the desktop's own auto-mode safety classifier
+("Unauthorized Persistence"), and the desktop said outright: "this will very likely re-freeze on its old
+schedule/logic." **This is Tier 1 (suppression), not Tier 2 — exactly what this RI warns against**, and it
+already carries the desktop's own prediction of relapse. **The real root cause is worse than "disabled":
+`VTES-LOCAL-POLLER` does not exist as a scheduled task at all.** Its script (`VTES-Bridge-Poller.ps1`, the
+thing that writes `heartbeat.json`) is invoked by nothing on the machine — traced and confirmed by checking
+every task's action line. `heartbeat.json` itself — the signal Cowork's watchdog actually needs — is still
+frozen at 2026-09-24 11:33:47, because there is no task left to produce a new one. `CU-Inbox-Job-Watcher`
+was correctly left disabled pending an "approved-jobs gate" file that was never built (a real missing
+feature, not a bug). The desktop named three explicit asks for Jorge (finish the heartbeat persistence
+reconfig + build the missing poller task; decide on the Inbox-watcher gate; decide on the CDM backlog) rather
+than guessing or silently creating new automation. **Standing recommendation for next time this recurs
+(fifth instance): don't re-apply Tier 1 again — the desktop itself has now said Tier 1 won't hold. Tier 2
+(rebuild the missing scheduled task, with Jorge's one-time authorization) is what's actually needed.**
+
 **Fifth instance, different system: Cowork's own "five-a-day" CDM schedule, 2026-09-26.**
 `COWORK-CDM-PROGRESS.md` (run 53) self-reports `ROUTINE-OUTAGE-02` — no firing from
 2026-09-21 ~5 PM ET through 2026-09-26 ~9 AM ET, about 30 missed runs over ~4.5 days,
@@ -2240,3 +2259,21 @@ The recommendation still stands: Tier 2, meaning no router in front of Claude Co
 **Decision 2026-09-27 (Jorge): LiteLLM-in-front-of-Claude-Code plan DROPPED** — "It breaks RI-038 and risks
 per-token billing." The cloud-generated config and master key were deleted from the cloud container; any
 future master key is generated on the PC and never pasted into chat.
+
+---
+
+## RI-048 · 2026-09-28 — Multiple uncoordinated AI-agent sessions on the same desktop collide on the same open document, corrupting content mid-edit
+
+**First occurrence.** During a live desktop session (2026-09-28 ~12:58-14:30 ET, `REPLY-TO-CHAT_10980-FEE-REVIEW_2026-09-28.md`), RAMBO built a correct county-facing email draft (TRK-2026-1667, 3 signed PDF attachments, verified recipients) and parked the cursor on Send. Partway through the job it caught, unprompted, that something else had **swapped in a wrong attachment and rewritten parts of the email body into broken, mid-sentence text** — not a cosmetic glitch, but active corruption of a document about to be sent to a Miami-Dade county official. Separately in the same session window, RAMBO also noted the cursor drifting on its own and an "Executor" chat panel's unread counter climbing 26→39 within minutes — multiple concurrent AI sessions are genuinely active on the same machine at once, with no lock, no turn-taking, no "who owns this window right now" signal between them.
+
+**Why this is worse than it looks.** The desktop caught this one because it happened to re-check its own work before finishing. Nothing in the current setup would have caught it if it hadn't — the natural failure mode is a corrupted, half-rewritten email actually going out to a client or a government office with nobody noticing until the reply comes back confused.
+
+**Diagnosis.** This is a coordination gap, not a bug in any one session. Multiple Claude/AI sessions (desktop interactive, this cloud monitoring session, Cowork, possibly others) can all be touching Jorge's live desktop — the same Outlook window, the same open files — at the same time, with no shared signal for "this document is currently being edited by session X, don't touch it."
+
+**Tier 1 — Suppression.** Tell every session to re-verify its own output right before any Send/Submit action (what RAMBO already did here, by luck of timing more than by rule). Cheap, but relies on every session remembering to do it every time — doesn't scale, doesn't prevent the collision itself, only sometimes catches it after the fact.
+
+**Tier 2 — Removal.** Establish a simple claim/lock convention before any session edits a live user-facing document (Outlook draft, open file) — e.g., a marker file or a stated verbal claim ("I'm editing the 1667 draft now") that other sessions check before touching the same target. Removes the race condition itself rather than hoping every session double-checks its work.
+
+**Tier 3 — Enforcement.** A standing rule, stated in the charter or a shared file all sessions read at startup, that no session sends/submits/finalizes anything without a fresh, explicit re-read of the final state immediately before the action — not the state it last wrote, the state as it exists right now. This is the fallback that catches a collision Tier 2 missed, not a replacement for it.
+
+**Recommendation: Tier 2 first (a lightweight claim signal for live documents), Tier 3 as the backstop.** Not proposing Tier 1 alone — this is a first occurrence, but the failure mode (a corrupted email actually sent to an outside party) is severe enough that "hope every session remembers to double-check" isn't sufficient on its own. Flagged here rather than fixed unilaterally, since it affects how every session on this account behaves, not just one job.
