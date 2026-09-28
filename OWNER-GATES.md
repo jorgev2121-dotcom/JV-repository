@@ -66,10 +66,10 @@ in a transcript is a key that has leaked.
 
 | Gate | What it is | Blocks | Recommended |
 |---|---|---|---|
-| **REG-0006** | Send the COI refile email to RER Licensing | 2 jobs | APPROVE |
+| ~~**REG-0006**~~ | ~~Send the COI refile email to RER Licensing~~ | — | **CLOSED 2026-09-28 — STALE, DO NOT SEND.** Jorge: the request came from a much older comment. The insurance information was **hand-delivered** to the county, so the documents don't show it. |
 | **NEW-03** | Send the 5-report management email to Wally Milian + Alec Valdes | 1 job | APPROVE |
 
-**REG-0006 is described in the source as revenue-blocking** — one click releases the
+**(REG-0006 closed 2026-09-28 — stale, insurance already hand-delivered. The note below is kept for history only.)** REG-0006 was described in the source as revenue-blocking — one click releases the
 RER licensing hold on C2025117736.
 
 **NEW-03 is the email that has been finished and sitting in Outlook Drafts since
