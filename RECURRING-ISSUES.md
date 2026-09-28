@@ -2259,3 +2259,21 @@ The recommendation still stands: Tier 2, meaning no router in front of Claude Co
 **Decision 2026-09-27 (Jorge): LiteLLM-in-front-of-Claude-Code plan DROPPED** — "It breaks RI-038 and risks
 per-token billing." The cloud-generated config and master key were deleted from the cloud container; any
 future master key is generated on the PC and never pasted into chat.
+
+---
+
+## RI-048 · 2026-09-28 — Multiple uncoordinated AI-agent sessions on the same desktop collide on the same open document, corrupting content mid-edit
+
+**First occurrence.** During a live desktop session (2026-09-28 ~12:58-14:30 ET, `REPLY-TO-CHAT_10980-FEE-REVIEW_2026-09-28.md`), RAMBO built a correct county-facing email draft (TRK-2026-1667, 3 signed PDF attachments, verified recipients) and parked the cursor on Send. Partway through the job it caught, unprompted, that something else had **swapped in a wrong attachment and rewritten parts of the email body into broken, mid-sentence text** — not a cosmetic glitch, but active corruption of a document about to be sent to a Miami-Dade county official. Separately in the same session window, RAMBO also noted the cursor drifting on its own and an "Executor" chat panel's unread counter climbing 26→39 within minutes — multiple concurrent AI sessions are genuinely active on the same machine at once, with no lock, no turn-taking, no "who owns this window right now" signal between them.
+
+**Why this is worse than it looks.** The desktop caught this one because it happened to re-check its own work before finishing. Nothing in the current setup would have caught it if it hadn't — the natural failure mode is a corrupted, half-rewritten email actually going out to a client or a government office with nobody noticing until the reply comes back confused.
+
+**Diagnosis.** This is a coordination gap, not a bug in any one session. Multiple Claude/AI sessions (desktop interactive, this cloud monitoring session, Cowork, possibly others) can all be touching Jorge's live desktop — the same Outlook window, the same open files — at the same time, with no shared signal for "this document is currently being edited by session X, don't touch it."
+
+**Tier 1 — Suppression.** Tell every session to re-verify its own output right before any Send/Submit action (what RAMBO already did here, by luck of timing more than by rule). Cheap, but relies on every session remembering to do it every time — doesn't scale, doesn't prevent the collision itself, only sometimes catches it after the fact.
+
+**Tier 2 — Removal.** Establish a simple claim/lock convention before any session edits a live user-facing document (Outlook draft, open file) — e.g., a marker file or a stated verbal claim ("I'm editing the 1667 draft now") that other sessions check before touching the same target. Removes the race condition itself rather than hoping every session double-checks its work.
+
+**Tier 3 — Enforcement.** A standing rule, stated in the charter or a shared file all sessions read at startup, that no session sends/submits/finalizes anything without a fresh, explicit re-read of the final state immediately before the action — not the state it last wrote, the state as it exists right now. This is the fallback that catches a collision Tier 2 missed, not a replacement for it.
+
+**Recommendation: Tier 2 first (a lightweight claim signal for live documents), Tier 3 as the backstop.** Not proposing Tier 1 alone — this is a first occurrence, but the failure mode (a corrupted email actually sent to an outside party) is severe enough that "hope every session remembers to double-check" isn't sufficient on its own. Flagged here rather than fixed unilaterally, since it affects how every session on this account behaves, not just one job.
