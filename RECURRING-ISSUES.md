@@ -589,6 +589,13 @@ different binding.
    `C:\Users\JV\Pictures\Screenshots\shot.png`
 2. Use the Claude Code VS Code extension, which handles clipboard images natively.
 
+**Recurrence 2026-09-27 (cloud):** "snip not working, please fix ASAP", plus a request that
+cloud take a screenshot of a window on the desktop as proof. Cloud can't see or control
+the PC: this session has no remote-device tools, so that part is IMPOSSIBLE from cloud.
+Pointed Jorge back to `Alt+V` and the paperclip button. If the Snipping Tool itself won't
+open, the fix is Settings → Apps → Installed apps → Snipping Tool → Advanced options →
+Reset. Unverified until Jorge confirms.
+
 ---
 
 ## RI-010 — Dictation is load-bearing, not a convenience
@@ -2221,3 +2228,15 @@ answering.
 **RI-047 · 2026-09-20 — Outlook auto-relaunches itself within seconds of being killed, via COM/DCOM activation, and the resource-exhaustion dialog comes back with it.** Downstream of the same OD-107/1Password chain (RI-046) but a distinct mechanism worth its own number — the desktop's own Drive-side recurring-issues copy independently logged this as "RI-046" too, a genuine numbering collision across the two copies (worth knowing: at least 4 different RECURRING-ISSUES.md copies exist — this repo's, the Drive-side one, `00-CONTINUITY-BOARD`, and `Shared Folders for all LLMs` — and they can drift out of sync on numbering). **What was found:** killing Outlook gets a replacement process back in 2-4 seconds, command line `-Embedding` (COM-launched, not a direct relaunch), parent PID is `svchost.exe` — something is calling `Outlook.Application` via COM and winning the race against even a manual `/safe`-mode launch. The known auto-launch scripts on disk were ruled out (one explicitly skips the COM call when Outlook isn't running; the other's own log shows no activity today). Root cause still unidentified. **Second cycle in a row hitting the same wall: fixing it needs `Stop-Service WSearch`, which needs admin rights the desktop session doesn't have.** Per Rule 4, two Tier-1-only attempts (kill + relaunch) in a row means the next step can't be a third kill-and-relaunch. **Needs one of: (1) an elevated session runs `Stop-Service WSearch`, or (2) Jorge watches a live kill in Task Manager's Details tab (or Process Explorer) to catch the exact parent process the instant Outlook reappears** — a headless session can only see it after the fact. Also noted, likely related: 30-39 PowerShell processes have been alive since 2026-09-19 13:14, and CPU has been pinned 88-100% continuously since ~2026-09-20 00:29.
 
 **Third confirmation, ~12:10-12:20 same day.** Same DCOM signature reproduced a third independent time (different PIDs each time, same `ParentProcessId` pattern, same `-Embedding` command line). This narrows the cause — ruled out as a scheduled task or an add-in across all three cycles — but still doesn't name the actual caller. No new action beyond the Tier-2 ask above; not re-attempting Tier-1 kill-and-relaunch a fourth time.
+
+**RI-038 recurrence, 2026-09-27 (cloud):** a new plan to put self-hosted LiteLLM back on the PC, this time
+*in front of Claude Code itself* (`ANTHROPIC_BASE_URL=http://localhost:4000`, launched from a `.bat` that
+pulls the Anthropic API key from 1Password). Not built on the PC. Cloud flagged three problems. (1) It goes
+against this RI's standing recommendation: never again make self-hosted LiteLLM on the PC load-bearing.
+(2) If LiteLLM goes down, Claude Code goes down with it. (3) It moves Claude Code from the flat-fee Max plan
+to pay-per-token API billing. The ccusage figure for September was ~$3,400 API-equivalent (TRK-2026-9952d).
+The `.bat` as drafted also had a bug: `set /p` shows the `op read` command as a prompt and never runs it.
+The recommendation still stands: Tier 2, meaning no router in front of Claude Code.
+**Decision 2026-09-27 (Jorge): LiteLLM-in-front-of-Claude-Code plan DROPPED** — "It breaks RI-038 and risks
+per-token billing." The cloud-generated config and master key were deleted from the cloud container; any
+future master key is generated on the PC and never pasted into chat.
