@@ -589,6 +589,13 @@ different binding.
    `C:\Users\JV\Pictures\Screenshots\shot.png`
 2. Use the Claude Code VS Code extension, which handles clipboard images natively.
 
+**Recurrence 2026-09-27 (cloud):** "snip not working, please fix ASAP", plus a request that
+cloud take a screenshot of a window on the desktop as proof. Cloud can't see or control
+the PC: this session has no remote-device tools, so that part is IMPOSSIBLE from cloud.
+Pointed Jorge back to `Alt+V` and the paperclip button. If the Snipping Tool itself won't
+open, the fix is Settings → Apps → Installed apps → Snipping Tool → Advanced options →
+Reset. Unverified until Jorge confirms.
+
 ---
 
 ## RI-010 — Dictation is load-bearing, not a convenience
@@ -846,6 +853,25 @@ by two independent watchdogs, needing a Task Scheduler fix on three named tasks
 (`CU-Uptime-Heartbeat`, `VTES-LOCAL-POLLER`, `CU-Inbox-Job-Watcher`) the next time someone is at the machine.**
 Cowork already emailed Jorge directly about the stall ("VTES GO — CDM stalled," 13:19 UTC) — no duplicate
 alert sent from this session.
+
+**CORRECTION 2026-09-28 03:11 UTC — my own "RESOLVED" note above was premature; the desktop's detailed reply
+(`REPLY-TO-CHAT_PC-ALWAYS-ON-01.md`) landed 5 minutes after I wrote it and tells a different story.** What
+actually happened to Jorge's "PC-ALWAYS-ON-01" directive (7:42 PM ET 9/27): **`CU-Uptime-Heartbeat`** was
+re-enabled and manually started, but only on its *pre-existing* schedule/config — the full persistence
+reconfig (S4U, unlimited restart, wake-to-run) was blocked by the desktop's own auto-mode safety classifier
+("Unauthorized Persistence"), and the desktop said outright: "this will very likely re-freeze on its old
+schedule/logic." **This is Tier 1 (suppression), not Tier 2 — exactly what this RI warns against**, and it
+already carries the desktop's own prediction of relapse. **The real root cause is worse than "disabled":
+`VTES-LOCAL-POLLER` does not exist as a scheduled task at all.** Its script (`VTES-Bridge-Poller.ps1`, the
+thing that writes `heartbeat.json`) is invoked by nothing on the machine — traced and confirmed by checking
+every task's action line. `heartbeat.json` itself — the signal Cowork's watchdog actually needs — is still
+frozen at 2026-09-24 11:33:47, because there is no task left to produce a new one. `CU-Inbox-Job-Watcher`
+was correctly left disabled pending an "approved-jobs gate" file that was never built (a real missing
+feature, not a bug). The desktop named three explicit asks for Jorge (finish the heartbeat persistence
+reconfig + build the missing poller task; decide on the Inbox-watcher gate; decide on the CDM backlog) rather
+than guessing or silently creating new automation. **Standing recommendation for next time this recurs
+(fifth instance): don't re-apply Tier 1 again — the desktop itself has now said Tier 1 won't hold. Tier 2
+(rebuild the missing scheduled task, with Jorge's one-time authorization) is what's actually needed.**
 
 **Fifth instance, different system: Cowork's own "five-a-day" CDM schedule, 2026-09-26.**
 `COWORK-CDM-PROGRESS.md` (run 53) self-reports `ROUTINE-OUTAGE-02` — no firing from
@@ -2222,6 +2248,17 @@ answering.
 
 **Third confirmation, ~12:10-12:20 same day.** Same DCOM signature reproduced a third independent time (different PIDs each time, same `ParentProcessId` pattern, same `-Embedding` command line). This narrows the cause — ruled out as a scheduled task or an add-in across all three cycles — but still doesn't name the actual caller. No new action beyond the Tier-2 ask above; not re-attempting Tier-1 kill-and-relaunch a fourth time.
 
+**RI-038 recurrence, 2026-09-27 (cloud):** a new plan to put self-hosted LiteLLM back on the PC, this time
+*in front of Claude Code itself* (`ANTHROPIC_BASE_URL=http://localhost:4000`, launched from a `.bat` that
+pulls the Anthropic API key from 1Password). Not built on the PC. Cloud flagged three problems. (1) It goes
+against this RI's standing recommendation: never again make self-hosted LiteLLM on the PC load-bearing.
+(2) If LiteLLM goes down, Claude Code goes down with it. (3) It moves Claude Code from the flat-fee Max plan
+to pay-per-token API billing. The ccusage figure for September was ~$3,400 API-equivalent (TRK-2026-9952d).
+The `.bat` as drafted also had a bug: `set /p` shows the `op read` command as a prompt and never runs it.
+The recommendation still stands: Tier 2, meaning no router in front of Claude Code.
+**Decision 2026-09-27 (Jorge): LiteLLM-in-front-of-Claude-Code plan DROPPED** — "It breaks RI-038 and risks
+per-token billing." The cloud-generated config and master key were deleted from the cloud container; any
+future master key is generated on the PC and never pasted into chat.
 ---
 **RI-031 recurrence · 2026-09-23 ~03:55 UTC — PASTE-D-053 (a Desktop block) was pasted into the ☁️ Cloud window.** It came from the iPhone app. The cloud session checked Drive: all three job files (TRK-2026-9952d/e/g) are in `VTES-Inbox`, the desktop poller ACKed each one into `VTES-Outbox`, and **no RESULT file exists**. Cloud cannot run them because the jobs need the PC (ccusage reads the PC's local logs, powercfg, npm install). The cloud tried to message the `Jorge-PC` Remote Control session, but it was not reachable (the listing showed "connected", last updated 2026-09-19, which was stale). Root cause stays as logged: the iPhone has no Desktop window to paste into unless Remote Control is running on the PC. The durable fix is already queued (PASTE-D-052, `/remote-control`).
 
