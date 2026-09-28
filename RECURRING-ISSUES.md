@@ -865,6 +865,8 @@ fix (find and remove what disables it) isn't available from here; only Cowork's 
 side could diagnose why its schedule stopped firing. Logged as a data point for the
 pattern, not investigated further — out of reach from cloud or desktop.
 
+**Recurrence note 2026-09-28 02:50 UTC — the fix order itself got stuck behind the fault.** Jorge's PC-ALWAYS-ON-01 directive (2026-09-27 19:42 ET) was routed into VTES-Inbox, whose reader (VTES-LOCAL-POLLER) is one of the dead tasks. Three hours later: not picked up, heartbeat still frozen at 2026-09-24 11:33 ET. **Lesson for every lane: never route a repair order for the Inbox poller through the Inbox.** A dead-poller fix must go to a live interactive desktop session or a double-click file. Tier 3 enforcement (a SYSTEM task that re-enables these tasks every 30 min) remains the recommended fix for this RI; cloud drafted one but it needs Jorge's explicit OK before delivery because it installs a permanent background task.
+
 ---
 
 ## RI-016 — OCR output is not attached to tracking numbers
