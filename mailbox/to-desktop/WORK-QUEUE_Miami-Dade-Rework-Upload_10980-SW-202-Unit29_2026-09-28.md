@@ -5,7 +5,7 @@
 **TASK:** Submit rework forms to Miami-Dade County Building Department  
 **PROPERTY:** 10980 SW 202 Drive, Unit 29  
 **PROCESS NUMBER:** C2026170181  
-**STATUS:** READY TO EXECUTE
+**STATUS:** HOLD — check with Jorge first. Another session is already working on C2026170181 (fee-review email). See TEAM-DEPLOYMENT-PLAN_2026-09-28.md Section F.
 
 ---
 
