@@ -854,6 +854,14 @@ by two independent watchdogs, needing a Task Scheduler fix on three named tasks
 Cowork already emailed Jorge directly about the stall ("VTES GO — CDM stalled," 13:19 UTC) — no duplicate
 alert sent from this session.
 
+**RESOLVED 2026-09-28 03:06 UTC — Tier 1 fix worked this time, verified by artifact.** Jorge spoke a
+"PC-ALWAYS-ON-01" directive at 7:42 PM ET 9/27 ordering the desktop to restart all three named tasks and set
+the PC to never sleep. `_UPTIME-HEARTBEAT.md` and `_UPTIME-LOG.csv` both wrote fresh at 03:06 UTC — the first
+write since 2026-09-24 13:14 UTC, a ~3.7-day gap — confirming `CU-Uptime-Heartbeat` came back. Per this RI's
+own Rule-4 framing: this is the *fourth* confirmed instance of the shape (disabled task, no error, no signal),
+so a fifth occurrence should not get another Tier-1 restart without asking why these tasks keep going down in
+the first place — that "why" is still open and unexplained (no one has identified who or what disabled them).
+
 **Fifth instance, different system: Cowork's own "five-a-day" CDM schedule, 2026-09-26.**
 `COWORK-CDM-PROGRESS.md` (run 53) self-reports `ROUTINE-OUTAGE-02` — no firing from
 2026-09-21 ~5 PM ET through 2026-09-26 ~9 AM ET, about 30 missed runs over ~4.5 days,
