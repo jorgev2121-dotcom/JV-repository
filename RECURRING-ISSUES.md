@@ -2278,3 +2278,10 @@ gateway for *all* LLMs, agents and bots, plus agent handoff through it. Not buil
 options in `GATEWAY-DECISION_2026-09-27.md`; recommended hosted gateway (OpenRouter) for bots, no router in
 front of Claude Code, handoff via the repo mailbox (a router cannot carry sessions between agents).
 Waiting on one yes/no.
+
+**RI-031 recurrence, 2026-09-29 (cloud):** Jorge could not find the desktop executor. Session list shows
+the session titled "Claude desktop executor" is a **cloud** session (anthropic_cloud, disconnected), not
+the PC. The only PC session connected (bridge, remote-control on) was titled "1Password login options
+cleanup". Cloud renamed it "🖥️ DESKTOP EXECUTOR (on your PC) — 1Password cleanup". Cloud-to-PC
+SendMessage failed ("not reachable"), so relay still goes through Jorge. Tier-2 fix still needed: one
+PC session with a fixed name that every cloud session can address.
