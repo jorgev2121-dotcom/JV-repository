@@ -36,3 +36,16 @@ Local Ollama remains the free last fallback.
 - Once yes: desktop lane creates the account key on the PC, stores it in 1Password (never in
   chat or the repo), points bots at `https://openrouter.ai/api/v1`, and proves each bot with a
   real round-trip — not a /health ping.
+
+## DECISION — 2026-09-29 (Jorge): **YES to OpenRouter**, with a standing rule
+> *"Yes. This world is API keys, fees apply — request approval with cost estimate before running."*
+
+- Rule written into CLAUDE.md Article 5; enforced by `tools/llm_cost_gate.py`.
+- **Cost approval request GW-0001 (the account itself):** first top-up **$10.00** + card fee
+  **$0.80** (5.5%, $0.80 minimum) = **$10.80, one time. Auto top-up OFF**, so the account can
+  never spend more than what is loaded. Nothing is charged per month.
+- Every later run gets its own estimate first (example from the tool: 100 Grok-4 runs of ~4,000
+  tokens in / 1,000 out ≈ $2.85 at placeholder prices).
+- Cloud cannot reach openrouter.ai (blocked by the network allowlist), so the price table
+  `tools/llm_prices.json` holds placeholders until the desktop copies real prices.
+- Fee source: search results 2026-09-29 (truefoundry.com, checkout.rozo.ai). Confirm at checkout.

@@ -538,6 +538,23 @@ OFFLINE**. Check which one is on screen:
 3. If it is the Wi-Fi router: stop and tell cloud; that is a different job.
 Report which one it was and the proof to TO-CLOUD.md.
 
+## 18. OpenRouter gateway — Jorge said YES 2026-09-29 · PASTE-D-054 · rules: CLAUDE.md Article 5
+
+Read `GATEWAY-DECISION_2026-09-27.md` (DECISION section) first. **Never put Claude Code behind it.**
+
+0. Wait until Jorge has done his one step: signed in at openrouter.ai and bought **$10 of credit
+   with auto top-up OFF** (approval GW-0001, $10.80 total). If not done, stop and say so.
+1. Create one API key named `CU-bots-nightruns`. If the page offers a credit limit per key, set $10.
+2. Save it straight into 1Password as `OpenRouter — CU-bots-nightruns`. Never into a file, the repo,
+   or chat. Bots read it from 1Password or a user environment variable `OPENROUTER_API_KEY`.
+3. Copy real prices for the models we use from openrouter.ai/models into `tools/llm_prices.json`
+   and set "Last checked" to today.
+4. Proof round-trip (costs well under $0.01, pre-approved as part of GW-0001): one request to
+   `https://openrouter.ai/api/v1/chat/completions` with a cheap model, asking "reply OK".
+   Paste the model name, the reply and the cost shown on the OpenRouter activity page to TO-CLOUD.md.
+5. After that, **every paid run** goes through `tools/llm_cost_gate.py` — estimate, wait for
+   APPROVED, then run. No exceptions.
+
 ---
 
 ## Standing note for the desktop session
