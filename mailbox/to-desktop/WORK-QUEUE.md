@@ -555,6 +555,24 @@ Read `GATEWAY-DECISION_2026-09-27.md` (DECISION section) first. **Never put Clau
 5. After that, **every paid run** goes through `tools/llm_cost_gate.py` — estimate, wait for
    APPROVED, then run. No exceptions.
 
+## 19. Free Gemini path — APPROVED by Jorge 2026-09-29 ("yes, approved, execute") · PASTE-X-009 → COWORK
+
+Cost: **$0** (Gemini free tier). No card. If Google asks for billing, STOP — that is not approved.
+Cloud already fixed and tested the tool (`vts-llm-panel/`, 4 offline tests pass): Gemini model
+updated to `gemini-2.5-flash` (1.5 was retired), and paid fallbacks are now blocked unless a cost
+estimate is APPROVED (tools/llm_cost_gate.py). Cloud cannot reach Google, so the live proof is yours.
+
+1. `git pull`.
+2. In Chrome, open `https://aistudio.google.com/app/apikey`, signed in as jorgev2121@gmail.com.
+   Click **Create API key**. If Google shows a consent screen, Jorge clicks Continue (his only step).
+3. Save the key into 1Password as `Gemini API — free tier (VTS panel)`. Never into a file or chat.
+4. Set it as a user environment variable, not in any script:
+   `[Environment]::SetEnvironmentVariable('GEMINI_API_KEY','<paste from 1Password>','User')`
+   then open a new PowerShell window.
+5. Proof: `python vts-llm-panel\vts_llm_panel.py --health` must show `gemini LIVE`, then
+   `python vts-llm-panel\vts_llm_panel.py "Reply with the word OK"` must show `[answered by: gemini]`.
+6. Paste both outputs (never the key) into TO-CLOUD.md under "ITEM 19 PROOF".
+
 ---
 
 ## Standing note for the desktop session

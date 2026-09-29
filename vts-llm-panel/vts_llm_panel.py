@@ -28,10 +28,13 @@ def _post(url, headers, body, timeout=45):
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return json.loads(r.read().decode())
 
+# gemini-1.5-* was retired by Google; 2.5-flash has a free tier. Override with GEMINI_MODEL.
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+
 def call_gemini(key, prompt):
     url = ("https://generativelanguage.googleapis.com/v1beta/models/"
-           "gemini-1.5-flash:generateContent?key=" + key)
-    out = _post(url, {"Content-Type": "application/json"},
+           + GEMINI_MODEL + ":generateContent")
+    out = _post(url, {"Content-Type": "application/json", "x-goog-api-key": key},
                 {"contents": [{"parts": [{"text": prompt}]}]})
     return out["candidates"][0]["content"]["parts"][0]["text"]
 
@@ -55,13 +58,28 @@ def call_anthropic(key, prompt):
                  "messages": [{"role": "user", "content": prompt}]})
     return out["content"][0]["text"]
 
-# priority order: free first, paid/limited last
+# priority order: free first, paid/limited last.
+# Paid providers are skipped unless the run has an approved cost estimate
+# (owner directive 2026-09-29, CLAUDE.md Article 5, tools/llm_cost_gate.py).
 PROVIDERS = [
-    {"name": "gemini",    "env": "GEMINI_API_KEY",    "call": call_gemini},
-    {"name": "grok",      "env": "XAI_API_KEY",       "call": call_grok},
-    {"name": "openai",    "env": "OPENAI_API_KEY",    "call": call_openai},
-    {"name": "anthropic", "env": "ANTHROPIC_API_KEY", "call": call_anthropic},
+    {"name": "gemini",    "env": "GEMINI_API_KEY",    "call": call_gemini,    "paid": False},
+    {"name": "grok",      "env": "XAI_API_KEY",       "call": call_grok,      "paid": True},
+    {"name": "openai",    "env": "OPENAI_API_KEY",    "call": call_openai,    "paid": True},
+    {"name": "anthropic", "env": "ANTHROPIC_API_KEY", "call": call_anthropic, "paid": True},
 ]
+
+APPROVALS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "approvals")
+
+def paid_approved(run_id):
+    """True only if approvals/<run_id>.md exists and says STATUS: APPROVED."""
+    if not run_id:
+        return False
+    path = os.path.join(APPROVALS, run_id + ".md")
+    try:
+        with open(path, encoding="utf-8") as f:
+            return "STATUS: APPROVED" in f.read()
+    except OSError:
+        return False
 
 def _ordered(prefer=None):
     if not prefer:
@@ -71,10 +89,14 @@ def _ordered(prefer=None):
     return first + rest
 
 # ---- public functions -----------------------------------------------------
-def ask(prompt, prefer=None):
+def ask(prompt, prefer=None, approved_run=None):
     """Try providers in order; return (provider_name, answer). Raise if all fail."""
     errors = []
+    allow_paid = paid_approved(approved_run)
     for p in _ordered(prefer):
+        if p["paid"] and not allow_paid:
+            errors.append(f"{p['name']}: skipped (paid, no approved cost estimate)")
+            continue
         key = os.environ.get(p["env"])
         if not key:
             errors.append(f"{p['name']}: no key ({p['env']} not set)")
@@ -95,6 +117,9 @@ def health():
         if not key:
             rows.append((p["name"], "NO-KEY", f"{p['env']} not set"))
             continue
+        if p["paid"]:
+            rows.append((p["name"], "KEY-SET", "paid: not pinged (needs approved cost estimate)"))
+            continue
         try:
             p["call"](key, "reply with the single word OK")
             rows.append((p["name"], "LIVE", "answered"))
@@ -110,6 +135,8 @@ def main():
     ap.add_argument("prompt", nargs="*", help="the question to ask")
     ap.add_argument("--health", action="store_true", help="ping every provider and exit")
     ap.add_argument("--prefer", help="force this provider first (gemini|grok|openai|anthropic)")
+    ap.add_argument("--approved", metavar="RUN-ID",
+                    help="approved cost-estimate id; without it paid providers are skipped")
     a = ap.parse_args()
 
     if a.health:
@@ -120,7 +147,7 @@ def main():
 
     if not a.prompt:
         ap.error("give a prompt, or use --health")
-    provider, answer = ask(" ".join(a.prompt), prefer=a.prefer)
+    provider, answer = ask(" ".join(a.prompt), prefer=a.prefer, approved_run=a.approved)
     print(f"[answered by: {provider}]\n{answer}")
 
 if __name__ == "__main__":
