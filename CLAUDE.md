@@ -410,6 +410,8 @@ plain words, on the line before the block, and say how to open it. Use exactly o
 The phrases "the Windows window" and "the desktop window" are banned. If the
 destination cannot be named, the block is not ready to send.
 
+**Wrong window? Find a path (OD-WW-01, 2026-09-29).** Never answer "I can't do that here." Hand it to the lane that can, monitor it, and report proof. Full text: `OWNER-DIRECTIVE_WRONG-WINDOW-HANDOFF-01_2026-09-29.md`.
+
 **At the end of every session:**
 
 1. Update the status of every item you touched in `OPEN-ITEMS.md`.
