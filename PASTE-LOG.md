@@ -101,3 +101,4 @@ enough to identify it exactly, with no description needed.
 - **PASTE-D-061** · 2026-09-28 · Desktop Claude Code (🖥️) → full package: N-1/N-2, diagnostic, Sunbiz lookups, statement PDFs, local-service status, RESULT file. SUPERSEDES PASTE-D-060. File: `mailbox/to-desktop/DESKTOP-FULL-PACKAGE_PASTE-D-061.md`
 - **PASTE-X-012** · 2026-09-28 · COWORK (🤝) → Lane 2 of MASTER-DISPATCH: Plaza drafter failure, statement-email sweep, routine health, daily yes/no digest. File: `mailbox/to-cowork/COWORK-PACKAGE_PASTE-X-012.md`
 - **PASTE-D-062** · 2026-09-28 · Jorge's PC PowerShell → 12-line read-only quick check (3 tasks, Drive Outbox freshness, internet, printer queue). File: `mailbox/to-desktop/QuickCheck_PASTE-D-062.ps1`
+- PASTE-LOG note 2026-09-29: no new paste IDs issued; CLAUDE.md section 10 now requires named paste destinations and the chat label line.
