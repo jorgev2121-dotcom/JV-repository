@@ -103,3 +103,4 @@ enough to identify it exactly, with no description needed.
 - **PASTE-D-062** · 2026-09-28 · Jorge's PC PowerShell → 12-line read-only quick check (3 tasks, Drive Outbox freshness, internet, printer queue). File: `mailbox/to-desktop/QuickCheck_PASTE-D-062.ps1`
 - PASTE-LOG note 2026-09-29: no new paste IDs issued; CLAUDE.md section 10 now requires named paste destinations and the chat label line.
 - **PASTE-D-063** · 2026-09-29 · Desktop Claude Code (🖥️) → router password: unlock 1Password via pop-up, 9Router login by autofill only, report DONE/BLOCKED with proof. File: `mailbox/to-desktop/ROUTER-PASSWORD_PASTE-D-063.md`
+- **PASTE-X-013** · 2026-09-29 · COWORK (🤝) → finish Control Panel: 4-hour link check routine, replace bad LINK-REGISTER, read panel notes, Cowork-lane tasks. File: `mailbox/to-cowork/CONTROL-PANEL-REMAINING_PASTE-X-013.md`
