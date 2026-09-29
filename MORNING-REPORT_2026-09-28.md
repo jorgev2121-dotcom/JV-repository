@@ -4,6 +4,14 @@
 
 ---
 
+## START HERE — the one thing that unblocks the most
+
+**Say this one line: "yes, rebuild the inbox poller."** The desktop's inbox-reading task does not exist, so every job file waiting in the shared Inbox sits unread, and nothing has been opened by the desktop for two days. That includes the CDM job, its two follow-ups, and three new orders from the Chat window. It is one yes, and the desktop builds and tests it in the same session.
+
+Everything else below can wait a day. This one keeps stacking up.
+
+---
+
 ## From last night's PC session — three new asks
 
 **You were at the desktop last night around 7:30-8pm** and gave the order to fix the automation that had gone quiet (the "PC-ALWAYS-ON-01" directive). Good news and bad news on that:
