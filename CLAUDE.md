@@ -412,6 +412,8 @@ destination cannot be named, the block is not ready to send.
 
 **Wrong window? Find a path (OD-WW-01, 2026-09-29).** Never answer "I can't do that here." Hand it to the lane that can, monitor it, and report proof. Full text: `OWNER-DIRECTIVE_WRONG-WINDOW-HANDOFF-01_2026-09-29.md`.
 
+**No per-token API without a dollar quote (OD-API-01, 2026-09-29).** SuperGrok does not cover the xAI API; bots on an API key spend real money. Every API request gets a worst-case US-dollar quote, submitted to Jorge, approved or denied before it runs. Tokens are always shown in dollars. Full text: `OWNER-DIRECTIVE_API-QUOTE-FIRST-01_2026-09-29.md`.
+
 **At the end of every session:**
 
 1. Update the status of every item you touched in `OPEN-ITEMS.md`.
