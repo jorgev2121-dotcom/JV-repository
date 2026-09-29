@@ -339,7 +339,10 @@ Logged as **RI-046**.
    d. Confirm at the end that 9router binds to `127.0.0.1` only, not `0.0.0.0` — the
       README's production example exposes it to the LAN, and the database holds live
       API keys (this is CVE-2026-63732, the default-password takeover).
-5. **Suspect to check once in — RI-018.** The hourly PAD routine
+5. **Suspect to check once in — RI-018.** *(Desktop 2026-09-19 23:26Z: this is a Power
+   Automate CLOUD flow, not a Task Scheduler task — no local toggle. Off-switch is
+   make.powerautomate.com → My flows → Turn off; owner click 8 on the one-click page, or
+   Cowork with Jorge present.)* The hourly PAD routine
    `PAD - Verification Code Monitor (Hourly)` auto-re-requests Microsoft security codes.
    Repeated code requests are exactly what trips Microsoft's risk detection and
    invalidates Office's sign-in token, which would make Symptom A come back every few
@@ -477,6 +480,171 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
    OCR stays a plain Tesseract script with zero LLM tokens. Use `--model sonnet` only for
    QC sampling (1 in 20) and judgment steps. Stop the LLM steps if the weekly pool drops under ~5%.
 3. **Result file** goes to VTES-Outbox with nonce `NIGHT-NONCE-OSPREY-7734-20260923` + `STARTED-BY:`.
+
+---
+
+## 17. Install Grok Build desktop app (jonyb21/grok-build-app) — owner request 2026-09-27 · PASTE-D-053
+
+Jorge asked cloud to install this and said **do not ask him to run it**. Cloud cannot: the
+installer is Windows-only (it throws on non-Windows) and cloud has no link to the PC.
+**You run it. Jorge does nothing except sign in to grok.com at the end if asked.**
+
+Cloud reviewed the whole repo before queuing it (install.ps1, src/*.cs, scripts/Build-Icons.ps1):
+it downloads only the official x.ai CLI installer, compiles a small launcher with the
+built-in `csc.exe`, and makes Desktop + Start Menu shortcuts. No admin needed. Nothing
+sends data anywhere else. It is reversible with `uninstall.ps1`.
+
+Steps:
+
+1. `git clone --depth 1 https://github.com/jonyb21/grok-build-app C:\Users\JV\grok-build-app`
+   (if the folder already exists: `git -C C:\Users\JV\grok-build-app pull`).
+2. `cd C:\Users\JV\grok-build-app` then
+   `powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1`
+3. Do **not** touch `%USERPROFILE%\.grok\auth.json` or `config.toml` if they already exist.
+4. Proof of DONE: paste the printed summary and the contents of
+   `%USERPROFILE%\.grok\grok-build-app-install.json` into `mailbox/TO-CLOUD.md`.
+5. If `login_needed` is true, tell Jorge in one line: "Double-click Grok Build on the
+   Desktop and sign in at grok.com." That is his only step.
+6. Failure rules: missing `csc.exe` = BLOCKED, report the path. If the official x.ai
+   installer fails, stop — never download an unofficial grok binary. A failed taskbar pin
+   is still a success.
+
+Undo: `powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\JV\grok-build-app\uninstall.ps1`
+
+### Item 17 addendum — 2026-09-27 · PASTE-X-008 → COWORK (supersedes PASTE-D-053 as the pointer)
+
+Jorge re-sent the install request and added two more. All three need his screen, so
+**Cowork does all three**; the desktop lane backs it up. Order:
+
+**A. Grok approval pop-up that is waiting for him.** Cloud searched Gmail (x.ai mail, last
+7 days) and the OD-107 approvals board: **no Grok approval is waiting in either.** So the
+prompt is on the PC screen. Take a screenshot and find it: a Grok CLI / Grok Build permission
+prompt, a Windows "Do you want to allow" (UAC) box, or a browser sign-in tab at grok.com / x.ai.
+Bring it to the front and read it aloud to Jorge in one sentence. **He clicks Allow himself**
+(Cowork never approves on his behalf). If it is a sign-in, he types the password; you do not.
+
+**B. Install Grok Build.** Steps 1–6 above (clone, `install.ps1`, proof to TO-CLOUD.md).
+Cowork can open PowerShell and run them. If the pop-up in A turns out to be this installer's own
+x.ai CLI prompt, that is expected.
+
+**C. "Router password issue."** Cloud's records: **9Router was UNINSTALLED 2026-09-20 at Jorge's
+request (TRK-2026-9961)**, and the 09-24 morning report shows the **Grok router and LiteLLM :4001
+OFFLINE**. Check which one is on screen:
+1. If 9Router is back and asking for a password: the working password is "on file" with the
+   desktop lane (RAMBO 09-15). Use it, then save it to 1Password as `9Router (127.0.0.1:20128)`.
+   Never guess — it locks after 3 tries.
+2. If it is the Grok router / LiteLLM: it does not use a password; it uses `XAI_API_KEY`.
+   Start it bound to 127.0.0.1 only, confirm `http://127.0.0.1:4001/health` answers.
+3. If it is the Wi-Fi router: stop and tell cloud; that is a different job.
+Report which one it was and the proof to TO-CLOUD.md.
+
+## 18. ON HOLD (GW-0001 not approved 09-29) — OpenRouter gateway · PASTE-D-054 · rules: CLAUDE.md Article 5
+
+Read `GATEWAY-DECISION_2026-09-27.md` (DECISION section) first. **Never put Claude Code behind it.**
+
+0. Wait until Jorge has done his one step: signed in at openrouter.ai and bought **$10 of credit
+   with auto top-up OFF** (approval GW-0001, $10.80 total). If not done, stop and say so.
+1. Create one API key named `CU-bots-nightruns`. If the page offers a credit limit per key, set $10.
+2. Save it straight into 1Password as `OpenRouter — CU-bots-nightruns`. Never into a file, the repo,
+   or chat. Bots read it from 1Password or a user environment variable `OPENROUTER_API_KEY`.
+3. Copy real prices for the models we use from openrouter.ai/models into `tools/llm_prices.json`
+   and set "Last checked" to today.
+4. Proof round-trip (costs well under $0.01, pre-approved as part of GW-0001): one request to
+   `https://openrouter.ai/api/v1/chat/completions` with a cheap model, asking "reply OK".
+   Paste the model name, the reply and the cost shown on the OpenRouter activity page to TO-CLOUD.md.
+5. After that, **every paid run** goes through `tools/llm_cost_gate.py` — estimate, wait for
+   APPROVED, then run. No exceptions.
+
+## 19. Free Gemini path — APPROVED by Jorge 2026-09-29 ("yes, approved, execute") · PASTE-X-009 → COWORK
+
+Cost: **$0** (Gemini free tier). No card. If Google asks for billing, STOP — that is not approved.
+Cloud already fixed and tested the tool (`vts-llm-panel/`, 4 offline tests pass): Gemini model
+updated to `gemini-2.5-flash` (1.5 was retired), and paid fallbacks are now blocked unless a cost
+estimate is APPROVED (tools/llm_cost_gate.py). Cloud cannot reach Google, so the live proof is yours.
+
+1. `git pull`.
+2. In Chrome, open `https://aistudio.google.com/app/apikey`, signed in as jorgev2121@gmail.com.
+   Click **Create API key**. If Google shows a consent screen, Jorge clicks Continue (his only step).
+3. Save the key into 1Password as `Gemini API — free tier (VTS panel)`. Never into a file or chat.
+4. Set it as a user environment variable, not in any script:
+   `[Environment]::SetEnvironmentVariable('GEMINI_API_KEY','<paste from 1Password>','User')`
+   then open a new PowerShell window.
+5. Proof: `python vts-llm-panel\vts_llm_panel.py --health` must show `gemini LIVE`, then
+   `python vts-llm-panel\vts_llm_panel.py "Reply with the word OK"` must show `[answered by: gemini]`.
+6. Paste both outputs (never the key) into TO-CLOUD.md under "ITEM 19 PROOF".
+
+### Item 19 — CHECKPOINT MODE (Jorge 2026-09-29: "I do not trust Code to take A-Z")
+
+Do ONE step, paste its proof to TO-CLOUD.md, then STOP and ask Jorge "Step N done — shall I do step N+1?".
+Never chain steps. Do NOT resume the paused 1Password login-options cleanup unless Jorge says so by name.
+
+- **Step 1 — DONE 2026-09-29 (Jorge confirmed 4 ok on PC).** (read-only): `git pull`; run `python -m unittest vts-llm-panel/test_vts_llm_panel.py -v`;
+  report the 4 "ok" lines and `git log --oneline -1`. Change nothing else. STOP.
+- **Step 2 (Jorge, 3 clicks, no agent):** aistudio.google.com/app/apikey → Create API key → Copy →
+  save in 1Password as `Gemini API — free tier (VTS panel)`. If Google asks for billing: stop, $0 only.
+- **Step 3 (after Jorge says "step 3"):** set user env var `GEMINI_API_KEY` from that 1Password item
+  (`op read`), open a new shell, run `--health` and one "Reply with the word OK" call. Paste outputs,
+  never the key. STOP.
+
+## 20. Free AI keys straight into 1Password — Jorge approved 2026-09-29 · PASTE-X-010 → COWORK
+Supersedes item 19 steps 2–3. Protocol base: `ONE-PASSWORD-TAKEOVER_TRK-2026-9346_2026-08-18.md` Section A —
+**no executor reads, types, stores or transmits a key value.**
+
+**Rules:** $0 only — if any site asks for a card, skip it and report. Sign up with "Continue with Google"
+(jorgev2121@gmail.com). **Do not take a screenshot while a key is on screen, and never read a key aloud or
+type it anywhere.** Checkpoint mode: after EACH key, report "SAVED: …" line and ask Jorge "next key?".
+
+0. `git pull`. Unlock check + dry run: `.\tools\Save-ClipboardKeyTo1Password.ps1 -SelfTest`
+   must print SELF-TEST PASSED. If vault AI-Services is missing, stop and report.
+For each row: open the page → create key → click the page's **Copy** button → run the script → close the key page.
+1. Gemini — aistudio.google.com/app/apikey → "Create API key" → `-Title "Gemini API free"`
+2. Groq — console.groq.com/keys → "Create API Key" → `-Title "Groq API free"`
+3. Cerebras — cloud.cerebras.ai → API Keys → `-Title "Cerebras API free"`
+4. Mistral — console.mistral.ai → choose the free "Experiment" plan (may text Jorge's phone a code —
+   his only step) → API Keys → `-Title "Mistral API free"`
+5. OpenRouter — openrouter.ai/settings/keys → create key, **add no credit** (free models only, $0) →
+   `-Title "OpenRouter API free"`
+5a. GitHub Models — github.com/settings/personal-access-tokens → fine-grained token, **only** permission
+    "Models: read", expiry 1 year → `-Title "GitHub Models token"`
+5b. NVIDIA — build.nvidia.com → sign in → "Get API Key" → `-Title "NVIDIA API free"`
+5c. SambaNova — cloud.sambanova.ai → API Keys → `-Title "SambaNova API free"`
+5d. Hugging Face — huggingface.co/settings/tokens → "Read" token → `-Title "Hugging Face token"`
+5e. Cohere — dashboard.cohere.com/api-keys → the free **Trial** key → `-Title "Cohere API trial"`
+5f. **Airtable (Wally pipeline, Article 2 priority)** — airtable.com/create/tokens → personal access
+    token, scopes `data.records:read` + `data.records:write` + `schema.bases:read`, access = the Wally
+    CRM base only (if no such base exists, skip and say so) → `-Title "Airtable Wally token"`
+6. Proof: `.\vts-llm-panel\run-panel.ps1 --health` → paste the table (shows LIVE / NO-KEY, never keys)
+   into TO-CLOUD.md under "ITEM 20 PROOF".
+
+**Not in this item (paid — cost gate first):** OpenAI, Anthropic API, xAI/Grok. Existing XAI key is dead.
+
+**Data rule for free tiers:** providers may use free-tier inputs to train models. Until reviewed, send
+them no client names, addresses, SSNs or account numbers — sorting labels and generic text only.
+
+## 21. Grok Bot "out of usage" — check which account it is signed into · PASTE-X-011 → COWORK
+**Facts (cloud, from Gmail 2026-09-29):** "Grok Bot is now included with your SuperGrok plan" (updates@email.grok.com,
+2026-08-27, to jorgev2121@gmail.com). SuperGrok is active (Stripe receipt #2347-8393, 2026-09-17). Grok Bot usage is a
+quota that resets on a timer ("Your Grok Bot usage just reset", 2026-09-05). Jorge ALSO pays X Premium+ ($40) — a
+different login that also carries Grok. **API keys and SuperGrok are separate billing and cannot be linked.**
+
+Read-only, checkpoint mode — look and report, change nothing:
+1. Open the Grok Bot app (desktop). Find Settings / Account. Report which account is signed in: the grok.com
+   account jorgev2121@gmail.com (holds SuperGrok) or an X account (holds X Premium+).
+2. Report the plan it shows and the usage-reset time it shows. No screenshots of anything showing keys or cards.
+3. STOP and ask Jorge. If it is the X account: the fix is Sign out → sign in with the account that holds SuperGrok
+   (Jorge clicks; 1Password fills). If it is already SuperGrok: usage simply ran out; it comes back at the reset time,
+   and more usage means a bigger plan (SuperGrok Plus ~$100/mo — needs Jorge's approval, cost rule).
+
+### Item 21 — UPDATE 2026-09-29: Jorge APPROVED moving the bots to SuperGrok (PASTE-X-012)
+> Jorge: "cowork to move bots to supergrok; if too challenging recreate the bots under the supergrok account."
+4. **Before changing anything, inventory every bot** into `mailbox/to-cloud/GROK-BOTS-INVENTORY_2026-09-29.md`:
+   name, its full instructions text, schedule, which tools/apps it is connected to. **No passwords, keys or tokens.**
+   Commit + push it. This file is what makes recreation possible if the old bots do not carry over.
+5. Sign Grok Bot out, sign in with the SuperGrok account (jorgev2121@gmail.com; 1Password fills, Jorge approves).
+   Report: plan shown, usage shown, and whether the bots are still listed.
+6. If the bots did not come across: recreate each one from the inventory, one at a time, and report after each.
+   Re-connecting a tool (Gmail, Drive, etc.) needs Jorge's consent click — ask, never click consent for him.
+7. Do NOT delete anything on the X account. Old bots stay there until Jorge says otherwise.
 
 ---
 
