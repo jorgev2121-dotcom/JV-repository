@@ -54,6 +54,14 @@ class PanelTests(unittest.TestCase):
                 name, answer = panel.ask("hi", approved_run="RUN-1")
         self.assertEqual(name, "grok")
 
+    def test_free_fallback_before_paid(self):
+        os.environ["GROQ_API_KEY"] = "q"
+        err = panel.urllib.error.HTTPError("u", 429, "quota", None, None)
+        with mock.patch.object(panel, "_post", self.fake_post(gemini_error=err)):
+            name, _ = panel.ask("hi")
+        self.assertEqual(name, "groq")
+        self.assertIn("api.groq.com", self.calls[1])
+
     def test_health_never_pings_paid(self):
         with mock.patch.object(panel, "_post", self.fake_post("OK")):
             rows = {r[0]: r[1] for r in panel.health()}

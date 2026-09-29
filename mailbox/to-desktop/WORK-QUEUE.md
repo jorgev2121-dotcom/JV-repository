@@ -586,6 +586,32 @@ Never chain steps. Do NOT resume the paused 1Password login-options cleanup unle
   (`op read`), open a new shell, run `--health` and one "Reply with the word OK" call. Paste outputs,
   never the key. STOP.
 
+## 20. Free AI keys straight into 1Password — Jorge approved 2026-09-29 · PASTE-X-010 → COWORK
+Supersedes item 19 steps 2–3. Protocol base: `ONE-PASSWORD-TAKEOVER_TRK-2026-9346_2026-08-18.md` Section A —
+**no executor reads, types, stores or transmits a key value.**
+
+**Rules:** $0 only — if any site asks for a card, skip it and report. Sign up with "Continue with Google"
+(jorgev2121@gmail.com). **Do not take a screenshot while a key is on screen, and never read a key aloud or
+type it anywhere.** Checkpoint mode: after EACH key, report "SAVED: …" line and ask Jorge "next key?".
+
+0. `git pull`. Unlock check + dry run: `.\tools\Save-ClipboardKeyTo1Password.ps1 -SelfTest`
+   must print SELF-TEST PASSED. If vault AI-Services is missing, stop and report.
+For each row: open the page → create key → click the page's **Copy** button → run the script → close the key page.
+1. Gemini — aistudio.google.com/app/apikey → "Create API key" → `-Title "Gemini API free"`
+2. Groq — console.groq.com/keys → "Create API Key" → `-Title "Groq API free"`
+3. Cerebras — cloud.cerebras.ai → API Keys → `-Title "Cerebras API free"`
+4. Mistral — console.mistral.ai → choose the free "Experiment" plan (may text Jorge's phone a code —
+   his only step) → API Keys → `-Title "Mistral API free"`
+5. OpenRouter — openrouter.ai/settings/keys → create key, **add no credit** (free models only, $0) →
+   `-Title "OpenRouter API free"`
+6. Proof: `.\vts-llm-panel\run-panel.ps1 --health` → paste the table (shows LIVE / NO-KEY, never keys)
+   into TO-CLOUD.md under "ITEM 20 PROOF".
+
+**Not in this item (paid — cost gate first):** OpenAI, Anthropic API, xAI/Grok. Existing XAI key is dead.
+
+**Data rule for free tiers:** providers may use free-tier inputs to train models. Until reviewed, send
+them no client names, addresses, SSNs or account numbers — sorting labels and generic text only.
+
 ---
 
 ## Standing note for the desktop session

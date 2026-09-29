@@ -21,6 +21,8 @@ are assumptions stated on each line.
      **$0 inside the free limit; up to ~$14/month if every page went paid** (Gemini 2.5 Flash,
      placeholder $0.30 / $2.50 per million tokens).
    - Wally call sheets, $70 list = 500 records, ~2,000 in / 500 out each: **~$0.95 one time if paid, else $0.**
+6b. **More free workers (added 2026-09-29):** Groq, Cerebras, Mistral, OpenRouter free models — same
+   panel, tried after Gemini, before any paid key. **API, $0.** Free tiers may train on inputs: no client PII.
 7. **Second opinion — Gemini, 1 in 20 filing suggestions.** **API, free tier = $0** (≈25 checks/night).
 8. **Paid backup — Grok / OpenAI API keys.** Only if Gemini fails AND a cost estimate is APPROVED.
    Blocked by code otherwise. **API, $0 unless approved per run.** (Grok key noted DEAD in the panel.)

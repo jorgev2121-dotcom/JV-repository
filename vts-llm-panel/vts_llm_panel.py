@@ -44,6 +44,22 @@ def call_openai_style(url, key, model, prompt):
                 {"model": model, "messages": [{"role": "user", "content": prompt}]})
     return out["choices"][0]["message"]["content"]
 
+# Free-tier OpenAI-compatible providers. Model names drift; override with <NAME>_MODEL env vars.
+def _free(url, env_model, default_model):
+    def call(key, prompt):
+        return call_openai_style(url, key, os.environ.get(env_model, default_model), prompt)
+    return call
+
+call_groq = _free("https://api.groq.com/openai/v1/chat/completions",
+                  "GROQ_MODEL", "llama-3.3-70b-versatile")
+call_cerebras = _free("https://api.cerebras.ai/v1/chat/completions",
+                      "CEREBRAS_MODEL", "llama-3.3-70b")
+call_mistral = _free("https://api.mistral.ai/v1/chat/completions",
+                     "MISTRAL_MODEL", "mistral-small-latest")
+# OpenRouter with $0 credit: only ":free" models answer, nothing can be charged.
+call_openrouter_free = _free("https://openrouter.ai/api/v1/chat/completions",
+                             "OPENROUTER_FREE_MODEL", "meta-llama/llama-3.3-70b-instruct:free")
+
 def call_grok(key, prompt):
     return call_openai_style("https://api.x.ai/v1/chat/completions", key, "grok-2-latest", prompt)
 
@@ -63,6 +79,10 @@ def call_anthropic(key, prompt):
 # (owner directive 2026-09-29, CLAUDE.md Article 5, tools/llm_cost_gate.py).
 PROVIDERS = [
     {"name": "gemini",    "env": "GEMINI_API_KEY",    "call": call_gemini,    "paid": False},
+    {"name": "groq",      "env": "GROQ_API_KEY",      "call": call_groq,      "paid": False},
+    {"name": "cerebras",  "env": "CEREBRAS_API_KEY",  "call": call_cerebras,  "paid": False},
+    {"name": "mistral",   "env": "MISTRAL_API_KEY",   "call": call_mistral,   "paid": False},
+    {"name": "openrouter-free", "env": "OPENROUTER_API_KEY", "call": call_openrouter_free, "paid": False},
     {"name": "grok",      "env": "XAI_API_KEY",       "call": call_grok,      "paid": True},
     {"name": "openai",    "env": "OPENAI_API_KEY",    "call": call_openai,    "paid": True},
     {"name": "anthropic", "env": "ANTHROPIC_API_KEY", "call": call_anthropic, "paid": True},
@@ -134,7 +154,7 @@ def main():
     ap = argparse.ArgumentParser(description="VTS Multi-LLM Control Panel (TRK-2026-9200)")
     ap.add_argument("prompt", nargs="*", help="the question to ask")
     ap.add_argument("--health", action="store_true", help="ping every provider and exit")
-    ap.add_argument("--prefer", help="force this provider first (gemini|grok|openai|anthropic)")
+    ap.add_argument("--prefer", help="force this provider first (gemini|groq|cerebras|mistral|openrouter-free|grok|openai|anthropic)")
     ap.add_argument("--approved", metavar="RUN-ID",
                     help="approved cost-estimate id; without it paid providers are skipped")
     a = ap.parse_args()
