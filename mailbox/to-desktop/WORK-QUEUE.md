@@ -538,7 +538,7 @@ OFFLINE**. Check which one is on screen:
 3. If it is the Wi-Fi router: stop and tell cloud; that is a different job.
 Report which one it was and the proof to TO-CLOUD.md.
 
-## 18. OpenRouter gateway — Jorge said YES 2026-09-29 · PASTE-D-054 · rules: CLAUDE.md Article 5
+## 18. ON HOLD (GW-0001 not approved 09-29) — OpenRouter gateway · PASTE-D-054 · rules: CLAUDE.md Article 5
 
 Read `GATEWAY-DECISION_2026-09-27.md` (DECISION section) first. **Never put Claude Code behind it.**
 
