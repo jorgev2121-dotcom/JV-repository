@@ -578,7 +578,7 @@ estimate is APPROVED (tools/llm_cost_gate.py). Cloud cannot reach Google, so the
 Do ONE step, paste its proof to TO-CLOUD.md, then STOP and ask Jorge "Step N done — shall I do step N+1?".
 Never chain steps. Do NOT resume the paused 1Password login-options cleanup unless Jorge says so by name.
 
-- **Step 1 (read-only):** `git pull`; run `python -m unittest vts-llm-panel/test_vts_llm_panel.py -v`;
+- **Step 1 — DONE 2026-09-29 (Jorge confirmed 4 ok on PC).** (read-only): `git pull`; run `python -m unittest vts-llm-panel/test_vts_llm_panel.py -v`;
   report the 4 "ok" lines and `git log --oneline -1`. Change nothing else. STOP.
 - **Step 2 (Jorge, 3 clicks, no agent):** aistudio.google.com/app/apikey → Create API key → Copy →
   save in 1Password as `Gemini API — free tier (VTS panel)`. If Google asks for billing: stop, $0 only.
