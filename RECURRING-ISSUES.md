@@ -589,6 +589,13 @@ different binding.
    `C:\Users\JV\Pictures\Screenshots\shot.png`
 2. Use the Claude Code VS Code extension, which handles clipboard images natively.
 
+**Recurrence 2026-09-27 (cloud):** "snip not working, please fix ASAP", plus a request that
+cloud take a screenshot of a window on the desktop as proof. Cloud can't see or control
+the PC: this session has no remote-device tools, so that part is IMPOSSIBLE from cloud.
+Pointed Jorge back to `Alt+V` and the paperclip button. If the Snipping Tool itself won't
+open, the fix is Settings → Apps → Installed apps → Snipping Tool → Advanced options →
+Reset. Unverified until Jorge confirms.
+
 ---
 
 ## RI-010 — Dictation is load-bearing, not a convenience
@@ -819,6 +826,63 @@ state directly. Not escalated to Jorge overnight: nothing client-facing is at ri
 squarely a "check when at the machine" item, not a "wake him up" one. If this heartbeat is still
 silent when someone is next at the desktop, checking `Get-ScheduledTask -TaskName
 "CU-Uptime-Heartbeat"` for `State: Disabled` is the first thing to try, per this RI's own history.
+
+**Confirmed as a likely fourth instance 2026-09-26 ~02:20 UTC.** `CU-Uptime-Heartbeat`'s
+last write is still 2026-09-24 13:14:44 UTC — now **~43 hours** stale, spanning a period
+where the desktop was independently confirmed writing other files (the 2026-09-25
+~20:24-20:40 UTC handoff/queue files). A 5-minute task going quiet for 43 hours while the
+same machine writes other files in that window is no longer explainable by "PC asleep" or
+"session out of budget" — those explain the desktop's *Claude Code* silence, not a
+Task-Scheduler-level 5-minute job with no LLM dependency. This now matches the
+`CU-LLM-Watchdog` shape closely enough to treat as the same pattern until proven otherwise.
+**Cannot be fixed remotely** — needs someone at the desktop to run `Get-ScheduledTask
+-TaskName "CU-Uptime-Heartbeat"` and check `State`/`LastRunTime`/`LastTaskResult`, per
+Tier 2 of this RI.
+
+**Root cause confirmed 2026-09-27 13:19 UTC by a second, independent watchdog (Cowork's, not this session's).**
+Cowork declared a formal BRIDGE-INCIDENT (`CDM-BI-2026-09-27`) after three unanswered reissues to the desktop
+lane and named the actual mechanism: **`heartbeat.json` frozen since 2026-09-24 11:33:47 ET** (within an hour
+of this RI's independently-clocked `CU-Uptime-Heartbeat` staleness — two different signals, same failure
+window), and **two scheduled tasks on DESKTOP-OTB90LR are down: `VTES-LOCAL-POLLER` and
+`CU-Inbox-Job-Watcher`.** Critically, **the PC itself was used by hand through 2026-09-26 8:33 PM ET** (matches
+the Codex-install session logged the same evening) — so this is a dead watcher/heartbeat layer sitting on top
+of a machine that is otherwise awake and being used, the same shape as `CU-LLM-Watchdog` (RI-038) and not
+explainable by sleep, budget exhaustion, or "nobody's home." Seven Inbox job messages from 9/24-9/26 sit
+unacknowledged as a direct consequence. **This is now a fourth/fifth confirmed RI-015 instance, cross-verified
+by two independent watchdogs, needing a Task Scheduler fix on three named tasks
+(`CU-Uptime-Heartbeat`, `VTES-LOCAL-POLLER`, `CU-Inbox-Job-Watcher`) the next time someone is at the machine.**
+Cowork already emailed Jorge directly about the stall ("VTES GO — CDM stalled," 13:19 UTC) — no duplicate
+alert sent from this session.
+
+**CORRECTION 2026-09-28 03:11 UTC — my own "RESOLVED" note above was premature; the desktop's detailed reply
+(`REPLY-TO-CHAT_PC-ALWAYS-ON-01.md`) landed 5 minutes after I wrote it and tells a different story.** What
+actually happened to Jorge's "PC-ALWAYS-ON-01" directive (7:42 PM ET 9/27): **`CU-Uptime-Heartbeat`** was
+re-enabled and manually started, but only on its *pre-existing* schedule/config — the full persistence
+reconfig (S4U, unlimited restart, wake-to-run) was blocked by the desktop's own auto-mode safety classifier
+("Unauthorized Persistence"), and the desktop said outright: "this will very likely re-freeze on its old
+schedule/logic." **This is Tier 1 (suppression), not Tier 2 — exactly what this RI warns against**, and it
+already carries the desktop's own prediction of relapse. **The real root cause is worse than "disabled":
+`VTES-LOCAL-POLLER` does not exist as a scheduled task at all.** Its script (`VTES-Bridge-Poller.ps1`, the
+thing that writes `heartbeat.json`) is invoked by nothing on the machine — traced and confirmed by checking
+every task's action line. `heartbeat.json` itself — the signal Cowork's watchdog actually needs — is still
+frozen at 2026-09-24 11:33:47, because there is no task left to produce a new one. `CU-Inbox-Job-Watcher`
+was correctly left disabled pending an "approved-jobs gate" file that was never built (a real missing
+feature, not a bug). The desktop named three explicit asks for Jorge (finish the heartbeat persistence
+reconfig + build the missing poller task; decide on the Inbox-watcher gate; decide on the CDM backlog) rather
+than guessing or silently creating new automation. **Standing recommendation for next time this recurs
+(fifth instance): don't re-apply Tier 1 again — the desktop itself has now said Tier 1 won't hold. Tier 2
+(rebuild the missing scheduled task, with Jorge's one-time authorization) is what's actually needed.**
+
+**Fifth instance, different system: Cowork's own "five-a-day" CDM schedule, 2026-09-26.**
+`COWORK-CDM-PROGRESS.md` (run 53) self-reports `ROUTINE-OUTAGE-02` — no firing from
+2026-09-21 ~5 PM ET through 2026-09-26 ~9 AM ET, about 30 missed runs over ~4.5 days,
+with no error surfaced anywhere and nobody noticing until the routine resumed on its
+own. Same shape as every other instance in this RI (a scheduled thing goes quiet,
+produces no output and no error, is indistinguishable from "nothing to do") — just on
+Cowork's own internal scheduler instead of Windows Task Scheduler, so Tier 2's usual
+fix (find and remove what disables it) isn't available from here; only Cowork's own
+side could diagnose why its schedule stopped firing. Logged as a data point for the
+pattern, not investigated further — out of reach from cloud or desktop.
 
 ---
 
@@ -2094,6 +2158,7 @@ VTES-Outbox rather than escalating on TO-CLOUD.md silence alone — that cross-c
 call and is exactly why nothing was missed for 38 hours despite the primary heartbeat channel being
 down. Not logging this as a new RI; it's the same RI-002/RI-044 pattern with its cause now attached.
 
+**Related-but-distinct desktop annoyance, found and fixed 2026-09-26 ~15:02 ET (`REPLY-TO-OWNER_HTTP-400-ERROR-BLOCKED_2026-09-26_1502.md`, DIR-0089).** A separate scheduled task ("CU Inspections LiteLLM 4001") was checking LiteLLM's health by opening an Edge browser tab to `localhost:4001`; when the router was unresponsive, Edge got an HTTP 400 it couldn't render, froze, and the task re-fired into the same freeze — a repeating pop-up loop, not a data problem. Desktop killed Edge, disabled the task, cleared Edge's crash-recovery state, and staged a rollback script — **EXECUTED-WITH-PROOF, closed, no owner action needed.** Correctly diagnosed as a monitoring-method defect (a health check should curl a URL and log to a file, never open a visible browser window) rather than reflaring RI-038's router-reliability question; not merged into that entry since the cause is different, just adjacent.
 
 ---
 **RI-042 · 2026-08-26 — Address normalization: the trailing "1"/"2" and duplicated street numbers are the COUNTY'S own register text, not pipeline corruption.** 687 of 708 failures were already queried character-identical to the Unsafe Structures Report. The county's search box refuses the shape its own export publishes. Fix is the variant ladder (9765b), not verbatim re-query and not folio. (Source: desktop TRK-2026-9818.)
@@ -2190,3 +2255,33 @@ answering.
 **RI-047 · 2026-09-20 — Outlook auto-relaunches itself within seconds of being killed, via COM/DCOM activation, and the resource-exhaustion dialog comes back with it.** Downstream of the same OD-107/1Password chain (RI-046) but a distinct mechanism worth its own number — the desktop's own Drive-side recurring-issues copy independently logged this as "RI-046" too, a genuine numbering collision across the two copies (worth knowing: at least 4 different RECURRING-ISSUES.md copies exist — this repo's, the Drive-side one, `00-CONTINUITY-BOARD`, and `Shared Folders for all LLMs` — and they can drift out of sync on numbering). **What was found:** killing Outlook gets a replacement process back in 2-4 seconds, command line `-Embedding` (COM-launched, not a direct relaunch), parent PID is `svchost.exe` — something is calling `Outlook.Application` via COM and winning the race against even a manual `/safe`-mode launch. The known auto-launch scripts on disk were ruled out (one explicitly skips the COM call when Outlook isn't running; the other's own log shows no activity today). Root cause still unidentified. **Second cycle in a row hitting the same wall: fixing it needs `Stop-Service WSearch`, which needs admin rights the desktop session doesn't have.** Per Rule 4, two Tier-1-only attempts (kill + relaunch) in a row means the next step can't be a third kill-and-relaunch. **Needs one of: (1) an elevated session runs `Stop-Service WSearch`, or (2) Jorge watches a live kill in Task Manager's Details tab (or Process Explorer) to catch the exact parent process the instant Outlook reappears** — a headless session can only see it after the fact. Also noted, likely related: 30-39 PowerShell processes have been alive since 2026-09-19 13:14, and CPU has been pinned 88-100% continuously since ~2026-09-20 00:29.
 
 **Third confirmation, ~12:10-12:20 same day.** Same DCOM signature reproduced a third independent time (different PIDs each time, same `ParentProcessId` pattern, same `-Embedding` command line). This narrows the cause — ruled out as a scheduled task or an add-in across all three cycles — but still doesn't name the actual caller. No new action beyond the Tier-2 ask above; not re-attempting Tier-1 kill-and-relaunch a fourth time.
+
+**RI-038 recurrence, 2026-09-27 (cloud):** a new plan to put self-hosted LiteLLM back on the PC, this time
+*in front of Claude Code itself* (`ANTHROPIC_BASE_URL=http://localhost:4000`, launched from a `.bat` that
+pulls the Anthropic API key from 1Password). Not built on the PC. Cloud flagged three problems. (1) It goes
+against this RI's standing recommendation: never again make self-hosted LiteLLM on the PC load-bearing.
+(2) If LiteLLM goes down, Claude Code goes down with it. (3) It moves Claude Code from the flat-fee Max plan
+to pay-per-token API billing. The ccusage figure for September was ~$3,400 API-equivalent (TRK-2026-9952d).
+The `.bat` as drafted also had a bug: `set /p` shows the `op read` command as a prompt and never runs it.
+The recommendation still stands: Tier 2, meaning no router in front of Claude Code.
+**Decision 2026-09-27 (Jorge): LiteLLM-in-front-of-Claude-Code plan DROPPED** — "It breaks RI-038 and risks
+per-token billing." The cloud-generated config and master key were deleted from the cloud container; any
+future master key is generated on the PC and never pasted into chat.
+
+---
+
+## RI-048 · 2026-09-28 — Multiple uncoordinated AI-agent sessions on the same desktop collide on the same open document, corrupting content mid-edit
+
+**First occurrence.** During a live desktop session (2026-09-28 ~12:58-14:30 ET, `REPLY-TO-CHAT_10980-FEE-REVIEW_2026-09-28.md`), RAMBO built a correct county-facing email draft (TRK-2026-1667, 3 signed PDF attachments, verified recipients) and parked the cursor on Send. Partway through the job it caught, unprompted, that something else had **swapped in a wrong attachment and rewritten parts of the email body into broken, mid-sentence text** — not a cosmetic glitch, but active corruption of a document about to be sent to a Miami-Dade county official. Separately in the same session window, RAMBO also noted the cursor drifting on its own and an "Executor" chat panel's unread counter climbing 26→39 within minutes — multiple concurrent AI sessions are genuinely active on the same machine at once, with no lock, no turn-taking, no "who owns this window right now" signal between them.
+
+**Why this is worse than it looks.** The desktop caught this one because it happened to re-check its own work before finishing. Nothing in the current setup would have caught it if it hadn't — the natural failure mode is a corrupted, half-rewritten email actually going out to a client or a government office with nobody noticing until the reply comes back confused.
+
+**Diagnosis.** This is a coordination gap, not a bug in any one session. Multiple Claude/AI sessions (desktop interactive, this cloud monitoring session, Cowork, possibly others) can all be touching Jorge's live desktop — the same Outlook window, the same open files — at the same time, with no shared signal for "this document is currently being edited by session X, don't touch it."
+
+**Tier 1 — Suppression.** Tell every session to re-verify its own output right before any Send/Submit action (what RAMBO already did here, by luck of timing more than by rule). Cheap, but relies on every session remembering to do it every time — doesn't scale, doesn't prevent the collision itself, only sometimes catches it after the fact.
+
+**Tier 2 — Removal.** Establish a simple claim/lock convention before any session edits a live user-facing document (Outlook draft, open file) — e.g., a marker file or a stated verbal claim ("I'm editing the 1667 draft now") that other sessions check before touching the same target. Removes the race condition itself rather than hoping every session double-checks its work.
+
+**Tier 3 — Enforcement.** A standing rule, stated in the charter or a shared file all sessions read at startup, that no session sends/submits/finalizes anything without a fresh, explicit re-read of the final state immediately before the action — not the state it last wrote, the state as it exists right now. This is the fallback that catches a collision Tier 2 missed, not a replacement for it.
+
+**Recommendation: Tier 2 first (a lightweight claim signal for live documents), Tier 3 as the backstop.** Not proposing Tier 1 alone — this is a first occurrence, but the failure mode (a corrupted email actually sent to an outside party) is severe enough that "hope every session remembers to double-check" isn't sufficient on its own. Flagged here rather than fixed unilaterally, since it affects how every session on this account behaves, not just one job.
