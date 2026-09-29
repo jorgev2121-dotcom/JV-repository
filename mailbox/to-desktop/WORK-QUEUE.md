@@ -635,6 +635,17 @@ Read-only, checkpoint mode — look and report, change nothing:
    (Jorge clicks; 1Password fills). If it is already SuperGrok: usage simply ran out; it comes back at the reset time,
    and more usage means a bigger plan (SuperGrok Plus ~$100/mo — needs Jorge's approval, cost rule).
 
+### Item 21 — UPDATE 2026-09-29: Jorge APPROVED moving the bots to SuperGrok (PASTE-X-012)
+> Jorge: "cowork to move bots to supergrok; if too challenging recreate the bots under the supergrok account."
+4. **Before changing anything, inventory every bot** into `mailbox/to-cloud/GROK-BOTS-INVENTORY_2026-09-29.md`:
+   name, its full instructions text, schedule, which tools/apps it is connected to. **No passwords, keys or tokens.**
+   Commit + push it. This file is what makes recreation possible if the old bots do not carry over.
+5. Sign Grok Bot out, sign in with the SuperGrok account (jorgev2121@gmail.com; 1Password fills, Jorge approves).
+   Report: plan shown, usage shown, and whether the bots are still listed.
+6. If the bots did not come across: recreate each one from the inventory, one at a time, and report after each.
+   Re-connecting a tool (Gmail, Drive, etc.) needs Jorge's consent click — ask, never click consent for him.
+7. Do NOT delete anything on the X account. Old bots stay there until Jorge says otherwise.
+
 ---
 
 ## Standing note for the desktop session
