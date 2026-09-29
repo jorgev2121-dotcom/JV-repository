@@ -18,11 +18,37 @@
 
 ## Still waiting on you from before
 
-**4. A tax-credit analysis tool (CDM) has been sitting at 85% done for about three weeks.** All research is done and checked; the only thing stopping it from becoming a working tool is one line: **"CDM: GO"** or **"CDM: hold."**
+**4. A tax-credit analysis tool (CDM) has been sitting at 85% done for about three weeks.** All research is done and checked; the only thing stopping it is one line: **"CDM: GO"** or **"CDM: hold."** Update from overnight: another helper window ordered the desktop to build a one-click approval board that will carry CDM: GO as a button. Until it exists, the typed line still works. Separately, the CDM job file has sat unopened on the desktop for 24 hours because it is not on the desktop's night task list.
 
-**5. A county fee amount is hiding behind a form.** The Miami-Dade ePayment page is open to invoice **C2026170181**. Type **C2026170181** into the box and click **Add** (not Pay) to see the amount — nothing gets charged.
+**5. The county fee is now known: $7,280.94 — and it looks wrong. Do not pay it.** Last night the desktop revealed the amount (nothing was charged). The county seems to have billed for a 20,000 square foot job; yours is a small balcony repair, about 6 by 12 feet. A fee-review email is drafted but **not sent**, and another AI edited the same draft at the same time and scrambled it. **Your part: read the draft top to bottom, then click Send if it makes sense.** Also glance at the printer tray for two or three stray permit copies.
 
 **6. The TUS-26-1033 signature package — a $16,000 invoice — has been unsigned by the client since August 10th.** One word — **CHASE** or **HOLD** — and it moves.
+
+---
+
+## Also ready for you (added 2026-09-28 evening)
+
+**A. The signed Medley agreement was not found on the PC.** The desktop searched everywhere except a Deleted Items sweep it did not finish. Next best check is a bank or deposit record for the $8,000, not another document search.
+
+**B. The third follow-up to Miami-Dade code enforcement (20001 SW 110 CT #143, TRK-2026-1262) is written and waiting on your Send click.** The county case is still open and the permit is not linked to it.
+
+**C. 1Password dry-run is waiting on a go-ahead.** The desktop correctly declined to start it without you.
+
+**D. New risk logged (RI-048): two AI sessions edited the same live document at once.** Proposed fix: one AI "claims" a document before touching it, and a human re-reads before any Send. No action needed from you unless you object.
+
+---
+
+## Overnight update (2026-09-29, through 06:05 UTC)
+
+**Nothing broke overnight.** The PC stayed awake and the heartbeat wrote every hour through 06:01 UTC. Cowork ran twice more (runs 65 and 66); both were research and record-cleaning only.
+
+**1. Cowork closed eight stale items in its own to-do list** and staged the next desktop job (three county-level reads). No action from you.
+
+**2. The desktop has not opened the CDM job or the inbox poller rebuild.** Both are waiting on the desktop's night queue and on your paste for the poller (PASTE-D-063). Nothing is lost, just idle.
+
+**3. A watchdog emailed you** that the three PC-always-on asks are now over 24 hours old. That is the same three asks in this report: make the heartbeat permanent, rebuild the inbox poller, decide the job-watcher gate.
+
+**Denominators:** 6 asks open and 4 extra items to review, unchanged. 0 items filed, sent, spent or deleted. 0 commits from anyone but Claude and you.
 
 ---
 
