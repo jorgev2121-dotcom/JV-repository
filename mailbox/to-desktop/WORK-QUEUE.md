@@ -621,6 +621,20 @@ For each row: open the page → create key → click the page's **Copy** button 
 **Data rule for free tiers:** providers may use free-tier inputs to train models. Until reviewed, send
 them no client names, addresses, SSNs or account numbers — sorting labels and generic text only.
 
+## 21. Grok Bot "out of usage" — check which account it is signed into · PASTE-X-011 → COWORK
+**Facts (cloud, from Gmail 2026-09-29):** "Grok Bot is now included with your SuperGrok plan" (updates@email.grok.com,
+2026-08-27, to jorgev2121@gmail.com). SuperGrok is active (Stripe receipt #2347-8393, 2026-09-17). Grok Bot usage is a
+quota that resets on a timer ("Your Grok Bot usage just reset", 2026-09-05). Jorge ALSO pays X Premium+ ($40) — a
+different login that also carries Grok. **API keys and SuperGrok are separate billing and cannot be linked.**
+
+Read-only, checkpoint mode — look and report, change nothing:
+1. Open the Grok Bot app (desktop). Find Settings / Account. Report which account is signed in: the grok.com
+   account jorgev2121@gmail.com (holds SuperGrok) or an X account (holds X Premium+).
+2. Report the plan it shows and the usage-reset time it shows. No screenshots of anything showing keys or cards.
+3. STOP and ask Jorge. If it is the X account: the fix is Sign out → sign in with the account that holds SuperGrok
+   (Jorge clicks; 1Password fills). If it is already SuperGrok: usage simply ran out; it comes back at the reset time,
+   and more usage means a bigger plan (SuperGrok Plus ~$100/mo — needs Jorge's approval, cost rule).
+
 ---
 
 ## Standing note for the desktop session
