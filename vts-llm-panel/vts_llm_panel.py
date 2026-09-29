@@ -60,6 +60,17 @@ call_mistral = _free("https://api.mistral.ai/v1/chat/completions",
 call_openrouter_free = _free("https://openrouter.ai/api/v1/chat/completions",
                              "OPENROUTER_FREE_MODEL", "meta-llama/llama-3.3-70b-instruct:free")
 
+call_github = _free("https://models.github.ai/inference/chat/completions",
+                    "GITHUB_MODELS_MODEL", "openai/gpt-4.1-mini")
+call_nvidia = _free("https://integrate.api.nvidia.com/v1/chat/completions",
+                    "NVIDIA_MODEL", "meta/llama-3.3-70b-instruct")
+call_sambanova = _free("https://api.sambanova.ai/v1/chat/completions",
+                       "SAMBANOVA_MODEL", "Meta-Llama-3.3-70B-Instruct")
+call_huggingface = _free("https://router.huggingface.co/v1/chat/completions",
+                         "HF_MODEL", "meta-llama/Llama-3.3-70B-Instruct")
+call_cohere = _free("https://api.cohere.ai/compatibility/v1/chat/completions",
+                    "COHERE_MODEL", "command-a-03-2025")
+
 def call_grok(key, prompt):
     return call_openai_style("https://api.x.ai/v1/chat/completions", key, "grok-2-latest", prompt)
 
@@ -83,6 +94,11 @@ PROVIDERS = [
     {"name": "cerebras",  "env": "CEREBRAS_API_KEY",  "call": call_cerebras,  "paid": False},
     {"name": "mistral",   "env": "MISTRAL_API_KEY",   "call": call_mistral,   "paid": False},
     {"name": "openrouter-free", "env": "OPENROUTER_API_KEY", "call": call_openrouter_free, "paid": False},
+    {"name": "github",    "env": "GITHUB_MODELS_TOKEN", "call": call_github,  "paid": False},
+    {"name": "nvidia",    "env": "NVIDIA_API_KEY",    "call": call_nvidia,    "paid": False},
+    {"name": "sambanova", "env": "SAMBANOVA_API_KEY", "call": call_sambanova, "paid": False},
+    {"name": "huggingface", "env": "HF_TOKEN",        "call": call_huggingface, "paid": False},
+    {"name": "cohere",    "env": "COHERE_API_KEY",    "call": call_cohere,    "paid": False},
     {"name": "grok",      "env": "XAI_API_KEY",       "call": call_grok,      "paid": True},
     {"name": "openai",    "env": "OPENAI_API_KEY",    "call": call_openai,    "paid": True},
     {"name": "anthropic", "env": "ANTHROPIC_API_KEY", "call": call_anthropic, "paid": True},

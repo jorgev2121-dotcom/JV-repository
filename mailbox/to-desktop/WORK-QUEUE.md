@@ -604,6 +604,15 @@ For each row: open the page → create key → click the page's **Copy** button 
    his only step) → API Keys → `-Title "Mistral API free"`
 5. OpenRouter — openrouter.ai/settings/keys → create key, **add no credit** (free models only, $0) →
    `-Title "OpenRouter API free"`
+5a. GitHub Models — github.com/settings/personal-access-tokens → fine-grained token, **only** permission
+    "Models: read", expiry 1 year → `-Title "GitHub Models token"`
+5b. NVIDIA — build.nvidia.com → sign in → "Get API Key" → `-Title "NVIDIA API free"`
+5c. SambaNova — cloud.sambanova.ai → API Keys → `-Title "SambaNova API free"`
+5d. Hugging Face — huggingface.co/settings/tokens → "Read" token → `-Title "Hugging Face token"`
+5e. Cohere — dashboard.cohere.com/api-keys → the free **Trial** key → `-Title "Cohere API trial"`
+5f. **Airtable (Wally pipeline, Article 2 priority)** — airtable.com/create/tokens → personal access
+    token, scopes `data.records:read` + `data.records:write` + `schema.bases:read`, access = the Wally
+    CRM base only (if no such base exists, skip and say so) → `-Title "Airtable Wally token"`
 6. Proof: `.\vts-llm-panel\run-panel.ps1 --health` → paste the table (shows LIVE / NO-KEY, never keys)
    into TO-CLOUD.md under "ITEM 20 PROOF".
 
