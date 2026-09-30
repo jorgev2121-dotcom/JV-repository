@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VTES LLM Launcher</title>
-<!-- TRK-2026-9910-B · v1 · 2026-09-30 · #VTES-control-panel #LLM-registry #JorgeValdes
+<!-- TRK-2026-9910-B · v2 · 2026-09-30 · #VTES-control-panel #LLM-registry #JorgeValdes
      Single file. No internet needed to open. No API keys. Registry lives in LLM-WINDOW-REGISTRY.md. -->
 <style>
   :root { --bg:#f6f4ef; --card:#ffffff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; }
@@ -34,13 +34,50 @@
   .bus { margin-top:30px; padding:18px; border:2px dashed var(--line); border-radius:14px; background:#fbfaf7; }
   .bus h2 { margin:0 0 6px; font-size:22px; }
   .foot { color:var(--muted); font-size:13px; margin-top:30px; }
+  .hand { background:var(--card); border:2px solid var(--accent); border-radius:14px; padding:18px; margin:0 0 22px; }
+  .hand h2 { margin:0 0 4px; font-size:22px; }
+  .hand .lead { margin:0 0 12px; color:var(--muted); font-size:16px; }
+  .hand label { display:block; font-weight:700; font-size:15px; margin:10px 0 4px; }
+  .hand select, .hand textarea { width:100%; font:inherit; font-size:18px; padding:10px 12px; border:2px solid var(--line); border-radius:10px; background:#fff; }
+  .hand textarea { min-height:90px; }
+  .hand .pair { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .hand button { margin-top:12px; font:inherit; font-weight:700; font-size:18px; padding:13px 18px; border:0; border-radius:10px; background:var(--accent); color:#fff; cursor:pointer; }
+  .hand button.alt { background:#e9e6de; color:var(--ink); margin-left:8px; }
+  .hand .warn { font-size:14px; color:#8a2d1f; margin-top:8px; }
+  .strip { position:sticky; top:0; z-index:5; background:var(--bg); display:flex; gap:8px; flex-wrap:wrap; padding:10px 0; margin:0 0 14px; border-bottom:2px solid var(--line); }
+  .chip { padding:9px 13px; border-radius:999px; border:2px solid var(--line); background:#fff; color:var(--ink); font:inherit; font-weight:700; font-size:15px; cursor:pointer; }
+  .chip.on { border-color:var(--accent); background:#dfeaf7; }
+  .chip.dim, .card.dim { opacity:.28; }
+  .card.best { outline:4px solid var(--accent); }
+  .addr { font:14px Consolas, monospace; color:var(--muted); margin:0 0 12px; word-break:break-all; }
+  .addr b { color:var(--ink); }
+  #where { font-weight:700; width:100%; min-height:1.3em; color:var(--accent); font-size:15px; }
+  #status { font-weight:700; margin-top:10px; min-height:1.4em; }
+  #preview { min-height:190px; font-size:14px; font-family:Consolas, monospace; }
 </style>
 </head>
 <body>
+<div class="strip" id="strip" aria-label="Fixed tabs, one per window. They never move or rename."></div>
 <h1>VTES LLM Launcher</h1>
 <p class="sub">Every AI window you run, one search away. Type an ID (LLM-07), a hashtag (#grok), a name, or a job word (files, second opinion, voice).</p>
 <input id="q" type="search" placeholder="Search… e.g. LLM-01, #cowork, grok, files on my PC" autofocus>
-<p class="hint">Blue button opens it. Grey means it opens from the desktop app or tray icon, not a web link.</p>
+<p class="hint">Every window has a fixed address. The vtes:// ones work from any link or Win+R once RAMBO installs them; the https:// ones work right now. Tabs never move or rename.</p>
+
+<div class="hand" id="hand">
+  <h2>Hand work to another window</h2>
+  <p class="lead">No API, no waiting on Drive. Pick who is handing off and who gets it, say what you want done, press the big button. The packet is copied; the window opens; you press Ctrl+V once.</p>
+  <div class="pair">
+    <div><label for="from">From</label><select id="from"></select></div>
+    <div><label for="to">To</label><select id="to"></select></div>
+  </div>
+  <label for="note">What do you want done? (dictate or type)</label>
+  <textarea id="note" placeholder="Example: Check the Bal Harbour permit summary for anything Claude missed."></textarea>
+  <div class="warn">Do not put card numbers, passwords, or social security numbers in this box. The packet goes to another company's AI.</div>
+  <button id="go" type="button">Copy packet and open</button><button id="show" class="alt" type="button">Just show the packet</button>
+  <div id="status" role="status"></div>
+  <label for="preview">The packet (you can edit it before pasting)</label>
+  <textarea id="preview" readonly></textarea>
+</div>
 
 <div class="grid" id="grid">
 
@@ -50,6 +87,7 @@
   <div class="role">RAMBO — the hands on your PC</div>
   <p class="job">Files, OneDrive, Chrome, 1Password, printer, county sites, OCR. Runs by itself every 15 minutes and executes anything dropped in VTES-Inbox.</p>
   <div class="tags">#LLM-01 #EXEC-DESKTOP #RAMBO #PASTE-D</div>
+  <div class="addr">Address: <b>vtes://llm-01</b> &rarr; the Claude desktop app, Code tab (shortcut filled in by RAMBO)</div>
   <div class="row"><span class="btn">Open: Claude desktop app → Code tab, or the green D tray icon</span></div>
   <div class="paste">Paste blocks for this window start with PASTE-D.</div>
 </div>
@@ -60,7 +98,8 @@
   <div class="role">Repo keeper — QC, research, dispatch</div>
   <p class="job">Holds the repo, checks the desktop's work, does sourced research, runs the daily Plaud sync, and sends orders to RAMBO through Drive. Cannot touch your PC.</p>
   <div class="tags">#LLM-02 #EXEC-CLOUD #PASTE-C</div>
-  <div class="row"><a class="btn" href="https://claude.ai/code" target="_blank" rel="noopener">Open claude.ai/code</a></div>
+  <div class="addr">Address: <b>vtes://llm-02</b> &rarr; https://claude.ai/code/session_01CAqZRvV1WjuuxZCNwrE9Gf</div>
+  <div class="row"><a class="btn" href="https://claude.ai/code/session_01CAqZRvV1WjuuxZCNwrE9Gf" target="_blank" rel="noopener">Open THIS window (LLM-02)</a></div>
   <div class="paste">Paste blocks for this window start with PASTE-C.</div>
 </div>
 
@@ -70,6 +109,7 @@
   <div class="role">Analyst — long documents, CDM owner</div>
   <p class="job">Deep analysis and long write-ups (the CDM funding model lives here). Can drive Chrome with your permission and sends its own orders to RAMBO.</p>
   <div class="tags">#LLM-03 #COWORK #PASTE-X #CDM</div>
+  <div class="addr">Address: <b>vtes://llm-03</b> &rarr; your Cowork window address (paste it into vtes-addresses.json)</div>
   <div class="row"><span class="btn">Open: Claude desktop app → Cowork tab, or the orange X tray icon</span></div>
   <div class="paste">Paste blocks for this window start with PASTE-X.</div>
 </div>
@@ -80,6 +120,7 @@
   <div class="role">The cockpit — your seat</div>
   <p class="job">Your main conversation. Dictate here, approve here, ask "where do things stand" here. It reads the same ledger and tells the executors what to do.</p>
   <div class="tags">#LLM-04 #CHAT #COCKPIT</div>
+  <div class="addr">Address: <b>vtes://llm-04</b> &rarr; https://claude.ai</div>
   <div class="row"><a class="btn" href="https://claude.ai" target="_blank" rel="noopener">Open claude.ai</a><span class="btn">or the desktop app → Chat</span></div>
 </div>
 
@@ -89,6 +130,7 @@
   <div class="role">Voice — dictation on the go</div>
   <p class="job">Same account as the cockpit. Say "AP-0088: GO" from the car and it counts.</p>
   <div class="tags">#LLM-05 #IPHONE #voice</div>
+  <div class="addr">Address: <b>vtes://llm-05</b> &rarr; the Claude app on the iPhone (no PC address)</div>
   <div class="row"><span class="btn">Open: iPhone → Claude app</span></div>
 </div>
 
@@ -96,8 +138,9 @@
   <div class="id">LLM-06 · 🧭</div>
   <div class="name">Codex CLI</div>
   <div class="role">Backup executor — when Claude's limit is hit</div>
-  <p class="job">OpenAI's agent on your PC, on your ChatGPT subscription. Reads the same VTES-Inbox orders and the same rules. Install is prepared and waiting on your one-line yes.</p>
+  <p class="job">OpenAI's agent on your PC, on your ChatGPT subscription. Already installed (version 0.157.1, 2026-09-26). One thing left: double-click the desktop shortcut &quot;Codex - sign in (Jorge)&quot; and approve the ChatGPT sign-in in the browser.</p>
   <div class="tags">#LLM-06 #CODEX #BACKUP-EXEC</div>
+  <div class="addr">Address: <b>vtes://llm-06</b> &rarr; terminal shortcut: Codex - sign in (Jorge)</div>
   <div class="row"><a class="btn" href="https://chatgpt.com" target="_blank" rel="noopener">Open ChatGPT</a><span class="btn">PC: Windows Terminal → codex (after install)</span></div>
 </div>
 
@@ -107,6 +150,7 @@
   <div class="role">Fabian — second opinion</div>
   <p class="job">Sanity-checks Claude's work and answers with the live web. Chat only, on your subscription. Paste a Drive link to hand it a file.</p>
   <div class="tags">#LLM-07 #GROK #FABIAN</div>
+  <div class="addr">Address: <b>vtes://llm-07</b> &rarr; https://grok.com</div>
   <div class="row"><a class="btn" href="https://grok.com" target="_blank" rel="noopener">Open grok.com</a></div>
 </div>
 
@@ -116,6 +160,7 @@
   <div class="role">Volume drafter — free, Drive-native</div>
   <p class="job">Cheap bulk drafting and summarizing. Gemini CLI can also run headless on the PC under the same rules (GEMINI.md).</p>
   <div class="tags">#LLM-08 #GEMINI #google</div>
+  <div class="addr">Address: <b>vtes://llm-08</b> &rarr; https://gemini.google.com</div>
   <div class="row"><a class="btn" href="https://gemini.google.com" target="_blank" rel="noopener">Open Gemini</a><span class="btn">PC: Windows Terminal → gemini</span></div>
 </div>
 
@@ -132,22 +177,134 @@
 
 <div class="bus">
   <h2>One rule that makes this work</h2>
-  <p>Every window runs on a subscription — no API meter. They hand off through Google Drive, not through each other. The ID (LLM-01…08) and hashtags travel inside every file a window produces, so any later search — Drive, Gmail, OCR, 1Password, or this page — finds who did what.</p>
+  <p>Every window runs on a subscription. API is allowed only as a thin routing bridge, and every API run is priced first and sent to you for approval. Handoffs go through the panel above or the Drive mailbox. The ID (LLM-01…08) and hashtags travel inside every file a window produces, so any later search — Drive, Gmail, OCR, 1Password, or this page — finds who did what.</p>
 </div>
 
-<p class="foot">TRK-2026-9910-B · v1 · 2026-09-30 · CURRENT · Registry: LLM-WINDOW-REGISTRY.md · #VTES-control-panel #LLM-registry</p>
+<p class="foot">TRK-2026-9910-B · v2 · 2026-09-30 · CURRENT · Registry: LLM-WINDOW-REGISTRY.md · #VTES-control-panel #LLM-registry</p>
 
 <script>
   var q = document.getElementById('q');
   var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var STOP = ['the','a','an','on','my','of','to','for','in','and','or','is','it','me','i','open','find','show','with','that','this'];
+  var stripEl = document.getElementById('strip');
+  var CHIPS = [['LLM-01','Desktop RAMBO'],['LLM-02','Cloud'],['LLM-03','Cowork'],['LLM-04','Chat'],['LLM-05','iPhone'],['LLM-06','Codex'],['LLM-07','Grok'],['LLM-08','Gemini']];
+  cards.forEach(function (c) { c._hay = (c.getAttribute('data-k') + ' ' + c.textContent).toLowerCase(); });
+  function cardFor(id) { return cards.filter(function (c) { return c._hay.indexOf(id.toLowerCase()) > -1 && c.querySelector('.id').textContent.indexOf(id) === 0; })[0]; }
   function filter() {
-    var t = q.value.trim().toLowerCase();
+    var words = q.value.toLowerCase().split(/[^a-z0-9#\-]+/).filter(function (w) { return w.length > 1 && STOP.indexOf(w) === -1; });
+    var best = -1, bestCard = null;
     cards.forEach(function (c) {
-      var hay = (c.getAttribute('data-k') + ' ' + c.textContent).toLowerCase();
-      c.classList.toggle('hide', t !== '' && hay.indexOf(t) === -1);
+      c._s = words.filter(function (w) { return c._hay.indexOf(w) > -1; }).length;
+      if (c._s > best) { best = c._s; bestCard = c; }
+    });
+    cards.forEach(function (c) {
+      c.classList.toggle('dim', words.length > 0 && c._s === 0);
+      c.classList.toggle('best', words.length > 0 && best > 0 && c === bestCard);
+    });
+    Array.prototype.forEach.call(stripEl.children, function (chip) {
+      var c = cardFor(chip.getAttribute('data-id'));
+      chip.classList.toggle('dim', words.length > 0 && c && c._s === 0);
+      chip.classList.toggle('on', words.length > 0 && c && c === bestCard && best > 0);
     });
   }
+  q.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { var b = document.querySelector('.card.best'); if (b) { b.scrollIntoView({ behavior: 'smooth', block: 'center' }); } }
+  });
   q.addEventListener('input', filter);
+
+  var WINDOWS = [
+    { id:'LLM-01', name:'Claude Code Desktop (RAMBO)', url:'', how:'Open the Claude desktop app, Code tab (or the green D tray icon), then press Ctrl+V.' },
+    { id:'LLM-02', name:'Claude Code Cloud', url:'https://claude.ai/code/session_01CAqZRvV1WjuuxZCNwrE9Gf', how:'' },
+    { id:'LLM-03', name:'Claude Cowork', url:'', how:'Open the Claude desktop app, Cowork tab (or the orange X tray icon), then press Ctrl+V.' },
+    { id:'LLM-04', name:'Claude Chat (cockpit)', url:'https://claude.ai', how:'' },
+    { id:'LLM-05', name:'Claude iPhone', url:'', how:'On the iPhone: open the Claude app. The packet stays on this PC, so send it with AirDrop or paste it into Notes first.' },
+    { id:'LLM-06', name:'Codex', url:'https://chatgpt.com', how:'For the PC agent: open Windows Terminal, type codex, press Enter, then Ctrl+V.' },
+    { id:'LLM-07', name:'Grok (Fabian)', url:'https://grok.com', how:'' },
+    { id:'LLM-08', name:'Gemini', url:'https://gemini.google.com', how:'' }
+  ];
+  var fromSel = document.getElementById('from'), toSel = document.getElementById('to');
+  var noteEl = document.getElementById('note'), prev = document.getElementById('preview'), statusEl = document.getElementById('status');
+  WINDOWS.forEach(function (w) {
+    [fromSel, toSel].forEach(function (s) {
+      var o = document.createElement('option'); o.value = w.id; o.textContent = w.id + ' · ' + w.name; s.appendChild(o);
+    });
+  });
+  fromSel.value = 'LLM-04'; toSel.value = 'LLM-07';
+  var whereEl = document.createElement('div'); whereEl.id = 'where';
+  CHIPS.forEach(function (c) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'chip';
+    b.setAttribute('data-id', c[0]); b.textContent = c[0] + ' ' + c[1]; stripEl.appendChild(b);
+    b.addEventListener('click', function () {
+      var w = win(c[0]);
+      if (w.url) { window.open(w.url, '_blank', 'noopener'); }
+      whereEl.textContent = c[0] + ' ' + c[1] + ': ' + (w.url ? 'opening in a new tab.' : (w.how || ''));
+      var card = cardFor(c[0]); if (card) { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    });
+  });
+  stripEl.appendChild(whereEl);
+  function win(id) { return WINDOWS.filter(function (w) { return w.id === id; })[0]; }
+
+  function buildPacket() {
+    var f = win(fromSel.value), t = win(toSel.value);
+    var note = noteEl.value.trim() || '(no note typed — ask Jorge what he wants done before doing anything)';
+    var stamp = new Date().toLocaleString();
+    var p = [
+      'HANDOFF  ' + f.id + ' (' + f.name + ')  ->  ' + t.id + ' (' + t.name + ')   ' + stamp,
+      '#handoff #' + f.id + ' #' + t.id + ' #JorgeValdes',
+      '',
+      'WHO: Jorge Valdes. One-person business (Team USA Sales, Inc. / CU Inspections of South Florida). Not technical. He dictates, and he listens to replies by text-to-speech.',
+      '',
+      'TASK, IN HIS WORDS:',
+      note,
+      '',
+      'HOW TO ANSWER:',
+      '- Put the answer first, the reasoning after. Short paragraphs. No tables.',
+      '- Bold the one sentence that matters most.',
+      '- Do not agree just to be agreeable: if you see a better way or a flaw, say so first.',
+      '- Never hand him a technical choice. Recommend one option and say the tradeoff in one line.',
+      '- End your reply with ONE question he can answer in a word.',
+      '',
+      'HARD RULES:',
+      '- Report honestly as DONE (with proof), BLOCKED (what you tried, why it failed, the one thing you need), or IN PROGRESS. Never say done without checking.',
+      '- Never send, spend, delete, sign, or enter a password for him. Credit cards: nickname and last 4 only.',
+      '- If you cannot open a file or link mentioned here, say so and ask him to paste it. Do not guess.',
+      '',
+      'WHERE THE FACTS LIVE: repository JV-repository (OPEN-ITEMS.md, newest rows at the bottom; CLAUDE.md is the rulebook). Google Drive folders VTES-Inbox (orders) and VTES-Outbox (results).',
+      'RETURN PATH: write your answer so Jorge can paste it back to ' + f.id + ', and tag it #' + t.id + '.'
+    ];
+    return p.join('\n');
+  }
+
+  function syncCopy() {
+    try { prev.removeAttribute('readonly'); prev.focus(); prev.select(); var ok = document.execCommand('copy'); prev.setAttribute('readonly', ''); return !!ok; }
+    catch (e) { return false; }
+  }
+  function copyText(text) {
+    if (syncCopy()) { return Promise.resolve(true); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return false; });
+    }
+    return Promise.resolve(false);
+  }
+
+  function refresh() { prev.value = buildPacket(); return prev.value; }
+  document.getElementById('show').addEventListener('click', function () {
+    refresh(); statusEl.textContent = 'Packet is shown below. Select it and press Ctrl+C if you want to copy it yourself.';
+  });
+  document.getElementById('go').addEventListener('click', function () {
+    var text = refresh(), t = win(toSel.value);
+    var copying = copyText(text);
+    if (t.url) { window.open(t.url, '_blank', 'noopener'); }
+    copying.then(function (ok) {
+      var where = t.url ? (t.name + ' is opening in a new tab. ') : '';
+      var extra = t.how ? (' ' + t.how) : ' Click in its message box and press Ctrl+V.';
+      statusEl.textContent = ok
+        ? 'Copied. ' + where + 'Now:' + extra
+        : 'Could not copy by itself. ' + where + 'The packet is below: click it, press Ctrl+A then Ctrl+C, then:' + extra;
+    });
+  });
+  [fromSel, toSel, noteEl].forEach(function (e) { e.addEventListener('input', refresh); });
+  refresh();
 </script>
 </body>
 </html>
