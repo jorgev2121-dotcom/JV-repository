@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VTES Programs and Shortcuts · searchable · TRK-2026-9910-B · #programs #shortcuts #OCR</title>
+<meta name="keywords" content="programs, shortcuts, scheduled tasks, search, OCR tolerant, hashtags, TRK-2026-9910-B">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 "Segoe UI",system-ui,sans-serif; }
+  main { max-width:1150px; margin:0 auto; padding:10px 14px 50px; }
+  h1 { font-size:22px; margin:6px 0 2px; } .sub { color:var(--muted); font-size:13.5px; margin-bottom:10px; }
+  input[type=text], select { font:inherit; font-size:16px; padding:8px 10px; border:2px solid var(--line); border-radius:10px; width:100%; background:#fff; }
+  .bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:8px; } .bar input { flex:1 1 320px; }
+  .chip { padding:3px 9px; border-radius:99px; border:2px solid var(--line); background:#fff; font-size:13px; font-weight:700; cursor:pointer; }
+  .chip.on { background:#dfeaf7; border-color:var(--accent); } .chips { display:flex; flex-wrap:wrap; gap:5px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:10px; margin-top:8px; }
+  .card { background:var(--card); border:2px solid var(--line); border-left:8px solid var(--c,#999); border-radius:12px; padding:9px 12px; }
+  .card.planned { border-style:dashed; border-left-style:solid; } .card.disabled { opacity:.72; }
+  .card h3 { margin:0; font-size:16px; word-break:break-word; } .row { font-size:13.5px; margin-top:3px; word-break:break-word; } .row b { color:var(--muted); font-weight:700; }
+  .tag { display:inline-block; font-size:11px; font-weight:800; padding:1px 7px; border-radius:99px; color:#fff; background:var(--c,#888); margin-left:4px; white-space:nowrap; }
+  .hs { font-size:12px; color:var(--muted); margin-top:4px; } .hs a { color:var(--accent); cursor:pointer; }
+  button.sm { padding:2px 9px; font-size:12px; border-radius:8px; border:1px solid var(--line); background:#fff; cursor:pointer; font-weight:700; margin-right:4px; }
+  .box { background:#fff8e6; border:2px solid #e0a100; border-radius:12px; padding:9px 14px; margin-bottom:10px; font-size:14px; }
+  details { background:var(--card); border:2px solid var(--line); border-radius:12px; padding:8px 12px; margin-top:12px; }
+  details input { margin-top:6px; } .foot { font-size:12px; color:var(--muted); margin-top:16px; word-break:break-word; }
+  .lg { font-size:12.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:4px 12px; margin:4px 0 6px; } .lg i { display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:4px; vertical-align:-1px; }
+</style></head>
+<body>
+<main>
+  <h1>🧰 Programs and Shortcuts</h1>
+  <div class="sub" id="sub"></div>
+  <div class="box"><b>Read this first:</b> this list was built from what the reports in the repo say. Nothing here was run or checked on your PC. "Run, with proof" means a report shows it ran with output. The PC inventory (ordered from RAMBO) will replace it with real dates.</div>
+  <div class="bar"><input type="text" id="q" placeholder="Search by name, what it does, hashtag (#governor), a TRK number, or a word an OCR scan might garble (M1c Butt0n finds Mic Button)." autocomplete="off"></div>
+  <div class="bar"><div class="chips" id="kchips"></div></div>
+  <div class="bar"><div class="chips" id="schips"></div><span id="cnt" style="font-size:13px;color:var(--muted)"></span></div>
+  <div class="lg" id="lg"></div>
+  <div class="grid" id="grid"></div>
+  <details><summary><b>Add your own shortcut or program</b> (kept only in this browser)</summary>
+    <input type="text" id="an" placeholder="Name"><input type="text" id="aw" placeholder="Where it lives (path or link)"><input type="text" id="at" placeholder="What it does, plus hashtags like #desktop #tax">
+    <div style="margin-top:6px"><button class="sm" id="addb" type="button">Save</button> <span id="addn" style="font-size:13px;font-weight:700"></span></div>
+  </details>
+  <p class="foot">TRK-2026-9910-B · programs v1 · 2026-09-30 · CURRENT · #programs #shortcuts #search #OCR #VTES-control-panel · Search forgives look-alike characters: 0/O, 1/l/I, 5/S, 8/B, rn/m.</p>
+</main>
+<script src="vtes-modules.js"></script>
+<script src="vtes-reminders.js"></script>
+<script src="vtes-common.js"></script>
+<script src="programs-data.js"></script>
+<script>
+(function () {
+  var V = window.VTES, esc = V.esc; V.nav('programs');
+  var P = window.VTES_PROGRAMS || { entries: [], asOf: '?' };
+  var SC = { 'PROVEN-RUN': '#2e7d4f', BUILT: '#1b5e9e', UNKNOWN: '#6b6b66', DISABLED: '#9a968c', PLANNED: '#7a2e8e', MINE: '#8a5a00' };
+  var SL = { 'PROVEN-RUN': 'run, with proof', BUILT: 'built', UNKNOWN: 'unknown', DISABLED: 'disabled', PLANNED: 'planned', MINE: 'added by you' };
+  var mine = []; try { mine = JSON.parse(localStorage.getItem('vtes.myprograms') || '[]'); } catch (e) { mine = []; }
+  function all() { return P.entries.concat(mine); }
+  var q = '', kF = '', sF = '';
+  function hay(e) { return [e.name, e.kind, e.where, e.what, e.state, SL[e.state], e.source, (e.tags || []).map(function (t) { return '#' + t; }).join(' ')].join(' '); }
+  function find(e) { return e.name + ' · ' + (e.where || '') + ' · ' + (e.tags || []).map(function (t) { return '#' + t; }).join(' ') + ' #programs #TRK-2026-9910-B'; }
+  function draw() {
+    var A = all(), kinds = {}, states = {};
+    A.forEach(function (e) { kinds[e.kind] = (kinds[e.kind] || 0) + 1; states[e.state] = (states[e.state] || 0) + 1; });
+    var list = A.map(function (e) { return { e: e, s: V.match(q, hay(e)) }; }).filter(function (x) { return x.s > 0 && (!kF || x.e.kind === kF) && (!sF || x.e.state === sF); }).sort(function (a, b) { return b.s - a.s; });
+    document.getElementById('sub').textContent = A.length + ' entries. Survey of ' + P.asOf + '. Showing ' + list.length + '.';
+    document.getElementById('cnt').textContent = list.length + ' of ' + A.length;
+    document.getElementById('kchips').innerHTML = Object.keys(kinds).sort().map(function (k) { return '<span class="chip' + (kF === k ? ' on' : '') + '" data-k="' + esc(k) + '">' + esc(k) + ' ' + kinds[k] + '</span>'; }).join('');
+    document.getElementById('schips').innerHTML = Object.keys(SC).filter(function (s) { return states[s]; }).map(function (s) { return '<span class="chip' + (sF === s ? ' on' : '') + '" data-s="' + s + '" style="border-color:' + SC[s] + '">' + SL[s] + ' ' + states[s] + '</span>'; }).join('');
+    document.getElementById('lg').innerHTML = Object.keys(SC).map(function (s) { return '<span><i style="background:' + SC[s] + '"></i>' + SL[s] + '</span>'; }).join('');
+    document.getElementById('grid').innerHTML = list.slice(0, 300).map(function (x, i) {
+      var e = x.e, c = SC[e.state] || '#888';
+      return '<div class="card ' + (e.state === 'PLANNED' ? 'planned ' : '') + (e.state === 'DISABLED' ? 'disabled' : '') + '" style="--c:' + c + '"><h3>' + esc(e.name) + ' <span class="tag" style="--c:' + c + '">' + esc(SL[e.state] || e.state) + '</span> <span class="tag" style="--c:#555">' + esc(e.kind) + '</span></h3>' +
+        '<div class="row">' + esc(e.what) + '</div><div class="row"><b>Where:</b> ' + esc(e.where || 'unknown') + '</div><div class="row"><b>Evidence:</b> ' + esc(e.source || '') + '</div>' +
+        '<div class="hs">' + (e.tags || []).map(function (t) { return '<a data-h="' + esc(t) + '">#' + esc(t) + '</a>'; }).join(' ') + '</div>' +
+        '<div style="margin-top:5px"><button class="sm" data-cp="' + i + '" data-w="1">Copy path</button><button class="sm" data-cp="' + i + '" data-f="1">Copy find-me line</button></div></div>';
+    }).join('') || '<div class="box">Nothing matches. Try fewer words, or a hashtag.</div>';
+    var L = list.slice(0, 300);
+    Array.prototype.forEach.call(document.querySelectorAll('[data-cp]'), function (b) { b.addEventListener('click', function () { var e = L[+b.getAttribute('data-cp')].e; V.copy(b.getAttribute('data-w') ? (e.where || '') : find(e)).then(function (ok) { b.textContent = ok ? 'Copied' : 'Copy failed'; }); }); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-h]'), function (a) { a.addEventListener('click', function () { document.getElementById('q').value = '#' + a.getAttribute('data-h'); q = '#' + a.getAttribute('data-h'); draw(); }); });
+    Array.prototype.forEach.call(document.querySelectorAll('#kchips .chip'), function (c) { c.addEventListener('click', function () { kF = kF === c.getAttribute('data-k') ? '' : c.getAttribute('data-k'); draw(); }); });
+    Array.prototype.forEach.call(document.querySelectorAll('#schips .chip'), function (c) { c.addEventListener('click', function () { sF = sF === c.getAttribute('data-s') ? '' : c.getAttribute('data-s'); draw(); }); });
+  }
+  document.getElementById('q').addEventListener('input', function (e) { q = e.target.value; draw(); });
+  document.getElementById('addb').addEventListener('click', function () {
+    var n = document.getElementById('an').value.trim(), w = document.getElementById('aw').value.trim(), t = document.getElementById('at').value.trim();
+    if (!n) { document.getElementById('addn').textContent = 'Give it a name.'; return; }
+    var tags = (t.match(/#[\w\-]+/g) || []).map(function (x) { return x.slice(1).toLowerCase(); });
+    mine.push({ name: n, kind: 'shortcut', where: w || 'unknown', what: t.replace(/#[\w\-]+/g, '').trim() || '(no description)', state: 'MINE', source: 'added by you ' + new Date().toISOString().slice(0, 10), tags: tags.concat(['mine']) });
+    try { localStorage.setItem('vtes.myprograms', JSON.stringify(mine)); document.getElementById('addn').textContent = 'Saved in this browser.'; } catch (e) { document.getElementById('addn').textContent = 'Could not save here.'; }
+    ['an', 'aw', 'at'].forEach(function (id) { document.getElementById(id).value = ''; }); draw();
+  });
+  window.VTES_PROG_PAGE = { draw: draw, setQ: function (x) { q = x; document.getElementById('q').value = x; draw(); }, all: all };
+  draw();
+})();
+</script>
+</body></html>

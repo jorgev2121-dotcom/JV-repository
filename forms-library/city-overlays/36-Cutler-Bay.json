@@ -1,0 +1,32 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "36",
+  "name": "Cutler Bay",
+  "family": "CUSTOM",
+  "software": "Online Services portal",
+  "submittal": "Online",
+  "portal": "cutlerbay-fl.gov/com-dev (online-services registration)",
+  "seal": "VERIFY",
+  "phone": "305-234-4193",
+  "office": "10720 Caribbean Blvd, Ste 105, Cutler Bay, FL 33189",
+  "notes": "Not in the sheet's family list (filed as CUSTOM by cloud).",
+  "plansProcessorRule": "No. Owner's agent + POA; authorization letter (notarized where required).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "portal address still loads",
+    "family assignment"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-36",
+    "#custom",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

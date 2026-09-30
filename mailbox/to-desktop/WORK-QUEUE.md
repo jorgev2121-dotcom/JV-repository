@@ -536,3 +536,7 @@ Full order: `mailbox/to-desktop/TASK-C2D_ADHOC-FILING-SYSTEM_2026-09-30.md` (als
 ---
 ## 2026-09-30 — HEARTBEAT + LAUNCHER v4 — ISSUED by cloud
 Full order: `mailbox/to-desktop/TASK-C2D_HEARTBEAT-AND-LAUNCHER-V4_2026-09-30.md`. Small and green: copy two files, run one self-test, schedule one 10-minute stamp, screenshot a green tab. Do it BEFORE the big filing order so Jorge's strip shows you alive.
+
+---
+## 2026-09-30 — PANEL INSTALL + RED BELL (also dispatch card D-001) — ISSUED by cloud
+Full order: `mailbox/to-desktop/TASK-C2D_PANEL-INSTALL-AND-RED-BELL_2026-09-30.md`. Small and green. Supersedes the launcher fingerprint lines in the two earlier 9/30 orders: use `MANIFEST.sha256` and `Verify-VtesPanel.ps1`.

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VTES Reminders · waiting for Jorge · TRK-2026-9910-B · #reminders #owner-actions</title>
+<meta name="keywords" content="reminders, owner actions, due dates, red button, TRK-2026-9910-B">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --bad:#b3261e; --ok:#2e7d4f; --warn:#b26a00; --accent:#1b5e9e; }
+  * { box-sizing:border-box; } body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.45 "Segoe UI",system-ui,sans-serif; }
+  main { max-width:900px; margin:0 auto; padding:10px 14px 50px; }
+  .big { background:var(--bad); color:#fff; border-radius:16px; padding:16px 18px; margin:8px 0 12px; display:flex; align-items:center; gap:14px; }
+  .big.clear { background:var(--ok); } .big .ic { font-size:48px; line-height:1; } .big b { font-size:24px; } .big.flash { animation:fl 1.2s steps(2) infinite; } @keyframes fl { 50% { background:#d9433a; } }
+  .it { background:var(--card); border:2px solid var(--line); border-left:10px solid var(--c,#999); border-radius:12px; padding:10px 14px; margin-bottom:9px; }
+  .it.done { opacity:.55; } .it h3 { margin:0; font-size:18px; } .it .d { font-size:14px; color:var(--muted); margin-top:3px; }
+  .tag { display:inline-block; font-size:11.5px; font-weight:800; padding:1px 8px; border-radius:99px; color:#fff; background:var(--c,#888); margin-right:6px; }
+  button { font:inherit; font-weight:800; font-size:14px; padding:5px 12px; border-radius:9px; border:2px solid var(--line); background:#fff; cursor:pointer; margin-top:6px; margin-right:6px; }
+  input[type=text], input[type=date] { font:inherit; font-size:15px; padding:6px 8px; border:2px solid var(--line); border-radius:9px; width:100%; margin:3px 0; }
+  .box { background:#fff8e6; border:2px solid #e0a100; border-radius:12px; padding:9px 14px; margin:10px 0; font-size:14.5px; } details { background:var(--card); border:2px solid var(--line); border-radius:12px; padding:8px 12px; margin-top:12px; }
+  .foot { font-size:12px; color:var(--muted); margin-top:16px; word-break:break-word; }
+</style></head><body>
+<main>
+  <div id="big"></div>
+  <div class="box"><b>How these reach you.</b> On any page of the panel: the red bell at the top right. On the PC: a red tray icon and a desktop shortcut (ordered from RAMBO, not yet seen). On the iPhone: a calendar alert for each dated item (a home-screen icon is not possible from a file on the PC). Items marked "check" came from earlier sessions and were not re-verified today.</div>
+  <div id="list"></div>
+  <details><summary><b>Add a reminder</b> (kept in this browser)</summary>
+    <input type="text" id="nt" placeholder="What is waiting?"><input type="date" id="nd"><input type="text" id="ni" placeholder="One line of detail (no passwords, no card numbers)">
+    <button id="add" type="button">Save</button> <span id="addn" style="font-size:13px;font-weight:700"></span></details>
+  <p class="foot">TRK-2026-9910-B · reminders v1 · 2026-09-30 · CURRENT · #reminders #owner-actions #VTES-control-panel · The list lives in vtes-reminders.js; "done" ticks are saved only in this browser.</p>
+</main>
+<script src="vtes-modules.js"></script><script src="vtes-reminders.js"></script><script src="vtes-common.js"></script>
+<script>
+(function () {
+  var V = window.VTES, esc = V.esc; V.nav('reminders');
+  var KC = { money: '#b3261e', owner: '#8a5a00', desktop: '#1b5e9e', check: '#6b6b66', mine: '#7a2e8e' }, KL = { money: 'MONEY', owner: 'YOURS', desktop: 'PC', check: 'CHECK', mine: 'YOURS (added)' };
+  var doneSet = {}, mine = [];
+  try { doneSet = JSON.parse(localStorage.getItem('vtes.rem.done') || '{}'); } catch (e) { }
+  try { mine = JSON.parse(localStorage.getItem('vtes.rem.mine') || '[]'); } catch (e) { }
+  function all() { return (window.VTES_REMINDERS || []).concat(mine).map(function (r) { var c = Object.assign({}, r); if (doneSet[r.id]) { c.done = true; } return c; }); }
+  function days(r) { return r.due ? V.daysUntil(r.due) : null; }
+  function draw() {
+    var A = all(), open = A.filter(function (r) { return !r.done; }), over = open.filter(function (r) { var d = days(r); return d != null && d < 0; });
+    var soon = open.filter(function (r) { var d = days(r); return d != null && d >= 0 && d <= 7; });
+    document.getElementById('big').innerHTML = open.length ? '<div class="big' + (over.length ? ' flash' : '') + '"><div class="ic">🔔</div><div><b>' + open.length + ' waiting for you</b><br>' + (over.length ? over.length + ' overdue. ' : '') + (soon.length ? soon.length + ' due within 7 days.' : (over.length ? '' : 'None due this week.')) + '</div></div>' : '<div class="big clear"><div class="ic">✅</div><div><b>Nothing waiting</b></div></div>';
+    var order = A.slice().sort(function (a, b) { if (!!a.done !== !!b.done) { return a.done ? 1 : -1; } var da = days(a), db = days(b); if (da == null && db == null) { return 0; } if (da == null) { return 1; } if (db == null) { return -1; } return da - db; });
+    document.getElementById('list').innerHTML = order.map(function (r) {
+      var d = days(r), c = KC[r.kind] || '#888', dtxt = d == null ? '' : (d < 0 ? '<span class="tag" style="--c:#b3261e">OVERDUE ' + (-d) + ' d</span>' : '<span class="tag" style="--c:' + (d <= 7 ? '#b26a00' : '#2e7d4f') + '">due ' + esc(r.due) + ' · ' + d + ' d</span>');
+      return '<div class="it' + (r.done ? ' done' : '') + '" style="--c:' + c + '"><h3><span class="tag" style="--c:' + c + '">' + (KL[r.kind] || r.kind) + '</span>' + dtxt + (r.check ? '<span class="tag" style="--c:#6b6b66">check</span>' : '') + esc(r.title) + '</h3><div class="d">' + esc(r.detail || '') + ' <i>(' + esc(r.src || '') + ')</i></div><button data-d="' + esc(r.id) + '">' + (r.done ? 'Undo done' : 'Mark done') + '</button></div>';
+    }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('[data-d]'), function (b) { b.addEventListener('click', function () { var id = b.getAttribute('data-d'); if (doneSet[id]) { delete doneSet[id]; } else { doneSet[id] = 1; } try { localStorage.setItem('vtes.rem.done', JSON.stringify(doneSet)); } catch (e) { } draw(); }); });
+  }
+  document.getElementById('add').addEventListener('click', function () {
+    var t = document.getElementById('nt').value.trim(); if (!t) { document.getElementById('addn').textContent = 'Say what is waiting.'; return; }
+    mine.push({ id: 'M-' + (mine.length + 1), kind: 'mine', title: t, due: document.getElementById('nd').value, detail: document.getElementById('ni').value.trim(), src: 'added by you', done: false });
+    try { localStorage.setItem('vtes.rem.mine', JSON.stringify(mine)); document.getElementById('addn').textContent = 'Saved in this browser.'; } catch (e) { document.getElementById('addn').textContent = 'Could not save here.'; }
+    document.getElementById('nt').value = ''; draw();
+  });
+  window.VTES_REM_PAGE = { draw: draw, all: all };
+  draw();
+})();
+</script></body></html>

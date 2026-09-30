@@ -1,0 +1,32 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "15",
+  "name": "West Miami",
+  "family": "CITIZENSERVE",
+  "software": "Citizenserve",
+  "submittal": "Online",
+  "portal": "www7.citizenserve.com/Portal/?installationid=159",
+  "seal": "VERIFY",
+  "phone": "305-266-4214",
+  "office": "901 SW 62 Ave, West Miami, FL 33144",
+  "notes": "",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)",
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-15",
+    "#citizenserve",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

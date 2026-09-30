@@ -1,0 +1,24 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "family": "CITIZENSERVE",
+  "name": "Citizenserve",
+  "buildOrder": 3,
+  "note": "Third.",
+  "cities": [
+    {
+      "code": "13",
+      "name": "Bay Harbor Islands"
+    },
+    {
+      "code": "15",
+      "name": "West Miami"
+    }
+  ],
+  "fieldMapStatus": "NOT BUILT",
+  "portalScreensCollected": 0,
+  "hashtags": [
+    "#forms-library",
+    "#citizenserve",
+    "#TRK-2026-9910-B"
+  ]
+}

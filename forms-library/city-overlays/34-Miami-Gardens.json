@@ -1,0 +1,32 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "34",
+  "name": "Miami Gardens",
+  "family": "TYLER",
+  "software": "CSS (Tyler EnerGov)",
+  "submittal": "Online",
+  "portal": "miamigardensfl-energovpub.tylerhost.net",
+  "seal": "Electronic OK (VERIFY)",
+  "phone": "305-622-8027",
+  "office": "18605 NW 27th Ave, Miami Gardens, FL 33056",
+  "notes": "",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)",
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-34",
+    "#tyler",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

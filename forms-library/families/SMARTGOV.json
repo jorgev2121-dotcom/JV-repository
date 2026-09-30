@@ -1,0 +1,24 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "family": "SMARTGOV",
+  "name": "SmartGov (CentralSquare)",
+  "buildOrder": 5,
+  "note": "",
+  "cities": [
+    {
+      "code": "12",
+      "name": "Bal Harbour"
+    },
+    {
+      "code": "31",
+      "name": "Sunny Isles Beach"
+    }
+  ],
+  "fieldMapStatus": "NOT BUILT",
+  "portalScreensCollected": 0,
+  "hashtags": [
+    "#forms-library",
+    "#smartgov",
+    "#TRK-2026-9910-B"
+  ]
+}

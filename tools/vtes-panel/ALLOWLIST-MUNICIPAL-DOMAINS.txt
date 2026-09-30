@@ -1,0 +1,46 @@
+# ALLOWLIST-MUNICIPAL-DOMAINS.txt · TRK-2026-9910-B · #allowlist #egress
+# Domains taken from the portal column of the municipality sheet, plus the county and state record sites. One per line.
+# For Jorge's cloud setting Network access = Custom (see MIAMI-DADE-SITES.md, ROOT CAUSE section). Web addresses only; no secrets.
+# NOT checked: cloud cannot reach these sites, so some hosts may be wrong or retired.
+aca-prod.accela.com
+apps.gov-easy.com
+apps.hialeahfl.gov
+biscayneparkfl.gov
+bldg.msvfl.gov
+ci-sunnyislesbeach-fl.smartgovcommunity.com
+citizenserve.com
+citynmb.com
+cityofdoral.com
+cityofhialeahgardens.com
+cityofsweetwateresuite.miami
+civicgov4.com
+coralgables.com
+cutlerbay-fl.gov
+doral.powerappsportals.us
+eportal.northmiamifl.gov
+flc.csqrcloud.com
+goldenbeach.us
+homesteadfl.gov
+miami.gov
+miamibeachfl.gov
+miamidade.gov
+miamigardensfl-energovpub.tylerhost.net
+mias-trk.aspgov.com
+nbvillage.com
+opalockafl.gov
+pine-trk.aspgov.com
+share.cityofaventura.com
+smia.csqrcloud.com
+townofmedley.com
+townofsurfsidefl.gov
+trakit.miamilakes-fl.gov
+villageofelportal.org
+vlg-balharbour-fl.smartgovcommunity.com
+www7.citizenserve.com
+miamidade.gov
+www.miamidadepa.gov
+miamidadeclerk.gov
+onlineservices.miamidadeclerk.gov
+search.sunbiz.org
+www.myfloridalicense.com
+www.floridabuilding.org

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VTES Municipalities and Forms · 35 jurisdictions · TRK-2026-9910-B · #municipalities #permits #forms-library</title>
+<meta name="keywords" content="municipalities, permits, forms library, folio prefix, Miami-Dade, Tyler EnerGov, eTRAKiT, Citizenserve, Accela, SmartGov, TRK-2026-9910-B">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; --ok:#2e7d4f; --warn:#b26a00; --bad:#b3261e; --fut:#7a2e8e; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 "Segoe UI",system-ui,sans-serif; }
+  main { max-width:1150px; margin:0 auto; padding:10px 14px 50px; }
+  h1 { font-size:22px; margin:6px 0 2px; } .sub { color:var(--muted); font-size:13.5px; margin-bottom:10px; }
+  .tabs { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 10px; }
+  .tabs button, .btn { padding:6px 12px; border-radius:10px; border:2px solid var(--line); background:#fff; font:inherit; font-weight:800; font-size:14px; cursor:pointer; }
+  .tabs button.on { background:#dfeaf7; border-color:var(--accent); }
+  .btn.pri { background:var(--accent); border-color:var(--accent); color:#fff; }
+  input[type=text], select, textarea { font:inherit; font-size:15px; padding:7px 9px; border:2px solid var(--line); border-radius:9px; width:100%; background:#fff; }
+  textarea { min-height:70px; }
+  .bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:8px; }
+  .bar input { flex:1 1 300px; } .chips { display:flex; flex-wrap:wrap; gap:5px; }
+  .chip { padding:3px 9px; border-radius:99px; border:2px solid var(--line); background:#fff; font-size:13px; font-weight:700; cursor:pointer; }
+  .chip.on { background:#dfeaf7; border-color:var(--accent); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:10px; }
+  .card { background:var(--card); border:2px solid var(--line); border-left:8px solid var(--c,#999); border-radius:12px; padding:9px 12px; }
+  .card h3 { margin:0; font-size:17px; } .card .meta { font-size:12.5px; color:var(--muted); }
+  .card .row { font-size:13.5px; margin-top:3px; word-break:break-word; } .card .row b { color:var(--muted); font-weight:700; }
+  .tag { display:inline-block; font-size:11px; font-weight:800; padding:1px 7px; border-radius:99px; color:#fff; background:var(--c,#888); margin-left:4px; }
+  .box { background:var(--card); border:2px solid var(--line); border-radius:12px; padding:10px 14px; margin-bottom:10px; }
+  .box.note { background:#fff8e6; border-color:#e0a100; } .box.ok { background:#eef7f1; border-color:var(--ok); }
+  .two { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:10px; }
+  pre#out { white-space:pre-wrap; font:13.5px/1.5 Consolas,monospace; background:#fbfaf7; border:2px solid var(--line); border-radius:10px; padding:10px; }
+  label { font-size:12.5px; font-weight:800; color:var(--muted); display:block; margin:6px 0 2px; }
+  .foot { font-size:12px; color:var(--muted); margin-top:16px; word-break:break-word; }
+  ul.t { margin:4px 0 0 18px; padding:0; } ul.t li { margin:2px 0; }
+</style></head>
+<body>
+<main>
+  <h1>🏛️ Municipalities and Forms</h1>
+  <div class="sub" id="sub"></div>
+  <div class="tabs" id="tabs"></div>
+  <div id="body"></div>
+  <p class="foot">TRK-2026-9910-B · municipalities v1 · 2026-09-30 · CURRENT · #municipalities #permits #forms-library #folio-prefix #VTES-control-panel · Data from Drive Municipality-Software-Map.xlsx (2026-06-17). Not re-checked against live city sites: cloud cannot reach them.</p>
+</main>
+<script src="vtes-modules.js"></script>
+<script src="vtes-reminders.js"></script>
+<script src="vtes-common.js"></script>
+<script src="municipalities-data.js"></script>
+<script>
+(function () {
+  var V = window.VTES, M = window.VTES_MUNI, esc = V.esc;
+  V.nav('municipal');
+  var FCOL = { TYLER: '#1b5e9e', ETRAKIT: '#2e7d4f', CITIZENSERVE: '#8a5a00', ACCELA: '#7a2e8e', SMARTGOV: '#3b6e8f', CUSTOM: '#6b5b3e', NOPORTAL: '#b3261e', DEFUNCT: '#9a968c' };
+  var rows = M.rows.map(function (r) { return { n: r[0], name: r[1], code: r[2], sw: r[3], fam: r[4], sub: r[5], portal: r[6], seal: r[7], phone: r[8], addr: r[9], notes: r[10], pp: r[11] }; });
+  rows.forEach(function (r) { r.hay = [r.name, r.code, r.sw, M.families[r.fam].name, r.sub, r.portal, r.seal, r.phone, r.addr, r.notes, r.pp, '#' + r.fam.toLowerCase(), '#city-' + r.code, '#municipality'].join(' '); });
+  var live = rows.filter(function (r) { return r.fam !== 'DEFUNCT'; });
+  document.getElementById('sub').textContent = live.length + ' live jurisdictions (34 cities + unincorporated Miami-Dade) plus 1 dissolved (Islandia). Folio prefix = city code. Source read ' + M.asOf + '.';
+  var tab = 'cities', famF = '', subF = '', q = '';
+  var TABS = [['cities', 'Cities'], ['families', 'Software families'], ['sites', 'County sites'], ['fill', 'Permit fill sheet'], ['plan', '80 / 20 forms plan']];
+  function tabs() { var el = document.getElementById('tabs'); el.innerHTML = TABS.map(function (t) { return '<button type="button" data-t="' + t[0] + '" class="' + (t[0] === tab ? 'on' : '') + '">' + t[1] + '</button>'; }).join(''); Array.prototype.forEach.call(el.children, function (b) { b.addEventListener('click', function () { tab = b.getAttribute('data-t'); draw(); }); }); }
+  function portalLink(p) { var m = /^([a-z0-9][a-z0-9\-\.]*\.[a-z]{2,}(?:\/[^\s(]*)?)/i.exec(p || ''); return m ? 'https://' + m[1] : ''; }
+  function cardHtml(r) {
+    var c = FCOL[r.fam], link = portalLink(r.portal);
+    return '<div class="card" style="--c:' + c + '" data-code="' + r.code + '"><h3>' + esc(r.name) + ' <span class="tag" style="--c:' + c + '">' + esc(M.families[r.fam].name.split(' ')[0]) + '</span></h3><div class="meta">City code (folio prefix) <b>' + esc(r.code) + '</b> · #city-' + esc(r.code) + '</div>' +
+      '<div class="row"><b>Software:</b> ' + esc(r.sw) + ' · <b>Submittal:</b> ' + esc(r.sub) + '</div>' +
+      '<div class="row"><b>Portal:</b> ' + (link ? '<a href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(r.portal) + '</a>' : esc(r.portal)) + '</div>' +
+      '<div class="row"><b>Seal:</b> ' + esc(r.seal) + (r.phone ? ' · <b>Phone:</b> ' + esc(r.phone) : '') + '</div>' +
+      (r.addr ? '<div class="row"><b>Office:</b> ' + esc(r.addr) + '</div>' : '') +
+      '<div class="row"><b>Agent / plans processor:</b> ' + esc(r.pp) + '</div>' + (r.notes ? '<div class="row"><b>Notes:</b> ' + esc(r.notes) + '</div>' : '') + '</div>';
+  }
+  function cities() {
+    var list = rows.map(function (r) { var s = V.match(q, r.hay); return { r: r, s: s }; }).filter(function (x) { return x.s > 0 && (!famF || x.r.fam === famF) && (!subF || x.r.sub.indexOf(subF) === 0); }).sort(function (a, b) { return b.s - a.s || a.r.n - b.r.n; });
+    var fams = Object.keys(M.families).map(function (f) { return '<span class="chip' + (famF === f ? ' on' : '') + '" data-f="' + f + '">' + esc(M.families[f].name.split(' ')[0]) + ' ' + rows.filter(function (r) { return r.fam === f; }).length + '</span>'; }).join('');
+    var subs = ['Online', 'Email', 'In person', 'File-drop'].map(function (s) { return '<span class="chip' + (subF === s ? ' on' : '') + '" data-s="' + s + '">' + s + '</span>'; }).join('');
+    return '<div class="bar"><input type="text" id="q" value="' + esc(q) + '" placeholder="Search a city, code, software, hashtag, or a folio prefix. Look-alike typos are forgiven (Corai Gab1es finds Coral Gables)." autocomplete="off"></div>' +
+      '<div class="bar"><div class="chips" id="fchips">' + fams + '</div></div><div class="bar"><div class="chips" id="schips">' + subs + '</div><span style="font-size:13px;color:var(--muted)" id="cnt">' + list.length + ' of ' + rows.length + '</span></div>' +
+      '<div class="grid" id="grid">' + list.map(function (x) { return cardHtml(x.r); }).join('') + '</div>';
+  }
+  function families() {
+    var keys = Object.keys(M.families).sort(function (a, b) { return M.families[a].order - M.families[b].order; });
+    return '<div class="box note"><b>The real 80 / 20 is by software platform.</b> For documents, the county layer is most of the work. For typing into a portal, the shared layer is the <b>platform family</b>: one field map per family covers every city on it. The sheet itself says build Tyler first, eTRAKiT second. Biscayne Park and Cutler Bay were missing from the sheet\'s own family list; they are filed under Custom. Miami Beach and Doral each appear in two places in the sheet: marked UNVERIFIED.</div>' +
+      '<div class="two">' + keys.map(function (f) { var L = rows.filter(function (r) { return r.fam === f; }); return '<div class="box" style="border-left:8px solid ' + FCOL[f] + '"><b>' + esc(M.families[f].name) + '</b> · ' + L.length + (M.families[f].order <= 3 ? ' · build order ' + M.families[f].order : '') + '<div style="font-size:13px;color:var(--muted)">' + esc(M.families[f].note) + '</div><ul class="t">' + L.map(function (r) { return '<li>' + esc(r.name) + ' (' + r.code + ')</li>'; }).join('') + '</ul></div>'; }).join('') + '</div>';
+  }
+  function sites() {
+    return '<div class="box note">' + esc(M.sitesNote) + '</div><div class="grid">' + M.sites.map(function (s) { var c = s[2] === 'PROOF' ? '#2e7d4f' : '#b26a00'; return '<div class="card" style="--c:' + c + '"><h3>SITE-' + ('0' + s[0]).slice(-2) + ' <span class="tag" style="--c:' + c + '">' + (s[2] === 'PROOF' ? 'RUN, WITH PROOF' : 'PARTIAL') + '</span></h3><div class="row">' + esc(s[1]) + '</div></div>'; }).join('') + '</div>' +
+      '<div class="box" style="margin-top:10px"><b>Status as recorded 8/26</b> from the desktop run of 8/15 to 8/16 (20 with proof, 2 partial). Cloud cannot reach these sites, so it could not check them. Nine more sites are needed to reach 31 and none are named anywhere.</div>';
+  }
+  var PKEY = 'vtes.profile', profile = {};
+  try { profile = JSON.parse(localStorage.getItem(PKEY) || '{}'); } catch (e) { profile = {}; }
+  function fill() {
+    var prof = M.fields.filter(function (f) { return f[3] === 'profile'; });
+    var jobf = M.fields.filter(function (f) { return f[3] !== 'profile'; });
+    var opts = live.map(function (r) { return '<option value="' + r.code + '">' + esc(r.name) + ' (' + r.code + ')</option>'; }).join('');
+    return '<div class="box ok"><b>Type the folio and the city is chosen for you</b> (its first two digits are the city code). The sheet below is a checklist and field list in the order every portal asks. It is not the city\'s own PDF: those are not collected yet (see the 80 / 20 tab).</div>' +
+      '<div class="two"><div class="box"><b>This job</b><label>Folio</label><input type="text" id="f_folio" placeholder="30-5032-000-1352"><label>Jurisdiction</label><select id="f_city">' + opts + '</select>' +
+      '<label>Job TRK (enter the real one; never invented)</label><input type="text" id="f_trk" placeholder="TRK-2026-####">' +
+      jobf.map(function (f) { return '<label>' + esc(f[1]) + (f[4] ? ' · ' + esc(f[4]) : '') + '</label><input type="text" data-k="' + f[2] + '">'; }).join('') + '</div>' +
+      '<div class="box"><b>Applicant profile</b> <span style="font-size:12.5px;color:var(--muted)">saved only in this browser. Never in a file.</span>' + prof.map(function (f) { return '<label>' + esc(f[1]) + (f[4] ? ' · ' + esc(f[4]) : '') + '</label><input type="text" data-p="' + f[2] + '" value="' + esc(profile[f[2]] || '') + '">'; }).join('') + '<div style="margin-top:8px"><button class="btn" id="saveprof" type="button">Save profile</button> <span id="profnote" style="font-size:13px;font-weight:700"></span></div></div></div>' +
+      '<div class="bar" style="margin-top:8px"><button class="btn pri" id="mk" type="button">Build the fill sheet</button><button class="btn" id="cp" type="button">Copy it</button><span id="cpn" style="font-size:13px;font-weight:700"></span></div><pre id="out">Fill the boxes and press Build.</pre>';
+  }
+  function byCode(c) { return rows.filter(function (r) { return r.code === c; })[0]; }
+  function build() {
+    var code = document.getElementById('f_city').value, r = byCode(code), get = function (k) { var e = document.querySelector('[data-k="' + k + '"],[data-p="' + k + '"]'); return e ? e.value.trim() : ''; };
+    var trk = document.getElementById('f_trk').value.trim(), folio = document.getElementById('f_folio').value.trim();
+    var L = [];
+    L.push('PERMIT FILL SHEET · ' + r.name + ' (city code ' + r.code + ') · ' + (trk || 'TRK: (enter the job\'s real TRK)') + ' · #permit-fill-sheet #city-' + r.code + ' #' + r.fam.toLowerCase() + ' #municipality');
+    L.push('Folio: ' + (folio || '(blank)') + (folio && folio.slice(0, 2) !== r.code ? '   WARNING: the folio starts with ' + folio.slice(0, 2) + ' but this city code is ' + r.code : ''));
+    L.push(''); L.push('WHERE AND HOW');
+    L.push('- Software: ' + r.sw + ' (family: ' + M.families[r.fam].name + ')'); L.push('- Submittal: ' + r.sub); L.push('- Portal: ' + r.portal);
+    L.push('- Seal policy: ' + r.seal + (/VERIFY/.test(r.seal) ? '   <- NOT CONFIRMED: call first' : '')); if (r.phone) { L.push('- Phone: ' + r.phone); } if (r.addr) { L.push('- Office: ' + r.addr); }
+    L.push('- Agent / plans processor rule: ' + r.pp); if (r.notes) { L.push('- Notes: ' + r.notes); }
+    L.push(''); L.push('FIELDS (universal order; blank means you still owe it)');
+    M.fields.forEach(function (f) { var v = get(f[2]) || (f[2] === 'property.folio' ? folio : ''); L.push(f[0] + '. ' + f[1] + ': ' + (v || '______') + '   [' + ({ job: 'this job', pa: 'from Property Appraiser', profile: 'your profile', pick: 'pick from list' }[f[3]]) + ']'); });
+    var blanks = M.fields.filter(function (f) { return !(get(f[2]) || (f[2] === 'property.folio' && folio)); }).length;
+    L.push(''); L.push('STILL BLANK: ' + blanks + ' of ' + M.fields.length); L.push('VERIFY BEFORE FILING: seal policy' + (/VERIFY/.test(r.seal) ? ' (marked VERIFY)' : '') + ', current fees, and that the portal address still works. This data is from ' + M.asOf + '.');
+    L.push(''); L.push((trk || 'TRK-2026-####') + ' · v1 · ' + new Date().toISOString().slice(0, 10) + ' · DRAFT · ' + r.name);
+    document.getElementById('out').textContent = L.join('\n');
+    return L.join('\n');
+  }
+  function plan() {
+    return '<div class="box note"><b>Jorge\'s model:</b> like a title commitment, about 80% of a permit packet comes from the county and is the same for every city in it, and about 20% is individual to each city. <b>Strongest objection:</b> that split is a hypothesis until the real forms are collected. Nobody has measured it yet, and cloud cannot fetch the forms (egress is blocked).</div>' +
+      '<div class="two"><div class="box" style="border-left:8px solid #1b5e9e"><b>Layer 1 · State and county (the big shared part)</b><ul class="t"><li>The Unincorporated Miami-Dade row (code 30) is the county layer: Tyler EnerGov portal, no scanned wet seals.</li><li>Florida-wide and county-wide documents belong here once (for example the statutory Notice of Commencement and the product approvals). Exact list UNVERIFIED: cloud could not check.</li><li>Fields: the 19 universal fields.</li></ul></div>' +
+      '<div class="box" style="border-left:8px solid #2e7d4f"><b>Layer 2 · Platform family (the typing part)</b><ul class="t"><li>One field map per software family. Tyler covers 6 jurisdictions, eTRAKiT 5, Citizenserve 2, SmartGov 2.</li><li>Build Tyler first: it includes the county itself.</li></ul></div>' +
+      '<div class="box" style="border-left:8px solid #b26a00"><b>Layer 3 · City overlay (the individual 20%)</b><ul class="t"><li>Seal policy (30 of 36 say VERIFY), agent or plans-processor rule, extra affidavits, fees.</li><li>One small file per city in <code>forms-library/city-overlays/</code>. It lists only what differs.</li></ul></div></div>' +
+      '<div class="box"><b>What exists now</b><ul class="t"><li>35 city overlay files and 8 family files generated from the sheet (<code>forms-library/</code> in the repo).</li><li>The fill sheet on the previous tab: works today.</li></ul><b>What is missing</b><ul class="t"><li>The city PDFs and portal screens themselves. Needs a machine with web access: the PC (RAMBO), Cowork, Codex or Grok Bots. Work cards are written in <code>dispatch/</code>.</li><li>Auto-typing into portals: one browser script per family, built after the forms are collected.</li></ul>' +
+      '<b>Off the shelf?</b> UNVERIFIED (web blocked here). Worth one search by Cowork: a statewide uniform permit application, and PDF fill tools. The field map and overlay files above are the reusable part whichever tool wins.</div>';
+  }
+  function draw() {
+    tabs();
+    var b = document.getElementById('body');
+    b.innerHTML = tab === 'cities' ? cities() : tab === 'families' ? families() : tab === 'sites' ? sites() : tab === 'fill' ? fill() : plan();
+    if (tab === 'cities') {
+      var qe = document.getElementById('q'); qe.addEventListener('input', function () { q = qe.value; var pos = qe.selectionStart; draw(); var n = document.getElementById('q'); n.focus(); n.setSelectionRange(pos, pos); });
+      Array.prototype.forEach.call(document.querySelectorAll('#fchips .chip'), function (c) { c.addEventListener('click', function () { famF = famF === c.getAttribute('data-f') ? '' : c.getAttribute('data-f'); draw(); }); });
+      Array.prototype.forEach.call(document.querySelectorAll('#schips .chip'), function (c) { c.addEventListener('click', function () { subF = subF === c.getAttribute('data-s') ? '' : c.getAttribute('data-s'); draw(); }); });
+    }
+    if (tab === 'fill') {
+      var fo = document.getElementById('f_folio'), ci = document.getElementById('f_city');
+      fo.addEventListener('input', function () { var c = fo.value.trim().slice(0, 2); if (/^\d\d$/.test(c) && byCode(c) && byCode(c).fam !== 'DEFUNCT') { ci.value = c; } });
+      document.getElementById('mk').addEventListener('click', build);
+      document.getElementById('cp').addEventListener('click', function () { V.copy(build()).then(function (ok) { document.getElementById('cpn').textContent = ok ? 'Copied.' : 'Copy failed: select the text and press Ctrl+C.'; }); });
+      document.getElementById('saveprof').addEventListener('click', function () { var p = {}; Array.prototype.forEach.call(document.querySelectorAll('[data-p]'), function (e) { if (e.value.trim()) { p[e.getAttribute('data-p')] = e.value.trim(); } }); profile = p; try { localStorage.setItem(PKEY, JSON.stringify(p)); document.getElementById('profnote').textContent = 'Saved in this browser only.'; } catch (e) { document.getElementById('profnote').textContent = 'Could not save here.'; } });
+    }
+  }
+  window.VTES_MUNI_PAGE = { draw: draw, build: build, rows: rows, setTab: function (t) { tab = t; draw(); }, setQ: function (x) { q = x; draw(); } };
+  draw();
+})();
+</script>
+</body></html>

@@ -1,0 +1,31 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "31",
+  "name": "Sunny Isles Beach",
+  "family": "SMARTGOV",
+  "software": "SmartGov",
+  "submittal": "Online",
+  "portal": "ci-sunnyislesbeach-fl.smartgovcommunity.com (code via 305-792-1735)",
+  "seal": "Electronic OK (VERIFY)",
+  "phone": "305-792-1735",
+  "office": "18070 Collins Ave, 3rd Fl, Sunny Isles Beach, FL 33160",
+  "notes": "",
+  "plansProcessorRule": "No registry found. Owner's-agent authorization.",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-31",
+    "#smartgov",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

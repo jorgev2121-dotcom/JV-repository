@@ -96,9 +96,11 @@
   #dir { padding-top:6px; }
 
   [hidden] { display:none !important; }
+  @keyframes vtesflash { 50% { background:#ff5a4d; } }
+  a.tb { display:inline-block; }
   /* v4: status dots, Map */
-  .chip { padding:3px 4px !important; font-size:12px !important; }
-  .tb { padding:3px 5px !important; font-size:12px !important; }
+  .chip { padding:3px 4px !important; font-size:11.5px !important; }
+  .tb { padding:3px 5px !important; font-size:11.5px !important; }
   #chips, #tools { gap:4px !important; }
   .chip .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:3px; vertical-align:-1px; background:#9a968c; border:2px solid #fff; box-shadow:0 0 0 1px #9a968c; }
   .chip .hrs { font-size:10.5px; font-weight:800; margin-left:2px; }
@@ -169,6 +171,8 @@
     <button class="tb" id="t_sp" type="button" title="Copy the text and open Speechify">Speechify</button>
     <button class="tb on" id="t_con" type="button">Console</button>
     <button class="tb" id="t_dir" type="button" title="Directory: the full cards and search">Dir</button>
+    <a class="tb" id="t_rem" href="VTES-REMINDERS.html" title="Things waiting for you. Red means something is due or overdue." style="background:#b3261e;color:#fff;border-color:#b3261e;text-decoration:none">🔔<span id="remn"></span></a>
+    <a class="tb" id="t_panel" href="VTES-PANEL.html" title="Panel home: every module of the control panel" style="text-decoration:none;color:inherit">🏠</a>
     <button class="tb" id="t_map" type="button" title="Who talks to whom, the wiring, and the subscriptions">Map</button>
     <button class="tb" id="t_dock" type="button" title="Open this page as a narrow panel on the left; the big chat window takes the rest">Dock</button>
   </div>
@@ -345,7 +349,7 @@
   var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
   var STOP = ['the','a','an','on','my','of','to','for','in','and','or','is','it','me','i','open','find','show','with','that','this'];
   var stripEl = document.getElementById('chips');
-  var CHIPS = [['LLM-01','Desk RAMBO'],['LLM-02','Cloud'],['LLM-03','Cowork'],['LLM-04','Chat'],['LLM-05','iPhone'],['LLM-06','Codex'],['LLM-07','Grok'],['LLM-08','Gemini'],['LLM-10','Copilot']];
+  var CHIPS = [['LLM-01','Desk'],['LLM-02','Cloud'],['LLM-03','Cowork'],['LLM-04','Chat'],['LLM-05','iPhone'],['LLM-06','Codex'],['LLM-07','Grok'],['LLM-08','Gemini'],['LLM-10','Copilot']];
   cards.forEach(function (c) { c._hay = (c.getAttribute('data-k') + ' ' + c.textContent).toLowerCase(); });
   function cardFor(id) { return cards.filter(function (c) { return c._hay.indexOf(id.toLowerCase()) > -1 && c.querySelector('.id').textContent.indexOf(id) === 0; })[0]; }
   function filter() {
@@ -796,6 +800,7 @@
   window.VTES_V3 = { setRoot: function (h) { rootH = h; paused = false; setSaveUI(); }, saveNow: saveNow, addFiles: addFiles, attName: attName, transcript: transcript, setPaused: function (v) { paused = v; setSaveUI(); }, targetUrl: targetUrl, getBots: getBots, findLine: findLine, selectLLM: selectLLM, micToggle: micToggle, speakText: speakText, openBig: openBig, dockLeft: dockLeft, chunks: chunks, pickVoice: pickVoice, getPad: getPad, cur: function () { return cur; } };
 </script>
 <script src="vtes-status.js"></script>
+<script src="vtes-reminders.js"></script>
 <script>
   // ===================== v4: status colors, Map (flow + wiring + subscriptions) =====================
   // Everything here is data first, pictures second: one set of tables feeds the chips, the flow chart and the wiring diagram.
@@ -812,6 +817,7 @@
     'LLM-07': { st: 'unknown', probe: 'https://grok.com/', note: 'Checked live: is grok.com reachable from this browser.' },
     'LLM-08': { st: 'unknown', probe: 'https://gemini.google.com/', note: 'Checked live: is gemini.google.com reachable from this browser.' },
     'LLM-10': { st: 'unknown', probe: 'https://copilot.microsoft.com/', note: 'Checked live: is copilot.microsoft.com reachable from this browser.' },
+    'LLM-09': { st: 'up', seen: '2026-09-21T14:39:00Z', approx: true, note: 'Governor (token manager): last proof is GOVERNOR-STATUS.txt from 9/21 10:39 AM. It should run every hour (task CU-Governor-Hourly). Nothing newer has reached this page.' },
     'BOTS': { st: 'future', note: 'Grok Bot (xAI) was added to SuperGrok on 8/27. Not set up here yet.' }
   };
   try { if (window.VTES_STATUS) { for (var sk in window.VTES_STATUS) { STATUS[sk] = window.VTES_STATUS[sk]; } } } catch (e) { }
@@ -869,6 +875,7 @@
 
   // ---------- map tables ----------
   var MN = [
+    { id: 'LLM-09', e: '🧮', n: 'Governor', s: 'token manager', g: 'mgr', p: 'PASTE-D' },
     { id: 'LLM-01', e: '🖥️', n: 'Desktop', s: 'RAMBO', g: 'exec', p: 'PASTE-D' },
     { id: 'LLM-06', e: '🧭', n: 'Codex', s: 'backup exec', g: 'exec', p: 'PASTE-X' },
     { id: 'LLM-02', e: '☁️', n: 'Cloud', s: 'repo keeper', g: 'exec', p: 'PASTE-C' },
@@ -883,6 +890,7 @@
   var RES = [['PC', 'PC files'], ['DRV', 'Drive'], ['MAIL', 'Gmail'], ['M365', 'Outlook/OneDrive'], ['GIT', 'Repo'], ['WEB', 'Live web']];
   // y = can now · p = partly, pending or unproven · f = possible later, not connected · n = cannot · u = unverified
   var REACH = {
+    'LLM-09': { PC: 'y', DRV: 'y', MAIL: 'u', M365: 'u', GIT: 'u', WEB: 'p' },
     'LLM-01': { PC: 'y', DRV: 'y', MAIL: 'u', M365: 'u', GIT: 'y', WEB: 'y' },
     'LLM-06': { PC: 'p', DRV: 'p', MAIL: 'n', M365: 'n', GIT: 'f', WEB: 'p' },
     'LLM-02': { PC: 'n', DRV: 'y', MAIL: 'y', M365: 'y', GIT: 'y', WEB: 'p' },
@@ -895,6 +903,7 @@
     'LLM-10': { PC: 'n', DRV: 'n', MAIL: 'n', M365: 'u', GIT: 'n', WEB: 'y' }
   };
   var REACHNOTE = {
+    'LLM-09': 'Lives on the PC (ClaudeMemory\\Governor). Watches spend, keeps the lineup map, files motions. Its old API courier uses keys: metered, so priced-first only.',
     'LLM-01': 'Only window that touches your PC files, tray, 1Password, TreeSize.',
     'LLM-06': 'On your PC once you sign in. Nothing runs until then.',
     'LLM-02': 'Always on. Cannot see your PC. One repo only.',
@@ -908,13 +917,14 @@
   };
   // Buses: every hand-off wire. t = who taps it, same letters as REACH.
   var BUSES = [
+    { k: 'BUDGET', n: 'Budget and routing', d: 'The Governor watches spend and recommends which LLM takes a job; the Budget page shows every window the same advice. Advice reaches chat windows only through you', w: ['PARTLY', 'un'], t: { 'LLM-09': 'y', 'LLM-01': 'y', 'LLM-02': 'p', 'LLM-03': 'p', 'LLM-06': 'f', 'BOTS': 'f', 'LLM-04': 'p', 'LLM-05': 'p', 'LLM-07': 'p', 'LLM-08': 'p', 'LLM-10': 'p' } },
     { k: 'DRIVE', n: 'Drive bus', d: 'VTES-Inbox = orders in, VTES-Outbox = proof out', w: ['WORKS', 'ok'], t: { 'LLM-01': 'y', 'LLM-06': 'p', 'LLM-02': 'y', 'LLM-03': 'y', 'BOTS': 'f', 'LLM-08': 'y' } },
     { k: 'GIT', n: 'Repo branch + mailbox', d: 'Cloud writes orders into the repo; the PC pulls them; fingerprints prove nothing was mistyped', w: ['WORKS', 'ok'], t: { 'LLM-01': 'y', 'LLM-02': 'y', 'LLM-06': 'f' } },
     { k: 'SHARED', n: 'Shared folder LLM-SHARED', d: 'Notes and snips from every window, stamped with tracking number and hashtags (this page writes them)', w: ['UNPROVEN ON PC', 'un'], t: { 'LLM-01': 'p', 'LLM-06': 'p', 'LLM-02': 'p', 'LLM-03': 'p', 'BOTS': 'f', 'LLM-04': 'p', 'LLM-05': 'p', 'LLM-07': 'p', 'LLM-08': 'p', 'LLM-10': 'p' } },
     { k: 'EMAIL', n: 'Email lane', d: 'Fallback used 9/1 when Drive writes failed. Drafts only; sending is yours to approve', w: ['WORKS', 'ok'], t: { 'LLM-02': 'y', 'LLM-01': 'u', 'LLM-07': 'p', 'LLM-10': 'u' } },
     { k: 'RC', n: 'Remote Control message', d: 'Window-to-window message between PC sessions', w: ['PARTLY', 'un'], t: { 'LLM-01': 'p', 'LLM-02': 'p' } },
     { k: 'JORGE', n: 'Jorge carries it', d: 'Handoff packet or PASTE-D / C / X block. Always works, last resort', w: ['WORKS', 'ok'], t: { 'LLM-01': 'y', 'LLM-06': 'y', 'LLM-02': 'y', 'LLM-03': 'y', 'BOTS': 'y', 'LLM-04': 'y', 'LLM-05': 'y', 'LLM-07': 'y', 'LLM-08': 'y', 'LLM-10': 'y' } },
-    { k: 'API', n: 'API click-over', d: 'Only to make the connection click. Priced first, sent to you to approve. Standby', w: ['STANDBY', 'fu'], t: { 'LLM-02': 'f', 'LLM-06': 'f', 'LLM-07': 'f', 'LLM-08': 'f', 'LLM-10': 'u' } }
+    { k: 'API', n: 'API click-over', d: 'Only to make the connection click. Priced first, sent to you to approve. Standby', w: ['STANDBY', 'fu'], t: { 'LLM-09': 'u', 'LLM-02': 'f', 'LLM-06': 'f', 'LLM-07': 'f', 'LLM-08': 'f', 'LLM-10': 'u' } }
   ];
   var TCOL = { y: '#2e7d4f', p: '#b26a00', f: '#7a2e8e', n: '#9a968c', u: '#6b6b66' };
   var TWORD = { y: 'can, now', p: 'partly / pending / unproven', f: 'possible later, not connected', n: 'cannot', u: 'unverified' };
@@ -928,7 +938,7 @@
     });
     return out.join('<br>');
   }
-  var GCOL = { exec: '#1b5e9e', help: '#3b6e8f', other: '#6b5b3e' };
+  var GCOL = { mgr: '#8a5a00', exec: '#1b5e9e', help: '#3b6e8f', other: '#6b5b3e' };
   function boxHtml(n) {
     var e = effective(n.id), c = (n.id === 'BOTS' || e.k === 'fut') ? '#7a2e8e' : GCOL[n.g];
     return '<div class="mbox' + (e.k === 'fut' ? ' fut' : '') + '" style="--c:' + c + '"><div class="mid">' + esc(n.id === 'BOTS' ? 'BOTS · ' + n.p : n.id + ' · ' + n.p) + '</div><div class="mnm">' + n.e + ' ' + esc(n.n) + ' <span style="font-weight:600;font-size:12px;color:var(--muted)">' + esc(n.s) + '</span></div>' +
@@ -942,19 +952,21 @@
     var by = function (ids) { return ids.map(function (i) { return boxHtml(nodeOf(i)); }).join(''); };
     return '<div class="mrow"><div class="lab">Row 1 · You</div><div class="mboxes"><div class="mbox" style="--c:#7a2e8e;max-width:520px"><div class="mid">JORGE · OWNER · THE ONLY APPROVER</div><div class="mnm">👤 You, by voice or keyboard</div><div class="mcan">You talk to one executor at a time. You approve anything outbound, spending, deleting or filing. The approval banner and the iPhone alert pull you back in. #JorgeValdes #approve-RED</div></div></div></div>' +
       '<div class="mflow">⬇ ⬆<small>you talk · they answer</small></div>' +
-      '<div class="mrow"><div class="lab">Row 2 · Executors (they do the work, and hand to each other through Row 3)</div><div class="mboxes">' + by(['LLM-01', 'LLM-02', 'LLM-06']) + '</div><div class="mflow" style="padding-bottom:0"><small>Desktop ⇄ Cloud talk through the lanes below. Codex is the backup desktop executor: same job as RAMBO, on your ChatGPT plan.</small></div></div>' +
+      '<div class="mrow"><div class="lab">Row 2 · Token and LLM manager · keeps everything inside the subscription budgets</div><div class="mboxes">' + by(['LLM-09']) + '</div><div class="mflow" style="padding-bottom:0"><small>The Governor recommends who takes each job (see the Budget page) and files spending motions for your yes. Rotation rule: a window that is red, or out of headroom, gets skipped and the next one takes the job.</small></div></div>' +
+      '<div class="mflow">⬇<small>routes work to</small></div>' +
+      '<div class="mrow"><div class="lab">Row 3 · Executors (they do the work, and hand to each other through Row 4)</div><div class="mboxes">' + by(['LLM-01', 'LLM-02', 'LLM-06']) + '</div><div class="mflow" style="padding-bottom:0"><small>Desktop ⇄ Cloud talk through the lanes below. Codex is the backup desktop executor: same job as RAMBO, on your ChatGPT plan.</small></div></div>' +
       '<div class="mflow">⬇ ⬆<small>every way a window, agent or bot can hand off and reply</small></div>' +
-      '<div class="mrow"><div class="lab">Row 3 · Hand-off lanes (API is only ever the click)</div><div class="mlanes">' + BUSES.map(lane).join('') + '</div></div>' +
+      '<div class="mrow"><div class="lab">Row 4 · Hand-off lanes (API is only ever the click)</div><div class="mlanes">' + BUSES.map(lane).join('') + '</div></div>' +
       '<div class="mflow">⬇ ⬆<small>analysts and bots</small></div>' +
-      '<div class="mrow"><div class="lab">Row 4 · Analysts and bots · Cowork and Grok Bots do the same kind of job</div><div class="mboxes">' + by(['LLM-03', 'BOTS', 'LLM-04', 'LLM-05']) + '</div></div>' +
+      '<div class="mrow"><div class="lab">Row 5 · Analysts and bots · Cowork and Grok Bots do the same kind of job</div><div class="mboxes">' + by(['LLM-03', 'BOTS', 'LLM-04', 'LLM-05']) + '</div></div>' +
       '<div class="mflow">⬇ ⬆<small>other companies · chat only · joined by a pasted link</small></div>' +
-      '<div class="mrow"><div class="lab">Row 5 · Other distributions · second opinions</div><div class="mboxes">' + by(['LLM-07', 'LLM-08', 'LLM-10']) + '</div></div>' +
+      '<div class="mrow"><div class="lab">Row 6 · Other distributions · second opinions</div><div class="mboxes">' + by(['LLM-07', 'LLM-08', 'LLM-10']) + '</div></div>' +
       '<div style="margin-top:10px;border:2px solid #2e7d4f;border-radius:14px;padding:8px;background:#eef7f1;text-align:center;font-size:14px">⬇ everything saves to ⬇<br><b>04-AI-SYSTEM / LLM-SHARED</b> · one sub-folder per LLM · every file carries <b>' + PROJ + '</b> + its LLM number + hashtags</div>';
   }
 
   // ---------- wiring diagram (SVG) ----------
   function wireSvg() {
-    var X0 = 62, DX = 110, W = 1130, top = 52, ph = 120, y0 = 228, dy = 44, H = y0 + (BUSES.length - 1) * dy + 34, o = [];
+    var X0 = 56, DX = 101, W = 1130, top = 52, ph = 120, y0 = 228, dy = 44, H = y0 + (BUSES.length - 1) * dy + 34, o = [];
     var cx = function (i) { return X0 + i * DX; };
     o.push('<svg id="wire" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wiring diagram: which window can reach which hand-off lane">');
     o.push('<rect x="0" y="0" width="' + W + '" height="' + H + '" fill="#fff"/>');
@@ -962,17 +974,17 @@
     o.push('<rect x="8" y="6" width="' + (W - 16) + '" height="30" rx="9" fill="#f3e8f7" stroke="#7a2e8e" stroke-width="2"/><text x="' + (W / 2) + '" y="26" text-anchor="middle" font-size="14" font-weight="800" fill="#7a2e8e">👤 JORGE · owner · approves anything outbound, spending, deleting, filing · carries the paste blocks</text>');
     MN.forEach(function (n, i) {
       var x = cx(i), e = effective(n.id), col = (n.id === 'BOTS' || e.k === 'fut') ? '#7a2e8e' : GCOL[n.g], dash = e.k === 'fut' ? ' stroke-dasharray="5 4"' : '';
-      o.push('<g class="wnode" data-id="' + n.id + '"><rect x="' + (x - 50) + '" y="' + top + '" width="100" height="56" rx="10" fill="#fff" stroke="' + col + '" stroke-width="2.5"' + dash + '/>');
+      o.push('<g class="wnode" data-id="' + n.id + '"><rect x="' + (x - 47) + '" y="' + top + '" width="94" height="56" rx="10" fill="#fff" stroke="' + col + '" stroke-width="2.5"' + dash + '/>');
       o.push('<circle cx="' + (x - 38) + '" cy="' + (top + 12) + '" r="6" fill="' + KCOL[e.k] + '" stroke="#fff" stroke-width="2"/>');
       o.push('<text x="' + (x - 28) + '" y="' + (top + 16) + '" font-size="10" font-weight="800" fill="' + KCOL[e.k] + '">' + (e.k === 'up' ? 'UP' : SYM[e.k] + ((e.k === 'warn' || e.k === 'down') ? ' ' + (s_ap(n.id) ? '~' : '') + fmtH(e.h) : '')) + '</text>');
       o.push('<text x="' + x + '" y="' + (top + 34) + '" text-anchor="middle" font-size="13" font-weight="800" fill="#1d1d1b">' + n.e + ' ' + esc(n.n) + '</text>');
       o.push('<text x="' + x + '" y="' + (top + 49) + '" text-anchor="middle" font-size="10" fill="#5b5b57">' + esc(n.id === 'BOTS' ? 'BOTS' : n.id) + '</text></g>');
       // ports: 3 x 2
       RES.forEach(function (r, j) {
-        var px = x - 49 + (j % 3) * 33, py = top + 64 + Math.floor(j / 3) * 22, st = REACH[n.id][r[0]], c = TCOL[st];
+        var px = x - 46 + (j % 3) * 31, py = top + 64 + Math.floor(j / 3) * 22, st = REACH[n.id][r[0]], c = TCOL[st];
         var fill = st === 'y' ? c : (st === 'p' ? '#fff3d6' : '#fff'), sd = st === 'f' ? ' stroke-dasharray="3 2"' : '';
-        o.push('<rect class="port" data-id="' + n.id + '" data-r="' + r[0] + '" data-s="' + st + '" x="' + px + '" y="' + py + '" width="31" height="18" rx="4" fill="' + fill + '" stroke="' + c + '" stroke-width="1.6"' + sd + '/>');
-        o.push('<text x="' + (px + 15.5) + '" y="' + (py + 13) + '" text-anchor="middle" font-size="9" font-weight="800" fill="' + (st === 'y' ? '#fff' : c) + '">' + (st === 'n' ? '✕' : (st === 'u' ? '?' : r[0])) + '</text>');
+        o.push('<rect class="port" data-id="' + n.id + '" data-r="' + r[0] + '" data-s="' + st + '" x="' + px + '" y="' + py + '" width="29" height="18" rx="4" fill="' + fill + '" stroke="' + c + '" stroke-width="1.6"' + sd + '/>');
+        o.push('<text x="' + (px + 14.5) + '" y="' + (py + 13) + '" text-anchor="middle" font-size="9" font-weight="800" fill="' + (st === 'y' ? '#fff' : c) + '">' + (st === 'n' ? '✕' : (st === 'u' ? '?' : r[0])) + '</text>');
       });
       // vertical wire
       o.push('<line x1="' + x + '" y1="' + (top + 108) + '" x2="' + x + '" y2="' + (y0 + (BUSES.length - 1) * dy) + '" stroke="#d9d5cc" stroke-width="1.5"/>');
@@ -1040,7 +1052,7 @@
   function renderMap() {
     var el = document.getElementById('map');
     var tabs = [['flow', 'Flow chart'], ['wire', 'Wiring diagram'], ['subs', 'Subscriptions']];
-    var body = mapTab === 'flow' ? flowHtml() : mapTab === 'wire' ? '<div style="font-size:14px;margin-bottom:6px"><b>Wiring diagram.</b> Each window on top; its six pins show what it can reach. Each horizontal wire is a way to hand off; a dot on the wire means that window can plug into it.</div>' + wireSvg() + wiresExplained() + legendWire() : subsHtml();
+    var body = mapTab === 'flow' ? flowHtml() : mapTab === 'wire' ? '<div style="font-size:14px;margin-bottom:6px"><b>Wiring diagram.</b> Each window on top (the Governor, the token manager, is first); its six pins show what it can reach. Each horizontal wire is a way to hand off; a dot on the wire means that window can plug into it.</div>' + wireSvg() + wiresExplained() + legendWire() : subsHtml();
     el.innerHTML = '<div class="mt">' + tabs.map(function (t) { return '<button type="button" data-t="' + t[0] + '" class="' + (t[0] === mapTab ? 'on' : '') + '">' + t[1] + '</button>'; }).join('') + '<button type="button" id="mapcopy">Copy status report</button><span id="mapnote" style="font-size:13px;font-weight:700"></span></div>' + legendStatus() + body +
       '<p class="foot">' + PROJ + ' · map v1 · ' + MAP_DATE + ' · CURRENT · #MAP #WIRING #STATUS #SUBSCRIPTIONS #VTES-control-panel #LLM-registry</p>';
     Array.prototype.forEach.call(el.querySelectorAll('.mt button[data-t]'), function (b) { b.addEventListener('click', function () { mapTab = b.getAttribute('data-t'); renderMap(); }); });
@@ -1055,6 +1067,7 @@
   }
   document.getElementById('t_map').addEventListener('click', function () { showMode('map'); });
   window.VTES_MAP = { paintCard: paintCard, effective: effective, refresh: refreshAll, status: STATUS, probe: PROBE, buses: BUSES, reach: REACH, nodes: MN, subs: SUBS, report: statusReport, show: function (t) { if (t) { mapTab = t; } showMode('map'); }, runProbes: runProbes };
+  (function () { try { var R = window.VTES_REMINDERS || [], n = 0, od = false; R.forEach(function (r) { if (!r.done) { n++; if (r.due && Date.parse(r.due + 'T23:59:59') < nowMs()) { od = true; } } }); var b = document.getElementById('remn'); if (b) { b.textContent = n ? ' ' + n : ''; } var a = document.getElementById('t_rem'); if (a && od) { a.style.animation = 'vtesflash 1s steps(2) infinite'; } } catch (e) { } })();
   paintChips(); paintCard(cur); runProbes();
   setInterval(runProbes, 120000); setInterval(paintChips, 60000);
   window.addEventListener('online', runProbes); window.addEventListener('offline', function () { Object.keys(STATUS).forEach(function (id) { if (STATUS[id].probe) { PROBE[id] = { ok: false, at: nowMs() }; } }); refreshAll(); });

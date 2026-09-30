@@ -1,0 +1,31 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "21",
+  "name": "Indian Creek",
+  "family": "CUSTOM",
+  "software": "Gov-Easy",
+  "submittal": "Online",
+  "portal": "apps.gov-easy.com (Indian Creek)",
+  "seal": "Electronic OK",
+  "phone": "305-865-4121",
+  "office": "9080 Bay Dr, Indian Creek Village, FL 33154",
+  "notes": "",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "agent / plans-processor rule (presumed)",
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-21",
+    "#custom",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

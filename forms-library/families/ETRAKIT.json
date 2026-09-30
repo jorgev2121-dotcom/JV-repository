@@ -1,0 +1,36 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "family": "ETRAKIT",
+  "name": "eTRAKiT / CSQR Cloud",
+  "buildOrder": 2,
+  "note": "Second.",
+  "cities": [
+    {
+      "code": "16",
+      "name": "Florida City"
+    },
+    {
+      "code": "32",
+      "name": "Miami Lakes"
+    },
+    {
+      "code": "05",
+      "name": "Miami Springs"
+    },
+    {
+      "code": "20",
+      "name": "Pinecrest"
+    },
+    {
+      "code": "09",
+      "name": "South Miami"
+    }
+  ],
+  "fieldMapStatus": "NOT BUILT",
+  "portalScreensCollected": 0,
+  "hashtags": [
+    "#forms-library",
+    "#etrakit",
+    "#TRK-2026-9910-B"
+  ]
+}

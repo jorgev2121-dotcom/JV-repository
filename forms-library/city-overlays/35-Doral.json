@@ -1,0 +1,32 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "35",
+  "name": "Doral",
+  "family": "CUSTOM",
+  "software": "CSS (Tyler)",
+  "submittal": "Online",
+  "portal": "doral.powerappsportals.us (new reg: BuildingRecordsClerk@cityofdoral.com)",
+  "seal": "Electronic OK (VERIFY)",
+  "phone": "305-593-6700",
+  "office": "8401 NW 53rd Ter, 2nd Fl, Doral, FL 33166",
+  "notes": "Sheet lists it under Custom although the platform says Tyler CSS: UNVERIFIED which family.",
+  "plansProcessorRule": "No registry found. Owner's-agent authorization / standard app.",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "portal address still loads",
+    "family assignment"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-35",
+    "#custom",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

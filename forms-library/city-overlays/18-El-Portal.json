@@ -1,0 +1,31 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "18",
+  "name": "El Portal",
+  "family": "NOPORTAL",
+  "software": "No portal (email clerk)",
+  "submittal": "Email / in person",
+  "portal": "No online portal; buildingclerk@villageofelportal.org",
+  "seal": "VERIFY",
+  "phone": "305-795-7880",
+  "office": "500 NE 87th St, El Portal, FL 33138",
+  "notes": "No e-portal",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-18",
+    "#noportal",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "26",
+  "name": "Virginia Gardens",
+  "family": "NOPORTAL",
+  "software": "In person (paper)",
+  "submittal": "In person",
+  "portal": "No online portal",
+  "seal": "VERIFY (wet / raised)",
+  "phone": "305-871-6104",
+  "office": "6498 NW 38th Ter, Virginia Gardens, FL 33166",
+  "notes": "",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-26",
+    "#noportal",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

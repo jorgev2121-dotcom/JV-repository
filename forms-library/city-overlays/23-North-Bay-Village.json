@@ -1,0 +1,31 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "23",
+  "name": "North Bay Village",
+  "family": "NOPORTAL",
+  "software": "Email only",
+  "submittal": "Email",
+  "portal": "buildingclerk@nbvillage.com (digital-only since 4/2022)",
+  "seal": "VERIFY",
+  "phone": "305-754-6740",
+  "office": "1666 Kennedy Cswy, Ste 101, North Bay Village, FL 33141",
+  "notes": "",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-23",
+    "#noportal",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

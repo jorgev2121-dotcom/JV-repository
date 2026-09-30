@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VTES Budget and Router · the Governor's desk · TRK-2026-9910-B · #budget #governor #router</title>
+<meta name="keywords" content="budget, token manager, Governor, router, subscriptions, headroom, roundtable, TRK-2026-9910-B">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; --ok:#2e7d4f; --warn:#b26a00; --bad:#b3261e; --fut:#7a2e8e; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 "Segoe UI",system-ui,sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:10px 14px 50px; }
+  h1 { font-size:22px; margin:6px 0 2px; } h2 { font-size:17px; margin:16px 0 6px; } .sub { color:var(--muted); font-size:13.5px; margin-bottom:10px; }
+  .box { background:var(--card); border:2px solid var(--line); border-radius:12px; padding:10px 14px; margin-bottom:10px; }
+  .box.note { background:#fff8e6; border-color:#e0a100; } .box.go { background:#eef7f1; border-color:var(--ok); border-width:3px; }
+  select, input[type=number], input[type=text], input[type=date] { font:inherit; font-size:15px; padding:6px 8px; border:2px solid var(--line); border-radius:9px; background:#fff; }
+  select { width:100%; max-width:520px; } .two { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:10px; }
+  .btn { padding:7px 14px; border-radius:10px; border:0; background:var(--accent); color:#fff; font:inherit; font-weight:800; font-size:15px; cursor:pointer; }
+  .btn.alt { background:#e9e6de; color:var(--ink); }
+  .pick { font-size:22px; font-weight:800; } .why { font-size:14px; color:var(--muted); }
+  ol.rank { margin:6px 0 0 20px; padding:0; } ol.rank li { margin:3px 0; }
+  .skip { font-size:13.5px; color:var(--muted); } .skip li { margin:2px 0; }
+  .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:5px; }
+  .meter { border-left:8px solid var(--c,#999); background:#fff; border-radius:10px; border:2px solid var(--line); border-left-width:8px; padding:8px 12px; margin-bottom:8px; }
+  .meter .bar { height:10px; background:#e9e6de; border-radius:99px; overflow:hidden; margin:5px 0; } .meter .bar i { display:block; height:100%; background:var(--c,#999); }
+  .meter label { font-size:12.5px; font-weight:800; color:var(--muted); margin-right:8px; } .meter input[type=number] { width:80px; }
+  .tag { display:inline-block; font-size:11px; font-weight:800; padding:1px 7px; border-radius:99px; color:#fff; background:var(--c,#888); margin-left:4px; }
+  .foot { font-size:12px; color:var(--muted); margin-top:16px; word-break:break-word; }
+</style></head>
+<body>
+<main>
+  <h1>🧮 Budget and Router · the Governor's desk</h1>
+  <div class="sub" id="sub"></div>
+  <div class="box note" id="gov"></div>
+
+  <h2>1 · Who should take this job right now?</h2>
+  <div class="box">
+    <label for="task"><b>What kind of job is it?</b></label><br>
+    <select id="task"></select>
+    <div id="builderwrap" style="margin-top:8px" hidden><label for="builder"><b>Who built the work being reviewed?</b> (the review must come from a different company)</label><br><select id="builder"></select></div>
+    <div style="margin-top:8px"><button class="btn" id="go" type="button">Pick for me</button></div>
+  </div>
+  <div id="result"></div>
+
+  <h2>2 · How much room is left on each subscription</h2>
+  <div class="sub">You type the percent used (the Claude and ChatGPT apps show it). The Governor can write these later. A window with under 10% room is skipped; under 25% is ranked lower.</div>
+  <div id="meters"></div>
+
+  <h2>3 · What you pay</h2>
+  <div id="money"></div>
+
+  <h2>4 · The rotation rules</h2>
+  <div class="box"><ol class="rank">
+    <li>Pick by job type first, then skip anything red, not signed in, not set up, or out of room.</li>
+    <li>Unknown status is allowed but ranked below a green window.</li>
+    <li>Claude Desktop, Cloud, Cowork, Chat and iPhone share <b>one</b> Claude plan: they draw down the same meter.</li>
+    <li><b>Build and install jobs</b> go to Desktop first. If Desktop is red or out of room, the job passes automatically to Codex, then Cowork, then Grok Bots (see ROUNDTABLE-PROTOCOL.md).</li>
+    <li><b>The builder never checks its own work.</b> Reviews go to a different company than the builder.</li>
+    <li>API use stays a click-over: priced first, sent to you to approve or defer.</li>
+  </ol></div>
+  <p class="foot">TRK-2026-9910-B · budget v1 · 2026-09-30 · CURRENT · #budget #governor #token-manager #router #subscriptions #roundtable #VTES-control-panel · The Governor (token manager) already exists on the PC (ClaudeMemory\Governor, task CU-Governor-Hourly). This page does not replace it: it is the desk that shows its advice to every window.</p>
+</main>
+<script src="vtes-modules.js"></script>
+<script src="vtes-reminders.js"></script>
+<script src="vtes-common.js"></script>
+<script src="vtes-subs.js"></script>
+<script>
+(function () {
+  var V = window.VTES, esc = V.esc; V.nav('budget');
+  var NAMES = { 'LLM-01': 'Claude Desktop (RAMBO)', 'LLM-02': 'Claude Cloud', 'LLM-03': 'Cowork', 'LLM-04': 'Claude Chat', 'LLM-05': 'Claude iPhone', 'LLM-06': 'Codex (ChatGPT)', 'LLM-07': 'Grok', 'LLM-08': 'Gemini', 'LLM-10': 'Copilot', 'BOTS': 'Grok Bots', 'LOCAL': 'Local models on the PC (Ollama)' };
+  var SUBOF = { 'LLM-01': 'claude', 'LLM-02': 'claude', 'LLM-03': 'claude', 'LLM-04': 'claude', 'LLM-05': 'claude', 'LLM-06': 'openai', 'LLM-07': 'xai', 'BOTS': 'xai', 'LLM-08': 'google', 'LLM-10': 'ms', 'LOCAL': 'local' };
+  var VENDOR = { claude: 'Anthropic', openai: 'OpenAI', xai: 'xAI', google: 'Google', ms: 'Microsoft', local: 'Local' };
+  var SUBS = { claude: { n: 'Claude plan (shared by Desktop, Cloud, Cowork, Chat, iPhone)', c: '#8a5a00', m: ['5-hour window', 'Weekly'] }, openai: { n: 'ChatGPT plan (Codex)', c: '#2e7d4f', m: ['Weekly limit'] }, xai: { n: 'SuperGrok (Grok, Grok Bots)', c: '#1b5e9e', m: ['Monthly'] }, google: { n: 'Google AI Plus (Gemini)', c: '#3b6e8f', m: ['Monthly'] }, ms: { n: 'Microsoft 365 (Copilot)', c: '#6b5b3e', m: ['Monthly'] }, local: { n: 'Local models', c: '#9a968c', m: [] } };
+  var TASKS = [
+    { k: 'hard', label: 'Hard: legal, code, deep reasoning', order: ['LLM-02', 'LLM-01', 'LLM-06', 'LLM-03'], why: 'Claude reasons deepest; Codex is the different-company backup.' },
+    { k: 'everyday', label: 'Everyday drafting and questions', order: ['LLM-04', 'LLM-02', 'LLM-06', 'LLM-08'], why: 'Everyday work on the Claude plan, then backups.' },
+    { k: 'bulk', label: 'Bulk or private work (cheap)', order: ['LOCAL', 'LLM-08'], why: 'Local models cost nothing and the text never leaves the PC. They need the PC up.' },
+    { k: 'news', label: 'Live web, news, X', order: ['LLM-07', 'LLM-08', 'LLM-10'], why: 'Grok reads X and the live web best.' },
+    { k: 'huge', label: 'Huge documents or many images', order: ['LLM-08', 'LLM-04'], why: 'Gemini takes the largest inputs.' },
+    { k: 'image', label: 'Make a new image', order: ['LLM-06'], why: 'Image generation is ChatGPT only, per the Governor map.' },
+    { k: 'ms', label: 'Outlook, OneDrive, Microsoft', order: ['LLM-10', 'LLM-03'], why: 'Copilot lives in Microsoft 365; Cowork reads it through a connector.' },
+    { k: 'build', label: 'Build or install something on the PC', order: ['LLM-01', 'LLM-06', 'LLM-03', 'BOTS'], why: 'Desktop first. If it is red or out of room the job passes to Codex, then Cowork, then Grok Bots.' },
+    { k: 'analysis', label: 'Long reports and analysis', order: ['LLM-03', 'LLM-02', 'LLM-08'], why: 'Cowork is the analyst seat.' },
+    { k: 'review', label: 'Second opinion or review of someone\'s work', order: ['LLM-07', 'LLM-08', 'LLM-10', 'LLM-06', 'LLM-02'], why: 'Always a different company than the builder.', needsBuilder: true }
+  ];
+  var CHIPS = { 'LLM-01': 1, 'LLM-02': 1, 'LLM-03': 1, 'LLM-04': 1, 'LLM-05': 1, 'LLM-06': 1, 'LLM-07': 1, 'LLM-08': 1, 'LLM-10': 1 };
+  var COL = { up: '#2e7d4f', warn: '#b26a00', down: '#b3261e', pend: '#1b5e9e', fut: '#7a2e8e', unk: '#6b6b66' };
+  var ext = window.VTES_BUDGET || {};
+  function getM(sub) { var o = {}; try { o = JSON.parse(localStorage.getItem('vtes.budget.' + sub) || '{}'); } catch (e) { o = {}; } if (ext[sub]) { o = Object.assign({}, ext[sub], o); } return o; }
+  function setM(sub, o) { try { localStorage.setItem('vtes.budget.' + sub, JSON.stringify(o)); } catch (e) { } }
+  function used(sub) { var o = getM(sub), v = [o.m0, o.m1].filter(function (x) { return typeof x === 'number' && !isNaN(x); }); return v.length ? Math.max.apply(null, v) : null; }
+  function room(id) { var u = used(SUBOF[id]); return u == null ? null : 100 - u; }
+  function status(id) { return id === 'LOCAL' ? (V.effective('LLM-01').k === 'up' ? { k: 'up', txt: 'needs the PC up: PC is up' } : { k: 'unk', txt: 'needs the PC up; the PC is not showing green' }) : V.effective(id); }
+  function route(taskKey, builderId) {
+    var t = TASKS.filter(function (x) { return x.k === taskKey; })[0], ok = [], skipped = [];
+    var bv = builderId ? VENDOR[SUBOF[builderId]] : null;
+    t.order.forEach(function (id, pos) {
+      var s = status(id), r = room(id), why = null, pen = 0;
+      if (bv && VENDOR[SUBOF[id]] === bv) { why = 'same company as the builder (' + bv + ')'; }
+      else if (s.k === 'down') { why = 'red: ' + s.txt; }
+      else if (s.k === 'pend') { why = 'set up but not signed in'; }
+      else if (s.k === 'fut') { why = 'not set up yet'; }
+      else if (r != null && r < 10) { why = 'out of room (' + r + '% left)'; }
+      if (why) { skipped.push({ id: id, why: why }); return; }
+      if (s.k === 'warn') { pen += 1.5; } if (s.k === 'unk') { pen += 1; } if (r != null && r < 25) { pen += 1; }
+      ok.push({ id: id, rank: pos + pen, s: s, room: r, note: (s.k === 'warn' ? 'amber: no recent sign of life. ' : '') + (s.k === 'unk' ? 'status unknown. ' : '') + (r != null && r < 25 ? 'low room (' + r + '%). ' : '') });
+    });
+    ok.sort(function (a, b) { return a.rank - b.rank; });
+    return { task: t, ok: ok, skipped: skipped };
+  }
+  function show(res) {
+    var el = document.getElementById('result');
+    if (!res.ok.length) { el.innerHTML = '<div class="box note"><b>Nobody is available for this job right now.</b> ' + res.skipped.map(function (s) { return esc(NAMES[s.id]) + ': ' + esc(s.why); }).join('; ') + '. Fix the first item, or wait for the meter to reset.</div>'; return; }
+    var top = res.ok[0];
+    el.innerHTML = '<div class="box go"><div class="why">USE THIS NOW</div><div class="pick"><span class="dot" style="background:' + COL[top.s.k] + '"></span>' + esc(NAMES[top.id]) + ' <span class="tag" style="--c:' + COL[top.s.k] + '">' + esc(top.id) + '</span></div><div class="why">' + esc(res.task.why) + ' ' + esc(top.note) + '</div>' +
+      (CHIPS[top.id] ? '<div style="margin-top:8px"><button class="btn" id="routebtn" type="button">Route: open this window in the console</button> <button class="btn alt" id="cpbtn" type="button">Copy the hand-off line</button> <span id="rn" style="font-size:13px;font-weight:700"></span></div>' : '<div style="margin-top:8px"><button class="btn alt" id="cpbtn" type="button">Copy the hand-off line</button> <span id="rn" style="font-size:13px;font-weight:700"></span></div>') +
+      (res.ok.length > 1 ? '<div style="margin-top:8px"><b>Then, in order:</b><ol class="rank">' + res.ok.slice(1).map(function (o) { return '<li>' + esc(NAMES[o.id]) + ' (' + o.id + ') ' + esc(o.note) + '</li>'; }).join('') + '</ol></div>' : '<div class="skip" style="margin-top:8px"><b>No backup is available for this job right now.</b></div>') +
+      (res.skipped.length ? '<div class="skip"><b>Skipped:</b><ul>' + res.skipped.map(function (s) { return '<li>' + esc(NAMES[s.id]) + ': ' + esc(s.why) + '</li>'; }).join('') + '</ul></div>' : '') + '</div>';
+    var line = 'ROUTE ' + new Date().toISOString().slice(0, 10) + ' · job: ' + res.task.label + ' · take it: ' + top.id + ' ' + NAMES[top.id] + (res.ok[1] ? ' · backup: ' + res.ok[1].id : '') + ' · #router #TRK-2026-9910-B';
+    var rb = document.getElementById('routebtn');
+    if (rb) { rb.addEventListener('click', function () { try { localStorage.setItem('vtes.cur', top.id); } catch (e) { } document.getElementById('rn').textContent = 'Opening…'; location.href = 'VTES-LLM-LAUNCHER.html'; }); }
+    document.getElementById('cpbtn').addEventListener('click', function () { V.copy(line).then(function (ok) { document.getElementById('rn').textContent = ok ? 'Copied.' : 'Copy failed.'; }); });
+  }
+  function meters() {
+    var el = document.getElementById('meters');
+    el.innerHTML = Object.keys(SUBS).filter(function (k) { return SUBS[k].m.length; }).map(function (k) {
+      var S = SUBS[k], o = getM(k), u = used(k), c = u == null ? '#9a968c' : (u >= 90 ? COL.down : (u >= 75 ? COL.warn : COL.up));
+      return '<div class="meter" style="--c:' + c + '"><b>' + esc(S.n) + '</b>' + (u == null ? ' <span class="tag" style="--c:#6b6b66">not entered</span>' : ' <span class="tag" style="--c:' + c + '">' + (100 - u) + '% room</span>') +
+        '<div class="bar"><i style="width:' + (u == null ? 0 : u) + '%"></i></div>' + S.m.map(function (m, i) { return '<label>' + esc(m) + ' % used</label><input type="number" min="0" max="100" data-s="' + k + '" data-i="' + i + '" value="' + (typeof o['m' + i] === 'number' ? o['m' + i] : '') + '">'; }).join('') +
+        ' <label>Resets</label><input type="date" data-s="' + k + '" data-r="1" value="' + esc(o.resets || '') + '"> <button class="btn alt" data-save="' + k + '" type="button">Save</button></div>';
+    }).join('') + '<div class="meter" style="--c:#9a968c"><b>' + esc(SUBS.local.n) + '</b> <span class="tag" style="--c:#2e7d4f">no limit</span> · cost nothing · need the PC up</div>';
+    Array.prototype.forEach.call(el.querySelectorAll('[data-save]'), function (b) { b.addEventListener('click', function () { var k = b.getAttribute('data-save'), o = {}; Array.prototype.forEach.call(el.querySelectorAll('[data-s="' + k + '"]'), function (i) { if (i.getAttribute('data-r')) { o.resets = i.value; } else if (i.value !== '') { o['m' + i.getAttribute('data-i')] = Math.max(0, Math.min(100, +i.value)); } }); setM(k, o); meters(); }); });
+  }
+  function money() {
+    var S = window.VTES_SUBS || [], known = 0, rows = [];
+    S.forEach(function (s) { var m = /\$([0-9]+(?:\.[0-9]{2})?)/.exec(s.cost); if (m && s.w !== 'NO COST') { known += parseFloat(m[1]); } });
+    var x = S.filter(function (s) { return /X Premium/.test(s.n); })[0];
+    document.getElementById('money').innerHTML = '<div class="box">Known monthly charges found in your email: <b>$' + known.toFixed(2) + '</b> (SuperGrok $30.00, X Premium Plus $40.00, Google AI Plus $9.99). Claude, ChatGPT and Microsoft amounts were not read. After cancelling X Premium Plus the known total is <b>$' + (known - 40).toFixed(2) + '</b>.</div>' +
+      S.map(function (s) { return '<div class="meter" style="--c:' + s.c + '"><b>' + esc(s.n) + '</b> <span class="tag" style="--c:' + s.c + '">' + esc(s.w) + '</span><div class="skip">' + esc(s.cost) + ' · ' + esc(s.bill) + '</div></div>'; }).join('');
+  }
+  function init() {
+    var ts = document.getElementById('task'); ts.innerHTML = TASKS.map(function (t) { return '<option value="' + t.k + '">' + esc(t.label) + '</option>'; }).join('');
+    var bs = document.getElementById('builder'); bs.innerHTML = Object.keys(NAMES).filter(function (k) { return k !== 'LOCAL' && k !== 'BOTS'; }).map(function (k) { return '<option value="' + k + '">' + esc(NAMES[k]) + ' (' + k + ')</option>'; }).join('');
+    ts.addEventListener('change', function () { document.getElementById('builderwrap').hidden = !TASKS.filter(function (t) { return t.k === ts.value; })[0].needsBuilder; });
+    document.getElementById('go').addEventListener('click', function () { var t = TASKS.filter(function (x) { return x.k === ts.value; })[0]; show(route(ts.value, t.needsBuilder ? bs.value : null)); });
+    var g = V.effective('LLM-09');
+    document.getElementById('gov').innerHTML = '<b>The Governor (token manager) already exists.</b> It lives on your PC (ClaudeMemory\\Governor), runs hourly, keeps the lineup map (last re-map 9/21) and files spending motions to the Board. Its status here: <b style="color:' + COL[g.k] + '">' + V.SYM[g.k] + ' ' + esc(g.txt) + '</b>. <span style="font-size:13px">' + esc(g.why) + '</span><br><b>Gap this page fills:</b> the Governor watches dollars; nothing was watching subscription room or catching a duplicate charge. The duplicate X Premium Plus ($40) slipped through.';
+    document.getElementById('sub').textContent = 'Router + subscription room + ledger. Status colors come from the same table as the launcher tabs.';
+    meters(); money();
+    V.runProbes(function () { meters(); });
+  }
+  window.VTES_BUDGET_PAGE = { route: route, show: show, setMeter: function (sub, o) { setM(sub, o); meters(); }, used: used, room: room, tasks: TASKS, names: NAMES };
+  init();
+})();
+</script>
+</body></html>

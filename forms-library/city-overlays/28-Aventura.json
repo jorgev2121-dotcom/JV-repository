@@ -1,0 +1,30 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "28",
+  "name": "Aventura",
+  "family": "NOPORTAL",
+  "software": "File-drop / in-person (no login portal)",
+  "submittal": "File-drop / in person",
+  "portal": "share.cityofaventura.com/filedrop (register in person)",
+  "seal": "VERIFY",
+  "phone": "305-466-8937",
+  "office": "19200 W Country Club Dr, 4th Fl, Aventura, FL 33180",
+  "notes": "App signed + notarized",
+  "plansProcessorRule": "No registry found. Owner's-agent authorization letter.",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-28",
+    "#noportal",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

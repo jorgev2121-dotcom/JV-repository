@@ -1,0 +1,28 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "29",
+  "name": "Islandia",
+  "family": "DEFUNCT",
+  "software": "DISSOLVED CITY (no government)",
+  "submittal": "N/A",
+  "portal": "N/A",
+  "seal": "N/A",
+  "phone": "",
+  "office": "",
+  "notes": "Defunct since 2012. Folio code kept for old Biscayne Bay island parcels; NOT an active permitting jurisdiction.",
+  "plansProcessorRule": "N/A, dissolved.",
+  "live": false,
+  "verifyBeforeRelying": [],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-29",
+    "#defunct",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

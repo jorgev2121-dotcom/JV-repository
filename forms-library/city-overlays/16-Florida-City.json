@@ -1,0 +1,32 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "16",
+  "name": "Florida City",
+  "family": "ETRAKIT",
+  "software": "eTRAKiT (CSQR)",
+  "submittal": "Online",
+  "portal": "flc.csqrcloud.com/community-etrakit",
+  "seal": "VERIFY",
+  "phone": "305-247-8222 x2",
+  "office": "404 W Palm Dr, Florida City, FL 33034",
+  "notes": "",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)",
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-16",
+    "#etrakit",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

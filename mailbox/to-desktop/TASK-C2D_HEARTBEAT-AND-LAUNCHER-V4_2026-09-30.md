@@ -6,8 +6,7 @@
 
 ## Get the files from git, then check fingerprints (stop if either differs)
 `git fetch origin claude/executor-tray-icon-1cazza && git checkout claude/executor-tray-icon-1cazza && git pull`
-- `tools/vtes-panel/VTES-LLM-LAUNCHER.html` — 96491 bytes — SHA-256 `5993aa9ca052203f01f9b70c8701db86930bfe5d8fd5f1297ad2fc3dfaeae6a1`
-- `tools/vtes-panel/Write-VtesStatus.ps1` — 3744 bytes — SHA-256 `e084b057a8cb63756874f7d6ea2da5d45c078184a2becc7a4809ce8f321fba73`
+- **Panel files (launcher, Write-VtesStatus.ps1, and the rest): `tools/vtes-panel/MANIFEST.sha256` lists every fingerprint. Run `Verify-VtesPanel.ps1`: it must print `OK: 15 code files match`. If it names a file, stop and report; do not use it.**
 
 ## Steps
 1. **ACK first** (a line in VTES-Outbox is enough). That alone stamps you alive.

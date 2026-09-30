@@ -1,0 +1,30 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "01",
+  "name": "Miami (City of)",
+  "family": "CUSTOM",
+  "software": "iBuild / ePlan",
+  "submittal": "Online",
+  "portal": "miami.gov > Register as a Building Contractor / iBuild",
+  "seal": "Electronic OK",
+  "phone": "305-416-1100",
+  "office": "444 SW 2nd Ave, 4th Fl, Miami, FL 33130",
+  "notes": "iBuild is login-blocked for cloud/DD runs (affects TRK-2026-1289, 1292, 1531).",
+  "plansProcessorRule": "YES, REQUIRED: one-time iBuild expediter registration (Ord. 14279): form + Business Tax Receipt + ID + linked contractor; no fee, about 2-3 days; issues an expediter number.",
+  "live": true,
+  "verifyBeforeRelying": [
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-01",
+    "#custom",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

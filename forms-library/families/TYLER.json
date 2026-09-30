@@ -1,0 +1,40 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "family": "TYLER",
+  "name": "Tyler EnerGov / Civic Access / CSS",
+  "buildOrder": 1,
+  "note": "BIGGEST: build the field map for this family first.",
+  "cities": [
+    {
+      "code": "03",
+      "name": "Coral Gables"
+    },
+    {
+      "code": "02",
+      "name": "Miami Beach"
+    },
+    {
+      "code": "34",
+      "name": "Miami Gardens"
+    },
+    {
+      "code": "11",
+      "name": "Miami Shores"
+    },
+    {
+      "code": "07",
+      "name": "North Miami Beach"
+    },
+    {
+      "code": "30",
+      "name": "Unincorporated Miami-Dade"
+    }
+  ],
+  "fieldMapStatus": "NOT BUILT",
+  "portalScreensCollected": 0,
+  "hashtags": [
+    "#forms-library",
+    "#tyler",
+    "#TRK-2026-9910-B"
+  ]
+}

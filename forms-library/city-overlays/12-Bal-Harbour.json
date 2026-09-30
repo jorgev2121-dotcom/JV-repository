@@ -1,0 +1,32 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "12",
+  "name": "Bal Harbour",
+  "family": "SMARTGOV",
+  "software": "SmartGov (CentralSquare)",
+  "submittal": "Online",
+  "portal": "vlg-balharbour-fl.smartgovcommunity.com/Public/Home (call 305-865-7525 for login)",
+  "seal": "VERIFY",
+  "phone": "305-865-7525",
+  "office": "655 96th St, Bal Harbour, FL 33154",
+  "notes": "",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)",
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-12",
+    "#smartgov",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

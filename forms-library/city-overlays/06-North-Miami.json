@@ -1,0 +1,31 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "06",
+  "name": "North Miami",
+  "family": "CUSTOM",
+  "software": "eportal",
+  "submittal": "Online",
+  "portal": "eportal.northmiamifl.gov",
+  "seal": "Electronic OK (VERIFY)",
+  "phone": "305-895-9820",
+  "office": "12340 NE 8th Ave, North Miami, FL 33161",
+  "notes": "",
+  "plansProcessorRule": "No. Owner's agent + POA. Standard app; Certificate of Use / authorization.",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-06",
+    "#custom",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

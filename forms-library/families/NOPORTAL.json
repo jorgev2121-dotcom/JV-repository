@@ -1,0 +1,48 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "family": "NOPORTAL",
+  "name": "No portal (email / in person)",
+  "buildOrder": 7,
+  "note": "Email or walk-in.",
+  "cities": [
+    {
+      "code": "28",
+      "name": "Aventura"
+    },
+    {
+      "code": "18",
+      "name": "El Portal"
+    },
+    {
+      "code": "19",
+      "name": "Golden Beach"
+    },
+    {
+      "code": "27",
+      "name": "Hialeah Gardens"
+    },
+    {
+      "code": "22",
+      "name": "Medley"
+    },
+    {
+      "code": "23",
+      "name": "North Bay Village"
+    },
+    {
+      "code": "08",
+      "name": "Opa-locka"
+    },
+    {
+      "code": "26",
+      "name": "Virginia Gardens"
+    }
+  ],
+  "fieldMapStatus": "NOT APPLICABLE (no portal)",
+  "portalScreensCollected": 0,
+  "hashtags": [
+    "#forms-library",
+    "#noportal",
+    "#TRK-2026-9910-B"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "27",
+  "name": "Hialeah Gardens",
+  "family": "NOPORTAL",
+  "software": "No portal (in person)",
+  "submittal": "In person",
+  "portal": "cityofhialeahgardens.com/departments/building",
+  "seal": "VERIFY (likely wet)",
+  "phone": "305-558-4114 x221",
+  "office": "10001 NW 87th Ave, Hialeah Gardens, FL 33016",
+  "notes": "Site bot-blocked",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-27",
+    "#noportal",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

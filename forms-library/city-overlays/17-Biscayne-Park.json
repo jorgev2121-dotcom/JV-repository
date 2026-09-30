@@ -1,0 +1,33 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "17",
+  "name": "Biscayne Park",
+  "family": "CUSTOM",
+  "software": "CAP Portal",
+  "submittal": "Online",
+  "portal": "biscayneparkfl.gov > Apply for a Permit (CAP)",
+  "seal": "Electronic OK (VERIFY)",
+  "phone": "305-899-8000",
+  "office": "600 NE 114th St, Biscayne Park, FL 33161",
+  "notes": "Not in the sheet's family list (filed as CUSTOM by cloud).",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)",
+    "portal address still loads",
+    "family assignment"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-17",
+    "#custom",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "19",
+  "name": "Golden Beach",
+  "family": "NOPORTAL",
+  "software": "Email / appointment",
+  "submittal": "Email",
+  "portal": "goldenbeach.us/contractor-registration-and-new-permit-appointment (onlinepermits@goldenbeach.us)",
+  "seal": "VERIFY (likely wet)",
+  "phone": "305-932-0744",
+  "office": "100 Ocean Blvd, Golden Beach, FL 33160",
+  "notes": "",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-19",
+    "#noportal",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

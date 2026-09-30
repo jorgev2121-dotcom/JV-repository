@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
   Stamps "I am alive" for one window into vtes-status.js, which the VTES launcher reads to colour its tabs and count hours down.
 .DESCRIPTION

@@ -126,7 +126,9 @@ over-reading and is withdrawn.
 - **Hashtags:** `#LLM-10 #COPILOT #microsoft #edge #M365 #outlook #onedrive #PASTE-X #windows`
 - **Address:** `vtes://llm-10` → https://copilot.microsoft.com
 
-### LLM-09 · 🧰 · Thin API router (bridge) · STANDBY
+### LLM-09 · 🧮 · Token & LLM Manager (the Governor) + thin API router · STANDBY for the router half
+- **Update 2026-09-30:** the Governor is the token manager Jorge asked for and it ALREADY EXISTS on the PC (`ClaudeMemory\Governor`, task `CU-Governor-Hourly`, monthly re-map `CU-TokenManager-Monthly`, Board motions, `GOVERNOR-STATUS.txt`). Last proof seen by cloud: 9/21. Shown on the launcher Map (first column) and on the Budget page (`VTES-BUDGET.html`), which adds what the Governor did not watch: subscription room and duplicate charges.
+- **Stays true:** the router half below is a thin click-over; every API run is priced first and sent to Jorge.
 - **What it is:** a routing bridge only. Candidates: `vts-llm-panel/vts_llm_panel.py` (TRK-2026-9200),
   LiteLLM (RI-038), or a hosted router. Not the main engine.
 - **Rule:** each API run is priced first and sent to Jorge for approval or deferral with options.
@@ -161,3 +163,8 @@ over-reading and is withdrawn.
 - **Tray icons (TRK-2026-9740):** D / C / X = LLM-01 / LLM-02 / LLM-03.
 
 *Footer: TRK-2026-9910-B · v2 · 2026-09-30 · CURRENT · #LLM-registry #VTES-control-panel*
+
+---
+
+## The control panel (modules) — added 2026-09-30
+`tools/vtes-panel/VTES-PANEL.html` is the home. Pages: Windows (launcher + Map), Budget (Governor's desk), Cities (35 jurisdictions, fill sheet), Programs (searchable), Tree View, Reminders (red bell). Planned: CRM, Dispatch board. See `PANEL-ARCHITECTURE.md`, `ROUNDTABLE-PROTOCOL.md`, `CRM-RECOMMENDATION.md`, `forms-library/`, `dispatch/`. Hashtags: `#panel #modules #budget #governor #municipalities #programs #reminders #dispatch`.

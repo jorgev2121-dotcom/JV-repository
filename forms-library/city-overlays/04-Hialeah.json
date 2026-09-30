@@ -1,0 +1,31 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "04",
+  "name": "Hialeah",
+  "family": "CUSTOM",
+  "software": "Citizen Self-Service (CSS)",
+  "submittal": "Online",
+  "portal": "apps.hialeahfl.gov/building",
+  "seal": "Electronic OK (VERIFY paper)",
+  "phone": "305-883-5825",
+  "office": "501 Palm Ave, 2nd Fl, Hialeah, FL 33010",
+  "notes": "",
+  "plansProcessorRule": "No registry found. Authorization + notarized Notice of Commencement.",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-04",
+    "#custom",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

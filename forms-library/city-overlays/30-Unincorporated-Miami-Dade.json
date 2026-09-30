@@ -1,0 +1,30 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "30",
+  "name": "Unincorporated Miami-Dade",
+  "family": "TYLER",
+  "software": "Tyler EnerGov (EPS Portal)",
+  "submittal": "Online",
+  "portal": "miamidade.gov/Apps/RER/EPSPortal",
+  "seal": "Electronic OK (no scanned wet seals)",
+  "phone": "786-315-2000",
+  "office": "11805 SW 26 St, Miami, FL 33175",
+  "notes": "Herbert S. Saffir Permitting Center. This is the COUNTY layer (the 80%).",
+  "plansProcessorRule": "No. Owner / authorized agent / licensed contractor; authorization letter or notarized consent. BTR still needed.",
+  "live": true,
+  "verifyBeforeRelying": [
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-30",
+    "#tyler",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

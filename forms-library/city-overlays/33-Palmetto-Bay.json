@@ -1,0 +1,32 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "33",
+  "name": "Palmetto Bay",
+  "family": "CUSTOM",
+  "software": "CivicPlus Citizen Portal",
+  "submittal": "Online",
+  "portal": "civicgov4.com/fl_palmettobay_building/portal",
+  "seal": "Electronic OK (VERIFY)",
+  "phone": "305-259-1250",
+  "office": "9705 E Hibiscus St, Palmetto Bay, FL 33157",
+  "notes": "",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)",
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-33",
+    "#custom",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

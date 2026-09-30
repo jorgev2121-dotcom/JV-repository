@@ -14,7 +14,7 @@
 - `tools/vtes-panel/VTES-Open.ps1` — 6647 bytes — SHA-256 `08e2bf00d4303ab1f81a51cab27aa7a62adeb60966666fa51d83ec24768239f8`
 - `tools/vtes-panel/VTES-TREEMAP.html` — 38206 bytes — SHA-256 `668ebda338f51dc7ce9c5b4340df2c128d88a8d051d2a2779fcaed74ef4da04e`
 - `tools/vtes-panel/vtes-addresses.json` — 1958 bytes — SHA-256 `9bf8213e64113bcba57278c43c5a096826116ff1ca41da33d4f86b0958217075`
-- `tools/vtes-panel/VTES-LLM-LAUNCHER.html` — 96491 bytes — SHA-256 `5993aa9ca052203f01f9b70c8701db86930bfe5d8fd5f1297ad2fc3dfaeae6a1` (v4: console + Map + status colors)
+- **Panel files (launcher, Write-VtesStatus.ps1, and the rest): `tools/vtes-panel/MANIFEST.sha256` lists every fingerprint. Run `Verify-VtesPanel.ps1`: it must print `OK: 15 code files match`. If it names a file, stop and report; do not use it.**
 **Self-tests expected:** `VTES-Attention.ps1 -SelfTest` = `RESULT: 32 passed, 0 failed`; `VTES-Inventory.ps1 -SelfTest` = `RESULT: 18 passed, 0 failed`. Cloud ran these only on PowerShell 7 (Linux). **Run them with Windows PowerShell 5.1 (`powershell.exe`, not `pwsh`) and report any difference: that is the real test.**
 
 ## Read first (one page each; the constitution is now v2 after three adversarial reviews)

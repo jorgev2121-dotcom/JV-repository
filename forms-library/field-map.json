@@ -1,0 +1,142 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "layer": "universal",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "note": "Business-identity defaults (contractor, license, engineer) are NOT stored here; they live in the applicant profile on the PC.",
+  "fields": [
+    {
+      "n": 1,
+      "name": "Job address",
+      "key": "property.address",
+      "source": "job",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "name": "Folio / parcel",
+      "key": "property.folio",
+      "source": "job",
+      "note": "First 2 digits = municipal code"
+    },
+    {
+      "n": 3,
+      "name": "Lot",
+      "key": "property.lot",
+      "source": "job",
+      "note": ""
+    },
+    {
+      "n": 4,
+      "name": "Block",
+      "key": "property.block",
+      "source": "job",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "name": "Subdivision",
+      "key": "property.subdivision",
+      "source": "job",
+      "note": ""
+    },
+    {
+      "n": 6,
+      "name": "Plat Book / Page",
+      "key": "property.pb_page",
+      "source": "job",
+      "note": ""
+    },
+    {
+      "n": 7,
+      "name": "Current use",
+      "key": "property.use",
+      "source": "pick",
+      "note": "SFR / condo / commercial"
+    },
+    {
+      "n": 8,
+      "name": "Owner name",
+      "key": "owner.name",
+      "source": "job",
+      "note": ""
+    },
+    {
+      "n": 9,
+      "name": "Owner mailing address",
+      "key": "owner.address",
+      "source": "pa",
+      "note": "From Property Appraiser"
+    },
+    {
+      "n": 10,
+      "name": "General contractor",
+      "key": "gc.company",
+      "source": "profile",
+      "note": ""
+    },
+    {
+      "n": 11,
+      "name": "Qualifier",
+      "key": "gc.qualifier",
+      "source": "profile",
+      "note": ""
+    },
+    {
+      "n": 12,
+      "name": "License / cert no.",
+      "key": "gc.license",
+      "source": "profile",
+      "note": ""
+    },
+    {
+      "n": 13,
+      "name": "Engineer of record",
+      "key": "eng.firm",
+      "source": "profile",
+      "note": ""
+    },
+    {
+      "n": 14,
+      "name": "Description of work",
+      "key": "scope.description",
+      "source": "job",
+      "note": ""
+    },
+    {
+      "n": 15,
+      "name": "Type of work (checkboxes)",
+      "key": "scope.types",
+      "source": "pick",
+      "note": "Alteration / Repair / Electrical / Plumbing / Roof / Windows"
+    },
+    {
+      "n": 16,
+      "name": "Value of work",
+      "key": "scope.value",
+      "source": "job",
+      "note": ""
+    },
+    {
+      "n": 17,
+      "name": "Square feet",
+      "key": "property.sqft",
+      "source": "pa",
+      "note": "From Property Appraiser"
+    },
+    {
+      "n": 18,
+      "name": "Applicant / contact",
+      "key": "agent.contact",
+      "source": "profile",
+      "note": ""
+    },
+    {
+      "n": 19,
+      "name": "Plans processor",
+      "key": "processor",
+      "source": "profile",
+      "note": "In Miami-Dade a plans processor is CITY/COUNTY STAFF (a reviewer), not a role you register for. Florida does not license expediters; only City of Miami has a formal expediter registration."
+    }
+  ]
+}

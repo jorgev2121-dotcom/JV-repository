@@ -1,0 +1,60 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "family": "CUSTOM",
+  "name": "Custom portals",
+  "buildOrder": 6,
+  "note": "Each its own.",
+  "cities": [
+    {
+      "code": "17",
+      "name": "Biscayne Park"
+    },
+    {
+      "code": "36",
+      "name": "Cutler Bay"
+    },
+    {
+      "code": "35",
+      "name": "Doral"
+    },
+    {
+      "code": "04",
+      "name": "Hialeah"
+    },
+    {
+      "code": "10",
+      "name": "Homestead"
+    },
+    {
+      "code": "21",
+      "name": "Indian Creek"
+    },
+    {
+      "code": "01",
+      "name": "Miami (City of)"
+    },
+    {
+      "code": "06",
+      "name": "North Miami"
+    },
+    {
+      "code": "33",
+      "name": "Palmetto Bay"
+    },
+    {
+      "code": "14",
+      "name": "Surfside"
+    },
+    {
+      "code": "25",
+      "name": "Sweetwater"
+    }
+  ],
+  "fieldMapStatus": "NOT BUILT",
+  "portalScreensCollected": 0,
+  "hashtags": [
+    "#forms-library",
+    "#custom",
+    "#TRK-2026-9910-B"
+  ]
+}

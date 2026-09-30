@@ -1,0 +1,31 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "02",
+  "name": "Miami Beach",
+  "family": "TYLER",
+  "software": "Civic Access (Accela)",
+  "submittal": "Online",
+  "portal": "miamibeachfl.gov/business/civicaccess (BuildingContractor@miamibeachfl.gov)",
+  "seal": "Electronic OK",
+  "phone": "",
+  "office": "1700 Convention Center Dr, 2nd Fl, Miami Beach, FL 33139",
+  "notes": "The sheet lists Miami Beach in BOTH the Tyler group and the Accela group: UNVERIFIED which. County license line 786-315-2561 (VERIFY).",
+  "plansProcessorRule": "No expediter registry. Owner's-agent authorization + BTR. \"Expedited Program\" is pay-for-faster REVIEW, not a license.",
+  "live": true,
+  "verifyBeforeRelying": [
+    "portal address still loads",
+    "family assignment"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-02",
+    "#tyler",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

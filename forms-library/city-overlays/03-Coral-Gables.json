@@ -1,0 +1,31 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "03",
+  "name": "Coral Gables",
+  "family": "TYLER",
+  "software": "Tyler EnerGov CSS",
+  "submittal": "Online",
+  "portal": "coralgables.com/department/development-services/services/apply-and-search-permits",
+  "seal": "Electronic OK (VERIFY)",
+  "phone": "305-460-5242",
+  "office": "405 Biltmore Way, 3rd Fl, Coral Gables, FL 33134",
+  "notes": "",
+  "plansProcessorRule": "No registry. Notarized Affidavit of Owner/Lessee/Authorized Agent (Ch.39), e-submitted.",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-03",
+    "#tyler",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}

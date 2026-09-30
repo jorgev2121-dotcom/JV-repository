@@ -1,0 +1,32 @@
+{
+  "trk": "TRK-2026-9910-B",
+  "cityCode": "32",
+  "name": "Miami Lakes",
+  "family": "ETRAKIT",
+  "software": "eTRAKiT",
+  "submittal": "Online",
+  "portal": "trakit.miamilakes-fl.gov/etrakit",
+  "seal": "Electronic OK (VERIFY)",
+  "phone": "305-364-6100",
+  "office": "6601 Main St, Miami Lakes, FL 33014",
+  "notes": "",
+  "plansProcessorRule": "Unknown, presumed owner's agent. Authorization letter (assumed).",
+  "live": true,
+  "verifyBeforeRelying": [
+    "seal policy",
+    "agent / plans-processor rule (presumed)",
+    "portal address still loads"
+  ],
+  "overlayFields": [],
+  "forms": [],
+  "layerNote": "overlayFields lists ONLY what differs from the county layer (code 30). Empty until forms are collected.",
+  "source": "Municipality-Software-Map.xlsx (Drive id 1U-P8Mq7fXyPJraOfd5mKRY7F389aeazw)",
+  "asOf": "2026-06-17",
+  "hashtags": [
+    "#forms-library",
+    "#city-32",
+    "#etrakit",
+    "#municipality",
+    "#TRK-2026-9910-B"
+  ]
+}
