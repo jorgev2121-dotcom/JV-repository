@@ -439,6 +439,11 @@ brakes.**
 
 ---
 
+## 11b. Standing owner directives (index)
+
+- **OD-01** (2026-08-15) — every message ends with a question. See Section 8 above.
+- **OD-CR-01** (2026-09-30; named CR-01 because the plain numbers OD-02 to OD-107 are already used elsewhere in this repo for other things) — capture the county page as a PDF, attach it to a **new Outlook email from Jorge@teamusasales.com (To blank)**, pop it up **flashing, on top of every window**, and let **Jorge review and press Send**. No agent ever sends. Full text: `OWNER-DIRECTIVE_CAPTURE-AND-REVIEW-CR01_2026-09-30.md`. Skills: `county-status-capture`, `owner-review-popup`, `permit-legalization-specialist`.
+
 ## 12. SUPREME STANDING ORDER — FREEZE AND FINISH (2026-08-16)
 
 **`OWNER-DIRECTIVE_FREEZE-AND-FINISH-01_2026-08-16`, ratified by Jorge. It applies to

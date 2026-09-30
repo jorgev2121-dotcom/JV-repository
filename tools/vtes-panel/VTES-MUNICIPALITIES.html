@@ -42,7 +42,7 @@
 </main>
 <script src="vtes-modules.js"></script>
 <script src="vtes-reminders.js"></script>
-<script src="vtes-common.js"></script>
+<script src="vtes-alerts.js"></script><script src="vtes-reviews.js"></script><script src="vtes-budget.js"></script><script src="vtes-common.js"></script>
 <script src="municipalities-data.js"></script>
 <script>
 (function () {
@@ -140,8 +140,10 @@
       document.getElementById('saveprof').addEventListener('click', function () { var p = {}; Array.prototype.forEach.call(document.querySelectorAll('[data-p]'), function (e) { if (e.value.trim()) { p[e.getAttribute('data-p')] = e.value.trim(); } }); profile = p; try { localStorage.setItem(PKEY, JSON.stringify(p)); document.getElementById('profnote').textContent = 'Saved in this browser only.'; } catch (e) { document.getElementById('profnote').textContent = 'Could not save here.'; } });
     }
   }
+  var qs = {}; (location.search || '').replace(/^\?/, '').split('&').forEach(function (kv) { var a = kv.split('='); if (a[0]) { try { qs[a[0]] = decodeURIComponent((a[1] || '').replace(/\+/g, ' ')); } catch (e) { qs[a[0]] = ''; } } });
   window.VTES_MUNI_PAGE = { draw: draw, build: build, rows: rows, setTab: function (t) { tab = t; draw(); }, setQ: function (x) { q = x; draw(); } };
   draw();
+  if (qs.folio) { tab = 'fill'; draw(); var fo0 = document.getElementById('f_folio'); if (fo0) { fo0.value = qs.folio; fo0.dispatchEvent(new Event('input')); } var t0 = document.getElementById('f_trk'); if (t0 && qs.trk) { t0.value = qs.trk; } }
 })();
 </script>
 </body></html>

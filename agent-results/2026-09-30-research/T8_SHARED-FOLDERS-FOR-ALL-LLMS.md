@@ -1,0 +1,199 @@
+# T8: Shared Folders for all LLMs - what it holds and whether it can be the shared home
+
+Folder id 1gKyWrzYwIRyiX1qRVjTW2PNNI0qeQYL1. Read-only survey by Claude on 2026-09-30. Nothing was changed.
+
+## Section A - Verdict
+
+- **Not usable as the shared home for all LLMs in its current state. It is a one-time copy made on 2026-08-26, not a living workspace.**
+- Reason 1: no subfolders at all. All 161 items are loose files in one flat pile.
+- Reason 2: frozen. 160 of 161 files last changed between 2026-08-15 and 2026-08-26. Only NIGHT-PROTOCOL.md changed later (2026-09-24). Since 8/26 the live work moved to other folders.
+- Reason 3: its own index (000_MASTER-INDEX) says GitHub is the authoritative home and this folder is an interim copy that the desktop was still filling.
+- Reason 4: it has no newer owner list, no approvals queue, no mailbox. Those live elsewhere (see Section D).
+- Reason 5: stale copies can mislead. Its CLAUDE.md copy is 8/24 and its OWNER-QUEUE copy is 8/20 (46 KB), while the live OWNER-QUEUE is 281 KB and dated 9/19.
+- What would make it usable (desktop or cloud can do this, not Jorge): pick ONE live home, add 5 subfolders (00-READ-FIRST, LIVE, REPORTS, ARCHIVE, SCRIPTS), move the 80 audit reports to ARCHIVE, and keep only pointers to live files.
+
+## Section B - How populated it is
+
+- Total items found: 161 (three pages of results; one file appeared at the page boundary and was counted once).
+- Subfolders: 0
+- Markdown files: 154 (plus the 4 Google Docs below, whose titles also end in .md)
+- Google Docs: 4 (001_LLM-HANDOFF_FULL, 000_MASTER-INDEX, TRANSITION-GAP-CHECKLIST, VTS-LLM-PANEL)
+- Python scripts: 2 (enhance2.py, enhance_full.py)
+- Backup copies: 1 (NIGHT-PROTOCOL.md.bak-20260924)
+- Largest files: OPEN-ITEMS.md 437 KB, RECURRING-ISSUES.md 111 KB, MORNING-REPORT_2026-08-19.md 50 KB, OWNER-QUEUE.md 46 KB, MASTER-REGISTRY-MIRROR 46 KB
+- Created 2026-08-26 19:17 UTC by a bulk copy (Drive created-time is the copy time; Modified is the original file date).
+- Missing from what the index promises: the index lists about 101 documents; 161 are present, so the count is complete, but the folder has no structure.
+
+## Section C - What the two newest documents in it say
+
+- 000_MASTER-INDEX says: start with LLM-HANDOFF_2026-08-26 and CLAUDE.md; five rules (end every message with a question, answer first, no technical menus, RED means stop for Jorge, three honest states).
+- TRANSITION-GAP-CHECKLIST says the paper was transferred but the hands were not: still needed Gemini key, Drive and Gmail consent for the new LLM, desktop bridge, an always-on scheduler.
+
+## Section D - Where the live files actually are (other Drive folders seen)
+
+- 1XWYuimxo9D5wfp2nsgSlYxxF2xSiRSVF: live OWNER-QUEUE.md (281 KB, 9/19), TO-CLOUD.md (8 MB, 9/24), HEALTH reports, findings.
+- 1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN: _CLAUDE-MAILBOX with the 9/24 to 9/28 executed messages, APPROVALS-NOW.md, uptime heartbeat.
+- 1aYWNOHk8tcdmugP38pbF7S_Ma2azATzN: MY-DESK with APPROVALS-NOW.md, APPROVALS-QUEUE.json (0 bytes since 9/16) and TEAM-TASK-BOARD_2026-09-28.
+## Section E - Full list (title, id, size in bytes, modified date, what it is)
+
+- NIGHT-PROTOCOL.md | 1kLUNLHK0cfJgl1t4F0ZzSDUHpZwFyWeV | 8672 | 2026-09-24 | Operating/handoff document for the multi-LLM setup or system audit
+- NIGHT-PROTOCOL.md.bak-20260924 | 1KkjkNF0uS-1pW19KUe_GCkI2_E44sryV | 7703 | 2026-08-16 | Operating/handoff document for the multi-LLM setup or system audit
+- CAPSULE-INVENTORY_2026-08-26.md | 1_Sz-T_XO3ZKT2FTOnJRHwIg_bwKhRvsM | 6632 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- TRANSITION-GAP-CHECKLIST_TRK-2026-9203_2026-08-26.md | 1RXpd67suai0alw13HW6S1Mr4zuGsYqOefiHjYRTHago | 3052 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- VTS-LLM-PANEL_TRK-2026-9200_2026-08-26.md | 1JWbCZcs56O0SzPGPDUBXuQcv8TsQ1J-t6fNxXnzGgOE | 2568 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- 001_LLM-HANDOFF_FULL_2026-08-26.md | 1KAOqM72OCAFmmK2NWLXtjCATAChaQya2TpWU52WGW20 | 4549 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- LLM-HANDOFF_2026-08-26.md | 1Jrq54ZNbjV_OFUgnQ3oONQb4_Wib7ZbO | 5331 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- DAILY-RED-LIST.md | 11zWs1UlZOz09a6IOFit86TWOBrslB9G4 | 2115 | 2026-08-26 | Supporting operating or audit document
+- 000_MASTER-INDEX_READ-ME-FIRST.md | 1-niz__ghO3GLB8Ck0avAZgsH8HiQc1VILW9kRaHlMac | 3747 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- MORNING-BRIEF_2026-08-27.md | 1dH_8IK9ELBVxFfcqT_pvAjUrupWk-7b1 | 5554 | 2026-08-26 | Daily morning report/brief
+- MIAMI-DADE-SITES.md | 1Pn4x7w3wPOdnUqsZg67Qa_xGk1ezLKAo | 11473 | 2026-08-26 | Client job, county or project status note
+- NIGHT-VS-DAY-WORK-SPLIT_2026-08-26.md | 1ftB0TAD8mTgcWgjausZRXbzoroWbJHh7 | 2054 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- OVERNIGHT-BUILD-PLAN_2026-08-26.md | 1prMjc-CDAdx1BYVKv3aEaenbM4GmV0ye | 3269 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- MIRROR_GROK-KEY-TEST_2026-08-26.md | 1VevHvnYluryPjTIA_5Qd3cCKkUsnfdOt | 1769 | 2026-08-26 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- AGENT-AUTONOMY-BOUNDARY.md | 1NF46fKEzwuKyAfajBio-HTU_cx8BsSuu | 2749 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- OWNER-TASK-RELIEF_2026-08-26.md | 19NedX8d49eM2dSUE4beby2EvVYlYrhOo | 3471 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- RECURRING-ISSUES.md | 1-8ILqWszhVzLFRfamexfakD4oerMEbT1 | 111319 | 2026-08-26 | Log of recurring problems (RI numbers)
+- ROUNDTABLE-CHANNEL.md | 1t6_z47nDTnov2HU8Hrh1qYxNH5EJHyGk | 4457 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- MODEL-SPLIT-ARCHITECTURE_2026-08-26.md | 1P6NH4gW9rJkEpxz-5-Dh7ivaRHSGfXnj | 4429 | 2026-08-26 | Operating/handoff document for the multi-LLM setup or system audit
+- enhance2.py | 1EtMYJpBGVSzFdujDrS3kSAfaEjsuQjdO | 3957 | 2026-08-26 | Helper script for jacket enhancement
+- enhance_full.py | 1zQKYvs7nQzccy30AmMATeUCJ5iJ4FfgW | 3609 | 2026-08-26 | Helper script for jacket enhancement
+- OPEN-ITEMS.md | 1vaCjg1N-CcpCwhd6ZtvkiWTjFHq80KZE | 437224 | 2026-08-26 | Master open-items list as of 8/26 (437 KB)
+- PROPERTY-TAX-JACKET-ENHANCEMENT-PROTOCOL.md | 1VUPjDuqHax9_uA1Cm1zQdoBKv-sdxFGD | 4723 | 2026-08-25 | Paste log or jacket-enhancement protocol/instructions
+- PASTE-LOG.md | 1KkXkP37FIMuLgH2jiBuEkFMeax5UUWbF | 14245 | 2026-08-25 | Paste log or jacket-enhancement protocol/instructions
+- CHATGPT-OPERATING-AGREEMENT_PASTE-X-005.md | 1YpxAAuGU33jpEcv0fxnzJkvmEkHvyYbX | 3121 | 2026-08-25 | Paste log or jacket-enhancement protocol/instructions
+- JACKET-ENHANCEMENT_TEST-RUN-INSTRUCTIONS_3-jackets.md | 1A0wlzZTauuF_-bjxjepem2GyIw1AkE2E | 4702 | 2026-08-25 | Paste log or jacket-enhancement protocol/instructions
+- JACKET-ENHANCEMENT_CHATGPT-PROMPT.md | 1tuPGrZcKDg7hh_baMmNHeyeMRtJR95au | 3535 | 2026-08-25 | Paste log or jacket-enhancement protocol/instructions
+- RESULT-D2C-9740_MIRROR_four-icons-app-already-installed.md | 1c9_bYSoZ8N7xyMI2uJtDB-VqJxbG2as_ | 3142 | 2026-08-25 | Paste log or jacket-enhancement protocol/instructions
+- OWNER-DIRECTIVE_DESKTOP-MAX-AUTONOMY-01_2026-08-25.md | 1fJu-so7D0UJEwPB_SFFVcR1U8oWFh4sM | 2225 | 2026-08-25 | Standing owner directive or rule
+- AGENT-FANOUT-REGISTRY_2026-08-25.md | 1h8SbMvuKgtL0I4sIUBDGqfe5Is0wJNr2 | 3185 | 2026-08-25 | Operating/handoff document for the multi-LLM setup or system audit
+- DESKTOP-11HR-REPORT_MIRROR_2026-08-25.md | 1UdW6eZEoJdIMNLCa_R3WQ_4WaQ0A--YW | 4381 | 2026-08-25 | Operating/handoff document for the multi-LLM setup or system audit
+- DELEGATION-MODEL_2026-08-25.md | 1nSKwzsr9w1nUqjkpJIfYBxlLDxufIEuz | 3061 | 2026-08-25 | Operating/handoff document for the multi-LLM setup or system audit
+- AI-ROUTING-GUIDE_2026-08-25.md | 1Ag3-maAwTH5oFvh2WUqwQcs_OJhZ51bp | 3037 | 2026-08-25 | Operating/handoff document for the multi-LLM setup or system audit
+- ACTIVE-JOBS_PENDING-ACTION.md | 1Ug7J_nUoGj8fYBnN0cz-s4Pl9lgHHGRy | 3987 | 2026-08-25 | Client job, county or project status note
+- MORNING-REPORT_2026-08-25.md | 1Ujq22clRhUA0UsbLKhxJEpeIx9BNwG87 | 11047 | 2026-08-25 | Daily morning report/brief
+- WINDOW-CONFIG_ALL-SURFACES_2026-08-24.md | 1928qnqEt1VBhcxsAq0sL6k7FsRvQ4PLA | 3997 | 2026-08-24 | Operating/handoff document for the multi-LLM setup or system audit
+- ONE-PASSWORD-SITES_STATUS-BY-BLOCKER_2026-08-24.md | 1Q3s5T4EROy5tpkVye1kJjCP8CFu30C0N | 5453 | 2026-08-24 | Operating/handoff document for the multi-LLM setup or system audit
+- JOBS-CAPSULE-INDEX_2026-08-24.md | 1ewXsPi7XWUO1wd1K3idDPl6DuPBMWBqy | 5039 | 2026-08-24 | Filing/capsule/inventory audit
+- ALEC-VALDES_ALL-JOBS_2026-08-24.md | 1PZ-TdQrZ9sh0fKi9iNDOda8kdC_BxwJL | 4759 | 2026-08-24 | Client job, county or project status note
+- CLAUDE.md | 139QsURZtZP1FhfvRQbdCdP_5uEhmPcSj | 23148 | 2026-08-24 | Copy of the operating charter dated 8/24
+- MORNING-REPORT_2026-08-19.md | 1WQR9a_VcH8HjwrBa3Z2Xd5YGhnUjbO2V | 50392 | 2026-08-24 | Daily morning report/brief
+- STATUS.md | 1axLoCIRsId8CiUjK-aF14EAXNyn8b13- | 8648 | 2026-08-24 | Operating/handoff document for the multi-LLM setup or system audit
+- CAPSULES-9073f_FOUR-CAPSULE-TREES-NOT-TWO_2026-08-19.md | 1123OQwr6BAY1ZhVjosJnn0rY9bvLfXUO | 7625 | 2026-08-19 | Filing/capsule/inventory audit
+- SERIES-9464_THE-SECOND-SERIES-IS-THREE-INVOICES-AND-ALL-THREE-WERE-DELIVERED_2026-08-20.md | 1ZcbHKPWS5xkT8EV3_2mqc8WtD5Si0daJ | 13249 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- COUNTY-9462_THE-INVOICE-PDFS-WERE-ALWAYS-IN-THE-EMAIL-AND-A-COUNTY-FEE-NAMES-ITS-INVOICE_2026-08-20.md | 12l1RT1e5qEr1mQE1Hf8u5WjVSYFN3BwH | 12191 | 2026-08-20 | Client job, county or project status note
+- BANK-9454_A-JEEP-CLUB-FRIEND-IS-INSIDE-THE-OUTSIDE-MONEY_2026-08-20.md | 11bYsc8pZaefTAPyxj1qX-z70ttK24R36 | 9776 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- BANK-9453_THE-REFUND-WIRE-RENAMES-THE-TOP-LEAD-AND-14K-WAS-FILED-AS-HIS-OWN-MONEY_2026-08-20.md | 1Pntv_KKHy2SNTO7HRlV5LxtBoO85pbU7 | 7732 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- BOMBSCAN-9451_NO-MORE-PAGES-WILL-BE-LOST-AND-A-WARNING-LOG-UNDERCOUNTS_2026-08-20.md | 1TKTfDl64v95rczuotxdHbF3u-lU8mYSR | 7814 | 2026-08-20 | Operating/handoff document for the multi-LLM setup or system audit
+- OWNER-QUEUE.md | 1P4GU9A5EeJs0Lw-b7wmdx3NtjZdXfdWp | 46107 | 2026-08-20 | Owner question list (old 8/20 copy); live copy is in another folder
+- CLOCK-9444_THE-FRIDAY-CLOCK-BELONGS-TO-A-MEETING-AND-THE-PORTAL-IS-44-HOURS-STALE_2026-08-20.md | 1kvBJb1mRiq5QlwBpLBElMyyIYR6wTCCJ | 10372 | 2026-08-20 | Client job, county or project status note
+- ROUTE-9443_THE-44-DOLLAR-ORDER-STARTS-WITH-A-FREE-EMAIL-AND-NOBODY-EVER-SENT-IT_2026-08-20.md | 1bpD4X2AAiSEvYFkIQgmOw9QtwDSMwxkq | 6645 | 2026-08-20 | Client job, county or project status note
+- GATE-9440_THE-FIFTH-GATE-IS-THE-ONE-THE-SPINE-RESTS-ON-AND-IT-IS-NOW-CLOSED_2026-08-20.md | 1cQpFevXv7w304J-hr97GpxmsR7P9zqE4 | 8764 | 2026-08-20 | Night OCR and page-gate investigation report
+- GATE-9439_THE-PAGE-GATE-IS-NOT-ONE-SCRIPT-IT-IS-THE-HOUSE-STYLE_2026-08-20.md | 1ULsp8Cw9WledRGpB4ZiE7vcZfsvx6cyk | 8339 | 2026-08-20 | Night OCR and page-gate investigation report
+- GATE-9438_THE-PAGE-GATE-LEFT-524-OF-761-PAGES-UNREAD_2026-08-20.md | 1KsHx7RquNv_J4UmY62SxHjr2jerlsvjT | 6359 | 2026-08-20 | Night OCR and page-gate investigation report
+- PERMIT-9437_THE-1000-DOLLAR-PHASE-2-WAS-ALREADY-INVOICED-FIVE-DAYS-AFTER-THE-PERMIT_2026-08-20.md | 1fZQqSBjR6WMjeE7ax50y9bRMPz0025hx | 11110 | 2026-08-20 | Client job, county or project status note
+- MIRROR-9434-9435_A-FOURTH-CHANNEL-AND-THE-GAP-WAS-AN-EMPTY-COLUMN_2026-08-20.md | 11msLqI77186MXtYdPYblrPBWnYZuCpDs | 4149 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- MONEY-9436_EVERY-BLANK-FILLED-AND-SIX-WERE-ALREADY-ON-DISK_2026-08-20.md | 1YUkvVRUmjLaI0uCp68dMKpdLs9LGb-Eo | 9919 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- CHECKS-9434_THE-GAP-IN-THE-SPINE-IS-26-MONTHS-AND-MONEY-CAME-IN-DURING-IT_2026-08-20.md | 1LOj_4C-sIesPbkeJw72e9Sk-s_0EB3Gd | 8006 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- ISSUER-9433_THE-SPINE-HAS-A-FLOOR-AND-THERE-IS-BILLING-UNDERNEATH-IT_2026-08-20.md | 1fkgXs2AQ25ynz_c7rCDiDSVOBSInVp2A | 7725 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- MIRROR-9430-9431_THE-ZELLE-CHANNEL-NOBODY-COUNTED_2026-08-20.md | 1LaU2bFrzIB1rIrHgWwAGCYofYpGXOGdY | 4784 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- ZELLE-9431_THE-PAYMENT-ROUTE-WAS-NEVER-CLOSED-89-RECEIPTS-NOBODY-COUNTED_2026-08-20.md | 18cHu--eRJi92asABD9MSCZRU5oqKgYJ- | 9541 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- JOIN-9430_THE-PAYMENT-EMAIL-ROUTE-IS-CLOSED-AND-THERE-IS-A-129TH-INVOICE_2026-08-20.md | 1WMqSYKZljbrKf8-RL0F-GWXJhwN6tpeo | 6874 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- MONEY-9429_THE-SPINE-HAS-MONEY-ON-IT-NOW-AND-69K-HAS-NO-STATUS_2026-08-20.md | 1mIdKmqIkz3r4dtyRWzlfXFp6GQqUsh1O | 6814 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- SPINE-9428_A-FAKE-INVOICE-NUMBER-THAT-PASSES-THE-ISSUER-TEST_2026-08-20.md | 170YHHXRR6nSrJBhON47Cs3Zea0SK85FZ | 5859 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- OCR-9427_THE-RUN-FINISHED-AND-ONE-NUMBER-GRADUATED_2026-08-20.md | 1CBGiDEdZO7ucioIK0thw2Uhh1PETcbJO | 7099 | 2026-08-20 | Night OCR and page-gate investigation report
+- PRINT-9425_THE-UNIT-404-PRINT-ALREADY-RAN-AND-NEEDS-NO-PDF-VIEWER_2026-08-20.md | 18n9BN6UKnSug0cbwq2WmrYkr8MopbsLJ | 6634 | 2026-08-20 | Night OCR and page-gate investigation report
+- ACROBAT-9424_THE-NAG-WAS-ALREADY-DEAD-AND-SUMATRA-WAS-NEVER-INSTALLED_2026-08-20.md | 1StwFJOcX_JerBUf0OXFsYDBkMps2GF6y | 7306 | 2026-08-20 | Night OCR and page-gate investigation report
+- SPINE-9423_THE-JOIN-AGAINST-ALL-118-IS-DONE-AND-SIX-ARE-FIRST-SIGHTINGS_2026-08-20.md | 1ZJpdjfJvbTWe3jV9Xmg1w4D8EiyLlkj0 | 8090 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- OCR-9422_THE-FILTER-COULD-NEVER-HAVE-FOUND-THEM_2026-08-20.md | 13svsqw5obhDJ0uRkLs4MO_2XLK-G0miF | 9734 | 2026-08-20 | Night OCR and page-gate investigation report
+- OCR-9421_THE-RUN-FINISHED-AND-FIVE-INVOICES-CAME-OUT-OF-IT_2026-08-20.md | 1kzPHmoas-38OO5-W43BY-eVytCS3tVBK | 7001 | 2026-08-20 | Night OCR and page-gate investigation report
+- OCR-9420_THE-OCR-RUN-SURVIVED-AND-FOUND-TWO-INVOICES-AND-A-CLIENT-NOBODY-HAD_2026-08-20.md | 1V042EVILOgxei5yw5vPltK9IGfia_QYi | 7520 | 2026-08-20 | Night OCR and page-gate investigation report
+- COU-9419_COU-OF-MIAMI-IS-A-CLIENT-NOT-JORGES-COMPANY_2026-08-20.md | 1mqAMwm0nvLaUtXIgSlKAt_dL1CRDfHB6 | 8455 | 2026-08-20 | Client job, county or project status note
+- OCR-9418_THE-UNCLASSIFIED-BUCKET-HIDES-NO-INVOICES-AND-322-PDFS-ARE-NOW-IN-OCR_2026-08-20.md | 1sr0HhmStyfMQuB0SG1mIJiltb9R0dJm4 | 6247 | 2026-08-20 | Night OCR and page-gate investigation report
+- MIRROR-9417_A-2017-AGING-REPORT-AND-THE-EMAIL-ROUTE-IS-CLOSED_2026-08-20.md | 1EthL_y2_QToKUI9H7hKhCp4n7VJmUT2T | 10641 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- MIRROR-9414-9415_A-NUMBER-IS-NOT-AN-INVOICE_2026-08-20.md | 1xHK7V42Fx6KvD3zHvv_5dWzBWmxGo8wt | 4336 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- OVERLAP-9415_THE-THREE-COUNTS-OVERLAP-AND-A-FOLIO-IS-NOT-AN-INVOICE_2026-08-20.md | 1ifYRQHUT9iADglM6eZiUsAaqpKPcqBps | 8923 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- PST-9414_THE-INVOICE-FOLDER-IS-MOSTLY-SOMEONE-ELSES-BILLS_2026-08-20.md | 1rWQwiA4zOiXxJeJpDawVdz68Lghcru6S | 5475 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- SPINE-9412_TWELVE-INVOICES-ABOVE-6079-THAT-NO-COUNT-HAS-EVER-SEEN_2026-08-20.md | 1Uji6_ti_LAW50X-kCAsDbUnpPGyQunHG | 7193 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- MIRROR-9337c-e_INVOICE-SPINE-READ-FOLDER-TAGS-UNRELIABLE_2026-08-20.md | 15DEh4YZ_MIp9vwbm2p_Ylgt-SzRq65PC | 5263 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- INBOX-9410_THE-SORTER-HAS-BEEN-SORTING-AN-EMPTY-ARCHIVE_2026-08-20.md | 1_2wllLNH41k2_eabfykl3KqF-mFk6jMq | 7800 | 2026-08-20 | Operating/handoff document for the multi-LLM setup or system audit
+- HEALTH-2026-08-20.md | 1dcBAQ1j1snXlpFAX6T0kL5hz0CwTtTsw | 8376 | 2026-08-20 | Operating/handoff document for the multi-LLM setup or system audit
+- SPINE-9337e_NOT-ONE-PAID-FOLDER-HAS-A-PAID-DOCUMENT_2026-08-20.md | 1YnGpJ0PLFjdLolmhE6N-ewaIrUICNtPF | 7191 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- AGED-9337d_QUICKBOOKS-SAYS-THREE-OF-THESE-ARE-ALREADY-PAID_2026-08-19.md | 1WD5CYch36I86685po2Mm36hRRBDnRIBq | 9648 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- MIRROR-9337_INVOICE-SPINE-42-OF-43-UNNUMBERED_2026-08-20.md | 19UVWSUyVGFNAGU6d5TW8SphXbEuzNz_y | 4598 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- PRINTED-9407_THE-BUILDER-SIGNS-THREE-PAGES-NOT-TWO_2026-08-19.md | 1C_4W2vCB6Keqwk6xVhcZkPgCLXWWn3Jx | 7838 | 2026-08-20 | Night OCR and page-gate investigation report
+- BILLED-9337b_42-OF-43-INVOICES-ARE-INVISIBLE-TO-THE-REGISTRY_2026-08-19.md | 12TdLr8QA630_zO3CBvp2tzCx-q9Dq2HH | 5011 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- MASTER-REGISTRY-MIRROR_Tracking-Registry.md | 1He9CwlUQks7R4nHFsroNkqhJKSdZcpje | 46038 | 2026-08-20 | Tracking-number registry copy
+- TRK-REGISTRY.md | 1IbzBkJF1sdWpofxOhTdIsoOfljhKl08o | 23598 | 2026-08-20 | Tracking-number registry copy
+- RECONCILE-9401_MASTER-vs-REPO-REGISTRY_2026-08-20.md | 1J2TZ0Hplydatj9glNhgexqpJP6gtvY_Z | 5206 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- INVOICES-9100e_THE-LAST-HALF-MEASURED-AND-THE-INVOICE-SPINE_2026-08-19.md | 16nrE9H1w51P5Dp_nLxTKqZ1ABusSs5oX | 10938 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- DROPBOX-9100d_THE-45664-BROKEN-DOWN-AND-A-FOLDER-THAT-LIES_2026-08-19.md | 14UmpxoSzn7xozSYmUfFqRjZBuYKV_stL | 8249 | 2026-08-20 | Filing/capsule/inventory audit
+- DROPBOX-9100c_FROM-C-IS-NOT-A-COPY-OF-C_2026-08-19.md | 1iMAvYgHVtRAxFWCpsnZVP2gOalYf2MUg | 5604 | 2026-08-20 | Filing/capsule/inventory audit
+- MIRROR-9401_MONEY-OUTSIDE-THE-LEDGER-AND-THE-REAL-DENOMINATOR_2026-08-20.md | 1BXvvuBixIfauzkR9XqbFUnjz5WcEyt0L | 8164 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- RECHECK-9401d_THE-OTHER-FIVE-ARE-CLEAN-AND-A-SECOND-INVOICE-IS-OUTSIDE-THE-LEDGER_2026-08-19.md | 1WqqvGslUftb3m79wydZsLoF93LyQkQtd | 9776 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- REGISTRY-9401b_TWO-REGISTRIES-DISAGREE-AND-1283-IS-THE-SURVIVOR_2026-08-19.md | 18dFa7cikYAeMrNGU9tJWIs0Nr4Dpn2n2 | 9391 | 2026-08-20 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- ORPHAN-REGISTER.md | 1_bDfIHmrunwkdadxbL_Sq7g7NJIXtBWH | 20759 | 2026-08-20 | Orphan-number register or standard
+- TEAM-9401_4192-BUSINESS-PDFS-AND-A-THIRD-NUMBER-FOR-MIGUELEZ_2026-08-19.md | 1MrrxI9zvofm0mLt-ezqXW7vxNaWOdiDA | 11699 | 2026-08-20 | Filing/capsule/inventory audit
+- HOLDING-AREAS-INVENTORY.md | 1RP6LdX3-HiK4ArCkRYluB6OSjysKm4AT | 7438 | 2026-08-19 | Filing/capsule/inventory audit
+- DRIVE-D-9101_THE-BIGGEST-TREE-NOBODY-INDEXED_2026-08-19.md | 1TmCUFxeGXgJqgmo5hpSz4zgu3sg7dlRA | 9878 | 2026-08-19 | Filing/capsule/inventory audit
+- DROPBOX-9100_THE-SOLE-COPY-COUNT-WAS-WRONG-AND-5821-IS-NOT-LOST_2026-08-19.md | 1qXxRqjKbbCKo-UBqdUA0d7SaH_ulsS-T | 11568 | 2026-08-19 | Filing/capsule/inventory audit
+- MIRROR-9073_FILING-INTEGRITY-FOUR-TREES_2026-08-19.md | 1zSMuaKyPUj6fQXyVou4jwu9cTr8vbEp1 | 7933 | 2026-08-19 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- SOLECOPY-9073j_THE-SHORT-INDEX-DEFECT-AND-A-65-PDF-JOB-NOBODY-HAS_2026-08-19.md | 1Q-KxmJSA0xHspywD-H9kBdaiCf4yu0Zt | 7525 | 2026-08-19 | Filing/capsule/inventory audit
+- DEDUP-9073i_BUSINESS-CARDS-ARE-ALL-SOLE-COPIES_2026-08-19.md | 1Sme7KWbgq3IJ9axqs-clnog6ItG74C1p | 12105 | 2026-08-19 | Filing/capsule/inventory audit
+- CAPSULES-9073g_OUTSIDE-COPIES-ARE-NOT-SUBSETS_2026-08-19.md | 19maq3pP60fSDVAN0tCbmRQM4fStgWU3t | 11869 | 2026-08-19 | Filing/capsule/inventory audit
+- CAPSULES-9073e_OUTSIDE-01-JOBS-AND-JOBS-MASTER-IS-NOT-JUNK_2026-08-19.md | 1zdCBYFdYwPT2wFhencLQAhas_P59-4AB | 9367 | 2026-08-19 | Filing/capsule/inventory audit
+- DEDUP-9073d_BIZCARDS-vs-CAPSULES-AND-A-TRIPLE-IDENTITY_2026-08-19.md | 1CQFeSWaybkYz_N43188ZNPgTH-V6_sAK | 8799 | 2026-08-19 | Filing/capsule/inventory audit
+- ENUM-9073c_PAPERPORT-BUSINESS-CARDS-IS-NOT-BUSINESS-CARDS_2026-08-19.md | 11ac_R2_Phb0uta7BBfiew2nTfauy-olG | 9718 | 2026-08-19 | Filing/capsule/inventory audit
+- ENUM-9073b_FILABLE-EMAIL-DOCS_2026-08-19.md | 1GmdKYeITZ369sBLk-EV9SgLfxkAikILB | 3152 | 2026-08-19 | Filing/capsule/inventory audit
+- WATCHDOG-FOUND.md | 11t6ZY3_HhH_AupEhy1xytV-iyTxmZM0- | 8130 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- VERSION-LOG-GAP-MAP.md | 1S50OxcGSETYhfv7ia9_dyPYBjn5RpSjQ | 11142 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- VERSION-LOG-CENSUS-DEFINITIVE_2026-08-18.md | 1H-Tt50eNNdJJSu0-vMuXYq8d9soXD6-a | 3919 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- UNFINISHED-WORK-AUDIT.md | 1eBtYNF9ruuULjuWYc7aoSOofeVLEBBny | 34749 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- SURVEY-9033_VERSION-LOG-COVERAGE_2026-08-19.md | 1xt-L3VJxQ1v4wrHXzBIKPwzFGJ_4eely | 2585 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- SURVEY-9033_TRK-26-SHORTFORM-DRIFT_2026-08-19.md | 1YXtzjJDWrVqpo74BmIwonKyMI3gNg4ik | 3029 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- SCAM-AND-AV-FINDINGS_2026-08-18.md | 1ayD9fSBKalWjXlZUkJ2X1s1nS6OAA7xS | 3464 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- ROOT-CAUSE_RI-001-POPUP-KEYBOARD_2026-08-18.md | 1P1F8TgGoTJcAWX7Sco-xPg2Gu2E7E7En | 9223 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- RI-023-ROOT-CAUSE-FANCYZONES_2026-08-18.md | 1Z0OLa9QOzrKdnIF52D_Up6Fc4gO4hzuZ | 4001 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- RI-001-THIEF-NAMED_2026-08-18.md | 1rPZ6VlBx2tNrgBs9Fo6Wa3tVKdwrWtiQ | 4751 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- RI-001-CONVICTION_DIR-0041_2026-08-18.md | 1TNhl6rnAb9KBNzvXiaZhB1JhgkZ7dyKC | 2890 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- RESOLVE-9086_INSURANCE-CERT-MISMATCH_2026-08-19.md | 1pDB4mDgMyyC1goqllWm6rheKChVCVdtJ | 3028 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- REGISTER-BATCH-2-AUDIT_2026-08-18.md | 1aPfUsw3p118D3RtxXo_4UDVldYt-HWWn | 7597 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- RECONCILER-OUTPUT-CHECK-SPEC.md | 1F22TCrf6IzyQJRvRom_jQkzg9iKcVrrf | 4554 | 2026-08-19 | Money/invoice reconciliation finding (Aug 19-20 analysis)
+- RECON-9086_BATCH2-vs-STATUS-LEDGER_2026-08-19.md | 1s2DV1lfQzdhjCOdLQgdz6ud4fC4Ogj8B | 4097 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- PROOF-5-CLOUD-VERIFICATION_2026-08-18.md | 1HoiL9IXOEDNjzdnx88YvD-bQWiVVAh4F | 10773 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- POSITIVE-CONTROL-KIND-GATE_2026-08-18.md | 1HlOJA9a9V0HO2D453KbF35eCb1zWDjNL | 4214 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- PERMIT-GATE-BEATEN_2026-08-18.md | 1QtF3sS3nDg7muEFAoL1ZDF3hPY-tDBky | 3109 | 2026-08-19 | Client job, county or project status note
+- OVERNIGHT-QUEUE.md | 1eb9jrTFK3XQaStBnl9rv6rM-awGqNbc5 | 10045 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- ONE-ROSTER-ONE-READER_2026-08-18.md | 1lbBUKmnlhpxBPJR-N-QBT0saq1gejNuu | 3327 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- ONE-PASSWORD-TAKEOVER_TRK-2026-9346_2026-08-18.md | 1E4bDshNT_K1wVlm80SVk4LJEQiZ0CSSS | 5491 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- ONE-PASSWORD-LINKS_TRK-2026-9347_2026-08-18.md | 1JOWaEmBfD7qeuog76fDTBnjqJQm6D3GI | 3092 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- MORNING-REPORT.md | 1CoiCyaHPd_vGJ-quuH1Rzj6iaClWgRn4 | 25825 | 2026-08-19 | Daily morning report/brief
+- MORNING-REPORT_2026-08-18.md | 1FOQjLjJx0U6QlUEBfF4vzjdSI5JMnbWY | 13839 | 2026-08-19 | Daily morning report/brief
+- MORNING-REPORT_2026-08-17.md | 16hqq3kxfugVxVkJ_-t_Q7vNzJmUorq_7 | 28755 | 2026-08-19 | Daily morning report/brief
+- MEDLEY-PRINT-AND-MAIL-STATUS_2026-08-18.md | 1lw4V4hj5Gksaim0YidnttwYBAEPdWFqJ | 2595 | 2026-08-19 | Client job, county or project status note
+- LEDGER-COVERAGE-GAP_2026-08-18.md | 1Ur8ffwYLFQGk-S9Gqm1E-Y43QrzSudof | 3195 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- JOBS-ROOT-CENSUS-DEFINITIVE_2026-08-18.md | 15cHLxvC4xjk5XwhPAtFVvWElgoBW-4yX | 4772 | 2026-08-19 | Filing/capsule/inventory audit
+- JOBS-FOLDER-CENSUS.md | 1Rhxm1L_XE0M-xLGkgplfHYN9Fc9uET9U | 6535 | 2026-08-19 | Filing/capsule/inventory audit
+- JOB-0079-ALREADY-SPECIFIED.md | 1NT7S042_BX_1yshYEHNFtGkcfgYQxRLY | 5901 | 2026-08-19 | Filing/capsule/inventory audit
+- JACKET-RECONCILE-MIRROR_2026-08-18.md | 1H2NNYIjfxNC6cel4hVvprO_IZLQ7lnjO | 7675 | 2026-08-19 | Paste log or jacket-enhancement protocol/instructions
+- HEARTBEAT-BASELINES_2026-08-18.md | 1LIFb2ZhKTA7vyePySO9uRt3O2g7QTouJ | 3968 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- GMAIL-SENDERS_TRK-2026-9073_2026-08-18.md | 1ixUJDo5ZME2GGmeWF-K6l3ICGJl_SeIW | 4831 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- GMAIL-ATTACHMENT-SURVEY.md | 1Po8w3RoV9KEcLePl_GomgNvvWHdWzVkd | 5845 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- ENUM-9073_GMAIL-ATTACHMENTS_2026-08-19.md | 1g4Vo9Mgtl62jcnqsMdC-2Ryw9nP64mPk | 2637 | 2026-08-19 | Filing/capsule/inventory audit
+- DRAFT-9033_TRK-TBD-FOLDERS-FOR-NUMBERING_2026-08-19.md | 1LeZJCmZ0B60Av7sQab4hMef6JPXe8K0f | 2421 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- DIRECTIVE_MANAGER-01_INTAKE-01_2026-08-18.md | 12bROJcloDjZAnyIxBAL6eoIXhRhwDuCK | 3992 | 2026-08-19 | Standing owner directive or rule
+- DESKTOP-CANNOT-READ-THE-CHARTER_2026-08-18.md | 1M1TwlmW-in1Ic1c1gXW_uXkHeAL_c5Ek | 4681 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- COUNTY-PROOF-RESULTS.md | 1XxS53ugA9IqRCnEGI4lg6wQTs_fsgrVJ | 14971 | 2026-08-19 | Client job, county or project status note
+- CLOUD-COMMITMENTS-RESULT_2026-08-17.md | 1t3x0zBHxM732bkgAwHvpEyMqTak3Fr0r | 5950 | 2026-08-19 | Operating/handoff document for the multi-LLM setup or system audit
+- AUDIT-9086_BATCH-2_2026-08-19.md | 1LPaeDuZ6mLy0otsmd4UOiVxNcKX0xJcP | 4103 | 2026-08-19 | Supporting operating or audit document
+- ALEC-331-TAMIAMI-CANAL_TRK-2026-1612_2026-08-18.md | 1X5ODHIZtfiDlNwXcwOUkhxrjUdOkVmwv | 5998 | 2026-08-19 | Client job, county or project status note
+- OWNER-GATES.md | 1I7Nb-axL_U3-7_0Es84mHD3pT8iRNW99 | 6188 | 2026-08-16 | Operating/handoff document for the multi-LLM setup or system audit
+- ORPHAN-ONBOARDING-SWEEP.md | 1Esvss_6r0UkKfiEzwcTwhFIEtbkp8rgX | 5498 | 2026-08-16 | Orphan-number register or standard
+- WORK-SPLIT.md | 10DuWgYb2ONYIKEKyxtQQ-BYqUoc1fwR5 | 6275 | 2026-08-16 | Operating/handoff document for the multi-LLM setup or system audit
+- PROJECT_MARKETING-WALLY.md | 1U62HJJfU1KlljDMBiKfWtcGoI0FAXdfv | 5866 | 2026-08-16 | Client job, county or project status note
+- ORPHAN-NUMBERING.md | 1PG8OpZLzCGyPWlH6lcs9Uh3yEJfiwLaj | 5670 | 2026-08-16 | Orphan-number register or standard
+- AUTONOMY.md | 1DX-Dua8e4z4GvUcFnx1xaxwiRadFgM91 | 6514 | 2026-08-16 | Operating/handoff document for the multi-LLM setup or system audit
+- AUTONOMY-ARCHITECTURE.md | 18j1PJjaVnNgVW5uKZ7bPxRwEvm5biA9U | 10744 | 2026-08-16 | Operating/handoff document for the multi-LLM setup or system audit
+- ALEC-DD-PLAN.md | 12nUTlweH1Tn62q1jrGRAVg8vowhSdRJF | 5581 | 2026-08-16 | Client job, county or project status note
+- OWNER-DIRECTIVE_ALWAYS-END-WITH-QUESTION-01_2026-08-15.md | 14bFKLKP7cDCxtAQISOfEFdLmUhymL_p6 | 2456 | 2026-08-15 | Standing owner directive or rule
+- OCR-STATUS.md | 1yZydCkflHY3mnZzV_U2LIezF5-rNXXGA | 4691 | 2026-08-15 | Night OCR and page-gate investigation report
+- HANDOFF.md | 1zySJv7APgJ5wM0rmct3mHYuSEjDax3Ks | 6398 | 2026-08-15 | Operating/handoff document for the multi-LLM setup or system audit

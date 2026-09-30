@@ -11,7 +11,7 @@
 #>
 param([string]$Dir = '', [switch]$Build, [switch]$Check, [switch]$SelfTest)
 $ErrorActionPreference = 'Stop'
-$CodeFiles = 'VTES-PANEL.html','VTES-LLM-LAUNCHER.html','VTES-BUDGET.html','VTES-MUNICIPALITIES.html','VTES-PROGRAMS.html','VTES-REMINDERS.html','VTES-TREEMAP.html','vtes-common.js','vtes-subs.js','vtes-modules.js','municipalities-data.js','Write-VtesStatus.ps1','Export-ProgramsData.ps1','VTES-RedBell.ps1','Verify-VtesPanel.ps1'
+$CodeFiles = 'VTES-PANEL.html','VTES-LLM-LAUNCHER.html','VTES-BUDGET.html','VTES-MUNICIPALITIES.html','VTES-PROGRAMS.html','VTES-REMINDERS.html','VTES-TREEMAP.html','vtes-common.js','vtes-subs.js','vtes-modules.js','municipalities-data.js','Write-VtesStatus.ps1','Export-ProgramsData.ps1','VTES-RedBell.ps1','Verify-VtesPanel.ps1','VTES-Gauge.ps1','VTES-CaptureReview.ps1','VTES-TASKS.html','VTES-PORTAL.html','VTES-CAPTURE.html','VTES-WHERE.html','VTES-INTERVIEW.html','tasks-data.js','portal-workflow.js','portal-jobs.js','capture-jobs.js','where-data.js'
 $DataRequired = 'vtes-reminders.js','programs-data.js'
 
 function Get-Sha([string]$p) { (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLower() }

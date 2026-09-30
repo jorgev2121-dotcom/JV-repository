@@ -26,21 +26,21 @@
     <button id="add" type="button">Save</button> <span id="addn" style="font-size:13px;font-weight:700"></span></details>
   <p class="foot">TRK-2026-9910-B · reminders v1 · 2026-09-30 · CURRENT · #reminders #owner-actions #VTES-control-panel · The list lives in vtes-reminders.js; "done" ticks are saved only in this browser.</p>
 </main>
-<script src="vtes-modules.js"></script><script src="vtes-reminders.js"></script><script src="vtes-common.js"></script>
+<script src="vtes-modules.js"></script><script src="vtes-reminders.js"></script><script src="vtes-alerts.js"></script><script src="vtes-reviews.js"></script><script src="vtes-budget.js"></script><script src="vtes-common.js"></script>
 <script>
 (function () {
   var V = window.VTES, esc = V.esc; V.nav('reminders');
-  var KC = { money: '#b3261e', owner: '#8a5a00', desktop: '#1b5e9e', check: '#6b6b66', mine: '#7a2e8e' }, KL = { money: 'MONEY', owner: 'YOURS', desktop: 'PC', check: 'CHECK', mine: 'YOURS (added)' };
+  var KC = { alert: '#b3261e', money: '#b3261e', owner: '#8a5a00', desktop: '#1b5e9e', check: '#6b6b66', mine: '#7a2e8e' }, KL = { alert: 'ALERT', money: 'MONEY', owner: 'YOURS', desktop: 'PC', check: 'CHECK', mine: 'YOURS (added)' };
   var doneSet = {}, mine = [];
   try { doneSet = JSON.parse(localStorage.getItem('vtes.rem.done') || '{}'); } catch (e) { }
   try { mine = JSON.parse(localStorage.getItem('vtes.rem.mine') || '[]'); } catch (e) { }
-  function all() { return (window.VTES_REMINDERS || []).concat(mine).map(function (r) { var c = Object.assign({}, r); if (doneSet[r.id]) { c.done = true; } return c; }); }
+  function all() { return (window.VTES_REMINDERS || []).concat(V.alerts().map(function (x) { return { id: x.id, kind: 'alert', title: x.title, due: x.due || '', detail: x.detail || '', src: x.src || 'gas gauge', done: false, alert: true, hot: x.kind === 'gauge' }; })).concat(mine).map(function (r) { var c = Object.assign({}, r); if (doneSet[r.id]) { c.done = true; } return c; }); }
   function days(r) { return r.due ? V.daysUntil(r.due) : null; }
   function draw() {
-    var A = all(), open = A.filter(function (r) { return !r.done; }), over = open.filter(function (r) { var d = days(r); return d != null && d < 0; });
+    var A = all(), open = A.filter(function (r) { return !r.done; }), over = open.filter(function (r) { var d = days(r); return d != null && d < 0; }), hot = open.filter(function (r) { return r.hot; });
     var soon = open.filter(function (r) { var d = days(r); return d != null && d >= 0 && d <= 7; });
-    document.getElementById('big').innerHTML = open.length ? '<div class="big' + (over.length ? ' flash' : '') + '"><div class="ic">🔔</div><div><b>' + open.length + ' waiting for you</b><br>' + (over.length ? over.length + ' overdue. ' : '') + (soon.length ? soon.length + ' due within 7 days.' : (over.length ? '' : 'None due this week.')) + '</div></div>' : '<div class="big clear"><div class="ic">✅</div><div><b>Nothing waiting</b></div></div>';
-    var order = A.slice().sort(function (a, b) { if (!!a.done !== !!b.done) { return a.done ? 1 : -1; } var da = days(a), db = days(b); if (da == null && db == null) { return 0; } if (da == null) { return 1; } if (db == null) { return -1; } return da - db; });
+    document.getElementById('big').innerHTML = open.length ? '<div class="big' + ((over.length || hot.length) ? ' flash' : '') + '"><div class="ic">🔔</div><div><b>' + open.length + ' waiting for you</b><br>' + (hot.length ? hot.length + ' alert' + (hot.length > 1 ? 's' : '') + ' (gas gauge). ' : '') + (over.length ? over.length + ' overdue. ' : '') + (soon.length ? soon.length + ' due within 7 days.' : (over.length ? '' : 'None due this week.')) + '</div></div>' : '<div class="big clear"><div class="ic">✅</div><div><b>Nothing waiting</b></div></div>';
+    var order = A.slice().sort(function (a, b) { if (!!a.done !== !!b.done) { return a.done ? 1 : -1; } if (!!a.hot !== !!b.hot) { return a.hot ? -1 : 1; } var da = days(a), db = days(b); if (da == null && db == null) { return 0; } if (da == null) { return 1; } if (db == null) { return -1; } return da - db; });
     document.getElementById('list').innerHTML = order.map(function (r) {
       var d = days(r), c = KC[r.kind] || '#888', dtxt = d == null ? '' : (d < 0 ? '<span class="tag" style="--c:#b3261e">OVERDUE ' + (-d) + ' d</span>' : '<span class="tag" style="--c:' + (d <= 7 ? '#b26a00' : '#2e7d4f') + '">due ' + esc(r.due) + ' · ' + d + ' d</span>');
       return '<div class="it' + (r.done ? ' done' : '') + '" style="--c:' + c + '"><h3><span class="tag" style="--c:' + c + '">' + (KL[r.kind] || r.kind) + '</span>' + dtxt + (r.check ? '<span class="tag" style="--c:#6b6b66">check</span>' : '') + esc(r.title) + '</h3><div class="d">' + esc(r.detail || '') + ' <i>(' + esc(r.src || '') + ')</i></div><button data-d="' + esc(r.id) + '">' + (r.done ? 'Undo done' : 'Mark done') + '</button></div>';

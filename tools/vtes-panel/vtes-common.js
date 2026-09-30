@@ -92,10 +92,23 @@
   // ---- reminders ----
   // whole calendar days from today (UTC date of nowMs) to a YYYY-MM-DD date; negative = overdue
   function daysUntil(d) { var t = new Date(nowMs()).toISOString().slice(0, 10); return Math.round((Date.parse(d + 'T00:00:00Z') - Date.parse(t + 'T00:00:00Z')) / 86400000); }
+  // alerts = warnings written by the gas gauge, plus a built-in watchdog on the gauge itself ("never go dark")
+  function gaugeState() {
+    var B = window.VTES_BUDGET; if (!B || !B.at) { return { k: 'missing', msg: 'The gas gauge is not installed yet: nothing is watching your Claude plan.' }; }
+    var age = (nowMs() - Date.parse(B.at)) / 3600000;
+    if (age > 2) { return { k: 'stale', msg: 'The gas gauge stopped ' + fmtH(age) + ' ago: nothing is watching your Claude plan.', age: age }; }
+    return { k: 'ok', msg: 'Gas gauge running (last reading ' + fmtH(age) + ' ago).', age: age };
+  }
+  function alerts() {
+    var A = (window.VTES_ALERTS || []).concat(window.VTES_REVIEWS || []).filter(function (a) { return !a.done; }), g = gaugeState();
+    if (g.k !== 'ok') { A = A.concat([{ id: 'A-gauge-watchdog', kind: 'gauge-watchdog', title: g.msg, detail: 'Fix: the PC must run VTES-Gauge.ps1 every 15 minutes (order TASK-C2D_GAUGE-AND-ROTATOR).', due: '', done: false }]); }
+    return A;
+  }
   function remCount() {
-    var R = window.VTES_REMINDERS || [], open = 0, over = 0, soon = 0, now = nowMs();
+    var R = window.VTES_REMINDERS || [], open = 0, over = 0, soon = 0, now = nowMs(), A = alerts(), hot = 0;
     R.forEach(function (r) { if (r.done) { return; } open++; if (r.due) { var d = daysUntil(r.due); if (d < 0) { over++; } else if (d <= 7) { soon++; } } });
-    return { open: open, overdue: over, soon: soon };
+    A.forEach(function (a) { open++; if (a.kind === 'gauge' || a.kind === 'review') { hot++; } });
+    return { open: open, overdue: over, soon: soon, alerts: A.length, hot: hot };
   }
   // ---- live probes (web chats): is the site reachable from this browser ----
   function runProbes(done) {
@@ -122,10 +135,10 @@
     bar.innerHTML = M.filter(function (m) { return m.id !== 'reminders'; }).map(function (m) {
       var label = (m.emoji || '') + ' ' + (m.short || m.title);
       return m.state === 'live' && m.file ? '<a href="' + esc(m.file) + '" class="' + (m.id === activeId ? 'on' : '') + '" title="' + esc(m.what || '') + '">' + esc(label) + '</a>' : '<span class="pl" title="Planned, not built: ' + esc(m.what || '') + '">' + esc(label) + '</span>';
-    }).join('') + '<a class="rem' + (c.overdue ? ' over' : '') + '" id="vremind" href="VTES-REMINDERS.html" title="Things waiting for you">🔔 ' + (c.open ? c.open : '') + (c.overdue ? ' · ' + c.overdue + ' overdue' : '') + '</a>';
+    }).join('') + '<a class="rem' + ((c.overdue || c.hot) ? ' over' : '') + '" id="vremind" href="VTES-REMINDERS.html" title="Things waiting for you">🔔 ' + (c.open ? c.open : '') + (c.overdue ? ' · ' + c.overdue + ' overdue' : '') + (c.hot ? ' · gauge warning' : '') + '</a>';
     document.body.insertBefore(bar, document.body.firstChild);
     return bar;
   }
 
-  window.VTES = { STATUS: STATUS, effective: effective, PROBE: PROBE, fmtH: fmtH, SYM: SYM, KCOL: KCOL, nowMs: nowMs, esc: esc, copy: copy, fold: fold, match: match, lev: lev, remCount: remCount, daysUntil: daysUntil, runProbes: runProbes, nav: nav, lastUp: lastUp };
+  window.VTES = { STATUS: STATUS, effective: effective, PROBE: PROBE, fmtH: fmtH, SYM: SYM, KCOL: KCOL, nowMs: nowMs, esc: esc, copy: copy, fold: fold, match: match, lev: lev, remCount: remCount, daysUntil: daysUntil, alerts: alerts, gaugeState: gaugeState, runProbes: runProbes, nav: nav, lastUp: lastUp };
 })();

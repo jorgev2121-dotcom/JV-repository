@@ -9,6 +9,11 @@ window.VTES_MODULES = [
   { id: 'programs', emoji: '🧰', title: 'Programs and Shortcuts', short: 'Programs', file: 'VTES-PROGRAMS.html', state: 'live', what: 'Every program, task and shortcut found so far, searchable (look-alike-character tolerant) and by hashtag.', tags: '#programs #shortcuts #search #OCR' },
   { id: 'treeview', emoji: '🌳', title: 'Tree View', short: 'Tree', file: 'VTES-TREEMAP.html', state: 'live', what: 'The folder map from the inventory crawler (shows real data once the PC has scanned).', tags: '#treeview #inventory #TreeSize' },
   { id: 'reminders', emoji: '🔔', title: 'Reminders', short: 'Reminders', file: 'VTES-REMINDERS.html', state: 'live', what: 'Everything waiting for you, due dates first.', tags: '#reminders #owner-actions' },
+  { id: 'tasks', emoji: '📋', title: 'Pending Tasks', short: 'Tasks', file: 'VTES-TASKS.html', state: 'live', what: '643 tasks merged and ranked (499 look live). Search, filter, change any rank.', tags: '#tasks #pending #priority' },
+  { id: 'portal', emoji: '🗂️', title: 'Job Portal', short: 'Portal', file: 'VTES-PORTAL.html', state: 'live', what: 'Permit and legalization jobs on the 13-stage workflow: where each stands, what is next, what blocks it.', tags: '#portal #workflow #permit #legalization' },
+  { id: 'capture', emoji: '🛰️', title: 'Capture Desk', short: 'Capture', file: 'VTES-CAPTURE.html', state: 'live', what: 'County page PDFs for a job: numbers to paste, links, file-name builder, the review-and-send pop-up plan.', tags: '#capture #county #OD-CR-01 #permit-status' },
+  { id: 'where', emoji: '📍', title: 'Where Things Live', short: 'Where', file: 'VTES-WHERE.html', state: 'live', what: 'Searchable map of Drive folders, repo files, PC locations and county pages.', tags: '#where #map #drive #repo' },
+  { id: 'interview', emoji: '🎤', title: 'Interview', short: 'Interview', file: 'VTES-INTERVIEW.html', state: 'live', what: '12 short voice-friendly questions, one at a time. Answers copy out with a stamp.', tags: '#interview #owner #voice' },
   { id: 'crm', emoji: '📇', title: 'CRM', short: 'CRM', file: '', state: 'planned', what: 'Recommendation written (CRM-RECOMMENDATION.md): keep Airtable.', tags: '#crm #airtable #wally' },
   { id: 'dispatch', emoji: '📮', title: 'Dispatch board', short: 'Dispatch', file: '', state: 'planned', what: 'Task cards that hand build and install work to Codex, Cowork and Grok Bots (ROUNDTABLE-PROTOCOL.md).', tags: '#dispatch #roundtable' }
 ];
@@ -22,5 +27,13 @@ window.VTES_WIRES = [
   ['municipal', 'crm', 'job address, folio, city code (planned)'],
   ['municipal', 'dispatch', 'portal-check batches for Codex, Cowork, Grok Bots (planned)'],
   ['budget', 'dispatch', 'router picks who takes each card (planned)'],
-  ['windows', 'dispatch', 'every handoff becomes a card with an ACK deadline (planned)']
+  ['windows', 'dispatch', 'every handoff becomes a card with an ACK deadline (planned)'],
+  ['portal', 'capture', 'each job opens its own county page list and file-name builder'],
+  ['portal', 'municipal', 'the job folio opens the permit fill sheet already typed'],
+  ['portal', 'budget', 'Which LLM takes this: the task is preselected'],
+  ['tasks', 'portal', 'job tasks and job stages describe the same jobs'],
+  ['capture', 'reminders', 'a PDF waiting for your review raises the red bell'],
+  ['where', 'programs', 'same search, same hashtags'],
+  ['interview', 'tasks', 'your answers decide the ranking (you or an assistant applies them)'],
+  ['portal', 'dispatch', 'copy-card hands one stage to another window (planned)']
 ];

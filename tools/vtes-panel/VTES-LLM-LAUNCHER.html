@@ -800,7 +800,7 @@
   window.VTES_V3 = { setRoot: function (h) { rootH = h; paused = false; setSaveUI(); }, saveNow: saveNow, addFiles: addFiles, attName: attName, transcript: transcript, setPaused: function (v) { paused = v; setSaveUI(); }, targetUrl: targetUrl, getBots: getBots, findLine: findLine, selectLLM: selectLLM, micToggle: micToggle, speakText: speakText, openBig: openBig, dockLeft: dockLeft, chunks: chunks, pickVoice: pickVoice, getPad: getPad, cur: function () { return cur; } };
 </script>
 <script src="vtes-status.js"></script>
-<script src="vtes-reminders.js"></script>
+<script src="vtes-reminders.js"></script><script src="vtes-alerts.js"></script><script src="vtes-reviews.js"></script><script src="vtes-budget.js"></script>
 <script>
   // ===================== v4: status colors, Map (flow + wiring + subscriptions) =====================
   // Everything here is data first, pictures second: one set of tables feeds the chips, the flow chart and the wiring diagram.
@@ -1067,7 +1067,7 @@
   }
   document.getElementById('t_map').addEventListener('click', function () { showMode('map'); });
   window.VTES_MAP = { paintCard: paintCard, effective: effective, refresh: refreshAll, status: STATUS, probe: PROBE, buses: BUSES, reach: REACH, nodes: MN, subs: SUBS, report: statusReport, show: function (t) { if (t) { mapTab = t; } showMode('map'); }, runProbes: runProbes };
-  (function () { try { var R = window.VTES_REMINDERS || [], n = 0, od = false; R.forEach(function (r) { if (!r.done) { n++; if (r.due && Date.parse(r.due + 'T23:59:59') < nowMs()) { od = true; } } }); var b = document.getElementById('remn'); if (b) { b.textContent = n ? ' ' + n : ''; } var a = document.getElementById('t_rem'); if (a && od) { a.style.animation = 'vtesflash 1s steps(2) infinite'; } } catch (e) { } })();
+  (function () { try { var R = (window.VTES_REMINDERS || []).concat((window.VTES_ALERTS || []).concat(window.VTES_REVIEWS || []).map(function (x) { return { done: !!x.done, due: '', hot: true }; })), n = 0, od = false; var gb = window.VTES_BUDGET; if (!gb || !gb.at || (nowMs() - Date.parse(gb.at)) > 7200000) { R.push({ done: false, due: '', hot: false }); } R.forEach(function (r) { if (!r.done) { n++; if ((r.due && Date.parse(r.due + 'T23:59:59') < nowMs()) || r.hot) { od = true; } } }); var b = document.getElementById('remn'); if (b) { b.textContent = n ? ' ' + n : ''; } var a = document.getElementById('t_rem'); if (a && od) { a.style.animation = 'vtesflash 1s steps(2) infinite'; } } catch (e) { } })();
   paintChips(); paintCard(cur); runProbes();
   setInterval(runProbes, 120000); setInterval(paintChips, 60000);
   window.addEventListener('online', runProbes); window.addEventListener('offline', function () { Object.keys(STATUS).forEach(function (id) { if (STATUS[id].probe) { PROBE[id] = { ok: false, at: nowMs() }; } }); refreshAll(); });

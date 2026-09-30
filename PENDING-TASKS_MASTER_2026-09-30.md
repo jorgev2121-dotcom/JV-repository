@@ -1,0 +1,685 @@
+# PENDING TASKS — MASTER LIST (grouped, ranked)
+**TRK-2026-9910-B · 2026-09-30 · #pending-tasks #owner-actions #priority**
+
+**Answer first: 643 unique pending items were found in your records (499 look live, 144 look stale). Rank 1 is the most urgent by the rubric below.** Built from 8 reading agents plus this session's own findings. **Nothing here was re-verified against the world; stale means overtaken or past-dated, not proven closed.**
+
+**Rubric (perceived priority):** your four named jobs +60 · Wally pipeline (survival) +40 · money in or out +22 · due within 14 days +35 (overdue +25) · login that unblocks other work +18 · permit, county or client work +12 · only-you step +8 · blocked +6 · stale −80. Change any rank on the Tasks page (VTES-TASKS.html).
+
+Legend: `[J]` only you can do it · `$` money · `#n` global rank.
+
+## P4 · #10980 SW 202 Dr Unit 29 (Cinde, starting) (16)
+- #1 [J] $ #10980: get the county answer on the fee correction (you say it should be about 1/16th) · TRK-2026-1667, TRK-2026-1310
+- #3 [J] $ #10980: get the $11,500 MZ proposal signed by the owner side · TRK-2026-1667, TRK-2026-1310
+- #4 [J] $ #10980: pay the corrected fee, then upload revised application v2 · TRK-2026-1667, TRK-2026-1310
+- #12 [J] #10980: confirm the 9/24 signed scans; answer Alexis Lamela on the Company Resolution witness lines · TRK-2026-1667, TRK-2026-1310
+- #13 [J] #10980: re-read the open Outlook draft to the county (something else swapped its attachment and cut off its body on 9/28) and fix it BEFORE sending · TRK-2026-1667, TRK-2026-1310
+- #14 [J] #10980: request a Certificate of Insurance naming the owner LLC from Miguel · TRK-2026-1667, TRK-2026-1310
+- #15 [J] #10980: tell Cinde to mail the signed originals to the Kendall address (county needs originals) · TRK-2026-1667, TRK-2026-1310
+- #23 #10980: EIN line: check if blank on the signed application; if blank, send the one-line ask to Cinde · TRK-2026-1667, TRK-2026-1310
+- #24 #10980: capture the county fee/application page as a PDF and review it (card D-006, skill county-status-capture) · TRK-2026-1667, TRK-2026-1310
+- #25 #10980: rewrite the 9/29 county email (it still has placeholders and "Note to Self"); do not send as written · TRK-2026-1667, TRK-2026-1310
+- #46 [J] #10980 (Cinde, starting): pick the master number: 1667 (recommended) or 1310 · TRK-2026-1667, TRK-2026-1310
+- #88 [J] $ Send the drafted fee-review email for 10980 SW 202 Dr Unit 29 after re-reading its body · TRK-2026-1667
+- #228 [J] Confirm the Unit 29 rework upload (C2026170181) is ok to run · TRK-2026-1667
+- #233 [J] Open and send the Certificate-of-Insurance request sitting in Outlook Drafts (AP-0078) · TRK-2026-1310
+- #235 [J] Press the SEND IT button to ask the client for the LLC EIN (10980 SW 202 Dr, Unit 29) · TRK-2026-1310, TRK-2026-1667
+- #311 [J] Check the printer tray and throw away extra Permit Application copies for Unit 29 · TRK-2026-1667
+
+## P2 · Pembroke Pines (Einar, 8621 Pasadena) (12)
+- #2 [J] $ Pembroke Pines (Einar): submit packet to the City and pay the permit fee · TUS-26-1018
+- #8 [J] $ Pembroke Pines (Einar): get TomTech price and turnaround; approve it · TUS-26-1018
+- #9 [J] $ Pembroke Pines (Einar): invoice Einar (no invoice exists); give the job a real TRK · TUS-26-1018
+- #20 [J] Pembroke Pines (Einar): owner signatures and notary on application, authorization, affidavit · TUS-26-1018
+- #21 [J] Pembroke Pines (Einar): pass inspections, final the permit, get Libio to close the code case · TUS-26-1018
+- #22 [J] Pembroke Pines (Einar): send Officer Libio a written confirmation of the plan · TUS-26-1018
+- #32 Pembroke Pines (Einar): fill the open application blanks (phones, license number, citation number, value) · TUS-26-1018
+- #33 Pembroke Pines (Einar): find the citation and Nov 19 hearing notice; get the case number; decide appear or respond · due 2026-11-19 · TUS-26-1018
+- #34 Pembroke Pines (Einar): receive sealed as-built letter and wind sheet · TUS-26-1018
+- #35 Pembroke Pines (Einar): send TomTech the real working papers (8 PaperPort pages) and install instructions · TUS-26-1018
+- #117 [J] $ Surface the overdue Einar matter with a staged owner action · TRK-2026-9130, TRK-2026-9123
+- #154 [J] $ Invoice the live jobs Groves at Sunset and Einar (Pembroke Pines) and surface the Einar overdue matter · TUS-26-1021, TUS-26-1018
+
+## P3 · #20001 SW 110 CT Unit 143 (Cinde, finishing) (13)
+- #5 [J] $ #20001: collect $2,222.14 from MZ Solutions (payment unverified) · TRK-2026-1262
+- #10 [J] Call Building Support to link permit 2026061642 to the 20001 SW 110 CT code case and issue the closed-NOV · TRK-2026-1262, TRK-2026-9669
+- #16 [J] #20001: save the closed-NOV and send a copy to the owner side (Cinde, Miguel) · TRK-2026-1262
+- #26 #20001: capture FRESH county pages (permit 2026061642 status and case 20260245510) as PDFs; review and send the permit-final page to MZ Solutions only if it shows final · TRK-2026-1262
+- #27 #20001: check Outlook Sent Items: was the 2026-09-28 county follow-up really sent? · TRK-2026-1262
+- #28 #20001: confirm the 17-page tax jacket reached the client (it reached only Jorge) · TRK-2026-1262
+- #47 [J] #20001: decide which of the three Drive folders is the real one; update the version log (RED) · TRK-2026-1262
+- #234 [J] Press Send on the third follow-up to close code case 20260245510 at 20001 SW 110 CT #143 · TRK-2026-1262
+- #281 [J] Merge or cross-reference the two TRK-2026-1262 folders under different parents · TRK-2026-9104, TRK-2026-1262
+- #316 [J] Confirm: is 20001 SW 110 CT the Cinde deal you call finishing?
+- #340 [J] Match OPH-2026-0008 (10510 SW 153 CT HOA application) to a job folder and file the other filable email documents · OPH-2026-0008, TRK-2026-9073
+- #411 File the 15 unfiled documents in PaperPort's holding folder · TRK-2026-9056, TRK-2026-1262
+- #425 Rename address-first job folders (1262, 1280) to lead with TRK · TRK-2026-9032, TRK-2026-1262
+
+## P1 · 14598 SW 110 ST (Miguelez) (15)
+- #6 [J] $ 14598: pay or resolve the two open citations ($20,080.16, owner money) · TRK-2026-1283, TUS-25-1023
+- #7 [J] $ 14598: write the quote and invoice (no invoice exists; fee of $2,666.32 fronted 2025-08-22) · TRK-2026-1283, TUS-25-1023
+- #11 [J] 14598: get the owner signature on the plans-revision application and approval package · TRK-2026-1283, TUS-25-1023
+- #17 [J] 14598: clear the enforcement permit holds so inspections can be ordered · TRK-2026-1283, TUS-25-1023
+- #18 [J] 14598: get the Dept. of Health irrigation-well permit and send it to process C2025117736 · TRK-2026-1283, TUS-25-1023
+- #19 [J] 14598: tell engineer to re-seal the as-built letter (page 2 says 2022, other evidence 2012) · TRK-2026-1283, TUS-25-1023
+- #29 14598: confirm plumbing sprinkler sub-permit status (inspection ref 2026035476) with the plumber · TRK-2026-1283, TUS-25-1023
+- #30 14598: look up electrical fees and draft the Spanish email to Einar (Jorge sends) · TRK-2026-1283, TUS-25-1023
+- #31 [J] Decide whether to retire TRK-2026-1614 or migrate TUS-25-1023 (14598 SW 110 St) · TRK-2026-9107, TRK-2026-9064
+- #53 14598: file the 70 PDFs under one number with a TRK stamp (RED: filing) · TRK-2026-1283, TUS-25-1023
+- #56 14598: fix the stage engine client field ([VERIFY]) so the job shows its real next action · TRK-2026-1283, TUS-25-1023
+- #141 [J] $ Decide whether to bill Eddie Miguelez (14598 SW 110 ST) for $2,666.32 of county fees Jorge fronted · TRK-2026-1283, TRK-2026-9700
+- #321 [J] Decide how to fold the four capsule trees and six unregistered root capsules (merges and retirements) · TRK-2026-9073, TRK-2026-1614
+- #343 [J] Ratify the master Tracking-Registry as canonical; approve void of 1614 and fold of TUS-25-1023/TUS-26-1041 into 1283 · TRK-2026-9401, TRK-2026-1614
+- #432 Verify provisional numbers 1614 to 1629 against the registry, then create the six job folders · TRK-2026-9063, TRK-2026-9067
+
+## Collections, invoices and money owed (53)
+- #36 [J] $ Decide whether to cancel X Premium Plus ($40/mo) before 2026-10-11 and keep SuperGrok · due 2026-10-11 · TRK-2026-9910-B
+- #48 [J] $ Call Homestead code officer Yairis Chapelli: what did the 2026-08-20 magistrate order on 535 NW 7 ST (~$38k exposure)? · due 2026-08-20 · TRK-2026-1532, TRK-2026-1564
+- #49 [J] $ Pay the 2026-27 Miami-Dade county business tax (due today) and save the receipt · due 2026-09-30 · TRK-2026-9614
+- #50 [J] $ Pay the Miami-Dade business tax renewal for CU Inspections and Team USA Sales, and save the receipt PDF · due 2026-09-30
+- #54 $ Approve: Cowork cancels X Premium Plus ($40/mo) after confirming Grok Automations are under SuperGrok (you approved 9/30) · due 2026-10-11
+- #71 [J] $ Sign in to the Miami-Dade Clerk Official Records account and put search units on it · TRK-2026-1684
+- #80 [J] $ Confirm $4,750 vs $4,780 and send Alabama Jack's $2,375 deposit invoice; reply to client Rick (silent since 08-21) · TRK-2026-9699, TRK-2026-9700
+- #82 [J] $ Follow up on the $1,450 billed to US Excellence Service (20610 NE 7 CT) and deliver the report sitting in an unopened zip · TRK-2026-9705
+- #87 [J] $ Send the COI refile email to RER Licensing to release the hold on C2025117736
+- #89 [J] $ Send the stalled email to Rick for Alabama Jack's ($4,780 job) (AP-0064)
+- #90 [J] $ Text Doron to ask which unit is #1215 on the $5,000 check (closes two open questions)
+- #96 [J] $ Decide on the $349 Varsity Tutors charge (refund call) and whether to replace the card read aloud on a recording · TRK-2026-9913
+- #98 [J] $ Answer whether Ricardo Gonzales two invoices totalling $2,950 were paid
+- #101 [J] $ Identify three unexplained payers: Ricardo Gonzalez Alvarez P.A. ($3,400), Little Bear Property Services ($3,400), Molino's extra $1,000
+- #105 [J] $ Say GO to merge the 20610 NE 7 CT job now split across three folders under two street names
+- #107 [J] $ Say whether Chris Forry's three October 2018 inspections were ever billed
+- #108 [J] $ Say whether the Fred Viener (RE/MAX Advance) account was ever closed out; $138,000 of invoices on no spine · TRK-2026-9899
+- #110 [J] $ Say whether to re-bill the $3,796.79 of 2025 county permit fees you paid out of pocket
+- #111 [J] $ Say which 2016 figure is right for Southeast Property Acquisitions: client's $92,472 or your sheet's $58,070
+- #113 [J] $ Send one email to fix the Berkeley Shore 2026 1099-NEC ($2,000 vs $2,205 paid) · TRK-2026-9530
+- #116 [J] $ Set the PREAUTH-20260727-01 dollar cap once (REG-0005) · REG-0005
+- #118 [J] $ Answer the three Gonzales questions: invoice 2669 $1,700, two unbilled 2025 jobs, open Unsafe-Structures case · TRK-2026-9879
+- #119 [J] $ Answer the two Gonzales questions on invoice 2670 and a possibly unbilled 2025 law-firm job · TRK-2026-9878
+- #123 [J] $ Answer whether Habitat 23's extra $825 should be sent back and whether to invoice 14961 SW 30 TER
+- #124 [J] $ Answer whether the $6,500 invoice from Feb 2024 should get a tracking number
+- #125 [J] $ Approve the pending-approvals queue: 71 open items, last refreshed 2026-09-17
+- #126 [J] $ Ask CPA Gregorio Herrera about zero officer pay and the 50/50 CU Inspections split with Chris Forry · TRK-2026-9528
+- #127 [J] $ Assign tracking numbers to 24 invoiced addresses that have live job folders but no TRK (33 of 34 invoiced addresses unregistered) · TRK-2026-9337, TRK-2026-9100
+- #131 [J] $ Check whether the $3,120.80 balance and $1,329+ fronted fees on the 543 E 61 St Hialeah job (invoice 6067) were recovered · TRK-2026-9495, TRK-2026-9493
+- #135 [J] $ Confirm whether Ricardo Gonzales paid invoices 2648, 2658, 2669 and 2670 ($6,350 total)
+- #136 [J] $ Decide on and set up Wispr Flow Pro for system-wide dictation · TRK-2026-9019, TRK-2026-9025
+- #140 [J] $ Decide whether the VPS server (SURGE-VPS) is still wanted · JOB-0069
+- #146 [J] $ Decide whether to draft one email asking the Miami Beach hotel to fix its $2,000 versus $2,205 tax form
+- #147 [J] $ Decide whether to invoice AMN Doral for the roughly $3,495 kept after the $1,500 refund (3650 NW 82 Ave) · TRK-2026-9697, TRK-2026-9453
+- #148 [J] $ Decide whether to send Habitat 23 their $825 back and invoice the job
+- #157 [J] $ Move the 114 client/billing PDFs (incl. invoice 6039, $926.84 county fee) from Dropbox into capsule JOB-0030-C · TRK-2026-9401, TRK-2026-1567
+- #160 [J] $ Pay the $44 City of Miami microfilm fee, then send the I-paid reply (AP-0002); do NOT send the old duplicate draft
+- #165 [J] $ Refund or confirm refund of $825 owed to Habitat 23 LLC (written promise, 95+ days overdue) · TRK-2026-9702
+- #166 [J] $ Register worked jobs with no tracking number (20723 SW 119 PL invoice 6066 and 4 other unregistered addresses) · TRK-2026-9401
+- #168 [J] $ Say if 543 East 61 ST owing $3,120.80 was ever settled
+- #169 [J] $ Say whether 8 finished Completed Legalizations jobs and 17 no-invoice Zelle payers ($31,253.55) were ever invoiced
+- #170 [J] $ Say whether Miguel paid two 2024 invoices ($3,026.18) and whether 543 East 61 ST's $3,120.80 was ever settled
+- #171 [J] $ Say whether Molino signed the $11,000 Flagler proposal and whether delivered CU jobs should be invoiced
+- #175 [J] $ Say whether the 2025 work for lawyer Nicholas Grandal on 2353 NW 81 St was a favour or should be billed
+- #178 [J] $ Search for a refund on the possible duplicate jam-software subscription payment · TRK-2026-9164
+- #181 [J] $ Set the PREAUTH voucher cap amount
+- #182 [J] $ Tap to approve the forgotten $93.75 microfilm/plan-copy invoice from the August 6 job
+- #185 [J] $ Tell the desktop whether the 2018 tax return was ever resolved after the 2019 IRS letter (OD-60)
+- #196 [J] $ Decide whether to remove the self-hosted LiteLLM router (RI-038 Tier 2) or wire real API keys into it · TRK-2026-9954, TRK-2026-9739
+- #218 $ Confirm the 82-row OCR list ($32,399.75) was finished by 9931 after job 9930 died mid-cycle · TRK-2026-9930, TRK-2026-9931
+- #221 $ Confirm the microfilm payment was made and file the 220 retrieved files
+- #248 $ Fill the LLM-USAGE-INVENTORY plan, reset-date and usage cells for Claude, ChatGPT, Gemini, Grok, Copilot · TRK-2026-9952, TRK-2026-9952b
+- #310 [J] Change the TUS-26 filing-serial prefix (for example FI-2026-) before the OCR rename plan is ever run · TRK-2026-9428
+
+## Wally pipeline and CRM (survival) (27)
+- #37 [J] $ Approve the two REISkip skip traces (about $98.85 total) for the Wally mailing list · TRK-2026-1614
+- #38 [J] $ Choose a name for the OpenPhone line (about $15 a month) and the campaign email for Wally · TRK-2026-9149
+- #39 [J] $ Choose the campaign email name and approve the OpenPhone marketing line · JOB-0087
+- #40 [J] $ Decide on the REISkip skip trace: buy it, say where results are, or go mail-only · AP-0035
+- #41 [J] $ Decide whether to approach the Sugar Hill owner directly (192 apartments) instead of going through TEDC
+- #42 [J] $ Push Marketing Wally forward: Airtable CRM, call sheets, $99 list test · TRK-2026-1614
+- #43 [J] $ Reconnect with Little Bear Property Services / Principal Realty (Orsini): 2025-06-20 request for 9033 SW 123rd Ct Unit 101 · TRK-9033, TRK-2026-9706
+- #44 [J] $ Run the $70 500-record list test for Wally · TRK-2026-9122
+- #45 [J] $ Set up the marketing email and phone identity (Workspace and OpenPhone, about $22/month) with Jorge for the verification tap · JOB-0028
+- #51 $ Cross-check the free 1,912-owner unsafe-structures list against the paid 659-record skip-trace before spending $98.85 · TRK-2026-9224
+- #59 [J] Get the Airtable CRM live for Wally (159 contacts and 34 jobs) · TRK-2026-9122, TRK-2026-9910-B
+- #60 [J] Send the finished 5-report management email to Wally Milian and Alec Valdes from Outlook Drafts · TRK-2026-1614
+- #61 [J] Decide whether to pursue Sugar Hill recert work with the owner directly (Urban League) or through TEDC (OD-64) · TRK-2026-9569, TRK-2026-9561
+- #62 [J] Email Wally his access details and how-it-works docs · TRK-2026-9122
+- #64 [J] Open a job for Doron Barnes or ignore his 14 window photos
+- #65 [J] Say whether Doron Barnes (14 'Windows' photos, 2026-08-18) is a customer and whether to open a job
+- #67 [J] Say whether to prepare a direct approach to the owner of the 192-apartment property
+- #68 [J] Say yes or no to assign the 50 home plus 50 commercial code-enforcement lien lists to Cowork
+- #69 [J] Send the four finished SEND-ME emails (Wally/Alec 5-report package and three CRM launch mails) · TRK-2026-9054, TRK-2026-9110
+- #70 [J] Send the three unsent Alec CRM launch emails: CRM Welcome, Cross-Collateral Explainer, Team CRM Launch
+- #85 [J] $ Send Alec's 3 finished DD books, answer the 1289 owner question, confirm the 1286 address, then invoice $100.25 · TRK-2026-1286, TRK-2026-1289
+- #91 Build the Wally call-sheet generator · TRK-2026-9122
+- #92 Draft the 500/week mailing material, QR landing content, auto-text and tracking sheet · TRK-2026-1614
+- #93 Follow up the absentee-owner lead at 2745 NW 28 St (mail goes to 3828 NW 19 Ave) · TRK-2026-9244
+- #94 Qualify the 1,287-case Unsafe Structures call sheet (622 owners) for Wally and refresh it with a live county pull · TRK-2026-9712, TRK-2026-9710
+- #322 [J] Decide the CRM: keep Airtable (recommended)
+- #373 [J] Create the free Gemini API key and paste it into the key vault yourself
+
+## Alec, Orange Tree and due-diligence reports (51)
+- #52 [J] $ Tell the desktop the outcome of the $3,000 RFA 2026-205 fee for Edison Towers II (deadline passed 09-22) · due 2026-09-22 · TRK-2026-1294
+- #74 [J] $ Decide whether to send the finished due-diligence report for 12248 SW 125 Ter to Kathryn Slack and invoice her · TRK-2026-1684
+- #76 [J] Pick up permit application for A. Valdes at the counter (need office and property) · due 2025-11-17 · TRK-2026-9073
+- #77 [J] Say what DERM and the consultant decided on the Edison Towers II Phase II ESA (due about 2026-08-04) · due 2026-08-04 · TRK-2026-1294
+- #78 [J] $ Say whether Garden Walk permits (Dec 2017), the Oct 2018 $2,850/month extension and draws 1, 2, 5-10 were ever issued, accepted or paid
+- #95 $ Supply the missing statement-of-account file named in all 8 Orange Tree transmittals · TRK-2026-9260
+- #97 $ Finish the Alec Valdes DD master and deliver it, then invoice $100.25 · TRK-2026-9047, TRK-2026-9129
+- #99 [J] $ Ask Sheldon whether TEDC paid the $575 Garden Walk title reimbursement twice
+- #103 [J] $ Pay or resolve the unpaid 2026 county business tax for AVIS BUILDERS LLC (and check SEICO CONSTRUCTION) · TRK-2026-9095
+- #106 [J] $ Say what Alec Valdes's $5,000 of 2026-07-21 was for and whether to invoice the job · TRK-2026-9047
+- #112 [J] $ Send follow-up to Miguel Zaldivar for the $1,800 Edison Tower payment and $2,222.14 MZ Solutions invoices · TRK-2026-1385, TRK-2026-1294
+- #121 [J] $ Answer whether Alejandro Tejeda P.E. was paid for Sugar Hill and whether his bills are one or two
+- #122 [J] $ Answer whether Garden Walk draws 1, 2 and 5 to 10 were ever invoiced
+- #133 [J] $ Collect the $5,000 from Alec Valdes and say which job it belongs to (OD-39)
+- #138 [J] $ Decide whether Alec is a billed client (no 2026 invoice) and approve renaming his folders to include his name · TRK-2026-1286, TRK-2026-1531
+- #139 [J] $ Decide whether Garden Walk East (15 months silent) and Sugar Hill with TEDC (silent since 2026-01-07) are worth a follow-up · TRK-2026-1412, TRK-2026-1414
+- #150 [J] $ Decide whether to write the follow-up for Miguel's $3,600 Edison Tower invoice ($1,800 due) · TRK-2026-1294
+- #151 [J] $ Deliver the Alec DD package including Orange Tree, then invoice $100.25 · TRK-2026-9123
+- #152 [J] $ Give the go to release Alec the finished due-diligence set, then invoice $100.25 · TRK-2026-9047
+- #172 [J] $ Say whether Sugar Hill is dead and whether the engineers (Tejeda ~$3,360, Dixon, SFBI/Remedios) were ever paid
+- #183 [J] $ Tell the desktop what the $3,000 Zelle to Miguel Zaldivar on 2026-05-26 was for · TRK-2026-9694
+- #184 [J] $ Tell the desktop whether engineer Tejeda (~$3,360) and Dixon were ever paid for Sugar Hill work done on Jorge's assurance · TRK-2026-9552, TRK-2026-9479
+- #223 [J] Answer whether Edison Towers II DERM Phase II deadline was extended and whose ball it is · TRK-2026-1294
+- #224 [J] Answer whether the 1286 file mentions the JG 11997 Land Trust or the listed names · TRK-2026-9090, TRK-2026-1286
+- #226 [J] Approve fixing the Garden Walk capsules (sold owners, WEST acreage ~4.98 vs 10.75, $1.075M deed) before sending TEDC anything · TRK-2026-1412, TRK-2026-1413
+- #227 [J] Ask Alec whether he has any interest in 1658 NW 1 St (folio 01-4102-006-0250) and settle the contradictory orders · TRK-2026-9162, TRK-2026-9189
+- #229 [J] Decide whether the 5 finished Unsafe-Structures property reports become jobs (number them) or are retired · TRK-2026-1316
+- #236 [J] Review the 8 Orange Tree transmittals before sending any; they claim all evidence received and list system-generated files · TRK-2026-9259
+- #239 [J] Say whether to open a new job for the approved permit plan set at 651 NW 58 St (Edison Place Building 1) · TRK-2026-1385
+- #243 [J] Send the rewritten Alec microfilm-retrieved email (all 420 pulled) · TRK-2026-9133, TRK-2026-1592
+- #245 [J] Tell the desktop directly whether to rebuild three Alec Valdes DD reports with new county photo evidence
+- #250 Populate the eight Orange Tree folders with the real client documents · TRK-2026-9179, TRK-2026-9180
+- #254 Add the folio and real content to the shell MDC due diligence for 13920 SW 34 St (JOB-0030) · JOB-0030
+- #255 Catch all attachments together when the five building-jacket replies arrive (subject bldg jacket, sender PAWebMail) · TRK-2026-9159, TRK-2026-9232
+- #257 Confirm last WASD water/sewer balance is cleared for 15601 SW 137 Ave (estoppel) and review life-expectancy flags · TRK-2026-1650, TRK-2026-1650-A
+- #259 Finish JOB-0030 final due-diligence report for 13920 SW 34 St (only PRELIMINARY exists) and answer was permit 2018007118 finaled · TRK-2026-9086, TRK-2026-1567
+- #264 Re-ask the county for the free records request on 18020 SW 103rd Ave (21 days unanswered)
+- #269 Replace the empty 22-SOURCE-RUN placeholder file in the Alec DD folder with real results or remove it · TRK-2026-9188, TRK-2026-1289
+- #270 Run the Orange Tree job once a desktop session can execute it · TRK-2026-9113, TRK-2026-9120
+- #277 [J] Decide whether 1292 and 1531 (7823 NW 5 AV) are one property and merge them · TRK-2026-9050, TRK-2026-9089
+- #288 [J] Answer YES/NOT YET to OCR and tag ~642 unreadable capsule docs and stamping TRKs on all 1,079 (OD-71, recommend YES) · TRK-2026-9637, TRK-2026-9630
+- #295 [J] Approve copying the ~1,205 missing documents (5 GB) into the TEDC capsules, add-only (OD-68) · TRK-2026-1412, TRK-2026-1413
+- #302 [J] Approve renaming the folder TRK-2026-1286 from '1997 SW 218 St' to the correct address (11997 SW 218 ST) · TRK-2026-9327, TRK-2026-1286
+- #317 [J] Correct the registry line for TRK-2026-1286 to 11997 SW 218 St (one-character edit) · TRK-2026-9161, TRK-2026-1286
+- #348 [J] Save the Orange Tree DD page to Drive (_ORANGE-TREE-DD) with Save-Page-As and press 'I SAVED IT - CHECK IT' · TRK-2026-9345, TRK-2026-9344
+- #350 [J] Say whether to copy missing job files into the two TEDC job folders
+- #357 [J] Tell us which PROOF-5 file set is the delivery (superseded 5.2 MB set sits beside the good one) · TRK-2026-9291
+- #366 [J] Approve replacing the job-portal builder with the fixed copy (needs your 4-digit passcode)
+- #394 [J] Type the one 4-digit passcode so three proven fixes can be applied (portal doc count, verifier check, reconciler kind/run counter) · TRK-2026-9281, TRK-2026-9288
+- #399 Approve copying the missing job files into the TEDC folders (Garden Walk 329 documents, Sugar Hill 706 files)
+- #442 Approve reading the 730 never-read job documents (and adding Dropbox to OCR) so they can be searched and numbered
+
+## Bal Harbour and Plaza (29)
+- #55 [J] Send the Bal Harbour Plaza Association progress report due 2026-09-30 (Gmail approval prompt to Quanny and Silvio) · due 2026-09-30 · TRK-2026-1265
+- #73 [J] $ Decide whether to send the Bal Harbour Permit Status report to MZ Solutions and invoice it · TRK-2026-1265
+- #83 [J] $ Get Bal Harbour permits issued: Plaza 815 and 1016 (Duran) ready, 307 BLC2024-1333 approved, none ever issued · TRK-2026-9185
+- #84 [J] $ Issue the three Plaza permits and handle lapsed unit 721 (lapsed 2026-08-04) · TRK-2026-9185
+- #109 [J] $ Say whether to bill the Certificate of Use at 2055 SW 122 AVE #305 (you paid $276.81 county fee) · TRK-2026-9734
+- #120 [J] $ Answer what Molino's $1,000 was for, the $11,000 Flagler proposal, and US Excellence's $1,450
+- #142 [J] $ Decide whether to bill Miguel for the two $0.00 Bay Harbor permits and the third unit never invoiced (OD-56)
+- #158 [J] $ Name a price for the delivered Bal Harbour plus Plaza job and the Rose Arbor Port Charlotte job · OPH-2026-0007, TRK-2026-1588
+- #159 [J] $ Name the price for the Guzman job at 1781 NW 129 TER so it is drafted with the Deeb invoice · TRK-2026-9880
+- #167 [J] $ Say go to draft the $1,750 invoice for Richard Deeb at 10288 NW 9 Street Cir #402 · TRK-2026-9880
+- #173 [J] $ Say whether the $0.00 invoice 6097 for Bay Harbor units 425 and 221 (and unit 404) was on purpose
+- #174 [J] $ Say whether the $0.00 invoice to Miguel for two Bay Harbor permits was deliberate
+- #176 [J] $ Say whether to invoice the Deeb job (10288 NW 9 St Cir #402, quoted $1,750) and price the Guzman job
+- #238 [J] Say GO to send the Bal Harbour Association letter (AP-0048) and answer its three questions
+- #240 [J] Say whether to pull the county Unsafe Structures case 20240228571 on 10900 N Bay Shore Dr
+- #242 [J] Send the five prepared building tax jackets · TRK-2026-9157
+- #252 Run the 0065 reconciliations on Unit 143, Bal Harbour and 13920 · TRK-2026-9140, JOB-0065
+- #263 Get the City of Miami certificate of use for 7823 NW 5 AVE · TRK-2026-9098
+- #267 Re-submit Bal Harbour window permits as renewals and fix mislabeled PDFs (922/321 named 220/721); Village rejected 9/9
+- #272 State the certificate-of-use gap in every DD report and request CU records from the county · TRK-2026-9094
+- #274 [J] Answer WORD or UPPER: which folder scheme is the real standard for the Bay Harbor capsules · TRK-2026-9838
+- #280 [J] Issue real tracking numbers to the eight folders named TRK-TBD (five Bay Harbor units likely one job) · TRK-2026-9172, TRK-2026-9171
+- #294 [J] Answer the six yes/no decisions from the filing sweep registry (FILING-SWEEP-REGISTRY_2026-09-30) · TRK-2026-1582, TRK-2026-1256
+- #297 [J] Approve extracting sealed plan sets from zips (Garden Walk 26 sealed-only, Bal Harbour Plaza 48, Edison Place Bldg 1) · TRK-2026-9482, TRK-2026-9484
+- #320 [J] Decide OD-02: does the registry cover pre-2020 work (Habitat for Humanity 1,635 PDFs, Bal Harbour 681 PDFs) · TRK-2026-9401, TRK-2026-9073
+- #346 [J] Resolve contested TRKs (1582 double-booked, 1412, 1414, 1531/1292, 1532/1564, 1442/1451, 1256) and merge the four registries · TRK-2026-1582, TRK-2026-1412
+- #402 Build a name-alias index so searches for Orange Tree also find the Plaza capsule reports · TRK-2026-9236
+- #415 Give real numbers to the eight TRK-TBD job folders (use OPH numbers) · TRK-2026-9009, OPH-2026-0007
+- #416 Issue a tracking number for Bal Harbour Plaza · TRK-2026-9049, OPH-2026-0007
+
+## Refinance, debt and cash flow (28)
+- #57 [J] $ Let the desktop read 18 cheque images ($42,369) behind the Chase login (OD-28) · TRK-2026-9705
+- #58 [J] $ Log in to QuickBooks Online so the desktop can settle about 43 invoices (~$75k) of unknown paid status · TRK-2026-9337, TRK-2026-9417
+- #63 [J] $ Log into Chase once to pull deposit check images for the unnamed 2021 deposits ($9,550 and $20,935)
+- #66 [J] Say whether the REISkip skip trace was ever purchased
+- #75 [J] Ask Miguel Zaldivar who chases the Edison Towers II county environmental deadline that passed August 4 · due 2026-08-04
+- #86 [J] $ Send Julia's Place bond-release W-9 chaser (51 days unanswered) or call Henry yourself · AP-0034, TRK-2026-0708-JULIA
+- #128 [J] $ Cash flow: turn on the QuickBooks Online bank feed (already owned) and schedule a monthly P&L export to Drive
+- #129 [J] $ Chase the 4 sent-and-overdue invoices ($4,800) and check status of 36 invoices with no document status ($49,948.68) · TRK-2026-9337, TRK-2026-9100
+- #130 [J] $ Check QuickBooks Online for invoices 5983 and 6033 and the other can't-tell-if-paid invoices
+- #132 [J] $ Collect the $3,900 already cleared by the bank for two invoices (OD-47)
+- #134 [J] $ Collect unpaid invoices 6095 ($1,400 MZ Solutions) and 6101 ($2,500 Sunset Apts); 6099 ($5,000) has no bank match · TRK-2026-9485
+- #137 [J] $ Decide what to do about the second $575 deposit (invoice 6093 possibly paid twice by TEDC) · TRK-2026-9485, TRK-2026-9567
+- #143 [J] $ Decide whether to bill back ~$3,796 of fronted 2025 county fees and $276.81 missing from invoice 6098 · TRK-2026-9699, TRK-2026-9457
+- #144 [J] $ Decide whether to chase MZ Solutions invoice 6095 ($1,400) and sunsetapts invoice 6101 ($2,500)
+- #145 [J] $ Decide whether to chase the $3,900 of two invoices the bank shows as unpaid
+- #149 [J] $ Decide whether to send a demand follow-up to Impact Windows (Juan Carlos Martinez) for $4,285.85 · TRK-2026-9511
+- #153 [J] $ Identify who paid $20,935 by cheque in 2021 or authorize pulling the bank statements
+- #155 [J] $ Log into QuickBooks Online and settle unpaid invoices: 5983, 6033, 6031, 5975, 6066, 6039 and the ~55 no-status list
+- #156 [J] $ Look at 4 QuickBooks invoice threads addressed to an Iberostar contact landing in Jorge's Gmail (old alias or typo?) · TRK-2026-9308
+- #161 [J] $ Pick which of the 16 unanswered money questions to chase first · TRK-2026-9734
+- #163 [J] $ Refinance: decide what to do about the SBA loan (status unknown, $232,900 to $288,800)
+- #164 [J] $ Refinance: get a written 3-4% offer with APR, fees, lender license and what it is secured by
+- #177 [J] $ Say who invoiced about 3,950 bank inspections from 2011 to 2019, CU or Team USA · TRK-2026-9903
+- #179 [J] $ Send the Julia's Place bond release W-9 chaser
+- #186 [J] $ Tell the desktop which account pays the $232,900 SBA loan and whether it is current · TRK-2026-9697
+- #222 $ Refinance: find the real $46,000 at 29% (read Chase statements 2025-01 to 2026-07 in Downloads) and list balance/rate per card
+- #352 [J] Say who invoiced the ~3,950 servicer inspections (Ocwen, Nationstar, Chase and others), CU or Team USA
+- #359 [J] Tidy the client folder 5035 SW 112 Ave (Belkis) that holds Jorge's medical records and SBA filings · TRK-2026-9437
+
+## Logins and accounts (1Password, Microsoft, Drive) (47)
+- #72 [J] Count Dropbox before it lapses and settle whether files went to OneDrive first · due 2026-10-01 · TRK-2026-9100, TRK-2026-9074
+- #79 [J] Answer: did you move the Dropbox files to OneDrive before they were deleted? · due 2026-10-01 · TRK-2026-9074
+- #102 [J] Open 1Password from the tray and unlock once (Windows Hello) so dedup of Microsoft/Miami-Dade logins can run · TRK-2026-9752, TRK-2026-9346
+- #104 [J] Run the 1Password audit at the desktop with Jorge (op whoami, vaults, counts) and the read-only RII inventory script · TRK-2026-9348, TRK-2026-9346
+- #115 [J] Set OD-02 blanket access: two clicks for acceptEdits and Chrome on all sites · TRK-2026-9083, TRK-2026-9126
+- #187 [J] Click Allow to connect the new LLM / Cowork to Google Drive, Gmail and the 01-JOBS folder
+- #188 [J] Create the free Gemini API key at aistudio.google.com to unlock the LLM panel · TRK-2026-9200
+- #189 [J] Sign the desktop PC into GitHub once so it can push (OD-76; repair RAMBO's git push) · TRK-2026-9082, TRK-2026-9674
+- #190 [J] Answer whether the tax-return PDF password is available or ask the accountant
+- #191 [J] Complete the ChatGPT sign-in for Codex CLI (desktop shortcut 'Codex - sign in (Jorge)') · TRK-2026-9952g
+- #192 [J] Complete the Exchange and Outlook sign-in
+- #194 [J] Decide on the iPhone Keychain to 1Password switch
+- #195 [J] Decide whether Higgsfield gets an account and make the Firecrawl key
+- #197 [J] Decide whether to replace the dead Grok key at console.x.ai or drop Grok
+- #198 [J] Do the single Gemini key sign-in so the desktop can mint the API key (PR #18 waiting); desktop also sweeps NEEDS-JORGE rows · TRK-2026-9746, TRK-2026-9743
+- #199 [J] Finish the Codex backup AI install with your one sign-in
+- #200 [J] Give the password (or say you do not have it) for the 35 locked accountant tax-return PDFs
+- #201 [J] Install Grok Bot (download link in the 8/27 xAI email) and open it once
+- #202 [J] Lock down or remove the plaintext spreadsheet holding SSN, passport, cards and passwords (3 copies, OD-57)
+- #203 [J] Lock down the plain spreadsheet holding identity documents and card data (plus the Seijas 1040s)
+- #204 [J] Move iPhone Keychain passwords into 1Password · REG-0007
+- #205 [J] Pair your phone to the PC once so you can answer approval cards away from the desk · TRK-2026-9962
+- #206 [J] Paste the Gemini API key so the Bus-Dispatcher Gemini lane works · REG-0004
+- #207 [J] Press the one-click go to clear Outlook reminders (staged; new Outlook olk.exe, deletes all reminders) · TRK-2026-9351
+- #208 [J] Re-authorize the Gmail account (password refresh) so mail syncs again
+- #209 [J] Re-consent Microsoft 365 in claude.ai Connectors and approve the Zapier prompt
+- #210 [J] Say whether to lock down the sensitive spreadsheet copies in OneDrive
+- #211 [J] Sign in to ChatGPT for Codex (desktop shortcut)
+- #212 [J] Sign in to MyQuest and download the 2026-07-22 full-panel results PDF
+- #213 [J] Sign in to Outlook once so the 2,786 emails filed out of sight in 60 days can be traced · TRK-2026-9289
+- #214 [J] Sign this computer into GitHub once so the desktop Claude can save its own work
+- #215 [J] Tell the desktop which 1Password vault to remove (Personal vs Jorge Valdes) and let it delete only if empty
+- #216 [J] Unlock 1Password so Word sign-in and 9Router lockout can be repaired · OD-107, TRK-2026-9346
+- #217 [J] Unlock 1Password with one Windows Hello touch so login cleanup and Outlook/Word repair can finish
+- #219 [J] Answer whether Dropbox gets read first (OCR FIRST) or skipped before it shuts on 2026-10-31 · due 2026-10-31 · TRK-2026-9754
+- #249 Fix the repeat Microsoft sign-in dead end (AADSTS900561) and check passkeys in Edge and Chrome
+- #258 Find the complete jacket sets for six addresses whose jackets look short (2195 NW 27 AV and five others) · TRK-2026-9230, TRK-2026-9231
+- #287 [J] Say whether to email your accountant for the four missing tax years and save the 2025 returns from Outlook
+- #293 [J] Answer the one gating question for the Dropbox-to-OneDrive move: what is 'Transfer 07082025 gks' (330 GB)? · TRK-2026-9755
+- #318 [J] Count and de-dupe Dropbox into OneDrive before Dropbox lapses, and set the date
+- #370 [J] Click the Outlook card: send two stuck health emails, park the 373-day-old test email, fix Outlook
+- #374 [J] Decide OD-14: add C:\Users\JV\Dropbox to the OCR engine roots and run the supervised pass on ~21,300 PDFs · TRK-2026-9100, TRK-2026-9038
+- #392 [J] Sign in once on the Codex desktop shortcut so the backup executor can start
+- #395 [J] Watch Task Manager when Outlook is closed to catch what relaunches it (RI-047)
+- #408 Decide whether to build or drop the 7 register items that have no artifact anywhere · TRK-2026-9262
+- #447 Build or drop six confirmed-absent items: 1Password audit, run scheduler, tour, Fable report, Zapier-Plaud autodelivery, reboot cause · JOB-0023, JOB-0024
+- #491 Remove pop-up focus theft at the source, then schedule an enforcement task · TRK-2026-9005, TRK-2026-9006
+
+## Medley · Art House (TUS-26-1033) (9)
+- #81 [J] $ Confirm the signed $16,000 Miami Art House agreement exists and the $8,000 deposit landed · TUS-26-1033
+- #100 [J] $ Finish the Medley legalization the $8,000 deposit bought, keep Miall informed, then invoice the remaining $8,000 · TUS-26-1033
+- #114 [J] $ Send the $8,000 Medley invoice · TRK-2026-9130, TRK-2026-9123
+- #162 [J] $ Reconcile the MZ Solutions Zelle (~$4,022) and the $8,000 Medley wire against the bank ledger · TUS-26-1033
+- #180 [J] $ Send the Miami Art House (Medley) $8,000 rev.3 invoice to the client and reconcile the $8k wire · TUS-26-1033, TRK-2026-9660
+- #193 [J] Create the Town of Medley BS&A Online account in your name · TUS-26-1033
+- #241 [J] Say which one-line Medley meaning of OB numbers applies · TUS-26-1033
+- #246 [J] Tell us where the labeled Medley job photos are (phone or mail?) · TRK-2026-9371
+- #304 [J] Approve superseding the stale $10,600 invoice under the same Medley number and fixing OPH-2026-0007 staging · OPH-2026-0007, TUS-26-1033
+
+## Filing system, OCR, hashtags, registry (75)
+- #220 [J] Check whether Groves at Sunset is one job filed twice (TRK-2026-1256 vs KAR-26-GROVES) · TRK-2026-9109, TRK-2026-1256
+- #225 [J] Approve filing the enhanced 331 Tamiami jacket into the Drive capsule · TRK-2026-9907, TRK-2026-1612
+- #230 [J] Decide whether the five finished property reports in the outbox become jobs or get retired
+- #261 Follow up the possible unpermitted structure at folio 01-3112-016-0030 · TRK-2026-9093
+- #262 Get a county lookup on process 2015095890 for the address of Sandra Suleta's 2015 permit set · OPH-2026-0009
+- #266 Re-run TRK-2026-1289 against the child unit folios of 1658 NW 1 STREET CONDO · TRK-2026-9091, TRK-2026-1289
+- #273 [J] Answer NEW or 1270 to give the 993 paid county documents a matter number (AP-0085) · TRK-2026-1270
+- #279 [J] Give a number to the 1514 NW 73 St folder (104 files, no number) · TRK-2026-9167
+- #284 [J] Remove the CLAUDE - PICK MODEL desktop shortcut once OCR is verified working · TRK-2026-9042
+- #298 [J] Approve filing MZ Solutions company COI under TRK-2026-1293 and unpin it from both permit jobs · TRK-2026-1293, TRK-2026-9086
+- #299 [J] Approve or decline merging the Groves at Sunset capsules (AP-0053) · TRK-2026-1256, TRK-2026-1436
+- #303 [J] Approve renaming the short-form TRK-26-1042 (13 files) and TRK-26-1043 (3 files) to canonical numbers · TRK-26-1042, TRK-26-1043
+- #305 [J] Approve supervised rename of TRK-26-1042 (15222 SW 108 Pl) and TRK-26-1043 items to canonical TRK-2026 form · TRK-26-1042, TRK-26-1043
+- #308 [J] Approve the filing-system constitution v2 and five CLAUDE.md amendments (none applied)
+- #309 [J] Approve the hashtag fix: one stamp function for every generator plus a read-only checker (Tier 2)
+- #324 [J] Decide the path forward for the Groves at Sunset duplicate capsule and other filing renames · TRK-2026-1292, TRK-2026-1294
+- #327 [J] Decide whether jacket #4 stays under TRK-2026-1531 or merges into the duplicate parcel number before the PDFs return · TRK-2026-9160, TRK-2026-1531
+- #328 [J] Decide whether to enforce or retire the +3 TRK increment rule · TRK-2026-9325
+- #329 [J] Decide whether to implement the reconciler output-check spec · TRK-2026-9114
+- #330 [J] Decide whether to keep or remove the stray duplicate 01-JOBS folder on Drive (marked do not use)
+- #331 [J] Decide whether to open a job for the approved permit set with no job number for your biggest client
+- #332 [J] Decide whether to open a new reserved TRK range (9xxx admin band is exhausted; 9999 exists) · TRK-2026-9999
+- #333 [J] Decide whether to open the 3.6 TB backup drive on your desk
+- #337 [J] Decide: adopt 04-AI-SYSTEM/LLM-SHARED as the one shared folder; retire the flat 8/26 "Shared Folders for all LLMs" (161 files, 160 frozen)
+- #338 [J] Give the TRK-26-1042 client folder (15222 SW 108 Pl) a canonical TRK-2026 number and normalise short-form numbers · TRK-2026-9169, TRK-26-1042
+- #345 [J] Record tracking numbers 1622 and 1625 (and other above-ceiling numbers) in the registry · TRK-2026-9190, TRK-2026-1622
+- #354 [J] Settle in 10 seconds whether D9 is a sync or a filing pass · TRK-2026-9184
+- #362 Report B: drive capacity used versus files found so the B: survey can close · TRK-2026-9084
+- #363 [J] Say BUILD IT or SHIP WITHOUT for the typed jacket blocks that 34 of 35 jacket pages wait on · TRK-2026-1612
+- #376 [J] Decide how to reconcile the two diverged repo copies (~100 commits apart) and the stranded local-branch work (AP-0036)
+- #381 Read _WORK-REGISTER.csv on the desktop and mirror its 167 open items into the repo · TRK-2026-9053, TRK-2026-9099
+- #385 [J] Say go on the small script fixes: matcher line, BOM on 8 scripts, proof ledger, job watcher · TRK-2026-10035
+- #387 [J] Say go to retire the Orphan Matcher frequency from every 30 minutes to every 4 hours · TRK-2026-10012
+- #397 Re-enable the four OCR scheduled tasks after the intake stamp ships · TRK-2026-9034, TRK-2026-9060
+- #398 Add footer stamping to the document pipeline · TRK-2026-9024
+- #400 Approve exporting the 870 core business emails that exist only in a backup PST's Deleted Items
+- #401 Assign OPH numbers to the roughly 700 orphan documents in OPH-REGISTER · TRK-2026-9066
+- #403 Build the intake ID stamp and exit gate for scanned documents · TRK-2026-9060
+- #404 Census all holding areas (count and age only) and schedule a recurring sweep report · TRK-2026-9057, TRK-2026-9058
+- #405 Compare NIGHT-PROTOCOL.md with the existing NEVER-IDLE owner directive and merge them · TRK-2026-9119
+- #407 Count total PDFs versus .SEARCH.txt sidecars for a real OCR completion percent · TRK-2026-9038
+- #409 Decide which job JOB-0035, JOB-0036 and JOB-0018 each mean · JOB-0035, JOB-0036
+- #410 Extract the identity from orphan OPH-2026-0001 (E-1.01-REV#2.pdf on E:) · TRK-2026-9083, OPH-2026-0001
+- #413 Finish the Drive survey (full-text, short-form and untagged TRKs) · TRK-2026-9033
+- #414 Finish the untracked-documents audit (email half is done) · JOB-0064
+- #418 Migrate OneDrive ClaudeMemory (Tracking-Registry) into the repo · TRK-2026-9017
+- #419 Normalize short-form TRK-26-NNNN numbers to TRK-2026-NNNN in Drive and Gmail · TRK-2026-9008
+- #420 Put TRK numbers in email subject lines · TRK-2026-9012
+- #421 Read the SUBORDINATE-TRK-HASHTAG owner directive and reconcile it with the charter · TRK-2026-9031
+- #422 Reconcile Tracking-Registry against Drive and confirm missing numbers like 1582 · TRK-2026-9029, TRK-2026-9062
+- #423 Reconcile old and new hashtag conventions (alias both ways, back-tag sweep) before SHARE-REDACTED goes live · TRK-2026-1582
+- #424 Record the 9xxx admin band as reserved in Tracking-Registry.md · TRK-2026-9027
+- #427 Resolve the conflicting filename conventions and five identity schemes · TRK-2026-9028, TRK-2026-9108
+- #428 Run the job-tree generator for every job folder and fix the TRK-TBD tree · JOB-0026, TRK-2026-9170
+- #429 Split the 146-document 119.7 MB '00-BATCH-PRINT' PDF into separate documents · TRK-2026-9038
+- #430 Stamp the TRK into OCR sidecars at extraction time · TRK-2026-9036
+- #433 Add monitoring for the RECONCILER, the one component nothing reports on · TRK-2026-9192, TRK-2026-9143
+- #436 Build the intake tracking-number watcher (ordered as 0025, reordered as 0058) · TRK-2026-9145, TRK-2026-9196
+- #446 Build JOB-0079 full status ledger with an automatic way to start sessions unattended · JOB-0079, JOB-0048
+- #460 Deliver the three repeatedly-ordered tools: job-tree dashboard, status ledger, intake TRK watcher · TRK-2026-9102
+- #461 Enable Windows LongPathsEnabled so deep job files are not skipped · TRK-2026-9037
+- #476 Make the durable fix in Doc-Filing-Arm.ps1 and Auto-Filing-OCR-Engine.ps1 (line 20) before any re-enable · TRK-2026-9671, TRK-2026-9672
+- #477 Make the ledger recurse into VTES-Outbox PROOF-5 and ledger _CLAUDE-MAILBOX (377 files outside ledger) · TRK-2026-9299
+- #481 Put VTES-Executor live so jobs actually run through it · JOB-0060
+- #483 Rebuild the .result.json completion record inside the JOB-0079 verifier · JOB-0079
+- #485 Reconcile AUTONOMY.md with the existing VTES-LOCAL-POLLER permission gate · TRK-2026-9048
+- #486 Reconcile CLAUDE.md lineage divergence and duplicate artifacts ('Claude Window Hub', 'VTES Control Panel') · TRK-2026-9910-B
+- #487 Reconcile _WORK-REGISTER.csv (167 open items, 7 streams) before writing another register · TRK-2026-9295
+- #488 Reconcile the VTES owner charter v2 against CLAUDE.md · TRK-2026-9045
+- #489 Reconcile the night protocol, re-test the vapor items and resume parked document work as normal backlog · TRK-2026-9125
+- #490 Regenerate repo TRK-REGISTRY.md from the master registry and make master-publish a per-cycle desktop step · TRK-2026-9401
+- #494 Revive or retire VTES-Executor (job ledger snapshot untouched since 2026-06-28) · TRK-2026-9141, TRK-2026-9197
+- #495 Run a real Queue-A census and rebuild OVERNIGHT-QUEUE.md (12+ hours of GREEN work) · TRK-2026-9952e
+- #497 Say which job JOB-0035, JOB-0036 and JOB-0018 each really mean (each number names two jobs) · TRK-2026-9155
+- #499 Update the JOB-0079 ledger: flip 6 false-negative jobs to DONE and 2 to half-done before it reconciles · TRK-2026-9086
+
+## Everything else (permits, county, admin) (17)
+- #231 [J] Decide whether to send the three 535 NW 7 St Homestead documents (proposal, postponement, engineer request)
+- #232 [J] Get the older Film plans on TRK-2026-1536 pulled in person at the Plans Library · TRK-2026-9134, TRK-2026-1536
+- #237 [J] Run one supervised Chrome pass on the Clerk Official Records site (captcha) for deeds, mortgages and liens · TRK-2026-9270
+- #244 [J] Sweep batch 3: the 28 client matters and 19 business-development items
+- #247 Embed images into the five DD reports so they can be emailed · TRK-2026-9267
+- #253 Add the county master-address ArcGIS endpoint to the county skill · TRK-2026-9092
+- #256 Collect real city permit forms to test the county-80% / city-20% overlay hypothesis · TRK-2026-9910-B
+- #265 Re-run JOB-0017 UCC job (result shows 'error: Unknown job type', never ran) · TRK-2026-9086
+- #268 Read the case detail before reporting $61,082.82 in citations for 11485 Quail Roost Dr · TRK-2026-9268
+- #286 [J] Say how the 2019 IRS Letter 12C (Form 8962 for your 2018 return) ended, or who handled it
+- #296 [J] Approve emailing the CPA for 4 missing tax years and supply the password for the locked CU Inspections 2016 return
+- #301 [J] Approve quarantine review of Defender detections on our own pwsh automation (needs Jorge's elevation) · TRK-2026-9366
+- #353 [J] Say yes to uninstalling Malwarebytes Premium (expired 7/29; nag service) · TRK-2026-9361
+- #355 [J] Switch the Google Calendar timezone from Pacific to Eastern · TRK-2026-9900
+- #356 [J] Tell us whether the Brother L3770 printer is powered off or gone · TRK-2026-9374
+- #406 Confirm Alt+V image paste works in Claude Code · TRK-2026-9026
+- #417 Keep OVERNIGHT-QUEUE.md stocked with 12+ hours of work · TRK-2026-9080, TRK-2026-9079
+
+## AI tools, desktop, panel, dispatch (86)
+- #251 [J] Right-click Claude Code Beige on the Desktop and choose Pin to taskbar · TRK-2026-9137
+- #260 Fix the dead Property Appraiser host in the county-data-sources skill · TRK-2026-9088
+- #271 Schedule the 22 Miami-Dade sources on the desktop heartbeat · TRK-2026-9076, TRK-2026-9078
+- #278 [J] Fix hard-coded off-screen position in SCRAPE-RESULTS.hta (locked file) · TRK-2026-9389
+- #282 [J] Re-list the 10-12 tasks you gave the code terminal on 2026-09-04 in one message
+- #283 [J] Reconnect Claude Code Remote Control on Jorge-PC · TRK-2026-9069, TRK-2026-9072
+- #300 [J] Approve or refuse the four proof files opened for review (3 recommended approve, JOB-0079-D2 recommended refuse) · TRK-2026-9265
+- #314 [J] Click Card 4 in OWNER-ACTIONS.hta on your Desktop to stop the desktop agent doubling up
+- #315 [J] Click SPEECHIFY IS OFF to turn Speechify back on in the browser profile you use daily
+- #335 [J] Decide whether to wire up or retire the Authorize Overnight Runs button
+- #336 [J] Decide which of the five or seven launchers to retire once the tray launcher exists · TRK-2026-9248
+- #344 [J] Re-list the 10-12 verbal tasks given to the desktop on 9/4 (about 30 seconds)
+- #347 [J] Review the roughly 48 older open questions in OWNER-QUEUE.md
+- #358 [J] Tell us whose machine DESKTOP-OTB90LR (a backup on B: drive) belongs to · TRK-2026-9075, TRK-2026-9038
+- #360 [J] Answer whether the mic button has felt like it stopped responding (CU-Dictation-Tray and CU-MicButton are dead) · TRK-2026-9955
+- #361 [J] Give the passcode (or NOT YET) to promote the fixed job-portal builder over the broken one (OD-70) · TRK-2026-9628
+- #364 [J] Set up an always-on schedule (a Routine) so work runs while you are away
+- #365 [J] Allow the desktop to open the 3.6 TB backup drive (run tree task as admin, OD-58/OD-77)
+- #367 [J] Approve the two-line settings.json fix so the proof-of-done gate can actually block
+- #368 [J] Calibrate the gas gauge once: read the Claude usage percents and run VTES-Gauge.ps1 -Calibrate
+- #369 [J] Change the network setting (six clicks) so cloud can reach the county sites
+- #371 [J] Click the new CHAT icon, confirm the microphone button is there, keep the Claude tray icon whose mic works
+- #372 [J] Confirm the owner-question window now lands on Jorge's screen, not the unwatched monitor · TRK-2026-9256
+- #375 [J] Decide how to clean up the TO-CLOUD.md backup pile (709 files, 1.7 GB) (AP-0043)
+- #377 [J] Decide whether to fix the backwards danger-label logic in the safety check
+- #378 [J] Paste PASTE-D-054 into the PC session (LLM-01 Jorge-PC) to wake the desktop executor
+- #379 [J] Paste PASTE-D-063 into the desktop so the night engine gets rebuilt
+- #380 [J] Pick the real repo branch: reply 1 (recommended) or 2 · TRK-2026-9998
+- #382 [J] Reply 'did it buzz' to confirm the iPhone push alert arrived
+- #383 [J] Say GO to add UTF-8 BOM to 8 scripts with the em-dash path trap (AP-0054)
+- #384 [J] Say OK to patch the VTES-Repo-Heartbeat false alarm on line 79
+- #386 [J] Say go to build the filter for the half of the stuck county queue that is workable · TRK-2026-9867
+- #388 [J] Say whether the 3.6 TB backup drive (B:) should be opened; a permission box blocks every sweep
+- #389 [J] Say whether you switched off seven scheduled tasks on Saturday evening (AP-0016)
+- #390 [J] Say yes to the 5-zone workspace layout (WORK, TALK, LOOK-UP, WATCH, PARKING) and finish FancyZones setup · TRK-2026-9359, TRK-2026-9360
+- #391 [J] Set the iPhone default contacts account to Gmail and turn on iCloud Backup and WhatsApp chat backup · TRK-2026-9758
+- #393 [J] Type /remote-control once in the Desktop Claude Code window so iPhone and cloud can reach the PC · TRK-2026-9952d
+- #396 Patch the county-data-sources SKILL.md (dead permit URL, API defects 1-12) in an interactive desktop session · TRK-2026-9437, TRK-2026-9567
+- #412 Finish reconstructing the six-month request backlog from Drive and Gmail · TRK-2026-9046
+- #426 Repair the PaperPort Send To Bar · TRK-2026-9059
+- #431 Turn on /voice dictation and restore the microphone button · TRK-2026-9018, TRK-2026-9030
+- #434 Audit MASTER-UNFINISHED-WORK-REGISTER batches 1 and 2 · TRK-2026-9086
+- #435 Build the external third layer of SENTINEL-01 (survives the desktop being off) · TRK-2026-9142, JOB-0062-A
+- #437 Add BusinessTracker and Property Appraiser ArcGIS lookups to the county skill · TRK-2026-9096
+- #438 Add icon badges and [CLOUD]/[DESKTOP]/[CHROME] window titles to the three Claude windows · TRK-2026-9363
+- #439 Add the never-swept roots and mail stores to every sweep (18,585-email archive, 12 PSTs, C:\Jorge, B: permission zero) · TRK-2026-9698, TRK-2026-9665
+- #440 Add the rule to read the response body, never just the status code, in county scrapers · TRK-2026-9097
+- #441 Add the verifier script and the tray launcher to the heartbeat roster · TRK-2026-9207, TRK-2026-9249
+- #443 Audit every scheduled routine, including Windows Task Scheduler and the poller · TRK-2026-9052
+- #444 Audit which model every saved session is pinned to · TRK-2026-9022
+- #445 Batch-wrap the remaining 47 direct-shell scheduled tasks after the 4-task fix proves out · TRK-2026-9352
+- #448 Build the JOB-0067 durability spine and JOB-0068 Approval Console · JOB-0067, JOB-0068
+- #449 Build the JOB-0079 headless watcher and run pilot JOB-0073-A to three verified successes · TRK-2026-9070, TRK-2026-9117
+- #450 Build the JOB-0079 step that launches a session by itself, so jobs run with nobody in the room · TRK-2026-9237, TRK-2026-9209
+- #451 Build the automatic swap-on-low-usage FOREMAN / Token Monitor (supporting pieces shipped, swap not built) · TRK-2026-9949, TRK-2026-9952f
+- #452 Build two beige launchers with mic in the Windows system tray · TRK-2026-9246, TRK-2026-9247
+- #453 Check on the desktop: GATES approval panel, intake watcher and Downloads sweep (JOB-0021, 0025, 0058) · JOB-0021, JOB-0025
+- #454 Check whether the 35 folders touched this week reflect the sync, not real work, and count documents added instead · TRK-2026-9215
+- #455 Check which bulk-ACKed 8/7 jobs have a real build (Portal Concierge, Handoff Tray, Win10 ESU, tagging) · JOB-0064-A, JOB-0067-B
+- #456 Clone the repo onto the PC so the desktop can find WORK-QUEUE.md · TRK-2026-9043
+- #457 Consolidate the six Drive mailboxes into one · TRK-2026-9044
+- #458 Decide whether the Bus-Dispatcher Gemini lane closes with REG-0004 · TRK-2026-9149
+- #459 Decide whether the stability plan posted to the board counts as registering JOB-0066 · TRK-2026-9199
+- #462 Finish CU-ClaudeTray launcher and its three locks (tray pin, read-only shortcut + backup, self-healing logon task) · TRK-2026-9246-B, TRK-2026-9337-LOCKS
+- #463 Finish the JOB-0079 pilot (desktop loop that runs jobs and verifies proof) three times · JOB-0079
+- #464 Finish the all-surface handshake (JOB-0031): only 1 of 4 surfaces replied · JOB-0031
+- #465 Fix BRIDGE-PICKER button and Windows Terminal CLAUDE profile · TRK-2026-9013, TRK-2026-9014
+- #466 Fix desktop git push (Windows Credential Manager) so commits reach the repo · TRK-2026-9082
+- #467 Fix the VTES auto-acker so ACK means work started, not just arrived · TRK-2026-9767
+- #468 Fix the dead tax-jacket mirror watcher that has been down since 2026-06-10 · TRK-2026-9225, TRK-2026-9233
+- #469 Have desktop open AGENT-ORCHESTRATOR-STATUS_2026-07-30.html to settle whether JOB-0052 Orchestrator was built · TRK-2026-9198
+- #470 Have desktop verify the GATES panel, intake watcher and downloads sweep exist in Task Scheduler · TRK-2026-9263
+- #471 Install the VTES launcher/control panel, tray V badge, red bell and Verify script on the PC and return Windows proof · TRK-2026-9910-B
+- #472 Install the executor tray icons (CU-ExecutorTray.ps1) and verify on the real desktop · TRK-2026-9740
+- #473 Install the top-of-screen flashing attention banner (VTES-Attention.ps1) and prove it on Windows
+- #474 Make any scheduled Retrieve-Microfilm-Order run call pwsh (PowerShell 7), not 5.1 · TRK-2026-9132
+- #475 Make sure nothing treats an auto-ACK 'received' as completion · TRK-2026-9112
+- #478 Panel install on the PC: copy VTES-PANEL folder, run self-tests, schedule Verify + heartbeat + gauge (card D-001)
+- #479 Pick up the ~8 register jobs confirmed still open (0052, 0033, 0054-57, 0034, 0038 at 0%; 0022 at 50%; 0045 at 25%) · TRK-2026-9086
+- #480 Prove the loop with no human in it (cloud writes, desktop executes, cloud confirms) · TRK-2026-9071
+- #482 Rebuild or retire nine VAPOR protocols and get VTES-Executor live (JOB-0060 to 0066, ORCHESTRATOR-01) · JOB-0060, JOB-0061
+- #484 Rebuild the frozen approvals board file (APPROVALS-NOW.md) from the 9/1 snapshot
+- #492 Replace the hourly trigger's stale item-4 list with real open work · TRK-2026-9946
+- #493 Restore the daily System Health email · TRK-2026-9035
+- #496 Say whether to build the filter for the 187 answerable stuck county addresses
+- #498 Test LiteLLM/CrewAI, the 0xc0000142 error and the 13 dead scheduled tasks on the desktop
+
+## Your decisions (yes or no) (21)
+- #275 [J] Ask what 'SWEEP' moves before saying it (180 old documents) · TRK-2026-9115
+- #276 [J] Decide on the EX21-BoardSubmit gate
+- #285 [J] Say 'continue the register' to run batch 3 (28 client matters, 19 bizdev items) · TRK-2026-9101, TRK-2026-9086
+- #289 [J] Answer interview round 1 (12 short questions, by voice)
+- #290 [J] Answer one sentence about the left screen (glance at one dashboard, or arrange several windows?) and decide on the FancyZones/mshta rule · TRK-2026-9380, TRK-2026-9385
+- #291 [J] Answer the 17 owner approvals from 2026-07-31 (one word each) · TRK-2026-9055, TRK-2026-9085
+- #292 [J] Answer the 17 owner gates, starting with REG-0001, REG-0002 and REG-0004
+- #306 [J] Approve the VTES flowchart draft (who talks to whom) · TRK-2026-9910-B
+- #307 [J] Approve the client-report portal mockup to settle the two-layer model tiers
+- #312 [J] Choose tax-jacket enhancement method A (bounded clean and lock) or B (guard only); recommendation is A · TRK-2026-9226, TRK-2026-9227
+- #313 [J] Choose the model tiers for the two-layer client reports · REG-0012
+- #319 [J] Decide CDM GO or hold on the tax-credit model build that is 84 percent complete · TRK-2026-1294, TRK-2026-9980
+- #323 [J] Decide the cloud network setting (Custom allowlist of ~40 city/county hosts) so cloud can collect forms itself
+- #325 [J] Decide version-log policy: retroactive bulk logs or log at point of change
+- #326 [J] Decide what to do with EX21-BoardSubmit (carried only as a footnote about simulating votes) · TRK-2026-9149
+- #334 [J] Decide whether to set the cloud network to a custom allowlist (40 municipal hosts) so cloud can fetch city forms · TRK-2026-9910-B
+- #339 [J] Give the URL and a screenshot of the old CU Inspections site/engine (or say NONE) and who hosts it
+- #341 [J] Name the client portal: OnlineCOU or another name · TRK-2026-9960
+- #342 [J] Put DIR-0001 (Board-of-5 gate) in front of Jorge for his decision · TRK-2026-9290
+- #349 [J] Say ADOPT to put the August 25 max-autonomy voice order into CLAUDE.md
+- #351 [J] Say whether to restore the larger conversation memory window (opusplan with the big context)
+
+## STALE CANDIDATES (144): look overtaken or past-dated; confirm before deleting anything
+- #500 Answer yes or no: accept county whole-property answers for 86 leads naming a specific building — From 2026-08-27 lead-filter run; likely decided or moot by now.
+- #501 Check the DigitalOcean Droplets page is empty, or destroy anything listed — Check-by date 2026-09-01 has passed; still worth 10 minutes because any server would now b
+- #502 Choose how to build the 50-lead due diligence: leave phone/email blank or supply a list that has them — From 2026-08-27; check whether the lead filter or CRM list has since been settled.
+- #503 Print the Volley presentation pack (3 print-ready pages) from the artifact — Dated 2026-08-18; likely printed or superseded by later sales material.
+- #504 Reply to Doron Barnes' 2026-08-18 'Windows' email (14 photos), a possible new customer — Email is from 2026-08-18 (6 weeks ago); customer may have gone cold or been handled.
+- #505 Resume the Alabama Jack's Monroe County temporary-power permit job and send the $4,750 invoice — ON HOLD per Jorge 2026-08-26 (proposal went cold, unlikely to close)
+- #506 Say whether to hold or send the three Homestead emails (proposal, postponement, engineer) for 535 NW 7 St after calling Chapelli — Hearing date passed 2026-08-20; marked ON HOLD (unlikely to happen) by Jorge 2026-08-26, b
+- #507 Send Wally the email: add his address and attach the 4 PDFs (or the 1.67 MB combined PDF) — Dated 2026-08-18; charter Article 2 says Wally docs by email is Priority Zero - verify if 
+- #508 Type C2026170181 into the county ePayment box and click Add (not Pay) to reveal the Unit 29 fee amount — Done 2026-09-28: RAMBO read the fee, $7,280.94 (screenshot in VTES-Outbox).
+- #509 Ask the Garden Walk client side for the counter-signed copy before any invoice ($57,000 contract; Team USA Sales is the contracting party) — Superseded in part by rows 653-655: draws 8-10 never issued and unpaid balance is time-bar
+- #510 Call Bal Harbour Building Department to confirm no work started before permit (double-fee risk, AP-0056) — Needed before the 2026-09-08 filing; date has passed.
+- #511 Call Homestead code officer about the TRK-2026-1532 hearing outcome and fine — Red list 8/26: Homestead hearing ON HOLD (unlikely to happen).
+- #512 Confirm whether the county balance of $637.79 on permit application C2026116502 is paid — Row is from 2026-08-20; permit finaled 08-07 so this may be closed, verify before acting.
+- #513 Deliver or file the 5 finished DD reports parked in an Outbox (4 properties have no TRK) — Row is from 2026-08-24; possibly the same five reports as the Alec DD set, now tracked at 
+- #514 Record the outcome of the 9/8 Bal Harbour filing and pick option A/B/C for units 321, 922 and PH11 (AP-0077) — Filing date 2026-09-08 has passed; task is now to learn and log the outcome.
+- #515 Register for Clerk Official Records account (check 1Password first; advanced search may be paid) — Clock was Fri 2026-08-21; may be done or overtaken.
+- #516 Say whether Garden Walk East is dead or alive (15 months silent) and whether the $15,000 quote ever moved — Asked 2026-08-20, 41 days old and never updated
+- #517 Finish the three presentations (Volley $495 deck, architect-engineer narrative, September 21 board deck) — September 21 board date is now past (today 2026-09-30).
+- #518 Give the 50-lead due-diligence contact list or confirm it builds without contacts — Red list dated 8/26; Wally CRM status after that unknown.
+- #519 Get Jorge's status on Invoice 5975 ($1,000, Mr. C. Herrero) after 5-year statute deadline passed — Deadline expired 2026-08-31; only a yes/no record question remains.
+- #520 Find Bal Harbour's renewal rule for Plaza 721 permit that expired 2026-08-04 — Expired 2026-08-04; nearly two months have passed, so the renewal window is probably close
+- #521 Pay the $44 City of Miami microfilm (Transaction 1330901) and reply to the City so the search starts — Target date 2026-09-05 passed 25 days ago; later rows do not say if paid, verify first.
+- #522 Check the DigitalOcean account for a billing server before it charges — Due 2026-09-01 has passed; check the first invoice in Gmail instead.
+- #523 Click the consent screen to authorize the Microsoft 365 connector — Dated 2026-08-15; a Microsoft 365 connector is now available to sessions, so likely done.
+- #524 Add AT&T International Day Pass to Jorge's son's line before he travels abroad — Row is from 2026-08-21 and the son's travel date was never given; trip may already be over
+- #525 Check in QuickBooks whether invoice 5975 ($1,000, H&H Investment Bros) was paid before the legal limit — Deadline 2026-08-30 already passed (31 days ago); likely now time-barred, only worth a qui
+- #526 Decide numbering for the 2 properties (invoices 5917, 5918, $400) left on the OD-18 actionable list — Mid-August row; OD-18 was later answered (line 735) and spine rebuilt several times.
+- #527 Decide which layer to trial first (InspectorHub trial, chat cockpit, automation glue) after the 9/30 subscription-billing directive — Partly superseded by the 2026-09-30 subscription-billing directive (lines 778-780).
+- #528 Explain two $20,000 deposits in 2025 (Puerto Rico wire 'PAY PERSONAL LOAN' and a branch deposit) — Asked 2026-08-20, 41 days old and not updated in later mirrors; confirm it is still wanted
+- #529 Explain why you paid Chris Forry ($4,001 in 11 payments) and Miguel Zaldivar ($3,000) by Zelle — Asked 2026-08-20, 41 days old and not updated in later mirrors
+- #530 Give the desktop the date and details for the vehicle purchase and financing — Row from 2026-08-25; no details ever added.
+- #531 Log in to DigitalOcean and check the Droplets page is empty so nothing is billing — Due date 2026-09-01 has passed.
+- #532 Pay or act on invoice 5975 ($1,000, C. Herrero) before the 5-year statute expires — Deadline 2026-08-31 passed a month ago; confirm whether paid or statute-barred.
+- #533 Pay the Edison Towers RFA 2026-205 fee ($3,000) and answer which agency RFA was meant (AP-0028) — Deadline 2026-09-22 has passed; confirm whether application/fee was handled or dropped.
+- #534 Pick $4,750 or $4,780 on the Alabama Jacks proposal paper — Red list 8/26: Alabama Jack's $4,750 ON HOLD, proposal went cold.
+- #535 Send the staged microfilm retrieval email (220 documents retrieved) — Deadline 2026-09-05 has passed; the email was probably sent, confirm.
+- #536 Tell the team whether Herrero invoice 5975 ($1,000) was paid, written off or missed — Deadline passed 8/30 and red list 8/26 put it ON HOLD.
+- #537 Write and send the follow-up to Miguel covering MZ Solutions overdue invoices ($2,222 plus $1,800 Edison Tower) — DAILY-RED-LIST 2026-08-26 says MZ Solutions PAID by Zelle (~$4,022, which equals $2,222 + 
+- #538 Click to bring back the 59 buried business emails (22 marketing/notification + 37 Bills/Permits/CU_Inspections) — Dated 2026-08-18; Jorge may have clicked since - check Inbox count vs 2,729 baseline.
+- #539 Connect the new LLM to Drive and Gmail and set a scheduled Routine — 8/26 checklist; Cowork routines now running per 9/28 board.
+- #540 Decide whether to delete the Google-ad scam history entry and report the ad keyword (Jorge's word) — Incident dated 2026-08-18; low remaining risk.
+- #541 Glance at the two Dropbox sign-in notices from 2026-08-12 (one from an unknown location) — About seven weeks old, low priority, likely benign; Dropbox lapses about 2026-10-01 anyway
+- #542 Open the cloud environment's network allowlist for county sites (about 6 clicks) — Desktop proved 17 of 22 county sources with live results (line 188), so the cloud allowlis
+- #543 Re-login to apps after the 7/27 reboot as each one asks (REG-0008) — gate from 2026-07-31, 61 days old; the gates file itself says treat as informed, not curre
+- #544 Take one look at the unknown-location Dropbox sign-ins from 8/12 — Notices are from 2026-08-12 and low confidence; only matters if Dropbox is still in use.
+- #545 Turn off iPhone Keychain AutoFill and set 1Password as provider (REG-0007) — gate from 2026-07-31, 61 days old; the gates file itself says treat as informed, not curre
+- #546 Unlock 1Password on the desktop lock screen — Card 9/16 snapshot; desktop up since 9/17 so state unknown.
+- #547 Finish row-crop settlement of four disputed Fred invoice amounts — Cycle dated 2026-08-30; later rows show 9943 verified Fred invoices 2070 and 2114 - check 
+- #548 Re-run revenue-by-year totals on the corrected date formats (every spine year-count was wrong) — Row from 2026-08-24; spine was rebuilt many times after (lines 640-647).
+- #549 Answer AP-0049 and AP-0055 on Bal Harbour signatures (16 needed: 8 owners + 8 qualifier) for the 9/8 filing — Filing date 2026-09-08 has passed; record what actually happened instead of answering.
+- #550 Answer microfilm question for Alec's 331 Tamiami Canal job: YES-ALL or ASK-PER-ITEM — Hard clock was Fri 2026-08-21; charter separately lists microfilm retrieval before 2026-09
+- #551 Answer the three Plaza packet questions: blank improvement type and choose-only-one conflicts — Filing day 9/8 passed; AP-0076 (9/16) says renewals already filed and paid. Likely obsolet
+- #552 Answer who lodges the Bal Harbour permit applications in person on 2026-09-08 (Google calendar already holds it) — Filing day 9/8 passed; AP-0076 (9/16) says renewals already filed and paid. Likely obsolet
+- #553 Approve the Miami Art House Gantt chart draft (Sep 14 2026 to Jan 15 2027) — Phase 1 start date 9/14 has passed; confirm with client and whether schedule slipped.
+- #554 Check Outlook for delivered tax jackets ordered 2026-08-16 for Alec's 6 properties — Ordered 2026-08-16; 6+ weeks old - jackets may have arrived and been handled.
+- #555 Confirm the 19 printed Medley pages are in the tray and decide whether to reprint in color (printed grey) — Dated 2026-08-18; Jorge likely already has the sheets.
+- #556 Decide 331 Tamiami flood zone conflict (county says Zone X, FEMA 2021 says Zone AE) before it goes in the report — Deadline was Friday 2026-08-21 (line dated 2026-08-18); likely resolved or overtaken - ver
+- #557 Decide how to handle the two unreviewed Plaza packets, unit 307 and unit 1016 — Filing day 9/8 passed; AP-0076 (9/16) says renewals already filed and paid. Likely obsolet
+- #558 Decide whether unit PH11 files as an as-built or legalization, not a sworn no-work certificate — Filing day 9/8 passed; AP-0076 (9/16) says renewals already filed and paid. Likely obsolet
+- #559 Discard the unsent clerk email to Olga because the Plaza renewals are already filed and paid — Due 9/17, passed; action is just to delete the draft.
+- #560 Do the 30-second browser check on whether units 714 and 914 LLCs are active — Filing day 9/8 passed; AP-0076 (9/16) says renewals already filed and paid. Likely obsolet
+- #561 Email the Plaza of Bal Harbour office for owner emails so 8 notarised permit signatures can be collected — In-person filing date 2026-09-08 and the 09-03 gate have passed; check whether the signatu
+- #562 Line up the second notarised Qualifier signature for each Plaza permit application — Filing day 9/8 passed; AP-0076 (9/16) says renewals already filed and paid. Likely obsolet
+- #563 Look in the printer tray for the 14 pages of Plaza extension packets before reprinting — Filing day 9/8 passed; AP-0076 (9/16) says renewals already filed and paid. Likely obsolet
+- #564 Make the NOV phone call from the 8/27 short list — From 2026-08-27; no follow-up anywhere and details are missing.
+- #565 Reach the unknown owners of Plaza units 220 and 721 for notarised signatures — Filing day 9/8 passed; AP-0076 (9/16) says renewals already filed and paid. Likely obsolet
+- #566 Say WRITE IT so an email can ask the Plaza association for five owner email addresses — Filing day 9/8 passed; AP-0076 (9/16) says renewals already filed and paid. Likely obsolet
+- #567 Say whether the TRK-2026-1286 file mentions the 11997 SW 218 St parties, to unstick the job — From 2026-08-16; may be resolved in the later Alec DD work.
+- #568 Send Jorge's unsent thank-you reply to Lucrecia Jovel (Bay Harbor unit 404) — Row dated 2026-08-24; courtesy reply, 5+ weeks old.
+- #569 Send or hold the Alabama Jacks draft email to Rick asking for the two permit items — Red list 8/26 put Alabama Jack's ON HOLD (proposal went cold). Verify still wanted.
+- #570 Send the COI request for 10980 SW 202 Dr Unit 29 sitting in Outlook Drafts — Card from 9/4; Unit 29 packet since re-worked 9/24-9/28. Check whether superseded.
+- #571 Send the drafted 'microfilm retrieved' email to Alec Valdes (420 docs are done) — County window of 2026-09-05 is past; row dated about 2026-09-03; status after that unknown
+- #572 Send the five building-jacket order emails to the Property Appraiser (Alec DD) — Row 286 says the five orders were ordered the day after; send likely done. Confirm and clo
+- #573 Send the two-weekly written progress report promised to the Bal Harbour Association — Due date 2026-09-16 has passed; check whether the AP-0048 letter already served as the rep
+- #574 Settle the conflict where units 321 and 922 are on the 9/8 filing list twice — Filing day 9/8 passed; AP-0076 (9/16) says renewals already filed and paid. Likely obsolet
+- #575 Print contractor signature pages of the unit-404 Ten Thousand Plaza ARC application (11 pages) on the L3770 after OCR — Jorge's direct request ~2026-08-20; likely done by now but no closing row in range.
+- #576 Rebuild the Miami-Dade scrape as one agent per site — Superseded by 9078 (22 of 22 probed) and 9128 (41 live county results) in later rows.
+- #577 Apply the PRELIMINARY stamp to Alec's 331 Tamiami delivery (one staged command) — Planned for Friday 2026-08-21, past.
+- #578 Confirm the URGENT final inspection on TRK-2026-1262 actually happened — Dated early August; the inspection is likely long resolved, so check the job folder and cl
+- #579 Print the counting rule on the cover of reports that show 7, 10 and 13 of 22 counts — Superseded by line 421 (TRK-2026-9292): counting rule now printed in count box on 10 repor
+- #580 Rebuild the Alec portal before the Friday meeting (snapshot is 44 hours older than its timestamp) — Meeting was Friday 2026-08-21; date has passed
+- #581 Settle Orange Tree population: check the OneDrive capsule folders and file the real documents under a supervised pass — Rows 242 and 244 (zero documents) were superseded by rows 277 and 381; the 10-second OneDr
+- #582 Verify the Alec due-diligence sweep and Folio 30-5032-000-1352 were really delivered — Acknowledged 8/7 and only 8/16-17 review; confirm current status before acting.
+- #583 Point OCR-on-arrival for incoming email/scans at Outlook once Jorge signs in (automation does not exist yet) — Was parked under the freeze, which was repealed 2026-09-23; still blocked on Outlook sign-
+- #584 Say which folder is the real home for job files (HQ1-JOBS or JOBS-MASTER) — Superseded: CLAUDE.md names Google Drive 01-JOBS as the source of truth for active job fol
+- #585 Unstick frozen desktop session 'Test bridge buttons' and close its duplicate — Dated 2026-08-15; sessions have since been restarted several times.
+- #586 Answer the rest of the 17 owner approvals in OWNER-GATES.md — Approvals list is from 2026-07-31; some gates may be answered or overtaken, so re-read OWN
+- #587 Answer the small housekeeping questions (4 failed downloads on 08-21; approve quarantining 600 dead .crdownload files) — Row is from 2026-08-22; minor and old.
+- #588 Answer whether to cure historical irregularities in client reports (REG-0012) — gate from 2026-07-31, 61 days old; the gates file itself says treat as informed, not curre
+- #589 Answer whether to merge the four tracking registries — Older card (8/20); registry reconciliation since done per charter notes.
+- #590 Answer which RFA you are in: 2026-205 or 2026-203 already filed — RFA 2026-205 deadline 9/22 has passed.
+- #591 Build the September 21 board presentation on subscription rationalisation (JOB-0034) — Due date 2026-09-21 has passed; confirm whether it happened or was dropped.
+- #592 Choose where the tracking number prints on Bal Harbour applications and which copy (Drive or OneDrive) is the master — Raised as a before-Tuesday-9/8 decision; filing has passed. Confirm whether files were fix
+- #593 Click the OneDrive tray icon: Pause syncing, wait a minute, Resume (AP-0088) — Symptom from mid-September; probably cleared by later reboots. Re-check CPU before acting.
+- #594 Confirm Zoho CRM is dropped and the shared workbook is the CRM of record (NEW-05) — Gate from 2026-07-31; CLAUDE.md now names an Airtable CRM as the Wally pipeline, so the CR
+- #595 Decide what to do with the 18-hour accidental-looking recording from 2026-08-24 before it is transcribed — Row is from 2026-08-30; recording may already have been handled.
+- #596 Do the owner pass on the 17-item approvals batch from July 31 — From 2026-07-31; parts likely superseded by later AP cards.
+- #597 Import the staged vCards (Silvio Marine, Yaira Campbell, Rick Santander) into Google Contacts — Superseded in approach by the one-contacts-list plan (TRK-2026-9758, line 762).
+- #598 Pick the working Claude window for the microphone and say whether the left monitor is on — From 2026-08-27; later reports cover dictation and Speechify fixes that supersede it.
+- #599 Press No on the 7 TreeSize permission dialogs or reboot (never Yes) — Row from 2026-08-22; a week of reboots later, almost certainly gone.
+- #600 Restart or pause OneDrive sync that was using about 130 percent of a CPU core — Process PID dates to 9/12; PC rebooted 9/17 per uptime heartbeat, so likely gone.
+- #601 Tell the desktop the scanner holding-area folder path — Row is from 2026-08-23; may have been answered in a later session.
+- #602 Restart the LiteLLM router so the Grok route loads (answer RESTART IT or LEAVE IT) — Asked 2026-08-25; the plan moved to a Gemini key first (2026-08-26) and every route was ke
+- #603 Approve enabling Task Scheduler history (one word: enable) so Windows records which task opens each console — Dated 2026-08-18; line 502 shows thief already convicted by name - may be moot.
+- #604 Confirm the Buttons 9/10/13 install package and the Dropbox auto-installer watcher were installed (REG-0009, REG-0010) — gate from 2026-07-31, 61 days old; the gates file itself says treat as informed, not curre
+- #605 Decide whether the whole scheduled-task fleet was disabled on purpose — 9/28 task board shows watchers running and 9/30 uptime heartbeat is live; probably resolve
+- #606 Double-click the CODE icon once so a desktop executor starts (bootstrap after the weekly reset) — Premise softened by the headless loop proven 08-29 and the Jorge-PC session seen 09-30.
+- #607 Paste the OpenRouter API key into Claude Code yourself (REG-0001, blocks 12 jobs) — Gate from 2026-07-31; the 2026-08-26 red list moved to the free Gemini key first, so this 
+- #608 Relaunch the Code terminal and confirm the taskbar reads 'DESKTOP - Claude Code' with no question mark — Row from 2026-08-25; superseded by the LLM-NN window registry and renamed sessions (line 7
+- #609 Save the two paste files and run BUTTON-1.bat to start the interim Gemini executor — Written for the morning of 2026-08-27; desktop executors have since been running.
+- #610 Say go on the weekly tool-scout build and hourly VTES control panel rebuild — Freeze that held these was repealed 2026-09-23 per charter; probably no longer needs Jorge
+- #611 Approve backfilling the missing asked dates on OD-37 to OD-92 — Asked 2026-09-01; the repo OWNER-QUEUE.md is now only a pointer and many rows were withdra
+- #612 Approve the registry fixes: merge four registries, renumber TEDC capsule folders, number 24 invoiced jobs — Asked 2026-08-19 to 2026-08-21 under the freeze (repealed 2026-09-23); OD-11 already made 
+- #613 Check whether Molino Nursing Care paid or lapsed its Doral business tax (Jorge was agent of record) — Low-priority row from 2026-08-23.
+- #614 Close out three gates recommended DEFER: REG-0003 Bridge Inbox pointer, NEW-04 VTES agent tasks, REG-0011 MY-DESK orphans — Recommended DEFER on 2026-07-31; REG-0003 superseded by CU-Inbox-Job-Watcher
+- #615 Create the September board deck (no pptx or Google Slides exists) — Row dated 2026-08-17 about a September deck; today is 2026-09-30, so the deadline is at or
+- #616 Decide link or copy for the 114 Dropbox PDFs for JOB-0030-C (recommendation: LINK) — Asked 2026-08-19, 42 days old
+- #617 Fix the stale money-lock text in STARTUP-MANIFEST.md (wrong premises, names empty folder) — Row from 2026-08-24; may already have been rewritten.
+- #618 Follow up the 88 items from the 7/31 sweep that were never acknowledged — Sweep dated 2026-07-31; many items may have since been done or overtaken. Re-sweep before 
+- #619 Generate per-job trees for the remaining job folders (only 2 to 4 of 34-35 covered) — Partly overtaken by the 2026-08-17 control panel (row 262) and portal count (row 263); con
+- #620 Run the original overnight desktop items: PDF vs sidecar count, B: drive capacity check, Dropbox enumeration — From 2026-08-16; later OCR and denominator work overlaps it.
+- #621 Set Brother MFC-L3770CDW as default printer (1-sided, color, portrait) with decay guard — Dated ~2026-08-20; printer was found offline (line 530) - check if done.
+- #622 Stop treating the 300+ backlog import as separate; fold it into the work-register read — Superseded by 9053/9099 (_WORK-REGISTER.csv holds the list).
+- #623 Verify OD-THAW-01 (owner freeze-lift directive) exists on Drive/cloud; it sat only on desktop local branch — Charter says freeze (Article 1) was repealed 2026-09-23 by owner directive, so the thaw qu
+- #624 Approve the Outlook sorter fix, preview only, using the real 2,844-item inbox (OD-23) — Asked 2026-08-20, 41 days old and not refreshed
+- #625 Build JOB-0052 Orchestrator plus Token-Steward, the missing top rung of the watchdog — Audit banner downgrades JOB-0052 to unverifiable from cloud; ETA 2026-08-07 is long past, 
+- #626 Build JOB-0085 dictation + read-aloud + one-click handoff (Whisper-class local engine) — 'PARKED - FREEZE' no longer applies: freeze repealed 2026-09-23. Treat as normal backlog.
+- #627 Build the items held by the repealed freeze: AskJorge answers reader, signature pages 5-9-10 fix, DIR-0079 watcher — FREEZE-AND-FINISH Article 1 repealed 2026-09-23; these are now normal backlog, no gate que
+- #628 Check the CU-Uptime-Heartbeat scheduled task (no write since 2026-09-24 13:14 UTC) — Superseded by the 2026-09-30 finding that the desktop has been down about 6 days (lines 78
+- #629 Choose which repo branch is the real one (kp2o46 or slack-app-overview-3i0w4g) or merge both — Asked 2026-09-01; the repo has since moved on (CLAUDE.md has 2026-09-23 edits), likely set
+- #630 Confirm desktop Claude Code loads the charter and is re-pointed at the mailbox — Dated 2026-08-15; later rows show desktop running and answering from the repo.
+- #631 Confirm the nightly TreeSize disk report (CU-Overnight-TreeReport) now reaches 12/12 — Row from 2026-08-23; superseded by the new VTES-Inventory crawler and TreeSize targets (li
+- #632 Decide how to handle the machine writing reports to an invisible Desktop folder (564 hidden files) — Asked 2026-08-20, 41 days old; later sessions added desktop launchers
+- #633 Finish live text-layer test on 17,299 PDFs and log the result — Cycle dated 2026-08-31; check Reports folder for result.
+- #634 Finish registry gating work (a third of the register stands on censuses with no recorded source path) — Dated 2026-08-30; likely continued or superseded by later rows beyond line 600.
+- #635 Get desktop acknowledgement of PEER-REVIEW-02 and MANAGER-01 — Dated 2026-08-18; ACK may have landed after line 600.
+- #636 Have Cowork build the pending ONE BOARD, FOREMAN and July cards (cloud must not double-build) — All three target dates (08-27 to 09-02) are in the past; status unknown.
+- #637 Have desktop act on 3 unread owner answers in ClaudeMemory AskJorge answers (incl. ANSWER_CITY44_TRK-2026-1612) — One answer was 2 days old on 2026-08-20; probably consumed since.
+- #638 Have desktop write the TO-CLOUD.md reply to prove the mailbox works both ways — Line 60 (2026-09-19) shows TO-CLOUD.md already exists on Drive, so the channel is two-way.
+- #639 Produce before/after table proving the 4-task window-stealing fix (CU-Bus-Dispatcher, CU-Records-Watch) worked — Dated 2026-08-18; table promised 'tomorrow' long ago - check if closed.
+- #640 Rebuild the per-job .result.json completion file using the old 17-day convention — Partly overtaken by the verifier built and run 2026-08-17 (rows 308-309) which produces EX
+- #641 Reconstruct APPROVALS-QUEUE.json from the last good APPROVALS-NOW table — Filed 9/17; 13 days old and Drive shows no newer queue file. Re-check whether already repa
+- #642 Register the JOB-0066 Stability Plan and produce proof — Audit banner downgrades this to unverifiable from cloud; check desktop before doing anythi
+- #643 Test external hide-move-show launcher fix for owner buttons (Run-0 delete mshta memory, Run-1 hide-move-show) — Dated 2026-08-18/19; survival test passed in line 549.
+
+*PENDING-TASKS_MASTER · v1 · 2026-09-30 · CURRENT · Which three of these do you want finished this week?*

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VTES Interview · 12 short questions · TRK-2026-9910-B · #interview #owner #voice</title>
+<meta name="keywords" content="interview, owner, voice, dictation, questions, TRK-2026-9910-B">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; --ok:#2e7d4f; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.5 "Segoe UI",system-ui,sans-serif; }
+  main { max-width:820px; margin:0 auto; padding:10px 14px 50px; }
+  h1 { font-size:22px; margin:6px 0 2px; } .sub { color:var(--muted); font-size:14px; margin-bottom:10px; }
+  .box { background:#fff; border:2px solid var(--line); border-radius:14px; padding:14px 18px; margin-bottom:12px; }
+  .box.warn { background:#fff8e6; border-color:#e0a100; font-size:15px; }
+  .q { font-size:22px; font-weight:800; line-height:1.3; } .why { color:var(--muted); font-size:14.5px; margin-top:6px; }
+  textarea { width:100%; min-height:150px; font:inherit; font-size:18px; border:3px solid var(--line); border-radius:12px; padding:10px; margin-top:10px; }
+  textarea:focus { border-color:var(--accent); outline:none; }
+  button { font:inherit; font-size:16px; font-weight:800; padding:10px 18px; border-radius:12px; border:3px solid var(--accent); background:#fff; color:var(--accent); cursor:pointer; margin:4px 6px 4px 0; }
+  button.go { background:var(--accent); color:#fff; } button.mic.on { background:#b3261e; border-color:#b3261e; color:#fff; }
+  .prog { height:14px; background:#e7e3da; border-radius:99px; overflow:hidden; margin:8px 0; } .prog i { display:block; height:100%; background:var(--ok); }
+  .dots { display:flex; flex-wrap:wrap; gap:5px; } .dots span { width:30px; height:30px; border-radius:99px; border:2px solid var(--line); background:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; cursor:pointer; } .dots span.has { background:#eaf5ee; border-color:var(--ok); } .dots span.now { border-color:var(--accent); border-width:3px; }
+  .foot { font-size:12px; color:var(--muted); margin-top:16px; word-break:break-word; }
+  pre { white-space:pre-wrap; word-break:break-word; font:13px Consolas,monospace; background:#fbfaf7; border:2px solid var(--line); border-radius:10px; padding:10px; max-height:320px; overflow:auto; }
+</style></head>
+<body>
+<main>
+  <h1>🎤 Interview: 12 short questions</h1>
+  <div class="sub">One question at a time. Talk or type. Skip anything. Nothing leaves this computer unless you press Copy or Save.</div>
+  <div class="box warn"><b>Do not say or type</b> passwords, full card numbers, or bank logins. Card nickname and last four digits are fine. Your answers are saved in this browser as you go.</div>
+  <div class="dots" id="dots"></div>
+  <div class="prog"><i id="pg"></i></div>
+  <div class="box" id="card">
+    <div class="sub" id="cn"></div>
+    <div class="q" id="qt"></div>
+    <div class="why" id="qw"></div>
+    <textarea id="ans" placeholder="Talk (press Dictate) or type here. A short answer is fine."></textarea>
+    <div>
+      <button type="button" class="mic" id="mic">🎙️ Dictate</button><button type="button" id="spk">🔊 Read the question</button><span id="ms" style="font-size:14px;font-weight:700"></span>
+    </div>
+    <div style="margin-top:6px"><button type="button" id="bk">← Back</button><button type="button" class="go" id="nx">Save and next →</button><button type="button" id="sk">Skip</button></div>
+  </div>
+  <div class="box" id="done" hidden>
+    <div class="q">That is all 12. Thank you.</div>
+    <div class="why">Copy the text below and paste it into one Claude window, or press Save to get a file. It is stamped so it can be found later.</div>
+    <pre id="pre"></pre>
+    <button type="button" class="go" id="cp">Copy all answers</button><button type="button" id="sv">Save as a file</button><button type="button" id="rv">Go back and change an answer</button> <span id="dn" style="font-size:14px;font-weight:700"></span>
+  </div>
+  <p class="foot">TRK-2026-9910-B · interview v1 · 2026-09-30 · CURRENT · #interview #owner #voice #VTES-control-panel · Questions chosen because the files cannot answer them. Answers are kept only in this browser until you copy or save them.</p>
+</main>
+<script src="vtes-modules.js"></script><script src="vtes-reminders.js"></script><script src="vtes-alerts.js"></script><script src="vtes-reviews.js"></script><script src="vtes-budget.js"></script><script src="vtes-common.js"></script>
+<script>
+(function () {
+  var V = window.VTES, esc = V.esc; V.nav('interview');
+  var Q = [
+    ['Money this month', 'Which three jobs or invoices, if paid this month, would make the month safe? Say the client and the amount.', 'Puts the cash-collection list in the right order. The files show what is billed, not what you need first.'],
+    ['The worry', 'Which one client or job worries you most this week, and why?', 'Tells the panel what to put at the very top.'],
+    ['Caught up', 'If one thing got done today and you could relax, what would it be?', 'The single item that should rank first, in your words.'],
+    ['Your best hours', 'When in the day do you think best, and when should the panel and every window leave you alone?', 'Sets when reminders flash and when they stay quiet.'],
+    ['What you open', 'Which programs, folders or pages do you open every day without thinking?', 'These get the biggest buttons. The rest can hide.'],
+    ['What you hate', 'What do you hate doing most that a computer could do for you?', 'Picks the next thing to automate.'],
+    ['Which AI for what', 'Which assistant do you trust most for what? For example: one for numbers, one for writing, one for permits.', 'Real experience beats a written rule. It feeds the router.'],
+    ['Words that break', 'Which names, streets or words does dictation get wrong every time? Spell a few.', 'Builds the spelling list so search still finds them.'],
+    ['Where papers arrive', 'When a new paper arrives, where does it come from? Email, phone photo, mail, a county page, a client?', 'Tells us where the intake door is, so filing starts at the door.'],
+    ['What finished means', 'For one job, what does finished look like to you? What must be in the folder and in your bank?', 'Defines the last stage of the job portal for you, not for us.'],
+    ['Never without my yes', 'Besides sending, paying, filing, deleting and cancelling, what else must never happen without your yes?', 'Adds to the red list.'],
+    ['Last-known cash', 'Say today\'s date and your best guess of cash in the main account. Name the account by nickname only.', 'A dated, spoken number is the safe substitute for a live bank display.']
+  ];
+  var A = {}; try { A = JSON.parse(localStorage.getItem('vtes.interview') || '{}'); } catch (e) { A = {}; }
+  var i = 0, rec = null;
+  function save() { try { localStorage.setItem('vtes.interview', JSON.stringify(A)); } catch (e) {} }
+  function cur() { return document.getElementById('ans').value.trim(); }
+  function commit() { var t = cur(); if (t) { A[i] = t; } else { delete A[i]; } save(); }
+  function nAns() { return Object.keys(A).length; }
+  function text() {
+    var L = ['INTERVIEW ANSWERS · Jorge Valdes · ' + new Date(V.nowMs()).toISOString().slice(0, 10) + ' · TRK-2026-9910-B', 'Answered ' + nAns() + ' of ' + Q.length, ''];
+    Q.forEach(function (q, n) { L.push((n + 1) + '. ' + q[0] + ': ' + q[1]); L.push('   ANSWER: ' + (A[n] || '(skipped)')); L.push(''); });
+    L.push('TRK-2026-9910-B · interview v1 · ' + new Date(V.nowMs()).toISOString().slice(0, 10) + ' · CURRENT · #interview #owner #voice');
+    return L.join('\n');
+  }
+  function draw() {
+    document.getElementById('dots').innerHTML = Q.map(function (q, n) { return '<span class="' + (A[n] ? 'has ' : '') + (n === i ? 'now' : '') + '" data-n="' + n + '" title="' + esc(q[0]) + '">' + (n + 1) + '</span>'; }).join('');
+    document.getElementById('pg').style.width = (100 * nAns() / Q.length) + '%';
+    var fin = i >= Q.length;
+    document.getElementById('card').hidden = fin; document.getElementById('done').hidden = !fin;
+    if (fin) { document.getElementById('pre').textContent = text(); return; }
+    document.getElementById('cn').textContent = 'Question ' + (i + 1) + ' of ' + Q.length + ' · ' + Q[i][0] + ' · ' + nAns() + ' answered';
+    document.getElementById('qt').textContent = Q[i][1]; document.getElementById('qw').textContent = 'Why I ask: ' + Q[i][2];
+    document.getElementById('ans').value = A[i] || ''; document.getElementById('nx').textContent = i === Q.length - 1 ? 'Save and finish' : 'Save and next →';
+    Array.prototype.forEach.call(document.querySelectorAll('#dots span'), function (s) { s.addEventListener('click', function () { if (!document.getElementById('card').hidden) { commit(); } stop(); i = +s.getAttribute('data-n'); draw(); }); });
+  }
+  function stop() { if (rec) { try { rec.stop(); } catch (e) {} rec = null; } document.getElementById('mic').classList.remove('on'); document.getElementById('mic').textContent = '🎙️ Dictate'; }
+  document.getElementById('nx').addEventListener('click', function () { commit(); stop(); i++; draw(); });
+  document.getElementById('sk').addEventListener('click', function () { stop(); i++; draw(); });
+  document.getElementById('bk').addEventListener('click', function () { commit(); stop(); i = Math.max(0, i - 1); draw(); });
+  document.getElementById('rv').addEventListener('click', function () { i = 0; draw(); });
+  document.getElementById('ans').addEventListener('input', function () { commit(); document.getElementById('pg').style.width = (100 * nAns() / Q.length) + '%'; });
+  document.getElementById('spk').addEventListener('click', function () { try { speechSynthesis.cancel(); speechSynthesis.speak(new SpeechSynthesisUtterance(Q[i][1])); } catch (e) { document.getElementById('ms').textContent = 'Reading aloud is not available here.'; } });
+  document.getElementById('mic').addEventListener('click', function () {
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition, b = document.getElementById('mic');
+    if (rec) { stop(); return; }
+    if (!SR) { document.getElementById('ms').textContent = 'Dictation is not available in this browser. Press Win+H to dictate into the box.'; return; }
+    rec = new SR(); rec.continuous = true; rec.interimResults = false; rec.lang = 'en-US';
+    rec.onresult = function (e) { var t = ''; for (var k = e.resultIndex; k < e.results.length; k++) { if (e.results[k].isFinal) { t += e.results[k][0].transcript; } } var a = document.getElementById('ans'); a.value = (a.value ? a.value.replace(/\s*$/, ' ') : '') + t.trim(); commit(); };
+    rec.onend = function () { stop(); }; rec.onerror = function () { document.getElementById('ms').textContent = 'The microphone stopped. Press Win+H to dictate instead.'; stop(); };
+    try { rec.start(); b.classList.add('on'); b.textContent = '⏹ Stop'; document.getElementById('ms').textContent = 'Listening…'; } catch (e) { stop(); }
+  });
+  document.getElementById('cp').addEventListener('click', function () { V.copy(text()).then(function (ok) { document.getElementById('dn').textContent = ok ? 'Copied. Paste it into one Claude window.' : 'Copy failed: select the text and press Ctrl+C.'; }); });
+  document.getElementById('sv').addEventListener('click', function () {
+    try { var d = new Date(V.nowMs()).toISOString().slice(0, 10), a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text()], { type: 'text/plain' })); a.download = d + ' _ TRK-2026-9910-B _ Interview _ Owner answers _ v1.txt'; document.body.appendChild(a); a.click(); a.remove(); document.getElementById('dn').textContent = 'Saved to Downloads.'; } catch (e) { document.getElementById('dn').textContent = 'Save failed: use Copy.'; }
+  });
+  window.VTES_INTERVIEW_PAGE = { Q: Q, text: text, draw: draw, go: function (n) { i = n; draw(); } };
+  draw();
+})();
+</script>
+</body></html>

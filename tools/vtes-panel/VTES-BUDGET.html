@@ -40,6 +40,10 @@
   </div>
   <div id="result"></div>
 
+  <h2>Rotation board · who holds each seat right now</h2>
+  <div id="seats"></div>
+  <h2>Gas gauge · is anyone watching the plan?</h2>
+  <div id="gauge"></div>
   <h2>2 · How much room is left on each subscription</h2>
   <div class="sub">You type the percent used (the Claude and ChatGPT apps show it). The Governor can write these later. A window with under 10% room is skipped; under 25% is ranked lower.</div>
   <div id="meters"></div>
@@ -60,7 +64,7 @@
 </main>
 <script src="vtes-modules.js"></script>
 <script src="vtes-reminders.js"></script>
-<script src="vtes-common.js"></script>
+<script src="vtes-alerts.js"></script><script src="vtes-reviews.js"></script><script src="vtes-budget.js"></script><script src="vtes-common.js"></script>
 <script src="vtes-subs.js"></script>
 <script>
 (function () {
@@ -84,7 +88,7 @@
   var CHIPS = { 'LLM-01': 1, 'LLM-02': 1, 'LLM-03': 1, 'LLM-04': 1, 'LLM-05': 1, 'LLM-06': 1, 'LLM-07': 1, 'LLM-08': 1, 'LLM-10': 1 };
   var COL = { up: '#2e7d4f', warn: '#b26a00', down: '#b3261e', pend: '#1b5e9e', fut: '#7a2e8e', unk: '#6b6b66' };
   var ext = window.VTES_BUDGET || {};
-  function getM(sub) { var o = {}; try { o = JSON.parse(localStorage.getItem('vtes.budget.' + sub) || '{}'); } catch (e) { o = {}; } if (ext[sub]) { o = Object.assign({}, ext[sub], o); } return o; }
+  function getM(sub) { var o = {}; try { o = JSON.parse(localStorage.getItem('vtes.budget.' + sub) || '{}'); } catch (e) { o = {}; } var e2 = ext[sub]; if (e2 && typeof e2 === 'object' && e2.at && (V.nowMs() - Date.parse(e2.at)) < 6 * 3600000) { o = Object.assign({}, o, e2); o.auto = true; } return o; }
   function setM(sub, o) { try { localStorage.setItem('vtes.budget.' + sub, JSON.stringify(o)); } catch (e) { } }
   function used(sub) { var o = getM(sub), v = [o.m0, o.m1].filter(function (x) { return typeof x === 'number' && !isNaN(x); }); return v.length ? Math.max.apply(null, v) : null; }
   function room(id) { var u = used(SUBOF[id]); return u == null ? null : 100 - u; }
@@ -129,6 +133,18 @@
     }).join('') + '<div class="meter" style="--c:#9a968c"><b>' + esc(SUBS.local.n) + '</b> <span class="tag" style="--c:#2e7d4f">no limit</span> · cost nothing · need the PC up</div>';
     Array.prototype.forEach.call(el.querySelectorAll('[data-save]'), function (b) { b.addEventListener('click', function () { var k = b.getAttribute('data-save'), o = {}; Array.prototype.forEach.call(el.querySelectorAll('[data-s="' + k + '"]'), function (i) { if (i.getAttribute('data-r')) { o.resets = i.value; } else if (i.value !== '') { o['m' + i.getAttribute('data-i')] = Math.max(0, Math.min(100, +i.value)); } }); setM(k, o); meters(); }); });
   }
+  function seats() {
+    var SEATS = [['Deep reasoning, law, code', 'hard'], ['Everyday work', 'everyday'], ['Cheap bulk or private', 'bulk'], ['News, X, live web', 'news'], ['Giant documents, images', 'huge'], ['Build and install', 'build']];
+    document.getElementById('seats').innerHTML = SEATS.map(function (s) {
+      var r = route(s[1]), top = r.ok[0];
+      return '<div class="meter" style="--c:' + (top ? COL[top.s.k] : '#b3261e') + '"><b>' + esc(s[0]) + '</b> → ' + (top ? '<span class="tag" style="--c:' + COL[top.s.k] + '">' + esc(NAMES[top.id]) + '</span>' : '<span class="tag" style="--c:#b3261e">NOBODY AVAILABLE</span>') +
+        '<div class="skip">Next in line: ' + (r.ok.slice(1).map(function (o) { return esc(NAMES[o.id]); }).join(', ') || 'none') + (r.skipped.length ? ' · skipped: ' + r.skipped.map(function (x) { return esc(NAMES[x.id]); }).join(', ') : '') + '</div></div>';
+    }).join('');
+  }
+  function gauge() {
+    var g = V.gaugeState(), o = getM('claude'), col = g.k === 'ok' ? COL.up : COL.down;
+    document.getElementById('gauge').innerHTML = '<div class="box" style="border-left:8px solid ' + col + '"><b style="color:' + col + '">' + (g.k === 'ok' ? '● RUNNING' : '✖ NOT WATCHING') + '</b> · ' + esc(g.msg) + '<div class="skip">What it reads: Claude Code\'s own log on the PC (tokens in the last 5 hours and 7 days). It cannot see the Claude app, Cowork or the phone, and cannot see Codex, Grok, Gemini or Copilot: those meters stay manual. One-time calibration: open the Claude usage screen and run <code>VTES-Gauge.ps1 -Calibrate short=NN week=NN</code> with the percents shown. Warns at 75%, holds at 90%.' + (o.auto ? '<br>Latest: ' + (o.tokens5h || 0) + ' tokens in 5 hours, ' + (o.tokens7d || 0) + ' in 7 days' + (o.calibrated ? '' : ' (NOT CALIBRATED: no percent yet)') + '.' : '') + '</div></div>';
+  }
   function money() {
     var S = window.VTES_SUBS || [], known = 0, rows = [];
     S.forEach(function (s) { var m = /\$([0-9]+(?:\.[0-9]{2})?)/.exec(s.cost); if (m && s.w !== 'NO COST') { known += parseFloat(m[1]); } });
@@ -139,15 +155,17 @@
   function init() {
     var ts = document.getElementById('task'); ts.innerHTML = TASKS.map(function (t) { return '<option value="' + t.k + '">' + esc(t.label) + '</option>'; }).join('');
     var bs = document.getElementById('builder'); bs.innerHTML = Object.keys(NAMES).filter(function (k) { return k !== 'LOCAL' && k !== 'BOTS'; }).map(function (k) { return '<option value="' + k + '">' + esc(NAMES[k]) + ' (' + k + ')</option>'; }).join('');
+    (function () { var m = /[?&]task=([\w-]+)/.exec(location.search || ''); if (m && TASKS.filter(function (t) { return t.k === m[1]; })[0]) { ts.value = m[1]; } })();
+    document.getElementById('builderwrap').hidden = !TASKS.filter(function (t) { return t.k === ts.value; })[0].needsBuilder;
     ts.addEventListener('change', function () { document.getElementById('builderwrap').hidden = !TASKS.filter(function (t) { return t.k === ts.value; })[0].needsBuilder; });
     document.getElementById('go').addEventListener('click', function () { var t = TASKS.filter(function (x) { return x.k === ts.value; })[0]; show(route(ts.value, t.needsBuilder ? bs.value : null)); });
     var g = V.effective('LLM-09');
     document.getElementById('gov').innerHTML = '<b>The Governor (token manager) already exists.</b> It lives on your PC (ClaudeMemory\\Governor), runs hourly, keeps the lineup map (last re-map 9/21) and files spending motions to the Board. Its status here: <b style="color:' + COL[g.k] + '">' + V.SYM[g.k] + ' ' + esc(g.txt) + '</b>. <span style="font-size:13px">' + esc(g.why) + '</span><br><b>Gap this page fills:</b> the Governor watches dollars; nothing was watching subscription room or catching a duplicate charge. The duplicate X Premium Plus ($40) slipped through.';
     document.getElementById('sub').textContent = 'Router + subscription room + ledger. Status colors come from the same table as the launcher tabs.';
-    meters(); money();
-    V.runProbes(function () { meters(); });
+    meters(); money(); seats(); gauge();
+    V.runProbes(function () { meters(); seats(); });
   }
-  window.VTES_BUDGET_PAGE = { route: route, show: show, setMeter: function (sub, o) { setM(sub, o); meters(); }, used: used, room: room, tasks: TASKS, names: NAMES };
+  window.VTES_BUDGET_PAGE = { route: route, show: show, setMeter: function (sub, o) { setM(sub, o); meters(); }, used: used, room: room, tasks: TASKS, names: NAMES, seats: seats, gauge: gauge };
   init();
 })();
 </script>

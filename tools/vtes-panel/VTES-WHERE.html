@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VTES Where Things Live · searchable map · TRK-2026-9910-B · #where #map #drive #repo</title>
+<meta name="keywords" content="where, map, locations, Drive, repo, PC, county, searchable, TRK-2026-9910-B">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 "Segoe UI",system-ui,sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:10px 14px 50px; }
+  h1 { font-size:22px; margin:6px 0 2px; } .sub { color:var(--muted); font-size:13.5px; margin-bottom:10px; }
+  .box { background:#fff8e6; border:2px solid #e0a100; border-radius:12px; padding:9px 14px; margin-bottom:10px; font-size:14px; }
+  input[type=text] { font:inherit; font-size:16px; padding:8px 10px; border:2px solid var(--line); border-radius:10px; width:100%; background:#fff; }
+  .bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:8px; }
+  .chip { padding:3px 9px; border-radius:99px; border:2px solid var(--line); background:#fff; font-size:13px; font-weight:700; cursor:pointer; } .chip.on { background:#dfeaf7; border-color:var(--accent); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:10px; }
+  .card { background:#fff; border:2px solid var(--line); border-left:8px solid var(--c,#999); border-radius:12px; padding:9px 12px; }
+  .card h3 { margin:0; font-size:15.5px; word-break:break-word; } .row { font-size:13.5px; margin-top:3px; word-break:break-word; }
+  code { font:13px Consolas,monospace; background:#f1eee7; padding:1px 5px; border-radius:6px; word-break:break-all; }
+  .tag { display:inline-block; font-size:11px; font-weight:800; padding:1px 7px; border-radius:99px; color:#fff; background:var(--c,#888); margin-left:4px; white-space:nowrap; }
+  button.sm, a.sm { padding:2px 10px; font-size:12.5px; border-radius:8px; border:1px solid var(--line); background:#fff; cursor:pointer; font-weight:700; margin-right:4px; text-decoration:none; color:var(--accent); display:inline-block; }
+  .hs { font-size:12px; color:var(--muted); margin-top:4px; } .hs a { color:var(--accent); cursor:pointer; }
+  .foot { font-size:12px; color:var(--muted); margin-top:16px; word-break:break-word; }
+</style></head>
+<body>
+<main>
+  <h1>📍 Where Things Live</h1>
+  <div class="sub" id="sub"></div>
+  <div class="box"><b>Read this first:</b> "Checked today" means the cloud window confirmed the file exists in the repo. "From a report" means a report said so and nobody re-checked. "On your PC" means the cloud cannot see it; the desktop inventory will confirm it.</div>
+  <div class="bar"><input type="text" id="q" placeholder="Search: a word, a hashtag (#drive), a number, or a garbled OCR word." autocomplete="off"></div>
+  <div class="bar"><div class="chips" id="kc" style="display:flex;flex-wrap:wrap;gap:5px"></div><span id="cnt" style="font-size:13px;color:var(--muted)"></span></div>
+  <div class="grid" id="grid"></div>
+  <p class="foot">TRK-2026-9910-B · where v1 · 2026-09-30 · CURRENT · #where #map #locations #VTES-control-panel · Data: where-data.js. Add a line there when something new gets a home.</p>
+</main>
+<script src="vtes-modules.js"></script><script src="vtes-reminders.js"></script><script src="vtes-alerts.js"></script><script src="vtes-reviews.js"></script><script src="vtes-budget.js"></script><script src="vtes-common.js"></script>
+<script src="where-data.js"></script>
+<script>
+(function () {
+  var V = window.VTES, esc = V.esc; V.nav('where');
+  var D = window.VTES_WHERE || [], q = '', kF = '';
+  var KC = { Drive: '#1b5e9e', Repo: '#2e7d4f', PC: '#8a5a00', Web: '#7a2e8e' };
+  var SL = { VERIFIED: ['checked today', '#2e7d4f'], REPORTED: ['from a report', '#b26a00'], PC: ['on your PC', '#6b6b66'] };
+  function hay(e) { return [e.n, e.kind, e.loc, e.what, e.tags].join(' '); }
+  function isUrl(s) { return /^https:\/\//.test(s); }
+  function draw() {
+    var kinds = {}; D.forEach(function (e) { kinds[e.kind] = (kinds[e.kind] || 0) + 1; });
+    var L = D.map(function (e, n) { return { e: e, n: n, s: q ? V.match(q, hay(e)) : 1 }; }).filter(function (x) { return x.s > 0 && (!kF || x.e.kind === kF); }).sort(function (a, b) { return b.s - a.s || a.n - b.n; });
+    document.getElementById('sub').textContent = D.length + ' places · showing ' + L.length;
+    document.getElementById('cnt').textContent = L.length + ' of ' + D.length;
+    document.getElementById('kc').innerHTML = Object.keys(kinds).map(function (k) { return '<span class="chip' + (kF === k ? ' on' : '') + '" data-k="' + k + '" style="border-color:' + (KC[k] || '#999') + '">' + esc(k) + ' ' + kinds[k] + '</span>'; }).join('');
+    document.getElementById('grid').innerHTML = L.map(function (x, i) {
+      var e = x.e, c = KC[e.kind] || '#999', s = SL[e.state] || [e.state, '#888'];
+      return '<div class="card" style="--c:' + c + '"><h3>' + esc(e.n) + ' <span class="tag" style="--c:' + c + '">' + esc(e.kind) + '</span><span class="tag" style="--c:' + s[1] + '">' + esc(s[0]) + '</span></h3><div class="row">' + esc(e.what) + '</div><div class="row"><code>' + esc(e.loc) + '</code></div>' +
+        '<div style="margin-top:5px">' + (isUrl(e.loc) ? '<a class="sm" href="' + esc(e.loc) + '" target="_blank" rel="noopener">Open</a>' : '') + '<button class="sm" type="button" data-cp="' + i + '">Copy location</button></div>' +
+        '<div class="hs">' + (e.tags || '').split(/\s+/).filter(Boolean).map(function (t) { return '<a data-h="' + esc(t) + '">' + esc(t) + '</a>'; }).join(' ') + '</div></div>';
+    }).join('') || '<div class="box">Nothing matches. Try fewer words, or a hashtag like #drive.</div>';
+    Array.prototype.forEach.call(document.querySelectorAll('[data-cp]'), function (b) { b.addEventListener('click', function () { V.copy(L[+b.getAttribute('data-cp')].e.loc).then(function (ok) { b.textContent = ok ? 'Copied' : 'Copy failed'; }); }); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-h]'), function (a) { a.addEventListener('click', function () { q = a.getAttribute('data-h'); document.getElementById('q').value = q; draw(); }); });
+    Array.prototype.forEach.call(document.querySelectorAll('#kc .chip'), function (c) { c.addEventListener('click', function () { kF = kF === c.getAttribute('data-k') ? '' : c.getAttribute('data-k'); draw(); }); });
+  }
+  document.getElementById('q').addEventListener('input', function (e) { q = e.target.value; draw(); });
+  window.VTES_WHERE_PAGE = { draw: draw, setQ: function (x) { q = x; document.getElementById('q').value = x; draw(); } };
+  draw();
+})();
+</script>
+</body></html>

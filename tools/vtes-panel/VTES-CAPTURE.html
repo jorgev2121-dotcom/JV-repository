@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VTES County Capture Desk · OD-CR-01 · TRK-2026-9910-B · #capture #county #permit-status</title>
+<meta name="keywords" content="county capture, permit status, citation closed, PDF, review popup, Outlook draft, #20001, #10980, TRK-2026-9910-B">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; --ok:#2e7d4f; --warn:#b26a00; --bad:#b3261e; }
+  * { box-sizing:border-box; } body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 "Segoe UI",system-ui,sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:10px 14px 50px; } h1 { font-size:22px; margin:6px 0 2px; } h2 { font-size:17px; margin:0 0 6px; } .sub { color:var(--muted); font-size:13.5px; margin-bottom:10px; }
+  .box { background:var(--card); border:2px solid var(--line); border-radius:12px; padding:10px 14px; margin-bottom:10px; } .box.note { background:#fff8e6; border-color:#e0a100; } .box.bad { background:#fdeceb; border-color:var(--bad); }
+  .job { border-left:10px solid var(--accent); } .job.b { border-left-color:#2e7d4f; } .job.c { border-left-color:#7a2e8e; } .job.d { border-left-color:#b26a00; }
+  .id { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:3px 0; font-size:14.5px; } .id b { min-width:150px; color:var(--muted); font-weight:700; } .id code { background:#eee9dc; padding:2px 7px; border-radius:6px; word-break:break-all; }
+  button, a.btn { font:inherit; font-weight:800; font-size:13.5px; padding:4px 10px; border-radius:9px; border:2px solid var(--line); background:#fff; cursor:pointer; text-decoration:none; color:var(--ink); display:inline-block; margin:2px 4px 2px 0; }
+  a.btn.go { background:var(--accent); border-color:var(--accent); color:#fff; } .tag { display:inline-block; font-size:11px; font-weight:800; padding:1px 8px; border-radius:99px; color:#fff; background:#6b6b66; margin-right:6px; }
+  .tag.OPEN,.tag.STALE { background:var(--bad); } .tag.FEE { background:var(--warn); } ol.s { margin:4px 0 0 20px; padding:0; } ol.s li { margin:4px 0; }
+  input[type=text] { font:inherit; font-size:15px; padding:7px 9px; border:2px solid var(--line); border-radius:9px; width:100%; } .two { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:10px; }
+  .foot { font-size:12px; color:var(--muted); margin-top:16px; word-break:break-word; }
+</style></head><body>
+<main>
+  <h1>🛰️ County Capture Desk</h1>
+  <div class="sub">Standing owner directive OD-CR-01 (2026-09-30): find the numbers, capture the county page as a PDF, flash it on your screen, stage an Outlook draft from Jorge@teamusasales.com. <b>Nobody sends but you.</b></div>
+  <div class="box note"><b>Read this first.</b> The cloud window cannot open the county site (network block) and cannot reach your screen. So the page itself is captured by your PC (RAMBO), by Cowork, or by you in about 60 seconds with the steps below. <b>The flashing review window and the Outlook draft have never run on your Windows PC yet</b> (script written and self-tested only). Until it is installed, the steps below still work by hand.</div>
+  <div class="box"><h2>60-second capture (by hand, works today)</h2><ol class="s">
+    <li>Pick the job below. Press <b>Copy</b> on the number, then open the portal link.</li>
+    <li>Paste the number into the search box and press Search (on the fee page press <b>ADD</b>, never Pay).</li>
+    <li>Press <b>Ctrl+P</b>. Destination: <b>Save as PDF</b>. Name it with the builder at the bottom. Save it in <code>G:\My Drive\MY-DESK\CAPTURE-INBOX\</code>.</li>
+    <li>When the watcher is installed, the review window pops up by itself, flashing, on top of everything. Until then, double-click the PDF to check it, then attach it to a new Outlook email.</li>
+    <li><b>Read what the page says before you send it.</b> If it says OPEN, it says OPEN.</li></ol></div>
+  <div id="jobs"></div>
+  <div class="box"><h2>File-name builder</h2><div class="two"><div><label style="font-size:12.5px;font-weight:800;color:var(--muted)">TRK (or TUS)</label><input type="text" id="bt" value="TRK-2026-1262"></div><div><label style="font-size:12.5px;font-weight:800;color:var(--muted)">What the page shows</label><input type="text" id="bw" value="Permit 2026061642 Status"></div></div>
+    <p id="bn" style="font:14px Consolas,monospace;word-break:break-all;background:#fbfaf7;border:2px solid var(--line);border-radius:10px;padding:8px"></p><button id="bc" type="button">Copy the file name</button> <span id="bk" style="font-weight:700;font-size:13px"></span></div>
+  <div class="box"><h2>What happens after the PDF is saved (design)</h2><ol class="s"><li><code>VTES-CaptureReview.ps1 -Watch</code> sees the new PDF (waits until the file stops growing).</li><li>A red, flashing, always-on-top window appears, beeps, taskbar flashes, and re-asserts itself every 30 seconds until you answer.</li><li>Buttons: Open PDF, Make email draft (Outlook opens a new message <b>from Jorge@teamusasales.com</b> with the PDF attached, <b>To blank</b>), Later (10 minutes), Discard.</li><li>The script cannot send: its self-test fails if a Send call ever appears in it.</li></ol></div>
+  <p class="foot">TRK-2026-9910-B · capture desk v1 · 2026-09-30 · CURRENT · #capture #county #OD-CR-01 #20001 #10980 #permit-status #VTES-control-panel · Jobs and Drive links come from capture-jobs.js (research of 2026-09-30).</p>
+</main>
+<script src="vtes-modules.js"></script><script src="vtes-reminders.js"></script><script src="vtes-alerts.js"></script><script src="vtes-reviews.js"></script><script src="vtes-budget.js"></script><script src="vtes-common.js"></script><script src="capture-jobs.js"></script>
+<script>
+(function () {
+  var V = window.VTES, esc = V.esc, J = window.VTES_CAPTURE_JOBS || []; V.nav('capture');
+  var cls = ['', 'b', 'c', 'd'];
+  document.getElementById('jobs').innerHTML = J.map(function (j, n) {
+    return '<div class="box job ' + cls[n % 4] + '" id="' + j.id + '" data-id="' + j.id + '"><h2>' + esc(j.tag) + ' · ' + esc(j.title) + '</h2><div style="font-size:13.5px;color:var(--muted)">' + esc(j.who) + '</div>' +
+      j.ids.map(function (x, i) { return '<div class="id"><b>' + esc(x[0]) + '</b><code>' + esc(x[1]) + '</code><button type="button" data-cp="' + j.id + '-' + i + '">Copy</button></div>'; }).join('') +
+      '<div style="margin-top:6px"><b>Capture:</b><ol class="s">' + j.want.map(function (w) { return '<li><b>' + esc(w[0]) + '.</b> ' + esc(w[1]) + '</li>'; }).join('') + '</ol></div>' +
+      '<div style="margin-top:6px">' + j.links.map(function (l) { return '<a class="btn go" href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a>'; }).join('') + '</div>' +
+      (j.evidence.length ? '<div style="margin-top:8px"><b>Already on file (Drive):</b><ol class="s">' + j.evidence.map(function (e) { return '<li><span class="tag ' + e[2] + '">' + esc(e[2]) + '</span><a href="' + esc(e[1]) + '" target="_blank" rel="noopener">' + esc(e[0]) + '</a></li>'; }).join('') + '</ol></div>' : '') +
+      '<div class="box ' + (/NO fresh|edited by something/.test(j.verdict) ? 'bad' : '') + '" style="margin:8px 0 0"><b>Verdict:</b> ' + esc(j.verdict) + '</div></div>';
+  }).join('');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cp]'), function (b) {
+    b.addEventListener('click', function () { var p = b.getAttribute('data-cp').split('-'), j = J.filter(function (x) { return x.id === p[0]; })[0], v = j.ids[+p[1]][1].replace(/ \(.*$/, ''); V.copy(v).then(function (ok) { b.textContent = ok ? 'Copied' : 'Copy failed'; setTimeout(function () { b.textContent = 'Copy'; }, 1500); }); });
+  });
+  function nm() { var t = document.getElementById('bt').value.trim(), w = document.getElementById('bw').value.replace(/[\\/:*?"<>|]/g, '-').replace(/\s+/g, ' ').trim().slice(0, 70); return new Date(V.nowMs()).toISOString().slice(0, 10) + ' _ ' + t + ' _ Portal-PDF _ ' + w + ' _ v1.pdf'; }
+  function draw() { document.getElementById('bn').textContent = nm(); }
+  ['bt', 'bw'].forEach(function (id) { document.getElementById(id).addEventListener('input', draw); }); draw();
+  document.getElementById('bc').addEventListener('click', function () { V.copy(nm()).then(function (ok) { document.getElementById('bk').textContent = ok ? 'Copied.' : 'Copy failed: select it and press Ctrl+C.'; }); });
+  window.VTES_CAPTURE_PAGE = { nm: nm, jobs: J };
+})();
+</script></body></html>

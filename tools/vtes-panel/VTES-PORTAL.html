@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VTES Job Portal · permit and legalization · TRK-2026-9910-B · #portal #workflow #permit #legalization</title>
+<meta name="keywords" content="portal, permit, legalization, workflow, 13 stages, #20001, #10980, #14598, Art House, Medley, TRK-2026-9910-B">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; --ok:#2e7d4f; --bad:#b3261e; --warn:#b26a00; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 "Segoe UI",system-ui,sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:10px 14px 50px; }
+  h1 { font-size:22px; margin:6px 0 2px; } h2 { font-size:17px; margin:0 0 6px; }
+  .sub { color:var(--muted); font-size:13.5px; margin-bottom:10px; }
+  .box { background:var(--card); border:2px solid var(--line); border-radius:12px; padding:10px 14px; margin-bottom:10px; font-size:14.5px; }
+  .box.warn { background:#fff8e6; border-color:#e0a100; } .box.bad { background:#fdecea; border-color:var(--bad); } .box.ok { background:#eaf5ee; border-color:var(--ok); }
+  .picker { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+  .pk { padding:6px 12px; border-radius:99px; border:2px solid var(--line); background:#fff; font:inherit; font-size:14px; font-weight:800; cursor:pointer; }
+  .pk.on { background:#dfeaf7; border-color:var(--accent); }
+  .bar { height:16px; border-radius:99px; background:#e7e3da; overflow:hidden; display:flex; margin:6px 0; } .bar i { display:block; height:100%; }
+  .nums { display:flex; flex-wrap:wrap; gap:6px 14px; font-size:14px; } .nums code { font:13.5px Consolas,monospace; background:#f1eee7; padding:1px 6px; border-radius:6px; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:10px; } @media (max-width:760px) { .two { grid-template-columns:1fr; } }
+  .st { display:grid; grid-template-columns:34px 1fr; gap:8px; border-left:8px solid var(--c,#999); background:#fff; border:2px solid var(--line); border-left-width:8px; border-left-color:var(--c,#999); border-radius:10px; padding:6px 10px; margin-bottom:6px; }
+  .st .n { font-weight:900; font-size:18px; color:var(--c,#999); text-align:center; }
+  .st h3 { margin:0; font-size:15.5px; } .st .ev { font-size:13.5px; margin-top:2px; }
+  .tag { display:inline-block; font-size:11px; font-weight:800; padding:1px 7px; border-radius:99px; color:#fff; background:var(--c,#888); margin-left:6px; white-space:nowrap; }
+  details { margin-top:4px; font-size:13px; color:var(--muted); } details b { color:var(--ink); }
+  ul.t { margin:4px 0 0 18px; padding:0; } ul.t li { margin:2px 0; }
+  .btn, button.b { display:inline-block; padding:7px 13px; border-radius:10px; border:2px solid var(--accent); background:#fff; color:var(--accent); font:inherit; font-size:14px; font-weight:800; cursor:pointer; text-decoration:none; margin:3px 5px 3px 0; }
+  .btn.go { background:var(--accent); color:#fff; }
+  .lg { font-size:12.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:4px 12px; margin:4px 0 8px; } .lg i { display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:4px; vertical-align:-1px; }
+  .next { border:3px solid var(--bad); background:#fff; border-radius:12px; padding:10px 14px; margin-bottom:10px; } .next.ag { border-color:var(--accent); }
+  .foot { font-size:12px; color:var(--muted); margin-top:16px; word-break:break-word; }
+  textarea { width:100%; min-height:130px; font:13px Consolas,monospace; border:2px solid var(--line); border-radius:10px; padding:8px; }
+</style></head>
+<body>
+<main>
+  <h1>🗂️ Job Portal: permit and legalization</h1>
+  <div class="sub" id="sub"></div>
+  <div class="box warn"><b>Read this first:</b> every job below goes through the same 13 stages. A stage is green only when a file or a county page proves it. "Unknown" means nobody has shown proof either way. Only #20001 ever reached a finished permit, so stages 9 to 13 are proven on one job only. Nothing here was checked on the county sites today: the cloud window cannot reach them.</div>
+  <div class="picker" id="pk"></div>
+  <div id="job"></div>
+  <div class="box"><h2>Stage guide (same for every job)</h2><div class="lg" id="lg"></div><div id="guide" style="font-size:13.5px;color:var(--muted)">Open any stage on a job above to see what goes in, what comes out, who does it, the usual blocker, and what counts as proof.</div></div>
+  <p class="foot">TRK-2026-9910-B · job portal v1 · 2026-09-30 · CURRENT · #portal #workflow #permit #legalization #VTES-control-panel · Data: portal-workflow.js (13 stages) and portal-jobs.js (per-job status, each line with its evidence). Source research: agent-results/2026-09-30-research/ (W1, P1, P2, P3).</p>
+</main>
+<script src="vtes-modules.js"></script><script src="vtes-reminders.js"></script><script src="vtes-alerts.js"></script><script src="vtes-reviews.js"></script><script src="vtes-budget.js"></script><script src="vtes-common.js"></script>
+<script src="portal-workflow.js"></script><script src="portal-jobs.js"></script>
+<script>
+(function () {
+  var V = window.VTES, esc = V.esc; V.nav('portal');
+  var W = window.VTES_WORKFLOW || { stages: [], statuses: {} }, JOBS = window.VTES_PORTAL_JOBS || [];
+  var cur = (location.hash || '').replace('#', '');
+  if (!JOBS.filter(function (j) { return j.id === cur; })[0]) { cur = JOBS.length ? JOBS[0].id : ''; }
+  function col(k) { return (W.statuses[k] || ['?', '#888'])[1]; }
+  function lab(k) { return (W.statuses[k] || [k, '#888'])[0]; }
+  function list(a) { return a && a.length ? '<ul class="t">' + a.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' : '<div style="color:var(--muted)">(none recorded)</div>'; }
+  function card(j) {
+    var L = j.st.length, cnt = {}; j.st.forEach(function (s) { cnt[s[0]] = (cnt[s[0]] || 0) + 1; });
+    var order = ['DONE', 'INPROG', 'BLOCKED', 'UNKNOWN', 'TODO', 'NA'];
+    return 'CARD · Portal job ' + j.tag + ' · ' + j.title + '\n' + j.trk + ' · folio ' + j.folio + ' · ' + j.jur + '\nNext: ' + j.next.who + ': ' + j.next.act + '\nProof of done: ' + j.next.proof + '\nBlockers: ' + j.blockers.join('; ') + '\nStages: ' + order.filter(function (k) { return cnt[k]; }).map(function (k) { return cnt[k] + ' ' + lab(k); }).join(', ') + ' of ' + L + '\nHashtags: ' + j.tags + '\nRules: never send, pay, file or cancel; build/review by different windows; stop and ask Jorge at any RED gate.\nQuestion for the reader: which stage should be taken next?';
+  }
+  function draw() {
+    var j = JOBS.filter(function (x) { return x.id === cur; })[0];
+    document.getElementById('pk').innerHTML = JOBS.map(function (x) { return '<button type="button" class="pk' + (x.id === cur ? ' on' : '') + '" data-id="' + x.id + '">' + esc(x.tag) + ' <span style="font-weight:600;color:var(--muted)">' + esc(x.phase) + '</span></button>'; }).join('');
+    document.getElementById('sub').textContent = JOBS.length + ' jobs · ' + W.stages.length + ' stages each · as of ' + (W.asOf || '?');
+    document.getElementById('lg').innerHTML = Object.keys(W.statuses).map(function (k) { return '<span><i style="background:' + col(k) + '"></i>' + esc(lab(k)) + '</span>'; }).join('');
+    if (!j) { document.getElementById('job').innerHTML = '<div class="box bad">No jobs loaded. portal-jobs.js is missing.</div>'; return; }
+    var cnt = {}; j.st.forEach(function (s) { cnt[s[0]] = (cnt[s[0]] || 0) + 1; });
+    var bar = ['DONE', 'INPROG', 'BLOCKED', 'UNKNOWN', 'TODO', 'NA'].filter(function (k) { return cnt[k]; }).map(function (k) { return '<i style="width:' + (100 * cnt[k] / j.st.length) + '%;background:' + col(k) + '" title="' + esc(lab(k)) + ' ' + cnt[k] + '"></i>'; }).join('');
+    var sum = ['DONE', 'INPROG', 'BLOCKED', 'UNKNOWN', 'TODO', 'NA'].filter(function (k) { return cnt[k]; }).map(function (k) { return cnt[k] + ' ' + lab(k).toLowerCase(); }).join(' · ');
+    var mun = 'VTES-MUNICIPALITIES.html?folio=' + encodeURIComponent(j.folio.replace(/ .*$/, '')) + (/^TRK-/.test(j.trk) ? '&trk=' + encodeURIComponent(j.trk.replace(/ .*$/, '')) : '');
+    var h = '<div class="box"><h2>' + esc(j.tag) + ' · ' + esc(j.title) + '</h2>' +
+      '<div style="font-size:13.5px;color:var(--muted)">' + esc(j.jur) + '<br>Client / parties: ' + esc(j.client) + '</div>' +
+      '<div class="nums" style="margin-top:6px"><span><b>TRK</b> <code>' + esc(j.trk) + '</code></span><span><b>Folio</b> <code>' + esc(j.folio) + '</code></span>' + j.nums.map(function (n) { return '<span><b>' + esc(n[0]) + '</b> <code>' + esc(n[1]) + '</code></span>'; }).join('') + '</div>' +
+      '<div class="bar">' + bar + '</div><div style="font-size:13.5px"><b>' + esc(sum) + '</b> of ' + j.st.length + ' stages</div></div>';
+    h += '<div class="next' + (j.next.who === 'JORGE' ? '' : ' ag') + '"><h2>Next action · ' + esc(j.next.who) + '</h2><div>' + esc(j.next.act) + '</div><div style="margin-top:4px;font-size:13.5px"><b>Proof it is done:</b> ' + esc(j.next.proof) + '</div></div>';
+    h += '<div class="two"><div class="box' + (j.blockers.length ? ' bad' : '') + '"><h2>Blockers</h2>' + list(j.blockers) + '</div><div class="box"><h2>Money</h2>' + list(j.money) + '</div>' +
+      '<div class="box"><h2>Deadlines</h2>' + list(j.deadlines) + '</div><div class="box warn"><h2>Gaps: what is missing</h2>' + list(j.gaps) + '</div></div>';
+    h += '<h2 style="margin-top:6px">The 13 stages</h2>' + W.stages.map(function (s, i) {
+      var x = j.st[i] || ['UNKNOWN', '(no entry)'], c = col(x[0]);
+      return '<div class="st" style="--c:' + c + '"><div class="n">' + s.n + '</div><div><h3>' + esc(s.name) + '<span class="tag" style="--c:' + c + '">' + esc(lab(x[0])) + '</span></h3><div class="ev">' + esc(x[1] || (x[0] === 'TODO' ? 'Not started. Nothing on file yet.' : '(no note)')) + '</div>' +
+        '<details><summary>What goes in, what comes out, who, proof</summary><div><b>In:</b> ' + esc(s.ins) + '<br><b>Out:</b> ' + esc(s.outs) + '<br><b>Who:</b> ' + esc(s.who) + '<br><b>Usual blocker:</b> ' + esc(s.blocker) + '<br><b>Counts as proof:</b> ' + esc(s.proof) + '</div></details></div></div>';
+    }).join('');
+    h += '<div class="box"><h2>Go to</h2>' +
+      (j.cap ? '<a class="btn go" href="VTES-CAPTURE.html#' + esc(j.cap) + '">Capture desk: county page PDF</a>' : '') +
+      '<a class="btn" href="' + esc(mun) + '">Fill sheet for this folio</a>' +
+      '<a class="btn" href="VTES-BUDGET.html?task=' + esc(j.taskKey || 'analysis') + '">Which LLM takes this</a>' +
+      (j.links || []).map(function (l) { return '<a class="btn" href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a>'; }).join('') + '</div>';
+    h += '<div class="box"><h2>Hand it on (copy, then paste into one window)</h2><textarea id="card" readonly>' + esc(card(j)) + '</textarea>' +
+      '<button type="button" class="b" id="cc">Copy the card</button><button type="button" class="b" id="ct">Copy the hashtags</button> <span id="cn" style="font-size:13px;font-weight:700"></span></div>';
+    document.getElementById('job').innerHTML = h;
+    Array.prototype.forEach.call(document.querySelectorAll('.pk'), function (b) { b.addEventListener('click', function () { cur = b.getAttribute('data-id'); try { history.replaceState(null, '', '#' + cur); } catch (e) {} draw(); }); });
+    document.getElementById('cc').addEventListener('click', function () { V.copy(card(j)).then(function (ok) { document.getElementById('cn').textContent = ok ? 'Card copied.' : 'Copy failed: select the text and press Ctrl+C.'; }); });
+    document.getElementById('ct').addEventListener('click', function () { V.copy(j.tags).then(function (ok) { document.getElementById('cn').textContent = ok ? 'Hashtags copied.' : 'Copy failed.'; }); });
+  }
+  window.VTES_PORTAL_PAGE = { draw: draw, pick: function (id) { cur = id; draw(); }, jobs: JOBS, card: card };
+  draw();
+})();
+</script>
+</body></html>

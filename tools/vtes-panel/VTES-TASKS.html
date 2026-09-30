@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VTES Pending Tasks · ranked · TRK-2026-9910-B · #tasks #pending #priority</title>
+<meta name="keywords" content="tasks, pending, ranked, priority, backlog, owner-only, money, stale, TRK-2026-9910-B">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; --bad:#b3261e; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 "Segoe UI",system-ui,sans-serif; }
+  main { max-width:1150px; margin:0 auto; padding:10px 14px 50px; }
+  h1 { font-size:22px; margin:6px 0 2px; } .sub { color:var(--muted); font-size:13.5px; margin-bottom:10px; }
+  .box { background:#fff8e6; border:2px solid #e0a100; border-radius:12px; padding:9px 14px; margin-bottom:10px; font-size:14px; }
+  input[type=text], select { font:inherit; font-size:16px; padding:8px 10px; border:2px solid var(--line); border-radius:10px; width:100%; background:#fff; }
+  .bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:8px; } .bar input[type=text] { flex:1 1 320px; } .bar select { flex:1 1 260px; width:auto; }
+  .chips { display:flex; flex-wrap:wrap; gap:5px; }
+  .chip { padding:3px 9px; border-radius:99px; border:2px solid var(--line); background:#fff; font-size:13px; font-weight:700; cursor:pointer; } .chip.on { background:#dfeaf7; border-color:var(--accent); }
+  label.tg { font-size:14px; font-weight:700; display:inline-flex; gap:5px; align-items:center; margin-right:10px; }
+  .t { background:#fff; border:2px solid var(--line); border-left:8px solid var(--c,#999); border-radius:10px; padding:7px 12px; margin-bottom:6px; display:grid; grid-template-columns:62px 1fr; gap:10px; }
+  .t.stale { opacity:.68; border-style:dashed; border-left-style:solid; } .t.done { opacity:.45; text-decoration:line-through; }
+  .rk { width:62px; text-align:center; font:800 15px Consolas,monospace; padding:4px 2px; border:2px solid var(--line); border-radius:8px; }
+  .t h3 { margin:0; font-size:15px; word-break:break-word; } .m { font-size:12.5px; color:var(--muted); margin-top:2px; word-break:break-word; }
+  .tag { display:inline-block; font-size:11px; font-weight:800; padding:1px 7px; border-radius:99px; color:#fff; background:var(--c,#888); margin-right:4px; white-space:nowrap; }
+  .tag.me { background:var(--bad); } .tag.usd { background:#2e7d4f; } .tag.st { background:#8a5a00; }
+  button.sm, button.b { padding:5px 12px; font-size:13px; border-radius:8px; border:2px solid var(--accent); background:#fff; color:var(--accent); font-weight:800; cursor:pointer; margin:3px 5px 3px 0; }
+  .foot { font-size:12px; color:var(--muted); margin-top:16px; word-break:break-word; }
+  .hs a { color:var(--accent); cursor:pointer; font-size:12px; }
+</style></head>
+<body>
+<main>
+  <h1>📋 Pending Tasks, ranked</h1>
+  <div class="sub" id="sub"></div>
+  <div class="box"><b>Read this first:</b> <span id="note"></span> Change any rank number on the left and the list re-sorts. Your changes are kept only in this browser. Stale items are hidden until you turn them on.</div>
+  <div class="bar"><input type="text" id="q" placeholder="Search a word, a TRK, a hashtag (#20001), or a garbled OCR word." autocomplete="off"><select id="cl"></select></div>
+  <div class="bar"><div class="chips" id="tc"></div></div>
+  <div class="bar"><label class="tg"><input type="checkbox" id="fo"> Only things only I can do</label><label class="tg"><input type="checkbox" id="fm"> Money</label><label class="tg"><input type="checkbox" id="fs"> Show stale</label><label class="tg"><input type="checkbox" id="fd"> Show done</label><span id="cnt" style="font-size:13px;color:var(--muted)"></span></div>
+  <div id="list"></div>
+  <div class="bar"><button class="b" id="more" type="button" hidden>Show 100 more</button><button class="b" id="ex" type="button">Copy what is showing (as text)</button><button class="b" id="rs" type="button">Reset my ranks and checks</button> <span id="en" style="font-size:13px;font-weight:700"></span></div>
+  <p class="foot">TRK-2026-9910-B · tasks v1 · 2026-09-30 · CURRENT · #tasks #pending #priority #VTES-control-panel · Data: tasks-data.js (built from OPEN-ITEMS, owner queues, audits, Drive lists, this session). Master list with sources: PENDING-TASKS_MASTER_2026-09-30.md.</p>
+</main>
+<script src="vtes-modules.js"></script><script src="vtes-reminders.js"></script><script src="vtes-alerts.js"></script><script src="vtes-reviews.js"></script><script src="vtes-budget.js"></script><script src="vtes-common.js"></script>
+<script src="tasks-data.js"></script>
+<script>
+(function () {
+  var V = window.VTES, esc = V.esc; V.nav('tasks');
+  var D = window.VTES_TASKS || { meta: {}, items: [] }, items = D.items;
+  var TC = { 'COUNTY-LEGAL': '#7a2e8e', PERMIT: '#1b5e9e', MONEY: '#2e7d4f', 'CLIENT-JOB': '#0d7a7a', 'OWNER-DECISION': '#b3261e', PIPELINE: '#b26a00', 'FILING-SYSTEM': '#555', ADMIN: '#6b6b66', 'AI-INFRA': '#3949ab', 'ACCOUNTS-LOGIN': '#8a5a00' };
+  function ld(k) { try { return JSON.parse(localStorage.getItem(k) || '{}'); } catch (e) { return {}; } }
+  function sv(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  var ov = ld('vtes.task.rank'), dn = ld('vtes.task.done');
+  var q = '', cF = '', tF = '', fo = false, fm = false, fs = false, fd = false, lim = 100;
+  function rank(t) { return ov[t.id] !== undefined ? +ov[t.id] : t.rank; }
+  function hay(t) { return [t.id, t.title, t.cluster, t.type, t.why, (t.trk || []).join(' '), (t.tags || []).map(function (x) { return '#' + x; }).join(' '), t.who].join(' '); }
+  function filt() {
+    return items.map(function (t) { return { t: t, s: q ? V.match(q, hay(t)) : 1 }; }).filter(function (x) {
+      var t = x.t; return x.s > 0 && (!cF || t.cluster === cF) && (!tF || t.type === tF) && (!fo || t.owner_only) && (!fm || t.money) && (fs || !t.stale) && (fd || !dn[t.id]);
+    }).sort(function (a, b) { return q && a.s !== b.s ? b.s - a.s : rank(a.t) - rank(b.t) || a.t.id.localeCompare(b.t.id); }).map(function (x) { return x.t; });
+  }
+  function draw() {
+    var L = filt(), types = {}, cl = {};
+    items.forEach(function (t) { types[t.type] = (types[t.type] || 0) + 1; cl[t.cluster] = (cl[t.cluster] || 0) + 1; });
+    var m = D.meta || {};
+    document.getElementById('sub').textContent = items.length + ' items · ' + (m.live || '?') + ' look live · ' + (m.stale || '?') + ' look stale · as of ' + (m.asOf || '?') + ' · showing ' + L.length;
+    document.getElementById('note').textContent = m.note || '';
+    document.getElementById('cnt').textContent = L.length + ' of ' + items.length;
+    var cs = document.getElementById('cl'); var cur = cF; cs.innerHTML = '<option value="">All groups (' + Object.keys(cl).length + ')</option>' + Object.keys(cl).sort().map(function (k) { return '<option value="' + esc(k) + '"' + (k === cur ? ' selected' : '') + '>' + esc(k) + ' (' + cl[k] + ')</option>'; }).join('');
+    document.getElementById('tc').innerHTML = Object.keys(types).sort().map(function (k) { return '<span class="chip' + (tF === k ? ' on' : '') + '" data-k="' + esc(k) + '" style="border-color:' + (TC[k] || '#999') + '">' + esc(k) + ' ' + types[k] + '</span>'; }).join('');
+    var shown = L.slice(0, lim);
+    document.getElementById('list').innerHTML = shown.map(function (t) {
+      var c = TC[t.type] || '#999';
+      return '<div class="t' + (t.stale ? ' stale' : '') + (dn[t.id] ? ' done' : '') + '" style="--c:' + c + '"><div><input class="rk" type="text" inputmode="numeric" value="' + rank(t) + '" data-r="' + t.id + '" aria-label="rank"><div class="m" style="text-align:center">' + esc(t.id) + '</div></div><div>' +
+        '<h3>' + esc(t.title) + '</h3><div class="m"><span class="tag" style="--c:' + c + '">' + esc(t.type) + '</span>' + (t.owner_only ? '<span class="tag me">only you</span>' : '<span class="tag" style="--c:#555">' + esc(t.who || 'agent') + '</span>') + (t.money ? '<span class="tag usd">money</span>' : '') + (t.stale ? '<span class="tag st">stale</span>' : '') + (t.due ? '<span class="tag" style="--c:#b26a00">due ' + esc(t.due) + '</span>' : '') + esc(t.cluster) + '</div>' +
+        (t.stale && t.stale_reason ? '<div class="m"><b>Why stale:</b> ' + esc(t.stale_reason) + '</div>' : '') + (t.why ? '<div class="m">' + esc(t.why) + '</div>' : '') +
+        ((t.trk || []).length ? '<div class="m"><b>TRK:</b> ' + esc(t.trk.join(', ')) + '</div>' : '') + '<div class="m hs">' + (t.tags || []).map(function (x) { return '<a data-h="' + esc(x) + '">#' + esc(x) + '</a>'; }).join(' ') + '</div>' +
+        '<label class="tg" style="margin-top:3px;font-size:13px"><input type="checkbox" data-d="' + t.id + '"' + (dn[t.id] ? ' checked' : '') + '> I did this (kept only in this browser; not a proof)</label></div></div>';
+    }).join('') || '<div class="box">Nothing matches. Try fewer words or turn on "Show stale".</div>';
+    var mb = document.getElementById('more'); mb.hidden = L.length <= lim;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-r]'), function (e) { e.addEventListener('change', function () { var n = parseFloat(e.value); if (!isFinite(n)) { e.value = rank(items.filter(function (t) { return t.id === e.getAttribute('data-r'); })[0]); return; } ov[e.getAttribute('data-r')] = n; sv('vtes.task.rank', ov); draw(); }); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-d]'), function (e) { e.addEventListener('change', function () { if (e.checked) { dn[e.getAttribute('data-d')] = 1; } else { delete dn[e.getAttribute('data-d')]; } sv('vtes.task.done', dn); draw(); }); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-h]'), function (a) { a.addEventListener('click', function () { q = '#' + a.getAttribute('data-h'); document.getElementById('q').value = q; lim = 100; draw(); }); });
+    Array.prototype.forEach.call(document.querySelectorAll('#tc .chip'), function (c) { c.addEventListener('click', function () { tF = tF === c.getAttribute('data-k') ? '' : c.getAttribute('data-k'); lim = 100; draw(); }); });
+    document.getElementById('cl').onchange = function (e) { cF = e.target.value; lim = 100; draw(); };
+  }
+  document.getElementById('q').addEventListener('input', function (e) { q = e.target.value; lim = 100; draw(); });
+  [['fo', function (v) { fo = v; }], ['fm', function (v) { fm = v; }], ['fs', function (v) { fs = v; }], ['fd', function (v) { fd = v; }]].forEach(function (x) { document.getElementById(x[0]).addEventListener('change', function (e) { x[1](e.target.checked); lim = 100; draw(); }); });
+  document.getElementById('more').addEventListener('click', function () { lim += 100; draw(); });
+  document.getElementById('ex').addEventListener('click', function () { var L = filt(); V.copy('PENDING TASKS · ' + L.length + ' showing · ' + new Date(V.nowMs()).toISOString().slice(0, 10) + ' · TRK-2026-9910-B\n' + L.map(function (t) { return rank(t) + '. [' + t.type + '] ' + t.title + (t.owner_only ? ' (only Jorge)' : '') + (t.trk && t.trk.length ? ' · ' + t.trk.join(', ') : ''); }).join('\n')).then(function (ok) { document.getElementById('en').textContent = ok ? 'Copied ' + L.length + ' lines.' : 'Copy failed.'; }); });
+  document.getElementById('rs').addEventListener('click', function () { ov = {}; dn = {}; sv('vtes.task.rank', ov); sv('vtes.task.done', dn); draw(); document.getElementById('en').textContent = 'Reset.'; });
+  window.VTES_TASKS_PAGE = { draw: draw, filt: filt, setQ: function (x) { q = x; document.getElementById('q').value = x; draw(); } };
+  draw();
+})();
+</script>
+</body></html>

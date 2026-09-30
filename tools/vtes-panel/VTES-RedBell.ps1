@@ -6,7 +6,7 @@
   Reads vtes-reminders.js next to this script. Red bell with the count; flashes when anything is overdue.
   Double-click = open the Reminders page. Right-click = Reminders, Panel, Exit. Refreshes every 60 seconds.
   -CreateShortcut  puts "VTES REMINDERS (red)" on the REAL desktop (+ writes vtes-redbell.ico beside this script) and exits.
-  -SelfTest        6 checks of the counting logic. Prints RESULT.
+  -SelfTest        7 checks of the counting logic. Prints RESULT.
   Reads one file, writes (with -CreateShortcut) one .ico and one .lnk. Sends nothing anywhere.
 #>
 param([switch]$CreateShortcut, [switch]$SelfTest, [string]$Dir = '')
@@ -37,6 +37,7 @@ if ($SelfTest) {
   T 'counts 1 due within 7 days (10/05)' ($c.Soon -eq 1)
   T 'a done item is never counted' ((Get-Counts "{ id: 'X', due: '2020-01-01', done: true }" ([datetime]'2026-09-30')).Open -eq 0)
   T 'empty text gives zero' ((Get-Counts '' ([datetime]'2026-09-30')).Open -eq 0)
+  T 'a review file with one pending PDF counts as one open item' ((Get-Counts "window.VTES_REVIEWS = [{ id: 'R-1', kind: 'review', title: 'x', due: '', done: false }];" ([datetime]'2026-09-30')).Open -eq 1)
   $real = Join-Path $PSScriptRoot 'vtes-reminders.js'
   T 'the real reminders file parses to at least 1 open item' ((Test-Path $real) -and ((Get-Counts (Get-Content $real -Raw -Encoding UTF8) (Get-Date)).Open -ge 1))
   Write-Host "RESULT: $pass passed, $fail failed"; if ($fail) { exit 1 } else { exit 0 }
@@ -67,7 +68,12 @@ $ni.ContextMenuStrip = $menu; $ni.add_DoubleClick({ Start-Process $html })
 $script:state = [pscustomobject]@{ Open = 0; Overdue = 0; Lit = $true }
 function Refresh-Bell {
   $txt = if (Test-Path $js) { Get-Content $js -Raw -Encoding UTF8 } else { '' }
-  $c = Get-Counts $txt (Get-Date); $script:state.Open = $c.Open; $script:state.Overdue = $c.Overdue
+  $c = Get-Counts $txt (Get-Date); $open = $c.Open; $over = $c.Overdue
+  foreach ($extra in 'vtes-alerts.js', 'vtes-reviews.js') {   # gauge warnings and PDFs waiting for review: each one flashes the bell
+    $f = Join-Path $Dir $extra
+    if (Test-Path $f) { $x = Get-Counts (Get-Content $f -Raw -Encoding UTF8) (Get-Date); $open += $x.Open; $over += $x.Open }
+  }
+  $script:state.Open = $open; $script:state.Overdue = $over; $c = [pscustomobject]@{ Open = $open; Overdue = $over }
   $ni.Text = ("VTES: {0} waiting, {1} overdue" -f $c.Open, $c.Overdue)
 }
 function Paint { $old = $ni.Icon; $b = New-Bell $script:state.Lit $script:state.Open; $ni.Icon = [Drawing.Icon]::FromHandle($b.GetHicon()) }
