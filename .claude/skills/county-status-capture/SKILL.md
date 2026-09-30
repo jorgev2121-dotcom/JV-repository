@@ -15,7 +15,7 @@ description: Retrieve a county or city portal status page (citation/case closed,
 
 ## 2. Known jobs (as of 2026-09-30; re-check before use)
 1. **#20001** = 20001 SW 110 CT Unit 143, TRK-2026-1262, permit **2026061642**, process C2026116502 (older C2026061642), code case **20260245510**, folio 30-6007-011-0020. Permit finaled 2026-08-07 per the county email. The county case still showed OPEN on 2026-09-28 (Drive screenshot "Case 20260245510 STILL OPEN"). **Expect a fresh capture to show permit FINAL and the case still OPEN, unless the county acted. Do not describe an open case as closed.**
-2. **#10980** = 10980 SW 202 Dr Unit 29 (Jorge also said "19080": same hashtag, digits transposed; confirm), TRK-2026-1667 (also TRK-2026-1310: Jorge must pick), process **C2026170181**, folio 30-6007-009-0030. Upfront fee shown 2026-09-28: **$7,280.94**. Permit number 0 (not issued).
+2. **#10980** = 10980 SW 202 Dr Unit 29 (Jorge also said "19080": CONFIRMED by Jorge 2026-09-30 as the same job, digits transposed; use alias #19080 when searching), TRK-2026-1667 (also TRK-2026-1310: Jorge must pick), process **C2026170181**, folio 30-6007-009-0030. Upfront fee shown 2026-09-28: **$7,280.94**. Permit number 0 (not issued).
 
 ## 3. Portals (public pages work without a login; the county site blocks the cloud, so a PC or Cowork browser does this)
 1. Permit Status / Electronic Permits menu: start at https://www.miamidade.gov/permits/ (Permit Status Inquiry, Permit History, Holds, Fees by process number).

@@ -19,6 +19,7 @@ window.VTES_WHERE = [
   { n: 'Repo: control panel folder', kind: 'Repo', loc: 'tools/vtes-panel/', what: 'Every page of this panel, its data files and scripts.', state: 'VERIFIED', tags: '#panel #VTES' },
   { n: 'Repo: panel architecture', kind: 'Repo', loc: 'PANEL-ARCHITECTURE.md', what: 'How the pages are wired. Read before adding a page.', state: 'VERIFIED', tags: '#panel #wiring #architecture' },
   { n: 'Repo: roundtable protocol', kind: 'Repo', loc: 'ROUNDTABLE-PROTOCOL.md', what: 'How assistants hand work to each other (cards, states, max two hops).', state: 'VERIFIED', tags: '#roundtable #dispatch #handoff' },
+  { n: 'Repo: handoffs log', kind: 'Repo', loc: 'HANDOFFS.md', what: 'What an orchestrator session routed, with proof. Started 2026-09-30.', state: 'VERIFIED', tags: '#handoffs #orchestrator #dispatch' },
   { n: 'Repo: dispatch cards', kind: 'Repo', loc: 'dispatch/', what: 'Task cards D-001 onward and the board.', state: 'VERIFIED', tags: '#dispatch #cards' },
   { n: 'Repo: orders to the desktop', kind: 'Repo', loc: 'mailbox/to-desktop/', what: 'Work orders for the PC executor. WORK-QUEUE.md is the front page.', state: 'VERIFIED', tags: '#mailbox #desktop #orders' },
   { n: 'Repo: research from today', kind: 'Repo', loc: 'agent-results/2026-09-30-research/', what: 'Reports on 14598, Pembroke Pines, Cinde, refinance, hashtags, workflow, portal, shared folders.', state: 'VERIFIED', tags: '#research #14598 #20001 #10980 #refinance' },
