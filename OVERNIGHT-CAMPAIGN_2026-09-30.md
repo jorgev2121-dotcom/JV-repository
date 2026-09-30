@@ -2,41 +2,65 @@
 
 **Owner said "run the three tonight" live in cloud chat at 03:54 UTC, then asked for an
 aggressive parallel push with proof of completion by 11 AM ET.** This file is the single
-place to check status — updated as replies land, not rewritten from scratch.
+place to check status. **Updated 15:0x UTC, past the 11 AM ET deadline — real numbers below,
+not "good progress."**
 
-## The three, relayed 03:55 UTC
+## Denominator: 1 of 3 done with proof, 1 in progress uncredited, 2 not started
 
-| # | Item | Where relayed | Who executes | Status |
-|---|---|---|---|---|
-| 1 | Rebuild the inbox poller (VTES-Bridge-Poller) | `MSG-CLOUD-TO-CODE_OWNER-DIRECTIVE_RUN-THE-THREE_2026-09-30.md`, VTES-Inbox | Desktop | RELAYED — awaiting desktop pickup |
-| 2 | Make heartbeat/watcher persistence permanent | same file | Desktop | RELAYED — awaiting desktop pickup |
-| 3 | CDM: GO (cloud's reading — desktop/Cowork can revert to HOLD if that's wrong) | `OWNER-DECISION_CDM-GO_2026-09-30.md`, MY-DESK | Cowork | RELAYED — next scheduled fire ~05:13 UTC picks it up (an early-fire attempt was blocked by this session's own safety classifier as a precaution; letting it land on schedule instead rather than working around that) |
+## 1 — Rebuild the inbox poller: **NOT DONE**
 
-## The honest limit on 1 and 2
+Relayed 03:55 UTC to VTES-Inbox. **Verified directly, not inferred:** `heartbeat.json`
+`modifiedTime` is still `2026-09-24T15:34:02.868Z` — bit-for-bit the same value as before
+the ask. That's now ~140 hours stale. No ACK, no proof line, nothing from RAMBO. This is a
+Windows-PC action; it needed an attended desktop session tonight and, on the evidence,
+didn't get one.
 
-**Both are actions on Jorge's Windows PC. This cloud session has no channel to build a
-Windows scheduled task itself.** The message is now sitting in the one place the desktop
-lane is known to read (VTES-Inbox) and is durable — it survives even though the inbox
-poller itself is the thing that's broken, because the standing PC-ALWAYS-ON check-in
-sessions (`D-063 poller check`, `Morning: PC-ALWAYS-ON-01`) read specific files, not a
-generic inbox scan, and both are already scheduled to check again within hours. If nobody
-is attended at the PC tonight, these two may still be sitting un-actioned at 11 AM — that
-is this file's job to say plainly, not paper over.
+## 2 — Make heartbeat/watcher persistence permanent: **NOT DONE**
 
-## What else is already running in parallel, unprompted (no new dispatch needed)
+Same file, same evidence, same reason. Bundled with #1 — whoever sits down at the PC does
+both in one pass.
 
-- VTES Watchdog — every 4h, next ~11:13 UTC. Will pick up whatever changed.
-- Overnight hourly + Hourly check — desktop/cloud mailbox reconciliation, continuous.
-- Plaza JOB-0112 report — already fired early tonight (03:38 UTC), separate from this campaign.
-- 6 sessions currently driving open PRs to green.
+## 3 — CDM: GO: **DONE, with real proof — and it opened a bigger, still-open door**
 
-## What is deliberately NOT dispatched tonight
+Cowork picked up the relay and acted within ~90 minutes (`HANDOFF-TO-CLOUD_JOB-0100_GO.md`,
+VTES-Inbox, 05:21 UTC): explicitly logged "Jorge's 'run the three tonight' reads as CDM: GO,
+does not revert to HOLD," closed AP-0080, and delivered a real final pass —
+`CDM_FINAL-REPORT_v1_2026-09-30.html` (19,125 B, MY-DESK) plus a manifest listing 37 seed
+files with sha256 and row counts. **That part is genuinely finished and verified.**
 
-Nothing touching credentials, payments, client-facing sends, or physical actions — that
-boundary stands regardless of the "run everything" framing (see chat, 2026-09-30). The
-1Password batch work stays gated on Jorge being physically at the PC.
+**But that same handoff assigned three more orders to "the Cloud Code lane" — merges, an
+engine build, and a calibration test — and as of the 13:21 UTC progress board, 8 hours had
+passed with zero pickup.** Nobody was watching the Inbox for a mid-night, cloud-addressed
+handoff the same way nobody was watching it for desktop's poller — the identical shape of
+failure, on the other side of the same broken pipe. This check-in is the first time any
+cloud session has seen `HANDOFF-TO-CLOUD_JOB-0100_GO.md` at all.
 
-## Check back
+**Not attempted in this same pass, on purpose.** The three orders are a real engineering
+job — three byte-exact CSV merges (85→110, 411→461, 73→81 rows) governed by a rulebook
+this session hasn't read yet, then building calculation code that must reproduce ten TEDC
+verdicts to the cent (one example figure: $214,020.00 / cutoff $210,466.31 / PHA
+$199,038.60). Rushing that inside a status-check turn, right after a missed deadline, is
+exactly the failure this repo's own RI-025 already named — a wrong answer that looks
+confident is worse than a late one that says so. **Recommendation: treat this as its own
+dedicated task, next, not squeezed into tonight's tail end.**
 
-Cloud will compile a proof-of-completion summary against this file near 11:00 AM ET
-(15:00 UTC) and update the table above with what actually landed vs. what's still sitting.
+## What else moved overnight (unprompted, no new dispatch needed)
+
+- Watchdog ran on schedule (07:15 ET / 11:16 UTC): 88 issues, 0 new. Correctly flagged
+  both the dead heartbeat and the un-proofed CDM handoff — it's watching the same things
+  this file is.
+- PC is confirmed awake the whole night (uptime heartbeat fresh, 310+ hours up, no sleep) —
+  so items 1/2 not landing is a "nobody sat down," not a "machine was off."
+- A separate live desktop session independently corrected the 1667 fee-review status and
+  logged Cowork's no-proof finding (commit `cb5af1d`, merged into this branch).
+- The 71-card approval backlog and 16 blocker asks are unchanged — expected, not a new gap.
+
+## What was deliberately not dispatched
+
+Nothing touching credentials, payments, client-facing sends, or physical actions, and the
+CDM engineering follow-on above — held for a dedicated pass rather than rushed.
+
+## Next check
+
+No further automatic check queued. Next real signal is either Jorge, or the 15:13 UTC
+watchdog cycle.
