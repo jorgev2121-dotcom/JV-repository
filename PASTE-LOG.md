@@ -104,3 +104,4 @@ enough to identify it exactly, with no description needed.
 - PASTE-LOG note 2026-09-29: no new paste IDs issued; CLAUDE.md section 10 now requires named paste destinations and the chat label line.
 - **PASTE-D-063** · 2026-09-29 · Desktop Claude Code (🖥️) → router password: unlock 1Password via pop-up, 9Router login by autofill only, report DONE/BLOCKED with proof. File: `mailbox/to-desktop/ROUTER-PASSWORD_PASTE-D-063.md`
 - **PASTE-X-013** · 2026-09-29 · COWORK (🤝) → finish Control Panel: 4-hour link check routine, replace bad LINK-REGISTER, read panel notes, Cowork-lane tasks. File: `mailbox/to-cowork/CONTROL-PANEL-REMAINING_PASTE-X-013.md`
+- **PASTE-D-064** · 2026-09-30 · Desktop Claude Code (🖥️, session "Claude desktop executor") → ONE combined message: 9Router login via 1Password autofill with on-screen arrow pop-ups, create VTES-Bridge-Poller task, report with proof. Replaces D-063. File: `mailbox/to-desktop/DESKTOP-ONE-MESSAGE_PASTE-D-064.md`
