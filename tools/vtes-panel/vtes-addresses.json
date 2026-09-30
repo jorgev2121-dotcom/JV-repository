@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "stamp": "TRK-2026-9910-B v1 2026-09-30 CURRENT #LLM-registry #VTES-control-panel",
+  "stamp": "TRK-2026-9910-B v2 2026-09-30 CURRENT #LLM-registry #VTES-control-panel",
   "howto": "Edit ONLY this file to change where an address goes. Fields: id, name, url (web address), run (path to a shortcut or program), focusTitle (optional regex: if a window with that title is already open, bring it to the front instead), note (shown if nothing is filled in).",
   "windows": [
     { "id": "LLM-01", "name": "Claude Code Desktop (RAMBO)", "url": "", "run": "", "focusTitle": "", "note": "RAMBO: fill in run= with the verified shortcut that opens the Claude desktop app on the Code tab, then test with -DryRun." },
