@@ -95,6 +95,7 @@ installed updaters, then execute Tier 2, then write the Tier 3 scheduled task.
   offenders (Tier 2: the console never exists), Jorge's click. **Closure requires tomorrow's
   before/after table showing the cadence families gone — not the click.** See
   `RI-001-CONVICTION_DIR-0041_2026-08-18.md`.
+- 2026-09-30 — **Jorge now asks for the OPPOSITE pop-up: an attention-grabbing, flashing approval banner, because passive pop-ups ("Claude is waiting for your approval") go unseen.** This is RI-001's mirror image (RI-022 family: a question that was sent but never seen). Cloud did NOT propose suppression. The wanted pop-up is the one exception, built to avoid the thief's traits: one resident hidden process (no PowerShell console per alert), WS_EX_NOACTIVATE so it never takes keyboard focus, 1.5 s arming delay, verified on-screen placement. Replaces the old HTA panels (which lived off-screen) rather than adding to them. See OPEN-ITEMS ADHOC-ATTENTION-POPUP. **Closure requires RAMBO's proof that typing into Notepad is not captured while a banner is up.**
 - 2026-08-20 — **RECURRENCE (Adobe class). Jorge reported an Adobe Acrobat Pro marketing pop-up
   and asked that it "never come back."** This is the Adobe-updater re-adder named in the
   "Known re-adders" list above, surfacing as its own modal. Cloud cannot touch the machine, so a
