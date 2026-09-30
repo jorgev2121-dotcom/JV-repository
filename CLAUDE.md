@@ -383,6 +383,37 @@ newsletter and a Publix receipt. Searching `TRK-2026-1262` cannot.
 3. Read this file.
 4. Read `OPEN-ITEMS.md` and report anything IN PROGRESS or BLOCKED.
 
+**Chat label standard — every LLM, every chat (owner directive 2026-09-29).**
+Every window, for every LLM (Claude, ChatGPT, Gemini, Grok, Copilot, any other), opens
+with one label line in this exact shape:
+
+`[LLM name] · [surface] · [browser or app] · [mode] · [model]`
+
+Example: `Claude · Code Desktop · PowerShell app · Subscription · Opus`
+
+- **Surface:** Cowork, Code Desktop, Code Cloud/Web, Chat, iPhone app, or Other.
+- **Browser or app:** Edge, Chrome, desktop app, PowerShell, or phone.
+- **Mode:** Subscription or API. If you cannot tell, write `UNKNOWN` and say so.
+  Never guess — API mode bills per token.
+
+**Where to paste — always disclosed (owner directive 2026-09-29).**
+Jorge has no window called "Windows." Every paste block must name its destination in
+plain words, on the line before the block, and say how to open it. Use exactly one of:
+
+- **PowerShell** — Windows key, type `PowerShell`, press Enter (blue window).
+- **Claude Code on the desktop** — the Claude app, Code tab, the session labelled
+  Desktop Executor.
+- **Cowork** — the Claude app, Cowork tab.
+- **Claude Chat in the browser** — claude.ai in Edge or Chrome.
+- **Another LLM** — name it (ChatGPT, Gemini, Grok...).
+
+The phrases "the Windows window" and "the desktop window" are banned. If the
+destination cannot be named, the block is not ready to send.
+
+**Wrong window? Find a path (OD-WW-01, 2026-09-29).** Never answer "I can't do that here." Hand it to the lane that can, monitor it, and report proof. Full text: `OWNER-DIRECTIVE_WRONG-WINDOW-HANDOFF-01_2026-09-29.md`.
+
+**No per-token API without a dollar quote (OD-API-01, 2026-09-29).** SuperGrok does not cover the xAI API; bots on an API key spend real money. Every API request gets a worst-case US-dollar quote, submitted to Jorge, approved or denied before it runs. Tokens are always shown in dollars. Full text: `OWNER-DIRECTIVE_API-QUOTE-FIRST-01_2026-09-29.md`.
+
 **At the end of every session:**
 
 1. Update the status of every item you touched in `OPEN-ITEMS.md`.
