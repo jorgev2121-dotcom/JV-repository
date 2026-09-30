@@ -214,6 +214,272 @@ Jorge's words: *"We discussed. We agreed. And ultimately it was not done."* Find
 
 ---
 
+## 12. TRK-2026-9348 — RII read-only 1Password inventory (Jorge present, ~10 minutes)
+
+Script: `mailbox/to-desktop/RII-Inventory-ReadOnly.ps1`. Read-only, start to finish —
+verified against `CLAUDE.md` TRK-2026-9346 Section A (no executor ever sees, types,
+stores, or transmits a password value). It only reads `op whoami`, vault list, item
+list, and each item's username field — never the password/OTP fields, never
+`--reveal`. It never modifies, rotates, or deletes anything.
+
+1. Sit with Jorge, unlock 1Password.
+2. Run `.\RII-Inventory-ReadOnly.ps1` from this folder.
+3. It writes `Inventory.csv`, `Duplicates.csv`, `IdentityMap.json`, `UrlMap.json`,
+   `Top60.csv`, `Summary.md` to `C:\Users\JV\OneDrive\Documents\Reports\RII\<date>\` —
+   **local only. Do not commit that folder to this repo or paste its contents into
+   chat** — it contains real usernames/emails per account, which is personal data
+   even without a single password in it.
+4. Paste back only the console summary block (the `DONE.` line and the counts) —
+   that has no personal data in it, and it is what closes out TRK-2026-9348.
+5. Note in the paste: **the "Top 60" list is a heuristic (recency + identity-group
+   weight), not a measured usage ranking** — the `op` CLI doesn't expose real
+   usage-frequency data, so don't report it as if it were.
+
+**If `op` is not signed in or the CLI isn't enabled yet**, that's TRK-2026-9346
+Section C step 5 (1Password app → Settings → Developer → enable CLI) — do that first,
+then re-run.
+
+---
+
+## 13. OD-107 — Two sign-in failures, ONE cause: 1Password is locked and not answering (rides on TRK-2026-9346)
+
+**Delivery note:** the desktop checkout cannot fast-forward (`git pull --ff-only`
+refused, 15 ahead / 92 behind — TO-CLOUD.md 7 PM ET), so this item was ALSO filed to
+`G:\My Drive\VTES-Inbox\MSG-CLOUD-TO-CODE_OD-107-SIGNIN-REPAIR_2026-09-19.md`. Same
+text; work from whichever copy you can read.
+
+**Issued by cloud 2026-09-19 from Jorge's four screenshots. Both the Desktop Executor and
+Cowork are authorized to work this item; Jorge only touches Windows Hello or his master
+password — nobody else ever types, reads, or records a password value.**
+
+**Symptom A — Word.** Account page shows "Account Error — please sign in again" → Fix me →
+Microsoft says "We couldn't sign you in — something went wrong when trying to sign in
+with a passkey" → Windows Security pops "Insert your security key into the USB port."
+Jorge has no USB key. Sign-in dies.
+
+**Symptom B — 9Router.** The local AI-router dashboard (`http://127.0.0.1:20128/login`,
+orange "9Router" page) rejects the password 1Password fills. It said **"3 attempt(s)
+left before lockout"**; the page itself prints "Default password is 123456."
+
+**Symptom C — Outlook (added 2026-09-19, second screenshot set).** "Outlook has
+exhausted all shared resources, please close all messaging applications and restart
+Outlook" — **three copies stacked**, each Outlook Data File retry spawning another.
+Same family: Outlook's M365 account is in the same broken-token state as Word's, and
+every failed re-auth leaks a MAPI session until the pool is empty. Fix is step 0.
+
+**Root cause (cloud's read).** Microsoft has a **passkey** registered for
+`jorge@teamusasales.com`. When Word asks for it, Windows hands the request to the
+passkey provider on this PC — that is 1Password. **1Password has been sitting on its
+own unlock screen for days** (MORNING-REPORT_2026-09-05, "1Password is sitting on its
+own unlock screen"). A locked provider cannot answer, so Windows falls back to
+"insert a hardware key," and the sign-in fails. **The same lock explains B:** locked,
+the extension either fills nothing or fills the wrong `localhost` item — every local
+app (LiteLLM, the VTS panel, 9Router) shares the hostname `localhost`, so 1Password
+cannot tell their entries apart unless the saved URL carries the port.
+
+This is not 1Password failing. It is 1Password locked, plus Section C of
+TRK-2026-9346 (Hello unlock, default-manager, passkey provider) never finished.
+Logged as **RI-046**.
+
+### Steps — in this order
+
+0. **Outlook first, it is blocking everything else.** Click OK on all three dialogs.
+   Then Task Manager (Ctrl+Shift+Esc) → Details tab → **End task on every
+   `OUTLOOK.EXE`** (there will be more than one — zombies are the cause), and on
+   Teams / Skype / any other messaging app. Reopen Outlook. If the dialog returns
+   within the session: close Outlook, Win+R → `outlook.exe /resetnavpane`, reopen.
+   If it returns a third time, count the data files (File → Account Settings → Data
+   Files) and add-ins (File → Options → Add-ins) and report both numbers — the MAPI
+   pool has a hard ceiling and something on this machine is eating it. **Evidence:**
+   number of `OUTLOOK.EXE` processes found before the kill; Outlook reopened without
+   the dialog, yes/no.
+1. **Unlock 1Password** (Jorge present: face/PIN, or his master password). Then turn on
+   1Password app → Settings → Security → **Unlock with Windows Hello** (Section C
+   step 4) so this cannot silently happen again. **Evidence:** `op whoami` prints the
+   account (paste the account name line only).
+2. **Make 1Password the Windows passkey provider.** Windows Settings → Accounts →
+   Passkeys → Advanced options → **1Password ON**. Then 1Password app → Settings →
+   Security → **"Save and sign in with passkeys" ON**. Report each toggle's
+   before-and-after state in words.
+3. **Retry Word.** Word → Account → **Fix me**. If the passkey prompt now goes to
+   1Password and signs in: done — report "Account page shows no yellow box."
+   If Windows still asks for a USB key: click **"Sign in another way"** → password →
+   Authenticator/phone code → sign in. That gets Word working today. Then report
+   "passkey path still broken" — it means the passkey lives on the iPhone, not this PC.
+   Fix for that: at `mysignins.microsoft.com` → Security info → **Add sign-in method →
+   Passkey** → save it to 1Password on this PC (1Password's generated credential is
+   pre-approved under TRK-2026-9346 Section B).
+4. **9Router — stop guessing first** (lockout). Facts from the project README
+   (github.com/decolua/9router): data lives in `~/.9router` → on this PC
+   `C:\Users\JV\.9router\db\data.sqlite` (check `%APPDATA%\.9router` too); the
+   dashboard port is `20128`; `INITIAL_PASSWORD` (default `123456`) is honoured
+   **only when no saved password hash exists.** So:
+   **Cloud found the answer in TO-CLOUD.md (RAMBO, 2026-09-15 4:17 PM):** *"9Router:
+   logged into the dashboard with the password on file."* **The password is NOT
+   `123456` — the desktop lane set one and has it on file, and it was never put into
+   1Password.** That is the whole reason Jorge's attempts fail. So:
+   a. Desktop: find where you keep that 9Router password "on file" (your own
+      credential store / settings / the 09-06 install notes) and **save it as a new
+      1Password item titled `9Router (127.0.0.1:20128)` with the full URL including
+      the port** so autofill matches the port and stops colliding with the other
+      localhost apps (`localhost:8731`, LiteLLM, VTS panel — give each its own
+      port-in-URL item). Then Jorge's next visit fills correctly. Never paste the
+      value anywhere else.
+   b. Only if the on-file value cannot be found: stop the 9router process (that also
+      clears any in-memory attempt counter), copy `data.sqlite` to
+      `data.sqlite.bak-20260919`, then delete the saved-password row from its
+      settings table (`sqlite3 data.sqlite` → look in the `settings` table for the
+      password/hash key; delete only that row — the same file holds every provider
+      API key, so never delete the file). Restart 9router; `123456` works again;
+      change it in Settings to a 1Password-generated value (pre-approved,
+      TRK-2026-9346 Section B) and save per step a.
+   c. While in the dashboard: the 12-day standing blocker `9ROUTER-WIRE-NOW` is
+      Providers → Claude Code → Add New Connection → consent. If Jorge is present,
+      have him click it then and there — one click closes a 12-day blocker.
+   d. Confirm at the end that 9router binds to `127.0.0.1` only, not `0.0.0.0` — the
+      README's production example exposes it to the LAN, and the database holds live
+      API keys (this is CVE-2026-63732, the default-password takeover).
+5. **Suspect to check once in — RI-018.** The hourly PAD routine
+   `PAD - Verification Code Monitor (Hourly)` auto-re-requests Microsoft security codes.
+   Repeated code requests are exactly what trips Microsoft's risk detection and
+   invalidates Office's sign-in token, which would make Symptom A come back every few
+   weeks. **Recommendation: disable it** (Task Scheduler / Power Automate → turn off,
+   do not delete) and log the before/after state. Jorge told cloud today "get the
+   situation under control"; cloud reads that as a yes on this — proceed unless he
+   objects. Closes TRK-2026-9051.
+
+### Evidence to paste back (TO-CLOUD.md)
+
+- Outlook: zombie `OUTLOOK.EXE` count before the kill; reopened clean, yes/no.
+- `op whoami` account line.
+- Passkey-provider toggle: before → after.
+- Word Account page: yellow box gone, yes/no. Passkey path fixed, or password path used.
+- 9Router dashboard reached, yes/no. Lockout counter cleared, yes/no.
+- RI-018 routine: still enabled / disabled, with the task's last-run time.
+
+### Never
+
+- Never type, screenshot, or store a password value anywhere — chat, repo, Drive.
+- Never insert an unknown USB device to satisfy the "security key" prompt.
+- Never turn Edge's or Chrome's password manager back on to "help."
+- Never keep guessing at 9Router — a lockout turns a five-minute fix into a reinstall.
+
+---
+
+## 14. TRK-2026-9952 — OWNER DIRECTIVE: fill in the LLM Usage Inventory (read-only, GREEN even overnight)
+
+**Jorge said this directly to cloud, in his own words: "Instruct RAMBO as an owner's
+directive to do that work."** This is not a cloud-invented task — it is an explicit
+instruction, passed on verbatim. `LLM-USAGE-INVENTORY.md` (repo root) is the shared
+race-car table for every AI subscription Jorge pays for — tank size, refuel cost, reset
+date, current fuel level, quality rank. Cloud filled in price and quality from the
+existing routing guide; every plan/reset-date/current-usage cell is marked **NEEDS
+JORGE** because no session has login access to any billing page. Read that file first
+so the shape of what's needed is clear before starting.
+
+**What to do — one pass, whatever is already logged in on this machine's browsers:**
+
+1. **Claude first, it matters most** — open `claude.ai/settings/usage` (or the current
+   equivalent settings page) in whichever browser profile is already signed into Jorge's
+   Anthropic account. Read off: confirmed plan tier (Pro / Max 5x / Max 20x), the usage
+   window's reset day, and current usage (used or remaining, whichever the page shows).
+2. **Then whichever of these are already logged in** — do not sign into anything that
+   isn't already logged in, see the rule below: `chatgpt.com` → Settings → usage/limits
+   (ChatGPT), `one.google.com` subscriptions/usage or the Gemini app's account page
+   (Gemini), Grok's app account settings (Grok), the M365 admin/usage page if visible
+   (Copilot — confirm it's the Premium bundle, not the retired standalone Pro tier).
+3. **Paste the raw numbers back to `TO-CLOUD.md`**, one line per service: plan tier,
+   reset date, usage used or remaining (whichever the page states — say which). Cloud
+   will fold them into `LLM-USAGE-INVENTORY.md` and mark it live from that point.
+4. **If a service isn't already logged in on this machine, say so and skip it** — "ChatGPT:
+   not logged in on this profile, skipped" is a complete and correct answer for that line.
+   This is read-only browsing of pages you're already signed into — never a new sign-in,
+   never a password, never an MFA code, never a "keep me signed in" click on an unfamiliar
+   device prompt.
+
+**Never:** sign into any of these five accounts that isn't already logged in. Never enter
+a password or MFA code for this task. Never store a number that came from a guess instead
+of the page itself — if a number isn't visible, say "not visible on this page" rather than
+estimating.
+
+**Addendum, 2026-09-23, Jorge direct:** re-confirmed as an owner directive in a second
+message — his words: *"consider this a owner directive and pass it on to Rambo in that
+fashion so he accesses."* **This does not loosen the Never list above** — cloud read his
+"modifying my rule" as authorizing you to check pages already logged in, not as permission
+to enter passwords or click through new sign-ins. If Jorge meant something broader, that
+needs his own unambiguous confirmation, not an inference from here. **Jorge already
+checked Claude's own number himself** (see `LLM-USAGE-INVENTORY.md`, filled in): main pool
+~14% left for the week, Fable pool exhausted, page projects the main pool running out by
+~10am tomorrow at the current rate. That part of item 14 is done — focus the rest of this
+pass on ChatGPT/Gemini/Grok/Copilot.
+
+**Addendum 2, 2026-09-23 (TRK-2026-9952d), Jorge direct — the tokens-to-dollars button.**
+Jorge asked for an on-demand report that turns tokens into dollars. The only tool that
+does this for real is **`ccusage`**, a free read-only tool that reads Claude Code's own
+log files on this PC (`~/.claude/projects`) and prints tokens and what they would cost
+at API list price. It needs no login, sends nothing out and changes nothing. GREEN.
+
+1. In PowerShell run: `npx ccusage@latest monthly` then `npx ccusage@latest daily --since 20260901`.
+2. Paste both outputs, unedited, into `TO-CLOUD.md` under the heading `TRK-2026-9952d`.
+3. If `npx` is missing, say "npx not installed" and stop. Do not install Node for this.
+4. If it works, make a desktop shortcut called **"LLM Usage Report"** that runs command 1
+   and pauses so he can read the result. That shortcut is the button. It only
+   launches, so it is not storage.
+
+**Say it plainly in the report:** these dollars are *what the tokens would have cost on
+the API*. They are not what Jorge paid, because Max 20 is a flat $200/month. They show
+whether the subscription is paying for itself.
+
+---
+
+## 15. TRK-2026-9082 — Repair the broken git push (this is "the communication" Jorge means)
+
+**Jorge's words, 2026-09-23: "instruct Rambo to repair your communication."** This is the
+long-standing, already-diagnosed defect: **the desktop's `git push` does not work**
+(Windows Credential Manager, first logged 2026-08-15, RI-002's mechanism section). You
+commit locally and the push either fails silently or is never actually run — which is why
+every one of your results has to go through the Drive mailbox for cloud to mirror in,
+instead of landing directly. Fixing this removes that whole detour.
+
+1. **Reproduce it first, don't guess.** Make a trivial local commit, run `git push` for
+   real, and capture the exact error text — timeout, 403, wrong credential, expired token,
+   whichever it is. Paste the raw error, not a paraphrase.
+2. **Check Windows Credential Manager** (`Control Panel → Credential Manager → Windows
+   Credentials`) for the stored GitHub entry — is it present, expired, or pointing at the
+   wrong account/token scope?
+3. **If it's an expired or scope-mismatched personal access token:** a new token needs to
+   be generated **on GitHub, by Jorge, in his own browser session** — this is account
+   credential creation, so it is Jorge's click, not yours to generate or type in for him.
+   Stage the exact steps for him (which GitHub settings page, what scopes to tick) rather
+   than doing the sign-in yourself.
+4. **If it's something else** (e.g. `credential.helper` misconfigured, a cached bad
+   credential, git itself pointing at the wrong remote) — that part you can fix directly,
+   it isn't a secret-entry step.
+5. **Prove the fix**, don't just claim it: after whatever change, make a real commit and a
+   real `git push`, and paste the command output showing it reached `origin` — the same
+   standard RI-002 already demands for every claimed fix in this repo.
+6. **Report the outcome in `TO-CLOUD.md`** either way — fixed-and-proven, or exactly which
+   step needs Jorge's one click, with the smallest possible ask spelled out.
+
+---
+
+## 16. TRK-2026-9952e — OWNER DIRECTIVE: PC never sleeps + line up the night runs (mid-tier, price-controlled)
+
+Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full text is
+`G:\My Drive\VTES-Inbox\MSG-CLOUD-TO-CODE_OWNER-DIRECTIVE_STAY-ON-AND-NIGHT-RUNS_TRK-2026-9952e_2026-09-23.md`
+(Drive ID 1zRQX0fCMd5ZkDgwZzpnKSfSE8j_3rNYj). In short:
+
+1. **Save the current power settings first** (that saved copy is the undo). Then run
+   `powercfg /change standby-timeout-ac 0` and `powercfg /change hibernate-timeout-ac 0`,
+   and add a daily task `CU-Keep-Awake` that re-applies them, because Windows Update resets them.
+   If admin rights are needed, report BLOCKED and stop there.
+2. **Rebuild `OVERNIGHT-QUEUE.md`** from what is really pending: OCR Queue A only, GREEN only.
+   OCR stays a plain Tesseract script with zero LLM tokens. Use `--model sonnet` only for
+   QC sampling (1 in 20) and judgment steps. Stop the LLM steps if the weekly pool drops under ~5%.
+3. **Result file** goes to VTES-Outbox with nonce `NIGHT-NONCE-OSPREY-7734-20260923` + `STARTED-BY:`.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
