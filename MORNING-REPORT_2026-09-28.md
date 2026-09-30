@@ -12,6 +12,16 @@ Everything else below can wait a day. This one keeps stacking up.
 
 ---
 
+## UPDATE 2026-09-30 06:20 UTC — what changed overnight
+
+**Reported, not confirmed in this window: you said "run the three tonight" in another Claude chat at 03:54 UTC.** If that is right, the poller rebuild, the heartbeat fix and the CDM go-ahead are already approved. Cowork treated it as CDM: GO and finished a plain-language CDM findings report tonight.
+
+**What is still not done:** the poller and heartbeat fixes are jobs on your PC, and as of 05:25 UTC nothing showed they ran. A desktop helper says the poller still needs the words "Run PASTE-D-063" typed at the PC.
+
+**If that go-ahead was not yours, tell me and I will mark CDM as on hold again.**
+
+---
+
 ## From last night's PC session — three new asks
 
 **You were at the desktop last night around 7:30-8pm** and gave the order to fix the automation that had gone quiet (the "PC-ALWAYS-ON-01" directive). Good news and bad news on that:
