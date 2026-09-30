@@ -16,7 +16,7 @@ Everything else below can wait a day. This one keeps stacking up.
 
 **Reported, not confirmed in this window: you said "run the three tonight" in another Claude chat at 03:54 UTC.** If that is right, the poller rebuild, the heartbeat fix and the CDM go-ahead are already approved. Cowork treated it as CDM: GO and finished a plain-language CDM findings report tonight.
 
-**What is still not done:** the poller and heartbeat fixes are jobs on your PC, and as of 05:25 UTC nothing showed they ran. A desktop helper says the poller still needs the words "Run PASTE-D-063" typed at the PC.
+**What is still not done:** the poller and heartbeat fixes are jobs on your PC, and as of 05:25 UTC nothing showed they ran. A desktop helper says the poller still needs the combined message PASTE-D-064 (which replaced D-063 at 19:36Z 9/30) run at the PC.
 
 **If that go-ahead was not yours, tell me and I will mark CDM as on hold again.**
 
@@ -28,7 +28,7 @@ Everything else below can wait a day. This one keeps stacking up.
 
 **Also open:** the CDM data merges and the first engine test have no owner. They need one dedicated work session, not a spare hour.
 
-**Cheap way to fix the poller:** when you are next at the PC, say "Run PASTE-D-063."
+**Cheap way to fix the poller:** when you are next at the PC, use PASTE-D-064 (one combined message; it replaces D-063). Its file is DESKTOP-ONE-MESSAGE_PASTE-D-064.md under mailbox/to-desktop on another session's branch (claude/dreamy-lamport-2dvdqt)
 
 ---
 
@@ -72,7 +72,7 @@ Everything else below can wait a day. This one keeps stacking up.
 
 **1. Cowork closed eight stale items in its own to-do list** and staged the next desktop job (three county-level reads). No action from you.
 
-**2. The desktop has not opened the CDM job or the inbox poller rebuild.** Both are waiting on the desktop's night queue and on your paste for the poller (PASTE-D-063). Nothing is lost, just idle.
+**2. The desktop has not opened the CDM job or the inbox poller rebuild.** Both are waiting on the desktop's night queue and on your paste for the poller (now PASTE-D-064, which replaced D-063). Nothing is lost, just idle.
 
 **3. A watchdog emailed you** that the three PC-always-on asks are now over 24 hours old. That is the same three asks in this report: make the heartbeat permanent, rebuild the inbox poller, decide the job-watcher gate.
 
