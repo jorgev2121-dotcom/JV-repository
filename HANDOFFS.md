@@ -23,6 +23,30 @@ Routing: nothing to route. It is the explanation, not an order. I cannot tell wh
 
 **H-004** · 2026-09-30 · the fourth paste, same banner text, no timestamp shown · state: **NO TASK**. Duplicate.
 
+**H-005** · 2026-09-30 · Jorge's reply: "yes retire it and use dispatch cards" · state: **DONE (decision recorded)**
+The Executive Orchestrator page is retired as a queue. Routing is by dispatch card from now on (`dispatch/DISPATCH-BOARD.md`, 8 cards). The page itself is not unpublished: that is a separate yes from Jorge. Its link stays in LINK-REGISTER v2 with a note.
+
+**H-006** · 2026-09-30 · Jorge's order: fix or process every item on the old panel's attention list · state: **ROUTED, see Section D** for each item with its honest state. The 4th paste of the page banner ("execute as needed and confirm") carried no new task.
+
+**H-007** · 2026-09-30 · found while routing · state: **OPEN (ID collision, logged RI-049)**
+`PASTE-D-063` exists twice: (a) branch `claude/vibrant-albattani-slgt2p` (PR 16, draft): executor takeover script that rebuilds the local poller task; (b) branch `claude/dreamy-lamport-2dvdqt` (PR 17, draft): "router password, engage 1Password". Permanent IDs are never reused. Until Jorge says which is real, **neither D-063 is to be run**; PASTE-D-054 already says not to run the unverified one. Neither was in this branch's PASTE-LOG.
+
+## Section D — The old panel's attention list, item by item (2026-09-30)
+
+1. **Frozen header on the other 49 reports:** DONE, but not by rebuilding. 14 helpers read 42 pages. **39 already had it (sticky at top:0).** 3 could not be checked: the pinned Control Panel has its own sticky header but is a 49-file page, and two Docs-type pages (Access Permissions, Miami Art House) keep their content in the Docs service. **7 retire-candidate pages were not checked** (no point polishing pages you may retire). Nothing was republished. The earlier job had already done it. Results: `agent-results/2026-09-30-frozen-header/`.
+2. **Windows labels:** DONE before (page says so); CLAUDE.md now also carries the chat-label standard (merged in this branch from branch dreamy-lamport).
+3. **Link check every 4 hours:** the Cowork Watchdog already does it. Drive is reachable from cloud now. The real fault was in the list: see item 4.
+4. **Bad Drive LINK-REGISTER:** FIXED and verified. v2 is live as `LINK-REGISTER.md`; v1 renamed `LINK-REGISTER.SUPERSEDED-20260930.md`. Fixes: 3 fake IDs removed; 1 dead ID (WATCHDOG-LATEST.md, re-created each run) replaced by a find-by-title rule; 11 of 12 real IDs re-checked OK. The file content was not escaped (earlier suspicion wrong).
+5. **1Password integration:** PARTIAL by design. A page cannot hold passwords. Nothing to do.
+6. **Orchestrator inbox:** RETIRED (H-005). Replaced by dispatch cards.
+7. **Handoff log with proof:** this file. The automatic alert to RAMBO is still BLOCKED: ListAgents shows no reachable PC session from cloud right now.
+8. **Deny a Grok job and it moves to Cowork:** DONE on the page; still needs a session to pick the job up.
+9. **Owner directives OD-WW-01 and OD-API-01:** were DONE on branch dreamy-lamport only (PR 17, draft). **Now also in this branch's CLAUDE.md** (cherry-picked, conflict resolved by keeping both).
+10. **Grok bot that writes the dollar quotes:** the quote tool is built in the panel (`VTES-QUOTE.html`, 15 tests pass). The pasted page tool showed $0.06 for a true $0.064, which understates; the panel tool rounds up. Prices are NOT verified: the cloud cannot open provider price pages; a benchmark blog is not an allowed source under rule 7.
+11. **PowerShell check D-062:** ROUTED as card D-008 to RAMBO (script checked read-only).
+12. **17 owner approvals (since 7/31):** WAITING ON YOU. `OWNER-GATES.md` has the list with recommendations; say a number and one word.
+13. **Discover $180 minimum:** **PAID.** Discover emailed 9/29: $300.98 posted 9/28 on the card ending 6118. Note: the card moves to Capital One on Oct 19 (reminder R-20).
+
 ## Section C — What is actually waiting on other windows (real queue, in git)
 
 1. **D-004** two web searches: Cowork.

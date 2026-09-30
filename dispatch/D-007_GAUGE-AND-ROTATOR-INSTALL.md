@@ -9,7 +9,7 @@
 2. Run it once for real. Open `vtes-budget.js` and confirm real numbers, not zeros.
 3. **Calibrate (needs one look by Jorge):** in Claude, Settings, Usage shows percent used for the 5-hour and weekly windows. Run `VTES-Gauge.ps1 -Calibrate short=NN week=NN` with those two percentages. Until then the gauge shows tokens only, never a percent.
 4. Schedule it every 15 minutes (Task Scheduler), as a normal user, no admin.
-5. Run `Verify-VtesPanel.ps1 -Build` then `-Check`; expect `OK: 27 code files match`.
+5. Run `Verify-VtesPanel.ps1 -Build` then `-Check`; expect `OK: 28 code files match`.
 
 **Done-when (proof):** the self-test line, the first `vtes-budget.js` contents, the calibration file `vtes-gauge-config.json` (shows the two percentages), the scheduled-task listing, and the Budget page screenshot showing RUNNING. **Forbidden:** reading or copying any API key or token value; sending anything off the PC.
 **Not proven on Windows.** Report honestly.

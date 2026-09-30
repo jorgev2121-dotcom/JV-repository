@@ -543,6 +543,6 @@ Full order: `mailbox/to-desktop/TASK-C2D_PANEL-INSTALL-AND-RED-BELL_2026-09-30.m
 
 ---
 ## 2026-09-30 — CAPTURE-AND-REVIEW POP-UP (OD-CR-01) + GAS GAUGE (also dispatch cards D-006, D-007) — ISSUED by cloud
-Full order: `mailbox/to-desktop/TASK-C2D_CAPTURE-REVIEW-AND-GAUGE_2026-09-30.md`. Do it after the panel install. Green, but it opens an Outlook draft: **never press Send**. The pop-up and Outlook code has never run on Windows: report what the screen shows. The manifest now lists 27 code files, not 15.
+Full order: `mailbox/to-desktop/TASK-C2D_CAPTURE-REVIEW-AND-GAUGE_2026-09-30.md`. Do it after the panel install. Green, but it opens an Outlook draft: **never press Send**. The pop-up and Outlook code has never run on Windows: report what the screen shows. The manifest now lists 28 code files, not 15.
 
 Is this queue still readable in one sitting?

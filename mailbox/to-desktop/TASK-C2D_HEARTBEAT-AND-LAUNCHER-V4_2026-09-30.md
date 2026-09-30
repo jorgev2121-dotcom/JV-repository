@@ -6,7 +6,7 @@
 
 ## Get the files from git, then check fingerprints (stop if either differs)
 `git fetch origin claude/executor-tray-icon-1cazza && git checkout claude/executor-tray-icon-1cazza && git pull`
-- **Panel files (launcher, Write-VtesStatus.ps1, and the rest): `tools/vtes-panel/MANIFEST.sha256` lists every fingerprint. Run `Verify-VtesPanel.ps1`: it must print `OK: 27 code files match`. If it names a file, stop and report; do not use it.**
+- **Panel files (launcher, Write-VtesStatus.ps1, and the rest): `tools/vtes-panel/MANIFEST.sha256` lists every fingerprint. Run `Verify-VtesPanel.ps1`: it must print `OK: 28 code files match`. If it names a file, stop and report; do not use it.**
 
 ## Steps
 1. **ACK first** (a line in VTES-Outbox is enough). That alone stamps you alive.

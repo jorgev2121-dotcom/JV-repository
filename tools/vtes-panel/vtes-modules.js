@@ -14,6 +14,7 @@ window.VTES_MODULES = [
   { id: 'capture', emoji: '🛰️', title: 'Capture Desk', short: 'Capture', file: 'VTES-CAPTURE.html', state: 'live', what: 'County page PDFs for a job: numbers to paste, links, file-name builder, the review-and-send pop-up plan.', tags: '#capture #county #OD-CR-01 #permit-status' },
   { id: 'where', emoji: '📍', title: 'Where Things Live', short: 'Where', file: 'VTES-WHERE.html', state: 'live', what: 'Searchable map of Drive folders, repo files, PC locations and county pages.', tags: '#where #map #drive #repo' },
   { id: 'interview', emoji: '🎤', title: 'Interview', short: 'Interview', file: 'VTES-INTERVIEW.html', state: 'live', what: '12 short voice-friendly questions, one at a time. Answers copy out with a stamp.', tags: '#interview #owner #voice' },
+  { id: 'quote', emoji: '💵', title: 'Dollar Quote', short: 'Quote', file: 'VTES-QUOTE.html', state: 'live', what: 'Worst-case dollar quote before any per-token API call (OD-API-01). Approvals, logged actuals, project budgets.', tags: '#quote #api #budget #OD-API-01' },
   { id: 'crm', emoji: '📇', title: 'CRM', short: 'CRM', file: '', state: 'planned', what: 'Recommendation written (CRM-RECOMMENDATION.md): keep Airtable.', tags: '#crm #airtable #wally' },
   { id: 'dispatch', emoji: '📮', title: 'Dispatch board', short: 'Dispatch', file: '', state: 'planned', what: 'Task cards that hand build and install work to Codex, Cowork and Grok Bots (ROUNDTABLE-PROTOCOL.md).', tags: '#dispatch #roundtable' }
 ];
@@ -35,5 +36,6 @@ window.VTES_WIRES = [
   ['capture', 'reminders', 'a PDF waiting for your review raises the red bell'],
   ['where', 'programs', 'same search, same hashtags'],
   ['interview', 'tasks', 'your answers decide the ranking (you or an assistant applies them)'],
-  ['portal', 'dispatch', 'copy-card hands one stage to another window (planned)']
+  ['portal', 'dispatch', 'copy-card hands one stage to another window (planned)'],
+  ['quote', 'budget', 'API dollars (logged actuals) sit beside subscription room; only an approved quote lets a per-token call start']
 ];

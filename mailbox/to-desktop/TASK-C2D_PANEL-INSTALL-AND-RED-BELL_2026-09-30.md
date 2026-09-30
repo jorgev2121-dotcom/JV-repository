@@ -5,7 +5,7 @@
 **Jorge's words, condensed:** build the control panel as modules wired as in the diagram; put a big red reminder button on the desktop, in the tray, and on the iPhone; put the token manager (the Governor) on the diagram.
 
 ## Get the files (git, not Drive) and verify
-`git fetch origin claude/executor-tray-icon-1cazza && git checkout claude/executor-tray-icon-1cazza && git pull`. **Every panel file is listed in `tools/vtes-panel/MANIFEST.sha256`.** After copying, run `Verify-VtesPanel.ps1`: it must print `OK: 27 code files match`. If it names a file, stop and report.
+`git fetch origin claude/executor-tray-icon-1cazza && git checkout claude/executor-tray-icon-1cazza && git pull`. **Every panel file is listed in `tools/vtes-panel/MANIFEST.sha256`.** After copying, run `Verify-VtesPanel.ps1`: it must print `OK: 28 code files match`. If it names a file, stop and report.
 
 ## Steps
 1. **ACK first** (this alone stamps you alive).

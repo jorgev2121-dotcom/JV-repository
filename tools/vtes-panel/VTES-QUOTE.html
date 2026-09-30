@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VTES Dollar Quote · OD-API-01 · TRK-2026-9910-B · #quote #api #budget</title>
+<meta name="keywords" content="quote, dollar, API, tokens, worst case, approval, OD-API-01, TRK-2026-9910-B">
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; --ok:#2e7d4f; --bad:#b3261e; --warn:#b26a00; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 "Segoe UI",system-ui,sans-serif; }
+  main { max-width:900px; margin:0 auto; padding:10px 14px 50px; }
+  h1 { font-size:22px; margin:6px 0 2px; } h2 { font-size:17px; margin:0 0 6px; } .sub { color:var(--muted); font-size:13.5px; margin-bottom:10px; }
+  .box { background:var(--card); border:2px solid var(--line); border-radius:12px; padding:10px 14px; margin-bottom:10px; font-size:14.5px; }
+  .box.warn { background:#fff8e6; border-color:#e0a100; } .box.bad { background:#fdecea; border-color:var(--bad); } .box.ok { background:#eaf5ee; border-color:var(--ok); }
+  label { display:block; font-size:12.5px; font-weight:800; color:var(--muted); margin-top:8px; }
+  input[type=text], input[type=number], select { font:inherit; font-size:16px; padding:8px 10px; border:2px solid var(--line); border-radius:10px; width:100%; background:#fff; }
+  .g { display:grid; grid-template-columns:1fr 1fr; gap:8px 12px; } @media (max-width:640px) { .g { grid-template-columns:1fr; } }
+  .big { font-size:26px; font-weight:900; } .big.r { color:var(--bad); }
+  button { font:inherit; font-size:14px; font-weight:800; padding:8px 14px; border-radius:10px; border:2px solid var(--accent); background:#fff; color:var(--accent); cursor:pointer; margin:4px 6px 4px 0; }
+  button.go { background:var(--accent); color:#fff; } button.no { border-color:var(--bad); color:var(--bad); } button:disabled { opacity:.45; cursor:not-allowed; }
+  .q { border:2px solid var(--line); border-left:8px solid var(--c,#999); border-radius:10px; padding:7px 12px; margin-bottom:6px; font-size:14px; background:#fff; word-break:break-word; }
+  .tag { display:inline-block; font-size:11px; font-weight:800; padding:1px 7px; border-radius:99px; color:#fff; background:var(--c,#888); margin-right:4px; }
+  .foot { font-size:12px; color:var(--muted); margin-top:16px; word-break:break-word; }
+  a { color:var(--accent); }
+  pre { white-space:pre-wrap; font:13px Consolas,monospace; background:#fbfaf7; border:2px solid var(--line); border-radius:10px; padding:8px; }
+</style></head>
+<body>
+<main>
+  <h1>💵 Dollar Quote before any per-token API call</h1>
+  <div class="sub">Standing rule OD-API-01 (2026-09-29): no API key is used without your yes, every run gets a worst-case dollar quote first, and the quote is never lower than the real bill.</div>
+  <div class="box warn"><b>Read this first:</b> this page does <b>not know any price</b>. You (or a bot reading the provider's own price page) type the price and its date. A price with no date, no source, or a source that is not the provider's own page is marked <b>NOT ALLOWED</b> (rule 7). Subscription use (grok.com, the phone app) is not API and needs no quote. The cloud window cannot open provider price pages (its network blocks them), so prices must be read by the PC, Cowork, or you.</div>
+
+  <div class="box"><h2>1. The quote</h2>
+    <div class="g">
+      <div><label for="model">Model (as the provider names it)</label><input type="text" id="model" placeholder="e.g. the exact model name on the price page"></div>
+      <div><label for="proj">Project</label><select id="proj"></select></div>
+      <div><label for="pin">Price per 1 million INPUT tokens ($)</label><input type="number" id="pin" step="any" min="0" placeholder="from the price page"></div>
+      <div><label for="pout">Price per 1 million OUTPUT tokens ($)</label><input type="number" id="pout" step="any" min="0" placeholder="from the price page"></div>
+      <div><label for="pdate">Date that price was read (YYYY-MM-DD)</label><input type="text" id="pdate" placeholder="2026-09-30"></div>
+      <div><label for="psrc">Provider's own price page (link)</label><input type="text" id="psrc" placeholder="https://docs.x.ai/developers/pricing"></div>
+      <div><label for="tin">Input size (tokens)</label><input type="number" id="tin" min="0" step="1" value="0"></div>
+      <div><label for="chars">…or characters (÷ 4 fills tokens)</label><input type="number" id="chars" min="0" step="1" placeholder="optional"></div>
+      <div><label for="tout">Reply cap (hard limit on output tokens)</label><input type="number" id="tout" min="0" step="1" value="0"></div>
+      <div><label for="job">What is the job? (one line)</label><input type="text" id="job" placeholder="required"></div>
+    </div>
+    <label style="margin-top:10px"><input type="checkbox" id="reg"> US-only endpoint (adds 10%)</label>
+    <div id="lc" class="box warn" hidden style="margin-top:8px"><b>Input is over 200,000 tokens.</b> The provider bills the whole request at the long-context rate. Type those two prices (from the price page) or the quote is not allowed.
+      <div class="g"><div><label for="lin">Long-context INPUT $ per million</label><input type="number" id="lin" step="any" min="0"></div><div><label for="lout">Long-context OUTPUT $ per million</label><input type="number" id="lout" step="any" min="0"></div></div></div>
+    <label style="margin-top:10px"><input type="checkbox" id="run"> Run type: one time (untick for repeating; a repeating job needs a quote for the total)</label>
+    <div id="res" style="margin-top:10px"></div>
+    <div><button class="go" id="sub1" type="button">Save quote as PENDING (asks for your approval)</button><button id="cpq" type="button">Copy the quote text</button> <span id="qn" style="font-size:13px;font-weight:700"></span></div>
+  </div>
+
+  <div class="box"><h2>2. Quotes and spend</h2><div id="ql"></div>
+    <div style="font-size:13px;color:var(--muted)">Silence is a denial. Only <b>you</b> press Approve. The bot that asks for the quote never does.</div></div>
+
+  <div class="box"><h2>3. Project budgets</h2><div class="sub">Spent counts only actual costs logged after a run, never estimates.</div><div id="bl"></div></div>
+  <p class="foot">TRK-2026-9910-B · quote v1 · 2026-09-30 · CURRENT · #quote #API #OD-API-01 #budget #VTES-control-panel · Rule text: OWNER-DIRECTIVE_API-QUOTE-FIRST-01_2026-09-29.md. Quotes and logs stay only in this browser until you copy them out.</p>
+</main>
+<script src="vtes-modules.js"></script><script src="vtes-reminders.js"></script><script src="vtes-alerts.js"></script><script src="vtes-reviews.js"></script><script src="vtes-budget.js"></script><script src="vtes-common.js"></script>
+<script>
+(function () {
+  var V = window.VTES, esc = V.esc; V.nav('quote');
+  var PROJ = ['Wally pipeline', 'Cash collection', 'JOB-0079 pilot', 'Other'];
+  function ld(k, d) { try { var v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } }
+  function sv(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  var Q = ld('vtes.quotes', []), B = ld('vtes.qbudget', {});
+  function $(id) { return document.getElementById(id); }
+  function num(id) { var v = parseFloat($(id).value); return isFinite(v) && v >= 0 ? v : NaN; }
+  function up2(x) { return Math.ceil(Math.round(x * 1e6) / 1e4) / 100; }   // always round UP to the cent, so the quote is never below the real worst case
+  function days(d) { var t = Date.parse(d + 'T00:00:00Z'); return isFinite(t) ? (V.nowMs() - t) / 86400000 : NaN; }
+  function provider(u) { return /^https:\/\/(docs\.x\.ai|x\.ai|console\.x\.ai|docs\.anthropic\.com|docs\.claude\.com|platform\.claude\.com|www\.anthropic\.com|ai\.google\.dev|cloud\.google\.com|openai\.com|platform\.openai\.com)\//.test(u); }
+  function calc() {
+    var tin = num('tin'), tout = num('tout'), pin = num('pin'), pout = num('pout'), long = tin > 200000, issues = [], c = $('chars').value;
+    if (c !== '' && isFinite(parseFloat(c))) { tin = Math.ceil(parseFloat(c) / 4); $('tin').value = tin; long = tin > 200000; }
+    $('lc').hidden = !long;
+    var ri = pin, ro = pout;
+    if (long) { ri = num('lin'); ro = num('lout'); if (!isFinite(ri) || !isFinite(ro)) { issues.push('Over 200,000 input tokens: the long-context prices are required.'); } }
+    if (!$('model').value.trim()) { issues.push('Model name is required.'); }
+    if (!isFinite(pin) || !isFinite(pout)) { issues.push('Both prices are required (type them from the provider\'s price page; this page does not know any).'); }
+    if (!isFinite(tin) || !isFinite(tout) || tout <= 0) { issues.push('Input size and a reply cap above zero are required. No cap, no quote.'); }
+    var d = days($('pdate').value.trim()); if (!isFinite(d)) { issues.push('Price date is required (YYYY-MM-DD).'); } else if (d > 7) { issues.push('That price is ' + Math.floor(d) + ' days old. Recheck the price page first (stale prices are not allowed).'); } else if (d < -1) { issues.push('That price date is in the future.'); }
+    var src = $('psrc').value.trim(); if (!provider(src)) { issues.push('Source must be the provider\'s own price page (a third-party site such as a benchmark blog does not count).'); }
+    if (!$('job').value.trim()) { issues.push('One line saying what the job is.'); }
+    var ok = !issues.length && isFinite(ri) && isFinite(ro);
+    var raw = ok ? (tin * ri + tout * ro) / 1e6 : NaN, worst = ok ? up2(raw * ($('reg').checked ? 1.1 : 1)) : NaN;
+    return { ok: ok, issues: issues, worst: worst, raw: raw, tin: tin, tout: tout, long: long, ri: ri, ro: ro };
+  }
+  function lineOf(r) { return 'Worst case $' + r.worst.toFixed(2) + '. Approve?'; }
+  function qtext(r) {
+    return 'DOLLAR QUOTE · ' + $('proj').value + ' · ' + new Date(V.nowMs()).toISOString().slice(0, 10) + ' · TRK-2026-9910-B\nJob: ' + $('job').value.trim() + '\nModel: ' + $('model').value.trim() + '\nPrice: $' + r.ri + ' in / $' + r.ro + ' out per million' + (r.long ? ' (long-context rate)' : '') + ', read ' + $('pdate').value.trim() + ' at ' + $('psrc').value.trim() + '\nInput ' + r.tin + ' tokens, output cap ' + r.tout + ' tokens' + ($('reg').checked ? ', US-only endpoint +10%' : '') + '\n' + lineOf(r) + '\nRule: OD-API-01. After the run, log the actual cost next to this quote.';
+  }
+  function drawRes() {
+    var r = calc(), h = '';
+    if (r.ok) { h = '<div class="big">' + esc(lineOf(r)) + '</div><div style="font-size:13px;color:var(--muted)">' + r.tin + ' input tokens and a cap of ' + r.tout + ' output tokens' + ($('reg').checked ? ', plus 10% for the US-only endpoint' : '') + '. Unrounded $' + r.raw.toFixed(6) + '; the quote is rounded up to the next cent so the bill cannot exceed it.</div>'; }
+    else { h = '<div class="box bad"><b>NOT ALLOWED yet:</b><ul style="margin:4px 0 0 18px">' + r.issues.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>'; }
+    $('res').innerHTML = h; $('sub1').disabled = !r.ok; $('cpq').disabled = !r.ok; return r;
+  }
+  function spent(p) { return Q.filter(function (q) { return q.proj === p && q.actual !== undefined; }).reduce(function (a, q) { return a + q.actual; }, 0); }
+  function pending(p) { return Q.filter(function (q) { return q.proj === p && q.state === 'APPROVED' && q.actual === undefined; }).reduce(function (a, q) { return a + q.worst; }, 0); }
+  function drawQ() {
+    var C = { PENDING: '#b26a00', APPROVED: '#2e7d4f', DENIED: '#6b6b66', LOGGED: '#1b5e9e', FAULT: '#b3261e' };
+    $('ql').innerHTML = Q.length ? Q.slice().reverse().map(function (q) {
+      var i = Q.indexOf(q), st = q.fault ? 'FAULT' : (q.actual !== undefined ? 'LOGGED' : q.state);
+      return '<div class="q" style="--c:' + C[st] + '"><span class="tag" style="--c:' + C[st] + '">' + st + '</span><b>' + esc(q.job) + '</b> · ' + esc(q.proj) + ' · ' + esc(q.model) + ' · worst case <b>$' + q.worst.toFixed(2) + '</b>' + (q.actual !== undefined ? ' · actual <b>$' + q.actual.toFixed(4) + '</b>' : '') +
+        (q.fault ? '<div style="color:var(--bad);font-weight:800">CLASS-A FAULT: the real cost went over the quote. Switch that bot off (OD-API-01 rule 6).</div>' : '') +
+        '<div>' + (q.state === 'PENDING' ? '<button class="go" data-a="' + i + '">Approve (Jorge)</button><button class="no" data-d="' + i + '">Deny</button>' : '') +
+        (q.state === 'APPROVED' && q.actual === undefined ? '<span style="font-size:12.5px">After the run: actual input tokens <input type="number" id="ai' + i + '" style="width:110px;padding:3px"> output tokens <input type="number" id="ao' + i + '" style="width:110px;padding:3px"> <button data-l="' + i + '">Log actual cost</button></span>' : '') + '</div></div>';
+    }).join('') : '<div style="color:var(--muted)">No quotes yet.</div>';
+    Array.prototype.forEach.call(document.querySelectorAll('[data-a]'), function (b) { b.addEventListener('click', function () { Q[+b.getAttribute('data-a')].state = 'APPROVED'; sv('vtes.quotes', Q); drawAll(); }); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-d]'), function (b) { b.addEventListener('click', function () { Q[+b.getAttribute('data-d')].state = 'DENIED'; sv('vtes.quotes', Q); drawAll(); }); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-l]'), function (b) { b.addEventListener('click', function () {
+      var i = +b.getAttribute('data-l'), q = Q[i], a = parseFloat($('ai' + i).value), o = parseFloat($('ao' + i).value); if (!isFinite(a) || !isFinite(o) || a < 0 || o < 0) { return; }
+      q.actual = (a * q.ri + o * q.ro) / 1e6 * (q.reg ? 1.1 : 1); q.fault = q.actual > q.worst + 1e-9; sv('vtes.quotes', Q); drawAll(); }); });
+  }
+  function drawB() {
+    $('bl').innerHTML = PROJ.map(function (p, i) {
+      var b = B[p], s = spent(p), pe = pending(p), over = b !== undefined && b !== '' && (s + pe) > b;
+      return '<div class="q" style="--c:' + (over ? '#b3261e' : '#2e7d4f') + '"><b>' + esc(p) + '</b> · spent (logged actuals) <b>$' + s.toFixed(2) + '</b> · approved, not yet logged (worst case) $' + pe.toFixed(2) + ' · budget $ <input type="number" data-b="' + i + '" value="' + (b === undefined ? '' : b) + '" style="width:90px;padding:3px" step="any" min="0">' + (over ? ' <b style="color:var(--bad)">over budget in the worst case</b>' : '') + '</div>';
+    }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('[data-b]'), function (e) { e.addEventListener('change', function () { var v = parseFloat(e.value); B[PROJ[+e.getAttribute('data-b')]] = isFinite(v) ? v : ''; sv('vtes.qbudget', B); drawB(); }); });
+  }
+  function drawAll() { drawQ(); drawB(); }
+  $('proj').innerHTML = PROJ.map(function (p) { return '<option>' + esc(p) + '</option>'; }).join('');
+  ['model', 'pin', 'pout', 'pdate', 'psrc', 'tin', 'chars', 'tout', 'job', 'reg', 'lin', 'lout'].forEach(function (id) { $(id).addEventListener('input', drawRes); $(id).addEventListener('change', drawRes); });
+  $('sub1').addEventListener('click', function () {
+    var r = drawRes(); if (!r.ok) { return; }
+    Q.push({ at: new Date(V.nowMs()).toISOString(), job: $('job').value.trim(), proj: $('proj').value, model: $('model').value.trim(), ri: r.ri, ro: r.ro, tin: r.tin, tout: r.tout, reg: $('reg').checked, worst: r.worst, date: $('pdate').value.trim(), src: $('psrc').value.trim(), state: 'PENDING' });
+    sv('vtes.quotes', Q); $('qn').textContent = 'Saved as PENDING. It needs your Approve.'; drawAll();
+  });
+  $('cpq').addEventListener('click', function () { var r = drawRes(); if (r.ok) { V.copy(qtext(r)).then(function (ok) { $('qn').textContent = ok ? 'Quote text copied.' : 'Copy failed.'; }); } });
+  window.VTES_QUOTE_PAGE = { calc: calc, up2: up2, Q: Q, drawAll: drawAll };
+  drawRes(); drawAll();
+})();
+</script>
+</body></html>

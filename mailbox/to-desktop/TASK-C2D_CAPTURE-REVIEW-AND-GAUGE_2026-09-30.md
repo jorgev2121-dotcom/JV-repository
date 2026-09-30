@@ -7,7 +7,7 @@
 ## Do this AFTER the panel install order (`TASK-C2D_PANEL-INSTALL-AND-RED-BELL`), because it uses the same folder.
 
 1. **ACK first.**
-2. `git pull` on the branch. Run `Verify-VtesPanel.ps1 -Build` then `-Check`: expect `OK: 27 code files match`. Self-tests in Windows PowerShell 5.1: `VTES-CaptureReview.ps1 -SelfTest` (10 passed) and `VTES-Gauge.ps1 -SelfTest` (9 passed). **Paste both RESULT lines.**
+2. `git pull` on the branch. Run `Verify-VtesPanel.ps1 -Build` then `-Check`: expect `OK: 28 code files match`. Self-tests in Windows PowerShell 5.1: `VTES-CaptureReview.ps1 -SelfTest` (10 passed) and `VTES-Gauge.ps1 -SelfTest` (9 passed). **Paste both RESULT lines.**
 3. Create `G:\My Drive\MY-DESK\CAPTURE-INBOX\` (new folder only).
 4. **Prove the pop-up once with a harmless test file:** make a one-page PDF named `2026-09-30 _ TRK-2026-9910-B _ Portal-PDF _ TEST popup _ v1.pdf`, run `VTES-CaptureReview.ps1 -Pdf <that file> -Trk TRK-2026-9910-B -What "TEST ONLY - press Discard"`. Open another window on top first. **Screenshot showing the review window above it.** Press "Make email draft": an Outlook draft must appear from Jorge@teamusasales.com with the PDF attached and the **To line empty**. **Do not press Send.** Close the draft without saving. Then press Discard in the review window.
 5. Schedule `VTES-CaptureReview.ps1 -Watch` at logon (task `VTES-Capture-Watch`). Report the task listing.

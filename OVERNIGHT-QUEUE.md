@@ -213,7 +213,7 @@ Everything below writes only to files that did not exist before. Filing, moving,
 1. **Stamp baseline (Desktop):** `Check-Stamps.ps1 -Path "G:\My Drive\01-JOBS" -Out "$env:TEMP\stamps_2026-09-30.csv"` (read-only; self-test first, expect 25 passed). Result line must read like "N of M files have a stamp". Pairs with RI-048.
 2. **OCR Queue A (Desktop):** only files already inside a TRK folder. Queue B stays held (RI-016).
 3. **Gas gauge first reading (Desktop):** `VTES-Gauge.ps1` once, then every 15 minutes; if `vtes-budget.js` does not grow for 3 cycles, the bell says so.
-4. **Panel integrity (Desktop):** `Verify-VtesPanel.ps1 -Check` at 07:00 (expect 27 code files).
+4. **Panel integrity (Desktop):** `Verify-VtesPanel.ps1 -Check` at 07:00 (expect 28 code files).
 5. **Capture inbox watcher (Desktop):** `VTES-CaptureReview.ps1 -Watch` running so a PDF dropped at night is waiting, flashing, in the morning. Nothing is sent.
 6. **Read-only count (Cloud):** re-run the tasks merge when any source list changes; write the new count to `PENDING-TASKS_MASTER_*.md`.
 7. **Refill tomorrow's queue (Cloud):** this is itself a queue item. Keep at least 12 hours queued.
