@@ -22,6 +22,16 @@ Everything else below can wait a day. This one keeps stacking up.
 
 ---
 
+## 15:25 UTC 9/30 — result of the overnight "run the three" push
+
+**1 of 3 done.** CDM go-ahead: done, with a findings report from Cowork. Poller rebuild: not done. Heartbeat fix: not done. Both of those are jobs at your PC, and nobody sat down at it overnight.
+
+**Also open:** the CDM data merges and the first engine test have no owner. They need one dedicated work session, not a spare hour.
+
+**Cheap way to fix the poller:** when you are next at the PC, say "Run PASTE-D-063."
+
+---
+
 ## From last night's PC session — three new asks
 
 **You were at the desktop last night around 7:30-8pm** and gave the order to fix the automation that had gone quiet (the "PC-ALWAYS-ON-01" directive). Good news and bad news on that:
