@@ -528,3 +528,7 @@ Your steps — nothing here needs Jorge except the final look:
       alone. That is the 9337-LOCKS self-healing test.
    d. `heartbeat.log` has grown after 10+ minutes.
 6. Report via `TO-CLOUD.md`, update `OPEN-ITEMS.md` row TRK-2026-9740.
+
+---
+## 2026-09-30 — ADHOC-FILING-SYSTEM (Jorge's architecture request) — ISSUED by cloud
+Full order: `mailbox/to-desktop/TASK-C2D_ADHOC-FILING-SYSTEM_2026-09-30.md` (also in VTES-Inbox). Inventory crawler `tools/inventory/VTES-Inventory.ps1` (15 of 15 self-test), tree view `tools/vtes-panel/VTES-TREEMAP.html`, TreeSize setup for the targets Jorge screenshotted, PC-side inventory of the nine surveyed jobs, program comparison and AI-program classification (proposal only), email-circle protocol hunt. **All GREEN, read-only. No moves, no deletes.** Did the desktop ACK it?

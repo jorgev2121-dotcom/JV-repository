@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VTES Tree View</title>
+<!-- ADHOC-FILING-TREEVIEW · v1 · 2026-09-30 · #VTES-control-panel #filing #treeview #JorgeValdes
+     Single file, works offline, no keys. Data: embedded scan below, or a TREEMAP-DATA.json/.js dropped beside this file
+     by VTES-Inventory.ps1 (same folder). Built by tools/treemap/build_treemap.py -->
+<style>
+  :root { --bg:#10131a; --panel:#181d27; --ink:#eef1f6; --muted:#9aa4b5; --line:#2a3242; --accent:#6ea8ff; --fs:16px; }
+  * { box-sizing:border-box; }
+  html,body { height:100%; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:var(--fs)/1.45 "Segoe UI", Arial, sans-serif; display:flex; flex-direction:column; }
+  header { padding:14px 18px 8px; display:flex; flex-wrap:wrap; align-items:center; gap:14px; border-bottom:1px solid var(--line); }
+  h1 { font-size:1.5em; margin:0; letter-spacing:.2px; }
+  .stamp { color:var(--muted); font-size:.85em; }
+  .warn { background:#3a2a10; color:#ffd58a; border:1px solid #6b4b14; padding:8px 12px; border-radius:10px; margin:10px 18px 0; font-size:.92em; }
+  .stats { display:flex; flex-wrap:wrap; gap:10px; padding:10px 18px 0; }
+  .stat { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:8px 14px; min-width:130px; }
+  .stat b { display:block; font-size:1.35em; }
+  .stat span { color:var(--muted); font-size:.82em; }
+  .bar { display:flex; height:16px; margin:12px 18px 0; border-radius:8px; overflow:hidden; border:1px solid var(--line); }
+  .bar div { height:100%; }
+  .legend { display:flex; flex-wrap:wrap; gap:8px 16px; padding:8px 18px 0; font-size:.88em; }
+  .legend button { background:none; border:0; color:var(--ink); font:inherit; cursor:pointer; display:flex; align-items:center; gap:6px; padding:2px 4px; border-radius:6px; }
+  .legend button.off { opacity:.35; }
+  .sw { width:14px; height:14px; border-radius:4px; display:inline-block; }
+  .tools { display:flex; flex-wrap:wrap; gap:10px; align-items:center; padding:10px 18px; }
+  #q { flex:1 1 260px; background:var(--panel); border:1px solid var(--line); color:var(--ink); border-radius:10px; padding:10px 14px; font:inherit; font-size:1.05em; outline:none; }
+  #q:focus { border-color:var(--accent); }
+  .seg button, .btn { background:var(--panel); border:1px solid var(--line); color:var(--ink); padding:8px 12px; font:inherit; cursor:pointer; }
+  .seg button:first-child { border-radius:10px 0 0 10px; } .seg button:last-child { border-radius:0 10px 10px 0; }
+  .seg button.on { background:#24407a; border-color:var(--accent); } .seg button:disabled { opacity:.4; cursor:not-allowed; }
+  .btn { border-radius:10px; }
+  .crumbs { padding:0 18px 8px; color:var(--muted); }
+  .crumbs a { color:var(--accent); cursor:pointer; text-decoration:none; } .crumbs a:hover { text-decoration:underline; }
+  main { flex:1; display:flex; gap:14px; padding:0 18px 18px; min-height:420px; }
+  #map { position:relative; flex:1; min-width:300px; background:#0b0e14; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .tile { position:absolute; overflow:hidden; border:2px solid #0b0e14; border-radius:8px; padding:6px 8px; cursor:pointer; color:#fff;
+          transition:filter .12s, transform .12s; background-image:linear-gradient(160deg, rgba(255,255,255,.16), rgba(0,0,0,.22)); }
+  .tile:hover { filter:brightness(1.2); z-index:3; }
+  .tile .n { font-weight:700; line-height:1.15; word-break:break-word; text-shadow:0 1px 2px rgba(0,0,0,.6); }
+  .tile .m { font-size:.82em; opacity:.92; text-shadow:0 1px 2px rgba(0,0,0,.6); }
+  .tile.dim { opacity:.18; } .tile.hit { outline:3px solid #fff; z-index:4; } .tile.sel { outline:3px solid var(--accent); z-index:5; }
+  #side { width:340px; flex:none; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px; overflow:auto; }
+  #side h2 { margin:0 0 6px; font-size:1.15em; word-break:break-word; }
+  #side .path { color:var(--muted); font:.82em Consolas, monospace; word-break:break-all; margin-bottom:8px; }
+  #side .kv { display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding:4px 0; }
+  #side .row { display:flex; gap:8px; margin:10px 0; flex-wrap:wrap; }
+  #side a.btn { text-decoration:none; display:inline-block; }
+  .kid { display:flex; align-items:center; gap:8px; padding:4px 0; cursor:pointer; font-size:.92em; }
+  .kid .bb { height:8px; border-radius:4px; }
+  .kid:hover { color:var(--accent); }
+  .note { color:var(--muted); font-size:.82em; margin-top:10px; }
+  #tip { position:fixed; pointer-events:none; background:#000d; border:1px solid var(--line); padding:6px 10px; border-radius:8px; font-size:.85em; display:none; z-index:20; max-width:340px; }
+  @media (max-width:900px){ main{flex-direction:column;} #side{width:auto;} #map{min-height:420px;} }
+</style>
+</head>
+<body>
+<header>
+  <h1>VTES Tree View</h1>
+  <span class="stamp" id="stamp"></span>
+</header>
+<div class="warn" id="age" style="display:none"></div>
+<div class="stats" id="stats"></div>
+<div class="bar" id="bar" title="Share of total size by proposed compartment"></div>
+<div class="legend" id="legend"></div>
+<div class="tools">
+  <input id="q" type="search" placeholder="Search folders: a job number, a word, #hashtag…" autofocus>
+  <span class="seg" id="modes">
+    <button data-m="klass" class="on" title="Colour by proposed compartment">Compartment</button><button data-m="age" title="Colour by how recently a file changed">Age</button><button data-m="conform" title="Colour by how many names follow the naming rule">Naming rule</button>
+  </span>
+  <button class="btn" id="up">&#8593; Up</button>
+  <button class="btn" id="fdn">A&minus;</button><button class="btn" id="fup">A+</button>
+</div>
+<div class="crumbs" id="crumbs"></div>
+<main>
+  <div id="map"></div>
+  <aside id="side"></aside>
+</main>
+<div id="tip"></div>
+
+<script id="embedded-data" type="application/json">__DATA__</script>
+<script>
+(function () {
+  var COLORS = { jobs:'#2f6fed', ai:'#9b5de5', intake:'#e69f00', archive:'#6b7280', business:'#1a9e6d', reference:'#0ea5b7', other:'#d64550' };
+  var LABEL = { jobs:'Jobs & reports (01-JOBS)', ai:'AI programs & system (04-AI-SYSTEM)', intake:'In-tray / to review (02-INTAKE)', archive:'Archive & backups (06-ARCHIVE)', business:'Business & personal (03-BUSINESS)', reference:'Reference (05-REFERENCE)', other:'Unclassified: needs a decision' };
+  var RX = [
+    ['archive', /^_?(archive|desktop-archive|desktop-filed|archive-backups|vtes_archive|onedrive_20|backup|3-archive|icon-cleanup|shortcut-backups|claude launchers|master folder)/i],
+    ['intake',  /(paperport|intake|pending to be|mess-to-be|_review|delete-review|contact-attachments|plaud|outgoing-mail|_tonight)/i],
+    ['ai',      /^(scripts|state|system|build|demo|logs|print-archive|litellm|desktopguardian|controlpanel|powershell|windowspowershell|claude|claudechat|claudememory|master-index|favorites-launcher|window-registry|automation|automationproof|sharex|verticaltray|taskbarlaunchers|control_panel|ai apps|ai suite|claude suite|1-buttons|treesize|add-in express)/i],
+    ['reference', /^(reference|_form-samples|reports-library)/i],
+    ['business', /(team usa|corporate-compliance|investments|personal|legal-evidence|marketing|domain-website|affordable-housing|vision|^contacts$|^projects$|q12files)/i],
+    ['jobs',    /(cu inspections|perm-app|property-duediligence|^permits$|permit-copies|^reports$|^0\d{3}$|sunset cove|test sample|tedc|mdc-|einar|dd-ondemand|_einar|2-documents|^trk-|^tus-|^oph-)/i]
+  ];
+  function klassOf(n) {
+    if (n.klass) return n.klass;
+    var nm = n.name || '';
+    for (var i = 0; i < RX.length; i++) if (RX[i][1].test(nm)) return RX[i][0];
+    return 'other';
+  }
+
+  // ---- data: embedded, or overridden by a file dropped beside this page ----
+  var DATA = JSON.parse(document.getElementById('embedded-data').textContent);
+  function start(data) { DATA = data; init(); }
+  function tryExternal() {
+    var s = document.createElement('script'); s.src = 'TREEMAP-DATA.js';
+    s.onload = function () { if (window.VTES_TREE && window.VTES_TREE.roots) start(window.VTES_TREE); };
+    s.onerror = function () {};
+    document.head.appendChild(s);
+  }
+
+  var ROOT, cur, stack = [], mode = 'klass', qwords = [], off = {}, sel = null, smallList = [], showSmall = false;
+  var $ = function (id) { return document.getElementById(id); };
+  function fmt(b) { var u = ['B','KB','MB','GB','TB'], i = 0; while (b >= 1024 && i < 4) { b /= 1024; i++; } return (i > 1 ? b.toFixed(1) : Math.round(b)) + ' ' + u[i]; }
+  function num(n) { return n.toLocaleString('en-US'); }
+
+  function prep(n, parent) {
+    n._p = parent; n.klass2 = klassOf(n.klass ? n : { name: n.name });
+    if (parent && parent._forced) n.klass2 = parent._forced;
+    n._hay = ((n.name || '') + ' ' + (n.path || '') + ' ' + (n.trk ? n.trk.join(' ') : '')).toLowerCase();
+    n._sub = n._hay;
+    if (n.children) {
+      n.children.forEach(function (c) { prep(c, n); n._sub += ' ' + c._sub; });
+      var b = 0, f = 0; n.children.forEach(function (c) { b += c.bytes || 0; f += c.files || 0; });
+      if (!n.bytes) n.bytes = b; if (!n.files) n.files = f;
+    }
+    return n;
+  }
+  function build() {
+    var kids = DATA.roots || [];
+    ROOT = { name: DATA.title || 'This PC', path: '', children: kids, bytes: 0, files: 0 };
+    kids.forEach(function (r) { ROOT.bytes += r.bytes || 0; ROOT.files += r.files || 0; });
+    // a root's children are classified one by one; roots themselves are containers
+    kids.forEach(function (r) { r._container = true; });
+    prep(ROOT, null);
+    (function fix(n) { if (n.children) n.children.forEach(function (c) { if (n._container || n === ROOT) { /* keep */ } fix(c); }); })(ROOT);
+    cur = ROOT; stack = [];
+    if (kids.length === 1 && kids[0].children && kids[0].children.length) { cur = kids[0]; }
+  }
+  function leafTotals() {
+    var t = {}; Object.keys(COLORS).forEach(function (k) { t[k] = { b: 0, f: 0, n: 0 }; });
+    (function walk(n) {
+      if (n.children && n._container) { n.children.forEach(walk); return; }
+      if (n === ROOT) { n.children.forEach(walk); return; }
+      var k = n.klass2; t[k].b += n.bytes || 0; t[k].f += n.files || 0; t[k].n++;
+    })(ROOT);
+    return t;
+  }
+
+  // ---- squarified treemap ----
+  function worst(row, side, sum) {
+    var mx = 0, mn = 1e30; row.forEach(function (r) { if (r.v > mx) mx = r.v; if (r.v < mn) mn = r.v; });
+    var s2 = side * side, sm2 = sum * sum; return Math.max(s2 * mx / sm2, sm2 / (s2 * mn));
+  }
+  function squarify(items, x, y, w, h) {
+    var out = [], total = items.reduce(function (a, i) { return a + i.v; }, 0);
+    if (!total || w <= 0 || h <= 0) return out;
+    var scale = (w * h) / total; items = items.map(function (i) { return { n: i.n, v: i.v * scale }; });
+    var row = [];
+    function layoutRow(r, x0, y0, w0, h0) {
+      var sum = r.reduce(function (a, i) { return a + i.v; }, 0), horiz = w0 >= h0, side = horiz ? h0 : w0, len = sum / side, off2 = 0;
+      r.forEach(function (i) {
+        var l = i.v / len;
+        out.push(horiz ? { n: i.n, x: x0, y: y0 + off2, w: len, h: l } : { n: i.n, x: x0 + off2, y: y0, w: l, h: len });
+        off2 += l;
+      });
+      return horiz ? { x: x0 + len, y: y0, w: w0 - len, h: h0 } : { x: x0, y: y0 + len, w: w0, h: h0 - len };
+    }
+    var rect = { x: x, y: y, w: w, h: h }, i = 0;
+    while (i < items.length) {
+      var side = Math.min(rect.w, rect.h), c = items[i], sumRow = row.reduce(function (a, r) { return a + r.v; }, 0);
+      if (!row.length || worst(row.concat([c]), side, sumRow + c.v) <= worst(row, side, sumRow)) { row.push(c); i++; }
+      else { rect = layoutRow(row, rect.x, rect.y, rect.w, rect.h); row = []; }
+    }
+    if (row.length) layoutRow(row, rect.x, rect.y, rect.w, rect.h);
+    return out;
+  }
+
+  function colorFor(n) {
+    if (mode === 'age') {
+      if (!n.mtime) return '#3a4254';
+      var days = (Date.now() - new Date(n.mtime).getTime()) / 864e5;
+      var t = Math.max(0, Math.min(1, days / 365)); // 0 new .. 1 a year old
+      return 'hsl(' + Math.round(150 - 130 * t) + ',60%,' + Math.round(42 - 10 * t) + '%)';
+    }
+    if (mode === 'conform') {
+      if (n.conform == null) return '#3a4254';
+      return 'hsl(' + Math.round(n.conform * 130) + ',65%,40%)';
+    }
+    return COLORS[n.klass2];
+  }
+  function matches(n) {
+    var out = [];
+    if (!qwords.length) return out;
+    (function w(x) { (x.children || []).forEach(function (c) { if (ownMatch(c)) out.push(c); w(c); }); })(n);
+    return out.sort(function (a, b) { return (b.bytes || 0) - (a.bytes || 0); });
+  }
+  function anyMatch(n) { return qwords.length && qwords.every(function (w) { return n._sub.indexOf(w) > -1; }); }
+  function ownMatch(n) { return qwords.length && qwords.every(function (w) { return n._hay.indexOf(w) > -1; }); }
+
+  function render() {
+    var map = $('map'); map.innerHTML = '';
+    var W = map.clientWidth, H = map.clientHeight;
+    var kids = (cur.children || []).filter(function (c) { return !off[c.klass2] || c._container; });
+    var items = kids.map(function (c) { return { n: c, v: Math.max(c.bytes || 0, 1) }; }).sort(function (a, b) { return b.v - a.v; });
+    var lay = squarify(items, 0, 0, W, H), small = []; smallList = [];
+    lay.forEach(function (t) {
+      if (t.w * t.h < 900 && lay.length > 40) { small.push(t.n); return; }
+      var n = t.n, d = document.createElement('div'); d.className = 'tile';
+      d.style.left = t.x + 'px'; d.style.top = t.y + 'px'; d.style.width = t.w + 'px'; d.style.height = t.h + 'px';
+      d.style.backgroundColor = colorFor(n);
+      var big = t.w > 90 && t.h > 40;
+      d.innerHTML = big ? '<div class="n">' + esc(n.name) + '</div><div class="m">' + fmt(n.bytes) + ' · ' + num(n.files) + ' files</div>' : '';
+      if (t.w > 40 && t.h > 22 && !big) d.innerHTML = '<div class="m">' + esc(n.name.slice(0, 12)) + '</div>';
+      if (qwords.length) { if (anyMatch(n)) d.classList.add(ownMatch(n) ? 'hit' : 'sel'); else d.classList.add('dim'); }
+      if (sel === n) d.classList.add('sel');
+      d.addEventListener('click', function () { select(n, true); });
+      d.addEventListener('mousemove', function (e) { tip(e, n); });
+      d.addEventListener('mouseleave', function () { $('tip').style.display = 'none'; });
+      map.appendChild(d);
+    });
+    if (small.length) {
+      var sb = small.reduce(function (a, n) { return a + (n.bytes || 0); }, 0);
+      var d2 = document.createElement('div'); d2.className = 'tile'; d2.style.cssText = 'left:0;bottom:0;position:absolute;width:auto;height:auto;padding:4px 10px;background:#222a;border-radius:0 8px 0 0';
+      d2.style.cursor = 'pointer'; d2.style.zIndex = 6; smallList = small;
+      d2.innerHTML = '<div class="m"><b>+ ' + small.length + ' smaller folders (' + fmt(sb) + ') &mdash; click to list</b></div>';
+      d2.addEventListener('click', function () { showSmall = true; sel = null; side(); });
+      map.appendChild(d2);
+    }
+    crumbs(); side();
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function tip(e, n) {
+    var t = $('tip'); t.style.display = 'block'; t.style.left = Math.min(e.clientX + 14, innerWidth - 350) + 'px'; t.style.top = (e.clientY + 14) + 'px';
+    t.innerHTML = '<b>' + esc(n.name) + '</b><br>' + fmt(n.bytes) + ' · ' + num(n.files) + ' files<br>' + esc(LABEL[n.klass2]) + (n.mtime ? '<br>Newest change: ' + n.mtime.slice(0, 10) : '');
+  }
+  function select(n, drill) {
+    sel = n; showSmall = false;
+    if (drill && n.children && n.children.length) { stack.push(cur); cur = n; sel = null; }
+    render();
+  }
+  function crumbs() {
+    var path = [], n = cur; while (n) { path.unshift(n); n = n._p; }
+    $('crumbs').innerHTML = path.map(function (p, i) { return i === path.length - 1 ? '<b>' + esc(p.name) + '</b>' : '<a data-i="' + i + '">' + esc(p.name) + '</a>'; }).join(' &rsaquo; ');
+    Array.prototype.forEach.call($('crumbs').querySelectorAll('a'), function (a) {
+      a.addEventListener('click', function () { var i = +a.getAttribute('data-i'); var p = []; var x = cur; while (x) { p.unshift(x); x = x._p; } cur = p[i]; stack = p.slice(0, i); sel = null; render(); });
+    });
+  }
+  function side() {
+    var n = sel || cur, s = $('side'), b = n.bytes || 0;
+    var h = '<h2>' + esc(n.name) + '</h2>';
+    if (n.path) h += '<div class="path">' + esc(n.path) + '</div>';
+    h += '<div class="kv"><span>Size</span><b>' + fmt(b) + '</b></div><div class="kv"><span>Files</span><b>' + num(n.files || 0) + '</b></div>';
+    h += '<div class="kv"><span>Proposed compartment</span><b style="color:' + COLORS[n.klass2] + '">' + esc(LABEL[n.klass2].split(' (')[0]) + '</b></div>';
+    if (n.mtime) h += '<div class="kv"><span>Newest change</span><b>' + n.mtime.slice(0, 10) + '</b></div>';
+    if (n.conform != null) h += '<div class="kv"><span>Names following the rule</span><b>' + Math.round(n.conform * 100) + '%</b></div>';
+    if (n.trk && n.trk.length) h += '<div class="kv"><span>TRK numbers</span><b>' + esc(n.trk.slice(0, 4).join(', ')) + '</b></div>';
+    if (n.path) {
+      var link = 'file:///' + n.path.replace(/\\/g, '/').replace(/ /g, '%20');
+      h += '<div class="row"><a class="btn" href="' + link + '" target="_blank" rel="noopener">Open folder</a><button class="btn" id="cp">Copy path</button></div>';
+    }
+    if (showSmall && smallList.length) {
+      h += '<div class="note" style="margin-top:12px"><b>Smaller folders in this view (largest first):</b></div>';
+      smallList.slice().sort(function (a, b) { return (b.bytes || 0) - (a.bytes || 0); }).slice(0, 60).forEach(function (c, i) {
+        h += '<div class="kid" data-s="' + i + '"><span class="sw" style="background:' + colorFor(c) + '"></span><span>' + esc(c.name) + ' <span style="color:var(--muted)">' + fmt(c.bytes || 0) + '</span></span></div>';
+      });
+    }
+    var M = matches(cur);
+    if (M.length) {
+      h += '<div class="note" style="margin-top:12px"><b>' + M.length + ' match' + (M.length > 1 ? 'es' : '') + ' for your search (click to go there):</b></div>';
+      M.slice(0, 25).forEach(function (c, i) { h += '<div class="kid" data-m="' + i + '"><span class="sw" style="background:' + colorFor(c) + '"></span><span>' + esc(c.name) + ' <span style="color:var(--muted)">' + fmt(c.bytes || 0) + '</span></span></div>'; });
+    }
+    if (n.children && n.children.length) {
+      var top = n.children.slice().sort(function (a, b) { return (b.bytes || 0) - (a.bytes || 0); }).slice(0, 12), mx = top[0].bytes || 1;
+      h += '<div class="note" style="margin-top:12px">Largest inside:</div>';
+      top.forEach(function (c, i) { h += '<div class="kid" data-i="' + i + '"><span class="bb" style="width:' + Math.max(4, 120 * (c.bytes || 0) / mx) + 'px;background:' + colorFor(c) + '"></span><span>' + esc(c.name) + ' <span style="color:var(--muted)">' + fmt(c.bytes || 0) + '</span></span></div>'; });
+    }
+    if (DATA.legacy) h += '<div class="note">This picture uses the 8/24 scan: folder sizes and file counts only. Dates and naming-rule colours switch on after the first full inventory run.</div>';
+    s.innerHTML = h;
+    var cp = $('cp'); if (cp) cp.addEventListener('click', function () { (navigator.clipboard ? navigator.clipboard.writeText(n.path) : Promise.reject()).then(function () { cp.textContent = 'Copied'; }, function () { cp.textContent = 'Select the path above'; }); });
+    Array.prototype.forEach.call(s.querySelectorAll('.kid[data-s]'), function (k) {
+      k.addEventListener('click', function () { var c = smallList.slice().sort(function (a, b) { return (b.bytes || 0) - (a.bytes || 0); })[+k.getAttribute('data-s')]; showSmall = false; select(c, true); });
+    });
+    Array.prototype.forEach.call(s.querySelectorAll('.kid[data-m]'), function (k) {
+      k.addEventListener('click', function () { var c = M[+k.getAttribute('data-m')]; if (c._p) { cur = c._p; stack = []; } showSmall = false; sel = c; render(); });
+    });
+    Array.prototype.forEach.call(s.querySelectorAll('.kid[data-i]'), function (k) {
+      k.addEventListener('click', function () { var c = n.children.slice().sort(function (a, b) { return (b.bytes || 0) - (a.bytes || 0); })[+k.getAttribute('data-i')]; select(c, true); });
+    });
+  }
+
+  function chrome() {
+    $('stamp').textContent = (DATA.source || '') + (DATA.generated ? ' · scan ' + DATA.generated : '');
+    var T = leafTotals(), tb = 0, tf = 0, nn = 0; Object.keys(T).forEach(function (k) { tb += T[k].b; tf += T[k].f; nn += T[k].n; });
+    $('stats').innerHTML = [[fmt(tb), 'total size'], [num(tf), 'files'], [num(nn), 'top-level folders'], [DATA.roots.length, 'places scanned']].map(function (s) { return '<div class="stat"><b>' + s[0] + '</b><span>' + s[1] + '</span></div>'; }).join('');
+    $('bar').innerHTML = Object.keys(T).filter(function (k) { return T[k].b > 0; }).map(function (k) { return '<div style="width:' + (100 * T[k].b / tb) + '%;background:' + COLORS[k] + '" title="' + esc(LABEL[k]) + ': ' + fmt(T[k].b) + '"></div>'; }).join('');
+    $('legend').innerHTML = Object.keys(T).map(function (k) { return '<button data-k="' + k + '" class="' + (off[k] ? 'off' : '') + '"><span class="sw" style="background:' + COLORS[k] + '"></span>' + esc(LABEL[k]) + ' · ' + fmt(T[k].b) + ' · ' + num(T[k].n) + ' folders</button>'; }).join('');
+    Array.prototype.forEach.call($('legend').querySelectorAll('button'), function (b) { b.addEventListener('click', function () { var k = b.getAttribute('data-k'); off[k] = !off[k]; chrome(); render(); }); });
+    if (DATA.generated) {
+      var days = Math.round((Date.now() - new Date(DATA.generated.replace(' ', 'T')).getTime()) / 864e5);
+      if (days > 2) { var a = $('age'); a.style.display = 'block'; a.textContent = 'This scan is ' + days + ' days old (' + DATA.generated + '). It shows what was there then. The nightly inventory will refresh it.'; }
+    }
+    var hasM = false, hasC = false;
+    (function w(n) { if (n.mtime) hasM = true; if (n.conform != null) hasC = true; (n.children || []).forEach(w); })(ROOT);
+    Array.prototype.forEach.call($('modes').querySelectorAll('button'), function (b) { var m = b.getAttribute('data-m'); b.disabled = (m === 'age' && !hasM) || (m === 'conform' && !hasC); b.classList.toggle('on', m === mode); });
+  }
+
+  function init() { build(); chrome(); render(); }
+  $('q').addEventListener('input', function () { qwords = $('q').value.toLowerCase().split(/\s+/).filter(function (w) { return w.length > 1; }); render(); });
+  $('up').addEventListener('click', function () { if (cur._p) { cur = cur._p; sel = null; render(); } });
+  Array.prototype.forEach.call($('modes').querySelectorAll('button'), function (b) { b.addEventListener('click', function () { if (b.disabled) return; mode = b.getAttribute('data-m'); chrome(); render(); }); });
+  var fs = 16; function setFs(d) { fs = Math.max(13, Math.min(24, fs + d)); document.documentElement.style.setProperty('--fs', fs + 'px'); render(); }
+  $('fup').addEventListener('click', function () { setFs(2); }); $('fdn').addEventListener('click', function () { setFs(-2); });
+  addEventListener('resize', function () { render(); });
+  if (window.ResizeObserver) { var lastW = 0, lastH = 0; new ResizeObserver(function () { var m = $('map'); if (m.clientWidth !== lastW || m.clientHeight !== lastH) { lastW = m.clientWidth; lastH = m.clientHeight; if (ROOT) render(); } }).observe($('map')); }
+  window.VTES_TEST = { get cur() { return cur; }, get ROOT() { return ROOT; }, select: select, render: render, leafTotals: leafTotals, squarify: squarify };
+  init(); tryExternal();
+})();
+</script>
+</body>
+</html>

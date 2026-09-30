@@ -714,6 +714,8 @@ begins with `TRK`. See `TRK-REGISTRY.md` section 4.
 
 ---
 
+**RI-012 recurrence 2026-09-30 (logged by cloud; FOURTH-plus sighting, so patches are forbidden and Tier 2 is required).** Jorge states there are "no written rules," that a new LLM or agent "is faced with filing or creating folders as needed," and that this "forced us to duplicate these efforts." The nine sweeps confirm it at scale: Karla is one property under six identities; Bay Harbor unit numbers exist in 54+ filenames but not in the registry; TRK-2026-1582 and 1412 are double-booked; the `.NNN` suffix is forbidden by CLAUDE.md yet used by TRK-REGISTRY section 3 and the AI catalog; three Drive folders hold job 20001. **Three options, ranked by lifespan.** (1) **Tier 2, removal/replace:** one written constitution (`filing-system/00-START-HERE/`), a closed folder tree, one canonical filename, merge the duplicate trees after approval. Lasts as long as the closed tree is enforced. (2) **Tier 3, enforcement:** nightly `VTES-Inventory.ps1` conformance report plus an intake agent that refuses names that break the grammar; re-applies faster than drift returns. Recommended with (1). (3) **Tier 1, suppression (forbidden here):** more tags and cross-links (already done 2026-09-03; it did not fix search). **Recommended: (1) + (2).** Closure needs RAMBO's inventory denominators, not this note.
+
 ## RI-013 — TRK registry range does not match reality
 
 **Status:** OPEN — identified 2026-08-15
