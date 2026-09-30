@@ -72,3 +72,14 @@ Jorge before writing (capsules live in OneDrive = your turf).
 
 ---
 *Written by cloud 2026-08-25. #work-queue #desktop #PASTE-D-027*
+
+---
+<!-- merged 2026-09-30 from the cloud lineage of this branch (unrelated-history reconciliation, TRK-2026-9910-B); rows below were only on that side -->
+### 0. TRK-2026-9740 — Executor tray icons (Jorge's direct ask, third time — do not skip)
+**Added 2026-08-26.** Merge/pull branch `claude/executor-tray-icon-1cazza` (it already
+contains this branch merged in), then work **item 12 in the old `WORK-QUEUE.md`**:
+install `tools/tray/CU-ExecutorTray.ps1` — three always-visible tray icons (green D =
+desktop executor, blue C = cloud, orange X = Cowork), click = focus-or-open. Its
+open-commands reuse your four verified OneDrive-Desktop shortcuts from RESULT-D2C-9740.
+Light: no CPU load, no downloads, no elevation. Evidence = the 4 acceptance proofs in
+item 12, via TO-CLOUD.md.
