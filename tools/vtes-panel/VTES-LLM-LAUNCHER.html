@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VTES LLM Launcher</title>
+<!-- TRK-2026-9910-B · v1 · 2026-09-30 · #VTES-control-panel #LLM-registry #JorgeValdes
+     Single file. No internet needed to open. No API keys. Registry lives in LLM-WINDOW-REGISTRY.md. -->
+<style>
+  :root { --bg:#f6f4ef; --card:#ffffff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:24px 20px 60px; background:var(--bg); color:var(--ink);
+         font:18px/1.5 "Segoe UI", Arial, sans-serif; }
+  h1 { font-size:30px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 18px; font-size:16px; }
+  #q { width:100%; font-size:24px; padding:14px 16px; border:2px solid var(--line);
+       border-radius:12px; outline:none; }
+  #q:focus { border-color:var(--accent); }
+  .hint { color:var(--muted); font-size:15px; margin:8px 0 22px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; }
+  .card.hide { display:none; }
+  .id { font-weight:700; color:var(--accent); font-size:15px; letter-spacing:.5px; }
+  .name { font-size:24px; font-weight:700; margin:4px 0 2px; }
+  .role { color:var(--muted); font-size:16px; margin-bottom:10px; }
+  .job { margin:0 0 12px; }
+  .tags { font-size:14px; color:var(--muted); margin-bottom:12px; word-break:break-word; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; }
+  a.btn, span.btn { display:inline-block; padding:12px 16px; border-radius:10px; font-weight:700;
+        text-decoration:none; font-size:17px; }
+  a.btn { background:var(--accent); color:#fff; }
+  span.btn { background:#e9e6de; color:var(--ink); }
+  .paste { font-size:14px; color:var(--muted); margin-top:10px; }
+  .bus { margin-top:30px; padding:18px; border:2px dashed var(--line); border-radius:14px; background:#fbfaf7; }
+  .bus h2 { margin:0 0 6px; font-size:22px; }
+  .foot { color:var(--muted); font-size:13px; margin-top:30px; }
+</style>
+</head>
+<body>
+<h1>VTES LLM Launcher</h1>
+<p class="sub">Every AI window you run, one search away. Type an ID (LLM-07), a hashtag (#grok), a name, or a job word (files, second opinion, voice).</p>
+<input id="q" type="search" placeholder="Search… e.g. LLM-01, #cowork, grok, files on my PC" autofocus>
+<p class="hint">Blue button opens it. Grey means it opens from the desktop app or tray icon, not a web link.</p>
+
+<div class="grid" id="grid">
+
+<div class="card" data-k="llm-01 desktop executor rambo claude code pc files onedrive chrome 1password yubikey printer county ocr tax jackets paste-d #exec-desktop #rambo #claude-code hands">
+  <div class="id">LLM-01 · 🖥️</div>
+  <div class="name">Claude Code Desktop</div>
+  <div class="role">RAMBO — the hands on your PC</div>
+  <p class="job">Files, OneDrive, Chrome, 1Password, printer, county sites, OCR. Runs by itself every 15 minutes and executes anything dropped in VTES-Inbox.</p>
+  <div class="tags">#LLM-01 #EXEC-DESKTOP #RAMBO #PASTE-D</div>
+  <div class="row"><span class="btn">Open: Claude desktop app → Code tab, or the green D tray icon</span></div>
+  <div class="paste">Paste blocks for this window start with PASTE-D.</div>
+</div>
+
+<div class="card" data-k="llm-02 cloud executor web claude code repo keeper qc research plaud sync dispatch morning report paste-c #exec-cloud #claude-code">
+  <div class="id">LLM-02 · ☁️</div>
+  <div class="name">Claude Code Cloud</div>
+  <div class="role">Repo keeper — QC, research, dispatch</div>
+  <p class="job">Holds the repo, checks the desktop's work, does sourced research, runs the daily Plaud sync, and sends orders to RAMBO through Drive. Cannot touch your PC.</p>
+  <div class="tags">#LLM-02 #EXEC-CLOUD #PASTE-C</div>
+  <div class="row"><a class="btn" href="https://claude.ai/code" target="_blank" rel="noopener">Open claude.ai/code</a></div>
+  <div class="paste">Paste blocks for this window start with PASTE-C.</div>
+</div>
+
+<div class="card" data-k="llm-03 cowork analyst long documents cdm comparative decision model chrome paste-x #cowork #cdm">
+  <div class="id">LLM-03 · 🤝</div>
+  <div class="name">Claude Cowork</div>
+  <div class="role">Analyst — long documents, CDM owner</div>
+  <p class="job">Deep analysis and long write-ups (the CDM funding model lives here). Can drive Chrome with your permission and sends its own orders to RAMBO.</p>
+  <div class="tags">#LLM-03 #COWORK #PASTE-X #CDM</div>
+  <div class="row"><span class="btn">Open: Claude desktop app → Cowork tab, or the orange X tray icon</span></div>
+  <div class="paste">Paste blocks for this window start with PASTE-X.</div>
+</div>
+
+<div class="card" data-k="llm-04 chat cockpit owner seat primary conversation decisions approve dictate where do things stand #chat #cockpit">
+  <div class="id">LLM-04 · 💬</div>
+  <div class="name">Claude Chat</div>
+  <div class="role">The cockpit — your seat</div>
+  <p class="job">Your main conversation. Dictate here, approve here, ask "where do things stand" here. It reads the same ledger and tells the executors what to do.</p>
+  <div class="tags">#LLM-04 #CHAT #COCKPIT</div>
+  <div class="row"><a class="btn" href="https://claude.ai" target="_blank" rel="noopener">Open claude.ai</a><span class="btn">or the desktop app → Chat</span></div>
+</div>
+
+<div class="card" data-k="llm-05 iphone phone voice dictation on the go approvals mobile #iphone #voice">
+  <div class="id">LLM-05 · 📱</div>
+  <div class="name">Claude iPhone</div>
+  <div class="role">Voice — dictation on the go</div>
+  <p class="job">Same account as the cockpit. Say "AP-0088: GO" from the car and it counts.</p>
+  <div class="tags">#LLM-05 #IPHONE #voice</div>
+  <div class="row"><span class="btn">Open: iPhone → Claude app</span></div>
+</div>
+
+<div class="card" data-k="llm-06 codex openai chatgpt backup executor second hands terminal cli weekly limit #codex #backup-exec">
+  <div class="id">LLM-06 · 🧭</div>
+  <div class="name">Codex CLI</div>
+  <div class="role">Backup executor — when Claude's limit is hit</div>
+  <p class="job">OpenAI's agent on your PC, on your ChatGPT subscription. Reads the same VTES-Inbox orders and the same rules. Install is prepared and waiting on your one-line yes.</p>
+  <div class="tags">#LLM-06 #CODEX #BACKUP-EXEC</div>
+  <div class="row"><a class="btn" href="https://chatgpt.com" target="_blank" rel="noopener">Open ChatGPT</a><span class="btn">PC: Windows Terminal → codex (after install)</span></div>
+</div>
+
+<div class="card" data-k="llm-07 grok supergrok xai fabian second opinion sanity check live web #grok #fabian #second-opinion">
+  <div class="id">LLM-07 · 🔮</div>
+  <div class="name">Grok (SuperGrok)</div>
+  <div class="role">Fabian — second opinion</div>
+  <p class="job">Sanity-checks Claude's work and answers with the live web. Chat only, on your subscription. Paste a Drive link to hand it a file.</p>
+  <div class="tags">#LLM-07 #GROK #FABIAN</div>
+  <div class="row"><a class="btn" href="https://grok.com" target="_blank" rel="noopener">Open grok.com</a></div>
+</div>
+
+<div class="card" data-k="llm-08 gemini google volume drafter cheap free drive native summarize cli #gemini #google #volume">
+  <div class="id">LLM-08 · ♊</div>
+  <div class="name">Gemini</div>
+  <div class="role">Volume drafter — free, Drive-native</div>
+  <p class="job">Cheap bulk drafting and summarizing. Gemini CLI can also run headless on the PC under the same rules (GEMINI.md).</p>
+  <div class="tags">#LLM-08 #GEMINI #google</div>
+  <div class="row"><a class="btn" href="https://gemini.google.com" target="_blank" rel="noopener">Open Gemini</a><span class="btn">PC: Windows Terminal → gemini</span></div>
+</div>
+
+<div class="card" data-k="bus drive mailbox vtes inbox outbox handoff orders proof results #bus #handoff">
+  <div class="id">BUS · 📬</div>
+  <div class="name">The Drive mailbox</div>
+  <div class="role">How every window hands off to the next</div>
+  <p class="job">Orders go into VTES-Inbox. Proof comes out of VTES-Outbox. Any window that can read Drive already speaks this; chat-only windows join by a pasted link.</p>
+  <div class="tags">#BUS #VTES-Inbox #VTES-Outbox</div>
+  <div class="row"><a class="btn" href="https://drive.google.com/drive/folders/1hI2TmVn86Cnh7h_6s93TG0KE1QzVCV5F" target="_blank" rel="noopener">Open VTES-Inbox</a><a class="btn" href="https://drive.google.com/drive/folders/1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN" target="_blank" rel="noopener">Open VTES-Outbox</a></div>
+</div>
+
+</div>
+
+<div class="bus">
+  <h2>One rule that makes this work</h2>
+  <p>Every window runs on a subscription — no API meter. They hand off through Google Drive, not through each other. The ID (LLM-01…08) and hashtags travel inside every file a window produces, so any later search — Drive, Gmail, OCR, 1Password, or this page — finds who did what.</p>
+</div>
+
+<p class="foot">TRK-2026-9910-B · v1 · 2026-09-30 · CURRENT · Registry: LLM-WINDOW-REGISTRY.md · #VTES-control-panel #LLM-registry</p>
+
+<script>
+  var q = document.getElementById('q');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  function filter() {
+    var t = q.value.trim().toLowerCase();
+    cards.forEach(function (c) {
+      var hay = (c.getAttribute('data-k') + ' ' + c.textContent).toLowerCase();
+      c.classList.toggle('hide', t !== '' && hay.indexOf(t) === -1);
+    });
+  }
+  q.addEventListener('input', filter);
+</script>
+</body>
+</html>
