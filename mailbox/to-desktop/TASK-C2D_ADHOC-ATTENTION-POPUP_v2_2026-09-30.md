@@ -10,7 +10,7 @@
 - `tools/vtes-panel/VTES-Open.ps1` — 6647 bytes — SHA-256 `08e2bf00d4303ab1f81a51cab27aa7a62adeb60966666fa51d83ec24768239f8`
 - `tools/vtes-panel/VTES-TREEMAP.html` — 38206 bytes — SHA-256 `668ebda338f51dc7ce9c5b4340df2c128d88a8d051d2a2779fcaed74ef4da04e`
 - `tools/vtes-panel/vtes-addresses.json` — 1958 bytes — SHA-256 `9bf8213e64113bcba57278c43c5a096826116ff1ca41da33d4f86b0958217075`
-- `tools/vtes-panel/VTES-LLM-LAUNCHER.html` — 20805 bytes — SHA-256 `f0f0432044b9e510262c7ec38fee1885678ca5bb3199ca4c6817ffacf6eb45b6`
+- `tools/vtes-panel/VTES-LLM-LAUNCHER.html` — 60212 bytes — SHA-256 `273032949ae04d738e0043eaf78271d6889d907d672b8072aa517815b9b483b9` (v3 console: chat stage, mic, read-aloud, snips, shared folder)
 
 **What changed in `VTES-Attention.ps1`:** shown items are marked at once (no ghost duplicate; an unanswered banner returns after 2 hours, never twice); handlers work whether launched with `-File` or from a console; buttons use a non-selectable class so a click does not take keyboard focus; unhandled UI errors are logged instead of freezing a hidden dialog; timers are rooted and disposed; first-run baseline only from a readable queue; `-Install` now copies the script to `%LOCALAPPDATA%\VTES-Attention\` and registers THAT path (not the Inbox or a not-yet-mounted `G:`); decision files are written with a BOM; the summary banner button is now CLOSE. Self-test: **32 passed, 0 failed** on PowerShell 7.
 **`VTES-Open.ps1`:** `-Install` copies to `%LOCALAPPDATA%\VTES-Open\` and uses a hidden VBS wrapper (no console flash); a failed open now shows a message and logs instead of doing nothing.

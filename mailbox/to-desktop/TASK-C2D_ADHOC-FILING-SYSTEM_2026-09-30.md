@@ -14,7 +14,7 @@
 - `tools/vtes-panel/VTES-Open.ps1` — 6647 bytes — SHA-256 `08e2bf00d4303ab1f81a51cab27aa7a62adeb60966666fa51d83ec24768239f8`
 - `tools/vtes-panel/VTES-TREEMAP.html` — 38206 bytes — SHA-256 `668ebda338f51dc7ce9c5b4340df2c128d88a8d051d2a2779fcaed74ef4da04e`
 - `tools/vtes-panel/vtes-addresses.json` — 1958 bytes — SHA-256 `9bf8213e64113bcba57278c43c5a096826116ff1ca41da33d4f86b0958217075`
-- `tools/vtes-panel/VTES-LLM-LAUNCHER.html` — 20805 bytes — SHA-256 `f0f0432044b9e510262c7ec38fee1885678ca5bb3199ca4c6817ffacf6eb45b6`
+- `tools/vtes-panel/VTES-LLM-LAUNCHER.html` — 60212 bytes — SHA-256 `273032949ae04d738e0043eaf78271d6889d907d672b8072aa517815b9b483b9` (v3 console: chat stage, mic, read-aloud, snips, shared folder)
 **Self-tests expected:** `VTES-Attention.ps1 -SelfTest` = `RESULT: 32 passed, 0 failed`; `VTES-Inventory.ps1 -SelfTest` = `RESULT: 18 passed, 0 failed`. Cloud ran these only on PowerShell 7 (Linux). **Run them with Windows PowerShell 5.1 (`powershell.exe`, not `pwsh`) and report any difference: that is the real test.**
 
 ## Read first (one page each; the constitution is now v2 after three adversarial reviews)

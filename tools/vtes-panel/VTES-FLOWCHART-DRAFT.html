@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VTES Flowchart DRAFT v1 — who talks to whom</title>
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e;
+          --you:#7a2e8e; --exec:#1b5e9e; --bus:#2e7d4f; --api:#b26a00; --helper:#3b6e8f; --other:#6b5b3e; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:18px 16px 40px; background:var(--bg); color:var(--ink); font:16px/1.4 "Segoe UI",system-ui,sans-serif; }
+  h1 { font-size:20px; margin:0 0 2px; } .sub { color:var(--muted); font-size:13px; margin-bottom:14px; }
+  .wrap { max-width:1100px; margin:0 auto; }
+  .row { position:relative; border:2px solid var(--line); border-radius:16px; background:var(--card); padding:12px 14px 14px; }
+  .lab { font-size:12px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .lab b { color:var(--ink); }
+  .flow { text-align:center; font-size:24px; line-height:1; color:var(--muted); padding:5px 0; }
+  .flow small { display:block; font-size:12px; margin-top:2px; }
+  .boxes { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; align-items:stretch; }
+  .box { flex:1 1 210px; max-width:330px; border:2px solid var(--c,#999); border-radius:14px; padding:10px 12px; background:#fff; }
+  .box .id { font-weight:800; font-size:13px; color:var(--c,#999); }
+  .box .nm { font-weight:700; font-size:17px; }
+  .box .tx { font-size:13px; color:var(--muted); margin-top:3px; }
+  .box .tg { font-size:11px; color:var(--c,#999); margin-top:5px; word-break:break-word; }
+  .box.dash { border-style:dashed; background:#faf8f3; }
+  .you { --c:var(--you); } .exec { --c:var(--exec); } .helper { --c:var(--helper); } .other { --c:var(--other); } .bus { --c:var(--bus); } .api { --c:var(--api); }
+  .pair { display:flex; align-items:center; justify-content:center; gap:6px; flex-wrap:wrap; }
+  .pair .mid { text-align:center; font-weight:800; color:var(--bus); font-size:13px; min-width:120px; }
+  .pair .mid span { display:block; font-size:26px; line-height:1; }
+  .lanes { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:8px; }
+  .lane { border-left:6px solid var(--c); background:#faf9f6; border-radius:8px; padding:7px 10px; }
+  .lane .nm { font-weight:800; font-size:15px; } .lane .tx { font-size:13px; color:var(--muted); }
+  .st { display:inline-block; font-size:11px; font-weight:800; padding:1px 7px; border-radius:99px; margin-left:6px; color:#fff; }
+  .ok { background:#2e7d4f; } .un { background:#b26a00; } .no { background:#888; }
+  .legend { font-size:12px; color:var(--muted); margin-top:12px; }
+  .note { font-size:13px; background:#fff8e6; border:1px solid #e8d49a; border-radius:10px; padding:9px 12px; margin-top:12px; }
+  .shared { text-align:center; margin-top:10px; border:2px solid var(--bus); border-radius:14px; padding:10px; background:#eef7f1; font-size:14px; }
+  .tagbar { font-size:12px; color:var(--muted); margin-top:14px; word-break:break-word; }
+</style></head><body><div class="wrap">
+<h1>VTES control panel · who talks to whom <span style="color:var(--api)">· DRAFT v1</span></h1>
+<div class="sub">Read top to bottom. You are at the top. Arrows show who can hand work to whom. #FLOWCHART #VTES #LLM-MAP #TRK-2026-9910-B</div>
+
+<!-- ROW 0 -->
+<div class="row"><div class="lab"><b>Row 1 · You</b></div>
+  <div class="boxes"><div class="box you" style="max-width:520px">
+    <div class="id">JORGE · OWNER · THE ONLY APPROVER</div>
+    <div class="nm">👤 You, by voice or keyboard</div>
+    <div class="tx">You talk to ONE executor at a time. You approve anything outbound, spending, deleting or filing. Everything else runs without you.</div>
+    <div class="tg">#JorgeValdes #owner-seat #approve-RED</div></div></div></div>
+<div class="flow">⬇ ⬆<small>you talk · they answer · the approval banner and iPhone alert pull you back in</small></div>
+
+<!-- ROW 1 -->
+<div class="row"><div class="lab"><b>Row 2 · Executors</b> · the two you chat with (they do the work)</div>
+  <div class="pair">
+    <div class="box exec" style="max-width:300px"><div class="id">LLM-01 · 🖥️ PASTE-D</div><div class="nm">Desktop Executor “RAMBO”</div>
+      <div class="tx">Runs on your PC. The ONLY one that can touch your files, tray, TreeSize, 1Password, Windows.</div><div class="tg">#LLM-01 #DESKTOP #RAMBO</div></div>
+    <div class="mid"><span>⇄</span>they talk to each other<br>through the Bus (Row 3)</div>
+    <div class="box exec" style="max-width:300px"><div class="id">LLM-02 · ☁️ PASTE-C</div><div class="nm">Cloud Executor</div>
+      <div class="tx">Runs on the web. Reads Drive, Gmail, the repo. Cannot touch your PC. Always on.</div><div class="tg">#LLM-02 #CLOUD #REPO-KEEPER</div></div>
+  </div>
+  <div class="flow" style="padding:4px 0 0">⬇<small>backup for the desktop side</small></div>
+  <div class="boxes"><div class="box exec dash" style="max-width:420px"><div class="id">LLM-06 · 🧭 CODEX (ChatGPT)</div><div class="nm">Backup Desktop Executor</div>
+    <div class="tx"><b>Yes, it is a desktop executor too.</b> Codex CLI is installed on your PC (9/26) and runs like RAMBO, but on your ChatGPT plan. Waiting only for your ChatGPT sign-in. The ChatGPT website is the cloud-side twin.</div>
+    <div class="tg">#LLM-06 #CODEX #BACKUP-EXEC</div></div></div>
+</div>
+<div class="flow">⬇ ⬆<small>every way a window, agent or bot can hand off and reply</small></div>
+
+<!-- ROW 2 lanes -->
+<div class="row"><div class="lab"><b>Row 3 · The hand-off lanes</b> · pick the lightest one that fits</div>
+  <div class="lanes">
+    <div class="lane bus" style="--c:var(--bus)"><div class="nm">1 · Drive bus <span class="st ok">WORKS</span></div><div class="tx">VTES-Inbox = orders in. VTES-Outbox = proof out. Any agent that reads Drive uses it.</div></div>
+    <div class="lane bus" style="--c:var(--bus)"><div class="nm">2 · Shared folder LLM-SHARED <span class="st un">UNPROVEN ON PC</span></div><div class="tx">Every window saves its notes and snips here, stamped with tracking number + hashtags.</div></div>
+    <div class="lane bus" style="--c:var(--bus)"><div class="nm">3 · Git branch + mailbox files <span class="st ok">WORKS</span></div><div class="tx">Cloud writes orders into the repo; desktop pulls them. Fingerprints prove nothing got mistyped.</div></div>
+    <div class="lane bus" style="--c:var(--bus)"><div class="nm">4 · Handoff packet <span class="st ok">WORKS</span></div><div class="tx">Launcher: From / To / what you want → copies a packet and opens the destination.</div></div>
+    <div class="lane bus" style="--c:var(--bus)"><div class="nm">5 · Paste block (PASTE-D / C / X) <span class="st ok">WORKS</span></div><div class="tx">You carry it by hand. Labeled so it lands in the right window. Last resort, always available.</div></div>
+    <div class="lane bus" style="--c:var(--bus)"><div class="nm">6 · Remote Control message <span class="st un">PARTLY</span></div><div class="tx">Window-to-window message for PC sessions. Desktop has been silent since 9/24.</div></div>
+    <div class="lane api" style="--c:var(--api)"><div class="nm">7 · API click-over — LLM-09 <span class="st no">STANDBY</span></div><div class="tx"><b>Used only for making the connection click.</b> Every run is priced first and sent to you to approve or defer. Not the main engine.</div></div>
+    <div class="lane api" style="--c:var(--api)"><div class="nm">8 · Alerts to you <span class="st ok">BUILT</span></div><div class="tx">Flashing approval banner on the PC + iPhone push. Queue lands in the pending-owner report.</div></div>
+  </div>
+</div>
+<div class="flow">⬇ ⬆<small>analysts, bots, and the seats you talk from</small></div>
+
+<!-- ROW 3 helpers -->
+<div class="row"><div class="lab"><b>Row 4 · Analysts and bots</b> · work for the executors, never touch your files</div>
+  <div class="boxes">
+    <div class="box helper"><div class="id">LLM-03 · 🤝 PASTE-X</div><div class="nm">Cowork</div><div class="tx">Analyst. Long research, reports, reviews. Reads Drive.</div><div class="tg">#LLM-03 #COWORK</div></div>
+    <div class="box helper dash"><div class="id">BOTS · 🤖 PASTE-X</div><div class="nm">Grok bots (your “rock bots”)</div><div class="tx">Same job as Cowork: helpers that take a task and report back. Saved bot list per window in the console.</div><div class="tg">#GROK-BOTS #LLM-07 #helper</div></div>
+    <div class="box helper"><div class="id">LLM-04 · 💬</div><div class="nm">Claude Chat (cockpit)</div><div class="tx">Planning and thinking out loud. Sees what the iPhone says.</div><div class="tg">#LLM-04 #CHAT #COCKPIT</div></div>
+    <div class="box helper"><div class="id">LLM-05 · 📱</div><div class="nm">Claude iPhone</div><div class="tx">Your voice seat away from the PC.</div><div class="tg">#LLM-05 #IPHONE #voice</div></div>
+  </div>
+</div>
+<div class="flow">⬇ ⬆<small>other AI companies — chat only, joined by a pasted Drive link</small></div>
+
+<!-- ROW 4 others -->
+<div class="row"><div class="lab"><b>Row 5 · Other distributions</b> · second opinions</div>
+  <div class="boxes">
+    <div class="box other"><div class="id">LLM-07 · 🦅 PASTE-X</div><div class="nm">Grok “Fabian”</div><div class="tx">Second opinion and bug-finding. Chat only.</div><div class="tg">#LLM-07 #GROK</div></div>
+    <div class="box other"><div class="id">LLM-08 · ♊ PASTE-X</div><div class="nm">Gemini</div><div class="tx">Second opinion. Reads Drive.</div><div class="tg">#LLM-08 #GEMINI</div></div>
+    <div class="box other dash"><div class="id">ChatGPT (website)</div><div class="nm">Codex, cloud side</div><div class="tx">Same account as LLM-06. Not a separate number.</div><div class="tg">#LLM-06 #CODEX #web</div></div>
+  </div>
+</div>
+
+<div class="shared">⬇ everything above saves to ⬇<br><b>04-AI-SYSTEM / LLM-SHARED</b> · one folder, one sub-folder per LLM · every file carries <b>TRK-2026-9910-B</b> + its LLM number + hashtags</div>
+
+<div class="note"><b>Open question on this draft:</b> “Rock bots” is my best hearing of “Grok bots”. If you meant something else, tell me the name and I will swap the box.</div>
+<div class="legend">Legend: purple = you · blue = executors · green = the Bus · amber = API and alerts · teal = helpers · brown = other companies · dashed box = partly set up or a twin.<br>
+WORKS = tested here · UNPROVEN ON PC = built, not yet seen on your Windows machine · STANDBY = parked on purpose.</div>
+<div class="tagbar">#FLOWCHART #VTES-CONTROL-PANEL #LLM-MAP #HANDOFF #BUS #TRK-2026-9910-B #PASTE-D #PASTE-C #PASTE-X #CLOUD #DESKTOP #COWORK #GROK-BOTS #CODEX #GEMINI #LLM-SHARED · VTES-FLOWCHART · draft v1 · 2026-09-30 · CURRENT</div>
+</div></body></html>

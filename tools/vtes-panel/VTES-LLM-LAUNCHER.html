@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VTES LLM Launcher</title>
-<!-- TRK-2026-9910-B · v2 · 2026-09-30 · #VTES-control-panel #LLM-registry #JorgeValdes
+<title>VTES LLM Launcher · LLM-01 to LLM-08 · TRK-2026-9910-B · #VTES-control-panel</title>
+<meta name="keywords" content="VTES control panel, LLM-01, LLM-02, LLM-03, LLM-04, LLM-05, LLM-06, LLM-07, LLM-08, TRK-2026-9910-B, Which window am I, Jorge Valdes">
+<!-- TRK-2026-9910-B · v3 · 2026-09-30 · #VTES-control-panel #LLM-registry #JorgeValdes
      Single file. No internet needed to open. No API keys. Registry lives in LLM-WINDOW-REGISTRY.md. -->
 <style>
   :root { --bg:#f6f4ef; --card:#ffffff; --ink:#1d1d1b; --muted:#5b5b57; --line:#d9d5cc; --accent:#1b5e9e; }
@@ -54,13 +55,113 @@
   #where { font-weight:700; width:100%; min-height:1.3em; color:var(--accent); font-size:15px; }
   #status { font-weight:700; margin-top:10px; min-height:1.4em; }
   #preview { min-height:190px; font-size:14px; font-family:Consolas, monospace; }
+
+  body { padding:8px 12px 18px; }
+  .strip { padding:6px 0; margin:0 0 8px; align-items:center; justify-content:space-between; gap:8px; }
+  #chips { display:flex; flex-wrap:wrap; gap:5px; }
+  .chip { padding:4px 8px; font-size:13px; border-width:2px; white-space:nowrap; }
+  .chip.sel { border-color:#fff; background:var(--accent); color:#fff; }
+  #tools { display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
+  .tb { padding:4px 8px; white-space:nowrap; border-radius:8px; border:2px solid var(--line); background:#fff; font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+  .tb.on { background:#dfeaf7; border-color:var(--accent); }
+  .tb.rec { background:#b3261e; color:#fff; border-color:#b3261e; }
+  #console { display:flex; gap:12px; height:calc(100vh - 62px); min-height:460px; }
+  #left { width:25%; min-width:300px; display:flex; flex-direction:column; gap:10px; overflow:auto; }
+  #stage { flex:1; min-width:0; display:flex; flex-direction:column; background:var(--card); border:2px solid var(--line); border-radius:14px; padding:12px; }
+  #idcard { background:var(--card); border:3px solid var(--accent); border-radius:14px; padding:12px; }
+  #idcard .big { font-size:30px; line-height:1; }
+  #idcard .who { font-size:13px; font-weight:700; color:var(--muted); letter-spacing:.5px; margin-top:6px; }
+  #idcard .nm { font-size:22px; font-weight:800; margin:2px 0; }
+  #idcard .ds { font-size:15px; color:var(--muted); }
+  #idcard .pid { margin-top:6px; font-weight:800; color:var(--accent); }
+  #idcard .how { margin-top:6px; font-size:14px; }
+  .dict { background:var(--card); border:2px solid var(--line); border-radius:14px; padding:10px; display:flex; flex-direction:column; gap:8px; }
+  #say { width:100%; min-height:110px; font:inherit; font-size:18px; padding:10px; border:2px solid var(--line); border-radius:10px; resize:vertical; }
+  .r2 { display:flex; gap:6px; flex-wrap:wrap; }
+  .b { flex:1 1 auto; padding:9px 10px; border-radius:10px; border:0; background:var(--accent); color:#fff; font:inherit; font-weight:700; font-size:15px; cursor:pointer; }
+  .b.alt { background:#e9e6de; color:var(--ink); }
+  .b.rec { background:#b3261e; }
+  #micstat { font-size:14px; font-weight:700; min-height:1.3em; }
+  #stagehead { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; }
+  #stagehead b { font-size:18px; }
+  #log { flex:1; overflow:auto; display:flex; flex-direction:column; gap:10px; padding:4px; background:#fbfaf7; border-radius:10px; border:1px solid var(--line); }
+  .msg { max-width:92%; padding:10px 12px; border-radius:12px; white-space:pre-wrap; word-break:break-word; font-size:17px; }
+  .msg.you { align-self:flex-end; background:#dfeaf7; }
+  .msg.ai { align-self:flex-start; background:#fff; border:1px solid var(--line); }
+  .msg .mt { font-size:12px; color:var(--muted); margin-bottom:4px; font-weight:700; }
+  .msg .ma { margin-top:6px; display:flex; gap:6px; }
+  .msg .ma button { padding:3px 9px; font-size:13px; border-radius:8px; border:1px solid var(--line); background:#fff; cursor:pointer; font-weight:700; }
+  .empty { color:var(--muted); padding:16px; font-size:17px; }
+  #reply { width:100%; min-height:70px; max-height:180px; margin-top:8px; font:inherit; font-size:16px; padding:8px 10px; border:2px solid var(--line); border-radius:10px; resize:vertical; }
+  #dir { padding-top:6px; }
+  @media (max-width:760px) { #console { flex-direction:column; height:auto; } #left { width:100%; min-width:0; } #stage { min-height:420px; } #say { min-height:90px; } }
+  #bots { background:var(--card); border:2px solid var(--line); border-radius:14px; padding:10px; }
+  #bots .bt { font-size:13px; font-weight:800; color:var(--muted); margin-bottom:6px; }
+  #botlist { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:6px; }
+  .bot { padding:5px 9px; border-radius:999px; border:2px solid var(--line); background:#fff; font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+  .bot.sel { border-color:var(--accent); background:#dfeaf7; }
+  #botadd { display:flex; gap:5px; flex-wrap:wrap; }
+  #botadd input { flex:1 1 110px; min-width:0; padding:6px 8px; border:2px solid var(--line); border-radius:8px; font:inherit; font-size:14px; }
+  .find { margin-top:8px; font:13px Consolas, monospace; color:var(--muted); word-break:break-word; background:#f3f1ea; border-radius:8px; padding:6px 8px; }
+  details.fm { margin-top:14px; background:var(--card); border:2px solid var(--line); border-radius:12px; padding:8px 12px; }
+  details.fm summary { cursor:pointer; font-weight:800; }
+  details.fm pre { white-space:pre-wrap; font:13px/1.5 Consolas, monospace; margin:8px 0 0; }
+  .sv { display:flex; flex-wrap:wrap; gap:6px; align-items:center; background:#f3f1ea; border-radius:10px; padding:6px 8px; margin-bottom:8px; font-size:13px; }
+  .sv b { font-weight:800; } .sv .st { flex:1 1 180px; color:var(--muted); min-width:140px; }
+  .sv .tb.off { background:#fde7e5; border-color:#b3261e; }
+  .atts { display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
+  .att { border:1px solid var(--line); border-radius:10px; padding:6px; background:#fff; max-width:260px; }
+  .att img { max-width:240px; max-height:150px; display:block; border-radius:6px; }
+  .att .an { font-size:12px; color:var(--muted); word-break:break-all; margin:4px 0; }
+  .att button { padding:2px 8px; font-size:12px; border-radius:7px; border:1px solid var(--line); background:#fff; cursor:pointer; font-weight:700; margin-right:4px; }
+  #stage.drop { outline:4px dashed var(--accent); }
+  .warnbar { font-size:12px; color:#8a2d1f; margin-bottom:6px; }
 </style>
 </head>
 <body>
-<div class="strip" id="strip" aria-label="Fixed tabs, one per window. They never move or rename."></div>
+<div class="strip" id="strip" aria-label="Fixed tabs, one per window. They never move or rename.">
+  <div id="chips"></div>
+  <div id="tools">
+    <button class="tb" id="t_mic" type="button" title="Dictate (microphone)">🎙</button>
+    <button class="tb" id="t_speak" type="button" title="Read the text aloud">🔊</button>
+    <button class="tb" id="t_sp" type="button" title="Copy the text and open Speechify">Speechify</button>
+    <button class="tb on" id="t_con" type="button">Console</button>
+    <button class="tb" id="t_dir" type="button">Directory</button>
+    <button class="tb" id="t_dock" type="button" title="Open this page as a narrow panel on the left; the big chat window takes the rest">Dock</button>
+  </div>
+</div>
+
+<div id="console">
+  <aside id="left">
+    <div id="idcard" aria-live="polite"></div>
+    <div class="dict">
+      <div class="r2"><button class="b" id="mic" type="button">🎙 Tap to dictate</button></div>
+      <div id="micstat" role="status"></div>
+      <textarea id="say" placeholder="Speak or type here. Your words show up here." autofocus></textarea>
+      <div class="r2"><button class="b alt" id="cp" type="button">Copy text</button><button class="b" id="sendbtn" type="button">Copy + open chat</button></div>
+      <div class="r2"><button class="b alt" id="speak" type="button">🔊 Read aloud</button><button class="b alt" id="speechify" type="button">Open Speechify</button></div>
+    </div>
+    <div id="bots"><div class="bt" id="botstitle">Bots for this window</div><div id="botlist"></div>
+      <div id="botadd"><input id="botname" placeholder="Bot name" aria-label="Bot name"><input id="boturl" placeholder="Paste its web link (https://...)" aria-label="Bot link"><button class="tb" id="botsave" type="button">Save bot</button></div></div>
+  </aside>
+  <section id="stage">
+    <div id="stagehead"><b id="stagetitle">Conversation pad</b><span><button class="tb" id="attbtn" type="button" title="Attach files, or just paste a snip with Ctrl+V, or drag files onto this area">📎 Attach</button> <button class="tb" id="clearpad" type="button">Clear this pad</button></span></div>
+    <div class="sv" id="svbar"><b>📁 Shared folder:</b> <span class="st" id="svstat">not chosen yet</span>
+      <button class="tb" id="svpick" type="button">Choose folder</button><button class="tb" id="svre" type="button" hidden>Reconnect</button><button class="tb" id="svpause" type="button">Saving: ON</button><button class="tb" id="svdl" type="button" title="Download this pad as a text file">Download pad</button></div>
+    <div class="warnbar">Everything saved to the shared folder can be read by every AI that can read Drive. Do not paste passwords, card numbers or personal or legal papers. Snips: press Win+Shift+S, then Ctrl+V here.</div>
+    <input type="file" id="filein" multiple hidden>
+    <div id="log"></div>
+    <textarea id="reply" placeholder="Paste the answer here to keep it on this page and read it aloud."></textarea>
+    <div class="r2" style="margin-top:6px"><button class="b" id="addans" type="button">Add answer to pad</button><button class="b alt" id="readans" type="button">🔊 Read it aloud</button><button class="b alt" id="spans" type="button">Open in Speechify</button></div>
+  </section>
+</div>
+
+<details class="fm"><summary>Find-me index: every window, its number and hashtags (kept in this page so a search finds it)</summary><pre id="findall"></pre></details>
+
+<div id="dir" hidden>
 <h1>VTES LLM Launcher</h1>
 <p class="sub">Every AI window you run, one search away. Type an ID (LLM-07), a hashtag (#grok), a name, or a job word (files, second opinion, voice).</p>
-<input id="q" type="search" placeholder="Search… e.g. LLM-01, #cowork, grok, files on my PC" autofocus>
+<input id="q" type="search" placeholder="Search… e.g. LLM-01, #cowork, grok, files on my PC">
 <p class="hint">Every window has a fixed address. The vtes:// ones work from any link or Win+R once RAMBO installs them; the https:// ones work right now. Tabs never move or rename.</p>
 
 <div class="hand" id="hand">
@@ -180,13 +281,15 @@
   <p>Every window runs on a subscription. API is allowed only as a thin routing bridge, and every API run is priced first and sent to you for approval. Handoffs go through the panel above or the Drive mailbox. The ID (LLM-01…08) and hashtags travel inside every file a window produces, so any later search — Drive, Gmail, OCR, 1Password, or this page — finds who did what.</p>
 </div>
 
-<p class="foot">TRK-2026-9910-B · v2 · 2026-09-30 · CURRENT · Registry: LLM-WINDOW-REGISTRY.md · #VTES-control-panel #LLM-registry</p>
+<p class="foot">TRK-2026-9910-B · v3 · 2026-09-30 · CURRENT · Registry: LLM-WINDOW-REGISTRY.md · #VTES-control-panel #LLM-registry</p>
+
+</div>
 
 <script>
   var q = document.getElementById('q');
   var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
   var STOP = ['the','a','an','on','my','of','to','for','in','and','or','is','it','me','i','open','find','show','with','that','this'];
-  var stripEl = document.getElementById('strip');
+  var stripEl = document.getElementById('chips');
   var CHIPS = [['LLM-01','Desktop RAMBO'],['LLM-02','Cloud'],['LLM-03','Cowork'],['LLM-04','Chat'],['LLM-05','iPhone'],['LLM-06','Codex'],['LLM-07','Grok'],['LLM-08','Gemini']];
   cards.forEach(function (c) { c._hay = (c.getAttribute('data-k') + ' ' + c.textContent).toLowerCase(); });
   function cardFor(id) { return cards.filter(function (c) { return c._hay.indexOf(id.toLowerCase()) > -1 && c.querySelector('.id').textContent.indexOf(id) === 0; })[0]; }
@@ -230,18 +333,12 @@
     });
   });
   fromSel.value = 'LLM-04'; toSel.value = 'LLM-07';
-  var whereEl = document.createElement('div'); whereEl.id = 'where';
+  var CE = { 'LLM-01': '🖥️', 'LLM-02': '☁️', 'LLM-03': '🤝', 'LLM-04': '💬', 'LLM-05': '📱', 'LLM-06': '🧭', 'LLM-07': '🔮', 'LLM-08': '♊' };
   CHIPS.forEach(function (c) {
     var b = document.createElement('button'); b.type = 'button'; b.className = 'chip';
-    b.setAttribute('data-id', c[0]); b.textContent = c[0] + ' ' + c[1]; stripEl.appendChild(b);
-    b.addEventListener('click', function () {
-      var w = win(c[0]);
-      if (w.url) { window.open(w.url, '_blank', 'noopener'); }
-      whereEl.textContent = c[0] + ' ' + c[1] + ': ' + (w.url ? 'opening in a new tab.' : (w.how || ''));
-      var card = cardFor(c[0]); if (card) { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-    });
+    b.setAttribute('data-id', c[0]); b.title = c[0] + ' ' + c[1]; b.textContent = (CE[c[0]] || '') + ' ' + c[0].slice(4) + ' ' + c[1].split(' ')[0]; stripEl.appendChild(b);
+    b.addEventListener('click', function () { selectLLM(c[0]); });
   });
-  stripEl.appendChild(whereEl);
   function win(id) { return WINDOWS.filter(function (w) { return w.id === id; })[0]; }
 
   function buildPacket() {
@@ -305,6 +402,339 @@
   });
   [fromSel, toSel, noteEl].forEach(function (e) { e.addEventListener('input', refresh); });
   refresh();
+
+  // ===================== v3 console: identity, dictation, read-aloud, Speechify, pad =====================
+  var INFO = {
+    'LLM-01': { e: '🖥️', t: 'CODE · DESKTOP', d: 'Claude Code on your Windows PC. The executor at the machine. The only one that can touch files, OneDrive and 1Password.', p: 'PASTE-D', a: 'Nothing opens from here. On the PC: Claude desktop app, Code tab (search the list for RAMBO).' },
+    'LLM-02': { e: '☁️', t: 'CODE · CLOUD / WEB (Chrome)', d: 'Claude Code in the browser at claude.ai/code. The repo keeper. Cannot touch your PC.', p: 'PASTE-C', a: '' },
+    'LLM-03': { e: '🤝', t: 'COWORK', d: 'The Cowork tab in the Claude desktop app. Long documents and analysis.', p: 'PASTE-X', a: 'Nothing opens from here. Claude desktop app, Cowork tab.' },
+    'LLM-04': { e: '💬', t: 'CHAT', d: 'Your main Claude conversation. The cockpit: dictate, approve, ask where things stand.', p: 'PASTE-X', a: '' },
+    'LLM-05': { e: '📱', t: 'iPHONE', d: 'The Claude app on your iPhone. Voice on the go.', p: 'PASTE-X', a: 'On the iPhone: open the Claude app.' },
+    'LLM-06': { e: '🧭', t: 'CODEX (backup executor)', d: 'OpenAI Codex on your PC, on your ChatGPT subscription.', p: 'PASTE-X', a: '' },
+    'LLM-07': { e: '🔮', t: 'GROK (Fabian)', d: 'Second opinion and live-web answers.', p: 'PASTE-X', a: '' },
+    'LLM-08': { e: '♊', t: 'GEMINI', d: 'Cheap bulk drafting and summaries.', p: 'PASTE-X', a: '' }
+  };
+  var PROJ = 'TRK-2026-9910-B', COMMON = '#VTES-control-panel #LLM-registry #JorgeValdes #CU-Inspections #' + PROJ;
+  var TAGS = {
+    'LLM-01': '#LLM-01 #EXEC-DESKTOP #RAMBO #PASTE-D #claude-code #desktop #PC #executor #windows #hands-on-the-PC',
+    'LLM-02': '#LLM-02 #EXEC-CLOUD #REPO-KEEPER #PASTE-C #claude-code #cloud #web #chrome #research #dispatch',
+    'LLM-03': '#LLM-03 #COWORK #ANALYST #PASTE-X #CDM #long-documents #claude-desktop #analysis',
+    'LLM-04': '#LLM-04 #CHAT #COCKPIT #owner-seat #PASTE-X #claude #decisions #approvals #dictate',
+    'LLM-05': '#LLM-05 #IPHONE #VOICE #PASTE-X #mobile #dictation #claude-app #on-the-go',
+    'LLM-06': '#LLM-06 #CODEX #BACKUP-EXEC #openai #chatgpt #PASTE-X #terminal #second-hands',
+    'LLM-07': '#LLM-07 #GROK #FABIAN #xAI #SuperGrok #second-opinion #live-web #sanity-check #PASTE-X #grok-bots',
+    'LLM-08': '#LLM-08 #GEMINI #google #volume #drafting #PASTE-X #drive-native #summaries'
+  };
+  function findLine(id) { return id + ' · ' + PROJ + ' · ' + TAGS[id] + ' ' + COMMON; }
+  var cur = 'LLM-04';
+  try { var sv = localStorage.getItem('vtes.cur'); if (sv && INFO[sv]) { cur = sv; } } catch (e) { }
+  var sayEl = document.getElementById('say'), micStat = document.getElementById('micstat'), logEl = document.getElementById('log'), replyEl = document.getElementById('reply');
+
+  function esc(x) { return String(x).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function note(t) { micStat.textContent = t; }
+
+  function selectLLM(id) {
+    cur = id; try { localStorage.setItem('vtes.cur', id); } catch (e) { }
+    Array.prototype.forEach.call(stripEl.children, function (chip) { chip.classList.toggle('sel', chip.getAttribute('data-id') === id); });
+    var i = INFO[id], w = win(id);
+    document.getElementById('idcard').innerHTML =
+      '<div class="big">' + i.e + '</div><div class="who">YOU ARE TALKING TO</div><div class="nm">' + esc(id) + ' · ' + esc(i.t) + '</div>' +
+      '<div class="ds">' + esc(i.d) + '</div><div class="pid">Paste ID for this window: ' + i.p + (i.p === 'PASTE-X' ? ' (anywhere else)' : '') + '</div>' +
+      '<div class="how">' + (w.url ? 'Opens in the big window on the right.' : esc(i.a || w.how || '')) + '</div>' +
+      '<div class="find">FIND ME: ' + esc(findLine(id)) + '</div><div class="r2" style="margin-top:6px"><button class="b alt" id="cpfind" type="button">Copy find-me line</button></div>';
+    document.getElementById('cpfind').addEventListener('click', function () { copyAny(findLine(id)).then(function (ok) { note(ok ? 'Copied the find-me line. Paste it into a note, email or Drive file.' : 'Copy failed. Select the line and press Ctrl+C.'); }); });
+    renderBots();
+    document.getElementById('stagetitle').textContent = 'Conversation pad · ' + id + ' ' + i.t;
+    try { toSel.value = id; refresh(); } catch (e) { }
+    renderLog();
+    if (!document.getElementById('dir').hidden) { var card = cardFor(id); if (card) { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); } }
+  }
+
+  // ---- copy (works on local files; falls back to the browser clipboard) ----
+  function copyAny(text) {
+    var ok = false;
+    try { var t = document.createElement('textarea'); t.value = text; t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.focus(); t.select(); ok = document.execCommand('copy'); document.body.removeChild(t); } catch (e) { ok = false; }
+    if (ok) { return Promise.resolve(true); }
+    if (navigator.clipboard && navigator.clipboard.writeText) { return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return false; }); }
+    return Promise.resolve(false);
+  }
+
+  // ---- dictation (browser speech recognition). Falls back to Windows+H advice. ----
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition, rec = null, listening = false;
+  var BLOCKED = 'The microphone is blocked here. Fix: click the small icon left of the address bar, choose Microphone, then Allow. If this page is open inside Claude or an email preview it stays blocked: open the file by itself in Chrome or Edge. Or press Windows + H with the cursor in the box and just talk; Windows voice typing works anywhere.';
+  function setRec(on) {
+    listening = on;
+    var m = document.getElementById('mic'), t = document.getElementById('t_mic');
+    m.classList.toggle('rec', on); t.classList.toggle('rec', on);
+    m.textContent = on ? '⏹ Stop dictating' : '🎙 Tap to dictate'; t.textContent = on ? '⏹' : '🎙';
+  }
+  function micToggle() {
+    if (listening) { listening = false; try { rec.stop(); } catch (e) { } setRec(false); note('Stopped.'); return; }
+    if (!SR) { note('This browser has no built-in dictation. Press Windows + H with the cursor in the box and just talk. Or use Chrome or Edge.'); sayEl.focus(); return; }
+    rec = new SR(); rec.continuous = true; rec.interimResults = true; rec.lang = 'en-US';
+    rec.onresult = function (e) {
+      var fin = '', part = '';
+      for (var i = e.resultIndex; i < e.results.length; i++) { var r = e.results[i]; if (r.isFinal) { fin += r[0].transcript; } else { part += r[0].transcript; } }
+      if (fin) { sayEl.value = (sayEl.value + ' ' + fin).replace(/\s+/g, ' ').trim(); }
+      note(part ? 'Listening… ' + part : 'Listening…');
+    };
+    rec.onerror = function (e) {
+      var er = e && e.error;
+      if (er === 'not-allowed' || er === 'service-not-allowed') { listening = false; setRec(false); note(BLOCKED); }
+      else if (er === 'audio-capture') { listening = false; setRec(false); note('No microphone was found. Check that one is plugged in and chosen in Windows sound settings.'); }
+      else if (er === 'no-speech') { note('I did not hear anything. Speak, or tap Stop.'); }
+      else if (er === 'network') { listening = false; setRec(false); note('Dictation needs the internet. Press Windows + H instead.'); }
+      else { note('Dictation problem (' + er + '). Press Windows + H instead.'); }
+    };
+    rec.onend = function () { if (listening) { try { rec.start(); } catch (x) { setRec(false); } } else { setRec(false); } };
+    try { rec.start(); setRec(true); note('Listening… speak now.'); } catch (x) { setRec(false); note(BLOCKED); }
+  }
+
+  // ---- read aloud (browser voice; prefers the natural voices that Edge has) ----
+  var speaking = false;
+  function pickVoice() {
+    var v = (window.speechSynthesis && speechSynthesis.getVoices) ? speechSynthesis.getVoices() : [], best = null;
+    v.forEach(function (x) { if (/^en(-|_)US/i.test(x.lang) && /Natural|Online/i.test(x.name) && !best) { best = x; } });
+    if (!best) { v.forEach(function (x) { if (/^en/i.test(x.lang) && !best) { best = x; } }); }
+    return best;
+  }
+  function chunks(text) {
+    var parts = String(text).replace(/\s+/g, ' ').match(/[^.!?]+[.!?]*\s*/g) || [String(text)], out = [], cur2 = '';
+    parts.forEach(function (p) { if ((cur2 + p).length > 220 && cur2) { out.push(cur2); cur2 = p; } else { cur2 += p; } });
+    if (cur2.trim()) { out.push(cur2); }
+    return out;
+  }
+  function speakText(text) {
+    if (!window.speechSynthesis) { note('This browser cannot read aloud. Use Speechify instead.'); return; }
+    if (speaking) { speechSynthesis.cancel(); speaking = false; document.getElementById('speak').textContent = '🔊 Read aloud'; return; }
+    if (!String(text).trim()) { note('Nothing to read yet. Type or dictate some words first.'); return; }
+    var voice = pickVoice(), list = chunks(text);
+    speechSynthesis.cancel(); speaking = true; document.getElementById('speak').textContent = '⏹ Stop reading';
+    list.forEach(function (c, i) {
+      var u = new SpeechSynthesisUtterance(c); if (voice) { u.voice = voice; u.lang = voice.lang; } u.rate = 1;
+      if (i === list.length - 1) { u.onend = function () { speaking = false; document.getElementById('speak').textContent = '🔊 Read aloud'; }; }
+      speechSynthesis.speak(u);
+    });
+  }
+
+  // ---- bots (saved links per window; Grok gets its usual ones; old Grok Bot script is NOT here) ----
+  var DEFAULT_BOTS = { 'LLM-07': [{ n: 'Grok (web)', u: 'https://grok.com' }, { n: 'Grok on X', u: 'https://x.com/i/grok' }] };
+  var botSel = {};
+  function botsKey(id) { return 'vtes.bots.' + id; }
+  function getBots(id) {
+    var saved = []; try { saved = JSON.parse(localStorage.getItem(botsKey(id)) || '[]'); } catch (e) { saved = []; }
+    return (DEFAULT_BOTS[id] || []).concat(saved);
+  }
+  function targetUrl(id) {
+    var b = getBots(id), k = botSel[id];
+    if (k != null && b[k]) { return b[k].u; }
+    return win(id).url;
+  }
+  function renderBots() {
+    var b = getBots(cur), el = document.getElementById('botlist');
+    document.getElementById('botstitle').textContent = 'Bots for ' + cur + ' (tap one, then Copy + open chat)';
+    if (!b.length) { el.innerHTML = '<span style="font-size:13px;color:var(--muted)">None saved yet. Add a name and its link below.</span>'; }
+    else {
+      el.innerHTML = b.map(function (x, k) { return '<button class="bot' + (botSel[cur] === k ? ' sel' : '') + '" data-k="' + k + '" title="' + esc(x.u) + '">' + esc(x.n) + '</button>'; }).join('');
+      Array.prototype.forEach.call(el.querySelectorAll('.bot'), function (btn) { btn.addEventListener('click', function () { botSel[cur] = +btn.getAttribute('data-k'); renderBots(); note('Target: ' + b[botSel[cur]].n + ' (' + b[botSel[cur]].u + ')'); }); });
+    }
+  }
+  function saveBot() {
+    var n = document.getElementById('botname').value.trim(), u = document.getElementById('boturl').value.trim();
+    if (!n || !/^https:\/\//i.test(u)) { note('Give the bot a name and a web link that starts with https://'); return; }
+    var saved = []; try { saved = JSON.parse(localStorage.getItem(botsKey(cur)) || '[]'); } catch (e) { saved = []; }
+    saved.push({ n: n, u: u }); try { localStorage.setItem(botsKey(cur), JSON.stringify(saved)); } catch (e) { }
+    document.getElementById('botname').value = ''; document.getElementById('boturl').value = '';
+    botSel[cur] = getBots(cur).length - 1; renderBots(); note('Saved. Hashtag for finding it: #' + cur + '-' + n.replace(/[^A-Za-z0-9]+/g, '-'));
+  }
+  document.getElementById('botsave').addEventListener('click', saveBot);
+
+  // ---- Speechify, big window, dock ----
+  function openSpeechify(text) {
+    copyAny(text).then(function (ok) {
+      window.open('https://app.speechify.com/', '_blank');
+      note(ok ? 'Copied. Speechify is opening. Click its add-text box and press Ctrl+V.' : 'Speechify is opening, but the copy failed. Select your text, press Ctrl+C, then paste it there.');
+    });
+  }
+  function openBig(url) {
+    var W = screen.availWidth, H = screen.availHeight, w = Math.round(W * 0.75);
+    var win2 = window.open(url, 'VTES-STAGE', 'popup=yes,left=' + (W - w) + ',top=0,width=' + w + ',height=' + H);
+    if (!win2) { note('Your browser blocked the pop-up. Click the pop-up icon at the right end of the address bar and choose Always allow for this page.'); }
+    return win2;
+  }
+  function dockLeft() {
+    var W = screen.availWidth, H = screen.availHeight, w = Math.round(W * 0.25);
+    window.open(location.href, 'VTES-CONSOLE', 'popup=yes,left=0,top=0,width=' + Math.max(w, 420) + ',height=' + H);
+  }
+
+  // ---- conversation pad (kept in this browser only) ----
+  function padKey() { return 'vtes.pad.' + cur; }
+  function getPad() { try { return JSON.parse(localStorage.getItem(padKey()) || '[]'); } catch (e) { return []; } }
+  function setPad(a) { try { localStorage.setItem(padKey(), JSON.stringify(a.slice(-200))); } catch (e) { } }
+  function todayStr() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  function addMsg(who, text, atts) { var a = getPad(); a.push({ w: who, t: text || '', at: new Date().toLocaleString(), att: atts || [], day: todayStr() }); setPad(a); renderLog(); scheduleSave(); }
+
+  // ---- browser database for snips and attachments (kept on this PC) ----
+  var dbp = null;
+  function idb() {
+    if (dbp) { return dbp; }
+    dbp = new Promise(function (res, rej) {
+      var r = indexedDB.open('vtes-console', 1);
+      r.onupgradeneeded = function () { var d = r.result; d.createObjectStore('att', { keyPath: 'id' }); d.createObjectStore('kv'); };
+      r.onsuccess = function () { res(r.result); }; r.onerror = function () { rej(r.error); };
+    });
+    return dbp;
+  }
+  function idbDo(store, mode, fn) { return idb().then(function (d) { return new Promise(function (res, rej) { var tx = d.transaction(store, mode), rq = fn(tx.objectStore(store)); tx.oncomplete = function () { res(rq && rq.result); }; tx.onerror = function () { rej(tx.error); }; }); }); }
+  function idbPut(store, val, key) { return idbDo(store, 'readwrite', function (o) { return key === undefined ? o.put(val) : o.put(val, key); }); }
+  function idbGet(store, key) { return idbDo(store, 'readonly', function (o) { return o.get(key); }); }
+
+  // ---- naming and tracking: every saved item carries the project TRK, the LLM number and hashtags ----
+  function nextSeq(id) { var k = 'vtes.seq.' + id + '.' + todayStr(), n = 1; try { n = (+localStorage.getItem(k) || 0) + 1; localStorage.setItem(k, n); } catch (e) { } return n; }
+  function extOf(name, type) { var m = /\.([A-Za-z0-9]{1,5})$/.exec(name || ''); if (m) { return m[1].toLowerCase(); } var t = { 'image/png': 'png', 'image/jpeg': 'jpg', 'application/pdf': 'pdf', 'text/plain': 'txt' }; return t[type] || 'bin'; }
+  function typeOf(rec) { return /^image\//.test(rec.type) || rec.type === 'application/pdf' ? 'Scan' : 'Note'; }
+  function slug(x) { return String(x || '').replace(/[^A-Za-z0-9]+/g, ' ').trim().slice(0, 40); }
+  function attName(rec) { return rec.day + ' _ ' + PROJ + ' _ ' + typeOf(rec) + ' _ ' + rec.llm + ' ' + rec.kind + ' ' + ('000' + rec.seq).slice(-4) + (rec.orig ? ' ' + slug(rec.orig.replace(/\.[^.]+$/, '')) : '') + ' _ v1.' + extOf(rec.orig, rec.type); }
+  function stampLine(id, what) { return PROJ + ' | ' + TAGS[id] + ' ' + COMMON + ' | ' + id + ' ' + INFO[id].t + ' | ' + what + ' | ' + todayStr(); }
+  function addFiles(files, kind) {
+    var list = [].slice.call(files), id = cur, chain = Promise.resolve(), ids = [];
+    list.forEach(function (f) {
+      chain = chain.then(function () {
+        var rec = { id: 'a' + Date.now() + Math.random().toString(36).slice(2, 7), llm: id, kind: kind, orig: (kind === 'snip' && /^image\.[a-z]+$/i.test(f.name || '')) ? '' : (f.name || ''), type: f.type || 'application/octet-stream', size: f.size, blob: f, day: todayStr(), seq: nextSeq(id), saved: false };
+        ids.push(rec.id); return idbPut('att', rec);
+      });
+    });
+    return chain.then(function () { addMsg('you', list.length + (kind === 'snip' ? ' snip' : ' attachment') + (list.length > 1 ? 's' : '') + ' added.', ids); note('Added to the ' + id + ' pad.' + (saveOn() ? ' Saving to the shared folder…' : '')); });
+  }
+  function dlBlob(blob, name) { var u = URL.createObjectURL(blob), a = document.createElement('a'); a.href = u; a.download = name; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function () { URL.revokeObjectURL(u); }, 4000); }
+  function toPng(blob) { return new Promise(function (res) { var img = new Image(); img.onload = function () { var c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight; c.getContext('2d').drawImage(img, 0, 0); c.toBlob(res, 'image/png'); }; img.src = URL.createObjectURL(blob); }); }
+  function copyImage(rec) {
+    return (rec.type === 'image/png' ? Promise.resolve(rec.blob) : toPng(rec.blob)).then(function (png) { return navigator.clipboard.write([new ClipboardItem({ 'image/png': png })]); })
+      .then(function () { note('Image copied. Click the chat box in the other window and press Ctrl+V.'); }, function () { note('Could not copy the image. Use Download, then drag the file into the chat.'); });
+  }
+
+  function renderLog() {
+    var a = getPad(), i = INFO[cur];
+    if (!a.length) {
+      logEl.innerHTML = '<div class="empty"><b>Nothing here yet.</b><br>1. Speak or type on the left. Paste a snip with Ctrl+V or press Attach.<br>2. Press <b>Copy + open chat</b>. The chat for ' + esc(cur) + ' opens in the big window.<br>3. When it answers, paste the answer in the box below and press <b>Add answer to pad</b>. Then read it aloud here or in Speechify.<br>4. Choose a shared folder once and everything is saved there with its tracking number and hashtags.</div>';
+      return;
+    }
+    logEl.innerHTML = a.map(function (m, k) {
+      return '<div class="msg ' + (m.w === 'you' ? 'you' : 'ai') + '"><div class="mt">' + (m.w === 'you' ? 'YOU' : esc(cur + ' ' + i.t)) + ' · ' + esc(m.at) + '</div>' + esc(m.t) +
+        ((m.att && m.att.length) ? '<div class="atts" data-k="' + k + '"></div>' : '') +
+        '<div class="ma"><button data-k="' + k + '" data-a="read">🔊 Read</button><button data-k="' + k + '" data-a="copy">Copy</button></div></div>';
+    }).join('');
+    logEl.scrollTop = logEl.scrollHeight;
+    Array.prototype.forEach.call(logEl.querySelectorAll('.ma button'), function (b) {
+      b.addEventListener('click', function () { var m = getPad()[+b.getAttribute('data-k')]; if (!m) { return; } if (b.getAttribute('data-a') === 'read') { speakText(m.t); } else { copyAny(m.t).then(function (ok) { note(ok ? 'Copied.' : 'Copy failed. Select the text and press Ctrl+C.'); }); } });
+    });
+    Array.prototype.forEach.call(logEl.querySelectorAll('.atts'), function (box) {
+      var m = getPad()[+box.getAttribute('data-k')];
+      (m.att || []).forEach(function (aid) {
+        idbGet('att', aid).then(function (rec) {
+          if (!rec) { return; }
+          var d = document.createElement('div'); d.className = 'att';
+          if (/^image\//.test(rec.type)) { var im = document.createElement('img'); im.src = URL.createObjectURL(rec.blob); im.alt = attName(rec); d.appendChild(im); }
+          var nm = document.createElement('div'); nm.className = 'an'; nm.textContent = attName(rec) + (rec.saved ? '  (saved)' : ''); d.appendChild(nm);
+          if (/^image\//.test(rec.type)) { var c = document.createElement('button'); c.textContent = 'Copy image'; c.addEventListener('click', function () { copyImage(rec); }); d.appendChild(c); }
+          var dl = document.createElement('button'); dl.textContent = 'Download'; dl.addEventListener('click', function () { dlBlob(rec.blob, attName(rec)); }); d.appendChild(dl);
+          box.appendChild(d);
+        });
+      });
+    });
+  }
+
+  // ---- shared folder (Chrome and Edge). Everything is written with its tracking stamp. ----
+  var rootH = null, pendingH = null, paused = false, saveTimer = null;
+  function saveOn() { return !!rootH && !paused; }
+  function setSaveUI() {
+    var st = document.getElementById('svstat'), pz = document.getElementById('svpause'), re = document.getElementById('svre');
+    st.textContent = rootH ? (paused ? 'PAUSED (nothing is being saved): ' : 'saving to: ') + rootH.name : (pendingH ? 'needs your OK again: ' + pendingH.name : (window.showDirectoryPicker ? 'not chosen yet' : 'this browser cannot save to a folder; use Download pad'));
+    re.hidden = !pendingH; pz.textContent = 'Saving: ' + (paused ? 'OFF' : 'ON'); pz.classList.toggle('off', paused);
+  }
+  async function writeFileTo(dirH, name, data) { var fh = await dirH.getFileHandle(name, { create: true }), w = await fh.createWritable(); await w.write(data); await w.close(); }
+  function transcript(id) {
+    var a = getPad(), i = INFO[id], out = [stampLine(id, 'conversation'), '', '# Conversation pad: ' + id + ' ' + i.t, '**' + PROJ + ' · v1 · ' + todayStr() + ' · CURRENT** ' + TAGS[id] + ' ' + COMMON, ''];
+    a.forEach(function (m) { out.push('## ' + (m.w === 'you' ? 'YOU' : id + ' answer') + ' · ' + m.at); out.push(m.t); (m.att || []).forEach(function (x) { out.push('[attachment: see the attachments folder, tracking ' + PROJ + ', ' + id + ']'); }); out.push(''); });
+    return out.join('\n');
+  }
+  async function saveNow(id) {
+    id = id || cur;
+    if (!saveOn()) { return false; }
+    var dir = await rootH.getDirectoryHandle(id, { create: true }), files = [];
+    var tname = todayStr() + ' _ ' + PROJ + ' _ Note _ ' + id + ' ' + slug(INFO[id].t) + ' conversation _ v1.md';
+    await writeFileTo(dir, tname, transcript(id)); files.push(tname);
+    var pad = null; try { pad = JSON.parse(localStorage.getItem('vtes.pad.' + id) || '[]'); } catch (e) { pad = []; }
+    var ad = null;
+    for (var k = 0; k < pad.length; k++) {
+      for (var j = 0; j < (pad[k].att || []).length; j++) {
+        var rec = await idbGet('att', pad[k].att[j]); if (!rec) { continue; }
+        if (!ad) { ad = await dir.getDirectoryHandle('attachments', { create: true }); }
+        var nm = attName(rec);
+        if (!rec.saved) {
+          await writeFileTo(ad, nm, rec.blob);
+          await writeFileTo(ad, nm + '.SEARCH.txt', stampLine(id, typeOf(rec) === 'Scan' ? 'snip or scan' : 'attachment') + '\n\nFile: ' + nm + '\nOriginal name: ' + (rec.orig || '(pasted snip)') + '\nAdded: ' + rec.day + '\nWindow: ' + id + ' ' + INFO[id].t + '\nThe words in this image are not read by this page; the next OCR run adds them.\n');
+          rec.saved = true; await idbPut('att', rec);
+        }
+        files.push('attachments/' + nm);
+      }
+    }
+    await writeFileTo(dir, '00-INDEX.md', stampLine(id, 'index') + '\n\n# 00-INDEX: ' + id + ' ' + INFO[id].t + '\n**' + PROJ + ' · ' + todayStr() + '** ' + TAGS[id] + ' ' + COMMON + '\n\nGenerated by the VTES LLM Launcher. Latest files:\n' + files.map(function (f) { return '- ' + f; }).join('\n') + '\n');
+    return true;
+  }
+  function scheduleSave() { if (!saveOn()) { return; } clearTimeout(saveTimer); saveTimer = setTimeout(function () { saveNow(cur).then(function () { note('Saved to the shared folder.'); }, function (e) { note('Could not save: ' + e.message + '. Press Download pad instead.'); }); }, 700); }
+  async function pickFolder() {
+    if (!window.showDirectoryPicker) { note('This browser cannot save to a folder by itself. Use Chrome or Edge on the PC, or press Download pad.'); return; }
+    try { var h = await showDirectoryPicker({ id: 'vtes-llm-shared', mode: 'readwrite' }); rootH = h; pendingH = null; paused = false; await idbPut('kv', h, 'root'); setSaveUI(); note('Saving to: ' + h.name + '. Pick the LLM-SHARED folder inside 04-AI-SYSTEM.'); await saveNow(cur); }
+    catch (e) { if (e && e.name !== 'AbortError') { note('Could not use that folder: ' + e.message); } }
+  }
+  async function restoreFolder() {
+    try { var h = await idbGet('kv', 'root'); if (!h) { return; } var p = await h.queryPermission({ mode: 'readwrite' }); if (p === 'granted') { rootH = h; } else { pendingH = h; } setSaveUI(); } catch (e) { }
+  }
+  async function reconnect() { try { var p = await pendingH.requestPermission({ mode: 'readwrite' }); if (p === 'granted') { rootH = pendingH; pendingH = null; setSaveUI(); await saveNow(cur); note('Reconnected. Saving again.'); } } catch (e) { note('Could not reconnect: ' + e.message); } }
+
+  document.getElementById('mic').addEventListener('click', micToggle);
+  document.getElementById('t_mic').addEventListener('click', micToggle);
+  document.getElementById('cp').addEventListener('click', function () { copyAny(sayEl.value).then(function (ok) { note(ok ? 'Copied. Paste it with Ctrl+V.' : 'Copy failed. Select the text and press Ctrl+C.'); }); });
+  document.getElementById('speak').addEventListener('click', function () { speakText(sayEl.value); });
+  document.getElementById('t_speak').addEventListener('click', function () { var sel = window.getSelection ? String(window.getSelection()) : ''; speakText(sel.trim() || sayEl.value || replyEl.value); });
+  document.getElementById('speechify').addEventListener('click', function () { openSpeechify(sayEl.value); });
+  document.getElementById('t_sp').addEventListener('click', function () { openSpeechify(sayEl.value || replyEl.value); });
+  document.getElementById('sendbtn').addEventListener('click', function () {
+    var text = sayEl.value.trim(), w = win(cur), tu = targetUrl(cur);
+    if (!text) { note('Type or dictate something first.'); return; }
+    var copying = copyAny(text);
+    if (tu) { openBig(tu); }
+    addMsg('you', text);
+    copying.then(function (ok) { note(ok ? 'Copied. ' + (tu ? 'The chat is opening in the big window. Click its message box and press Ctrl+V.' : (INFO[cur].a || w.how || '') + ' Then press Ctrl+V.') : 'Copy failed. Select your text, press Ctrl+C, then paste it in the chat.'); });
+  });
+  document.getElementById('addans').addEventListener('click', function () { var t = replyEl.value.trim(); if (!t) { note('Paste the answer in the box first.'); return; } addMsg('ai', t); replyEl.value = ''; note('Added to the pad.'); });
+  document.getElementById('readans').addEventListener('click', function () { speakText(replyEl.value || (getPad().filter(function (m) { return m.w === 'ai'; }).slice(-1)[0] || {}).t || ''); });
+  document.getElementById('spans').addEventListener('click', function () { openSpeechify(replyEl.value || (getPad().filter(function (m) { return m.w === 'ai'; }).slice(-1)[0] || {}).t || ''); });
+  document.getElementById('clearpad').addEventListener('click', function () { var b = document.getElementById('clearpad'); if (b.getAttribute('data-sure') === '1') { setPad([]); renderLog(); b.textContent = 'Clear this pad'; b.setAttribute('data-sure', '0'); } else { b.textContent = 'Tap again to clear'; b.setAttribute('data-sure', '1'); setTimeout(function () { b.textContent = 'Clear this pad'; b.setAttribute('data-sure', '0'); }, 4000); } });
+  document.getElementById('t_dock').addEventListener('click', dockLeft);
+  document.getElementById('svpick').addEventListener('click', pickFolder);
+  document.getElementById('svre').addEventListener('click', reconnect);
+  document.getElementById('svpause').addEventListener('click', function () { paused = !paused; setSaveUI(); note(paused ? 'Saving is paused. Nothing new goes to the shared folder.' : 'Saving is on.'); if (!paused) { scheduleSave(); } });
+  document.getElementById('svdl').addEventListener('click', function () { dlBlob(new Blob([transcript(cur)], { type: 'text/markdown' }), todayStr() + ' _ ' + PROJ + ' _ Note _ ' + cur + ' ' + slug(INFO[cur].t) + ' conversation _ v1.md'); note('Downloaded. Put the file in 04-AI-SYSTEM/LLM-SHARED/' + cur + '.'); });
+  document.getElementById('attbtn').addEventListener('click', function () { document.getElementById('filein').click(); });
+  document.getElementById('filein').addEventListener('change', function (e) { if (e.target.files.length) { addFiles(e.target.files, 'attach'); e.target.value = ''; } });
+  document.addEventListener('paste', function (e) {
+    var items = (e.clipboardData && e.clipboardData.items) || [], files = [];
+    for (var i = 0; i < items.length; i++) { if (items[i].kind === 'file') { var f = items[i].getAsFile(); if (f) { files.push(f); } } }
+    if (files.length) { e.preventDefault(); addFiles(files, 'snip'); }
+  });
+  var stageEl = document.getElementById('stage');
+  ['dragenter', 'dragover'].forEach(function (ev) { stageEl.addEventListener(ev, function (e) { e.preventDefault(); stageEl.classList.add('drop'); }); });
+  ['dragleave', 'drop'].forEach(function (ev) { stageEl.addEventListener(ev, function (e) { e.preventDefault(); stageEl.classList.remove('drop'); if (ev === 'drop' && e.dataTransfer && e.dataTransfer.files.length) { addFiles(e.dataTransfer.files, 'attach'); } }); });
+  function showMode(m) { var con = m === 'con'; document.getElementById('console').hidden = !con; document.getElementById('dir').hidden = con; document.getElementById('t_con').classList.toggle('on', con); document.getElementById('t_dir').classList.toggle('on', !con); if (!con) { q.focus(); } else { sayEl.focus(); } }
+  document.getElementById('t_con').addEventListener('click', function () { showMode('con'); });
+  document.getElementById('t_dir').addEventListener('click', function () { showMode('dir'); });
+  if (window.speechSynthesis && speechSynthesis.addEventListener) { speechSynthesis.addEventListener('voiceschanged', function () { }); }
+  document.getElementById('findall').textContent = Object.keys(TAGS).map(findLine).join('\n\n');
+  setSaveUI(); restoreFolder();
+  showMode('con'); selectLLM(cur);
+  window.VTES_V3 = { setRoot: function (h) { rootH = h; paused = false; setSaveUI(); }, saveNow: saveNow, addFiles: addFiles, attName: attName, transcript: transcript, setPaused: function (v) { paused = v; setSaveUI(); }, targetUrl: targetUrl, getBots: getBots, findLine: findLine, selectLLM: selectLLM, micToggle: micToggle, speakText: speakText, openBig: openBig, dockLeft: dockLeft, chunks: chunks, pickVoice: pickVoice, getPad: getPad, cur: function () { return cur; } };
 </script>
 </body>
 </html>
