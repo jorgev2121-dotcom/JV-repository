@@ -67,6 +67,7 @@ $FlashSeconds = 20
 $MaxIndividual = 5
 $StaleHours   = 48
 $Utf8 = New-Object System.Text.UTF8Encoding($false)
+$Utf8Bom = New-Object System.Text.UTF8Encoding($true)
 
 # ---------------------------------------------------------------------------
 # PURE LOGIC (no screen). Everything below is covered by -SelfTest.
@@ -78,7 +79,7 @@ function Read-Utf8Json([string]$Path) {
     return ($raw | ConvertFrom-Json)
 }
 
-function New-State { return @{ ids = @(); snooze = @{}; baselined = $false; digest_date = ''; stale_date = '' } }
+function New-State { return @{ ids = @(); snooze = @{}; open = @{}; baselined = $false; digest_date = ''; stale_date = '' } }
 
 function Load-State([string]$Dir) {
     $s = New-State
@@ -88,6 +89,7 @@ function Load-State([string]$Dir) {
             $j = Read-Utf8Json $p
             if ($j.ids) { $s.ids = @($j.ids) }
             if ($j.snooze) { foreach ($pr in $j.snooze.PSObject.Properties) { $s.snooze[$pr.Name] = [string]$pr.Value } }
+            if ($j.open) { foreach ($pr in $j.open.PSObject.Properties) { $s.open[$pr.Name] = [string]$pr.Value } }
             $s.baselined   = [bool]$j.baselined
             $s.digest_date = [string]$j.digest_date
             $s.stale_date  = [string]$j.stale_date
@@ -98,7 +100,7 @@ function Load-State([string]$Dir) {
 
 function Save-State([string]$Dir, $State) {
     if (-not (Test-Path $Dir)) { New-Item -ItemType Directory -Path $Dir -Force | Out-Null }
-    $o = [ordered]@{ ids = @($State.ids); snooze = $State.snooze; baselined = $State.baselined; digest_date = $State.digest_date; stale_date = $State.stale_date }
+    $o = [ordered]@{ ids = @($State.ids); snooze = $State.snooze; open = $State.open; baselined = $State.baselined; digest_date = $State.digest_date; stale_date = $State.stale_date }
     [System.IO.File]::WriteAllText((Join-Path $Dir 'state.json'), ($o | ConvertTo-Json -Depth 4), $Utf8)
 }
 
@@ -126,10 +128,27 @@ function Get-Alertable($Items, $State, [datetime]$NowUtc) {
         if ($State.snooze.ContainsKey($id)) {
             $due = [datetime]::Parse($State.snooze[$id], [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::RoundtripKind)
             if ($NowUtc -lt $due.ToUniversalTime()) { continue }
-        } elseif ($State.ids -contains $id) { continue }
+        } elseif ($State.ids -contains $id) {
+            if ($State.open.ContainsKey($id)) {
+                $t = [datetime]::Parse($State.open[$id], [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::RoundtripKind)
+                if ($NowUtc -lt $t.ToUniversalTime().AddHours(2)) { continue }
+            } else { continue }
+        }
         [void]$out.Add($i)
     }
     return ,$out.ToArray()
+}
+
+# Called the moment a banner is shown, so the next poll can never queue the same item again.
+function Mark-Shown($State, [string]$Id, [datetime]$NowUtc) {
+    if ($State.ids -notcontains $Id) { $State.ids = @($State.ids) + $Id }
+    if ($State.snooze.ContainsKey($Id)) { $State.snooze.Remove($Id) }
+    $State.open[$Id] = $NowUtc.ToString('yyyy-MM-ddTHH:mm:ssZ')
+}
+function Mark-Answered($State, [string]$Id) { if ($State.open.ContainsKey($Id)) { $State.open.Remove($Id) } }
+function Exclude-Queued($Items, $QueuedIds) {
+    $q = @($QueuedIds | Where-Object { $_ })
+    return ,@($Items | Where-Object { $q -notcontains [string]$_.id })
 }
 
 function Get-SnoozeUntil([string]$Choice, [datetime]$NowLocal) {
@@ -213,11 +232,11 @@ function Send-Decision($File, [string]$Inbox, [string]$Dir) {
     $pend = Join-Path $Dir 'pending-send'
     try {
         if (-not (Test-Path $Inbox)) { throw 'inbox unreachable' }
-        [System.IO.File]::WriteAllText((Join-Path $Inbox $File.name), $File.body, $Utf8)
+        [System.IO.File]::WriteAllText((Join-Path $Inbox $File.name), $File.body, $Utf8Bom)
         return $true
     } catch {
         if (-not (Test-Path $pend)) { New-Item -ItemType Directory -Path $pend -Force | Out-Null }
-        [System.IO.File]::WriteAllText((Join-Path $pend $File.name), $File.body, $Utf8)
+        [System.IO.File]::WriteAllText((Join-Path $pend $File.name), $File.body, $Utf8Bom)
         return $false
     }
 }
@@ -328,9 +347,25 @@ if ($SelfTest) {
     $all2 = Get-AllItems $qp $null $alerts
     Check 'agent ALERT drop is picked up'  (($all2.items | Where-Object { $_.id -eq 'ALERT-T1' }) -ne $null)
 
+    # ghost-duplicate regression (found by review): a shown item must not come back on the next poll
+    $g = New-State
+    $items1 = @([pscustomobject]@{ id = 'AP-G1'; class = 'DECIDE'; action = 'x'; state = 'OPEN' })
+    $first = Get-Alertable $items1 $g $now
+    Check 'new item is alertable once'       ($first.Count -eq 1)
+    Mark-Shown $g 'AP-G1' $now
+    Check 'shown item is not alertable at once'  ((Get-Alertable $items1 $g $now.AddSeconds(60)).Count -eq 0)
+    Check 'queue de-dup drops the active id' ((Exclude-Queued $items1 @('AP-G1')).Count -eq 0)
+    Check 'unanswered banner returns after 2 h'  ((Get-Alertable $items1 $g $now.AddHours(3)).Count -eq 1)
+    Mark-Answered $g 'AP-G1'
+    Check 'answered item stays quiet'        ((Get-Alertable $items1 $g $now.AddHours(3)).Count -eq 0)
+    $g.snooze['AP-G1'] = '2026-09-30T21:00:00Z'
+    Mark-Shown $g 'AP-G1' $now.AddHours(2)
+    Check 'snoozed item shown once, snooze cleared' (-not $g.snooze.ContainsKey('AP-G1'))
+
     Save-State $st $s
     $s2 = Load-State $st
     Check 'state round-trips'              (($s2.ids.Count -eq 4) -and $s2.snooze.ContainsKey('AP-0001'))
+    $s.open['AP-0002'] = '2026-09-30T20:00:00Z'; Save-State $st $s; Check 'open map round-trips' ((Load-State $st).open.ContainsKey('AP-0002'))
 
     $html = Build-DigestHtml $all2.items $now
     Check 'digest lists only open items'   (($html -match 'AP-0001') -and ($html -notmatch 'AP-0005') -and ($html -match '5 open'))
@@ -352,13 +387,17 @@ if ($Uninstall) {
 
 if ($Install) {
     $psExe = Join-Path $env:WINDIR 'System32\WindowsPowerShell\v1.0\powershell.exe'
-    $vbs = Join-Path (Split-Path -Parent $Self) 'VTES-Attention-Run.vbs'
-    $inner = '"' + $psExe + '" -NoProfile -STA -WindowStyle Hidden -ExecutionPolicy Bypass -File "' + $Self + '"'
+    $localDir = Join-Path $env:LOCALAPPDATA $AppName
+    if (-not (Test-Path $localDir)) { New-Item -ItemType Directory -Path $localDir -Force | Out-Null }
+    $localPs = Join-Path $localDir 'VTES-Attention.ps1'
+    if ($Self -ne $localPs) { Copy-Item -LiteralPath $Self -Destination $localPs -Force }
+    $vbs = Join-Path $localDir 'VTES-Attention-Run.vbs'
+    $inner = '"' + $psExe + '" -NoProfile -STA -WindowStyle Hidden -ExecutionPolicy Bypass -File "' + $localPs + '"'
     $vbsText = 'CreateObject("WScript.Shell").Run "' + ($inner -replace '"', '""') + '", 0, False'
     [System.IO.File]::WriteAllText($vbs, $vbsText, [System.Text.Encoding]::ASCII)
     Set-ItemProperty -Path $RunKey -Name $AppName -Value ('wscript.exe "' + $vbs + '"') -Force
     Start-Process -FilePath 'wscript.exe' -ArgumentList ('"' + $vbs + '"')
-    Write-Host "Installed. Starts at every logon, hidden. Started now. Undo: -Uninstall"
+    Write-Host "Installed from a local copy: $localPs . Starts at every logon, hidden. Started now. Undo: -Uninstall"
     exit 0
 }
 
@@ -370,6 +409,7 @@ Add-Type -AssemblyName System.Drawing
 Add-Type -ReferencedAssemblies System.Windows.Forms, System.Drawing -TypeDefinition @'
 using System;
 using System.Windows.Forms;
+public class VtesButton : Button { public VtesButton() { SetStyle(ControlStyles.Selectable, false); } }
 public class VtesAlertForm : Form {
     protected override bool ShowWithoutActivation { get { return true; } }
     protected override CreateParams CreateParams {
@@ -388,6 +428,9 @@ public class VtesAlertForm : Form {
 }
 '@
 
+[System.Windows.Forms.Application]::SetUnhandledExceptionMode([System.Windows.Forms.UnhandledExceptionMode]::CatchException)
+[System.Windows.Forms.Application]::add_ThreadException({ param($sender, $e) try { Write-Log $StateDir 'ui-exception' '' $e.Exception.Message } catch { } })
+
 if (-not $Demo) {
     $mutex = New-Object System.Threading.Mutex($false, "Local\$AppName")
     if (-not $mutex.WaitOne(0, $false)) { Write-Host "$AppName is already running."; exit 0 }
@@ -397,6 +440,8 @@ if (-not (Test-Path $StateDir)) { New-Item -ItemType Directory -Path $StateDir -
 $script:State   = Load-State $StateDir
 $script:Pending = New-Object System.Collections.ArrayList
 $script:Active  = $null
+$script:ActiveId = $null
+$script:LastErr = ''
 $script:Items   = @()
 $script:DemoMode = [bool]$Demo
 $script:DemoOut = Join-Path $StateDir 'demo'
@@ -420,10 +465,11 @@ function Record-Decision($Item, [string]$Decision, [string]$SnoozeChoice) {
         if ($script:State.snooze.ContainsKey($id)) { $script:State.snooze.Remove($id) }
     }
     if ($script:State.ids -notcontains $id) { $script:State.ids = @($script:State.ids) + $id }
+    Mark-Answered $script:State $id
     $file = New-DecisionFile $Item $Decision $until $nowL
     if ($script:DemoMode) {
         if (-not (Test-Path $script:DemoOut)) { New-Item -ItemType Directory -Path $script:DemoOut -Force | Out-Null }
-        [System.IO.File]::WriteAllText((Join-Path $script:DemoOut $file.name), $file.body, $Utf8)
+        [System.IO.File]::WriteAllText((Join-Path $script:DemoOut $file.name), $file.body, $Utf8Bom)
         $sent = $false
     } else {
         $sent = Send-Decision $file $InboxDir $StateDir
@@ -436,6 +482,13 @@ function Show-Next {
     if ($script:Active -or $script:Pending.Count -eq 0) { return }
     $entry = $script:Pending[0]; $script:Pending.RemoveAt(0)
     $item = $entry.item; $summary = $entry.summary
+    if (-not $summary) {
+        $script:ActiveId = [string]$item.id
+        Mark-Shown $script:State $script:ActiveId ((Get-Date).ToUniversalTime())
+        if (-not $script:DemoMode) { try { Save-State $StateDir $script:State } catch { } }
+    }
+    $fsecs = $FlashSeconds
+    $openDigest = ${function:Open-Digest}
     $kind = if ($summary) { 'DECIDE' } else { Get-Kind $item }
     $left = $script:Pending.Count
 
@@ -478,7 +531,7 @@ function Show-Next {
     $btns = New-Object System.Collections.ArrayList
     $mk = {
         param([string]$text, [int]$x, [int]$y, [int]$bw, $bg)
-        $b = New-Object System.Windows.Forms.Button
+        $b = New-Object VtesButton
         $b.Text = $text; $b.Location = New-Object System.Drawing.Point($x, $y); $b.Size = New-Object System.Drawing.Size($bw, 40)
         $b.Font = New-Object System.Drawing.Font('Segoe UI', 11, [System.Drawing.FontStyle]::Bold)
         $b.FlatStyle = 'Flat'; $b.BackColor = $bg; $b.ForeColor = [System.Drawing.Color]::White
@@ -491,22 +544,23 @@ function Show-Next {
     $y1 = 146; $y2 = 194
     $close = {
         param($it, [string]$dec, [string]$snz)
-        if ($script:Active) { $script:Active.flash.Stop(); $script:Active.form.Close(); $script:Active = $null }
-        if ($it) { Record-Decision $it $dec $snz }
+        if ($script:Active) { try { $script:Active.flash.Stop(); $script:Active.arm.Stop(); $script:Active.flash.Dispose(); $script:Active.arm.Dispose() } catch { }; $script:Active.form.Close(); $script:Active = $null }
+        $script:ActiveId = $null
+        if ($it) { try { Record-Decision $it $dec $snz } catch { try { Write-Log $StateDir 'decision-error' ([string]$it.id) $_.Exception.Message } catch { } } }
         Show-Next
     }
 
     if ($summary) {
         $bAll = & $mk 'SHOW ALL' 14 $y1 200 $dark
-        $bAll.add_Click({ Open-Digest; & $close $null '' '' }.GetNewClosure())
-        $bOk = & $mk 'LATER (2 hours)' 226 $y1 200 $dark
+        $bAll.add_Click({ & $openDigest; & $close $null '' '' }.GetNewClosure())
+        $bOk = & $mk 'CLOSE' 226 $y1 200 $dark
         $bOk.add_Click({ & $close $null '' '' }.GetNewClosure())
     } else {
         $it = $item
         switch ($kind) {
             'NOAPPROVE' {
                 $bOpen = & $mk 'OPEN DETAILS' 14 $y1 200 $dark
-                $bOpen.add_Click({ Open-Digest }.GetNewClosure())
+                $bOpen.add_Click({ & $openDigest }.GetNewClosure())
             }
             'DOMYSELF' {
                 $bDo = & $mk "OK, I'M DOING IT" 14 $y1 230 $green
@@ -539,7 +593,7 @@ function Show-Next {
             $bx += 178
         }
         $bAll = & $mk 'SHOW ALL' $bx $y2 130 $dark
-        $bAll.add_Click({ Open-Digest }.GetNewClosure())
+        $bAll.add_Click({ & $openDigest }.GetNewClosure())
     }
 
     $flash = New-Object System.Windows.Forms.Timer
@@ -547,7 +601,7 @@ function Show-Next {
     $tick = @{ n = 0 }
     $flash.add_Tick({
         $tick.n++
-        if ($tick.n -ge ($FlashSeconds * 2)) { $form.BackColor = [System.Drawing.Color]::DarkOrange; $flash.Stop(); return }
+        if ($tick.n -ge ($fsecs * 2)) { $form.BackColor = [System.Drawing.Color]::DarkOrange; $flash.Stop(); return }
         if ($tick.n % 2 -eq 0) { $form.BackColor = [System.Drawing.Color]::DarkOrange } else { $form.BackColor = [System.Drawing.Color]::Firebrick }
     }.GetNewClosure())
 
@@ -555,7 +609,7 @@ function Show-Next {
     $arm.Interval = $ArmMs
     $arm.add_Tick({ $arm.Stop(); foreach ($b in $btns) { $b.Enabled = $true } }.GetNewClosure())
 
-    $script:Active = @{ form = $form; flash = $flash }
+    $script:Active = @{ form = $form; flash = $flash; arm = $arm }
     $form.Show()
     # RI-022: prove the banner is fully inside a real screen, else pull it onto the primary one.
     $ok = $false
@@ -588,6 +642,7 @@ function Poll {
         $script:Items = $r.items
         $nowU = (Get-Date).ToUniversalTime()
         if (-not $script:State.baselined) {
+            if (-not $r.source) { if ($script:LastErr -ne 'no-queue') { $script:LastErr = 'no-queue'; Write-Log $StateDir 'baseline-waiting' '' 'approvals queue not readable yet' }; return }
             foreach ($i in $r.items) { if ([string]$i.state -eq 'OPEN' -and $script:State.ids -notcontains [string]$i.id) { $script:State.ids = @($script:State.ids) + [string]$i.id } }
             $script:State.baselined = $true
             Save-State $StateDir $script:State
@@ -596,8 +651,8 @@ function Poll {
             return
         }
         $new = Get-Alertable $r.items $script:State $nowU
-        $queued = @($script:Pending | ForEach-Object { [string]$_.item.id })
-        $new = @($new | Where-Object { $queued -notcontains [string]$_.id })
+        $queued = @($script:Pending | ForEach-Object { [string]$_.item.id }) + @($script:ActiveId)
+        $new = Exclude-Queued $new $queued
         if ($new.Count -gt 0) { Enqueue-New $new }
         # the report itself must stay fresh (RI-015)
         $today = (Get-Date).ToString('yyyy-MM-dd')
@@ -608,7 +663,7 @@ function Poll {
             [void]$script:Pending.Add(@{ item = $fake; summary = $null })
         }
         Show-Next
-    } catch { Write-Log $StateDir 'poll-error' '' $_.Exception.Message }
+    } catch { if ($script:LastErr -ne $_.Exception.Message) { $script:LastErr = $_.Exception.Message; Write-Log $StateDir 'poll-error' '' $_.Exception.Message } }
 }
 
 Write-Log $StateDir 'start' '' ('pid=' + $PID + ' demo=' + $script:DemoMode)

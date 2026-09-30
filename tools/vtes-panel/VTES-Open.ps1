@@ -59,7 +59,18 @@ if ($Install) {
     Set-ItemProperty -Path $root -Name '(default)' -Value 'URL:VTES window address'
     Set-ItemProperty -Path $root -Name 'URL Protocol' -Value ''
     New-Item -Path ($root + '\shell\open\command') -Force | Out-Null
-    $cmd = '"{0}" -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "{1}" -Address "%1"' -f $PsExe, $Self
+    # Run from a LOCAL copy (G: may not be mounted at logon; the source folder may be moved) through a hidden VBS wrapper (no console flash).
+    $localDir = Join-Path $env:LOCALAPPDATA 'VTES-Open'
+    if (-not (Test-Path $localDir)) { New-Item -ItemType Directory -Path $localDir -Force | Out-Null }
+    $localPs = Join-Path $localDir 'VTES-Open.ps1'
+    if ($Self -ne $localPs) { Copy-Item -LiteralPath $Self -Destination $localPs -Force }
+    Copy-Item -LiteralPath $Book -Destination (Join-Path $localDir 'vtes-addresses.json') -Force
+    $vbs = Join-Path $localDir 'VTES-Open-Run.vbs'
+    $q = [string][char]34
+    $vbsText = 'Set a = WScript.Arguments' + "`r`n" + 'addr = ""' + "`r`n" + 'If a.Count > 0 Then addr = a(0)' + "`r`n" +
+        'CreateObject("WScript.Shell").Run "' + $q + $q + $PsExe + $q + $q + ' -NoProfile -ExecutionPolicy Bypass -File ' + $q + $q + $localPs + $q + $q + ' -Address ' + $q + $q + '" & addr & "' + $q + $q + '", 0, False'
+    [System.IO.File]::WriteAllText($vbs, $vbsText, [System.Text.Encoding]::ASCII)
+    $cmd = 'wscript.exe "{0}" "%1"' -f $vbs
     Set-ItemProperty -Path ($root + '\shell\open\command') -Name '(default)' -Value $cmd
     Write-Host "Installed. Registry key: $root"
     Write-Host "Handler: $cmd"
@@ -121,8 +132,8 @@ public class VtesWin {
         if ([VtesWin]::IsIconic($h)) { [VtesWin]::ShowWindow($h, 9) | Out-Null }
         [VtesWin]::SetForegroundWindow($h) | Out-Null
     }
-    'url'   { Start-Process $target }
-    'run'   { Start-Process -FilePath $target }
+    'url'   { try { Start-Process $target } catch { Write-Log ('OPEN-FAILED ' + $target + ' ' + $_.Exception.Message); Show-Note ($id + ': could not open ' + $target) } }
+    'run'   { try { Start-Process -FilePath $target } catch { Write-Log ('OPEN-FAILED ' + $target + ' ' + $_.Exception.Message); Show-Note ($id + ': could not open ' + $target + '. The shortcut may have moved.') } }
     default {
         $note = if ($entry.note) { $entry.note } else { 'No address has been filled in for this window yet.' }
         Show-Note ($id + ' ' + $entry.name + ': ' + $note)

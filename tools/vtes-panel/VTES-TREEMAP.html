@@ -67,7 +67,7 @@
 <div class="bar" id="bar" title="Share of total size by proposed compartment"></div>
 <div class="legend" id="legend"></div>
 <div class="tools">
-  <input id="q" type="search" placeholder="Search folders: a job number, a word, #hashtag…" autofocus>
+  <input id="q" type="search" placeholder="Search folders: a job number (TRK-2026-1262), an address, a word…" autofocus>
   <span class="seg" id="modes">
     <button data-m="klass" class="on" title="Colour by proposed compartment">Compartment</button><button data-m="age" title="Colour by how recently a file changed">Age</button><button data-m="conform" title="Colour by how many names follow the naming rule">Naming rule</button>
   </span>
@@ -87,6 +87,7 @@
   var COLORS = { jobs:'#2f6fed', ai:'#9b5de5', intake:'#e69f00', archive:'#6b7280', business:'#1a9e6d', reference:'#0ea5b7', other:'#d64550' };
   var LABEL = { jobs:'Jobs & reports (01-JOBS)', ai:'AI programs & system (04-AI-SYSTEM)', intake:'In-tray / to review (02-INTAKE)', archive:'Archive & backups (06-ARCHIVE)', business:'Business & personal (03-BUSINESS)', reference:'Reference (05-REFERENCE)', other:'Unclassified: needs a decision' };
   var RX = [
+    ['jobs', /^01-jobs/i], ['intake', /^02-intake/i], ['business', /^03-business/i], ['ai', /^04-ai-system/i], ['reference', /^05-reference/i], ['archive', /^06-archive/i], ['reference', /^00-start-here/i],
     ['archive', /^_?(archive|desktop-archive|desktop-filed|archive-backups|vtes_archive|onedrive_20|backup|3-archive|icon-cleanup|shortcut-backups|claude launchers|master folder)/i],
     ['intake',  /(paperport|intake|pending to be|mess-to-be|_review|delete-review|contact-attachments|plaud|outgoing-mail|_tonight)/i],
     ['ai',      /^(scripts|state|system|build|demo|logs|print-archive|litellm|desktopguardian|controlpanel|powershell|windowspowershell|claude|claudechat|claudememory|master-index|favorites-launcher|window-registry|automation|automationproof|sharex|verticaltray|taskbarlaunchers|control_panel|ai apps|ai suite|claude suite|1-buttons|treesize|add-in express)/i],
@@ -258,8 +259,8 @@
     if (n.conform != null) h += '<div class="kv"><span>Names following the rule</span><b>' + Math.round(n.conform * 100) + '%</b></div>';
     if (n.trk && n.trk.length) h += '<div class="kv"><span>TRK numbers</span><b>' + esc(n.trk.slice(0, 4).join(', ')) + '</b></div>';
     if (n.path) {
-      var link = 'file:///' + n.path.replace(/\\/g, '/').replace(/ /g, '%20');
-      h += '<div class="row"><a class="btn" href="' + link + '" target="_blank" rel="noopener">Open folder</a><button class="btn" id="cp">Copy path</button></div>';
+      var link = encodeURI('file:///' + n.path.replace(/\\/g, '/')).replace(/#/g, '%23');
+      h += '<div class="row"><button class="btn" id="cp" style="border-color:var(--accent)">Copy path</button><a class="btn" href="' + link + '" target="_blank" rel="noopener" title="Shows a folder listing in the browser; paste the copied path into File Explorer for the real folder">Open in browser</a></div>';
     }
     if (showSmall && smallList.length) {
       h += '<div class="note" style="margin-top:12px"><b>Smaller folders in this view (largest first):</b></div>';
