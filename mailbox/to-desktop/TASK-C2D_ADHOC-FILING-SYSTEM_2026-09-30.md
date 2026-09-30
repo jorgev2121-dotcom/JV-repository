@@ -7,7 +7,7 @@
 
 **EVERYTHING BELOW IS GREEN: READ-ONLY OR NEW-FILE-ONLY. Do NOT move, rename, delete, dedupe or reclaim anything. Filing existing client documents is RED and is NOT part of this order.**
 
-## Read first (one page each)
+## Read first (one page each; the constitution is now v2 after three adversarial reviews)
 - `00-START-HERE/README-FIRST.md` and `FILING-CONSTITUTION.md` (Drive `00-START-HERE`; repo `filing-system/00-START-HERE/`). They are a DRAFT FOR CRITIQUE; do not enforce them yet.
 - `agent-results/FILING-SWEEP-REGISTRY_2026-09-30.md`: nine jobs already surveyed by the cloud (Drive and Gmail side only). **You are the only one who can see the PC and OneDrive side.**
 
@@ -21,7 +21,9 @@
 7. **Compare the existing programs, then propose the hybrid.** Find and run `Master-Index.hta`, `Job-Tree.hta`, the thing that produced `AI-Programs-Catalog\TREEMAP-DATA.js` (8/24 scan), and the `TreeSize-SSOT-Reports` folder. For each: what it does, input, last run, working or not **(proof)**. Write `FILING-PROGRAM-COMPARE_2026-09-30.md` with a one-line recommendation for each: keep, fold into the Tree View, or retire. **Do not delete or move any of them.**
 8. **AI-program classification (proposal only).** List every program under `C:\AI`, `OneDrive\Scripts` and the Desktop AI folders; for each: name, last modified, any scheduled task that references it (`Get-ScheduledTask`), last run result. Propose ACTIVE (only with a run in the last 30 days, with proof), INACTIVE, or EARLIER-VERSION. Output `AI-PROGRAMS-CLASSIFICATION_PROPOSED_2026-09-30.csv`. Jorge approves the split later. `CATALOG.md` has 13 lines; `C:\AI\scripts` alone holds 1,444 files.
 9. **Email circles.** The repo has no written protocol. Find the existing one on the PC (`ClaudeMemory`, the skill `vtes-protocol-correction-learning`, any file mentioning "circle" or "circling"). Copy its text into `FILING-EMAIL-CIRCLES_PROTOCOL_FOUND_2026-09-30.md` and note where it differs from Section F of the constitution. **No automation yet.**
-10. **Report.** `RESULT_ADHOC-FILING-SYSTEM_2026-09-30.md` in VTES-Outbox: ACK time, each step DONE / BLOCKED / IN PROGRESS with its proof file, denominators ("x of y"), the two screenshots (Tree View with real data; TreeSize dialog with targets), and the question list below.
+10. **Find the writer of the nightly `.bak` clutter (identify only; change nothing).** Drive job folders hold about 25 daily `.bak-YYYYMMDD` copies per generated file (`_PORTAL_TRK-*.html`, `_STAGE.md`, `VERSION-LOG_*.md`; also `APPROVALS-QUEUE.json.bak-*`, `OWNER-QUEUE.md.bak-*`). Which scheduled task or script writes them, how often, and into which folders? Report the task name, the script path, and the line that writes the `.bak`. **Do not edit the script.** Jorge decides (proposed fix: stop writing `.bak` beside the file, prune to the latest 7).
+11. **Two-tree guard values.** Re-count the top-level folders of `C:\Users\JV\Documents\CU Inspections\Jobs` and `C:\Users\JV\OneDrive\Documents\CU Inspections\Jobs-Master` (last counts 6,479 and 3,997 on 2026-08-19) and put the fresh numbers in your report so `TREE-COUNTS.md` can be refreshed.
+12. **Report.** `RESULT_ADHOC-FILING-SYSTEM_2026-09-30.md` in VTES-Outbox: ACK time, each step DONE / BLOCKED / IN PROGRESS with its proof file, denominators ("x of y"), the two screenshots (Tree View with real data; TreeSize dialog with targets), and the question list below.
 
 ## Rollback
 Read-only. Nothing to undo except the new files in `MY-DESK\INVENTORY` and `MY-DESK\VTES-PANEL`. TreeSize scheduled tasks: delete the tasks you created (list their names in the report).
