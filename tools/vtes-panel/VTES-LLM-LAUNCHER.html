@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VTES LLM Launcher · LLM-01 to LLM-08 · TRK-2026-9910-B · #VTES-control-panel</title>
-<meta name="keywords" content="VTES control panel, LLM-01, LLM-02, LLM-03, LLM-04, LLM-05, LLM-06, LLM-07, LLM-08, TRK-2026-9910-B, Which window am I, Jorge Valdes">
+<title>VTES LLM Launcher · LLM-01 to LLM-10 · TRK-2026-9910-B · #VTES-control-panel</title>
+<meta name="keywords" content="VTES control panel, LLM-01, LLM-02, LLM-03, LLM-04, LLM-05, LLM-06, LLM-07, LLM-08, LLM-10, Copilot, Map, Wiring, Subscriptions, TRK-2026-9910-B, Which window am I, Jorge Valdes">
 <!-- TRK-2026-9910-B · v3 · 2026-09-30 · #VTES-control-panel #LLM-registry #JorgeValdes
      Single file. No internet needed to open. No API keys. Registry lives in LLM-WINDOW-REGISTRY.md. -->
 <style>
@@ -94,6 +94,48 @@
   .empty { color:var(--muted); padding:16px; font-size:17px; }
   #reply { width:100%; min-height:70px; max-height:180px; margin-top:8px; font:inherit; font-size:16px; padding:8px 10px; border:2px solid var(--line); border-radius:10px; resize:vertical; }
   #dir { padding-top:6px; }
+
+  [hidden] { display:none !important; }
+  /* v4: status dots, Map */
+  .chip { padding:3px 4px !important; font-size:12px !important; }
+  .tb { padding:3px 5px !important; font-size:12px !important; }
+  #chips, #tools { gap:4px !important; }
+  .chip .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:3px; vertical-align:-1px; background:#9a968c; border:2px solid #fff; box-shadow:0 0 0 1px #9a968c; }
+  .chip .hrs { font-size:10.5px; font-weight:800; margin-left:2px; }
+  .chip.st-up .dot { background:#2e7d4f; box-shadow:0 0 0 1px #2e7d4f; }
+  .chip.st-warn .dot { background:#e0a100; box-shadow:0 0 0 1px #b26a00; }
+  .chip.st-down .dot { background:#b3261e; box-shadow:0 0 0 1px #b3261e; }
+  .chip.st-pend .dot { background:#1b5e9e; box-shadow:0 0 0 1px #1b5e9e; }
+  .chip.st-fut .dot { background:#fff; box-shadow:0 0 0 2px #7a2e8e; }
+  .chip.st-down { border-color:#b3261e; } .chip.st-warn { border-color:#e0a100; } .chip.st-up { border-color:#2e7d4f; }
+  .chip.st-pend { border-color:#1b5e9e; } .chip.st-fut { border-style:dashed; border-color:#7a2e8e; }
+  .chip.sel.st-down { border-color:#ff8a80; } .chip.sel.st-warn { border-color:#ffd54f; } .chip.sel.st-up { border-color:#8be0a8; }
+  #idcard .stl { margin-top:6px; font-weight:800; font-size:14px; }
+  #map { padding:4px 0 30px; }
+  #map .mt { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-bottom:8px; }
+  #map .mt button { padding:6px 12px; border-radius:10px; border:2px solid var(--line); background:#fff; font:inherit; font-weight:800; font-size:14px; cursor:pointer; }
+  #map .mt button.on { background:#dfeaf7; border-color:var(--accent); }
+  #map .lg { font-size:12.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:4px 12px; margin:6px 0 10px; }
+  #map .lg i { display:inline-block; width:11px; height:11px; border-radius:50%; margin-right:4px; vertical-align:-1px; border:2px solid #fff; }
+  .mrow { border:2px solid var(--line); border-radius:16px; background:var(--card); padding:10px 12px 12px; }
+  .mrow .lab { font-size:12px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .mflow { text-align:center; font-size:22px; line-height:1; color:var(--muted); padding:4px 0; } .mflow small { display:block; font-size:12px; margin-top:2px; }
+  .mboxes { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; align-items:stretch; }
+  .mbox { flex:1 1 200px; max-width:300px; border:2px solid var(--c,#999); border-radius:14px; padding:8px 10px; background:#fff; }
+  .mbox.fut { border-style:dashed; background:#faf6fb; }
+  .mbox .mid { font-weight:800; font-size:12px; color:var(--c,#999); } .mbox .mnm { font-weight:800; font-size:16px; }
+  .mbox .mst { font-size:12px; font-weight:800; margin:2px 0; } .mbox .mcan { font-size:12px; color:var(--muted); line-height:1.35; }
+  .mbox .mcan b { color:var(--ink); }
+  .mlanes { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:8px; }
+  .mlane { border-left:6px solid var(--c); background:#faf9f6; border-radius:8px; padding:6px 10px; } .mlane .ln { font-weight:800; font-size:14px; } .mlane .ld { font-size:12.5px; color:var(--muted); }
+  .mtag { display:inline-block; font-size:11px; font-weight:800; padding:1px 7px; border-radius:99px; margin-left:6px; color:#fff; background:#888; }
+  .mtag.ok { background:#2e7d4f; } .mtag.un { background:#b26a00; } .mtag.fu { background:#7a2e8e; } .mtag.no { background:#888; }
+  #wire { width:100%; height:auto; background:var(--card); border:2px solid var(--line); border-radius:14px; }
+  .subc { border:2px solid var(--line); border-left:8px solid var(--c,#999); border-radius:12px; background:#fff; padding:8px 12px; margin-bottom:8px; }
+  .subc .sn { font-weight:800; font-size:16px; } .subc .sd { font-size:13.5px; color:var(--muted); margin-top:2px; }
+  .subc .sw { float:right; font-weight:800; font-size:12px; padding:2px 8px; border-radius:99px; color:#fff; background:var(--c,#999); }
+  .actbox { background:#fff8e6; border:2px solid #e0a100; border-radius:12px; padding:10px 14px; margin:10px 0; font-size:14.5px; }
+  .actbox ol { margin:6px 0 0 20px; padding:0; }
   @media (max-width:760px) { #console { flex-direction:column; height:auto; } #left { width:100%; min-width:0; } #stage { min-height:420px; } #say { min-height:90px; } }
   #bots { background:var(--card); border:2px solid var(--line); border-radius:14px; padding:10px; }
   #bots .bt { font-size:13px; font-weight:800; color:var(--muted); margin-bottom:6px; }
@@ -126,10 +168,13 @@
     <button class="tb" id="t_speak" type="button" title="Read the text aloud">🔊</button>
     <button class="tb" id="t_sp" type="button" title="Copy the text and open Speechify">Speechify</button>
     <button class="tb on" id="t_con" type="button">Console</button>
-    <button class="tb" id="t_dir" type="button">Directory</button>
+    <button class="tb" id="t_dir" type="button" title="Directory: the full cards and search">Dir</button>
+    <button class="tb" id="t_map" type="button" title="Who talks to whom, the wiring, and the subscriptions">Map</button>
     <button class="tb" id="t_dock" type="button" title="Open this page as a narrow panel on the left; the big chat window takes the rest">Dock</button>
   </div>
 </div>
+
+<div id="map" hidden></div>
 
 <div id="console">
   <aside id="left">
@@ -249,8 +294,8 @@
   <div class="id">LLM-07 · 🔮</div>
   <div class="name">Grok (SuperGrok)</div>
   <div class="role">Fabian — second opinion</div>
-  <p class="job">Sanity-checks Claude's work and answers with the live web. Chat only, on your subscription. Paste a Drive link to hand it a file.</p>
-  <div class="tags">#LLM-07 #GROK #FABIAN</div>
+  <p class="job">Sanity-checks Claude's work and answers with the live web. Chat only, on your subscription. Paste a Drive link to hand it a file. Billing: SuperGrok $30/month (the keeper) and X Premium Plus $40/month (duplicate candidate): see Map &rarr; Subscriptions.</p>
+  <div class="tags">#LLM-07 #GROK #FABIAN #SuperGrok #Grok-Bots</div>
   <div class="addr">Address: <b>vtes://llm-07</b> &rarr; https://grok.com</div>
   <div class="row"><a class="btn" href="https://grok.com" target="_blank" rel="noopener">Open grok.com</a></div>
 </div>
@@ -263,6 +308,16 @@
   <div class="tags">#LLM-08 #GEMINI #google</div>
   <div class="addr">Address: <b>vtes://llm-08</b> &rarr; https://gemini.google.com</div>
   <div class="row"><a class="btn" href="https://gemini.google.com" target="_blank" rel="noopener">Open Gemini</a><span class="btn">PC: Windows Terminal → gemini</span></div>
+</div>
+
+<div class="card" data-k="llm-10 copilot microsoft windows edge office 365 m365 outlook onedrive second opinion #copilot #microsoft #LLM-10">
+  <div class="id">LLM-10 · 🪟</div>
+  <div class="name">Microsoft Copilot</div>
+  <div class="role">Microsoft-side helper — Outlook, OneDrive, Edge</div>
+  <p class="job">Chat only from here. It lives in Edge (the sidebar) and in Microsoft 365. Whether your Microsoft plan includes the full Copilot is UNVERIFIED: no Copilot charge shows in your email receipts. Paste a link or text to hand it work.</p>
+  <div class="tags">#LLM-10 #COPILOT #MICROSOFT #PASTE-X</div>
+  <div class="addr">Address: <b>vtes://llm-10</b> &rarr; https://copilot.microsoft.com</div>
+  <div class="row"><a class="btn" href="https://copilot.microsoft.com" target="_blank" rel="noopener">Open Copilot</a></div>
 </div>
 
 <div class="card" data-k="bus drive mailbox vtes inbox outbox handoff orders proof results #bus #handoff">
@@ -281,7 +336,7 @@
   <p>Every window runs on a subscription. API is allowed only as a thin routing bridge, and every API run is priced first and sent to you for approval. Handoffs go through the panel above or the Drive mailbox. The ID (LLM-01…08) and hashtags travel inside every file a window produces, so any later search — Drive, Gmail, OCR, 1Password, or this page — finds who did what.</p>
 </div>
 
-<p class="foot">TRK-2026-9910-B · v3 · 2026-09-30 · CURRENT · Registry: LLM-WINDOW-REGISTRY.md · #VTES-control-panel #LLM-registry</p>
+<p class="foot">TRK-2026-9910-B · v4 · 2026-09-30 · CURRENT · Registry: LLM-WINDOW-REGISTRY.md · #VTES-control-panel #LLM-registry</p>
 
 </div>
 
@@ -290,7 +345,7 @@
   var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
   var STOP = ['the','a','an','on','my','of','to','for','in','and','or','is','it','me','i','open','find','show','with','that','this'];
   var stripEl = document.getElementById('chips');
-  var CHIPS = [['LLM-01','Desktop RAMBO'],['LLM-02','Cloud'],['LLM-03','Cowork'],['LLM-04','Chat'],['LLM-05','iPhone'],['LLM-06','Codex'],['LLM-07','Grok'],['LLM-08','Gemini']];
+  var CHIPS = [['LLM-01','Desk RAMBO'],['LLM-02','Cloud'],['LLM-03','Cowork'],['LLM-04','Chat'],['LLM-05','iPhone'],['LLM-06','Codex'],['LLM-07','Grok'],['LLM-08','Gemini'],['LLM-10','Copilot']];
   cards.forEach(function (c) { c._hay = (c.getAttribute('data-k') + ' ' + c.textContent).toLowerCase(); });
   function cardFor(id) { return cards.filter(function (c) { return c._hay.indexOf(id.toLowerCase()) > -1 && c.querySelector('.id').textContent.indexOf(id) === 0; })[0]; }
   function filter() {
@@ -323,7 +378,8 @@
     { id:'LLM-05', name:'Claude iPhone', url:'', how:'On the iPhone: open the Claude app. The packet stays on this PC, so send it with AirDrop or paste it into Notes first.' },
     { id:'LLM-06', name:'Codex', url:'https://chatgpt.com', how:'For the PC agent: open Windows Terminal, type codex, press Enter, then Ctrl+V.' },
     { id:'LLM-07', name:'Grok (Fabian)', url:'https://grok.com', how:'' },
-    { id:'LLM-08', name:'Gemini', url:'https://gemini.google.com', how:'' }
+    { id:'LLM-08', name:'Gemini', url:'https://gemini.google.com', how:'' },
+    { id:'LLM-10', name:'Microsoft Copilot', url:'https://copilot.microsoft.com', how:'' }
   ];
   var fromSel = document.getElementById('from'), toSel = document.getElementById('to');
   var noteEl = document.getElementById('note'), prev = document.getElementById('preview'), statusEl = document.getElementById('status');
@@ -333,10 +389,10 @@
     });
   });
   fromSel.value = 'LLM-04'; toSel.value = 'LLM-07';
-  var CE = { 'LLM-01': '🖥️', 'LLM-02': '☁️', 'LLM-03': '🤝', 'LLM-04': '💬', 'LLM-05': '📱', 'LLM-06': '🧭', 'LLM-07': '🔮', 'LLM-08': '♊' };
+  var CE = { 'LLM-01': '🖥️', 'LLM-02': '☁️', 'LLM-03': '🤝', 'LLM-04': '💬', 'LLM-05': '📱', 'LLM-06': '🧭', 'LLM-07': '🔮', 'LLM-08': '♊', 'LLM-10': '🪟' };
   CHIPS.forEach(function (c) {
     var b = document.createElement('button'); b.type = 'button'; b.className = 'chip';
-    b.setAttribute('data-id', c[0]); b.title = c[0] + ' ' + c[1]; b.textContent = (CE[c[0]] || '') + ' ' + c[0].slice(4) + ' ' + c[1].split(' ')[0]; stripEl.appendChild(b);
+    b.setAttribute('data-id', c[0]); b.title = c[0] + ' ' + c[1]; b.innerHTML = '<i class="dot"></i>' + (CE[c[0]] || '') + ' ' + c[0].slice(4) + ' ' + esc(c[1].split(' ')[0]) + '<span class="hrs"></span>'; stripEl.appendChild(b);
     b.addEventListener('click', function () { selectLLM(c[0]); });
   });
   function win(id) { return WINDOWS.filter(function (w) { return w.id === id; })[0]; }
@@ -412,7 +468,8 @@
     'LLM-05': { e: '📱', t: 'iPHONE', d: 'The Claude app on your iPhone. Voice on the go.', p: 'PASTE-X', a: 'On the iPhone: open the Claude app.' },
     'LLM-06': { e: '🧭', t: 'CODEX (backup executor)', d: 'OpenAI Codex on your PC, on your ChatGPT subscription.', p: 'PASTE-X', a: '' },
     'LLM-07': { e: '🔮', t: 'GROK (Fabian)', d: 'Second opinion and live-web answers.', p: 'PASTE-X', a: '' },
-    'LLM-08': { e: '♊', t: 'GEMINI', d: 'Cheap bulk drafting and summaries.', p: 'PASTE-X', a: '' }
+    'LLM-08': { e: '♊', t: 'GEMINI', d: 'Cheap bulk drafting and summaries.', p: 'PASTE-X', a: '' },
+    'LLM-10': { e: '🪟', t: 'COPILOT', d: 'Microsoft Copilot: lives in Edge and Microsoft 365. Chat only from here.', p: 'PASTE-X', a: '' }
   };
   var PROJ = 'TRK-2026-9910-B', COMMON = '#VTES-control-panel #LLM-registry #JorgeValdes #CU-Inspections #' + PROJ;
   var TAGS = {
@@ -422,8 +479,9 @@
     'LLM-04': '#LLM-04 #CHAT #COCKPIT #owner-seat #PASTE-X #claude #decisions #approvals #dictate',
     'LLM-05': '#LLM-05 #IPHONE #VOICE #PASTE-X #mobile #dictation #claude-app #on-the-go',
     'LLM-06': '#LLM-06 #CODEX #BACKUP-EXEC #openai #chatgpt #PASTE-X #terminal #second-hands',
-    'LLM-07': '#LLM-07 #GROK #FABIAN #xAI #SuperGrok #second-opinion #live-web #sanity-check #PASTE-X #grok-bots',
-    'LLM-08': '#LLM-08 #GEMINI #google #volume #drafting #PASTE-X #drive-native #summaries'
+    'LLM-07': '#LLM-07 #GROK #FABIAN #xAI #SuperGrok #second-opinion #live-web #sanity-check #PASTE-X #grok-bots #X-Premium-Plus #Grok-Automations',
+    'LLM-08': '#LLM-08 #GEMINI #google #volume #drafting #PASTE-X #drive-native #summaries #Google-AI-Plus',
+    'LLM-10': '#LLM-10 #COPILOT #microsoft #edge #M365 #outlook #onedrive #PASTE-X #windows'
   };
   function findLine(id) { return id + ' · ' + PROJ + ' · ' + TAGS[id] + ' ' + COMMON; }
   var cur = 'LLM-04';
@@ -441,8 +499,9 @@
       '<div class="big">' + i.e + '</div><div class="who">YOU ARE TALKING TO</div><div class="nm">' + esc(id) + ' · ' + esc(i.t) + '</div>' +
       '<div class="ds">' + esc(i.d) + '</div><div class="pid">Paste ID for this window: ' + i.p + (i.p === 'PASTE-X' ? ' (anywhere else)' : '') + '</div>' +
       '<div class="how">' + (w.url ? 'Opens in the big window on the right.' : esc(i.a || w.how || '')) + '</div>' +
-      '<div class="find">FIND ME: ' + esc(findLine(id)) + '</div><div class="r2" style="margin-top:6px"><button class="b alt" id="cpfind" type="button">Copy find-me line</button></div>';
+      '<div class="stl" id="stl"></div><div class="find">FIND ME: ' + esc(findLine(id)) + '</div><div class="r2" style="margin-top:6px"><button class="b alt" id="cpfind" type="button">Copy find-me line</button></div>';
     document.getElementById('cpfind').addEventListener('click', function () { copyAny(findLine(id)).then(function (ok) { note(ok ? 'Copied the find-me line. Paste it into a note, email or Drive file.' : 'Copy failed. Select the line and press Ctrl+C.'); }); });
+    if (window.VTES_MAP) { VTES_MAP.paintCard(id); }
     renderBots();
     document.getElementById('stagetitle').textContent = 'Conversation pad · ' + id + ' ' + i.t;
     try { toSel.value = id; refresh(); } catch (e) { }
@@ -735,6 +794,270 @@
   setSaveUI(); restoreFolder();
   showMode('con'); selectLLM(cur);
   window.VTES_V3 = { setRoot: function (h) { rootH = h; paused = false; setSaveUI(); }, saveNow: saveNow, addFiles: addFiles, attName: attName, transcript: transcript, setPaused: function (v) { paused = v; setSaveUI(); }, targetUrl: targetUrl, getBots: getBots, findLine: findLine, selectLLM: selectLLM, micToggle: micToggle, speakText: speakText, openBig: openBig, dockLeft: dockLeft, chunks: chunks, pickVoice: pickVoice, getPad: getPad, cur: function () { return cur; } };
+</script>
+<script src="vtes-status.js"></script>
+<script>
+  // ===================== v4: status colors, Map (flow + wiring + subscriptions) =====================
+  // Everything here is data first, pictures second: one set of tables feeds the chips, the flow chart and the wiring diagram.
+  var MAP_DATE = '2026-09-30';
+  // STATUS: what is known. st = up | pending | future | unknown. seen = last time it was known alive (ISO, UTC).
+  // An optional file vtes-status.js next to this page may replace it: window.VTES_STATUS = { 'LLM-01': { st:'up', seen:'2026-10-01T12:00:00Z', note:'…' }, … }
+  var STATUS = {
+    'LLM-01': { st: 'up', seen: '2026-09-24T12:00:00Z', approx: true, note: 'Last proof from the PC session was about 9/24. It has not acknowledged the 9/30 orders.' },
+    'LLM-02': { st: 'up', seen: '2026-09-30T20:30:00Z', note: 'This cloud session stamped it alive on 9/30. It goes amber after 6 hours without a new stamp, red after 24.' },
+    'LLM-03': { st: 'unknown', note: 'No signal from Cowork reaches this page. Needs a heartbeat line from the Cowork window.' },
+    'LLM-04': { st: 'unknown', probe: 'https://claude.ai/', note: 'Checked live: is claude.ai reachable from this browser.' },
+    'LLM-05': { st: 'unknown', note: 'The iPhone app cannot be seen from the PC. Unknown by design.' },
+    'LLM-06': { st: 'pending', since: '2026-09-26T12:00:00Z', note: 'Installed 9/26 (codex-cli 0.157.1). Waiting for your ChatGPT sign-in. No ChatGPT receipt found in your email, so the plan itself is unverified.' },
+    'LLM-07': { st: 'unknown', probe: 'https://grok.com/', note: 'Checked live: is grok.com reachable from this browser.' },
+    'LLM-08': { st: 'unknown', probe: 'https://gemini.google.com/', note: 'Checked live: is gemini.google.com reachable from this browser.' },
+    'LLM-10': { st: 'unknown', probe: 'https://copilot.microsoft.com/', note: 'Checked live: is copilot.microsoft.com reachable from this browser.' },
+    'BOTS': { st: 'future', note: 'Grok Bot (xAI) was added to SuperGrok on 8/27. Not set up here yet.' }
+  };
+  try { if (window.VTES_STATUS) { for (var sk in window.VTES_STATUS) { STATUS[sk] = window.VTES_STATUS[sk]; } } } catch (e) { }
+
+  function nowMs() { return typeof window.VTES_NOW === 'number' ? window.VTES_NOW : Date.now(); }
+  var PROBE = {};
+  function lastUp(id) { try { return +localStorage.getItem('vtes.lastup.' + id) || 0; } catch (e) { return 0; } }
+  function setLastUp(id, t) { try { localStorage.setItem('vtes.lastup.' + id, String(t)); } catch (e) { } }
+  function fmtH(h) { if (h == null) { return ''; } if (h < 1) { return '<1h'; } if (h < 48) { return Math.round(h) + 'h'; } return Math.round(h / 24) + 'd'; }
+  // effective(id) -> { k: up|warn|down|pend|fut|unk, h: hours or null, txt, why }
+  function effective(id) {
+    var s = STATUS[id] || { st: 'unknown' }, now = nowMs(), hrs = function (t) { return (now - t) / 3600000; };
+    if (s.st === 'future') { return { k: 'fut', h: null, txt: 'NOT CONNECTED (future)', why: s.note || '' }; }
+    if (s.st === 'pending') { return { k: 'pend', h: s.since ? hrs(Date.parse(s.since)) : null, txt: 'SET UP, NOT SIGNED IN', why: s.note || '' }; }
+    if (s.probe) {
+      var pr = PROBE[id];
+      if (pr && pr.ok) { return { k: 'up', h: 0, txt: 'UP · site reachable now (login not checked)', why: s.note || '' }; }
+      if (pr && !pr.ok) { var lu = lastUp(id); return lu ? { k: 'down', h: hrs(lu), txt: 'DOWN ' + fmtH(hrs(lu)) + ' · site not reachable', why: 'Last reachable from this browser ' + new Date(lu).toLocaleString() + '.' } : { k: 'unk', h: null, txt: 'NOT REACHABLE · never seen up from this browser', why: s.note || '' }; }
+      return { k: 'unk', h: null, txt: 'CHECKING…', why: s.note || '' };
+    }
+    if (s.seen) {
+      var a = hrs(Date.parse(s.seen)), ap = s.approx ? '~' : '';
+      if (a < 6) { return { k: 'up', h: a, txt: 'UP · seen ' + fmtH(a) + ' ago', why: s.note || '' }; }
+      if (a < 24) { return { k: 'warn', h: a, txt: 'STALE ' + ap + fmtH(a) + ' · no sign of life', why: s.note || '' }; }
+      return { k: 'down', h: a, txt: 'DOWN ' + ap + fmtH(a) + ' · no sign of life', why: s.note || '' };
+    }
+    return { k: 'unk', h: null, txt: 'UNKNOWN · no signal', why: s.note || '' };
+  }
+  var SYM = { up: '●', warn: '▲', down: '✖', pend: '◌', fut: '◌', unk: '?' };
+  var KCOL = { up: '#2e7d4f', warn: '#b26a00', down: '#b3261e', pend: '#1b5e9e', fut: '#7a2e8e', unk: '#6b6b66' };
+  function paintChips() {
+    Array.prototype.forEach.call(document.getElementById('chips').children, function (chip) {
+      var id = chip.getAttribute('data-id'), e = effective(id);
+      ['up', 'warn', 'down', 'pend', 'fut', 'unk'].forEach(function (k) { chip.classList.toggle('st-' + k, e.k === k); });
+      var hr = chip.querySelector('.hrs'); if (hr) { hr.textContent = (e.k === 'warn' || e.k === 'down') ? SYM[e.k] + (s_ap(id) ? '~' : '') + fmtH(e.h) : (e.k === 'unk' ? '?' : (e.k === 'pend' || e.k === 'fut' ? '◌' : '')); }
+      chip.title = id + ' ' + (INFO[id] ? INFO[id].t : '') + ' — ' + e.txt + (e.why ? '. ' + e.why : '');
+    });
+  }
+  function s_ap(id) { return !!(STATUS[id] && STATUS[id].approx); }
+  function paintCard(id) {
+    var el = document.getElementById('stl'); if (!el) { return; }
+    var e = effective(id); el.style.color = KCOL[e.k]; el.textContent = SYM[e.k] + ' ' + e.txt + (e.why ? ' — ' + e.why : '');
+  }
+  function runProbes() {
+    Object.keys(STATUS).forEach(function (id) {
+      var s = STATUS[id]; if (!s.probe || typeof fetch !== 'function') { return; }
+      var done = false, ctl = (typeof AbortController === 'function') ? new AbortController() : null;
+      var tm = setTimeout(function () { if (!done) { done = true; PROBE[id] = { ok: false, at: nowMs() }; if (ctl) { ctl.abort(); } refreshAll(); } }, 7000);
+      fetch(s.probe, { mode: 'no-cors', cache: 'no-store', signal: ctl ? ctl.signal : undefined }).then(function () {
+        if (done) { return; } done = true; clearTimeout(tm); PROBE[id] = { ok: true, at: nowMs() }; setLastUp(id, nowMs()); refreshAll();
+      }, function () { if (done) { return; } done = true; clearTimeout(tm); PROBE[id] = { ok: false, at: nowMs() }; refreshAll(); });
+    });
+  }
+  function refreshAll() { paintChips(); paintCard(cur); if (!document.getElementById('map').hidden) { renderMap(); } }
+
+  // ---------- map tables ----------
+  var MN = [
+    { id: 'LLM-01', e: '🖥️', n: 'Desktop', s: 'RAMBO', g: 'exec', p: 'PASTE-D' },
+    { id: 'LLM-06', e: '🧭', n: 'Codex', s: 'backup exec', g: 'exec', p: 'PASTE-X' },
+    { id: 'LLM-02', e: '☁️', n: 'Cloud', s: 'repo keeper', g: 'exec', p: 'PASTE-C' },
+    { id: 'LLM-03', e: '🤝', n: 'Cowork', s: 'analyst', g: 'help', p: 'PASTE-X' },
+    { id: 'BOTS', e: '🤖', n: 'Grok Bots', s: 'with SuperGrok', g: 'help', p: 'PASTE-X' },
+    { id: 'LLM-04', e: '💬', n: 'Chat', s: 'cockpit', g: 'help', p: 'PASTE-X' },
+    { id: 'LLM-05', e: '📱', n: 'iPhone', s: 'voice', g: 'help', p: 'PASTE-X' },
+    { id: 'LLM-07', e: '🔮', n: 'Grok', s: 'Fabian', g: 'other', p: 'PASTE-X' },
+    { id: 'LLM-08', e: '♊', n: 'Gemini', s: 'Google AI Plus', g: 'other', p: 'PASTE-X' },
+    { id: 'LLM-10', e: '🪟', n: 'Copilot', s: 'Microsoft', g: 'other', p: 'PASTE-X' }
+  ];
+  var RES = [['PC', 'PC files'], ['DRV', 'Drive'], ['MAIL', 'Gmail'], ['M365', 'Outlook/OneDrive'], ['GIT', 'Repo'], ['WEB', 'Live web']];
+  // y = can now · p = partly, pending or unproven · f = possible later, not connected · n = cannot · u = unverified
+  var REACH = {
+    'LLM-01': { PC: 'y', DRV: 'y', MAIL: 'u', M365: 'u', GIT: 'y', WEB: 'y' },
+    'LLM-06': { PC: 'p', DRV: 'p', MAIL: 'n', M365: 'n', GIT: 'f', WEB: 'p' },
+    'LLM-02': { PC: 'n', DRV: 'y', MAIL: 'y', M365: 'y', GIT: 'y', WEB: 'p' },
+    'LLM-03': { PC: 'p', DRV: 'y', MAIL: 'y', M365: 'u', GIT: 'n', WEB: 'y' },
+    'BOTS': { PC: 'n', DRV: 'f', MAIL: 'f', M365: 'f', GIT: 'n', WEB: 'f' },
+    'LLM-04': { PC: 'n', DRV: 'n', MAIL: 'n', M365: 'n', GIT: 'n', WEB: 'y' },
+    'LLM-05': { PC: 'n', DRV: 'n', MAIL: 'n', M365: 'n', GIT: 'n', WEB: 'y' },
+    'LLM-07': { PC: 'n', DRV: 'n', MAIL: 'p', M365: 'n', GIT: 'n', WEB: 'y' },
+    'LLM-08': { PC: 'n', DRV: 'y', MAIL: 'u', M365: 'n', GIT: 'n', WEB: 'y' },
+    'LLM-10': { PC: 'n', DRV: 'n', MAIL: 'n', M365: 'u', GIT: 'n', WEB: 'y' }
+  };
+  var REACHNOTE = {
+    'LLM-01': 'Only window that touches your PC files, tray, 1Password, TreeSize.',
+    'LLM-06': 'On your PC once you sign in. Nothing runs until then.',
+    'LLM-02': 'Always on. Cannot see your PC. One repo only.',
+    'LLM-03': 'Only folders you grant. Reads Drive and mail through connectors.',
+    'BOTS': 'Bots get their own computer and sign in to tools. Not set up.',
+    'LLM-04': 'Chat only. Gets files by paste or link.',
+    'LLM-05': 'Chat only, on the phone.',
+    'LLM-07': 'Chat only. Its Automations email you (Daily Planner, Alec film clock); it cannot read your inbox.',
+    'LLM-08': 'Reads Drive through your Google account. Gmail unverified.',
+    'LLM-10': 'Microsoft side. Whether your plan includes full Copilot is unverified.'
+  };
+  // Buses: every hand-off wire. t = who taps it, same letters as REACH.
+  var BUSES = [
+    { k: 'DRIVE', n: 'Drive bus', d: 'VTES-Inbox = orders in, VTES-Outbox = proof out', w: ['WORKS', 'ok'], t: { 'LLM-01': 'y', 'LLM-06': 'p', 'LLM-02': 'y', 'LLM-03': 'y', 'BOTS': 'f', 'LLM-08': 'y' } },
+    { k: 'GIT', n: 'Repo branch + mailbox', d: 'Cloud writes orders into the repo; the PC pulls them; fingerprints prove nothing was mistyped', w: ['WORKS', 'ok'], t: { 'LLM-01': 'y', 'LLM-02': 'y', 'LLM-06': 'f' } },
+    { k: 'SHARED', n: 'Shared folder LLM-SHARED', d: 'Notes and snips from every window, stamped with tracking number and hashtags (this page writes them)', w: ['UNPROVEN ON PC', 'un'], t: { 'LLM-01': 'p', 'LLM-06': 'p', 'LLM-02': 'p', 'LLM-03': 'p', 'BOTS': 'f', 'LLM-04': 'p', 'LLM-05': 'p', 'LLM-07': 'p', 'LLM-08': 'p', 'LLM-10': 'p' } },
+    { k: 'EMAIL', n: 'Email lane', d: 'Fallback used 9/1 when Drive writes failed. Drafts only; sending is yours to approve', w: ['WORKS', 'ok'], t: { 'LLM-02': 'y', 'LLM-01': 'u', 'LLM-07': 'p', 'LLM-10': 'u' } },
+    { k: 'RC', n: 'Remote Control message', d: 'Window-to-window message between PC sessions', w: ['PARTLY', 'un'], t: { 'LLM-01': 'p', 'LLM-02': 'p' } },
+    { k: 'JORGE', n: 'Jorge carries it', d: 'Handoff packet or PASTE-D / C / X block. Always works, last resort', w: ['WORKS', 'ok'], t: { 'LLM-01': 'y', 'LLM-06': 'y', 'LLM-02': 'y', 'LLM-03': 'y', 'BOTS': 'y', 'LLM-04': 'y', 'LLM-05': 'y', 'LLM-07': 'y', 'LLM-08': 'y', 'LLM-10': 'y' } },
+    { k: 'API', n: 'API click-over', d: 'Only to make the connection click. Priced first, sent to you to approve. Standby', w: ['STANDBY', 'fu'], t: { 'LLM-02': 'f', 'LLM-06': 'f', 'LLM-07': 'f', 'LLM-08': 'f', 'LLM-10': 'u' } }
+  ];
+  var TCOL = { y: '#2e7d4f', p: '#b26a00', f: '#7a2e8e', n: '#9a968c', u: '#6b6b66' };
+  var TWORD = { y: 'can, now', p: 'partly / pending / unproven', f: 'possible later, not connected', n: 'cannot', u: 'unverified' };
+
+  function nodeOf(id) { return MN.filter(function (n) { return n.id === id; })[0]; }
+  function canText(id) {
+    var r = REACH[id], out = [];
+    [['y', 'Can'], ['p', 'Partly'], ['f', 'Later'], ['n', 'Cannot'], ['u', 'Unverified']].forEach(function (g) {
+      var l = RES.filter(function (x) { return r[x[0]] === g[0]; }).map(function (x) { return x[1]; });
+      if (l.length) { out.push('<b>' + g[1] + ':</b> ' + l.join(', ')); }
+    });
+    return out.join('<br>');
+  }
+  var GCOL = { exec: '#1b5e9e', help: '#3b6e8f', other: '#6b5b3e' };
+  function boxHtml(n) {
+    var e = effective(n.id), c = (n.id === 'BOTS' || e.k === 'fut') ? '#7a2e8e' : GCOL[n.g];
+    return '<div class="mbox' + (e.k === 'fut' ? ' fut' : '') + '" style="--c:' + c + '"><div class="mid">' + esc(n.id === 'BOTS' ? 'BOTS · ' + n.p : n.id + ' · ' + n.p) + '</div><div class="mnm">' + n.e + ' ' + esc(n.n) + ' <span style="font-weight:600;font-size:12px;color:var(--muted)">' + esc(n.s) + '</span></div>' +
+      '<div class="mst" style="color:' + KCOL[e.k] + '">' + SYM[e.k] + ' ' + esc(e.txt) + '</div><div class="mcan">' + canText(n.id) + '</div><div class="mcan" style="margin-top:3px">' + esc(REACHNOTE[n.id]) + '</div></div>';
+  }
+  function lane(b) {
+    var taps = Object.keys(b.t).filter(function (k) { return b.t[k] === 'y'; }).length;
+    return '<div class="mlane" style="--c:#2e7d4f"><div class="ln">' + esc(b.n) + ' <span class="mtag ' + b.w[1] + '">' + b.w[0] + '</span></div><div class="ld">' + esc(b.d) + '</div></div>';
+  }
+  function flowHtml() {
+    var by = function (ids) { return ids.map(function (i) { return boxHtml(nodeOf(i)); }).join(''); };
+    return '<div class="mrow"><div class="lab">Row 1 · You</div><div class="mboxes"><div class="mbox" style="--c:#7a2e8e;max-width:520px"><div class="mid">JORGE · OWNER · THE ONLY APPROVER</div><div class="mnm">👤 You, by voice or keyboard</div><div class="mcan">You talk to one executor at a time. You approve anything outbound, spending, deleting or filing. The approval banner and the iPhone alert pull you back in. #JorgeValdes #approve-RED</div></div></div></div>' +
+      '<div class="mflow">⬇ ⬆<small>you talk · they answer</small></div>' +
+      '<div class="mrow"><div class="lab">Row 2 · Executors (they do the work, and hand to each other through Row 3)</div><div class="mboxes">' + by(['LLM-01', 'LLM-02', 'LLM-06']) + '</div><div class="mflow" style="padding-bottom:0"><small>Desktop ⇄ Cloud talk through the lanes below. Codex is the backup desktop executor: same job as RAMBO, on your ChatGPT plan.</small></div></div>' +
+      '<div class="mflow">⬇ ⬆<small>every way a window, agent or bot can hand off and reply</small></div>' +
+      '<div class="mrow"><div class="lab">Row 3 · Hand-off lanes (API is only ever the click)</div><div class="mlanes">' + BUSES.map(lane).join('') + '</div></div>' +
+      '<div class="mflow">⬇ ⬆<small>analysts and bots</small></div>' +
+      '<div class="mrow"><div class="lab">Row 4 · Analysts and bots · Cowork and Grok Bots do the same kind of job</div><div class="mboxes">' + by(['LLM-03', 'BOTS', 'LLM-04', 'LLM-05']) + '</div></div>' +
+      '<div class="mflow">⬇ ⬆<small>other companies · chat only · joined by a pasted link</small></div>' +
+      '<div class="mrow"><div class="lab">Row 5 · Other distributions · second opinions</div><div class="mboxes">' + by(['LLM-07', 'LLM-08', 'LLM-10']) + '</div></div>' +
+      '<div style="margin-top:10px;border:2px solid #2e7d4f;border-radius:14px;padding:8px;background:#eef7f1;text-align:center;font-size:14px">⬇ everything saves to ⬇<br><b>04-AI-SYSTEM / LLM-SHARED</b> · one sub-folder per LLM · every file carries <b>' + PROJ + '</b> + its LLM number + hashtags</div>';
+  }
+
+  // ---------- wiring diagram (SVG) ----------
+  function wireSvg() {
+    var X0 = 62, DX = 110, W = 1130, top = 52, ph = 120, y0 = 228, dy = 44, H = y0 + (BUSES.length - 1) * dy + 34, o = [];
+    var cx = function (i) { return X0 + i * DX; };
+    o.push('<svg id="wire" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wiring diagram: which window can reach which hand-off lane">');
+    o.push('<rect x="0" y="0" width="' + W + '" height="' + H + '" fill="#fff"/>');
+    // Jorge bar
+    o.push('<rect x="8" y="6" width="' + (W - 16) + '" height="30" rx="9" fill="#f3e8f7" stroke="#7a2e8e" stroke-width="2"/><text x="' + (W / 2) + '" y="26" text-anchor="middle" font-size="14" font-weight="800" fill="#7a2e8e">👤 JORGE · owner · approves anything outbound, spending, deleting, filing · carries the paste blocks</text>');
+    MN.forEach(function (n, i) {
+      var x = cx(i), e = effective(n.id), col = (n.id === 'BOTS' || e.k === 'fut') ? '#7a2e8e' : GCOL[n.g], dash = e.k === 'fut' ? ' stroke-dasharray="5 4"' : '';
+      o.push('<g class="wnode" data-id="' + n.id + '"><rect x="' + (x - 50) + '" y="' + top + '" width="100" height="56" rx="10" fill="#fff" stroke="' + col + '" stroke-width="2.5"' + dash + '/>');
+      o.push('<circle cx="' + (x - 38) + '" cy="' + (top + 12) + '" r="6" fill="' + KCOL[e.k] + '" stroke="#fff" stroke-width="2"/>');
+      o.push('<text x="' + (x - 28) + '" y="' + (top + 16) + '" font-size="10" font-weight="800" fill="' + KCOL[e.k] + '">' + (e.k === 'up' ? 'UP' : SYM[e.k] + ((e.k === 'warn' || e.k === 'down') ? ' ' + (s_ap(n.id) ? '~' : '') + fmtH(e.h) : '')) + '</text>');
+      o.push('<text x="' + x + '" y="' + (top + 34) + '" text-anchor="middle" font-size="13" font-weight="800" fill="#1d1d1b">' + n.e + ' ' + esc(n.n) + '</text>');
+      o.push('<text x="' + x + '" y="' + (top + 49) + '" text-anchor="middle" font-size="10" fill="#5b5b57">' + esc(n.id === 'BOTS' ? 'BOTS' : n.id) + '</text></g>');
+      // ports: 3 x 2
+      RES.forEach(function (r, j) {
+        var px = x - 49 + (j % 3) * 33, py = top + 64 + Math.floor(j / 3) * 22, st = REACH[n.id][r[0]], c = TCOL[st];
+        var fill = st === 'y' ? c : (st === 'p' ? '#fff3d6' : '#fff'), sd = st === 'f' ? ' stroke-dasharray="3 2"' : '';
+        o.push('<rect class="port" data-id="' + n.id + '" data-r="' + r[0] + '" data-s="' + st + '" x="' + px + '" y="' + py + '" width="31" height="18" rx="4" fill="' + fill + '" stroke="' + c + '" stroke-width="1.6"' + sd + '/>');
+        o.push('<text x="' + (px + 15.5) + '" y="' + (py + 13) + '" text-anchor="middle" font-size="9" font-weight="800" fill="' + (st === 'y' ? '#fff' : c) + '">' + (st === 'n' ? '✕' : (st === 'u' ? '?' : r[0])) + '</text>');
+      });
+      // vertical wire
+      o.push('<line x1="' + x + '" y1="' + (top + 108) + '" x2="' + x + '" y2="' + (y0 + (BUSES.length - 1) * dy) + '" stroke="#d9d5cc" stroke-width="1.5"/>');
+    });
+    o.push('<text x="8" y="' + (top + 82) + '" font-size="9" fill="#5b5b57" transform="rotate(-90 14 ' + (top + 82) + ')" text-anchor="middle">CAN REACH</text>');
+    BUSES.forEach(function (b, bi) {
+      var y = y0 + bi * dy;
+      o.push('<line x1="10" y1="' + y + '" x2="' + (W - 10) + '" y2="' + y + '" stroke="' + (b.k === 'API' ? '#b26a00' : '#2e7d4f') + '" stroke-width="3"' + (b.k === 'API' ? ' stroke-dasharray="9 5"' : '') + '/>');
+      o.push('<text x="14" y="' + (y - 8) + '" font-size="12" font-weight="800" fill="#1d1d1b" stroke="#fff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">' + (bi + 1) + ' · ' + esc(b.n) + '</text>');
+      MN.forEach(function (n, i) {
+        var t = b.t[n.id]; if (!t) { return; }
+        var x = cx(i), c = TCOL[t];
+        if (t === 'y') { o.push('<circle class="tap" data-bus="' + b.k + '" data-id="' + n.id + '" data-s="y" cx="' + x + '" cy="' + y + '" r="8" fill="' + c + '" stroke="#fff" stroke-width="2"/>'); }
+        else if (t === 'p') { o.push('<circle class="tap" data-bus="' + b.k + '" data-id="' + n.id + '" data-s="p" cx="' + x + '" cy="' + y + '" r="8" fill="#fff3d6" stroke="' + c + '" stroke-width="3"/>'); }
+        else if (t === 'f') { o.push('<circle class="tap" data-bus="' + b.k + '" data-id="' + n.id + '" data-s="f" cx="' + x + '" cy="' + y + '" r="8" fill="#fff" stroke="' + c + '" stroke-width="2.5" stroke-dasharray="3 2.5"/>'); }
+        else if (t === 'u') { o.push('<circle class="tap" data-bus="' + b.k + '" data-id="' + n.id + '" data-s="u" cx="' + x + '" cy="' + y + '" r="8" fill="#fff" stroke="' + c + '" stroke-width="1.5"/><text x="' + x + '" y="' + (y + 4) + '" text-anchor="middle" font-size="11" font-weight="800" fill="' + c + '">?</text>'); }
+      });
+    });
+    o.push('</svg>');
+    return o.join('');
+  }
+  function wiresExplained() {
+    return '<div class="actbox" style="background:#fff;border-color:var(--line)"><b>What each wire is</b><ol>' + BUSES.map(function (b) { return '<li><b>' + esc(b.n) + '</b> <span class="mtag ' + b.w[1] + '">' + b.w[0] + '</span> — ' + esc(b.d) + '</li>'; }).join('') + '</ol></div>';
+  }
+  function legendWire() {
+    var items = [['y', 'connected now'], ['p', 'partly, pending or unproven'], ['f', 'possible later — NOT connected'], ['u', 'unverified'], ['n', 'cannot (✕ on the pin, no dot on the wire)']];
+    var sv = function (s) { var c = TCOL[s]; return s === 'y' ? '<svg width="18" height="18"><circle cx="9" cy="9" r="7" fill="' + c + '"/></svg>' : s === 'p' ? '<svg width="18" height="18"><circle cx="9" cy="9" r="6.5" fill="#fff3d6" stroke="' + c + '" stroke-width="3"/></svg>' : s === 'f' ? '<svg width="18" height="18"><circle cx="9" cy="9" r="6.5" fill="#fff" stroke="' + c + '" stroke-width="2.5" stroke-dasharray="3 2.5"/></svg>' : s === 'u' ? '<svg width="18" height="18"><circle cx="9" cy="9" r="6.5" fill="#fff" stroke="' + c + '" stroke-width="1.5"/><text x="9" y="13" text-anchor="middle" font-size="10" font-weight="800" fill="' + c + '">?</text></svg>' : '<svg width="18" height="18"><text x="9" y="14" text-anchor="middle" font-size="14" font-weight="800" fill="' + c + '">✕</text></svg>'; };
+    return '<div class="actbox" style="background:#fff;border-color:var(--line)"><b>Legend — wires and pins</b><div style="display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:6px">' +
+      items.map(function (i) { return '<span style="display:inline-flex;align-items:center;gap:5px">' + sv(i[0]) + i[1] + '</span>'; }).join('') +
+      '</div><div style="margin-top:6px;font-size:13px;color:var(--muted)"><b>Pins under each window</b> (what it can reach): PC = your PC files · DRV = Google Drive · MAIL = Gmail · M365 = Outlook / OneDrive · GIT = the repo · WEB = live web. <b>Status dot on top of each window:</b> ● up · ▲ stale (amber, hours) · ✖ down (red, hours) · ◌ set up but not signed in (blue) or not connected yet (violet, dashed) · ? unknown. <b>Limits:</b> a chat window can never reach your PC or Drive by itself; it gets files only when you paste or link them. Future (violet dashed) wires are plans, not connections. "Reachable" for web chats means the site answered from this browser, not that you are signed in.</div></div>';
+  }
+
+  // ---------- subscriptions ----------
+  var SUBS = [
+    { n: 'SuperGrok (Grok xAI)', c: '#2e7d4f', w: 'KEEP', feeds: 'LLM-07 Grok · Grok Bots · Grok Automations', cost: '$30.00 / month', bill: 'Stripe “Grok xAI”, charged on the 17th, Visa-4981. Next: 2026-10-17 (plus state sales tax starting Oct 1).', note: 'Six receipts in a row (Apr 17 to Sep 17). xAI says Grok Bot is now included with SuperGrok (8/27). Your two Grok Automations (Daily Planner, Alec microfilm 30-day clock) email you from this account.' },
+    { n: 'X Premium Plus', c: '#b3261e', w: 'DUPLICATE?', feeds: 'Grok access on X · the X account perks', cost: '$40.00 / month (you remembered $20: the latest receipt says $40)', bill: 'Stripe “X”, charged on the 11th, Visa-4981. Next: 2026-10-11.', note: 'Monthly receipts from Feb 11 to Sep 11. This is the only other Grok-related charge in your email. Grok itself is covered by SuperGrok, so this plan is the duplicate. Cancelling it also removes the other X Premium features (blue check, longer posts, analytics). Only you can cancel it.' },
+    { n: 'SpaceXAI API (developer console)', c: '#6b6b66', w: 'NO COST', feeds: 'Any tool that calls Grok by key', cost: '$0.00 usage, July 2026 invoice', bill: 'Usage-only. Nothing recurring. Keys stay in the console (never written to any file here).', note: 'Nothing to cancel. If any PC script uses an xAI key, it is unaffected by the two plans above.' },
+    { n: 'Google AI Plus (2 TB) via Google One', c: '#2e7d4f', w: 'ACTIVE', feeds: 'LLM-08 Gemini · Drive storage', cost: '$9.99 / month', bill: 'Google Play, charged on the 4th, Visa-4981. Introductory price ended Sep 4.', note: 'This is the Gemini subscription found in your email. It is Google AI Plus, not Google AI Pro.' },
+    { n: 'Microsoft 365 (Business Standard, Office 365 E3, Power Automate Premium)', c: '#6b6b66', w: 'ACTIVE', feeds: 'LLM-10 Copilot (if included) · Outlook · OneDrive', cost: 'Amounts not read', bill: 'Renewals on the 10th (Business Standard, Power Automate Premium) and the 12th (Office 365 E3). E3 price drops Oct 12.', note: 'No charge named Copilot exists in your email. Whether your plans include the full Copilot is UNVERIFIED: open copilot.microsoft.com signed in and see which tier it shows.' },
+    { n: 'Claude (Anthropic)', c: '#6b6b66', w: 'ACTIVE', feeds: 'LLM-01 to LLM-05', cost: 'Amounts not read', bill: '12 receipts between Jun 29 and Sep 17 (dates vary: plan renewals or extra-usage purchases).', note: 'Not opened: not part of this duplicate question.' },
+    { n: 'ChatGPT (for Codex)', c: '#7a2e8e', w: 'UNVERIFIED', feeds: 'LLM-06 Codex', cost: 'Unknown', bill: 'No OpenAI or ChatGPT receipt found in Gmail in the last 120 days.', note: 'It may bill to another email or through Apple. Codex is installed and waiting for your sign-in, so the plan is unproven until you sign in.' }
+  ];
+  function subsHtml() {
+    return '<div class="actbox"><b>Two Grok charges, one too many.</b> Recommended: keep <b>SuperGrok ($30)</b>, cancel <b>X Premium Plus ($40)</b> before <b>Oct 11</b>. That saves <b>$40 a month, $480 a year</b>. Why: Grok Bot and your two Grok Automations ride on SuperGrok, and Grok on grok.com does not need X Premium Plus. Cancelling is yours to do: it is money and an account, so nobody else clicks it.' +
+      '<br><b>Move-before-you-cancel check (5 items):</b><ol>' +
+      '<li>Open grok.com/automations signed in. Both Automations (Daily Planner, Alec microfilm 30-day clock) should be listed there. If they are, nothing moves.</li>' +
+      '<li>Grok Bots: nothing set up yet, nothing to move.</li>' +
+      '<li>Saved Grok links in this page: unaffected (they are only web links).</li>' +
+      '<li>Any xAI API key: unaffected, it is billed separately ($0 so far).</li>' +
+      '<li>On X itself: decide whether you use the blue check or longer posts. If you do, keep Premium Plus and cancel nothing.</li></ol></div>' +
+      SUBS.map(function (s) { return '<div class="subc" style="--c:' + s.c + '"><span class="sw">' + esc(s.w) + '</span><div class="sn">' + esc(s.n) + ' · ' + esc(s.cost) + '</div><div class="sd"><b>Feeds:</b> ' + esc(s.feeds) + '</div><div class="sd"><b>Billing:</b> ' + esc(s.bill) + '</div><div class="sd">' + esc(s.note) + '</div></div>'; }).join('') +
+      '<div class="sd" style="font-size:12.5px;color:var(--muted)">Read from your Gmail receipts on ' + MAP_DATE + '. Card shown as nickname + last 4 only. No card numbers, no passwords, no keys. · #SUBSCRIPTIONS #SuperGrok #X-Premium-Plus #Google-AI-Plus #Copilot #' + PROJ + '</div>';
+  }
+
+  // ---------- map mode ----------
+  var mapTab = 'flow';
+  function legendStatus() {
+    var it = [['up', 'UP (green)'], ['warn', 'STALE, hours (amber)'], ['down', 'DOWN, hours (red)'], ['pend', 'set up, not signed in (blue)'], ['fut', 'not connected yet (violet, dashed)'], ['unk', 'unknown (grey)']];
+    return '<div class="lg">' + it.map(function (i) { return '<span><i style="background:' + KCOL[i[0]] + ';box-shadow:0 0 0 1px ' + KCOL[i[0]] + '"></i>' + i[1] + '</span>'; }).join('') + '<span>Hours = time since last sign of life. Checked ' + new Date(nowMs()).toLocaleTimeString() + '.</span></div>';
+  }
+  function statusReport() {
+    return 'VTES STATUS REPORT · ' + PROJ + ' · ' + new Date(nowMs()).toISOString() + ' · #STATUS #VTES-control-panel\n' +
+      MN.map(function (n) { var e = effective(n.id); return n.id + ' ' + n.n + ' · ' + e.txt + (e.why ? ' · ' + e.why : ''); }).join('\n') + '\n(Reachable = the site answered from this browser, not that a login works.)\nTRK ' + PROJ + ' · status · ' + MAP_DATE + ' · CURRENT';
+  }
+  function renderMap() {
+    var el = document.getElementById('map');
+    var tabs = [['flow', 'Flow chart'], ['wire', 'Wiring diagram'], ['subs', 'Subscriptions']];
+    var body = mapTab === 'flow' ? flowHtml() : mapTab === 'wire' ? '<div style="font-size:14px;margin-bottom:6px"><b>Wiring diagram.</b> Each window on top; its six pins show what it can reach. Each horizontal wire is a way to hand off; a dot on the wire means that window can plug into it.</div>' + wireSvg() + wiresExplained() + legendWire() : subsHtml();
+    el.innerHTML = '<div class="mt">' + tabs.map(function (t) { return '<button type="button" data-t="' + t[0] + '" class="' + (t[0] === mapTab ? 'on' : '') + '">' + t[1] + '</button>'; }).join('') + '<button type="button" id="mapcopy">Copy status report</button><span id="mapnote" style="font-size:13px;font-weight:700"></span></div>' + legendStatus() + body +
+      '<p class="foot">' + PROJ + ' · map v1 · ' + MAP_DATE + ' · CURRENT · #MAP #WIRING #STATUS #SUBSCRIPTIONS #VTES-control-panel #LLM-registry</p>';
+    Array.prototype.forEach.call(el.querySelectorAll('.mt button[data-t]'), function (b) { b.addEventListener('click', function () { mapTab = b.getAttribute('data-t'); renderMap(); }); });
+    document.getElementById('mapcopy').addEventListener('click', function () { copyAny(statusReport()).then(function (ok) { document.getElementById('mapnote').textContent = ok ? 'Copied.' : 'Copy failed: select the text and press Ctrl+C.'; }); });
+  }
+  function showMode(m) {
+    document.getElementById('console').hidden = m !== 'con';
+    document.getElementById('dir').hidden = m !== 'dir';
+    document.getElementById('map').hidden = m !== 'map';
+    ['con', 'dir', 'map'].forEach(function (k) { document.getElementById('t_' + k).classList.toggle('on', m === k); });
+    if (m === 'map') { renderMap(); } else if (m === 'dir') { q.focus(); } else { sayEl.focus(); }
+  }
+  document.getElementById('t_map').addEventListener('click', function () { showMode('map'); });
+  window.VTES_MAP = { paintCard: paintCard, effective: effective, refresh: refreshAll, status: STATUS, probe: PROBE, buses: BUSES, reach: REACH, nodes: MN, subs: SUBS, report: statusReport, show: function (t) { if (t) { mapTab = t; } showMode('map'); }, runProbes: runProbes };
+  paintChips(); paintCard(cur); runProbes();
+  setInterval(runProbes, 120000); setInterval(paintChips, 60000);
+  window.addEventListener('online', runProbes); window.addEventListener('offline', function () { Object.keys(STATUS).forEach(function (id) { if (STATUS[id].probe) { PROBE[id] = { ok: false, at: nowMs() }; } }); refreshAll(); });
 </script>
 </body>
 </html>

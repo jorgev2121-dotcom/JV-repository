@@ -101,21 +101,30 @@ over-reading and is withdrawn.
 - **What it is:** xAI's Grok — Jorge's nickname for it: "Fabian."
 - **Its job:** second-opinion analysis, live-web answers, sanity checks on Claude's
   work. Chat on subscription. The old API key is dead; a replacement is allowed only as a priced, approved routing bridge.
-- **Billing:** SuperGrok subscription.
+- **Billing (read from Gmail receipts 2026-09-30):** **SuperGrok $30.00/month**, Stripe "Grok xAI", charged on the 17th, Visa-4981 (KEEP). **X Premium Plus $40.00/month**, Stripe "X", charged on the 11th, Visa-4981: the DUPLICATE (Grok access is already covered by SuperGrok). Cancelling it also drops the blue check and other X perks, so Jorge decides. Next charges: Oct 11 and Oct 17 (+ state sales tax from Oct 1). xAI API: $0.00 usage, nothing recurring. Grok Bot (xAI product) was added to SuperGrok on 8/27: NOT set up. Two Grok Automations (Daily Planner, Alec microfilm 30-day clock) email Jorge from this account: confirm at grok.com/automations before any cancel.
 - **Handoff:** paste the file or the Drive link into the chat; results go back to Drive
   by Jorge's copy or by LLM-02 filing them.
 - **Open it:** https://grok.com
-- **Hashtags:** `#LLM-07 #GROK #FABIAN #second-opinion`
+- **Hashtags:** `#LLM-07 #GROK #FABIAN #second-opinion #SuperGrok #X-Premium-Plus #Grok-Bots #Grok-Automations`
 - **Address:** `vtes://llm-07` → https://grok.com
 
 ### LLM-08 · ♊ · Gemini · VOLUME DRAFTER
 - **What it is:** Google Gemini (chat) and Gemini CLI (free on the Google account).
 - **Its job:** cheap/free volume work — drafting, summarizing, Drive-native reads.
   Gemini CLI can run headless on the PC under `GEMINI.md`.
-- **Billing:** Google account (free tier / Google One). No API key needed for CLI login.
+- **Billing:** Google AI Plus (2 TB) via Google One on Google Play, $9.99/month, charged on the 4th, Visa-4981 (found in Gmail 2026-09-30; intro price ended Sep 4). No API key needed for CLI login.
 - **Open it:** https://gemini.google.com, or Windows Terminal → `gemini`.
-- **Hashtags:** `#LLM-08 #GEMINI #google #volume`
+- **Hashtags:** `#LLM-08 #GEMINI #google #volume #Google-AI-Plus`
 - **Address:** `vtes://llm-08` → https://gemini.google.com
+
+### LLM-10 · 🪟 · Microsoft Copilot · MICROSOFT-SIDE HELPER
+- **What it is:** Microsoft Copilot (copilot.microsoft.com, the Edge sidebar, and inside Microsoft 365). Added 2026-09-30 at Jorge's request. ID 10 because 09 is reserved for the API router.
+- **Its job:** second opinion from the Microsoft side; Outlook and OneDrive questions. Chat only from the launcher.
+- **Billing:** UNVERIFIED. No charge named Copilot appears in Gmail receipts. Jorge holds Microsoft 365 Business Standard, Office 365 E3 and Power Automate Premium (monthly renewals on the 10th and 12th). Whether they include the full Copilot is unknown until Jorge opens Copilot signed in and reads the tier shown.
+- **Handoff:** paste text or a link into the chat; nothing reaches it automatically.
+- **Open it:** https://copilot.microsoft.com
+- **Hashtags:** `#LLM-10 #COPILOT #microsoft #edge #M365 #outlook #onedrive #PASTE-X #windows`
+- **Address:** `vtes://llm-10` → https://copilot.microsoft.com
 
 ### LLM-09 · 🧰 · Thin API router (bridge) · STANDBY
 - **What it is:** a routing bridge only. Candidates: `vts-llm-panel/vts_llm_panel.py` (TRK-2026-9200),

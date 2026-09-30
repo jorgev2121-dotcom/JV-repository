@@ -532,3 +532,7 @@ Your steps — nothing here needs Jorge except the final look:
 ---
 ## 2026-09-30 — ADHOC-FILING-SYSTEM (Jorge's architecture request) — ISSUED by cloud
 Full order: `mailbox/to-desktop/TASK-C2D_ADHOC-FILING-SYSTEM_2026-09-30.md` (also in VTES-Inbox). Inventory crawler `tools/inventory/VTES-Inventory.ps1` (15 of 15 self-test), tree view `tools/vtes-panel/VTES-TREEMAP.html`, TreeSize setup for the targets Jorge screenshotted, PC-side inventory of the nine surveyed jobs, program comparison and AI-program classification (proposal only), email-circle protocol hunt. **All GREEN, read-only. No moves, no deletes.** Did the desktop ACK it?
+
+---
+## 2026-09-30 — HEARTBEAT + LAUNCHER v4 — ISSUED by cloud
+Full order: `mailbox/to-desktop/TASK-C2D_HEARTBEAT-AND-LAUNCHER-V4_2026-09-30.md`. Small and green: copy two files, run one self-test, schedule one 10-minute stamp, screenshot a green tab. Do it BEFORE the big filing order so Jorge's strip shows you alive.
