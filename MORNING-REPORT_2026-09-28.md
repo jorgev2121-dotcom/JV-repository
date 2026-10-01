@@ -18,9 +18,29 @@ Everything else below can wait a day. This one keeps stacking up.
 
 **Reported, not confirmed in this window: you said "run the three tonight" in another Claude chat at 03:54 UTC.** If that is right, the poller rebuild, the heartbeat fix and the CDM go-ahead are already approved. Cowork treated it as CDM: GO and finished a plain-language CDM findings report tonight.
 
-**What is still not done:** the poller and heartbeat fixes are jobs on your PC, and as of 05:25 UTC nothing showed they ran. A desktop helper says the poller still needs the words "Run PASTE-D-063" typed at the PC.
+**What is still not done:** the poller and heartbeat fixes are jobs on your PC, and as of 05:25 UTC nothing showed they ran. A desktop helper says the poller still needs the combined message PASTE-D-064 (which replaced D-063 at 19:36Z 9/30) run at the PC.
 
 **If that go-ahead was not yours, tell me and I will mark CDM as on hold again.**
+
+---
+
+## 06:20 UTC 10/1 — CDM data merges: two of three confirmed by a second check
+
+**Cowork checked every row of the merged files against the source files.** The rulebook (110 rows) and the calibration file (80 rows) both pass. The registry has 456 rows, of which 455 are correct and one needs a re-copy. CDM is now 87% complete.
+
+**One open disagreement, not yours to settle:** Cowork wants five more registry rows added (to reach 461). The other window says those five rows were already there and 461 was a miscount.
+
+**Still not started:** the engine itself and its first real test. **Your part has not changed:** the poller fix (PASTE-D-064) at the PC.
+
+---
+
+## 15:25 UTC 9/30 — result of the overnight "run the three" push
+
+**1 of 3 done.** CDM go-ahead: done, with a findings report from Cowork. Poller rebuild: not done. Heartbeat fix: not done. Both of those are jobs at your PC, and nobody sat down at it overnight.
+
+**Also open:** the CDM data merges and the first engine test have no owner. They need one dedicated work session, not a spare hour.
+
+**Cheap way to fix the poller:** when you are next at the PC, use PASTE-D-064 (one combined message; it replaces D-063). Its file is DESKTOP-ONE-MESSAGE_PASTE-D-064.md under mailbox/to-desktop on another session's branch (claude/dreamy-lamport-2dvdqt)
 
 ---
 
@@ -40,7 +60,7 @@ Everything else below can wait a day. This one keeps stacking up.
 
 **4. A tax-credit analysis tool (CDM) has been sitting at 85% done for about three weeks.** All research is done and checked; the only thing stopping it is one line: **"CDM: GO"** or **"CDM: hold."** Update from overnight: another helper window ordered the desktop to build a one-click approval board that will carry CDM: GO as a button. Until it exists, the typed line still works. Separately, the CDM job file has sat unopened on the desktop for 24 hours because it is not on the desktop's night task list.
 
-**5. The county fee is now known: $7,280.94 — and it looks wrong. Do not pay it.** Last night the desktop revealed the amount (nothing was charged). The county seems to have billed for a 20,000 square foot job; yours is a small balcony repair, about 6 by 12 feet. A fee-review email is drafted but **not sent**, and another AI edited the same draft at the same time and scrambled it. **Your part: read the draft top to bottom, then click Send if it makes sense.** Also glance at the printer tray for two or three stray permit copies.
+**5. The county fee: the review email went out and the county already answered. Do not pay $7,280.94.** Another Claude window records that the fee-review email was sent 9/29 at 6:54 PM ET and a county supervisor replied 9/30. He says the fee is set by the square feet on the application. **Your part: reply asking him to apply the corrected application (72 sq ft, one balcony) to invoice C2026170181 and reissue the fee.** The old draft is no longer needed. (I have not checked this in Gmail myself.)
 
 **6. The TUS-26-1033 signature package — a $16,000 invoice — has been unsigned by the client since August 10th.** One word — **CHASE** or **HOLD** — and it moves.
 
@@ -64,7 +84,7 @@ Everything else below can wait a day. This one keeps stacking up.
 
 **1. Cowork closed eight stale items in its own to-do list** and staged the next desktop job (three county-level reads). No action from you.
 
-**2. The desktop has not opened the CDM job or the inbox poller rebuild.** Both are waiting on the desktop's night queue and on your paste for the poller (PASTE-D-063). Nothing is lost, just idle.
+**2. The desktop has not opened the CDM job or the inbox poller rebuild.** Both are waiting on the desktop's night queue and on your paste for the poller (now PASTE-D-064, which replaced D-063). Nothing is lost, just idle.
 
 **3. A watchdog emailed you** that the three PC-always-on asks are now over 24 hours old. That is the same three asks in this report: make the heartbeat permanent, rebuild the inbox poller, decide the job-watcher gate.
 
