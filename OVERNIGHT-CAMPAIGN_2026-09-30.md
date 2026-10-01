@@ -152,8 +152,54 @@ This is the second of the three merges fully closed (registry, now rulebook).
 Calibration is the last one still mid-correction (80-row rebuild, re-upload, cleanup
 of the old 81-row parts and the 21 ZTMP fragments — not yet confirmed landed).
 
+## Update, ~03:35 UTC Oct 1 — calibration merge: DONE, and spot-checked clean
+
+**Calibration (73→80 rows, corrected from the earlier wrong 81 target): all 6 PART
+files uploaded, cleanup confirmed, and independently spot-checked rather than taken
+on trust.**
+
+- **Checked directly:** downloaded PART-4-of-6 (the file carrying the two rows
+  Cowork had flagged as defective — malformed GAP-10 and the BASE-2026-203
+  replace/overwrite bug) straight from Drive. Byte size (59,417) and full sha256
+  (`43ee96ce0ad2536b0bdf513cecaaa85e18f73cb53782f8e5723a245f74ee0608`) match the
+  agent's claimed values exactly. Parsed with a proper CSV reader: GAP-10 now has
+  all 31 columns (was 23 of 31 in the superseded attempt), BASE-2026-203 is present
+  once with all 31 columns, 13 data rows total as claimed.
+- **Cleanup confirmed independently:** searched Drive for `ZTMP` under MY-DESK —
+  zero results, all 21 scratch fragments gone. The two old wrong-scheme 81-row
+  PART-1/PART-2 uploads and the old incomplete 20-row main file are absent from the
+  active file listing.
+- **One self-caught error in the agent's own final round, logged for completeness:**
+  a transcription slip in one PART-6 cell (a 2-character Drive-ID typo inside an
+  `evidence_files` reference), caught by the agent's own byte-diff against its local
+  source before I ever saw it, trashed, and re-uploaded correctly. No action needed
+  from this end — it already happened and was already verified.
+
+**This was a targeted spot-check on the two highest-risk rows (the ones Cowork had
+actually flagged), not a full row-by-row re-audit of all 80 rows** — consistent with
+the spot-check approach used on the registry merge.
+
+## All three CDM merges: DONE
+
+- **Registry:** 411→456 rows (corrected from a wrong ~461 target), 25 parts, spot-
+  checked and holds up.
+- **Rulebook:** 85→110 rows, 11 parts, both flagged defects (R-2026-203, X-34) fixed
+  and confirmed against Cowork's own expected hashes where one existed.
+- **Calibration:** 73→80 rows (corrected from a wrong 81 target), 6 parts, both
+  flagged defects (GAP-10, BASE-2026-203) fixed and spot-checked clean.
+
+**Real finding that recurred across two of the three merges, not three independent
+coincidences:** both wrong row-count targets (registry's 461, calibration's 81)
+trace back to Cowork's own earlier tallies being wrong, not to anything the merge
+agents did. Worth Cowork re-checking how those two numbers were originally derived
+if this pattern matters for the next handoff.
+
+**Not done, and deliberately not started:** the engine build and ten-verdict TEDC
+calibration test the same handoff also assigned — still held as its own dedicated
+task per the original recommendation, not squeezed in here.
+
 ## Next check
 
-**2 of 3 CDM merges fully done and verified: registry (456 rows) and rulebook (110
-rows).** Calibration (80 rows) is the only one still open. No further automatic check
-queued — watching for the calibration agent's final report.
+No further automatic check queued. All three CDM merges from the GO handoff are
+closed. Next open items are the still-NOT-DONE poller/heartbeat persistence (desktop,
+items 1–2) and, if/when authorized, the CDM engine build + calibration test.
