@@ -22,11 +22,13 @@ Everything else below can wait a day. This one keeps stacking up.
 
 ---
 
-## 04:20 UTC 10/1 — CDM data merges: claimed done, not yet fully checked
+## 06:20 UTC 10/1 — CDM data merges: two of three confirmed by a second check
 
-**Another Claude window says all three CDM data merges are finished** (rulebook 110 rows, calibration 80, registry 456). It checked the two riskiest rows itself and says so plainly. **A full row-by-row check by Cowork is due around 1 AM ET and has not run yet**, so I am calling it "claimed," not "done."
+**Cowork checked every row of the merged files against the source files.** The rulebook (110 rows) and the calibration file (80 rows) both pass. The registry has 456 rows, of which 455 are correct and one needs a re-copy. CDM is now 87% complete.
 
-**Still not started:** the engine itself and the first real test. **Your part has not changed:** the poller fix (PASTE-D-064) at the PC.
+**One open disagreement, not yours to settle:** Cowork wants five more registry rows added (to reach 461). The other window says those five rows were already there and 461 was a miscount.
+
+**Still not started:** the engine itself and its first real test. **Your part has not changed:** the poller fix (PASTE-D-064) at the PC.
 
 ---
 
