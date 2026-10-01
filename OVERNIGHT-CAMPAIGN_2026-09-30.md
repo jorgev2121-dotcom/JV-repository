@@ -128,8 +128,32 @@ most-suspicious claim survived an outside check. Not claiming a full row-by-row 
 way Cowork ran on the other two — this was a targeted spot-check of the one thing worth
 doubting, not exhaustive verification.
 
+## Update, ~03:10 UTC Oct 1 — rulebook merge: DONE, fully confirmed
+
+**Rulebook (85→110 rows): both Cowork-flagged defects fixed, re-verified against
+Cowork's own expected hashes, and closed.**
+
+- **X-34** — expected hash `bb028fbb3cada8e8` from Cowork's verification sheet,
+  cross-checked by the agent against its live, currently-deployed row: exact match.
+  Clean.
+- **R-2026-203** — this row has no single post-merge target hash to check against.
+  Cowork's sheet shows a composite value (the two *source*-row hashes being merged,
+  not a computed target), because it's an in-place-append, not a plain replace —
+  there's no independently-pre-computed "correct final bytes" for a row built by
+  concatenating two sources. The agent's own fix — rebuilding the row from the actual
+  v8/v12 source cells, concatenating old + separator + new across all four affected
+  cells (rule_as_extracted, round_status, verification_status, notes, plus restoring
+  the previously-dropped evidence_artifact field) — is the correct and sufficient
+  check for this row. Closed on that basis, not on a hash that was never going to
+  exist.
+
+**110 data rows across 11 verified Drive parts, no further corrections outstanding.**
+This is the second of the three merges fully closed (registry, now rulebook).
+Calibration is the last one still mid-correction (80-row rebuild, re-upload, cleanup
+of the old 81-row parts and the 21 ZTMP fragments — not yet confirmed landed).
+
 ## Next check
 
-No further automatic check queued. Watching for the rulebook and calibration agents'
-re-verification reports (both mid-fix) and for Cowork's own check of the registry file,
-which it had not yet reached as of its last verification pass.
+**2 of 3 CDM merges fully done and verified: registry (456 rows) and rulebook (110
+rows).** Calibration (80 rows) is the only one still open. No further automatic check
+queued — watching for the calibration agent's final report.
