@@ -1921,6 +1921,8 @@ has no Code statusline but its UI is already distinct and it carries the 🤝 ba
 
 ---
 
+**Recurred 2026-09-28 (Cloud session_01Vrs2ytMJQFG6P1q4i8NYar):** in one afternoon, desktop-bound blocks PASTE-D-059, PASTE-D-060 and PASTE-D-062 were each pasted into a Cloud or Cowork window instead of the Desktop executor. Each window correctly refused, and the night-engine fix (N-1/N-2) sat unexecuted for hours as a result. Count is now 3+. Per Rule 4, patches are forbidden; options must include removing the paste step entirely (the rebuilt inbox poller picks work up from the VTES-Inbox with no paste).
+
 ## RI-032 — a no-BOM PowerShell script run under 5.1 mis-decodes a non-ASCII path literal and silently builds a parallel tree
 **Logged 2026-08-24. Root-caused by desktop TRK-2026-9671; scoped by TRK-2026-9672. Prior occurrence: TRK-2026-9602 (2026-08-23).**
 
@@ -2322,3 +2324,8 @@ PC session with a fixed name that every cloud session can address.
 **Tier 3 — Enforcement.** A standing rule, stated in the charter or a shared file all sessions read at startup, that no session sends/submits/finalizes anything without a fresh, explicit re-read of the final state immediately before the action — not the state it last wrote, the state as it exists right now. This is the fallback that catches a collision Tier 2 missed, not a replacement for it.
 
 **Recommendation: Tier 2 first (a lightweight claim signal for live documents), Tier 3 as the backstop.** Not proposing Tier 1 alone — this is a first occurrence, but the failure mode (a corrupted email actually sent to an outside party) is severe enough that "hope every session remembers to double-check" isn't sufficient on its own. Flagged here rather than fixed unilaterally, since it affects how every session on this account behaves, not just one job.
+
+**RI-031-adjacent, 2026-10-01 (cloud):** PASTE-ID collision — parallel cloud sessions on different branches
+issued the same PASTE-X/D numbers (X-008, and D-053 as a session title). Cause: PASTE-LOG.md lives per-branch and
+unmerged PRs hide each other's IDs. Tier-2 fix: issue IDs only after `git fetch` + reading PASTE-LOG.md on the base
+branch AND open PR branches; or give each window its own number block.

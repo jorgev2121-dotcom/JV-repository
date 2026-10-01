@@ -1,0 +1,18 @@
+Order,Task,Assigned to,Status,Starts,Estimated finish (Miami time),Waiting on,Where the result lands
+1,"Fix the night engine: rebuild the inbox poller, check heartbeat, write 2 result files (PASTE-D-063)",Desktop (Jorge-PC),WAITING - paste not yet received by Jorge-PC,When pasted,About 15 min after paste,Jorge pastes PASTE-D-063 into Jorge-PC,"VTES-Outbox: PASTE-D-062-RESULT.txt, EXECUTOR-STATUS.txt"
+2,"Wally lead list: group the 1,912 unsafe-structure owners by property type and lien status (TRK-2026-9224)",Desktop (Jorge-PC),QUEUED,After task 1,Tomorrow 7:00 AM,Task 1,"VTES-Outbox, one file per group"
+3,Cash collection: match each invoice on the spine to any payment found in mail (read-only),Desktop (Jorge-PC),QUEUED,After task 2,Tomorrow 7:00 AM,Task 1,VTES-Outbox
+4,Filler: OCR PDFs already inside a 01-JOBS TRK folder (Queue A only),Desktop (Jorge-PC),QUEUED,If 2 and 3 finish early,Runs until 7:00 AM,Task 1,Sidecar files next to each PDF
+5,Night report with 'X of N' for every item,Desktop (Jorge-PC),QUEUED,End of night,Tomorrow 7:00 AM,Task 1,VTES-Outbox: NIGHT-REPORT_<date>.md
+6,Check Drive for task 1's two result files and confirm the poller is writing,Cloud,SCHEDULED,7:31 PM tonight,7:35 PM tonight,Task 1,OPEN-ITEMS.md; one line to Jorge only if needed
+7,"Watchdog: heartbeat, unacknowledged jobs, stale monitors",Cowork,RUNNING - every 4 hours,7:14 PM tonight,Recurring,None,MY-DESK: WATCHDOG-LATEST.md; email only on new issues
+8,CDM tax-credit model build (84% complete),Cowork,RUNNING - 5 runs a day,9:13 PM tonight,Waits on owner word 'CDM: GO',Jorge: CDM GO or hold,MY-DESK: CDM_PROGRESS.md
+9,Plaud recordings to Drive transcripts,Cowork,RUNNING - daily,Tomorrow 7:11 AM,Tomorrow 7:15 AM,None,Drive: PLAUD-TRANSCRIPTS
+10,Weekday business-inbox triage,Cowork,RUNNING - weekdays,Tomorrow 7:38 AM,Tomorrow 7:45 AM,None,Message to Jorge
+11,Morning report,Cloud,SCHEDULED - overnight hourly,Midnight to 6 AM,Tomorrow 8:00 AM,Desktop night results,Repo: MORNING-REPORT_<date>.md
+12,Plaza of Bal Harbour progress report draft (last run FAILED 9/23),Cowork,AT RISK,Wed 9/30 7:02 AM,Wed 9/30 7:30 AM,Routine must not fail again,Gmail Drafts (Jorge sends)
+13,"Code-enforcement lien lists: 50 homes + 50 commercial, county permit match, 2 CSVs",Cowork (proposed),NOT STARTED - not yet assigned,After Jorge says yes,About 2 days after start,Jorge: yes to assign; vendor test send is RED,Drive: 2 CSV files
+14,Miami-Dade Unit 29 rework upload (C2026170181),Desktop (Jorge-PC),ON HOLD,After Jorge confirms,Same day as confirmation,Another session is already on this invoice,Stops before Send for Jorge
+15,Codex backup executor,Codex,"IDLE - installed, no tasks",After Jorge's one sign-in click,n/a,Jorge: sign in on desktop shortcut,n/a
+16,Grok,Grok,NO TASKS - no connection to this system,n/a,n/a,n/a,n/a
+17,"17 owner gates (top 3 free 25 jobs: REG-0001, REG-0002, REG-0004)",Jorge,WAITING ON OWNER,Any time,n/a,None,TEAM-DEPLOYMENT-PLAN_2026-09-28.md Section G
