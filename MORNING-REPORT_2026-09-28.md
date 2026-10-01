@@ -22,6 +22,14 @@ Everything else below can wait a day. This one keeps stacking up.
 
 ---
 
+## 04:20 UTC 10/1 — CDM data merges: claimed done, not yet fully checked
+
+**Another Claude window says all three CDM data merges are finished** (rulebook 110 rows, calibration 80, registry 456). It checked the two riskiest rows itself and says so plainly. **A full row-by-row check by Cowork is due around 1 AM ET and has not run yet**, so I am calling it "claimed," not "done."
+
+**Still not started:** the engine itself and the first real test. **Your part has not changed:** the poller fix (PASTE-D-064) at the PC.
+
+---
+
 ## 15:25 UTC 9/30 — result of the overnight "run the three" push
 
 **1 of 3 done.** CDM go-ahead: done, with a findings report from Cowork. Poller rebuild: not done. Heartbeat fix: not done. Both of those are jobs at your PC, and nobody sat down at it overnight.
