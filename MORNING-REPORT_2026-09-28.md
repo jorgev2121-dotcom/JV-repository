@@ -4,7 +4,17 @@
 
 ---
 
-## START HERE — the one thing that unblocks the most
+## START HERE — update 2026-10-01 21:25Z (5:25 PM Miami)
+
+**The inbox poller is running again.** The desktop log shows it started at 4:25 PM and acknowledged 38 waiting job files. You no longer need to say "rebuild the inbox poller."
+
+**Still unproven:** that the heartbeat file updates again, and that it survives a restart. Receipt is not the same as the jobs being done.
+
+**One real blocker from the desktop:** the Sunbiz, clerk and PACER job needs browser permission, or you saying "go" in an interactive Code window.
+
+---
+
+## (older) START HERE — the one thing that unblocks the most
 
 **Say this one line: "yes, rebuild the inbox poller."** The desktop's inbox-reading task does not exist, so every job file waiting in the shared Inbox sits unread, and nothing has been opened by the desktop for two days. That includes the CDM job, its two follow-ups, and three new orders from the Chat window. It is one yes, and the desktop builds and tests it in the same session.
 
