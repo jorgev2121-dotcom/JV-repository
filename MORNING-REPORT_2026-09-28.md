@@ -4,7 +4,17 @@
 
 ---
 
-## START HERE — update 2026-10-01 21:25Z (5:25 PM Miami)
+## START HERE — update 2026-10-01 22:20Z (6:20 PM Miami)
+
+**Good news: the desktop is working again, and it finished the CDM jobs.** The heartbeat file is ticking. The desktop ran the CDM engine on all 42 data files. 28 of 28 tests passed. It also built the intake form.
+
+**One small thing is open:** the five missing registry rows exist, but the engine does not read them yet. Someone has to pick one of two fixes. I did not pick for you.
+
+**Heads up:** Cowork and the desktop did the same job at the same time and overwrote each other's file. No data was lost. It is the second time.
+
+---
+
+## (earlier) update 2026-10-01 21:25Z (5:25 PM Miami)
 
 **The inbox poller is running again.** The desktop log shows it started at 4:25 PM and acknowledged 38 waiting job files. You no longer need to say "rebuild the inbox poller."
 
