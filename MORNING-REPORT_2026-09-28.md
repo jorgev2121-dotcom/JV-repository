@@ -109,3 +109,18 @@ Everything else below can wait a day. This one keeps stacking up.
 ---
 
 Anything here you want handled differently, or a go-ahead on any of the six?
+
+---
+
+## Update 2026-10-01 18:20Z (2:20 PM Miami) — Section U
+
+**Good news first: the CDM engine is built and tested.** Cowork ported it itself. 28 of 28 tests pass. CDM is 87.6%.
+
+**The desktop is alive.** It wrote a handoff at 2:04 PM. It lists three stalled jobs that each need one answer from you:
+
+1. **1Password cleanup:** say yes to merging 12 duplicates and deleting 6 junk items. Waiting 37 days.
+2. **TEDC capsules (about $30,000 pipeline):** who owns Garden Walk EAST? The file says Garden Walk Associates Ltd. The county lookup says Tacolcy Paradise Cove LLC. Waiting 57 days.
+3. **Alec due-diligence reports:** only 3 jobs exist on disk. Which addresses are the missing 2 or 3?
+
+**Still not proven:** the poller rebuild and heartbeat fix (PASTE-D-064 at the PC).
+
