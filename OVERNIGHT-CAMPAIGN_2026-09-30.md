@@ -60,7 +60,52 @@ dedicated task, next, not squeezed into tonight's tail end.**
 Nothing touching credentials, payments, client-facing sends, or physical actions, and the
 CDM engineering follow-on above — held for a dedicated pass rather than rushed.
 
+## Update, ~02:30 UTC Oct 1 — the three CDM merges, dispatched and now mid-correction
+
+After the 11am deadline passed, Jorge approved starting the three merges the 13:21Z board
+flagged as unowned. Dispatched as three parallel agents (`CDM-MERGE-STATUS_2026-09-30.md`
+has the original dispatch). Real status, not "good progress":
+
+- **Registry (411→461 rows):** working in its own isolated scratch directory (smart —
+  avoided the collision below). Still in progress as of this update, not yet reported back.
+- **Rulebook (85→110 rows):** reported DONE, 11 parts uploaded and individually
+  hash-verified. **Cowork independently re-checked it byte-by-byte** (`CDM_MERGE-VERIFICATION_v1`,
+  MY-DESK) and confirmed 99+ of 110 rows exact, but found two real defects: one
+  in-place-append row (R-2026-203) overwrote three cells instead of appending to them and
+  dropped a fourth entirely, and one row (X-34) is missing a 200-character clause — both
+  look like hand-retyping errors on the two rows that needed editing (every untouched row
+  came through byte-exact). Sent back for a targeted fix; not yet confirmed re-landed.
+- **Calibration (73→81 rows... except it's actually 80, see below):** the most eventful of
+  the three.
+  - **Real finding, not a technical nitpick: the target row count itself was wrong.**
+    `BASE-2026-203` already existed in the base file; the delta's version of it was meant
+    to *replace* it, not be appended under a new id. I made the append call earlier tonight
+    based on the delta's own confusing wording plus Cowork's own repeated "81" tally in its
+    progress boards — Cowork has now corrected itself: the right count is 80, and its own
+    earlier count caused the error. Logged so the next session doesn't re-derive this from
+    scratch.
+  - **Cowork's same independent check caught a second, unrelated defect**: one row (GAP-10)
+    landed with 23 of 31 columns in an earlier, partly hand-typed attempt at this file (a
+    `CDM_..._v15_2026-09-30.csv` + 21 `ZTMP-v15-part*` fragments, all now superseded).
+  - **Separately, this session found and fixed a tooling bug**: the agent's merge script
+    rebuilt every row through Python's `csv` module, which re-quotes fields and changes a
+    row's exact bytes even when the content is identical — this would have failed every
+    single byte-exact check Cowork runs, not just the flagged rows. Rebuilt the merge using
+    verbatim byte-level row copying instead; re-verified three of the four flagged rows
+    against Cowork's own expected hashes and they now match exactly.
+  - Corrected 80-row file built and handed back to the agent to re-split, re-upload, and
+    clean up the two abandoned attempts (the old 81-row PART-1/2 uploads and the 21 ZTMP
+    fragments). Not yet confirmed landed.
+
+**New process finding, logged to `RECURRING-ISSUES.md` as RI-050:** the rulebook and
+calibration agents were both given the same shared scratch directory and both defaulted to
+identical generic filenames (`PART-1.csv` through `PART-6.csv`), and one agent's output
+silently overwrote the other's mid-run. No data was lost on Drive (each agent verified its
+own upload before the collision happened), but it was close — the registry agent avoided
+this entirely by using its own isolated subdirectory on its own initiative. Future fan-outs
+sharing a scratchpad should give each agent its own named subdirectory from the start.
+
 ## Next check
 
-No further automatic check queued. Next real signal is either Jorge, or the 15:13 UTC
-watchdog cycle.
+No further automatic check queued. Watching for the rulebook and calibration agents'
+re-verification reports and the registry agent's first report.
