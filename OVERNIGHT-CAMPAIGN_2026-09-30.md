@@ -105,7 +105,31 @@ own upload before the collision happened), but it was close — the registry age
 this entirely by using its own isolated subdirectory on its own initiative. Future fan-outs
 sharing a scratchpad should give each agent its own named subdirectory from the start.
 
+## Update, ~02:50 UTC Oct 1 — registry merge done, and it checks out
+
+**Registry (411→456 rows, not the originally stated ~461): reported DONE, 25 parts
+uploaded, and this time independently spot-checked rather than taken on trust.** The
+agent's own report flagged something worth real scrutiny on its own: the target had been
+~461 everywhere it was written down, but it delivered 456 and explained why — every delta
+file assumed it was building on a hypothetical 416-row intermediate base that was never
+actually produced, and 5 rows each delta thought it was adding fresh (C-ET2-13, C-ET2-14,
+C-ET2-15, C-ALL-11, S-ET2-11) already existed in the real, hash-verified 411-row base.
+
+**Checked directly rather than accepted:** downloaded the agent's local copy of the real
+base file, confirmed its hash matches the known-good value, parsed it with a proper CSV
+reader (not naive line-splitting, since this file has embedded newlines inside quoted
+cells), and confirmed all 411 rows are unique with no duplicates — and all five of the
+"already there" ids the agent named are genuinely present, exactly once each. The claim
+holds up independently, not just on the agent's say-so.
+
+**This is the one of the three merges that needed no correction round** — it worked in its
+own isolated scratch subdirectory from the start (avoiding RI-050 entirely) and its central,
+most-suspicious claim survived an outside check. Not claiming a full row-by-row audit the
+way Cowork ran on the other two — this was a targeted spot-check of the one thing worth
+doubting, not exhaustive verification.
+
 ## Next check
 
 No further automatic check queued. Watching for the rulebook and calibration agents'
-re-verification reports and the registry agent's first report.
+re-verification reports (both mid-fix) and for Cowork's own check of the registry file,
+which it had not yet reached as of its last verification pass.
