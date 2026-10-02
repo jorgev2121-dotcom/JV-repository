@@ -99,3 +99,4 @@ enough to identify it exactly, with no description needed.
 - **PASTE-D-064** · 2026-10-02 · Desktop → reactivate `VTES-LOCAL-POLLER` + `CU-Uptime-Heartbeat` for VTES-Inbox; leave `CU-Inbox-Job-Watcher` disabled per D-063. Detail: `mailbox/to-desktop/WORK-QUEUE_Reactivate-Executors_2026-10-02.md`.
 - **PASTE-D-065** · 2026-10-02 · Desktop → wire the control panel LLM button to `vtes-panel/LLM-LINKS.html`, pop the panel up, paste proof. Detail: `mailbox/to-desktop/WORK-QUEUE_LLM-Button-Links_2026-10-02.md`.
 - **PASTE-D-066** · 2026-10-02 · Desktop → fix control panel header covering the tab row so the ALL button shows and works. Detail: `mailbox/to-desktop/WORK-QUEUE_Panel-Header-Hides-ALL-Tab_2026-10-02.md`.
+- **PASTE-X-009** · 2026-10-02 · Gemini (chat window) → read GEMINI-TAKEOVER_START-HERE in the Drive folder 'Shared Folders for all LLMs', take the orchestrator seat. Repo copy: `GEMINI-TAKEOVER_START-HERE_2026-10-02.md`.
