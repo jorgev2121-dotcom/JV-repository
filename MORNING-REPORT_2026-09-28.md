@@ -4,7 +4,21 @@
 
 ---
 
-## START HERE — update 2026-10-02 14:35Z (10:35 AM Miami, Friday)
+## START HERE — update 2026-10-02 18:25Z (2:25 PM Miami, Friday)
+
+**Good news, with proof:**
+1. **Codex is already installed on your PC.** The held install job can be closed. Nothing to buy or install.
+2. **The CDM record fix is applied.** A new TOP15 file (version 9) replaced two wrong cells. The old file is untouched. The engine re-ran: 35 of 35 tests, same result.
+
+**Two small open items:**
+- A check wanted zero mentions of "32x", but the fix itself quotes "32x" while retracting it. The desktop did not rewrite it. Cowork will decide.
+- The Sarasota credit report is still not found anywhere. It stays marked "verify."
+
+**Scheduled for you tomorrow at 1:08 PM:** the clipboard and FancyZones fix you ordered runs on its own. Everything is backed up first, with an undo script.
+
+---
+
+## (earlier) update 2026-10-02 14:35Z (10:35 AM Miami, Friday)
 
 **CDM is at 91%. Cowork's missing run is explained: it just posted late. Nothing needed from you for it.**
 
