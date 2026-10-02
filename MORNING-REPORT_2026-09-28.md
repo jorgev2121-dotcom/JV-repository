@@ -4,7 +4,17 @@
 
 ---
 
-## START HERE — update 2026-10-02 13:30Z (9:30 AM Miami, Friday)
+## START HERE — update 2026-10-02 14:35Z (10:35 AM Miami, Friday)
+
+**CDM is at 91%. Cowork's missing run is explained: it just posted late. Nothing needed from you for it.**
+
+**Cowork fixed its own mistake.** The $1,411,925 that looked missing never existed. Cowork misread a negative number in the bank report. Bayside Breeze now balances to the dollar. The desktop re-ran the corrected program within minutes: 34 of 34 tests passed.
+
+**One honest gap:** the desktop could not find the report for the Sarasota twin deal in 15 board packages, so that one check stays open. It did not guess.
+
+---
+
+## (earlier) update 2026-10-02 13:30Z (9:30 AM Miami, Friday)
 
 **County fee: the county fixed the record. This replaces item 5 below.** At 7:30 AM the county specialist replied "Information has been updated." The application now shows 100 sq ft, not 20,000, and says **upfront fee paid: Yes**. Earlier notes said 72 sq ft. The county used 100, so that old number is out of date.
 
