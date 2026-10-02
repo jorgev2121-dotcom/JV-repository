@@ -4,7 +4,18 @@
 
 ---
 
-## START HERE — update 2026-10-02 06:20Z (2:20 AM Miami, Friday)
+## START HERE — update 2026-10-02 07:20Z (3:20 AM Miami, Friday)
+
+**Two small yes-or-click items for you. Everything else is moving.**
+
+1. **Say "yes, install the launcher."** The desktop built your LLM launcher shortcut and tested all 8 links. It stopped before one registry change and asked first, as your rule says. It is reversible and touches only your own user settings.
+2. **Open the 1Password desktop app once and turn on "CLI integration."** The desktop could not check your Microsoft sign-in logins because that app was not running. Nothing was read or typed.
+
+**Heads up:** the launcher file on one older code branch is the wrong build. The desktop used the correct one.
+
+---
+
+## (earlier) update 2026-10-02 06:20Z (2:20 AM Miami, Friday)
 
 **CDM is at 90%. Still nothing needed from you for it.** Overnight, Cowork wrote the rules and a tested program for Module 2, the capital stack rebuilder. The desktop ran it within 7 minutes. 25 of 25 tests passed.
 
