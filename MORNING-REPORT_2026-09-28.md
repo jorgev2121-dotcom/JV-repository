@@ -4,7 +4,17 @@
 
 ---
 
-## START HERE — update 2026-10-02 02:20Z (10:20 PM Miami, Thursday night)
+## START HERE — update 2026-10-02 06:20Z (2:20 AM Miami, Friday)
+
+**CDM is at 90%. Still nothing needed from you for it.** Overnight, Cowork wrote the rules and a tested program for Module 2, the capital stack rebuilder. The desktop ran it within 7 minutes. 25 of 25 tests passed.
+
+**One correction from the desktop:** Cowork guessed a missing $1,411,925 was a General Partner contribution. The desktop read the actual report tables. That line is not there. The real oddity is a blank deferred developer fee cell. Cowork will regrade this at its 5:15 AM run.
+
+**Still yours:** AP-0028, the 1Password cleanup yes, the Garden Walk East owner, and the missing Alec addresses.
+
+---
+
+## (earlier) update 2026-10-02 02:20Z (10:20 PM Miami, Thursday night)
 
 **The CDM stall is over. Nothing needed from you for it.** Cowork built version 3 of the engine. The desktop re-ran it and got the same result: 35 of 35 key tests, 49 of 49 rows. The registry is complete at 461. CDM is 89%.
 
