@@ -2329,3 +2329,5 @@ PC session with a fixed name that every cloud session can address.
 issued the same PASTE-X/D numbers (X-008, and D-053 as a session title). Cause: PASTE-LOG.md lives per-branch and
 unmerged PRs hide each other's IDs. Tier-2 fix: issue IDs only after `git fetch` + reading PASTE-LOG.md on the base
 branch AND open PR branches; or give each window its own number block.
+
+**Recurred 2026-10-02 (Cloud monitoring session):** PASTE-D-064, D-065 and D-066 were each issued twice for different jobs by two cloud branches (claude/nifty-turing-2dzkhv on 10-02; claude/serene-sagan-k5us5v on 10-01), with D-064 also used for the combined poller fix. Concurrent sessions each took the next number without checking. Per Rule 4, a patch is forbidden: options are (1) one session owns the PASTE-LOG and issues numbers, (2) numbers are issued from a lock file in the repo, (3) remove sequential numbers and use a timestamp+window ID (Tier 2). Next free sequential number as of this entry: PASTE-D-068.
