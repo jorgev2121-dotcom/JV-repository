@@ -100,3 +100,5 @@ enough to identify it exactly, with no description needed.
 - **PASTE-D-065** · 2026-10-02 · Desktop → wire the control panel LLM button to `vtes-panel/LLM-LINKS.html`, pop the panel up, paste proof. Detail: `mailbox/to-desktop/WORK-QUEUE_LLM-Button-Links_2026-10-02.md`.
 - **PASTE-D-066** · 2026-10-02 · Desktop → fix control panel header covering the tab row so the ALL button shows and works. Detail: `mailbox/to-desktop/WORK-QUEUE_Panel-Header-Hides-ALL-Tab_2026-10-02.md`.
 - **PASTE-X-009** · 2026-10-02 · Gemini (chat window) → read GEMINI-TAKEOVER_START-HERE in the Drive folder 'Shared Folders for all LLMs', take the orchestrator seat. Repo copy: `GEMINI-TAKEOVER_START-HERE_2026-10-02.md`.
+- **PASTE-D-067** · 2026-10-02 · Desktop → copy the live control panel and its backups into Drive folder VTES-PANEL for Gemini; confirm which file is live. Detail: `mailbox/to-desktop/WORK-QUEUE_Copy-Panel-To-Drive_2026-10-02.md`. (Block not yet issued to Jorge.)
+- **PASTE-X-010** · 2026-10-02 · Gemini (chat window) → corrections to Gemini's own restatement, plus pointers to the panel history and takeover files in Drive.
