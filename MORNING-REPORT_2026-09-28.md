@@ -4,7 +4,17 @@
 
 ---
 
-## START HERE — update 2026-10-01 22:20Z (6:20 PM Miami)
+## START HERE — update 2026-10-02 02:20Z (10:20 PM Miami, Thursday night)
+
+**The CDM stall is over. Nothing needed from you for it.** Cowork built version 3 of the engine. The desktop re-ran it and got the same result: 35 of 35 key tests, 49 of 49 rows. The registry is complete at 461. CDM is 89%.
+
+**Correction to my earlier note:** the file collision was two desktop watchers, not Cowork and the desktop. The desktop now writes a claim file first, so it should not repeat.
+
+**The desktop also finished one more check:** no Florida license exists under the name Property Shield. Four other sites are blocked and need a browser tool approved once. PACER is your call, because it needs an account and a fee.
+
+---
+
+## (earlier) update 2026-10-01 22:20Z (6:20 PM Miami)
 
 **Good news: the desktop is working again, and it finished the CDM jobs.** The heartbeat file is ticking. The desktop ran the CDM engine on all 42 data files. 28 of 28 tests passed. It also built the intake form.
 
