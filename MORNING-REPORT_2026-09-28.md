@@ -4,6 +4,113 @@
 
 ---
 
+## START HERE — update 2026-10-02 14:35Z (10:35 AM Miami, Friday)
+
+**CDM is at 91%. Cowork's missing run is explained: it just posted late. Nothing needed from you for it.**
+
+**Cowork fixed its own mistake.** The $1,411,925 that looked missing never existed. Cowork misread a negative number in the bank report. Bayside Breeze now balances to the dollar. The desktop re-ran the corrected program within minutes: 34 of 34 tests passed.
+
+**One honest gap:** the desktop could not find the report for the Sarasota twin deal in 15 board packages, so that one check stays open. It did not guess.
+
+---
+
+## (earlier) update 2026-10-02 13:30Z (9:30 AM Miami, Friday)
+
+**County fee: the county fixed the record. This replaces item 5 below.** At 7:30 AM the county specialist replied "Information has been updated." The application now shows 100 sq ft, not 20,000, and says **upfront fee paid: Yes**. Earlier notes said 72 sq ft. The county used 100, so that old number is out of date.
+
+**One question only you can answer:** did the upfront fee get paid, and how much? Was it the old $7,280.94 or a new lower amount? If it was the old amount, we ask the county to refund or credit the difference.
+
+---
+
+## (earlier) update 2026-10-02 07:20Z (3:20 AM Miami, Friday)
+
+**Two small yes-or-click items for you. Everything else is moving.**
+
+1. **Say "yes, install the launcher."** The desktop built your LLM launcher shortcut and tested all 8 links. It stopped before one registry change and asked first, as your rule says. It is reversible and touches only your own user settings.
+2. **Open the 1Password desktop app once and turn on "CLI integration."** The desktop could not check your Microsoft sign-in logins because that app was not running. Nothing was read or typed.
+
+**Heads up:** the launcher file on one older code branch is the wrong build. The desktop used the correct one.
+
+---
+
+## (earlier) update 2026-10-02 06:20Z (2:20 AM Miami, Friday)
+
+**CDM is at 90%. Still nothing needed from you for it.** Overnight, Cowork wrote the rules and a tested program for Module 2, the capital stack rebuilder. The desktop ran it within 7 minutes. 25 of 25 tests passed.
+
+**One correction from the desktop:** Cowork guessed a missing $1,411,925 was a General Partner contribution. The desktop read the actual report tables. That line is not there. The real oddity is a blank deferred developer fee cell. Cowork will regrade this at its 5:15 AM run.
+
+**Still yours:** AP-0028, the 1Password cleanup yes, the Garden Walk East owner, and the missing Alec addresses.
+
+---
+
+## (earlier) update 2026-10-02 02:20Z (10:20 PM Miami, Thursday night)
+
+**The CDM stall is over. Nothing needed from you for it.** Cowork built version 3 of the engine. The desktop re-ran it and got the same result: 35 of 35 key tests, 49 of 49 rows. The registry is complete at 461. CDM is 89%.
+
+**Correction to my earlier note:** the file collision was two desktop watchers, not Cowork and the desktop. The desktop now writes a claim file first, so it should not repeat.
+
+**The desktop also finished one more check:** no Florida license exists under the name Property Shield. Four other sites are blocked and need a browser tool approved once. PACER is your call, because it needs an account and a fee.
+
+---
+
+## (earlier) update 2026-10-01 22:20Z (6:20 PM Miami)
+
+**Good news: the desktop is working again, and it finished the CDM jobs.** The heartbeat file is ticking. The desktop ran the CDM engine on all 42 data files. 28 of 28 tests passed. It also built the intake form.
+
+**One small thing is open:** the five missing registry rows exist, but the engine does not read them yet. Someone has to pick one of two fixes. I did not pick for you.
+
+**Heads up:** Cowork and the desktop did the same job at the same time and overwrote each other's file. No data was lost. It is the second time.
+
+---
+
+## (earlier) update 2026-10-01 21:25Z (5:25 PM Miami)
+
+**The inbox poller is running again.** The desktop log shows it started at 4:25 PM and acknowledged 38 waiting job files. You no longer need to say "rebuild the inbox poller."
+
+**Still unproven:** that the heartbeat file updates again, and that it survives a restart. Receipt is not the same as the jobs being done.
+
+**One real blocker from the desktop:** the Sunbiz, clerk and PACER job needs browser permission, or you saying "go" in an interactive Code window.
+
+---
+
+## (older) START HERE — the one thing that unblocks the most
+
+**Say this one line: "yes, rebuild the inbox poller."** The desktop's inbox-reading task does not exist, so every job file waiting in the shared Inbox sits unread, and nothing has been opened by the desktop for two days. That includes the CDM job, its two follow-ups, and three new orders from the Chat window. It is one yes, and the desktop builds and tests it in the same session.
+
+Everything else below can wait a day. This one keeps stacking up.
+
+---
+
+## UPDATE 2026-09-30 06:20 UTC — what changed overnight
+
+**Reported, not confirmed in this window: you said "run the three tonight" in another Claude chat at 03:54 UTC.** If that is right, the poller rebuild, the heartbeat fix and the CDM go-ahead are already approved. Cowork treated it as CDM: GO and finished a plain-language CDM findings report tonight.
+
+**What is still not done:** the poller and heartbeat fixes are jobs on your PC, and as of 05:25 UTC nothing showed they ran. A desktop helper says the poller still needs the combined message PASTE-D-064 (which replaced D-063 at 19:36Z 9/30) run at the PC.
+
+**If that go-ahead was not yours, tell me and I will mark CDM as on hold again.**
+
+---
+
+## 06:20 UTC 10/1 — CDM data merges: two of three confirmed by a second check
+
+**Cowork checked every row of the merged files against the source files.** The rulebook (110 rows) and the calibration file (80 rows) both pass. The registry has 456 rows, of which 455 are correct and one needs a re-copy. CDM is now 87% complete.
+
+**One open disagreement, not yours to settle:** Cowork wants five more registry rows added (to reach 461). The other window says those five rows were already there and 461 was a miscount.
+
+**Still not started:** the engine itself and its first real test. **Your part has not changed:** the poller fix (PASTE-D-064) at the PC.
+
+---
+
+## 15:25 UTC 9/30 — result of the overnight "run the three" push
+
+**1 of 3 done.** CDM go-ahead: done, with a findings report from Cowork. Poller rebuild: not done. Heartbeat fix: not done. Both of those are jobs at your PC, and nobody sat down at it overnight.
+
+**Also open:** the CDM data merges and the first engine test have no owner. They need one dedicated work session, not a spare hour.
+
+**Cheap way to fix the poller:** when you are next at the PC, use PASTE-D-064 (one combined message; it replaces D-063). Its file is DESKTOP-ONE-MESSAGE_PASTE-D-064.md under mailbox/to-desktop on another session's branch (claude/dreamy-lamport-2dvdqt)
+
+---
+
 ## From last night's PC session — three new asks
 
 **You were at the desktop last night around 7:30-8pm** and gave the order to fix the automation that had gone quiet (the "PC-ALWAYS-ON-01" directive). Good news and bad news on that:
@@ -18,9 +125,9 @@
 
 ## Still waiting on you from before
 
-**4. A tax-credit analysis tool (CDM) has been sitting at 85% done for about three weeks.** All research is done and checked; the only thing stopping it from becoming a working tool is one line: **"CDM: GO"** or **"CDM: hold."**
+**4. A tax-credit analysis tool (CDM) has been sitting at 85% done for about three weeks.** All research is done and checked; the only thing stopping it is one line: **"CDM: GO"** or **"CDM: hold."** Update from overnight: another helper window ordered the desktop to build a one-click approval board that will carry CDM: GO as a button. Until it exists, the typed line still works. Separately, the CDM job file has sat unopened on the desktop for 24 hours because it is not on the desktop's night task list.
 
-**5. The county fee is now known: $7,280.94 — and it looks wrong. Do not pay it.** Last night the desktop revealed the amount (nothing was charged). The county seems to have billed for a 20,000 square foot job; yours is a small balcony repair, about 6 by 12 feet. A fee-review email is drafted but **not sent**, and another AI edited the same draft at the same time and scrambled it. **Your part: read the draft top to bottom, then click Send if it makes sense.** Also glance at the printer tray for two or three stray permit copies.
+**5. The county fee: the review email went out and the county already answered. Do not pay $7,280.94.** Another Claude window records that the fee-review email was sent 9/29 at 6:54 PM ET and a county supervisor replied 9/30. He says the fee is set by the square feet on the application. **Your part: reply asking him to apply the corrected application (72 sq ft, one balcony) to invoice C2026170181 and reissue the fee.** The old draft is no longer needed. (I have not checked this in Gmail myself.)
 
 **6. The TUS-26-1033 signature package — a $16,000 invoice — has been unsigned by the client since August 10th.** One word — **CHASE** or **HOLD** — and it moves.
 
@@ -35,6 +142,20 @@
 **C. 1Password dry-run is waiting on a go-ahead.** The desktop correctly declined to start it without you.
 
 **D. New risk logged (RI-048): two AI sessions edited the same live document at once.** Proposed fix: one AI "claims" a document before touching it, and a human re-reads before any Send. No action needed from you unless you object.
+
+---
+
+## Overnight update (2026-09-29, through 06:05 UTC)
+
+**Nothing broke overnight.** The PC stayed awake and the heartbeat wrote every hour through 06:01 UTC. Cowork ran twice more (runs 65 and 66); both were research and record-cleaning only.
+
+**1. Cowork closed eight stale items in its own to-do list** and staged the next desktop job (three county-level reads). No action from you.
+
+**2. The desktop has not opened the CDM job or the inbox poller rebuild.** Both are waiting on the desktop's night queue and on your paste for the poller (now PASTE-D-064, which replaced D-063). Nothing is lost, just idle.
+
+**3. A watchdog emailed you** that the three PC-always-on asks are now over 24 hours old. That is the same three asks in this report: make the heartbeat permanent, rebuild the inbox poller, decide the job-watcher gate.
+
+**Denominators:** 6 asks open and 4 extra items to review, unchanged. 0 items filed, sent, spent or deleted. 0 commits from anyone but Claude and you.
 
 ---
 
@@ -57,3 +178,18 @@
 ---
 
 Anything here you want handled differently, or a go-ahead on any of the six?
+
+---
+
+## Update 2026-10-01 18:20Z (2:20 PM Miami) — Section U
+
+**Good news first: the CDM engine is built and tested.** Cowork ported it itself. 28 of 28 tests pass. CDM is 87.6%.
+
+**The desktop is alive.** It wrote a handoff at 2:04 PM. It lists three stalled jobs that each need one answer from you:
+
+1. **1Password cleanup:** say yes to merging 12 duplicates and deleting 6 junk items. Waiting 37 days.
+2. **TEDC capsules (about $30,000 pipeline):** who owns Garden Walk EAST? The file says Garden Walk Associates Ltd. The county lookup says Tacolcy Paradise Cove LLC. Waiting 57 days.
+3. **Alec due-diligence reports:** only 3 jobs exist on disk. Which addresses are the missing 2 or 3?
+
+**Still not proven:** the poller rebuild and heartbeat fix (PASTE-D-064 at the PC).
+
