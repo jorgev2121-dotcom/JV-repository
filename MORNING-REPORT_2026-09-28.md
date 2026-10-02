@@ -4,7 +4,15 @@
 
 ---
 
-## START HERE — update 2026-10-02 07:20Z (3:20 AM Miami, Friday)
+## START HERE — update 2026-10-02 13:30Z (9:30 AM Miami, Friday)
+
+**County fee: the county fixed the record. This replaces item 5 below.** At 7:30 AM the county specialist replied "Information has been updated." The application now shows 100 sq ft, not 20,000, and says **upfront fee paid: Yes**. Earlier notes said 72 sq ft. The county used 100, so that old number is out of date.
+
+**One question only you can answer:** did the upfront fee get paid, and how much? Was it the old $7,280.94 or a new lower amount? If it was the old amount, we ask the county to refund or credit the difference.
+
+---
+
+## (earlier) update 2026-10-02 07:20Z (3:20 AM Miami, Friday)
 
 **Two small yes-or-click items for you. Everything else is moving.**
 
