@@ -6,7 +6,58 @@
 **📌 PINNED COUNTER — the unattended job runner has NO safety lock (it is switched OFF until the lock exists). Day 50 as of 2026-10-01.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
 ---
 
-## START HERE — the one thing that unblocks the most
+## START HERE — update 2026-10-02 07:20Z (3:20 AM Miami, Friday)
+
+**Two small yes-or-click items for you. Everything else is moving.**
+
+1. **Say "yes, install the launcher."** The desktop built your LLM launcher shortcut and tested all 8 links. It stopped before one registry change and asked first, as your rule says. It is reversible and touches only your own user settings.
+2. **Open the 1Password desktop app once and turn on "CLI integration."** The desktop could not check your Microsoft sign-in logins because that app was not running. Nothing was read or typed.
+
+**Heads up:** the launcher file on one older code branch is the wrong build. The desktop used the correct one.
+
+---
+
+## (earlier) update 2026-10-02 06:20Z (2:20 AM Miami, Friday)
+
+**CDM is at 90%. Still nothing needed from you for it.** Overnight, Cowork wrote the rules and a tested program for Module 2, the capital stack rebuilder. The desktop ran it within 7 minutes. 25 of 25 tests passed.
+
+**One correction from the desktop:** Cowork guessed a missing $1,411,925 was a General Partner contribution. The desktop read the actual report tables. That line is not there. The real oddity is a blank deferred developer fee cell. Cowork will regrade this at its 5:15 AM run.
+
+**Still yours:** AP-0028, the 1Password cleanup yes, the Garden Walk East owner, and the missing Alec addresses.
+
+---
+
+## (earlier) update 2026-10-02 02:20Z (10:20 PM Miami, Thursday night)
+
+**The CDM stall is over. Nothing needed from you for it.** Cowork built version 3 of the engine. The desktop re-ran it and got the same result: 35 of 35 key tests, 49 of 49 rows. The registry is complete at 461. CDM is 89%.
+
+**Correction to my earlier note:** the file collision was two desktop watchers, not Cowork and the desktop. The desktop now writes a claim file first, so it should not repeat.
+
+**The desktop also finished one more check:** no Florida license exists under the name Property Shield. Four other sites are blocked and need a browser tool approved once. PACER is your call, because it needs an account and a fee.
+
+---
+
+## (earlier) update 2026-10-01 22:20Z (6:20 PM Miami)
+
+**Good news: the desktop is working again, and it finished the CDM jobs.** The heartbeat file is ticking. The desktop ran the CDM engine on all 42 data files. 28 of 28 tests passed. It also built the intake form.
+
+**One small thing is open:** the five missing registry rows exist, but the engine does not read them yet. Someone has to pick one of two fixes. I did not pick for you.
+
+**Heads up:** Cowork and the desktop did the same job at the same time and overwrote each other's file. No data was lost. It is the second time.
+
+---
+
+## (earlier) update 2026-10-01 21:25Z (5:25 PM Miami)
+
+**The inbox poller is running again.** The desktop log shows it started at 4:25 PM and acknowledged 38 waiting job files. You no longer need to say "rebuild the inbox poller."
+
+**Still unproven:** that the heartbeat file updates again, and that it survives a restart. Receipt is not the same as the jobs being done.
+
+**One real blocker from the desktop:** the Sunbiz, clerk and PACER job needs browser permission, or you saying "go" in an interactive Code window.
+
+---
+
+## (older) START HERE — the one thing that unblocks the most
 
 **Say this one line: "yes, rebuild the inbox poller."** The desktop's inbox-reading task does not exist, so every job file waiting in the shared Inbox sits unread, and nothing has been opened by the desktop for two days. That includes the CDM job, its two follow-ups, and three new orders from the Chat window. It is one yes, and the desktop builds and tests it in the same session.
 
@@ -111,3 +162,18 @@ Everything else below can wait a day. This one keeps stacking up.
 ---
 
 Anything here you want handled differently, or a go-ahead on any of the six?
+
+---
+
+## Update 2026-10-01 18:20Z (2:20 PM Miami) — Section U
+
+**Good news first: the CDM engine is built and tested.** Cowork ported it itself. 28 of 28 tests pass. CDM is 87.6%.
+
+**The desktop is alive.** It wrote a handoff at 2:04 PM. It lists three stalled jobs that each need one answer from you:
+
+1. **1Password cleanup:** say yes to merging 12 duplicates and deleting 6 junk items. Waiting 37 days.
+2. **TEDC capsules (about $30,000 pipeline):** who owns Garden Walk EAST? The file says Garden Walk Associates Ltd. The county lookup says Tacolcy Paradise Cove LLC. Waiting 57 days.
+3. **Alec due-diligence reports:** only 3 jobs exist on disk. Which addresses are the missing 2 or 3?
+
+**Still not proven:** the poller rebuild and heartbeat fix (PASTE-D-064 at the PC).
+

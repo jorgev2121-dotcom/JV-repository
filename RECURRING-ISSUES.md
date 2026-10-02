@@ -1921,6 +1921,8 @@ has no Code statusline but its UI is already distinct and it carries the 🤝 ba
 
 ---
 
+**Recurred 2026-09-28 (Cloud session_01Vrs2ytMJQFG6P1q4i8NYar):** in one afternoon, desktop-bound blocks PASTE-D-059, PASTE-D-060 and PASTE-D-062 were each pasted into a Cloud or Cowork window instead of the Desktop executor. Each window correctly refused, and the night-engine fix (N-1/N-2) sat unexecuted for hours as a result. Count is now 3+. Per Rule 4, patches are forbidden; options must include removing the paste step entirely (the rebuilt inbox poller picks work up from the VTES-Inbox with no paste).
+
 ## RI-032 — a no-BOM PowerShell script run under 5.1 mis-decodes a non-ASCII path literal and silently builds a parallel tree
 **Logged 2026-08-24. Root-caused by desktop TRK-2026-9671; scoped by TRK-2026-9672. Prior occurrence: TRK-2026-9602 (2026-08-23).**
 
