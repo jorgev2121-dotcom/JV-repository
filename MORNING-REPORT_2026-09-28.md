@@ -4,7 +4,19 @@
 
 ---
 
-## START HERE — update 2026-10-03 15:20Z (11:20 AM Miami, Saturday): MONEY FIRST
+## START HERE — update 2026-10-03 18:20Z (2:20 PM Miami, Saturday)
+
+**Cowork is back.** It posted at 1:35 PM. You no longer need to check its window.
+
+**Your clipboard fix ran at 1:08 PM.** Quick test, 30 seconds: copy some text and paste it. Copy different text and paste again. The second paste should be the new text. Also move a window; it should stay where you put it. If anything is worse, the undo script is saved on your PC and nothing was deleted.
+
+**One yes-or-no for you, tied to your new sales rule:** the CDM building is still going. Cowork and the desktop just rebuilt a third TEDC deal. My recommendation: let them finish what supports the TEDC deal (about $30,000) and the 9%-or-4% decision, then stop. Say "stop CDM" or "keep going."
+
+The money list below is unchanged.
+
+---
+
+## (earlier) update 2026-10-03 15:20Z (11:20 AM Miami, Saturday): MONEY FIRST
 
 **I saw your new rule from this morning: from today, 80% sales, 20% building.** Cloud will lead with money and client items from now on, and will not propose new building.
 
