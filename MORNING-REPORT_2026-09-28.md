@@ -4,7 +4,20 @@
 
 ---
 
-## START HERE — update 2026-10-03 05:20Z (1:20 AM Miami, Saturday)
+## START HERE — update 2026-10-03 13:20Z (9:20 AM Miami, Saturday)
+
+**The county looked at your resubmission for 10980 (the permit with the fee problem).** It is marked reviewed. The result is on the county portal only.
+
+**One click needed from you:** open this link in your normal browser. It needs no login. Then read me the status, or send a screenshot.
+https://www.miamidade.gov/Apps/RER/EPSPortal/planreview/tracking/UP26079529
+
+**Why not the computer:** the page makes you prove you are a person. Your desktop helper tried and correctly stopped. It will not get around that check.
+
+**Still open:** did you pay the upfront fee, and was it the old $7,280.94 or a lower amount?
+
+---
+
+## (earlier) update 2026-10-03 05:20Z (1:20 AM Miami, Saturday)
 
 **Your PC's overnight health check is clean.** All six helper agents are running. Disk space is fine.
 
