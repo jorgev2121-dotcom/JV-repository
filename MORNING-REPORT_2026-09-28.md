@@ -4,7 +4,19 @@
 
 ---
 
-## START HERE — update 2026-10-03 19:25Z (3:25 PM Miami, Saturday): THE $10,600 CLICK
+## START HERE — update 2026-10-03 20:20Z (4:20 PM Miami, Saturday): BOARD IS LIVE AGAIN
+
+**Your approvals board works again.** The desktop restored it in 11 minutes. It now shows **71 open items, 26 urgent**. Read it at MY-DESK, file APPROVALS-NOW.md.
+
+**Nothing you answered was lost** in anything we could find. If you gave an answer by voice or chat only after September 16, it will not show, so re-ask if you remember one.
+
+**What broke it:** a file-save collided with Google Drive syncing. The save wiped the file, and nothing sounded an alarm for 17 days. I queued a small fix so it cannot happen silently again.
+
+**Your $10,600 click is still the one that matters.** The board says you answered "Hold it" on August 31. That is a different question from: $21,200 deal stands, or renegotiated to $16,000? On your Desktop, open **ANSWER AP-0022 - Miami Art House $10,600.hta** and click one.
+
+---
+
+## (earlier) update 2026-10-03 19:25Z (3:25 PM Miami, Saturday): THE $10,600 CLICK
 
 **One click unlocks your biggest unpaid invoice.** On your Desktop, open the file named **ANSWER AP-0022 - Miami Art House $10,600.hta**. Click one button:
 - the deal stands at $21,200, so we collect the $10,600 already invoiced, or
