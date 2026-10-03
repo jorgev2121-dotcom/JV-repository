@@ -4,7 +4,23 @@
 
 ---
 
-## START HERE — update 2026-10-03 13:20Z (9:20 AM Miami, Saturday)
+## START HERE — update 2026-10-03 15:20Z (11:20 AM Miami, Saturday): MONEY FIRST
+
+**I saw your new rule from this morning: from today, 80% sales, 20% building.** Cloud will lead with money and client items from now on, and will not propose new building.
+
+**Money and client items waiting on you, biggest first:**
+1. **Medley job, $10,600 invoice (TUS-26-1033):** unpaid over 93 days. Do not send revision 3 until you answer: is there a signed proposal?
+2. **Medley $8,000 deposit:** the signed agreement was not found. Check your bank record for the deposit.
+3. **Plaza status email (AP-0048):** drafted, one click to send.
+4. **10980 permit (county):** one click-through in your browser to read the review status. Link is in the update below.
+5. **TEDC Edison Towers II county deadline (OD-99):** over 36 days open.
+6. **Alec's $100.25 invoice:** waiting in owner review.
+
+**Nine finished jobs show an amount still to verify.** The list is in OPEN-ITEMS.md.
+
+---
+
+## (earlier) update 2026-10-03 13:20Z (9:20 AM Miami, Saturday)
 
 **The county looked at your resubmission for 10980 (the permit with the fee problem).** It is marked reviewed. The result is on the county portal only.
 
