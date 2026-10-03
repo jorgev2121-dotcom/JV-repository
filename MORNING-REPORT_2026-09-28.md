@@ -4,7 +4,15 @@
 
 ---
 
-## START HERE — update 2026-10-03 20:20Z (4:20 PM Miami, Saturday): BOARD IS LIVE AGAIN
+## START HERE — update 2026-10-03 23:20Z (7:20 PM Miami, Saturday): STOP CDM, OR KEEP GOING?
+
+**Still waiting on your one-word answer.** Since your sales rule, your desktop has spent four work cycles (5:36 to 7:00 PM) on rebuilding a fourth TEDC deal, Edison Place. The helper then put a note about it on your "needs you" list, which it should not do.
+
+**My recommendation:** finish what supports the TEDC deal and the 9%-or-4% decision, then stop. Say **"stop CDM"** or **"keep going."** Until you answer, I have paused nothing.
+
+---
+
+## (earlier) update 2026-10-03 20:20Z (4:20 PM Miami, Saturday): BOARD IS LIVE AGAIN
 
 **Your approvals board works again.** The desktop restored it in 11 minutes. It now shows **71 open items, 26 urgent**. Read it at MY-DESK, file APPROVALS-NOW.md.
 
