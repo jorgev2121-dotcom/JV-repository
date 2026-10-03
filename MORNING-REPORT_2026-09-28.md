@@ -4,7 +4,21 @@
 
 ---
 
-## START HERE — update 2026-10-02 18:25Z (2:25 PM Miami, Friday)
+## START HERE — update 2026-10-03 05:20Z (1:20 AM Miami, Saturday)
+
+**Your PC's overnight health check is clean.** All six helper agents are running. Disk space is fine.
+
+**Two things from your own to-do list are ready for you:**
+1. **Plaza status email (AP-0048).** It is drafted and needs one click to send.
+2. **TEDC Edison Towers II county deadline (OD-99).** It has been open over 36 days.
+
+**The backlog:** 72 of 82 items on your owner list are still open. That is the standing backlog, not new.
+
+**Cowork has been silent since 9:30 AM Friday.** Please glance at its window in the morning.
+
+---
+
+## (earlier) update 2026-10-02 18:25Z (2:25 PM Miami, Friday)
 
 **Good news, with proof:**
 1. **Codex is already installed on your PC.** The held install job can be closed. Nothing to buy or install.
