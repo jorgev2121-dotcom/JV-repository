@@ -1,0 +1,143 @@
+<title>VTES Agent Flowchart</title>
+<style>
+/* Layout: one diagram, orders flow left to right through the Drive bus, proof flows back, narrative below. */
+:root{--bg:#f4f5f3;--fg:#1b1f1d;--mu:#5d6662;--card:#ffffff;--bd:#d3d8d4;--live:#1f6f5c;--new:#b4620a;--hold:#7a6f8f;--ac:#1f5fbf}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141816;--fg:#e8ece9;--mu:#9aa5a0;--card:#1d2321;--bd:#35403b;--live:#5fc9ac;--new:#f0a24a;--hold:#b3a7cc;--ac:#7aa8f0;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141816;--fg:#e8ece9;--mu:#9aa5a0;--card:#1d2321;--bd:#35403b;--live:#5fc9ac;--new:#f0a24a;--hold:#b3a7cc;--ac:#7aa8f0;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:17px/1.55 system-ui,"Segoe UI",sans-serif;padding-block:20px;padding-inline:16px;max-width:1100px;margin-inline:auto}
+h1{font-size:28px;margin:0 0 4px;text-wrap:balance}
+h2{font-size:21px;margin:32px 0 8px}
+p,li{max-width:70ch}
+.mu{color:var(--mu);margin:4px 0}
+.fig{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin:16px 0}
+.scroll{overflow-x:auto}
+svg{min-width:880px;width:100%;height:auto;display:block}
+svg text{fill:currentColor;font:12px system-ui,sans-serif}
+svg .h{font-weight:700;font-size:11px;letter-spacing:.08em;fill:var(--mu)}
+svg .s{font-size:10.5px;fill:var(--mu)}
+.b{fill:var(--card);stroke-width:2}
+.live{stroke:var(--live)}.new{stroke:var(--new);stroke-dasharray:6 4}.hold{stroke:var(--hold);stroke-dasharray:2 4}.bus{stroke:var(--ac)}
+.a{stroke:var(--fg);stroke-width:1.6;fill:none;opacity:.8}.ar{stroke:var(--new);stroke-width:1.6;fill:none}
+.leg{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0 0}
+.leg span{display:inline-flex;align-items:center;gap:8px;font-size:15px}
+.sw{width:28px;height:14px;border-radius:3px;border:2px solid;background:var(--card);display:inline-block}
+.sw.live{border-color:var(--live)}.sw.new{border-color:var(--new);border-style:dashed}.sw.hold{border-color:var(--hold);border-style:dotted}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.col{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;min-width:0}
+.col h3{margin:0 0 6px;font-size:17px}.col ul{margin:0;padding-left:20px}
+code{font:14px Consolas,monospace;background:var(--bg);padding:1px 5px;border-radius:4px}
+</style>
+<h1>VTES Agent Flowchart</h1>
+<p class="mu">How work moves between your agents, and which ones are live or still to build. Built 2026-10-02 by Cloud. #VTES #agents #Gemini</p>
+
+<figure class="fig">
+<div class="scroll">
+<svg viewBox="0 0 1050 520" role="img" aria-label="Orders from Jorge, Cloud Claude, Cowork and the Gemini orchestrator go into the Drive inbox. Claude Desktop, the Gemini desktop executor, the local executor and Codex pick them up and write proof into the Drive outbox. The CU orchestrator and Cloud Claude check the outbox. Red items go to Jorge's daily yes or no list. The Gemini orchestrator also reads the outbox.">
+<defs><marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
+<g color="#1b1f1d" style="color:var(--fg)">
+<!-- column headers -->
+<text class="h" x="20" y="508">ORDERS IN</text><text class="h" x="250" y="508">THE BUS</text><text class="h" x="450" y="508">DOERS</text><text class="h" x="690" y="508">PROOF OUT</text><text class="h" x="850" y="508">CHECKERS</text>
+
+<!-- orderers -->
+<rect class="b live" x="20" y="40" width="170" height="56" rx="8"/><text x="105" y="64" text-anchor="middle">Jorge + Claude Chat</text><text class="s" x="105" y="80" text-anchor="middle">voice, approvals</text>
+<rect class="b live" x="20" y="140" width="170" height="56" rx="8"/><text x="105" y="164" text-anchor="middle">Claude Code Cloud</text><text class="s" x="105" y="180" text-anchor="middle">plans + checks</text>
+<rect class="b hold" x="20" y="240" width="170" height="56" rx="8"/><text x="105" y="264" text-anchor="middle">Cowork</text><text class="s" x="105" y="280" text-anchor="middle">can send, cannot receive</text>
+<rect class="b new" x="20" y="340" width="170" height="56" rx="8"/><text x="105" y="364" text-anchor="middle">Gemini Orchestrator</text><text class="s" x="105" y="380" text-anchor="middle">TO CREATE (G-ORCH)</text>
+
+<!-- bus -->
+<rect class="b bus" x="250" y="150" width="130" height="250" rx="12"/>
+<text x="315" y="250" text-anchor="middle" font-weight="700">Google Drive</text><text x="315" y="268" text-anchor="middle">VTES-Inbox</text><text x="315" y="286" text-anchor="middle">VTES-Inbox-LOCAL</text><text class="s" x="315" y="310" text-anchor="middle">orders wait here</text>
+
+<!-- doers -->
+<rect class="b live" x="450" y="40" width="180" height="56" rx="8"/><text x="540" y="64" text-anchor="middle">Claude Desktop RAMBO</text><text class="s" x="540" y="80" text-anchor="middle">live, needs open session</text>
+<rect class="b new" x="450" y="140" width="180" height="56" rx="8"/><text x="540" y="164" text-anchor="middle">Gemini Desktop Executor</text><text class="s" x="540" y="180" text-anchor="middle">TO CREATE (G-DESK)</text>
+<rect class="b live" x="450" y="240" width="180" height="56" rx="8"/><text x="540" y="264" text-anchor="middle">CU-Local-Executor</text><text class="s" x="540" y="280" text-anchor="middle">free Ollama, verify it runs</text>
+<rect class="b hold" x="450" y="340" width="180" height="56" rx="8"/><text x="540" y="364" text-anchor="middle">Codex CLI</text><text class="s" x="540" y="380" text-anchor="middle">installed, needs sign-in</text>
+
+<!-- outbox -->
+<rect class="b bus" x="690" y="150" width="120" height="250" rx="12"/>
+<text x="750" y="250" text-anchor="middle" font-weight="700">VTES-Outbox</text><text x="750" y="270" text-anchor="middle">proof files</text><text x="750" y="288" text-anchor="middle">heartbeat.json</text>
+
+<!-- checkers -->
+<rect class="b live" x="850" y="90" width="170" height="56" rx="8"/><text x="935" y="114" text-anchor="middle">CU-Orchestrator</text><text class="s" x="935" y="130" text-anchor="middle">every 15 min, verify it runs</text>
+<rect class="b live" x="850" y="190" width="170" height="56" rx="8"/><text x="935" y="214" text-anchor="middle">Claude Code Cloud QC</text><text class="s" x="935" y="230" text-anchor="middle">spot-checks DONE claims</text>
+<rect class="b live" x="850" y="300" width="170" height="56" rx="8"/><text x="935" y="324" text-anchor="middle">Daily yes/no list</text><text class="s" x="935" y="340" text-anchor="middle">RED items park here</text>
+
+<!-- arrows: orders in -->
+<line class="a" x1="190" y1="68" x2="250" y2="170" marker-end="url(#m)"/>
+<line class="a" x1="190" y1="168" x2="250" y2="205" marker-end="url(#m)"/>
+<line class="a" x1="190" y1="268" x2="250" y2="260" marker-end="url(#m)"/>
+<line class="ar" x1="190" y1="368" x2="250" y2="330" marker-end="url(#m)"/>
+<text class="s" x="196" y="118" transform="rotate(48 196 118)">orders</text>
+<!-- bus to doers -->
+<line class="a" x1="380" y1="170" x2="450" y2="68" marker-end="url(#m)"/>
+<line class="ar" x1="380" y1="205" x2="450" y2="168" marker-end="url(#m)"/>
+<line class="a" x1="380" y1="290" x2="450" y2="268" marker-end="url(#m)"/>
+<line class="a" x1="380" y1="340" x2="450" y2="368" marker-end="url(#m)"/>
+<!-- doers to outbox -->
+<line class="a" x1="630" y1="68" x2="690" y2="175" marker-end="url(#m)"/>
+<line class="ar" x1="630" y1="168" x2="690" y2="200" marker-end="url(#m)"/>
+<line class="a" x1="630" y1="268" x2="690" y2="270" marker-end="url(#m)"/>
+<line class="a" x1="630" y1="368" x2="690" y2="340" marker-end="url(#m)"/>
+<text class="s" x="632" y="124" transform="rotate(60 632 124)">proof</text>
+<!-- outbox to checkers -->
+<line class="a" x1="810" y1="185" x2="850" y2="118" marker-end="url(#m)"/>
+<line class="a" x1="810" y1="230" x2="850" y2="218" marker-end="url(#m)"/>
+<line class="a" x1="810" y1="320" x2="850" y2="328" marker-end="url(#m)"/>
+<text class="s" x="818" y="364">RED items</text>
+<!-- orchestrator re-queue loop back to inbox -->
+<polyline class="a" points="935,90 935,24 315,24 315,150" marker-end="url(#m)"/>
+<text class="s" x="560" y="18">close / re-queue / escalate</text>
+<!-- yes/no back to Jorge -->
+<polyline class="a" points="1020,328 1036,328 1036,8 105,8 105,40" marker-end="url(#m)"/>
+<text class="s" x="1040" y="200" transform="rotate(90 1040 200)">Jorge answers yes or no</text>
+<!-- outbox to Gemini orchestrator -->
+<polyline class="ar" points="750,400 750,470 105,470 105,396" marker-end="url(#m)"/>
+<text class="s" x="330" y="464">Gemini Orchestrator also reads every result</text>
+</g>
+</svg>
+</div>
+<figcaption class="mu">Orders go right into the Drive bus, doers write proof into the outbox, checkers close the job or send it back. Orange dashed boxes and arrows are what still has to be built.</figcaption>
+<div class="leg"><span><i class="sw live"></i>Live (verify today)</span><span><i class="sw new"></i>To create</span><span><i class="sw hold"></i>Limited or needs one step from you</span></div>
+</figure>
+
+<h2>Section A — The setup in plain words</h2>
+<p>Your agents never talk to each other directly. They leave notes in two Google Drive folders. <b>VTES-Inbox is the in-tray. VTES-Outbox is the out-tray.</b> Anyone who can read Drive can pick up a job or check a result, which is why a Gemini agent can slide into the same lanes the Claude agents use.</p>
+<p>Every job ends one of three ways: done with proof, blocked with the one small thing needed, or in progress. A reply that only says "received" closes nothing.</p>
+
+<h2>Section B — The handoffs, step by step</h2>
+<ol>
+<li>You, Claude Chat, Cloud Claude, Cowork or the Gemini orchestrator write an order file into the Inbox.</li>
+<li>A doer picks it up. Free work (sorting, tagging, anything with personal data) goes to the local lane. Code goes to Codex. Judgment and client-facing work goes to Claude, which is scarce.</li>
+<li>The doer writes one proof file into the Outbox the moment that item finishes.</li>
+<li>CU-Orchestrator, Cloud Claude and the Gemini orchestrator read the Outbox. Each job is closed, re-queued, or escalated.</li>
+<li>Anything that would send, spend, delete or file a client document is parked on your daily yes/no list. Nobody acts on it until you answer.</li>
+</ol>
+
+<h2>Section C — What is live, what is not</h2>
+<div class="cols">
+<div class="col"><h3>Live now</h3><ul>
+<li>Claude Code Cloud (this chat)</li>
+<li>Claude Desktop RAMBO, while a session is open</li>
+<li>Claude Chat and iPhone</li>
+<li>Grok chat (second opinions only)</li></ul></div>
+<div class="col"><h3>Says live, must be verified</h3><ul>
+<li>CU-Local-Executor</li>
+<li>CU-Orchestrator</li>
+<li>CU-TokenMonitor-Hourly</li>
+<li>CU-Propagation-Check</li>
+<li>Your control panel says most of these were switched off on 2026-09-24. The desktop job PASTE-D-064 checks.</li></ul></div>
+<div class="col"><h3>Needs one step from you</h3><ul>
+<li>Codex CLI: sign in with ChatGPT once</li>
+<li>Cowork: can send orders, has no way to receive them</li>
+<li>CU-Inbox-Job-Watcher: off on purpose, leave it off</li></ul></div>
+<div class="col"><h3>To create and roll out</h3><ul>
+<li><b>Gemini Desktop Executor.</b> Gemini CLI on a 5-minute scheduled task against the local lane, with a test file as proof.</li>
+<li><b>Gemini Cloud Orchestrator.</b> Gemini reads Drive but cannot write to it alone, so it needs a write path.</li>
+<li>A way for Cowork to receive jobs</li>
+<li>A replacement for Grok's dead key, priced and approved by you first</li></ul></div>
+</div>
+
+<h2>Section D — Where Gemini finds its instructions</h2>
+<p>One file does it: <code>GEMINI-TAKEOVER_START-HERE_2026-10-02.md</code>. It is in the Drive folder "Shared Folders for all LLMs" and in the repo. It holds the rules, the reading order, both seat descriptions, the first actions, and a text version of this flowchart.</p>
+<p class="mu">Limit: cloud Gemini cannot open your private GitHub repo. It reads Drive only, so the full charter still has to be copied into the folder once.</p>
