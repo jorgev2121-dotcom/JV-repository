@@ -3,10 +3,56 @@
 **Covers 2026-09-26 evening through 2026-09-28 ~04:00 UTC. Nothing was filed, sent, spent, or deleted by any cloud or desktop process. Six things need a word or a click from you — three are new overnight, tied to last night's PC session.**
 
 
-**📌 PINNED COUNTER — the unattended job runner has NO safety lock (it is switched OFF until the lock exists). Day 51 as of 2026-10-02.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
+**📌 PINNED COUNTER — the unattended job runner has NO safety lock (it is switched OFF until the lock exists). Day 52 as of 2026-10-03.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
 ---
 
-## START HERE — update 2026-10-02 07:20Z (3:20 AM Miami, Friday)
+## START HERE — update 2026-10-03 05:20Z (1:20 AM Miami, Saturday)
+
+**Your PC's overnight health check is clean.** All six helper agents are running. Disk space is fine.
+
+**Two things from your own to-do list are ready for you:**
+1. **Plaza status email (AP-0048).** It is drafted and needs one click to send.
+2. **TEDC Edison Towers II county deadline (OD-99).** It has been open over 36 days.
+
+**The backlog:** 72 of 82 items on your owner list are still open. That is the standing backlog, not new.
+
+**Cowork has been silent since 9:30 AM Friday.** Please glance at its window in the morning.
+
+---
+
+## (earlier) update 2026-10-02 18:25Z (2:25 PM Miami, Friday)
+
+**Good news, with proof:**
+1. **Codex is already installed on your PC.** The held install job can be closed. Nothing to buy or install.
+2. **The CDM record fix is applied.** A new TOP15 file (version 9) replaced two wrong cells. The old file is untouched. The engine re-ran: 35 of 35 tests, same result.
+
+**Two small open items:**
+- A check wanted zero mentions of "32x", but the fix itself quotes "32x" while retracting it. The desktop did not rewrite it. Cowork will decide.
+- The Sarasota credit report is still not found anywhere. It stays marked "verify."
+
+**Scheduled for you tomorrow at 1:08 PM:** the clipboard and FancyZones fix you ordered runs on its own. Everything is backed up first, with an undo script.
+
+---
+
+## (earlier) update 2026-10-02 14:35Z (10:35 AM Miami, Friday)
+
+**CDM is at 91%. Cowork's missing run is explained: it just posted late. Nothing needed from you for it.**
+
+**Cowork fixed its own mistake.** The $1,411,925 that looked missing never existed. Cowork misread a negative number in the bank report. Bayside Breeze now balances to the dollar. The desktop re-ran the corrected program within minutes: 34 of 34 tests passed.
+
+**One honest gap:** the desktop could not find the report for the Sarasota twin deal in 15 board packages, so that one check stays open. It did not guess.
+
+---
+
+## (earlier) update 2026-10-02 13:30Z (9:30 AM Miami, Friday)
+
+**County fee: the county fixed the record. This replaces item 5 below.** At 7:30 AM the county specialist replied "Information has been updated." The application now shows 100 sq ft, not 20,000, and says **upfront fee paid: Yes**. Earlier notes said 72 sq ft. The county used 100, so that old number is out of date.
+
+**One question only you can answer:** did the upfront fee get paid, and how much? Was it the old $7,280.94 or a new lower amount? If it was the old amount, we ask the county to refund or credit the difference.
+
+---
+
+## (earlier) update 2026-10-02 07:20Z (3:20 AM Miami, Friday)
 
 **Two small yes-or-click items for you. Everything else is moving.**
 
