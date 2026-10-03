@@ -4,7 +4,21 @@
 
 ---
 
-## START HERE — update 2026-10-03 18:20Z (2:20 PM Miami, Saturday)
+## START HERE — update 2026-10-03 19:25Z (3:25 PM Miami, Saturday): THE $10,600 CLICK
+
+**One click unlocks your biggest unpaid invoice.** On your Desktop, open the file named **ANSWER AP-0022 - Miami Art House $10,600.hta**. Click one button:
+- the deal stands at $21,200, so we collect the $10,600 already invoiced, or
+- it was renegotiated to $16,000, so the invoice needs a new number.
+
+Nothing is sent or charged by clicking.
+
+**Why this was stuck:** your approvals board stopped updating on September 16, 17 days ago. Its data file went empty. That was assigned to cloud on September 17, and I did not do it. I owe you that.
+
+**What I did today:** I found a good copy of that file from 15 minutes before it broke, and copied it next to the original. The desktop is checking it and will put it back if it passes. Anything you answered after September 17 only exists in chat or email, so it may need re-asking.
+
+---
+
+## (earlier) update 2026-10-03 18:20Z (2:20 PM Miami, Saturday)
 
 **Cowork is back.** It posted at 1:35 PM. You no longer need to check its window.
 
