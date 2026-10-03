@@ -10,7 +10,7 @@
 
 **Nothing you answered was lost** in anything we could find. If you gave an answer by voice or chat only after September 16, it will not show, so re-ask if you remember one.
 
-**What broke it:** a file-save collided with Google Drive syncing. The save wiped the file, and nothing sounded an alarm for 17 days. I queued a small fix so it cannot happen silently again.
+**What broke it:** a file-save collided with Google Drive syncing. The save wiped the file, and nothing sounded an alarm for 17 days. **The fix is done and tested (4:14 PM).** The save now goes to a spare file first and is checked. If anything is wrong, the real file stays safe and a blocker note appears.
 
 **Your $10,600 click is still the one that matters.** The board says you answered "Hold it" on August 31. That is a different question from: $21,200 deal stands, or renegotiated to $16,000? On your Desktop, open **ANSWER AP-0022 - Miami Art House $10,600.hta** and click one.
 
