@@ -3,10 +3,85 @@
 **Covers 2026-09-26 evening through 2026-09-28 ~04:00 UTC. Nothing was filed, sent, spent, or deleted by any cloud or desktop process. Six things need a word or a click from you — three are new overnight, tied to last night's PC session.**
 
 
-**📌 PINNED COUNTER — the unattended job runner has NO safety lock (it is switched OFF until the lock exists). Day 52 as of 2026-10-03.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
+**📌 PINNED COUNTER — the unattended job runner has NO safety lock (it is switched OFF until the lock exists). Day 53 as of 2026-10-04.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
 ---
 
-## START HERE — update 2026-10-03 05:20Z (1:20 AM Miami, Saturday)
+## START HERE — update 2026-10-03 23:20Z (7:20 PM Miami, Saturday): STOP CDM, OR KEEP GOING?
+
+**Still waiting on your one-word answer.** Since your sales rule, your desktop has spent four work cycles (5:36 to 7:00 PM) on rebuilding a fourth TEDC deal, Edison Place. The helper then put a note about it on your "needs you" list, which it should not do.
+
+**My recommendation:** finish what supports the TEDC deal and the 9%-or-4% decision, then stop. Say **"stop CDM"** or **"keep going."** Until you answer, I have paused nothing.
+
+---
+
+## (earlier) update 2026-10-03 20:20Z (4:20 PM Miami, Saturday): BOARD IS LIVE AGAIN
+
+**Your approvals board works again.** The desktop restored it in 11 minutes. It now shows **71 open items, 26 urgent**. Read it at MY-DESK, file APPROVALS-NOW.md.
+
+**Nothing you answered was lost** in anything we could find. If you gave an answer by voice or chat only after September 16, it will not show, so re-ask if you remember one.
+
+**What broke it:** a file-save collided with Google Drive syncing. The save wiped the file, and nothing sounded an alarm for 17 days. **The fix is done and tested (4:14 PM).** The save now goes to a spare file first and is checked. If anything is wrong, the real file stays safe and a blocker note appears.
+
+**Your $10,600 click is still the one that matters.** The board says you answered "Hold it" on August 31. That is a different question from: $21,200 deal stands, or renegotiated to $16,000? On your Desktop, open **ANSWER AP-0022 - Miami Art House $10,600.hta** and click one.
+
+---
+
+## (earlier) update 2026-10-03 19:25Z (3:25 PM Miami, Saturday): THE $10,600 CLICK
+
+**One click unlocks your biggest unpaid invoice.** On your Desktop, open the file named **ANSWER AP-0022 - Miami Art House $10,600.hta**. Click one button:
+- the deal stands at $21,200, so we collect the $10,600 already invoiced, or
+- it was renegotiated to $16,000, so the invoice needs a new number.
+
+Nothing is sent or charged by clicking.
+
+**Why this was stuck:** your approvals board stopped updating on September 16, 17 days ago. Its data file went empty. That was assigned to cloud on September 17, and I did not do it. I owe you that.
+
+**What I did today:** I found a good copy of that file from 15 minutes before it broke, and copied it next to the original. The desktop is checking it and will put it back if it passes. Anything you answered after September 17 only exists in chat or email, so it may need re-asking.
+
+---
+
+## (earlier) update 2026-10-03 18:20Z (2:20 PM Miami, Saturday)
+
+**Cowork is back.** It posted at 1:35 PM. You no longer need to check its window.
+
+**Your clipboard fix ran at 1:08 PM.** Quick test, 30 seconds: copy some text and paste it. Copy different text and paste again. The second paste should be the new text. Also move a window; it should stay where you put it. If anything is worse, the undo script is saved on your PC and nothing was deleted.
+
+**One yes-or-no for you, tied to your new sales rule:** the CDM building is still going. Cowork and the desktop just rebuilt a third TEDC deal. My recommendation: let them finish what supports the TEDC deal (about $30,000) and the 9%-or-4% decision, then stop. Say "stop CDM" or "keep going."
+
+The money list below is unchanged.
+
+---
+
+## (earlier) update 2026-10-03 15:20Z (11:20 AM Miami, Saturday): MONEY FIRST
+
+**I saw your new rule from this morning: from today, 80% sales, 20% building.** Cloud will lead with money and client items from now on, and will not propose new building.
+
+**Money and client items waiting on you, biggest first:**
+1. **Medley job, $10,600 invoice (TUS-26-1033):** unpaid over 93 days. Do not send revision 3 until you answer: is there a signed proposal?
+2. **Medley $8,000 deposit:** the signed agreement was not found. Check your bank record for the deposit.
+3. **Plaza status email (AP-0048):** drafted, one click to send.
+4. **10980 permit (county):** one click-through in your browser to read the review status. Link is in the update below.
+5. **TEDC Edison Towers II county deadline (OD-99):** over 36 days open.
+6. **Alec's $100.25 invoice:** waiting in owner review.
+
+**Nine finished jobs show an amount still to verify.** The list is in OPEN-ITEMS.md.
+
+---
+
+## (earlier) update 2026-10-03 13:20Z (9:20 AM Miami, Saturday)
+
+**The county looked at your resubmission for 10980 (the permit with the fee problem).** It is marked reviewed. The result is on the county portal only.
+
+**One click needed from you:** open this link in your normal browser. It needs no login. Then read me the status, or send a screenshot.
+https://www.miamidade.gov/Apps/RER/EPSPortal/planreview/tracking/UP26079529
+
+**Why not the computer:** the page makes you prove you are a person. Your desktop helper tried and correctly stopped. It will not get around that check.
+
+**Still open:** did you pay the upfront fee, and was it the old $7,280.94 or a lower amount?
+
+---
+
+## (earlier) update 2026-10-03 05:20Z (1:20 AM Miami, Saturday)
 
 **Your PC's overnight health check is clean.** All six helper agents are running. Disk space is fine.
 
