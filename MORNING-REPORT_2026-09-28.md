@@ -4,6 +4,18 @@
 
 ---
 
+## START HERE — update 2026-10-04 14:20Z (10:20 AM Miami, Sunday): CDM KEPT RUNNING
+
+**One new thing: the desktop finished another CDM round this morning.** Capital stack v6 is built (152 rows). The reconstructor passes 74 of 74. No 2025 bond issuance exists for Edison Towers II.
+
+**None of it moved money.** It still uses desktop time under the 20% development cap. Your "stop CDM or keep going" answer is still the open question.
+
+Everything else is unchanged. The AP-0022 click is still first.
+
+Do you want CDM stopped after the TEDC items, yes or no?
+
+---
+
 ## START HERE — update 2026-10-03 23:20Z (7:20 PM Miami, Saturday): STOP CDM, OR KEEP GOING?
 
 **Still waiting on your one-word answer.** Since your sales rule, your desktop has spent four work cycles (5:36 to 7:00 PM) on rebuilding a fourth TEDC deal, Edison Place. The helper then put a note about it on your "needs you" list, which it should not do.
