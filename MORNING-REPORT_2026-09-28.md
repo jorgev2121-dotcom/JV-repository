@@ -3,7 +3,51 @@
 **Covers 2026-09-26 evening through 2026-09-28 ~04:00 UTC. Nothing was filed, sent, spent, or deleted by any cloud or desktop process. Six things need a word or a click from you — three are new overnight, tied to last night's PC session.**
 
 
-**📌 PINNED COUNTER — the unattended job runner has NO safety lock (it is switched OFF until the lock exists). Day 53 as of 2026-10-04.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
+**📌 PINNED COUNTER — the unattended job runner has NO safety lock (it is switched OFF until the lock exists). Day 54 as of 2026-10-05.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
+---
+
+## START HERE — update 2026-10-05 07:20Z (3:20 AM Miami, Monday): OVERNIGHT, AND ONE ONE-LINE ANSWER
+
+**The desktop worked all night and nothing broke.** The health report is clean. All six core agents are running, Remote Control is connected, and the disk has plenty of space.
+
+**One one-line answer from you: keep 9Router removed, or restart it?** You approved removing it on September 20, but the removal never ran, and it came back. The desktop did not restart it. I recommend keeping it removed. It moves no quote, invoice or client.
+
+Still waiting on you, in order:
+
+1. The AP-0022 click.
+2. The Plaza status email, AP-0048.
+3. The lead-list vendor name.
+4. Your yes or no on the Zapier step.
+
+Also tonight: the desktop is sorting county unsafe-structures cases for leads. **The count is 96 of 160 cases done for 2020, and 2021 to 2026 have not started.** It also saved small cookie files from the county site into Drive, which should be cleaned up.
+
+Do you want 9Router kept removed, yes or no?
+
+---
+
+## START HERE — update 2026-10-04 19:20Z (3:20 PM Miami, Sunday): YOUR YES/NO ANSWERS ARE IN
+
+**You answered six yes/no items at about 2:50 PM. Here is what happened to each one.**
+
+1. **RED-7, relabel the CLAUDE button: done.** It is now a plain label that says use the taskbar. **Your timestamp request is not confirmed yet.** That is the "SUN 2:51 ET" time on the top right of every header.
+2. **RED-4, find the lead-list vendor receipt: half done.** I searched your Gmail twice and found no receipt. Your work mail and your card statements still need the desktop.
+3. **RED-5 and RED-6 are approved** and queued on the desktop.
+4. **RED-2 and RED-3 are deferred.** Nothing happens until you say.
+
+Do you want me to keep watching for the timestamp, yes or no?
+
+---
+
+## START HERE — update 2026-10-04 14:20Z (10:20 AM Miami, Sunday): CDM KEPT RUNNING
+
+**One new thing: the desktop finished another CDM round this morning.** Capital stack v6 is built (152 rows). The reconstructor passes 74 of 74. No 2025 bond issuance exists for Edison Towers II.
+
+**None of it moved money.** It still uses desktop time under the 20% development cap. Your "stop CDM or keep going" answer is still the open question.
+
+Everything else is unchanged. The AP-0022 click is still first.
+
+Do you want CDM stopped after the TEDC items, yes or no?
+
 ---
 
 ## START HERE — update 2026-10-03 23:20Z (7:20 PM Miami, Saturday): STOP CDM, OR KEEP GOING?
