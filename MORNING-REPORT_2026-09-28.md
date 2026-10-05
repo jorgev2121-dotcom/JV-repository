@@ -4,6 +4,20 @@
 
 ---
 
+## START HERE — update 2026-10-05 21:30Z (5:30 PM Miami, Monday): OCR IS DONE, AND YOU MERGED A PULL REQUEST
+
+**The OCR backfill is finished.** Of 199 documents with no searchable text, 193 are done and 6 cannot be done. Five of those six are the empty Plaza files, and one is blank when read. The tagging backlog of 1,336 is now zero. The desktop also made a contact list for each of 27 job folders. **Treat those lists as leads, not facts.**
+
+**Your originals were not touched, per the desktop's report.** Everything it wrote is a new file beside an original, and each pass has its own one-command undo. I have not re-counted any of it.
+
+**You merged a pull request at 4:53 PM.** It brought in the control panel, the token monitor and the Gemini key installer from late September. Nothing conflicted. The Gemini key itself still needs you.
+
+Still waiting on you: the AP-0022 click, the Plaza email, the five empty Plaza files, 9Router, the lead-list vendor name, and the Zapier yes.
+
+Do you want me to spot-check the OCR counts myself tomorrow, yes or no?
+
+---
+
 ## START HERE — update 2026-10-05 20:30Z (4:30 PM Miami, Monday): OCR FIRST RESULTS, AND FIVE EMPTY PLAZA FILES
 
 **The OCR backfill is running, and the undo test worked.** The desktop tried 10 files. 5 worked. It then ran its undo script, which removed all 10 new text files and left your originals alone, and it redid the 10. It is now doing the remaining 140. The backlog is 150 files, not 199.
