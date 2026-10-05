@@ -79,6 +79,35 @@ Jorge identified these as recurring. While 1Password is open, do the same duplic
 
 ---
 
+## STEP 6 — Set up Passkeys (replaces passwords permanently)
+
+Jorge already has Windows Hello (PIN + face/fingerprint). This step registers it as a passkey on each site so he never needs a password or 1Password for them again.
+
+### Microsoft 365 passkey (do this first — highest value)
+
+1. Open Chrome/Edge and go to: `https://mysignins.microsoft.com`
+2. Sign in as `Jorge@TEAMUSASALES.COM`
+3. Click **"Security info"**
+4. Click **"+ Add sign-in method"**
+5. Choose **"Passkey (device-bound)"** or **"Windows Hello or external security key"**
+6. Follow the prompts — Windows Hello will ask for PIN or face scan
+7. Name it: `Windows Hello - Jorge's PC`
+8. Done — Jorge can now log into all Microsoft services with just his PIN/face, no password
+
+### MDC portal passkey (do this after getting logged in)
+
+1. Log into `https://accounts.miamidade.gov` with the new password
+2. Go to **Account Settings** or **Security Settings**
+3. Look for **"Passkey"**, **"Security key"**, or **"Windows Hello"** option
+4. If it exists: register Windows Hello the same way
+5. If it does NOT exist: skip — MDC hasn't added passkey support yet. Note in the result file.
+
+### 1Password passkey note
+
+1Password can also store passkeys. If 1Password offers to save the passkey during setup, click **Save** — that gives a backup. But Windows Hello alone is sufficient.
+
+---
+
 ## When done
 
 Write to `mailbox/to-cloud/1PASSWORD-CLEANUP-DONE_2026-10-05.md`:
@@ -91,6 +120,8 @@ DONE — 1Password cleanup complete
 - MDC entry renamed: YES/NO
 - Other sites cleaned: [list]
 - Any entries RAMBO was unsure about: [list them — do not delete if unsure]
+- Microsoft passkey set up: YES/NO
+- MDC passkey supported: YES/NO — if YES, set up: YES/NO
 ```
 
 ---
