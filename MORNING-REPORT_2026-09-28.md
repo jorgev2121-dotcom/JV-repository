@@ -4,6 +4,22 @@
 
 ---
 
+## START HERE — update 2026-10-05 13:45Z (9:45 AM Miami, Monday): THE LEAD COUNT, AND ONE ONE-LINE ANSWER
+
+**The 2020 unsafe-structures tally is in: 142 of 160 cases are live leads, 89%.** 94 are open and worth a call. 48 are expired or stalled. 14 are already handled, and 4 have work in progress.
+
+**I contacted no one.** Calling or writing any owner needs your word.
+
+**The next years run tonight.** The desktop will do 2021 through 2026 in the 9:30 PM window without asking again. It only reads public county records.
+
+**One one-line answer is waiting: the OCR backfill.** 199 documents have no searchable text. The desktop recommends writing the script in daylight and running it once while watched. **I recommend not now.** Under your sales rule, park it until a delayed job needs a searchable file.
+
+Still waiting on you: the AP-0022 click, the Plaza email, the 9Router answer, the lead-list vendor name, the Zapier yes, and "stop CDM or keep going". Cowork sent the desktop another CDM order this morning about the Edison Towers II unit count: 94 by right against 96 filed.
+
+Do you want the OCR backfill parked, yes or no?
+
+---
+
 ## START HERE — update 2026-10-05 07:20Z (3:20 AM Miami, Monday): OVERNIGHT, AND ONE ONE-LINE ANSWER
 
 **The desktop worked all night and nothing broke.** The health report is clean. All six core agents are running, Remote Control is connected, and the disk has plenty of space.
