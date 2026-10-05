@@ -4,6 +4,18 @@
 
 ---
 
+## START HERE — update 2026-10-05 20:30Z (4:30 PM Miami, Monday): OCR FIRST RESULTS, AND FIVE EMPTY PLAZA FILES
+
+**The OCR backfill is running, and the undo test worked.** The desktop tried 10 files. 5 worked. It then ran its undo script, which removed all 10 new text files and left your originals alone, and it redid the 10. It is now doing the remaining 140. The backlog is 150 files, not 199.
+
+**One finding needs you: five Plaza documents are empty files.** They are in the Bal Harbour Plaza job (TRK-2026-1265), in the folder copied from OneDrive on September 4. Each is 0 bytes. They are the unit 301 insurance certificate, plus the unit 322 permit application, insurance certificate, notice of commencement and building permit application. The copies probably failed. The originals may still be in OneDrive or in old emails. **This run did not cause it, and it touched nothing.**
+
+**Your new rule for all agents is logged.** Reversible work never stops at a blocker. Problem files go to a review-later folder. Sending, payments, permanent deletes, moving originals and passwords still need your yes. I adopted only the parts that do not loosen my own limits.
+
+Do you want me to look for those five Plaza files in your email, yes or no?
+
+---
+
 ## START HERE — update 2026-10-05 19:20Z (3:20 PM Miami, Monday): YOU ANSWERED THE OCR QUESTION
 
 **You told Chat at 2:58 PM to run the OCR backfill now, so it is no longer parked.** That overrides my advice, and it is your call. The desktop was ordered to start.
