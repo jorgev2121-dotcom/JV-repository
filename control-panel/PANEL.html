@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VTES Control Panel</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --border: #2a2d3a;
+    --text: #e8eaf0; --muted: #7a7d8a; --green: #22c55e;
+    --yellow: #f59e0b; --red: #ef4444; --blue: #3b82f6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: system-ui, sans-serif; font-size: 15px; padding: 16px; }
+  h1 { font-size: 1.1rem; font-weight: 700; letter-spacing: .05em; color: var(--muted); margin-bottom: 4px; }
+  #stamp { font-size: .8rem; color: var(--muted); margin-bottom: 20px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+  .card h2 { font-size: .75rem; font-weight: 600; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+  .pill { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: .75rem; font-weight: 700; }
+  .LIVE, .OK     { background: #14532d; color: var(--green); }
+  .DEAD, .SKIP   { background: #450a0a; color: var(--red); }
+  .NO-KEY        { background: #292524; color: var(--muted); }
+  .ROUTE-AWAY    { background: #451a03; color: var(--yellow); }
+  .row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--border); }
+  .row:last-child { border-bottom: none; }
+  .row .name { font-weight: 600; }
+  .row .detail { font-size: .75rem; color: var(--muted); margin-top: 2px; }
+  .active-badge { font-size: 1.4rem; font-weight: 800; color: var(--green); }
+  .stale { color: var(--yellow); font-size: .8rem; margin-top: 6px; }
+  #error { background: #450a0a; border: 1px solid var(--red); border-radius: 8px; padding: 12px; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<h1>VTES CONTROL PANEL · TRK-2026-9953</h1>
+<div id="stamp">Loading…</div>
+<div id="error" style="display:none"></div>
+<div class="grid" id="grid"></div>
+
+<script>
+const DATA_URL = "panel-data.json";
+const STALE_MINUTES = 10;
+
+async function load() {
+  let data;
+  try {
+    const r = await fetch(DATA_URL + "?t=" + Date.now());
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    data = await r.json();
+    document.getElementById("error").style.display = "none";
+  } catch (e) {
+    document.getElementById("error").style.display = "block";
+    document.getElementById("error").textContent = "Cannot load panel-data.json — " + e.message + ". Run: python vts-llm-panel/health_monitor.py";
+    return;
+  }
+
+  const generated = new Date(data.generated_at_iso);
+  const ageMin = Math.round((Date.now() - generated) / 60000);
+  const stale = ageMin >= STALE_MINUTES;
+
+  document.getElementById("stamp").innerHTML =
+    "Last updated: " + data.generated_at +
+    (stale ? ' <span class="stale">⚠ ' + ageMin + ' min ago — may be stale</span>' : "");
+
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+
+  // Card 1 — Active model
+  grid.innerHTML += `
+    <div class="card">
+      <h2>Active Model</h2>
+      <div class="active-badge">${data.active_model.toUpperCase()}</div>
+      <div style="font-size:.8rem;color:var(--muted);margin-top:6px">
+        Routing threshold: routes away at ≤${data.quota_warning_threshold_pct}% quota remaining
+      </div>
+    </div>`;
+
+  // Card 2 — LLM health
+  let modelRows = (data.models || []).map(m => `
+    <div class="row">
+      <div>
+        <div class="name">${m.name}</div>
+        <div class="detail">${m.api_detail}</div>
+      </div>
+      <div style="text-align:right">
+        <span class="pill ${m.api_status}">${m.api_status}</span><br>
+        <span class="pill ${m.recommendation}" style="margin-top:4px">${m.recommendation}</span>
+      </div>
+    </div>`).join("");
+
+  grid.innerHTML += `<div class="card"><h2>LLM Health &amp; Routing</h2>${modelRows}</div>`;
+
+  // Card 3 — Quota (manual)
+  let quotaRows = (data.models || []).map(m => {
+    const pct = m.pct_remaining !== null ? m.pct_remaining + "%" : "NEEDS CHECK";
+    const cls = m.pct_remaining === null ? "NO-KEY" : m.pct_remaining <= 20 ? "ROUTE-AWAY" : "OK";
+    return `<div class="row">
+      <div><div class="name">${m.name}</div><div class="detail">${m.plan} · ${m.quota_note}</div></div>
+      <span class="pill ${cls}">${pct}</span>
+    </div>`;
+  }).join("");
+
+  grid.innerHTML += `<div class="card"><h2>Quota Remaining (manual)</h2>${quotaRows}
+    <div style="font-size:.75rem;color:var(--muted);margin-top:8px">Update: open billing page → tell Claude the % → it writes here.</div>
+  </div>`;
+}
+
+load();
+setInterval(load, 60000); // refresh every 60 seconds
+</script>
+</body>
+</html>
