@@ -4,6 +4,20 @@
 
 ---
 
+## START HERE — update 2026-10-05 19:20Z (3:20 PM Miami, Monday): YOU ANSWERED THE OCR QUESTION
+
+**You told Chat at 2:58 PM to run the OCR backfill now, so it is no longer parked.** That overrides my advice, and it is your call. The desktop was ordered to start.
+
+**What the desktop was told to do.** Make searchable text files next to 199 documents in your job folders, then add tags to 1,336. It must not move, rename or overwrite any original. It must try 10 files first and test the undo before the rest. Its first results are due about 4 PM, with a status line each hour.
+
+**A new standing rule came with it: undo-first.** The desktop must write an undo script before any reversible job, then go ahead without asking. Emails, payments, invoices, permanent deletes, moving originals and passwords still need your yes.
+
+Still waiting on you: the AP-0022 click, the Plaza email, the 9Router answer, the lead-list vendor name, and the Zapier yes.
+
+Do you want me to check the first OCR results when they land and tell you plainly?
+
+---
+
 ## START HERE — update 2026-10-05 13:45Z (9:45 AM Miami, Monday): THE LEAD COUNT, AND ONE ONE-LINE ANSWER
 
 **The 2020 unsafe-structures tally is in: 142 of 160 cases are live leads, 89%.** 94 are open and worth a call. 48 are expired or stalled. 14 are already handled, and 4 have work in progress.
