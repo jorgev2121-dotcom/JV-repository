@@ -17,7 +17,7 @@ Still waiting on you, in order:
 3. The lead-list vendor name.
 4. Your yes or no on the Zapier step.
 
-Also tonight: the desktop is sorting county unsafe-structures cases for leads. **The count is 96 of 160 cases done for 2020, and 2021 to 2026 have not started.** It also saved small cookie files from the county site into Drive, which should be cleaned up.
+Also tonight: the desktop is sorting county unsafe-structures cases for leads. **Update: all 160 of 160 cases for 2020 are done.** The last batch added two time-sensitive leads: 5181 NW 27 Ave 13 (deadline November 1) and 1127 NW 106 St (deadline November 16, a whole unpermitted dwelling). **2021 to 2026 have not started.** I did not contact anyone. Outreach needs your word. It also saved small cookie files from the county site into Drive, which should be cleaned up.
 
 Do you want 9Router kept removed, yes or no?
 
