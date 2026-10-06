@@ -217,7 +217,10 @@ const selLen = p => p.evaluate(() => getSelection().toString().length);
     T(W, 'CONFIG: the bell counts the 3 reminders in the v3 folder, and LLM-02 shows the status-only report from the v3 folder (grey, not proven)', /3/.test(s.n) && /WRITER SAYS UP, NOT PROVEN/.test(s.card), JSON.stringify(s));
     fs.writeFileSync(path.join(v3, 'vtes-reminders.js'), REMFILE([{ id: 'A', kind: 'x', title: 't', due: '2026-10-20', done: false }])); await tick(p); s = await g(); T(W, 'CONFIG: after the file in the v3 folder changes, one tick shows 1', /1/.test(s.n) && !/3/.test(s.n), JSON.stringify(s));
     fs.unlinkSync(path.join(v3, 'vtes-status.js')); fs.unlinkSync(path.join(v3, 'vtes-reminders.js')); await tick(p); s = await g(); T(W, 'CONFIG: after both files are deleted from the v3 folder, the bell is clear and LLM-02 is NO DATA', s.n.trim() === '' && /NO DATA/.test(s.card), JSON.stringify(s));
-    T(W, 'CONFIG: nothing was written into the v3 folder by the page', fs.readdirSync(v3).length === 0, fs.readdirSync(v3)); await ctx.close();
+    T(W, 'CONFIG: nothing was written into the v3 folder by the page', fs.readdirSync(v3).length === 0, fs.readdirSync(v3));
+    const links = await p.evaluate(() => [...document.querySelectorAll('a[href]')].map(a => a.getAttribute('href')).filter(h => /VTES-(PANEL|REMINDERS)\.html$/.test(h)));
+    T(W, 'CONFIG: the two local links (bell, house) point into the v3 folder, so they are not dead links in the new folder: ' + links.join(' , '), links.length === 2 && links.every(h => h.indexOf('file://' + v3 + '/') === 0), links);
+    await ctx.close();
     fs.writeFileSync(path.join(d, 'vtes4-config.js'), 'window.VTES4_CONFIG = { "v3_dir_url": "https://evil.example/x/" };'); fs.writeFileSync(path.join(d, 'vtes-reminders.js'), REMFILE([{ id: 'Z', kind: 'x', title: 't', due: '', done: false }]));
     { const o = await open(br, d); const reqs = []; o.p.on('request', r => { if (/evil\.example/.test(r.url())) reqs.push(r.url()); }); await tick(o.p); const n = await o.p.evaluate(() => document.getElementById('remn').textContent);
       T(W, 'CONFIG: a config that is not a file: address is ignored (no request to the outside address; the page folder is used)', reqs.length === 0 && /1/.test(n), JSON.stringify([reqs, n])); await o.ctx.close(); }

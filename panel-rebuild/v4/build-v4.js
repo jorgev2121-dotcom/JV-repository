@@ -46,7 +46,7 @@ rep('top', '<div id="map" hidden></div>', '<div id="v4top"></div>\n<div id="map"
 rep('panels-slot', '<div class="hand" id="hand">', '<div id="v4panels"></div>\n<div class="hand" id="hand">');
 rep('panelsbtn', '<button class="tb" id="t_map"', '<button class="tb" id="t_pan" type="button" title="Token monitor, housekeeping, Miami-Dade, Grok, repairs">Panels</button>\n    <button class="tb" id="t_map"');
 rep('stripage', '<div id="chips"></div>', '<div id="chips"></div>');
-rep('init', "showMode('con'); selectLLM(cur);", "showMode('con'); selectLLM(cur);\n  document.getElementById('t_pan').addEventListener('click', function () { showMode('dir'); var p = document.getElementById('v4panels'); if (p.scrollIntoView) { p.scrollIntoView(); } });\n  VTES4P.render(window.VTES4_BUILT);");
+rep('init', "showMode('con'); selectLLM(cur);", "showMode('con'); selectLLM(cur);\n  document.getElementById('t_pan').addEventListener('click', function () { showMode('dir'); var p = document.getElementById('v4panels'); if (p.scrollIntoView) { p.scrollIntoView(); } });\n  VTES4P.render(window.VTES4_BUILT);\n  window.VTES4.relinkLocal();");
 // 7. timings + footer
 rep('footer', /<p class="foot">TRK-2026-9910-B · repo copy 2026-09-30[^<]*<\/p>/, '<p class="foot">TRK-2026-9910-B · v4 · built <span id="v4fb"></span> · CURRENT · v3 is untouched and stays beside it as the rollback · #VTES-control-panel #LLM-registry</p>');
 rep('hint', /<p class="hint">Every window has a fixed address[^<]*<\/p>/, '<p class="hint">Every card says what it is, shows its real state (green only when a fresh data file says so), and has a button that works or says plainly why it cannot yet.</p>');

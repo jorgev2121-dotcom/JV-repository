@@ -190,6 +190,16 @@
     var c = window.VTES4_CONFIG, u = c && c.v3_dir_url;
     return (typeof u === 'string' && /^file:/i.test(u) && /\/$/.test(u)) ? u : '';
   }
+  /* the page's own local links (the bell goes to VTES-REMINDERS.html, the house to VTES-PANEL.html) point at files that live in the v3 folder, not in this one:
+     when vtes4-config.js names the v3 folder, those links are pointed there, so none is dead */
+  function relinkLocal() {
+    var b = baseUrl(); if (!b) { return; }
+    Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
+      var h = a.getAttribute('href');
+      if (!h || /^[A-Za-z][A-Za-z0-9+.-]*:/.test(h) || h.charAt(0) === '#' || h.charAt(0) === '/') { return; }
+      if (h.indexOf(b) !== 0) { a.setAttribute('href', b + h); }
+    });
+  }
   function reload(done) {
     if (reload.busy) { return; } reload.busy = true;
     var stamp = Date.now(), base = baseUrl(), fresh = {}, freshS = {};
@@ -223,5 +233,5 @@
   }
   window.VTES4 = { status: status, badge: badge, executor: executor, tick: tick, ageLine: ageLine, esc: esc, fmt: fmt, fmtIso: fmtIso, padTime: padTime, now: NOW, reload: reload, addressFilled: addressFilled, schemeRegistered: schemeRegistered,
     LIMIT_MIN: LIMIT_MIN, limitMin: limitMin, ALL_IDS: ALL_IDS, CHAT_ONLY: CHAT_ONLY, NEEDS_PROOF: NEEDS_PROOF, MAX_TICK_SEC: MAX_TICK_SEC,
-    builtText: builtText, builtBad: builtBad, parseDue: parseDue, todayKey: todayKey, reminders: reminders, remindersAt: remindersAt, setHtml: setHtml, setText: setText, statusMap: getS };
+    builtText: builtText, builtBad: builtBad, parseDue: parseDue, todayKey: todayKey, reminders: reminders, remindersAt: remindersAt, setHtml: setHtml, setText: setText, statusMap: getS, relinkLocal: relinkLocal };
 })();
