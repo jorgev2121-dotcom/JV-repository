@@ -1,0 +1,560 @@
+{
+ "total": 79,
+ "pass": 71,
+ "fail": 8,
+ "results": [
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "page",
+   "label": "VTES-LLM-LAUNCHER.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "script/file",
+   "label": "vtes-status.js",
+   "status": "FAIL",
+   "why": "HTTP 404 - file referenced but not present"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "script/file",
+   "label": "vtes-alerts.js",
+   "status": "FAIL",
+   "why": "HTTP 404 - file referenced but not present"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "script/file",
+   "label": "vtes-reviews.js",
+   "status": "FAIL",
+   "why": "HTTP 404 - file referenced but not present"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "script/file",
+   "label": "vtes-budget.js",
+   "status": "FAIL",
+   "why": "HTTP 404 - file referenced but not present"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "local-link",
+   "label": "VTES-REMINDERS.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "local-link",
+   "label": "VTES-PANEL.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "https-link",
+   "label": "https://claude.ai/code/session_01CAqZRvV1WjuuxZCNwrE9Gf",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "https-link",
+   "label": "https://claude.ai",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "https-link",
+   "label": "https://chatgpt.com",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "https-link",
+   "label": "https://grok.com",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "https-link",
+   "label": "https://gemini.google.com",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "https-link",
+   "label": "https://copilot.microsoft.com",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/drive/folders/1hI2TmVn86Cnh7h_6s93TG0KE1QzVCV",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/drive/folders/1NDadXJz9eKpRbmYrE-CRH2RtKbynQC",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "🖥️ 01 Desk✖~12d",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "☁️ 02 Cloud✖5d",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "🤝 03 Cowork?",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "💬 04 Chat?",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "📱 05 iPhone?",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "🧭 06 Codex◌",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "🔮 07 Grok?",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "♊ 08 Gemini?",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "🪟 10 Copilot?",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "🎙",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "🔊",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Speechify",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Console",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Dir",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Map",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Dock",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Flow chart",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Wiring diagram",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Subscriptions",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Copy status report",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Copy find-me line",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "🎙 Tap to dictate",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Copy text",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Copy + open chat",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "🔊 Read aloud",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Open Speechify",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Save bot",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "📎 Attach",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Clear this pad",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Choose folder",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Reconnect",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Saving: ON",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Download pad",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER.html",
+   "kind": "button",
+   "label": "Add answer to pad",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "page",
+   "label": "VTES-PANEL.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "script/file",
+   "label": "vtes-alerts.js",
+   "status": "FAIL",
+   "why": "HTTP 404 - file referenced but not present"
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "script/file",
+   "label": "vtes-reviews.js",
+   "status": "FAIL",
+   "why": "HTTP 404 - file referenced but not present"
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "script/file",
+   "label": "vtes-budget.js",
+   "status": "FAIL",
+   "why": "HTTP 404 - file referenced but not present"
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "script/file",
+   "label": "vtes-verify.js",
+   "status": "FAIL",
+   "why": "HTTP 404 - file referenced but not present"
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-PANEL.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-LLM-LAUNCHER.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-BUDGET.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-MUNICIPALITIES.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-PROGRAMS.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-TREEMAP.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-TASKS.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-PORTAL.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-CAPTURE.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-WHERE.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-INTERVIEW.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-QUOTE.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-REMINDERS.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-LLM-LAUNCHER.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-BUDGET.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-MUNICIPALITIES.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-PROGRAMS.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-TREEMAP.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-REMINDERS.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-TASKS.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-PORTAL.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-CAPTURE.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-WHERE.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-INTERVIEW.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-PANEL.html",
+   "kind": "local-link",
+   "label": "VTES-QUOTE.html",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}
