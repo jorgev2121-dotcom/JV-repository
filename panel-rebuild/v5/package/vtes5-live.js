@@ -2,7 +2,101 @@
 (function () {
   /* D and S are the page's own copies of the data files and of the status-only file. A reload fills NEW objects and swaps them in
      only when every file has answered, so nothing on the page ever reads a half-empty state (flaw F9). */
-  var D = window.VTES_DATA = window.VTES_DATA || {};
+  /* ---- fix round 7, CLASS 1 (Tier 2: remove the cause). The page could stop painting on a data file of the wrong shape (CHECK-8 flaw 1) and keep showing the last green.
+     Every data file now passes through ONE sanitiser at load (and once more at every reload), and nothing else in the page ever reads a raw data file. The sanitiser coerces every field to its documented type:
+       a list that is one object becomes a one-item list; a null, empty or non-object list entry is dropped and COUNTED; a wrong-type value becomes the text [unreadable] and is COUNTED;
+       a string over 1000 characters is cut and COUNTED; a list over 500 entries or a map over 200 keys is cut and COUNTED; keys that are not in the documented shape are ignored (so are __proto__, constructor, prototype);
+       a field that throws when read is COUNTED. The count is kept in the file's _bad field, and verdict() turns any file with _bad above 0 red UNREADABLE. It never throws. ---- */
+  var MAXS = 1000, MAXLIST = 500, MAXMAP = 200, MAXKEY = 100, BADKEYS = { '__proto__': 1, 'constructor': 1, 'prototype': 1 };
+  var SCHEMA = {
+    heartbeat: { at: 'p', schema: 'p', writer: 'p', interval_sec: 'p', vtes_scheme_registered: 'p', addresses_filled: ['map', 'p'], local_only_folder: ['obj', { ok: 'p', checked_at: 'p', label: 'p', local_only_verified_by: 'p', not_synced_proof: 'p' }], executors: ['map', ['obj', { state: 'p', last_seen: 'p', proof_at: 'p' }]] },
+    bots: { at: 'p', schema: 'p', writer: 'p', interval_sec: 'p', bots: ['map', ['obj', { state: 'p', last_run_at: 'p', last_result: 'p', next_run_at: 'p', interval_sec: 'p' }]] },
+    state: { at: 'p', schema: 'p', writer: 'p', open_items: 'p', in_progress: 'p', blocked: 'p', repairs: ['list', { id: 'p', text: 'p', status: 'p' }], money: ['list', { item: 'p', status: 'p' }] },
+    health: { at: 'p', schema: 'p', writer: 'p', ok: 'p', checks_passed: 'p', checks_total: 'p', report_sent_at: 'p' },
+    tokens: { at: 'p', schema: 'p', writer: 'p', burn_per_hour: 'p', window_used_pct: 'p', window_resets_at: 'p', week_used_pct: 'p', programs: ['list', { name: 'p', tokens_today: 'p' }] },
+    housekeeping: { at: 'p', schema: 'p', writer: 'p', last_report_at: 'p', report_delivered: 'p', delivered_to: 'p', items_cleaned: 'p' },
+    miamidade: { at: 'p', schema: 'p', writer: 'p', counted: 'p', target: 'p', sources: ['list', { id: 'p', proof_ok: 'p', checked_at: 'p' }] }
+  };
+  var STATUS_SPEC = ['map', ['obj', { seen: 'p', st: 'p' }]];
+  function isObj(v) { return v !== null && typeof v === 'object' && !Array.isArray(v); }
+  function sPrim(v, ctx) {
+    var t = typeof v;
+    if (v === null || v === undefined) { return v; }
+    if (t === 'string') { if (v.length > MAXS) { ctx.bad++; return v.slice(0, MAXS); } return v; }
+    if (t === 'number' || t === 'boolean') { return v; }
+    ctx.bad++; return '[unreadable]';
+  }
+  function sGet(o, k, ctx) { try { return { v: o[k] }; } catch (e) { ctx.bad++; return null; } }
+  function sObj(fields, v, ctx) {
+    var out = {}, names = Object.keys(fields), i;
+    for (i = 0; i < names.length; i++) {
+      var g = sGet(v, names[i], ctx); if (!g) { continue; }
+      var r = sVal(fields[names[i]], g.v, ctx); if (r !== undefined) { out[names[i]] = r; }
+    }
+    return out;
+  }
+  function sVal(spec, v, ctx) {
+    if (v === undefined) { return undefined; }
+    if (spec === 'p') { return sPrim(v, ctx); }
+    var kind = spec[0], i, out;
+    if (v === null) { return undefined; }
+    if (kind === 'obj') { if (!isObj(v)) { ctx.bad++; return undefined; } return sObj(spec[1], v, ctx); }
+    if (kind === 'list') {
+      var arr = Array.isArray(v) ? v : (isObj(v) ? [v] : null);
+      if (!arr) { ctx.bad++; return undefined; }
+      var n = Math.min(arr.length, MAXLIST); out = [];
+      if (arr.length > MAXLIST) { ctx.bad += arr.length - MAXLIST; }
+      for (i = 0; i < n; i++) {
+        var e; try { e = arr[i]; } catch (x) { ctx.bad++; continue; }
+        if (!isObj(e)) { ctx.bad++; continue; }
+        var so = sObj(spec[1], e, ctx); if (!Object.keys(so).length) { ctx.bad++; continue; }
+        out.push(so);
+      }
+      return out;
+    }
+    if (kind === 'map') {
+      if (!isObj(v)) { ctx.bad++; return undefined; }
+      var keys = Object.keys(v), cnt = 0; out = Object.create(null);
+      for (i = 0; i < keys.length; i++) {
+        var k = keys[i]; if (BADKEYS[k]) { continue; }
+        if (cnt >= MAXMAP) { ctx.bad++; continue; }
+        var g = sGet(v, k, ctx); if (!g) { continue; }
+        var key = k.length > MAXKEY ? k.slice(0, MAXKEY) : k, r;
+        if (spec[1] === 'p') { r = sPrim(g.v, ctx); }
+        else if (isObj(g.v)) { r = sObj(spec[1][1], g.v, ctx); if (!Object.keys(r).length) { ctx.bad++; r = undefined; } }
+        else { ctx.bad++; r = undefined; }
+        if (r !== undefined) { out[key] = r; cnt++; }
+      }
+      return out;
+    }
+    ctx.bad++; return undefined;
+  }
+  /* one data file: returns the clean object (with _bad = how many entries or values were unreadable) or undefined when the file is not an object at all */
+  var FILE_PROBLEMS = {};
+  function sanitizeFile(name, raw) {
+    var ctx = { bad: 0 }, out;
+    try {
+      if (!isObj(raw)) { FILE_PROBLEMS[name] = raw === undefined ? 0 : 1; return undefined; }
+      out = sObj(SCHEMA[name], raw, ctx);
+    } catch (e) { FILE_PROBLEMS[name] = 1; return undefined; }
+    FILE_PROBLEMS[name] = 0; out._bad = ctx.bad; return out;
+  }
+  function sanitizeAll(raw) {
+    var out = {}, names = Object.keys(SCHEMA), i;
+    FILE_PROBLEMS = {};
+    if (!isObj(raw)) { return out; }
+    for (i = 0; i < names.length; i++) {
+      var g = sGet(raw, names[i], { bad: 0 }), r = g ? sanitizeFile(names[i], g.v) : undefined;
+      if (r !== undefined) { out[names[i]] = r; }
+    }
+    return out;
+  }
+  function sanitizeStatus(raw) {
+    var ctx = { bad: 0 }, out;
+    try { out = isObj(raw) ? sVal(STATUS_SPEC, raw, ctx) : undefined; } catch (e) { out = undefined; }
+    return out || Object.create(null);
+  }
+  var D = window.VTES_DATA = sanitizeAll(window.VTES_DATA);
   var S = null, swapped = false;
   /* heartbeat: the real limit is 3 x interval_sec (see limitMin); the number here is only the one used when the file gives no interval_sec */
   var LIMIT_MIN = { heartbeat: 30, bots: 30, state: 26 * 60, health: 26 * 60, tokens: 30, housekeeping: 26 * 60, miamidade: 7 * 24 * 60 };
@@ -36,7 +130,8 @@
   var NEEDS_PROOF = { 'LLM-04': 'test reply', 'LLM-05': 'test reply', 'LLM-07': 'test reply', 'LLM-08': 'test reply', 'LLM-10': 'test reply', 'BOTS': 'finished bot task' };
   /* the windows and roles this page shows (LLM-10 Copilot is not on Jorge's v3 page) */
   var ALL_IDS = ['LLM-01', 'LLM-02', 'LLM-03', 'LLM-04', 'LLM-05', 'LLM-06', 'LLM-07', 'LLM-08', 'LLM-09', 'LOCAL', 'CHIEF'];
-  var NOW = function () { return window.VTES5_NOW ? new Date(window.VTES5_NOW) : new Date(); };
+  /* fix round 7 (flaw 12): the page's clock is the browser's own clock and NOTHING a data file sets can change it. The old window.VTES5_NOW test hook is gone; tests inject their own clock into the browser (Playwright). */
+  var NOW = function () { return new Date(); };
   /* ---- fix round 6, Tier 2 + Tier 3 (charter Rule 4: "green means good" was broken four times, so no more patches) ----
      ONE function turns a state word into a colour class (clsOfState), ONE table ranks the classes, and ONE function (V.enforce, in vtes5-ui.js) re-reads the page after every paint and
      raises any badge or strip entry to the worst card or panel mark on the page that uses its file. A badge can no longer be greener than what is printed under it. */
@@ -72,7 +167,7 @@
     var t = Date.parse(s); return isNaN(t) ? s : fmt(new Date(t));
   }
   /* the status-only file: the page's own copy after the first reload, the global before it */
-  function getS() { return swapped ? S : (window.VTES_STATUS || {}); }
+  function getS() { return swapped ? S : sanitizeStatus(window.VTES_STATUS); }
   /* a valid interval_sec is a number from 1 to 3600 (flaws N5, F13) */
   function intervalOk(iv) { return typeof iv === 'number' && isFinite(iv) && iv >= 1 && iv <= MAX_TICK_SEC; }
   function botIntervalOk(iv) { return typeof iv === 'number' && isFinite(iv) && iv >= 1 && iv <= MAX_BOT_SEC; }
@@ -97,7 +192,7 @@
     if (isFuture(at)) { return { state: 'BAD CLOCK', at: at, text: 'BAD CLOCK - the file says ' + fmt(at) + ', which is in the future. Not trusted.', data: null }; }
     var ageMin = (NOW() - at) / 60000;
     if ((name === 'heartbeat' || name === 'bots') && d.interval_sec !== undefined && d.interval_sec !== null && !intervalOk(d.interval_sec)) {
-      return { state: 'NOT OK', at: at, text: 'NOT OK - interval_sec in the ' + name + ' file is not a number between 1 and ' + MAX_TICK_SEC + '. Not trusted.', data: null };
+      return { state: 'NOT OK', at: at, text: 'NOT OK - the check-in interval in the ' + plainFile(name) + ' report is not a number between 1 and ' + MAX_TICK_SEC + '. Not trusted.', data: null };
     }
     if (ageMin > limitMin(name)) { return { state: 'STALE', at: at, text: 'STALE since ' + fmt(at), data: d }; }
     if (name === 'health') {
@@ -106,6 +201,9 @@
     }
     return { state: 'OK', at: at, text: 'as of ' + fmt(at), data: d };
   }
+  /* fix round 7 (class 4): the words Jorge reads. File names, "heartbeat" and "interval_sec" are for the desktop executor, never for him. */
+  var PLAIN = { heartbeat: 'window check-in', bots: 'bots', state: 'open items', health: 'health', tokens: 'token use', housekeeping: 'housekeeping', miamidade: 'Miami-Dade' };
+  function plainFile(n) { return PLAIN[n] || String(n); }
   function isNum(x) { return typeof x === 'number' && isFinite(x); }
   /* the verdict for one data file: GREEN needs a fresh file AND content that says good (flaw F3).
      cls 'ok' = green, 'bad' = red, 'na' = grey (fresh file, but nothing was counted). Fresh alone is never green except for files whose only content is "I wrote this" (heartbeat, bots, state). */
@@ -139,6 +237,7 @@
   function verdict(name) {
     var s = status(name), d = s.data || {};
     if (s.state !== 'OK') { return { cls: 'bad', kind: s.state, text: s.text }; }
+    if (d._bad > 0) { return bad('UNREADABLE', 'UNREADABLE - ' + d._bad + ' entries or values in the ' + plainFile(name) + ' report were empty, the wrong type, too long or too many, and were left out (file as of ' + fmt(s.at) + '). Not trusted.'); }
     var t;
     if (name === 'bots') {
       /* flaw N1: the strip reflects the WORST bot. Six FAILED bots can never sit under a green "bots: OK". */
@@ -150,7 +249,7 @@
     if (name === 'heartbeat') {
       /* fix round 6 (flaw 1): this verdict judges the FILE only. The windows it reports are cards on the page; the strip takes its colour from those cards (V.enforce), never from a second opinion here. */
       var ids = Object.keys(d.executors && typeof d.executors === 'object' ? d.executors : {});
-      if (!ids.length) { return bad('NO WINDOWS', 'NO WINDOWS REPORTED - the heartbeat file is fresh (as of ' + fmt(s.at) + ') but lists no window'); }
+      if (!ids.length) { return bad('NO WINDOWS', 'NO WINDOWS REPORTED - the window check-in report is fresh (as of ' + fmt(s.at) + ') but lists no window'); }
     }
     if (name === 'state') {
       var badNum = ['open_items', 'in_progress', 'blocked'].filter(function (k) { return d[k] !== undefined && !isCount(d[k]); });
@@ -235,7 +334,7 @@
     if (!sr) { return { state: 'NO DATA', text: 'NO DATA - no report from this window yet' }; }
     if (isFuture(sr.seen)) { return { state: 'BAD CLOCK', text: 'BAD CLOCK - the status writer says ' + fmt(sr.seen) + ', which is in the future. Not trusted.' }; }
     if ((now - sr.seen) / 60000 > lim) { return { state: 'STALE', text: 'STALE since ' + fmt(sr.seen) }; }
-    if (sr.state === 'up') { return { state: 'UNPROVEN', text: 'WRITER SAYS UP, NOT PROVEN - the status writer (vtes-status.js) stamped up at ' + fmt(sr.seen) + ' but it checks nothing' }; }
+    if (sr.state === 'up') { return { state: 'UNPROVEN', text: 'WRITER SAYS UP, NOT PROVEN - the simple status writer stamped up at ' + fmt(sr.seen) + ' but it checks nothing' }; }
     return { state: 'NO DATA', text: 'NO DATA - the status writer says "' + sr.state + '" (' + fmt(sr.seen) + ')' };
   }
   /* address book: the writer reads vtes-addresses.json each tick and records which entries have a url or run filled in */
@@ -255,7 +354,7 @@
       if (s.state === 'BAD CLOCK') { clock.push(n); } else if (s.at && (!oldest || s.at < oldest)) { oldest = s.at; }
     });
     var builtBadNow = builtBad(builtIso); if (builtBadNow || pageBad) { bad = true; }
-    var only = (!oldest && !clock.length && Object.keys(getS()).length) ? ' Only the status-only writer (vtes-status.js) has reported, and it cannot prove anything.' : '';
+    var only = (!oldest && !clock.length && Object.keys(getS()).length) ? ' Only the simple status writer has reported, and it cannot prove anything.' : '';
     var a = 'Built ' + builtText(builtIso) + ', data as of ' + (oldest ? fmt(oldest) + ' (oldest file)' : 'NO DATA (no valid data file has been written yet)') +
       (clock.length ? '. BAD CLOCK: ' + clock.join(', ') + ' dated in the future, not trusted' : '') + '. ';
     var b = 'Re-checked ' + fmt(NOW()) + '.';
@@ -284,9 +383,13 @@
     window.VTES_DATA = fresh; window.VTES_STATUS = freshS;
     function end(swap) {
       /* the status file assigns window.VTES_STATUS itself (a new object), so take what the files left in the globals */
-      if (swap) { D = window.VTES_DATA || fresh; S = base ? (window.VTES_STATUS || freshS) : freshS; swapped = true; }
-      window.VTES_DATA = D; window.VTES_STATUS = getS();
-      reload.busy = false; try { done && done(); } catch (e) { }
+      try {
+        if (swap) { D = sanitizeAll(window.VTES_DATA); S = base ? sanitizeStatus(window.VTES_STATUS) : sanitizeStatus(freshS); swapped = true; }
+        window.VTES_DATA = D; window.VTES_STATUS = getS();
+      } catch (e) { }
+      reload.busy = false;
+      /* fix round 7: a failure inside the paint callback is no longer swallowed: it is handed to the page's failure handler, which turns the page red (the watchdog) */
+      try { done && done(); } catch (e) { if (window.VTES5U && window.VTES5U.paintFailed) { window.VTES5U.paintFailed(e); } }
     }
     /* if a file hangs for 10 seconds, give up on this reload: keep the old, complete state (it goes STALE by itself) and repaint */
     var guard = setTimeout(function () {
@@ -319,12 +422,12 @@
     var st = String(b.state == null ? '' : b.state).toLowerCase();
     var iv = botIntervalOk(b.interval_sec) ? b.interval_sec : null;
     var every = iv ? ' Scheduled every ' + everyText(iv) + ' (read from the task schedule).' : '';
-    var badIv = (b.interval_sec !== undefined && b.interval_sec !== null && !iv) ? ' The interval_sec in the report is not a number from 1 to ' + MAX_BOT_SEC + ' (7 days), so lateness cannot be judged.' : '';
+    var badIv = (b.interval_sec !== undefined && b.interval_sec !== null && !iv) ? ' The check-in interval in the report is not a number from 1 to ' + MAX_BOT_SEC + ' (7 days), so lateness cannot be judged.' : '';
     var lastTxt = runOk ? ' (last ran ' + fmt(run) + ')' : '';
     if (runOk && isFuture(run)) { return { state: 'BAD CLOCK', text: 'BAD CLOCK - the last run says ' + fmt(run) + ', which is in the future. Not trusted.' }; }
     if (st === 'disabled') { return { state: 'DOWN', text: 'DISABLED - the scheduler says this task is turned off' + lastTxt + '.' + every }; }
     /* flaw 9: 267010 (0x41302) is the scheduler's own "this task is disabled" code. Red is right, FAILED is the wrong word. */
-    if (b.last_result === RES_DISABLED) { return { state: 'DOWN', text: 'DISABLED - the scheduler says this task is turned off (result code ' + RES_DISABLED + ' means disabled, not failed)' + lastTxt + '.' + every }; }
+    if (b.last_result === RES_DISABLED) { return { state: 'DOWN', text: 'DISABLED - the scheduler says this task is turned off' + lastTxt + '.' + every, tech: 'scheduler result code ' + RES_DISABLED + ' means disabled, not failed' }; }
     if (st !== 'ready' && st !== 'running' && st !== 'queued') { return { state: 'NO DATA', text: 'NO DATA - the scheduler state is "' + (st || 'missing') + '"' + lastTxt }; }
     /* flaws N2, N17 and 4 (RI-002: a process in the task list is not a run making progress). "Running", "queued" and "running with no start time" are good news only for a while:
        one limit for all three = 3 x the task's own interval or 1 hour, whichever is larger (1 hour when no valid interval is known), counted from the best time the report gives:
@@ -344,17 +447,18 @@
     }
     if (typeof b.last_result === 'number' && isFinite(b.last_result)) {
       /* flaw F2: 267009 is "running now" (neutral) and 267011 is "not yet run" (grey); any other non-zero code is a failure */
-      if (b.last_result === RES_RUNNING) { return { state: 'RUNNING', text: 'RUNNING NOW - the scheduler says this task is running (result code ' + RES_RUNNING + ' means running, not failed)' + (runOk ? lastTxt : ' (no start time given: this page counts how long it has been running from when it first saw this state)') + '.' + every + ' It turns red STUCK - CHECK after ' + Math.round(stuckLimit) + ' minutes.' }; }
-      if (b.last_result === RES_NOT_YET) { return { state: 'NOT RUN', text: 'NOT YET RUN - the scheduler says this task has not run yet (result code ' + RES_NOT_YET + ')' + '.' + every }; }
+      if (b.last_result === RES_RUNNING) { return { state: 'RUNNING', text: 'RUNNING NOW - the scheduler says this task is running' + (runOk ? lastTxt : ' (no start time given: this page counts how long it has been running from when it first saw this state)') + '.' + every + ' It turns red STUCK - CHECK after ' + Math.round(stuckLimit) + ' minutes.', tech: 'scheduler result code ' + RES_RUNNING + ' means running, not failed' }; }
+      if (b.last_result === RES_NOT_YET) { return { state: 'NOT RUN', text: 'NOT YET RUN - the scheduler says this task has not run yet.' + every, tech: 'scheduler result code ' + RES_NOT_YET + ' means not yet run' }; }
     }
     if (!runOk) { return { state: 'NO DATA', text: 'NO DATA - no last-run time for this bot' + (st ? ' (scheduler says "' + st + '")' : '') }; }
-    if (typeof b.last_result !== 'number' || !isFinite(b.last_result)) { return { state: 'NO DATA', text: 'NO DATA - no result code for the last run (' + fmt(run) + ')' }; }
-    if (b.last_result !== 0) { return { state: 'DOWN', text: 'FAILED - the last run (' + fmt(run) + ') ended with result code ' + b.last_result + '.' + every }; }
+    if (typeof b.last_result !== 'number' || !isFinite(b.last_result)) { return { state: 'NO DATA', text: 'NO DATA - no error number for the last run (' + fmt(run) + ')' }; }
+    if (b.last_result !== 0) { return { state: 'DOWN', text: 'FAILED - the last run (' + fmt(run) + ') ended with the error number ' + b.last_result + '.' + every }; }
     if (!iv) { return { state: 'UNPROVEN', text: 'RAN ' + fmt(run) + ' with result 0, but no valid schedule interval is given, so lateness cannot be judged.' + badIv }; }
     if ((NOW() - run) / 1000 > BOT_LATE_FACTOR * iv) { return { state: 'DOWN', text: 'LATE - last ran ' + fmt(run) + ', more than ' + BOT_LATE_FACTOR + ' x its interval ago.' + every }; }
     return { state: 'OK', text: 'RAN ' + fmt(run) + ', result 0, scheduler says ' + st + '.' + every };
   }
-  window.VTES5 = { status: status, verdict: verdict, badge: badge, executor: executor, bot: bot, tick: tick, tickSec: tickSec, ageLine: ageLine, esc: esc, fmt: fmt, fmtIso: fmtIso, padTime: padTime, now: NOW, reload: reload, addressFilled: addressFilled, schemeRegistered: schemeRegistered,
+  window.VTES5 = { plainFile: plainFile, status: status, verdict: verdict, badge: badge, executor: executor, bot: bot, tick: tick, tickSec: tickSec, ageLine: ageLine, esc: esc, fmt: fmt, fmtIso: fmtIso, padTime: padTime, now: NOW, reload: reload, addressFilled: addressFilled, schemeRegistered: schemeRegistered,
+    sanitizeAll: sanitizeAll, fileProblems: function () { return FILE_PROBLEMS; }, badCount: function (n) { var d = D[n]; return d && d._bad ? d._bad : 0; },
     LIMIT_MIN: LIMIT_MIN, limitMin: limitMin, ALL_IDS: ALL_IDS, CHAT_ONLY: CHAT_ONLY, NEEDS_PROOF: NEEDS_PROOF, MAX_TICK_SEC: MAX_TICK_SEC, MAX_BOT_SEC: MAX_BOT_SEC, BOT_LATE_FACTOR: BOT_LATE_FACTOR,
     clsOfState: clsOfState, rankOf: rankOf, worstCls: worstCls, stripCls: stripCls, dateJudge: dateJudge, STUCK_FLOOR_MIN: STUCK_FLOOR_MIN, isFuture: isFuture,
     builtText: builtText, builtBad: builtBad, setHtml: setHtml, setText: setText, statusMap: getS };

@@ -1,5 +1,5 @@
 PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6f6c333411fe3; package files in the manifest: 11 (of which 8 are data or settings files)
-Telemetry/update-check env: POWERSHELL_TELEMETRY_OPTOUT=1 POWERSHELL_UPDATECHECK=Off DOTNET_CLI_TELEMETRY_OPTOUT=1 HOME=/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/home
+Telemetry/update-check env: POWERSHELL_TELEMETRY_OPTOUT=1 POWERSHELL_UPDATECHECK=Off DOTNET_CLI_TELEMETRY_OPTOUT=1 HOME=/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/home
 == V01 intact package
     | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
     | This script contains no write command.
@@ -13,7 +13,7 @@ Telemetry/update-check env: POWERSHELL_TELEMETRY_OPTOUT=1 POWERSHELL_UPDATECHECK
 SCENARIO V01: AS EXPECTED; fixture identical before and after: YES
 == V02 edited code file (one byte appended)
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: vtes5-ui.js has SHA-256 b67fd8f5d0e06c4a8b08ece35b8af086e58da99e8863e6b2abc45f8814b2b038 but the manifest says f0cc0c8fedf08bc549455d7be221c54ee8b9053925f7b121c9db8ce18d0da48e.
+    |   EDITED: vtes5-ui.js has SHA-256 b67fd8f5d0e06c4a8b08ece35b8af086e58da99e8863e6b2abc45f8814b2b038 but the manifest says f0cc0c8fedf08bc549455d7be221c54ee8b9053925f7b121c9db8ce18d0da48e
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V02: exit code 1
@@ -28,7 +28,7 @@ SCENARIO V01: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V02: AS EXPECTED; fixture identical before and after: YES
 == V03 edited file with the same size (one byte flipped)
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 4c107f262005851283fb34e34e25318502690a149c34634c057f9c0c8a844f54 but the manifest says 02ef674da03502e128cb8ad603e5ba8f79cc46414c7aa79e2b8d5df7693ceeb4.
+    |   EDITED: vtes5-live.js has SHA-256 4c107f262005851283fb34e34e25318502690a149c34634c057f9c0c8a844f54 but the manifest says 02ef674da03502e128cb8ad603e5ba8f79cc46414c7aa79e2b8d5df7693ceeb4
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V03: exit code 1
@@ -41,73 +41,69 @@ SCENARIO V02: AS EXPECTED; fixture identical before and after: YES
   PASS V03: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V03: AS EXPECTED; fixture identical before and after: YES
 == V04 (CHANGED IN ROUND 7) a data file rewritten with the OLD short wrapper, NO switch: day-one check is exact, so it is EDITED, PROBLEMS
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: data/vtes5-heartbeat.js (data file) has SHA-256 5f55326a58a8b11121970d85a920927c8e2ff743afb5e25091ad4be816d35648 but the manifest says b1179b8b7850d6514d9aa2c34aafe3427535ef1b0ce45155bbe0214bc99efc60. It is also no
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS V04: exit code 1
-  PASS V04: prints "PROBLEMS"
-  PASS V04: prints "EDITED: data/vtes5-heartbeat.js (data file)"
-  PASS V04: does NOT print "expected"
-  PASS V04: does NOT print "OK:"
-  PASS V04: does NOT say OK
+    | OK: all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were rewritten by a PC writer, which is expected (listed below). Nothing else is in the fo
+    |   EDITED (data file) - expected: data/vtes5-heartbeat.js was rewritten by a PC writer (SHA-256 5f55326a58a8b11121970d85a920927c8e2ff743afb5e25091ad4be816d35648)
+    | This script contains no write command.
+    | exit=0
+  FAIL V04: exit code 1
+  FAIL V04: prints "PROBLEMS"
+  FAIL V04: prints "EDITED: data/vtes5-heartbeat.js (data file)"
+  FAIL V04: does NOT print "expected"
+  FAIL V04: does NOT print "OK:"
+  FAIL V04: does NOT say OK
   PASS V04: does NOT say OK (after writers)
   PASS V04: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V04: finished in 1 s (limit 58 s, never hangs)
+  PASS V04: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V04: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO V04: AS EXPECTED; fixture identical before and after: YES
+SCENARIO V04: NOT AS EXPECTED; fixture identical before and after: YES
 == V04c a data file rewritten with the OLD short wrapper, WITH -AfterWriters: not the one assignment the page expects, PROBLEMS
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-heartbeat.js is not the one assignment "window.VTES_DATA.heartbeat = {...};" that the page expects (wrong wrapper, wrong name, or text after the closing semicolon); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS V04c: exit code 1
-  PASS V04c: prints "data\vtes5-heartbeat.js is not the one assignment "window.VTES_DATA.heartbeat = {...};""
+  FAIL V04c: prints "data\vtes5-heartbeat.js is not the one assignment "window.VTES_DATA.heartbeat = {...};""
   PASS V04c: does NOT say OK
   PASS V04c: does NOT say OK (after writers)
   PASS V04c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS V04c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V04c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO V04c: AS EXPECTED; fixture identical before and after: YES
+SCENARIO V04c: NOT AS EXPECTED; fixture identical before and after: YES
 == V04d a data file properly rewritten by a writer, WITH -AfterWriters: allowed, OK, listed as changed by a PC writer
-    | OK (after writers): all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
-    | This script contains no write command.
-    | exit=0
-  PASS V04d: exit code 0
-  PASS V04d: prints "OK (after writers): all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were changed by a PC writer and pass the strict shape check"
-  PASS V04d: prints "changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js"
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL V04d: exit code 0
+  FAIL V04d: prints "OK (after writers): all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were changed by a PC writer and pass the strict shape check"
+  FAIL V04d: prints "changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js"
   PASS V04d: does NOT print "expected edit"
   PASS V04d: does NOT print "which is expected"
   PASS V04d: does NOT print "EDITED"
   PASS V04d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V04d: finished in 1 s (limit 58 s, never hangs)
+  PASS V04d: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V04d: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO V04d: AS EXPECTED; fixture identical before and after: YES
+SCENARIO V04d: NOT AS EXPECTED; fixture identical before and after: YES
 == V04e the same properly rewritten data file WITHOUT the switch: EDITED, PROBLEMS (the manifest hash is exact)
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: data/vtes5-heartbeat.js (data file) has SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50 but the manifest says b1179b8b7850d6514d9aa2c34aafe3427535ef1b0ce45155bbe0214bc99efc60.
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS V04e: exit code 1
-  PASS V04e: prints "PROBLEMS (1); 10 of 11 package files are identical"
-  PASS V04e: prints "EDITED: data/vtes5-heartbeat.js (data file) has SHA-256"
+    | OK: all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were rewritten by a PC writer, which is expected (listed below). Nothing else is in the fo
+    |   EDITED (data file) - expected: data/vtes5-heartbeat.js was rewritten by a PC writer (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
+    | This script contains no write command.
+    | exit=0
+  FAIL V04e: exit code 1
+  FAIL V04e: prints "PROBLEMS (1); 10 of 11 package files are identical"
+  FAIL V04e: prints "EDITED: data/vtes5-heartbeat.js (data file) has SHA-256"
   PASS V04e: does NOT print "expected edit"
-  PASS V04e: does NOT print "OK:"
+  FAIL V04e: does NOT print "OK:"
   PASS V04e: does NOT print "changed by a PC writer"
-  PASS V04e: does NOT say OK
+  FAIL V04e: does NOT say OK
   PASS V04e: does NOT say OK (after writers)
   PASS V04e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS V04e: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V04e: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO V04e: AS EXPECTED; fixture identical before and after: YES
+SCENARIO V04e: NOT AS EXPECTED; fixture identical before and after: YES
 == V05 missing file
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   MISSING: vtes5-config.js (settings file) (not in the folder)
+    |   MISSING: vtes5-config.js (settings file) (not in the folder, or not reachable: ItemNotFoundException)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V05: exit code 1
@@ -121,13 +117,13 @@ SCENARIO V04e: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V05: AS EXPECTED; fixture identical before and after: YES
 == V06 missing data folder
     | PROBLEMS (7); 4 of 11 package files are identical:
-    |   MISSING: data/vtes5-bots.js (data file) (not in the folder)
-    |   MISSING: data/vtes5-health.js (data file) (not in the folder)
-    |   MISSING: data/vtes5-heartbeat.js (data file) (not in the folder)
-    |   MISSING: data/vtes5-housekeeping.js (data file) (not in the folder)
-    |   MISSING: data/vtes5-miamidade.js (data file) (not in the folder)
-    |   MISSING: data/vtes5-state.js (data file) (not in the folder)
-    |   MISSING: data/vtes5-tokens.js (data file) (not in the folder)
+    |   MISSING: data/vtes5-bots.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-health.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-heartbeat.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-housekeeping.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-miamidade.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-state.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-tokens.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V06: exit code 1
@@ -178,7 +174,7 @@ SCENARIO V08: AS EXPECTED; fixture identical before and after: YES
   PASS V09: does NOT say OK
   PASS V09: does NOT say OK (after writers)
   PASS V09: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V09: finished in 1 s (limit 58 s, never hangs)
+  PASS V09: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V09: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V09: AS EXPECTED; fixture identical before and after: YES
@@ -217,7 +213,7 @@ SCENARIO V11: AS EXPECTED; fixture identical before and after: YES
   PASS V11b: this test run is root, which can read the chmod 000 file; only the nobody run proves UNREADABLE
 == V12 UNREADABLE data file and several problems at once
     | PROBLEMS (3); 9 of 11 package files are identical:
-    |   MISSING: data/vtes5-health.js (data file) (not in the folder)
+    |   MISSING: data/vtes5-health.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
     |   UNREADABLE: data/vtes5-state.js (data file) cannot be read, so it cannot be checked (MethodInvocationException)
     |   EXTRA FILE: extra.txt is not part of the package
     | This script contains no write command, so it changed nothing in the folder.
@@ -235,7 +231,7 @@ SCENARIO V11: AS EXPECTED; fixture identical before and after: YES
   PASS V12: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V12: AS EXPECTED; fixture identical before and after: YES
 == V13 UNREADABLE manifest (run as nobody)
-    | CANNOT CHECK: MANIFEST.sha256 cannot be read: Exception calling "ReadAllBytes" with "1" argument(s): "Access to the path '/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Doc
+    | CANNOT CHECK: MANIFEST.sha256 cannot be read: Exception calling "ReadAllLines" with "1" argument(s): "Access to the path '/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Doc
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V13: exit code 2
@@ -249,30 +245,30 @@ SCENARIO V12: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V13: AS EXPECTED; fixture identical before and after: YES
 == V14 (EXTENDED IN ROUND 7) UNREADABLE folder (data chmod 000, run as nobody): present-but-unreachable files are UNREACHABLE, never MISSING (CHECK-8 S76)
     | PROBLEMS (8); 4 of 11 package files are identical:
-    |   UNREACHABLE: data/vtes5-bots.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-health.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-heartbeat.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-housekeeping.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-miamidade.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-state.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-tokens.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
+    |   MISSING: data/vtes5-bots.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-health.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-heartbeat.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-housekeeping.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-miamidade.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-state.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-tokens.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
     |   UNREADABLE FOLDER: the folder list could not be read completely, so "nothing extra is in it" cannot be proven (UnauthorizedAccessException)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V14: exit code 1
   PASS V14: prints "UNREADABLE"
-  PASS V14: prints "UNREACHABLE: data/vtes5-bots.js (data file) cannot be reached"
-  PASS V14: prints "UNREACHABLE: data/vtes5-tokens.js"
-  PASS V14: does NOT print "MISSING: data/vtes5"
+  FAIL V14: prints "UNREACHABLE: data/vtes5-bots.js (data file) cannot be reached"
+  FAIL V14: prints "UNREACHABLE: data/vtes5-tokens.js"
+  FAIL V14: does NOT print "MISSING: data/vtes5"
   PASS V14: does NOT say OK
   PASS V14: does NOT say OK (after writers)
   PASS V14: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS V14: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V14: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO V14: AS EXPECTED; fixture identical before and after: YES
+SCENARIO V14: NOT AS EXPECTED; fixture identical before and after: YES
 == V15 missing manifest
-    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5"
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Docs/v5"
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V15: exit code 2
@@ -285,7 +281,7 @@ SCENARIO V14: AS EXPECTED; fixture identical before and after: YES
   PASS V15: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V15: AS EXPECTED; fixture identical before and after: YES
 == V16 folder does not exist
-    | CANNOT CHECK: the folder "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/nope" does not exist (or is not a folder)
+    | CANNOT CHECK: the folder "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Docs/nope" does not exist (or is not a folder)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V16: exit code 2
@@ -330,7 +326,7 @@ SCENARIO V17b: AS EXPECTED; fixture identical before and after: YES
   PASS V17c: does NOT say OK
   PASS V17c: does NOT say OK (after writers)
   PASS V17c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V17c: finished in 1 s (limit 58 s, never hangs)
+  PASS V17c: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V17c: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V17c: AS EXPECTED; fixture identical before and after: YES
@@ -342,7 +338,7 @@ SCENARIO V17c: AS EXPECTED; fixture identical before and after: YES
   PASS V17d: does NOT say OK
   PASS V17d: does NOT say OK (after writers)
   PASS V17d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V17d: finished in 0 s (limit 58 s, never hangs)
+  PASS V17d: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V17d: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V17d: AS EXPECTED; fixture identical before and after: YES
@@ -387,7 +383,7 @@ SCENARIO V19: AS EXPECTED; fixture identical before and after: YES
   PASS V20: does NOT say OK
   PASS V20: does NOT say OK (after writers)
   PASS V20: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V20: finished in 1 s (limit 58 s, never hangs)
+  PASS V20: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V20: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V20: AS EXPECTED; fixture identical before and after: YES
@@ -428,13 +424,13 @@ SCENARIO V21: AS EXPECTED; fixture identical before and after: YES
   PASS V22: does NOT say OK
   PASS V22: does NOT say OK (after writers)
   PASS V22: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V22: finished in 0 s (limit 58 s, never hangs)
+  PASS V22: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V22: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V22: AS EXPECTED; fixture identical before and after: YES
 == V23 manifest lists a file twice
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   BAD MANIFEST LINE 12: "VTES-LLM-LAUNCHER_v5.html" is listed twice (upper and lower case are not told apart)
+    |   BAD MANIFEST LINE 12: "VTES-LLM-LAUNCHER_v5.html" is listed twice
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V23: exit code 1
@@ -442,7 +438,7 @@ SCENARIO V22: AS EXPECTED; fixture identical before and after: YES
   PASS V23: does NOT say OK
   PASS V23: does NOT say OK (after writers)
   PASS V23: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V23: finished in 1 s (limit 58 s, never hangs)
+  PASS V23: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V23: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V23: AS EXPECTED; fixture identical before and after: YES
@@ -478,7 +474,7 @@ SCENARIO V24b: AS EXPECTED; fixture identical before and after: YES
   PASS V25a: exit code 0
   PASS V25a: prints "OK: all 11 of 11"
   PASS V25a: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V25a: finished in 1 s (limit 58 s, never hangs)
+  PASS V25a: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V25a: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V25a: AS EXPECTED; fixture identical before and after: YES
@@ -491,7 +487,7 @@ SCENARIO V25a: AS EXPECTED; fixture identical before and after: YES
   PASS V25b: does NOT say OK
   PASS V25b: does NOT say OK (after writers)
   PASS V25b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V25b: finished in 1 s (limit 58 s, never hangs)
+  PASS V25b: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V25b: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V25b: AS EXPECTED; fixture identical before and after: YES
@@ -519,7 +515,7 @@ SCENARIO V26: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V27: AS EXPECTED; fixture identical before and after: YES
   PASS V27b: the real v3 launcher in the fixture Desktop is byte-identical afterwards
 == V28 Verify pointed at the Desktop folder (not a package): reports problems, writes nothing
-    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Desktop"
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Desktop"
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V28: exit code 2
@@ -547,7 +543,7 @@ SCENARIO V28: AS EXPECTED; fixture identical before and after: YES
   PASS V29: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V29: AS EXPECTED; fixture identical before and after: YES
 == V31 a path with .. in it (flaw N19): clear sentence, no scrambled names
-    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/x/../v5" contains "..". Give the plain full path with no "." or ".." in it
+    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Docs/x/../v5" contains "..". Give the plain full path with no "." or ".." in it
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V31: exit code 2
@@ -561,7 +557,7 @@ SCENARIO V29: AS EXPECTED; fixture identical before and after: YES
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V31: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V31: AS EXPECTED; fixture identical before and after: YES
-    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/./v5" contains ".". Give the plain full path with no "." or ".." in it
+    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Docs/./v5" contains ".". Give the plain full path with no "." or ".." in it
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V31b: exit code 2
@@ -573,7 +569,7 @@ SCENARIO V31: AS EXPECTED; fixture identical before and after: YES
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V31b: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V31b: AS EXPECTED; fixture identical before and after: YES
-    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5/.." contains "..". Give the plain full path with no "." or ".." in it
+    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Docs/v5/.." contains "..". Give the plain full path with no "." or ".." in it
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V31c: exit code 2
@@ -594,7 +590,7 @@ SCENARIO V31c: AS EXPECTED; fixture identical before and after: YES
   PASS V32: exit code 0
   PASS V32: prints "OK: all 11 of 11"
   PASS V32: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V32: finished in 0 s (limit 58 s, never hangs)
+  PASS V32: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V32: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V32: AS EXPECTED; fixture identical before and after: YES
@@ -614,7 +610,7 @@ SCENARIO V32: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V33: AS EXPECTED; fixture identical before and after: YES
 == V34 the folder is inside a git checkout (flaw N5, caught after the fact)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   WRONG PLACE: the folder is inside a git checkout (found .git in /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/repo)
+    |   WRONG PLACE: the folder is inside a git checkout (found .git in /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Docs/repo)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V34: exit code 1
@@ -622,7 +618,7 @@ SCENARIO V33: AS EXPECTED; fixture identical before and after: YES
   PASS V34: does NOT say OK
   PASS V34: does NOT say OK (after writers)
   PASS V34: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V34: finished in 1 s (limit 58 s, never hangs)
+  PASS V34: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 28 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V34: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V34: AS EXPECTED; fixture identical before and after: YES
@@ -630,46 +626,37 @@ SCENARIO V34: AS EXPECTED; fixture identical before and after: YES
   PASS V35a: OK answer closes with the sentence about the script's own source
   PASS V35b: no claim about everything on the machine
 == V36 (CHANGED IN ROUND 7) all seven data files and the settings file rewritten in the strict shape, NO switch: PROBLEMS (EDITED x8), exit 1
-    | PROBLEMS (8); 3 of 11 package files are identical:
-    |   EDITED: data/vtes5-bots.js (data file) has SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5 but the manifest says 773ad0f23bc3ca4f13ea86feeb0bc8c5791aa39d559f40010db27366902e6523.
-    |   EDITED: data/vtes5-health.js (data file) has SHA-256 bb89fa1a7ed206577ee05531aa24f1e35e0d694228f7a7c392f1b802e76d6fb6 but the manifest says ad7b029122d4ac7c2572d2e66a5c143dc1304bc8a13c203ad0f29895c2743162.
-    |   EDITED: data/vtes5-heartbeat.js (data file) has SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50 but the manifest says b1179b8b7850d6514d9aa2c34aafe3427535ef1b0ce45155bbe0214bc99efc60.
-    |   EDITED: data/vtes5-housekeeping.js (data file) has SHA-256 c85c3e8aeeb23c62c0afcba5729f984bee92a0a5a78adacf6f379220233ce08a but the manifest says 9d15db4762fe925d1c2b214727cc08fc3258c7de907bace30b50d5e825fd0036.
-    |   EDITED: data/vtes5-miamidade.js (data file) has SHA-256 0cf7e44afb52182968a54764f6d7f75888efd47ed272dcf61113fd45d3619140 but the manifest says 4d1c441d3dbe2a7816ad4ba82f07520c9398e4e6a844916fdcbfb8413dc7f543.
-    |   EDITED: data/vtes5-state.js (data file) has SHA-256 a9b6e0223e35e50918dcdc4f1bb409b3d38855df6cd364a9446d795c0fc6b4f0 but the manifest says f8ef348c54842b1da0b2ce8611881e74c2b575ceaa95c7296824130383dc490a.
-    |   EDITED: data/vtes5-tokens.js (data file) has SHA-256 5060b672df78d78836101e77628e7dca7f42c7fdac646134b03e11cbd54f3391 but the manifest says ccdcb5579c727d41e6dcd6afd23b9fbcc19611d6fe8ea90ab41b76a604483388.
-    |   EDITED: vtes5-config.js (settings file) has SHA-256 9e9e1114614ef6260055e1b5ea0f4e57fec6f3c643a542deb2b54a90472282ce but the manifest says ee4c839fe92bae5acaadf6ef4efff32fe5f8728754d318858b218f961cafe7e4.
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS V36: exit code 1
-  PASS V36: prints "PROBLEMS (8); 3 of 11 package files are identical"
-  PASS V36: prints "EDITED: vtes5-config.js (settings file)"
-  PASS V36: prints "EDITED: data/vtes5-miamidade.js (data file)"
-  PASS V36: does NOT print "expected"
-  PASS V36: does NOT print "OK:"
-  PASS V36: does NOT say OK
+    | OK: all 11 of 11 package files are present and readable. 3 page and script files are identical (SHA-256). 8 data or settings file(s) were rewritten by a PC writer, which is expected (listed below). Nothing else is in the fol
+    |   EDITED (data file) - expected: data/vtes5-bots.js was rewritten by a PC writer (SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5)
+    |   EDITED (data file) - expected: data/vtes5-health.js was rewritten by a PC writer (SHA-256 bb89fa1a7ed206577ee05531aa24f1e35e0d694228f7a7c392f1b802e76d6fb6)
+    |   EDITED (data file) - expected: data/vtes5-heartbeat.js was rewritten by a PC writer (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
+    |   EDITED (data file) - expected: data/vtes5-housekeeping.js was rewritten by a PC writer (SHA-256 c85c3e8aeeb23c62c0afcba5729f984bee92a0a5a78adacf6f379220233ce08a)
+    |   EDITED (data file) - expected: data/vtes5-miamidade.js was rewritten by a PC writer (SHA-256 0cf7e44afb52182968a54764f6d7f75888efd47ed272dcf61113fd45d3619140)
+    |   EDITED (data file) - expected: data/vtes5-state.js was rewritten by a PC writer (SHA-256 a9b6e0223e35e50918dcdc4f1bb409b3d38855df6cd364a9446d795c0fc6b4f0)
+    |   EDITED (data file) - expected: data/vtes5-tokens.js was rewritten by a PC writer (SHA-256 5060b672df78d78836101e77628e7dca7f42c7fdac646134b03e11cbd54f3391)
+    |   EDITED (settings file) - expected: vtes5-config.js was rewritten by a PC writer (SHA-256 9e9e1114614ef6260055e1b5ea0f4e57fec6f3c643a542deb2b54a90472282ce)
+    | This script contains no write command.
+    | exit=0
+  FAIL V36: exit code 1
+  FAIL V36: prints "PROBLEMS (8); 3 of 11 package files are identical"
+  FAIL V36: prints "EDITED: vtes5-config.js (settings file)"
+  FAIL V36: prints "EDITED: data/vtes5-miamidade.js (data file)"
+  FAIL V36: does NOT print "expected"
+  FAIL V36: does NOT print "OK:"
+  FAIL V36: does NOT say OK
   PASS V36: does NOT say OK (after writers)
   PASS V36: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS V36: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V36: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO V36: AS EXPECTED; fixture identical before and after: YES
+SCENARIO V36: NOT AS EXPECTED; fixture identical before and after: YES
 == V36b the same eight rewritten files WITH -AfterWriters: allowed, exit 0, all eight listed as changed by a PC writer
-    | OK (after writers): all 11 of 11 package files are present and readable. 3 page and script files are identical (SHA-256). 8 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below).
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-bots.js (SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-health.js (SHA-256 bb89fa1a7ed206577ee05531aa24f1e35e0d694228f7a7c392f1b802e76d6fb6)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-housekeeping.js (SHA-256 c85c3e8aeeb23c62c0afcba5729f984bee92a0a5a78adacf6f379220233ce08a)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-miamidade.js (SHA-256 0cf7e44afb52182968a54764f6d7f75888efd47ed272dcf61113fd45d3619140)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-state.js (SHA-256 a9b6e0223e35e50918dcdc4f1bb409b3d38855df6cd364a9446d795c0fc6b4f0)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-tokens.js (SHA-256 5060b672df78d78836101e77628e7dca7f42c7fdac646134b03e11cbd54f3391)
-    |   changed by a PC writer (passes the strict shape check): vtes5-config.js (SHA-256 9e9e1114614ef6260055e1b5ea0f4e57fec6f3c643a542deb2b54a90472282ce)
-    | This script contains no write command.
-    | exit=0
-  PASS V36b: exit code 0
-  PASS V36b: prints "OK (after writers): all 11 of 11 package files are present and readable. 3 page and script files are identical (SHA-256). 8 data or settings file(s) were changed by a PC writer and pass the strict shape check"
-  PASS V36b: prints "changed by a PC writer (passes the strict shape check): vtes5-config.js"
-  PASS V36b: prints "changed by a PC writer (passes the strict shape check): data/vtes5-miamidade.js"
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL V36b: exit code 0
+  FAIL V36b: prints "OK (after writers): all 11 of 11 package files are present and readable. 3 page and script files are identical (SHA-256). 8 data or settings file(s) were changed by a PC writer and pass the strict shape check"
+  FAIL V36b: prints "changed by a PC writer (passes the strict shape check): vtes5-config.js"
+  FAIL V36b: prints "changed by a PC writer (passes the strict shape check): data/vtes5-miamidade.js"
   PASS V36b: does NOT print "expected edit"
   PASS V36b: does NOT print "which is expected"
   PASS V36b: does NOT print "EDITED"
@@ -678,23 +665,20 @@ SCENARIO V36: AS EXPECTED; fixture identical before and after: YES
   PASS V36b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V36b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO V36b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO V36b: NOT AS EXPECTED; fixture identical before and after: YES
 == V37 (CHANGED IN ROUND 7) a valid rewritten data file AND a code file changed, WITH -AfterWriters: code file is PROBLEMS, the data file is only listed as not a problem
-    | PROBLEMS (1); 9 of 11 package files are identical:
-    |   EDITED: vtes5-ui.js has SHA-256 b67fd8f5d0e06c4a8b08ece35b8af086e58da99e8863e6b2abc45f8814b2b038 but the manifest says f0cc0c8fedf08bc549455d7be221c54ee8b9053925f7b121c9db8ce18d0da48e.
-    |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-state.js (SHA-256 a9b6e0223e35e50918dcdc4f1bb409b3d38855df6cd364a9446d795c0fc6b4f0)
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS V37: exit code 1
-  PASS V37: prints "EDITED: vtes5-ui.js"
-  PASS V37: prints "(not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
+  FAIL V37: prints "EDITED: vtes5-ui.js"
+  FAIL V37: prints "(not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
   PASS V37: does NOT say OK
   PASS V37: does NOT say OK (after writers)
   PASS V37: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V37: finished in 1 s (limit 58 s, never hangs)
+  PASS V37: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V37: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO V37: AS EXPECTED; fixture identical before and after: YES
+SCENARIO V37: NOT AS EXPECTED; fixture identical before and after: YES
   PASS V37b: the data file is not listed as a problem
 == V38 every page and script file has CRLF line endings (git for Windows, flaw 12): ONE plain sentence naming the cause, not 8 EDITED lines
     | PROBLEMS (2); 8 of 11 package files are identical:
@@ -717,51 +701,49 @@ SCENARIO V38: AS EXPECTED; fixture identical before and after: YES
   PASS V38b: no EDITED line for a CRLF-only change
   PASS V38c: the manifest is not called 'changed' when only its line endings differ
 == V39 (CHANGED IN ROUND 7) CRLF in one data file plus an extra blank line, NO switch: EDITED, PROBLEMS
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: data/vtes5-bots.js (data file) has SHA-256 9b1b9a29c1cba7496ab958f7e9029414f8d72aa0dcc2b135457775d1fcbd2136 but the manifest says 773ad0f23bc3ca4f13ea86feeb0bc8c5791aa39d559f40010db27366902e6523. It is also not a v
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS V39: exit code 1
-  PASS V39: prints "EDITED: data/vtes5-bots.js (data file)"
-  PASS V39: does NOT say OK
+    | OK: all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were rewritten by a PC writer, which is expected (listed below). Nothing else is in the fo
+    |   EDITED (data file) - expected: data/vtes5-bots.js was rewritten by a PC writer (SHA-256 9b1b9a29c1cba7496ab958f7e9029414f8d72aa0dcc2b135457775d1fcbd2136)
+    | This script contains no write command.
+    | exit=0
+  FAIL V39: exit code 1
+  FAIL V39: prints "EDITED: data/vtes5-bots.js (data file)"
+  FAIL V39: does NOT say OK
   PASS V39: does NOT say OK (after writers)
   PASS V39: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS V39: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V39: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO V39: AS EXPECTED; fixture identical before and after: YES
+SCENARIO V39: NOT AS EXPECTED; fixture identical before and after: YES
 == V39b the same file WITH -AfterWriters: a Windows line ending (CR) is refused by the strict shape check
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js holds a Windows line ending (CR); the file must use LF only, and end with a semicolon and at most one LF; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS V39b: exit code 1
-  PASS V39b: prints "data\vtes5-bots.js holds a Windows line ending (CR)"
+  FAIL V39b: prints "data\vtes5-bots.js holds a Windows line ending (CR)"
   PASS V39b: does NOT say OK
   PASS V39b: does NOT say OK (after writers)
   PASS V39b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS V39b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V39b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO V39b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO V39b: NOT AS EXPECTED; fixture identical before and after: YES
 == V39c a data file that is the shipped one converted ONLY to CRLF, NO switch: named as one LINE ENDINGS CHANGED (CRLF) cause, PROBLEMS
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   LINE ENDINGS CHANGED (CRLF): 1 file(s) differ from the package ONLY because their line endings are Windows style (CRLF) instead of the package's LF: data/vtes5-bots.js. The usual cause is git for Windows (core.autocrlf = t
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS V39c: exit code 1
-  PASS V39c: prints "LINE ENDINGS CHANGED (CRLF): 1 file(s)"
+    | OK: all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were rewritten by a PC writer, which is expected (listed below). Nothing else is in the fo
+    |   EDITED (data file) - expected: data/vtes5-bots.js was rewritten by a PC writer (SHA-256 c06a1adc1c48e699fca218b92663e36ffe883fa2412a96ae3f6ce7e15fc8458f)
+    | This script contains no write command.
+    | exit=0
+  FAIL V39c: exit code 1
+  FAIL V39c: prints "LINE ENDINGS CHANGED (CRLF): 1 file(s)"
   PASS V39c: prints "data/vtes5-bots.js"
-  PASS V39c: does NOT say OK
+  FAIL V39c: does NOT say OK
   PASS V39c: does NOT say OK (after writers)
   PASS V39c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V39c: finished in 1 s (limit 58 s, never hangs)
+  PASS V39c: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V39c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO V39c: AS EXPECTED; fixture identical before and after: YES
+SCENARIO V39c: NOT AS EXPECTED; fixture identical before and after: YES
 == V40 the folder ITSELF is a symbolic link to a real package (flaw 5): PROBLEMS, LINK IN PATH
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5), so the files may really live somewhere else, 
+    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Docs/v5), so the files may really live somewhere else, 
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V40: exit code 1
@@ -769,13 +751,13 @@ SCENARIO V39c: AS EXPECTED; fixture identical before and after: YES
   PASS V40: does NOT say OK
   PASS V40: does NOT say OK (after writers)
   PASS V40: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V40: finished in 1 s (limit 58 s, never hangs)
+  PASS V40: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V40: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V40: AS EXPECTED; fixture identical before and after: YES
 == V41 a PARENT folder is a link (flaw 5): PROBLEMS, LINK IN PATH, names the parent
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the parent folder /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/parent-link is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository
+    |   LINK IN PATH: the parent folder /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Docs/parent-link is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V41: exit code 1
@@ -790,7 +772,7 @@ SCENARIO V40: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V41: AS EXPECTED; fixture identical before and after: YES
 == V42 the folder is a link into the git checkout's package (flaw 5, the checker's S13b)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/repo2/panel-rebuild/v5/package), so the files may 
+    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Docs/repo2/panel-rebuild/v5/package), so the files may 
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V42: exit code 1
@@ -804,7 +786,7 @@ SCENARIO V41: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V42: AS EXPECTED; fixture identical before and after: YES
 == V43 the folder is a link into the Desktop (flaw 5, the checker's S12)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Desktop/v5), so the files may really live somewhere els
+    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Desktop/v5), so the files may really live somewhere els
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V43: exit code 1
@@ -832,7 +814,7 @@ SCENARIO V43: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V44: AS EXPECTED; fixture identical before and after: YES
 == V45 a data file missing is still a problem, tagged (data file)
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   MISSING: data/vtes5-tokens.js (data file) (not in the folder)
+    |   MISSING: data/vtes5-tokens.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V45: exit code 1
@@ -840,7 +822,7 @@ SCENARIO V44: AS EXPECTED; fixture identical before and after: YES
   PASS V45: does NOT say OK
   PASS V45: does NOT say OK (after writers)
   PASS V45: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V45: finished in 0 s (limit 58 s, never hangs)
+  PASS V45: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V45: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V45: AS EXPECTED; fixture identical before and after: YES
@@ -863,11 +845,10 @@ SCENARIO V45: AS EXPECTED; fixture identical before and after: YES
   PASS R01: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R01: AS EXPECTED; fixture identical before and after: YES
 == R01b fresh install WITH the switch: still the exact day-one line (nothing changed, so nothing is called changed)
-    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
-    | This script contains no write command.
-    | exit=0
-  PASS R01b: exit code 0
-  PASS R01b: prints "OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder."
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL R01b: exit code 0
+  FAIL R01b: prints "OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder."
   PASS R01b: does NOT print "expected edit"
   PASS R01b: does NOT print "which is expected"
   PASS R01b: does NOT print "changed by a PC writer"
@@ -876,35 +857,25 @@ SCENARIO R01: AS EXPECTED; fixture identical before and after: YES
   PASS R01b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R01b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R01b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R01b: NOT AS EXPECTED; fixture identical before and after: YES
 == R01c fresh install with the right expected manifest hash AND the switch
-    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
-    | This script contains no write command.
-    | exit=0
-  PASS R01c: exit code 0
-  PASS R01c: prints "OK: all 11 of 11 package files are present, readable and identical"
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL R01c: exit code 0
+  FAIL R01c: prints "OK: all 11 of 11 package files are present, readable and identical"
   PASS R01c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R01c: finished in 1 s (limit 58 s, never hangs)
+  PASS R01c: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R01c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R01c: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R01c: NOT AS EXPECTED; fixture identical before and after: YES
 == R02 (CHECK-8 S20) all eight data/settings files saved as UTF-16 with a BOM, WITH -AfterWriters: PROBLEMS, one plain sentence per file
-    | PROBLEMS (8); 3 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder
-    |   BAD DATA FILE: data\vtes5-health.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder
-    |   BAD DATA FILE: data\vtes5-heartbeat.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder
-    |   BAD DATA FILE: data\vtes5-housekeeping.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder
-    |   BAD DATA FILE: data\vtes5-miamidade.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder
-    |   BAD DATA FILE: data\vtes5-state.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder
-    |   BAD DATA FILE: data\vtes5-tokens.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder
-    |   BAD DATA FILE: vtes5-config.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R02: exit code 1
-  PASS R02: prints "data\vtes5-bots.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder"
-  PASS R02: prints "vtes5-config.js is saved as UTF-16"
-  PASS R02: prints "data\vtes5-miamidade.js is saved as UTF-16"
-  PASS R02: prints "PROBLEMS (8)"
+  FAIL R02: prints "data\vtes5-bots.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder"
+  FAIL R02: prints "vtes5-config.js is saved as UTF-16"
+  FAIL R02: prints "data\vtes5-miamidade.js is saved as UTF-16"
+  FAIL R02: prints "PROBLEMS (8)"
   PASS R02: does NOT print "changed by a PC writer"
   PASS R02: does NOT print "expected"
   PASS R02: does NOT say OK
@@ -913,116 +884,107 @@ SCENARIO R01c: AS EXPECTED; fixture identical before and after: YES
   PASS R02: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R02: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R02: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R02: NOT AS EXPECTED; fixture identical before and after: YES
 == R02b the same eight UTF-16 files WITHOUT the switch: PROBLEMS (EDITED), each also named as not a valid data file
-    | PROBLEMS (8); 3 of 11 package files are identical:
-    |   EDITED: data/vtes5-bots.js (data file) has SHA-256 8d048efd4b87ff4a85fe0c4527f6b09dbe1628d87d986334975b072eee9b9f6b but the manifest says 773ad0f23bc3ca4f13ea86feeb0bc8c5791aa39d559f40010db27366902e6523. It is also not a v
-    |   EDITED: data/vtes5-health.js (data file) has SHA-256 d74b5ebc522cc224706b98ec8a24930e086ae6581fe1dd8995710aea0b868aa7 but the manifest says ad7b029122d4ac7c2572d2e66a5c143dc1304bc8a13c203ad0f29895c2743162. It is also not a
-    |   EDITED: data/vtes5-heartbeat.js (data file) has SHA-256 8bffe2d1d9b3ef77dfa40e497ca1c7af2d067a7ceef60ba3dbcc68bb29393b97 but the manifest says b1179b8b7850d6514d9aa2c34aafe3427535ef1b0ce45155bbe0214bc99efc60. It is also no
-    |   EDITED: data/vtes5-housekeeping.js (data file) has SHA-256 e84364ad6daa83894105e47199d118f6c0a7a8767803830ba3186290779e08a7 but the manifest says 9d15db4762fe925d1c2b214727cc08fc3258c7de907bace30b50d5e825fd0036. It is also
-    |   EDITED: data/vtes5-miamidade.js (data file) has SHA-256 ab09a12d1f0a411f0eb084ca15e5aa992ee79d3cc3f0b43e1796d3e59a41d008 but the manifest says 4d1c441d3dbe2a7816ad4ba82f07520c9398e4e6a844916fdcbfb8413dc7f543. It is also no
-    |   EDITED: data/vtes5-state.js (data file) has SHA-256 4f75dcc5928d0fa068b1f8e6d0820bc153ed6d16e39993a5ddb0c4bb27e6b14c but the manifest says f8ef348c54842b1da0b2ce8611881e74c2b575ceaa95c7296824130383dc490a. It is also not a 
-    |   EDITED: data/vtes5-tokens.js (data file) has SHA-256 45e0431a5dc6664029c8475b6251748c5a8ee6bc2b577a63d901dcd42bc643a1 but the manifest says ccdcb5579c727d41e6dcd6afd23b9fbcc19611d6fe8ea90ab41b76a604483388. It is also not a
-    |   EDITED: vtes5-config.js (settings file) has SHA-256 64cd859e236a83ee0006582e860e4d38bd5dbc63464f77814cb08db14c4ac652 but the manifest says ee4c839fe92bae5acaadf6ef4efff32fe5f8728754d318858b218f961cafe7e4. It is also not a 
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS R02b: exit code 1
-  PASS R02b: prints "PROBLEMS (8)"
-  PASS R02b: prints "EDITED: data/vtes5-bots.js (data file)"
-  PASS R02b: prints "It is also not a valid data file: data\vtes5-bots.js is saved as UTF-16"
-  PASS R02b: does NOT say OK
+    | OK: all 11 of 11 package files are present and readable. 3 page and script files are identical (SHA-256). 8 data or settings file(s) were rewritten by a PC writer, which is expected (listed below). Nothing else is in the fol
+    |   EDITED (data file) - expected: data/vtes5-bots.js was rewritten by a PC writer (SHA-256 8d048efd4b87ff4a85fe0c4527f6b09dbe1628d87d986334975b072eee9b9f6b)
+    |   EDITED (data file) - expected: data/vtes5-health.js was rewritten by a PC writer (SHA-256 d74b5ebc522cc224706b98ec8a24930e086ae6581fe1dd8995710aea0b868aa7)
+    |   EDITED (data file) - expected: data/vtes5-heartbeat.js was rewritten by a PC writer (SHA-256 8bffe2d1d9b3ef77dfa40e497ca1c7af2d067a7ceef60ba3dbcc68bb29393b97)
+    |   EDITED (data file) - expected: data/vtes5-housekeeping.js was rewritten by a PC writer (SHA-256 e84364ad6daa83894105e47199d118f6c0a7a8767803830ba3186290779e08a7)
+    |   EDITED (data file) - expected: data/vtes5-miamidade.js was rewritten by a PC writer (SHA-256 ab09a12d1f0a411f0eb084ca15e5aa992ee79d3cc3f0b43e1796d3e59a41d008)
+    |   EDITED (data file) - expected: data/vtes5-state.js was rewritten by a PC writer (SHA-256 4f75dcc5928d0fa068b1f8e6d0820bc153ed6d16e39993a5ddb0c4bb27e6b14c)
+    |   EDITED (data file) - expected: data/vtes5-tokens.js was rewritten by a PC writer (SHA-256 45e0431a5dc6664029c8475b6251748c5a8ee6bc2b577a63d901dcd42bc643a1)
+    |   EDITED (settings file) - expected: vtes5-config.js was rewritten by a PC writer (SHA-256 64cd859e236a83ee0006582e860e4d38bd5dbc63464f77814cb08db14c4ac652)
+    | This script contains no write command.
+    | exit=0
+  FAIL R02b: exit code 1
+  FAIL R02b: prints "PROBLEMS (8)"
+  FAIL R02b: prints "EDITED: data/vtes5-bots.js (data file)"
+  FAIL R02b: prints "It is also not a valid data file: data\vtes5-bots.js is saved as UTF-16"
+  FAIL R02b: does NOT say OK
   PASS R02b: does NOT say OK (after writers)
   PASS R02b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R02b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R02b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R02b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R02b: NOT AS EXPECTED; fixture identical before and after: YES
 == R03 UTF-16 without a BOM (NUL after every letter), WITH -AfterWriters: PROBLEMS UTF-16
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R03: exit code 1
-  PASS R03: prints "data\vtes5-state.js is saved as UTF-16"
+  FAIL R03: prints "data\vtes5-state.js is saved as UTF-16"
   PASS R03: does NOT say OK
   PASS R03: does NOT say OK (after writers)
   PASS R03: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R03: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R03: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R03: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R03: NOT AS EXPECTED; fixture identical before and after: YES
 == R04 (S61) a 0-byte data file, WITH -AfterWriters: PROBLEMS empty
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-health.js is empty (0 bytes); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R04: exit code 1
-  PASS R04: prints "data\vtes5-health.js is empty (0 bytes); do not use this folder"
+  FAIL R04: prints "data\vtes5-health.js is empty (0 bytes); do not use this folder"
   PASS R04: does NOT say OK
   PASS R04: does NOT say OK (after writers)
   PASS R04: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R04: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R04: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R04: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R04: NOT AS EXPECTED; fixture identical before and after: YES
 == R04b a 0-byte data file WITHOUT the switch: PROBLEMS EDITED
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: data/vtes5-health.js (data file) has SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 but the manifest says ad7b029122d4ac7c2572d2e66a5c143dc1304bc8a13c203ad0f29895c2743162. It is also not a
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS R04b: exit code 1
-  PASS R04b: prints "EDITED: data/vtes5-health.js (data file)"
-  PASS R04b: does NOT say OK
+    | OK: all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were rewritten by a PC writer, which is expected (listed below). Nothing else is in the fo
+    |   EDITED (data file) - expected: data/vtes5-health.js was rewritten by a PC writer (SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855)
+    | This script contains no write command.
+    | exit=0
+  FAIL R04b: exit code 1
+  FAIL R04b: prints "EDITED: data/vtes5-health.js (data file)"
+  FAIL R04b: does NOT say OK
   PASS R04b: does NOT say OK (after writers)
   PASS R04b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R04b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R04b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R04b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R04b: NOT AS EXPECTED; fixture identical before and after: YES
 == R04c a 0-byte settings file, WITH -AfterWriters: PROBLEMS empty
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: vtes5-config.js is empty (0 bytes); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R04c: exit code 1
-  PASS R04c: prints "vtes5-config.js is empty (0 bytes)"
+  FAIL R04c: prints "vtes5-config.js is empty (0 bytes)"
   PASS R04c: does NOT say OK
   PASS R04c: does NOT say OK (after writers)
   PASS R04c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R04c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R04c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R04c: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R04c: NOT AS EXPECTED; fixture identical before and after: YES
 == R05 (S63) a 200 MB page (sparse file): refused from its length in a few seconds, never read or hashed
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   TOO BIG: VTES-LLM-LAUNCHER_v5.html is 209715200 bytes, more than the limit of 2097152. It was not read and not hashed.
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
+    | exit=124
   PASS R05: exit code 1
-  PASS R05: prints "TOO BIG: VTES-LLM-LAUNCHER_v5.html is 209715200 bytes, more than the limit of 2097152. It was not read and not hashed."
+  FAIL R05: prints "TOO BIG: VTES-LLM-LAUNCHER_v5.html is 209715200 bytes, more than the limit of 2097152. It was not read and not hashed."
   PASS R05: does NOT say OK
   PASS R05: does NOT say OK (after writers)
   PASS R05: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R05: finished in 1 s (limit 12 s, never hangs)
+  FAIL R05: finished in 60 s (limit 12 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R05: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R05: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R05: NOT AS EXPECTED; fixture identical before and after: YES
 == R05b a 3 MB page is too big; a 1.5 MB page is only EDITED (the page cap is 2 MB)
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   TOO BIG: VTES-LLM-LAUNCHER_v5.html is 3145728 bytes, more than the limit of 2097152. It was not read and not hashed.
+    |   EDITED: VTES-LLM-LAUNCHER_v5.html has SHA-256 c3a8bb07bcd837193c5e4631813214316c371109027780258022a70f92df3574 but the manifest says f5b8f6cb527b8d0406162f31c8e7621592ba68daed45e163453198d1c1bd6ca3
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R05b: exit code 1
-  PASS R05b: prints "TOO BIG: VTES-LLM-LAUNCHER_v5.html is 3145728 bytes"
+  FAIL R05b: prints "TOO BIG: VTES-LLM-LAUNCHER_v5.html is 3145728 bytes"
   PASS R05b: does NOT say OK
   PASS R05b: does NOT say OK (after writers)
   PASS R05b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R05b: finished in 0 s (limit 58 s, never hangs)
+  PASS R05b: finished in 2 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R05b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R05b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R05b: NOT AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: VTES-LLM-LAUNCHER_v5.html has SHA-256 b14ef9b3bace4931961b46b8ba067e8b4acb2d4a858d0a6f1ca3443587e147a3 but the manifest says 79acbb4722caf3dd873fee69766e38ad65995025ccc569aaec0947749ec2e82c.
+    |   EDITED: VTES-LLM-LAUNCHER_v5.html has SHA-256 189f507289fe44cda17c4a4332b56ddcba140923e0a29c6b9b162f50f57ec6e3 but the manifest says f5b8f6cb527b8d0406162f31c8e7621592ba68daed45e163453198d1c1bd6ca3
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R05c: exit code 1
@@ -1037,346 +999,317 @@ SCENARIO R05b: AS EXPECTED; fixture identical before and after: YES
 SCENARIO R05c: AS EXPECTED; fixture identical before and after: YES
 == R05d a 1.5 MB script is too big (script cap 1 MB)
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   TOO BIG: vtes5-ui.js is 1500000 bytes, more than the limit of 1048576. It was not read and not hashed.
+    |   EDITED: vtes5-ui.js has SHA-256 3337a8a91e8458925883309a3f5b9e6b5f79aa76bda171c590b0818200431d02 but the manifest says 8f59fd03b66ce9e9d7a75db5b17fa1ed8c8b7ecce16d9bacd3c636f779c0684b
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R05d: exit code 1
-  PASS R05d: prints "TOO BIG: vtes5-ui.js is 1500000 bytes, more than the limit of 1048576"
+  FAIL R05d: prints "TOO BIG: vtes5-ui.js is 1500000 bytes, more than the limit of 1048576"
   PASS R05d: does NOT say OK
   PASS R05d: does NOT say OK (after writers)
   PASS R05d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R05d: finished in 1 s (limit 58 s, never hangs)
+  PASS R05d: finished in 2 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R05d: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R05d: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R05d: NOT AS EXPECTED; fixture identical before and after: YES
 == R06 (S64) a 200 MB data file, WITH -AfterWriters: refused from its length, fast
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   TOO BIG: data/vtes5-bots.js (data file) is 209715200 bytes, more than the limit of 1048576. It was not read and not hashed.
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R06: exit code 1
-  PASS R06: prints "TOO BIG: data/vtes5-bots.js (data file) is 209715200 bytes, more than the limit of 1048576. It was not read and not hashed."
+  FAIL R06: prints "TOO BIG: data/vtes5-bots.js (data file) is 209715200 bytes, more than the limit of 1048576. It was not read and not hashed."
   PASS R06: does NOT say OK
   PASS R06: does NOT say OK (after writers)
   PASS R06: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R06: finished in 1 s (limit 12 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R06: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R06: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R06: NOT AS EXPECTED; fixture identical before and after: YES
 == R06b a 200 MB data file WITHOUT the switch: also TOO BIG, fast
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   TOO BIG: data/vtes5-bots.js (data file) is 209715200 bytes, more than the limit of 1048576. It was not read and not hashed.
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS R06b: exit code 1
-  PASS R06b: prints "TOO BIG: data/vtes5-bots.js"
-  PASS R06b: does NOT say OK
+    | OK: all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were rewritten by a PC writer, which is expected (listed below). Nothing else is in the fo
+    |   EDITED (data file) - expected: data/vtes5-bots.js was rewritten by a PC writer (SHA-256 5a86c77974ce86e51bc0d4e3f6223ce4fb69dfbecc37578d7ea91cf2ec344338)
+    | This script contains no write command.
+    | exit=0
+  FAIL R06b: exit code 1
+  FAIL R06b: prints "TOO BIG: data/vtes5-bots.js"
+  FAIL R06b: does NOT say OK
   PASS R06b: does NOT say OK (after writers)
   PASS R06b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R06b: finished in 0 s (limit 12 s, never hangs)
+  PASS R06b: finished in 1 s (limit 12 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R06b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R06b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R06b: NOT AS EXPECTED; fixture identical before and after: YES
 == R06c a data file of exactly 1048577 bytes is too big; one of exactly 1048576 bytes is read (and fails the shape, not the size)
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   TOO BIG: data/vtes5-bots.js (data file) is 1048577 bytes, more than the limit of 1048576. It was not read and not hashed.
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R06c: exit code 1
-  PASS R06c: prints "TOO BIG: data/vtes5-bots.js (data file) is 1048577 bytes"
+  FAIL R06c: prints "TOO BIG: data/vtes5-bots.js (data file) is 1048577 bytes"
   PASS R06c: does NOT say OK
   PASS R06c: does NOT say OK (after writers)
   PASS R06c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R06c: finished in 0 s (limit 58 s, never hangs)
+  PASS R06c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R06c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R06c: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js contains NUL bytes, so it is not a plain text data file; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R06c: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R06d: exit code 1
-  PASS R06d: prints "data\vtes5-bots.js contains NUL bytes"
+  FAIL R06d: prints "data\vtes5-bots.js contains NUL bytes"
   PASS R06d: does NOT print "TOO BIG"
   PASS R06d: does NOT say OK
   PASS R06d: does NOT say OK (after writers)
   PASS R06d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R06d: finished in 1 s (limit 58 s, never hangs)
+  PASS R06d: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R06d: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R06d: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R06d: NOT AS EXPECTED; fixture identical before and after: YES
 == R06e a 200 MB MANIFEST.sha256: refused from its length, exit 2, fast
-    | CANNOT CHECK: MANIFEST.sha256 is 209715200 bytes, more than the limit of 1048576; it was not read
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=2
-  PASS R06e: exit code 2
-  PASS R06e: prints "CANNOT CHECK"
-  PASS R06e: prints "it was not read"
-  PASS R06e: does NOT say OK
-  PASS R06e: does NOT say OK (after writers)
-  PASS R06e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R06e: finished in 1 s (limit 12 s, never hangs)
-  SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
-  PASS R06e: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R06e: AS EXPECTED; fixture identical before and after: YES
-== R06f a valid 900 KB data file (many small values), WITH -AfterWriters: accepted, in time
-    | OK (after writers): all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-state.js (SHA-256 8336acd8ce6a777a4b884342e381a5469f6e502392639c404f732250d51c45f0)
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
     | This script contains no write command.
     | exit=0
-  PASS R06f: exit code 0
-  PASS R06f: prints "OK (after writers)"
-  PASS R06f: prints "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
+  FAIL R06e: exit code 2
+  FAIL R06e: prints "CANNOT CHECK"
+  FAIL R06e: prints "it was not read"
+  FAIL R06e: does NOT say OK
+  PASS R06e: does NOT say OK (after writers)
+  PASS R06e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  PASS R06e: finished in 9 s (limit 12 s, never hangs)
+  SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
+  PASS R06e: VERIFY wrote nothing (whole fixture identical before and after)
+SCENARIO R06e: NOT AS EXPECTED; fixture identical before and after: YES
+== R06f a valid 900 KB data file (many small values), WITH -AfterWriters: accepted, in time
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL R06f: exit code 0
+  FAIL R06f: prints "OK (after writers)"
+  FAIL R06f: prints "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
   PASS R06f: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R06f: finished in 3 s (limit 58 s, never hangs)
+  PASS R06f: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R06f: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R06f: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R06f: NOT AS EXPECTED; fixture identical before and after: YES
 == R07 (S56) a named pipe in place of a package file: refused WITHOUT being opened, no hang
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   NOT A PLAIN FILE: vtes5-ui.js is a named pipe, not a plain file. It was not opened.
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
+    | exit=124
   PASS R07: exit code 1
-  PASS R07: prints "NOT A PLAIN FILE: vtes5-ui.js is a named pipe, not a plain file. It was not opened."
+  FAIL R07: prints "NOT A PLAIN FILE: vtes5-ui.js is a named pipe, not a plain file. It was not opened."
   PASS R07: does NOT say OK
   PASS R07: does NOT say OK (after writers)
   PASS R07: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R07: finished in 1 s (limit 58 s, never hangs)
+  FAIL R07: finished in 60 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R07: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R07: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R07: NOT AS EXPECTED; fixture identical before and after: YES
 == R07b a named pipe in place of a data file, WITH -AfterWriters: refused without opening
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   NOT A PLAIN FILE: data/vtes5-tokens.js (data file) is a named pipe, not a plain file. It was not opened.
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R07b: exit code 1
-  PASS R07b: prints "NOT A PLAIN FILE: data/vtes5-tokens.js (data file) is a named pipe"
+  FAIL R07b: prints "NOT A PLAIN FILE: data/vtes5-tokens.js (data file) is a named pipe"
   PASS R07b: does NOT say OK
   PASS R07b: does NOT say OK (after writers)
   PASS R07b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R07b: finished in 1 s (limit 58 s, never hangs)
+  PASS R07b: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R07b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R07b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R07b: NOT AS EXPECTED; fixture identical before and after: YES
 == R07c an EXTRA named pipe in the folder: reported, never opened
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   EXTRA FILE: extra.pipe is a named pipe and is not part of the package (not opened)
+    |   EXTRA FILE: extra.pipe is not part of the package
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R07c: exit code 1
-  PASS R07c: prints "EXTRA FILE: extra.pipe is a named pipe and is not part of the package (not opened)"
+  FAIL R07c: prints "EXTRA FILE: extra.pipe is a named pipe and is not part of the package (not opened)"
   PASS R07c: does NOT say OK
   PASS R07c: does NOT say OK (after writers)
   PASS R07c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R07c: finished in 0 s (limit 58 s, never hangs)
+  PASS R07c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R07c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R07c: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R07c: NOT AS EXPECTED; fixture identical before and after: YES
 == R07d a unix socket in place of a package file
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   NOT A PLAIN FILE: vtes5-live.js is a socket, not a plain file. It was not opened.
+    |   UNREADABLE: vtes5-live.js cannot be read, so it cannot be checked (MethodInvocationException)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R07d: exit code 1
-  PASS R07d: prints "NOT A PLAIN FILE: vtes5-live.js is a socket"
+  FAIL R07d: prints "NOT A PLAIN FILE: vtes5-live.js is a socket"
   PASS R07d: does NOT say OK
   PASS R07d: does NOT say OK (after writers)
   PASS R07d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R07d: finished in 0 s (limit 58 s, never hangs)
+  PASS R07d: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R07d: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R07d: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R07d: NOT AS EXPECTED; fixture identical before and after: YES
 == R07e a device file (a copy of the null device) in place of a package file
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   NOT A PLAIN FILE: vtes5-live.js is a device, not a plain file. It was not opened.
+    |   EDITED: vtes5-live.js has SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 but the manifest says 02ef674da03502e128cb8ad603e5ba8f79cc46414c7aa79e2b8d5df7693ceeb4
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R07e: exit code 1
-  PASS R07e: prints "NOT A PLAIN FILE: vtes5-live.js is a device"
+  FAIL R07e: prints "NOT A PLAIN FILE: vtes5-live.js is a device"
   PASS R07e: does NOT say OK
   PASS R07e: does NOT say OK (after writers)
   PASS R07e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R07e: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R07e: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R07e: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R07e: NOT AS EXPECTED; fixture identical before and after: YES
 == R08 (S57) a named pipe as MANIFEST.sha256: refused without opening, exit 1, no hang
-    | PROBLEMS (1); the package files were not checked, because the manifest cannot be trusted:
-    |   LINK OR NOT A PLAIN FILE: MANIFEST.sha256 is a named pipe, not a plain file. It was not followed and not opened. Use a real MANIFEST.sha256 file.
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
+    | exit=124
   PASS R08: exit code 1
-  PASS R08: prints "PROBLEMS (1)"
-  PASS R08: prints "MANIFEST.sha256 is a named pipe, not a plain file. It was not followed and not opened."
+  FAIL R08: prints "PROBLEMS (1)"
+  FAIL R08: prints "MANIFEST.sha256 is a named pipe, not a plain file. It was not followed and not opened."
   PASS R08: does NOT say OK
   PASS R08: does NOT say OK (after writers)
   PASS R08: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R08: finished in 1 s (limit 58 s, never hangs)
+  FAIL R08: finished in 60 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R08: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R08: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R08: NOT AS EXPECTED; fixture identical before and after: YES
 == R09 (S65) MANIFEST.sha256 as a symbolic link to a good copy: PROBLEMS, not followed
-    | PROBLEMS (1); the package files were not checked, because the manifest cannot be trusted:
-    |   LINK OR NOT A PLAIN FILE: MANIFEST.sha256 is a link, not a plain file. It was not followed and not opened. Use a real MANIFEST.sha256 file.
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS R09: exit code 1
-  PASS R09: prints "PROBLEMS (1)"
-  PASS R09: prints "MANIFEST.sha256 is a link, not a plain file. It was not followed and not opened."
-  PASS R09: does NOT say OK
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | This script contains no write command.
+    | exit=0
+  FAIL R09: exit code 1
+  FAIL R09: prints "PROBLEMS (1)"
+  FAIL R09: prints "MANIFEST.sha256 is a link, not a plain file. It was not followed and not opened."
+  FAIL R09: does NOT say OK
   PASS R09: does NOT say OK (after writers)
   PASS R09: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R09: finished in 0 s (limit 58 s, never hangs)
+  PASS R09: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R09: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R09: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R09: NOT AS EXPECTED; fixture identical before and after: YES
 == R09b MANIFEST.sha256 as a dangling link: PROBLEMS (type is checked before it is followed)
-    | PROBLEMS (1); the package files were not checked, because the manifest cannot be trusted:
-    |   LINK OR NOT A PLAIN FILE: MANIFEST.sha256 is a link, not a plain file. It was not followed and not opened. Use a real MANIFEST.sha256 file.
+    | CANNOT CHECK: MANIFEST.sha256 cannot be read: Exception calling "ReadAllLines" with "1" argument(s): "Could not find file '/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Do
     | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS R09b: exit code 1
-  PASS R09b: prints "MANIFEST.sha256 is a link"
+    | exit=2
+  FAIL R09b: exit code 1
+  FAIL R09b: prints "MANIFEST.sha256 is a link"
   PASS R09b: does NOT say OK
   PASS R09b: does NOT say OK (after writers)
   PASS R09b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R09b: finished in 0 s (limit 58 s, never hangs)
+  PASS R09b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R09b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R09b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R09b: NOT AS EXPECTED; fixture identical before and after: YES
 == R09c MANIFEST.sha256 is a folder: cannot check, exit 2
-    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5" (a folder has that name)
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w3/fix/Docs/v5"
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS R09c: exit code 2
   PASS R09c: prints "CANNOT CHECK"
-  PASS R09c: prints "a folder has that name"
+  FAIL R09c: prints "a folder has that name"
   PASS R09c: does NOT say OK
   PASS R09c: does NOT say OK (after writers)
   PASS R09c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R09c: finished in 1 s (limit 58 s, never hangs)
+  PASS R09c: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R09c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R09c: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R09c: NOT AS EXPECTED; fixture identical before and after: YES
 == R09d MANIFEST.sha256 saved as UTF-16: cannot check, exit 2 (NUL bytes)
-    | CANNOT CHECK: MANIFEST.sha256 holds NUL bytes (it may be saved as UTF-16, which a Windows PowerShell redirect does); it is not a plain text manifest
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=2
-  PASS R09d: exit code 2
-  PASS R09d: prints "CANNOT CHECK"
-  PASS R09d: prints "NUL bytes"
-  PASS R09d: does NOT say OK
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | This script contains no write command.
+    | exit=0
+  FAIL R09d: exit code 2
+  FAIL R09d: prints "CANNOT CHECK"
+  FAIL R09d: prints "NUL bytes"
+  FAIL R09d: does NOT say OK
   PASS R09d: does NOT say OK (after writers)
   PASS R09d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R09d: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R09d: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R09d: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R09d: NOT AS EXPECTED; fixture identical before and after: YES
 == R10 (S66) an extra file VTES5-UI.JS beside vtes5-ui.js: CASE DUPLICATE and EXTRA FILE
-    | PROBLEMS (2); 11 of 11 package files are identical:
-    |   EXTRA FILE: VTES5-UI.JS is not part of the package
-    |   CASE DUPLICATE: "VTES5-UI.JS" and "vtes5-ui.js" differ only in upper and lower case. A Windows folder cannot hold both, so this is not an install made on Windows.
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS R10: exit code 1
-  PASS R10: prints "CASE DUPLICATE"
-  PASS R10: prints "differ only in upper and lower case"
-  PASS R10: prints "EXTRA FILE: VTES5-UI.JS"
-  PASS R10: does NOT say OK
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | This script contains no write command.
+    | exit=0
+  FAIL R10: exit code 1
+  FAIL R10: prints "CASE DUPLICATE"
+  FAIL R10: prints "differ only in upper and lower case"
+  FAIL R10: prints "EXTRA FILE: VTES5-UI.JS"
+  FAIL R10: does NOT say OK
   PASS R10: does NOT say OK (after writers)
   PASS R10: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R10: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 17 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R10: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R10: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R10: NOT AS EXPECTED; fixture identical before and after: YES
 == R10b a case duplicate inside data/
-    | PROBLEMS (2); 11 of 11 package files are identical:
-    |   CASE DUPLICATE: "data/vtes5-bots.js" and "data/VTES5-BOTS.JS" differ only in upper and lower case. A Windows folder cannot hold both, so this is not an install made on Windows.
-    |   EXTRA FILE: data/VTES5-BOTS.JS is not part of the package
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS R10b: exit code 1
-  PASS R10b: prints "CASE DUPLICATE"
-  PASS R10b: prints "EXTRA FILE: data/VTES5-BOTS.JS"
-  PASS R10b: does NOT say OK
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | This script contains no write command.
+    | exit=0
+  FAIL R10b: exit code 1
+  FAIL R10b: prints "CASE DUPLICATE"
+  FAIL R10b: prints "EXTRA FILE: data/VTES5-BOTS.JS"
+  FAIL R10b: does NOT say OK
   PASS R10b: does NOT say OK (after writers)
   PASS R10b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R10b: finished in 0 s (limit 58 s, never hangs)
+  PASS R10b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 17 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R10b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R10b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R10b: NOT AS EXPECTED; fixture identical before and after: YES
 == R10c a folder DATA beside data (a case duplicate of a folder)
-    | PROBLEMS (2); 11 of 11 package files are identical:
-    |   CASE DUPLICATE: "data" and "DATA" differ only in upper and lower case. A Windows folder cannot hold both, so this is not an install made on Windows.
-    |   EXTRA FOLDER: DATA is not part of the package
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS R10c: exit code 1
-  PASS R10c: prints "CASE DUPLICATE"
-  PASS R10c: prints "EXTRA FOLDER: DATA"
-  PASS R10c: does NOT say OK
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | This script contains no write command.
+    | exit=0
+  FAIL R10c: exit code 1
+  FAIL R10c: prints "CASE DUPLICATE"
+  FAIL R10c: prints "EXTRA FOLDER: DATA"
+  FAIL R10c: does NOT say OK
   PASS R10c: does NOT say OK (after writers)
   PASS R10c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R10c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R10c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R10c: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R10c: NOT AS EXPECTED; fixture identical before and after: YES
 == R10d a file manifest.sha256 beside MANIFEST.sha256
-    | PROBLEMS (2); 11 of 11 package files are identical:
-    |   EXTRA FILE: manifest.sha256 is not part of the package
-    |   CASE DUPLICATE: "manifest.sha256" and "MANIFEST.sha256" differ only in upper and lower case. A Windows folder cannot hold both, so this is not an install made on Windows.
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS R10d: exit code 1
-  PASS R10d: prints "CASE DUPLICATE"
-  PASS R10d: prints "EXTRA FILE: manifest.sha256"
-  PASS R10d: does NOT say OK
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | This script contains no write command.
+    | exit=0
+  FAIL R10d: exit code 1
+  FAIL R10d: prints "CASE DUPLICATE"
+  FAIL R10d: prints "EXTRA FILE: manifest.sha256"
+  FAIL R10d: does NOT say OK
   PASS R10d: does NOT say OK (after writers)
   PASS R10d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R10d: finished in 1 s (limit 58 s, never hangs)
+  PASS R10d: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 17 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R10d: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R10d: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R10d: NOT AS EXPECTED; fixture identical before and after: YES
 == R10e the manifest lists a name in the wrong case: not found on Linux (MISSING) and the real file is EXTRA
-    | PROBLEMS (2); 10 of 11 package files are identical:
-    |   MISSING: VTES5-UI.JS (not in the folder)
-    |   EXTRA FILE: vtes5-ui.js is not part of the package
+    | PROBLEMS (1); 10 of 11 package files are identical:
+    |   MISSING: VTES5-UI.JS (not in the folder, or not reachable: ItemNotFoundException)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R10e: exit code 1
   PASS R10e: prints "MISSING: VTES5-UI.JS"
-  PASS R10e: prints "EXTRA FILE: vtes5-ui.js"
+  FAIL R10e: prints "EXTRA FILE: vtes5-ui.js"
   PASS R10e: does NOT say OK
   PASS R10e: does NOT say OK (after writers)
   PASS R10e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R10e: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R10e: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R10e: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R10e: NOT AS EXPECTED; fixture identical before and after: YES
 == R10f the manifest lists the same name twice in different case
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   BAD MANIFEST LINE 12: "VTES5-UI.JS" is listed twice (upper and lower case are not told apart)
+    |   BAD MANIFEST LINE 12: "VTES5-UI.JS" is listed twice
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R10f: exit code 1
-  PASS R10f: prints "is listed twice (upper and lower case are not told apart)"
+  FAIL R10f: prints "is listed twice (upper and lower case are not told apart)"
   PASS R10f: does NOT say OK
   PASS R10f: does NOT say OK (after writers)
   PASS R10f: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R10f: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R10f: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R10f: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R10f: NOT AS EXPECTED; fixture identical before and after: YES
 == R11 (S74) a data file with injected script appended after the closing semicolon, WITH -AfterWriters: PROBLEMS
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js does not hold one valid JSON object: it holds something that is not JSON near character 75; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R11: exit code 1
-  PASS R11: prints "data\vtes5-bots.js does not hold one valid JSON object"
-  PASS R11: prints "not JSON near character"
+  FAIL R11: prints "data\vtes5-bots.js does not hold one valid JSON object"
+  FAIL R11: prints "not JSON near character"
   PASS R11: does NOT print "changed by a PC writer"
   PASS R11: does NOT say OK
   PASS R11: does NOT say OK (after writers)
@@ -1384,155 +1317,130 @@ SCENARIO R10f: AS EXPECTED; fixture identical before and after: YES
   PASS R11: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R11: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R11: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R11: NOT AS EXPECTED; fixture identical before and after: YES
 == R11b injected script on the same line without a space: ';fetch(...)' appended to the JSON
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js does not hold one valid JSON object: it holds something that is not JSON near character 75; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R11b: exit code 1
-  PASS R11b: prints "data\vtes5-bots.js does not hold one valid JSON object"
+  FAIL R11b: prints "data\vtes5-bots.js does not hold one valid JSON object"
   PASS R11b: does NOT say OK
   PASS R11b: does NOT say OK (after writers)
   PASS R11b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R11b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R11b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R11b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R11b: NOT AS EXPECTED; fixture identical before and after: YES
 == R11c a different wrapper: a bare fetch call instead of the assignment
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js is not the one assignment "window.VTES_DATA.bots = {...};" that the page expects (wrong wrapper, wrong name, or text after the closing semicolon); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R11c: exit code 1
-  PASS R11c: prints "data\vtes5-bots.js is not the one assignment"
+  FAIL R11c: prints "data\vtes5-bots.js is not the one assignment"
   PASS R11c: does NOT say OK
   PASS R11c: does NOT say OK (after writers)
   PASS R11c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R11c: finished in 1 s (limit 58 s, never hangs)
+  PASS R11c: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R11c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R11c: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R11c: NOT AS EXPECTED; fixture identical before and after: YES
 == R11d the right wrapper but a function call instead of the object
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js does not hold one valid JSON object: it holds something that is not JSON near character 0; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R11d: exit code 1
-  PASS R11d: prints "data\vtes5-bots.js does not hold one valid JSON object"
+  FAIL R11d: prints "data\vtes5-bots.js does not hold one valid JSON object"
   PASS R11d: does NOT say OK
   PASS R11d: does NOT say OK (after writers)
   PASS R11d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R11d: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R11d: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R11d: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R11d: NOT AS EXPECTED; fixture identical before and after: YES
 == R11e a second assignment line after the real one (two statements)
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js does not hold one valid JSON object: it holds something that is not JSON near character 75; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R11e: exit code 1
-  PASS R11e: prints "data\vtes5-bots.js"
+  FAIL R11e: prints "data\vtes5-bots.js"
   PASS R11e: does NOT say OK
   PASS R11e: does NOT say OK (after writers)
   PASS R11e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R11e: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R11e: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R11e: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R11e: NOT AS EXPECTED; fixture identical before and after: YES
 == R11f a leading comment or code line BEFORE the wrapper in a data file
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js is not the one assignment "window.VTES_DATA.bots = {...};" that the page expects (wrong wrapper, wrong name, or text after the closing semicolon); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R11f: exit code 1
-  PASS R11f: prints "data\vtes5-bots.js is not the one assignment"
+  FAIL R11f: prints "data\vtes5-bots.js is not the one assignment"
   PASS R11f: does NOT say OK
   PASS R11f: does NOT say OK (after writers)
   PASS R11f: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R11f: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R11f: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R11f: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R11f: NOT AS EXPECTED; fixture identical before and after: YES
 == R11g a JSON object holding script-like text inside a string is just data: accepted
-    | OK (after writers): all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-bots.js (SHA-256 07d646c67fc323eb99bc94a3a8a7efd3f4b2f617186ad327042d84b8189e2f8a)
-    | This script contains no write command.
-    | exit=0
-  PASS R11g: exit code 0
-  PASS R11g: prints "changed by a PC writer (passes the strict shape check): data/vtes5-bots.js"
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL R11g: exit code 0
+  FAIL R11g: prints "changed by a PC writer (passes the strict shape check): data/vtes5-bots.js"
   PASS R11g: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R11g: finished in 1 s (limit 58 s, never hangs)
+  PASS R11g: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R11g: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R11g: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R11g: NOT AS EXPECTED; fixture identical before and after: YES
 == R11h a JSON comment inside the object
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js does not hold one valid JSON object: it holds something that is not JSON near character 13; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R11h: exit code 1
-  PASS R11h: prints "data\vtes5-bots.js does not hold one valid JSON object"
+  FAIL R11h: prints "data\vtes5-bots.js does not hold one valid JSON object"
   PASS R11h: does NOT say OK
   PASS R11h: does NOT say OK (after writers)
   PASS R11h: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R11h: finished in 1 s (limit 58 s, never hangs)
+  PASS R11h: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R11h: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R11h: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R11h: NOT AS EXPECTED; fixture identical before and after: YES
 == R11i an object closed early, then script glued with a comma: {...},fetch(1)
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js does not hold one valid JSON object: it holds more than one JSON value; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R11i: exit code 1
-  PASS R11i: prints "data\vtes5-bots.js does not hold one valid JSON object"
+  FAIL R11i: prints "data\vtes5-bots.js does not hold one valid JSON object"
   PASS R11i: does NOT say OK
   PASS R11i: does NOT say OK (after writers)
   PASS R11i: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R11i: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R11i: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R11i: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R11i: NOT AS EXPECTED; fixture identical before and after: YES
 == R12 (S76) the data folder cannot be read (chmod 000, run as nobody): UNREACHABLE for the seven, never MISSING
     | PROBLEMS (8); 4 of 11 package files are identical:
-    |   UNREACHABLE: data/vtes5-bots.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-health.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-heartbeat.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-housekeeping.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-miamidade.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-state.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-tokens.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
+    |   MISSING: data/vtes5-bots.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-health.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-heartbeat.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-housekeeping.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-miamidade.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-state.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-tokens.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
     |   UNREADABLE FOLDER: the folder list could not be read completely, so "nothing extra is in it" cannot be proven (UnauthorizedAccessException)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R12: exit code 1
-  PASS R12: prints "UNREACHABLE: data/vtes5-heartbeat.js (data file) cannot be reached"
-  PASS R12: prints "UNREACHABLE: data/vtes5-miamidade.js"
+  FAIL R12: prints "UNREACHABLE: data/vtes5-heartbeat.js (data file) cannot be reached"
+  FAIL R12: prints "UNREACHABLE: data/vtes5-miamidade.js"
   PASS R12: prints "UNREADABLE FOLDER"
-  PASS R12: does NOT print "MISSING"
+  FAIL R12: does NOT print "MISSING"
   PASS R12: does NOT say OK
   PASS R12: does NOT say OK (after writers)
   PASS R12: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R12: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R12: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R12: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R12: NOT AS EXPECTED; fixture identical before and after: YES
 == R12b the same with -AfterWriters: still PROBLEMS, UNREACHABLE
-    | PROBLEMS (8); 4 of 11 package files are identical:
-    |   UNREACHABLE: data/vtes5-bots.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-health.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-heartbeat.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-housekeeping.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-miamidade.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-state.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREACHABLE: data/vtes5-tokens.js (data file) cannot be reached (UnauthorizedAccessException), so it cannot be checked. It may be there, but it is not counted as identical.
-    |   UNREADABLE FOLDER: the folder list could not be read completely, so "nothing extra is in it" cannot be proven (UnauthorizedAccessException)
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R12b: exit code 1
-  PASS R12b: prints "UNREACHABLE: data/vtes5-bots.js"
+  FAIL R12b: prints "UNREACHABLE: data/vtes5-bots.js"
   PASS R12b: does NOT print "MISSING"
   PASS R12b: does NOT say OK
   PASS R12b: does NOT say OK (after writers)
@@ -1540,529 +1448,449 @@ SCENARIO R12: AS EXPECTED; fixture identical before and after: YES
   PASS R12b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R12b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R12b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R12b: NOT AS EXPECTED; fixture identical before and after: YES
 == R13 a data file saved with a UTF-8 byte-order mark, WITH -AfterWriters: PROBLEMS BOM
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js starts with a UTF-8 byte-order mark (BOM); it must be plain UTF-8 without one; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R13: exit code 1
-  PASS R13: prints "data\vtes5-bots.js starts with a UTF-8 byte-order mark (BOM)"
+  FAIL R13: prints "data\vtes5-bots.js starts with a UTF-8 byte-order mark (BOM)"
   PASS R13: does NOT say OK
   PASS R13: does NOT say OK (after writers)
   PASS R13: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R13: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R13: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R13: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R13: NOT AS EXPECTED; fixture identical before and after: YES
 == R14 a NUL byte in the middle of a data file, WITH -AfterWriters: PROBLEMS NUL
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js contains NUL bytes, so it is not a plain text data file; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R14: exit code 1
-  PASS R14: prints "data\vtes5-bots.js contains NUL bytes"
+  FAIL R14: prints "data\vtes5-bots.js contains NUL bytes"
   PASS R14: does NOT say OK
   PASS R14: does NOT say OK (after writers)
   PASS R14: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R14: finished in 1 s (limit 58 s, never hangs)
+  PASS R14: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R14: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R14: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R14: NOT AS EXPECTED; fixture identical before and after: YES
 == R15 a JSON array instead of an object, WITH -AfterWriters: PROBLEMS
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js does not hold one valid JSON object: the value is not one JSON object (it must start with a curly bracket); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R15: exit code 1
-  PASS R15: prints "data\vtes5-bots.js does not hold one valid JSON object: the value is not one JSON object"
+  FAIL R15: prints "data\vtes5-bots.js does not hold one valid JSON object: the value is not one JSON object"
   PASS R15: does NOT say OK
   PASS R15: does NOT say OK (after writers)
   PASS R15: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R15: finished in 1 s (limit 58 s, never hangs)
+  PASS R15: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R15: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R15: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R15: NOT AS EXPECTED; fixture identical before and after: YES
 == R15b JSON null, a number, a string, true
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js does not hold one valid JSON object: the value is not one JSON object (it must start with a curly bracket); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R15b: exit code 1
-  PASS R15b: prints "data\vtes5-bots.js does not hold one valid JSON object"
+  FAIL R15b: prints "data\vtes5-bots.js does not hold one valid JSON object"
   PASS R15b: does NOT say OK
   PASS R15b: does NOT say OK (after writers)
   PASS R15b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R15b: finished in 1 s (limit 58 s, never hangs)
+  PASS R15b: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R15b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R15b: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js does not hold one valid JSON object: the value is not one JSON object (it must start with a curly bracket); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R15b: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R15c: exit code 1
-  PASS R15c: prints "data\vtes5-bots.js does not hold one valid JSON object"
+  FAIL R15c: prints "data\vtes5-bots.js does not hold one valid JSON object"
   PASS R15c: does NOT say OK
   PASS R15c: does NOT say OK (after writers)
   PASS R15c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R15c: finished in 0 s (limit 58 s, never hangs)
+  PASS R15c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R15c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R15c: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js does not hold one valid JSON object: the value is not one JSON object (it must start with a curly bracket); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R15c: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R15d: exit code 1
-  PASS R15d: prints "data\vtes5-bots.js does not hold one valid JSON object"
+  FAIL R15d: prints "data\vtes5-bots.js does not hold one valid JSON object"
   PASS R15d: does NOT say OK
   PASS R15d: does NOT say OK (after writers)
   PASS R15d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R15d: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R15d: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R15d: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R15d: NOT AS EXPECTED; fixture identical before and after: YES
 == R16 the wrong property name: bots.js assigns .state
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js is not the one assignment "window.VTES_DATA.bots = {...};" that the page expects (wrong wrapper, wrong name, or text after the closing semicolon); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R16: exit code 1
-  PASS R16: prints "data\vtes5-bots.js is not the one assignment "window.VTES_DATA.bots = {...};""
+  FAIL R16: prints "data\vtes5-bots.js is not the one assignment "window.VTES_DATA.bots = {...};""
   PASS R16: does NOT say OK
   PASS R16: does NOT say OK (after writers)
   PASS R16: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R16: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R16: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R16: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R16: NOT AS EXPECTED; fixture identical before and after: YES
 == R16b the wrong namespace: window.VTES_DATAX
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js is not the one assignment "window.VTES_DATA.bots = {...};" that the page expects (wrong wrapper, wrong name, or text after the closing semicolon); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R16b: exit code 1
-  PASS R16b: prints "data\vtes5-bots.js is not the one assignment"
+  FAIL R16b: prints "data\vtes5-bots.js is not the one assignment"
   PASS R16b: does NOT say OK
   PASS R16b: does NOT say OK (after writers)
   PASS R16b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R16b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R16b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R16b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R16b: NOT AS EXPECTED; fixture identical before and after: YES
 == R17 settings file with a function call instead of an object, WITH -AfterWriters
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: vtes5-config.js does not hold one valid JSON object: it holds something that is not JSON near character 0; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R17: exit code 1
-  PASS R17: prints "vtes5-config.js does not hold one valid JSON object"
+  FAIL R17: prints "vtes5-config.js does not hold one valid JSON object"
   PASS R17: does NOT say OK
   PASS R17: does NOT say OK (after writers)
   PASS R17: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R17: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R17: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R17: NOT AS EXPECTED; fixture identical before and after: YES
 == R17b settings file with status_dir_url as a number; R17c without status_dir_url; R17d as null; R17e as an object
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: vtes5-config.js must hold status_dir_url as a text string; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R17b: exit code 1
-  PASS R17b: prints "vtes5-config.js must hold status_dir_url as a text string"
+  FAIL R17b: prints "vtes5-config.js must hold status_dir_url as a text string"
   PASS R17b: does NOT say OK
   PASS R17b: does NOT say OK (after writers)
   PASS R17b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R17b: finished in 1 s (limit 58 s, never hangs)
+  PASS R17b: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R17b: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: vtes5-config.js must hold status_dir_url as a text string; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R17b: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R17c: exit code 1
-  PASS R17c: prints "vtes5-config.js must hold status_dir_url as a text string"
+  FAIL R17c: prints "vtes5-config.js must hold status_dir_url as a text string"
   PASS R17c: does NOT say OK
   PASS R17c: does NOT say OK (after writers)
   PASS R17c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R17c: finished in 1 s (limit 58 s, never hangs)
+  PASS R17c: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R17c: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: vtes5-config.js must hold status_dir_url as a text string; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R17c: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R17d: exit code 1
-  PASS R17d: prints "vtes5-config.js must hold status_dir_url as a text string"
+  FAIL R17d: prints "vtes5-config.js must hold status_dir_url as a text string"
   PASS R17d: does NOT say OK
   PASS R17d: does NOT say OK (after writers)
   PASS R17d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R17d: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17d: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R17d: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: vtes5-config.js must hold status_dir_url as a text string; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R17d: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R17e: exit code 1
-  PASS R17e: prints "vtes5-config.js must hold status_dir_url as a text string"
+  FAIL R17e: prints "vtes5-config.js must hold status_dir_url as a text string"
   PASS R17e: does NOT say OK
   PASS R17e: does NOT say OK (after writers)
   PASS R17e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R17e: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17e: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R17e: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R17e: NOT AS EXPECTED; fixture identical before and after: YES
 == R17f settings file: a valid string value (with and without the comment line, no trailing LF) is accepted WITH -AfterWriters
-    | OK (after writers): all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below)
-    |   changed by a PC writer (passes the strict shape check): vtes5-config.js (SHA-256 db2b994ac344a483af6a2886ea155d03079bdf4f8eebe18f503812e2846f4e9d)
-    | This script contains no write command.
-    | exit=0
-  PASS R17f: exit code 0
-  PASS R17f: prints "changed by a PC writer (passes the strict shape check): vtes5-config.js"
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL R17f: exit code 0
+  FAIL R17f: prints "changed by a PC writer (passes the strict shape check): vtes5-config.js"
   PASS R17f: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R17f: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17f: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R17f: AS EXPECTED; fixture identical before and after: YES
-    | OK (after writers): all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below)
-    |   changed by a PC writer (passes the strict shape check): vtes5-config.js (SHA-256 48a45398be3ca792c86fdd563eaab06759eab9774a905cf6ebbf56ecc502efb9)
-    | This script contains no write command.
-    | exit=0
-  PASS R17g: exit code 0
-  PASS R17g: prints "changed by a PC writer (passes the strict shape check): vtes5-config.js"
+SCENARIO R17f: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL R17g: exit code 0
+  FAIL R17g: prints "changed by a PC writer (passes the strict shape check): vtes5-config.js"
   PASS R17g: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R17g: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17g: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R17g: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R17g: NOT AS EXPECTED; fixture identical before and after: YES
 == R17h settings file: a comment that closes early and then runs code; a script line before it
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: vtes5-config.js is not the one assignment "window.VTES5_CONFIG = {...};" that the page expects (wrong wrapper, or text after the closing semicolon); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R17h: exit code 1
-  PASS R17h: prints "vtes5-config.js is not the one assignment "window.VTES5_CONFIG = {...};""
+  FAIL R17h: prints "vtes5-config.js is not the one assignment "window.VTES5_CONFIG = {...};""
   PASS R17h: does NOT say OK
   PASS R17h: does NOT say OK (after writers)
   PASS R17h: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R17h: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17h: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R17h: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: vtes5-config.js is not the one assignment "window.VTES5_CONFIG = {...};" that the page expects (wrong wrapper, or text after the closing semicolon); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R17h: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R17i: exit code 1
-  PASS R17i: prints "vtes5-config.js is not the one assignment"
+  FAIL R17i: prints "vtes5-config.js is not the one assignment"
   PASS R17i: does NOT say OK
   PASS R17i: does NOT say OK (after writers)
   PASS R17i: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R17i: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17i: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R17i: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: vtes5-config.js does not hold one valid JSON object: it holds something that is not JSON near character 24; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R17i: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R17j: exit code 1
-  PASS R17j: prints "vtes5-config.js"
+  FAIL R17j: prints "vtes5-config.js"
   PASS R17j: does NOT say OK
   PASS R17j: does NOT say OK (after writers)
   PASS R17j: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R17j: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17j: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R17j: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R17j: NOT AS EXPECTED; fixture identical before and after: YES
 == R18 JSON shape checks WITH -AfterWriters: trailing comma, single quotes, unquoted key, two objects, unclosed, depth 150
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js does not hold one valid JSON object: an object key is not a quoted string; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R18a: exit code 1
-  PASS R18a: prints "data\vtes5-state.js does not hold one valid JSON object"
+  FAIL R18a: prints "data\vtes5-state.js does not hold one valid JSON object"
   PASS R18a: does NOT say OK
   PASS R18a: does NOT say OK (after writers)
   PASS R18a: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R18a: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18a: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R18a: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js does not hold one valid JSON object: it holds something that is not JSON near character 1; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R18a: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R18b: exit code 1
-  PASS R18b: prints "data\vtes5-state.js does not hold one valid JSON object"
+  FAIL R18b: prints "data\vtes5-state.js does not hold one valid JSON object"
   PASS R18b: does NOT say OK
   PASS R18b: does NOT say OK (after writers)
   PASS R18b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R18b: finished in 1 s (limit 58 s, never hangs)
+  PASS R18b: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R18b: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js does not hold one valid JSON object: it holds something that is not JSON near character 1; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R18b: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R18c: exit code 1
-  PASS R18c: prints "data\vtes5-state.js does not hold one valid JSON object"
+  FAIL R18c: prints "data\vtes5-state.js does not hold one valid JSON object"
   PASS R18c: does NOT say OK
   PASS R18c: does NOT say OK (after writers)
   PASS R18c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R18c: finished in 0 s (limit 58 s, never hangs)
+  PASS R18c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R18c: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js does not hold one valid JSON object: it holds more than one JSON value; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R18c: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R18d: exit code 1
-  PASS R18d: prints "data\vtes5-state.js does not hold one valid JSON object"
+  FAIL R18d: prints "data\vtes5-state.js does not hold one valid JSON object"
   PASS R18d: does NOT say OK
   PASS R18d: does NOT say OK (after writers)
   PASS R18d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R18d: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18d: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R18d: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js does not hold one valid JSON object: the JSON object is not finished (a bracket is not closed); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R18d: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R18e: exit code 1
-  PASS R18e: prints "data\vtes5-state.js does not hold one valid JSON object"
+  FAIL R18e: prints "data\vtes5-state.js does not hold one valid JSON object"
   PASS R18e: does NOT say OK
   PASS R18e: does NOT say OK (after writers)
   PASS R18e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R18e: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18e: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R18e: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js does not hold one valid JSON object: it is nested more than 100 levels deep; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R18e: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R18f: exit code 1
-  PASS R18f: prints "data\vtes5-state.js does not hold one valid JSON object: it is nested more than 100 levels deep"
+  FAIL R18f: prints "data\vtes5-state.js does not hold one valid JSON object: it is nested more than 100 levels deep"
   PASS R18f: does NOT say OK
   PASS R18f: does NOT say OK (after writers)
   PASS R18f: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R18f: finished in 1 s (limit 58 s, never hangs)
+  PASS R18f: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18f: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R18f: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js does not hold one valid JSON object: it holds something that is not JSON near character 5; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R18f: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R18g: exit code 1
-  PASS R18g: prints "data\vtes5-state.js does not hold one valid JSON object"
+  FAIL R18g: prints "data\vtes5-state.js does not hold one valid JSON object"
   PASS R18g: does NOT say OK
   PASS R18g: does NOT say OK (after writers)
   PASS R18g: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R18g: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18g: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R18g: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js does not hold one valid JSON object: two values are not separated by a comma, or a bracket does not match; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R18g: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R18h: exit code 1
-  PASS R18h: prints "data\vtes5-state.js does not hold one valid JSON object"
+  FAIL R18h: prints "data\vtes5-state.js does not hold one valid JSON object"
   PASS R18h: does NOT say OK
   PASS R18h: does NOT say OK (after writers)
   PASS R18h: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R18h: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18h: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R18h: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js does not hold one valid JSON object: it holds something that is not JSON near character 5; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R18h: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R18i: exit code 1
-  PASS R18i: prints "data\vtes5-state.js does not hold one valid JSON object"
+  FAIL R18i: prints "data\vtes5-state.js does not hold one valid JSON object"
   PASS R18i: does NOT say OK
   PASS R18i: does NOT say OK (after writers)
   PASS R18i: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R18i: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18i: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R18i: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R18i: NOT AS EXPECTED; fixture identical before and after: YES
 == R19 end-of-file shape WITH -AfterWriters: no trailing LF is accepted; ONE trailing LF is accepted; two LFs, a trailing space, or a missing semicolon are refused
-    | OK (after writers): all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-state.js (SHA-256 e49161a89c23a8cbd7c7a2f4a91bcafd71c21557445825a96c6fdd873e09b17e)
-    | This script contains no write command.
-    | exit=0
-  PASS R19a: exit code 0
-  PASS R19a: prints "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL R19a: exit code 0
+  FAIL R19a: prints "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
   PASS R19a: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R19a: finished in 3 s (limit 58 s, never hangs)
+  PASS R19a: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R19a: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R19a: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js is not the one assignment "window.VTES_DATA.state = {...};" that the page expects (wrong wrapper, wrong name, or text after the closing semicolon); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R19a: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R19b: exit code 1
-  PASS R19b: prints "data\vtes5-state.js is not the one assignment"
+  FAIL R19b: prints "data\vtes5-state.js is not the one assignment"
   PASS R19b: does NOT say OK
   PASS R19b: does NOT say OK (after writers)
   PASS R19b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R19b: finished in 2 s (limit 58 s, never hangs)
+  PASS R19b: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R19b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R19b: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js is not the one assignment "window.VTES_DATA.state = {...};" that the page expects (wrong wrapper, wrong name, or text after the closing semicolon); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R19b: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R19c: exit code 1
-  PASS R19c: prints "data\vtes5-state.js"
+  FAIL R19c: prints "data\vtes5-state.js"
   PASS R19c: does NOT say OK
   PASS R19c: does NOT say OK (after writers)
   PASS R19c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R19c: finished in 2 s (limit 58 s, never hangs)
+  PASS R19c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R19c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R19c: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js is not the one assignment "window.VTES_DATA.state = {...};" that the page expects (wrong wrapper, wrong name, or text after the closing semicolon); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R19c: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R19d: exit code 1
-  PASS R19d: prints "data\vtes5-state.js"
+  FAIL R19d: prints "data\vtes5-state.js"
   PASS R19d: does NOT say OK
   PASS R19d: does NOT say OK (after writers)
   PASS R19d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R19d: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R19d: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R19d: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js is not the one assignment "window.VTES_DATA.state = {...};" that the page expects (wrong wrapper, wrong name, or text after the closing semicolon); do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R19d: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R19e: exit code 1
-  PASS R19e: prints "data\vtes5-state.js"
+  FAIL R19e: prints "data\vtes5-state.js"
   PASS R19e: does NOT say OK
   PASS R19e: does NOT say OK (after writers)
   PASS R19e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R19e: finished in 2 s (limit 58 s, never hangs)
+  PASS R19e: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R19e: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R19e: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R19e: NOT AS EXPECTED; fixture identical before and after: YES
 == R20 text and escapes WITH -AfterWriters: UTF-8 letters, escapes and a pretty-printed multi-line object (LF only) are accepted; invalid UTF-8 is refused
-    | OK (after writers): all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-state.js (SHA-256 f6d5754dd6e941b12f50d8202da5d06351e834d341fb139e93f6c66a36c3f33e)
-    | This script contains no write command.
-    | exit=0
-  PASS R20a: exit code 0
-  PASS R20a: prints "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL R20a: exit code 0
+  FAIL R20a: prints "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
   PASS R20a: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R20a: finished in 1 s (limit 58 s, never hangs)
+  PASS R20a: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R20a: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R20a: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js is not valid UTF-8; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R20a: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R20b: exit code 1
-  PASS R20b: prints "data\vtes5-state.js is not valid UTF-8"
+  FAIL R20b: prints "data\vtes5-state.js is not valid UTF-8"
   PASS R20b: does NOT say OK
   PASS R20b: does NOT say OK (after writers)
   PASS R20b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R20b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R20b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R20b: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-state.js does not hold one valid JSON object: it holds something that is not JSON near character 5; do not use this folder
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R20b: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R20c: exit code 1
-  PASS R20c: prints "data\vtes5-state.js does not hold one valid JSON object"
+  FAIL R20c: prints "data\vtes5-state.js does not hold one valid JSON object"
   PASS R20c: does NOT say OK
   PASS R20c: does NOT say OK (after writers)
   PASS R20c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R20c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R20c: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R20c: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R20c: NOT AS EXPECTED; fixture identical before and after: YES
 == R21 a data file that is a folder, and a data file that is a link, WITH -AfterWriters
-    | PROBLEMS (2); 10 of 11 package files are identical:
-    |   NOT A FILE: data/vtes5-health.js is a folder
-    |   EXTRA FOLDER: data/vtes5-health.js is not part of the package
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R21a: exit code 1
-  PASS R21a: prints "NOT A FILE: data/vtes5-health.js"
+  FAIL R21a: prints "NOT A FILE: data/vtes5-health.js"
   PASS R21a: does NOT say OK
   PASS R21a: does NOT say OK (after writers)
   PASS R21a: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R21a: finished in 0 s (limit 58 s, never hangs)
+  PASS R21a: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R21a: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R21a: AS EXPECTED; fixture identical before and after: YES
-    | PROBLEMS (1); 10 of 11 package files are identical:
-    |   LINK: data/vtes5-health.js is a link, not a plain file (not followed)
-    | This script contains no write command, so it changed nothing in the folder.
+SCENARIO R21a: NOT AS EXPECTED; fixture identical before and after: YES
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R21b: exit code 1
-  PASS R21b: prints "LINK: data/vtes5-health.js"
+  FAIL R21b: prints "LINK: data/vtes5-health.js"
   PASS R21b: does NOT say OK
   PASS R21b: does NOT say OK (after writers)
   PASS R21b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R21b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R21b: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R21b: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R21b: NOT AS EXPECTED; fixture identical before and after: YES
 == R22 -AfterWriters never relaxes anything else: a code file edited AND a valid data file, a missing data file, an extra file
-    | PROBLEMS (3); 8 of 11 package files are identical:
-    |   MISSING: data/vtes5-tokens.js (data file) (not in the folder)
-    |   EDITED: vtes5-live.js has SHA-256 0ebc9586c4b2de4ed68a4270684d8740a867563797242409df8f4ec03661fffc but the manifest says 02ef674da03502e128cb8ad603e5ba8f79cc46414c7aa79e2b8d5df7693ceeb4.
-    |   EXTRA FILE: extra.txt is not part of the package
-    |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js (SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5)
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R22: exit code 1
-  PASS R22: prints "EDITED: vtes5-live.js"
-  PASS R22: prints "MISSING: data/vtes5-tokens.js (data file)"
-  PASS R22: prints "EXTRA FILE: extra.txt"
-  PASS R22: prints "(not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js"
+  FAIL R22: prints "EDITED: vtes5-live.js"
+  FAIL R22: prints "MISSING: data/vtes5-tokens.js (data file)"
+  FAIL R22: prints "EXTRA FILE: extra.txt"
+  FAIL R22: prints "(not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js"
   PASS R22: does NOT say OK
   PASS R22: does NOT say OK (after writers)
   PASS R22: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R22: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R22: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R22: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R22: NOT AS EXPECTED; fixture identical before and after: YES
 == R23 a data file that is IDENTICAL to a doctored manifest but is UTF-16: the shape check runs on every data file, so still PROBLEMS
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   BAD DATA FILE: data\vtes5-bots.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder
+    |   EDITED: vtes5-live.js has SHA-256 7f49f600d5630e3174f2fda033b733538f49712d3b3578387d06b833d7c88832 but the manifest says 02ef674da03502e128cb8ad603e5ba8f79cc46414c7aa79e2b8d5df7693ceeb4
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R23: exit code 1
-  PASS R23: prints "BAD DATA FILE: data\vtes5-bots.js is saved as UTF-16"
+  FAIL R23: prints "BAD DATA FILE: data\vtes5-bots.js is saved as UTF-16"
   PASS R23: does NOT say OK
   PASS R23: does NOT say OK (after writers)
   PASS R23: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R23: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R23: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R23: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R23: NOT AS EXPECTED; fixture identical before and after: YES
 == R24 the unknown-switch and usage case: a wrong switch name is refused by PowerShell with a non-zero exit
     | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriterz'.[0m
     | exit=1
@@ -2071,51 +1899,47 @@ SCENARIO R23: AS EXPECTED; fixture identical before and after: YES
   PASS R24: does NOT say OK
   PASS R24: does NOT say OK (after writers)
   PASS R24: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R24: finished in 1 s (limit 58 s, never hangs)
+  PASS R24: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R24: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R24: AS EXPECTED; fixture identical before and after: YES
 == R25 junction-like link for the folder together with the switch: still LINK IN PATH
-    | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5), so the files may really live somewhere else, 
-    | This script contains no write command, so it changed nothing in the folder.
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
     | exit=1
   PASS R25: exit code 1
-  PASS R25: prints "LINK IN PATH: the folder itself"
+  FAIL R25: prints "LINK IN PATH: the folder itself"
   PASS R25: does NOT say OK
   PASS R25: does NOT say OK (after writers)
   PASS R25: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R25: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R25: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R25: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R25: NOT AS EXPECTED; fixture identical before and after: YES
 == R26 trailing slashes and doubled slashes with the switch and a valid change
-    | OK (after writers): all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below)
-    |   changed by a PC writer (passes the strict shape check): data/vtes5-miamidade.js (SHA-256 0cf7e44afb52182968a54764f6d7f75888efd47ed272dcf61113fd45d3619140)
-    | This script contains no write command.
-    | exit=0
-  PASS R26: exit code 0
-  PASS R26: prints "changed by a PC writer (passes the strict shape check): data/vtes5-miamidade.js"
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL R26: exit code 0
+  FAIL R26: prints "changed by a PC writer (passes the strict shape check): data/vtes5-miamidade.js"
   PASS R26: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R26: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R26: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R26: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R26: NOT AS EXPECTED; fixture identical before and after: YES
 == R27 a path with .. and the switch: refused, exit 2
-    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5/../v5" contains "..". Give the plain full path with no "." or ".." in it
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=2
-  PASS R27: exit code 2
-  PASS R27: prints "contains "..""
+    | [31;1mVERIFY-v5.ps1: [31;1mA parameter cannot be found that matches parameter name 'AfterWriters'.[0m
+    | exit=1
+  FAIL R27: exit code 2
+  FAIL R27: prints "contains "..""
   PASS R27: does NOT say OK
   PASS R27: does NOT say OK (after writers)
   PASS R27: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R27: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R27: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R27: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R27: NOT AS EXPECTED; fixture identical before and after: YES
 == R28 a hidden extra file and a hidden extra folder (dot names)
-    | PROBLEMS (2); 11 of 11 package files are identical:
+    | PROBLEMS (3); 10 of 11 package files are identical:
+    |   EDITED: vtes5-live.js has SHA-256 7f49f600d5630e3174f2fda033b733538f49712d3b3578387d06b833d7c88832 but the manifest says 02ef674da03502e128cb8ad603e5ba8f79cc46414c7aa79e2b8d5df7693ceeb4
     |   EXTRA FOLDER: .hid-dir is not part of the package
     |   EXTRA FILE: .hidden is not part of the package
     | This script contains no write command, so it changed nothing in the folder.
@@ -2131,7 +1955,8 @@ SCENARIO R27: AS EXPECTED; fixture identical before and after: YES
   PASS R28: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R28: AS EXPECTED; fixture identical before and after: YES
 == R29 a big extra file (200 MB) is listed as EXTRA but never read or hashed (fast)
-    | PROBLEMS (1); 11 of 11 package files are identical:
+    | PROBLEMS (2); 10 of 11 package files are identical:
+    |   EDITED: vtes5-live.js has SHA-256 7f49f600d5630e3174f2fda033b733538f49712d3b3578387d06b833d7c88832 but the manifest says 02ef674da03502e128cb8ad603e5ba8f79cc46414c7aa79e2b8d5df7693ceeb4
     |   EXTRA FILE: big.bin is not part of the package
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
@@ -2145,16 +1970,17 @@ SCENARIO R28: AS EXPECTED; fixture identical before and after: YES
   PASS R29: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R29: AS EXPECTED; fixture identical before and after: YES
 == R30 the unreadable data folder run as root (root can read it): a chmod 000 folder is still listed fine, so this is OK
-    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
-    | This script contains no write command.
-    | exit=0
-  PASS R30: exit code 0
-  PASS R30: prints "OK: all 11 of 11"
+    | PROBLEMS (1); 10 of 11 package files are identical:
+    |   EDITED: vtes5-live.js has SHA-256 7f49f600d5630e3174f2fda033b733538f49712d3b3578387d06b833d7c88832 but the manifest says 02ef674da03502e128cb8ad603e5ba8f79cc46414c7aa79e2b8d5df7693ceeb4
+    | This script contains no write command, so it changed nothing in the folder.
+    | exit=1
+  FAIL R30: exit code 0
+  FAIL R30: prints "OK: all 11 of 11"
   PASS R30: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   PASS R30: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R30: VERIFY wrote nothing (whole fixture identical before and after)
-SCENARIO R30: AS EXPECTED; fixture identical before and after: YES
+SCENARIO R30: NOT AS EXPECTED; fixture identical before and after: YES
 == V30 the source script itself is ASCII only and has no write commands
   PASS V30a: VERIFY-v5.ps1 is pure ASCII
   PASS V30c: VERIFY-v5.ps1 has no CR (LF line endings only)
@@ -2162,5 +1988,6 @@ SCENARIO R30: AS EXPECTED; fixture identical before and after: YES
   PASS V30d: the fake Desktop's copy of the real v3 launcher is byte-identical after the last scenario
   PASS V30e: the real v3 launcher in the repository has SHA-256 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6f6c333411fe3
 
-VERIFY TESTS: 1095 of 1095 pass
-148 of 148 scenarios as expected; fixture identical before and after in 148 of 148
+VERIFY TESTS: 914 of 1095 pass
+SCENARIOS NOT AS EXPECTED: V04 V04c V04d V04e V14 V36 V36b V37 V39 V39b V39c R01b R01c R02 R02b R03 R04 R04b R04c R05 R05b R05d R06 R06b R06c R06d R06e R06f R07 R07b R07c R07d R07e R08 R09 R09b R09c R09d R10 R10b R10c R10d R10e R10f R11 R11b R11c R11d R11e R11f R11g R11h R11i R12 R12b R13 R14 R15 R15b R15c R15d R16 R16b R17 R17b R17c R17d R17e R17f R17g R17h R17i R17j R18a R18b R18c R18d R18e R18f R18g R18h R18i R19a R19b R19c R19d R19e R20a R20b R20c R21a R21b R22 R23 R25 R26 R27 R30
+50 of 148 scenarios as expected; fixture identical before and after in 148 of 148

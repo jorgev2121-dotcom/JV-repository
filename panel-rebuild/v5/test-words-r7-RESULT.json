@@ -1,0 +1,253 @@
+{
+ "test": "test-words-r7",
+ "pass": 41,
+ "total": 41,
+ "results": [
+  {
+   "g": "jargon",
+   "name": "no jargon outside \"For RAMBO\" lines (shipped data; 572 text pieces)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "jargon",
+   "name": "no jargon outside \"For RAMBO\" lines (fresh data; 584 text pieces)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "jargon",
+   "name": "no jargon outside \"For RAMBO\" lines (local folder confirmed (plain C: path); 584 text pieces)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "jargon",
+   "name": "no jargon outside \"For RAMBO\" lines (bots disabled, running, failed; 585 text pieces)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "jargon",
+   "name": "no jargon outside \"For RAMBO\" lines (stale and unreadable data; 590 text pieces)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "contradiction",
+   "name": "live LOCAL line says CONFIRMED with a C:\\ folder",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "contradiction",
+   "name": "with the folder CONFIRMED no other line on the page says BLOCKED (LOCAL card, status after Copy packet and open)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "contradiction",
+   "name": "with no folder confirmed no typed line claims CONFIRMED",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "links",
+   "name": "27 external links, each names where it goes",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "search",
+   "name": "\"hourly\" finds the CU-Propagation-Check card (bot-CU-TokenMonitor-Hourly,bot-CU-Propagation-Check)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "search",
+   "name": "\"2 minutes\" still finds LLM-01 (card-LLM-01,card-CHIEF)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "search",
+   "name": "\"15 minutes\" still finds CU-Orchestrator (bot-CU-Orchestrator)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "search",
+   "name": "\"5 minutes\" still finds CU-Local-Executor (bot-CU-Local-Executor,bot-CU-Orchestrator)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "pointers",
+   "name": "LLM-05 status line points to the LLM-05 card in section 2: \"Copied. On the iPhone, open the Claude app. Get the packet onto the iPhone first (see the steps on the LLM-05 card in section 2).\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "pointers",
+   "name": "LLM-06 status line points to the LLM-06 card in section 2: \"Copied. You type no command: the desktop executor runs Codex for you (see the steps on the LLM-06 card in section 2). First time only: the shortcut \"Codex - sig\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "clock",
+   "name": "a data file that sets VTES5_NOW does not change the page clock (2026-10-06T18:00:01.140Z)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "clock",
+   "name": "the LLM-01 card still reads UP as of Oct 6 (not as of Sep 1)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "wording",
+   "name": "a grey strip entry says NOT PROVEN, never NOT FINE (2 grey entries)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "wording",
+   "name": "WHOLE PAGE line uses NOT PROVEN or NOT FINE words correctly: WHOLE PAGE: NOT PROVEN - 0 red and 0 grey of 44 cards and marks; 0 of 7 reports ",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"G:\\\\VTES-LOCAL\" is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"G:\\\\Shared drives\\\\VTES-LOCAL\" is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"G:\\\\My Drive\\\\VTES-LOCAL\" is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"C:\\\\Users\\\\JV\\\\Desktop\\\\VTES-LOCAL\" is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"C:\\\\Users\\\\JV\\\\OneDrive\\\\VTES-LOCAL\" is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"C:\\\\Users\\\\JV\\\\Documents\\\\VTES-LOCAL\" is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"C:\\\\Users\\\\JV\\\\Dropbox\\\\x\" is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"D:\\\\VTES-LOCAL\" is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"\\\\\\\\server\\\\share\\\\x\" is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"VTES-LOCAL-ONLY\" is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"C:\\\\VTES-LOCAL-ONLY\" is CONFIRMED",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"C:\\\\Data\\\\VTES-LOCAL\" is CONFIRMED",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"C:\\\\Users\\\\JV\\\\VTES-LOCAL\" is CONFIRMED",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "non-path label, verified_by and not_synced_proof given is CONFIRMED",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "non-path label, verified_by only is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "G: label even with a proof is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "stale count",
+   "name": "a Miami-Dade count from an 8-day-old file is an OLD red mark, not plain bold: Counted so far: <span class=\"v5b bad\" data-files=\"miamidade\">OLD 7 of 300</span> <span class=\"v5b bad\" data-files=\"miamidade\">These numbers are old. Do not trus",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "layout",
+   "name": "tab bar at 1536x730 is at most 25% of the height (87 of 730 px; limit 182)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "layout",
+   "name": "on a phone (390 px) the PANEL/INDEX corner box does not cover the footer (footer bottom 690, box top 720)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "layout",
+   "name": "with the browser text size at 200%, body text doubles (36 px, state lines 32 px, smallest 28 px)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "layout",
+   "name": "at 200% text size the RAMBO button is still on the first screen (bottom 537 of 900)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "layout",
+   "name": "at 200% page zoom (650x450 viewport) the RAMBO button is on the first screen (234 to 277 of 450)",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

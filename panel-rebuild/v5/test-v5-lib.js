@@ -13,7 +13,7 @@ function fresh(base, o) {
   const ex = {}; ALL.forEach(i => { ex[i] = { state: 'up', last_seen: at(ls, base) }; }); CHATS.forEach(i => { ex[i].proof_at = at(2, base); });
   const bots = {}; BOTNAMES.forEach((n, i) => { bots[n] = { state: 'Ready', last_run_at: at(3 + i, base), last_result: 0, next_run_at: at(-5, base), interval_sec: 600 }; });
   return {
-    heartbeat: { schema: 1, at: at(hb, base), writer: 'fixture', interval_sec: o.interval === undefined ? 300 : o.interval, vtes_scheme_registered: o.registered === undefined ? true : o.registered, addresses_filled: { 'LLM-01': true, 'LLM-03': true }, local_only_folder: { ok: true, checked_at: at(30, base), label: 'VTES-LOCAL-ONLY (fixture)' }, executors: ex },
+    heartbeat: { schema: 1, at: at(hb, base), writer: 'fixture', interval_sec: o.interval === undefined ? 300 : o.interval, vtes_scheme_registered: o.registered === undefined ? true : o.registered, addresses_filled: { 'LLM-01': true, 'LLM-03': true }, local_only_folder: { ok: true, checked_at: at(30, base), label: 'C:\\VTES-LOCAL-ONLY' }, executors: ex },
     bots: { schema: 1, at: at(1, base), writer: 'fixture', interval_sec: 300, bots },
     state: { schema: 1, at: at(30, base), open_items: 12, in_progress: 3, blocked: 2, repairs: [{ id: 'R1', text: 'Fixture repair row', status: 'OPEN' }], money: [{ item: 'Fixture invoice', status: 'staged' }] },
     health: { schema: 1, at: at(30, base), ok: true, checks_passed: 12, checks_total: 12, report_sent_at: at(31, base) },

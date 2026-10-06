@@ -1,0 +1,74 @@
+verify-r7-DOC-NOTES.txt - fix round 7, TRK-2026-9910-B. For the lead: what the documents say that VERIFY-v5.ps1 no longer does, and the new exact answers.
+(No .md file was edited by this builder.)
+
+SECTION A - NEW EXACT OUTPUT LINES (copy these into the documents)
+
+A1. Day one, fresh install, exit 0 (this is the ONLY OK a fresh install can print; "N of N" is the manifest file count, 11 today):
+    OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    This script contains no write command.
+
+A2. After a PC writer has started, only with the switch -AfterWriters, exit 0 (K = number of changed data or settings files, 1 to 8):
+    OK (after writers): all 11 of 11 package files are present and readable. 3 page and script files are identical (SHA-256). 8 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below). Nothing else is in the folder.
+      changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 <64 hex>)
+      ... one line per changed file ...
+    This script contains no write command.
+    (If -AfterWriters is given but nothing changed, it prints the A1 line.)
+    The words "expected edit" and "rewritten by a PC writer, which is expected" are never printed any more.
+
+A3. The new problem lines (exit 1). Each names the file and the reason in one sentence:
+    BAD DATA FILE: data\vtes5-bots.js is saved as UTF-16 (a Windows PowerShell redirect does that); do not use this folder
+    BAD DATA FILE: data\vtes5-bots.js is empty (0 bytes); do not use this folder
+    BAD DATA FILE: data\vtes5-bots.js starts with a UTF-8 byte-order mark (BOM); it must be plain UTF-8 without one; do not use this folder
+    BAD DATA FILE: data\vtes5-bots.js contains NUL bytes, so it is not a plain text data file; do not use this folder
+    BAD DATA FILE: data\vtes5-bots.js is not valid UTF-8; do not use this folder
+    BAD DATA FILE: data\vtes5-bots.js holds a Windows line ending (CR); the file must use LF only, and end with a semicolon and at most one LF; do not use this folder
+    BAD DATA FILE: data\vtes5-bots.js is not the one assignment "window.VTES_DATA.bots = {...};" that the page expects (wrong wrapper, wrong name, or text after the closing semicolon); do not use this folder
+    BAD DATA FILE: data\vtes5-bots.js does not hold one valid JSON object: <reason>; do not use this folder
+    BAD DATA FILE: vtes5-config.js must hold status_dir_url as a text string; do not use this folder
+    TOO BIG: <file> is N bytes, more than the limit of M. It was not read and not hashed.     (page 2097152 bytes; every other file and every data file 1048576 bytes)
+    NOT A PLAIN FILE: <file> is a named pipe, not a plain file. It was not opened.            (also: a socket, a device)
+    UNREACHABLE: <file> cannot be reached (<error name>), so it cannot be checked. It may be there, but it is not counted as identical.   (used where the old script said MISSING for a file it could not reach)
+    CASE DUPLICATE: "VTES5-UI.JS" and "vtes5-ui.js" differ only in upper and lower case. ...
+    MANIFEST.sha256 as a link or non-plain file: exit 1 with
+      PROBLEMS (1); the package files were not checked, because the manifest cannot be trusted:
+        LINK OR NOT A PLAIN FILE: MANIFEST.sha256 is a link, not a plain file. It was not followed and not opened. Use a real MANIFEST.sha256 file.
+    Without -AfterWriters a changed data file is: EDITED: data/vtes5-bots.js (data file) has SHA-256 <x> but the manifest says <y>.  (plus " It is also not a valid data file: ..." when the shape is bad)
+
+A4. Usage line to put in INSTALL-BY-HAND.md (only for the later check, never for day one):
+    powershell -NoProfile -ExecutionPolicy Bypass -File "G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 <64 hex> -AfterWriters
+    (test-no-write-commands.js checks the doc has exactly ONE command block that matches /^powershell ... -ExpectManifestSha256 [0-9a-f]{64}\s*$/ . A second block or a trailing -AfterWriters on that block would break
+    that check; the lead should either keep the day-one block as is and describe -AfterWriters in prose, or update the regex in test-no-write-commands.js together with the doc.)
+
+SECTION B - SENTENCES THAT ARE NOW WRONG OR MUST CHANGE
+
+INSTALL-BY-HAND.md line 34 (step 10, second bullet), now wrong:
+  "- `OK: all 11 of 11 package files are present and readable. N page and script files are identical ... data or settings file(s) were rewritten by a PC writer, which is expected` is also OK (exit 0). It is what a later check says once a writer has started: the lines starting `EDITED (data file) - expected` or `EDITED (settings file) - expected` name the eight files that are allowed to change (DATA-CONTRACT.md, section "Files that change by design"). Paste it. Any PROBLEMS line is not OK, even if expected lines are shown with it."
+  Replace with: on day one the ONLY good answer is the A1 line; a changed data or settings file on day one is a PROBLEM (EDITED), report BLOCKED. The A2 form exists only when the order says "run it with -AfterWriters".
+  Also add to the "PROBLEMS" bullet: BAD DATA FILE, TOO BIG, NOT A PLAIN FILE, UNREACHABLE, CASE DUPLICATE and the manifest-link line mean do not use the folder; paste the lines and report BLOCKED.
+INSTALL-BY-HAND.md step 10, first bullet: still right ("OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder"), and should now say "this is the only OK on day one".
+INSTALL-BY-HAND.md step 6b (the UTF-16 warning): still right; add that VERIFY now refuses such a data file (BAD DATA FILE ... saved as UTF-16) instead of passing it.
+
+DESKTOP-WORK.md line 7, now wrong:
+  "**Exactly eight files may change once a PC writer starts (the seven data files and vtes5-config.js); VERIFY lists them as `EDITED (data file) - expected` and still says OK."
+  Replace with: eight files may be rewritten by a PC writer; on day one VERIFY is exact (they must be identical, any change is PROBLEMS); after the writers start, run VERIFY with -AfterWriters, which accepts a changed data or settings file only if it passes the strict shape check and prints it as "changed by a PC writer (passes the strict shape check)". Also in that same line: "It counts an unreadable file as a problem" should add "and a file it cannot reach as UNREACHABLE (not MISSING), a file over its size cap (page 2 MB, all other files 1 MB) as TOO BIG without reading it, and a pipe, socket, device or link as NOT A PLAIN FILE without opening it".
+DESKTOP-WORK.md line 20, now wrong:
+  "(this replaces the shipped data file; VERIFY will list it as `EDITED (data file) - expected` and still say OK)"
+  Replace with: (this replaces the shipped data file; VERIFY without -AfterWriters will list it as EDITED, which is correct; with -AfterWriters it passes only if the file is exactly `window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.heartbeat = <ONE JSON object>;` plus at most one LF, UTF-8 without a byte-order mark, LF line endings, at most 1 MB). Same wording for every other data-writing item in DESKTOP-WORK.md (search "expected").
+DESKTOP-WORK.md line 13: "save the exact bytes of the 11 package files" - the count 11 is the manifest count including MANIFEST.sha256 (CHECK-8 flaw 8 says the docs list 12 names somewhere); not changed by this round, listed only so the lead keeps the two counts agreeing.
+
+KNOWN-LIMITS.md item 26 (line 41), now wrong:
+  "Once a PC writer replaces a data file, VERIFY prints `EDITED (data file) - expected` and still answers OK (exit 0). ... This also means VERIFY cannot tell a good data file from a broken one: the page does that (a broken data file shows red NO DATA, never green)."
+  Replace with: day one is exact; after writers, -AfterWriters accepts a changed data file only if it passes the strict shape check (UTF-8, no BOM, no NUL, LF only, size at most 1 MB, the one fixed assignment wrapper, one JSON object, nothing after the closing semicolon). The shape check proves the file is DATA, not that its values are TRUE: the page still judges the values (a bad value shows red NO DATA, never green).
+  Honest limit to add: VERIFY's JSON check is a hand-written token and structure check plus ConvertFrom-Json; it checks the shape, not what the values mean. A manifest doctored together with a bad data file is still caught by the shape check (scenario R23) but a doctored manifest holding a GOOD-shaped but different package file is only caught by -ExpectManifestSha256.
+KNOWN-LIMITS.md item 47 (CRLF, line 70): "A file with mixed endings, a byte-order mark or a re-saved encoding is reported as EDITED." Still right for page and script files. Add: data and settings files now also get the CRLF sentence on day one, and under -AfterWriters any CR in a data file is refused.
+KNOWN-LIMITS.md item 49 (line 72), now wrong:
+  "A change to it is expected and not a problem for VERIFY, though it controls what folder the page reads."
+  Replace with: a change to it is a problem on day one; under -AfterWriters it is accepted only if it is exactly `window.VTES5_CONFIG = {...};` (an optional first line that is one closed /* comment */ is allowed) holding status_dir_url as a text string.
+KNOWN-LIMITS.md: add new items: (a) Linux/macOS only: the pipe/socket/device refusal reads the type from the directory entry (PowerShell's UnixStat.ItemType) and never opens the item; on Windows the same check uses the Device and ReparsePoint attributes (a Windows named pipe cannot live in a folder, so this was not testable there: UNVERIFIED on Windows PowerShell 5.1). (b) VERIFY was tested under PowerShell 7.4.6 for Linux only; Windows PowerShell 5.1 (what "powershell" starts on Jorge's PC) was NOT run. The script uses only commands that exist in 5.1 (HashSet with a comparer, [regex] with a timeout, ConvertFrom-Json -InputObject, [Array]::IndexOf, Latin-1 decode), but UNVERIFIED there. (c) 1 MB data file cap and 2 MB page cap are fixed numbers in the script.
+
+DATA-CONTRACT.md line 62: "VERIFY-v5.ps1 will then report `vtes5-config.js` as EDITED (settings file) - expected; write it in the report." must become: VERIFY-v5.ps1 run with -AfterWriters will then report it as "changed by a PC writer (passes the strict shape check): vtes5-config.js"; without the switch it is EDITED.
+DATA-CONTRACT.md line 65: "VERIFY-v5.ps1 prints a change to one of them as "EDITED (data file) - expected" or "EDITED (settings file) - expected" and still answers OK (exit 0)." must become the A2 wording (OK only with -AfterWriters and only if it passes the strict shape check).
+DATA-CONTRACT.md line 78: "Once a writer replaces a data file, VERIFY-v5.ps1 lists it as EDITED (data file) - expected, and still answers OK." same replacement.
+DATA-CONTRACT.md (add, under "Files that change by design"): the exact shape every writer must produce, in one numbered list: 1. UTF-8, no byte-order mark. 2. LF line endings only, no CR anywhere. 3. Exactly `window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.<name> = ` then ONE JSON object then `;` then at most one LF; <name> is the file's own name (bots.js assigns .bots). The settings file: `window.VTES5_CONFIG = ` + ONE JSON object + `;` (status_dir_url a text string; one optional first line that is a single closed /* comment */). 4. At most 1048576 bytes. 5. Never save from a Windows PowerShell 5.1 redirect (it writes UTF-16).
+FIX-ROUND-6.md lines 55 and 57 describe the round-6 rule ("`$expectedEdit`, exactly eight files" and "prints "EDITED (data file) - expected" and the answer is OK"): that was true in round 6 and is superseded by round 7; a round-7 document should say so, not edit round 6.
+check-docs-agree.js / test-no-write-commands.js: check-docs-agree.js reads "VERIFY TESTS: N of N pass" from test-verify-RESULT.txt (that line still exists, now with a larger count) and the document counts must match it; the last line of the result file is now "N of N scenarios as expected; fixture identical before and after in N of N".

@@ -5,72 +5,79 @@
      Single file, no internet needed to open, no API keys. Restores LLMS / BOTS / ROLES tabs and the agent picker. -->
 <style>
 :root{--bg:#f6f4ef;--card:#fff;--ink:#1d1d1b;--mut:#5b5b57;--line:#d9d5cc;--acc:#1b5e9e;--ok:#1c7a3d;--warn:#8a2d1f}
-*{box-sizing:border-box}body{margin:0;padding:0 20px 60px;background:var(--bg);color:var(--ink);font:18px/1.5 "Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;padding:0 20px 60px;background:var(--bg);color:var(--ink);font:1.125rem/1.5 "Segoe UI",Arial,sans-serif}
 .tabs{position:sticky;top:0;z-index:9;background:var(--bg);display:flex;flex-wrap:wrap;gap:8px;padding:10px 0;border-bottom:2px solid var(--line)}
-.tab{padding:9px 14px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);font:700 15px inherit;text-decoration:none;cursor:pointer}
+.tab{padding:9px 14px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);font:700 0.9375rem inherit;text-decoration:none;cursor:pointer}
 .tab.here{background:var(--acc);border-color:var(--acc);color:#fff}.tab.panel{background:#eef3f8}
-h1{font-size:30px;margin:18px 0 4px}h2{font-size:24px;margin:30px 0 6px}.sub,.lead{color:var(--mut);font-size:16px;margin:0 0 14px}
-#q{width:100%;font-size:24px;padding:13px 16px;border:2px solid var(--line);border-radius:12px;outline:0}#q:focus{border-color:var(--acc)}
+h1{font-size:1.875rem;margin:18px 0 4px}h2{font-size:1.5rem;margin:30px 0 6px}.sub,.lead{color:var(--mut);font-size:1rem;margin:0 0 14px}
+#q{width:100%;font-size:1.5rem;padding:13px 16px;border:2px solid var(--line);border-radius:12px;outline:0}#q:focus{border-color:var(--acc)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}.card.hide{display:none}
-.id{font-weight:700;color:var(--acc);font-size:15px}.name{font-size:23px;font-weight:700;margin:3px 0 2px}.role{color:var(--mut);font-size:16px;margin-bottom:8px}
-.tags{font-size:14px;color:var(--mut);margin:8px 0}.addr{font:14px Consolas,monospace;color:var(--mut);margin:6px 0;word-break:break-all}
-.btn{display:inline-block;padding:11px 15px;border-radius:10px;border:0;background:var(--acc);color:#fff;font:700 16px inherit;text-decoration:none;cursor:pointer;margin:4px 6px 0 0}
-.btn.alt{background:#e9e6de;color:var(--ink)}.pool{font-weight:700;font-size:14px}.free{color:var(--ok)}.scarce{color:var(--warn)}
+.id{font-weight:700;color:var(--acc);font-size:0.9375rem}.name{font-size:1.4375rem;font-weight:700;margin:3px 0 2px}.role{color:var(--mut);font-size:1rem;margin-bottom:8px}
+.tags{font-size:0.875rem;color:var(--mut);margin:8px 0}.addr{font:0.875rem Consolas,monospace;color:var(--mut);margin:6px 0;word-break:break-all}
+.btn{display:inline-block;padding:11px 15px;border-radius:10px;border:0;background:var(--acc);color:#fff;font:700 1rem inherit;text-decoration:none;cursor:pointer;margin:4px 6px 0 0}
+.btn.alt{background:#e9e6de;color:var(--ink)}.pool{font-weight:700;font-size:0.875rem}.free{color:var(--ok)}.scarce{color:var(--warn)}
 .hand{background:#fff;border:2px solid var(--acc);border-radius:14px;padding:18px}
-.hand label{display:block;font-weight:700;font-size:15px;margin:10px 0 4px}.hand select,.hand textarea{width:100%;font:inherit;font-size:18px;padding:10px 12px;border:2px solid var(--line);border-radius:10px;background:#fff}
+.hand label{display:block;font-weight:700;font-size:0.9375rem;margin:10px 0 4px}.hand select,.hand textarea{width:100%;font:inherit;font-size:1.125rem;padding:10px 12px;border:2px solid var(--line);border-radius:10px;background:#fff}
 .pair{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}@media(max-width:800px){.pair{grid-template-columns:1fr}}
 #status{font-weight:700;margin-top:10px;min-height:1.4em}#why{color:var(--acc);font-weight:700;margin:8px 0}
-#preview{min-height:170px;font:14px Consolas,monospace}
-.gate{font-size:14px;color:var(--warn);margin-top:6px}
+#preview{min-height:170px;font:0.875rem Consolas,monospace}
+.gate{font-size:0.875rem;color:var(--warn);margin-top:6px}
 
 /* Anchor fix 2026-10-02: sticky header was covering every #anchor target. */
 h2[id],[id]{scroll-margin-top:150px}
 html{scroll-behavior:smooth}
 .repair-log{grid-template-columns:minmax(0,1fr)}
 .repair-log .card{overflow-x:auto}
-.repair-log table{width:100%;border-collapse:collapse;font-size:16px;text-align:left}
+.repair-log table{width:100%;border-collapse:collapse;font-size:1rem;text-align:left}
 .repair-log th,.repair-log td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
 .repair-log th{color:var(--mut)}
 .repair-log .repair-open{background:#fff4df;color:var(--warn);font-weight:700}
 .repair-log .repair-open td:first-child{border-left:4px solid var(--warn)}
 /* v5 additions (TRK-2026-9910-B). Large type and plain colours like v3. */
-.v5b{display:inline-block;padding:2px 8px;border-radius:8px;font-weight:800;font-size:14px}
+.v5b{display:inline-block;padding:2px 8px;border-radius:8px;font-weight:800;font-size:0.875rem}
 .v5b.ok{background:#e3f3e8;color:#1d6b3b;border:2px solid #2e7d4f}.v5b.bad{background:#fdeceb;color:#b3261e;border:2px solid #b3261e}
 .v5b.na{background:#eceae4;color:#4a4a47;border:2px dashed #8a8a84}
-.v5st{font-size:16px;margin:0 0 8px;padding:4px 8px;border-radius:8px}.v5st.ok{background:#e3f3e8;color:#1d6b3b;font-weight:700}.v5st.bad{background:#fdeceb;color:#b3261e;font-weight:700}
+.v5st{font-size:1rem;margin:0 0 8px;padding:4px 8px;border-radius:8px}.v5st.ok{background:#e3f3e8;color:#1d6b3b;font-weight:700}.v5st.bad{background:#fdeceb;color:#b3261e;font-weight:700}
 .v5st.neu{background:#e8f0f8;color:#173f66;font-weight:700;border:2px solid #1b5e9e}
 .v5st.stk{background:#e8d3d0;color:#6b1812;font-weight:800;border:3px solid #8a2d1f}
 .v5st.unp{background:#eceae4;color:#3a3a37;font-weight:700;border:2px dashed #8a8a84}
-.v5na{display:block;background:#fff8e6;border:2px dashed #e0a100;border-radius:10px;padding:8px 10px;font-size:15px;color:#5b3d00}
-.v5na2{background:#eef4fb;border:2px solid #1b5e9e;border-radius:10px;padding:6px 12px;margin:8px 0;font-size:16px}.v5na2 ol,.v5steps{margin:4px 0 4px 22px;padding:0}
-.v5note{font-size:15px;color:#5b5b57;font-style:italic}.v5typed{color:#6b6b66;font-size:14px}
-/* D10: v3 wrote .btn{font:700 16px inherit}, which is not valid CSS, so every button showed in the browser default 13px type. This sets the type properly. */
-button.btn,a.btn{font-family:inherit;font-size:17px;font-weight:700}
-button.btn{border:0;cursor:pointer}.btn.bigcopy{font-size:20px;padding:14px 18px}
-.v5read{background:#fff;border:2px solid var(--acc);border-radius:12px;padding:6px 14px;margin:10px 0}.v5read ol{margin:4px 0 6px 22px;padding:0;font-size:18px;line-height:1.5}.v5read summary{font-weight:800;font-size:20px;cursor:pointer}
-.v5rambo{margin:6px 0 10px;padding:8px 14px;background:#eef4fb;border:2px solid var(--acc);border-radius:12px}.v5rambo .btn{font-size:21px}
-.v5age{font-weight:800;font-size:16px}.v5age.bad{color:#b3261e}
-.v5dash{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0;font-size:15px}
-.pn{background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 18px;margin:0 0 16px}.pn h3{margin:0 0 6px;font-size:21px}
-.pn table{border-collapse:collapse;font-size:16px}.pn td,.pn th{border:1px solid var(--line);padding:3px 8px;text-align:left}
+.v5na{display:block;background:#fff8e6;border:2px dashed #e0a100;border-radius:10px;padding:8px 10px;font-size:0.9375rem;color:#5b3d00}
+.v5na2{background:#eef4fb;border:2px solid #1b5e9e;border-radius:10px;padding:6px 12px;margin:8px 0;font-size:1rem}.v5na2 ol,.v5steps{margin:4px 0 4px 22px;padding:0}
+.v5note{font-size:0.9375rem;color:#5b5b57;font-style:italic}.v5typed{color:#6b6b66;font-size:0.875rem}
+/* D10: v3 wrote .btn{font:700 1rem inherit}, which is not valid CSS, so every button showed in the browser default 13px type. This sets the type properly. */
+button.btn,a.btn{font-family:inherit;font-size:1.0625rem;font-weight:700}
+button.btn{border:0;cursor:pointer}.btn.bigcopy{font-size:1.25rem;padding:14px 18px}
+.v5read{background:#fff;border:2px solid var(--acc);border-radius:12px;padding:6px 14px;margin:10px 0}.v5read ol{margin:4px 0 6px 22px;padding:0;font-size:1.125rem;line-height:1.5}.v5read summary{font-weight:800;font-size:1.25rem;cursor:pointer}
+.v5rambo{margin:6px 0 10px;padding:8px 14px;background:#eef4fb;border:2px solid var(--acc);border-radius:12px}.v5rambo .btn{font-size:1.3125rem}
+.v5age{font-weight:800;font-size:1rem}.v5age.bad{color:#b3261e}
+.v5dash{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0;font-size:0.9375rem}
+.pn{background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 18px;margin:0 0 16px}.pn h3{margin:0 0 6px;font-size:1.3125rem}
+.pn table{border-collapse:collapse;font-size:1rem}.pn td,.pn th{border:1px solid var(--line);padding:3px 8px;text-align:left}
 ol.md{margin:6px 0 0 22px;padding:0}ol.md li{margin:4px 0}
-.v5old{background:#f3f1ea;border:2px dashed #6b6b66;border-radius:10px;padding:8px 12px;font-size:15px;color:#3a3a37;margin:6px 0}
-.tab.panel{font-size:14px;padding:5px 10px}
+.v5old{background:#f3f1ea;border:2px dashed #6b6b66;border-radius:10px;padding:8px 12px;font-size:0.9375rem;color:#3a3a37;margin:6px 0}
+.tab.panel{font-size:0.875rem;padding:5px 10px}
 /* flaw F9: the OLD PANEL label is the only warning on those tabs: 14 px, bold, dark brown on pale amber (contrast about 11 to 1) */
-.tab small{display:block;font-size:14px;font-weight:800;line-height:1.25;color:#3d1a00;background:#ffe3a3;border-radius:6px;padding:1px 6px;margin-top:3px;white-space:nowrap}
+.tab small{display:block;font-size:0.875rem;font-weight:800;line-height:1.25;color:#3d1a00;background:#ffe3a3;border-radius:6px;padding:1px 6px;margin-top:3px;white-space:nowrap}
 /* the sticky tab bar is taller now (each old tab carries its label). Its height is measured by vtes5-ui.js into --hdr so a jump to a section never hides the heading under the bar; on narrow windows the bar is not sticky at all. */
 h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 @media(max-width:1150px){.tabs{position:static}h2[id],[id]{scroll-margin-top:12px}}
 /* flaws F5 and N11: on laptops and phones the tab bar is ONE compact row with a thick scroll bar that is always drawn, and a plain hint line says what is hidden. The 8 live tabs come first (order:1) so STATUS, REPAIRS and MIAMI-DADE are never hidden; the 10 OLD PANEL tabs follow (order:2). The RAMBO paste button, directly under the title, stays on the first screen. Wide screens keep the wrapped v3 bar. */
-.v5tabhint{display:none;font-size:16px;font-weight:700;color:#3d1a00;background:#ffe3a3;border-radius:8px;padding:4px 10px;margin:4px 0}
-@media(max-width:1500px){.tabs{flex-wrap:nowrap;align-items:center;overflow-x:scroll;scrollbar-width:auto;scrollbar-color:#1b5e9e #d9d5cc;padding:6px 0 4px;gap:6px}.tabs::-webkit-scrollbar{height:16px}.tabs::-webkit-scrollbar-track{background:#d9d5cc;border-radius:8px}.tabs::-webkit-scrollbar-thumb{background:#1b5e9e;border-radius:8px;border:2px solid #d9d5cc}.tab{flex:0 0 auto;white-space:nowrap}.tab.here{order:1}.tab.panel{order:2}.tab small{white-space:normal;max-width:190px}h1{margin:8px 0 2px;font-size:26px}.v5rambo .btn{font-size:19px;padding:10px 14px;margin:0}}
+.v5tabhint{display:none;font-size:1rem;font-weight:700;color:#3d1a00;background:#ffe3a3;border-radius:8px;padding:4px 10px;margin:4px 0}
+@media(max-width:1700px){.tabs{flex-wrap:nowrap;align-items:center;overflow-x:scroll;scrollbar-width:auto;scrollbar-color:#1b5e9e #d9d5cc;padding:6px 0 4px;gap:6px}.tabs::-webkit-scrollbar{height:16px}.tabs::-webkit-scrollbar-track{background:#d9d5cc;border-radius:8px}.tabs::-webkit-scrollbar-thumb{background:#1b5e9e;border-radius:8px;border:2px solid #d9d5cc}.tab{flex:0 0 auto;white-space:nowrap}.tab.here{order:1}.tab.panel{order:2}.tab small{white-space:normal;max-width:190px}h1{margin:8px 0 2px;font-size:1.625rem}.v5rambo .btn{font-size:1.1875rem;padding:10px 14px;margin:0}}
 /* flaw N12: the OLD PANEL warning is never under 14 px: the PANEL and INDEX corner buttons (12 px in v3) too */
-#vtes-back-to-panel a{font-size:14px}
+#vtes-back-to-panel a{font-size:0.875rem}
 /* fix round 6: lines meant for the desktop executor only are smaller and italic; the WHOLE PAGE line is bold */
-.v5forrambo{font-size:14px;font-style:italic;color:#444}#v5overall{font-weight:700}
+.v5forrambo{font-size:0.875rem;font-style:italic;color:#444}#v5overall{font-weight:700}
+.v5watch{background:#b3261e;color:#fff;font-weight:800;font-size:1.25rem;padding:10px 14px;border-radius:10px;margin:8px 0}
+
+/* fix round 7: the confirmation tick and the reason line under a switched-off button */
+.v5ackrow{margin:8px 0;padding:8px 12px;background:#fff8e6;border:2px solid #e0a100;border-radius:10px}.v5ack{display:block;font-size:1.1875rem;font-weight:700;color:#3d1a00;cursor:pointer}.v5ack input{width:26px;height:26px;vertical-align:middle;margin-right:8px}.v5ackmsg{font-size:1rem;margin-top:4px;color:#3d1a00}
+.v5why{display:none;font-size:0.9375rem;font-weight:700;color:#b3261e;background:#fdeceb;border:2px solid #b3261e;border-radius:8px;padding:4px 8px;margin:4px 0}button:disabled{opacity:.55;cursor:not-allowed}
+/* fix round 7: the corner PANEL / INDEX box no longer covers the last line of the footer (phones), and the tab bar is never taller than a quarter of a 1536 x 730 screen */
+body{padding-bottom:96px !important}
 </style></head><body>
-<script>window.VTES5_BUILT = "2026-10-06T14:10:41Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
+<script>window.VTES5_BUILT = "2026-10-06T15:45:36Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
 <div class="tabs" id="tabs"></div>
 <div class="v5tabhint" id="v5tabhint"></div>
 <h1>VTES LLM Launcher</h1>
@@ -89,7 +96,8 @@ h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 <div id="why"></div>
 <label for="note">What do you want done? (dictate or type)</label>
 <textarea id="note" rows="3" placeholder="Example: Check the Bal Harbour permit summary for anything Claude missed."></textarea>
-<div class="gate">No card numbers, passwords or Social Security numbers in this box. Client personal data goes to LOCAL only.</div>
+<div class="gate">Client personal data goes to LOCAL only. This page can check only digits: it CANNOT catch names, home addresses, email addresses, phone numbers or any identifier written in words. Do not type passwords or card numbers here.</div>
+<div class="v5ackrow"><label class="v5ack" for="v5ack"><input type="checkbox" id="v5ack"> This note has NO client personal data (Social Security, bank, card, licence, passport, date of birth, home address)</label><div class="v5ackmsg" id="v5ackmsg" role="status"></div></div>
 <button class="btn" id="go" type="button">Copy packet and open</button><button class="btn alt" id="show" type="button">Just show the packet</button>
 <div id="status" role="status"></div>
 <label for="preview">The packet (read only: use the buttons above to copy it)</label><textarea id="preview" readonly></textarea>
@@ -136,7 +144,7 @@ h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 <p class="lead">Added in v5. Every link opens that source's proof file in Drive. The count says unknown until the PC counts.</p>
 <div id="v5miami"></div>
 
-<p class="sub" style="margin-top:30px">TRK-2026-9910-B &middot; v5 &middot; built <span id="v5fb"></span> &middot; CURRENT. Registry: LLM-WINDOW-REGISTRY_v2.md. Lanes: EXECUTORS-AND-ORCHESTRATOR_2026-10-01.md. #VTES-control-panel #LLM-registry</p>
+<p class="sub" style="margin-top:30px">TRK-2026-9910-B &middot; v5 &middot; built <span id="v5fb"></span> &middot; CURRENT. <span class="v5forrambo">For RAMBO: registry LLM-WINDOW-REGISTRY_v2.md, lanes EXECUTORS-AND-ORCHESTRATOR_2026-10-01.md.</span> #VTES-control-panel #LLM-registry</p>
 
 <script>
 var LLMS=[
@@ -144,13 +152,13 @@ var LLMS=[
 {id:'LLM-02',e:'\u2601\ufe0f',n:'Claude Code Cloud',r:'Repo keeper: QC, research, dispatch',j:'Holds the repo, checks desktop work, sourced research, daily Plaud sync, sends orders to RAMBO through Drive. Cannot touch your PC.',pool:'Claude Max (scarce)',cls:'scarce',t:'#LLM-02 #EXEC-CLOUD #PASTE-C',a:'vtes://llm-02',url:'https://claude.ai/code',how:'',k:'cloud executor web claude code repo keeper qc research plaud sync dispatch morning report'},
 {id:'LLM-03',e:'\ud83e\udd1d',n:'Claude Cowork',r:'Analyst: long documents, CDM owner',j:'Deep analysis and long write-ups; the CDM funding model lives here. Can drive Chrome with your permission. It can send orders but cannot receive them from the bus.',pool:'Claude subscription',cls:'scarce',t:'#LLM-03 #COWORK #PASTE-X #CDM',a:'vtes://llm-03',url:'',how:'Claude desktop app, Cowork tab (or orange X tray icon), then Ctrl+V.',k:'cowork analyst long documents cdm comparative decision model chrome'},
 {id:'LLM-04',e:'\ud83d\udcac',n:'Claude Chat',r:'The cockpit: your seat',j:'Your main conversation. Dictate, approve, ask where things stand. Tells the executors what to do.',pool:'Claude subscription',cls:'scarce',t:'#LLM-04 #CHAT #COCKPIT',a:'vtes://llm-04',url:'https://claude.ai',how:'',k:'chat cockpit owner seat decisions approve dictate'},
-{id:'LLM-05',e:'\ud83d\udcf1',n:'Claude iPhone',r:'Voice: dictation on the go',j:'Same account as the cockpit. Say "AP-0088: GO" from the car and it counts.',pool:'Claude subscription',cls:'scarce',t:'#LLM-05 #IPHONE #voice',a:'vtes://llm-05',url:'',how:'On the iPhone, open the Claude app. Get the packet onto the iPhone first (see the steps on this card).',k:'iphone phone voice dictation approvals mobile'},
-{id:'LLM-06',e:'\ud83e\udded',n:'Codex CLI',r:'Code, HTML, scripts, files (ChatGPT pool)',j:'OpenAI agent on your PC. A separate pool from Claude, so it takes code and HTML work off the Claude quota. Same inbox rules.',pool:'ChatGPT subscription (not Claude)',cls:'free',t:'#LLM-06 #CODEX #BACKUP-EXEC',a:'vtes://llm-06',url:'',how:'You type no command: the desktop executor runs Codex for you (see the steps on this card). First time only: the shortcut "Codex - sign in (Jorge)".',k:'codex openai chatgpt backup executor second hands terminal cli code html scripts'},
+{id:'LLM-05',e:'\ud83d\udcf1',n:'Claude iPhone',r:'Voice: dictation on the go',j:'Same account as the cockpit. Say "AP-0088: GO" from the car and it counts.',pool:'Claude subscription',cls:'scarce',t:'#LLM-05 #IPHONE #voice',a:'vtes://llm-05',url:'',how:'On the iPhone, open the Claude app. Get the packet onto the iPhone first (see the steps on the LLM-05 card in section 2).',k:'iphone phone voice dictation approvals mobile'},
+{id:'LLM-06',e:'\ud83e\udded',n:'Codex CLI',r:'Code, HTML, scripts, files (ChatGPT pool)',j:'OpenAI agent on your PC. A separate pool from Claude, so it takes code and HTML work off the Claude quota. Same inbox rules.',pool:'ChatGPT subscription (not Claude)',cls:'free',t:'#LLM-06 #CODEX #BACKUP-EXEC',a:'vtes://llm-06',url:'',how:'You type no command: the desktop executor runs Codex for you (see the steps on the LLM-06 card in section 2). First time only: the shortcut "Codex - sign in (Jorge)".',k:'codex openai chatgpt backup executor second hands terminal cli code html scripts'},
 {id:'LLM-07',e:'\ud83d\udd2e',n:'Grok (SuperGrok)',r:'Fabian: second opinion',j:'Sanity-checks Claude with the live web. Chat only; cannot write files. Paste a Drive link to hand it a file.',pool:'SuperGrok / paid xAI key',cls:'free',t:'#LLM-07 #GROK #FABIAN #second-opinion',a:'vtes://llm-07',url:'https://grok.com',how:'',k:'grok supergrok xai fabian second opinion sanity check live web'},
-{id:'LLM-08',e:'\u264a',n:'Gemini',r:'Volume drafter: free, Drive-native',j:'Cheap bulk drafting and summarizing. Gemini CLI can run headless on the PC under GEMINI.md.',pool:'Google account (free)',cls:'free',t:'#LLM-08 #GEMINI #google #volume',a:'vtes://llm-08',url:'https://gemini.google.com',how:'',k:'gemini google volume drafter cheap free drive native summarize cli'},
+{id:'LLM-08',e:'\u264a',n:'Gemini',r:'Volume drafter: free, Drive-native',j:'Cheap bulk drafting and summarizing. Gemini CLI can run headless on the PC.',pool:'Google account (free)',cls:'free',t:'#LLM-08 #GEMINI #google #volume',a:'vtes://llm-08',url:'https://gemini.google.com',how:'',k:'gemini google volume drafter cheap free drive native summarize cli'},
 {id:'LLM-09',e:'\ud83e\uddf0',n:'Thin API router',r:'Standby bridge only',j:'Routing bridge, never the main engine. Every API run is priced first and sent to you for approval.',pool:'API (priced, approved)',cls:'scarce',t:'#LLM-09 #API-ROUTER #standby',a:'',url:'',how:'Standby. Nothing to open.',k:'api router litellm bridge standby'}];
 var ROLES=[
-{id:'LOCAL',e:'\ud83c\udfe0',n:'LOCAL: Ollama',r:'Free, on your machine',j:'Classify, tag, extract, summarise, rename, and all client personal data (typed in v3: "Never leaves the PC" - only true once a local-only folder outside Google Drive and OneDrive is confirmed; see the LOCAL save step on this card).',pool:'FREE',cls:'free',t:'#LOCAL #OLLAMA #PII',a:'Drop JOB-*.md with CLASS: and PROMPT: into a local-only folder. BLOCKED until the desktop executor confirms one (see the LOCAL save step on this card).',k:'local ollama free classify tag extract summarise rename pii'},
+{id:'LOCAL',e:'\ud83c\udfe0',n:'LOCAL: Ollama',r:'Free, on your machine',j:'Classify, tag, extract, summarise, rename, and all client personal data (typed in v3: "Never leaves the PC" - only true once a local-only folder outside Google Drive and OneDrive is confirmed; see the LOCAL save step on this card).',pool:'FREE',cls:'free',t:'#LOCAL #OLLAMA #PII',a:'Where a local file may be saved: see the LOCAL save step line on this card.',k:'local ollama free classify tag extract summarise rename pii'},
 {id:'CODEX',e:'\ud83e\udded',n:'CODEX',r:'Code, HTML, scripts, files',j:'Separate ChatGPT pool.',pool:'ChatGPT pool (not Claude)',cls:'free',t:'#CODEX',a:'codex exec "<task>"',k:'codex code html scripts files chatgpt'},
 {id:'RAMBO',e:'\ud83d\udda5\ufe0f',n:'CLAUDE / RAMBO',r:'Judgment, client-facing, legal',j:'Use only for what needs Claude.',pool:'Claude Max (scarce)',cls:'scarce',t:'#RAMBO #CLAUDE',a:'Drop JOB-*.md into G:\\My Drive\\VTES-Inbox',k:'claude rambo judgment client facing legal'},
 {id:'GROK',e:'\ud83d\udd2e',n:'GROK',r:'Second opinion',j:'Round-trip question only; cannot write files or run commands.',pool:'Paid xAI key',cls:'free',t:'#GROK #FABIAN',a:'Second-Opinion.ps1 -Prompt "<question>"',k:'grok second opinion xai'},
@@ -181,7 +189,7 @@ var PICK=[
 ['Long documents, CDM analysis','LLM-03','Cowork is the analyst. It cannot receive from the bus: you paste.'],
 ['Repo work, QC, research, dispatch','LLM-02','Cloud Claude Code. Cannot touch the PC.']];
 var WIN=[];LLMS.forEach(function(w){WIN.push({id:w.id,n:w.n,url:w.url,how:w.how})});
-WIN.push({id:'LOCAL',n:'LOCAL (Ollama)',url:'',how:'Do not give this packet to any Claude window. Follow the steps on the LOCAL card. Saving it is BLOCKED until the desktop executor confirms a local-only folder (not inside Google Drive or OneDrive).'});
+WIN.push({id:'LOCAL',n:'LOCAL (Ollama)',url:'',how:'Do not give this packet to any Claude window. Follow the steps on the LOCAL card. Where a local file may be saved is shown by the LOCAL save step line on the LOCAL card (section 3).'});
 WIN.push({id:'CODEX',n:'CODEX',url:'',how:'Follow the steps on the CODEX card. You type no command: the desktop executor (RAMBO) runs Codex.'});
 WIN.push({id:'RAMBO',n:'CLAUDE / RAMBO',url:'',how:'Open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.'});
 WIN.push({id:'GROK',n:'GROK',url:'',how:'Paste the packet into grok.com. The desktop executor (RAMBO) can put the question to Grok for you.'});
@@ -208,11 +216,11 @@ return ['HANDOFF  '+f.id+' ('+f.n+')  ->  '+t.id+' ('+t.n+')   '+window.VTES5.fm
 'HOW TO ANSWER:','- Answer first, reasoning after. Short paragraphs. No tables, no bullet lists.','- If you see a better way or a flaw, say so first. Recommend one option and give the tradeoff in one line.','- End with ONE question he can answer in a word.','',
 'HARD RULES:','- Report DONE (with proof path), BLOCKED (what you tried, why it failed, the one thing needed), or IN PROGRESS. Never say done without checking.','- Never send, spend, delete, sign, or enter a password for him. Cards: nickname and last 4 only.','- If you cannot open a file or link, say so and ask him to paste it. Do not guess.','',
 'FACTS LIVE IN: JV-repository (OPEN-ITEMS.md, CLAUDE.md), Drive folders VTES-Inbox (orders) and VTES-Outbox (results).','RETURN PATH: write your answer so Jorge can paste it back to '+f.id+', and tag it #'+t.id+'.'].join('\n')}
-function refresh(){$('preview').value=packet()}
+function refresh(){$('preview').value=(window.VTES5U&&window.VTES5U.allow&&!window.VTES5U.allow($('to').value))?window.VTES5U.reasonFor($('to').value):packet()}
 function copy(txt){try{var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.top='0';ta.style.left='0';ta.style.width='1px';ta.style.height='1px';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,txt.length);var ok=false;try{ok=document.execCommand('copy')}catch(e2){ok=false}document.body.removeChild(ta);if(ok){return Promise.resolve(true)}}catch(e){}
 return navigator.clipboard?navigator.clipboard.writeText(txt).then(function(){return true},function(){return false}):Promise.resolve(false)}
-$('show').onclick=function(){refresh();$('status').textContent='Packet shown below. Select it and press Ctrl+C.'};
-$('go').onclick=function(){var txt=packet();$('preview').value=txt;var t=win($('to').value);copy(txt).then(function(ok){if(t.url)window.open(t.url,'_blank','noopener');
+$('show').onclick=function(){if(window.VTES5U&&!window.VTES5U.allow($('to').value)){window.VTES5U.applyGate();$('status').textContent=window.VTES5U.reasonFor($('to').value);return}refresh();$('status').textContent='Packet shown below. Select it and press Ctrl+C.'};
+$('go').onclick=function(){if(window.VTES5U&&!window.VTES5U.allow($('to').value)){window.VTES5U.applyGate();$('status').textContent=window.VTES5U.reasonFor($('to').value);return}var txt=packet();$('preview').value=txt;var t=win($('to').value);copy(txt).then(function(ok){if(t.url)window.open(t.url,'_blank','noopener');
 $('status').textContent=(ok?'Copied. ':'Could not copy by itself: select the packet below and press Ctrl+C. ')+(t.url?t.n+' is opening. ':'')+(t.how||'Click in its message box and press Ctrl+V.')})};
 $('kind').onchange=choose;['from','to','note'].forEach(function(i){$(i).addEventListener('input',refresh)});
 document.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
@@ -221,16 +229,27 @@ if(b.dataset.q!==undefined){var x=QUEUED[b.dataset.q];$('to').value=win(x.to)?x.
 var cards=[].slice.call(document.querySelectorAll('.card'));
 $('q').addEventListener('input',function(){var t=$('q').value.trim().toLowerCase();cards.forEach(function(c){var h=(c.dataset.k+' '+(c.dataset.s!==undefined?c.dataset.s:c.textContent)).toLowerCase();c.classList.toggle('hide',t!==''&&h.indexOf(t)===-1)})});
 $('kind').value=5;choose();
-VTES5U.renderTop(window.VTES5_BUILT);VTES5U.measureHeader();window.addEventListener('resize',VTES5U.measureHeader);
-function v5tick(){window.VTES5.reload(function(){VTES5U.refresh(window.VTES5_BUILT);VTES5U.repaint()})}
-v5tick();setInterval(v5tick,60000);
 </script>
 <!-- vtes-back-to-panel : added by Add-BackToPanel.ps1 -->
 <style>
-#vtes-back-to-panel{position:fixed;left:14px;bottom:14px;z-index:99999;display:flex;gap:8px;font:600 12px/1 Segoe UI,Arial,sans-serif}
+#vtes-back-to-panel{position:fixed;left:14px;bottom:14px;z-index:99999;display:flex;gap:8px;font:600 0.75rem/1 Segoe UI,Arial,sans-serif}
 #vtes-back-to-panel a{display:inline-flex;align-items:center;gap:7px;background:#fff;color:#234c39;text-decoration:none;padding:10px 15px;border-radius:18px;border:2px solid #708c7d;box-shadow:0 2px 5px rgba(0,0,0,.12)}
 #vtes-back-to-panel a:hover,#vtes-back-to-panel a:focus-visible{background:#eaf2ec;outline:2px solid #234c39}
 @media print{#vtes-back-to-panel{display:none !important}}
 </style>
 <div id="vtes-back-to-panel"><a href="file:///C:/Users/JV/JV-repository/VTES-CONTROL-PANEL.html" title="Back to the VTES Control Panel">&#8592; PANEL (OLD, snapshot of 2026-09-02, not live)</a><a href="file:///C:/Users/JV/JV-repository/VTES-CONTROL-PANEL.html#INDEX" title="Back to the workspace index">INDEX (OLD, snapshot of 2026-09-02, not live)</a></div>
+<script>
+/* fix round 7 (CLASS 1): this start-up block is its own script, after v3's script, so nothing in v3's script or in any data-dependent code can stop it. The timers are set FIRST; the top block (RAMBO button, Read me first, Live status) is drawn before any data is read; every step has its own try/catch. */
+(function(){
+var B=window.VTES5_BUILT,MSG='PAGE NOT REFRESHING - DO NOT TRUST';
+function fail(m){try{var t=document.getElementById('v5top');if(t&&!document.getElementById('v5failbox')){t.insertAdjacentHTML('afterbegin','<div class="v5watch" id="v5failbox" role="alert">'+m+' Press F5 to reload the page. If this stays, tell the desktop executor (RAMBO).</div>')}}catch(e){}}
+function tick(){try{window.VTES5.reload(function(){window.VTES5U.refresh(B)})}catch(e){try{window.VTES5U.paintFailed(e)}catch(e2){fail(MSG+'.')}}}
+setInterval(tick,60000);
+setInterval(function(){try{window.VTES5U.watchdog()}catch(e){fail(MSG+'.')}},15000);
+try{window.VTES5U.renderFrame(B)}catch(e){fail(MSG+'. The top of this page could not be drawn.')}
+try{window.VTES5U.measureHeader();window.addEventListener('resize',window.VTES5U.measureHeader)}catch(e){}
+try{window.VTES5U.firstPaint(B)}catch(e){try{window.VTES5U.paintFailed(e)}catch(e2){fail(MSG+'.')}}
+tick();
+})();
+</script>
 </body></html>

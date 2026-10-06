@@ -1,0 +1,54 @@
+verify-r7-OLD-TEST-CHANGES.txt - fix round 7, TRK-2026-9910-B
+Every older scenario of test-verify.sh whose expectation changed, and why. Nothing was weakened silently: each change is a CONSEQUENCE of the new strict rule
+"a fresh install is EXACT; a changed data or settings file is allowed only with -AfterWriters and only if it passes the strict shape check". Every other old scenario
+(V01-V03, V05, V07-V13, V15-V35, V38, V40-V45, V30) keeps its old expected answer unchanged and passes.
+
+Also changed for ALL scenarios (stronger, not weaker): every scenario now runs under `timeout 60`, takes a before/after snapshot that also records type, mode, size, mtime and link
+target of every entry (the old snapshot recorded type, mode and size), asserts it finished in under 58 seconds, and is counted as a scenario. "11 of 11" is no longer hard-coded:
+the file count is read from the package manifest.
+
+1. V04 (a data file rewritten by a writer; old text: "echo 'window.VTES_DATA.heartbeat = {"at":"x"};'")
+   OLD expectation: exit 0, "OK: all 11 of 11 package files are present and readable", "EDITED (data file) - expected: data/vtes5-heartbeat.js", no PROBLEMS word.
+   NEW expectation, no switch: exit 1, PROBLEMS, "EDITED: data/vtes5-heartbeat.js (data file)", and neither "expected" nor "OK:" in the answer.
+   Why: day one is exact (the manifest hash is exact). The old "expected edit" came from an allowance with no check behind it (CHECK-8 flaw 4).
+   Added beside it: V04c (the same old short-wrapper text WITH -AfterWriters: PROBLEMS, it is not the assignment the page expects), V04d (a properly shaped rewritten file WITH
+   -AfterWriters: exit 0), V04e (the same properly shaped file WITHOUT the switch: PROBLEMS).
+
+2. V36 (all seven data files and vtes5-config.js rewritten)
+   OLD expectation: exit 0, "OK: all 11 of 11 ... 3 page and script files are identical", "EDITED (settings file) - expected: vtes5-config.js", "EDITED (data file) - expected: ...".
+   NEW expectation, no switch: exit 1, "PROBLEMS (8); 3 of 11 package files are identical", eight EDITED lines.
+   Added V36b: the same eight files WITH -AfterWriters: exit 0, "OK (after writers): ... 8 data or settings file(s) were changed by a PC writer and pass the strict shape check".
+   Why: same as V04. (The old content also was already in the full wrapper shape, so V36b proves the strict check accepts a good rewrite.)
+
+3. V37 (a data file AND a code file changed)
+   OLD: data file content was just "x" and the answer listed it as "(expected, not a problem) EDITED (data file) - expected: data/vtes5-state.js".
+   NEW: the data file is a properly shaped rewrite, the run uses -AfterWriters, and the answer lists it as "(not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
+   while "EDITED: vtes5-ui.js" is still PROBLEMS. A data file holding just "x" would now be PROBLEMS (see R02-R20), so the old content could not be kept.
+
+4. V39 (CRLF in one data file; old script replaced every LF by CRLF and added one more CRLF)
+   OLD expectation: exit 0, "EDITED (data file) - expected: data/vtes5-bots.js".
+   NEW expectation, no switch: exit 1, "EDITED: data/vtes5-bots.js (data file)". With -AfterWriters (V39b): exit 1, "data\vtes5-bots.js holds a Windows line ending (CR)".
+   Added V39c: the shipped data file converted ONLY to CRLF, no switch: exit 1, ONE sentence "LINE ENDINGS CHANGED (CRLF): 1 file(s) ... data/vtes5-bots.js" (the cause is named; data files now get the same CRLF
+   naming as the other files, because on day one they must be exact).
+   Why: the strict shape allows LF only and at most one trailing LF (the order of this round). NOTE for the lead: a Windows PowerShell writer that ends the file with CRLF (Set-Content) will be refused under
+   -AfterWriters. That is what was ordered, but it may surprise RAMBO, so DATA-CONTRACT.md should say "end the file with a semicolon and at most one LF, no CR anywhere".
+
+5. V14 (data folder chmod 000, run without read-override)
+   OLD expectation: exit 1, "UNREADABLE".
+   NEW expectation: exit 1, "UNREADABLE" (the folder-list line, unchanged) AND "UNREACHABLE: data/vtes5-bots.js (data file) cannot be reached", and "MISSING: data/vtes5" must NOT appear (CHECK-8 flaw 18 / S76).
+   This one is a strengthening, not a weakening.
+
+6. V45 / V05 / V06 (missing files): wording kept ("MISSING: <file> ..."). The old line ended "(not in the folder, or not reachable: ItemNotFoundException)"; it now ends "(not in the folder)".
+   The scenario's expected text ("MISSING: data/vtes5-tokens.js (data file)") is unchanged.
+
+7. "nobody" simulation (V11, V12, V13, V14 and the new R12, R12b): the old script ran VERIFY with `setpriv --reuid=65534 --regid=65534 --clear-groups`. In this build session that could not start (PowerShell
+   printed "Failed to resolve full path of the current executable", exit 133) because the scratch folder lives under a root-only parent folder that the session resets. The scenarios now drop the read-override
+   rights instead (`setpriv --bounding-set -dac_override,-dac_read_search`): the process stays root but cannot read a chmod 000 file or folder (checked: a plain root run reads the file, the dropped-rights run gets
+   "Permission denied"). Same expected answers. Honest difference: this does not prove behaviour for a different uid; it proves the same thing the old note said (a chmod 000 file cannot be read).
+
+8. Expectation typo caught in my own first run (not an old test): V04d first expected "3 page and script files" (a copy of the V36 number); the correct number for one changed data file is NF-1 = 10. Fixed before the final run;
+   R06f (900 KB file) first built a 727 KB file (the script asserts its size) and R07d (socket) first used a path too long for a unix socket, and R19c lost a trailing space in my editor; all three are test-construction bugs, fixed.
+
+9. About verify-r7-BEFORE-RESULT.txt (the new test file run against the OLD VERIFY from HEAD): 50 of 148 scenarios as expected, 98 not (list on its "SCENARIOS NOT AS EXPECTED" line). One of the 98, R30, is NOT a real
+   old-script failure: the lead changed package/ while that run was going, so the manifest and vtes5-live.js no longer matched mid-run (the answer was "EDITED: vtes5-live.js"). Treat R30 as unmeasured for the old script.
+   The old script has no -AfterWriters switch, so every scenario using it fails there by design. Fixture identical before and after was 148 of 148 for the old script too (it never wrote; its failures are hangs and wrong answers).

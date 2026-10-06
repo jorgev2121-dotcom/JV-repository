@@ -60,21 +60,44 @@ rep('rambo-slot', '<h1>VTES LLM Launcher</h1>\n', '<h1>VTES LLM Launcher</h1>\n<
 // F12: Codex CLI is a terminal program on the PC; the card must not open chatgpt.com (and "Copy packet and open" must not either)
 rep('url-llm06', "url:'https://chatgpt.com'", "url:''");
 // F13: AirDrop does not exist on a Windows PC
-rep('airdrop', 'Send the packet with AirDrop or Notes first.', 'Get the packet onto the iPhone first (see the steps on this card).');
+rep('airdrop', 'Send the packet with AirDrop or Notes first.', 'Get the packet onto the iPhone first (see the steps on the LLM-05 card in section 2).');
 // F14: the line printed after "Copy packet and open" must not hand Jorge a command or a file job either (LOCAL, CODEX, RAMBO)
-rep('how-local', "how:'Save the packet as JOB-*.md in G:\\\\My Drive\\\\VTES-Inbox-LOCAL with CLASS: and PROMPT: lines.'", "how:'Do not give this packet to any Claude window. Follow the steps on the LOCAL card. Saving it is BLOCKED until the desktop executor confirms a local-only folder (not inside Google Drive or OneDrive).'");
+rep('how-local', "how:'Save the packet as JOB-*.md in G:\\\\My Drive\\\\VTES-Inbox-LOCAL with CLASS: and PROMPT: lines.'", "how:'Do not give this packet to any Claude window. Follow the steps on the LOCAL card. Where a local file may be saved is shown by the LOCAL save step line on the LOCAL card (section 3).'");
 // fix round 6, flaw 2: v3 told Jorge to drop client data into a folder inside Google Drive and claimed it never leaves the PC. Both statements are replaced.
 rep('local-j', 'and all client personal data. Never leaves the PC.', 'and all client personal data (typed in v3: "Never leaves the PC" - only true once a local-only folder outside Google Drive and OneDrive is confirmed; see the LOCAL save step on this card).');
-rep('local-a', "a:'Drop JOB-*.md with CLASS: and PROMPT: into G:\\\\My Drive\\\\VTES-Inbox-LOCAL'", "a:'Drop JOB-*.md with CLASS: and PROMPT: into a local-only folder. BLOCKED until the desktop executor confirms one (see the LOCAL save step on this card).'");
+rep('local-a', "a:'Drop JOB-*.md with CLASS: and PROMPT: into G:\\\\My Drive\\\\VTES-Inbox-LOCAL'", "a:'Where a local file may be saved: see the LOCAL save step line on this card.'");
 rep('local-pick', "'PII never leaves the machine.'", "'PII goes to LOCAL only. It stays on the machine only once a local-only folder is confirmed (see the LOCAL card).'");
 rep('how-codex', "how:'Windows Terminal: codex exec \"<task>\" then paste.'", "how:'Follow the steps on the CODEX card. You type no command: the desktop executor (RAMBO) runs Codex.'");
 rep('how-rambo', "how:'Save the packet as JOB-*.md in G:\\\\My Drive\\\\VTES-Inbox.'", "how:'Open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.'");
 // F14 (round 5): the LLM-06 card line and the status after "Copy packet and open" must not hand Jorge a typed command either
-rep('how-llm06', "how:'Windows Terminal, type codex, Enter, then Ctrl+V. First time: shortcut \"Codex - sign in (Jorge)\".'", "how:'You type no command: the desktop executor runs Codex for you (see the steps on this card). First time only: the shortcut \"Codex - sign in (Jorge)\".'");
+rep('how-llm06', "how:'Windows Terminal, type codex, Enter, then Ctrl+V. First time: shortcut \"Codex - sign in (Jorge)\".'", "how:'You type no command: the desktop executor runs Codex for you (see the steps on the LLM-06 card in section 2). First time only: the shortcut \"Codex - sign in (Jorge)\".'");
 // F15: the typed schedule on repair row 10 keeps its words and gets a visible label
 rep('row10', '<td>Burn-rate agent installed, runs 7:00 AM daily</td>', '<td>Burn-rate agent installed, runs 7:00 AM daily <span class="v5typed">(typed note 2026-10-02; the note gives no time zone, so this page cannot say which clock it means)</span></td>');
+// --- fix round 7, CLASS 2: the confirmation tick and the honest grey line under the note box ---
+rep('gate-line', '<div class="gate">No card numbers, passwords or Social Security numbers in this box. Client personal data goes to LOCAL only.</div>', '<div class="gate">Client personal data goes to LOCAL only. This page can check only digits: it CANNOT catch names, home addresses, email addresses, phone numbers or any identifier written in words. Do not type passwords or card numbers here.</div>\n<div class="v5ackrow"><label class="v5ack" for="v5ack"><input type="checkbox" id="v5ack"> This note has NO client personal data (Social Security, bank, card, licence, passport, date of birth, home address)</label><div class="v5ackmsg" id="v5ackmsg" role="status"></div></div>');
+rep('refresh-gate', 'function refresh(){$(\'preview\').value=packet()}', 'function refresh(){$(\'preview\').value=(window.VTES5U&&window.VTES5U.allow&&!window.VTES5U.allow($(\'to\').value))?window.VTES5U.reasonFor($(\'to\').value):packet()}');
+rep('show-gate', "$('show').onclick=function(){refresh();", "$('show').onclick=function(){if(window.VTES5U&&!window.VTES5U.allow($('to').value)){window.VTES5U.applyGate();$('status').textContent=window.VTES5U.reasonFor($('to').value);return}refresh();");
+rep('go-gate', "$('go').onclick=function(){var txt=packet();", "$('go').onclick=function(){if(window.VTES5U&&!window.VTES5U.allow($('to').value)){window.VTES5U.applyGate();$('status').textContent=window.VTES5U.reasonFor($('to').value);return}var txt=packet();");
+rep('gemini', ' Gemini CLI can run headless on the PC under GEMINI.md.', ' Gemini CLI can run headless on the PC.');
+rep('footer-rambo', 'Registry: LLM-WINDOW-REGISTRY_v2.md. Lanes: EXECUTORS-AND-ORCHESTRATOR_2026-10-01.md. #VTES-control-panel #LLM-registry', '<span class="v5forrambo">For RAMBO: registry LLM-WINDOW-REGISTRY_v2.md, lanes EXECUTORS-AND-ORCHESTRATOR_2026-10-01.md.</span> #VTES-control-panel #LLM-registry');
 // --- start: top block, first load of the data files, then every 60 seconds ---
-rep('init', "$('kind').value=5;choose();\n", "$('kind').value=5;choose();\nVTES5U.renderTop(window.VTES5_BUILT);VTES5U.measureHeader();window.addEventListener('resize',VTES5U.measureHeader);\nfunction v5tick(){window.VTES5.reload(function(){VTES5U.refresh(window.VTES5_BUILT);VTES5U.repaint()})}\nv5tick();setInterval(v5tick,60000);\n");
+rep('init', '</body>', `<script>
+/* fix round 7 (CLASS 1): this start-up block is its own script, after v3's script, so nothing in v3's script or in any data-dependent code can stop it. The timers are set FIRST; the top block (RAMBO button, Read me first, Live status) is drawn before any data is read; every step has its own try/catch. */
+(function(){
+var B=window.VTES5_BUILT,MSG='PAGE NOT REFRESHING - DO NOT TRUST';
+function fail(m){try{var t=document.getElementById('v5top');if(t&&!document.getElementById('v5failbox')){t.insertAdjacentHTML('afterbegin','<div class="v5watch" id="v5failbox" role="alert">'+m+' Press F5 to reload the page. If this stays, tell the desktop executor (RAMBO).</div>')}}catch(e){}}
+function tick(){try{window.VTES5.reload(function(){window.VTES5U.refresh(B)})}catch(e){try{window.VTES5U.paintFailed(e)}catch(e2){fail(MSG+'.')}}}
+setInterval(tick,60000);
+setInterval(function(){try{window.VTES5U.watchdog()}catch(e){fail(MSG+'.')}},15000);
+try{window.VTES5U.renderFrame(B)}catch(e){fail(MSG+'. The top of this page could not be drawn.')}
+try{window.VTES5U.measureHeader();window.addEventListener('resize',window.VTES5U.measureHeader)}catch(e){}
+try{window.VTES5U.firstPaint(B)}catch(e){try{window.VTES5U.paintFailed(e)}catch(e2){fail(MSG+'.')}}
+tick();
+})();
+</script>
+</body>`);
+// fix round 7 (flaw 25): every pixel font size in the page's style blocks becomes rem, so the browser's own text-size setting works (16 px = 1 rem: nothing changes at the default size)
+h = h.replace(/<style[^>]*>[\s\S]*?<\/style>/g, st => st.replace(/(font-size:|font:(?:\d{3} )?)(\d+(?:\.\d+)?)px/g, (m, a, n) => a + (+n / 16) + 'rem'));
 const PKG = __dirname + '/package';
 fs.writeFileSync(PKG + '/VTES-LLM-LAUNCHER_v5.html', h);
 console.log('built package/VTES-LLM-LAUNCHER_v5.html ' + h.length + ' bytes, built ' + BUILT);
