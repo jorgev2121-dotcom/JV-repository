@@ -59,7 +59,7 @@ All ten sit directly under the real root:
 - Unit 301 and unit 322 documents already sit inside the 1265 capsule (`_FROM-ARCHIVE`, including the five empty PDFs the OCR run flagged yesterday).
 - **If the five units are part of the Plaza job, they need zero new numbers and should be folded into 1265. Giving them five new numbers would split one project into six.**
 - Then only 5 capsules would need numbers: items 1 to 5.
-- **ANSWERED by Jorge (2026-10-06, typed): "yes the Bay Harbor units are part of the Plaza." The five Bay Harbor units need no new numbers. Staged plan: [PLAN_FOLD-BAY-HARBOR-UNITS-INTO-1265_2026-10-06.md](PLAN_FOLD-BAY-HARBOR-UNITS-INTO-1265_2026-10-06.md). It waits on Jorge's "go" to move files.**
+- **RETRACTED: Jorge first typed "yes the Bay Harbor units are part of the Plaza," then wrote "SORRY. YJAY IS WRONG" (cloud reads "that is wrong"). The question is OPEN again. The staged plan [PLAN_FOLD-BAY-HARBOR-UNITS-INTO-1265_2026-10-06.md](PLAN_FOLD-BAY-HARBOR-UNITS-INTO-1265_2026-10-06.md) is ON HOLD. Until Jorge says which units, treat all 10 `TRK-TBD` capsules as still needing a decision.**
 
 ## Flag 3 — Palmer Trust buried in `_CONVERGE-STAGING`
 
