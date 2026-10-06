@@ -5,7 +5,11 @@
   var DRIVE_INBOX = 'https://drive.google.com/drive/folders/1hI2TmVn86Cnh7h_6s93TG0KE1QzVCV5F';
   var DRIVE_OUTBOX = 'https://drive.google.com/drive/folders/1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN';
   /* ONE statement about Grok, used by the card, the Map and the Subscriptions tab (never a second version). */
-  var GROK = 'Grok is chat only. No Grok bot has been built (asked for many times, never built). The registry brief of 2026-10-06 says Grok has been unproven for 31 days (typed note, not checked by this page).';
+  var GROK_NOT_BUILT = 'Grok is chat only. No Grok bot has been built (asked for many times, never built). The registry brief of 2026-10-06 says Grok has been unproven for 31 days (typed note, not checked by this page).';
+  var GROK_BUILT = 'Grok is chat only. A Grok bot is reporting UP with proof (see the Grok Bots box on the Map). The registry brief of 2026-10-06 says Grok chat has been unproven for 31 days (typed note, not checked by this page).';
+  /* a Grok bot counts as built only while the poller reports BOTS up WITH proof; a status-only report never counts (flaw N4) */
+  function botsBuilt() { return V.executor('BOTS').state === 'OK'; }
+  function grokText() { return botsBuilt() ? GROK_BUILT : GROK_NOT_BUILT; }
   /* id, e = emoji (numeric entities), name = plain name FIRST, prefix = paste ID */
   var CARDS = [
     { id: 'LLM-01', e: '&#128421;&#65039;', name: 'Claude Code Desktop Executor / RAMBO', role: 'The hands on your PC (tray icon: green D)', prefix: 'PASTE-D', paste: true,
@@ -34,7 +38,7 @@
     { id: 'LLM-07', e: '&#128302;', name: 'Grok (Fabian) / Second Opinion', role: 'Chat only, second opinion', prefix: 'PASTE-X', paste: true,
       job: 'Second opinion and live-web answers.',
       url: 'https://grok.com', openLabel: 'Open grok.com',
-      note: GROK,
+      note: 'GROK',
       next: 'Next step: RAMBO sends Grok one test message and writes the result into the heartbeat file; until then this card stays red.' },
     { id: 'LLM-08', e: '&#9802;', name: 'Gemini / Volume Drafter', role: 'Free, Drive-native', prefix: 'PASTE-X', paste: true,
       job: 'Cheap bulk drafting and summarizing.', url: 'https://gemini.google.com', openLabel: 'Open Gemini', steps: 'On the PC: Windows Terminal, type gemini.' },
@@ -49,10 +53,12 @@
       job: 'Lives in Edge and Microsoft 365. Whether your plan includes full Copilot is UNVERIFIED.', url: 'https://copilot.microsoft.com', openLabel: 'Open Copilot' }
   ];
   var SITE_IDS = { 'LLM-04': 1, 'LLM-07': 1, 'LLM-08': 1, 'LLM-10': 1 };
+  function stateDiv(c) {
+    var e = V.executor(c.id), cls = e.state === 'OK' ? 'ok' : (e.state === 'UNPROVEN' ? 'unp' : 'bad');
+    return '<div class="v4st ' + cls + '" data-state="' + esc(c.id) + '"><b>State:</b> ' + esc(e.text) + '</div>';
+  }
   function stateLine(c) {
-    var e = V.executor(c.id), cls = e.state === 'OK' ? 'ok' : 'bad';
-    return '<div class="v4st ' + cls + '" data-state="' + esc(c.id) + '"><b>State:</b> ' + esc(e.text) + '</div>' +
-      (SITE_IDS[c.id] ? '<div class="v4site" data-site="' + c.id + '">Site answers from this browser: checking. (A small extra mark, not the status light.)</div>' : '');
+    return stateDiv(c) + (SITE_IDS[c.id] ? '<div class="v4site" data-site="' + c.id + '">Site answers from this browser: checking. (A small extra mark, not the status light.)</div>' : '');
   }
   /* a vtes:// link shows only when the address is registered on the PC AND the address book entry for this window is filled in */
   function openBlock(c) {
@@ -71,8 +77,8 @@
       '<div class="id">' + c.id + ' &middot; ' + c.e + (c.prefix ? ' &middot; ' + c.prefix : '') + '</div>' +
       '<div class="name">' + esc(c.name) + '</div><div class="role">' + esc(c.role) + '</div>' + stateLine(c) +
       '<p class="job">' + esc(c.job) + (c.tick ? '<span class="v4tick">' + esc(V.tick()) + '</span>.' : '') + '</p>' +
-      (c.note ? '<p class="job v4note">' + esc(c.note) + '</p>' : '') + (c.next ? '<p class="job"><b>' + esc(c.next) + '</b></p>' : '') +
-      '<div class="row">' + openBlock(c) + btn + '</div>' +
+      (c.note ? '<p class="job v4note" data-note="' + c.id + '">' + esc(c.note === 'GROK' ? grokText() : c.note) + '</p>' : '') + (c.next ? '<p class="job"><b>' + esc(c.next) + '</b></p>' : '') +
+      '<div class="row"><div class="v4ob" data-ob="' + c.id + '">' + openBlock(c) + '</div>' + btn + '</div>' +
       (c.steps ? '<div class="paste"><b>How:</b> ' + esc(c.steps) + '</div>' : '') +
       '<div class="paste v4cs" id="cs-' + c.id + '" role="status"></div>' +
       (c.prefix ? '<div class="paste">Paste blocks for this window start with ' + c.prefix + '.</div>' : '') + '</div>';
@@ -100,8 +106,39 @@
       '<div class="role">How every window hands off to the next</div><p class="job">Orders go into VTES-Inbox. Proof comes out of VTES-Outbox.</p>' +
       '<div class="row"><a class="btn" href="' + DRIVE_INBOX + '" target="_blank" rel="noopener">Open VTES-Inbox</a><a class="btn" href="' + DRIVE_OUTBOX + '" target="_blank" rel="noopener">Open VTES-Outbox</a></div></div>';
   }
+  /* re-evaluate every card in place (state line, tick sentence, open block, Grok note) without touching the packet messages (flaw N2) */
+  function repaint() {
+    CARDS.forEach(function (c) {
+      var card = document.getElementById('card-' + c.id); if (!card) { return; }
+      var st = card.querySelector('.v4st'); if (st) { st.outerHTML = stateDiv(c); }
+      var tk = card.querySelector('.v4tick'); if (tk) { tk.textContent = V.tick(); }
+      var ob = card.querySelector('.v4ob'); if (ob) { ob.innerHTML = openBlock(c); }
+      var nt = card.querySelector('[data-note]'); if (nt && c.note === 'GROK') { nt.textContent = grokText(); }
+    });
+  }
+  /* the bell: colour and count come from the reminders and today's date, never fixed. Red only when something is due or overdue. */
+  function paintBell() {
+    try {
+      var R = window.VTES_REMINDERS || [], n = 0, due = 0, now = V.now().getTime();
+      R.forEach(function (r) { if (!r.done) { n++; if (r.due && Date.parse(r.due + 'T23:59:59') < now) { due++; } } });
+      var a = document.getElementById('t_rem'), b = document.getElementById('remn'); if (!a) { return; }
+      if (b) { b.textContent = n ? ' ' + n : ''; }
+      var stamp = window.VTES_REMINDERS_AT ? new Date(window.VTES_REMINDERS_AT) : null, stampOk = stamp && !isNaN(stamp.getTime()), stale = stampOk && (((now - stamp) / 60000 > 26 * 60) || ((stamp - now) / 60000 > 2));
+      var col = due > 0 ? '#b3261e' : (n > 0 ? '#1b5e9e' : '#6b6b66');
+      a.style.background = col; a.style.borderColor = col; a.style.color = '#fff'; a.style.animation = due > 0 ? 'vtesflash 1s steps(2) infinite' : '';
+      a.style.borderStyle = (stampOk && !stale) ? 'solid' : 'dashed';
+      a.title = 'Things waiting for you: ' + n + ' open, ' + due + ' due or overdue (' + (due > 0 ? 'red' : (n > 0 ? 'blue: none is due' : 'grey: nothing open')) + '). ' +
+        (!stampOk ? 'The reminders file has no time stamp, so this count may be old (dashed border).' : (stale ? 'The reminders file is STALE or dated in the future (' + V.fmt(stamp) + '): the count may be wrong (dashed border).' : 'Reminders file as of ' + V.fmt(stamp) + '.'));
+    } catch (e) { }
+  }
+  /* the Map has no box for LOCAL or CHIEF (flaw N13): say so on the page and show their live state in words */
+  function mapNote() {
+    var l = V.executor('LOCAL'), c = V.executor('CHIEF');
+    return '<div class="v4typedbox" id="v4mapnote"><b>The Map does not draw LOCAL (Local Executor) or CHIEF (Chief / Orchestrator).</b> Their lights are in the strip at the top and their cards are on the Console and Dir tabs. Live state now: LOCAL - ' + esc(l.text) + '. CHIEF - ' + esc(c.text) + '.</div>';
+  }
   window.VTES4C = {
-    CARDS: CARDS, GROK: GROK, pasteTo: pasteTo, paintSites: paintSites,
+    CARDS: CARDS, get GROK() { return grokText(); }, grokText: grokText, botsBuilt: botsBuilt, botsSub: function () { return botsBuilt() ? 'UP (proof)' : 'NOT BUILT'; },
+    repaint: repaint, paintBell: paintBell, mapNote: mapNote, pasteTo: pasteTo, paintSites: paintSites,
     renderCards: function (el) {
       el.innerHTML = CARDS.map(render).join('') + bus();
       Array.prototype.forEach.call(el.querySelectorAll('.pastebtn'), function (b) {
@@ -118,14 +155,15 @@
     /* effective() for the v3 chip/idcard code: {k,h,txt,why,lab}; k in up|down|nod|fut. STALE is red (down) everywhere. */
     effective: function (id) {
       if (id === 'BOTS') {
+        /* never UP and NOT BUILT at once: UP only with a poller report that has proof; anything else is NOT BUILT (violet) */
         var hb = V.executor('BOTS');
-        if (hb.state !== 'NO DATA') { return { k: hb.state === 'OK' ? 'up' : 'down', h: null, txt: hb.text, why: '' }; }
-        return { k: 'fut', h: null, txt: 'NOT BUILT', why: GROK };
+        if (hb.state === 'OK') { return { k: 'up', h: 0, txt: hb.text, why: '' }; }
+        return { k: 'fut', h: null, txt: 'NOT BUILT', why: grokText() };
       }
       var e = V.executor(id);
       if (e.state === 'OK') { return { k: 'up', h: 0, txt: e.text, why: '' }; }
-      if (e.state === 'STALE') { return { k: 'down', h: null, txt: e.text, why: '', lab: 'STALE' }; }
-      if (e.state === 'DOWN') { return { k: 'down', h: null, txt: e.text, why: '', lab: 'DOWN' }; }
+      if (e.state === 'UNPROVEN') { return { k: 'unk', h: null, txt: e.text, why: '', lab: 'NOT PROVEN' }; }
+      if (e.state === 'STALE' || e.state === 'DOWN' || e.state === 'BAD CLOCK' || e.state === 'NOT OK') { return { k: 'down', h: null, txt: e.text, why: '', lab: e.state }; }
       return { k: 'nod', h: null, txt: e.text, why: 'Nothing has written this window\'s state yet.' };
     }
   };

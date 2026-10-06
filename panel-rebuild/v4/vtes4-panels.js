@@ -32,20 +32,21 @@
   var READ = [
     'Every window has its own card. The plain name is first.',
     'A red box that says NO DATA means nothing on the PC has reported yet. Red is the truth, not a bug.',
-    'Green appears only when a fresh report file says so.',
+    'Green appears only when a fresh report file with proof says so. Grey "not proven" means only the simple status writer said up, and it checks nothing.',
     'To paste work into RAMBO, press the big blue RAMBO button right under this list. Then open the Claude desktop app, Code tab, and press Ctrl+V.',
     'If a button cannot work yet, the card says so in a yellow box with the one step that fixes it.',
-    'The line at the top says when this page was built and how old the data is. Every time is Eastern time.',
+    'The line at the top says when this page was built and how old the data is. Every time is Eastern time with the zone; the year is added when it is not this year.',
     'Press Panels for the token monitor, the housekeeping report, the health report and the Miami-Dade list.'
   ];
   function num(x, suffix) { return (typeof x === 'number' && isFinite(x)) ? x + (suffix || '') : null; }
   function red(t) { return '<span class="v4b bad">' + esc(t) + '</span>'; }
   function val(x, suffix) { var n = num(x, suffix); return n === null ? red('NO DATA') : '<b>' + esc(n) + '</b>'; }
+  function noNums(s) { return s.state === 'NO DATA' || s.state === 'BAD CLOCK' || s.state === 'NOT OK' && !s.data; }
   function tokens() {
     var s = V.status('tokens'), d = s.data || {}, ok = s.state === 'OK';
     var rows = (d.programs || []).map(function (p) { return '<tr><td>' + esc(p.name) + '</td><td>' + val(p.tokens_today) + '</td></tr>'; }).join('');
     return '<div class="pn" id="pn-tokens"><h2>Token monitor</h2><p>' + V.badge('tokens', 'Reporting') + '</p>' +
-      (s.state === 'NO DATA' ? '<p>' + red('NO DATA') + ' The token monitor has not written its report file (data\\vtes4-tokens.js). No burn rate is shown because none was measured.</p>' :
+      (noNums(s) ? '<p>' + red(s.state === 'BAD CLOCK' ? 'BAD CLOCK' : 'NO DATA') + ' ' + (s.state === 'BAD CLOCK' ? 'The token report is dated in the future, so none of its numbers are shown.' : 'The token monitor has not written its report file (data\\vtes4-tokens.js). No burn rate is shown because none was measured.') + '</p>' :
         '<p>Burn rate per hour: ' + val(d.burn_per_hour) + ' tokens. This window used: ' + val(d.window_used_pct, '%') + '. This week used: ' + val(d.week_used_pct, '%') + '. Window resets: ' + (V.fmtIso(d.window_resets_at) ? esc(V.fmtIso(d.window_resets_at)) : red('NO DATA')) + '.</p>' +
         '<table><tr><th>Program</th><th>Tokens today</th></tr>' + (rows || '<tr><td colspan="2">' + red('NO DATA') + '</td></tr>') + '</table>' +
         (ok ? '' : '<p>' + red('These numbers are old. Do not trust them.') + '</p>')) + '</div>';
@@ -53,11 +54,11 @@
   function housekeeping() {
     var s = V.status('housekeeping'), d = s.data || {};
     return '<div class="pn" id="pn-house"><h2>Housekeeping agent</h2><p>' + V.badge('housekeeping', 'Reported') + '</p>' +
-      (s.state === 'NO DATA' ? '<p>' + red('NO DATA') + ' No housekeeping report has ever been recorded here. Last report time: ' + red('NONE') + '.</p>' :
+      (noNums(s) ? '<p>' + red(s.state === 'BAD CLOCK' ? 'BAD CLOCK' : 'NO DATA') + ' ' + (s.state === 'BAD CLOCK' ? 'The housekeeping report is dated in the future, so it is not shown.' : 'No housekeeping report has ever been recorded here.') + ' Last report time: ' + red('NONE') + '.</p>' :
         '<p>Last report: ' + (V.fmtIso(d.last_report_at) ? '<b>' + esc(V.fmtIso(d.last_report_at)) + '</b>' : red('NO DATA')) + '. Delivered: ' + (d.report_delivered === true ? '<b>yes</b>' : red('NO / UNKNOWN')) + (d.delivered_to ? ' to ' + esc(d.delivered_to) : '') + '. Items cleaned: ' + val(d.items_cleaned) + '.</p>') + '</div>';
   }
   function health() {
-    var s = V.status('health'), d = s.data || {}, st = V.status('state'), sd = st.data || {};
+    var s = V.status('health'), d = s.data || {}, st = V.status('state'), sd = (st.state === 'OK' || st.state === 'STALE') ? (st.data || {}) : {};
     var pct = (typeof d.checks_passed === 'number' && typeof d.checks_total === 'number' && d.checks_total > 0) ? d.checks_passed + ' of ' + d.checks_total + ' health checks passed (' + Math.round(100 * d.checks_passed / d.checks_total) + '%)' : null;
     var up = 0, seen = 0; V.ALL_IDS.forEach(function (id) { var e = V.executor(id); if (e.state === 'OK') { up++; } if (e.state !== 'NO DATA') { seen++; } });
     var rep = (sd.repairs || []).map(function (r) { return '<li>' + esc(r.status) + ': ' + esc(r.text) + '</li>'; }).join('');
@@ -70,10 +71,10 @@
       '<p>Repairs (read from the state file, not typed):</p>' + (rep ? '<ul>' + rep + '</ul>' : '<p>' + red('NO DATA') + '</p>') + '</div>';
   }
   function miami() {
-    var s = V.status('miamidade'), d = s.data || {}, counted = (s.state !== 'NO DATA' && typeof d.counted === 'number') ? d.counted : null;
-    var proof = {}; (d.sources || []).forEach(function (x) { var k = ('0' + String(x.id).replace(/\D/g, '')).slice(-2); proof[k] = x; });
+    var s = V.status('miamidade'), d = s.data || {}, counted = (!noNums(s) && typeof d.counted === 'number') ? d.counted : null;
+    var fresh = s.state === 'OK', proof = {}; (fresh ? (d.sources || []) : []).forEach(function (x) { var k = ('0' + String(x.id).replace(/\D/g, '')).slice(-2); proof[k] = x; });
     var items = MD.map(function (r) {
-      var p = proof[r[0]], chk = p ? (p.proof_ok === true ? ' <span class="v4b ok">proof checked</span>' : ' ' + red('PROOF NOT OK')) : ' ' + red('NOT RE-CHECKED');
+      var p = proof[r[0]], chk = fresh ? (p ? (p.proof_ok === true ? ' <span class="v4b ok">proof checked</span>' : ' ' + red('PROOF NOT OK')) : ' ' + red('NOT RE-CHECKED')) : ' <span class="v4b na">proof not current (the Miami-Dade file is ' + esc(s.state) + ')</span>';
       return '<li><b>' + r[0] + ' ' + esc(r[1]) + '</b> - <a href="' + drive(r[2]) + '" target="_blank" rel="noopener">open proof file</a>' + (r[3] ? ' - <i class="v4typed">typed note from 2026-08-16, not re-checked: ' + esc(r[3]) + '</i>' : '') + chk + '</li>';
     }).join('');
     return '<div class="pn" id="pn-miami"><h2>Miami-Dade: 22 sources</h2><p>' + V.badge('miamidade', 'Counted') + '</p>' +
@@ -92,6 +93,13 @@
         '<div class="v4rambo" id="v4rambo"><button class="btn" type="button" id="v4rambobtn">Copy hand-off packet for RAMBO (Claude Code Desktop Executor)</button><div class="paste v4cs" id="v4ramboout" role="status"></div></div>';
       document.getElementById('v4rambobtn').addEventListener('click', function () { window.VTES4C.pasteTo('LLM-01', document.getElementById('v4ramboout')); });
       document.getElementById('v4panels').innerHTML = tokens() + housekeeping() + health() + miami();
+    },
+    /* every 60 seconds: re-evaluate the age line, the strip and every panel from the freshly reloaded files (flaw N2). The read-me and the RAMBO message are left alone. */
+    refresh: function (builtIso) {
+      var age = V.ageLine(builtIso), a = document.getElementById('v4age'), d = document.getElementById('v4dash'), p = document.getElementById('v4panels');
+      if (a) { a.className = 'v4age' + (age.bad ? ' bad' : ''); a.textContent = age.text; }
+      if (d) { d.innerHTML = dash(); }
+      if (p) { p.innerHTML = tokens() + housekeeping() + health() + miami(); }
     }
   };
 })();

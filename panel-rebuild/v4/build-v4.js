@@ -32,7 +32,7 @@ rep('sym', "var SYM = { up: '●',", "var SYM = { nod: '✖', up: '●',");
 rep('toggle', "['up', 'warn', 'down', 'pend', 'fut', 'unk'].forEach", "['up', 'warn', 'down', 'nod', 'pend', 'fut', 'unk'].forEach");
 rep('chiplab', "SYM[e.k] + (s_ap(id) ? '~' : '') + fmtH(e.h)", "(e.lab ? SYM[e.k] + ' ' + e.lab : SYM[e.k] + (s_ap(id) ? '~' : '') + fmtH(e.h))");
 rep('svglab', "' ' + (s_ap(n.id) ? '~' : '') + fmtH(e.h) : ''", "' ' + (e.lab || ((s_ap(n.id) ? '~' : '') + fmtH(e.h))) : ''");
-rep('chiptxt', "(e.k === 'unk' ? '?' :", "(e.k === 'nod' ? 'NO DATA' : e.k === 'unk' ? '?' :");
+rep('chiptxt', "(e.k === 'unk' ? '?' :", "(e.k === 'nod' ? 'NO DATA' : e.k === 'unk' ? (e.lab ? '? ' + e.lab : '?') :");
 rep('css', '</style>', '  .chip.st-nod { border-color:#b3261e; background:#fdeceb; } .chip.st-nod .dot { background:#b3261e; box-shadow:0 0 0 1px #b3261e; } .chip.sel.st-nod { border-color:#ff8a80; }\n' + fs.readFileSync(__dirname + '/vtes4.css', 'utf8') + '\n</style>');
 // 6. header: age stamp + dashboard + read-me-first, directly under the strip
 rep('refresh', "function refreshAll() { paintChips(); paintCard(cur);", "function refreshAll() { paintChips(); paintCard(cur); window.VTES4C.paintSites(PROBE);");
@@ -52,7 +52,9 @@ rep('legacy', '<script src="vtes-alerts.js"></script><script src="vtes-reviews.j
 
 // ===== FIX ROUND 1 patches =====
 // FLAW 11: the bell must count only the real reminders (no phantom item for the dropped budget file)
-rep('bell', /var gb = window\.VTES_BUDGET; if \(!gb \|\| !gb\.at \|\| \(nowMs\(\) - Date\.parse\(gb\.at\)\) > 7200000\) \{ R\.push\(\{ done: false, due: '', hot: false \}\); \} /, '');
+rep('bell', /\(function \(\) \{ try \{ var R = \(window\.VTES_REMINDERS[^\n]*\} catch \(e\) \{ \} \}\)\(\);/, 'window.VTES4C.paintBell();');
+// FLAW N12: the bell colour comes from the reminders and today's date (red only when something is due or overdue), not from a fixed style
+rep('bellstyle', 'title="Things waiting for you. Red means something is due or overdue." style="background:#b3261e;color:#fff;border-color:#b3261e;text-decoration:none"', 'title="Things waiting for you." style="background:#6b6b66;color:#fff;border-color:#6b6b66;text-decoration:none"');
 // FLAW 6: one CURRENT footer only (the page footer). The Map footer goes; the copied status report carries the build stamp, not CURRENT.
 rep('mapfoot', / \+\n      '<p class="foot">' \+ PROJ \+ ' · map v1 · ' \+ MAP_DATE \+ ' · CURRENT[^\n]*<\/p>';/, ";");
 rep('rptstamp', "' · status · ' + MAP_DATE + ' · CURRENT'", "' · status report · built ' + window.VTES4.fmtIso(window.VTES4_BUILT)");
@@ -65,7 +67,7 @@ rep('legendwire-dots', "● up · ▲ stale (amber, hours) · ✖ down (red, hou
 rep('reachword', "\"Reachable\" for web chats means the site answered from this browser, not that you are signed in.", "For web chats a separate small \"site answers\" mark on the card shows only whether the site answered from this browser; it is never the status light and never means you are signed in.");
 rep('rptreach', "(Reachable = the site answered from this browser, not that a login works.)", "(The status lights come only from data files. Whether a web site answers is a separate small mark on each card.)");
 // FLAW 7: typed Map words and subscription notes are labelled as typed notes, never green
-rep('typedbanner', "legendStatus() + body", "legendStatus() + '<div class=\"v4typedbox\" id=\"v4typedmap\"><b>Typed note from 2026-09-30, not live.</b> Only the round status dot on each window is live (read from the data files). Everything else on these three tabs, namely the can / partly / later words, the wire dots, the WORKS and PARTLY tags and the subscription notes, was typed on 2026-09-30 and has not been re-checked. It is labelled as a typed note wherever it appears.</div>' + body");
+rep('typedbanner', "legendStatus() + body", "legendStatus() + '<div class=\"v4typedbox\" id=\"v4typedmap\"><b>Typed note from 2026-09-30, not live.</b> Only the round status dot on each window is live (read from the data files). Everything else on these three tabs, namely the can / partly / later words, the wire dots, the WORKS and PARTLY tags and the subscription notes, was typed on 2026-09-30 and has not been re-checked. It is labelled as a typed note wherever it appears.</div>' + window.VTES4C.mapNote() + body");
 rep('cantyped', "'</div><div class=\"mcan\">' + canText(n.id) + '</div>", "'</div><div class=\"mcan\"><i>Typed note, 2026-09-30:</i><br>' + canText(n.id) + '</div>");
 rep('lanetag', "<span class=\"mtag ' + b.w[1] + '\">' + b.w[0] + '</span></div><div class=\"ld\">", "<span class=\"mtag un\">typed note 2026-09-30: ' + b.w[0] + '</span></div><div class=\"ld\">");
 rep('wiretag', "<span class=\"mtag ' + b.w[1] + '\">' + b.w[0] + '</span> — '", "<span class=\"mtag un\">typed note 2026-09-30: ' + b.w[0] + '</span> — '");
@@ -75,15 +77,25 @@ rep('subpill', "style=\"--c:' + s.c + '\"><span class=\"sw\">' + esc(s.w) + '</s
 rep('subsadvice', "'<div class=\"actbox\"><b>Two Grok charges, one too many.</b>", "'<div class=\"actbox\"><i>Typed note from 2026-09-30, not live. The advice below, including the date, may be out of date.</i><br><b>Two Grok charges, one too many.</b>");
 rep('sub-why', "Why: Grok Bot and your two Grok Automations ride on SuperGrok, and Grok on grok.com does not need X Premium Plus.", "Why: Grok on grok.com does not need X Premium Plus.");
 rep('sub-item1', "Both Automations (Daily Planner, Alec microfilm 30-day clock) should be listed there. If they are, nothing moves.", "Any Grok Automations you set up should be listed there. If they are, nothing moves.");
-rep('sub-item2', "'<li>Grok Bots: nothing set up yet, nothing to move.</li>' +", "'<li>' + window.VTES4C.GROK + '</li>' +");
+rep('sub-item2', "'<li>Grok Bots: nothing set up yet, nothing to move.</li>' +", "'<li>' + window.VTES4C.grokText() + '</li>' +");
 rep('sub-feeds', "feeds: 'LLM-07 Grok · Grok Bots · Grok Automations'", "feeds: 'LLM-07 Grok (chat only)'");
 rep('sub-note', "note: 'Six receipts in a row (Apr 17 to Sep 17). xAI says Grok Bot is now included with SuperGrok (8/27). Your two Grok Automations (Daily Planner, Alec microfilm 30-day clock) email you from this account.'", "note: 'Six receipts in a row (Apr 17 to Sep 17), read from email on 2026-09-30.'");
 rep('subsread', "Read from your Gmail receipts on ' + MAP_DATE + '.", "Typed note: read from your Gmail receipts on ' + MAP_DATE + '.");
 // FLAW 8: one honest Grok statement on the Map too
-rep('row5', 'Row 5 · Analysts and bots · Cowork and Grok Bots do the same kind of job', 'Row 5 · Analysts, chat and phone · Grok bots are NOT BUILT');
-rep('botsnode', "n: 'Grok Bots', s: 'with SuperGrok'", "n: 'Grok Bots', s: 'NOT BUILT'");
-rep('reach-grok', "'LLM-07': 'Chat only. Its Automations email you (Daily Planner, Alec film clock); it cannot read your inbox.',", "'LLM-07': window.VTES4C.GROK,");
-rep('reach-bots', "'BOTS': 'Bots get their own computer and sign in to tools. Not set up.',", "'BOTS': window.VTES4C.GROK,");
+rep('row5', 'Row 5 · Analysts and bots · Cowork and Grok Bots do the same kind of job', 'Row 5 · Analysts, chat and phone');
+rep('botsnode', "n: 'Grok Bots', s: 'with SuperGrok'", "n: 'Grok Bots', get s() { return window.VTES4C.botsSub(); }");
+rep('reach-grok', "'LLM-07': 'Chat only. Its Automations email you (Daily Planner, Alec film clock); it cannot read your inbox.',", "get 'LLM-07'() { return window.VTES4C.grokText(); },");
+rep('reach-bots', "'BOTS': 'Bots get their own computer and sign in to tools. Not set up.',", "get 'BOTS'() { return window.VTES4C.grokText(); },");
+
+// ===== FIX ROUND 2 patches =====
+// FLAW N2: every 60 seconds the data files are reloaded (cache-busted) and cards, panels, strip, chips, bell and Map are all re-evaluated together
+rep('tick60', "setInterval(paintChips, 60000);", "setInterval(function () { window.VTES4.reload(function () { window.VTES4P.refresh(window.VTES4_BUILT); window.VTES4C.repaint(); window.VTES4C.paintBell(); refreshAll(); window.VTES4C.paintSites(PROBE); }); }, 60000);");
+// FLAW N7: every time in the packet, the pad and the transcript is Eastern, short form, with the zone
+rep('packetstamp', "var stamp = new Date().toLocaleString();", "var stamp = window.VTES4.fmt(window.VTES4.now());");
+rep('padstamp', "at: new Date().toLocaleString(), att: atts || []", "at: window.VTES4.fmt(window.VTES4.now()), att: atts || []");
+rep('padshow', "' · ' + esc(m.at) + '</div>'", "' · ' + esc(window.VTES4.padTime(m.at)) + '</div>'");
+rep('padtranscript', "' · ' + m.at); out.push(m.t);", "' · ' + window.VTES4.padTime(m.at)); out.push(m.t);");
+rep('todayet', "function todayStr() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }", "function todayStr() { try { return new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' }); } catch (e) { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); } }");
 
 fs.writeFileSync(__dirname + '/VTES-LLM-LAUNCHER_v4.html', h);
 console.log('built VTES-LLM-LAUNCHER_v4.html ' + h.length + ' bytes, built ' + BUILT);

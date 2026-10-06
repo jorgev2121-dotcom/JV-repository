@@ -178,11 +178,15 @@
   .v4typed { color:#6b6b66; font-size:14px; } .v4site { font-size:13px; color:#6b6b66; margin:0 0 8px; }
   .v4rambo { margin:8px 0; padding:10px 14px; background:#eef4fb; border:2px solid #1b5e9e; border-radius:12px; } .v4rambo .btn { font-size:19px; }
   .v4typedbox { background:#f3f1ea; border:2px dashed #6b6b66; border-radius:10px; padding:8px 12px; font-size:15px; color:#3a3a37; margin:6px 0; }
+  /* fix round 2 */
+  .v4b.na { background:#eceae4; color:#4a4a47; border:2px dashed #8a8a84; }
+  .v4st.unp { background:#eceae4; color:#3a3a37; font-weight:700; border:2px dashed #8a8a84; }
+  .v4ob { display:contents; }
 
 </style>
 </head>
 <body>
-<script>window.VTES4_BUILT = "2026-10-06T06:15:39Z";</script><script src="vtes-status.js"></script><script src="data/vtes4-heartbeat.js"></script><script src="data/vtes4-state.js"></script><script src="data/vtes4-health.js"></script><script src="data/vtes4-tokens.js"></script><script src="data/vtes4-housekeeping.js"></script><script src="data/vtes4-miamidade.js"></script><script src="vtes4-live.js"></script><script src="vtes4-cards.js"></script><script src="vtes4-panels.js"></script>
+<script>window.VTES4_BUILT = "2026-10-06T21:00:00Z";</script><script src="vtes-status.js"></script><script src="data/vtes4-heartbeat.js"></script><script src="data/vtes4-state.js"></script><script src="data/vtes4-health.js"></script><script src="data/vtes4-tokens.js"></script><script src="data/vtes4-housekeeping.js"></script><script src="data/vtes4-miamidade.js"></script><script src="vtes4-live.js"></script><script src="vtes4-cards.js"></script><script src="vtes4-panels.js"></script>
 <div class="strip" id="strip" aria-label="Fixed tabs, one per window. They never move or rename.">
   <div id="chips"></div>
   <div id="tools">
@@ -191,7 +195,7 @@
     <button class="tb" id="t_sp" type="button" title="Copy the text and open Speechify">Speechify</button>
     <button class="tb on" id="t_con" type="button">Console</button>
     <button class="tb" id="t_dir" type="button" title="Directory: the full cards and search">Dir</button>
-    <a class="tb" id="t_rem" href="VTES-REMINDERS.html" title="Things waiting for you. Red means something is due or overdue." style="background:#b3261e;color:#fff;border-color:#b3261e;text-decoration:none">🔔<span id="remn"></span></a>
+    <a class="tb" id="t_rem" href="VTES-REMINDERS.html" title="Things waiting for you." style="background:#6b6b66;color:#fff;border-color:#6b6b66;text-decoration:none">🔔<span id="remn"></span></a>
     <a class="tb" id="t_panel" href="VTES-PANEL.html" title="Panel home: every module of the control panel" style="text-decoration:none;color:inherit">🏠</a>
     <button class="tb" id="t_pan" type="button" title="Token monitor, housekeeping, Miami-Dade, Grok, repairs">Panels</button>
     <button class="tb" id="t_map" type="button" title="Who talks to whom, the wiring, and the subscriptions">Map</button>
@@ -259,7 +263,7 @@
   <p>Every window runs on a subscription. API is allowed only as a thin routing bridge, and every API run is priced first and sent to you for approval. Handoffs go through the panel above or the Drive mailbox. The ID (LLM-01…08) and hashtags travel inside every file a window produces, so any later search — Drive, Gmail, OCR, 1Password, or this page — finds who did what.</p>
 </div>
 
-<p class="foot">TRK-2026-9910-B · v4 · built Oct 6, 2026, 2:15 AM EDT · CURRENT · v3 is untouched and stays beside it as the rollback · #VTES-control-panel #LLM-registry</p>
+<p class="foot">TRK-2026-9910-B · v4 · built Oct 6, 2026, 5:00 PM EDT · CURRENT · v3 is untouched and stays beside it as the rollback · #VTES-control-panel #LLM-registry</p>
 
 </div>
 
@@ -326,7 +330,7 @@
   function buildPacket() {
     var f = win(fromSel.value), t = win(toSel.value);
     var note = noteEl.value.trim() || '(no note typed — ask Jorge what he wants done before doing anything)';
-    var stamp = new Date().toLocaleString();
+    var stamp = window.VTES4.fmt(window.VTES4.now());
     var p = [
       'HANDOFF  ' + f.id + ' (' + f.name + ')  ->  ' + t.id + ' (' + t.name + ')   ' + stamp,
       '#handoff #' + f.id + ' #' + t.id + ' #JorgeValdes',
@@ -562,8 +566,8 @@
   function padKey() { return 'vtes.pad.' + cur; }
   function getPad() { try { return JSON.parse(localStorage.getItem(padKey()) || '[]'); } catch (e) { return []; } }
   function setPad(a) { try { localStorage.setItem(padKey(), JSON.stringify(a.slice(-200))); } catch (e) { } }
-  function todayStr() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
-  function addMsg(who, text, atts) { var a = getPad(); a.push({ w: who, t: text || '', at: new Date().toLocaleString(), att: atts || [], day: todayStr() }); setPad(a); renderLog(); scheduleSave(); }
+  function todayStr() { try { return new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' }); } catch (e) { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); } }
+  function addMsg(who, text, atts) { var a = getPad(); a.push({ w: who, t: text || '', at: window.VTES4.fmt(window.VTES4.now()), att: atts || [], day: todayStr() }); setPad(a); renderLog(); scheduleSave(); }
 
   // ---- browser database for snips and attachments (kept on this PC) ----
   var dbp = null;
@@ -611,7 +615,7 @@
       return;
     }
     logEl.innerHTML = a.map(function (m, k) {
-      return '<div class="msg ' + (m.w === 'you' ? 'you' : 'ai') + '"><div class="mt">' + (m.w === 'you' ? 'YOU' : esc(cur + ' ' + i.t)) + ' · ' + esc(m.at) + '</div>' + esc(m.t) +
+      return '<div class="msg ' + (m.w === 'you' ? 'you' : 'ai') + '"><div class="mt">' + (m.w === 'you' ? 'YOU' : esc(cur + ' ' + i.t)) + ' · ' + esc(window.VTES4.padTime(m.at)) + '</div>' + esc(m.t) +
         ((m.att && m.att.length) ? '<div class="atts" data-k="' + k + '"></div>' : '') +
         '<div class="ma"><button data-k="' + k + '" data-a="read">🔊 Read</button><button data-k="' + k + '" data-a="copy">Copy</button></div></div>';
     }).join('');
@@ -646,7 +650,7 @@
   async function writeFileTo(dirH, name, data) { var fh = await dirH.getFileHandle(name, { create: true }), w = await fh.createWritable(); await w.write(data); await w.close(); }
   function transcript(id) {
     var a = getPad(), i = INFO[id], out = [stampLine(id, 'conversation'), '', '# Conversation pad: ' + id + ' ' + i.t, '**' + PROJ + ' · v1 · ' + todayStr() + ' · CURRENT** ' + TAGS[id] + ' ' + COMMON, ''];
-    a.forEach(function (m) { out.push('## ' + (m.w === 'you' ? 'YOU' : id + ' answer') + ' · ' + m.at); out.push(m.t); (m.att || []).forEach(function (x) { out.push('[attachment: see the attachments folder, tracking ' + PROJ + ', ' + id + ']'); }); out.push(''); });
+    a.forEach(function (m) { out.push('## ' + (m.w === 'you' ? 'YOU' : id + ' answer') + ' · ' + window.VTES4.padTime(m.at)); out.push(m.t); (m.att || []).forEach(function (x) { out.push('[attachment: see the attachments folder, tracking ' + PROJ + ', ' + id + ']'); }); out.push(''); });
     return out.join('\n');
   }
   async function saveNow(id) {
@@ -754,7 +758,7 @@
     Array.prototype.forEach.call(document.getElementById('chips').children, function (chip) {
       var id = chip.getAttribute('data-id'), e = effective(id);
       ['up', 'warn', 'down', 'nod', 'pend', 'fut', 'unk'].forEach(function (k) { chip.classList.toggle('st-' + k, e.k === k); });
-      var hr = chip.querySelector('.hrs'); if (hr) { hr.textContent = (e.k === 'warn' || e.k === 'down') ? (e.lab ? SYM[e.k] + ' ' + e.lab : SYM[e.k] + (s_ap(id) ? '~' : '') + fmtH(e.h)) : (e.k === 'nod' ? 'NO DATA' : e.k === 'unk' ? '?' : (e.k === 'pend' || e.k === 'fut' ? '◌' : '')); }
+      var hr = chip.querySelector('.hrs'); if (hr) { hr.textContent = (e.k === 'warn' || e.k === 'down') ? (e.lab ? SYM[e.k] + ' ' + e.lab : SYM[e.k] + (s_ap(id) ? '~' : '') + fmtH(e.h)) : (e.k === 'nod' ? 'NO DATA' : e.k === 'unk' ? (e.lab ? '? ' + e.lab : '?') : (e.k === 'pend' || e.k === 'fut' ? '◌' : '')); }
       chip.title = id + ' ' + (INFO[id] ? INFO[id].t : '') + ' — ' + e.txt + (e.why ? '. ' + e.why : '');
     });
   }
@@ -782,7 +786,7 @@
     { id: 'LLM-06', e: '🧭', n: 'Codex', s: 'backup exec', g: 'exec', p: 'PASTE-X' },
     { id: 'LLM-02', e: '☁️', n: 'Cloud', s: 'repo keeper', g: 'exec', p: 'PASTE-C' },
     { id: 'LLM-03', e: '🤝', n: 'Cowork', s: 'analyst', g: 'help', p: 'PASTE-X' },
-    { id: 'BOTS', e: '🤖', n: 'Grok Bots', s: 'NOT BUILT', g: 'help', p: 'PASTE-X' },
+    { id: 'BOTS', e: '🤖', n: 'Grok Bots', get s() { return window.VTES4C.botsSub(); }, g: 'help', p: 'PASTE-X' },
     { id: 'LLM-04', e: '💬', n: 'Chat', s: 'cockpit', g: 'help', p: 'PASTE-X' },
     { id: 'LLM-05', e: '📱', n: 'iPhone', s: 'voice', g: 'help', p: 'PASTE-X' },
     { id: 'LLM-07', e: '🔮', n: 'Grok', s: 'Fabian', g: 'other', p: 'PASTE-X' },
@@ -810,10 +814,10 @@
     'LLM-06': 'On your PC once you sign in. Nothing runs until then.',
     'LLM-02': 'Always on. Cannot see your PC. One repo only.',
     'LLM-03': 'Only folders you grant. Reads Drive and mail through connectors.',
-    'BOTS': window.VTES4C.GROK,
+    get 'BOTS'() { return window.VTES4C.grokText(); },
     'LLM-04': 'Chat only. Gets files by paste or link.',
     'LLM-05': 'Chat only, on the phone.',
-    'LLM-07': window.VTES4C.GROK,
+    get 'LLM-07'() { return window.VTES4C.grokText(); },
     'LLM-08': 'Reads Drive through your Google account. Gmail unverified.',
     'LLM-10': 'Microsoft side. Whether your plan includes full Copilot is unverified.'
   };
@@ -860,7 +864,7 @@
       '<div class="mflow">⬇ ⬆<small>every way a window, agent or bot can hand off and reply</small></div>' +
       '<div class="mrow"><div class="lab">Row 4 · Hand-off lanes (API is only ever the click)</div><div class="mlanes">' + BUSES.map(lane).join('') + '</div></div>' +
       '<div class="mflow">⬇ ⬆<small>analysts and bots</small></div>' +
-      '<div class="mrow"><div class="lab">Row 5 · Analysts, chat and phone · Grok bots are NOT BUILT</div><div class="mboxes">' + by(['LLM-03', 'BOTS', 'LLM-04', 'LLM-05']) + '</div></div>' +
+      '<div class="mrow"><div class="lab">Row 5 · Analysts, chat and phone</div><div class="mboxes">' + by(['LLM-03', 'BOTS', 'LLM-04', 'LLM-05']) + '</div></div>' +
       '<div class="mflow">⬇ ⬆<small>other companies · chat only · joined by a pasted link</small></div>' +
       '<div class="mrow"><div class="lab">Row 6 · Other distributions · second opinions</div><div class="mboxes">' + by(['LLM-07', 'LLM-08', 'LLM-10']) + '</div></div>' +
       '<div style="margin-top:10px;border:2px solid #2e7d4f;border-radius:14px;padding:8px;background:#eef7f1;text-align:center;font-size:14px">⬇ everything saves to ⬇<br><b>04-AI-SYSTEM / LLM-SHARED</b> · one sub-folder per LLM · every file carries <b>' + PROJ + '</b> + its LLM number + hashtags</div>';
@@ -933,7 +937,7 @@
     return '<div class="actbox"><i>Typed note from 2026-09-30, not live. The advice below, including the date, may be out of date.</i><br><b>Two Grok charges, one too many.</b> Recommended: keep <b>SuperGrok ($30)</b>, cancel <b>X Premium Plus ($40)</b> before <b>Oct 11</b>. That saves <b>$40 a month, $480 a year</b>. Why: Grok on grok.com does not need X Premium Plus. Cancelling is yours to do: it is money and an account, so nobody else clicks it.' +
       '<br><b>Move-before-you-cancel check (5 items):</b><ol>' +
       '<li>Open grok.com/automations signed in. Any Grok Automations you set up should be listed there. If they are, nothing moves.</li>' +
-      '<li>' + window.VTES4C.GROK + '</li>' +
+      '<li>' + window.VTES4C.grokText() + '</li>' +
       '<li>Saved Grok links in this page: unaffected (they are only web links).</li>' +
       '<li>Any xAI API key: unaffected, it is billed separately ($0 so far).</li>' +
       '<li>On X itself: decide whether you use the blue check or longer posts. If you do, keep Premium Plus and cancel nothing.</li></ol></div>' +
@@ -955,7 +959,7 @@
     var el = document.getElementById('map');
     var tabs = [['flow', 'Flow chart'], ['wire', 'Wiring diagram'], ['subs', 'Subscriptions']];
     var body = mapTab === 'flow' ? flowHtml() : mapTab === 'wire' ? '<div style="font-size:14px;margin-bottom:6px"><b>Wiring diagram.</b> Each window on top (the Governor, the token manager, is first); its six pins show what it can reach. Each horizontal wire is a way to hand off; a dot on the wire means that window can plug into it.</div>' + wireSvg() + wiresExplained() + legendWire() : subsHtml();
-    el.innerHTML = '<div class="mt">' + tabs.map(function (t) { return '<button type="button" data-t="' + t[0] + '" class="' + (t[0] === mapTab ? 'on' : '') + '">' + t[1] + '</button>'; }).join('') + '<button type="button" id="mapcopy">Copy status report</button><span id="mapnote" style="font-size:13px;font-weight:700"></span></div>' + legendStatus() + '<div class="v4typedbox" id="v4typedmap"><b>Typed note from 2026-09-30, not live.</b> Only the round status dot on each window is live (read from the data files). Everything else on these three tabs, namely the can / partly / later words, the wire dots, the WORKS and PARTLY tags and the subscription notes, was typed on 2026-09-30 and has not been re-checked. It is labelled as a typed note wherever it appears.</div>' + body;
+    el.innerHTML = '<div class="mt">' + tabs.map(function (t) { return '<button type="button" data-t="' + t[0] + '" class="' + (t[0] === mapTab ? 'on' : '') + '">' + t[1] + '</button>'; }).join('') + '<button type="button" id="mapcopy">Copy status report</button><span id="mapnote" style="font-size:13px;font-weight:700"></span></div>' + legendStatus() + '<div class="v4typedbox" id="v4typedmap"><b>Typed note from 2026-09-30, not live.</b> Only the round status dot on each window is live (read from the data files). Everything else on these three tabs, namely the can / partly / later words, the wire dots, the WORKS and PARTLY tags and the subscription notes, was typed on 2026-09-30 and has not been re-checked. It is labelled as a typed note wherever it appears.</div>' + window.VTES4C.mapNote() + body;
     Array.prototype.forEach.call(el.querySelectorAll('.mt button[data-t]'), function (b) { b.addEventListener('click', function () { mapTab = b.getAttribute('data-t'); renderMap(); }); });
     document.getElementById('mapcopy').addEventListener('click', function () { copyAny(statusReport()).then(function (ok) { document.getElementById('mapnote').textContent = ok ? 'Copied.' : 'Copy failed: select the text and press Ctrl+C.'; }); });
   }
@@ -968,9 +972,9 @@
   }
   document.getElementById('t_map').addEventListener('click', function () { showMode('map'); });
   window.VTES_MAP = { paintCard: paintCard, effective: effective, refresh: refreshAll, status: STATUS, probe: PROBE, buses: BUSES, reach: REACH, nodes: MN, subs: SUBS, report: statusReport, show: function (t) { if (t) { mapTab = t; } showMode('map'); }, runProbes: runProbes };
-  (function () { try { var R = (window.VTES_REMINDERS || []).concat((window.VTES_ALERTS || []).concat(window.VTES_REVIEWS || []).map(function (x) { return { done: !!x.done, due: '', hot: true }; })), n = 0, od = false; R.forEach(function (r) { if (!r.done) { n++; if ((r.due && Date.parse(r.due + 'T23:59:59') < nowMs()) || r.hot) { od = true; } } }); var b = document.getElementById('remn'); if (b) { b.textContent = n ? ' ' + n : ''; } var a = document.getElementById('t_rem'); if (a && od) { a.style.animation = 'vtesflash 1s steps(2) infinite'; } } catch (e) { } })();
+  window.VTES4C.paintBell();
   paintChips(); paintCard(cur); window.VTES4C.paintSites(PROBE); runProbes();
-  setInterval(runProbes, 120000); setInterval(paintChips, 60000);
+  setInterval(runProbes, 120000); setInterval(function () { window.VTES4.reload(function () { window.VTES4P.refresh(window.VTES4_BUILT); window.VTES4C.repaint(); window.VTES4C.paintBell(); refreshAll(); window.VTES4C.paintSites(PROBE); }); }, 60000);
   window.addEventListener('online', runProbes); window.addEventListener('offline', function () { Object.keys(STATUS).forEach(function (id) { if (STATUS[id].probe) { PROBE[id] = { ok: false, at: nowMs() }; } }); refreshAll(); });
 </script>
 </body>
