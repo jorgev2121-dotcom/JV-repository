@@ -80,7 +80,7 @@ const TYPED = /every \d+ (minutes?|seconds?)|15-minute|every 15|300 seconds|ever
     T(W, '0 green cards and 0 green badges', (await greenCards(p)).length === 0 && (await greenBadges(p)).length === 0, JSON.stringify(await greenCards(p)));
     const s = await stateCls(p, 'LLM-01'); T(W, 'LLM-01 reads WRITER SAYS UP, NOT PROVEN in grey (unp)', /WRITER SAYS UP, NOT PROVEN/.test(s.txt) && /unp/.test(s.cls), JSON.stringify(s));
     T(W, 'chat-only window with a writer entry stays NO DATA', /NO DATA/.test((await stateCls(p, 'LLM-04')).txt), '');
-    T(W, 'Grok note says NO Grok bot built (writer entry for BOTS is no proof)', /No Grok bot has been built/.test(await p.innerText('#card-LLM-07')), '');
+    T(W, 'Grok note says NO Grok bot built (writer entry for BOTS is no proof)', /no Grok bot is reporting UP with proof/.test(await p.innerText('#card-LLM-07')), '');
     T(W, 'health: "Windows confirmed up now" is not claiming any', /Windows confirmed up now: 0 of 11/.test(await p.innerText('#v5health')), await p.innerText('#v5health'));
     await ctx.close(); }
   // ---------------- W6 big / invalid tick, and a long legal tick
@@ -132,8 +132,8 @@ const TYPED = /every \d+ (minutes?|seconds?)|15-minute|every 15|300 seconds|ever
     const f3 = fresh(NOWMS); f3.bots.at = at(-30); const o3 = await open(br, stage(f3)); T(W, 'bots file dated 30 min ahead: every bot BAD CLOCK', (await o3.p.$$eval('#g-bots .v5st[data-bot]', l => l.filter(x => /BAD CLOCK/.test(x.textContent)).length)) === 6, ''); await o3.ctx.close(); }
   // ---------------- W11 Grok and the Grok bots
   { const W = 'W11-grok'; const f = fresh(NOWMS); f.heartbeat.executors.BOTS = { state: 'up', last_seen: at(1) }; let o = await open(br, stage(f));
-    T(W, 'BOTS up without proof_at: still "No Grok bot has been built"', /No Grok bot has been built/.test(await o.p.innerText('#card-LLM-07')), ''); await o.ctx.close();
-    f.heartbeat.executors.BOTS.proof_at = at(3); o = await open(br, stage(f)); T(W, 'BOTS up with fresh proof_at: card says a Grok bot is reporting UP with proof', /A Grok bot is reporting UP with proof/.test(await o.p.innerText('#card-LLM-07')), ''); T(W, 'both Grok statements carry the typed-note label (31 days)', /Typed note, registry brief of 2026-10-06/.test(await o.p.innerText('#card-LLM-07')), ''); await o.ctx.close();
+    T(W, 'BOTS up without proof_at: still "no Grok bot is reporting UP with proof"', /no Grok bot is reporting UP with proof/.test(await o.p.innerText('#card-LLM-07')), ''); await o.ctx.close();
+    f.heartbeat.executors.BOTS.proof_at = at(3); o = await open(br, stage(f)); T(W, 'BOTS up with fresh proof_at: card says a Grok bot is reporting UP with proof', /a Grok bot is reporting UP with proof/.test(await o.p.innerText('#card-LLM-07')), ''); T(W, 'both Grok statements carry the typed-note label (31 days)', /Typed note, dated 2026-10-06/.test(await o.p.innerText('#card-LLM-07')), ''); await o.ctx.close();
     f.heartbeat.executors['LLM-07'] = { state: 'up', last_seen: at(1) }; o = await open(br, stage(f)); T(W, 'LLM-07 up with no proof_at: red NO DATA (never green on a ping)', /NO DATA/.test((await stateCls(o.p, 'LLM-07')).txt), (await stateCls(o.p, 'LLM-07')).txt); await o.ctx.close(); }
   // ---------------- W12 times: Eastern with zone; year added; no slash dates
   { const W = 'W12-times'; const d = stage(fresh(NOWMS)); const { ctx, p } = await open(br, d); await p.click('#show'); const v = await p.inputValue('#preview'); const first = v.split('\n')[0];

@@ -1,5 +1,5 @@
 #!/bin/bash
-# run-mutations.sh - proves the tests can FAIL: breaks the live layer in ten ways on a scratch copy and runs the matching test against each; each must report failures. TRK-2026-9910-B
+# run-mutations.sh - proves the tests can FAIL: breaks the live layer in eighteen ways (M1-M10 from round 4, M11-M18 added in round 5) on a scratch copy and runs the matching test against each; each must report failures. TRK-2026-9910-B
 HERE=$(cd "$(dirname "$0")" && pwd); W=${1:?scratch dir}; rm -rf "$W"; mkdir -p "$W"
 mut() { local name=$1 test=$2 file=$3 from=$4 to=$5; local d=$W/$name; mkdir -p "$d"; cp -a "$HERE"/. "$d"/; python3 - "$d/package/$file" "$from" "$to" <<'PY'
 import sys
@@ -19,3 +19,11 @@ mut M7-housekeeping-green-when-fresh test-fixes-r4 vtes5-live.js "if (d.report_d
 mut M8-daily-bot-capped-at-an-hour test-fixes-r4 vtes5-live.js "var MAX_BOT_SEC = 7 * 24 * 3600;" "var MAX_BOT_SEC = 3600;"
 mut M9-two-answers-on-a-card test-fixes-r4 vtes5-ui.js "cls = RANK[cb] > RANK[ce] ? cb : ce," "cls = ce,"
 mut M10-search-reads-state-lines test-fixes-r4 vtes5-ui.js "c.setAttribute('data-s', t3[gi][i]" "c.setAttribute('data-x', t3[gi][i]"
+mut M11-bots-strip-ignores-failed-bots test-fixes-r5 vtes5-live.js "if (notFine.length) { return bad(" "if (false) { return bad("
+mut M12-heartbeat-green-while-all-down test-fixes-r5 vtes5-live.js "if (unhealthy === ids.length) {" "if (false) {"
+mut M13-running-task-never-stuck test-fixes-r5 vtes5-live.js "if (runMin > stuckMin) {" "if (false) {"
+mut M14-impossible-count-green test-fixes-r5 vtes5-live.js "if (d.counted !== undefined && d.counted !== null && !isCount(d.counted, MD_TARGET)) {" "if (false) {"
+mut M15-personal-data-guard-removed test-fixes-r5 vtes5-ui.js "if (toId === 'LOCAL' || !PII_RE.test(note || '')) { return note; }" "return note;"
+mut M16-tab-hint-never-shown test-fixes-r5 vtes5-ui.js "h.style.display = hidden ? 'block' : 'none';" "h.style.display = 'none';"
+mut M17-queued-is-no-data test-fixes-r5 vtes5-live.js "if (st === 'queued') {" "if (false) {"
+mut M18-old-report-time-trusted test-fixes-r5 vtes5-live.js "if ((NOW() - t) / 60000 > limitMinutes) {" "if (false) {"

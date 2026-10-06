@@ -1,57 +1,57 @@
 PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6f6c333411fe3
 == V01 intact package
     | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
-    | This script contains no write command.
+    | Nothing was written anywhere.
     | exit=0
   PASS V01: exit code 0
   PASS V01: prints "OK: all 11 of 11 package files"
-  PASS V01: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V01: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V01: VERIFY wrote nothing (whole fixture identical before and after)
 == V02 edited code file (one byte appended)
     | PROBLEMS (1); 10 of 11 package files are identical:
     |   EDITED: vtes5-ui.js has SHA-256 467d94ec477d9987f3fd013b727cd64e568e4fdde9d686c0ade018977b3408c2 but the manifest says e087eedc19c626da63001d50885fe23e8eb72b5ea9cc5e2e9937f175c5152e80
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V02: exit code 1
   PASS V02: prints "EDITED: vtes5-ui.js"
   PASS V02: prints "10 of 11 package files are identical"
   PASS V02: does NOT say OK
-  PASS V02: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V02: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V02: VERIFY wrote nothing (whole fixture identical before and after)
 == V03 edited file with the same size (one byte flipped)
     | PROBLEMS (1); 10 of 11 package files are identical:
     |   EDITED: vtes5-live.js has SHA-256 fcd8d7b45e944080db47262fc83400bca36062560fba7ab2466b1a2bfd19c5d3 but the manifest says 52279b99ea894264088f2b0fe9b2cc75b7a4401fe618707844799ae3b5a3f710
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V03: exit code 1
   PASS V03: prints "EDITED: vtes5-live.js"
   PASS V03: does NOT say OK
-  PASS V03: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V03: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V03: VERIFY wrote nothing (whole fixture identical before and after)
 == V04 data file rewritten by a writer
     | PROBLEMS (1); 10 of 11 package files are identical:
     |   EDITED: data/vtes5-heartbeat.js (data file) has SHA-256 5f55326a58a8b11121970d85a920927c8e2ff743afb5e25091ad4be816d35648 but the manifest says b1179b8b7850d6514d9aa2c34aafe3427535ef1b0ce45155b
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V04: exit code 1
   PASS V04: prints "EDITED: data/vtes5-heartbeat.js"
   PASS V04: prints "(data file)"
   PASS V04: does NOT say OK
-  PASS V04: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V04: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V04: VERIFY wrote nothing (whole fixture identical before and after)
 == V05 missing file
     | PROBLEMS (1); 10 of 11 package files are identical:
     |   MISSING: vtes5-config.js (not in the folder, or not reachable: ItemNotFoundException)
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V05: exit code 1
   PASS V05: prints "MISSING: vtes5-config.js"
   PASS V05: does NOT say OK
-  PASS V05: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V05: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 15 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V05: VERIFY wrote nothing (whole fixture identical before and after)
 == V06 missing data folder
@@ -63,46 +63,46 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
     |   MISSING: data/vtes5-miamidade.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
     |   MISSING: data/vtes5-state.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
     |   MISSING: data/vtes5-tokens.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V06: exit code 1
   PASS V06: prints "MISSING: data/vtes5-bots.js"
   PASS V06: prints "MISSING: data/vtes5-tokens.js"
   PASS V06: does NOT say OK
-  PASS V06: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V06: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 9 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V06: VERIFY wrote nothing (whole fixture identical before and after)
 == V07 extra file
     | PROBLEMS (1); 11 of 11 package files are identical:
     |   EXTRA FILE: notes.txt is not part of the package
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V07: exit code 1
   PASS V07: prints "EXTRA FILE: notes.txt"
   PASS V07: does NOT say OK
-  PASS V07: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V07: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 17 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V07: VERIFY wrote nothing (whole fixture identical before and after)
 == V08 extra file inside data
     | PROBLEMS (1); 11 of 11 package files are identical:
     |   EXTRA FILE: data/old.bak is not part of the package
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V08: exit code 1
   PASS V08: prints "EXTRA FILE: data/old.bak"
   PASS V08: does NOT say OK
-  PASS V08: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V08: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 17 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V08: VERIFY wrote nothing (whole fixture identical before and after)
 == V09 extra empty folder
     | PROBLEMS (1); 11 of 11 package files are identical:
     |   EXTRA FOLDER: empty-dir is not part of the package
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V09: exit code 1
   PASS V09: prints "EXTRA FOLDER: empty-dir"
   PASS V09: does NOT say OK
-  PASS V09: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V09: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V09: VERIFY wrote nothing (whole fixture identical before and after)
 == V10 extra folder with a file in it
@@ -110,24 +110,24 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
     |   EXTRA FOLDER: old is not part of the package
     |   EXTRA FOLDER: old/deep is not part of the package
     |   EXTRA FILE: old/deep/a.txt is not part of the package
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V10: exit code 1
   PASS V10: prints "EXTRA FOLDER: old"
   PASS V10: prints "EXTRA FILE: old/deep/a.txt"
   PASS V10: does NOT say OK
-  PASS V10: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V10: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 17 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V10: VERIFY wrote nothing (whole fixture identical before and after)
 == V11 UNREADABLE file (chmod 000, run as nobody)
     | PROBLEMS (1); 10 of 11 package files are identical:
     |   UNREADABLE: vtes5-ui.js cannot be read, so it cannot be checked (MethodInvocationException)
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V11: exit code 1
   PASS V11: prints "UNREADABLE: vtes5-ui.js"
   PASS V11: does NOT say OK
-  PASS V11: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V11: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V11: VERIFY wrote nothing (whole fixture identical before and after)
 == V11b the same file IS readable by root (so the test needed nobody)
@@ -137,7 +137,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
     |   MISSING: data/vtes5-health.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
     |   UNREADABLE: data/vtes5-state.js (data file) cannot be read, so it cannot be checked (MethodInvocationException)
     |   EXTRA FILE: extra.txt is not part of the package
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V12: exit code 1
   PASS V12: prints "UNREADABLE: data/vtes5-state.js"
@@ -145,17 +145,17 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V12: prints "MISSING: data/vtes5-health.js"
   PASS V12: prints "EXTRA FILE: extra.txt"
   PASS V12: does NOT say OK
-  PASS V12: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V12: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V12: VERIFY wrote nothing (whole fixture identical before and after)
 == V13 UNREADABLE manifest (run as nobody)
     | CANNOT CHECK: MANIFEST.sha256 cannot be read: Exception calling "ReadAllLines" with "1" argument(s): "Access to the path '/tmp/v5nobody-work/fix/Docs/v5/MANIFEST.sha256' is denied."
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V13: exit code 2
   PASS V13: prints "CANNOT CHECK"
   PASS V13: does NOT say OK
-  PASS V13: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V13: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V13: VERIFY wrote nothing (whole fixture identical before and after)
 == V14 UNREADABLE folder (data chmod 000, run as nobody): cannot prove nothing extra is in it
@@ -168,116 +168,116 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
     |   MISSING: data/vtes5-state.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
     |   MISSING: data/vtes5-tokens.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
     |   UNREADABLE FOLDER: the folder list could not be read completely, so "nothing extra is in it" cannot be proven (UnauthorizedAccessException)
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V14: exit code 1
   PASS V14: prints "UNREADABLE"
   PASS V14: does NOT say OK
-  PASS V14: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V14: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V14: VERIFY wrote nothing (whole fixture identical before and after)
 == V15 missing manifest
     | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5nobody-work/fix/Docs/v5"
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V15: exit code 2
   PASS V15: prints "MANIFEST.sha256 is missing"
   PASS V15: does NOT say OK
-  PASS V15: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V15: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 15 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V15: VERIFY wrote nothing (whole fixture identical before and after)
 == V16 folder does not exist
     | CANNOT CHECK: the folder "/tmp/v5nobody-work/fix/Docs/nope" does not exist (or is not a folder)
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V16: exit code 2
   PASS V16: prints "does not exist"
   PASS V16: does NOT say OK
-  PASS V16: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V16: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V16: VERIFY wrote nothing (whole fixture identical before and after)
 == V17 relative path and short name
     | CANNOT CHECK: "Docs/v5" is not a full path. Give the whole path, for example C:\Users\JV\OneDrive\Documents\VTES-PANEL-v5
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V17: exit code 2
   PASS V17: prints "is not a full path"
   PASS V17: does NOT say OK
-  PASS V17: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V17: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V17: VERIFY wrote nothing (whole fixture identical before and after)
     | CANNOT CHECK: "v5" is not a full path. Give the whole path, for example C:\Users\JV\OneDrive\Documents\VTES-PANEL-v5
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V17b: exit code 2
   PASS V17b: prints "is not a full path"
   PASS V17b: does NOT say OK
-  PASS V17b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V17b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V17b: VERIFY wrote nothing (whole fixture identical before and after)
     | CANNOT CHECK: "./v5" is not a full path. Give the whole path, for example C:\Users\JV\OneDrive\Documents\VTES-PANEL-v5
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V17c: exit code 2
   PASS V17c: prints "is not a full path"
   PASS V17c: does NOT say OK
-  PASS V17c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V17c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V17c: VERIFY wrote nothing (whole fixture identical before and after)
     | CANNOT CHECK: ".." is not a full path. Give the whole path, for example C:\Users\JV\OneDrive\Documents\VTES-PANEL-v5
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V17d: exit code 2
   PASS V17d: prints "is not a full path"
   PASS V17d: does NOT say OK
-  PASS V17d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V17d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V17d: VERIFY wrote nothing (whole fixture identical before and after)
 == V18 a file replaced by a link
     | PROBLEMS (1); 10 of 11 package files are identical:
     |   LINK: vtes5-ui.js is a link, not a plain file (not followed)
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V18: exit code 1
   PASS V18: prints "LINK: vtes5-ui.js"
   PASS V18: does NOT say OK
-  PASS V18: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V18: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V18: VERIFY wrote nothing (whole fixture identical before and after)
 == V19 an extra link to somewhere else
     | PROBLEMS (2); 11 of 11 package files are identical:
     |   LINK: the folder to-desktop is a link (not followed, not in the manifest)
     |   LINK: to-notes.txt is a link and is not in the manifest
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V19: exit code 1
   PASS V19: prints "LINK: the folder to-desktop"
   PASS V19: prints "LINK: to-notes.txt"
   PASS V19: does NOT say OK
-  PASS V19: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V19: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V19: VERIFY wrote nothing (whole fixture identical before and after)
 == V20 manifest with a path that leaves the folder
     | PROBLEMS (1); 11 of 11 package files are identical:
     |   BAD MANIFEST LINE 12: the path "../Desktop/VTES-LLM-LAUNCHER_v3.html" is not a plain relative path inside the folder (not checked)
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V20: exit code 1
   PASS V20: prints "BAD MANIFEST LINE"
   PASS V20: prints "not a plain relative path"
   PASS V20: does NOT say OK
-  PASS V20: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V20: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V20: VERIFY wrote nothing (whole fixture identical before and after)
 == V21 manifest with a garbage line
     | PROBLEMS (1); 11 of 11 package files are identical:
     |   BAD MANIFEST LINE 12: not "<64 hex>  <path>"
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V21: exit code 1
   PASS V21: prints "BAD MANIFEST LINE"
   PASS V21: does NOT say OK
-  PASS V21: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V21: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V21: VERIFY wrote nothing (whole fixture identical before and after)
 == V22 empty manifest
@@ -295,174 +295,198 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
     |   EXTRA FILE: data/vtes5-miamidade.js is not part of the package
     |   EXTRA FILE: data/vtes5-state.js is not part of the package
     |   EXTRA FILE: data/vtes5-tokens.js is not part of the package
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V22: exit code 1
   PASS V22: prints "BAD MANIFEST: it lists no files"
   PASS V22: prints "EXTRA FILE"
   PASS V22: does NOT say OK
-  PASS V22: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V22: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V22: VERIFY wrote nothing (whole fixture identical before and after)
 == V23 manifest lists a file twice
     | PROBLEMS (1); 11 of 11 package files are identical:
     |   BAD MANIFEST LINE 12: "VTES-LLM-LAUNCHER_v5.html" is listed twice
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V23: exit code 1
   PASS V23: prints "is listed twice"
   PASS V23: does NOT say OK
-  PASS V23: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V23: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V23: VERIFY wrote nothing (whole fixture identical before and after)
 == V24 manifest edited to match an edited file (the order's expected manifest hash catches it)
     | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
-    | This script contains no write command.
+    | Nothing was written anywhere.
     | exit=0
   PASS V24a: exit code 0
   PASS V24a: prints "OK: all 11 of 11"
-  PASS V24a: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V24a: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V24a: VERIFY wrote nothing (whole fixture identical before and after)
   (without the expected manifest hash a doctored manifest passes: that is why the order carries the hash)
     | PROBLEMS (1); 11 of 11 package files are identical:
     |   MANIFEST CHANGED: its SHA-256 is 970c7c928e84b96e092067b55c5624cc28e2e46b64d55fc2810ef3dc99778359 but the order expects 3a028ba9a02be3a3bb1e7dd9a76b09d61b48fd7fe06cecfa18fd57cff064c442 (so the
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V24b: exit code 1
   PASS V24b: prints "MANIFEST CHANGED"
   PASS V24b: does NOT say OK
-  PASS V24b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V24b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V24b: VERIFY wrote nothing (whole fixture identical before and after)
 == V25 the right expected manifest hash passes; a wrong one fails
     | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
-    | This script contains no write command.
+    | Nothing was written anywhere.
     | exit=0
   PASS V25a: exit code 0
   PASS V25a: prints "OK: all 11 of 11"
-  PASS V25a: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V25a: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V25a: VERIFY wrote nothing (whole fixture identical before and after)
     | PROBLEMS (1); 11 of 11 package files are identical:
     |   MANIFEST CHANGED: its SHA-256 is 3a028ba9a02be3a3bb1e7dd9a76b09d61b48fd7fe06cecfa18fd57cff064c442 but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V25b: exit code 1
   PASS V25b: prints "MANIFEST CHANGED"
   PASS V25b: does NOT say OK
-  PASS V25b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V25b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V25b: VERIFY wrote nothing (whole fixture identical before and after)
 == V26 trailing slash, spaces and brackets in the path
     | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
-    | This script contains no write command.
+    | Nothing was written anywhere.
     | exit=0
   PASS V26: exit code 0
   PASS V26: prints "OK: all 11 of 11"
-  PASS V26: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V26: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V26: VERIFY wrote nothing (whole fixture identical before and after)
 == V27 the real v3 launcher sits beside the package and is never read as part of it
     | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
-    | This script contains no write command.
+    | Nothing was written anywhere.
     | exit=0
   PASS V27: exit code 0
   PASS V27: prints "OK: all 11 of 11"
-  PASS V27: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V27: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V27: VERIFY wrote nothing (whole fixture identical before and after)
   PASS V27b: the real v3 launcher in the fixture Desktop is byte-identical afterwards
 == V28 Verify pointed at the Desktop folder (not a package): reports problems, writes nothing
     | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5nobody-work/fix/Desktop"
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V28: exit code 2
   PASS V28: prints "MANIFEST.sha256 is missing"
   PASS V28: does NOT say OK
-  PASS V28: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V28: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V28: VERIFY wrote nothing (whole fixture identical before and after)
 == V29 a package file that is a folder
     | PROBLEMS (2); 10 of 11 package files are identical:
     |   NOT A FILE: vtes5-live.js is a folder
     |   EXTRA FOLDER: vtes5-live.js is not part of the package
-    | This script contains no write command, so it changed nothing in the folder.
+    | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V29: exit code 1
   PASS V29: prints "NOT A FILE: vtes5-live.js"
   PASS V29: does NOT say OK
-  PASS V29: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V29: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 15 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V29: VERIFY wrote nothing (whole fixture identical before and after)
 == V31 a path with .. in it (flaw N19): clear sentence, no scrambled names
-    | CANNOT CHECK: the path "/tmp/v5nobody-work/fix/Docs/x/../v5" contains "..". Give the plain full path with no "." or ".." in it
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=2
-  PASS V31: exit code 2
-  PASS V31: prints "CANNOT CHECK"
-  PASS V31: prints "contains "..""
-  PASS V31: prints "Give the plain full path"
+    | PROBLEMS (13); 11 of 11 package files are identical:
+    |   EXTRA FOLDER:  is not part of the package
+    |   EXTRA FILE: FEST.sha256 is not part of the package
+    |   EXTRA FILE: -LLM-LAUNCHER_v5.html is not part of the package
+    |   EXTRA FILE: 5-config.js is not part of the package
+    |   EXTRA FILE: 5-live.js is not part of the package
+    |   EXTRA FILE: 5-ui.js is not part of the package
+    |   EXTRA FILE: vtes5-bots.js is not part of the package
+    |   EXTRA FILE: vtes5-health.js is not part of the package
+    |   EXTRA FILE: vtes5-heartbeat.js is not part of the package
+    |   EXTRA FILE: vtes5-housekeeping.js is not part of the package
+    |   EXTRA FILE: vtes5-miamidade.js is not part of the package
+    |   EXTRA FILE: vtes5-state.js is not part of the package
+    |   EXTRA FILE: vtes5-tokens.js is not part of the package
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  FAIL V31: exit code 2
+  FAIL V31: prints "CANNOT CHECK"
+  FAIL V31: prints "contains "..""
+  FAIL V31: prints "Give the plain full path"
   PASS V31: does NOT say OK
-  PASS V31: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V31: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V31: VERIFY wrote nothing (whole fixture identical before and after)
-    | CANNOT CHECK: the path "/tmp/v5nobody-work/fix/Docs/./v5" contains ".". Give the plain full path with no "." or ".." in it
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=2
-  PASS V31b: exit code 2
-  PASS V31b: prints "contains ".""
+    | PROBLEMS (13); 11 of 11 package files are identical:
+    |   EXTRA FOLDER: ata is not part of the package
+    |   EXTRA FILE: ANIFEST.sha256 is not part of the package
+    |   EXTRA FILE: TES-LLM-LAUNCHER_v5.html is not part of the package
+    |   EXTRA FILE: tes5-config.js is not part of the package
+    |   EXTRA FILE: tes5-live.js is not part of the package
+    |   EXTRA FILE: tes5-ui.js is not part of the package
+    |   EXTRA FILE: ata/vtes5-bots.js is not part of the package
+    |   EXTRA FILE: ata/vtes5-health.js is not part of the package
+    |   EXTRA FILE: ata/vtes5-heartbeat.js is not part of the package
+    |   EXTRA FILE: ata/vtes5-housekeeping.js is not part of the package
+    |   EXTRA FILE: ata/vtes5-miamidade.js is not part of the package
+    |   EXTRA FILE: ata/vtes5-state.js is not part of the package
+    |   EXTRA FILE: ata/vtes5-tokens.js is not part of the package
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  FAIL V31b: exit code 2
+  FAIL V31b: prints "contains ".""
   PASS V31b: does NOT say OK
-  PASS V31b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V31b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V31b: VERIFY wrote nothing (whole fixture identical before and after)
-    | CANNOT CHECK: the path "/tmp/v5nobody-work/fix/Docs/v5/.." contains "..". Give the plain full path with no "." or ".." in it
-    | This script contains no write command, so it changed nothing in the folder.
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5nobody-work/fix/Docs/v5/.."
+    | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V31c: exit code 2
-  PASS V31c: prints "contains "..""
+  FAIL V31c: prints "contains "..""
   PASS V31c: does NOT say OK
-  PASS V31c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V31c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V31c: VERIFY wrote nothing (whole fixture identical before and after)
-  PASS V31d: no scrambled file name such as FEST.sha256 in the answer
-  PASS V31e: it does not print a PROBLEMS list for a path it refused
+  FAIL V31d: no scrambled file name such as FEST.sha256 in the answer
+  FAIL V31e: it does not print a PROBLEMS list for a path it refused
 == V32 a doubled separator in the path is read correctly (not scrambled)
     | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
-    | This script contains no write command.
+    | Nothing was written anywhere.
     | exit=0
   PASS V32: exit code 0
   PASS V32: prints "OK: all 11 of 11"
-  PASS V32: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+  FAIL V32: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V32: VERIFY wrote nothing (whole fixture identical before and after)
 == V33 the folder is inside a Desktop folder (flaw N5, caught after the fact)
-    | PROBLEMS (1); 11 of 11 package files are identical:
-    |   WRONG PLACE: the folder is inside a Desktop folder. The Desktop is a launchpad, never storage.
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS V33: exit code 1
-  PASS V33: prints "WRONG PLACE: the folder is inside a Desktop folder"
-  PASS V33: does NOT say OK
-  PASS V33: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | Nothing was written anywhere.
+    | exit=0
+  FAIL V33: exit code 1
+  FAIL V33: prints "WRONG PLACE: the folder is inside a Desktop folder"
+  FAIL V33: does NOT say OK
+  FAIL V33: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 28 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V33: VERIFY wrote nothing (whole fixture identical before and after)
 == V34 the folder is inside a git checkout (flaw N5, caught after the fact)
-    | PROBLEMS (1); 11 of 11 package files are identical:
-    |   WRONG PLACE: the folder is inside a git checkout (found .git in /tmp/v5nobody-work/fix/Docs/repo)
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS V34: exit code 1
-  PASS V34: prints "WRONG PLACE: the folder is inside a git checkout"
-  PASS V34: does NOT say OK
-  PASS V34: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | Nothing was written anywhere.
+    | exit=0
+  FAIL V34: exit code 1
+  FAIL V34: prints "WRONG PLACE: the folder is inside a git checkout"
+  FAIL V34: does NOT say OK
+  FAIL V34: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 28 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V34: VERIFY wrote nothing (whole fixture identical before and after)
 == V35 the OK line and the closing line say only what the script can know
-  PASS V35a: OK answer closes with the sentence about the script's own source
-  PASS V35b: no claim about everything on the machine
+  FAIL V35a: OK answer closes with the sentence about the script's own source
+  FAIL V35b: no claim about everything on the machine
 == V30 the source script itself is ASCII only and has no write commands
   PASS V30a: VERIFY-v5.ps1 is pure ASCII
   PASS V30b: no write command appears in VERIFY-v5.ps1 (outside comments)
 
-VERIFY TESTS: 214 of 214 pass
+VERIFY TESTS: 157 of 214 pass

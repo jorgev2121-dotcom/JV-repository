@@ -1,0 +1,1153 @@
+{
+ "pass": 191,
+ "total": 191,
+ "fail": 0,
+ "results": [
+  {
+   "id": "N10",
+   "name": "LOCAL card: no step tells the user to use the blue RAMBO button or any Claude, Cowork, Codex or Grok window (only \"Do NOT\" lines may name them)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "LOCAL card: the steps do say not to hand the packet to a Claude window",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "the LOCAL button copies a packet addressed to LOCAL that carries the note (the job is private and must carry it)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "with the fake Social Security number in the note, the packet for LOCAL carries it and the packets for the other 12 destinations do not (13 destinations tried)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "no packet addressed to LLM-01 (RAMBO), any Claude window, COWORK, CODEX, GROK or Gemini carries the number (11 tried)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "pressing each of the 9 big copy buttons with the number in the note: only the LOCAL button puts it in the clipboard",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "the blue RAMBO button at the top (the one the old LOCAL steps pointed at) copies a packet to LLM-01 WITHOUT the number",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "\"Copy packet and open\" for every destination: the number is copied only for LOCAL",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "the line after \"Copy packet and open\" for LOCAL does not point at RAMBO or a Claude window as the way to do the job",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "GROK card: no step says to use the blue RAMBO button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "CODEX card: no step says to use the blue RAMBO button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "COWORK card: no step says to use the blue RAMBO button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "GROK card: no step routes the packet through RAMBO at all",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "control: the note \"Check permit 123 and call 305-555-0100 about folio 01-4120-001-0010\" is still carried to LLM-01 unchanged",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "control: the note \"Order 12345 6789\" is still carried to LLM-01 unchanged",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "control: the note \"unit 143, 2026-10-06\" is still carried to LLM-01 unchanged",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "the note \"ssn 123456789 for the client\" is left out of the packet for LLM-01 and the packet says why",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "the note \"social security: 123 45 6789\" is left out of the packet for LLM-01 and the packet says why",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "the note \"Social Security number 123456789\" is left out of the packet for LLM-01 and the packet says why",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N10",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "control: good data: bots and heartbeat strip entries are green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "world allBotsFail: all six bots show red FAILED lines",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "world allBotsFail: the strip entry \"bots\" is RED (never green \"OK\" above six FAILED bots)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "world allBotsFail: the strip says how many bots are not fine (\"6 of 6\")",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "world allBotsFail: the age line says at least one file is not OK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "one failed bot out of six: the strip entry is red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "one disabled bot: the strip entry is red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "one bot missing from the bots file: the strip entry is red (NO DATA for that bot)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "one bot running now and none failed: the strip entry is grey, never green and not red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "world allDown: the windows show red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "world allDown: the heartbeat strip entry is RED, never green \"OK\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "world allDown: the badge in the Health panel line is not green either",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "one window down out of the rest: the heartbeat entry is grey (never green)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N1",
+   "name": "a fresh heartbeat file that lists no window at all: red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "housekeeping: last report 40 days old (Aug 27): the panel badge is red and says /OLD/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "housekeeping: last report 40 days old (Aug 27): the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "housekeeping: last report dated in the future (Oct 9): the panel badge is red and says /BAD CLOCK/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "housekeeping: last report dated in the future (Oct 9): the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "housekeeping: last report dated in the future (Oct 9): the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "housekeeping: items_cleaned is negative: the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "housekeeping: items_cleaned is negative: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "housekeeping: items_cleaned is negative: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: 2 of 10 checks passed with the daily report sent Jun 18: the panel badge is red and says /OLD/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: 2 of 10 checks passed with the daily report sent Jun 18: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: 14 of 10 checks passed (140 percent): the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: 14 of 10 checks passed (140 percent): the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: 14 of 10 checks passed (140 percent): the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: daily report dated in the future: the panel badge is red and says /BAD CLOCK/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: daily report dated in the future: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: daily report dated in the future: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: -1 of 10 checks passed: the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: -1 of 10 checks passed: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: -1 of 10 checks passed: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: 0 of 10 checks passed: the panel badge is red and says /FAILING/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: 0 of 10 checks passed: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: 2 of 10 checks passed with a report sent today (not impossible, but not good): the panel badge is grey and says /PARTIAL/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "health: 2 of 10 checks passed with a report sent today (not impossible, but not good): the strip entry is grey, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "miamidade: counted 450 of 300: the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "miamidade: counted 450 of 300: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "miamidade: counted 450 of 300: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "miamidade: counted -3 of 300: the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "miamidade: counted -3 of 300: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "miamidade: counted -3 of 300: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "miamidade: counted 7.5 of 300: the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "miamidade: counted 7.5 of 300: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "miamidade: counted 7.5 of 300: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: burn rate -5 tokens per hour: the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: burn rate -5 tokens per hour: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: burn rate -5 tokens per hour: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: window used 250 percent: the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: window used 250 percent: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: window used 250 percent: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: week used -2 percent: the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: week used -2 percent: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: week used -2 percent: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: a program with -10 tokens today: the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: a program with -10 tokens today: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "tokens: a program with -10 tokens today: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "state: open_items is -1: the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "state: open_items is -1: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "state: open_items is -1: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "state: blocked is 2.5: the panel badge is red and says /IMPOSSIBLE/",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "state: blocked is 2.5: the strip entry is red, never green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "state: blocked is 2.5: the impossible number is not shown as a plain value",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "control: good housekeeping data is still green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "control: good health data is still green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "control: good miamidade data is still green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "control: good tokens data is still green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N3",
+   "name": "control: good state data is still green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "world hung (every 2 minutes, started 3 days ago): the bot line says \"RUNNING FOR 72 HOURS - CHECK\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "world hung: the line carries the start time (the last-run time, Oct 3)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "world hung: the colour is the strong grey-red class, not neutral blue and not plain",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "world hung: the line no longer says \"RUNNING NOW\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "world hung: the RAMBO card carries the same warning, not blue",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "world hung: the strip entry for bots is red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "running 3 minutes, every 2 minutes: still neutral (under 3 x 2 minutes = 6)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "running 7 minutes, every 2 minutes: STUCK, in minutes",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "running 30 minutes, no interval known: still neutral (under 1 hour)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "running 90 minutes, no interval known: STUCK (over 1 hour), \"1 HOUR\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "running 5 hours, no interval known: STUCK, \"5 HOURS\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "running 2.5 hours, hourly bot: still neutral (under 3 hours)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "running 3.5 hours, hourly bot: STUCK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "scheduler state Running with result 0, started 2 days ago, every 2 minutes: STUCK too",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "running with no start time at all: neutral, and says how long cannot be judged",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "controls: result 1 is still red FAILED; a finished result 0 task is still green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N14",
+   "name": "CHIEF card, bot running now: one answer: colour neu, the sentence agrees and never says \"not fine\" (while its own text says \"not failed\")",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N14",
+   "name": "CHIEF card, bot queued: one answer: colour neu, the sentence agrees and never says \"not fine\" (while its own text says \"not failed\")",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N14",
+   "name": "CHIEF card, bot not yet run: one answer: colour unp, the sentence agrees and never says \"not fine\" (while its own text says \"not failed\")",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N14",
+   "name": "CHIEF card, bot failed: one answer: colour bad, the sentence agrees",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N14",
+   "name": "CHIEF card, bot disabled: one answer: colour bad, the sentence agrees",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N14",
+   "name": "CHIEF card, bot stuck: one answer: colour stk, the sentence agrees",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N14",
+   "name": "CHIEF card, bot fine: one answer: colour ok, the sentence agrees and never says \"not fine\" (while its own text says \"not failed\")",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N14",
+   "name": "CHIEF card, window DOWN and bot running: red, and the sentence starts with DOWN",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N17",
+   "name": "scheduler state Queued: the bot line says QUEUED in neutral blue, not red NO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N17",
+   "name": "scheduler state Queued: the strip entry is not red (one queued bot, none failed: grey)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N17",
+   "name": "control: an unknown state (\"Banana\") is still red NO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "no data: the sentence \"no Grok bot had been built, ... asked for many times\" is inside a note labelled \"Typed note, dated 2026-10-06\" and says the page does not check it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "no data: the old unlabelled sentence \"No Grok bot has been built (asked for many times, never built)\" is gone",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "no data: the only live claim is about the heartbeat file (UP with proof, or no Grok bot is reporting UP)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "stale heartbeat (400 minutes): the sentence \"no Grok bot had been built, ... asked for many times\" is inside a note labelled \"Typed note, dated 2026-10-06\" and says the page does not check it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "stale heartbeat (400 minutes): the old unlabelled sentence \"No Grok bot has been built (asked for many times, never built)\" is gone",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "stale heartbeat (400 minutes): the only live claim is about the heartbeat file (UP with proof, or no Grok bot is reporting UP)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "fresh heartbeat, BOTS without proof: the sentence \"no Grok bot had been built, ... asked for many times\" is inside a note labelled \"Typed note, dated 2026-10-06\" and says the page does not check it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "fresh heartbeat, BOTS without proof: the old unlabelled sentence \"No Grok bot has been built (asked for many times, never built)\" is gone",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "fresh heartbeat, BOTS without proof: the only live claim is about the heartbeat file (UP with proof, or no Grok bot is reporting UP)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "fresh heartbeat, BOTS with proof: the sentence \"no Grok bot had been built, ... asked for many times\" is inside a note labelled \"Typed note, dated 2026-10-06\" and says the page does not check it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "fresh heartbeat, BOTS with proof: the old unlabelled sentence \"No Grok bot has been built (asked for many times, never built)\" is gone",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N13",
+   "name": "fresh heartbeat, BOTS with proof: the only live claim is about the heartbeat file (UP with proof, or no Grok bot is reporting UP)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N15",
+   "name": "repair row 10 keeps \"runs 7:00 AM daily\" and its label says only \"typed note 2026-10-02\" and that no time zone was given",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N15",
+   "name": "the words \"Eastern time\" are not attached to the typed 7:00 AM",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N15",
+   "name": "every clock time on the page carries EDT or EST right after it, except the typed 7:00 AM, which says plainly that no zone was given",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N16",
+   "name": "LLM-06 card: \"First time only: sign in\" comes BEFORE the step that pastes (step 1 before step 2)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N16",
+   "name": "CODEX card: \"First time only: sign in\" comes BEFORE the step that pastes (step 1 before step 2)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F14",
+   "name": "the bots lead line no longer says \"Check any of them with Get-ScheduledTask\" and says the desktop executor checks them",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F14",
+   "name": "no step tells the user to open Windows Terminal or type codex",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F14",
+   "name": "the typed addresses `codex exec \"<task>\"` and `Second-Opinion.ps1 -Prompt \"<question>\"` appear only on lines that say the desktop executor (RAMBO) runs them and you type nothing",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F14",
+   "name": "the LLM-06 card line no longer says \"type codex\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N12",
+   "name": "all 22 OLD PANEL warning elements (10 tab names, 10 tab labels, the PANEL and INDEX buttons) are at least 14 px",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N12",
+   "name": "every text on the page that contains the word OLD is at least 14 px",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1366x657: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1366x657: the RAMBO button is whole on the first screen (225-268 of 657)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1366x657: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1366x657: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1280x609: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1280x609: the RAMBO button is whole on the first screen (225-268 of 609)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1280x609: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1280x609: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1280x720: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1280x720: the RAMBO button is whole on the first screen (225-268 of 720)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1280x720: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1280x720: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 390x844: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 390x844: the RAMBO button is whole on the first screen (297-386 of 844)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 390x844: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1440x789: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1440x789: the RAMBO button is whole on the first screen (201-244 of 789)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1440x789: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1440x789: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1000x700: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1000x700: the RAMBO button is whole on the first screen (225-268 of 700)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1000x700: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1000x700: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1600x789: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1600x789: the RAMBO button is whole on the first screen (351-398 of 789)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1600x789: the bar does not scroll, so no hint is shown and all 18 tabs are on screen at once",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1366x657: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1366x657: the RAMBO button is whole on the first screen (225-268 of 657)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1366x657: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1366x657: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1280x609: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1280x609: the RAMBO button is whole on the first screen (225-268 of 609)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1280x609: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1280x609: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1280x720: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1280x720: the RAMBO button is whole on the first screen (225-268 of 720)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1280x720: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1280x720: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 390x844: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 390x844: the RAMBO button is whole on the first screen (297-386 of 844)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 390x844: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1440x789: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1440x789: the RAMBO button is whole on the first screen (201-244 of 789)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1440x789: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1440x789: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1000x700: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1000x700: the RAMBO button is whole on the first screen (225-268 of 700)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1000x700: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1000x700: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1600x789: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1600x789: the RAMBO button is whole on the first screen (351-398 of 789)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1600x789: the bar does not scroll, so no hint is shown and all 18 tabs are on screen at once",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

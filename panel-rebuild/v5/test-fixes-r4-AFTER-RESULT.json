@@ -101,7 +101,7 @@
   },
   {
    "id": "F5",
-   "name": "shipped data (no data) 1366x657: the whole RAMBO button is on the first screen (top 133, bottom 176 of 657)",
+   "name": "shipped data (no data) 1366x657: the whole RAMBO button is on the first screen (top 210, bottom 253 of 657)",
    "status": "PASS",
    "why": ""
   },
@@ -113,13 +113,13 @@
   },
   {
    "id": "F5",
-   "name": "shipped data (no data) 1366x657: the tab bar is one compact row (height 70), scrollable",
+   "name": "shipped data (no data) 1366x657: the tab bar is one compact row (height 87), scrollable",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "F5",
-   "name": "shipped data (no data) 1280x609: the whole RAMBO button is on the first screen (top 133, bottom 176 of 609)",
+   "name": "shipped data (no data) 1280x609: the whole RAMBO button is on the first screen (top 210, bottom 253 of 609)",
    "status": "PASS",
    "why": ""
   },
@@ -131,13 +131,13 @@
   },
   {
    "id": "F5",
-   "name": "shipped data (no data) 1280x609: the tab bar is one compact row (height 70), scrollable",
+   "name": "shipped data (no data) 1280x609: the tab bar is one compact row (height 87), scrollable",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "F5",
-   "name": "shipped data (no data) 1280x720: the whole RAMBO button is on the first screen (top 133, bottom 176 of 720)",
+   "name": "shipped data (no data) 1280x720: the whole RAMBO button is on the first screen (top 210, bottom 253 of 720)",
    "status": "PASS",
    "why": ""
   },
@@ -149,13 +149,13 @@
   },
   {
    "id": "F5",
-   "name": "shipped data (no data) 1280x720: the tab bar is one compact row (height 70), scrollable",
+   "name": "shipped data (no data) 1280x720: the tab bar is one compact row (height 87), scrollable",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "F5",
-   "name": "shipped data (no data) 390x844: the whole RAMBO button is on the first screen (top 133, bottom 222 of 844)",
+   "name": "shipped data (no data) 390x844: the whole RAMBO button is on the first screen (top 282, bottom 371 of 844)",
    "status": "PASS",
    "why": ""
   },
@@ -167,13 +167,13 @@
   },
   {
    "id": "F5",
-   "name": "shipped data (no data) 390x844: the tab bar is one compact row (height 70), scrollable",
+   "name": "shipped data (no data) 390x844: the tab bar is one compact row (height 87), scrollable",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "F5",
-   "name": "fresh data 1366x657: the whole RAMBO button is on the first screen (top 133, bottom 176 of 657)",
+   "name": "fresh data 1366x657: the whole RAMBO button is on the first screen (top 210, bottom 253 of 657)",
    "status": "PASS",
    "why": ""
   },
@@ -185,13 +185,13 @@
   },
   {
    "id": "F5",
-   "name": "fresh data 1366x657: the tab bar is one compact row (height 70), scrollable",
+   "name": "fresh data 1366x657: the tab bar is one compact row (height 87), scrollable",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "F5",
-   "name": "fresh data 1280x609: the whole RAMBO button is on the first screen (top 133, bottom 176 of 609)",
+   "name": "fresh data 1280x609: the whole RAMBO button is on the first screen (top 210, bottom 253 of 609)",
    "status": "PASS",
    "why": ""
   },
@@ -203,13 +203,13 @@
   },
   {
    "id": "F5",
-   "name": "fresh data 1280x609: the tab bar is one compact row (height 70), scrollable",
+   "name": "fresh data 1280x609: the tab bar is one compact row (height 87), scrollable",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "F5",
-   "name": "fresh data 1280x720: the whole RAMBO button is on the first screen (top 133, bottom 176 of 720)",
+   "name": "fresh data 1280x720: the whole RAMBO button is on the first screen (top 210, bottom 253 of 720)",
    "status": "PASS",
    "why": ""
   },
@@ -221,13 +221,13 @@
   },
   {
    "id": "F5",
-   "name": "fresh data 1280x720: the tab bar is one compact row (height 70), scrollable",
+   "name": "fresh data 1280x720: the tab bar is one compact row (height 87), scrollable",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "F5",
-   "name": "fresh data 390x844: the whole RAMBO button is on the first screen (top 133, bottom 222 of 844)",
+   "name": "fresh data 390x844: the whole RAMBO button is on the first screen (top 282, bottom 371 of 844)",
    "status": "PASS",
    "why": ""
   },
@@ -239,7 +239,7 @@
   },
   {
    "id": "F5",
-   "name": "fresh data 390x844: the tab bar is one compact row (height 70), scrollable",
+   "name": "fresh data 390x844: the tab bar is one compact row (height 87), scrollable",
    "status": "PASS",
    "why": ""
   },
@@ -359,7 +359,7 @@
   },
   {
    "id": "F12",
-   "name": "the Codex CLI card has a Copy packet button and the sign-in click path (Windows Terminal, codex, the sign-in shortcut)",
+   "name": "the Codex CLI card has a Copy packet button and the sign-in click path (round 5: the desktop executor (RAMBO) runs Codex, and the sign-in shortcut; no typed command)",
    "status": "PASS",
    "why": ""
   },
@@ -389,13 +389,13 @@
   },
   {
    "id": "F14",
-   "name": "LOCAL steps do not hand Jorge a file-and-command job (no \"CLASS: line and a PROMPT: line\"); they say the desktop executor (RAMBO) does it",
+   "name": "LOCAL steps are click by click in File Explorer and send the packet nowhere else (round 5, N10: they used to hand it to RAMBO, which is Claude)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "F14",
-   "name": "GROK steps do not tell Jorge to run Second-Opinion.ps1 -Prompt; they say the desktop executor (RAMBO) runs it",
+   "name": "GROK steps do not tell Jorge to run Second-Opinion.ps1 -Prompt and (round 5, N10) do not route the packet through RAMBO",
    "status": "PASS",
    "why": ""
   },
@@ -407,13 +407,13 @@
   },
   {
    "id": "F14",
-   "name": "Copy packet and open for LOCAL: the status line hands Jorge no command or file path job (it said: Copied. Hand the packet to the desktop executor (RAMBO) with the blue RAMBO button at the )",
+   "name": "Copy packet and open for LOCAL: the status line hands Jorge no command or file path job (it said: Copied. Do not give this packet to any Claude window. Follow the steps on the LOCAL card: )",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "F14",
-   "name": "Copy packet and open for CODEX: the status line hands Jorge no command or file path job (it said: Copied. Open Windows Terminal, type codex, press Enter, then press Ctrl+V.)",
+   "name": "Copy packet and open for CODEX: the status line hands Jorge no command or file path job (it said: Copied. Follow the steps on the CODEX card. You type no command: the desktop executor (RAM)",
    "status": "PASS",
    "why": ""
   },
@@ -437,13 +437,13 @@
   },
   {
    "id": "F15",
-   "name": "repair row 10 keeps its words and shows the visible suffix \"(typed note 2026-10-02, Eastern time)\"",
+   "name": "repair row 10 keeps its words and shows the visible label (round 5, N15: only what was typed: the date, and that no zone was given)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "F15",
-   "name": "every clock time on the page carries a zone (EDT or EST) or the words \"Eastern time\" right after it",
+   "name": "every clock time on the page carries a zone (EDT or EST) right after it, except the typed 7:00 AM, which says no zone was given",
    "status": "PASS",
    "why": ""
   },

@@ -17,9 +17,10 @@ rep('css', '</style></head>', fs.readFileSync(__dirname + '/vtes5.css', 'utf8') 
 const SCRIPTS = ['heartbeat', 'bots', 'state', 'health', 'tokens', 'housekeeping', 'miamidade'].map(n => '<script src="data/vtes5-' + n + '.js"></script>').join('');
 rep('scripts', '<body>\n<div class="tabs" id="tabs"></div>', '<body>\n<script>window.VTES5_BUILT = "' + BUILT + '";</script><script src="vtes5-config.js"></script>' + SCRIPTS + '<script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>\n<div class="tabs" id="tabs"></div>');
 // --- top block, slots, 7th section ---
+rep('tabhint', '<div class="tabs" id="tabs"></div>\n', '<div class="tabs" id="tabs"></div>\n<div class="v5tabhint" id="v5tabhint"></div>\n');
 rep('top', 'autofocus>\n', 'autofocus>\n<div id="v5top"></div>\n');
 rep('leadlead', '<p class="lead">Maintained by hand in VTES-LLM-LAUNCHER_v3.html. Repairs and enhancements across Jorge\'s windows.</p>', '<p class="lead">TYPED LOG. Maintained by hand in VTES-LLM-LAUNCHER_v3.html; the last row was typed on 2026-10-02. Nothing in this table is checked by this page. Repairs and enhancements across Jorge\'s windows.</p>');
-rep('botslead', '<p class="lead">These run by themselves on the PC. Check any of them with Get-ScheduledTask.</p>\n<div class="grid" id="g-bots">', '<p class="lead">These run by themselves on the PC. The line on each card is read from a data file the PC writes (the Windows scheduler\'s own report); red NO DATA means nothing has written it yet. Check any of them with Get-ScheduledTask.</p>\n<div id="v5tokens"></div><div id="v5house"></div>\n<div class="grid" id="g-bots">');
+rep('botslead', '<p class="lead">These run by themselves on the PC. Check any of them with Get-ScheduledTask.</p>\n<div class="grid" id="g-bots">', '<p class="lead">These run by themselves on the PC. The line on each card is read from a data file the PC writes (the Windows scheduler\'s own report); red NO DATA means nothing has written it yet. The desktop executor (RAMBO) checks the tasks on the PC; you type nothing.</p>\n<div id="v5tokens"></div><div id="v5house"></div>\n<div class="grid" id="g-bots">');
 rep('repairslive', '</tbody></table>\n</div></div>\n', '</tbody></table>\n</div></div>\n<div id="v5repairs"></div>\n');
 rep('sect7', '<p class="sub" style="margin-top:30px">TRK-2026-9910-B v3 2026-10-02 CURRENT.', '<h2 id="miamidade">7. Miami-Dade: 22 public sources</h2>\n<p class="lead">Added in v5. Every link opens that source\'s proof file in Drive. The count says unknown until the PC counts.</p>\n<div id="v5miami"></div>\n\n<p class="sub" style="margin-top:30px">TRK-2026-9910-B &middot; v5 &middot; built <span id="v5fb"></span> &middot; CURRENT.');
 // --- tabs ---
@@ -46,6 +47,8 @@ rep('d9', 'The packet (editable before pasting)', 'The packet (read only: use th
 // --- defect 9 and D8 ---
 rep('stamp', 'new Date().toLocaleString()', 'window.VTES5.fmt(window.VTES5.now())');
 rep('win-grok', 'function win(id){', "WIN.push({id:'GROK',n:'GROK',url:'',how:'Paste the packet into grok.com. The desktop executor (RAMBO) can run Second-Opinion.ps1 for you.'});\nfunction win(id){");
+// N10: a note that looks like a Social Security number is kept out of every packet except one for LOCAL (the page's own rule: client personal data goes to LOCAL only)
+rep('guard', "note=$('note').value.trim()||'(no note typed", "note=window.VTES5U.guardNote($('note').value.trim(),t.id)||'(no note typed");
 // --- cards: the live cards replace the static ones (same data, same order) ---
 rep('render', "$('g-queued').innerHTML=QUEUED.map(", "VTES5U.renderAll(LLMS,ROLES,BOTS);\n$('g-queued').innerHTML=QUEUED.map(");
 // F10: the search matches only the text v3 matched (v3's own card text is kept in data-s by renderAll), never the live state lines
@@ -57,11 +60,13 @@ rep('url-llm06', "url:'https://chatgpt.com'", "url:''");
 // F13: AirDrop does not exist on a Windows PC
 rep('airdrop', 'Send the packet with AirDrop or Notes first.', 'Get the packet onto the iPhone first (see the steps on this card).');
 // F14: the line printed after "Copy packet and open" must not hand Jorge a command or a file job either (LOCAL, CODEX, RAMBO)
-rep('how-local', "how:'Save the packet as JOB-*.md in G:\\\\My Drive\\\\VTES-Inbox-LOCAL with CLASS: and PROMPT: lines.'", "how:'Hand the packet to the desktop executor (RAMBO) with the blue RAMBO button at the top; it saves the job file for you.'");
-rep('how-codex', "how:'Windows Terminal: codex exec \"<task>\" then paste.'", "how:'Open Windows Terminal, type codex, press Enter, then press Ctrl+V.'");
+rep('how-local', "how:'Save the packet as JOB-*.md in G:\\\\My Drive\\\\VTES-Inbox-LOCAL with CLASS: and PROMPT: lines.'", "how:'Do not give this packet to any Claude window. Follow the steps on the LOCAL card: save it as a JOB file in the VTES-Inbox-LOCAL folder.'");
+rep('how-codex', "how:'Windows Terminal: codex exec \"<task>\" then paste.'", "how:'Follow the steps on the CODEX card. You type no command: the desktop executor (RAMBO) runs Codex.'");
 rep('how-rambo', "how:'Save the packet as JOB-*.md in G:\\\\My Drive\\\\VTES-Inbox.'", "how:'Open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.'");
+// F14 (round 5): the LLM-06 card line and the status after "Copy packet and open" must not hand Jorge a typed command either
+rep('how-llm06', "how:'Windows Terminal, type codex, Enter, then Ctrl+V. First time: shortcut \"Codex - sign in (Jorge)\".'", "how:'You type no command: the desktop executor runs Codex for you (see the steps on this card). First time only: the shortcut \"Codex - sign in (Jorge)\".'");
 // F15: the typed schedule on repair row 10 keeps its words and gets a visible label
-rep('row10', '<td>Burn-rate agent installed, runs 7:00 AM daily</td>', '<td>Burn-rate agent installed, runs 7:00 AM daily <span class="v5typed">(typed note 2026-10-02, Eastern time)</span></td>');
+rep('row10', '<td>Burn-rate agent installed, runs 7:00 AM daily</td>', '<td>Burn-rate agent installed, runs 7:00 AM daily <span class="v5typed">(typed note 2026-10-02; the note gives no time zone, so this page cannot say which clock it means)</span></td>');
 // --- start: top block, first load of the data files, then every 60 seconds ---
 rep('init', "$('kind').value=5;choose();\n", "$('kind').value=5;choose();\nVTES5U.renderTop(window.VTES5_BUILT);VTES5U.measureHeader();window.addEventListener('resize',VTES5U.measureHeader);\nfunction v5tick(){window.VTES5.reload(function(){VTES5U.refresh(window.VTES5_BUILT);VTES5U.repaint()})}\nv5tick();setInterval(v5tick,60000);\n");
 const PKG = __dirname + '/package';

@@ -1,0 +1,23 @@
+// test-no-write-commands.js - fix round 5, part A (charter Rule 4, Tier 2): no script, document or package file may hold a copy, move, delete, create or write command,
+// and the install document must be the by-hand one. Usage: node test-no-write-commands.js [out.txt]. TRK-2026-9910-B
+const fs = require('fs'), path = require('path'); const H = __dirname; const out = []; let bad = 0;
+const say = (ok, m) => { out.push((ok ? 'PASS ' : 'FAIL ') + m); if (!ok) { bad++; } };
+const rd = f => fs.readFileSync(path.join(H, f), 'utf8');
+function walk(d, rel) { let o = []; for (const n of fs.readdirSync(path.join(H, d))) { const r = rel ? rel + '/' + n : n; const f = path.join(H, d, n); if (fs.statSync(f).isDirectory()) { o = o.concat(walk(d + '/' + n, r)); } else { o.push(d + '/' + n); } } return o; }
+// the commands: PowerShell cmdlets and .NET calls that write, copy, move, delete or create; shell and batch equivalents
+const RE = /\b(Copy-Item|Move-Item|Remove-Item|New-Item|Rename-Item|Set-Content|Add-Content|Out-File|Clear-Content|Set-ItemProperty|New-ItemProperty|Start-Transcript|Export-Csv|Export-Clixml|Tee-Object|robocopy|xcopy|File\]::(Write|Append|Copy|Move|Delete|Create|Replace)|Directory\]::(Delete|Move|CreateDirectory)|WriteAllText|WriteAllBytes|AppendAllText|FileMode\]::(Create|Append|Truncate|CreateNew|OpenOrCreate)|rmdir|mkdir)\b|(^|[\s;|&])(rm|del|erase|mv|cp|ren|md)\s+(-|\.|\/|\\|[A-Za-z]:|\$|")/im;
+const files = ['INSTALL-BY-HAND.md', 'DESKTOP-WORK.md', 'VERIFY-v5.ps1'].concat(walk('package', 'package').filter(f => !/MANIFEST/.test(f)));
+for (const f of files) { const t = rd(f); const noComment = f.endsWith('.ps1') ? t.split('\n').filter(l => !/^\s*#/.test(l)).join('\n') : t; const m = noComment.match(RE); say(!m, f + ': holds no copy, move, delete, create or write command' + (m ? ' (found: ' + m[0] + ')' : '')); }
+say(!fs.existsSync(path.join(H, 'INSTALL-AND-UNDO.md')), 'INSTALL-AND-UNDO.md (the copy and delete commands) is gone');
+say(!fs.existsSync(path.join(H, 'test-install-command.sh')), 'test-install-command.sh (the test of those commands) is gone');
+const ps = fs.readdirSync(H).filter(f => /\.ps1$/i.test(f)); say(ps.length === 1 && ps[0] === 'VERIFY-v5.ps1', 'the only PowerShell script in the folder is VERIFY-v5.ps1 (found: ' + ps.join(', ') + ')');
+const pk = walk('package', 'package').filter(f => /\.(ps1|bat|cmd|sh|vbs)$/i.test(f)); say(pk.length === 0, 'no script of any kind ships inside the package (found ' + pk.length + ')');
+const doc = rd('INSTALL-BY-HAND.md');
+const must = [['starts with the explicit path under G:\\My Drive\\MY-DESK\\VTES-PANEL\\', /G:\\My Drive\\MY-DESK\\VTES-PANEL\\/], ['says the folder is created by hand in File Explorer', /Create the NEW empty folder by hand/], ['copies by drag and drop', /drag and drop/i], ['never the Desktop', /never be the Desktop/], ['never a git checkout', /never inside a git checkout/],
+  ['runs VERIFY-v5.ps1', /VERIFY-v5\.ps1/], ['says there is nothing to undo because the real v3 is never touched', /There is nothing to undo, because the real v3 launcher is never touched/], ['says deleting the v5 folder is Jorge\'s decision, by hand, with his yes, never by a script', /Deleting the v5 folder is Jorge's decision\.\*\* It is done by hand[^.]*Jorge says yes[^.]*never by a script/s], ['asks the closing yes/no question', /\(yes\/no\)\s*$/m]];
+for (const [n, re] of must) { say(re.test(doc), 'INSTALL-BY-HAND.md ' + n); }
+const fences = (doc.match(/```/g) || []).length / 2; say(fences === 1, 'INSTALL-BY-HAND.md holds exactly one command block (the read-only VERIFY line): ' + fences);
+const block = (doc.match(/```\n([\s\S]*?)```/) || [, ''])[1]; say(/^powershell -NoProfile -ExecutionPolicy Bypass -File "FULL PATH OF VERIFY-v5\.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 [0-9a-f]{64}\s*$/.test(block), 'the one command block is only the VERIFY line, carrying a real 64-hex manifest hash');
+for (const f of ['DESKTOP-WORK.md', 'PORT-REPORT.md', 'TEST-REPORT.md', 'KNOWN-LIMITS.md', 'DATA-CONTRACT.md']) { say(!/INSTALL-AND-UNDO/.test(rd(f)), f + ' does not point at INSTALL-AND-UNDO.md'); }
+out.push(''); out.push('NO-WRITE-COMMANDS: ' + out.filter(l => l.startsWith('PASS')).length + ' of ' + out.filter(l => /^(PASS|FAIL)/.test(l)).length + ' checks pass');
+fs.writeFileSync(path.join(H, process.argv[2] || 'test-no-write-commands-RESULT.txt'), out.join('\n') + '\n'); console.log(out.filter(l => l.startsWith('FAIL')).join('\n') + '\n' + out[out.length - 1]); process.exit(bad ? 1 : 0);

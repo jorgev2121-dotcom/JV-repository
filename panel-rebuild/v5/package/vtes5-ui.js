@@ -2,10 +2,10 @@
    Static facts only here (names, how to open, typed notes with their date). NO status words are typed: state comes from VTES5 (data files). */
 (function () {
   var V = window.VTES5, esc = V.esc;
-  var GROK_NOT_BUILT = 'Grok is chat only. No Grok bot has been built (asked for many times, never built). Typed note, registry brief of 2026-10-06: Grok chat has been unproven for 31 days (not checked by this page).';
-  var GROK_BUILT = 'Grok is chat only. A Grok bot is reporting UP with proof. Typed note, registry brief of 2026-10-06: Grok chat has been unproven for 31 days (not checked by this page).';
+  /* flaw N13: the Grok history is a typed note, labelled with its date. The live sentence is the only part this page knows. */
+  var GROK_TYPED = 'Typed note, dated 2026-10-06 (carried from the v4 build, which cites the registry brief of 2026-10-06; not checked by this page): no Grok bot had been built, although one was asked for many times, and Grok chat had been unproven for 31 days.';
   function botsBuilt() { return V.executor('BOTS').state === 'OK'; }
-  function grokText() { return botsBuilt() ? GROK_BUILT : GROK_NOT_BUILT; }
+  function grokText() { return 'Grok is chat only. Live check: ' + (botsBuilt() ? 'a Grok bot is reporting UP with proof.' : 'no Grok bot is reporting UP with proof (' + V.executor('BOTS').text + ').') + ' ' + GROK_TYPED; }
   var NOTE_PRE = 'Typed note, not live: ';
   /* META: which data-file key gives the card its state (live), the plain click path for windows a web page cannot open (steps), the vtes:// fix sentence, typed notes.
      Every steps text is the v3 "how to open" line written out in plain words; whether it is still right on the PC is UNVERIFIED. */
@@ -24,16 +24,23 @@
       steps: ['Press the blue button to copy the packet on this PC.', 'Paste it into a new email to yourself and press Send (this page never sends anything for you).', 'On the iPhone, open that email and copy the packet.', 'Open the Claude app, tap in the message box and paste the packet.'],
       fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-05 and registers the vtes:// addresses.' },
     'LLM-06': { live: 'LLM-06', desk: 'Codex CLI',
-      steps: ['On the PC, open Windows Terminal.', 'Type codex and press Enter.', 'Press Ctrl+V.', 'First time only: double-click the desktop shortcut named "Codex - sign in (Jorge)" and follow the sign-in window that opens (typed from v3, UNVERIFIED on this PC).'],
+      steps: ['First time only: double-click the desktop shortcut named "Codex - sign in (Jorge)" and follow the sign-in window that opens (typed from v3, UNVERIFIED on this PC).',
+        'The desktop executor (RAMBO) opens Codex and runs the packet (UNVERIFIED that it can on this PC). You type no command. Open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.',
+        'Only if the note holds no client personal data. The page refuses to put an obvious Social Security number into this packet.'],
       fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-06 and registers the vtes:// addresses.' },
     'LLM-07': { live: 'LLM-07', grok: true, fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-07 and registers the vtes:// addresses.',
       next: 'Next step: RAMBO sends Grok one test message and writes the result into the heartbeat file; until then this card stays red.' },
     'LLM-08': { live: 'LLM-08', fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-08 and registers the vtes:// addresses.' },
     'LLM-09': { live: 'LLM-09', noaddr: true },
     'LOCAL': { live: 'LOCAL', bot: 'CU-Local-Executor', desk: 'LOCAL',
-      steps: ['There is no window. Press the button to copy the packet.', 'Hand it to the desktop executor (RAMBO): use the blue RAMBO button at the top, then tell it "save this as a LOCAL job". The desktop executor (RAMBO) writes the job file with its CLASS and PROMPT lines. You do not write the file or type a command.'] },
+      steps: ['There is no window. Press the button to copy the packet. It stays on this PC.',
+        'Do NOT paste this packet into any Claude window, into Cowork, into Codex or Grok, and do not press the blue RAMBO button for it: client personal data goes to LOCAL only and never leaves the PC.',
+        'In File Explorer, open Google Drive, open the folder VTES-Inbox-LOCAL, right-click an empty spot, click New, click Text Document, name it JOB-something.md, open it, press Ctrl+V and save.',
+        'The v3 page says the job file needs a line starting CLASS: and a line starting PROMPT: (typed from v3, UNVERIFIED). The packet does not have them. A helper that adds them, running only on this PC, is still to be built (DESKTOP-WORK).'] },
     'CODEX': { live: 'LLM-06', desk: 'CODEX',
-      steps: ['On the PC, open Windows Terminal.', 'Type codex and press Enter.', 'Press Ctrl+V.'],
+      steps: ['First time only: double-click the desktop shortcut named "Codex - sign in (Jorge)" and follow the sign-in window that opens (typed from v3, UNVERIFIED on this PC).',
+        'The desktop executor (RAMBO) opens Codex and runs the packet (UNVERIFIED that it can on this PC). You type no command. Open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.',
+        'Only if the note holds no client personal data. The page refuses to put an obvious Social Security number into this packet.'],
       s3: ' Proven 2026-10-01.',
       note: NOTE_PRE + 'v3 says "Proven 2026-10-01" (not checked by this page).' },
     'RAMBO': { live: 'LLM-01', tick: true, bot: 'CU-Inbox-Job-Watcher', desk: 'RAMBO',
@@ -41,19 +48,20 @@
       s3: ' About 75% of the Max quota was used on 2026-10-01; forecast to run out Saturday.',
       note: NOTE_PRE + 'on 2026-10-01 v3 said about 75% of the Max quota was used and forecast it to run out on a Saturday. That date has passed. The live burn rate is in the Token monitor panel under Bots.' },
     'GROK': { live: 'LLM-07', grok: true, desk: 'GROK',
-      steps: ['Press the button to copy the packet.', 'Open grok.com in your browser, click in the message box and press Ctrl+V.', 'If you want the Second-Opinion script used instead, hand the packet to the desktop executor (RAMBO) with the blue RAMBO button at the top. The desktop executor (RAMBO) runs it; you type nothing.'] },
+      steps: ['Press the button to copy the packet.', 'Open grok.com in your browser, click in the message box and press Ctrl+V.', 'Never for client personal data: that goes to LOCAL only. The page refuses to put an obvious Social Security number into this packet.'] },
     'COWORK': { live: 'LLM-03', desk: 'Cowork', toId: 'LLM-03',
       steps: ['On the PC, open the Claude desktop app (or click the orange X icon near the clock).', 'Click the Cowork tab.', 'Click in the message box.', 'Press Ctrl+V.'] },
     'CHIEF': { live: 'CHIEF', bot: 'CU-Orchestrator', nobtn: true }
   };
   var BOTKEY = { 'CU-Inbox-Job-Watcher': { live: null }, 'CU-Local-Executor': {}, 'CU-TokenMonitor-Hourly': {}, 'CU-Orchestrator': {}, 'CU-Propagation-Check': {}, 'VTES-LOCAL-POLLER': { tick: true } };
-  /* green only for OK; grey for UNPROVEN and NOT RUN; neutral blue for RUNNING (flaw F2); everything else is red */
-  function stCls(e) { return e.state === 'OK' ? 'ok' : ((e.state === 'UNPROVEN' || e.state === 'NOT RUN') ? 'unp' : (e.state === 'RUNNING' ? 'neu' : 'bad')); }
-  var RANK = { ok: 0, neu: 1, unp: 1, bad: 2 };
+  /* green only for OK; grey for UNPROVEN and NOT RUN; neutral blue for RUNNING and QUEUED (flaws F2, N17); grey-red for STUCK (flaw N2); everything else is red */
+  function stCls(e) { return e.state === 'OK' ? 'ok' : ((e.state === 'UNPROVEN' || e.state === 'NOT RUN') ? 'unp' : ((e.state === 'RUNNING' || e.state === 'QUEUED') ? 'neu' : (e.state === 'STUCK' ? 'stk' : 'bad'))); }
+  var RANK = { ok: 0, neu: 1, unp: 1, bad: 2, stk: 2 };
   /* flaw F6: a role card with its own bot shows ONE answer. The class is the worse of the window and the bot; the sentence names both. */
   function comboState(m) {
     var e = V.executor(m.live), b = V.bot(m.bot), ce = stCls(e), cb = stCls(b), cls = RANK[cb] > RANK[ce] ? cb : ce, txt;
-    if (e.state === 'OK' && b.state !== 'OK') { txt = 'The window is up (' + e.text + '), but its bot ' + m.bot + ' is not fine: ' + b.text; }
+    /* flaw N14: one sentence, one answer. "not fine" is said only when the bot really is red (failed, late, disabled, stuck, no data); a running, queued or not-yet-run bot is described by its own words. */
+    if (e.state === 'OK' && (cb === 'bad' || cb === 'stk')) { txt = 'The window is up (' + e.text + '), but its bot ' + m.bot + ' is NOT FINE: ' + b.text; }
     else { txt = e.text + ' Its bot ' + m.bot + ': ' + b.text; }
     return { cls: cls, html: '<b>State of ' + esc(m.live) + ':</b> ' + esc(txt) };
   }
@@ -96,7 +104,7 @@
     var cs = m.bot ? comboState(m) : { cls: stCls(e), html: '<b>State of ' + esc(m.live) + ':</b> ' + esc(e.text) };
     var body = '<div class="v5st ' + cs.cls + '" data-state="' + esc(w.id) + '"' + (m.bot ? ' data-botname="' + esc(m.bot) + '"' : '') + '>' + cs.html + '</div>' +
       '<p>' + j + '</p>' + (m.grok ? '<p class="v5note" data-grok="1">' + esc(grokText()) + '</p>' : '') + (m.note ? '<p class="v5note">' + esc(m.note) + '</p>' : '') +
-      '<div class="pool ' + esc(w.cls) + '">Pool: ' + esc(w.pool) + '</div><div class="tags">' + esc(w.t) + '</div>' + (w.a ? '<div class="addr">Address: <b>' + esc(w.a) + '</b></div>' : '') +
+      '<div class="pool ' + esc(w.cls) + '">Pool: ' + esc(w.pool) + '</div><div class="tags">' + esc(w.t) + '</div>' + (w.a ? '<div class="addr">' + (/^(codex exec|Second-Opinion\.ps1)/.test(w.a) ? 'Address (typed in v3; the desktop executor (RAMBO) runs it, you type nothing): ' : 'Address: ') + '<b>' + esc(w.a) + '</b></div>' : '') +
       big + (m.nobtn ? '' : '<button class="btn alt" data-to="' + esc(to === w.id ? w.id : to) + '" type="button">Hand work here</button>') +
       (big ? '<div class="v5na2">Steps:' + steps(m) + '</div>' : '') + '<div class="paste v5cs" data-cs="' + esc(w.id) + '" role="status"></div>';
     return card(w, m, body);
@@ -174,19 +182,32 @@
     'To hand work to RAMBO, press the big blue RAMBO button directly under the page title. Then open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.',
     'A web page cannot open a desktop app. So desktop windows have a Copy packet button and the exact steps, not an Open button.',
     'Tabs marked OLD PANEL go to a snapshot made on 2026-09-02. They are not live.',
+    'Client personal data goes to LOCAL only. If a note looks like a Social Security number, this page leaves it out of every packet except one for LOCAL (it catches only that obvious pattern).',
     'Words marked typed note were typed by hand on the date shown. This page does not check them.',
     'Every time is Eastern time with the zone. The year is added when it is not this year.'
   ];
+  /* flaw N10: the page's own rule is "Client personal data goes to LOCAL only". A note that looks like a Social Security number (123-45-6789, or ssn / social security followed by nine digits) is NOT put into a packet for any window except LOCAL. It catches only that obvious pattern (KNOWN-LIMITS). */
+  var PII_RE = /\b\d{3}[- ]\d{2}[- ]\d{4}\b|\b(ssn|social security)\b[^0-9]{0,20}\d{9}\b/i;
+  function guardNote(note, toId) {
+    if (toId === 'LOCAL' || !PII_RE.test(note || '')) { return note; }
+    return '(NOT INCLUDED: the note looks like client personal data, for example a Social Security number. This page keeps it out of every packet except one for LOCAL. Client personal data goes to LOCAL only.)';
+  }
   function num(x, suffix) { return (typeof x === 'number' && isFinite(x)) ? x + (suffix || '') : null; }
   function red(t) { return '<span class="v5b bad">' + esc(t) + '</span>'; }
   function val(x, suffix) { var n = num(x, suffix); return n === null ? red('NO DATA') : '<b>' + esc(n) + '</b>'; }
+  /* flaw N3: a number outside the range that can be true (below min, above max, or not whole when whole is asked) is shown in red as IMPOSSIBLE, never as a plain value */
+  function valR(x, suffix, min, max, whole) {
+    var n = num(x, suffix); if (n === null) { return red('NO DATA'); }
+    if (x < min || (max !== undefined && x > max) || (whole && Math.floor(x) !== x)) { return red('IMPOSSIBLE (' + n + ')'); }
+    return '<b>' + esc(n) + '</b>';
+  }
   function noNums(s) { return s.state === 'NO DATA' || s.state === 'BAD CLOCK' || (s.state === 'NOT OK' && !s.data); }
   function tokens() {
     var s = V.status('tokens'), d = s.data || {}, ok = s.state === 'OK';
-    var rows = (d.programs || []).map(function (p) { return '<tr><td>' + esc(p.name) + '</td><td>' + val(p.tokens_today) + '</td></tr>'; }).join('');
+    var rows = (d.programs || []).map(function (p) { return '<tr><td>' + esc(p.name) + '</td><td>' + valR(p.tokens_today, '', 0) + '</td></tr>'; }).join('');
     return '<div class="pn" id="pn-tokens"><h3>Token monitor (bot CU-TokenMonitor-Hourly)</h3><p>' + V.badge('tokens', 'Reporting') + '</p>' +
       (noNums(s) ? '<p>' + red(s.state === 'BAD CLOCK' ? 'BAD CLOCK' : 'NO DATA') + ' ' + (s.state === 'BAD CLOCK' ? 'The token report is dated in the future, so none of its numbers are shown.' : 'The token monitor has not written its report file (data\\vtes5-tokens.js). No burn rate is shown because none was measured.') + '</p>' :
-        '<p>Burn rate per hour: ' + val(d.burn_per_hour) + ' tokens. This window used: ' + val(d.window_used_pct, '%') + '. This week used: ' + val(d.week_used_pct, '%') + '. Window resets: ' + (V.fmtIso(d.window_resets_at) ? esc(V.fmtIso(d.window_resets_at)) : red('NO DATA')) + '.</p>' +
+        '<p>Burn rate per hour: ' + valR(d.burn_per_hour, '', 0) + ' tokens. This window used: ' + valR(d.window_used_pct, '%', 0, 100) + '. This week used: ' + valR(d.week_used_pct, '%', 0, 100) + '. Window resets: ' + (V.fmtIso(d.window_resets_at) ? esc(V.fmtIso(d.window_resets_at)) : red('NO DATA')) + '.</p>' +
         '<table><tr><th>Program</th><th>Tokens today</th></tr>' + (rows || '<tr><td colspan="2">' + red('NO DATA') + '</td></tr>') + '</table>' +
         (ok ? '' : '<p>' + red('These numbers are old. Do not trust them.') + '</p>')) + '</div>';
   }
@@ -194,17 +215,19 @@
     var s = V.status('housekeeping'), d = s.data || {};
     return '<div class="pn" id="pn-house"><h3>Housekeeping agent</h3><p>' + V.badge('housekeeping', 'Reported') + '</p>' +
       (noNums(s) ? '<p>' + red(s.state === 'BAD CLOCK' ? 'BAD CLOCK' : 'NO DATA') + ' ' + (s.state === 'BAD CLOCK' ? 'The housekeeping report is dated in the future, so it is not shown.' : 'No housekeeping report has ever been recorded here.') + ' Last report time: ' + red('NONE') + '.</p>' :
-        '<p>Last report: ' + (V.fmtIso(d.last_report_at) ? '<b>' + esc(V.fmtIso(d.last_report_at)) + '</b>' : red('NO DATA')) + '. Delivered: ' + (d.report_delivered === true ? '<b>yes</b>' : (d.report_delivered === false ? red('NO - not delivered') : red('UNKNOWN'))) + (d.delivered_to ? ' to ' + esc(d.delivered_to) : '') + '. Items cleaned: ' + val(d.items_cleaned) + '.</p>') + '</div>';
+        '<p>Last report: ' + (V.fmtIso(d.last_report_at) ? '<b>' + esc(V.fmtIso(d.last_report_at)) + '</b>' : red('NO DATA')) + '. Delivered: ' + (d.report_delivered === true ? '<b>yes</b>' : (d.report_delivered === false ? red('NO - not delivered') : red('UNKNOWN'))) + (d.delivered_to ? ' to ' + esc(d.delivered_to) : '') + '. Items cleaned: ' + valR(d.items_cleaned, '', 0, undefined, true) + '.</p>') + '</div>';
   }
   function health() {
     var s = V.status('health'), d = s.data || {}, st = V.status('state'), sd = (st.state === 'OK' || st.state === 'STALE') ? (st.data || {}) : {};
-    var pct = (typeof d.checks_passed === 'number' && typeof d.checks_total === 'number' && d.checks_total > 0) ? d.checks_passed + ' of ' + d.checks_total + ' health checks passed (' + Math.round(100 * d.checks_passed / d.checks_total) + '%)' : null;
+    var okCounts = typeof d.checks_passed === 'number' && typeof d.checks_total === 'number' && d.checks_total > 0 && d.checks_passed >= 0 && d.checks_passed <= d.checks_total && Math.floor(d.checks_passed) === d.checks_passed && Math.floor(d.checks_total) === d.checks_total;
+    var pct = okCounts ? d.checks_passed + ' of ' + d.checks_total + ' health checks passed (' + Math.round(100 * d.checks_passed / d.checks_total) + '%)' : null;
+    var impossible = (typeof d.checks_passed === 'number' && typeof d.checks_total === 'number' && !okCounts);
     var up = 0, seen = 0; V.ALL_IDS.forEach(function (id) { var e = V.executor(id); if (e.state === 'OK') { up++; } if (e.state !== 'NO DATA') { seen++; } });
     var money = (sd.money || []).map(function (m) { return '<li>' + esc(m.item) + ': ' + esc(m.status) + '</li>'; }).join('');
     return '<div class="pn" id="pn-health"><h3>Health and state</h3><p>' + V.badge('health', 'Report') + ' ' + V.badge('state', 'State') + '</p>' +
       '<p>Windows confirmed up now: ' + (seen === 0 ? red('NO DATA') + ' (no window has reported)' : '<b>' + up + ' of ' + V.ALL_IDS.length + '</b>') + '. This counts the windows and roles on this page, not tasks.</p>' +
-      '<p>Health report: ' + (pct ? '<b>' + esc(pct) + '</b>' : red('NO DATA')) + '. Daily report sent: ' + (V.fmtIso(d.report_sent_at) ? '<b>' + esc(V.fmtIso(d.report_sent_at)) + '</b>' : red('NO DATA')) + '.</p>' +
-      '<p>Open items: ' + val(sd.open_items) + '. In progress: ' + val(sd.in_progress) + '. Blocked: ' + val(sd.blocked) + '.</p>' +
+      '<p>Health report: ' + (pct ? '<b>' + esc(pct) + '</b>' : (impossible ? red('IMPOSSIBLE (' + d.checks_passed + ' of ' + d.checks_total + ')') : red('NO DATA'))) + '. Daily report sent: ' + (V.fmtIso(d.report_sent_at) ? '<b>' + esc(V.fmtIso(d.report_sent_at)) + '</b>' : red('NO DATA')) + '.</p>' +
+      '<p>Open items: ' + valR(sd.open_items, '', 0, undefined, true) + '. In progress: ' + valR(sd.in_progress, '', 0, undefined, true) + '. Blocked: ' + valR(sd.blocked, '', 0, undefined, true) + '.</p>' +
       '<p>Money items (read from the state file, not typed):</p>' + (money ? '<ul>' + money + '</ul>' : '<p>' + red('NO DATA') + '</p>') + '</div>';
   }
   function repairsLive() {
@@ -213,14 +236,14 @@
     return '<div class="pn" id="pn-repairs-live"><h3>Live repair rows (read from the state data file, none typed)</h3><p>' + V.badge('state', 'State') + '</p>' + (li ? '<ul>' + li + '</ul>' : '<p>' + red('NO DATA') + ' No data file supplies repair rows, so none are shown. The table above is the hand-typed log.</p>') + '</div>';
   }
   function miami() {
-    var s = V.status('miamidade'), d = s.data || {}, counted = (!noNums(s) && typeof d.counted === 'number') ? d.counted : null;
+    var s = V.status('miamidade'), d = s.data || {}, counted = (!noNums(s) && typeof d.counted === 'number') ? d.counted : null, impossible = counted !== null && (counted < 0 || counted > 300 || Math.floor(counted) !== counted);
     var fresh = s.state === 'OK', proof = {}; (fresh ? (d.sources || []) : []).forEach(function (x) { var k = ('0' + String(x.id).replace(/\D/g, '')).slice(-2); proof[k] = x; });
     var items = MD.map(function (r) {
       var p = proof[r[0]], chk = fresh ? (p ? (p.proof_ok === true ? ' <span class="v5b ok">proof checked</span>' : ' ' + red('PROOF NOT OK')) : ' ' + red('NOT RE-CHECKED')) : ' <span class="v5b na">proof not current (the Miami-Dade file is ' + esc(s.state) + ')</span>';
       return '<li><b>' + r[0] + ' ' + esc(r[1]) + '</b> - <a href="' + drive(r[2]) + '" target="_blank" rel="noopener">open proof file</a>' + (r[3] ? ' - <i class="v5typed">typed note from 2026-08-16, not re-checked: ' + esc(r[3]) + '</i>' : '') + chk + '</li>';
     }).join('');
     return '<div class="pn" id="pn-miami"><p>' + V.badge('miamidade', 'Counted') + '</p>' +
-      '<p>Counted so far: <b>' + (counted === null ? 'unknown' : counted) + ' of 300</b>' + (counted === null ? ' (not counted yet)' : '') + '.</p>' +
+      '<p>Counted so far: ' + (impossible ? red('IMPOSSIBLE (' + counted + ')') + ' of 300' : '<b>' + (counted === null ? 'unknown' : counted) + ' of 300</b>') + (counted === null ? ' (not counted yet)' : '') + '.</p>' +
       '<p>Each link opens that site\'s proof file in Drive. They are plain text files, not the Orange Tree portal. <a href="' + MD_INDEX + '" target="_blank" rel="noopener">Open the full index document</a>.</p><ol class="md">' + items + '</ol></div>';
   }
   var DASHFILES = ['heartbeat', 'bots', 'state', 'health', 'tokens', 'housekeeping', 'miamidade'];
@@ -230,7 +253,7 @@
   function setBuilt(builtIso) { var f = document.getElementById('v5fb'); if (f) { V.setText(f, V.builtText(builtIso)); } }
   function paintPanels() { PANELS.forEach(function (p) { V.setHtml(document.getElementById(p[0]), p[1]()); }); }
   window.VTES5U = {
-    MD: MD, META: META, grokText: grokText, botsBuilt: botsBuilt, botsSub: function () { return botsBuilt() ? 'UP (proof)' : 'NOT BUILT'; },
+    guardNote: guardNote, MD: MD, META: META, grokText: grokText, botsBuilt: botsBuilt, botsSub: function () { return botsBuilt() ? 'UP (proof)' : 'NOT BUILT'; },
     pasteTo: pasteTo, repaint: repaint,
     /* builds the three card grids from the v3 arrays and the top block; wires the big copy buttons */
     renderAll: function (LLMS, ROLES, BOTS) {
@@ -250,7 +273,16 @@
       });
     },
     /* measures the tab bar so anchor jumps leave the heading visible (see vtes5.css) */
-    measureHeader: function () { var t = document.getElementById('tabs'); if (t) { document.documentElement.style.setProperty('--hdr', t.offsetHeight + 'px'); } },
+    measureHeader: function () {
+      var t = document.getElementById('tabs'), h = document.getElementById('v5tabhint');
+      if (t) { document.documentElement.style.setProperty('--hdr', t.offsetHeight + 'px'); }
+      /* flaw N11: when the bar scrolls sideways (some tabs are off the right edge), say so in plain words, under the bar */
+      if (t && h) {
+        var hidden = t.scrollWidth > t.clientWidth + 2;
+        h.style.display = hidden ? 'block' : 'none';
+        V.setText(h, hidden ? 'There are ' + t.querySelectorAll('a.tab').length + ' tabs. Some are off the right edge: drag the bar under the tabs to the right, or hold Shift and turn the mouse wheel. The amber OLD PANEL tabs are at the end.' : '');
+      }
+    },
     renderTop: function (builtIso) {
       var age = V.ageLine(builtIso);
       /* flaw F5: the RAMBO button sits in its own slot directly under the page title (the build puts #v5rambo right after the h1), above "Read me first" */

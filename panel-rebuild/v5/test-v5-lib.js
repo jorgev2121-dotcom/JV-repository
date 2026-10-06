@@ -16,7 +16,7 @@ function fresh(base, o) {
     heartbeat: { schema: 1, at: at(hb, base), writer: 'fixture', interval_sec: o.interval === undefined ? 300 : o.interval, vtes_scheme_registered: o.registered === undefined ? true : o.registered, addresses_filled: { 'LLM-01': true, 'LLM-03': true }, executors: ex },
     bots: { schema: 1, at: at(1, base), writer: 'fixture', interval_sec: 300, bots },
     state: { schema: 1, at: at(30, base), open_items: 12, in_progress: 3, blocked: 2, repairs: [{ id: 'R1', text: 'Fixture repair row', status: 'OPEN' }], money: [{ item: 'Fixture invoice', status: 'staged' }] },
-    health: { schema: 1, at: at(30, base), ok: true, checks_passed: 9, checks_total: 12, report_sent_at: at(31, base) },
+    health: { schema: 1, at: at(30, base), ok: true, checks_passed: 12, checks_total: 12, report_sent_at: at(31, base) },
     tokens: { schema: 1, at: at(2, base), burn_per_hour: 41000, window_used_pct: 33, window_resets_at: at(-180, base), week_used_pct: 61, programs: [{ name: 'fixture-program', tokens_today: 1234 }] },
     housekeeping: { schema: 1, at: at(60, base), last_report_at: at(60, base), report_delivered: true, delivered_to: 'jorge', items_cleaned: 17 },
     miamidade: { schema: 1, at: at(20, base), counted: 7, target: 300, sources: [{ id: '01', proof_ok: true }, { id: '03', proof_ok: true }] }

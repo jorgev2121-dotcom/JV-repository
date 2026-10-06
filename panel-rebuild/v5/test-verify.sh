@@ -7,7 +7,7 @@
 PWD_DIR=${1:?pwsh dir}; W=${2:?work dir needed}; HERE=$(cd "$(dirname "$0")" && pwd); PKG=${PKG:-$HERE/package}
 REALV3=$(cd "$HERE/../v3-live" && pwd)/VTES-LLM-LAUNCHER_v3.html
 VER=$W/VERIFY-v5.ps1
-rm -rf "${W:?}"; mkdir -p "$W/fix" "$W/home" "$W/pw"; cp -a "$PWD_DIR"/. "$W/pw"/; cp "$HERE/VERIFY-v5.ps1" "$VER"; chmod -R a+rX "$W/pw" "$W"; chmod a+rwx "$W/home"
+rm -rf "${W:?}"; mkdir -p "$W/fix" "$W/home" "$W/pw"; cp -a "$PWD_DIR"/. "$W/pw"/; cp "${VSRC:-$HERE/VERIFY-v5.ps1}" "$VER"; chmod -R a+rX "$W/pw" "$W"; chmod a+rwx "$W/home"
 PW=$W/pw/pwsh; chmod a+x "$PW"; PASS=0; FAIL=0
 export HOME=$W/home USERPROFILE=$W/home DOTNET_CLI_HOME=$W/home
 chk() { if [ "$2" = "0" ]; then PASS=$((PASS+1)); echo "  PASS $1"; else FAIL=$((FAIL+1)); echo "  FAIL $1"; fi; }
@@ -25,6 +25,7 @@ V() { local lab=$1 want=$2; shift 2; snap $W/b.snap; local O; if [ "$AS" = nobod
   echo "$O" | grep -v '^Folder:\|^MANIFEST.sha256 SHA' | sed 's/^/    | /' | cut -c1-200; snap $W/a.snap
   has "$O" "exit=$want"; chk "$lab: exit code $want" $?; for m in "$@"; do has "$O" "$m"; chk "$lab: prints \"$m\"" $?; done
   if [ "$want" != "0" ]; then hasnot "$O" "OK: all"; chk "$lab: does NOT say OK" $?; fi
+  hasnot "$O" "Nothing was written anywhere"; chk "$lab: does not claim \"Nothing was written anywhere\" (flaw N18: a script cannot know that)" $?
   same $W/b.snap $W/a.snap; chk "$lab: VERIFY wrote nothing (whole fixture identical before and after)" $?; }
 AS=; EXTRA=
 echo "PowerShell: $("$PW" -NoProfile -c '$PSVersionTable.PSVersion.ToString()'); real v3: $(sha256sum "$REALV3" | cut -c1-64)"
@@ -63,7 +64,13 @@ echo "== V26 trailing slash, spaces and brackets in the path"; mk; mv $N "$W/fix
 echo "== V27 the real v3 launcher sits beside the package and is never read as part of it"; mk; ARGP=$N; V V27 0 "OK: all 11 of 11"; cmp -s "$REALV3" "$W/fix/Desktop/VTES-LLM-LAUNCHER_v3.html"; chk "V27b: the real v3 launcher in the fixture Desktop is byte-identical afterwards" $?
 echo "== V28 Verify pointed at the Desktop folder (not a package): reports problems, writes nothing"; mk; ARGP=$W/fix/Desktop; V V28 2 "MANIFEST.sha256 is missing"
 echo "== V29 a package file that is a folder"; mk; rm $N/vtes5-live.js; mkdir $N/vtes5-live.js; ARGP=$N; V V29 1 "NOT A FILE: vtes5-live.js"
+echo "== V31 a path with .. in it (flaw N19): clear sentence, no scrambled names"; mk; ARGP="$W/fix/Docs/x/../v5"; V V31 2 "CANNOT CHECK" 'contains ".."' "Give the plain full path"; ARGP="$W/fix/Docs/./v5"; V V31b 2 'contains "."'; ARGP="$W/fix/Docs/v5/.."; V V31c 2 'contains ".."'
+O=$(asroot -Path "$W/fix/Docs/x/../v5" 2>&1); hasnot "$O" "FEST.sha256"; chk "V31d: no scrambled file name such as FEST.sha256 in the answer" $?; hasnot "$O" "PROBLEMS"; chk "V31e: it does not print a PROBLEMS list for a path it refused" $?
+echo "== V32 a doubled separator in the path is read correctly (not scrambled)"; mk; ARGP="$W/fix/Docs//v5"; V V32 0 "OK: all 11 of 11"
+echo "== V33 the folder is inside a Desktop folder (flaw N5, caught after the fact)"; mk; cp -a $N "$W/fix/Desktop/v5copy"; ARGP="$W/fix/Desktop/v5copy"; V V33 1 "WRONG PLACE: the folder is inside a Desktop folder"
+echo "== V34 the folder is inside a git checkout (flaw N5, caught after the fact)"; mk; mkdir -p "$W/fix/Docs/repo/.git"; cp -a $N "$W/fix/Docs/repo/v5"; ARGP="$W/fix/Docs/repo/v5"; V V34 1 "WRONG PLACE: the folder is inside a git checkout"
+echo "== V35 the OK line and the closing line say only what the script can know"; mk; ARGP=$N; O=$(asroot -Path "$N" 2>&1); has "$O" "This script contains no write command."; chk "V35a: OK answer closes with the sentence about the script's own source" $?; hasnot "$O" "Nothing was written"; chk "V35b: no claim about everything on the machine" $?
 echo "== V30 the source script itself is ASCII only and has no write commands"
-LC_ALL=C grep -qP '[^\x00-\x7F]' "$HERE/VERIFY-v5.ps1"; [ $? -ne 0 ]; chk "V30a: VERIFY-v5.ps1 is pure ASCII" $?
-! grep -nEi 'Set-Content|Add-Content|Out-File|New-Item|Remove-Item|Copy-Item|Move-Item|Rename-Item|WriteAll|AppendAll|Start-Transcript|Set-ItemProperty|New-ItemProperty|\| *Set-|>>? *\$|FileMode\]::(Create|Append|Truncate|CreateNew|OpenOrCreate)' "$HERE/VERIFY-v5.ps1" | grep -v '^[0-9]*:#'; chk "V30b: no write command appears in VERIFY-v5.ps1 (outside comments)" $?
+LC_ALL=C grep -qP '[^\x00-\x7F]' "$VER"; [ $? -ne 0 ]; chk "V30a: VERIFY-v5.ps1 is pure ASCII" $?
+! grep -nEi 'Set-Content|Add-Content|Out-File|New-Item|Remove-Item|Copy-Item|Move-Item|Rename-Item|WriteAll|AppendAll|Start-Transcript|Set-ItemProperty|New-ItemProperty|\| *Set-|>>? *\$|FileMode\]::(Create|Append|Truncate|CreateNew|OpenOrCreate)' "$VER" | grep -v '^[0-9]*:#'; chk "V30b: no write command appears in VERIFY-v5.ps1 (outside comments)" $?
 echo; echo "VERIFY TESTS: $PASS of $((PASS+FAIL)) pass"; [ $FAIL -eq 0 ]

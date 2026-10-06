@@ -5,7 +5,8 @@
 # What it does: reads MANIFEST.sha256 inside the folder, recomputes the SHA-256 of every file the manifest lists, and prints either
 #   OK ...                    (every file is there, readable, identical, and nothing else is in the folder), or
 #   PROBLEMS (n) and one line per difference: MISSING, EDITED, UNREADABLE, EXTRA FILE, EXTRA FOLDER, LINK, BAD MANIFEST LINE, ...
-# What it never does: it writes NOTHING anywhere (no file, no folder, no log, no transcript, no registry). It only opens files for reading.
+# What it never does: this script contains no command that writes, copies, moves or deletes anything (a test, V30b, scans this source for such commands). It only opens files for reading.
+# It cannot speak for PowerShell itself: the PowerShell program may keep its own cache files outside the checked folder (flaw N18). The checked folder, its parent and the Desktop were identical before and after in every test run.
 # A file it cannot read or cannot hash is a PROBLEM (UNREADABLE). It is never counted as identical.
 # Exit codes: 0 = OK, 1 = at least one problem, 2 = it could not even start (no full path, folder missing, manifest missing or unreadable).
 # Data files (data\vtes5-*.js) are expected to change once a PC writer has started writing them; they are reported as EDITED like any other file, tagged (data file).
@@ -20,13 +21,15 @@ $problems = New-Object System.Collections.Generic.List[string]
 
 function Stop-Early([string]$why) {
     Write-Host ('CANNOT CHECK: ' + $why)
-    Write-Host 'Nothing was written anywhere. Nothing was changed.'
+    Write-Host 'This script contains no write command, so it changed nothing in the folder.'
     exit 2
 }
 
 # 1. a FULL path only. A short name would be resolved against whatever folder the program started in.
 $isFull = ($Path -match '^[A-Za-z]:[\\/]') -or ($Path -match '^\\\\[^\\]') -or ($isUnix -and $Path.StartsWith('/'))
 if (-not $isFull) { Stop-Early ('"' + $Path + '" is not a full path. Give the whole path, for example C:\Users\JV\OneDrive\Documents\VTES-PANEL-v5') }
+# flaw N19: "." and ".." in the path are refused with a plain sentence (they used to scramble the file names in the answer)
+foreach ($seg in ($Path -split '[\\/]')) { if ($seg -eq '..' -or $seg -eq '.') { Stop-Early ('the path "' + $Path + '" contains "' + $seg + '". Give the plain full path with no "." or ".." in it') } }
 $root = $Path.TrimEnd('\', '/')
 if (-not (Test-Path -LiteralPath $root -PathType Container)) { Stop-Early ('the folder "' + $root + '" does not exist (or is not a folder)') }
 
@@ -98,9 +101,11 @@ try {
 } catch {
     $all = @(); $problems.Add('UNREADABLE FOLDER: the folder list could not be read completely, so "nothing extra is in it" cannot be proven (' + $_.Exception.GetType().Name + ')')
 }
-$rootLen = $root.Length
+$rootFull = [IO.Path]::GetFullPath($root).TrimEnd('\', '/')
 foreach ($it in $all) {
-    $rel = $it.FullName.Substring($rootLen).TrimStart('\', '/').Replace('\', '/')
+    $itFull = [IO.Path]::GetFullPath($it.FullName)
+    if (-not $itFull.StartsWith($rootFull, [StringComparison]::OrdinalIgnoreCase)) { $problems.Add('PATH MISMATCH: ' + $it.FullName + ' does not start with ' + $rootFull + ' (not checked)'); continue }
+    $rel = $itFull.Substring($rootFull.Length).TrimStart('\', '/').Replace('\', '/')
     if ($rel -eq 'MANIFEST.sha256') { continue }
     $isLink = [bool]($it.Attributes -band [IO.FileAttributes]::ReparsePoint)
     if ($it.PSIsContainer) {
@@ -113,13 +118,23 @@ foreach ($it in $all) {
     }
 }
 
+# 5b. flaw N5: is this folder in a place it must never be? (read-only: it only looks)
+if ($root -match '[\\/]Desktop([\\/]|$)') { $problems.Add('WRONG PLACE: the folder is inside a Desktop folder. The Desktop is a launchpad, never storage.') }
+$up = $root
+while ($true) {
+    $parent = [IO.Path]::GetDirectoryName($up)
+    if ([string]::IsNullOrEmpty($parent) -or $parent -eq $up) { break }
+    if (Test-Path -LiteralPath (Join-Path $parent '.git')) { $problems.Add('WRONG PLACE: the folder is inside a git checkout (found .git in ' + $parent + ')'); break }
+    $up = $parent
+}
+
 # 6. the answer
 if ($problems.Count -eq 0) {
     Write-Host ('OK: all ' + $okCount + ' of ' + $entries.Count + ' package files are present, readable and identical (SHA-256), and nothing else is in the folder.')
-    Write-Host 'Nothing was written anywhere.'
+    Write-Host 'This script contains no write command.'
     exit 0
 }
 Write-Host ('PROBLEMS (' + $problems.Count + '); ' + $okCount + ' of ' + $entries.Count + ' package files are identical:')
 foreach ($p in $problems) { Write-Host ('  ' + $p) }
-Write-Host 'Nothing was written anywhere. Nothing was changed.'
+Write-Host 'This script contains no write command, so it changed nothing in the folder.'
 exit 1

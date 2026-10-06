@@ -46,7 +46,7 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
     const d = world === 'fresh data' ? stage(fresh(NOWMS)) : stage(null);
     for (const [w, h] of [[1366, 657], [1280, 609], [1280, 720], [390, 844]]) {
       const { ctx, p } = await open(br, d, { viewport: { width: w, height: h } });
-      const m = await p.evaluate(() => { const b = document.getElementById('v5rambobtn'), r = b.getBoundingClientRect(), t = document.getElementById('tabs'); const h1 = document.querySelector('h1'); const tops = [...t.querySelectorAll('a')].map(a => a.offsetTop); return { top: Math.round(r.top), bottom: Math.round(r.bottom), vh: innerHeight, tabsH: Math.round(t.getBoundingClientRect().height), oneRow: tops.every(x => x === tops[0]), scrolls: t.scrollWidth > t.clientWidth, afterH1: h1.nextElementSibling && h1.nextElementSibling.id, order: document.getElementById('v5rambo').compareDocumentPosition(document.getElementById('v5read')) & 4 }; });
+      const m = await p.evaluate(() => { const b = document.getElementById('v5rambobtn'), r = b.getBoundingClientRect(), t = document.getElementById('tabs'); const h1 = document.querySelector('h1'); const tops = [...t.querySelectorAll('a')].map(a => a.offsetTop); return { top: Math.round(r.top), bottom: Math.round(r.bottom), vh: innerHeight, tabsH: Math.round(t.getBoundingClientRect().height), oneRow: getComputedStyle(t).flexWrap === 'nowrap', scrolls: t.scrollWidth > t.clientWidth, afterH1: h1.nextElementSibling && h1.nextElementSibling.id, order: document.getElementById('v5rambo').compareDocumentPosition(document.getElementById('v5read')) & 4 }; });
       T('F5', world + ' ' + w + 'x' + h + ': the whole RAMBO button is on the first screen (top ' + m.top + ', bottom ' + m.bottom + ' of ' + m.vh + ')', m.top >= 0 && m.bottom <= m.vh, JSON.stringify(m));
       T('F5', world + ' ' + w + 'x' + h + ': the RAMBO block is the element directly after the title and comes before "Read me first"', m.afterH1 === 'v5rambo' && m.order === 4, JSON.stringify(m));
       T('F5', world + ' ' + w + 'x' + h + ': the tab bar is one compact row (height ' + m.tabsH + '), scrollable', m.oneRow && m.tabsH <= 90 && (w > 1000 ? m.scrolls : true), JSON.stringify(m));
@@ -110,7 +110,7 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
   { const { ctx, p, pops } = await open(br, stage(fresh(NOWMS)));
     const r = await p.evaluate(() => ({ links: [...document.querySelectorAll('a[href]')].map(a => a.getAttribute('href')).filter(h => /chatgpt\.com/.test(h)), btn: !!document.querySelector('#card-LLM-06 button.bigcopy'), steps: (document.querySelector('#card-LLM-06 .v5na2') || { textContent: '' }).textContent, open: !!document.querySelector('#card-LLM-06 a.btn') }));
     T('F12', 'no link anywhere on the page goes to chatgpt.com, and the Codex CLI card has no Open button', r.links.length === 0 && !r.open, JSON.stringify(r.links));
-    T('F12', 'the Codex CLI card has a Copy packet button and the sign-in click path (Windows Terminal, codex, the sign-in shortcut)', r.btn && /Windows Terminal/.test(r.steps) && /Codex - sign in \(Jorge\)/.test(r.steps), r.steps.slice(0, 200));
+    T('F12', 'the Codex CLI card has a Copy packet button and the sign-in click path (round 5: the desktop executor (RAMBO) runs Codex, and the sign-in shortcut; no typed command)', r.btn && /desktop executor \(RAMBO\)/.test(r.steps) && /Codex - sign in \(Jorge\)/.test(r.steps), r.steps.slice(0, 200));
     await stubCopy(p); if (r.btn) { await p.click('#card-LLM-06 button.bigcopy'); await sleep(p, 300); } const clip = await p.evaluate(() => window.__clip);
     T('F12', 'its button copies a packet addressed to LLM-06 and opens no new page', !!clip && /->  LLM-06 \(/.test(clip.split('\n')[0]) && ctx.pages().length === 1, String(clip).slice(0, 80));
     await p.selectOption('#to', 'LLM-06'); await p.evaluate(() => { window.__clip = null; }); await p.click('#go'); await sleep(p, 400);
@@ -122,8 +122,8 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
     T('F13', 'the iPhone card gives a step that works on a Windows PC (a new email to yourself)', /new email to yourself/.test(await p.innerText('#card-LLM-05')), '');
     const steps = async id => (await p.$$eval('#card-' + id + ' .v5na2', e => e.map(x => x.textContent).join(' ')));
     const local = await steps('LOCAL'), grok = await steps('GROK'), rambo = await steps('RAMBO');
-    T('F14', 'LOCAL steps do not hand Jorge a file-and-command job (no "CLASS: line and a PROMPT: line"); they say the desktop executor (RAMBO) does it', !/CLASS: line and a PROMPT: line/.test(local) && /desktop executor \(RAMBO\)/.test(local), local);
-    T('F14', 'GROK steps do not tell Jorge to run Second-Opinion.ps1 -Prompt; they say the desktop executor (RAMBO) runs it', !/run Second-Opinion\.ps1 -Prompt/.test(grok) && /desktop executor \(RAMBO\)/.test(grok) && /you type nothing/i.test(grok), grok);
+    T('F14', 'LOCAL steps are click by click in File Explorer and send the packet nowhere else (round 5, N10: they used to hand it to RAMBO, which is Claude)', /right-click/.test(local) && /Text Document/.test(local) && /VTES-Inbox-LOCAL/.test(local) && !/blue RAMBO button for it[^.]*\./.test(local.replace(/Do NOT[^.]*\./, '')), local);
+    T('F14', 'GROK steps do not tell Jorge to run Second-Opinion.ps1 -Prompt and (round 5, N10) do not route the packet through RAMBO', !/Second-Opinion\.ps1/.test(grok) && !/RAMBO/.test(grok.replace(/Steps:/, '')) && /grok\.com/.test(grok), grok);
     T('F14', 'RAMBO step "save a JOB file" is click by click (File Explorer, right-click, New, Text Document)', /right-click/.test(rambo) && /Text Document/.test(rambo) && !/save the packet as JOB-something\.md in G:/i.test(rambo), rambo);
     for (const [to, bad] of [['LOCAL', /CLASS:|JOB-\*\.md|G:\\/], ['CODEX', /codex exec|<task>/], ['RAMBO', /JOB-\*\.md|G:\\/], ['GROK', /Second-Opinion\.ps1 -Prompt/]]) {
       await p.selectOption('#to', to); await p.click('#go'); await sleep(p, 300); const stt = await p.innerText('#status');
@@ -133,9 +133,9 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
   // ---------- F15: repair row 10 and times with no zone
   { const { ctx, p } = await open(br, stage(fresh(NOWMS)));
     const rows = await p.$$eval('.repair-log tbody tr', e => e.map(x => x.innerText.replace(/\s+/g, ' ')));
-    T('F15', 'repair row 10 keeps its words and shows the visible suffix "(typed note 2026-10-02, Eastern time)"', rows.length === 12 && /Burn-rate agent installed, runs 7:00 AM daily \(typed note 2026-10-02, Eastern time\)/.test(rows[9]), rows[9]);
-    const body = (await p.innerText('body')).replace(/\s+/g, ' '); const bad = []; const re = /\b\d{1,2}:\d{2}\s?(AM|PM)\b/g; let m; while ((m = re.exec(body))) { const tail = body.slice(m.index, m.index + 70); if (!/\b(EDT|EST)\b/.test(tail.slice(0, 20)) && !/Eastern time/.test(tail)) { bad.push(tail); } }
-    T('F15', 'every clock time on the page carries a zone (EDT or EST) or the words "Eastern time" right after it', bad.length === 0, bad.join(' | '));
+    T('F15', 'repair row 10 keeps its words and shows the visible label (round 5, N15: only what was typed: the date, and that no zone was given)', rows.length === 12 && /Burn-rate agent installed, runs 7:00 AM daily \(typed note 2026-10-02; the note gives no time zone/.test(rows[9]), rows[9]);
+    const body = (await p.innerText('body')).replace(/\s+/g, ' '); const bad = []; const re = /\b\d{1,2}:\d{2}\s?(AM|PM)\b/g; let m; while ((m = re.exec(body))) { const tail = body.slice(m.index, m.index + 70); if (!/\b(EDT|EST)\b/.test(tail.slice(0, 20)) && !/typed note 2026-10-02; the note gives no time zone/.test(tail)) { bad.push(tail); } }
+    T('F15', 'every clock time on the page carries a zone (EDT or EST) right after it, except the typed 7:00 AM, which says no zone was given', bad.length === 0, bad.join(' | '));
     const pk = fs.readdirSync(L.PKG, { recursive: true }).filter(f => fs.statSync(path.join(L.PKG, f)).isFile()); const stamps = pk.filter(f => /\d{4}-\d\d-\d\d_\d{4}/.test(fs.readFileSync(path.join(L.PKG, f), 'utf8')));
     T('F15', 'no package file holds an installer-style time with no zone (YYYY-MM-DD_HHMM)', stamps.length === 0, stamps.join(','));
     await ctx.close(); }

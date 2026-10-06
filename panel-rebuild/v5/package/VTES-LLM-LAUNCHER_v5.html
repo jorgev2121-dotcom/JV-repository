@@ -40,6 +40,7 @@ html{scroll-behavior:smooth}
 .v5b.na{background:#eceae4;color:#4a4a47;border:2px dashed #8a8a84}
 .v5st{font-size:16px;margin:0 0 8px;padding:4px 8px;border-radius:8px}.v5st.ok{background:#e3f3e8;color:#1d6b3b;font-weight:700}.v5st.bad{background:#fdeceb;color:#b3261e;font-weight:700}
 .v5st.neu{background:#e8f0f8;color:#173f66;font-weight:700;border:2px solid #1b5e9e}
+.v5st.stk{background:#e8d3d0;color:#6b1812;font-weight:800;border:3px solid #8a2d1f}
 .v5st.unp{background:#eceae4;color:#3a3a37;font-weight:700;border:2px dashed #8a8a84}
 .v5na{display:block;background:#fff8e6;border:2px dashed #e0a100;border-radius:10px;padding:8px 10px;font-size:15px;color:#5b3d00}
 .v5na2{background:#eef4fb;border:2px solid #1b5e9e;border-radius:10px;padding:6px 12px;margin:8px 0;font-size:16px}.v5na2 ol,.v5steps{margin:4px 0 4px 22px;padding:0}
@@ -55,17 +56,21 @@ button.btn{border:0;cursor:pointer}.btn.bigcopy{font-size:20px;padding:14px 18px
 .pn table{border-collapse:collapse;font-size:16px}.pn td,.pn th{border:1px solid var(--line);padding:3px 8px;text-align:left}
 ol.md{margin:6px 0 0 22px;padding:0}ol.md li{margin:4px 0}
 .v5old{background:#f3f1ea;border:2px dashed #6b6b66;border-radius:10px;padding:8px 12px;font-size:15px;color:#3a3a37;margin:6px 0}
-.tab.panel{font-size:13px;padding:5px 10px}
+.tab.panel{font-size:14px;padding:5px 10px}
 /* flaw F9: the OLD PANEL label is the only warning on those tabs: 14 px, bold, dark brown on pale amber (contrast about 11 to 1) */
 .tab small{display:block;font-size:14px;font-weight:800;line-height:1.25;color:#3d1a00;background:#ffe3a3;border-radius:6px;padding:1px 6px;margin-top:3px;white-space:nowrap}
 /* the sticky tab bar is taller now (each old tab carries its label). Its height is measured by vtes5-ui.js into --hdr so a jump to a section never hides the heading under the bar; on narrow windows the bar is not sticky at all. */
 h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 @media(max-width:1150px){.tabs{position:static}h2[id],[id]{scroll-margin-top:12px}}
-/* flaw F5: on laptops and phones the tab bar is ONE compact row that scrolls sideways, so the RAMBO paste button (directly under the title) is on the first screen. Wide screens keep the wrapped bar. */
-@media(max-width:1500px){.tabs{flex-wrap:nowrap;overflow-x:auto;padding:6px 0;gap:6px;-webkit-overflow-scrolling:touch}.tab{flex:0 0 auto;white-space:nowrap}h1{margin:8px 0 2px;font-size:26px}.v5rambo .btn{font-size:19px;padding:10px 14px;margin:0}}
+/* flaws F5 and N11: on laptops and phones the tab bar is ONE compact row with a thick scroll bar that is always drawn, and a plain hint line says what is hidden. The 8 live tabs come first (order:1) so STATUS, REPAIRS and MIAMI-DADE are never hidden; the 10 OLD PANEL tabs follow (order:2). The RAMBO paste button, directly under the title, stays on the first screen. Wide screens keep the wrapped v3 bar. */
+.v5tabhint{display:none;font-size:16px;font-weight:700;color:#3d1a00;background:#ffe3a3;border-radius:8px;padding:4px 10px;margin:4px 0}
+@media(max-width:1500px){.tabs{flex-wrap:nowrap;align-items:center;overflow-x:scroll;scrollbar-width:auto;scrollbar-color:#1b5e9e #d9d5cc;padding:6px 0 4px;gap:6px}.tabs::-webkit-scrollbar{height:16px}.tabs::-webkit-scrollbar-track{background:#d9d5cc;border-radius:8px}.tabs::-webkit-scrollbar-thumb{background:#1b5e9e;border-radius:8px;border:2px solid #d9d5cc}.tab{flex:0 0 auto;white-space:nowrap}.tab.here{order:1}.tab.panel{order:2}.tab small{white-space:normal;max-width:190px}h1{margin:8px 0 2px;font-size:26px}.v5rambo .btn{font-size:19px;padding:10px 14px;margin:0}}
+/* flaw N12: the OLD PANEL warning is never under 14 px: the PANEL and INDEX corner buttons (12 px in v3) too */
+#vtes-back-to-panel a{font-size:14px}
 </style></head><body>
-<script>window.VTES5_BUILT = "2026-10-06T10:38:19Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
+<script>window.VTES5_BUILT = "2026-10-06T11:33:21Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
 <div class="tabs" id="tabs"></div>
+<div class="v5tabhint" id="v5tabhint"></div>
 <h1>VTES LLM Launcher</h1>
 <div class="v5rambo" id="v5rambo"></div>
 <p class="sub">Every AI window, bot and executor role, one search away. Type an ID (LLM-07), a hashtag (#grok), a name, or a job word (files, second opinion, classify, PII).</p>
@@ -97,7 +102,7 @@ h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 <div class="grid" id="g-roles"></div>
 
 <h2 id="bots">4. Bots: the scheduled agents</h2>
-<p class="lead">These run by themselves on the PC. The line on each card is read from a data file the PC writes (the Windows scheduler's own report); red NO DATA means nothing has written it yet. Check any of them with Get-ScheduledTask.</p>
+<p class="lead">These run by themselves on the PC. The line on each card is read from a data file the PC writes (the Windows scheduler's own report); red NO DATA means nothing has written it yet. The desktop executor (RAMBO) checks the tasks on the PC; you type nothing.</p>
 <div id="v5tokens"></div><div id="v5house"></div>
 <div class="grid" id="g-bots"></div>
 
@@ -118,7 +123,7 @@ h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 <tr><td>2026-10-02</td><td>WINDOWS</td><td>Every AI window now carries a title block in its caption</td><td>ADDED</td></tr>
 <tr><td>2026-10-02</td><td>SYSTEM</td><td>Clipboard history was ON and served stale pastes - turned OFF</td><td>FIXED</td></tr>
 <tr><td>2026-10-02</td><td>CODEX</td><td>AGENTS.md Board-of-5 gate made Codex refuse all work - corrected</td><td>FIXED</td></tr>
-<tr><td>2026-10-02</td><td>AGENTS</td><td>Burn-rate agent installed, runs 7:00 AM daily <span class="v5typed">(typed note 2026-10-02, Eastern time)</span></td><td>ADDED</td></tr>
+<tr><td>2026-10-02</td><td>AGENTS</td><td>Burn-rate agent installed, runs 7:00 AM daily <span class="v5typed">(typed note 2026-10-02; the note gives no time zone, so this page cannot say which clock it means)</span></td><td>ADDED</td></tr>
 <tr><td>2026-10-02</td><td>AGENTS</td><td>DD site runner built, 4 defects fixed, run across 4 capsules</td><td>ADDED</td></tr>
 <tr class="repair-open"><td>2026-10-02</td><td>PANEL</td><td>Nodes 1-11 still show a 2026-09-02 snapshot - 90 of 119 tasks disabled</td><td>OPEN</td></tr>
 </tbody></table>
@@ -138,7 +143,7 @@ var LLMS=[
 {id:'LLM-03',e:'\ud83e\udd1d',n:'Claude Cowork',r:'Analyst: long documents, CDM owner',j:'Deep analysis and long write-ups; the CDM funding model lives here. Can drive Chrome with your permission. It can send orders but cannot receive them from the bus.',pool:'Claude subscription',cls:'scarce',t:'#LLM-03 #COWORK #PASTE-X #CDM',a:'vtes://llm-03',url:'',how:'Claude desktop app, Cowork tab (or orange X tray icon), then Ctrl+V.',k:'cowork analyst long documents cdm comparative decision model chrome'},
 {id:'LLM-04',e:'\ud83d\udcac',n:'Claude Chat',r:'The cockpit: your seat',j:'Your main conversation. Dictate, approve, ask where things stand. Tells the executors what to do.',pool:'Claude subscription',cls:'scarce',t:'#LLM-04 #CHAT #COCKPIT',a:'vtes://llm-04',url:'https://claude.ai',how:'',k:'chat cockpit owner seat decisions approve dictate'},
 {id:'LLM-05',e:'\ud83d\udcf1',n:'Claude iPhone',r:'Voice: dictation on the go',j:'Same account as the cockpit. Say "AP-0088: GO" from the car and it counts.',pool:'Claude subscription',cls:'scarce',t:'#LLM-05 #IPHONE #voice',a:'vtes://llm-05',url:'',how:'On the iPhone, open the Claude app. Get the packet onto the iPhone first (see the steps on this card).',k:'iphone phone voice dictation approvals mobile'},
-{id:'LLM-06',e:'\ud83e\udded',n:'Codex CLI',r:'Code, HTML, scripts, files (ChatGPT pool)',j:'OpenAI agent on your PC. A separate pool from Claude, so it takes code and HTML work off the Claude quota. Same inbox rules.',pool:'ChatGPT subscription (not Claude)',cls:'free',t:'#LLM-06 #CODEX #BACKUP-EXEC',a:'vtes://llm-06',url:'',how:'Windows Terminal, type codex, Enter, then Ctrl+V. First time: shortcut "Codex - sign in (Jorge)".',k:'codex openai chatgpt backup executor second hands terminal cli code html scripts'},
+{id:'LLM-06',e:'\ud83e\udded',n:'Codex CLI',r:'Code, HTML, scripts, files (ChatGPT pool)',j:'OpenAI agent on your PC. A separate pool from Claude, so it takes code and HTML work off the Claude quota. Same inbox rules.',pool:'ChatGPT subscription (not Claude)',cls:'free',t:'#LLM-06 #CODEX #BACKUP-EXEC',a:'vtes://llm-06',url:'',how:'You type no command: the desktop executor runs Codex for you (see the steps on this card). First time only: the shortcut "Codex - sign in (Jorge)".',k:'codex openai chatgpt backup executor second hands terminal cli code html scripts'},
 {id:'LLM-07',e:'\ud83d\udd2e',n:'Grok (SuperGrok)',r:'Fabian: second opinion',j:'Sanity-checks Claude with the live web. Chat only; cannot write files. Paste a Drive link to hand it a file.',pool:'SuperGrok / paid xAI key',cls:'free',t:'#LLM-07 #GROK #FABIAN #second-opinion',a:'vtes://llm-07',url:'https://grok.com',how:'',k:'grok supergrok xai fabian second opinion sanity check live web'},
 {id:'LLM-08',e:'\u264a',n:'Gemini',r:'Volume drafter: free, Drive-native',j:'Cheap bulk drafting and summarizing. Gemini CLI can run headless on the PC under GEMINI.md.',pool:'Google account (free)',cls:'free',t:'#LLM-08 #GEMINI #google #volume',a:'vtes://llm-08',url:'https://gemini.google.com',how:'',k:'gemini google volume drafter cheap free drive native summarize cli'},
 {id:'LLM-09',e:'\ud83e\uddf0',n:'Thin API router',r:'Standby bridge only',j:'Routing bridge, never the main engine. Every API run is priced first and sent to you for approval.',pool:'API (priced, approved)',cls:'scarce',t:'#LLM-09 #API-ROUTER #standby',a:'',url:'',how:'Standby. Nothing to open.',k:'api router litellm bridge standby'}];
@@ -174,8 +179,8 @@ var PICK=[
 ['Long documents, CDM analysis','LLM-03','Cowork is the analyst. It cannot receive from the bus: you paste.'],
 ['Repo work, QC, research, dispatch','LLM-02','Cloud Claude Code. Cannot touch the PC.']];
 var WIN=[];LLMS.forEach(function(w){WIN.push({id:w.id,n:w.n,url:w.url,how:w.how})});
-WIN.push({id:'LOCAL',n:'LOCAL (Ollama)',url:'',how:'Hand the packet to the desktop executor (RAMBO) with the blue RAMBO button at the top; it saves the job file for you.'});
-WIN.push({id:'CODEX',n:'CODEX',url:'',how:'Open Windows Terminal, type codex, press Enter, then press Ctrl+V.'});
+WIN.push({id:'LOCAL',n:'LOCAL (Ollama)',url:'',how:'Do not give this packet to any Claude window. Follow the steps on the LOCAL card: save it as a JOB file in the VTES-Inbox-LOCAL folder.'});
+WIN.push({id:'CODEX',n:'CODEX',url:'',how:'Follow the steps on the CODEX card. You type no command: the desktop executor (RAMBO) runs Codex.'});
 WIN.push({id:'RAMBO',n:'CLAUDE / RAMBO',url:'',how:'Open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.'});
 WIN.push({id:'GROK',n:'GROK',url:'',how:'Paste the packet into grok.com. The desktop executor (RAMBO) can run Second-Opinion.ps1 for you.'});
 function win(id){return WIN.filter(function(w){return w.id===id})[0]}
@@ -194,7 +199,7 @@ PICK.forEach(function(p,i){var o=document.createElement('option');o.value=i;o.te
 WIN.forEach(function(w){['from','to'].forEach(function(s){var o=document.createElement('option');o.value=w.id;o.textContent=w.id+' \u00b7 '+w.n;$(s).appendChild(o)})});
 $('from').value='LLM-04';
 function choose(){var p=PICK[$('kind').value];$('to').value=p[1];$('why').textContent='Suggested: '+p[1]+'. '+p[2];refresh()}
-function packet(){var f=win($('from').value),t=win($('to').value),note=$('note').value.trim()||'(no note typed: ask Jorge what he wants done before doing anything)';
+function packet(){var f=win($('from').value),t=win($('to').value),note=window.VTES5U.guardNote($('note').value.trim(),t.id)||'(no note typed: ask Jorge what he wants done before doing anything)';
 return ['HANDOFF  '+f.id+' ('+f.n+')  ->  '+t.id+' ('+t.n+')   '+window.VTES5.fmt(window.VTES5.now()),'#handoff #'+f.id+' #'+t.id+' #JorgeValdes','',
 'WHO: Jorge Valdes. One-person business (Team USA Sales, Inc. / CU Inspections of South Florida). Not technical. He dictates and listens by text-to-speech.','',
 'TASK, IN HIS WORDS:',note,'',
