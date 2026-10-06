@@ -1,0 +1,15 @@
+routes: 369
+NO-TICK mode: 74052 of 74052 route checks right (204 notes)
+WRONG-TICK mode, personal notes: 42333 of 49368 route checks right
+  "SSN **123**-45-6789" via big copy button on card-LLM-01 (to LLM-01): CARRIED
+  "SSN **123**-45-6789" via big copy button on card-LLM-03 (to LLM-03): CARRIED
+  "SSN **123**-45-6789" via big copy button on card-LLM-05 (to LLM-05): CARRIED
+  "SSN **123**-45-6789" via big copy button on card-LLM-06 (to LLM-06): CARRIED
+  "SSN **123**-45-6789" via big copy button on card-CODEX (to CODEX): CARRIED
+  "SSN **123**-45-6789" via big copy button on card-RAMBO (to RAMBO): CARRIED
+  "SSN **123**-45-6789" via big copy button on card-GROK (to GROK): CARRIED
+  "SSN **123**-45-6789" via big copy button on card-COWORK (to LLM-03): CARRIED
+WRONG-TICK mode, ordinary notes: 18876 of 18876 route checks right
+WRONG-TICK mode, CANNOT-CATCH notes (disclosed limit, not counted): carried on 5025 of 5808 route checks
+tick behaviour: {"goEnabledAfterTick":true,"resetOnNote":true,"reTicked":true,"resetOnRoute":true,"localNeedsNoTick":true,"emptyNoteNeedsNoTick":true}
+PRIVACY MATRIX R8: NO-TICK 74052 of 74052; WRONG-TICK personal 42333 of 49368, ordinary 18876 of 18876; tick behaviour ok; page errors 0 (136 personal + 52 ordinary + 16 cannot-catch notes x 369 routes)

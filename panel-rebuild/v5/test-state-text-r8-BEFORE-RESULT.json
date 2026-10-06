@@ -1,0 +1,50 @@
+{
+ "test": "test-state-text-r8",
+ "worlds": 9,
+ "tick_states": 3,
+ "routes": 8,
+ "groups": {
+  "S2 no Open button needs no link": {
+   "n": 756,
+   "ok": 504
+  },
+  "S3 never both": {
+   "n": 924,
+   "ok": 672
+  },
+  "S4 phone card": {
+   "n": 189,
+   "ok": 147
+  },
+  "S7 press X names an enabled button": {
+   "n": 1323,
+   "ok": 612
+  },
+  "S8 reason line matches the button": {
+   "n": 2268,
+   "ok": 2268
+  },
+  "page": {
+   "n": 12,
+   "ok": 12
+  },
+  "S1 one click needs a link": {
+   "n": 420,
+   "ok": 420
+  },
+  "Q1 queued status matches the button": {
+   "n": 36,
+   "ok": 21
+  },
+  "Q2 a status is shown after a queued click": {
+   "n": 36,
+   "ok": 36
+  },
+  "Q3 when the button is enabled the status says ready": {
+   "n": 21,
+   "ok": 21
+  }
+ },
+ "pass": 4713,
+ "total": 5985
+}

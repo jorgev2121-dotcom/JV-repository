@@ -1,0 +1,365 @@
+{
+ "test": "test-claims-r8",
+ "root": "/tmp/claude-0/-home-user-JV-repository/3e2a0929-716b-5dcd-84cd-81a64869e8ab/scratchpad/before/panel-rebuild/v5",
+ "docs_covered": false,
+ "claims": 30,
+ "sentences_extracted": {
+  "readme": 27,
+  "queued": 4,
+  "queued-status": 12,
+  "card": 12,
+  "verify-header": 39,
+  "verify-msgs": 75,
+  "install": 95,
+  "contract": 162,
+  "limits": 216
+ },
+ "pass": 16,
+ "total": 42,
+ "untested": 0,
+ "rows": [
+  {
+   "id": "R1",
+   "src": "readme",
+   "where": "Read me item 1",
+   "sentence": "This page is built on your v3 launcher. Everything from v3 is still here except one link: the Open Codex CLI link to chatgpt.com, which was removed on purpose because Codex runs on your PC, not in a web page.",
+   "status": "FAIL",
+   "evidence": "the sentence says only one thing from v3 was changed, but 32 places of v3 text were changed, added to or removed by the build (title, leadlead, botslead, sect7, tabs-render, panel-btn, index-btn, url-llm02 ...)"
+  },
+  {
+   "id": "R2",
+   "src": "readme",
+   "where": "Read me item 2",
+   "sentence": "A red box that says NO DATA means nothing on the PC has reported yet. Red is the truth, not a bug.",
+   "status": "PASS",
+   "evidence": "23 NO DATA marks, 0 not red"
+  },
+  {
+   "id": "R3",
+   "src": "readme",
+   "where": "Read me item 3",
+   "sentence": "Green appears only when a fresh report file with proof says so. Grey NOT PROVEN means only the simple status writer said up, and it checks nothing.",
+   "status": "PASS",
+   "evidence": "no data: 0 green marks; stale world: 0 of 4 stale reports shown green (7 strip entries read); fresh world: 22 green cards"
+  },
+  {
+   "id": "R3b",
+   "src": "readme",
+   "where": "Read me item 3",
+   "sentence": "Green appears only when a fresh report file with proof says so. Grey NOT PROVEN means only the simple status writer said up, and it checks nothing.",
+   "status": "PASS",
+   "evidence": "v5st unp | State: WRITER SAYS UP, NOT PROVEN - the simple status writer stamped up at Oct 6, 1:59 PM EDT but it checks nothing"
+  },
+  {
+   "id": "R4",
+   "src": "readme",
+   "where": "Read me item 4",
+   "sentence": "To hand work to RAMBO, press the big blue RAMBO button directly under the page title. Then open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.",
+   "status": "FAIL",
+   "evidence": "button under the title: {\"next\":\"v5rambo\",\"inside\":true,\"disabled\":false,\"cls\":\"btn\"}; S7 press X names an enabled button: 612 of 1323 - see test-state-text-r8 for the failing rows (the sentence does not mention the tick, so it is true only while the note is empty)"
+  },
+  {
+   "id": "R5",
+   "src": "readme",
+   "where": "Read me item 5",
+   "sentence": "A web page cannot open a desktop app. So desktop windows have a Copy packet button and the exact steps, not an Open button.",
+   "status": "FAIL",
+   "evidence": "S1 one click needs a link: 420 of 420; S3 never both: 672 of 924 - see test-state-text-r8 for the failing rows; S2 no Open button needs no link: 504 of 756 - see test-state-text-r8 for the failing rows"
+  },
+  {
+   "id": "R6",
+   "src": "readme",
+   "where": "Read me item 6",
+   "sentence": "Tabs marked OLD PANEL go to a snapshot made on 2026-09-02. They are not live.",
+   "status": "PASS",
+   "evidence": "10 old-panel tabs, each labelled OLD PANEL and pointing at the snapshot file"
+  },
+  {
+   "id": "R7a",
+   "src": "readme",
+   "where": "Read me item 7",
+   "sentence": "Before a note goes anywhere else, you must tick the box under the note box: \"This note has NO client personal data\".",
+   "status": "PASS",
+   "evidence": "buttons off when unticked: true, on when ticked: true"
+  },
+  {
+   "id": "R7a",
+   "src": "readme",
+   "where": "Read me item 7",
+   "sentence": "Until it is ticked, the copy and show buttons for that destination are switched off.",
+   "status": "PASS",
+   "evidence": "buttons off when unticked: true, on when ticked: true"
+  },
+  {
+   "id": "R7b",
+   "src": "readme",
+   "where": "Read me item 7",
+   "sentence": "The tick clears itself when you change the note or the To choice.",
+   "status": "PASS",
+   "evidence": "tick cleared on a note change: true, on a To change: true"
+  },
+  {
+   "id": "R7c",
+   "src": "readme",
+   "where": "Read me item 7",
+   "sentence": "Client personal data goes to LOCAL only.",
+   "status": "PASS",
+   "evidence": "LOCAL needs no tick (buttons enabled): true (that LOCAL needs a confirmed folder is a separate, live line on the LOCAL card)"
+  },
+  {
+   "id": "R8",
+   "src": "readme",
+   "where": "Read me item 8",
+   "sentence": "As a second check, this page looks at the DIGITS in your note. It leaves the note out when it finds a Social Security number, a card number, a bank, licence or passport number, or a date of birth written in many ways, including spelled out in words, split with commas, or hidden in base64 or hex. It can also leave out a harmless nine-digit number such as a permit number. It CANNOT catch names, home addresses, email addresses, phone numbers, or any identifier written without digits. Only the tick box and you stop those.",
+   "status": "FAIL",
+   "evidence": "nine digits: 24 of 30 samples caught;   the sentence says it catches nine digits but it MISSES: \"SSN **123**-45-6789\", \"ssn ~~123~~-45-6789\", \"ssn `123` `45` `6789`\"; card numbers: 7 of 7 samples caught; spelled-out words: 3 of 5 samples caught;   the sentence says it catches spelled-out words but it MISSES: \"ssn 123 apples 45 pears 6789\", \"ssn is 123 and then 45 and also 6789\"; split with commas: 3 of 3 samples caught; base64 or hex: 4 of 5 samples caught;   the sentence says it catches base64 or hex but it MISSES: \"0x31 0x32 0x33 0x34 0x35 0x36 0x37 0x38 0x39\"; date of birth: 2 of 5 samples caught;   the sentence says it catches date of birth but it MISSES: \"DOB: January second nineteen seventy\", \"date of birth: March third, nineteen eighty one\", \"DOB 01 02 1970\"; licence: 3 of 4 samples caught;   the sentence says it catches licence but it MISSES: \"FL DL S530 4607 5123 0\"; passport: 3 of 3 samples caught; bank: 3 of 3 samples caught; spellings the guard still misses: 7 of 8 known samples, in 5 categories;   the sentence does not name the category \"other languages\" that the guard misses;   the sentence does not name the category \"other scripts\" that the guard misses;   the sentence does not name the category \"letters between the digits\" that the guard misses;   the sentence does not name the category \"more than four words between the digit groups\" that the guard misses;   the sentence does not name the category \"encodings split into pieces\" that the guard misses"
+  },
+  {
+   "id": "R8b",
+   "src": "readme",
+   "where": "Read me item 8",
+   "sentence": "As a second check, this page looks at the DIGITS in your note. It leaves the note out when it finds a Social Security number, a card number, a bank, licence or passport number, or a date of birth written in many ways, including spelled out in words, split with commas, or hidden in base64 or hex. It can also leave out a harmless nine-digit number such as a permit number. It CANNOT catch names, home addresses, email addresses, phone numbers, or any identifier written without digits. Only the tick box and you stop those.",
+   "status": "PASS",
+   "evidence": "980 of 980 (note x route) cases had every copy and show button switched off while the box was not ticked"
+  },
+  {
+   "id": "R9",
+   "src": "readme",
+   "where": "Read me item 9",
+   "sentence": "The line \"WHOLE PAGE\" at the top of Live status is never greener than the worst card or panel on this page. If one card is red, it is not green.",
+   "status": "PASS",
+   "evidence": "6 worlds, WHOLE PAGE never greener than the worst card: 6 of 6"
+  },
+  {
+   "id": "R10",
+   "src": "readme",
+   "where": "Read me item 10",
+   "sentence": "Words marked typed note were typed by hand on the date shown. This page does not check them.",
+   "status": "PASS",
+   "evidence": "9 typed notes, 0 without a date"
+  },
+  {
+   "id": "R11",
+   "src": "readme",
+   "where": "Read me item 11",
+   "sentence": "Every time is Eastern time with the zone. The year is added when it is not this year.",
+   "status": "PASS",
+   "evidence": "Jul 4, 3:00 PM EDT | Jan 10, 3:00 PM EST | Jul 4, 2025, 3:00 PM EDT | Jan 10, 2027, 3:00 PM EST"
+  },
+  {
+   "id": "Q-head",
+   "src": "queued",
+   "where": "section 5",
+   "sentence": "Queued items: now one click each",
+   "status": "FAIL",
+   "evidence": "one click does not leave a usable packet on every item: the item needs the tick first for every route except LOCAL (Q1 queued status matches the button: 21 of 36 - see test-state-text-r8 for the failing rows)"
+  },
+  {
+   "id": "Q-lead",
+   "src": "queued",
+   "where": "section 5",
+   "sentence": "Each now sends a ready packet to the right lane.",
+   "status": "FAIL",
+   "evidence": "the page sent 0 requests when the queued button was pressed: it fills the packet box and never sends anything"
+  },
+  {
+   "id": "Q-gray",
+   "src": "queued",
+   "where": "section 5",
+   "sentence": "These were grayed out as NOT READY.",
+   "status": "FAIL",
+   "evidence": "a statement about an older page (v2) that no test on this page can prove: the real v3 file holds the words NOT READY only in this one sentence"
+  },
+  {
+   "id": "Q-gate",
+   "src": "queued",
+   "where": "section 5",
+   "sentence": "Items that need your call say so in the packet and wait for your GO.",
+   "status": "PASS",
+   "evidence": "3 queued items need your call; 0 of them do not say so in the packet"
+  },
+  {
+   "id": "Q-fill",
+   "src": "queued",
+   "sentence": "(no sentence matches)",
+   "status": "ABSENT-OK",
+   "evidence": "the sentence is not in the text (a retired or optional claim)"
+  },
+  {
+   "id": "Q-status",
+   "src": "queued-status",
+   "where": "status line after a queued click",
+   "sentence": "Packet ready for RAMBO.",
+   "status": "FAIL",
+   "evidence": "Q1 queued status matches the button: 21 of 36 - see test-state-text-r8 for the failing rows; Q3 when the button is enabled the status says ready: 21 of 21"
+  },
+  {
+   "id": "Q-status",
+   "src": "queued-status",
+   "where": "status line after a queued click",
+   "sentence": "Press Copy packet and open.",
+   "status": "FAIL",
+   "evidence": "Q1 queued status matches the button: 21 of 36 - see test-state-text-r8 for the failing rows; Q3 when the button is enabled the status says ready: 21 of 21"
+  },
+  {
+   "id": "Q-status",
+   "src": "queued-status",
+   "where": "status line after a queued click",
+   "sentence": "Packet ready for CODEX.",
+   "status": "FAIL",
+   "evidence": "Q1 queued status matches the button: 21 of 36 - see test-state-text-r8 for the failing rows; Q3 when the button is enabled the status says ready: 21 of 21"
+  },
+  {
+   "id": "Q-status",
+   "src": "queued-status",
+   "where": "status line after a queued click",
+   "sentence": "Packet ready for LOCAL.",
+   "status": "FAIL",
+   "evidence": "Q1 queued status matches the button: 21 of 36 - see test-state-text-r8 for the failing rows; Q3 when the button is enabled the status says ready: 21 of 21"
+  },
+  {
+   "id": "C-oneclick",
+   "src": "card",
+   "where": "card text",
+   "sentence": "Open Claude Code Desktop with one click (a shortcut the PC set up)",
+   "status": "FAIL",
+   "evidence": "S1 one click needs a link: 420 of 420; S2 no Open button needs no link: 504 of 756 - see test-state-text-r8 for the failing rows; S3 never both: 672 of 924 - see test-state-text-r8 for the failing rows; S4 phone card: 147 of 189 - see test-state-text-r8 for the failing rows"
+  },
+  {
+   "id": "C-oneclick",
+   "src": "card",
+   "where": "card text",
+   "sentence": "A web page cannot open a desktop app, so there is no Open button.",
+   "status": "FAIL",
+   "evidence": "S1 one click needs a link: 420 of 420; S2 no Open button needs no link: 504 of 756 - see test-state-text-r8 for the failing rows; S3 never both: 672 of 924 - see test-state-text-r8 for the failing rows; S4 phone card: 147 of 189 - see test-state-text-r8 for the failing rows"
+  },
+  {
+   "id": "C-oneclick",
+   "src": "card",
+   "where": "card text",
+   "sentence": "Open Claude Cowork with one click (a shortcut the PC set up)",
+   "status": "FAIL",
+   "evidence": "S1 one click needs a link: 420 of 420; S2 no Open button needs no link: 504 of 756 - see test-state-text-r8 for the failing rows; S3 never both: 672 of 924 - see test-state-text-r8 for the failing rows; S4 phone card: 147 of 189 - see test-state-text-r8 for the failing rows"
+  },
+  {
+   "id": "C-press",
+   "src": "card",
+   "where": "card text",
+   "sentence": "Press the blue button, then follow these steps:",
+   "status": "FAIL",
+   "evidence": "S7 press X names an enabled button: 612 of 1323 - see test-state-text-r8 for the failing rows"
+  },
+  {
+   "id": "C-press",
+   "src": "card",
+   "where": "card text",
+   "sentence": "Press the blue button to copy the packet on this PC.",
+   "status": "FAIL",
+   "evidence": "S7 press X names an enabled button: 612 of 1323 - see test-state-text-r8 for the failing rows"
+  },
+  {
+   "id": "C-press",
+   "src": "card",
+   "where": "card text",
+   "sentence": "Do NOT paste this packet into any Claude window, into Cowork, into Codex or Grok, and do not press the blue RAMBO button for it: client personal data goes to LOCAL only.",
+   "status": "FAIL",
+   "evidence": "S7 press X names an enabled button: 612 of 1323 - see test-state-text-r8 for the failing rows"
+  },
+  {
+   "id": "V-exit",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1:11 (header)",
+   "sentence": "Exit codes: 0 = OK, 1 = at least one problem, 2 = it could not even start (no full path, folder missing, manifest missing or unreadable, or a wrong switch).",
+   "status": "FAIL",
+   "evidence": "a wrong switch: header says exit 2, real exit 1 <-- WRONG; no -Path at all: not mentioned (real exit 1); a path that is not a full path: header says exit 2, real exit 2; a folder that does not exist: header says exit 2, real exit 2; a manifest that is missing: header says exit 2, real exit 2; a good package: header says exit 0, real exit 0; an edited file: header says exit 1, real exit 1"
+  },
+  {
+   "id": "V-link",
+   "src": "verify-msgs",
+   "where": "VERIFY-v5.ps1:217 (message)",
+   "sentence": "It was not followed and not opened.",
+   "status": "FAIL",
+   "evidence": "the folder itself is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG; the parent folder is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG; a data file is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG"
+  },
+  {
+   "id": "V-link",
+   "src": "verify-msgs",
+   "where": "VERIFY-v5.ps1:283 (message)",
+   "sentence": "is a link, not a plain file (not followed)",
+   "status": "FAIL",
+   "evidence": "the folder itself is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG; the parent folder is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG; a data file is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG"
+  },
+  {
+   "id": "V-link",
+   "src": "verify-msgs",
+   "where": "VERIFY-v5.ps1:334 (message)",
+   "sentence": "is a link (not followed, not in the manifest)",
+   "status": "FAIL",
+   "evidence": "the folder itself is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG; the parent folder is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG; a data file is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG"
+  },
+  {
+   "id": "V-link",
+   "src": "verify-msgs",
+   "where": "VERIFY-v5.ps1:353 (message)",
+   "sentence": "Not followed.",
+   "status": "FAIL",
+   "evidence": "the folder itself is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG; the parent folder is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG; a data file is a link: LINK reported, identical-count printed under PROBLEMS: true <-- WRONG"
+  },
+  {
+   "id": "V-utf16",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:22",
+   "sentence": "Do not use PowerShell's redirect symbol to save them: Windows PowerShell 5.1 re-encodes the bytes as UTF-16 and the check fails. Use a binary-safe way (your file tool, or a program that writes the bytes it reads from the git process).",
+   "status": "PASS",
+   "evidence": "no quoted VERIFY words in this sentence"
+  },
+  {
+   "id": "V-utf16",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:22",
+   "sentence": "VERIFY now REFUSES such a data file (BAD DATA FILE ... saved as UTF-16) instead of passing it.",
+   "status": "FAIL",
+   "evidence": "\"BAD DATA FILE ... saved as UTF-16\" (day one): VERIFY does not print \"BAD DATA FILE\""
+  },
+  {
+   "id": "V-utf16",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:49",
+   "sentence": "VERIFY-v5.ps1 was run under PowerShell 7.4.6 for Linux (test-verify.sh, 148 scenarios, result in test-verify-RESULT.txt; round 7: the data and settings files are checked as DATA, a fresh install is exact, and a pipe, a oversized file, a case-duplicate name, a manifest that is a link and a data file that is UTF-16, empty or holds injected script are all refused).",
+   "status": "PASS",
+   "evidence": "no quoted VERIFY words in this sentence"
+  },
+  {
+   "id": "V-okchanged",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:9",
+   "sentence": "Fix round 6 changes this document in four places: (1) where the package and VERIFY come from is written down (step 6, flaw 12); (2) the exact bytes are read from the branch with git show, never from a checkout that was switched to another branch (flaw 12); (3) file names are read back so a hidden extension cannot turn .md into .md.txt (flaw 10); (4) VERIFY now says OK when only the eight data and settings files changed (flaw 11), and says plainly when the cause is line endings or a link (flaws 12 and 5).",
+   "status": "FAIL",
+   "evidence": "a changed, valid data file on day one gives exit 1 and PROBLEMS, not OK"
+  },
+  {
+   "id": "V-ascii",
+   "src": "contract",
+   "where": "DATA-CONTRACT.md:30",
+   "sentence": "Pure ASCII.",
+   "status": "FAIL",
+   "evidence": "a UTF-8 accent under -AfterWriters: exit 0 (not refused); the same text written as \\u00e9: exit 0"
+  },
+  {
+   "id": "G-fetch",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:21",
+   "sentence": "Then run git fetch origin claude/panel-v5-port.",
+   "status": "FAIL",
+   "evidence": "fetch wrote 6 new files inside .git, moved the remote-tracking list: true, changed a working file or a branch: false; the sentence does not say it writes inside .git and does not say no working file or branch changes"
+  },
+  {
+   "id": "I-6d",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:3",
+   "sentence": "The only script left is VERIFY-v5.ps1.",
+   "status": "PASS",
+   "evidence": "not the 6d sentence"
+  }
+ ]
+}
