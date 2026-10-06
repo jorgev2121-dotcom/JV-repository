@@ -22,7 +22,7 @@
     'LLM-04': { live: 'LLM-04', fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-04 and registers the vtes:// addresses.' },
     'LLM-05': { live: 'LLM-05', desk: 'the iPhone',
       steps: ['The packet stays on this PC. Send it to the iPhone with AirDrop or Notes.', 'On the iPhone, open the Claude app.', 'Click in the message box.', 'Paste the packet.'],
-      fix: 'Nothing for you to do. The iPhone has no address on this PC; there is nothing to register.', noaddr: true },
+      fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-05 and registers the vtes:// addresses.' },
     'LLM-06': { live: 'LLM-06', fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-06 and registers the vtes:// addresses.' },
     'LLM-07': { live: 'LLM-07', grok: true, fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-07 and registers the vtes:// addresses.',
       next: 'Next step: RAMBO sends Grok one test message and writes the result into the heartbeat file; until then this card stays red.' },
@@ -230,6 +230,8 @@
         });
       });
     },
+    /* measures the tab bar so anchor jumps leave the heading visible (see vtes5.css) */
+    measureHeader: function () { var t = document.getElementById('tabs'); if (t) { document.documentElement.style.setProperty('--hdr', t.offsetHeight + 'px'); } },
     renderTop: function (builtIso) {
       var age = V.ageLine(builtIso);
       document.getElementById('v5top').innerHTML = '<details class="v5read" id="v5read" open><summary>Read me first</summary><ol>' + READ.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol></details>' +

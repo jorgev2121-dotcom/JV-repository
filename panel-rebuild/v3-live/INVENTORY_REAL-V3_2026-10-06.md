@@ -14,7 +14,7 @@ PORT STEP 1 of 4. Window: CODE, CLOUD / WEB EXECUTOR. Model: Sonnet 5.5.
 1. 17 tabs. 7 are anchors on the page (LLMS, EXECUTORS, BOTS, HAND OFF, QUEUED, STATUS, REPAIRS); 10 are links to file:///C:/Users/JV/JV-repository/VTES-CONTROL-PANEL.html (APPROVALS, SESSIONS, JOBS, CAPSULES, BRIDGES, AGENTS, USAGE, PLAUD, CLIENTS, RULES).
 2. 9 LLM cards (LLM-01 to LLM-09), 6 role cards (LOCAL, CODEX, RAMBO, GROK, COWORK, CHIEF), 6 bots, 6 queued items, 9 picker rows.
 3. 6 sections in this order: 1 Hand work, 2 LLMs, 3 Executor roles, 4 Bots, 5 Queued, 6 Repairs.
-4. Repairs table: 11 data rows (the reference note said 12; the file has 11), all dated 2026-10-02, one OPEN.
+4. Repairs table: 12 rows (11 plain rows and 1 OPEN row marked class repair-open), all dated 2026-10-02. This matches the reference note (12 rows, one OPEN). My first count of 11 left out the OPEN row; corrected in step 4.
 5. 3 file:/// addresses in the source: the 10 tab links and the two PANEL / INDEX links at the bottom-left.
 
 ## Section C - The nine defects, each confirmed in the source

@@ -1,0 +1,58 @@
+# PORT-REPORT - the live layer ported onto Jorge's real launcher (v5) (TRK-2026-9910-B, 2026-10-06)
+
+SONNET 5.5 · PANEL V5 PORT. Window: CODE, CLOUD / WEB EXECUTOR. Model: Sonnet 5.5 (not Opus; the order assigned this work to me). Branch claude/panel-v5-port. Work only in panel-rebuild/v3-live/ and panel-rebuild/v5/. No Drive writes, no PC, no pull request.
+
+## Section A - Answer first
+1. **I read your real v3 launcher from Drive and it is a byte-exact copy:** 24,463 bytes, SHA-256 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6f6c333411fe3, the same as the manifest. The Drive connector can return the file's bytes, so no unescaping of the markdown version was needed.
+2. **Of the 9 defects in the brief: 6 FIXED, 3 PARTIAL, 0 NOT FIXED.** Of 5 more I found in the real v3: 4 FIXED, 1 PARTIAL, plus 1 NOT FIXED on purpose. The PARTIALs are about things this package cannot create (live data writers on the PC, the ten old panel sections), not about the page. Section B has each one with evidence.
+3. **Nothing of v3 was removed:** 166 of 166 comparison checks on the real page (all 9 LLM cards, 6 roles, 6 bots, 6 queued items, 9 picker rows, 17 tabs, 6 sections, 12 repair rows, the packet text). Nine phrases were edited on purpose; the test lists every one.
+4. **Install and rollback were run 81 times under PowerShell 7.4.6** with the SHA-256 of every file in the folder holding the real v3 launcher before and after: identical in every one.
+5. **I do not claim zero flaws.** Section D lists what I know is still open. One flaw means failure, so every open one is named.
+6. **Tests: 490 of 490 pass** (98 click, 129 data worlds, 166 nothing-lost, 16 before-and-after, 81 PowerShell) and 5 of 5 deliberate breaks were caught. See TEST-REPORT.md.
+
+## Section B - Every defect, with its verdict and evidence
+Evidence names a row in test-v3-before-RESULT.json ("before/after"), a click check, or a data world.
+
+**The nine in the brief**
+1. **RAMBO has no Open button. FIXED, with one limit.** A web page cannot launch a desktop app, so v5 gives LLM-01, LLM-03, LLM-05, the roles RAMBO, LOCAL, CODEX, GROK, COWORK and the top of the page a big "Copy packet for ..." button and the click path in numbered plain words, and says on the card why there is no Open button. Evidence: before/after row 1 (v3: "Hand work here" only; v5: copy button plus steps), 9 click checks (each puts the right packet on the clipboard). Limit: the click-path words come from v3's how-to line; "pick the session named RAMBO" is my wording, marked UNVERIFIED on the card.
+2. **vtes:// shown as plain text. FIXED.** A link appears only when the heartbeat says registered AND that window's address-book entry is filled; otherwise one sentence says what is missing. Evidence: data worlds W1 (0 links, 8 sentences) and W2 (links on LLM-01 and LLM-03 only), mutation M5 caught. Limit: that the link opens the right window is UNVERIFIED (needs the PC).
+3. **PANEL, INDEX and 10 tabs go to the stale 2026-09-02 snapshot. PARTIAL.** All 12 are labelled "OLD PANEL, snapshot of 2026-09-02, not live" on the tab or button itself (10 click checks, 2 corner checks, before/after row 3). They still go to the snapshot, as the brief ordered; building those ten sections natively is a later job (KNOWN-LIMITS 1).
+4. **LLM-02 hard-coded session address. FIXED.** It now opens the sessions list https://claude.ai/code and says UNVERIFIED which session is current. Before/after row 4. The old address no longer appears anywhere.
+5. **Contradictory typed timings. FIXED.** All five typed intervals and the "Hourly." sentence are gone (before/after row 5: v3 had 6 matches, v5 has 0). Every "check-in interval" and "scheduled every" sentence is read from the heartbeat or bots file, or says unknown (W1, W2, W6). One disclosed leftover: the bot's task name CU-TokenMonitor-Hourly contains "Hourly" because that is its real name; no sentence claims it.
+6. **Bots have no state. PARTIAL.** The page is fixed: a live line on each of the 6 bots, the token monitor's burn rate, window and week use, window reset and programs, and the housekeeping report's last-sent time, each red NO DATA when absent, and never invented (W1, W2, W3, W10, before/after row 6; the new bots file is in DATA-CONTRACT.md). **But no writer for these files exists yet, so until RAMBO builds them (DESKTOP-WORK items 5 and 7) you will see red NO DATA.** That is the true state. The housekeeping agent has still never sent a report.
+7. **Everything typed as if live. PARTIAL.** The two claims v3 stated as fact are now labelled typed notes with their date ("Proven 2026-10-01", the 75% quota forecast; I also say its "Saturday" has passed) and the Grok "31 days unproven" claim is labelled (before/after row 7, W11). **Not labelled one by one:** the other descriptions and how-to lines, which are descriptions rather than statuses, and facts inside them such as "Jorge asked twice" (KNOWN-LIMITS 14).
+8. **Repairs log hand-maintained. FIXED.** All 12 rows kept word for word, the section says TYPED LOG and when it was last typed, and live rows come only from the state data file (NO DATA until it exists). Before/after row 8, survives test.
+9. **Stamps without a zone. FIXED.** The packet's first line reads "Oct 6, 2:00 PM EDT" (EST in winter, year added when it is not this year). Before/after row 9, W12.
+
+**Five more, found by reading the real v3**
+- **D1 STATUS tab went to a one-line message. FIXED.** It now goes to a "Live status" block (age line, the 7 file badges, health, state, money). Before/after row D1.
+- **D8 the GROK role "Hand work here" button threw a page error.** (GROK was not in the To list.) **FIXED:** v5 adds GROK; error in v3, none in v5; click check on all 13 To entries. Before/after row D8.
+- **D9 the packet box label said "editable" but the box is read only. FIXED** (label corrected; the box stays read only because the buttons rebuild the packet). Before/after row D9.
+- **D10 every button was in tiny 13-pixel type** because v3's `font:700 16px inherit` is invalid CSS. **FIXED** (17 pixels bold; the big copy buttons 20). Before/after row D10.
+- **D3 the To list lacked GROK, COWORK and CHIEF. PARTIAL:** GROK added; the COWORK button sends to LLM-03; CHIEF has no window to receive a packet, so it has no button.
+- **D4 the packet's "No tables, no bullet lists" while the packet is dash lines. NOT FIXED, on purpose:** the packet text must survive unchanged.
+
+**From the v4 checkers' list (CHECK-4), as they apply to v5**
+- F1, F2, F5, F6, F7, F14, F15 (install and rollback edge cases): removed by design. v5 never edits, backs up or restores an existing file, so those classes cannot occur; scenarios S1 to S22 test the same situations. F5 stays PARTIAL for Windows junctions and `subst` drives (KNOWN-LIMITS 5).
+- F3 build time in the future, F4 Grok bots "UP" without proof, F8 slow ticks, F13 tiny intervals, F16 redraw wiping a selection: ported and tested (W4, W11, W6, W13). F9 (wrong state in the reload gap): ported as the same swap design; v5 has no site-check timer, so the original race cannot occur; there is no separate test that provokes it (PARTIAL evidence: W8, W9, W14 pass).
+- F10, F11 (the reminders bell) and F12 (site-check pings): not applicable, v3 has no bell and no pings (KNOWN-LIMITS 19).
+
+## Section C - What you now have
+Folder panel-rebuild/v5/: VTES-LLM-LAUNCHER_v5.html (28,176 bytes) with vtes5-live.js, vtes5-ui.js and 7 data files; INSTALL-v5.ps1 and ROLLBACK-v5.ps1 (ASCII, no admin) with INSTALL-v5.md and ROLLBACK-v5.md; DATA-CONTRACT.md; DESKTOP-WORK.md; KNOWN-LIMITS.md; TEST-REPORT.md; build-v5.js (rebuilds the page from the real v3 copy and refuses if its SHA-256 differs); the tests and their result files. The real v3 copy is in panel-rebuild/v3-live/ with INVENTORY_REAL-V3_2026-10-06.md.
+
+## Section D - What is NOT done or NOT proven (so nothing hides)
+1. **No data writers exist.** Until RAMBO builds them (DESKTOP-WORK), every light on the page is red NO DATA. The page is honest; it is not yet informative.
+2. **Not run on Windows, PowerShell 5.1, Edge, a real clipboard or real time.** The exact PC check for each is in KNOWN-LIMITS.md.
+3. **The ten old-panel sections are still the stale snapshot** (labelled).
+4. **Typed text is only partly labelled** (item 7 above).
+5. **The Desktop shortcut for v5 is not made:** that is a separate order for your yes.
+6. **The three other Desktop pages were never seen;** the PowerShell fixture uses stand-ins for them next to the real v3 launcher.
+7. **Charter end-of-session items not done by me:** I did not read or update OPEN-ITEMS.md or RECURRING-ISSUES.md (the order limits my work to the two folders above, and OPEN-ITEMS.md is 571 KB). For the cloud keeper to add as one dated line to RECURRING-ISSUES.md: "2026-10-06: the VTES launcher was rebuilt a fifth time (v5 port onto the real v3). v3's own CSS bug (invalid `font` shorthand) had made every button tiny; fixed in v5. Tier 2 kept: INSTALL writes only a new folder and never touches v3."
+8. **I changed one queued item's wording** (a typed "last 15 minutes" in the CHIEF packet) because it was a typed interval; it is in the list of 9 intentional edits.
+
+## Section E - Counts and one question
+**Brief defects: FIXED 6, PARTIAL 3, NOT FIXED 0. Found in v3: FIXED 4 (D1, D8, D9, D10), PARTIAL 1 (D3), NOT FIXED 1 on purpose (D4). Tests: 490 of 490; mutations 5 of 5 caught; PowerShell 81 of 81 with the v3 folder identical every time; nothing lost 166 of 166.**
+
+Jorge, shall the independent checker audit the port now? (yes/no)
+
+TRK-2026-9910-B · PORT-REPORT · v5 · 2026-10-06 · CURRENT · #VTES-control-panel #panel-v5

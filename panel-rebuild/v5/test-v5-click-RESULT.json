@@ -1,0 +1,610 @@
+{
+ "items": 87,
+ "exercised": 87,
+ "counts": {
+  "tabsLocal": 8,
+  "tabsOld": 10,
+  "httpLinks": 6,
+  "vtesLinks": 2,
+  "drive": 22,
+  "bigcopy": 9,
+  "hand": 13,
+  "queued": 6,
+  "selects": 3,
+  "other": 6,
+  "oldBottom": 2
+ },
+ "pass": 98,
+ "total": 98,
+ "failures": [],
+ "results": [
+  {
+   "grp": "tabs",
+   "name": "tab LLMS goes to #llms and the target exists with size",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "tab EXECUTORS goes to #roles and the target exists with size",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "tab BOTS goes to #bots and the target exists with size",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "tab HAND OFF goes to #handoff and the target exists with size",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "tab QUEUED goes to #queued and the target exists with size",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "tab STATUS goes to #livestatus and the target exists with size",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "old tab APPROVALSOLD: label on the tab says OLD PANEL snapshot 2026-09-02 not live; href is the snapshot; opens a new tab",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "old tab SESSIONSOLD: label on the tab says OLD PANEL snapshot 2026-09-02 not live; href is the snapshot; opens a new tab",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "old tab JOBSOLD: label on the tab says OLD PANEL snapshot 2026-09-02 not live; href is the snapshot; opens a new tab",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "old tab CAPSULESOLD: label on the tab says OLD PANEL snapshot 2026-09-02 not live; href is the snapshot; opens a new tab",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "old tab BRIDGESOLD: label on the tab says OLD PANEL snapshot 2026-09-02 not live; href is the snapshot; opens a new tab",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "old tab AGENTSOLD: label on the tab says OLD PANEL snapshot 2026-09-02 not live; href is the snapshot; opens a new tab",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "old tab USAGEOLD: label on the tab says OLD PANEL snapshot 2026-09-02 not live; href is the snapshot; opens a new tab",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "old tab PLAUDOLD: label on the tab says OLD PANEL snapshot 2026-09-02 not live; href is the snapshot; opens a new tab",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "old tab CLIENTSOLD: label on the tab says OLD PANEL snapshot 2026-09-02 not live; href is the snapshot; opens a new tab",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "old tab RULESOLD: label on the tab says OLD PANEL snapshot 2026-09-02 not live; href is the snapshot; opens a new tab",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "tab REPAIRS goes to #repairs and the target exists with size",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "tab MIAMI-DADE goes to #miamidade and the target exists with size",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "other",
+   "name": "search box: LLM-07, #grok, no match, mixed case, a job word, and cleared all behave ([[\"LLM-07\",2,true],[\"#grok\",2,true],[\"zzzzqq\",0,true],[\"ramBO\",14,true],[\"orchestrator\",3,true],[\"\",28,true]])",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "other",
+   "name": "Read me first opens and closes",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "copy",
+   "name": "big copy button LLM-01 (top RAMBO): packet to LLM-01 is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "selects",
+   "name": "task-kind picker: all 9 kinds set the To box and the suggestion line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "selects",
+   "name": "from list: each of its 13 options builds a packet with that id (GROK, the dead role button in v3, is in the list)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "selects",
+   "name": "to list: each of its 13 options builds a packet with that id (GROK, the dead role button in v3, is in the list)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "other",
+   "name": "note box: typed text appears in the packet under TASK; empty note uses the \"ask Jorge\" line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "buttons",
+   "name": "Copy packet and open: copies the packet and says Copied",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "buttons",
+   "name": "Just show the packet: shows the packet and says where it is",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "other",
+   "name": "packet box is read only, and its label no longer says editable",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "vtes",
+   "name": "vtes link vtes://llm-01 is a plain address on LLM-01 / LLM-03 only (not clicked: the operating system opens it)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "copy",
+   "name": "big copy button LLM-01: packet to LLM-01 is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> LLM-01: To box shows LLM-01 and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "links",
+   "name": "link Open Claude Code sessions list (claude.a -> https://claude.ai/code opens a new tab with rel noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> LLM-02: To box shows LLM-02 and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "vtes",
+   "name": "vtes link vtes://llm-03 is a plain address on LLM-01 / LLM-03 only (not clicked: the operating system opens it)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "copy",
+   "name": "big copy button LLM-03: packet to LLM-03 is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> LLM-03: To box shows LLM-03 and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "links",
+   "name": "link Open Claude Chat -> https://claude.ai opens a new tab with rel noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> LLM-04: To box shows LLM-04 and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "copy",
+   "name": "big copy button LLM-05: packet to LLM-05 is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> LLM-05: To box shows LLM-05 and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "links",
+   "name": "link Open Codex CLI -> https://chatgpt.com opens a new tab with rel noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> LLM-06: To box shows LLM-06 and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "links",
+   "name": "link Open Grok (SuperGrok) -> https://grok.com opens a new tab with rel noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> LLM-07: To box shows LLM-07 and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "links",
+   "name": "link Open Gemini -> https://gemini.google.com opens a new tab with rel noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> LLM-08: To box shows LLM-08 and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> LLM-09: To box shows LLM-09 and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "copy",
+   "name": "big copy button LOCAL: packet to LOCAL is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> LOCAL: To box shows LOCAL and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "copy",
+   "name": "big copy button CODEX: packet to CODEX is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> CODEX: To box shows CODEX and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "copy",
+   "name": "big copy button RAMBO: packet to RAMBO is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> RAMBO: To box shows RAMBO and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "copy",
+   "name": "big copy button GROK: packet to GROK is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "hand",
+   "name": "\"Hand work here\" -> GROK: To box shows GROK and the packet is addressed to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "copy",
+   "name": "big copy button COWORK: packet to LLM-03 is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 0 \"Email attachments: build, revi\": note, To and packet filled, status says packet ready",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 1 \"Mini LLM control panel\": note, To and packet filled, status says packet ready",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 2 \"ALEC DD review links\": note, To and packet filled, status says packet ready",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 3 \"Out-of-turn progress flashes\": note, To and packet filled, status says packet ready",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 4 \"24/7 back-to-back runs\": note, To and packet filled, status says packet ready",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 5 \"Orchestrator / Chief seat\": note, To and packet filled, status says packet ready",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "links",
+   "name": "link Open the full index document -> https://docs.google.com/document/d/1tqRhgNV-x-ZNzP5g_iTnPb3AwdVZgKTV6TLoFZR2N7o/edit opens a new tab with rel noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1t48b9mvp53sicxbsYvd3mBjuBo8 has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1dnVieZEEC2H3xNI2lVqAnWfme0m has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1xzBT1GCYkFsNpCsC5FFpaCMwBri has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1Z5m-8lQdDyroTYNqEl5VzeSOn4p has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1YlTorY-w6Gff0TBiHmMAtkccEaW has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/103RjsXYBPMTB7RXrVca93QRPFPM has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1Sett3KYNpxOwcW2ddSDkeOlZe9x has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1xCFNgzvou6vsE82Bm65QaXT3Ns6 has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/12CCgmd1jcFomJZDLnDL0-3anuHi has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1IU-wcx_5fVuKEJPAJw0j-2_zbEC has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1ArxF3o9ZfdHRB9cagpo6aLYsumG has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1aMjJj4B_RTnsuEK7zpUoAz2JRj1 has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1wGKsjrwvo7q34eTKAO7rlYvroAS has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1mSp3dlmvxCkk80fGYOAe3po3-kR has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1U6DHLvirKxeYc8P18-9TV6A4K-O has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1CJWObVncV2WtWtghlVyXQs5mWuS has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1206ihC17HIk2IFKnYDJrFqySLpK has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1eZlpGm5o_QhS-ymx_A-Lnrsjk8y has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1xqnUBSml1puN0caJAeiWZCcBo85 has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1c1dTYOoPHHXHGBu__dPUNQuwjUP has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1wRPHDSjnRZtF5_0JkIInLFm4J3r has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "miami",
+   "name": "proof link https://drive.google.com/file/d/1xDlwM42EFkLEyskPEmMh_LRRgp- has a Drive file address, opens in a new tab with noopener",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "corner",
+   "name": "corner link \"← PANEL (OLD, snapshot o\" labelled OLD, points at the snapshot (not clicked: it leaves this page; checked by label and address)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "corner",
+   "name": "corner link \"INDEX (OLD, snapshot of \" labelled OLD, points at the snapshot (not clicked: it leaves this page; checked by label and address)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "coverage",
+   "name": "every enumerated item was exercised (87 of 87)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "errors",
+   "name": "0 page errors during all the clicks",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "layout",
+   "name": "no sideways scroll at 1300 px wide (1300 vs 1300)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "layout",
+   "name": "no sideways scroll at 420 px wide (420 vs 420)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "layout",
+   "name": "at 1300 px wide all 8 section jumps leave the heading visible under the sticky bar (182 px tall)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "layout",
+   "name": "at 1150 px wide all 8 section jumps leave the heading visible (bar not sticky at this width)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "layout",
+   "name": "at 900 px wide all 8 section jumps leave the heading visible (bar not sticky at this width)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "layout",
+   "name": "at 420 px wide all 8 section jumps leave the heading visible (bar not sticky at this width)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "worlds",
+   "name": "no-data world has 86 interactive elements, fresh world 88 (the difference is the 2 vtes:// links)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "worlds",
+   "name": "no-data world: 0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "copy",
+   "name": "when copying fails the card says \"Could not copy by itself\", where the packet is, and still gives the steps",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

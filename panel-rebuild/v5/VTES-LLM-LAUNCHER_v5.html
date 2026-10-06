@@ -43,6 +43,8 @@ html{scroll-behavior:smooth}
 .v5na{display:block;background:#fff8e6;border:2px dashed #e0a100;border-radius:10px;padding:8px 10px;font-size:15px;color:#5b3d00}
 .v5na2{background:#eef4fb;border:2px solid #1b5e9e;border-radius:10px;padding:6px 12px;margin:8px 0;font-size:16px}.v5na2 ol,.v5steps{margin:4px 0 4px 22px;padding:0}
 .v5note{font-size:15px;color:#5b5b57;font-style:italic}.v5typed{color:#6b6b66;font-size:14px}
+/* D10: v3 wrote .btn{font:700 16px inherit}, which is not valid CSS, so every button showed in the browser default 13px type. This sets the type properly. */
+button.btn,a.btn{font-family:inherit;font-size:17px;font-weight:700}
 button.btn{border:0;cursor:pointer}.btn.bigcopy{font-size:20px;padding:14px 18px}
 .tab small{display:block;font-weight:400;font-size:11px;line-height:1.2}
 .v5read{background:#fff;border:2px solid var(--acc);border-radius:12px;padding:6px 14px;margin:10px 0}.v5read ol{margin:4px 0 6px 22px;padding:0;font-size:18px;line-height:1.5}.v5read summary{font-weight:800;font-size:20px;cursor:pointer}
@@ -54,9 +56,11 @@ button.btn{border:0;cursor:pointer}.btn.bigcopy{font-size:20px;padding:14px 18px
 ol.md{margin:6px 0 0 22px;padding:0}ol.md li{margin:4px 0}
 .v5old{background:#f3f1ea;border:2px dashed #6b6b66;border-radius:10px;padding:8px 12px;font-size:15px;color:#3a3a37;margin:6px 0}
 .tab.panel{font-size:13px;padding:5px 10px}.tab small{font-size:10px}
-h2[id],[id]{scroll-margin-top:290px}
+/* the sticky tab bar is taller now (each old tab carries its label). Its height is measured by vtes5-ui.js into --hdr so a jump to a section never hides the heading under the bar; on narrow windows the bar is not sticky at all. */
+h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
+@media(max-width:1150px){.tabs{position:static}h2[id],[id]{scroll-margin-top:12px}}
 </style></head><body>
-<script>window.VTES5_BUILT = "2026-10-06T08:54:08Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
+<script>window.VTES5_BUILT = "2026-10-06T09:19:02Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
 <div class="tabs" id="tabs"></div>
 <h1>VTES LLM Launcher</h1>
 <p class="sub">Every AI window, bot and executor role, one search away. Type an ID (LLM-07), a hashtag (#grok), a name, or a job word (files, second opinion, classify, PII).</p>
@@ -76,7 +80,7 @@ h2[id],[id]{scroll-margin-top:290px}
 <div class="gate">No card numbers, passwords or Social Security numbers in this box. Client personal data goes to LOCAL only.</div>
 <button class="btn" id="go" type="button">Copy packet and open</button><button class="btn alt" id="show" type="button">Just show the packet</button>
 <div id="status" role="status"></div>
-<label for="preview">The packet (editable before pasting)</label><textarea id="preview" readonly></textarea>
+<label for="preview">The packet (read only: use the buttons above to copy it)</label><textarea id="preview" readonly></textarea>
 </div>
 
 <h2 id="llms">2. LLMs: every window</h2>
@@ -202,7 +206,7 @@ if(b.dataset.q!==undefined){var x=QUEUED[b.dataset.q];$('to').value=win(x.to)?x.
 var cards=[].slice.call(document.querySelectorAll('.card'));
 $('q').addEventListener('input',function(){var t=$('q').value.trim().toLowerCase();cards.forEach(function(c){var h=(c.dataset.k+' '+c.textContent).toLowerCase();c.classList.toggle('hide',t!==''&&h.indexOf(t)===-1)})});
 $('kind').value=5;choose();
-VTES5U.renderTop(window.VTES5_BUILT);
+VTES5U.renderTop(window.VTES5_BUILT);VTES5U.measureHeader();window.addEventListener('resize',VTES5U.measureHeader);
 function v5tick(){window.VTES5.reload(function(){VTES5U.refresh(window.VTES5_BUILT);VTES5U.repaint()})}
 v5tick();setInterval(v5tick,60000);
 </script>

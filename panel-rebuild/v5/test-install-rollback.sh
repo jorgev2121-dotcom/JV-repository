@@ -90,6 +90,13 @@ ROL -NewDir $N >/dev/null; snap $U $W/s17.u1; same $W/s17.u0 $W/s17.u1; chk "S17
 echo "== S18: package problems"
 P=$W/s18; mk $P; N=$P/MY-DESK/VTES-PANEL/v5; mkdir -p $W/s18-pkg/data; cp -a $PKG/INSTALL-v5.ps1 $PKG/VTES-LLM-LAUNCHER_v5.html $PKG/vtes5-live.js $W/s18-pkg/; cp -a $PKG/data/vtes5-heartbeat.js $W/s18-pkg/data/
 O=$(ps $W/s18-pkg/INSTALL-v5.ps1 -TargetDir $N; echo "exit=$?"); echo "  $(echo "$O" | head -1 | cut -c1-120)"; has "$O" "package file missing" && has "$O" "exit=3"; chk "S18a: an incomplete package is refused with exit 3" $?; [ ! -e $N ]; chk "S18b: nothing created" $?
+echo "== S20: the parent folder of the target does not exist"
+P=$W/s20; mk $P; snap $P $W/s20.a; O=$(INS -TargetDir $P/NO-SUCH/v5; echo "exit=$?"); echo "  $(echo "$O" | head -1 | cut -c1-170)"; has "$O" "does not exist" && has "$O" "exit=2"; chk "S20a: refused, exit 2" $?; [ ! -e $P/NO-SUCH ]; chk "S20b: no folder was created for it" $?; snap $P $W/s20.b; same $W/s20.a $W/s20.b; chk "S20c: nothing changed" $?
+echo "== S21: the new folder was renamed after the install, then rolled back"
+P=$W/s21; mk $P; N=$P/MY-DESK/VTES-PANEL/v5; INS -TargetDir $N >/dev/null; mv $N $P/MY-DESK/VTES-PANEL/v5-renamed; snap $P $W/s21.a; O=$(ROL -NewDir $P/MY-DESK/VTES-PANEL/v5-renamed; echo "exit=$?"); echo "  $(echo "$O" | head -1 | cut -c1-200)"; has "$O" "REFUSED" && has "$O" "exit=3"; chk "S21a: a record that belongs to the old path is refused, nothing removed" $?; snap $P $W/s21.b; same $W/s21.a $W/s21.b; chk "S21b: nothing changed" $?
+mv $P/MY-DESK/VTES-PANEL/v5-renamed $N; O=$(ROL -NewDir $N; echo "exit=$?"); has "$O" "exit=0"; chk "S21c: moved back, the rollback works" $?
+echo "== S22: a v3 folder full of other files (200 files) and a big file are fingerprinted and untouched"
+P=$W/s22; mk $P; D=$P/Desktop; for i in $(seq 1 200); do echo "file $i" > $D/f$i.txt; done; head -c 20000000 /dev/urandom > $D/big.bin; N=$P/MY-DESK/VTES-PANEL/v5; snap $P $W/s22.a; O=$(INS -TargetDir $N -V3File $D/VTES-LLM-LAUNCHER_v3.html; echo "exit=$?"); has "$O" "v3 untouched: SHA256 of all 205 files" && has "$O" "exit=0"; chk "S22a: INSTALL fingerprinted 205 files directly in the v3 folder, identical" $?; ROL -NewDir $N >/dev/null; snap $P $W/s22.b; same $W/s22.a $W/s22.b; chk "S22b: whole fixture identical after rollback" $?
 echo "== S19: ASCII and syntax of the scripts"
 for f in INSTALL-v5.ps1 ROLLBACK-v5.ps1; do LC_ALL=C grep -qP '[^\x00-\x7F]' $PKG/$f; [ $? -ne 0 ]; chk "S19: $f has no non-ASCII byte" $?; done
 echo; echo "PowerShell scenarios: $PASS passed, $FAIL failed"; exit $FAIL

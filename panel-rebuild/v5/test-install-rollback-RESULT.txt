@@ -142,8 +142,24 @@ DRY RUN: nothing was changed.
   STOP: package file missing: vtes5-ui.js. Nothing was changed.
   PASS S18a: an incomplete package is refused with exit 3
   PASS S18b: nothing created
+== S20: the parent folder of the target does not exist
+  STOP: the parent folder /tmp/claude-0/ps-work/s20/NO-SUCH does not exist. Create it first or choose another place; this script creates only the one new folder. Nothing wa
+  PASS S20a: refused, exit 2
+  PASS S20b: no folder was created for it
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S20c: nothing changed
+== S21: the new folder was renamed after the install, then rolled back
+  REFUSED: the record belongs to /tmp/claude-0/ps-work/s21/MY-DESK/VTES-PANEL/v5, not to /tmp/claude-0/ps-work/s21/MY-DESK/VTES-PANEL/v5-renamed. NOTHING WAS REMOVED.
+  PASS S21a: a record that belongs to the old path is refused, nothing removed
+  SHA-256 of 17 files (and the folder list) before == after: IDENTICAL
+  PASS S21b: nothing changed
+  PASS S21c: moved back, the rollback works
+== S22: a v3 folder full of other files (200 files) and a big file are fingerprinted and untouched
+  PASS S22a: INSTALL fingerprinted 205 files directly in the v3 folder, identical
+  SHA-256 of 206 files (and the folder list) before == after: IDENTICAL
+  PASS S22b: whole fixture identical after rollback
 == S19: ASCII and syntax of the scripts
   PASS S19: INSTALL-v5.ps1 has no non-ASCII byte
   PASS S19: ROLLBACK-v5.ps1 has no non-ASCII byte
 
-PowerShell scenarios: 73 passed, 0 failed
+PowerShell scenarios: 81 passed, 0 failed

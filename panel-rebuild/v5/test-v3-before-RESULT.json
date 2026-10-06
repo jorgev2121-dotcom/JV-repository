@@ -1,0 +1,118 @@
+{
+ "fixed": 16,
+ "total": 16,
+ "rows": [
+  {
+   "id": 1,
+   "what": "RAMBO card: a big Copy packet button plus the click path",
+   "v3": "buttons: Hand work here",
+   "v5": "buttons: Copy packet for RAMBO | Hand work here; steps shown: true",
+   "v5_fixed": true
+  },
+  {
+   "id": 1,
+   "what": "LLM-03 card: Copy packet button plus steps",
+   "v3": "no Open and no copy button (same as LLM-01)",
+   "v5": "Copy packet for Cowork | Hand work here",
+   "v5_fixed": true
+  },
+  {
+   "id": 1,
+   "what": "LLM-05 card: Copy packet button plus steps",
+   "v3": "no Open and no copy button (same as LLM-01)",
+   "v5": "Copy packet for the iPhone | Hand work here",
+   "v5_fixed": true
+  },
+  {
+   "id": 1,
+   "what": "role cards RAMBO, LOCAL, CODEX, GROK, COWORK: Copy packet button",
+   "v3": "only \"Hand work here\"",
+   "v5": "RAMBO:true LOCAL:true CODEX:true GROK:true COWORK:true",
+   "v5_fixed": true
+  },
+  {
+   "id": 2,
+   "what": "vtes:// addresses are not shown as bold text pretending to be addresses; links only when registered AND filled",
+   "v3": "v3: 0 links, 8 bold \"Address: vtes://...\" lines, none says why",
+   "v5": "v5 (no data): 0 links; sentence on LLM-01: true",
+   "v5_fixed": true
+  },
+  {
+   "id": 3,
+   "what": "10 old-panel tabs plus PANEL and INDEX are labelled OLD PANEL snapshot 2026-09-02 not live",
+   "v3": "v3 tab texts: APPROVALS,SESSIONS,JOBS... (no label); corner: ← PANEL | INDEX",
+   "v5": "v5 tab text: APPROVALSOLD PANEL, snapshot of 2026-09-02, not live; corner: ← PANEL (OLD, snapshot of 2026-09-02, not live) | INDEX (OLD, snapshot of 2026-09-02, not live)",
+   "v5_fixed": true
+  },
+  {
+   "id": "D1",
+   "what": "STATUS tab goes to a real status section",
+   "v3": "STATUS -> #status = DIV inside the Hand-work box (one message line, not a status page)",
+   "v5": "STATUS -> #livestatus section \"Live status\"",
+   "v5_fixed": true
+  },
+  {
+   "id": 4,
+   "what": "LLM-02 opens the sessions list, not one hard-coded old session; says UNVERIFIED",
+   "v3": "https://claude.ai/code/session_01CAqZRvV1WjuuxZCNwrE9Gf",
+   "v5": "https://claude.ai/code; says UNVERIFIED: true",
+   "v5_fixed": true
+  },
+  {
+   "id": 5,
+   "what": "no typed interval anywhere on the page",
+   "v3": "v3 matches: [\"Runs every\",\"Runs every\",\"every 5 minutes\",\"Every 15 minutes\",\"Hourly.\",\"15-minute\"]",
+   "v5": "v5 matches (no data loaded): []",
+   "v5_fixed": true
+  },
+  {
+   "id": 6,
+   "what": "every bot has a live line; token numbers and housekeeping time or NO DATA",
+   "v3": "v3 bot live lines: 0",
+   "v5": "v5 bot live lines: 6; token panel and housekeeping panel present: true/true",
+   "v5_fixed": true
+  },
+  {
+   "id": 7,
+   "what": "\"Proven 2026-10-01\" and \"About 75% of the Max quota ... Saturday\" are labelled typed notes with their date",
+   "v3": "v3: Proven 2026-10-01 shown as fact; 75% forecast shown as fact",
+   "v5": "v5: true / true",
+   "v5_fixed": true
+  },
+  {
+   "id": 8,
+   "what": "repairs log: all 12 rows kept (11 plus the one OPEN row), labelled TYPED LOG; live rows only from a data file",
+   "v3": "v3 lead: \"Maintained by hand in VTES-LLM-LAUNCHER_v3.html. Repairs and\"; rows 12",
+   "v5": "v5 lead: \"TYPED LOG. Maintained by hand in VTES-LL\"; rows 12; live rows: true",
+   "v5_fixed": true
+  },
+  {
+   "id": 9,
+   "what": "packet stamp is Eastern short form with the zone",
+   "v3": "v3: \"e Desktop)   10/6/2026, 6:00:32 PM\"",
+   "v5": "v5: \"Code Desktop)   Oct 6, 2:00 PM EDT\"",
+   "v5_fixed": true
+  },
+  {
+   "id": "D8",
+   "what": "the GROK role \"Hand work here\" button works",
+   "v3": "v3 page error: Cannot read properties of undefined (reading 'id')",
+   "v5": "v5 page errors: 0; To box = GROK",
+   "v5_fixed": true
+  },
+  {
+   "id": "D9",
+   "what": "the packet box label does not promise an edit the box does not allow",
+   "v3": "v3: \"The packet (editable before pasting)\" but readonly=true",
+   "v5": "v5: \"The packet (read only: use the buttons above to copy it)\"",
+   "v5_fixed": true
+  },
+  {
+   "id": "D10",
+   "what": "buttons use the large bold type v3 meant to give them",
+   "v3": "v3 \"Copy packet and open\" button: 13.3333px, weight 400 (v3 CSS \"font:700 16px inherit\" is invalid and ignored)",
+   "v5": "v5: 17px, weight 700",
+   "v5_fixed": true
+  }
+ ]
+}

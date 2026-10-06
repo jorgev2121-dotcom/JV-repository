@@ -1,0 +1,781 @@
+{
+ "pass": 129,
+ "total": 129,
+ "failures": [],
+ "results": [
+  {
+   "world": "W1-none",
+   "name": "page loads with 0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "0 green cards, 0 green badges",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card LLM-01 says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card LLM-02 says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card LLM-03 says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card LLM-04 says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card LLM-05 says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card LLM-06 says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card LLM-07 says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card LLM-08 says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card LLM-09 says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card LOCAL says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card CODEX says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card RAMBO says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card GROK says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card COWORK says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "card CHIEF says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "bot CU-Inbox-Job-Watcher line says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "bot CU-Local-Executor line says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "bot CU-TokenMonitor-Hourly line says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "bot CU-Orchestrator line says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "bot CU-Propagation-Check line says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "bot VTES-LOCAL-POLLER line says NO DATA in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "bot lines: 6 on the Bots cards",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "age line says Built ... data as of NO DATA, and is red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "no typed interval anywhere on the page (every N minutes, 15-minute, 300 seconds, runs every)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "token monitor panel says NO DATA with no numbers",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "housekeeping panel: last report time NONE in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "Miami-Dade: 22 proof links and \"unknown of 300\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "Miami-Dade: 0 green marks",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "no vtes:// link on the page (heartbeat says nothing)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "8 address sentences name what is missing (the PC has not reported)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W1-none",
+   "name": "repairs: live rows say NO DATA; the typed log is labelled TYPED LOG",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "every card and every bot line green (21)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "LLM-01 card tick sentence: every 5 minutes, read from the heartbeat",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "RAMBO role card and poller bot show the same interval",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "bot line shows its own scheduled interval (every 10 minutes) from the data",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "vtes:// link on LLM-01 and LLM-03 only (registered AND filled)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "the other six addresses give one plain sentence: \"the address book entry ... is empty\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "token monitor shows 41000, 33%, 61%, program 1234",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "housekeeping: last report time, Delivered yes, to jorge",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "Miami-Dade: counted 7 of 300, exactly 2 \"proof checked\", 20 NOT RE-CHECKED",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "health panel: 11 windows counted, numbers 12 / 3 / 2, money list, 9 of 12 checks",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "live repair row from the state file shows",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "strip: 7 files all OK green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W2-fresh",
+   "name": "age line is not red when every file is fresh and OK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W3-stale",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W3-stale",
+   "name": "0 green cards and 0 green bot lines",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W3-stale",
+   "name": "LLM-01 says STALE since ... in red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W3-stale",
+   "name": "bot line says STALE (bots report is old)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W3-stale",
+   "name": "token panel says the numbers are old",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W3-stale",
+   "name": "strip: heartbeat badge red STALE",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W3-stale",
+   "name": "vtes:// links gone (heartbeat not OK)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W4-future",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W4-future",
+   "name": "0 green cards, 0 green badges",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W4-future",
+   "name": "BAD CLOCK shown and 2027 visible",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W4-future",
+   "name": "token numbers hidden (41000 not on page)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W4-future",
+   "name": "no vtes:// link",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W4-future",
+   "name": "bot line: BAD CLOCK, red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W4-future",
+   "name": "one window 30 min ahead: that card alone is BAD CLOCK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W4-future",
+   "name": "a proof 30 min ahead: that window is BAD CLOCK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W4-future",
+   "name": "a bot last run 30 min ahead: BAD CLOCK for that bot only",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W4-future",
+   "name": "build time is a real past instant (not after now)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W4-future",
+   "name": "clock one hour before the build: top line says Built BAD CLOCK in red; footer too",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W5-statusonly",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W5-statusonly",
+   "name": "0 green cards and 0 green badges",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W5-statusonly",
+   "name": "LLM-01 reads WRITER SAYS UP, NOT PROVEN in grey (unp)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W5-statusonly",
+   "name": "chat-only window with a writer entry stays NO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W5-statusonly",
+   "name": "Grok note says NO Grok bot built (writer entry for BOTS is no proof)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W5-statusonly",
+   "name": "health: \"Windows confirmed up now\" is not claiming any",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval_sec 864000: 0 green anywhere, heartbeat NOT OK, 0 errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval_sec 3601: 0 green anywhere, heartbeat NOT OK, 0 errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval_sec 0: 0 green anywhere, heartbeat NOT OK, 0 errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval_sec 0.001: 0 green anywhere, heartbeat NOT OK, 0 errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval_sec 0.5: 0 green anywhere, heartbeat NOT OK, 0 errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval_sec -5: 0 green anywhere, heartbeat NOT OK, 0 errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval_sec \"300\": 0 green anywhere, heartbeat NOT OK, 0 errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval_sec true: 0 green anywhere, heartbeat NOT OK, 0 errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval 1800 s, file 20 min old: LLM-01 green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval 1800 s, file 100 min old: LLM-01 red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval 3600 s, file 170 min old: LLM-01 green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval 3600 s, file 190 min old: LLM-01 red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval 300 s, file 14 min old: LLM-01 green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval 300 s, file 16 min old: LLM-01 red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval 1 s, file 2 min old: LLM-01 green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W6-ticks",
+   "name": "interval 1 s, file 4 min old: LLM-01 red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W7-miami",
+   "name": "30-day-old file: 0 green \"proof checked\", 22 neutral marks",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W7-miami",
+   "name": "the badge says STALE",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W7-miami",
+   "name": "counted null: says unknown of 300",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W7-miami",
+   "name": "bare number 3 read as 03 (checked); \"7\" read as 07 (PROOF NOT OK); \"xx\" ignored",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W7-miami",
+   "name": "file dated in the future: BAD CLOCK, 0 green marks",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W8-2hour",
+   "name": "at load: 26 cards green (15 cards + 6 bots + others as in W2)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W8-2hour",
+   "name": "after 2 hours with no writer: 0 green cards, 0 green bot lines",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W8-2hour",
+   "name": "age line red and says Re-checked 4:00 PM EDT (2 hours later)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W8-2hour",
+   "name": "LLM-01 STALE",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W8-2hour",
+   "name": "0 page errors in 2 simulated hours",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W9-writer",
+   "name": "writer rewriting every minute: LLM-01 and a bot still green after 12 minutes",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W9-writer",
+   "name": "the card now says seen 2:12 PM",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W9-writer",
+   "name": "heartbeat file deleted: next 60-second tick shows NO DATA on LLM-01",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W9-writer",
+   "name": "bots file deleted: next tick shows NO DATA on every bot line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W9-writer",
+   "name": "no leftover script tags after 14 reloads",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W9-writer",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W10-bots",
+   "name": "result code 267009: red FAILED with the code",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W10-bots",
+   "name": "disabled task: red DISABLED",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W10-bots",
+   "name": "late run (40 min ago, scheduled every 10): red LATE",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W10-bots",
+   "name": "no entry for a bot: red NO DATA, others unaffected",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W10-bots",
+   "name": "no schedule interval: grey (not green) \"lateness cannot be judged\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W10-bots",
+   "name": "a running task with result 0: green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W10-bots",
+   "name": "the CHIEF role card shows the Orchestrator bot line too (NO DATA)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W10-bots",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W10-bots",
+   "name": "bots file with interval_sec 0.001: every bot NOT OK, 0 green bot lines",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W10-bots",
+   "name": "bots file dated 30 min ahead: every bot BAD CLOCK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W11-grok",
+   "name": "BOTS up without proof_at: still \"No Grok bot has been built\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W11-grok",
+   "name": "BOTS up with fresh proof_at: card says a Grok bot is reporting UP with proof",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W11-grok",
+   "name": "both Grok statements carry the typed-note label (31 days)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W11-grok",
+   "name": "LLM-07 up with no proof_at: red NO DATA (never green on a ping)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W12-times",
+   "name": "packet header stamp is Eastern short form with the zone",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W12-times",
+   "name": "no slash date or \"AM\" without zone in the packet header",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W12-times",
+   "name": "a winter date shows EST",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W13-redraw",
+   "name": "a 392-character selection in the Health panel survives 3 ticks",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W13-redraw",
+   "name": "typed note and search text survive",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W13-redraw",
+   "name": "a selection inside an unchanged card state line survives a tick",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W14-10hours",
+   "name": "after 600 reloads the DOM node count did not grow by more than 10% (734 -> 736)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W14-10hours",
+   "name": "script tags did not grow (12 -> 12)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W14-10hours",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W15-halfpackage",
+   "name": "page loads with 0 page errors with no config file and no data folder",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W15-halfpackage",
+   "name": "every card says NO DATA, 0 green, 7 red badges, all 6 bot lines NO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "W15-halfpackage",
+   "name": "the hand-off still works (the page is usable with no data at all)",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

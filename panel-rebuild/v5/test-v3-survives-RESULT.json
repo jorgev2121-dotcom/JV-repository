@@ -1,0 +1,1003 @@
+{
+ "pass": 166,
+ "total": 166,
+ "failures": [],
+ "results": [
+  {
+   "grp": "counts",
+   "name": "9 LLMs, 6 roles, 6 bots, 6 queued, 9 picker rows on both pages",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-01 keeps its name: Claude Code Desktop",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-01 keeps its role: RAMBO: the hands on your PC",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-01 keeps its description: Files, OneDrive, Chrome, 1Password, prin",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-01 keeps its pool: Pool: Claude Max (scarce)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-01 keeps its hashtags: #LLM-01 #EXEC-DESKTOP #RAMBO #PASTE-D",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-01 keeps its id: LLM-01",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-01 keeps its address text vtes://llm-01",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-01 keeps its how-to line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-01 keeps its Hand work here button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-02 keeps its name: Claude Code Cloud",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-02 keeps its role: Repo keeper: QC, research, dispatch",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-02 keeps its description: Holds the repo, checks desktop work, sou",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-02 keeps its pool: Pool: Claude Max (scarce)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-02 keeps its hashtags: #LLM-02 #EXEC-CLOUD #PASTE-C",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-02 keeps its id: LLM-02",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-02 keeps its address text vtes://llm-02",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-02 keeps its Hand work here button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-03 keeps its name: Claude Cowork",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-03 keeps its role: Analyst: long documents, CDM owner",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-03 keeps its description: Deep analysis and long write-ups; the CD",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-03 keeps its pool: Pool: Claude subscription",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-03 keeps its hashtags: #LLM-03 #COWORK #PASTE-X #CDM",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-03 keeps its id: LLM-03",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-03 keeps its address text vtes://llm-03",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-03 keeps its how-to line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-03 keeps its Hand work here button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-04 keeps its name: Claude Chat",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-04 keeps its role: The cockpit: your seat",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-04 keeps its description: Your main conversation. Dictate, approve",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-04 keeps its pool: Pool: Claude subscription",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-04 keeps its hashtags: #LLM-04 #CHAT #COCKPIT",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-04 keeps its id: LLM-04",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-04 keeps its address text vtes://llm-04",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-04 keeps its Hand work here button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-05 keeps its name: Claude iPhone",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-05 keeps its role: Voice: dictation on the go",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-05 keeps its description: Same account as the cockpit. Say \"AP-008",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-05 keeps its pool: Pool: Claude subscription",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-05 keeps its hashtags: #LLM-05 #IPHONE #voice",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-05 keeps its id: LLM-05",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-05 keeps its address text vtes://llm-05",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-05 keeps its how-to line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-05 keeps its Hand work here button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-06 keeps its name: Codex CLI",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-06 keeps its role: Code, HTML, scripts, files (ChatGPT pool",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-06 keeps its description: OpenAI agent on your PC. A separate pool",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-06 keeps its pool: Pool: ChatGPT subscription (not Claude)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-06 keeps its hashtags: #LLM-06 #CODEX #BACKUP-EXEC",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-06 keeps its id: LLM-06",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-06 keeps its address text vtes://llm-06",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-06 keeps its how-to line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-06 keeps its Hand work here button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-07 keeps its name: Grok (SuperGrok)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-07 keeps its role: Fabian: second opinion",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-07 keeps its description: Sanity-checks Claude with the live web. ",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-07 keeps its pool: Pool: SuperGrok / paid xAI key",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-07 keeps its hashtags: #LLM-07 #GROK #FABIAN #second-opinion",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-07 keeps its id: LLM-07",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-07 keeps its address text vtes://llm-07",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-07 keeps its Hand work here button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-08 keeps its name: Gemini",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-08 keeps its role: Volume drafter: free, Drive-native",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-08 keeps its description: Cheap bulk drafting and summarizing. Gem",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-08 keeps its pool: Pool: Google account (free)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-08 keeps its hashtags: #LLM-08 #GEMINI #google #volume",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-08 keeps its id: LLM-08",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-08 keeps its address text vtes://llm-08",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-08 keeps its Hand work here button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-09 keeps its name: Thin API router",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-09 keeps its role: Standby bridge only",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-09 keeps its description: Routing bridge, never the main engine. E",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-09 keeps its pool: Pool: API (priced, approved)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-09 keeps its hashtags: #LLM-09 #API-ROUTER #standby",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-09 keeps its id: LLM-09",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-09 keeps its how-to line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-09 keeps its Hand work here button",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-04 keeps its Open button to https://claude.ai",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-06 keeps its Open button to https://chatgpt.com",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-07 keeps its Open button to https://grok.com",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "LLM cards",
+   "name": "LLM-08 keeps its Open button to https://gemini.google.com",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "LOCAL keeps its name: LOCAL: Ollama",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "LOCAL keeps its role: Free, on your machine",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "LOCAL keeps its description: Classify, tag, extract, summarise, renam",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "LOCAL keeps its pool: Pool: FREE",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "LOCAL keeps its hashtags: #LOCAL #OLLAMA #PII",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "LOCAL keeps its address: Drop JOB-*.md with CLASS: and PROMPT: in",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CODEX keeps its name: CODEX",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CODEX keeps its role: Code, HTML, scripts, files",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CODEX keeps its description: Separate ChatGPT pool.",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CODEX keeps its pool: Pool: ChatGPT pool (not Claude)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CODEX keeps its hashtags: #CODEX",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CODEX keeps its address: codex exec \"<task>\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "RAMBO keeps its name: CLAUDE / RAMBO",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "RAMBO keeps its role: Judgment, client-facing, legal",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "RAMBO keeps its description: Use only for what needs Claude.",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "RAMBO keeps its pool: Pool: Claude Max (scarce)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "RAMBO keeps its hashtags: #RAMBO #CLAUDE",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "RAMBO keeps its address: Drop JOB-*.md into G:\\My Drive\\VTES-Inbo",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "GROK keeps its name: GROK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "GROK keeps its role: Second opinion",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "GROK keeps its description: Round-trip question only; cannot write f",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "GROK keeps its pool: Pool: Paid xAI key",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "GROK keeps its hashtags: #GROK #FABIAN",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "GROK keeps its address: Second-Opinion.ps1 -Prompt \"<question>\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "COWORK keeps its name: COWORK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "COWORK keeps its role: Sends orders; cannot receive",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "COWORK keeps its description: No inbound channel exists. Work for Cowo",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "COWORK keeps its pool: Pool: Claude subscription",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "COWORK keeps its hashtags: #COWORK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "COWORK keeps its address: Paste into the Cowork tab",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CHIEF keeps its name: Orchestrator / Chief seat",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CHIEF keeps its role: Reads every result, closes or escalates",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CHIEF keeps its description: CU-Orchestrator is chartered and runs on",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CHIEF keeps its pool: Pool: FREE",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CHIEF keeps its hashtags: #ORCHESTRATOR #CHIEF-SEAT",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "role cards",
+   "name": "CHIEF keeps its address: Board: Desktop\\ORCHESTRATOR-BOARD.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Inbox-Job-Watcher keeps its name",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Inbox-Job-Watcher keeps its description: RAMBO. Watches VTES-Inbox and launches h",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Inbox-Job-Watcher keeps its pool Claude Max (scarce)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Local-Executor keeps its name",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Local-Executor keeps its description: Free executor. Watches VTES-Inbox-LOCAL,",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Local-Executor keeps its pool FREE",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-TokenMonitor-Hourly keeps its name",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-TokenMonitor-Hourly keeps its description: Meters usage, enforces a 3 GB RAM floor,",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-TokenMonitor-Hourly keeps its pool FREE",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Orchestrator keeps its name",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Orchestrator keeps its description: Reads every Outbox result, judges it on ",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Orchestrator keeps its pool FREE",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Propagation-Check keeps its name",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Propagation-Check keeps its description: Finds any lane or agent not documented i",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "CU-Propagation-Check keeps its pool FREE",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "VTES-LOCAL-POLLER keeps its name",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "VTES-LOCAL-POLLER keeps its description: The poller that wakes RAMBO to execute w",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "bots",
+   "name": "VTES-LOCAL-POLLER keeps its pool Claude Max (scarce)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "the 6 queued cards are word for word the same as v3",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 1 packet text is v3 text apart from the listed edit",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 2 packet text is v3 text apart from the listed edit",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 3 packet text is v3 text apart from the listed edit",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 4 packet text is v3 text apart from the listed edit",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 5 packet text is v3 text apart from the listed edit",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "queued",
+   "name": "queued item 6 packet text is v3 text apart from the listed edit",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "picker",
+   "name": "picker row 1 unchanged: Classify, tag, extract, summarise, renam",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "picker",
+   "name": "picker row 2 unchanged: Client personal data (PII)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "picker",
+   "name": "picker row 3 unchanged: Code, HTML, scripts, build a file",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "picker",
+   "name": "picker row 4 unchanged: Second opinion or live web check",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "picker",
+   "name": "picker row 5 unchanged: Bulk drafting or summaries",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "picker",
+   "name": "picker row 6 unchanged: Files, Chrome, 1Password, printer, count",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "picker",
+   "name": "picker row 7 unchanged: Judgment, client-facing, legal",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "picker",
+   "name": "picker row 8 unchanged: Long documents, CDM analysis",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "picker",
+   "name": "picker row 9 unchanged: Repo work, QC, research, dispatch",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "tabs",
+   "name": "the 17 v3 tab names are on v5 in the same order (the 18th is the new MIAMI-DADE)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "sections",
+   "name": "the six numbered sections have the same headings in the same order",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "sections",
+   "name": "section 7 Miami-Dade is added after the six",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "repairs",
+   "name": "all 12 repair rows are word for word the same, the OPEN row still marked",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "packet",
+   "name": "packet LLM-04 -> RAMBO: 20 lines, identical except the stamp on line 1",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "packet",
+   "name": "packet LLM-05 -> LLM-02: 20 lines, identical except the stamp on line 1",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "packet",
+   "name": "packet LLM-04 -> CODEX: 20 lines, identical except the stamp on line 1",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "packet",
+   "name": "v5 packet still has the line WHO:",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "packet",
+   "name": "v5 packet still has the line TASK, IN HIS WORDS:",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "packet",
+   "name": "v5 packet still has the line HOW TO ANSWER:",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "packet",
+   "name": "v5 packet still has the line HARD RULES:",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "packet",
+   "name": "v5 packet still has the line FACTS LIVE IN:",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "packet",
+   "name": "v5 packet still has the line RETURN PATH:",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "chrome",
+   "name": "search box, dictation-size type (24px search, 18px body) and buttons not smaller than v3",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "chrome",
+   "name": "footer still names the registry and the lanes file",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

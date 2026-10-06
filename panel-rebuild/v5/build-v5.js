@@ -41,12 +41,14 @@ rep('t-queued', 'Confirm CU-Orchestrator ran in the last 15 minutes and list', '
 // --- defect 7: typed claims leave the card text (the dated notes are shown, labelled, by vtes5-ui.js) ---
 rep('t-rambo', ' About 75% of the Max quota was used on 2026-10-01; forecast to run out Saturday.', '');
 rep('t-codex', ' Proven 2026-10-01.', '');
+// --- D9: the packet box is read only but its label said editable ---
+rep('d9', 'The packet (editable before pasting)', 'The packet (read only: use the buttons above to copy it)');
 // --- defect 9 and D8 ---
 rep('stamp', 'new Date().toLocaleString()', 'window.VTES5.fmt(window.VTES5.now())');
 rep('win-grok', 'function win(id){', "WIN.push({id:'GROK',n:'GROK',url:'',how:'On the PC run Second-Opinion.ps1 -Prompt \"<question>\", or paste the packet into grok.com.'});\nfunction win(id){");
 // --- cards: the live cards replace the static ones (same data, same order) ---
 rep('render', /\$\('g-llm'\)\.innerHTML=[\s\S]*?\$\('g-queued'\)/, "VTES5U.renderAll(LLMS,ROLES,BOTS);\n$('g-queued')");
 // --- start: top block, first load of the data files, then every 60 seconds ---
-rep('init', "$('kind').value=5;choose();\n", "$('kind').value=5;choose();\nVTES5U.renderTop(window.VTES5_BUILT);\nfunction v5tick(){window.VTES5.reload(function(){VTES5U.refresh(window.VTES5_BUILT);VTES5U.repaint()})}\nv5tick();setInterval(v5tick,60000);\n");
+rep('init', "$('kind').value=5;choose();\n", "$('kind').value=5;choose();\nVTES5U.renderTop(window.VTES5_BUILT);VTES5U.measureHeader();window.addEventListener('resize',VTES5U.measureHeader);\nfunction v5tick(){window.VTES5.reload(function(){VTES5U.refresh(window.VTES5_BUILT);VTES5U.repaint()})}\nv5tick();setInterval(v5tick,60000);\n");
 fs.writeFileSync(__dirname + '/VTES-LLM-LAUNCHER_v5.html', h);
 console.log('built VTES-LLM-LAUNCHER_v5.html ' + h.length + ' bytes, built ' + BUILT);
