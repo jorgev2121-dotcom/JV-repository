@@ -108,7 +108,7 @@ async function wait(p, ms) { await p.waitForTimeout(ms || 400); }
     T(W, 'N4: wiring node for Grok Bots is not UP', !/\bUP\b/.test(wnode), wnode);
     await ctx.close(); }
   // ---- BOTSPROVEN: the poller reports BOTS up with a fresh report: UP, and then it is NOT shown as NOT BUILT
-  { const W = 'BOTSPROVEN', fx = fresh(NOWMS); fx.heartbeat.executors.BOTS = { state: 'up', last_seen: at(1) }; const d = stage(fx); const { ctx, p } = await open(br, d); await p.click('#t_map'); await wait(p, 300);
+  { const W = 'BOTSPROVEN', fx = fresh(NOWMS); fx.heartbeat.executors.BOTS = { state: 'up', last_seen: at(1), proof_at: at(2) }; const d = stage(fx); const { ctx, p } = await open(br, d); await p.click('#t_map'); await wait(p, 300);
     const box = await p.evaluate(() => { const b = [...document.querySelectorAll('.mbox')].find(x => /BOTS/.test(x.querySelector('.mid').textContent)); return b ? b.textContent : ''; });
     T(W, 'N4: with a proven report the box shows UP and not NOT BUILT', /UP/.test(box) && !/NOT BUILT/.test(box.slice(0, 120)), box.slice(0, 150)); await ctx.close(); }
   // ---- BIGTICK (flaw N5)

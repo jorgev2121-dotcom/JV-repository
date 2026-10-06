@@ -186,7 +186,7 @@
 </style>
 </head>
 <body>
-<script>window.VTES4_BUILT = "2026-10-06T21:00:00Z";</script><script src="vtes-status.js"></script><script src="data/vtes4-heartbeat.js"></script><script src="data/vtes4-state.js"></script><script src="data/vtes4-health.js"></script><script src="data/vtes4-tokens.js"></script><script src="data/vtes4-housekeeping.js"></script><script src="data/vtes4-miamidade.js"></script><script src="vtes4-live.js"></script><script src="vtes4-cards.js"></script><script src="vtes4-panels.js"></script>
+<script>window.VTES4_BUILT = "2026-10-06T08:00:30Z";</script><script src="vtes4-config.js"></script><script>(function(){var c=window.VTES4_CONFIG,u=c&&c.v3_dir_url;window.VTES4_BASE=(typeof u==="string"&&/^file:/i.test(u)&&/\/$/.test(u))?u:"";document.write("<scr"+"ipt src=\""+window.VTES4_BASE+"vtes-status.js\"></scr"+"ipt>");})();</script><script src="data/vtes4-heartbeat.js"></script><script src="data/vtes4-state.js"></script><script src="data/vtes4-health.js"></script><script src="data/vtes4-tokens.js"></script><script src="data/vtes4-housekeeping.js"></script><script src="data/vtes4-miamidade.js"></script><script src="vtes4-live.js"></script><script src="vtes4-cards.js"></script><script src="vtes4-panels.js"></script>
 <div class="strip" id="strip" aria-label="Fixed tabs, one per window. They never move or rename.">
   <div id="chips"></div>
   <div id="tools">
@@ -263,7 +263,7 @@
   <p>Every window runs on a subscription. API is allowed only as a thin routing bridge, and every API run is priced first and sent to you for approval. Handoffs go through the panel above or the Drive mailbox. The ID (LLM-01…08) and hashtags travel inside every file a window produces, so any later search — Drive, Gmail, OCR, 1Password, or this page — finds who did what.</p>
 </div>
 
-<p class="foot">TRK-2026-9910-B · v4 · built Oct 6, 2026, 5:00 PM EDT · CURRENT · v3 is untouched and stays beside it as the rollback · #VTES-control-panel #LLM-registry</p>
+<p class="foot">TRK-2026-9910-B · v4 · built <span id="v4fb"></span> · CURRENT · v3 is untouched and stays beside it as the rollback · #VTES-control-panel #LLM-registry</p>
 
 </div>
 
@@ -949,11 +949,11 @@
   var mapTab = 'flow';
   function legendStatus() {
     var it = [['up', 'UP (green): a fresh data file says up'], ['down', 'DOWN or STALE (red)'], ['nod', 'NO DATA (red)'], ['fut', 'not built or not connected (violet, dashed)'], ['unk', 'unknown (grey)']];
-    return '<div class="lg">' + it.map(function (i) { return '<span><i style="background:' + KCOL[i[0]] + ';box-shadow:0 0 0 1px ' + KCOL[i[0]] + '"></i>' + i[1] + '</span>'; }).join('') + '<span>Checked ' + window.VTES4.fmt(new Date(nowMs())) + '.</span></div>';
+    return '<div class="lg">' + it.map(function (i) { return '<span><i style="background:' + KCOL[i[0]] + ';box-shadow:0 0 0 1px ' + KCOL[i[0]] + '"></i>' + i[1] + '</span>'; }).join('') + '<span>Checked ' + '<i id="v4legt"></i>' + '.</span></div>';
   }
   function statusReport() {
     return 'VTES STATUS REPORT · ' + PROJ + ' · ' + window.VTES4.fmt(new Date(nowMs())) + ' · #STATUS #VTES-control-panel\n' +
-      MN.map(function (n) { var e = effective(n.id); return n.id + ' ' + n.n + ' · ' + e.txt + (e.why ? ' · ' + e.why : ''); }).join('\n') + '\n(The status lights come only from data files. Whether a web site answers is a separate small mark on each card.)\nTRK ' + PROJ + ' · status report · built ' + window.VTES4.fmtIso(window.VTES4_BUILT);
+      MN.map(function (n) { var e = effective(n.id); return n.id + ' ' + n.n + ' · ' + e.txt + (e.why ? ' · ' + e.why : ''); }).join('\n') + '\n(The status lights come only from data files. Whether a web site answers is a separate small mark on each card.)\nTRK ' + PROJ + ' · status report · built ' + window.VTES4.builtText(window.VTES4_BUILT);
   }
   function renderMap() {
     var el = document.getElementById('map');
@@ -974,7 +974,7 @@
   window.VTES_MAP = { paintCard: paintCard, effective: effective, refresh: refreshAll, status: STATUS, probe: PROBE, buses: BUSES, reach: REACH, nodes: MN, subs: SUBS, report: statusReport, show: function (t) { if (t) { mapTab = t; } showMode('map'); }, runProbes: runProbes };
   window.VTES4C.paintBell();
   paintChips(); paintCard(cur); window.VTES4C.paintSites(PROBE); runProbes();
-  setInterval(runProbes, 120000); setInterval(function () { window.VTES4.reload(function () { window.VTES4P.refresh(window.VTES4_BUILT); window.VTES4C.repaint(); window.VTES4C.paintBell(); refreshAll(); window.VTES4C.paintSites(PROBE); }); }, 60000);
+  var v4tickN = 0; setInterval(function () { v4tickN++; window.VTES4.reload(function () { window.VTES4P.refresh(window.VTES4_BUILT); window.VTES4C.repaint(); window.VTES4C.paintBell(); refreshAll(); window.VTES4C.paintSites(PROBE); if (v4tickN % 2 === 0) { runProbes(); } }); }, 60000);
   window.addEventListener('online', runProbes); window.addEventListener('offline', function () { Object.keys(STATUS).forEach(function (id) { if (STATUS[id].probe) { PROBE[id] = { ok: false, at: nowMs() }; } }); refreshAll(); });
 </script>
 </body>

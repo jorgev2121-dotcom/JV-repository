@@ -2,13 +2,17 @@
 // Reads v3-source/VTES-LLM-LAUNCHER_repo-copy-2026-09-30.html (the 2026-09-30 repo copy; NOT Jorge's live v3), applies each patch, FAILS LOUDLY if a patch finds nothing.
 const fs = require('fs');
 let h = fs.readFileSync(__dirname + '/v3-source/VTES-LLM-LAUNCHER_repo-copy-2026-09-30.html', 'utf8');
-const BUILT = process.env.V4_BUILT || new Date().toISOString().slice(0, 19) + 'Z'; // ISO UTC; shown on the page as Eastern time
+// The build time is the real instant this script runs, never hand-set (flaw F3). An environment variable cannot override it; the page also checks it against the BAD CLOCK rule.
+if (process.env.V4_BUILT) { console.log('NOTE: V4_BUILT is ignored. The build time is always the real build instant.'); }
+const BUILT = new Date().toISOString().slice(0, 19) + 'Z'; // ISO UTC; shown on the page as Eastern time
 const BUILT_ET = new Date(BUILT).toLocaleString('en-US', { timeZone: 'America/New_York', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
 function rep(name, from, to) { if (!(from instanceof RegExp ? from.test(h) : h.includes(from))) { throw new Error('PATCH MISSED: ' + name); } h = h.replace(from, () => to); }
+// vtes4-config.js (written by INSTALL-v4.ps1) holds the address of the v3 folder; the status-only file and the reminders are read from there (a file: address only)
+const LOADER = f => '<script src="vtes4-config.js"></script><script>(function(){var c=window.VTES4_CONFIG,u=c&&c.v3_dir_url;window.VTES4_BASE=(typeof u==="string"&&/^file:/i.test(u)&&/\\/$/.test(u))?u:"";document.write("<scr"+"ipt src=\\""+window.VTES4_BASE+"%F%\\"></scr"+"ipt>");})();</script>'.replace('%F%', f);
 rep('title', /<title>[^<]*<\/title>/, '<title>VTES LLM Launcher v4 - TRK-2026-9910-B</title>');
 // 1. data + live layer + cards scripts, loaded before the main script
 const SCRIPTS = ['vtes4-heartbeat', 'vtes4-state', 'vtes4-health', 'vtes4-tokens', 'vtes4-housekeeping', 'vtes4-miamidade'].map(n => '<script src="data/' + n + '.js"></script>').join('') + '<script src="vtes4-live.js"></script><script src="vtes4-cards.js"></script><script src="vtes4-panels.js"></script>';
-rep('scripts-in', '<body>', '<body>\n<script>window.VTES4_BUILT = "' + BUILT + '";</script><script src="vtes-status.js"></script>' + SCRIPTS);
+rep('scripts-in', '<body>', '<body>\n<script>window.VTES4_BUILT = "' + BUILT + '";</script>' + LOADER('vtes-status.js') + SCRIPTS);
 // 2. cards: static v3 cards replaced by the generated ones
 rep('cards', /<div class="grid" id="grid">[\s\S]*?<\/div>\n\n<div class="bus">/, '<div class="grid" id="grid"></div><script>VTES4C.renderCards(document.getElementById("grid"));</script>\n\n<div class="bus">');
 // 3. chips: plain names
@@ -44,7 +48,7 @@ rep('panelsbtn', '<button class="tb" id="t_map"', '<button class="tb" id="t_pan"
 rep('stripage', '<div id="chips"></div>', '<div id="chips"></div>');
 rep('init', "showMode('con'); selectLLM(cur);", "showMode('con'); selectLLM(cur);\n  document.getElementById('t_pan').addEventListener('click', function () { showMode('dir'); var p = document.getElementById('v4panels'); if (p.scrollIntoView) { p.scrollIntoView(); } });\n  VTES4P.render(window.VTES4_BUILT);");
 // 7. timings + footer
-rep('footer', /<p class="foot">TRK-2026-9910-B · repo copy 2026-09-30[^<]*<\/p>/, '<p class="foot">TRK-2026-9910-B · v4 · built ' + BUILT_ET + ' · CURRENT · v3 is untouched and stays beside it as the rollback · #VTES-control-panel #LLM-registry</p>');
+rep('footer', /<p class="foot">TRK-2026-9910-B · repo copy 2026-09-30[^<]*<\/p>/, '<p class="foot">TRK-2026-9910-B · v4 · built <span id="v4fb"></span> · CURRENT · v3 is untouched and stays beside it as the rollback · #VTES-control-panel #LLM-registry</p>');
 rep('hint', /<p class="hint">Every window has a fixed address[^<]*<\/p>/, '<p class="hint">Every card says what it is, shows its real state (green only when a fresh data file says so), and has a button that works or says plainly why it cannot yet.</p>');
 // 8. drop the dead script tags for files that are not in the package (status now comes from data\\vtes4-*.js)
 rep('dead', '<script src="vtes-status.js"></script>\n', '');
@@ -57,9 +61,9 @@ rep('bell', /\(function \(\) \{ try \{ var R = \(window\.VTES_REMINDERS[^\n]*\} 
 rep('bellstyle', 'title="Things waiting for you. Red means something is due or overdue." style="background:#b3261e;color:#fff;border-color:#b3261e;text-decoration:none"', 'title="Things waiting for you." style="background:#6b6b66;color:#fff;border-color:#6b6b66;text-decoration:none"');
 // FLAW 6: one CURRENT footer only (the page footer). The Map footer goes; the copied status report carries the build stamp, not CURRENT.
 rep('mapfoot', / \+\n      '<p class="foot">' \+ PROJ \+ ' · map v1 · ' \+ MAP_DATE \+ ' · CURRENT[^\n]*<\/p>';/, ";");
-rep('rptstamp', "' · status · ' + MAP_DATE + ' · CURRENT'", "' · status report · built ' + window.VTES4.fmtIso(window.VTES4_BUILT)");
+rep('rptstamp', "' · status · ' + MAP_DATE + ' · CURRENT'", "' · status report · built ' + window.VTES4.builtText(window.VTES4_BUILT)");
 rep('rptnow', "new Date(nowMs()).toISOString() + ' · #STATUS", "window.VTES4.fmt(new Date(nowMs())) + ' · #STATUS");
-rep('legendtime', "new Date(nowMs()).toLocaleTimeString()", "window.VTES4.fmt(new Date(nowMs()))");
+rep('legendtime', "new Date(nowMs()).toLocaleTimeString()", "'<i id=\"v4legt\"></i>'");
 // FLAW 5: STALE is red everywhere; amber is gone
 rep('legend', /var it = \[\['up', 'UP \(green\)'\][^\n]*\n/, "var it = [['up', 'UP (green): a fresh data file says up'], ['down', 'DOWN or STALE (red)'], ['nod', 'NO DATA (red)'], ['fut', 'not built or not connected (violet, dashed)'], ['unk', 'unknown (grey)']];\n");
 rep('legendhours', "<span>Hours = time since last sign of life. Checked ", "<span>Checked ");
@@ -89,7 +93,8 @@ rep('reach-bots', "'BOTS': 'Bots get their own computer and sign in to tools. No
 
 // ===== FIX ROUND 2 patches =====
 // FLAW N2: every 60 seconds the data files are reloaded (cache-busted) and cards, panels, strip, chips, bell and Map are all re-evaluated together
-rep('tick60', "setInterval(paintChips, 60000);", "setInterval(function () { window.VTES4.reload(function () { window.VTES4P.refresh(window.VTES4_BUILT); window.VTES4C.repaint(); window.VTES4C.paintBell(); refreshAll(); window.VTES4C.paintSites(PROBE); }); }, 60000);");
+rep('tick60', "setInterval(paintChips, 60000);", "var v4tickN = 0; setInterval(function () { v4tickN++; window.VTES4.reload(function () { window.VTES4P.refresh(window.VTES4_BUILT); window.VTES4C.repaint(); window.VTES4C.paintBell(); refreshAll(); window.VTES4C.paintSites(PROBE); if (v4tickN % 2 === 0) { runProbes(); } }); }, 60000);");
+rep('probetimer', "setInterval(runProbes, 120000); ", "");
 // FLAW N7: every time in the packet, the pad and the transcript is Eastern, short form, with the zone
 rep('packetstamp', "var stamp = new Date().toLocaleString();", "var stamp = window.VTES4.fmt(window.VTES4.now());");
 rep('padstamp', "at: new Date().toLocaleString(), att: atts || []", "at: window.VTES4.fmt(window.VTES4.now()), att: atts || []");
@@ -98,4 +103,18 @@ rep('padtranscript', "' · ' + m.at); out.push(m.t);", "' · ' + window.VTES4.pa
 rep('todayet', "function todayStr() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }", "function todayStr() { try { return new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' }); } catch (e) { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); } }");
 
 fs.writeFileSync(__dirname + '/VTES-LLM-LAUNCHER_v4.html', h);
+// ===== FIX ROUND 3 patches =====
+// FLAW F12: the status-only file never replaces a probe address; the page reads it through VTES4 only
+rep('statusmerge', "try { if (window.VTES_STATUS) { for (var sk in window.VTES_STATUS) { STATUS[sk] = window.VTES_STATUS[sk]; } } } catch (e) { }", "");
+rep('sap', "function s_ap(id) { return !!(STATUS[id] && STATUS[id].approx); }", "function s_ap(id) { return false; }");
+// the reminders file is read from the v3 folder too (same loader)
+rep('remloader', '<script src="vtes-reminders.js"></script>', LOADER('vtes-reminders.js'));
+// FLAW F16: redraw only what changed. Chips and the card line are written only when their text differs; the Map is rebuilt only when its html differs, its note survives, its legend time is its own node.
+rep('chiptext', /if \(hr\) \{ hr\.textContent = ([^\n]*?); \}\n      chip\.title/, (m0, expr) => "if (hr) { window.VTES4.setText(hr, " + expr + "); }\n      chip.title");
+rep('cardtext', "el.style.color = KCOL[e.k]; el.textContent = SYM[e.k] + ' ' + e.txt + (e.why ? ' — ' + e.why : '');", "el.style.color = KCOL[e.k]; window.VTES4.setText(el, SYM[e.k] + ' ' + e.txt + (e.why ? ' — ' + e.why : ''));");
+rep('mapvars', "var mapTab = 'flow';", "var mapTab = 'flow'; var mapNoteText = '';");
+rep('mapassign', "    el.innerHTML = '<div class=\"mt\">'", "    var mapHtml = '<div class=\"mt\">'");
+rep('maprebind', "    Array.prototype.forEach.call(el.querySelectorAll('.mt button[data-t]'), function (b) { b.addEventListener('click', function () { mapTab = b.getAttribute('data-t'); renderMap(); }); });\n    document.getElementById('mapcopy').addEventListener('click', function () { copyAny(statusReport()).then(function (ok) { document.getElementById('mapnote').textContent = ok ? 'Copied.' : 'Copy failed: select the text and press Ctrl+C.'; }); });",
+"    if (el.__v4h !== mapHtml) {\n      el.innerHTML = mapHtml; el.__v4h = mapHtml;\n      Array.prototype.forEach.call(el.querySelectorAll('.mt button[data-t]'), function (b) { b.addEventListener('click', function () { mapTab = b.getAttribute('data-t'); mapNoteText = ''; renderMap(); }); });\n      document.getElementById('mapcopy').addEventListener('click', function () { copyAny(statusReport()).then(function (ok) { mapNoteText = ok ? 'Copied.' : 'Copy failed: select the text and press Ctrl+C.'; window.VTES4.setText(document.getElementById('mapnote'), mapNoteText); }); });\n    }\n    window.VTES4.setText(document.getElementById('mapnote'), mapNoteText);\n    window.VTES4.setText(document.getElementById('v4legt'), window.VTES4.fmt(new Date(nowMs())));");
+
 console.log('built VTES-LLM-LAUNCHER_v4.html ' + h.length + ' bytes, built ' + BUILT);

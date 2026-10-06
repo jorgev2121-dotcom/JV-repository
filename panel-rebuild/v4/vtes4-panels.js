@@ -84,22 +84,28 @@
   function dash() {
     return ['heartbeat', 'state', 'health', 'tokens', 'housekeeping', 'miamidade'].map(function (n) { return '<span>' + esc(n) + ': ' + V.badge(n, 'OK') + '</span>'; }).join('');
   }
+  var PANELS = [['tokens', tokens], ['house', housekeeping], ['health', health], ['miami', miami]];
+  function ageHtml(age) { return '<span id="v4age1">' + esc(age.a) + '</span><span id="v4age2">' + esc(age.b) + '</span><span id="v4age3">' + esc(age.c) + '</span>'; }
+  function setBuilt(builtIso) { var f = document.getElementById('v4fb'); if (f) { V.setText(f, V.builtText(builtIso)); } }
   window.VTES4P = {
     MD: MD,
     render: function (builtIso) {
       var age = V.ageLine(builtIso);
-      document.getElementById('v4top').innerHTML = '<div class="v4age' + (age.bad ? ' bad' : '') + '" id="v4age">' + esc(age.text) + '</div><div class="v4dash" id="v4dash">' + dash() + '</div>' +
+      document.getElementById('v4top').innerHTML = '<div class="v4age' + (age.bad ? ' bad' : '') + '" id="v4age">' + ageHtml(age) + '</div><div class="v4dash" id="v4dash">' + dash() + '</div>' +
         '<details class="v4read" id="v4read" open><summary>Read me first</summary><ol>' + READ.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol></details>' +
         '<div class="v4rambo" id="v4rambo"><button class="btn" type="button" id="v4rambobtn">Copy hand-off packet for RAMBO (Claude Code Desktop Executor)</button><div class="paste v4cs" id="v4ramboout" role="status"></div></div>';
       document.getElementById('v4rambobtn').addEventListener('click', function () { window.VTES4C.pasteTo('LLM-01', document.getElementById('v4ramboout')); });
-      document.getElementById('v4panels').innerHTML = tokens() + housekeeping() + health() + miami();
+      document.getElementById('v4panels').innerHTML = PANELS.map(function (p) { return '<div id="pnw-' + p[0] + '">' + p[1]() + '</div>'; }).join('');
+      setBuilt(builtIso);
     },
-    /* every 60 seconds: re-evaluate the age line, the strip and every panel from the freshly reloaded files (flaw N2). The read-me and the RAMBO message are left alone. */
+    /* every 60 seconds: re-evaluate the age line, the strip and every panel from the freshly loaded files (flaw N2). Only what changed is redrawn (flaw F16):
+       the "Re-checked" time is its own node, the strip and each panel are compared with what is already there. The read-me and the RAMBO message are left alone. */
     refresh: function (builtIso) {
-      var age = V.ageLine(builtIso), a = document.getElementById('v4age'), d = document.getElementById('v4dash'), p = document.getElementById('v4panels');
-      if (a) { a.className = 'v4age' + (age.bad ? ' bad' : ''); a.textContent = age.text; }
-      if (d) { d.innerHTML = dash(); }
-      if (p) { p.innerHTML = tokens() + housekeeping() + health() + miami(); }
+      var age = V.ageLine(builtIso), a = document.getElementById('v4age'), d = document.getElementById('v4dash');
+      if (a) { var cls = 'v4age' + (age.bad ? ' bad' : ''); if (a.className !== cls) { a.className = cls; } V.setText(document.getElementById('v4age1'), age.a); V.setText(document.getElementById('v4age2'), age.b); V.setText(document.getElementById('v4age3'), age.c); }
+      if (d) { V.setHtml(d, dash()); }
+      PANELS.forEach(function (p) { V.setHtml(document.getElementById('pnw-' + p[0]), p[1]()); });
+      setBuilt(builtIso);
     }
   };
 })();

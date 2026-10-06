@@ -98,7 +98,7 @@
   function paintSites(probe) {
     Array.prototype.forEach.call(document.querySelectorAll('.v4site'), function (el) {
       var p = probe && probe[el.getAttribute('data-site')];
-      el.textContent = 'Site answers from this browser: ' + (!p ? 'checking' : (p.ok ? 'yes' : 'no')) + '. (A small extra mark, not the status light.)';
+      V.setText(el, 'Site answers from this browser: ' + (!p ? 'checking' : (p.ok ? 'yes' : 'no')) + '. (A small extra mark, not the status light.)');
     });
   }
   function bus() {
@@ -106,29 +106,38 @@
       '<div class="role">How every window hands off to the next</div><p class="job">Orders go into VTES-Inbox. Proof comes out of VTES-Outbox.</p>' +
       '<div class="row"><a class="btn" href="' + DRIVE_INBOX + '" target="_blank" rel="noopener">Open VTES-Inbox</a><a class="btn" href="' + DRIVE_OUTBOX + '" target="_blank" rel="noopener">Open VTES-Outbox</a></div></div>';
   }
-  /* re-evaluate every card in place (state line, tick sentence, open block, Grok note) without touching the packet messages (flaw N2) */
+  /* re-evaluate every card in place (state line, tick sentence, open block, Grok note) without touching the packet messages (flaw N2).
+     Only what changed is redrawn, so a text selection inside an unchanged card survives the 60-second tick (flaw F16). */
   function repaint() {
     CARDS.forEach(function (c) {
       var card = document.getElementById('card-' + c.id); if (!card) { return; }
-      var st = card.querySelector('.v4st'); if (st) { st.outerHTML = stateDiv(c); }
-      var tk = card.querySelector('.v4tick'); if (tk) { tk.textContent = V.tick(); }
-      var ob = card.querySelector('.v4ob'); if (ob) { ob.innerHTML = openBlock(c); }
-      var nt = card.querySelector('[data-note]'); if (nt && c.note === 'GROK') { nt.textContent = grokText(); }
+      var st = card.querySelector('.v4st');
+      if (st) {
+        var e = V.executor(c.id), cls = 'v4st ' + (e.state === 'OK' ? 'ok' : (e.state === 'UNPROVEN' ? 'unp' : 'bad'));
+        if (st.className !== cls) { st.className = cls; }
+        V.setHtml(st, '<b>State:</b> ' + esc(e.text));
+      }
+      var tk = card.querySelector('.v4tick'); if (tk) { V.setText(tk, V.tick()); }
+      var ob = card.querySelector('.v4ob'); if (ob) { V.setHtml(ob, openBlock(c)); }
+      var nt = card.querySelector('[data-note]'); if (nt && c.note === 'GROK') { V.setText(nt, grokText()); }
     });
   }
-  /* the bell: colour and count come from the reminders and today's date, never fixed. Red only when something is due or overdue. */
+  /* the bell: colour and count come from the reminders and today's date (Eastern), never fixed. Red only when something is due today or overdue,
+     or has a due date this page cannot read (flaws F10, F11). A missing or deleted reminders file shows no count. */
   function paintBell() {
     try {
-      var R = window.VTES_REMINDERS || [], n = 0, due = 0, now = V.now().getTime();
-      R.forEach(function (r) { if (!r.done) { n++; if (r.due && Date.parse(r.due + 'T23:59:59') < now) { due++; } } });
+      var r = V.reminders(), n = r.open, due = r.due, bad = r.unreadable, now = V.now().getTime();
       var a = document.getElementById('t_rem'), b = document.getElementById('remn'); if (!a) { return; }
-      if (b) { b.textContent = n ? ' ' + n : ''; }
-      var stamp = window.VTES_REMINDERS_AT ? new Date(window.VTES_REMINDERS_AT) : null, stampOk = stamp && !isNaN(stamp.getTime()), stale = stampOk && (((now - stamp) / 60000 > 26 * 60) || ((stamp - now) / 60000 > 2));
+      if (b) { V.setText(b, n ? ' ' + n : ''); }
+      var stampRaw = V.remindersAt(), stamp = stampRaw ? new Date(stampRaw) : null, stampOk = stamp && !isNaN(stamp.getTime()), stale = stampOk && (((now - stamp) / 60000 > 26 * 60) || ((stamp - now) / 60000 > 2));
       var col = due > 0 ? '#b3261e' : (n > 0 ? '#1b5e9e' : '#6b6b66');
       a.style.background = col; a.style.borderColor = col; a.style.color = '#fff'; a.style.animation = due > 0 ? 'vtesflash 1s steps(2) infinite' : '';
       a.style.borderStyle = (stampOk && !stale) ? 'solid' : 'dashed';
-      a.title = 'Things waiting for you: ' + n + ' open, ' + due + ' due or overdue (' + (due > 0 ? 'red' : (n > 0 ? 'blue: none is due' : 'grey: nothing open')) + '). ' +
+      var t = 'Things waiting for you: ' + n + ' open, ' + due + ' due today or overdue (' + (due > 0 ? 'red' : (n > 0 ? 'blue: none is due' : 'grey: nothing open')) + '). ' +
+        (r.listed ? '' : 'The reminders file is missing or has no list, so no count is shown. ') +
+        (bad.length ? 'Due date not readable for ' + bad.join(', ') + ': counted as due until the date is fixed. ' : '') +
         (!stampOk ? 'The reminders file has no time stamp, so this count may be old (dashed border).' : (stale ? 'The reminders file is STALE or dated in the future (' + V.fmt(stamp) + '): the count may be wrong (dashed border).' : 'Reminders file as of ' + V.fmt(stamp) + '.'));
+      if (a.title !== t) { a.title = t; }
     } catch (e) { }
   }
   /* the Map has no box for LOCAL or CHIEF (flaw N13): say so on the page and show their live state in words */
