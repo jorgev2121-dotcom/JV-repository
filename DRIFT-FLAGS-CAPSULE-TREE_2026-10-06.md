@@ -59,7 +59,7 @@ All ten sit directly under the real root:
 - Unit 301 and unit 322 documents already sit inside the 1265 capsule (`_FROM-ARCHIVE`, including the five empty PDFs the OCR run flagged yesterday).
 - **If the five units are part of the Plaza job, they need zero new numbers and should be folded into 1265. Giving them five new numbers would split one project into six.**
 - Then only 5 capsules would need numbers: items 1 to 5.
-- **One yes/no from Jorge settles this: "Are the five Bay Harbor unit folders part of the Plaza job, TRK-2026-1265?"**
+- **ANSWERED by Jorge (2026-10-06, typed): "yes the Bay Harbor units are part of the Plaza." The five Bay Harbor units need no new numbers. Staged plan: [PLAN_FOLD-BAY-HARBOR-UNITS-INTO-1265_2026-10-06.md](PLAN_FOLD-BAY-HARBOR-UNITS-INTO-1265_2026-10-06.md). It waits on Jorge's "go" to move files.**
 
 ## Flag 3 — Palmer Trust buried in `_CONVERGE-STAGING`
 
@@ -98,7 +98,7 @@ All ten sit directly under the real root:
 
 ## What needs Jorge (cheap, one word each)
 
-1. Bay Harbor units: part of the Plaza job (TRK-2026-1265)? **yes / no**
+1. ~~Bay Harbor units: part of the Plaza job (TRK-2026-1265)?~~ **Answered: yes.** Waiting only on "go" to fold them in.
 2. Palmer Trust at 5000 SW 75 Ave: a real, paying job? **yes / no**
 3. OK to archive or delete the shadow root (Flag 1)? **yes / no**
 4. A registry look from the desktop to get the next free numbers (cloud cannot see it). Cloud will queue this.
