@@ -4,6 +4,22 @@
 
 ---
 
+## START HERE — update 2026-10-06 03:15Z (11:15 PM Miami, Monday): YOUR CLICKS WORKED
+
+**Yes, the window saved your clicks. It is not frozen.** There is one file per click, from 11:03 to 11:04 PM. I read all of them.
+
+**What it recorded:** approve on items 1, 3, 4, 5, 6 and 7. **Item 2 is the odd one: you approved it, then deferred it 87 seconds later. I treat the later click as final, so item 2 is deferred.**
+
+**The desktop has not confirmed them yet, and that is normal this soon.** It usually confirms in about 3 minutes. The rows still say overdue because the card only clears when the desktop finishes the job.
+
+**One safety rule for item 3:** do not type full card or bank numbers into any file. Give only the nickname and last four.
+
+**Your four drift flags are mapped.** The file is DRIFT-FLAGS-CAPSULE-TREE_2026-10-06.md. Nothing was moved or renamed.
+
+Do you want me to check the desktop's confirmations first thing in the morning?
+
+---
+
 ## START HERE — update 2026-10-05 21:30Z (5:30 PM Miami, Monday): OCR IS DONE, AND YOU MERGED A PULL REQUEST
 
 **The OCR backfill is finished.** Of 199 documents with no searchable text, 193 are done and 6 cannot be done. Five of those six are the empty Plaza files, and one is blank when read. The tagging backlog of 1,336 is now zero. The desktop also made a contact list for each of 27 job folders. **Treat those lists as leads, not facts.**
