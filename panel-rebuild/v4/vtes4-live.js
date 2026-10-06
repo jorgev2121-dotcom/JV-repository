@@ -200,7 +200,8 @@
     var left = jobs.length, completed = false, tags = [];
     window.VTES_DATA = fresh; window.VTES_STATUS = freshS; window.VTES_REMINDERS = undefined; window.VTES_REMINDERS_AT = undefined;
     function end(swap) {
-      if (swap) { D = fresh; S = freshS; RM = window.VTES_REMINDERS; RMAT = window.VTES_REMINDERS_AT; swapped = true; }
+      /* the status file assigns window.VTES_STATUS itself (a new object), so take what the files left in the globals */
+      if (swap) { D = window.VTES_DATA || fresh; S = window.VTES_STATUS || freshS; RM = window.VTES_REMINDERS; RMAT = window.VTES_REMINDERS_AT; swapped = true; }
       window.VTES_DATA = D; window.VTES_STATUS = getS(); window.VTES_REMINDERS = getRM(); window.VTES_REMINDERS_AT = getRMAT();
       reload.busy = false; try { done && done(); } catch (e) { }
     }

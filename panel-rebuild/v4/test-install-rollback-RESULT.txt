@@ -130,7 +130,7 @@ DONE. Open <scratch>/w3
   PASS S20c: v3 identical
 == S21: Undo_Manifests stub is listed in the record and removed by the rollback
   DONE lines: 1
-  stub: Rollback_Panel-v4_2026-10-06_0808.ps1
+  stub: Rollback_Panel-v4_2026-10-06_0824.ps1
 Rollback of <scratch>/w3/s22/vtes-panel-v4. The record lists 12
   stub   <scratch>/w3/home/OneDrive/Documents/Reports/Undo_Mani
 removed stub <scratch>/w3/home/OneDrive/Documents/Reports/Undo_

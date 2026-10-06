@@ -91,11 +91,13 @@
     MD: MD,
     render: function (builtIso) {
       var age = V.ageLine(builtIso);
-      document.getElementById('v4top').innerHTML = '<div class="v4age' + (age.bad ? ' bad' : '') + '" id="v4age">' + ageHtml(age) + '</div><div class="v4dash" id="v4dash">' + dash() + '</div>' +
+      document.getElementById('v4top').innerHTML = '<div class="v4age' + (age.bad ? ' bad' : '') + '" id="v4age">' + ageHtml(age) + '</div><div class="v4dash" id="v4dash"></div>' +
         '<details class="v4read" id="v4read" open><summary>Read me first</summary><ol>' + READ.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol></details>' +
         '<div class="v4rambo" id="v4rambo"><button class="btn" type="button" id="v4rambobtn">Copy hand-off packet for RAMBO (Claude Code Desktop Executor)</button><div class="paste v4cs" id="v4ramboout" role="status"></div></div>';
       document.getElementById('v4rambobtn').addEventListener('click', function () { window.VTES4C.pasteTo('LLM-01', document.getElementById('v4ramboout')); });
-      document.getElementById('v4panels').innerHTML = PANELS.map(function (p) { return '<div id="pnw-' + p[0] + '">' + p[1]() + '</div>'; }).join('');
+      document.getElementById('v4panels').innerHTML = PANELS.map(function (p) { return '<div id="pnw-' + p[0] + '"></div>'; }).join('');
+      PANELS.forEach(function (p) { V.setHtml(document.getElementById('pnw-' + p[0]), p[1]()); });
+      V.setHtml(document.getElementById('v4dash'), dash());
       setBuilt(builtIso);
     },
     /* every 60 seconds: re-evaluate the age line, the strip and every panel from the freshly loaded files (flaw N2). Only what changed is redrawn (flaw F16):

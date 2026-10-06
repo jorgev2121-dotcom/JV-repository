@@ -159,7 +159,7 @@ try {
     if ($bad.Count -gt 0) { throw ('copied file differs from its source: ' + ($bad -join ', ')) }
     Write-Host ('new folder check: ' + $map.Count + ' of ' + $map.Count + ' copied files have the same SHA256 as the package')
     $after = V3-Hashes; $changed = @(); $alarm = $false
-    foreach ($k in @($before.Keys + $after.Keys | Sort-Object -Unique)) { if ($before[$k] -ne $after[$k]) { $changed += $k; foreach ($n in $v3Present) { if ($k -eq $n) { $alarm = $true } } } }
+    foreach ($k in @(@($before.Keys) + @($after.Keys) | Sort-Object -Unique)) { if ($before[$k] -ne $after[$k]) { $changed += $k; foreach ($n in $v3Present) { if ($k -eq $n) { $alarm = $true } } } }
     if ($changed.Count -eq 0) { Write-Host ('v3 untouched: SHA256 of all ' + $before.Count + ' files in the v3 folder is identical before and after') }
     else {
         Write-Host ('NOTE: these v3 files differ between the start and the end of this run: ' + ($changed -join ', ') + '. INSTALL never writes in the v3 folder; a live writer of v3 (for example the status writer rewriting vtes-status.js) may have run in between.')

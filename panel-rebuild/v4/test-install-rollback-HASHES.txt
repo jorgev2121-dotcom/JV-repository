@@ -81,18 +81,18 @@ c1436ac07cfb45c3b8ddad5962c8dafc077ec991a0c3e5f0362660b0a1a9aff6  ./vtes-subs.js
 DIR .
 DIR ./_Superseded
 ### s1.new (sha256 of every file; DIR lines list folders)
-faf0660bb5ac2fa16a5cce6dcdab758f982586c1dce8d10d3b1ea7e29ce8c38c  ./VTES-LLM-LAUNCHER_v4.html
+be7ef35beb44dcb6b1d6c777cae4034ae9ecdfe247a52775d175ce06290c7f29  ./VTES-LLM-LAUNCHER_v4.html
 ad7b029122d4ac7c2572d2e66a5c143dc1304bc8a13c203ad0f29895c2743162  ./data/vtes4-health.js
 b1179b8b7850d6514d9aa2c34aafe3427535ef1b0ce45155bbe0214bc99efc60  ./data/vtes4-heartbeat.js
 9d15db4762fe925d1c2b214727cc08fc3258c7de907bace30b50d5e825fd0036  ./data/vtes4-housekeeping.js
 4d1c441d3dbe2a7816ad4ba82f07520c9398e4e6a844916fdcbfb8413dc7f543  ./data/vtes4-miamidade.js
 f8ef348c54842b1da0b2ce8611881e74c2b575ceaa95c7296824130383dc490a  ./data/vtes4-state.js
 ccdcb5579c727d41e6dcd6afd23b9fbcc19611d6fe8ea90ab41b76a604483388  ./data/vtes4-tokens.js
-f1222c366ceffd493f62735c8831c6b2890e1247c8b5830e905ba2630a08ead4  ./v4-install-record.txt
+893dc26e21b74b25cda60184d783712e47772cb3a8adfe6a26b3f7087385bd2d  ./v4-install-record.txt
 f2e503fcbf66083dae36c86976f1e0908ed5f9a0fddd50fb65a151a0b9aff53f  ./vtes4-cards.js
-5ad41fba0cb0db70c5e1ccf5ce3c7266379b05c330f2efc719ad0242ed7fcc3a  ./vtes4-config.js
-d17aa9b7dbd5c7bb70f02c4dc6457d3f97bf91f3acf154523a802f1a2c1b3355  ./vtes4-live.js
-225f912ad195657cb205fb65f9cac2b5cd78da5c44749b2944a79e6ffc946c7e  ./vtes4-panels.js
+4955a3cb3feb7355e7375d5de8f37fc3846db1f5aabffef65f2813700ff66726  ./vtes4-config.js
+85990979ab147c7679f9f054e6b48004b17b40132e43d3cbbefc3db1ddd75a8c  ./vtes4-live.js
+c238e7fea6d14632f3c3408a44b1a49945f07365a21a52ee65e0094cf9cd6b53  ./vtes4-panels.js
 DIR .
 DIR ./data
 ### s1.v3c (sha256 of every file; DIR lines list folders)
@@ -136,6 +136,36 @@ c1436ac07cfb45c3b8ddad5962c8dafc077ec991a0c3e5f0362660b0a1a9aff6  ./vtes-subs.js
 64c928550d8321e6800110bfc4e997579be54df34ae566b65d86af1adda17729  ./where-data.js
 DIR .
 DIR ./_Superseded
+### s2.n1 (sha256 of every file; DIR lines list folders)
+be7ef35beb44dcb6b1d6c777cae4034ae9ecdfe247a52775d175ce06290c7f29  ./VTES-LLM-LAUNCHER_v4.html
+ad7b029122d4ac7c2572d2e66a5c143dc1304bc8a13c203ad0f29895c2743162  ./data/vtes4-health.js
+b1179b8b7850d6514d9aa2c34aafe3427535ef1b0ce45155bbe0214bc99efc60  ./data/vtes4-heartbeat.js
+9d15db4762fe925d1c2b214727cc08fc3258c7de907bace30b50d5e825fd0036  ./data/vtes4-housekeeping.js
+4d1c441d3dbe2a7816ad4ba82f07520c9398e4e6a844916fdcbfb8413dc7f543  ./data/vtes4-miamidade.js
+f8ef348c54842b1da0b2ce8611881e74c2b575ceaa95c7296824130383dc490a  ./data/vtes4-state.js
+ccdcb5579c727d41e6dcd6afd23b9fbcc19611d6fe8ea90ab41b76a604483388  ./data/vtes4-tokens.js
+a092c0efb17d7fa303a2fd7e2845c156d7ecc79fa849f94233bd1021a4fb1498  ./v4-install-record.txt
+f2e503fcbf66083dae36c86976f1e0908ed5f9a0fddd50fb65a151a0b9aff53f  ./vtes4-cards.js
+3c8d4d7125c6078f679fdd1b16a91628c870cf9f08d3dfaa4b355900aab7dfac  ./vtes4-config.js
+85990979ab147c7679f9f054e6b48004b17b40132e43d3cbbefc3db1ddd75a8c  ./vtes4-live.js
+c238e7fea6d14632f3c3408a44b1a49945f07365a21a52ee65e0094cf9cd6b53  ./vtes4-panels.js
+DIR .
+DIR ./data
+### s2.n2 (sha256 of every file; DIR lines list folders)
+be7ef35beb44dcb6b1d6c777cae4034ae9ecdfe247a52775d175ce06290c7f29  ./VTES-LLM-LAUNCHER_v4.html
+ad7b029122d4ac7c2572d2e66a5c143dc1304bc8a13c203ad0f29895c2743162  ./data/vtes4-health.js
+b1179b8b7850d6514d9aa2c34aafe3427535ef1b0ce45155bbe0214bc99efc60  ./data/vtes4-heartbeat.js
+9d15db4762fe925d1c2b214727cc08fc3258c7de907bace30b50d5e825fd0036  ./data/vtes4-housekeeping.js
+4d1c441d3dbe2a7816ad4ba82f07520c9398e4e6a844916fdcbfb8413dc7f543  ./data/vtes4-miamidade.js
+f8ef348c54842b1da0b2ce8611881e74c2b575ceaa95c7296824130383dc490a  ./data/vtes4-state.js
+ccdcb5579c727d41e6dcd6afd23b9fbcc19611d6fe8ea90ab41b76a604483388  ./data/vtes4-tokens.js
+a092c0efb17d7fa303a2fd7e2845c156d7ecc79fa849f94233bd1021a4fb1498  ./v4-install-record.txt
+f2e503fcbf66083dae36c86976f1e0908ed5f9a0fddd50fb65a151a0b9aff53f  ./vtes4-cards.js
+3c8d4d7125c6078f679fdd1b16a91628c870cf9f08d3dfaa4b355900aab7dfac  ./vtes4-config.js
+85990979ab147c7679f9f054e6b48004b17b40132e43d3cbbefc3db1ddd75a8c  ./vtes4-live.js
+c238e7fea6d14632f3c3408a44b1a49945f07365a21a52ee65e0094cf9cd6b53  ./vtes4-panels.js
+DIR .
+DIR ./data
 ### s13.a (sha256 of every file; DIR lines list folders)
 705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da  ./.gitattributes
 7716ccaf32056691c7fb5caea0460a8ac705aa904f0b81bf3d973402889c13f2  ./ALLOWLIST-MUNICIPAL-DOMAINS.txt
@@ -174,7 +204,7 @@ d808c2d773c96e03e79c5f2cf9cbe89acc198eb07fe0c46551c0c9ea21ca8f52  ./portal-workf
 73e9e77a6ec259c7e71c1d348410be281e8f3ad9b835064a2bfa7b7b89213c9c  ./vtes-modules.js
 7f8663bb4a2597e8d875a60969bf7d207200b5d67f8e6fc90eed6d05fd17e14f  ./vtes-reminders.js
 c1436ac07cfb45c3b8ddad5962c8dafc077ec991a0c3e5f0362660b0a1a9aff6  ./vtes-subs.js
-4d21fd32fe066a57e68d57d44db251263445c7dd9eef684768636a4ff9333545  ./vtes-verify.js
+cc3aea695e0a4aeef541a45c9bae6b2958ae95588fe79a35a1e39c2e18eaac8e  ./vtes-verify.js
 64c928550d8321e6800110bfc4e997579be54df34ae566b65d86af1adda17729  ./where-data.js
 DIR .
 DIR ./_Superseded
@@ -216,7 +246,7 @@ d808c2d773c96e03e79c5f2cf9cbe89acc198eb07fe0c46551c0c9ea21ca8f52  ./portal-workf
 73e9e77a6ec259c7e71c1d348410be281e8f3ad9b835064a2bfa7b7b89213c9c  ./vtes-modules.js
 7f8663bb4a2597e8d875a60969bf7d207200b5d67f8e6fc90eed6d05fd17e14f  ./vtes-reminders.js
 c1436ac07cfb45c3b8ddad5962c8dafc077ec991a0c3e5f0362660b0a1a9aff6  ./vtes-subs.js
-4d21fd32fe066a57e68d57d44db251263445c7dd9eef684768636a4ff9333545  ./vtes-verify.js
+cc3aea695e0a4aeef541a45c9bae6b2958ae95588fe79a35a1e39c2e18eaac8e  ./vtes-verify.js
 64c928550d8321e6800110bfc4e997579be54df34ae566b65d86af1adda17729  ./where-data.js
 DIR .
 DIR ./_Superseded

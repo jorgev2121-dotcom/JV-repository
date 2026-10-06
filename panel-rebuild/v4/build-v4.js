@@ -102,7 +102,6 @@ rep('padshow', "' · ' + esc(m.at) + '</div>'", "' · ' + esc(window.VTES4.padTi
 rep('padtranscript', "' · ' + m.at); out.push(m.t);", "' · ' + window.VTES4.padTime(m.at)); out.push(m.t);");
 rep('todayet', "function todayStr() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }", "function todayStr() { try { return new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' }); } catch (e) { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); } }");
 
-fs.writeFileSync(__dirname + '/VTES-LLM-LAUNCHER_v4.html', h);
 // ===== FIX ROUND 3 patches =====
 // FLAW F12: the status-only file never replaces a probe address; the page reads it through VTES4 only
 rep('statusmerge', "try { if (window.VTES_STATUS) { for (var sk in window.VTES_STATUS) { STATUS[sk] = window.VTES_STATUS[sk]; } } } catch (e) { }", "");
@@ -110,11 +109,12 @@ rep('sap', "function s_ap(id) { return !!(STATUS[id] && STATUS[id].approx); }", 
 // the reminders file is read from the v3 folder too (same loader)
 rep('remloader', '<script src="vtes-reminders.js"></script>', LOADER('vtes-reminders.js'));
 // FLAW F16: redraw only what changed. Chips and the card line are written only when their text differs; the Map is rebuilt only when its html differs, its note survives, its legend time is its own node.
-rep('chiptext', /if \(hr\) \{ hr\.textContent = ([^\n]*?); \}\n      chip\.title/, (m0, expr) => "if (hr) { window.VTES4.setText(hr, " + expr + "); }\n      chip.title");
+{ const m = /if \(hr\) \{ hr\.textContent = ([^\n]*?); \}\n      chip\.title/.exec(h); if (!m) { throw new Error('PATCH MISSED: chiptext'); } h = h.replace(m[0], () => 'if (hr) { window.VTES4.setText(hr, ' + m[1] + '); }\n      chip.title'); }
 rep('cardtext', "el.style.color = KCOL[e.k]; el.textContent = SYM[e.k] + ' ' + e.txt + (e.why ? ' — ' + e.why : '');", "el.style.color = KCOL[e.k]; window.VTES4.setText(el, SYM[e.k] + ' ' + e.txt + (e.why ? ' — ' + e.why : ''));");
 rep('mapvars', "var mapTab = 'flow';", "var mapTab = 'flow'; var mapNoteText = '';");
 rep('mapassign', "    el.innerHTML = '<div class=\"mt\">'", "    var mapHtml = '<div class=\"mt\">'");
 rep('maprebind', "    Array.prototype.forEach.call(el.querySelectorAll('.mt button[data-t]'), function (b) { b.addEventListener('click', function () { mapTab = b.getAttribute('data-t'); renderMap(); }); });\n    document.getElementById('mapcopy').addEventListener('click', function () { copyAny(statusReport()).then(function (ok) { document.getElementById('mapnote').textContent = ok ? 'Copied.' : 'Copy failed: select the text and press Ctrl+C.'; }); });",
 "    if (el.__v4h !== mapHtml) {\n      el.innerHTML = mapHtml; el.__v4h = mapHtml;\n      Array.prototype.forEach.call(el.querySelectorAll('.mt button[data-t]'), function (b) { b.addEventListener('click', function () { mapTab = b.getAttribute('data-t'); mapNoteText = ''; renderMap(); }); });\n      document.getElementById('mapcopy').addEventListener('click', function () { copyAny(statusReport()).then(function (ok) { mapNoteText = ok ? 'Copied.' : 'Copy failed: select the text and press Ctrl+C.'; window.VTES4.setText(document.getElementById('mapnote'), mapNoteText); }); });\n    }\n    window.VTES4.setText(document.getElementById('mapnote'), mapNoteText);\n    window.VTES4.setText(document.getElementById('v4legt'), window.VTES4.fmt(new Date(nowMs())));");
 
+fs.writeFileSync(__dirname + '/VTES-LLM-LAUNCHER_v4.html', h);
 console.log('built VTES-LLM-LAUNCHER_v4.html ' + h.length + ' bytes, built ' + BUILT);

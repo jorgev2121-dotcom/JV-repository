@@ -1,0 +1,476 @@
+{
+ "package": "OLD: /tmp/claude-0/-home-user-JV-repository/790fd7c0-47ba-5fff-b76c-d113b8afb8e6/scratchpad/old/panel-rebuild/v4",
+ "total": 78,
+ "pass": 41,
+ "fail": 37,
+ "results": [
+  {
+   "world": "F3",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F3",
+   "name": "F3: the build instant is not in the future (real clock): 2026-10-06T21:00:00Z",
+   "status": "FAIL",
+   "why": "2026-10-06T21:00:00Z vs now 2026-10-06T08:26:31.821Z"
+  },
+  {
+   "world": "F3",
+   "name": "F3: the top line does not say BAD CLOCK for a real build time",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F3",
+   "name": "F3: the footer shows the same build time as the top line",
+   "status": "FAIL",
+   "why": "TRK-2026-9910-B · v4 · built Oct 6, 2026, 5:00 PM EDT · CURRENT · v3 is untouched and stays beside it as the rollback ·  | Built Oct 6, 5:00 PM EDT, data as of Oct 6, 3:26 AM EDT (oldest file). Re-checke"
+  },
+  {
+   "world": "F3",
+   "name": "F3: when the PC clock is an hour BEFORE the build time, the top line says BAD CLOCK and is red",
+   "status": "FAIL",
+   "why": "Built Oct 6, 5:00 PM EDT, data as of Oct 6, 3:26 AM EDT (oldest file). Re-checked Oct 6, 4:00 PM EDT. At least one data file is missing, stale, in the future or"
+  },
+  {
+   "world": "F3",
+   "name": "F3: ... and so does the footer",
+   "status": "FAIL",
+   "why": "TRK-2026-9910-B · v4 · built Oct 6, 2026, 5:00 PM EDT · CURRENT · v3 is untouched and stays beside it as the rollback · "
+  },
+  {
+   "world": "F4",
+   "name": "F4: a BOTS report with NO proof_at: the Map box says NOT BUILT (not UP)",
+   "status": "FAIL",
+   "why": "● UP - seen Oct 6, 1:59 PM EDT"
+  },
+  {
+   "world": "F4",
+   "name": "F4: ... and the Grok card does not claim \"reporting UP with proof\"",
+   "status": "FAIL",
+   "why": "Grok is chat only. A Grok bot is reporting UP with proof (see the Grok Bots box on the Map). The reg"
+  },
+  {
+   "world": "F4",
+   "name": "F4: with proof_at the box says UP and the Grok card says reporting UP with proof",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F4",
+   "name": "F4: a proof_at a day old is not proof: NOT BUILT",
+   "status": "FAIL",
+   "why": "● UP - seen Oct 6, 1:59 PM EDT"
+  },
+  {
+   "world": "F4",
+   "name": "F4: a proof_at in the future is not proof: NOT BUILT",
+   "status": "FAIL",
+   "why": "● UP - seen Oct 6, 1:59 PM EDT"
+  },
+  {
+   "world": "F4",
+   "name": "F4 (also N4): the status-only writer saying BOTS up is not proof: NOT BUILT",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F4",
+   "name": "F4: DATA-CONTRACT defines the BOTS proof field (executors.BOTS.proof_at) and says what it proves",
+   "status": "FAIL",
+   "why": "contract text"
+  },
+  {
+   "world": "F8",
+   "name": "F8: a legitimate 30-minute tick, file and sightings 20 minutes old -> RAMBO green (chip, card and heartbeat badge agree)",
+   "status": "FAIL",
+   "why": "[0,0,{\"ok\":false,\"t\":\"STALE since Oct 6, 1:40 PM EDT\"},\"State: STALE since Oct 6, 1:40 PM EDT\",\"every 30 minutes (STALE)\"]"
+  },
+  {
+   "world": "F8",
+   "name": "no page errors (1800/20)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "F8: 30-minute tick, 100 minutes old (> 3 ticks = 90) -> RAMBO red STALE (chip, card and heartbeat badge agree)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "no page errors (1800/100)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "F8: 60-minute tick, 170 minutes old (< 180 cap) -> RAMBO green (chip, card and heartbeat badge agree)",
+   "status": "FAIL",
+   "why": "[0,0,{\"ok\":false,\"t\":\"STALE since Oct 6, 11:10 AM EDT\"},\"State: STALE since Oct 6, 11:10 AM EDT\",\"every 60 minutes (STALE)\"]"
+  },
+  {
+   "world": "F8",
+   "name": "no page errors (3600/170)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "F8: 60-minute tick, 190 minutes old (> 3-hour cap) -> RAMBO red STALE (chip, card and heartbeat badge agree)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "no page errors (3600/190)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "F8: 1-minute tick, 2 minutes old -> RAMBO green (chip, card and heartbeat badge agree)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "no page errors (60/2)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "F8: 1-minute tick, 4 minutes old (> 3 minutes) -> RAMBO red STALE (chip, card and heartbeat badge agree)",
+   "status": "FAIL",
+   "why": "[0,0,{\"ok\":true,\"t\":\"OK - as of Oct 6, 1:56 PM EDT\"},\"State: STALE since Oct 6, 1:56 PM EDT\",\"every 1 minutes\"]"
+  },
+  {
+   "world": "F8",
+   "name": "no page errors (60/4)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "F8: 5-minute tick, 14 minutes old (15-minute limit as before) -> RAMBO green (chip, card and heartbeat badge agree)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "no page errors (300/14)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "F8: 5-minute tick, 16 minutes old -> RAMBO red STALE (chip, card and heartbeat badge agree)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "no page errors (300/16)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F8",
+   "name": "F8: DATA-CONTRACT rule 3 and the heartbeat limit say the same thing (3 x interval_sec, 3 minutes to 3 hours)",
+   "status": "FAIL",
+   "why": "contract text"
+  },
+  {
+   "world": "F9",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F9",
+   "name": "F9: during 15 reloads, 57 repaints happened WHILE files were loading; every one showed the same, complete state (72 samples)",
+   "status": "FAIL",
+   "why": "[\"st-nod|State: WRITER SAYS U|chip sel st-nod|NO DATA - no\",\"st-unk|State: WRITER SAYS U|chip sel st-nod|WRITER SAYS \"] mid=57"
+  },
+  {
+   "world": "F9-timer",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F9-timer",
+   "name": "F9: over 10 ticks (5 of them probe ticks, sites unreachable) the RAMBO chip (grey NOT PROVEN, status writer only) never flipped to NO DATA: 30 changes seen, 20 not green",
+   "status": "FAIL",
+   "why": "[\"st-nod NO DATA\",\"st-nod NO DATA\",\"st-nod NO DATA\",\"st-nod NO DATA\"]"
+  },
+  {
+   "world": "F9-timer",
+   "name": "F9: reload and probes share one timer (the page has one 60-second setInterval and no separate probe interval)",
+   "status": "FAIL",
+   "why": "setInterval count 2"
+  },
+  {
+   "world": "F10",
+   "name": "F10: the real reminders on 2026-10-11 (R-01 is due that day): the bell is RED and counts it due today",
+   "status": "FAIL",
+   "why": "{\"bg\":\"rgb(27, 94, 158)\",\"title\":\"Things waiting for you: 21 open, 0 due or overdue (blue: none is due). The reminders file has no time stamp, so this count may be old (dashed border).\",\"n\":\" 21\"}"
+  },
+  {
+   "world": "F10",
+   "name": "F10: due today (2026-10-06, clock 2 PM ET) is DUE: red",
+   "status": "FAIL",
+   "why": "{\"bg\":\"rgb(27, 94, 158)\",\"title\":\"Things waiting for you: 1 open, 0 due or overdue (blue: none is due). The reminders file has no time stamp, so this count may be old (dashed border).\",\"n\":\" 1\"}"
+  },
+  {
+   "world": "F10",
+   "name": "F10: due tomorrow is not due: blue",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F10",
+   "name": "F10: due yesterday is overdue: red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F10",
+   "name": "F10: the form 10/01/2026 (M/D/YYYY) is read, in the past: red, not flagged unreadable",
+   "status": "FAIL",
+   "why": "{\"bg\":\"rgb(27, 94, 158)\",\"title\":\"Things waiting for you: 1 open, 0 due or overdue (blue: none is due). The reminders file has no time stamp, so this count may be old (dashed border).\",\"n\":\" 1\"}"
+  },
+  {
+   "world": "F10",
+   "name": "F10: the form 10/09/2026 in the future: blue",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F10",
+   "name": "F10: the form \"Oct 6, 2026\" is read: due today, red",
+   "status": "FAIL",
+   "why": "{\"bg\":\"rgb(27, 94, 158)\",\"title\":\"Things waiting for you: 1 open, 0 due or overdue (blue: none is due). The reminders file has no time stamp, so this count may be old (dashed border).\",\"n\":\" 1\"}"
+  },
+  {
+   "world": "F10",
+   "name": "F10: the form \"October 20, 2026\" is read: not due, blue",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F10",
+   "name": "F10: an ISO date with a time is read by its day: due today, red",
+   "status": "FAIL",
+   "why": "{\"bg\":\"rgb(27, 94, 158)\",\"title\":\"Things waiting for you: 1 open, 0 due or overdue (blue: none is due). The reminders file has no time stamp, so this count may be old (dashed border).\",\"n\":\" 1\"}"
+  },
+  {
+   "world": "F10",
+   "name": "F10: an unreadable date (\"next week\") is FLAGGED by name in the tooltip and counted as due: red",
+   "status": "FAIL",
+   "why": "{\"bg\":\"rgb(27, 94, 158)\",\"title\":\"Things waiting for you: 1 open, 0 due or overdue (blue: none is due). The reminders file has no time stamp, so this count may be old (dashed border).\",\"n\":\" 1\"}"
+  },
+  {
+   "world": "F10",
+   "name": "F10: an impossible date (2026-13-45) is flagged too",
+   "status": "FAIL",
+   "why": "{\"bg\":\"rgb(27, 94, 158)\",\"title\":\"Things waiting for you: 1 open, 0 due or overdue (blue: none is due). The reminders file has no time stamp, so this count may be old (dashed border).\",\"n\":\" 1\"}"
+  },
+  {
+   "world": "F10",
+   "name": "F10: an empty due date is simply not due: blue",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F10",
+   "name": "F10: a done item is not counted: grey",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F10",
+   "name": "F10: 11:30 PM Eastern on Oct 6 is still Oct 6 (not tomorrow in UTC): due-tomorrow item stays blue",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F11",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F11",
+   "name": "F11: before: count 2 and red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F11",
+   "name": "F11: one reload after deleting vtes-reminders.js the count is gone and the bell is grey, and the tooltip says the file is missing",
+   "status": "FAIL",
+   "why": "{\"n\":\" 2\",\"bg\":\"rgb(179, 38, 30)\",\"title\":\"Things waiting for you: 2 open, 1 due or overdue (red). The reminders file has no time stamp, so this count may be old (dashed border).\"}"
+  },
+  {
+   "world": "F12",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F12",
+   "name": "F12: with the status writer stamping LLM-04 and LLM-07, every site check still answers (none stuck on \"checking\"): LLM-04: Site answers from this browser: checking | LLM-07: Site answers from this browser: checking | LLM-08: Site answers from this browser: yes | LLM-10: Site answers from this browser: yes",
+   "status": "FAIL",
+   "why": "LLM-04: Site answers from this browser: checking | LLM-07: Site answers from this browser: checking | LLM-08: Site answers from this browser: yes | LLM-10: Site answers from this browser: yes"
+  },
+  {
+   "world": "F12",
+   "name": "F12: the probe table still holds the four addresses",
+   "status": "FAIL",
+   "why": "probe table"
+  },
+  {
+   "world": "F13",
+   "name": "F13: interval_sec 0.001 -> heartbeat NOT OK, badge red, 0 green chips (one page, one answer)",
+   "status": "FAIL",
+   "why": "[\"OK\",{\"ok\":true,\"t\":\"OK - as of Oct 6, 1:59 PM EDT\"},0]"
+  },
+  {
+   "world": "F13",
+   "name": "F13: interval_sec 0.5 -> heartbeat NOT OK, badge red, 0 green chips (one page, one answer)",
+   "status": "FAIL",
+   "why": "[\"OK\",{\"ok\":true,\"t\":\"OK - as of Oct 6, 1:59 PM EDT\"},0]"
+  },
+  {
+   "world": "F13",
+   "name": "F13: interval_sec 0 -> heartbeat NOT OK, badge red, 0 green chips (one page, one answer)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F13",
+   "name": "F13: interval_sec -1 -> heartbeat NOT OK, badge red, 0 green chips (one page, one answer)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F13",
+   "name": "F13: interval_sec \"x\" -> heartbeat NOT OK, badge red, 0 green chips (one page, one answer)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F13",
+   "name": "F13: interval_sec 0.999 -> heartbeat NOT OK, badge red, 0 green chips (one page, one answer)",
+   "status": "FAIL",
+   "why": "[\"OK\",{\"ok\":true,\"t\":\"OK - as of Oct 6, 1:59 PM EDT\"},0]"
+  },
+  {
+   "world": "F13",
+   "name": "F13: interval_sec 1 is valid (not NOT OK)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F13",
+   "name": "F13: interval_sec 1.5 is valid (not NOT OK)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F16",
+   "name": "F16: a selection of 470 characters in the Health panel survives a tick (data unchanged)",
+   "status": "FAIL",
+   "why": "470 -> 0"
+  },
+  {
+   "world": "F16",
+   "name": "F16: a selection in the top line survives when only the \"Re-checked\" time changes (one minute later)",
+   "status": "FAIL",
+   "why": "-1 -> 0"
+  },
+  {
+   "world": "F16",
+   "name": "F16: a selection in a card state line survives a tick",
+   "status": "FAIL",
+   "why": "35 -> 0"
+  },
+  {
+   "world": "F16",
+   "name": "F16: the Map note \"Copied.\" survives a tick one minute later (\"Copied.\" -> \"\")",
+   "status": "FAIL",
+   "why": "Copied. -> "
+  },
+  {
+   "world": "F16",
+   "name": "F16: a selection inside the Map survives a tick",
+   "status": "FAIL",
+   "why": "364 -> 0"
+  },
+  {
+   "world": "F16",
+   "name": "F16: the Map legend time is its own node and shows the new time",
+   "status": "FAIL",
+   "why": "undefined"
+  },
+  {
+   "world": "F16",
+   "name": "F16 (control): typed text survives a tick",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "F16",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "N5",
+   "name": "N5: interval_sec 864000 -> NOT OK, 0 green chips, 0 green cards, red badge",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "N5",
+   "name": "N5: interval_sec 3601 -> NOT OK, 0 green chips, 0 green cards, red badge",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "N5",
+   "name": "N5: interval_sec 0 -> NOT OK, 0 green chips, 0 green cards, red badge",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "N5",
+   "name": "N5: interval_sec -5 -> NOT OK, 0 green chips, 0 green cards, red badge",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "N5",
+   "name": "N5: interval_sec \"300\" -> NOT OK, 0 green chips, 0 green cards, red badge",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "N5",
+   "name": "N5: interval_sec 0.001 -> NOT OK, 0 green chips, 0 green cards, red badge",
+   "status": "FAIL",
+   "why": "[0,0,{\"ok\":true,\"t\":\"OK - as of Oct 6, 1:59 PM EDT\"}]"
+  },
+  {
+   "world": "N5",
+   "name": "N5: any tick up to 60 minutes can be green (F8): a 30-minute tick, 20 minutes old",
+   "status": "FAIL",
+   "why": ""
+  }
+ ]
+}

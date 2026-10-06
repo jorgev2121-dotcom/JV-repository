@@ -186,7 +186,7 @@
 </style>
 </head>
 <body>
-<script>window.VTES4_BUILT = "2026-10-06T08:00:30Z";</script><script src="vtes4-config.js"></script><script>(function(){var c=window.VTES4_CONFIG,u=c&&c.v3_dir_url;window.VTES4_BASE=(typeof u==="string"&&/^file:/i.test(u)&&/\/$/.test(u))?u:"";document.write("<scr"+"ipt src=\""+window.VTES4_BASE+"vtes-status.js\"></scr"+"ipt>");})();</script><script src="data/vtes4-heartbeat.js"></script><script src="data/vtes4-state.js"></script><script src="data/vtes4-health.js"></script><script src="data/vtes4-tokens.js"></script><script src="data/vtes4-housekeeping.js"></script><script src="data/vtes4-miamidade.js"></script><script src="vtes4-live.js"></script><script src="vtes4-cards.js"></script><script src="vtes4-panels.js"></script>
+<script>window.VTES4_BUILT = "2026-10-06T08:13:22Z";</script><script src="vtes4-config.js"></script><script>(function(){var c=window.VTES4_CONFIG,u=c&&c.v3_dir_url;window.VTES4_BASE=(typeof u==="string"&&/^file:/i.test(u)&&/\/$/.test(u))?u:"";document.write("<scr"+"ipt src=\""+window.VTES4_BASE+"vtes-status.js\"></scr"+"ipt>");})();</script><script src="data/vtes4-heartbeat.js"></script><script src="data/vtes4-state.js"></script><script src="data/vtes4-health.js"></script><script src="data/vtes4-tokens.js"></script><script src="data/vtes4-housekeeping.js"></script><script src="data/vtes4-miamidade.js"></script><script src="vtes4-live.js"></script><script src="vtes4-cards.js"></script><script src="vtes4-panels.js"></script>
 <div class="strip" id="strip" aria-label="Fixed tabs, one per window. They never move or rename.">
   <div id="chips"></div>
   <div id="tools">
@@ -733,7 +733,7 @@
   VTES4P.render(window.VTES4_BUILT);
   window.VTES_V3 = { setRoot: function (h) { rootH = h; paused = false; setSaveUI(); }, saveNow: saveNow, addFiles: addFiles, attName: attName, transcript: transcript, setPaused: function (v) { paused = v; setSaveUI(); }, targetUrl: targetUrl, getBots: getBots, findLine: findLine, selectLLM: selectLLM, micToggle: micToggle, speakText: speakText, openBig: openBig, dockLeft: dockLeft, chunks: chunks, pickVoice: pickVoice, getPad: getPad, cur: function () { return cur; } };
 </script>
-<script src="vtes-reminders.js"></script>
+<script src="vtes4-config.js"></script><script>(function(){var c=window.VTES4_CONFIG,u=c&&c.v3_dir_url;window.VTES4_BASE=(typeof u==="string"&&/^file:/i.test(u)&&/\/$/.test(u))?u:"";document.write("<scr"+"ipt src=\""+window.VTES4_BASE+"vtes-reminders.js\"></scr"+"ipt>");})();</script>
 <script>
   // ===================== v4: status colors, Map (flow + wiring + subscriptions) =====================
   // Everything here is data first, pictures second: one set of tables feeds the chips, the flow chart and the wiring diagram.
@@ -743,7 +743,7 @@
   var STATUS = {
     'LLM-04': { probe: 'https://claude.ai/' }, 'LLM-07': { probe: 'https://grok.com/' }, 'LLM-08': { probe: 'https://gemini.google.com/' }, 'LLM-10': { probe: 'https://copilot.microsoft.com/' }
   };
-  try { if (window.VTES_STATUS) { for (var sk in window.VTES_STATUS) { STATUS[sk] = window.VTES_STATUS[sk]; } } } catch (e) { }
+  
 
   function nowMs() { return typeof window.VTES_NOW === 'number' ? window.VTES_NOW : Date.now(); }
   var PROBE = {};
@@ -758,14 +758,14 @@
     Array.prototype.forEach.call(document.getElementById('chips').children, function (chip) {
       var id = chip.getAttribute('data-id'), e = effective(id);
       ['up', 'warn', 'down', 'nod', 'pend', 'fut', 'unk'].forEach(function (k) { chip.classList.toggle('st-' + k, e.k === k); });
-      var hr = chip.querySelector('.hrs'); if (hr) { hr.textContent = (e.k === 'warn' || e.k === 'down') ? (e.lab ? SYM[e.k] + ' ' + e.lab : SYM[e.k] + (s_ap(id) ? '~' : '') + fmtH(e.h)) : (e.k === 'nod' ? 'NO DATA' : e.k === 'unk' ? (e.lab ? '? ' + e.lab : '?') : (e.k === 'pend' || e.k === 'fut' ? '◌' : '')); }
+      var hr = chip.querySelector('.hrs'); if (hr) { window.VTES4.setText(hr, (e.k === 'warn' || e.k === 'down') ? (e.lab ? SYM[e.k] + ' ' + e.lab : SYM[e.k] + (s_ap(id) ? '~' : '') + fmtH(e.h)) : (e.k === 'nod' ? 'NO DATA' : e.k === 'unk' ? (e.lab ? '? ' + e.lab : '?') : (e.k === 'pend' || e.k === 'fut' ? '◌' : ''))); }
       chip.title = id + ' ' + (INFO[id] ? INFO[id].t : '') + ' — ' + e.txt + (e.why ? '. ' + e.why : '');
     });
   }
-  function s_ap(id) { return !!(STATUS[id] && STATUS[id].approx); }
+  function s_ap(id) { return false; }
   function paintCard(id) {
     var el = document.getElementById('stl'); if (!el) { return; }
-    var e = effective(id); el.style.color = KCOL[e.k]; el.textContent = SYM[e.k] + ' ' + e.txt + (e.why ? ' — ' + e.why : '');
+    var e = effective(id); el.style.color = KCOL[e.k]; window.VTES4.setText(el, SYM[e.k] + ' ' + e.txt + (e.why ? ' — ' + e.why : ''));
   }
   function runProbes() {
     Object.keys(STATUS).forEach(function (id) {
@@ -946,7 +946,7 @@
   }
 
   // ---------- map mode ----------
-  var mapTab = 'flow';
+  var mapTab = 'flow'; var mapNoteText = '';
   function legendStatus() {
     var it = [['up', 'UP (green): a fresh data file says up'], ['down', 'DOWN or STALE (red)'], ['nod', 'NO DATA (red)'], ['fut', 'not built or not connected (violet, dashed)'], ['unk', 'unknown (grey)']];
     return '<div class="lg">' + it.map(function (i) { return '<span><i style="background:' + KCOL[i[0]] + ';box-shadow:0 0 0 1px ' + KCOL[i[0]] + '"></i>' + i[1] + '</span>'; }).join('') + '<span>Checked ' + '<i id="v4legt"></i>' + '.</span></div>';
@@ -959,9 +959,14 @@
     var el = document.getElementById('map');
     var tabs = [['flow', 'Flow chart'], ['wire', 'Wiring diagram'], ['subs', 'Subscriptions']];
     var body = mapTab === 'flow' ? flowHtml() : mapTab === 'wire' ? '<div style="font-size:14px;margin-bottom:6px"><b>Wiring diagram.</b> Each window on top (the Governor, the token manager, is first); its six pins show what it can reach. Each horizontal wire is a way to hand off; a dot on the wire means that window can plug into it.</div>' + wireSvg() + wiresExplained() + legendWire() : subsHtml();
-    el.innerHTML = '<div class="mt">' + tabs.map(function (t) { return '<button type="button" data-t="' + t[0] + '" class="' + (t[0] === mapTab ? 'on' : '') + '">' + t[1] + '</button>'; }).join('') + '<button type="button" id="mapcopy">Copy status report</button><span id="mapnote" style="font-size:13px;font-weight:700"></span></div>' + legendStatus() + '<div class="v4typedbox" id="v4typedmap"><b>Typed note from 2026-09-30, not live.</b> Only the round status dot on each window is live (read from the data files). Everything else on these three tabs, namely the can / partly / later words, the wire dots, the WORKS and PARTLY tags and the subscription notes, was typed on 2026-09-30 and has not been re-checked. It is labelled as a typed note wherever it appears.</div>' + window.VTES4C.mapNote() + body;
-    Array.prototype.forEach.call(el.querySelectorAll('.mt button[data-t]'), function (b) { b.addEventListener('click', function () { mapTab = b.getAttribute('data-t'); renderMap(); }); });
-    document.getElementById('mapcopy').addEventListener('click', function () { copyAny(statusReport()).then(function (ok) { document.getElementById('mapnote').textContent = ok ? 'Copied.' : 'Copy failed: select the text and press Ctrl+C.'; }); });
+    var mapHtml = '<div class="mt">' + tabs.map(function (t) { return '<button type="button" data-t="' + t[0] + '" class="' + (t[0] === mapTab ? 'on' : '') + '">' + t[1] + '</button>'; }).join('') + '<button type="button" id="mapcopy">Copy status report</button><span id="mapnote" style="font-size:13px;font-weight:700"></span></div>' + legendStatus() + '<div class="v4typedbox" id="v4typedmap"><b>Typed note from 2026-09-30, not live.</b> Only the round status dot on each window is live (read from the data files). Everything else on these three tabs, namely the can / partly / later words, the wire dots, the WORKS and PARTLY tags and the subscription notes, was typed on 2026-09-30 and has not been re-checked. It is labelled as a typed note wherever it appears.</div>' + window.VTES4C.mapNote() + body;
+    if (el.__v4h !== mapHtml) {
+      el.innerHTML = mapHtml; el.__v4h = mapHtml;
+      Array.prototype.forEach.call(el.querySelectorAll('.mt button[data-t]'), function (b) { b.addEventListener('click', function () { mapTab = b.getAttribute('data-t'); mapNoteText = ''; renderMap(); }); });
+      document.getElementById('mapcopy').addEventListener('click', function () { copyAny(statusReport()).then(function (ok) { mapNoteText = ok ? 'Copied.' : 'Copy failed: select the text and press Ctrl+C.'; window.VTES4.setText(document.getElementById('mapnote'), mapNoteText); }); });
+    }
+    window.VTES4.setText(document.getElementById('mapnote'), mapNoteText);
+    window.VTES4.setText(document.getElementById('v4legt'), window.VTES4.fmt(new Date(nowMs())));
   }
   function showMode(m) {
     document.getElementById('console').hidden = m !== 'con';

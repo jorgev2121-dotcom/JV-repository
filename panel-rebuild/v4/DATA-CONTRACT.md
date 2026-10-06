@@ -1,6 +1,6 @@
 # DATA-CONTRACT - what the PC must write so the v4 panel is never green by default (TRK-2026-9910-B)
 
-Round 3 text (fix round 2, 2026-10-06). Replaces round 2 text. New rules are marked (R2).
+Round 4 text (fix round 3, 2026-10-06). Replaces the fix round 2 text. Rules added or changed in fix round 3 are marked (R3).
 
 Rule (charter Rule 4, Tier 3 enforcement): every status, count and time on the panel is READ from the files below. Nobody types a status.
 If a file is missing, or its "at" is empty, the panel shows **NO DATA** in red. If "at" is older than the limit, it shows **STALE since <time>** in red.
@@ -10,12 +10,17 @@ A website answering is never a status. The page shows a separate small "site ans
 ## Rules for time, tick and proof (R2)
 1. **A time in the future is INVALID.** A file `at`, a window `last_seen` or a `proof_at` more than 2 minutes ahead of the PC clock shows red **BAD CLOCK**, is never green, and its numbers are not shown. (Writer and page share one PC, so 2 minutes is generous.)
 2. **Every time on the page is Eastern, short form, with the zone** ("Oct 6, 2:05 PM EDT"). The **year is added whenever it is not the current year** ("Oct 6, 2027, 2:00 PM EDT"). This includes hand-off packet stamps and conversation-pad entries.
-3. **`interval_sec` must be a number from 1 to 3600.** Anything else (zero, negative, text, bigger than 3600) makes the whole heartbeat file red **NOT OK** and every window red. A missing `interval_sec` falls back to 600 seconds (the 10-minute schedule Write-VtesStatus.ps1 documents).
+3. **`interval_sec` must be a number from 1 to 3600 (R3).** Anything else (below 1 such as 0.001 or 0, negative, text, bigger than 3600) makes the whole heartbeat file red **NOT OK** and every window red. A missing `interval_sec` falls back to 600 seconds (the 10-minute schedule Write-VtesStatus.ps1 documents).
+   **The stale limit follows the tick (R3): the heartbeat file and every window's own `last_seen` are STALE after 3 x `interval_sec`, but never sooner than 3 minutes and never later than 3 hours.** So a 5-minute tick goes stale after 15 minutes (as before), a legitimate 30-minute tick after 90 minutes, a 60-minute tick after 3 hours (the cap). The page re-reads once a minute, which is why 3 minutes is the floor. Chat-only windows and BOTS keep their proof for 12 ticks (4 x the limit, so at most 12 hours).
 4. **GREEN needs proof from the poller.** A window is green only when `data\vtes4-heartbeat.js` is valid and fresh AND that window's own `executors[id].last_seen` is within 3 ticks AND its state is "up" (chat-only windows also need a fresh `proof_at`). A report that comes only from `vtes-status.js` (Write-VtesStatus.ps1 always writes "up" and checks nothing) shows a grey **"WRITER SAYS UP, NOT PROVEN"**, never green, and is not counted as "confirmed up".
-5. **BOTS (Grok bots)** shows UP only with a poller report that has proof; otherwise it shows NOT BUILT. It can never show both.
+5. **BOTS (Grok bots) (R3)** shows UP only with a poller report that carries proof; otherwise it shows NOT BUILT. It can never show both. **The BOTS proof field is `executors.BOTS.proof_at`**: the moment a Grok bot finished a real task and the poller saw its result file (not a ping, not a login). Without `proof_at`, or with one older than 12 ticks or in the future, the state is NO DATA and the Map says NOT BUILT. The status-only writer cannot supply it. Shape: `"BOTS": {"state":"up","last_seen":"ISO","proof_at":"ISO"}`.
 6. **A stale or invalid Miami-Dade file turns every proof mark neutral grey** ("proof not current"). Only a fresh file (7 days) can show a green "proof checked".
 7. **The page re-reads every data file, `vtes-status.js` and `vtes-reminders.js` every 60 seconds** (cache-busted) and re-evaluates the header chips, the cards, the top strip and the panels together, so a page left docked all day never contradicts itself. A file that has been deleted counts as NO DATA on the next tick.
-8. Optional: `vtes-reminders.js` may set `window.VTES_REMINDERS_AT = "ISO time"`. Without it the bell has a dashed border and says its count may be old. The bell is red only when a reminder is due or overdue, blue when some are open but none is due, grey when none is open.
+8. Optional: `vtes-reminders.js` may set `window.VTES_REMINDERS_AT = "ISO time"`. Without it the bell has a dashed border and says its count may be old. The bell is red only when a reminder is **due today or overdue** (the due DAY, Eastern time, counts as due all day), blue when some are open but none is due, grey when none is open (R3).
+   The due date forms read: `YYYY-MM-DD` (what the file really uses; a time after it is ignored), `M/D/YYYY` (US order), `Oct 11, 2026` or `October 11 2026`. An empty date is simply not due. Any other text (or an impossible date such as 2026-13-45) is **flagged by the item's id in the bell's tooltip and counted as due** until it is fixed. If `vtes-reminders.js` is deleted, the bell shows no count at the next tick (R3).
+9. **Reload swaps, it never half-empties (R3).** Every 60 seconds the page loads all files into NEW objects and replaces the old ones only when all have answered; a file that fails to load is simply absent (NO DATA). A repaint that happens while files are loading (for example a site-check answer) sees the old, complete state. The site checks run on the same 60-second timer as the reload (every second tick), never on a timer of their own.
+10. **Only what changed is redrawn (R3).** A text selection and the Map's note ("Copied.") survive the 60-second tick; the "Re-checked" time is its own node.
+11. **The build time is the real build instant (R3).** It is stamped by `build-v4.js` from the clock at build time (it cannot be set by hand) and is held to rule 1: a build time more than 2 minutes ahead of the PC clock shows red BAD CLOCK in the top line, the footer and the status report.
 
 ## Format
 Each file is a small JavaScript file (not JSON) so it opens from file:// with no server. Pure ASCII. In the SAME folder as the launcher, in the sub-folder `data\`.
@@ -28,12 +33,12 @@ Write it atomically: write NAME.js.tmp, then rename, so the page never reads hal
 
 ## ONE heartbeat system, not two
 The PC already has a heartbeat writer: `Write-VtesStatus.ps1`, which writes `vtes-status.js` (one entry per window: `st`, `seen`, `note`) every time it is run.
-v4 reads that file too (the page loads vtes-status.js). The new poller file below adds what vtes-status.js cannot say (the tick, the vtes:// flags, down, proof).
+v4 reads that file too: it lives in the v3 folder, and `vtes4-config.js` in the v4 folder (written by INSTALL-v4.ps1) holds the address of that folder (a file: address only; anything else is ignored). v4 never writes there. The page also reads `vtes-reminders.js` from the v3 folder. The new poller file below adds what vtes-status.js cannot say (the tick, the vtes:// flags, down, proof).
 For one window the page takes whichever report has the newer `seen`. Nobody should build a second, separate "alive" system.
-Write-VtesStatus.ps1 only accepts the ids LLM-01..08, LLM-10 and BOTS: the desktop executor runs `EDIT-VtesStatus-v4.ps1 -LiveDir ...` to add LLM-09, LOCAL and CHIEF. That script backs the file up, lists the edit in the install record and updates that one manifest line, so no `Verify-VtesPanel.ps1 -Build` is needed and ROLLBACK-v4.ps1 puts everything back exactly. Its entries are never proof (rule 4 above).
+Write-VtesStatus.ps1 only accepts the ids LLM-01..08, LLM-10 and BOTS. Adding LLM-09, LOCAL and CHIEF to it is a separate, hand-made desktop order outside this package (DESKTOP-WORK.md item 4, with its own backup). Nothing in v4 depends on it, and its entries are never proof (rule 4 above).
 
 ## The six files
-1. `data\vtes4-heartbeat.js`  NAME=heartbeat  writer: the poller (a RAMBO scheduled task)  LIMIT 15 minutes
+1. `data\vtes4-heartbeat.js`  NAME=heartbeat  writer: the poller (a RAMBO scheduled task)  LIMIT 3 x interval_sec (3 minutes to 3 hours; 30 minutes when interval_sec is missing)
    Fields:
    - `interval_sec` (number): the REAL tick, e.g. 300. Every "runs every N" sentence on the page comes from this. (No typed timings anywhere.)
    - `vtes_scheme_registered` (true only after VTES-Open.ps1 -Install succeeded on the PC).
@@ -63,10 +68,10 @@ Write-VtesStatus.ps1 only accepts the ids LLM-01..08, LLM-10 and BOTS: the deskt
 - Grok (LLM-07) therefore stays red until a test reply exists. That is the true state (see the Grok card).
 
 ## Shipped state
-v4 ships all six files with `"at": null`. A fresh install shows NO DATA everywhere until the PC writes real files. INSTALL-v4.ps1 never overwrites a data file that already has a real "at" and never overwrites a vtes-status.js that holds real heartbeats.
+v4 ships all six files with `"at": null`, in the NEW v4 folder (INSTALL-v4.ps1 creates that folder fresh and refuses if it already exists, so it can never overwrite a real report). A fresh install shows NO DATA everywhere until the PC writes real files into `<new folder>\data\`. The poller writes the heartbeat file THERE, not into the v3 folder.
 
 ## Panel-age stamp
-Header shows: "Built <build time, Eastern>, data as of <oldest 'at' among the files that exist>". The line turns red when any file is missing, stale or not OK. The daily HEALTH report should copy the build time into `health.panel_built_at`.
+Header shows: "Built <real build time, Eastern>, data as of <oldest 'at' among the files that exist>". The line turns red when any file is missing, stale or not OK. The daily HEALTH report should copy the build time into `health.panel_built_at`.
 
 ## What the cloud could NOT do
 It cannot write these files and has not seen any writer except Write-VtesStatus.ps1 (read from the repo branch executor-tray-icon-1cazza; the live copy is UNVERIFIED). The desktop executor builds the rest: see DESKTOP-WORK.md.
