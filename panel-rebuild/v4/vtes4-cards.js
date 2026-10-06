@@ -4,19 +4,21 @@
   var V = window.VTES4, esc = V.esc;
   var DRIVE_INBOX = 'https://drive.google.com/drive/folders/1hI2TmVn86Cnh7h_6s93TG0KE1QzVCV5F';
   var DRIVE_OUTBOX = 'https://drive.google.com/drive/folders/1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN';
+  /* ONE statement about Grok, used by the card, the Map and the Subscriptions tab (never a second version). */
+  var GROK = 'Grok is chat only. No Grok bot has been built (asked for many times, never built). The registry brief of 2026-10-06 says Grok has been unproven for 31 days (typed note, not checked by this page).';
   /* id, e = emoji (numeric entities), name = plain name FIRST, prefix = paste ID */
   var CARDS = [
     { id: 'LLM-01', e: '&#128421;&#65039;', name: 'Claude Code Desktop Executor / RAMBO', role: 'The hands on your PC (tray icon: green D)', prefix: 'PASTE-D', paste: true,
       job: 'Files, OneDrive, Chrome, 1Password, printer, county sites, OCR. Executes anything dropped in VTES-Inbox. Polls ',
       tick: true, steps: 'Open the Claude desktop app, click the Code tab, click the RAMBO session, click in the message box, press Ctrl+V.',
-      vtes: 'vtes://llm-01', fix: 'RAMBO runs VTES-Open.ps1 -Install once (no admin) and writes vtes_scheme_registered=true into the heartbeat file.' },
+      vtes: 'vtes://llm-01', fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-01, runs VTES-Open.ps1 -Install once (no admin) and records both in the heartbeat file. This card then turns into a link by itself.' },
     { id: 'LLM-02', e: '&#9729;&#65039;', name: 'Claude Code Cloud Executor / Repo Keeper', role: 'QC, research, dispatch (tray icon: blue C). Cannot touch the PC.', prefix: 'PASTE-C', paste: true,
       job: 'Holds the repo, checks the desktop\'s work, does sourced research, sends orders to RAMBO through Drive.',
       url: 'https://claude.ai/code/session_01CAqZRvV1WjuuxZCNwrE9Gf', openLabel: 'Open Cloud Executor (LLM-02)', steps: 'Opens in a new tab. Click in its message box and press Ctrl+V.' },
     { id: 'LLM-03', e: '&#129309;', name: 'Claude Cowork / Analyst', role: 'Long documents, CDM owner (tray icon: orange X)', prefix: 'PASTE-X', paste: true,
       job: 'Deep analysis and long write-ups. Can drive Chrome with your permission.',
       steps: 'Open the Claude desktop app, click the Cowork tab, click in the message box, press Ctrl+V.',
-      vtes: 'vtes://llm-03', fix: 'Jorge copies the Cowork window address into vtes-addresses.json (or tells RAMBO), and RAMBO installs the vtes:// addresses.' },
+      vtes: 'vtes://llm-03', fix: 'Nothing for you to do. The Desktop Executor (RAMBO) finds the Claude desktop app shortcut on the PC, writes it into the address book entry for LLM-03, then registers the vtes:// addresses. This card turns into a link by itself. Whether that shortcut lands on the Cowork tab is UNVERIFIED.' },
     { id: 'LLM-04', e: '&#128172;', name: 'Claude Chat / Cockpit', role: 'Your seat: decide, approve, dictate', prefix: 'PASTE-X', paste: true,
       job: 'Your main conversation. It reads the same ledger and tells the executors what to do.',
       url: 'https://claude.ai', openLabel: 'Open claude.ai (home page, not one chat)', steps: 'Or the Claude desktop app, Chat tab.' },
@@ -29,25 +31,37 @@
     { id: 'LOCAL', e: '&#128187;', name: 'Local Executor / Ollama (free)', role: 'On-machine, free, nothing leaves the PC', prefix: 'PASTE-X', paste: false,
       job: 'Classify, tag, extract, summarise and anything with personal data. Task CU-Local-Executor watches G:\\My Drive\\VTES-Inbox-LOCAL.',
       steps: 'No window to paste into. Put a JOB-*.md file with CLASS: and PROMPT: lines in VTES-Inbox-LOCAL.', copyOnly: 'CLASS: \nPROMPT: ', copyLabel: 'Copy JOB template' },
-    { id: 'LLM-07', e: '&#128302;', name: 'Grok (Fabian) / Second Opinion', role: 'Chat only. NO Grok bots exist.', prefix: 'PASTE-X', paste: true,
-      job: 'Second opinion and live-web answers. Bots were requested many times and never built.',
+    { id: 'LLM-07', e: '&#128302;', name: 'Grok (Fabian) / Second Opinion', role: 'Chat only, second opinion', prefix: 'PASTE-X', paste: true,
+      job: 'Second opinion and live-web answers.',
       url: 'https://grok.com', openLabel: 'Open grok.com',
-      note: 'Last known facts, dated 2026-10-06 from the registry brief (UNVERIFIED by this page): never proven working in 31 days; the old API key is dead.',
+      note: GROK,
       next: 'Next step: RAMBO sends Grok one test message and writes the result into the heartbeat file; until then this card stays red.' },
     { id: 'LLM-08', e: '&#9802;', name: 'Gemini / Volume Drafter', role: 'Free, Drive-native', prefix: 'PASTE-X', paste: true,
       job: 'Cheap bulk drafting and summarizing.', url: 'https://gemini.google.com', openLabel: 'Open Gemini', steps: 'On the PC: Windows Terminal, type gemini.' },
+    { id: 'LLM-09', e: '&#129518;', name: 'Governor / Token and LLM Manager', role: 'Watches spend, recommends who takes each job', prefix: 'PASTE-D', paste: true,
+      job: 'Lives on the PC (ClaudeMemory\\Governor). Watches spend, keeps the lineup map, files spending motions for your yes. (Description copied from the page\'s own Map note of 2026-09-30: UNVERIFIED now.)',
+      steps: 'No window of its own from this page. Copy the packet and give it to the Desktop Executor (RAMBO), which hands it to the Governor.',
+      vtes: 'vtes://llm-09', fix: 'Nothing for you to do. The Desktop Executor (RAMBO) adds an address book entry for LLM-09 and registers the vtes:// addresses. This card turns into a link by itself.' },
+    { id: 'CHIEF', e: '&#127894;&#65039;', name: 'Chief / Orchestrator', role: 'Hands jobs between the executors', prefix: 'PASTE-X', paste: true,
+      job: 'The Chief seat. It appears on the live v3 page as an executor role, as the bot CU-Orchestrator, and as a queued item (Orchestrator / Chief seat, LOCAL). (Read from text Jorge pasted on 2026-10-06; this page has not seen the live file: UNVERIFIED.)',
+      steps: 'No window to paste into yet. Copy the packet and give it to the Desktop Executor (RAMBO).' },
     { id: 'LLM-10', e: '&#129695;', name: 'Microsoft Copilot / Edge and Microsoft 365', role: 'Chat only from here', prefix: 'PASTE-X', paste: true,
       job: 'Lives in Edge and Microsoft 365. Whether your plan includes full Copilot is UNVERIFIED.', url: 'https://copilot.microsoft.com', openLabel: 'Open Copilot' }
   ];
+  var SITE_IDS = { 'LLM-04': 1, 'LLM-07': 1, 'LLM-08': 1, 'LLM-10': 1 };
   function stateLine(c) {
     var e = V.executor(c.id), cls = e.state === 'OK' ? 'ok' : 'bad';
-    return '<div class="v4st ' + cls + '" data-state="' + esc(c.id) + '"><b>State:</b> ' + esc(e.text) + '</div>';
+    return '<div class="v4st ' + cls + '" data-state="' + esc(c.id) + '"><b>State:</b> ' + esc(e.text) + '</div>' +
+      (SITE_IDS[c.id] ? '<div class="v4site" data-site="' + c.id + '">Site answers from this browser: checking. (A small extra mark, not the status light.)</div>' : '');
   }
+  /* a vtes:// link shows only when the address is registered on the PC AND the address book entry for this window is filled in */
   function openBlock(c) {
-    var h = V.status('heartbeat'), reg = h.state === 'OK' && h.data && h.data.vtes_scheme_registered === true;
     if (c.url) { return '<a class="btn" href="' + esc(c.url) + '" target="_blank" rel="noopener">' + esc(c.openLabel) + '</a>'; }
-    if (c.vtes && reg) { return '<a class="btn" href="' + esc(c.vtes) + '">Open ' + esc(c.name) + '</a>'; }
-    if (c.vtes) { return '<div class="v4na" data-na="' + esc(c.id) + '"><b>Open from this page: not available yet.</b> Address ' + esc(c.vtes) + ' is not registered on the PC. <b>One step:</b> ' + esc(c.fix) + '</div>'; }
+    if (c.vtes && V.schemeRegistered() && V.addressFilled(c.id)) { return '<a class="btn" href="' + esc(c.vtes) + '">Open ' + esc(c.name) + '</a>'; }
+    if (c.vtes) {
+      var why = !V.schemeRegistered() ? 'Address ' + c.vtes + ' is not registered on the PC.' : 'Address ' + c.vtes + ' is registered, but the address book entry for ' + c.id + ' is empty (nothing to open).';
+      return '<div class="v4na" data-na="' + esc(c.id) + '"><b>Open from this page: not available yet.</b> ' + esc(why) + ' <b>One step:</b> ' + esc(c.fix) + '</div>';
+    }
     return '';
   }
   function render(c) {
@@ -63,23 +77,35 @@
       '<div class="paste v4cs" id="cs-' + c.id + '" role="status"></div>' +
       (c.prefix ? '<div class="paste">Paste blocks for this window start with ' + c.prefix + '.</div>' : '') + '</div>';
   }
+  /* fills the hand-off packet for window `to` and reports plainly where it is; outEl receives the message */
+  function pasteTo(to, outEl) {
+    var toSel = document.getElementById('to'), fromSel = document.getElementById('from');
+    if (fromSel && !fromSel.value) { fromSel.value = 'LLM-04'; }
+    if (toSel && Array.prototype.some.call(toSel.options, function (o) { return o.value === to; })) { toSel.value = to; }
+    toSel.dispatchEvent(new Event('input')); document.getElementById('go').click();
+    var c = CARDS.filter(function (x) { return x.id === to; })[0];
+    setTimeout(function () {
+      var st = document.getElementById('status').textContent || '';
+      if (outEl) { outEl.textContent = (st ? st + ' ' : '') + 'The packet is in the box on the Console tab. ' + (c && c.steps ? 'Next: ' + c.steps : ''); }
+    }, 120);
+  }
+  function paintSites(probe) {
+    Array.prototype.forEach.call(document.querySelectorAll('.v4site'), function (el) {
+      var p = probe && probe[el.getAttribute('data-site')];
+      el.textContent = 'Site answers from this browser: ' + (!p ? 'checking' : (p.ok ? 'yes' : 'no')) + '. (A small extra mark, not the status light.)';
+    });
+  }
   function bus() {
     return '<div class="card" id="card-BUS" data-k="bus drive mailbox inbox outbox handoff"><div class="id">BUS &middot; &#128236;</div><div class="name">The Drive mailbox</div>' +
       '<div class="role">How every window hands off to the next</div><p class="job">Orders go into VTES-Inbox. Proof comes out of VTES-Outbox.</p>' +
       '<div class="row"><a class="btn" href="' + DRIVE_INBOX + '" target="_blank" rel="noopener">Open VTES-Inbox</a><a class="btn" href="' + DRIVE_OUTBOX + '" target="_blank" rel="noopener">Open VTES-Outbox</a></div></div>';
   }
   window.VTES4C = {
-    CARDS: CARDS,
+    CARDS: CARDS, GROK: GROK, pasteTo: pasteTo, paintSites: paintSites,
     renderCards: function (el) {
       el.innerHTML = CARDS.map(render).join('') + bus();
       Array.prototype.forEach.call(el.querySelectorAll('.pastebtn'), function (b) {
-        b.addEventListener('click', function () {
-          var to = b.getAttribute('data-to'), toSel = document.getElementById('to'), fromSel = document.getElementById('from'), cs = document.getElementById('cs-' + to);
-          if (fromSel && !fromSel.value) { fromSel.value = 'LLM-04'; }
-          if (toSel && Array.prototype.some.call(toSel.options, function (o) { return o.value === to; })) { toSel.value = to; }
-          toSel.dispatchEvent(new Event('input')); document.getElementById('go').click();
-          setTimeout(function () { cs.textContent = document.getElementById('status').textContent || 'Packet is in the box below. Select it and press Ctrl+C.'; }, 120);
-        });
+        b.addEventListener('click', function () { pasteTo(b.getAttribute('data-to'), document.getElementById('cs-' + b.getAttribute('data-to'))); });
       });
       Array.prototype.forEach.call(el.querySelectorAll('.copyonly'), function (b) {
         b.addEventListener('click', function () {
@@ -89,12 +115,17 @@
         });
       });
     },
-    /* effective() for the v3 chip/idcard code: {k,h,txt,why}; k in up|warn|down|nod */
+    /* effective() for the v3 chip/idcard code: {k,h,txt,why,lab}; k in up|down|nod|fut. STALE is red (down) everywhere. */
     effective: function (id) {
+      if (id === 'BOTS') {
+        var hb = V.executor('BOTS');
+        if (hb.state !== 'NO DATA') { return { k: hb.state === 'OK' ? 'up' : 'down', h: null, txt: hb.text, why: '' }; }
+        return { k: 'fut', h: null, txt: 'NOT BUILT', why: GROK };
+      }
       var e = V.executor(id);
       if (e.state === 'OK') { return { k: 'up', h: 0, txt: e.text, why: '' }; }
-      if (e.state === 'STALE') { return { k: 'warn', h: null, txt: e.text, why: '' }; }
-      if (e.state === 'DOWN') { return { k: 'down', h: null, txt: 'DOWN - ' + e.text, why: '' }; }
+      if (e.state === 'STALE') { return { k: 'down', h: null, txt: e.text, why: '', lab: 'STALE' }; }
+      if (e.state === 'DOWN') { return { k: 'down', h: null, txt: e.text, why: '', lab: 'DOWN' }; }
       return { k: 'nod', h: null, txt: e.text, why: 'Nothing has written this window\'s state yet.' };
     }
   };
