@@ -32,6 +32,6 @@ Rules 4 and 6 already say this. **What has been missing is enforcement and indep
 7. **Independent sign-off:** a different window or model confirms the fix, not the one who wrote it. **The investigator may not close their own case.**
 8. **Closure:** the case stays OPEN until the test passes. If the problem returns, the case reopens and the fix is judged a failure.
 
-First case under this protocol: RI-049, "answers saved but never carried out" (40 decisions, 838 open).
+First case under this protocol: RI-056, "answers saved but never carried out" (40 decisions, 838 open).
 
 TRK-2026-9960 · v1 · 2026-10-06 · STANDING-RULES (cloud keeper)
