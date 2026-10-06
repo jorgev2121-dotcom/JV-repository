@@ -53,7 +53,7 @@
   },
   {
    "grp": "LLM cards",
-   "name": "LLM-01 keeps its how-to line",
+   "name": "LLM-01 keeps its how-to line (apart from the listed edits)",
    "status": "PASS",
    "why": ""
   },
@@ -155,7 +155,7 @@
   },
   {
    "grp": "LLM cards",
-   "name": "LLM-03 keeps its how-to line",
+   "name": "LLM-03 keeps its how-to line (apart from the listed edits)",
    "status": "PASS",
    "why": ""
   },
@@ -257,7 +257,7 @@
   },
   {
    "grp": "LLM cards",
-   "name": "LLM-05 keeps its how-to line",
+   "name": "LLM-05 keeps its how-to line (apart from the listed edits)",
    "status": "PASS",
    "why": ""
   },
@@ -311,7 +311,7 @@
   },
   {
    "grp": "LLM cards",
-   "name": "LLM-06 keeps its how-to line",
+   "name": "LLM-06 keeps its how-to line (apart from the listed edits)",
    "status": "PASS",
    "why": ""
   },
@@ -455,7 +455,7 @@
   },
   {
    "grp": "LLM cards",
-   "name": "LLM-09 keeps its how-to line",
+   "name": "LLM-09 keeps its how-to line (apart from the listed edits)",
    "status": "PASS",
    "why": ""
   },
@@ -468,12 +468,6 @@
   {
    "grp": "LLM cards",
    "name": "LLM-04 keeps its Open button to https://claude.ai",
-   "status": "PASS",
-   "why": ""
-  },
-  {
-   "grp": "LLM cards",
-   "name": "LLM-06 keeps its Open button to https://chatgpt.com",
    "status": "PASS",
    "why": ""
   },
@@ -996,6 +990,12 @@
   {
    "grp": "chrome",
    "name": "footer still names the registry and the lanes file",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "intentional edits",
+   "name": "F18: v3 swallowed <task> and <question> as HTML and printed codex exec \"\" and Second-Opinion.ps1 -Prompt \"\"; v5 prints the words <task> and <question>",
    "status": "PASS",
    "why": ""
   }

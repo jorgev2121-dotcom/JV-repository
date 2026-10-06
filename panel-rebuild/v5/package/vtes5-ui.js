@@ -21,29 +21,42 @@
       fix: 'Nothing for you to do. The Desktop Executor (RAMBO) finds the Claude desktop app shortcut on the PC, writes it into the address book entry for LLM-03, then registers the vtes:// addresses. Whether that shortcut lands on the Cowork tab is UNVERIFIED.' },
     'LLM-04': { live: 'LLM-04', fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-04 and registers the vtes:// addresses.' },
     'LLM-05': { live: 'LLM-05', desk: 'the iPhone',
-      steps: ['The packet stays on this PC. Send it to the iPhone with AirDrop or Notes.', 'On the iPhone, open the Claude app.', 'Click in the message box.', 'Paste the packet.'],
+      steps: ['Press the blue button to copy the packet on this PC.', 'Paste it into a new email to yourself and press Send (this page never sends anything for you).', 'On the iPhone, open that email and copy the packet.', 'Open the Claude app, tap in the message box and paste the packet.'],
       fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-05 and registers the vtes:// addresses.' },
-    'LLM-06': { live: 'LLM-06', fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-06 and registers the vtes:// addresses.' },
+    'LLM-06': { live: 'LLM-06', desk: 'Codex CLI',
+      steps: ['On the PC, open Windows Terminal.', 'Type codex and press Enter.', 'Press Ctrl+V.', 'First time only: double-click the desktop shortcut named "Codex - sign in (Jorge)" and follow the sign-in window that opens (typed from v3, UNVERIFIED on this PC).'],
+      fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-06 and registers the vtes:// addresses.' },
     'LLM-07': { live: 'LLM-07', grok: true, fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-07 and registers the vtes:// addresses.',
       next: 'Next step: RAMBO sends Grok one test message and writes the result into the heartbeat file; until then this card stays red.' },
     'LLM-08': { live: 'LLM-08', fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-08 and registers the vtes:// addresses.' },
     'LLM-09': { live: 'LLM-09', noaddr: true },
     'LOCAL': { live: 'LOCAL', bot: 'CU-Local-Executor', desk: 'LOCAL',
-      steps: ['There is no window. Press the button to copy the packet.', 'Save it as JOB-something.md in G:\\My Drive\\VTES-Inbox-LOCAL, with a CLASS: line and a PROMPT: line.'] },
+      steps: ['There is no window. Press the button to copy the packet.', 'Hand it to the desktop executor (RAMBO): use the blue RAMBO button at the top, then tell it "save this as a LOCAL job". The desktop executor (RAMBO) writes the job file with its CLASS and PROMPT lines. You do not write the file or type a command.'] },
     'CODEX': { live: 'LLM-06', desk: 'CODEX',
       steps: ['On the PC, open Windows Terminal.', 'Type codex and press Enter.', 'Press Ctrl+V.'],
+      s3: ' Proven 2026-10-01.',
       note: NOTE_PRE + 'v3 says "Proven 2026-10-01" (not checked by this page).' },
     'RAMBO': { live: 'LLM-01', tick: true, bot: 'CU-Inbox-Job-Watcher', desk: 'RAMBO',
-      steps: ['On the PC, open the Claude desktop app (or click the green D icon near the clock).', 'Click the Code tab.', 'If the app lists several sessions, pick the one named RAMBO (typed advice, UNVERIFIED).', 'Click in the message box.', 'Press Ctrl+V.', 'Or save the packet as JOB-something.md in G:\\My Drive\\VTES-Inbox.'],
+      steps: ['On the PC, open the Claude desktop app (or click the green D icon near the clock).', 'Click the Code tab.', 'If the app lists several sessions, pick the one named RAMBO (typed advice, UNVERIFIED).', 'Click in the message box.', 'Press Ctrl+V.', 'Or, in File Explorer, open Google Drive, open the folder VTES-Inbox, right-click an empty spot, click New, click Text Document, name it JOB-something.md, open it, press Ctrl+V and save.'],
+      s3: ' About 75% of the Max quota was used on 2026-10-01; forecast to run out Saturday.',
       note: NOTE_PRE + 'on 2026-10-01 v3 said about 75% of the Max quota was used and forecast it to run out on a Saturday. That date has passed. The live burn rate is in the Token monitor panel under Bots.' },
     'GROK': { live: 'LLM-07', grok: true, desk: 'GROK',
-      steps: ['On the PC, run Second-Opinion.ps1 -Prompt "your question" (typed from v3, UNVERIFIED).', 'Or press the button and paste the packet into grok.com.'] },
+      steps: ['Press the button to copy the packet.', 'Open grok.com in your browser, click in the message box and press Ctrl+V.', 'If you want the Second-Opinion script used instead, hand the packet to the desktop executor (RAMBO) with the blue RAMBO button at the top. The desktop executor (RAMBO) runs it; you type nothing.'] },
     'COWORK': { live: 'LLM-03', desk: 'Cowork', toId: 'LLM-03',
       steps: ['On the PC, open the Claude desktop app (or click the orange X icon near the clock).', 'Click the Cowork tab.', 'Click in the message box.', 'Press Ctrl+V.'] },
     'CHIEF': { live: 'CHIEF', bot: 'CU-Orchestrator', nobtn: true }
   };
   var BOTKEY = { 'CU-Inbox-Job-Watcher': { live: null }, 'CU-Local-Executor': {}, 'CU-TokenMonitor-Hourly': {}, 'CU-Orchestrator': {}, 'CU-Propagation-Check': {}, 'VTES-LOCAL-POLLER': { tick: true } };
-  function stCls(e) { return e.state === 'OK' ? 'ok' : (e.state === 'UNPROVEN' ? 'unp' : 'bad'); }
+  /* green only for OK; grey for UNPROVEN and NOT RUN; neutral blue for RUNNING (flaw F2); everything else is red */
+  function stCls(e) { return e.state === 'OK' ? 'ok' : ((e.state === 'UNPROVEN' || e.state === 'NOT RUN') ? 'unp' : (e.state === 'RUNNING' ? 'neu' : 'bad')); }
+  var RANK = { ok: 0, neu: 1, unp: 1, bad: 2 };
+  /* flaw F6: a role card with its own bot shows ONE answer. The class is the worse of the window and the bot; the sentence names both. */
+  function comboState(m) {
+    var e = V.executor(m.live), b = V.bot(m.bot), ce = stCls(e), cb = stCls(b), cls = RANK[cb] > RANK[ce] ? cb : ce, txt;
+    if (e.state === 'OK' && b.state !== 'OK') { txt = 'The window is up (' + e.text + '), but its bot ' + m.bot + ' is not fine: ' + b.text; }
+    else { txt = e.text + ' Its bot ' + m.bot + ': ' + b.text; }
+    return { cls: cls, html: '<b>State of ' + esc(m.live) + ':</b> ' + esc(txt) };
+  }
   function stateHtml(e, label) { return '<b>' + esc(label || 'State:') + '</b> ' + esc(e.text); }
   /* the address line: a link only when the PC says the vtes:// address is registered AND the address book entry is filled; otherwise one plain sentence saying what is missing */
   function addrHtml(w, m) {
@@ -80,8 +93,8 @@
   function roleCard(w) {
     var m = META[w.id] || {}, e = V.executor(m.live), j = esc(w.j) + (m.tick ? ' Check-in interval: <span class="v5tick">' + esc(V.tick()) + '</span> (read from the heartbeat file).' : '');
     var to = m.toId || w.id, big = (m.desk && !m.nobtn) ? '<button class="btn bigcopy" type="button" data-paste="' + esc(to) + '" data-role="' + esc(w.id) + '">Copy packet for ' + esc(m.desk) + '</button>' : '';
-    var body = '<div class="v5st ' + stCls(e) + '" data-state="' + esc(w.id) + '"><b>State of ' + esc(m.live) + ':</b> ' + esc(e.text) + '</div>' +
-      (m.bot ? '<div data-botw="' + esc(m.bot) + '">' + botLine(m.bot) + '</div>' : '') +
+    var cs = m.bot ? comboState(m) : { cls: stCls(e), html: '<b>State of ' + esc(m.live) + ':</b> ' + esc(e.text) };
+    var body = '<div class="v5st ' + cs.cls + '" data-state="' + esc(w.id) + '"' + (m.bot ? ' data-botname="' + esc(m.bot) + '"' : '') + '>' + cs.html + '</div>' +
       '<p>' + j + '</p>' + (m.grok ? '<p class="v5note" data-grok="1">' + esc(grokText()) + '</p>' : '') + (m.note ? '<p class="v5note">' + esc(m.note) + '</p>' : '') +
       '<div class="pool ' + esc(w.cls) + '">Pool: ' + esc(w.pool) + '</div><div class="tags">' + esc(w.t) + '</div>' + (w.a ? '<div class="addr">Address: <b>' + esc(w.a) + '</b></div>' : '') +
       big + (m.nobtn ? '' : '<button class="btn alt" data-to="' + esc(to === w.id ? w.id : to) + '" type="button">Hand work here</button>') +
@@ -110,8 +123,9 @@
   /* re-evaluate every card in place (state line, tick sentence, address line, bot lines, Grok note); only what changed is redrawn (flaw F16) */
   function repaint() {
     Array.prototype.forEach.call(document.querySelectorAll('.v5st[data-state]'), function (st) {
-      var id = st.getAttribute('data-state'), m = META[id], live = m ? m.live : id, e = V.executor(live);
-      var cls = 'v5st ' + stCls(e); if (st.className !== cls) { st.className = cls; }
+      var id = st.getAttribute('data-state'), m = META[id], live = m ? m.live : id;
+      if (m && m.bot && st.getAttribute('data-botname')) { var cs = comboState(m), c2 = 'v5st ' + cs.cls; if (st.className !== c2) { st.className = c2; } V.setHtml(st, cs.html); return; }
+      var e = V.executor(live), cls = 'v5st ' + stCls(e); if (st.className !== cls) { st.className = cls; }
       var isRole = !!(m && !/^LLM-/.test(id));
       V.setHtml(st, isRole ? '<b>State of ' + esc(live) + ':</b> ' + esc(e.text) : stateHtml(e));
     });
@@ -157,7 +171,7 @@
     'This page is built on your v3 launcher. Every card, tab and button from v3 is still here.',
     'A red box that says NO DATA means nothing on the PC has reported yet. Red is the truth, not a bug.',
     'Green appears only when a fresh report file with proof says so. Grey NOT PROVEN means only the simple status writer said up, and it checks nothing.',
-    'To hand work to RAMBO, press the big blue RAMBO button right under this list. Then open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.',
+    'To hand work to RAMBO, press the big blue RAMBO button directly under the page title. Then open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.',
     'A web page cannot open a desktop app. So desktop windows have a Copy packet button and the exact steps, not an Open button.',
     'Tabs marked OLD PANEL go to a snapshot made on 2026-09-02. They are not live.',
     'Words marked typed note were typed by hand on the date shown. This page does not check them.',
@@ -180,7 +194,7 @@
     var s = V.status('housekeeping'), d = s.data || {};
     return '<div class="pn" id="pn-house"><h3>Housekeeping agent</h3><p>' + V.badge('housekeeping', 'Reported') + '</p>' +
       (noNums(s) ? '<p>' + red(s.state === 'BAD CLOCK' ? 'BAD CLOCK' : 'NO DATA') + ' ' + (s.state === 'BAD CLOCK' ? 'The housekeeping report is dated in the future, so it is not shown.' : 'No housekeeping report has ever been recorded here.') + ' Last report time: ' + red('NONE') + '.</p>' :
-        '<p>Last report: ' + (V.fmtIso(d.last_report_at) ? '<b>' + esc(V.fmtIso(d.last_report_at)) + '</b>' : red('NO DATA')) + '. Delivered: ' + (d.report_delivered === true ? '<b>yes</b>' : red('NO / UNKNOWN')) + (d.delivered_to ? ' to ' + esc(d.delivered_to) : '') + '. Items cleaned: ' + val(d.items_cleaned) + '.</p>') + '</div>';
+        '<p>Last report: ' + (V.fmtIso(d.last_report_at) ? '<b>' + esc(V.fmtIso(d.last_report_at)) + '</b>' : red('NO DATA')) + '. Delivered: ' + (d.report_delivered === true ? '<b>yes</b>' : (d.report_delivered === false ? red('NO - not delivered') : red('UNKNOWN'))) + (d.delivered_to ? ' to ' + esc(d.delivered_to) : '') + '. Items cleaned: ' + val(d.items_cleaned) + '.</p>') + '</div>';
   }
   function health() {
     var s = V.status('health'), d = s.data || {}, st = V.status('state'), sd = (st.state === 'OK' || st.state === 'STALE') ? (st.data || {}) : {};
@@ -220,9 +234,14 @@
     pasteTo: pasteTo, repaint: repaint,
     /* builds the three card grids from the v3 arrays and the top block; wires the big copy buttons */
     renderAll: function (LLMS, ROLES, BOTS) {
+      /* flaw F10: the search must match only the text v3 matched. v3's own render (still in the page) has just drawn the three grids; take each card's text before it is replaced. */
+      var t3 = ['g-llm', 'g-roles', 'g-bots'].map(function (g) { return Array.prototype.map.call(document.querySelectorAll('#' + g + ' .card'), function (c) { return c.textContent; }); });
       document.getElementById('g-llm').innerHTML = LLMS.map(llmCard).join('');
       document.getElementById('g-roles').innerHTML = ROLES.map(roleCard).join('');
       document.getElementById('g-bots').innerHTML = BOTS.map(botCard).join('');
+      /* the two sentences v3 printed inside a card and v5 moved into a labelled typed note stay searchable (META.s3), so the same words still find the same cards */
+      var ids = [LLMS, ROLES, BOTS].map(function (a) { return a.map(function (x) { return Array.isArray(x) ? x[0] : x.id; }); });
+      ['g-llm', 'g-roles', 'g-bots'].forEach(function (g, gi) { Array.prototype.forEach.call(document.querySelectorAll('#' + g + ' .card'), function (c, i) { if (t3[gi][i] !== undefined) { c.setAttribute('data-s', t3[gi][i] + ((META[ids[gi][i]] || {}).s3 || '')); } }); });
       Array.prototype.forEach.call(document.querySelectorAll('button.bigcopy'), function (b) {
         b.addEventListener('click', function () {
           var key = b.getAttribute('data-role') || b.getAttribute('data-paste'), m = META[key] || META[b.getAttribute('data-paste')] || {};
@@ -234,8 +253,9 @@
     measureHeader: function () { var t = document.getElementById('tabs'); if (t) { document.documentElement.style.setProperty('--hdr', t.offsetHeight + 'px'); } },
     renderTop: function (builtIso) {
       var age = V.ageLine(builtIso);
+      /* flaw F5: the RAMBO button sits in its own slot directly under the page title (the build puts #v5rambo right after the h1), above "Read me first" */
+      document.getElementById('v5rambo').innerHTML = '<button class="btn" type="button" id="v5rambobtn">Copy packet for RAMBO (Claude Code Desktop Executor)</button><div class="paste v5cs" id="v5ramboout" role="status"></div>';
       document.getElementById('v5top').innerHTML = '<details class="v5read" id="v5read" open><summary>Read me first</summary><ol>' + READ.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol></details>' +
-        '<div class="v5rambo" id="v5rambo"><button class="btn" type="button" id="v5rambobtn">Copy packet for RAMBO (Claude Code Desktop Executor)</button><div class="paste v5cs" id="v5ramboout" role="status"></div></div>' +
         '<h2 id="livestatus">Live status</h2><div class="v5age' + (age.bad ? ' bad' : '') + '" id="v5age">' + ageHtml(age) + '</div><div class="v5dash" id="v5dash"></div><div id="v5health"></div>';
       document.getElementById('v5rambobtn').addEventListener('click', function () { pasteTo('LLM-01', document.getElementById('v5ramboout'), META['LLM-01'].steps); });
       paintPanels(); V.setHtml(document.getElementById('v5dash'), dash()); setBuilt(builtIso);

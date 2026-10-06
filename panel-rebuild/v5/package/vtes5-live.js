@@ -11,6 +11,12 @@
   var STATUS_FILE_TICK_SEC = 600;
   /* interval_sec outside 1 to MAX_TICK_SEC is invalid (flaws N5, F13). 3600 s = one hour per tick. */
   var MAX_TICK_SEC = 3600;
+  /* a single bot (a scheduled task) may run as rarely as once a week: its own interval_sec is valid from 1 s to 7 days (flaw F7). Only the heartbeat and bots FILE writers are held to MAX_TICK_SEC. */
+  var MAX_BOT_SEC = 7 * 24 * 3600;
+  /* a bot is LATE when its last run is older than this many of its own intervals (flaw F7: a daily bot is green while its last run is inside 1.5 days) */
+  var BOT_LATE_FACTOR = 1.5;
+  /* Windows Task Scheduler result codes that are not failures (flaw F2): 267009 = 0x41301 task is running now, 267011 = 0x41303 task has not run yet */
+  var RES_RUNNING = 267009, RES_NOT_YET = 267011;
   /* stale limit for the heartbeat file and for each window's last_seen = 3 ticks, never under 3 minutes (the page re-reads once a minute) and never over 3 hours (flaw F8) */
   var MIN_LIMIT_MIN = 3, MAX_LIMIT_MIN = 180;
   /* a data time more than this far ahead of the PC clock is a BAD CLOCK (flaw N1). Writer and page share one PC, so 2 minutes is generous. */
@@ -51,6 +57,13 @@
   function getS() { return swapped ? S : (window.VTES_STATUS || {}); }
   /* a valid interval_sec is a number from 1 to 3600 (flaws N5, F13) */
   function intervalOk(iv) { return typeof iv === 'number' && isFinite(iv) && iv >= 1 && iv <= MAX_TICK_SEC; }
+  function botIntervalOk(iv) { return typeof iv === 'number' && isFinite(iv) && iv >= 1 && iv <= MAX_BOT_SEC; }
+  function everyText(sec) {
+    if (sec % 86400 === 0) { var d = sec / 86400; return d + (d === 1 ? ' day' : ' days'); }
+    if (sec % 3600 === 0) { var h = sec / 3600; return h + (h === 1 ? ' hour' : ' hours'); }
+    if (sec % 60 === 0) { var m = sec / 60; return m + (m === 1 ? ' minute' : ' minutes'); }
+    return sec + ' seconds';
+  }
   /* the stale limit in minutes for a file. The heartbeat limit scales with its own interval_sec: 3 ticks, at least 3 minutes, at most 3 hours (flaw F8). */
   function limitMin(name) {
     if (name !== 'heartbeat' && name !== 'bots') { return LIMIT_MIN[name]; }
@@ -75,10 +88,29 @@
     }
     return { state: 'OK', at: at, text: 'as of ' + fmt(at), data: d };
   }
-  /* html badge: green only when OK */
+  function isNum(x) { return typeof x === 'number' && isFinite(x); }
+  /* the verdict for one data file: GREEN needs a fresh file AND content that says good (flaw F3).
+     cls 'ok' = green, 'bad' = red, 'na' = grey (fresh file, but nothing was counted). Fresh alone is never green except for files whose only content is "I wrote this" (heartbeat, bots, state). */
+  function verdict(name) {
+    var s = status(name), d = s.data || {};
+    if (s.state !== 'OK') { return { cls: 'bad', kind: s.state, text: s.text }; }
+    if (name === 'housekeeping') {
+      if (d.report_delivered === false) { return { cls: 'bad', kind: 'NOT DELIVERED', text: 'NOT DELIVERED - the report says it was not delivered (file as of ' + fmt(s.at) + ')' }; }
+      if (d.report_delivered !== true) { return { cls: 'bad', kind: 'NO DATA', text: 'NO DATA - the report does not say whether it was delivered (file as of ' + fmt(s.at) + ')' }; }
+      if (!d.last_report_at || isNaN(new Date(d.last_report_at).getTime())) { return { cls: 'bad', kind: 'NO DATA', text: 'NO DATA - the report has no valid last-report time (file as of ' + fmt(s.at) + ')' }; }
+    }
+    if (name === 'miamidade' && !isNum(d.counted)) { return { cls: 'na', kind: 'NOT COUNTED', text: 'NOT COUNTED - the file is fresh (as of ' + fmt(s.at) + ') but holds no count' }; }
+    if (name === 'tokens') {
+      var any = isNum(d.burn_per_hour) || isNum(d.window_used_pct) || isNum(d.week_used_pct) || (d.programs && d.programs.length);
+      if (!any) { return { cls: 'bad', kind: 'NO DATA', text: 'NO DATA - the token report is fresh (file as of ' + fmt(s.at) + ') but holds no numbers' }; }
+      if (!isNum(d.burn_per_hour) || !isNum(d.window_used_pct)) { return { cls: 'bad', kind: 'INCOMPLETE', text: 'INCOMPLETE - the token report lacks the burn rate or the window used (file as of ' + fmt(s.at) + ')' }; }
+    }
+    return { cls: 'ok', kind: 'OK', text: s.text };
+  }
+  /* html badge: green only when the verdict is green */
   function badge(name, okLabel) {
-    var s = status(name), cls = s.state === 'OK' ? 'ok' : 'bad';
-    return '<span class="v5b ' + cls + '" data-src="' + name + '">' + esc(s.state === 'OK' ? (okLabel || 'OK') + ' - ' + s.text : s.text) + '</span>';
+    var v = verdict(name);
+    return '<span class="v5b ' + v.cls + '" data-src="' + name + '">' + esc(v.cls === 'ok' ? (okLabel || 'OK') + ' - ' + v.text : v.text) + '</span>';
   }
   /* the tick in seconds: the heartbeat's own interval_sec when valid, else the 10-minute schedule Write-VtesStatus.ps1 documents */
   function tickSec() { var d = D.heartbeat; return (d && intervalOk(d.interval_sec)) ? d.interval_sec : STATUS_FILE_TICK_SEC; }
@@ -136,7 +168,7 @@
   function ageLine(builtIso) {
     var oldest = null, bad = false, clock = [];
     Object.keys(LIMIT_MIN).forEach(function (n) {
-      var s = status(n); if (s.state !== 'OK') { bad = true; }
+      var s = status(n), vd = verdict(n); if (s.state !== 'OK' || vd.cls === 'bad') { bad = true; }
       if (s.state === 'BAD CLOCK') { clock.push(n); } else if (s.at && (!oldest || s.at < oldest)) { oldest = s.at; }
     });
     var builtBadNow = builtBad(builtIso); if (builtBadNow) { bad = true; }
@@ -196,22 +228,29 @@
     if (bs.state === 'BAD CLOCK' || bs.state === 'NOT OK') { return { state: bs.state, text: bs.text }; }
     var b = bs.data && bs.data.bots && bs.data.bots[name];
     if (!b || typeof b !== 'object') { return { state: bs.state === 'STALE' ? 'STALE' : 'NO DATA', text: bs.state === 'STALE' ? 'STALE since ' + fmt(bs.at) : 'NO DATA - the bots report has no entry for this bot' }; }
-    var run = b.last_run_at ? new Date(b.last_run_at) : null;
+    var run = b.last_run_at ? new Date(b.last_run_at) : null, runOk = !!(run && !isNaN(run.getTime()));
     if (bs.state === 'STALE') { return { state: 'STALE', text: 'STALE since ' + fmt(bs.at) + ' - the bots report is old' }; }
     var st = String(b.state == null ? '' : b.state).toLowerCase();
-    var iv = intervalOk(b.interval_sec) ? b.interval_sec : null;
-    var every = iv ? ' Scheduled every ' + (iv % 60 === 0 ? (iv / 60) + ' minutes' : iv + ' seconds') + ' (read from the task schedule).' : '';
-    if (!run || isNaN(run.getTime())) { return { state: 'NO DATA', text: 'NO DATA - no last-run time for this bot' + (st ? ' (scheduler says "' + st + '")' : '') }; }
-    if (isFuture(run)) { return { state: 'BAD CLOCK', text: 'BAD CLOCK - the last run says ' + fmt(run) + ', which is in the future. Not trusted.' }; }
-    if (st === 'disabled') { return { state: 'DOWN', text: 'DISABLED - the scheduler says this task is switched off (last ran ' + fmt(run) + ').' + every }; }
-    if (st !== 'ready' && st !== 'running') { return { state: 'NO DATA', text: 'NO DATA - the scheduler state is "' + (st || 'missing') + '" (last ran ' + fmt(run) + ')' }; }
+    var iv = botIntervalOk(b.interval_sec) ? b.interval_sec : null;
+    var every = iv ? ' Scheduled every ' + everyText(iv) + ' (read from the task schedule).' : '';
+    var badIv = (b.interval_sec !== undefined && b.interval_sec !== null && !iv) ? ' The interval_sec in the report is not a number from 1 to ' + MAX_BOT_SEC + ' (7 days), so lateness cannot be judged.' : '';
+    var lastTxt = runOk ? ' (last ran ' + fmt(run) + ')' : '';
+    if (runOk && isFuture(run)) { return { state: 'BAD CLOCK', text: 'BAD CLOCK - the last run says ' + fmt(run) + ', which is in the future. Not trusted.' }; }
+    if (st === 'disabled') { return { state: 'DOWN', text: 'DISABLED - the scheduler says this task is switched off' + lastTxt + '.' + every }; }
+    if (st !== 'ready' && st !== 'running') { return { state: 'NO DATA', text: 'NO DATA - the scheduler state is "' + (st || 'missing') + '"' + lastTxt }; }
+    if (typeof b.last_result === 'number' && isFinite(b.last_result)) {
+      /* flaw F2: 267009 is "running now" (neutral) and 267011 is "not yet run" (grey); any other non-zero code is a failure */
+      if (b.last_result === RES_RUNNING) { return { state: 'RUNNING', text: 'RUNNING NOW - the scheduler says this task is running (result code ' + RES_RUNNING + ' means running, not failed)' + lastTxt + '.' + every }; }
+      if (b.last_result === RES_NOT_YET) { return { state: 'NOT RUN', text: 'NOT YET RUN - the scheduler says this task has not run yet (result code ' + RES_NOT_YET + ')' + '.' + every }; }
+    }
+    if (!runOk) { return { state: 'NO DATA', text: 'NO DATA - no last-run time for this bot' + (st ? ' (scheduler says "' + st + '")' : '') }; }
     if (typeof b.last_result !== 'number' || !isFinite(b.last_result)) { return { state: 'NO DATA', text: 'NO DATA - no result code for the last run (' + fmt(run) + ')' }; }
     if (b.last_result !== 0) { return { state: 'DOWN', text: 'FAILED - the last run (' + fmt(run) + ') ended with result code ' + b.last_result + '.' + every }; }
-    if (!iv) { return { state: 'UNPROVEN', text: 'RAN ' + fmt(run) + ' with result 0, but no schedule interval is given, so lateness cannot be judged.' }; }
-    if ((NOW() - run) / 60000 > 3 * iv / 60) { return { state: 'DOWN', text: 'LATE - last ran ' + fmt(run) + ', more than 3 runs ago.' + every }; }
+    if (!iv) { return { state: 'UNPROVEN', text: 'RAN ' + fmt(run) + ' with result 0, but no valid schedule interval is given, so lateness cannot be judged.' + badIv }; }
+    if ((NOW() - run) / 1000 > BOT_LATE_FACTOR * iv) { return { state: 'DOWN', text: 'LATE - last ran ' + fmt(run) + ', more than ' + BOT_LATE_FACTOR + ' x its interval ago.' + every }; }
     return { state: 'OK', text: 'RAN ' + fmt(run) + ', result 0, scheduler says ' + st + '.' + every };
   }
-  window.VTES5 = { status: status, badge: badge, executor: executor, bot: bot, tick: tick, tickSec: tickSec, ageLine: ageLine, esc: esc, fmt: fmt, fmtIso: fmtIso, padTime: padTime, now: NOW, reload: reload, addressFilled: addressFilled, schemeRegistered: schemeRegistered,
-    LIMIT_MIN: LIMIT_MIN, limitMin: limitMin, ALL_IDS: ALL_IDS, CHAT_ONLY: CHAT_ONLY, NEEDS_PROOF: NEEDS_PROOF, MAX_TICK_SEC: MAX_TICK_SEC,
+  window.VTES5 = { status: status, verdict: verdict, badge: badge, executor: executor, bot: bot, tick: tick, tickSec: tickSec, ageLine: ageLine, esc: esc, fmt: fmt, fmtIso: fmtIso, padTime: padTime, now: NOW, reload: reload, addressFilled: addressFilled, schemeRegistered: schemeRegistered,
+    LIMIT_MIN: LIMIT_MIN, limitMin: limitMin, ALL_IDS: ALL_IDS, CHAT_ONLY: CHAT_ONLY, NEEDS_PROOF: NEEDS_PROOF, MAX_TICK_SEC: MAX_TICK_SEC, MAX_BOT_SEC: MAX_BOT_SEC, BOT_LATE_FACTOR: BOT_LATE_FACTOR,
     builtText: builtText, builtBad: builtBad, setHtml: setHtml, setText: setText, statusMap: getS };
 })();

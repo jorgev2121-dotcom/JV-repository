@@ -623,7 +623,7 @@
   },
   {
    "world": "W10-bots",
-   "name": "result code 267009: red FAILED with the code",
+   "name": "result code 267009 means RUNNING NOW: neutral (not red, not green), not called FAILED (flaw F2: this line used to assert the wrong thing)",
    "status": "PASS",
    "why": ""
   },
@@ -743,7 +743,7 @@
   },
   {
    "world": "W14-10hours",
-   "name": "after 600 reloads the DOM node count did not grow by more than 10% (734 -> 736)",
+   "name": "after 600 reloads the DOM node count did not grow by more than 10% (733 -> 735)",
    "status": "PASS",
    "why": ""
   },

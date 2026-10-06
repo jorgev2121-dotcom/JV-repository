@@ -121,7 +121,7 @@ const TYPED = /every \d+ (minutes?|seconds?)|15-minute|every 15|300 seconds|ever
   { const W = 'W10-bots'; const f = fresh(NOWMS); const B = f.bots.bots;
     B['CU-Inbox-Job-Watcher'].last_result = 267009; B['CU-Local-Executor'].state = 'Disabled'; B['CU-TokenMonitor-Hourly'].last_run_at = at(40); delete B['CU-Orchestrator']; B['CU-Propagation-Check'].interval_sec = null; B['VTES-LOCAL-POLLER'].state = 'Running';
     const d = stage(f); const { ctx, p, errs } = await open(br, d);
-    T(W, 'result code 267009: red FAILED with the code', /FAILED.*267009/.test((await botCls(p, 'CU-Inbox-Job-Watcher')).txt) && /bad/.test((await botCls(p, 'CU-Inbox-Job-Watcher')).cls), (await botCls(p, 'CU-Inbox-Job-Watcher')).txt);
+    { const r = await botCls(p, 'CU-Inbox-Job-Watcher'); T(W, 'result code 267009 means RUNNING NOW: neutral (not red, not green), not called FAILED (flaw F2: this line used to assert the wrong thing)', /RUNNING NOW/.test(r.txt) && !/FAILED/.test(r.txt) && /neu/.test(r.cls) && !/bad|ok|unp/.test(r.cls.replace('v5st', '')), r.txt); }
     T(W, 'disabled task: red DISABLED', /DISABLED/.test((await botCls(p, 'CU-Local-Executor')).txt) && /bad/.test((await botCls(p, 'CU-Local-Executor')).cls), '');
     T(W, 'late run (40 min ago, scheduled every 10): red LATE', /LATE/.test((await botCls(p, 'CU-TokenMonitor-Hourly')).txt) && /bad/.test((await botCls(p, 'CU-TokenMonitor-Hourly')).cls), (await botCls(p, 'CU-TokenMonitor-Hourly')).txt);
     T(W, 'no entry for a bot: red NO DATA, others unaffected', /NO DATA.*no entry/.test((await botCls(p, 'CU-Orchestrator')).txt), (await botCls(p, 'CU-Orchestrator')).txt);

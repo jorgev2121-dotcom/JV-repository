@@ -1,0 +1,433 @@
+{
+ "pkg": "/tmp/claude-0/-home-user-JV-repository/d8afd7cd-0df8-5cf7-92fa-c8a3bfdbb605/scratchpad/before-pkg",
+ "pass": 11,
+ "total": 71,
+ "results": [
+  {
+   "id": "F2",
+   "name": "267009 means RUNNING: neutral blue, says RUNNING NOW, never FAILED",
+   "status": "FAIL",
+   "why": "v5st bad | Bot CU-Inbox-Job-Watcher: FAILED - the last run (Oct 6, 1:57 PM EDT) ended with result code 267009. Scheduled every 10 minutes (read from the task schedule)."
+  },
+  {
+   "id": "F2",
+   "name": "267011 means NOT YET RUN: grey, even with no last-run time, never FAILED",
+   "status": "FAIL",
+   "why": "v5st bad | Bot CU-Local-Executor: NO DATA - no last-run time for this bot (scheduler says \"ready\")"
+  },
+  {
+   "id": "F2",
+   "name": "267011 with a last-run time is also grey NOT YET RUN",
+   "status": "FAIL",
+   "why": "v5st bad | Bot CU-Orchestrator: FAILED - the last run (Oct 6, 1:54 PM EDT) ended with result code 267011. Scheduled every 10 minutes (read from the task schedule)."
+  },
+  {
+   "id": "F2",
+   "name": "result 1 is still red FAILED with its code",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F2",
+   "name": "any other non-zero code (267010) is red FAILED",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F2",
+   "name": "a running task with result 0 is still green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F2",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F3",
+   "name": "control: good housekeeping, Miami-Dade count and token report show green badges",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F3",
+   "name": "W2 housekeeping report_delivered:false: the badge is red (not green) and says NOT DELIVERED",
+   "status": "FAIL",
+   "why": "v5b ok | Reported - as of Oct 6, 1:00 PM EDT"
+  },
+  {
+   "id": "F3",
+   "name": "W2 the status strip entry for housekeeping is red too",
+   "status": "FAIL",
+   "why": "housekeeping: <span class=\"v5b ok\" data-src=\"housekeeping\">OK - as of Oct 6, 1:00 PM EDT</span>"
+  },
+  {
+   "id": "F3",
+   "name": "W2b housekeeping with no report_delivered field: red, not green",
+   "status": "FAIL",
+   "why": "v5b ok"
+  },
+  {
+   "id": "F3",
+   "name": "W3 Miami-Dade counted:null: the badge is GREY \"not counted\", never green \"Counted\"",
+   "status": "FAIL",
+   "why": "v5b ok | Counted - as of Oct 6, 1:40 PM EDT"
+  },
+  {
+   "id": "F3",
+   "name": "W3 the strip entry for Miami-Dade is not green",
+   "status": "FAIL",
+   "why": "miamidade: <span class=\"v5b ok\" data-src=\"miamidade\">OK - as of Oct 6, 1:40 PM EDT</span>"
+  },
+  {
+   "id": "F3",
+   "name": "W3 the count line still says unknown of 300",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F3",
+   "name": "W4 an empty token report (only schema, at, writer): the badge is red NO DATA, never green \"Reporting\"",
+   "status": "FAIL",
+   "why": "v5b ok | Reporting - as of Oct 6, 1:58 PM EDT"
+  },
+  {
+   "id": "F3",
+   "name": "W4 the strip entry for tokens is red",
+   "status": "FAIL",
+   "why": "tokens: <span class=\"v5b ok\" data-src=\"tokens\">OK - as of Oct 6, 1:58 PM EDT</span>"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 1366x657: the whole RAMBO button is on the first screen (top 707, bottom 754 of 657)",
+   "status": "FAIL",
+   "why": "{\"top\":707,\"bottom\":754,\"vh\":657,\"tabsH\":182,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 1366x657: the RAMBO block is the element directly after the title and comes before \"Read me first\"",
+   "status": "FAIL",
+   "why": "{\"top\":707,\"bottom\":754,\"vh\":657,\"tabsH\":182,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 1366x657: the tab bar is one compact row (height 182), scrollable",
+   "status": "FAIL",
+   "why": "{\"top\":707,\"bottom\":754,\"vh\":657,\"tabsH\":182,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 1280x609: the whole RAMBO button is on the first screen (top 764, bottom 811 of 609)",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":609,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 1280x609: the RAMBO block is the element directly after the title and comes before \"Read me first\"",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":609,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 1280x609: the tab bar is one compact row (height 239), scrollable",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":609,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 1280x720: the whole RAMBO button is on the first screen (top 764, bottom 811 of 720)",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":720,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 1280x720: the RAMBO block is the element directly after the title and comes before \"Read me first\"",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":720,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 1280x720: the tab bar is one compact row (height 239), scrollable",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":720,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 390x844: the whole RAMBO button is on the first screen (top 1407, bottom 1504 of 844)",
+   "status": "FAIL",
+   "why": "{\"top\":1407,\"bottom\":1504,\"vh\":844,\"tabsH\":720,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 390x844: the RAMBO block is the element directly after the title and comes before \"Read me first\"",
+   "status": "FAIL",
+   "why": "{\"top\":1407,\"bottom\":1504,\"vh\":844,\"tabsH\":720,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "shipped data (no data) 390x844: the tab bar is one compact row (height 720), scrollable",
+   "status": "FAIL",
+   "why": "{\"top\":1407,\"bottom\":1504,\"vh\":844,\"tabsH\":720,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 1366x657: the whole RAMBO button is on the first screen (top 707, bottom 754 of 657)",
+   "status": "FAIL",
+   "why": "{\"top\":707,\"bottom\":754,\"vh\":657,\"tabsH\":182,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 1366x657: the RAMBO block is the element directly after the title and comes before \"Read me first\"",
+   "status": "FAIL",
+   "why": "{\"top\":707,\"bottom\":754,\"vh\":657,\"tabsH\":182,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 1366x657: the tab bar is one compact row (height 182), scrollable",
+   "status": "FAIL",
+   "why": "{\"top\":707,\"bottom\":754,\"vh\":657,\"tabsH\":182,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 1280x609: the whole RAMBO button is on the first screen (top 764, bottom 811 of 609)",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":609,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 1280x609: the RAMBO block is the element directly after the title and comes before \"Read me first\"",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":609,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 1280x609: the tab bar is one compact row (height 239), scrollable",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":609,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 1280x720: the whole RAMBO button is on the first screen (top 764, bottom 811 of 720)",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":720,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 1280x720: the RAMBO block is the element directly after the title and comes before \"Read me first\"",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":720,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 1280x720: the tab bar is one compact row (height 239), scrollable",
+   "status": "FAIL",
+   "why": "{\"top\":764,\"bottom\":811,\"vh\":720,\"tabsH\":239,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 390x844: the whole RAMBO button is on the first screen (top 1407, bottom 1504 of 844)",
+   "status": "FAIL",
+   "why": "{\"top\":1407,\"bottom\":1504,\"vh\":844,\"tabsH\":720,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 390x844: the RAMBO block is the element directly after the title and comes before \"Read me first\"",
+   "status": "FAIL",
+   "why": "{\"top\":1407,\"bottom\":1504,\"vh\":844,\"tabsH\":720,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "fresh data 390x844: the tab bar is one compact row (height 720), scrollable",
+   "status": "FAIL",
+   "why": "{\"top\":1407,\"bottom\":1504,\"vh\":844,\"tabsH\":720,\"oneRow\":false,\"scrolls\":false,\"afterH1\":\"\",\"order\":0}"
+  },
+  {
+   "id": "F5",
+   "name": "phone 390x844: pressing the button on the first screen copies a packet addressed to LLM-01",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F6",
+   "name": "CHIEF card (window UP, bot DISABLED): exactly ONE status line, red, and it says DISABLED and names CU-Orchestrator",
+   "status": "FAIL",
+   "why": "{\"n\":2,\"cls\":[\"v5st ok\",\"v5st bad\"],\"txt\":[\"State of CHIEF: UP - seen Oct 6, 1:59 PM EDT\",\"Bot CU-Orchestrator: DISABLED - the scheduler says this task is switched off (last ran Oct 6, 1:54 PM EDT). Scheduled every 10 minutes (read from the task schedule).\"],\"green\":1,\"red\":1}"
+  },
+  {
+   "id": "F6",
+   "name": "RAMBO card (window UP, bot DISABLED): exactly ONE status line, red, and it says DISABLED and names CU-Inbox-Job-Watcher",
+   "status": "FAIL",
+   "why": "{\"n\":2,\"cls\":[\"v5st ok\",\"v5st bad\"],\"txt\":[\"State of LLM-01: UP - seen Oct 6, 1:59 PM EDT\",\"Bot CU-Inbox-Job-Watcher: DISABLED - the scheduler says this task is switched off (last ran Oct 6, 1:57 PM EDT). Scheduled every 10 minutes (read from the task schedule).\"],\"green\":1,\"red\":1}"
+  },
+  {
+   "id": "F6",
+   "name": "LOCAL card (window UP, bot FAILED): exactly ONE status line, red, and it says FAILED and names CU-Local-Executor",
+   "status": "FAIL",
+   "why": "{\"n\":2,\"cls\":[\"v5st ok\",\"v5st bad\"],\"txt\":[\"State of LOCAL: UP - seen Oct 6, 1:59 PM EDT\",\"Bot CU-Local-Executor: FAILED - the last run (Oct 6, 1:56 PM EDT) ended with result code 1. Scheduled every 10 minutes (read from the task schedule).\"],\"green\":1,\"red\":1}"
+  },
+  {
+   "id": "F6",
+   "name": "control: window UP and bot fine: still one line, green, naming both",
+   "status": "FAIL",
+   "why": "[{\"n\":2,\"ok\":2,\"txt\":\"State of CHIEF: UP - seen Oct 6, 1:59 PM EDT\"},{\"n\":2,\"ok\":2,\"txt\":\"State of LLM-01: UP - seen Oct 6, 1:59 PM EDT\"},{\"n\":2,\"ok\":2,\"txt\":\"State of LOCAL: UP - seen Oct 6, 1:59 PM EDT\"}]"
+  },
+  {
+   "id": "F6",
+   "name": "after the 60-second reload the CHIEF card flips from green to one red line (bot now DISABLED)",
+   "status": "FAIL",
+   "why": "{\"n\":2,\"red\":1,\"txt\":\"State of CHIEF: UP - seen Oct 6, 2:00 PM EDT\"}"
+  },
+  {
+   "id": "F7",
+   "name": "a daily bot whose last run was 20 hours ago is GREEN and says \"every 1 day\"",
+   "status": "FAIL",
+   "why": "{\"cls\":\"v5st unp\",\"txt\":\"Bot CU-Propagation-Check: RAN Oct 5, 6:00 PM EDT with result 0, but no schedule interval is given, so lateness cannot be judged.\"}"
+  },
+  {
+   "id": "F7",
+   "name": "a daily bot whose last run was 40 hours ago (more than 1.5 x 24 h) is red LATE",
+   "status": "FAIL",
+   "why": "{\"cls\":\"v5st unp\",\"txt\":\"Bot CU-Orchestrator: RAN Oct 4, 10:00 PM EDT with result 0, but no schedule interval is given, so lateness cannot be judged.\"}"
+  },
+  {
+   "id": "F7",
+   "name": "a weekly bot (interval 604800 s = 7 days), last run 5 days ago: green \"every 7 days\"",
+   "status": "FAIL",
+   "why": "{\"cls\":\"v5st unp\",\"txt\":\"Bot CU-Local-Executor: RAN Oct 1, 2:00 PM EDT with result 0, but no schedule interval is given, so lateness cannot be judged.\"}"
+  },
+  {
+   "id": "F7",
+   "name": "an hourly bot last run 80 minutes ago (inside 1.5 x 60) is green; 100 minutes ago is red LATE",
+   "status": "FAIL",
+   "why": "[{\"cls\":\"v5st ok\",\"txt\":\"Bot CU-TokenMonitor-Hourly: RAN Oct 6, 12:40 PM EDT, result 0, scheduler says ready. Scheduled every 60 minutes (read from the task schedule).\"},{\"cls\":\"v5st ok\",\"txt\":\"Bot CU-Inbox-Job-Watcher: RAN Oct 6, 12:20 PM EDT, result 0, scheduler says ready. Scheduled every 60 minu"
+  },
+  {
+   "id": "F7",
+   "name": "an interval over 7 days (604801) makes only THAT bot grey \"lateness cannot be judged\"; the others keep their own verdicts",
+   "status": "FAIL",
+   "why": "{\"cls\":\"v5st unp\",\"txt\":\"Bot VTES-LOCAL-POLLER: RAN Oct 6, 1:52 PM EDT with result 0, but no schedule interval is given, so lateness cannot be judged.\"}"
+  },
+  {
+   "id": "F7",
+   "name": "DATA-CONTRACT.md says the same: per-bot interval up to 604800 s (7 days), late after 1.5 x, and a bad per-bot interval greys only that bot",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F9",
+   "name": "10 OLD PANEL labels, each at least 14 px and bold",
+   "status": "FAIL",
+   "why": "[\"10/400\",\"10/400\",\"10/400\",\"10/400\",\"10/400\",\"10/400\",\"10/400\",\"10/400\",\"10/400\",\"10/400\"]"
+  },
+  {
+   "id": "F9",
+   "name": "each label has strong contrast (at least 7 to 1, WCAG AAA), computed from its real colours",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F9",
+   "name": "each label still says OLD PANEL, snapshot of 2026-09-02, not live",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F10",
+   "name": "for 25 search words the same cards match on v3 and on v5 (counts v3/v5: {\"rambo\":\"9/14\",\"bot\":\"6/11\",\"proven\":\"1/3\",\"codex\":\"4/4\",\"grok\":\"2/2\",\"cowork\":\"2/2\",\"iphone\":\"1/1\",\"claude\":\"12/12\",\"ollama\":\"2/2\",\"local\":\"5/5\",\"chief\":\"2/2\",\"orchestrator\":\"3/3\",\"LLM-02\":\"1/1\",\"LLM-05\":\"1/1\",\"#cowork\":\"2/2\",\"files on my PC\":\"0/0\",\"free\":\"7/7\",\"scarce\":\"5/5\",\"quota\":\"2/2\",\"terminal\":\"1/2\",\"inbox\":\"7/7\",\"poller\":\"1/1\",\"email\":\"1/1\",\"drive\":\"7/7\",\"pii\":\"2/2\"})",
+   "status": "FAIL",
+   "why": "rambo: v3 9 v5 14 ; bot: v3 6 v5 11 ; proven: v3 1 v5 3 ; terminal: v3 1 v5 2"
+  },
+  {
+   "id": "F10",
+   "name": "\"rambo\" stays near v3 (9 cards), \"bot\" stays 6, \"proven\" stays 1 (v5 gives 14, 11, 3)",
+   "status": "FAIL",
+   "why": "14,11,3"
+  },
+  {
+   "id": "F10",
+   "name": "words that exist only in the live state lines and steps match no card (as on v3)",
+   "status": "FAIL",
+   "why": "what fixes it -> 6 ; state of -> 6 ; does not open yet -> 6 ; steps: -> 8"
+  },
+  {
+   "id": "F12",
+   "name": "no link anywhere on the page goes to chatgpt.com, and the Codex CLI card has no Open button",
+   "status": "FAIL",
+   "why": "[\"https://chatgpt.com\"]"
+  },
+  {
+   "id": "F12",
+   "name": "the Codex CLI card has a Copy packet button and the sign-in click path (Windows Terminal, codex, the sign-in shortcut)",
+   "status": "FAIL",
+   "why": ""
+  },
+  {
+   "id": "F12",
+   "name": "its button copies a packet addressed to LLM-06 and opens no new page",
+   "status": "FAIL",
+   "why": "null"
+  },
+  {
+   "id": "F12",
+   "name": "\"Copy packet and open\" with To = LLM-06 opens no page (v3 opened chatgpt.com)",
+   "status": "FAIL",
+   "why": "file:///tmp/v5t-h4AnQd/VTES-LLM-LAUNCHER_v5.html,chrome-error://chromewebdata/"
+  },
+  {
+   "id": "F13",
+   "name": "AirDrop (and Notes-first) appear nowhere on the page, including the Copy-and-open status for the iPhone",
+   "status": "FAIL",
+   "why": "Copied. On the iPhone, open the Claude app. Send the packet with AirDrop or Notes first."
+  },
+  {
+   "id": "F13",
+   "name": "the iPhone card gives a step that works on a Windows PC (a new email to yourself)",
+   "status": "FAIL",
+   "why": ""
+  },
+  {
+   "id": "F14",
+   "name": "LOCAL steps do not hand Jorge a file-and-command job (no \"CLASS: line and a PROMPT: line\"); they say the desktop executor (RAMBO) does it",
+   "status": "FAIL",
+   "why": "Steps:There is no window. Press the button to copy the packet.Save it as JOB-something.md in G:\\My Drive\\VTES-Inbox-LOCAL, with a CLASS: line and a PROMPT: line."
+  },
+  {
+   "id": "F14",
+   "name": "GROK steps do not tell Jorge to run Second-Opinion.ps1 -Prompt; they say the desktop executor (RAMBO) runs it",
+   "status": "FAIL",
+   "why": "Steps:On the PC, run Second-Opinion.ps1 -Prompt \"your question\" (typed from v3, UNVERIFIED).Or press the button and paste the packet into grok.com."
+  },
+  {
+   "id": "F14",
+   "name": "RAMBO step \"save a JOB file\" is click by click (File Explorer, right-click, New, Text Document)",
+   "status": "FAIL",
+   "why": "Steps:On the PC, open the Claude desktop app (or click the green D icon near the clock).Click the Code tab.If the app lists several sessions, pick the one named RAMBO (typed advice, UNVERIFIED).Click in the message box.Press Ctrl+V.Or save the packet as JOB-something.md in G:\\My Drive\\VTES-Inbox."
+  },
+  {
+   "id": "F17",
+   "name": "the footer no longer claims \"your v3 file is untouched\"",
+   "status": "FAIL",
+   "why": "910-B · v5 · built Oct 6, 6:08 AM EDT · CURRENT · your v3 file is untouched and stays where it is as the ro"
+  },
+  {
+   "id": "F15",
+   "name": "repair row 10 keeps its words and shows the visible suffix \"(typed note 2026-10-02, Eastern time)\"",
+   "status": "FAIL",
+   "why": "2026-10-02 AGENTS Burn-rate agent installed, runs 7:00 AM daily ADDED"
+  },
+  {
+   "id": "F15",
+   "name": "every clock time on the page carries a zone (EDT or EST) or the words \"Eastern time\" right after it",
+   "status": "FAIL",
+   "why": "7:00 AM daily ADDED 2026-10-02 AGENTS DD site runner built, 4 defects "
+  },
+  {
+   "id": "F15",
+   "name": "no package file holds an installer-style time with no zone (YYYY-MM-DD_HHMM)",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

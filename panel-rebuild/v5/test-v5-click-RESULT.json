@@ -4,10 +4,10 @@
  "counts": {
   "tabsLocal": 8,
   "tabsOld": 10,
-  "httpLinks": 6,
+  "httpLinks": 5,
   "vtesLinks": 2,
   "drive": 22,
-  "bigcopy": 9,
+  "bigcopy": 10,
   "hand": 13,
   "queued": 6,
   "selects": 3,
@@ -127,20 +127,20 @@
    "why": ""
   },
   {
+   "grp": "copy",
+   "name": "big copy button LLM-01 (top RAMBO): packet to LLM-01 is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
+   "status": "PASS",
+   "why": ""
+  },
+  {
    "grp": "other",
-   "name": "search box: LLM-07, #grok, no match, mixed case, a job word, and cleared all behave ([[\"LLM-07\",2,true],[\"#grok\",2,true],[\"zzzzqq\",0,true],[\"ramBO\",14,true],[\"orchestrator\",3,true],[\"\",28,true]])",
+   "name": "search box: LLM-07, #grok, no match, mixed case, a job word, and cleared all behave ([[\"LLM-07\",1,true],[\"#grok\",2,true],[\"zzzzqq\",0,true],[\"ramBO\",9,true],[\"orchestrator\",3,true],[\"\",28,true]])",
    "status": "PASS",
    "why": ""
   },
   {
    "grp": "other",
    "name": "Read me first opens and closes",
-   "status": "PASS",
-   "why": ""
-  },
-  {
-   "grp": "copy",
-   "name": "big copy button LLM-01 (top RAMBO): packet to LLM-01 is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
    "status": "PASS",
    "why": ""
   },
@@ -259,8 +259,8 @@
    "why": ""
   },
   {
-   "grp": "links",
-   "name": "link Open Codex CLI -> https://chatgpt.com opens a new tab with rel noopener",
+   "grp": "copy",
+   "name": "big copy button LLM-06: packet to LLM-06 is on the clipboard with all six labels and an Eastern stamp; the card says Copied and shows the steps",
    "status": "PASS",
    "why": ""
   },
@@ -566,7 +566,7 @@
   },
   {
    "grp": "layout",
-   "name": "at 1300 px wide all 8 section jumps leave the heading visible under the sticky bar (182 px tall)",
+   "name": "at 1300 px wide all 8 section jumps leave the heading visible under the sticky bar (70 px tall)",
    "status": "PASS",
    "why": ""
   },

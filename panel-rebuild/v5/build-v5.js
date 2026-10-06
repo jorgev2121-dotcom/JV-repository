@@ -21,7 +21,7 @@ rep('top', 'autofocus>\n', 'autofocus>\n<div id="v5top"></div>\n');
 rep('leadlead', '<p class="lead">Maintained by hand in VTES-LLM-LAUNCHER_v3.html. Repairs and enhancements across Jorge\'s windows.</p>', '<p class="lead">TYPED LOG. Maintained by hand in VTES-LLM-LAUNCHER_v3.html; the last row was typed on 2026-10-02. Nothing in this table is checked by this page. Repairs and enhancements across Jorge\'s windows.</p>');
 rep('botslead', '<p class="lead">These run by themselves on the PC. Check any of them with Get-ScheduledTask.</p>\n<div class="grid" id="g-bots">', '<p class="lead">These run by themselves on the PC. The line on each card is read from a data file the PC writes (the Windows scheduler\'s own report); red NO DATA means nothing has written it yet. Check any of them with Get-ScheduledTask.</p>\n<div id="v5tokens"></div><div id="v5house"></div>\n<div class="grid" id="g-bots">');
 rep('repairslive', '</tbody></table>\n</div></div>\n', '</tbody></table>\n</div></div>\n<div id="v5repairs"></div>\n');
-rep('sect7', '<p class="sub" style="margin-top:30px">TRK-2026-9910-B v3 2026-10-02 CURRENT.', '<h2 id="miamidade">7. Miami-Dade: 22 public sources</h2>\n<p class="lead">Added in v5. Every link opens that source\'s proof file in Drive. The count says unknown until the PC counts.</p>\n<div id="v5miami"></div>\n\n<p class="sub" style="margin-top:30px">TRK-2026-9910-B &middot; v5 &middot; built <span id="v5fb"></span> &middot; CURRENT &middot; your v3 file is untouched and stays where it is as the rollback.');
+rep('sect7', '<p class="sub" style="margin-top:30px">TRK-2026-9910-B v3 2026-10-02 CURRENT.', '<h2 id="miamidade">7. Miami-Dade: 22 public sources</h2>\n<p class="lead">Added in v5. Every link opens that source\'s proof file in Drive. The count says unknown until the PC counts.</p>\n<div id="v5miami"></div>\n\n<p class="sub" style="margin-top:30px">TRK-2026-9910-B &middot; v5 &middot; built <span id="v5fb"></span> &middot; CURRENT.');
 // --- tabs ---
 rep('tabs-status', "['status','STATUS',1]", "['livestatus','STATUS',1]");
 rep('tabs-add', "['repairs','REPAIRS',1]]", "['repairs','REPAIRS',1],['miamidade','MIAMI-DADE',1]]");
@@ -45,9 +45,19 @@ rep('t-codex', ' Proven 2026-10-01.', '');
 rep('d9', 'The packet (editable before pasting)', 'The packet (read only: use the buttons above to copy it)');
 // --- defect 9 and D8 ---
 rep('stamp', 'new Date().toLocaleString()', 'window.VTES5.fmt(window.VTES5.now())');
-rep('win-grok', 'function win(id){', "WIN.push({id:'GROK',n:'GROK',url:'',how:'On the PC run Second-Opinion.ps1 -Prompt \"<question>\", or paste the packet into grok.com.'});\nfunction win(id){");
+rep('win-grok', 'function win(id){', "WIN.push({id:'GROK',n:'GROK',url:'',how:'Paste the packet into grok.com. The desktop executor (RAMBO) can run Second-Opinion.ps1 for you.'});\nfunction win(id){");
 // --- cards: the live cards replace the static ones (same data, same order) ---
-rep('render', /\$\('g-llm'\)\.innerHTML=[\s\S]*?\$\('g-queued'\)/, "VTES5U.renderAll(LLMS,ROLES,BOTS);\n$('g-queued')");
+rep('render', "$('g-queued').innerHTML=QUEUED.map(", "VTES5U.renderAll(LLMS,ROLES,BOTS);\n$('g-queued').innerHTML=QUEUED.map(");
+// F10: the search matches only the text v3 matched (v3's own card text is kept in data-s by renderAll), never the live state lines
+rep('search', "var h=(c.dataset.k+' '+c.textContent).toLowerCase();", "var h=(c.dataset.k+' '+(c.dataset.s!==undefined?c.dataset.s:c.textContent)).toLowerCase();");
+// F5: the RAMBO paste button gets its own slot directly under the page title
+rep('rambo-slot', '<h1>VTES LLM Launcher</h1>\n', '<h1>VTES LLM Launcher</h1>\n<div class="v5rambo" id="v5rambo"></div>\n');
+// F12: Codex CLI is a terminal program on the PC; the card must not open chatgpt.com (and "Copy packet and open" must not either)
+rep('url-llm06', "url:'https://chatgpt.com'", "url:''");
+// F13: AirDrop does not exist on a Windows PC
+rep('airdrop', 'Send the packet with AirDrop or Notes first.', 'Get the packet onto the iPhone first (see the steps on this card).');
+// F15: the typed schedule on repair row 10 keeps its words and gets a visible label
+rep('row10', '<td>Burn-rate agent installed, runs 7:00 AM daily</td>', '<td>Burn-rate agent installed, runs 7:00 AM daily <span class="v5typed">(typed note 2026-10-02, Eastern time)</span></td>');
 // --- start: top block, first load of the data files, then every 60 seconds ---
 rep('init', "$('kind').value=5;choose();\n", "$('kind').value=5;choose();\nVTES5U.renderTop(window.VTES5_BUILT);VTES5U.measureHeader();window.addEventListener('resize',VTES5U.measureHeader);\nfunction v5tick(){window.VTES5.reload(function(){VTES5U.refresh(window.VTES5_BUILT);VTES5U.repaint()})}\nv5tick();setInterval(v5tick,60000);\n");
 const PKG = __dirname + '/package';
