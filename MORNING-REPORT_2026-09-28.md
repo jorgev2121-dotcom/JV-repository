@@ -4,6 +4,12 @@
 
 ---
 
+## CORRECTION 2026-10-06 12:10 PM Miami (16:10Z) — read this before the checkpoint block below
+
+**I wrote that the decision problem was fixed. The desktop's own newer report says the proof is missing.** It found only 3 closed decisions out of about 57. The newest closed one was written at 12:32 AM, before the fix. In 11 hours since, none closed. **So the fix is UNPROVEN, not done.** I ordered a read-only proof request (Drive 1… MSG-CLOUD-TO-CODE_PROVE-DECISION-FIX-WORKS-READONLY). The desktop's money-status report is in Drive: EXECUTED_RAMBO_PRIORITY-ZERO-AND-CASH-STATUS_2026-10-06 (id 120vewiU1XHJQZXdPBYDu4UN2LCwyrqaz). Its findings: Wally call-sheet task disabled and failing since 2026-09-24; Airtable CRM and the $70 list test NOT FOUND; Alec DD files NOT FOUND on disk (Orange Tree refresh task runs and succeeds); Medley figure unreconciled ($10,600 / $16,000 / $21,200) and waiting on your one click on the desktop button "ANSWER AP-0022 - Miami Art House $10,600"; Einar's extension is 75 days overdue; microfilm retrieval DONE 2026-08-16 (220 docs) with its notice email possibly still unsent.
+
+---
+
 ## START HERE — 12-HOUR CHECKPOINT, 2026-10-06, 11:25 AM Miami (15:25Z). Written for listening.
 
 **Section A — The answer first.** **In 12 hours the panel is not delivered, and nothing is installed on your PC. Seven independent checks have each found real flaws. A sixth and now seventh fix round is the cause of the delay. I also did not start the other jobs you need most. That is my failure, and I say it plainly.**
