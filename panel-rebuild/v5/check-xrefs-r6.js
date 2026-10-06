@@ -14,7 +14,7 @@ const T = { DW: {}, KL: {}, KLI: {}, DCF: {}, DCR: {}, IBH: {} };
 { let inA = false; rd('INSTALL-BY-HAND.md').split('\n').forEach(l => { if (/^## Section A/.test(l)) { inA = true; } else if (/^## Section/.test(l)) { inA = false; } if (!inA) { return; } const m = l.match(/^(\d+)\. \*\*(.+?)\*\*/); if (m) { T.IBH[m[1]] = strip(m[2]); } const s = l.match(/^\s+- (\d+[a-z])\. \*\*(.+?)\*\*/); if (s) { T.IBH[s[1]] = strip(s[2]); } }); }
 out.push('targets found: DESKTOP-WORK ' + Object.keys(T.DW).length + ' items, KNOWN-LIMITS ' + Object.keys(T.KL).length + ' items + Section I ' + Object.keys(T.KLI).length + ', DATA-CONTRACT ' + Object.keys(T.DCF).length + ' files + ' + Object.keys(T.DCR).length + ' rules, INSTALL-BY-HAND ' + Object.keys(T.IBH).length + ' steps');
 // ---- the references
-const SCAN = [['INSTALL-BY-HAND.md', 'IBH'], ['DESKTOP-WORK.md', 'DW'], ['KNOWN-LIMITS.md', 'KL'], ['DATA-CONTRACT.md', 'DC'], ['package/vtes5-ui.js', 'UI']];
+const SCAN = [['INSTALL-BY-HAND.md', 'IBH'], ['DESKTOP-WORK.md', 'DW'], ['KNOWN-LIMITS.md', 'KL'], ['DATA-CONTRACT.md', 'DC'], ['package/vtes5-ui.js', 'UI'], ['FIX-ROUND-6.md', 'FR']].filter(x => fs.existsSync(path.join(H, x[0]))); /* FIX-ROUND-6.md is written after the test run and checked again then */
 const TAG = '(?:\\s*\\(([^()]*(?:\\([^()]*\\)[^()]*)*)\\))?';
 const PATS = [
   { kind: 'DW', target: T.DW, re: new RegExp('DESKTOP-WORK(?:\\.md)? items? (\\d+)' + TAG, 'g'), need: doc => doc !== 'DW', name: 'DESKTOP-WORK item' },

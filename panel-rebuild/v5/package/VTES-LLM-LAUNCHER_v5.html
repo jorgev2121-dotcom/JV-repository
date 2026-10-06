@@ -70,7 +70,7 @@ h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 /* fix round 6: lines meant for the desktop executor only are smaller and italic; the WHOLE PAGE line is bold */
 .v5forrambo{font-size:14px;font-style:italic;color:#444}#v5overall{font-weight:700}
 </style></head><body>
-<script>window.VTES5_BUILT = "2026-10-06T14:08:34Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
+<script>window.VTES5_BUILT = "2026-10-06T14:10:41Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
 <div class="tabs" id="tabs"></div>
 <div class="v5tabhint" id="v5tabhint"></div>
 <h1>VTES LLM Launcher</h1>
@@ -184,7 +184,7 @@ var WIN=[];LLMS.forEach(function(w){WIN.push({id:w.id,n:w.n,url:w.url,how:w.how}
 WIN.push({id:'LOCAL',n:'LOCAL (Ollama)',url:'',how:'Do not give this packet to any Claude window. Follow the steps on the LOCAL card. Saving it is BLOCKED until the desktop executor confirms a local-only folder (not inside Google Drive or OneDrive).'});
 WIN.push({id:'CODEX',n:'CODEX',url:'',how:'Follow the steps on the CODEX card. You type no command: the desktop executor (RAMBO) runs Codex.'});
 WIN.push({id:'RAMBO',n:'CLAUDE / RAMBO',url:'',how:'Open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.'});
-WIN.push({id:'GROK',n:'GROK',url:'',how:'Paste the packet into grok.com. The desktop executor (RAMBO) can run Second-Opinion.ps1 for you.'});
+WIN.push({id:'GROK',n:'GROK',url:'',how:'Paste the packet into grok.com. The desktop executor (RAMBO) can put the question to Grok for you.'});
 function win(id){return WIN.filter(function(w){return w.id===id})[0]}
 function $(i){return document.getElementById(i)}
 function el(h){var d=document.createElement('div');d.innerHTML=h;return d.firstChild}

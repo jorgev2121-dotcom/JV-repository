@@ -48,7 +48,7 @@ rep('t-codex', ' Proven 2026-10-01.', '');
 rep('d9', 'The packet (editable before pasting)', 'The packet (read only: use the buttons above to copy it)');
 // --- defect 9 and D8 ---
 rep('stamp', 'new Date().toLocaleString()', 'window.VTES5.fmt(window.VTES5.now())');
-rep('win-grok', 'function win(id){', "WIN.push({id:'GROK',n:'GROK',url:'',how:'Paste the packet into grok.com. The desktop executor (RAMBO) can run Second-Opinion.ps1 for you.'});\nfunction win(id){");
+rep('win-grok', 'function win(id){', "WIN.push({id:'GROK',n:'GROK',url:'',how:'Paste the packet into grok.com. The desktop executor (RAMBO) can put the question to Grok for you.'});\nfunction win(id){");
 // N10: a note that looks like a Social Security number is kept out of every packet except one for LOCAL (the page's own rule: client personal data goes to LOCAL only)
 rep('guard', "note=$('note').value.trim()||'(no note typed", "note=window.VTES5U.guardNote($('note').value.trim(),t.id)||'(no note typed");
 // --- cards: the live cards replace the static ones (same data, same order) ---

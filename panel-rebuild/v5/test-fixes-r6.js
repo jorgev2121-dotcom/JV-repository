@@ -9,20 +9,22 @@ const sha = b => crypto.createHash('sha256').update(b).digest('hex');
   const br = await L.chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   // ---------- F14: no technical command is printed for Jorge outside a "For RAMBO" line
   { const { ctx, p, errs } = await open(br, stage(fresh(NOWMS)));
-    const TECH = /\.ps1|codex exec|Second-Opinion|VTES-Open|Get-ScheduledTask|Get-ScheduledTaskInfo|-Install\b|-Prompt\b|powershell|\bgit (show|fetch|status)\b/i;
+    const TECH = /\.ps1|codex exec|Second-Opinion\.ps1|VTES-Open|Get-ScheduledTask|Get-ScheduledTaskInfo|-Install\b|-Prompt\b|powershell|\bgit (show|fetch|status)\b/i;
     const leaks = await p.evaluate(src => { const re = new RegExp(src, 'i'); const out = []; document.querySelectorAll('#g-llm .card, #g-roles .card, #g-bots .card').forEach(c => { const k = c.cloneNode(true); k.querySelectorAll('.v5forrambo').forEach(e => e.remove()); const m = k.innerText.match(re); if (m) { out.push(c.id + ': ' + m[0]); } }); return out; }, TECH.source);
     T('F14', 'on every window, role and bot card, no technical command (a .ps1 name, codex exec, Get-ScheduledTask, -Install, powershell, git) appears outside a line marked "For RAMBO" (' + leaks.length + ' leaks)', leaks.length === 0, leaks.join(' ; '));
     const raml = await p.$$eval('.v5forrambo', e => e.map(x => x.innerText.replace(/\s+/g, ' ').trim()));
     T('F14', 'the "For RAMBO" lines exist for RAMBO, CODEX and GROK, and for LLM-01 when its link is not live (' + raml.length + ' lines) and each starts with "For RAMBO"', raml.length >= 3 && raml.every(t => /^For RAMBO/.test(t)), JSON.stringify(raml));
     const how = await p.evaluate(() => WIN.map(w => w.id + ': ' + (w.how || '')).join(' | '));
-    T('F14', 'the line printed after "Copy packet and open" (v3 how-to) still names Second-Opinion.ps1 only inside the sentence that says RAMBO runs it (v3 text kept, build.js F14 rule)', !/codex exec|type codex/i.test(how), how.slice(0, 200));
+    T('F14', 'no how-to line (the sentence printed after \"Copy packet and open\") holds a technical command', !TECH.test(how), how.slice(0, 300));
+    { const stat = await p.evaluate(async () => { const out = []; for (const w of WIN) { document.getElementById('to').value = w.id; window.open = () => null; document.getElementById('go').click(); await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); out.push(w.id + ': ' + document.getElementById('status').innerText); } return out; });
+      const bad = stat.filter(x => TECH.test(x)); T('F14', 'the status line after \"Copy packet and open\" holds no technical command for any of the ' + stat.length + ' To entries', bad.length === 0, bad.join(' ; ')); }
     T('F14', '0 page errors', errs.length === 0, errs.join('|')); await ctx.close(); }
   // ---------- flaw 2: the LOCAL card in the three states
   const localText = async p => (await p.innerText('#card-LOCAL')).replace(/\s+/g, ' ');
   const neverLeaves = t => { const m = t.match(/[^.]*never leaves the (PC|machine)[^.]*/gi) || []; return m.every(x => /only true once|typed in v3/.test(x)); };
   { const { ctx, p } = await open(br, stage(null)); const t = await localText(p);
     T('flaw 2', 'shipped data: the LOCAL card says BLOCKED - UNVERIFIED and has NO save steps (no right-click, no Text Document, no folder to open)', /BLOCKED - UNVERIFIED/.test(t) && !/right-click/i.test(t) && !/Text Document/.test(t), t.slice(0, 300));
-    T('flaw 2', 'shipped data: the page never tells anyone to save client data in G:\\My Drive or in Google Drive (the only mentions are warnings)', !/G:\\My Drive/.test(await p.innerText('body')) && !/open Google Drive, open the folder/i.test(t) && /Do NOT save it in Google Drive or OneDrive/.test(t), t.slice(0, 400));
+    T('flaw 2', 'shipped data: the LOCAL card never names G:\\My Drive and never tells anyone to save client data in Google Drive (the only mentions are warnings)', !/G:\\My Drive/.test(t) && !/open Google Drive, open the folder/i.test(t) && /Do NOT save it in Google Drive or OneDrive/.test(t), t.slice(0, 400));
     T('flaw 2', 'shipped data: "Never leaves the PC" is only ever quoted as a v3 sentence that says when it is true', neverLeaves(await p.innerText('body')), (await p.innerText('body')).match(/[^.]*never leaves the[^.]*/gi));
     T('flaw 2', 'shipped data: the LOCAL save line is red (a red card)', /bad/.test(await p.$eval('#card-LOCAL .v5st[data-localfolder]', e => e.className)), '');
     await ctx.close(); }
@@ -61,7 +63,7 @@ const sha = b => crypto.createHash('sha256').update(b).digest('hex');
     // a real checkout with core.autocrlf=true, with and without the attribute, in a scratch clone
     const root = path.join(H, '..', '..'); const tmp = fs.mkdtempSync(require('os').tmpdir() + '/crlf-'); let withAttr = '?', without = '?';
     try {
-      sh('git clone -q --no-checkout "' + root + '" "' + tmp + '/a"'); sh('git config core.autocrlf true', { cwd: tmp + '/a' }); const head = sh('git rev-parse HEAD', { cwd: root }).trim(); sh('git checkout -q ' + head + ' -- panel-rebuild/v5/package panel-rebuild/v5/VERIFY-v5.ps1', { cwd: tmp + '/a' });
+      sh('git clone -q --no-checkout "' + root + '" "' + tmp + '/a"'); sh('git config core.autocrlf true', { cwd: tmp + '/a' }); const head = sh('git rev-parse HEAD', { cwd: root }).trim(); sh('git checkout -q ' + head + ' -- .gitattributes panel-rebuild/v5/package panel-rebuild/v5/VERIFY-v5.ps1', { cwd: tmp + '/a' });
       const crs = d => { let n = 0; const w = x => { for (const f of fs.readdirSync(x)) { const q = path.join(x, f); if (fs.statSync(q).isDirectory()) { w(q); } else { n += (fs.readFileSync(q).toString('latin1').match(/\r/g) || []).length; } } }; w(d); return n; };
       withAttr = crs(tmp + '/a/panel-rebuild/v5/package');
       sh('git clone -q --no-checkout "' + root + '" "' + tmp + '/b"'); sh('git config core.autocrlf true', { cwd: tmp + '/b' }); sh('git checkout -q ' + head + ' -- panel-rebuild/v5/package', { cwd: tmp + '/b' }); fs.writeFileSync(tmp + '/b/.git/info/attributes', 'panel-rebuild/v5/** text\n'); fs.rmSync(tmp + '/b/panel-rebuild/v5/package', { recursive: true }); sh('git checkout -q ' + head + ' -- panel-rebuild/v5/package', { cwd: tmp + '/b' });

@@ -12,6 +12,8 @@ const N = {};
 { const c = js('test-v3-packets-RESULT.json'); N.packets = [c.pairs_identical, c.pairs_total]; }
 { const c = js('test-fixes-r4-AFTER-RESULT.json'); N.fixes4 = [c.pass, c.total]; }
 { const c = js('test-fixes-r5-AFTER-RESULT.json'); N.fixes5 = [c.pass, c.total]; }
+{ const c = js('test-fixes-r6-RESULT.json'); N.fixes6 = [c.pass, c.total]; }
+{ const c = js('test-survival-92-r6-RESULT.json'); N.survival92 = [c.pass, c.total]; }
 { const c = js('test-invariant-r6-RESULT.json'); N.invariant = [c.pass, c.total]; N.invWorlds = [c.named_worlds, c.random_worlds]; }
 { const c = js('test-privacy-matrix-r6-RESULT.json'); N.matrix = [c.pass, c.total]; N.matrixShape = [c.notes, c.routes]; }
 { const c = js('test-pii-unit-r6-RESULT.json'); N.piiunit = [c.pass, c.total]; }
@@ -24,11 +26,11 @@ const BEFORE = ['matrixBefore'];
 for (const k of Object.keys(N)) { say(N[k] && (N[k][0] === N[k][1] || BEFORE.indexOf(k) >= 0 || k === 'mut' || k === 'invWorlds' || k === 'matrixShape'), k + ' result file says ' + (N[k] ? N[k].join(' of ') : 'MISSING')); }
 say(N.mut[0] === N.mut[1] && N.mut[1] === 26, 'deliberate breaks caught: ' + N.mut.join(' of '));
 say(N.matrixShape[0] === 14 && N.matrixShape[1] === 369, 'the privacy matrix is 14 notes x 369 routes (' + N.matrixShape.join(' x ') + ')');
-const checks = ['click', 'worlds', 'survives', 'before16', 'packets', 'fixes4', 'fixes5', 'invariant', 'matrix', 'piiunit', 'verify', 'nowrite', 'xrefs']; const total = checks.reduce((a, k) => a + N[k][1], 0), passed = checks.reduce((a, k) => a + N[k][0], 0);
+const checks = ['click', 'worlds', 'survives', 'before16', 'packets', 'fixes4', 'fixes5', 'fixes6', 'survival92', 'invariant', 'matrix', 'piiunit', 'verify', 'nowrite', 'xrefs']; const total = checks.reduce((a, k) => a + N[k][1], 0), passed = checks.reduce((a, k) => a + N[k][0], 0);
 say(total === passed, 'total checks ' + passed + ' of ' + total);
 const j = k => N[k].join(' of ');
 const must = {
-  'FIX-ROUND-6.md': ['Total ' + passed + ' of ' + total, j('click'), j('worlds'), j('survives'), j('before16'), j('packets'), j('fixes4'), j('fixes5'), j('invariant'), j('matrix'), j('piiunit'), j('verify'), j('nowrite'), j('xrefs'), N.mut.join(' of '), N.matrixBefore.join(' of ') + ' pass', N.invWorlds[0] + ' named worlds', N.invWorlds[1] + ' random worlds'],
+  'FIX-ROUND-6.md': ['Total ' + passed + ' of ' + total, j('click'), j('worlds'), j('survives'), j('before16'), j('packets'), j('fixes4'), j('fixes5'), j('fixes6'), j('survival92'), j('invariant'), j('matrix'), j('piiunit'), j('verify'), j('nowrite'), j('xrefs'), N.mut.join(' of '), N.matrixBefore.join(' of ') + ' pass', N.invWorlds[0] + ' named worlds', N.invWorlds[1] + ' random worlds'],
   'PORT-REPORT.md': ['Tests: ' + passed + ' of ' + total + ' pass'],
   'TEST-REPORT.md': [passed + ' checks, ' + passed + ' pass']
 };
