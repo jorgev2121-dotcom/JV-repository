@@ -1,0 +1,149 @@
+real v3 launcher: 24463 bytes, SHA-256 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6f6c333411fe3
+== S1: single install with -V3File, then rollback
+v3 folder fingerprinted (read only): 4 files directly in /tmp/claude-0/ps-work/s1/Desktop, SHA256 of each
+v3 launcher SHA256 equals the real v3 launcher this package was built from (28d3ed5e...).
+Record written first: /tmp/claude-0/ps-work/s1/MY-DESK/VTES-PANEL/v5/v5-install-record.txt
+new folder check: 10 of 10 copied files have the same SHA256 as the package
+v3 untouched: SHA256 of all 4 files in the v3 folder is identical before and after
+DONE. Open /tmp/claude-0/ps-work/s1/MY-DESK/VTES-PANEL/v5/VTES-LLM-LAUNCHER_v5.html (a Desktop shortcut for it is a separate order for Jorge's yes; leave the v3 file alon
+exit=0
+  PASS S1a: install exits 0
+  PASS S1b: INSTALL itself reports the 4 files directly in the v3 folder identical (the 5th fixture file is in a sub-folder; the whole-fixture check S1c covers it)
+  PASS S1b2: INSTALL recognises the real v3 SHA-256
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S1c: the whole Desktop fixture is identical after the install (outside the new folder nothing changed)
+  PASS S1d: new folder holds 12 files (10 package + config + record)
+  PASS S1e: config is pure ASCII
+  PASS S1f: all 10 copied files are byte-identical to the package
+removed folder /tmp/claude-0/ps-work/s1/MY-DESK/VTES-PANEL/v5
+v5 rolled back completely: the new folder and everything INSTALL put in it are gone. The v3 folder was never written to by v5 and was not touched by this rollback.
+exit=0
+  PASS S1g: rollback removed the new folder and left its parent folder
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S1h: the whole fixture (Desktop AND parent folders) is identical to before the install
+== S2: second install onto the existing folder
+  STOP: /tmp/claude-0/ps-work/s2/MY-DESK/VTES-PANEL/v5 already exists. v5 never installs into or over an existing folder. If it is an old v5 install, run ROLLBACK-v5.ps1 -N
+  PASS S2a: second install refused (already exists, exit 2)
+  PASS S2b: the existing new folder is byte-identical after the refused install
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S2c: after rollback the whole fixture equals the start
+== S3: install fails part-way (test hook), then rollback
+The record was written BEFORE the first copy, so the rollback still works: /home/user/JV-repository/panel-rebuild/v5/ROLLBACK-v5.ps1 -NewDir "/tmp/claude-0/ps-work/s3/MY-
+exit=5
+  PASS S3a: failed install exits 5 and says FAILED part-way
+  files in the new folder after the failure: 6
+v5 rolled back completely: the new folder and everything INSTALL put in it are gone. The v3 folder was never written to by v5 and was not touched by this rollback.
+  PASS S3b: rollback of the half-failed install removed everything
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S3c: whole fixture identical
+== S4: Jorge edits his v3 file AFTER the install; the rollback must not touch it
+  PASS S4a: rollback removed the new folder
+  SHA-256 of 6 files (and the folder list) before == after: IDENTICAL
+  PASS S4b: the edited v3 file and the new file are untouched by the rollback
+== S5: install, rollback, install, rollback
+DONE. Open /tmp/claude-0/ps-work/s5/MY-DESK/VTES-PANEL/v5/VTES-LLM-LAU
+v5 rolled back completely: the new folder and everything INSTALL put in it are gone. The v3 folder was never written to 
+  PASS S5a: second round rolled back completely
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S5b: whole fixture identical after two rounds
+== S6: git refusals (real paths)
+  STOP: the target as typed (/tmp/claude-0/ps-work/s6a/MY-DESK/VTES-PANEL/v5) is inside a git checkout (found .git in /tmp/claude-0/ps-work/s6a). v5 will not install into a
+  PASS S6a: target inside a git checkout: refused
+  PASS S6a2: no new folder
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S6a3: nothing changed
+  STOP: the place the new folder would be created (real path) (/tmp/claude-0/ps-work/s6b-repo/inside) is inside a git checkout (found .git in /tmp/claude-0/ps-work/s6b-repo). v5 will not install into a 
+  PASS S6b: a symlink into a git checkout is refused (real path walk)
+  PASS S6b2: git status of the checkout is clean, nothing written there
+  STOP: the target as typed (/tmp/claude-0/ps-work/s6c/MY-DESK/VTES-PANEL/v5) is inside a git checkout (found .git in /tmp/claude-0/ps-work/s6c/MY-DESK). v5 will not instal
+  PASS S6c: a .git FILE in a parent folder is refused
+  STOP: the target as typed (/tmp/claude-0/ps-work/s6d-repo/typed/v5) is inside a git checkout (found .git in /tmp/claude-0/ps-work/s6d-repo). v5 will not install into a gi
+  PASS S6d: typed path inside git, real place outside: refused
+  PASS S6d2: no new folder
+  STOP: the place the new folder would be created (real path) (/tmp/claude-0/ps-work/s6e-repo/inside) is inside a git checkout (found .git in /tmp/claude-0/ps-work/s6e-repo). v5 will not install into a 
+  PASS S6e: with git NOT installed, the real-path walk alone still refuses (F5)
+== S7: no -TargetDir
+  STOP: INSTALL requires -TargetDir "the NEW folder to create". It never picks a folder by itself. Nothing was changed.
+  PASS S7a: refused
+  PASS S7b: -DryRun without -TargetDir refused
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S7c: nothing changed
+== S8: rollback with no record
+  STOP: /tmp/claude-0/ps-work/s8/MY-DESK/VTES-PANEL/v5 has no v5-install-record.txt, so I cannot tell what INSTALL created there. THIS ROLLBACK CHANGED NOTHING. (A folder that is not in a record is neve
+  PASS S8a: refused, says it changed nothing
+  SHA-256 of 6 files (and the folder list) before == after: IDENTICAL
+  PASS S8b: everything identical
+== S9: target INSIDE the folder that holds the real v3 launcher
+  STOP: the new folder /tmp/claude-0/ps-work/s9/Desktop/v5 would be inside the folder that holds the v3 launcher (/tmp/claude-0/ps-work/s9/Desktop). v5 never writes there. Choose a place outside it. Not
+  PASS S9a: refused
+  PASS S9b: a path under a sub-folder of the v3 folder: refused too (parent missing or inside)
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S9c: nothing changed
+  PASS S9d: parent exists but is inside the v3 folder: refused
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S9e: nothing changed
+== S10: -V3File problems
+  PASS S10a: a missing -V3File is refused
+  PASS S10a2: no new folder
+NOTE: the v3 launcher SHA256 differs from the real v3 launcher this package was built from (28d3ed5e...). That is allowed (it may have been edited since); it is still not
+  PASS S10b: an edited v3 launcher: NOTE printed, install still fine, v3 untouched
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S10c: whole fixture identical after rollback
+== S11: -StatusDir
+  PASS S11a: install with -StatusDir works
+status_dir_url": "file:///tmp/claude-0/ps-work/s11/status%20folder/"
+  PASS S11b: config holds a file: address with the space escaped
+  SHA-256 of 1 files (and the folder list) before == after: IDENTICAL
+  PASS S11c: the status folder is untouched
+  PASS S11d: rollback ok
+  PASS S11e: a missing -StatusDir is refused, nothing created
+  PASS S11f: no folder
+== S12: a file Jorge or something else added to the new folder survives the rollback
+LEFT IN PLACE (not in the record, so not removed): data, extra.txt, data/my-own-report.js
+v5 rolled back, but the folder /tmp/claude-0/ps-work/s12/MY-DESK/VTES-PANEL/v5 stays because of the files above. Tell the desktop executor.
+exit=4
+  PASS S12a: exit 4, says what was left
+  PASS S12b: both added files are still there; the package files are gone
+== S13: a doctored record is refused (nothing removed)
+  REFUSED: the record lists a path that is not a plain path inside the new folder: ../../../Desktop/VTES-LLM-LAUNCHER_v3.html. NOTHING WAS REMOVED.
+  PASS S13a: a '..' path in the record: refused, exit 3
+  SHA-256 of 17 files (and the folder list) before == after: IDENTICAL
+  PASS S13b: nothing removed
+  PASS S13c: a record that names another folder: refused
+  SHA-256 of 17 files (and the folder list) before == after: IDENTICAL
+  PASS S13d: nothing removed
+== S14: dry runs change nothing
+DRY RUN. New folder (does not exist now): /tmp/claude-0/ps-work/s14/MY-DESK/VTES-PANEL/v5
+  would write nothing inside the v3 folder.
+DRY RUN: nothing was changed.
+  PASS S14a: install -DryRun exits 0
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S14b: nothing created
+  PASS S14c: rollback -DryRun lists and removes nothing
+  SHA-256 of 17 files (and the folder list) before == after: IDENTICAL
+  PASS S14d: unchanged
+== S15: pre-existing folders and links at the target
+  PASS S15a: an existing EMPTY folder at the target is refused and stays
+  PASS S15a2: the empty folder is still there
+  SHA-256 of 5 files (and the folder list) before == after: IDENTICAL
+  PASS S15b: nothing changed
+  PASS S15c: a dangling link at the target counts as existing: refused
+  PASS S15d: the link is still there
+== S16: a folder name with a space and an e-acute
+  PASS S16a: install into a folder with a space and an accent
+  PASS S16b: config still pure ASCII
+  PASS S16c: rollback ok
+== S17: the Undo_Manifests stub
+  PASS S17a: one rollback stub written
+  PASS S17b: stub is ASCII
+  SHA-256 of 1 files (and the folder list) before == after: IDENTICAL
+  PASS S17c: after rollback the Undo_Manifests folder is exactly as before (the other stub kept, ours removed)
+== S18: package problems
+  STOP: package file missing: vtes5-ui.js. Nothing was changed.
+  PASS S18a: an incomplete package is refused with exit 3
+  PASS S18b: nothing created
+== S19: ASCII and syntax of the scripts
+  PASS S19: INSTALL-v5.ps1 has no non-ASCII byte
+  PASS S19: ROLLBACK-v5.ps1 has no non-ASCII byte
+
+PowerShell scenarios: 73 passed, 0 failed
