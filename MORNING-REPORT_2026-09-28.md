@@ -3,7 +3,103 @@
 **Covers 2026-09-26 evening through 2026-09-28 ~04:00 UTC. Nothing was filed, sent, spent, or deleted by any cloud or desktop process. Six things need a word or a click from you — three are new overnight, tied to last night's PC session.**
 
 
-**📌 PINNED COUNTER — the unattended job runner has NO safety lock (it is switched OFF until the lock exists). Day 54 as of 2026-10-05.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
+**📌 PINNED COUNTER — the unattended job runner has NO safety lock (it is switched OFF until the lock exists). Day 55 as of 2026-10-06.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
+---
+
+## START HERE — update 2026-10-06 04:05Z (12:05 AM Miami): THE 300 APPS, AND YOUR REGISTRATION
+
+**Section A — The answer.** **The 300 apps were never built. What you saw at 8 PM was a preview with samples, made by a different Claude window, and nothing was ever ordered to the desktop.**
+
+1. That window was titled "Security key activation". It is not this one. It stopped around 9:17 PM waiting on three decisions.
+2. It made four pages. I counted them. 22 county sites. 18 credential cards. 12 launcher cards. 8 folders with 16 documents.
+3. The only "300" is a subtitle. No page has a working county link. No PDFs, no pictures, no proof.
+4. Its one order to the desktop sat on a side branch the desktop never reads. That is the same failure as before.
+
+**Section B — What I did about it, in the last hour.**
+
+1. **Your registration is approved and ordered to the desktop** (one-time, your login only, one-command undo).
+2. **The 22-site deep catalog is ordered**: one worker per site, three to four layers deep, orange-tree format, a counter that says "n of 300", and a twice-monthly check that finds changed addresses. **It does not log in with passwords.**
+3. **Your panel requirements are written down in your words** (window names, RAMBO, Grok, blind token monitor, indexed and OCR'd) for the final judge.
+4. These are orders, not results. **Nothing is done until the desktop sends proof.**
+
+**Section C — One objection.** Logging in twice a month on its own can lock your accounts and needs passwords stored where an agent can read them. Safer: passkeys plus a no-login check that addresses still work. I did not order the login part.
+
+**Your 12-hour clock:** checkpoint about noon Miami today. The handover file is ready if you decide to replace me.
+
+Did you want me to hold the login idea until you choose passkeys?
+
+---
+
+## START HERE — update 2026-10-06 03:15Z (11:15 PM Miami, Monday): YOUR CLICKS WORKED
+
+**Yes, the window saved your clicks. It is not frozen.** There is one file per click, from 11:03 to 11:04 PM. I read all of them.
+
+**What it recorded:** approve on items 1, 3, 4, 5, 6 and 7. **Item 2 is the odd one: you approved it, then deferred it 87 seconds later. I treat the later click as final, so item 2 is deferred.**
+
+**The desktop has not confirmed them yet, and that is normal this soon.** It usually confirms in about 3 minutes. The rows still say overdue because the card only clears when the desktop finishes the job.
+
+**One safety rule for item 3:** do not type full card or bank numbers into any file. Give only the nickname and last four.
+
+**Your four drift flags are mapped.** The file is DRIFT-FLAGS-CAPSULE-TREE_2026-10-06.md. Nothing was moved or renamed.
+
+Do you want me to check the desktop's confirmations first thing in the morning?
+
+---
+
+## START HERE — update 2026-10-05 21:30Z (5:30 PM Miami, Monday): OCR IS DONE, AND YOU MERGED A PULL REQUEST
+
+**The OCR backfill is finished.** Of 199 documents with no searchable text, 193 are done and 6 cannot be done. Five of those six are the empty Plaza files, and one is blank when read. The tagging backlog of 1,336 is now zero. The desktop also made a contact list for each of 27 job folders. **Treat those lists as leads, not facts.**
+
+**Your originals were not touched, per the desktop's report.** Everything it wrote is a new file beside an original, and each pass has its own one-command undo. I have not re-counted any of it.
+
+**You merged a pull request at 4:53 PM.** It brought in the control panel, the token monitor and the Gemini key installer from late September. Nothing conflicted. The Gemini key itself still needs you.
+
+Still waiting on you: the AP-0022 click, the Plaza email, the five empty Plaza files, 9Router, the lead-list vendor name, and the Zapier yes.
+
+Do you want me to spot-check the OCR counts myself tomorrow, yes or no?
+
+---
+
+## START HERE — update 2026-10-05 20:30Z (4:30 PM Miami, Monday): OCR FIRST RESULTS, AND FIVE EMPTY PLAZA FILES
+
+**The OCR backfill is running, and the undo test worked.** The desktop tried 10 files. 5 worked. It then ran its undo script, which removed all 10 new text files and left your originals alone, and it redid the 10. It is now doing the remaining 140. The backlog is 150 files, not 199.
+
+**One finding needs you: five Plaza documents are empty files.** They are in the Bal Harbour Plaza job (TRK-2026-1265), in the folder copied from OneDrive on September 4. Each is 0 bytes. They are the unit 301 insurance certificate, plus the unit 322 permit application, insurance certificate, notice of commencement and building permit application. The copies probably failed. The originals may still be in OneDrive or in old emails. **This run did not cause it, and it touched nothing.**
+
+**Your new rule for all agents is logged.** Reversible work never stops at a blocker. Problem files go to a review-later folder. Sending, payments, permanent deletes, moving originals and passwords still need your yes. I adopted only the parts that do not loosen my own limits.
+
+Do you want me to look for those five Plaza files in your email, yes or no?
+
+---
+
+## START HERE — update 2026-10-05 19:20Z (3:20 PM Miami, Monday): YOU ANSWERED THE OCR QUESTION
+
+**You told Chat at 2:58 PM to run the OCR backfill now, so it is no longer parked.** That overrides my advice, and it is your call. The desktop was ordered to start.
+
+**What the desktop was told to do.** Make searchable text files next to 199 documents in your job folders, then add tags to 1,336. It must not move, rename or overwrite any original. It must try 10 files first and test the undo before the rest. Its first results are due about 4 PM, with a status line each hour.
+
+**A new standing rule came with it: undo-first.** The desktop must write an undo script before any reversible job, then go ahead without asking. Emails, payments, invoices, permanent deletes, moving originals and passwords still need your yes.
+
+Still waiting on you: the AP-0022 click, the Plaza email, the 9Router answer, the lead-list vendor name, and the Zapier yes.
+
+Do you want me to check the first OCR results when they land and tell you plainly?
+
+---
+
+## START HERE — update 2026-10-05 13:45Z (9:45 AM Miami, Monday): THE LEAD COUNT, AND ONE ONE-LINE ANSWER
+
+**The 2020 unsafe-structures tally is in: 142 of 160 cases are live leads, 89%.** 94 are open and worth a call. 48 are expired or stalled. 14 are already handled, and 4 have work in progress.
+
+**I contacted no one.** Calling or writing any owner needs your word.
+
+**The next years run tonight.** The desktop will do 2021 through 2026 in the 9:30 PM window without asking again. It only reads public county records.
+
+**One one-line answer is waiting: the OCR backfill.** 199 documents have no searchable text. The desktop recommends writing the script in daylight and running it once while watched. **I recommend not now.** Under your sales rule, park it until a delayed job needs a searchable file.
+
+Still waiting on you: the AP-0022 click, the Plaza email, the 9Router answer, the lead-list vendor name, the Zapier yes, and "stop CDM or keep going". Cowork sent the desktop another CDM order this morning about the Edison Towers II unit count: 94 by right against 96 filed.
+
+Do you want the OCR backfill parked, yes or no?
+
 ---
 
 ## START HERE — update 2026-10-05 07:20Z (3:20 AM Miami, Monday): OVERNIGHT, AND ONE ONE-LINE ANSWER
@@ -19,7 +115,7 @@ Still waiting on you, in order:
 3. The lead-list vendor name.
 4. Your yes or no on the Zapier step.
 
-Also tonight: the desktop is sorting county unsafe-structures cases for leads. **The count is 96 of 160 cases done for 2020, and 2021 to 2026 have not started.** It also saved small cookie files from the county site into Drive, which should be cleaned up.
+Also tonight: the desktop is sorting county unsafe-structures cases for leads. **Update: all 160 of 160 cases for 2020 are done.** The last batch added two time-sensitive leads: 5181 NW 27 Ave 13 (deadline November 1) and 1127 NW 106 St (deadline November 16, a whole unpermitted dwelling). **2021 to 2026 have not started.** I did not contact anyone. Outreach needs your word. It also saved small cookie files from the county site into Drive, which should be cleaned up.
 
 Do you want 9Router kept removed, yes or no?
 
