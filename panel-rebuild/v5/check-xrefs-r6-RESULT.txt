@@ -19,13 +19,35 @@ PASS KNOWN-LIMITS.md:86 "DESKTOP-WORK item 11 (local-only folder)" -> DESKTOP-WO
 PASS package/vtes5-ui.js:28 "DESKTOP-WORK item 11 (local-only folder)" -> DESKTOP-WORK item 11 [local-only folder] exists and the tag matches its title
 PASS package/vtes5-ui.js:34 "DESKTOP-WORK item 9 (LOCAL jobs)" -> DESKTOP-WORK item 9 [LOCAL jobs] exists and the tag matches its title
 PASS package/vtes5-ui.js:34 "item 35 (LOCAL)" -> KNOWN-LIMITS item 35 [LOCAL] exists and the tag matches its title
+PASS FIX-ROUND-6.md:19 "DESKTOP-WORK.md item 11 (local-only folder)" -> DESKTOP-WORK item 11 [local-only folder] exists and the tag matches its title
+PASS FIX-ROUND-6.md:19 "DATA-CONTRACT.md file 1 (heartbeat)" -> DATA-CONTRACT file 1 [heartbeat] exists and the tag matches its title
+PASS FIX-ROUND-6.md:21 "DESKTOP-WORK item 11 (local-only folder)" -> DESKTOP-WORK item 11 [local-only folder] exists and the tag matches its title
+PASS FIX-ROUND-6.md:21 "KNOWN-LIMITS item 35 (LOCAL lane)" -> KNOWN-LIMITS item 35 [LOCAL lane] exists and the tag matches its title
+PASS FIX-ROUND-6.md:25 "KNOWN-LIMITS item 34 (personal-data guard)" -> KNOWN-LIMITS item 34 [personal-data guard] exists and the tag matches its title
+PASS FIX-ROUND-6.md:29 "KNOWN-LIMITS item 43 (first sight)" -> KNOWN-LIMITS item 43 [first sight] exists and the tag matches its title
+PASS FIX-ROUND-6.md:33 "KNOWN-LIMITS Section I item 4 (link)" -> KNOWN-LIMITS Section I item 4 [link] exists and the tag matches its title
+PASS FIX-ROUND-6.md:33 "KNOWN-LIMITS Section I item 5 (junctions)" -> KNOWN-LIMITS Section I item 5 [junctions] exists and the tag matches its title
+PASS FIX-ROUND-6.md:33 "KNOWN-LIMITS item 46 (link checks)" -> KNOWN-LIMITS item 46 [link checks] exists and the tag matches its title
+PASS FIX-ROUND-6.md:35 "DATA-CONTRACT.md file 7 (miamidade)" -> DATA-CONTRACT file 7 [miamidade] exists and the tag matches its title
+PASS FIX-ROUND-6.md:37 "KNOWN-LIMITS item 44 (Miami-Dade check dates)" -> KNOWN-LIMITS item 44 [Miami-Dade check dates] exists and the tag matches its title
+PASS FIX-ROUND-6.md:51 "DESKTOP-WORK.md item 12 (JOB files)" -> DESKTOP-WORK item 12 [JOB files] exists and the tag matches its title
+PASS FIX-ROUND-6.md:51 "INSTALL-BY-HAND.md step 5 (file name extensions)" -> INSTALL-BY-HAND step 5 [file name extensions] exists and the tag matches its title
+PASS FIX-ROUND-6.md:53 "KNOWN-LIMITS Section I item 6 (file name extensions)" -> KNOWN-LIMITS Section I item 6 [file name extensions] exists and the tag matches its title
+PASS FIX-ROUND-6.md:55 "DESKTOP-WORK.md item 2 (install)" -> DESKTOP-WORK item 2 [install] exists and the tag matches its title
+PASS FIX-ROUND-6.md:55 "INSTALL-BY-HAND.md step 10 (report the answer)" -> INSTALL-BY-HAND step 10 [report the answer] exists and the tag matches its title
+PASS FIX-ROUND-6.md:59 "INSTALL-BY-HAND.md step 6 (exact bytes)" -> INSTALL-BY-HAND step 6 [exact bytes] exists and the tag matches its title
+PASS FIX-ROUND-6.md:61 "KNOWN-LIMITS item 48 (git show)" -> KNOWN-LIMITS item 48 [git show] exists and the tag matches its title
+PASS FIX-ROUND-6.md:63 "DESKTOP-WORK item 10 (Desktop shortcut)" -> DESKTOP-WORK item 10 [Desktop shortcut] exists and the tag matches its title
+PASS FIX-ROUND-6.md:63 "KNOWN-LIMITS.md item 3 (Desktop shortcut)" -> KNOWN-LIMITS item 3 [Desktop shortcut] exists and the tag matches its title
+PASS FIX-ROUND-6.md:75 "KNOWN-LIMITS item 34 (personal-data guard)" -> KNOWN-LIMITS item 34 [personal-data guard] exists and the tag matches its title
+PASS FIX-ROUND-6.md:75 "KNOWN-LIMITS item 35 (LOCAL lane)" -> KNOWN-LIMITS item 35 [LOCAL lane] exists and the tag matches its title
 PASS DESKTOP-WORK item 10 is the Desktop shortcut
 PASS KNOWN-LIMITS item 3 names DESKTOP-WORK item 10 (Desktop shortcut)
-PASS at least 15 cross-references were found and checked (found 20)
+PASS at least 15 cross-references were found and checked (found 42)
 PASS DESKTOP-WORK items numbers run 1 to 12 with no gap
 PASS KNOWN-LIMITS Section I items numbers run 1 to 12 with no gap
 PASS DATA-CONTRACT files numbers run 1 to 7 with no gap
 PASS DATA-CONTRACT rules numbers run 1 to 15 with no gap
 PASS KNOWN-LIMITS items A to H run 1 to 49 with no gap (49 items)
 
-CROSS-REFERENCES: 28 of 28 checks pass (20 of 20 references resolve and match their tag)
+CROSS-REFERENCES: 50 of 50 checks pass (42 of 42 references resolve and match their tag)

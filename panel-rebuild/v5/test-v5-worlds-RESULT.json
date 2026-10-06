@@ -257,7 +257,7 @@
   },
   {
    "world": "W2-fresh",
-   "name": "Miami-Dade: counted 7 of 300, exactly 2 \"proof checked\", 20 NOT RE-CHECKED",
+   "name": "Miami-Dade: counted 7 of 300, 22 \"proof checked\" (each with its own check date inside 7 days), 0 NOT RE-CHECKED",
    "status": "PASS",
    "why": ""
   },
@@ -275,7 +275,7 @@
   },
   {
    "world": "W2-fresh",
-   "name": "strip: 7 files all OK green",
+   "name": "strip: 7 files all OK green, and WHOLE PAGE green",
    "status": "PASS",
    "why": ""
   },
@@ -743,7 +743,7 @@
   },
   {
    "world": "W14-10hours",
-   "name": "after 600 reloads the DOM node count did not grow by more than 10% (736 -> 738)",
+   "name": "after 600 reloads the DOM node count did not grow by more than 10% (744 -> 745)",
    "status": "PASS",
    "why": ""
   },

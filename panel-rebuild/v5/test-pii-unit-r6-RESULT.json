@@ -1,10 +1,10 @@
 {
  "test": "test-pii-unit-r6",
- "blocks": 60,
- "carries": 25,
+ "blocks": 73,
+ "carries": 32,
  "false_alarms": 5,
- "pass": 93,
- "total": 93,
+ "pass": 113,
+ "total": 113,
  "results": [
   {
    "g": "block",
@@ -195,6 +195,84 @@
   {
    "g": "block",
    "name": "blocks \"123 456 789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"TRK 1262 123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"ssn: 1 2 3 - 4 5 - 6 7 8 9\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"Social: 12345-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"(123-45-6789)\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"Social Security 123-45-678 9\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"Job 1262 123-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"order 5 12 3456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"line1\\n123\\n45\\n6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"123\\r\\n45\\r\\n6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"one two three dash four five dash six seven eight nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"One Two Three hyphen Four Five hyphen Six Seven Eight Nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"123/45/6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "block",
+   "name": "blocks \"123 / 45 / 6789\"",
    "status": "PASS",
    "why": ""
   },
@@ -416,6 +494,42 @@
   },
   {
    "g": "carry",
+   "name": "carries \"1 800 555 1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "carry",
+   "name": "carries \"FL 33143-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "carry",
+   "name": "carries \"Miami, FL 33143-1234 and call 305-555-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "carry",
+   "name": "carries \"call 305 555 1234 then 305 555 0100\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "carry",
+   "name": "carries \"call me at five five five\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "carry",
+   "name": "carries \"one two three\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "carry",
    "name": "carries \"permit 2024-12345\"",
    "status": "PASS",
    "why": ""
@@ -423,6 +537,12 @@
   {
    "g": "carry",
    "name": "carries \"permit 2024 12345\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "carry",
+   "name": "carries \"permit 2024/12345\"",
    "status": "PASS",
    "why": ""
   },

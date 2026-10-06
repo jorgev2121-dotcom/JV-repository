@@ -1,5 +1,7 @@
 # FIX-ROUND-5 - what changed after the second independent check CHECK-6 (TRK-2026-9910-B, 2026-10-06)
 
+> **SUPERSEDED by FIX-ROUND-6.md (2026-10-06, after CHECK-7).** The numbers and verdicts below are the round-5 numbers and are history. The current ones are in FIX-ROUND-6.md.
+
 SONNET 5.5 · PANEL V5 FIX ROUND 5. Window: ☁️ CODE · CLOUD / WEB EXECUTOR. Model: Sonnet 5.5 (claude-sonnet-5-5; not Opus; the serving model may differ). Branch claude/panel-v5-port. Work only in panel-rebuild/v5/ (v3-live did not change). No Drive writes, no PC, no pull request.
 
 ## Section A - Answer first

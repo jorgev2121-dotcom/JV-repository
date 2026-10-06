@@ -1,0 +1,561 @@
+{
+ "test": "test-survival-92-r6",
+ "items": 92,
+ "pass": 92,
+ "total": 92,
+ "identical_copy_and_open": 6,
+ "items_list": [
+  {
+   "n": 1,
+   "name": "LLM-01 Claude Code Desktop: card, name, Hand work here, Copy packet button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 2,
+   "name": "LLM-02 Claude Code Cloud: card, name, Hand work here, Open button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 3,
+   "name": "LLM-03 Claude Cowork: card, name, Hand work here, Copy packet button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 4,
+   "name": "LLM-04 Claude Chat: card, name, Hand work here, Open button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 5,
+   "name": "LLM-05 Claude iPhone: card, name, Hand work here, Copy packet button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 6,
+   "name": "LLM-06 Codex CLI: card, name, Hand work here, Open button, Copy packet button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 7,
+   "name": "LLM-07 Grok (SuperGrok): card, name, Hand work here, Open button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 8,
+   "name": "LLM-08 Gemini: card, name, Hand work here, Open button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 9,
+   "name": "LLM-09 Thin API router: card, name, Hand work here work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 10,
+   "name": "role LOCAL LOCAL: Ollama: card, name, Hand work here, Copy packet button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 11,
+   "name": "role CODEX CODEX: card, name, Hand work here, Copy packet button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 12,
+   "name": "role RAMBO CLAUDE / RAMBO: card, name, Hand work here, Copy packet button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 13,
+   "name": "role GROK GROK: card, name, Hand work here, Copy packet button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 14,
+   "name": "role COWORK COWORK: card, name, Hand work here, Copy packet button work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 15,
+   "name": "role CHIEF Orchestrator / Chief seat: card, name, no button (as v3) work",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 16,
+   "name": "bot CU-Inbox-Job-Watcher: card, description and a live state line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 17,
+   "name": "bot CU-Local-Executor: card, description and a live state line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 18,
+   "name": "bot CU-TokenMonitor-Hourly: card, description and a live state line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 19,
+   "name": "bot CU-Orchestrator: card, description and a live state line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 20,
+   "name": "bot CU-Propagation-Check: card, description and a live state line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 21,
+   "name": "bot VTES-LOCAL-POLLER: card, description and a live state line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 22,
+   "name": "queued item 1 Email attachments: build, review, send: To, From, note and status as v3",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 23,
+   "name": "queued item 2 Mini LLM control panel: To, From, note and status as v3",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 24,
+   "name": "queued item 3 ALEC DD review links: To, From, note and status as v3",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 25,
+   "name": "queued item 4 Out-of-turn progress flashes: To, From, note and status as v3",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 26,
+   "name": "queued item 5 24/7 back-to-back runs: To, From, note and status as v3",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 27,
+   "name": "queued item 6 Orchestrator / Chief seat: To, From, note and status as v3 (one disclosed wording edit)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 28,
+   "name": "picker row 1 Classify, tag, extract, summar: To and suggestion line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 29,
+   "name": "picker row 2 Client personal data (PII): To and suggestion line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 30,
+   "name": "picker row 3 Code, HTML, scripts, build a f: To and suggestion line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 31,
+   "name": "picker row 4 Second opinion or live web che: To and suggestion line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 32,
+   "name": "picker row 5 Bulk drafting or summaries: To and suggestion line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 33,
+   "name": "picker row 6 Files, Chrome, 1Password, prin: To and suggestion line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 34,
+   "name": "picker row 7 Judgment, client-facing, legal: To and suggestion line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 35,
+   "name": "picker row 8 Long documents, CDM analysis: To and suggestion line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 36,
+   "name": "picker row 9 Repo work, QC, research, dispa: To and suggestion line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 37,
+   "name": "tab LLMS (live: its target exists)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 38,
+   "name": "tab EXECUTORS (live: its target exists)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 39,
+   "name": "tab BOTS (live: its target exists)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 40,
+   "name": "tab HAND OFF (live: its target exists)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 41,
+   "name": "tab QUEUED (live: its target exists)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 42,
+   "name": "tab STATUS (live: its target exists)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 43,
+   "name": "tab APPROVALS (old panel: same address, labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 44,
+   "name": "tab SESSIONS (old panel: same address, labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 45,
+   "name": "tab JOBS (old panel: same address, labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 46,
+   "name": "tab CAPSULES (old panel: same address, labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 47,
+   "name": "tab BRIDGES (old panel: same address, labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 48,
+   "name": "tab AGENTS (old panel: same address, labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 49,
+   "name": "tab USAGE (old panel: same address, labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 50,
+   "name": "tab PLAUD (old panel: same address, labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 51,
+   "name": "tab CLIENTS (old panel: same address, labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 52,
+   "name": "tab RULES (old panel: same address, labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 53,
+   "name": "tab REPAIRS (live: its target exists) and the added MIAMI-DADE tab works",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 54,
+   "name": "packet text: 144 of 144 From and To pairs identical to v3 apart from the stamp",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 55,
+   "name": "packet stamp is Eastern with the zone",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 56,
+   "name": "repair row 1: same words",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 57,
+   "name": "repair row 2: same words",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 58,
+   "name": "repair row 3: same words",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 59,
+   "name": "repair row 4: same words",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 60,
+   "name": "repair row 5: same words",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 61,
+   "name": "repair row 6: same words",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 62,
+   "name": "repair row 7: same words",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 63,
+   "name": "repair row 8: same words",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 64,
+   "name": "repair row 9: same words",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 65,
+   "name": "repair row 10: same words plus the no-time-zone label",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 66,
+   "name": "repair row 11: same words",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 67,
+   "name": "repair row 12: same words and still marked OPEN",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 68,
+   "name": "PANEL corner button: same address (labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 69,
+   "name": "INDEX corner button: same address (labelled OLD)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 70,
+   "name": "search box: same type and placeholder, gets focus on load",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 71,
+   "name": "search: 27 of 30 words give the same cards as v3; the differences (inbox (7/6), typed (0/2), hourly (2/1)) are the disclosed ones",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 72,
+   "name": "hand-off form: default kind, From and suggestion line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 73,
+   "name": "hand-off form: the personal-data warning line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 74,
+   "name": "hand-off form: the two buttons",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 75,
+   "name": "hand-off form: the packet box is there, read only, and its label no longer promises an edit",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 76,
+   "name": "hand-off form: To list keeps all 12 v3 entries and adds GROK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 77,
+   "name": "hand-off form: From list keeps all 12 v3 entries and adds GROK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 78,
+   "name": "hand-off form: the task-kind list is the same nine rows",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 79,
+   "name": "Copy packet and open -> LLM-01: identical to v3 (packet, status line, opened page)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 80,
+   "name": "Copy packet and open -> LLM-02: copies the same packet; the status line or the opened page differs for a stated reason",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 81,
+   "name": "Copy packet and open -> LLM-03: identical to v3 (packet, status line, opened page)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 82,
+   "name": "Copy packet and open -> LLM-04: identical to v3 (packet, status line, opened page)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 83,
+   "name": "Copy packet and open -> LLM-05: copies the same packet; the status line or the opened page differs for a stated reason",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 84,
+   "name": "Copy packet and open -> LLM-06: copies the same packet; the status line or the opened page differs for a stated reason",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 85,
+   "name": "Copy packet and open -> LLM-07: identical to v3 (packet, status line, opened page)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 86,
+   "name": "Copy packet and open -> LLM-08: identical to v3 (packet, status line, opened page)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 87,
+   "name": "Copy packet and open -> LLM-09: identical to v3 (packet, status line, opened page)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 88,
+   "name": "Copy packet and open -> LOCAL: copies the same packet; the status line or the opened page differs for a stated reason",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 89,
+   "name": "Copy packet and open -> CODEX: copies the same packet; the status line or the opened page differs for a stated reason",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 90,
+   "name": "Copy packet and open -> RAMBO: copies the same packet; the status line or the opened page differs for a stated reason",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 91,
+   "name": "Just show the packet: identical status line, packet shown",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "n": 92,
+   "name": "page errors on v5 after everything above: none",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

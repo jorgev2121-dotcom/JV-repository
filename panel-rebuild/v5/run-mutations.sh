@@ -38,6 +38,6 @@ mut M23-old-numbers-shown-plain test-invariant-r6 vtes5-ui.js "if (fresh === fal
 mut M24-cloud-folder-accepted-for-local test-invariant-r6 vtes5-ui.js "var CLOUD_RE = /google" "var CLOUD_RE = /zzzzgoogle" &
 wait
 mut M25-nine-digit-rule-removed test-pii-unit-r6 vtes5-ui.js "if ((isNine && !zip4 && !permit) || inside) {" "if (false) {" &
-mut M26-card-rule-removed test-privacy-matrix-r6 vtes5-ui.js "if (r.real >= 15 && r.real <= 19) {" "if (false) {" &
+mut M26-card-rule-removed test-pii-unit-r6 vtes5-ui.js "if (r.real >= 15 && r.real <= 19) {" "if (false) {" &
 wait
 cat "$W"/M*.line | sort -V

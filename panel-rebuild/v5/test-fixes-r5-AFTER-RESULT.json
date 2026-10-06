@@ -1,6 +1,6 @@
 {
- "pass": 191,
- "total": 191,
+ "pass": 192,
+ "total": 192,
  "fail": 0,
  "results": [
   {
@@ -89,7 +89,7 @@
   },
   {
    "id": "N10",
-   "name": "control: the note \"Order 12345 6789\" is still carried to LLM-01 unchanged",
+   "name": "control: the note \"Order 12345\" is still carried to LLM-01 unchanged",
    "status": "PASS",
    "why": ""
   },
@@ -197,7 +197,7 @@
   },
   {
    "id": "N1",
-   "name": "one window down out of the rest: the heartbeat entry is grey (never green)",
+   "name": "one window down out of the rest: the heartbeat entry is red (round 6: never greener than the worst card)",
    "status": "PASS",
    "why": ""
   },
@@ -581,7 +581,13 @@
   },
   {
    "id": "N2",
-   "name": "running 7 minutes, every 2 minutes: STUCK, in minutes",
+   "name": "running 7 minutes, every 2 minutes: still neutral (round 6: the limit is the larger of 3 x interval and 1 hour)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N2",
+   "name": "running 70 minutes, every 2 minutes: STUCK, \"1 HOUR\"",
    "status": "PASS",
    "why": ""
   },

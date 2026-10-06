@@ -4,42 +4,45 @@ PASS survives result file says 166 of 166
 PASS before16 result file says 16 of 16
 PASS packets result file says 144 of 144
 PASS fixes4 result file says 75 of 75
-PASS fixes5 result file says 191 of 191
-PASS fixes5Before result file says 60 of 191
-PASS verify result file says 214 of 214
-PASS verifyBefore result file says 157 of 214
-PASS nowrite result file says 34 of 34
-PASS mut result file says 18 of 18
-PASS deliberate breaks caught: 18 of 18
-PASS total checks 1067 of 1067
-PASS PORT-REPORT.md states "1067 of 1067"
-PASS PORT-REPORT.md states "Tests: 1067 of 1067"
-PASS TEST-REPORT.md states "1067 checks, 1067 pass"
-PASS TEST-REPORT.md states "98 of 98"
-PASS TEST-REPORT.md states "129 of 129"
-PASS TEST-REPORT.md states "166 of 166"
-PASS TEST-REPORT.md states "16 of 16"
-PASS TEST-REPORT.md states "144 of 144"
-PASS TEST-REPORT.md states "75 of 75"
-PASS TEST-REPORT.md states "191 of 191"
-PASS TEST-REPORT.md states "214 of 214"
-PASS TEST-REPORT.md states "34 of 34"
-PASS TEST-REPORT.md states "18 of 18"
-PASS TEST-REPORT.md states "60 of 191 pass"
-PASS TEST-REPORT.md states "157 of 214 pass"
-PASS FIX-ROUND-5.md states "Total 1067 of 1067"
-PASS FIX-ROUND-5.md states "98 of 98"
-PASS FIX-ROUND-5.md states "129 of 129"
-PASS FIX-ROUND-5.md states "166 of 166"
-PASS FIX-ROUND-5.md states "16 of 16"
-PASS FIX-ROUND-5.md states "144 of 144"
-PASS FIX-ROUND-5.md states "75 of 75"
-PASS FIX-ROUND-5.md states "191 of 191"
-PASS FIX-ROUND-5.md states "214 of 214"
-PASS FIX-ROUND-5.md states "34 of 34"
-PASS FIX-ROUND-5.md states "18 of 18"
-PASS FIX-ROUND-5.md states "60 of 191 pass"
-PASS FIX-ROUND-5.md states "157 of 214 pass"
+PASS fixes5 result file says 192 of 192
+PASS fixes6 result file says 27 of 27
+PASS survival92 result file says 92 of 92
+PASS invariant result file says 249 of 249
+PASS invWorlds result file says 28 of 150
+PASS matrix result file says 5166 of 5166
+PASS matrixShape result file says 14 of 369
+PASS piiunit result file says 113 of 113
+PASS matrixBefore result file says 1481 of 5166
+PASS verify result file says 274 of 274
+PASS nowrite result file says 37 of 37
+PASS xrefs result file says 50 of 50
+PASS mut result file says 26 of 26
+PASS deliberate breaks caught: 26 of 26
+PASS the privacy matrix is 14 notes x 369 routes (14 x 369)
+PASS total checks 6828 of 6828
+PASS FIX-ROUND-6.md states "Total 6828 of 6828"
+PASS FIX-ROUND-6.md states "98 of 98"
+PASS FIX-ROUND-6.md states "129 of 129"
+PASS FIX-ROUND-6.md states "166 of 166"
+PASS FIX-ROUND-6.md states "16 of 16"
+PASS FIX-ROUND-6.md states "144 of 144"
+PASS FIX-ROUND-6.md states "75 of 75"
+PASS FIX-ROUND-6.md states "192 of 192"
+PASS FIX-ROUND-6.md states "27 of 27"
+PASS FIX-ROUND-6.md states "92 of 92"
+PASS FIX-ROUND-6.md states "249 of 249"
+PASS FIX-ROUND-6.md states "5166 of 5166"
+PASS FIX-ROUND-6.md states "113 of 113"
+PASS FIX-ROUND-6.md states "274 of 274"
+PASS FIX-ROUND-6.md states "37 of 37"
+PASS FIX-ROUND-6.md states "50 of 50"
+PASS FIX-ROUND-6.md states "26 of 26"
+PASS FIX-ROUND-6.md states "1481 of 5166 pass"
+PASS FIX-ROUND-6.md states "28 named worlds"
+PASS FIX-ROUND-6.md states "150 random worlds"
+PASS PORT-REPORT.md states "Tests: 6828 of 6828 pass"
+PASS TEST-REPORT.md states "6828 checks, 6828 pass"
+PASS FIX-ROUND-5.md opens with a banner saying it is superseded by FIX-ROUND-6.md (its numbers are the round-5 numbers)
 PASS FIX-ROUND-4.md opens with a banner saying it is superseded by FIX-ROUND-5.md (its numbers are the round-4 numbers)
 PASS PORT-REPORT.md has no stale "490"
 PASS PORT-REPORT.md has no stale "81 PowerShell checks"
@@ -53,6 +56,9 @@ PASS PORT-REPORT.md has no stale "old VERIFY count 145 of 145"
 PASS PORT-REPORT.md has no stale "old copy-and-delete count 28 of 28"
 PASS PORT-REPORT.md has no stale "old mutation count 10"
 PASS PORT-REPORT.md has no stale "old page size 29,859"
+PASS PORT-REPORT.md has no stale "old round-5 total 1067"
+PASS PORT-REPORT.md has no stale "old mutation count 18 of 18"
+PASS PORT-REPORT.md has no stale "old page size 31,033"
 PASS TEST-REPORT.md has no stale "490"
 PASS TEST-REPORT.md has no stale "81 PowerShell checks"
 PASS TEST-REPORT.md has no stale "73 PowerShell checks"
@@ -65,18 +71,9 @@ PASS TEST-REPORT.md has no stale "old VERIFY count 145 of 145"
 PASS TEST-REPORT.md has no stale "old copy-and-delete count 28 of 28"
 PASS TEST-REPORT.md has no stale "old mutation count 10"
 PASS TEST-REPORT.md has no stale "old page size 29,859"
-PASS FIX-ROUND-5.md has no stale "490"
-PASS FIX-ROUND-5.md has no stale "81 PowerShell checks"
-PASS FIX-ROUND-5.md has no stale "73 PowerShell checks"
-PASS FIX-ROUND-5.md has no stale "old scenario range"
-PASS FIX-ROUND-5.md has no stale "old mutation count"
-PASS FIX-ROUND-5.md has no stale "old scenario group count"
-PASS FIX-ROUND-5.md has no stale "old page size"
-PASS FIX-ROUND-5.md has no stale "old total 801"
-PASS FIX-ROUND-5.md has no stale "old VERIFY count 145 of 145"
-PASS FIX-ROUND-5.md has no stale "old copy-and-delete count 28 of 28"
-PASS FIX-ROUND-5.md has no stale "old mutation count 10"
-PASS FIX-ROUND-5.md has no stale "old page size 29,859"
+PASS TEST-REPORT.md has no stale "old round-5 total 1067"
+PASS TEST-REPORT.md has no stale "old mutation count 18 of 18"
+PASS TEST-REPORT.md has no stale "old page size 31,033"
 PASS KNOWN-LIMITS.md has no stale "490"
 PASS KNOWN-LIMITS.md has no stale "81 PowerShell checks"
 PASS KNOWN-LIMITS.md has no stale "73 PowerShell checks"
@@ -89,6 +86,9 @@ PASS KNOWN-LIMITS.md has no stale "old VERIFY count 145 of 145"
 PASS KNOWN-LIMITS.md has no stale "old copy-and-delete count 28 of 28"
 PASS KNOWN-LIMITS.md has no stale "old mutation count 10"
 PASS KNOWN-LIMITS.md has no stale "old page size 29,859"
+PASS KNOWN-LIMITS.md has no stale "old round-5 total 1067"
+PASS KNOWN-LIMITS.md has no stale "old mutation count 18 of 18"
+PASS KNOWN-LIMITS.md has no stale "old page size 31,033"
 PASS DESKTOP-WORK.md has no stale "490"
 PASS DESKTOP-WORK.md has no stale "81 PowerShell checks"
 PASS DESKTOP-WORK.md has no stale "73 PowerShell checks"
@@ -101,6 +101,9 @@ PASS DESKTOP-WORK.md has no stale "old VERIFY count 145 of 145"
 PASS DESKTOP-WORK.md has no stale "old copy-and-delete count 28 of 28"
 PASS DESKTOP-WORK.md has no stale "old mutation count 10"
 PASS DESKTOP-WORK.md has no stale "old page size 29,859"
+PASS DESKTOP-WORK.md has no stale "old round-5 total 1067"
+PASS DESKTOP-WORK.md has no stale "old mutation count 18 of 18"
+PASS DESKTOP-WORK.md has no stale "old page size 31,033"
 PASS DATA-CONTRACT.md has no stale "490"
 PASS DATA-CONTRACT.md has no stale "81 PowerShell checks"
 PASS DATA-CONTRACT.md has no stale "73 PowerShell checks"
@@ -113,6 +116,9 @@ PASS DATA-CONTRACT.md has no stale "old VERIFY count 145 of 145"
 PASS DATA-CONTRACT.md has no stale "old copy-and-delete count 28 of 28"
 PASS DATA-CONTRACT.md has no stale "old mutation count 10"
 PASS DATA-CONTRACT.md has no stale "old page size 29,859"
+PASS DATA-CONTRACT.md has no stale "old round-5 total 1067"
+PASS DATA-CONTRACT.md has no stale "old mutation count 18 of 18"
+PASS DATA-CONTRACT.md has no stale "old page size 31,033"
 PASS INSTALL-BY-HAND.md has no stale "490"
 PASS INSTALL-BY-HAND.md has no stale "81 PowerShell checks"
 PASS INSTALL-BY-HAND.md has no stale "73 PowerShell checks"
@@ -125,34 +131,68 @@ PASS INSTALL-BY-HAND.md has no stale "old VERIFY count 145 of 145"
 PASS INSTALL-BY-HAND.md has no stale "old copy-and-delete count 28 of 28"
 PASS INSTALL-BY-HAND.md has no stale "old mutation count 10"
 PASS INSTALL-BY-HAND.md has no stale "old page size 29,859"
+PASS INSTALL-BY-HAND.md has no stale "old round-5 total 1067"
+PASS INSTALL-BY-HAND.md has no stale "old mutation count 18 of 18"
+PASS INSTALL-BY-HAND.md has no stale "old page size 31,033"
+PASS FIX-ROUND-6.md has no stale "490"
+PASS FIX-ROUND-6.md has no stale "81 PowerShell checks"
+PASS FIX-ROUND-6.md has no stale "73 PowerShell checks"
+PASS FIX-ROUND-6.md has no stale "old scenario range"
+PASS FIX-ROUND-6.md has no stale "old mutation count"
+PASS FIX-ROUND-6.md has no stale "old scenario group count"
+PASS FIX-ROUND-6.md has no stale "old page size"
+PASS FIX-ROUND-6.md has no stale "old total 801"
+PASS FIX-ROUND-6.md has no stale "old VERIFY count 145 of 145"
+PASS FIX-ROUND-6.md has no stale "old copy-and-delete count 28 of 28"
+PASS FIX-ROUND-6.md has no stale "old mutation count 10"
+PASS FIX-ROUND-6.md has no stale "old page size 29,859"
 PASS PORT-REPORT.md does not point at a deleted installer, copy or delete file (INSTALL-AND-UNDO.md, INSTALL-v5, ROLLBACK-v5)
 PASS TEST-REPORT.md does not point at a deleted installer, copy or delete file (INSTALL-AND-UNDO.md, INSTALL-v5, ROLLBACK-v5)
+PASS FIX-ROUND-6.md does not point at a deleted installer, copy or delete file (INSTALL-AND-UNDO.md, INSTALL-v5, ROLLBACK-v5)
 PASS KNOWN-LIMITS.md does not point at a deleted installer, copy or delete file (INSTALL-AND-UNDO.md, INSTALL-v5, ROLLBACK-v5)
 PASS DESKTOP-WORK.md does not point at a deleted installer, copy or delete file (INSTALL-AND-UNDO.md, INSTALL-v5, ROLLBACK-v5)
 PASS DATA-CONTRACT.md does not point at a deleted installer, copy or delete file (INSTALL-AND-UNDO.md, INSTALL-v5, ROLLBACK-v5)
 PASS INSTALL-BY-HAND.md does not point at a deleted installer, copy or delete file (INSTALL-AND-UNDO.md, INSTALL-v5, ROLLBACK-v5)
-PASS PORT-REPORT and TEST-REPORT state the real page size 31,033 bytes
-PASS INSTALL-BY-HAND.md carries the real manifest SHA-256 92612e1500116e60ea403df00860d774807137cca537e66248a4e522428abecb
-PASS FIX-ROUND-5.md gives N1 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N2 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N3 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N4 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N5 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N6 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N7 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N8 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N9 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N10 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N11 a verdict: PARTIAL
-PASS FIX-ROUND-5.md gives N12 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N13 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N14 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N15 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N16 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N17 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N18 a verdict: FIXED
-PASS FIX-ROUND-5.md gives N19 a verdict: FIXED
-PASS FIX-ROUND-5.md gives F14 a verdict: PARTIAL
-PASS FIX-ROUND-5.md tally line says "FIXED 18, PARTIAL 2, NOT FIXED 0"
+PASS PORT-REPORT, TEST-REPORT and FIX-ROUND-6 state the real page size 31,591 bytes
+PASS INSTALL-BY-HAND.md carries the real manifest SHA-256 dc948c92cc04f2ed8d767a281c1839c6539712ef10fe819acdd4eaac9f8252e2
+PASS INSTALL-BY-HAND.md carries the real SHA-256 of VERIFY-v5.ps1 65d1ed8db6593635de5038017b3d8b6d28cc68de5d25db27cdabc3d7ef9e1afd
+PASS MANIFEST.sha256 lists 11 files and every hash matches the file on disk (11 of 11)
+PASS FIX-ROUND-6.md gives Flaw 1 a verdict: FIXED
+PASS FIX-ROUND-6.md gives Flaw 2 a verdict: FIXED
+PASS FIX-ROUND-6.md gives Flaw 3 a verdict: FIXED
+PASS FIX-ROUND-6.md gives Flaw 4 a verdict: FIXED
+PASS FIX-ROUND-6.md gives Flaw 5 a verdict: PARTIAL
+PASS FIX-ROUND-6.md gives Flaw 6 a verdict: FIXED
+PASS FIX-ROUND-6.md gives Flaw 7 a verdict: FIXED
+PASS FIX-ROUND-6.md gives Flaw 8 a verdict: FIXED
+PASS FIX-ROUND-6.md gives Flaw 9 a verdict: FIXED
+PASS FIX-ROUND-6.md gives Flaw 10 a verdict: FIXED
+PASS FIX-ROUND-6.md gives Flaw 11 a verdict: FIXED
+PASS FIX-ROUND-6.md gives Flaw 12 a verdict: FIXED
+PASS FIX-ROUND-6.md gives Flaw 13 a verdict: FIXED
+PASS FIX-ROUND-6.md gives N1 a verdict: FIXED
+PASS FIX-ROUND-6.md gives N2 a verdict: FIXED
+PASS FIX-ROUND-6.md gives N3 a verdict: FIXED
+PASS FIX-ROUND-6.md gives N10 a verdict: PARTIAL
+PASS FIX-ROUND-6.md gives F14 a verdict: FIXED
+PASS FIX-ROUND-6.md tally line says "FIXED 16, PARTIAL 2, NOT FIXED 0"
+PASS FIX-ROUND-6.md Flaw 1 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 2 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 3 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 4 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 5 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 6 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 7 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 8 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 9 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 10 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 11 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 12 names a file, a test and a tier
+PASS FIX-ROUND-6.md Flaw 13 names a file, a test and a tier
+PASS FIX-ROUND-6.md N1 names a file, a test and a tier
+PASS FIX-ROUND-6.md N2 names a file, a test and a tier
+PASS FIX-ROUND-6.md N3 names a file, a test and a tier
+PASS FIX-ROUND-6.md N10 names a file, a test and a tier
+PASS FIX-ROUND-6.md F14 names a file, a test and a tier
 
-DOCS AGREE: 156 of 156 checks pass
+DOCS AGREE: 196 of 196 checks pass

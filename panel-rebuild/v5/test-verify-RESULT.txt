@@ -10,7 +10,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V01: VERIFY wrote nothing (whole fixture identical before and after)
 == V02 edited code file (one byte appended)
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: vtes5-ui.js has SHA-256 81764b4e74b7f3ff19883dc08cbfe725d41d2b4ca56a796e1a2bcf6fbda7b01b but the manifest says 18d81fb891303f83d63e70f62e63971e77372b26d867e7d4d3abe2e611715a55
+    |   EDITED: vtes5-ui.js has SHA-256 034cd05680d004a9d2adadff7a2bab04e75f8811397fe9d02c9d525b2539287c but the manifest says bcca4a0609fb8d65fbac9175d24651d2b486051d09fe00b0e818ef4adf5e5fbe
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V02: exit code 1
@@ -327,7 +327,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V24a: VERIFY wrote nothing (whole fixture identical before and after)
   (without the expected manifest hash a doctored manifest passes: that is why the order carries the hash)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   MANIFEST CHANGED: its SHA-256 is 067c7e27ca69f5bb09b2fcb8a39e724f12a7d07ca4e1adae335b576405d87c93 but the order expects 87195add67f9a00cb9ee853ba370a43440864623cac5e60fb520f13208a1b23a (so the
+    |   MANIFEST CHANGED: its SHA-256 is 65e8a1ccdd6f4d8d9fb364fb725c0ca86c4de8eceb91077f38fb1da5d76c8507 but the order expects dc948c92cc04f2ed8d767a281c1839c6539712ef10fe819acdd4eaac9f8252e2 (so the
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V24b: exit code 1
@@ -346,7 +346,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V25a: VERIFY wrote nothing (whole fixture identical before and after)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   MANIFEST CHANGED: its SHA-256 is 87195add67f9a00cb9ee853ba370a43440864623cac5e60fb520f13208a1b23a but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the
+    |   MANIFEST CHANGED: its SHA-256 is dc948c92cc04f2ed8d767a281c1839c6539712ef10fe819acdd4eaac9f8252e2 but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V25b: exit code 1
@@ -484,7 +484,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V36: VERIFY wrote nothing (whole fixture identical before and after)
 == V37 a data file AND a code file changed: the code file is PROBLEMS, the data file is only listed as expected
     | PROBLEMS (1); 9 of 11 package files are identical:
-    |   EDITED: vtes5-ui.js has SHA-256 81764b4e74b7f3ff19883dc08cbfe725d41d2b4ca56a796e1a2bcf6fbda7b01b but the manifest says 18d81fb891303f83d63e70f62e63971e77372b26d867e7d4d3abe2e611715a55
+    |   EDITED: vtes5-ui.js has SHA-256 034cd05680d004a9d2adadff7a2bab04e75f8811397fe9d02c9d525b2539287c but the manifest says bcca4a0609fb8d65fbac9175d24651d2b486051d09fe00b0e818ef4adf5e5fbe
     |   (expected, not a problem) EDITED (data file) - expected: data/vtes5-state.js was rewritten by a PC writer (SHA-256 73cb3858a687a8494ca3323053016282f3dad39d42cf62ca4e79dda2aac7d9ac)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1

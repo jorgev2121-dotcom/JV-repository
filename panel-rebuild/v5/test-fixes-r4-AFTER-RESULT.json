@@ -29,7 +29,7 @@
   },
   {
    "id": "F2",
-   "name": "any other non-zero code (267010) is red FAILED",
+   "name": "any other non-zero code (2147942402) is red FAILED",
    "status": "PASS",
    "why": ""
   },
@@ -335,7 +335,7 @@
   },
   {
    "id": "F10",
-   "name": "for 25 search words the same cards match on v3 and on v5 (counts v3/v5: {\"rambo\":\"9/9\",\"bot\":\"6/6\",\"proven\":\"1/1\",\"codex\":\"4/4\",\"grok\":\"2/2\",\"cowork\":\"2/2\",\"iphone\":\"1/1\",\"claude\":\"12/12\",\"ollama\":\"2/2\",\"local\":\"5/5\",\"chief\":\"2/2\",\"orchestrator\":\"3/3\",\"LLM-02\":\"1/1\",\"LLM-05\":\"1/1\",\"#cowork\":\"2/2\",\"files on my PC\":\"0/0\",\"free\":\"7/7\",\"scarce\":\"5/5\",\"quota\":\"2/2\",\"terminal\":\"1/1\",\"inbox\":\"7/7\",\"poller\":\"1/1\",\"email\":\"1/1\",\"drive\":\"7/7\",\"pii\":\"2/2\"})",
+   "name": "for 25 search words the same cards match on v3 and on v5 (counts v3/v5: {\"rambo\":\"9/9\",\"bot\":\"6/6\",\"proven\":\"1/1\",\"codex\":\"4/4\",\"grok\":\"2/2\",\"cowork\":\"2/2\",\"iphone\":\"1/1\",\"claude\":\"12/12\",\"ollama\":\"2/2\",\"local\":\"5/5\",\"chief\":\"2/2\",\"orchestrator\":\"3/3\",\"LLM-02\":\"1/1\",\"LLM-05\":\"1/1\",\"#cowork\":\"2/2\",\"files on my PC\":\"0/0\",\"free\":\"7/7\",\"scarce\":\"5/5\",\"quota\":\"2/2\",\"terminal\":\"1/1\",\"inbox\":\"7/6\",\"poller\":\"1/1\",\"email\":\"1/1\",\"drive\":\"7/7\",\"pii\":\"2/2\"})",
    "status": "PASS",
    "why": ""
   },
@@ -407,7 +407,7 @@
   },
   {
    "id": "F14",
-   "name": "Copy packet and open for LOCAL: the status line hands Jorge no command or file path job (it said: Copied. Do not give this packet to any Claude window. Follow the steps on the LOCAL card: )",
+   "name": "Copy packet and open for LOCAL: the status line hands Jorge no command or file path job (it said: Copied. Do not give this packet to any Claude window. Follow the steps on the LOCAL card. )",
    "status": "PASS",
    "why": ""
   },
@@ -425,7 +425,7 @@
   },
   {
    "id": "F14",
-   "name": "Copy packet and open for GROK: the status line hands Jorge no command or file path job (it said: Copied. Paste the packet into grok.com. The desktop executor (RAMBO) can run Second-Opinio)",
+   "name": "Copy packet and open for GROK: the status line hands Jorge no command or file path job (it said: Copied. Paste the packet into grok.com. The desktop executor (RAMBO) can put the question )",
    "status": "PASS",
    "why": ""
   },

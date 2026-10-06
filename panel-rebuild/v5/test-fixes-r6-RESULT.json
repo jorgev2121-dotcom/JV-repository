@@ -1,0 +1,170 @@
+{
+ "test": "test-fixes-r6",
+ "pass": 27,
+ "total": 27,
+ "failures": [],
+ "results": [
+  {
+   "grp": "F14",
+   "name": "on every window, role and bot card, no technical command (a .ps1 name, codex exec, Get-ScheduledTask, -Install, powershell, git) appears outside a line marked \"For RAMBO\" (0 leaks)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "F14",
+   "name": "the \"For RAMBO\" lines exist for RAMBO, CODEX and GROK, and for LLM-01 when its link is not live (3 lines) and each starts with \"For RAMBO\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "F14",
+   "name": "no how-to line (the sentence printed after \"Copy packet and open\") holds a technical command",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "F14",
+   "name": "the status line after \"Copy packet and open\" holds no technical command for any of the 13 To entries",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "F14",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 2",
+   "name": "shipped data: the LOCAL card says BLOCKED - UNVERIFIED and has NO save steps (no right-click, no Text Document, no folder to open)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 2",
+   "name": "shipped data: the LOCAL card never names G:\\My Drive and never tells anyone to save client data in Google Drive (the only mentions are warnings)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 2",
+   "name": "shipped data: \"Never leaves the PC\" is only ever quoted as a v3 sentence that says when it is true",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 2",
+   "name": "shipped data: the LOCAL save line is red (a red card)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 2",
+   "name": "confirmed folder (fixture): the card says CONFIRMED, names the folder the PC reports, and is green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 2",
+   "name": "confirmed folder: the steps say how to turn on File name extensions and to check the name ends in .md and not .md.txt (flaw 10)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 2",
+   "name": "confirmed folder: still says never paste into any Claude window and never press the RAMBO button for it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 2",
+   "name": "the card follows the data: CONFIRMED turns into BLOCKED within one tick when the folder name looks like OneDrive, and the save steps disappear",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 10",
+   "name": "the RAMBO card, by-hand route: turn on File name extensions first, check the name ends in .md and not .md.txt",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 10",
+   "name": "the RAMBO card tells RAMBO to create a JOB file with its exact name using its own file tools and to read the name back",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 10",
+   "name": "no card or step says \"name it JOB-something.md\" without the extension warning next to it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 11",
+   "name": "VERIFY lists exactly 8 expected-change files (8)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 11",
+   "name": "the list in VERIFY-v5.ps1 equals the list in DATA-CONTRACT.md (\"Files that change by design\")",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 11",
+   "name": "both equal the seven data files plus vtes5-config.js that the manifest lists",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 11",
+   "name": "INSTALL-BY-HAND.md and DESKTOP-WORK.md quote the sentence VERIFY prints (\"EDITED (data file) - expected\") and say the answer is still OK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 11",
+   "name": "INSTALL-BY-HAND.md no longer tells RAMBO that any EDITED line means \"do not use the folder\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 12",
+   "name": "the three answers INSTALL-BY-HAND.md names (LINE ENDINGS CHANGED (CRLF), LINK IN PATH, WRONG PLACE) are real VERIFY sentences",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 12",
+   "name": "`git show HEAD:panel-rebuild/v5/package/<name>` prints bytes whose SHA-256 equals the manifest for all 11 files (11 of 11) - the exact route INSTALL-BY-HAND.md tells RAMBO to use",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 12",
+   "name": "`git show HEAD:panel-rebuild/v5/VERIFY-v5.ps1` equals the file whose SHA-256 INSTALL-BY-HAND.md carries",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 12",
+   "name": ".gitattributes marks the package, the manifest and VERIFY as \"text: unset\" (no line-ending conversion)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 12",
+   "name": "a checkout with core.autocrlf=true of this commit keeps every package file LF (0 CR bytes with the .gitattributes line; 0 found)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "grp": "flaw 12",
+   "name": "control: the same checkout WITHOUT the attribute (forced text conversion) does turn LF into CRLF (1081 CR bytes), so the attribute is what protects the files",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}
