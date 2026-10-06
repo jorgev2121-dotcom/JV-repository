@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "stamp": "TRK-2026-9910-B v2 2026-09-30 CURRENT #LLM-registry #VTES-control-panel",
+  "howto": "Edit ONLY this file to change where an address goes. Fields: id, name, url (web address), run (path to a shortcut or program), focusTitle (optional regex: if a window with that title is already open, bring it to the front instead), note (shown if nothing is filled in).",
+  "windows": [
+    { "id": "LLM-01", "name": "Claude Code Desktop (RAMBO)", "url": "", "run": "", "focusTitle": "", "note": "RAMBO: fill in run= with the verified shortcut that opens the Claude desktop app on the Code tab, then test with -DryRun." },
+    { "id": "LLM-02", "name": "Claude Code Cloud", "url": "https://claude.ai/code/session_01CAqZRvV1WjuuxZCNwrE9Gf", "run": "", "focusTitle": "", "note": "Permanent link to the fixed session named LLM-02 Cloud Executor." },
+    { "id": "LLM-03", "name": "Claude Cowork", "url": "", "run": "", "focusTitle": "", "note": "Jorge: open your Cowork window, copy the address from the top of the window, and paste it into url= here (or tell the cloud window to do it)." },
+    { "id": "LLM-04", "name": "Claude Chat (cockpit)", "url": "https://claude.ai", "run": "", "focusTitle": "", "note": "Replace url= with the address of your one cockpit conversation if you want it to reopen that exact chat." },
+    { "id": "LLM-05", "name": "Claude iPhone", "url": "", "run": "", "focusTitle": "", "note": "This one lives on the phone. Open the Claude app on the iPhone." },
+    { "id": "LLM-06", "name": "Codex CLI", "url": "", "run": "C:\\Users\\JV\\Desktop\\Codex - sign in (Jorge).lnk", "focusTitle": "", "note": "Opens a terminal running codex (shortcut created 2026-09-26 by RAMBO)." },
+    { "id": "LLM-07", "name": "Grok (Fabian)", "url": "https://grok.com", "run": "", "focusTitle": "", "note": "" },
+    { "id": "LLM-08", "name": "Gemini", "url": "https://gemini.google.com", "run": "", "focusTitle": "", "note": "" }
+  ]
+}

@@ -9,7 +9,7 @@
 // TRK-2026-9910-B
 const http = require('http'), fs = require('fs'), path = require('path');
 const { chromium } = require(process.env.PW_PATH || '/opt/node-tools/node_modules/playwright');
-const [dir, pagesArg, outFile] = process.argv.slice(2);
+const [dirArg, pagesArg, outFile] = process.argv.slice(2); const dir = path.resolve(dirArg);
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.txt': 'text/plain' };
 const srv = http.createServer((q, r) => {
   const f = path.join(dir, decodeURIComponent(q.url.split('?')[0].split('#')[0]));
