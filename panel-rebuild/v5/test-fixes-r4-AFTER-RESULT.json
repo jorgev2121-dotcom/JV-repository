@@ -23,7 +23,7 @@
   },
   {
    "id": "F2",
-   "name": "result 1 is still red FAILED with its code",
+   "name": "result 1 is still red FAILED with its code (ROUND 7 CHANGE: the words \"result code\" are jargon and became \"error number\")",
    "status": "PASS",
    "why": ""
   },

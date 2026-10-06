@@ -6,32 +6,14 @@
  "routes": 369,
  "noTick": {
   "n": 51909,
-  "ok": 51895,
-  "bad": [
-   "personal \"Check this one. 123\\r\\n45\\r\\n6789\" via big copy button on card-LOCAL (to LOCAL): disabled=false text carried=false",
-   "personal \"Check this one. 123\\r\\n45\\r\\n6789\" via Copy packet and open LLM-01->LOCAL (to LOCAL): disabled=false text carried=false",
-   "personal \"Check this one. 123\\r\\n45\\r\\n6789\" via Copy packet and open LLM-02->LOCAL (to LOCAL): disabled=false text carried=false",
-   "personal \"Check this one. 123\\r\\n45\\r\\n6789\" via Copy packet and open LLM-03->LOCAL (to LOCAL): disabled=false text carried=false",
-   "personal \"Check this one. 123\\r\\n45\\r\\n6789\" via Copy packet and open LLM-04->LOCAL (to LOCAL): disabled=false text carried=false",
-   "personal \"Check this one. 123\\r\\n45\\r\\n6789\" via Copy packet and open LLM-05->LOCAL (to LOCAL): disabled=false text carried=false",
-   "personal \"Check this one. 123\\r\\n45\\r\\n6789\" via Copy packet and open LLM-06->LOCAL (to LOCAL): disabled=false text carried=false",
-   "personal \"Check this one. 123\\r\\n45\\r\\n6789\" via Copy packet and open LLM-07->LOCAL (to LOCAL): disabled=false text carried=false"
-  ]
+  "ok": 51909,
+  "bad": []
  },
  "wrongTick": {
   "personal": {
    "n": 34485,
-   "ok": 33480,
-   "bad": [
-    "\"Check this one. Social Security Number: 123 45 6789\" via big copy button on card-LLM-01 (to LLM-01): CARRIED",
-    "\"Check this one. Social Security Number: 123 45 6789\" via big copy button on card-LLM-03 (to LLM-03): CARRIED",
-    "\"Check this one. Social Security Number: 123 45 6789\" via big copy button on card-LLM-05 (to LLM-05): CARRIED",
-    "\"Check this one. Social Security Number: 123 45 6789\" via big copy button on card-LLM-06 (to LLM-06): CARRIED",
-    "\"Check this one. Social Security Number: 123 45 6789\" via big copy button on card-CODEX (to CODEX): CARRIED",
-    "\"Check this one. Social Security Number: 123 45 6789\" via big copy button on card-RAMBO (to RAMBO): CARRIED",
-    "\"Check this one. Social Security Number: 123 45 6789\" via big copy button on card-GROK (to GROK): CARRIED",
-    "\"Check this one. Social Security Number: 123 45 6789\" via big copy button on card-COWORK (to LLM-03): CARRIED"
-   ]
+   "ok": 34485,
+   "bad": []
   },
   "ordinary": {
    "n": 14520,
@@ -51,7 +33,7 @@
   "localNeedsNoTick": true,
   "emptyNoteNeedsNoTick": true
  },
- "pass": 99897,
+ "pass": 100916,
  "total": 100916,
  "page_errors": 0
 }

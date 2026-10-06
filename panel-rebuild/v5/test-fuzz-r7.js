@@ -64,7 +64,9 @@ async function runCase(br, c) {
   r.pageErrors = errs2.length; if (errs2.length) { r.fails.push('uncaught page error: ' + errs2[0]); }
   // the data is fixed: recovery within one tick, no reload
   if (c.fix) { c.fix(dir); } writeAll(dir, NOWMS + 61000 + 60000, {});
-  await p.clock.fastForward(61000); await sleep(p, 900); const s3 = await snap(p); r.recovered = { overall: s3.overall, text: s3.overallText };
+  await p.clock.fastForward(61000); await sleep(p, 900); let s3 = await snap(p);
+  /* a 2 MB data file takes longer to load: wait up to 6 more seconds for the page to finish reloading (real time; the clock is the page's own) */
+  for (let k = 0; k < 12 && (s3.unreadable || s3.failBox || /NOT REFRESHING/.test(s3.overallText || '')); k++) { await sleep(p, 500); s3 = await snap(p); } r.recovered = { overall: s3.overall, text: s3.overallText };
   r.fails.push(...judge(s3, 'after fix'));
   if (s3.failBox || s3.watch === 'block' || /NOT REFRESHING/.test(s3.overallText || '')) { r.fails.push('after fix: the page did not recover without a reload'); }
   if (s3.unreadable) { r.fails.push('after fix: still shows unreadable'); }

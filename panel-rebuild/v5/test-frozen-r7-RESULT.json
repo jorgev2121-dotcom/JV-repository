@@ -6,7 +6,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -33,7 +33,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 23 red and 0 grey of 45 cards and marks; 2 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 23 red and 0 grey of 45 cards and marks; 2 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -60,7 +60,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 23 red and 0 grey of 45 cards and marks; 2 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 23 red and 0 grey of 45 cards and marks; 2 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -93,7 +93,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -120,7 +120,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -156,7 +156,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -183,7 +183,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 28 red and 0 grey of 50 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 28 red and 0 grey of 50 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -210,7 +210,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 29 red and 0 grey of 51 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 29 red and 0 grey of 51 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -243,7 +243,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -270,7 +270,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -306,7 +306,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -333,7 +333,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 49 red and 0 grey of 50 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 49 red and 0 grey of 50 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -360,7 +360,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 50 red and 0 grey of 51 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 50 red and 0 grey of 51 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -393,7 +393,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 21 red and 0 grey of 44 cards and marks; 0 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 21 red and 0 grey of 44 cards and marks; 0 of 7 reports red",
     "strip": [
      "ok",
      "ok",
@@ -420,7 +420,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -456,7 +456,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -483,7 +483,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 28 red and 0 grey of 50 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 28 red and 0 grey of 50 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -510,7 +510,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 29 red and 0 grey of 51 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 29 red and 0 grey of 51 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -543,7 +543,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -570,7 +570,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -591,7 +591,7 @@
     "rambo": true,
     "readme": true,
     "live": true,
-    "recheck": "Re-checked Oct 6, 2:01 PM EDT.",
+    "recheck": "Re-checked Oct 6, 2:00 PM EDT.",
     "errs": 0,
     "watch": "none"
    },
@@ -606,7 +606,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -633,7 +633,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 29 red and 0 grey of 51 cards and marks; 4 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 29 red and 0 grey of 51 cards and marks; 4 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -660,7 +660,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 30 red and 0 grey of 52 cards and marks; 4 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 30 red and 0 grey of 52 cards and marks; 4 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -693,7 +693,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 45 cards and marks; 1 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "strip": [
      "ok",
      "ok",
@@ -720,7 +720,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -756,7 +756,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -783,7 +783,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -810,7 +810,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -843,7 +843,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 45 cards and marks; 1 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "strip": [
      "ok",
      "ok",
@@ -870,7 +870,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -906,7 +906,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -933,7 +933,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 29 red and 0 grey of 51 cards and marks; 4 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 29 red and 0 grey of 51 cards and marks; 4 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -960,7 +960,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 30 red and 0 grey of 52 cards and marks; 4 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 30 red and 0 grey of 52 cards and marks; 4 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -993,7 +993,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 45 cards and marks; 1 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "strip": [
      "ok",
      "ok",
@@ -1020,7 +1020,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -1056,7 +1056,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -1083,7 +1083,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 50 red and 0 grey of 50 cards and marks; 4 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 50 red and 0 grey of 50 cards and marks; 4 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1110,7 +1110,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 51 red and 0 grey of 51 cards and marks; 4 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 51 red and 0 grey of 51 cards and marks; 4 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1143,7 +1143,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 22 red and 0 grey of 44 cards and marks; 1 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 22 red and 0 grey of 44 cards and marks; 1 of 7 reports red",
     "strip": [
      "ok",
      "ok",
@@ -1170,7 +1170,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -1206,7 +1206,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -1233,7 +1233,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1260,7 +1260,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1293,7 +1293,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 45 cards and marks; 1 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "strip": [
      "ok",
      "ok",
@@ -1320,7 +1320,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -1356,7 +1356,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -1383,7 +1383,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 27 red and 0 grey of 50 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 27 red and 0 grey of 50 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1410,7 +1410,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 28 red and 0 grey of 51 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 28 red and 0 grey of 51 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1443,7 +1443,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 16 red and 0 grey of 45 cards and marks; 1 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 16 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1470,7 +1470,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -1506,7 +1506,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -1533,7 +1533,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 28 red and 0 grey of 50 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 28 red and 0 grey of 50 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1560,7 +1560,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 29 red and 0 grey of 51 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 29 red and 0 grey of 51 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1593,7 +1593,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 9 red and 0 grey of 44 cards and marks; 1 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 9 red and 0 grey of 44 cards and marks; 1 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1620,7 +1620,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -1656,7 +1656,7 @@
    "mode": "A-open-green-then-bad",
    "before": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",
@@ -1683,7 +1683,7 @@
    },
    "at41": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1710,7 +1710,7 @@
    },
    "at341": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 24 red and 0 grey of 46 cards and marks; 3 of 7 reports red",
     "strip": [
      "bad",
      "bad",
@@ -1743,7 +1743,7 @@
    "mode": "B-bad-at-open-then-fixed",
    "atOpen": {
     "overall": "bad",
-    "overallText": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 45 cards and marks; 1 of 7 files red",
+    "overallText": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "strip": [
      "ok",
      "ok",
@@ -1770,7 +1770,7 @@
    },
    "afterFix": {
     "overall": "ok",
-    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 files are green",
+    "overallText": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
     "strip": [
      "ok",
      "ok",

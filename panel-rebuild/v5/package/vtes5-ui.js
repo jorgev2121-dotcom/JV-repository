@@ -32,13 +32,13 @@
       'Do NOT paste this packet into any Claude window, into Cowork, into Codex or Grok, and do not press the blue RAMBO button for it: client personal data goes to LOCAL only.'];
     if (!lf.ok) {
       out.push('STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself.');
-      out.push('For RAMBO: create or confirm a local-only folder outside every syncing folder (a plain C:\\ path outside Users\\JV\\Desktop, OneDrive and Documents) and record it, with local_only_verified_by and not_synced_proof, under local_only_folder in the heartbeat file (DESKTOP-WORK item 11, local-only folder).');
+      out.push('For RAMBO: create or confirm a local-only folder outside every syncing folder (a plain C:\\ path outside Users\\JV\\Desktop, OneDrive and Documents) and record it, with local_only_verified_by and not_synced_proof, under local_only_folder in the heartbeat file (DESKTOP-WORK item 11 (local-only folder)).');
     } else {
       out.push('In File Explorer, open the local-only folder named "' + lf.label + '" (the desktop executor confirmed it is outside Google Drive and OneDrive).',
         'For RAMBO: FIRST turn on file name extensions: click View, then Show, then File name extensions. Otherwise a name ending in .md is saved as .md.txt and the job is never picked up.',
         'For RAMBO: right-click an empty spot, click New, click Text Document, name it JOB-something.md, press Enter (click Yes if Windows asks about changing the extension). Check the name ends in .md and not in .md.txt. Open it, press Ctrl+V and save.');
     }
-    out.push('For RAMBO: v3 says the job file needs a line starting CLASS: and a line starting PROMPT: (typed from v3, UNVERIFIED); the packet does not have them, and the helper that adds them is still to be built (DESKTOP-WORK item 9, LOCAL jobs). v3 says the bot CU-Local-Executor watches VTES-Inbox-LOCAL: if that folder is inside Google Drive, that lane uploads client data too (KNOWN-LIMITS item 35, LOCAL).');
+    out.push('For RAMBO: v3 says the job file needs a line starting CLASS: and a line starting PROMPT: (typed from v3, UNVERIFIED); the packet does not have them, and the helper that adds them is still to be built (DESKTOP-WORK item 9 (LOCAL jobs)). v3 says the bot CU-Local-Executor watches VTES-Inbox-LOCAL: if that folder is inside Google Drive, that lane uploads client data too (KNOWN-LIMITS item 35 (LOCAL)).');
     return out;
   }
   function getSteps(m) { return m.stepsFn ? m.stepsFn() : m.steps; }

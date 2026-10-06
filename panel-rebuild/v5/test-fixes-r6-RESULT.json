@@ -12,7 +12,7 @@
   },
   {
    "grp": "F14",
-   "name": "the \"For RAMBO\" lines exist for RAMBO, CODEX and GROK, and for LLM-01 when its link is not live (3 lines) and each starts with \"For RAMBO\"",
+   "name": "the \"For RAMBO\" lines exist for RAMBO, CODEX and GROK, and for LLM-01 when its link is not live (15 lines) and each starts with \"For RAMBO\"",
    "status": "PASS",
    "why": ""
   },
@@ -102,7 +102,7 @@
   },
   {
    "grp": "flaw 11",
-   "name": "VERIFY lists exactly 8 expected-change files (8)",
+   "name": "VERIFY names exactly the 8 data and settings files (8)",
    "status": "PASS",
    "why": ""
   },
@@ -120,13 +120,13 @@
   },
   {
    "grp": "flaw 11",
-   "name": "INSTALL-BY-HAND.md and DESKTOP-WORK.md quote the sentence VERIFY prints (\"EDITED (data file) - expected\") and say the answer is still OK",
+   "name": "INSTALL-BY-HAND.md, DESKTOP-WORK.md and DATA-CONTRACT.md quote the NEW VERIFY sentence (\"changed by a PC writer (passes the strict shape check)\") and no longer say \"- expected\"",
    "status": "PASS",
    "why": ""
   },
   {
    "grp": "flaw 11",
-   "name": "INSTALL-BY-HAND.md no longer tells RAMBO that any EDITED line means \"do not use the folder\"",
+   "name": "INSTALL-BY-HAND.md says the day-one OK line is the only good answer and that -AfterWriters is for a later check only",
    "status": "PASS",
    "why": ""
   },
@@ -162,7 +162,7 @@
   },
   {
    "grp": "flaw 12",
-   "name": "control: the same checkout WITHOUT the attribute (forced text conversion) does turn LF into CRLF (1081 CR bytes), so the attribute is what protects the files",
+   "name": "control: the same checkout WITHOUT the attribute (forced text conversion) does turn LF into CRLF (1405 CR bytes), so the attribute is what protects the files",
    "status": "PASS",
    "why": ""
   }

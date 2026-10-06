@@ -1,6 +1,6 @@
 {
- "items": 87,
- "exercised": 87,
+ "items": 88,
+ "exercised": 88,
  "counts": {
   "tabsLocal": 8,
   "tabsOld": 10,
@@ -11,11 +11,11 @@
   "hand": 13,
   "queued": 6,
   "selects": 3,
-  "other": 6,
+  "other": 7,
   "oldBottom": 2
  },
- "pass": 98,
- "total": 98,
+ "pass": 99,
+ "total": 99,
  "failures": [],
  "results": [
   {
@@ -169,6 +169,12 @@
    "why": ""
   },
   {
+   "grp": "other",
+   "name": "the confirmation tick: unticked, Copy packet and open is switched off for a non-LOCAL To; ticked, it is on",
+   "status": "PASS",
+   "why": ""
+  },
+  {
    "grp": "buttons",
    "name": "Copy packet and open: copies the packet and says Copied",
    "status": "PASS",
@@ -236,7 +242,7 @@
   },
   {
    "grp": "links",
-   "name": "link Open Claude Chat -> https://claude.ai opens a new tab with rel noopener",
+   "name": "link Open Claude Chat (claude.ai) -> https://claude.ai opens a new tab with rel noopener",
    "status": "PASS",
    "why": ""
   },
@@ -272,7 +278,7 @@
   },
   {
    "grp": "links",
-   "name": "link Open Grok (SuperGrok) -> https://grok.com opens a new tab with rel noopener",
+   "name": "link Open Grok (SuperGrok) (grok.com) -> https://grok.com opens a new tab with rel noopener",
    "status": "PASS",
    "why": ""
   },
@@ -284,7 +290,7 @@
   },
   {
    "grp": "links",
-   "name": "link Open Gemini -> https://gemini.google.com opens a new tab with rel noopener",
+   "name": "link Open Gemini (gemini.google.com) -> https://gemini.google.com opens a new tab with rel noopener",
    "status": "PASS",
    "why": ""
   },
@@ -392,7 +398,7 @@
   },
   {
    "grp": "links",
-   "name": "link Open the full index document -> https://docs.google.com/document/d/1tqRhgNV-x-ZNzP5g_iTnPb3AwdVZgKTV6TLoFZR2N7o/edit opens a new tab with rel noopener",
+   "name": "link Open the full index document (Google Doc -> https://docs.google.com/document/d/1tqRhgNV-x-ZNzP5g_iTnPb3AwdVZgKTV6TLoFZR2N7o/edit opens a new tab with rel noopener",
    "status": "PASS",
    "why": ""
   },
@@ -542,7 +548,7 @@
   },
   {
    "grp": "coverage",
-   "name": "every enumerated item was exercised (87 of 87)",
+   "name": "every enumerated item was exercised (88 of 88)",
    "status": "PASS",
    "why": ""
   },
@@ -590,7 +596,7 @@
   },
   {
    "grp": "worlds",
-   "name": "no-data world has 86 interactive elements, fresh world 88 (the difference is the 2 vtes:// links)",
+   "name": "no-data world has 87 interactive elements, fresh world 89 (the difference is the 2 vtes:// links)",
    "status": "PASS",
    "why": ""
   },

@@ -95,7 +95,7 @@
   },
   {
    "g": "clock",
-   "name": "a data file that sets VTES5_NOW does not change the page clock (2026-10-06T18:00:01.140Z)",
+   "name": "a data file that sets VTES5_NOW does not change the page clock (2026-10-06T18:00:01.053Z)",
    "status": "PASS",
    "why": ""
   },

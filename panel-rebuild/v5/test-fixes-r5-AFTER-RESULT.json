@@ -1,6 +1,6 @@
 {
- "pass": 192,
- "total": 192,
+ "pass": 194,
+ "total": 194,
  "fail": 0,
  "results": [
   {
@@ -989,13 +989,19 @@
   },
   {
    "id": "N11",
-   "name": "shipped data 1600x789: the RAMBO button is whole on the first screen (351-398 of 789)",
+   "name": "shipped data 1600x789: the RAMBO button is whole on the first screen (201-244 of 789)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
-   "name": "shipped data 1600x789: the bar does not scroll, so no hint is shown and all 18 tabs are on screen at once",
+   "name": "shipped data 1600x789: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "shipped data 1600x789: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
    "status": "PASS",
    "why": ""
   },
@@ -1145,13 +1151,19 @@
   },
   {
    "id": "N11",
-   "name": "fresh data 1600x789: the RAMBO button is whole on the first screen (351-398 of 789)",
+   "name": "fresh data 1600x789: the RAMBO button is whole on the first screen (201-244 of 789)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
-   "name": "fresh data 1600x789: the bar does not scroll, so no hint is shown and all 18 tabs are on screen at once",
+   "name": "fresh data 1600x789: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "N11",
+   "name": "fresh data 1600x789: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
    "status": "PASS",
    "why": ""
   }

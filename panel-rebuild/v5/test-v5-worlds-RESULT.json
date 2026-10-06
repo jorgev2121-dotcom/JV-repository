@@ -239,7 +239,7 @@
   },
   {
    "world": "W2-fresh",
-   "name": "the other six addresses give one plain sentence: \"the address book entry ... is empty\"",
+   "name": "the other six addresses give one plain sentence: \"the shortcuts are set up, but this window entry is still empty\" (ROUND 7 CHANGE: the sentence was reworded to plain words, no \"address book entry\")",
    "status": "PASS",
    "why": ""
   },
@@ -743,13 +743,13 @@
   },
   {
    "world": "W14-10hours",
-   "name": "after 600 reloads the DOM node count did not grow by more than 10% (744 -> 745)",
+   "name": "after 600 reloads the DOM node count did not grow by more than 10% (770 -> 773)",
    "status": "PASS",
    "why": ""
   },
   {
    "world": "W14-10hours",
-   "name": "script tags did not grow (12 -> 12)",
+   "name": "script tags did not grow (13 -> 13)",
    "status": "PASS",
    "why": ""
   },

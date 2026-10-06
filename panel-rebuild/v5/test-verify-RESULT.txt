@@ -1,5 +1,5 @@
 PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6f6c333411fe3; package files in the manifest: 11 (of which 8 are data or settings files)
-Telemetry/update-check env: POWERSHELL_TELEMETRY_OPTOUT=1 POWERSHELL_UPDATECHECK=Off DOTNET_CLI_TELEMETRY_OPTOUT=1 HOME=/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/home
+Telemetry/update-check env: POWERSHELL_TELEMETRY_OPTOUT=1 POWERSHELL_UPDATECHECK=Off DOTNET_CLI_TELEMETRY_OPTOUT=1 HOME=/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/home
 == V01 intact package
     | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
     | This script contains no write command.
@@ -13,7 +13,7 @@ Telemetry/update-check env: POWERSHELL_TELEMETRY_OPTOUT=1 POWERSHELL_UPDATECHECK
 SCENARIO V01: AS EXPECTED; fixture identical before and after: YES
 == V02 edited code file (one byte appended)
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: vtes5-ui.js has SHA-256 b67fd8f5d0e06c4a8b08ece35b8af086e58da99e8863e6b2abc45f8814b2b038 but the manifest says f0cc0c8fedf08bc549455d7be221c54ee8b9053925f7b121c9db8ce18d0da48e.
+    |   EDITED: vtes5-ui.js has SHA-256 27f001a578968cea5c4b721d856258d6a2ae08b6499d53053f5de5966f1d3325 but the manifest says f7a430e2374456242f6ef46d70e9e19420d079f1cbd136ad0d747b506cd12554.
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V02: exit code 1
@@ -28,7 +28,7 @@ SCENARIO V01: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V02: AS EXPECTED; fixture identical before and after: YES
 == V03 edited file with the same size (one byte flipped)
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 4c107f262005851283fb34e34e25318502690a149c34634c057f9c0c8a844f54 but the manifest says 02ef674da03502e128cb8ad603e5ba8f79cc46414c7aa79e2b8d5df7693ceeb4.
+    |   EDITED: vtes5-live.js has SHA-256 48729155bf64f8fccaed55f718f17824ce2013d9e9c65514a58be24c6a8f9b83 but the manifest says f9c3737db48629908b713f9ef53a2deb82659ca8aa871abf5758f8d65e94d393.
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V03: exit code 1
@@ -136,7 +136,7 @@ SCENARIO V05: AS EXPECTED; fixture identical before and after: YES
   PASS V06: does NOT say OK
   PASS V06: does NOT say OK (after writers)
   PASS V06: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V06: finished in 1 s (limit 58 s, never hangs)
+  PASS V06: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 9 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V06: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V06: AS EXPECTED; fixture identical before and after: YES
@@ -235,7 +235,7 @@ SCENARIO V11: AS EXPECTED; fixture identical before and after: YES
   PASS V12: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V12: AS EXPECTED; fixture identical before and after: YES
 == V13 UNREADABLE manifest (run as nobody)
-    | CANNOT CHECK: MANIFEST.sha256 cannot be read: Exception calling "ReadAllBytes" with "1" argument(s): "Access to the path '/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Doc
+    | CANNOT CHECK: MANIFEST.sha256 cannot be read: Exception calling "ReadAllBytes" with "1" argument(s): "Access to the path '/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V13: exit code 2
@@ -267,12 +267,12 @@ SCENARIO V13: AS EXPECTED; fixture identical before and after: YES
   PASS V14: does NOT say OK
   PASS V14: does NOT say OK (after writers)
   PASS V14: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V14: finished in 0 s (limit 58 s, never hangs)
+  PASS V14: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V14: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V14: AS EXPECTED; fixture identical before and after: YES
 == V15 missing manifest
-    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5"
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/v5"
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V15: exit code 2
@@ -285,7 +285,7 @@ SCENARIO V14: AS EXPECTED; fixture identical before and after: YES
   PASS V15: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V15: AS EXPECTED; fixture identical before and after: YES
 == V16 folder does not exist
-    | CANNOT CHECK: the folder "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/nope" does not exist (or is not a folder)
+    | CANNOT CHECK: the folder "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/nope" does not exist (or is not a folder)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V16: exit code 2
@@ -293,7 +293,7 @@ SCENARIO V15: AS EXPECTED; fixture identical before and after: YES
   PASS V16: does NOT say OK
   PASS V16: does NOT say OK (after writers)
   PASS V16: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V16: finished in 1 s (limit 58 s, never hangs)
+  PASS V16: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V16: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V16: AS EXPECTED; fixture identical before and after: YES
@@ -306,7 +306,7 @@ SCENARIO V16: AS EXPECTED; fixture identical before and after: YES
   PASS V17: does NOT say OK
   PASS V17: does NOT say OK (after writers)
   PASS V17: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V17: finished in 0 s (limit 58 s, never hangs)
+  PASS V17: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V17: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V17: AS EXPECTED; fixture identical before and after: YES
@@ -318,7 +318,7 @@ SCENARIO V17: AS EXPECTED; fixture identical before and after: YES
   PASS V17b: does NOT say OK
   PASS V17b: does NOT say OK (after writers)
   PASS V17b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V17b: finished in 1 s (limit 58 s, never hangs)
+  PASS V17b: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V17b: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V17b: AS EXPECTED; fixture identical before and after: YES
@@ -330,7 +330,7 @@ SCENARIO V17b: AS EXPECTED; fixture identical before and after: YES
   PASS V17c: does NOT say OK
   PASS V17c: does NOT say OK (after writers)
   PASS V17c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V17c: finished in 1 s (limit 58 s, never hangs)
+  PASS V17c: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V17c: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V17c: AS EXPECTED; fixture identical before and after: YES
@@ -342,7 +342,7 @@ SCENARIO V17c: AS EXPECTED; fixture identical before and after: YES
   PASS V17d: does NOT say OK
   PASS V17d: does NOT say OK (after writers)
   PASS V17d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V17d: finished in 0 s (limit 58 s, never hangs)
+  PASS V17d: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V17d: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V17d: AS EXPECTED; fixture identical before and after: YES
@@ -356,7 +356,7 @@ SCENARIO V17d: AS EXPECTED; fixture identical before and after: YES
   PASS V18: does NOT say OK
   PASS V18: does NOT say OK (after writers)
   PASS V18: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V18: finished in 1 s (limit 58 s, never hangs)
+  PASS V18: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V18: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V18: AS EXPECTED; fixture identical before and after: YES
@@ -372,7 +372,7 @@ SCENARIO V18: AS EXPECTED; fixture identical before and after: YES
   PASS V19: does NOT say OK
   PASS V19: does NOT say OK (after writers)
   PASS V19: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V19: finished in 1 s (limit 58 s, never hangs)
+  PASS V19: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V19: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V19: AS EXPECTED; fixture identical before and after: YES
@@ -428,7 +428,7 @@ SCENARIO V21: AS EXPECTED; fixture identical before and after: YES
   PASS V22: does NOT say OK
   PASS V22: does NOT say OK (after writers)
   PASS V22: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V22: finished in 0 s (limit 58 s, never hangs)
+  PASS V22: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V22: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V22: AS EXPECTED; fixture identical before and after: YES
@@ -459,7 +459,7 @@ SCENARIO V23: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V24a: AS EXPECTED; fixture identical before and after: YES
   (without the expected manifest hash a doctored manifest passes: that is why the order carries the hash)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   MANIFEST CHANGED: its SHA-256 is 1a422170d1531f1b19230092ce0a5544e635f65ca91653b246a3cff965596d79 but the order expects af29b057b1a3901278577c5dfe3db278e20062c95bd4e2441d997dff687e4583 (so the manifest itself is not the on
+    |   MANIFEST CHANGED: its SHA-256 is 8d3373a91ff54dd856ee1bfe2c871621cc49797af8155130d0c973202aca1b11 but the order expects 4b6a4d8229cca1782f436e78de8344c68b81e70bb2064621b85b79e6bdb359c8 (so the manifest itself is not the on
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V24b: exit code 1
@@ -483,7 +483,7 @@ SCENARIO V24b: AS EXPECTED; fixture identical before and after: YES
   PASS V25a: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V25a: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   MANIFEST CHANGED: its SHA-256 is af29b057b1a3901278577c5dfe3db278e20062c95bd4e2441d997dff687e4583 but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the manifest itself is not the on
+    |   MANIFEST CHANGED: its SHA-256 is 4b6a4d8229cca1782f436e78de8344c68b81e70bb2064621b85b79e6bdb359c8 but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the manifest itself is not the on
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V25b: exit code 1
@@ -491,7 +491,7 @@ SCENARIO V25a: AS EXPECTED; fixture identical before and after: YES
   PASS V25b: does NOT say OK
   PASS V25b: does NOT say OK (after writers)
   PASS V25b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V25b: finished in 1 s (limit 58 s, never hangs)
+  PASS V25b: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V25b: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V25b: AS EXPECTED; fixture identical before and after: YES
@@ -502,7 +502,7 @@ SCENARIO V25b: AS EXPECTED; fixture identical before and after: YES
   PASS V26: exit code 0
   PASS V26: prints "OK: all 11 of 11"
   PASS V26: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V26: finished in 1 s (limit 58 s, never hangs)
+  PASS V26: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V26: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V26: AS EXPECTED; fixture identical before and after: YES
@@ -519,7 +519,7 @@ SCENARIO V26: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V27: AS EXPECTED; fixture identical before and after: YES
   PASS V27b: the real v3 launcher in the fixture Desktop is byte-identical afterwards
 == V28 Verify pointed at the Desktop folder (not a package): reports problems, writes nothing
-    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Desktop"
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Desktop"
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V28: exit code 2
@@ -527,7 +527,7 @@ SCENARIO V27: AS EXPECTED; fixture identical before and after: YES
   PASS V28: does NOT say OK
   PASS V28: does NOT say OK (after writers)
   PASS V28: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V28: finished in 0 s (limit 58 s, never hangs)
+  PASS V28: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V28: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V28: AS EXPECTED; fixture identical before and after: YES
@@ -547,7 +547,7 @@ SCENARIO V28: AS EXPECTED; fixture identical before and after: YES
   PASS V29: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V29: AS EXPECTED; fixture identical before and after: YES
 == V31 a path with .. in it (flaw N19): clear sentence, no scrambled names
-    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/x/../v5" contains "..". Give the plain full path with no "." or ".." in it
+    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/x/../v5" contains "..". Give the plain full path with no "." or ".." in it
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V31: exit code 2
@@ -557,11 +557,11 @@ SCENARIO V29: AS EXPECTED; fixture identical before and after: YES
   PASS V31: does NOT say OK
   PASS V31: does NOT say OK (after writers)
   PASS V31: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V31: finished in 1 s (limit 58 s, never hangs)
+  PASS V31: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V31: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V31: AS EXPECTED; fixture identical before and after: YES
-    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/./v5" contains ".". Give the plain full path with no "." or ".." in it
+    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/./v5" contains ".". Give the plain full path with no "." or ".." in it
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V31b: exit code 2
@@ -569,11 +569,11 @@ SCENARIO V31: AS EXPECTED; fixture identical before and after: YES
   PASS V31b: does NOT say OK
   PASS V31b: does NOT say OK (after writers)
   PASS V31b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V31b: finished in 0 s (limit 58 s, never hangs)
+  PASS V31b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V31b: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V31b: AS EXPECTED; fixture identical before and after: YES
-    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5/.." contains "..". Give the plain full path with no "." or ".." in it
+    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/v5/.." contains "..". Give the plain full path with no "." or ".." in it
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V31c: exit code 2
@@ -581,7 +581,7 @@ SCENARIO V31b: AS EXPECTED; fixture identical before and after: YES
   PASS V31c: does NOT say OK
   PASS V31c: does NOT say OK (after writers)
   PASS V31c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V31c: finished in 1 s (limit 58 s, never hangs)
+  PASS V31c: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V31c: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V31c: AS EXPECTED; fixture identical before and after: YES
@@ -594,7 +594,7 @@ SCENARIO V31c: AS EXPECTED; fixture identical before and after: YES
   PASS V32: exit code 0
   PASS V32: prints "OK: all 11 of 11"
   PASS V32: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V32: finished in 0 s (limit 58 s, never hangs)
+  PASS V32: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V32: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V32: AS EXPECTED; fixture identical before and after: YES
@@ -614,7 +614,7 @@ SCENARIO V32: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V33: AS EXPECTED; fixture identical before and after: YES
 == V34 the folder is inside a git checkout (flaw N5, caught after the fact)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   WRONG PLACE: the folder is inside a git checkout (found .git in /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/repo)
+    |   WRONG PLACE: the folder is inside a git checkout (found .git in /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/repo)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V34: exit code 1
@@ -681,7 +681,7 @@ SCENARIO V36: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V36b: AS EXPECTED; fixture identical before and after: YES
 == V37 (CHANGED IN ROUND 7) a valid rewritten data file AND a code file changed, WITH -AfterWriters: code file is PROBLEMS, the data file is only listed as not a problem
     | PROBLEMS (1); 9 of 11 package files are identical:
-    |   EDITED: vtes5-ui.js has SHA-256 b67fd8f5d0e06c4a8b08ece35b8af086e58da99e8863e6b2abc45f8814b2b038 but the manifest says f0cc0c8fedf08bc549455d7be221c54ee8b9053925f7b121c9db8ce18d0da48e.
+    |   EDITED: vtes5-ui.js has SHA-256 27f001a578968cea5c4b721d856258d6a2ae08b6499d53053f5de5966f1d3325 but the manifest says f7a430e2374456242f6ef46d70e9e19420d079f1cbd136ad0d747b506cd12554.
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-state.js (SHA-256 a9b6e0223e35e50918dcdc4f1bb409b3d38855df6cd364a9446d795c0fc6b4f0)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
@@ -740,7 +740,7 @@ SCENARIO V39: AS EXPECTED; fixture identical before and after: YES
   PASS V39b: does NOT say OK
   PASS V39b: does NOT say OK (after writers)
   PASS V39b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V39b: finished in 1 s (limit 58 s, never hangs)
+  PASS V39b: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V39b: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V39b: AS EXPECTED; fixture identical before and after: YES
@@ -761,7 +761,7 @@ SCENARIO V39b: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V39c: AS EXPECTED; fixture identical before and after: YES
 == V40 the folder ITSELF is a symbolic link to a real package (flaw 5): PROBLEMS, LINK IN PATH
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5), so the files may really live somewhere else, 
+    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/v5), so the files may really live somewhere el
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V40: exit code 1
@@ -775,7 +775,7 @@ SCENARIO V39c: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V40: AS EXPECTED; fixture identical before and after: YES
 == V41 a PARENT folder is a link (flaw 5): PROBLEMS, LINK IN PATH, names the parent
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the parent folder /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/parent-link is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository
+    |   LINK IN PATH: the parent folder /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/parent-link is a link or junction (it points to /tmp/claude-0/-home-user-JV-reposi
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V41: exit code 1
@@ -790,7 +790,7 @@ SCENARIO V40: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V41: AS EXPECTED; fixture identical before and after: YES
 == V42 the folder is a link into the git checkout's package (flaw 5, the checker's S13b)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/repo2/panel-rebuild/v5/package), so the files may 
+    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/repo2/panel-rebuild/v5/package), so the files 
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V42: exit code 1
@@ -804,7 +804,7 @@ SCENARIO V41: AS EXPECTED; fixture identical before and after: YES
 SCENARIO V42: AS EXPECTED; fixture identical before and after: YES
 == V43 the folder is a link into the Desktop (flaw 5, the checker's S12)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Desktop/v5), so the files may really live somewhere els
+    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Desktop/v5), so the files may really live somewhere
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V43: exit code 1
@@ -826,7 +826,7 @@ SCENARIO V43: AS EXPECTED; fixture identical before and after: YES
   PASS V44: does NOT say OK
   PASS V44: does NOT say OK (after writers)
   PASS V44: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V44: finished in 0 s (limit 58 s, never hangs)
+  PASS V44: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V44: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V44: AS EXPECTED; fixture identical before and after: YES
@@ -840,7 +840,7 @@ SCENARIO V44: AS EXPECTED; fixture identical before and after: YES
   PASS V45: does NOT say OK
   PASS V45: does NOT say OK (after writers)
   PASS V45: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS V45: finished in 0 s (limit 58 s, never hangs)
+  PASS V45: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS V45: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO V45: AS EXPECTED; fixture identical before and after: YES
@@ -858,7 +858,7 @@ SCENARIO V45: AS EXPECTED; fixture identical before and after: YES
   PASS R01: does NOT print "EDITED"
   PASS R01: does NOT print "(after writers)"
   PASS R01: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R01: finished in 1 s (limit 58 s, never hangs)
+  PASS R01: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R01: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R01: AS EXPECTED; fixture identical before and after: YES
@@ -961,7 +961,7 @@ SCENARIO R03: AS EXPECTED; fixture identical before and after: YES
   PASS R04: does NOT say OK
   PASS R04: does NOT say OK (after writers)
   PASS R04: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R04: finished in 0 s (limit 58 s, never hangs)
+  PASS R04: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R04: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R04: AS EXPECTED; fixture identical before and after: YES
@@ -1017,12 +1017,12 @@ SCENARIO R05: AS EXPECTED; fixture identical before and after: YES
   PASS R05b: does NOT say OK
   PASS R05b: does NOT say OK (after writers)
   PASS R05b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R05b: finished in 0 s (limit 58 s, never hangs)
+  PASS R05b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R05b: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R05b: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: VTES-LLM-LAUNCHER_v5.html has SHA-256 b14ef9b3bace4931961b46b8ba067e8b4acb2d4a858d0a6f1ca3443587e147a3 but the manifest says 79acbb4722caf3dd873fee69766e38ad65995025ccc569aaec0947749ec2e82c.
+    |   EDITED: VTES-LLM-LAUNCHER_v5.html has SHA-256 0a68b6c2b04a752d02dd4be06a99db12a8eb95047319622ebaa17a42550bc82d but the manifest says 6db0643f022285cf70be984da1c27d31e720042ae63f18aad1720380321c0791.
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R05c: exit code 1
@@ -1073,7 +1073,7 @@ SCENARIO R06: AS EXPECTED; fixture identical before and after: YES
   PASS R06b: does NOT say OK
   PASS R06b: does NOT say OK (after writers)
   PASS R06b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R06b: finished in 0 s (limit 12 s, never hangs)
+  PASS R06b: finished in 1 s (limit 12 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R06b: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R06b: AS EXPECTED; fixture identical before and after: YES
@@ -1087,7 +1087,7 @@ SCENARIO R06b: AS EXPECTED; fixture identical before and after: YES
   PASS R06c: does NOT say OK
   PASS R06c: does NOT say OK (after writers)
   PASS R06c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R06c: finished in 0 s (limit 58 s, never hangs)
+  PASS R06c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R06c: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R06c: AS EXPECTED; fixture identical before and after: YES
@@ -1128,7 +1128,7 @@ SCENARIO R06e: AS EXPECTED; fixture identical before and after: YES
   PASS R06f: prints "OK (after writers)"
   PASS R06f: prints "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
   PASS R06f: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R06f: finished in 3 s (limit 58 s, never hangs)
+  PASS R06f: finished in 2 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R06f: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R06f: AS EXPECTED; fixture identical before and after: YES
@@ -1170,7 +1170,7 @@ SCENARIO R07b: AS EXPECTED; fixture identical before and after: YES
   PASS R07c: does NOT say OK
   PASS R07c: does NOT say OK (after writers)
   PASS R07c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R07c: finished in 0 s (limit 58 s, never hangs)
+  PASS R07c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R07c: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R07c: AS EXPECTED; fixture identical before and after: YES
@@ -1184,7 +1184,7 @@ SCENARIO R07c: AS EXPECTED; fixture identical before and after: YES
   PASS R07d: does NOT say OK
   PASS R07d: does NOT say OK (after writers)
   PASS R07d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R07d: finished in 0 s (limit 58 s, never hangs)
+  PASS R07d: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R07d: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R07d: AS EXPECTED; fixture identical before and after: YES
@@ -1198,7 +1198,7 @@ SCENARIO R07d: AS EXPECTED; fixture identical before and after: YES
   PASS R07e: does NOT say OK
   PASS R07e: does NOT say OK (after writers)
   PASS R07e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R07e: finished in 1 s (limit 58 s, never hangs)
+  PASS R07e: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R07e: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R07e: AS EXPECTED; fixture identical before and after: YES
@@ -1213,7 +1213,7 @@ SCENARIO R07e: AS EXPECTED; fixture identical before and after: YES
   PASS R08: does NOT say OK
   PASS R08: does NOT say OK (after writers)
   PASS R08: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R08: finished in 1 s (limit 58 s, never hangs)
+  PASS R08: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R08: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R08: AS EXPECTED; fixture identical before and after: YES
@@ -1228,7 +1228,7 @@ SCENARIO R08: AS EXPECTED; fixture identical before and after: YES
   PASS R09: does NOT say OK
   PASS R09: does NOT say OK (after writers)
   PASS R09: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R09: finished in 0 s (limit 58 s, never hangs)
+  PASS R09: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R09: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R09: AS EXPECTED; fixture identical before and after: YES
@@ -1247,7 +1247,7 @@ SCENARIO R09: AS EXPECTED; fixture identical before and after: YES
   PASS R09b: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R09b: AS EXPECTED; fixture identical before and after: YES
 == R09c MANIFEST.sha256 is a folder: cannot check, exit 2
-    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5" (a folder has that name)
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/v5" (a folder has that name)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS R09c: exit code 2
@@ -1270,7 +1270,7 @@ SCENARIO R09c: AS EXPECTED; fixture identical before and after: YES
   PASS R09d: does NOT say OK
   PASS R09d: does NOT say OK (after writers)
   PASS R09d: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R09d: finished in 1 s (limit 58 s, never hangs)
+  PASS R09d: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R09d: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R09d: AS EXPECTED; fixture identical before and after: YES
@@ -1287,7 +1287,7 @@ SCENARIO R09d: AS EXPECTED; fixture identical before and after: YES
   PASS R10: does NOT say OK
   PASS R10: does NOT say OK (after writers)
   PASS R10: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R10: finished in 1 s (limit 58 s, never hangs)
+  PASS R10: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 17 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R10: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R10: AS EXPECTED; fixture identical before and after: YES
@@ -1303,7 +1303,7 @@ SCENARIO R10: AS EXPECTED; fixture identical before and after: YES
   PASS R10b: does NOT say OK
   PASS R10b: does NOT say OK (after writers)
   PASS R10b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R10b: finished in 0 s (limit 58 s, never hangs)
+  PASS R10b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 17 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R10b: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R10b: AS EXPECTED; fixture identical before and after: YES
@@ -1451,7 +1451,7 @@ SCENARIO R11e: AS EXPECTED; fixture identical before and after: YES
   PASS R11f: does NOT say OK
   PASS R11f: does NOT say OK (after writers)
   PASS R11f: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R11f: finished in 1 s (limit 58 s, never hangs)
+  PASS R11f: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R11f: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R11f: AS EXPECTED; fixture identical before and after: YES
@@ -1463,7 +1463,7 @@ SCENARIO R11f: AS EXPECTED; fixture identical before and after: YES
   PASS R11g: exit code 0
   PASS R11g: prints "changed by a PC writer (passes the strict shape check): data/vtes5-bots.js"
   PASS R11g: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R11g: finished in 1 s (limit 58 s, never hangs)
+  PASS R11g: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R11g: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R11g: AS EXPECTED; fixture identical before and after: YES
@@ -1714,7 +1714,7 @@ SCENARIO R17d: AS EXPECTED; fixture identical before and after: YES
   PASS R17e: does NOT say OK
   PASS R17e: does NOT say OK (after writers)
   PASS R17e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R17e: finished in 1 s (limit 58 s, never hangs)
+  PASS R17e: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17e: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R17e: AS EXPECTED; fixture identical before and after: YES
@@ -1726,7 +1726,7 @@ SCENARIO R17e: AS EXPECTED; fixture identical before and after: YES
   PASS R17f: exit code 0
   PASS R17f: prints "changed by a PC writer (passes the strict shape check): vtes5-config.js"
   PASS R17f: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R17f: finished in 1 s (limit 58 s, never hangs)
+  PASS R17f: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R17f: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R17f: AS EXPECTED; fixture identical before and after: YES
@@ -1817,7 +1817,7 @@ SCENARIO R18b: AS EXPECTED; fixture identical before and after: YES
   PASS R18c: does NOT say OK
   PASS R18c: does NOT say OK (after writers)
   PASS R18c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R18c: finished in 0 s (limit 58 s, never hangs)
+  PASS R18c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18c: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R18c: AS EXPECTED; fixture identical before and after: YES
@@ -1856,7 +1856,7 @@ SCENARIO R18e: AS EXPECTED; fixture identical before and after: YES
   PASS R18f: does NOT say OK
   PASS R18f: does NOT say OK (after writers)
   PASS R18f: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R18f: finished in 1 s (limit 58 s, never hangs)
+  PASS R18f: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18f: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R18f: AS EXPECTED; fixture identical before and after: YES
@@ -1869,7 +1869,7 @@ SCENARIO R18f: AS EXPECTED; fixture identical before and after: YES
   PASS R18g: does NOT say OK
   PASS R18g: does NOT say OK (after writers)
   PASS R18g: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R18g: finished in 1 s (limit 58 s, never hangs)
+  PASS R18g: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R18g: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R18g: AS EXPECTED; fixture identical before and after: YES
@@ -1907,7 +1907,7 @@ SCENARIO R18i: AS EXPECTED; fixture identical before and after: YES
   PASS R19a: exit code 0
   PASS R19a: prints "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
   PASS R19a: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R19a: finished in 3 s (limit 58 s, never hangs)
+  PASS R19a: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R19a: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R19a: AS EXPECTED; fixture identical before and after: YES
@@ -1920,7 +1920,7 @@ SCENARIO R19a: AS EXPECTED; fixture identical before and after: YES
   PASS R19b: does NOT say OK
   PASS R19b: does NOT say OK (after writers)
   PASS R19b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R19b: finished in 2 s (limit 58 s, never hangs)
+  PASS R19b: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R19b: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R19b: AS EXPECTED; fixture identical before and after: YES
@@ -1933,7 +1933,7 @@ SCENARIO R19b: AS EXPECTED; fixture identical before and after: YES
   PASS R19c: does NOT say OK
   PASS R19c: does NOT say OK (after writers)
   PASS R19c: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R19c: finished in 2 s (limit 58 s, never hangs)
+  PASS R19c: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R19c: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R19c: AS EXPECTED; fixture identical before and after: YES
@@ -1959,7 +1959,7 @@ SCENARIO R19d: AS EXPECTED; fixture identical before and after: YES
   PASS R19e: does NOT say OK
   PASS R19e: does NOT say OK (after writers)
   PASS R19e: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R19e: finished in 2 s (limit 58 s, never hangs)
+  PASS R19e: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R19e: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R19e: AS EXPECTED; fixture identical before and after: YES
@@ -2032,7 +2032,7 @@ SCENARIO R21b: AS EXPECTED; fixture identical before and after: YES
 == R22 -AfterWriters never relaxes anything else: a code file edited AND a valid data file, a missing data file, an extra file
     | PROBLEMS (3); 8 of 11 package files are identical:
     |   MISSING: data/vtes5-tokens.js (data file) (not in the folder)
-    |   EDITED: vtes5-live.js has SHA-256 0ebc9586c4b2de4ed68a4270684d8740a867563797242409df8f4ec03661fffc but the manifest says 02ef674da03502e128cb8ad603e5ba8f79cc46414c7aa79e2b8d5df7693ceeb4.
+    |   EDITED: vtes5-live.js has SHA-256 c8bc217d646cd284172f03fdcf49d99d7ec33aab959ecbe150cb299137c2a5e2 but the manifest says f9c3737db48629908b713f9ef53a2deb82659ca8aa871abf5758f8d65e94d393.
     |   EXTRA FILE: extra.txt is not part of the package
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js (SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5)
     | This script contains no write command, so it changed nothing in the folder.
@@ -2077,7 +2077,7 @@ SCENARIO R23: AS EXPECTED; fixture identical before and after: YES
 SCENARIO R24: AS EXPECTED; fixture identical before and after: YES
 == R25 junction-like link for the folder together with the switch: still LINK IN PATH
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5), so the files may really live somewhere else, 
+    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/v5), so the files may really live somewhere el
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS R25: exit code 1
@@ -2102,7 +2102,7 @@ SCENARIO R25: AS EXPECTED; fixture identical before and after: YES
   PASS R26: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R26: AS EXPECTED; fixture identical before and after: YES
 == R27 a path with .. and the switch: refused, exit 2
-    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work/w2/fix/Docs/v5/../v5" contains "..". Give the plain full path with no "." or ".." in it
+    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/88d6648f-528a-50b2-9045-36ac1227866b/scratchpad/work-verify/fix/Docs/v5/../v5" contains "..". Give the plain full path with no "." or ".." in it
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS R27: exit code 2
@@ -2110,7 +2110,7 @@ SCENARIO R26: AS EXPECTED; fixture identical before and after: YES
   PASS R27: does NOT say OK
   PASS R27: does NOT say OK (after writers)
   PASS R27: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS R27: finished in 1 s (limit 58 s, never hangs)
+  PASS R27: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS R27: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO R27: AS EXPECTED; fixture identical before and after: YES
