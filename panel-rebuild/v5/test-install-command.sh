@@ -33,6 +33,8 @@ echo "== T03 install with a missing parent folder"
 mk; N=$W/fix/Docs/nope/deeper/v5; snap $W/b; O=$(run "$INSTALL" "$N" "$W/fix/pkgsrc"); echo "$O" | sed 's/^/    | /' | cut -c1-200; has "$O" "the parent folder does not exist"; chk "T03a: refused, says the parent is missing" $?; snap $W/a; same $W/b $W/a; chk "T03b: nothing created (no stray parent folders)" $?
 echo "== T04 install with a short name"
 mk; snap $W/b; O=$(cd $W/fix/Desktop && run "$INSTALL" "v5" "$W/fix/pkgsrc"); echo "$O" | sed 's/^/    | /' | cut -c1-200; has "$O" "not a full path"; chk "T04a: refused" $?; snap $W/a; same $W/b $W/a; chk "T04b: nothing written, the Desktop is identical" $?
+echo "== T04b install with a full path inside a Desktop folder"
+mk; snap $W/b; O=$(run "$INSTALL" "$W/fix/Desktop/VTES-PANEL-v5" "$W/fix/pkgsrc"); echo "$O" | sed 's/^/    | /' | cut -c1-200; has "$O" "inside a Desktop folder"; chk "T04c: refused" $?; snap $W/a; same $W/b $W/a; chk "T04d: nothing written, the Desktop is identical" $?
 echo "== T05 install when the package folder is wrong (missing): stops after the folder is made? it must not leave a half install silently"
 mk; N=$W/fix/Docs/v5; O=$(run "$INSTALL" "$N" "$W/fix/no-such-package"); echo "$O" | sed 's/^/    | /' | cut -c1-200; has "$O" "exit=1"; chk "T05a: the copy error is reported, exit not 0" $?
 O=$(runfile -Path "$N" -ExpectManifestSha256 $GOOD); echo "$O" | sed 's/^/    | /' | cut -c1-160; has "$O" "CANNOT CHECK"; chk "T05b: VERIFY does not call the empty folder OK" $?

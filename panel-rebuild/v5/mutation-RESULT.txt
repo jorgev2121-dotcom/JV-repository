@@ -1,5 +1,10 @@
-M1-future-dates-trusted: WORLDS: 115 of 126 pass
-M2-writer-counts-as-proof: WORLDS: 123 of 126 pass
-M3-fixed-15-minute-limit: WORLDS: 123 of 126 pass
+M1-future-dates-trusted: WORLDS: 118 of 129 pass
+M2-writer-counts-as-proof: WORLDS: 126 of 129 pass
+M3-fixed-15-minute-limit: WORLDS: 126 of 129 pass
 M4-late-bot-still-green: WORLDS: 128 of 129 pass
 M5-vtes-link-always: WORLDS: 123 of 129 pass
+M6-267009-is-failed: FIXES-R4: 74 of 75 pass (/tmp/v5vt/all/mut/M6-267009-is-failed/package)
+M7-housekeeping-green-when-fresh: FIXES-R4: 74 of 75 pass (/tmp/v5vt/all/mut/M7-housekeeping-green-when-fresh/package)
+M8-daily-bot-capped-at-an-hour: FIXES-R4: 71 of 75 pass (/tmp/v5vt/all/mut/M8-daily-bot-capped-at-an-hour/package)
+M9-two-answers-on-a-card: FIXES-R4: 71 of 75 pass (/tmp/v5vt/all/mut/M9-two-answers-on-a-card/package)
+M10-search-reads-state-lines: FIXES-R4: 72 of 75 pass (/tmp/v5vt/all/mut/M10-search-reads-state-lines/package)

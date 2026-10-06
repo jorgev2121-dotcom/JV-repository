@@ -11,7 +11,7 @@
   SHA-256 of 16 files + folder list before == after: IDENTICAL
   PASS T01d: everything outside the new folder is identical (Desktop with the real v3, repo, package source, sibling folders)
 == T02 install onto an EXISTING folder: stops, copies nothing, existing folder untouched
-    | New-Item: An item with the specified name /tmp/v5vt/w2/fix/Docs/other-folder already exists.
+    | New-Item: An item with the specified name /tmp/v5vt/w3/fix/Docs/other-folder already exists.
     | exit=1
   PASS T02a: the error says it already exists
   PASS T02b: exit code is not 0
@@ -29,11 +29,17 @@
   PASS T04a: refused
   SHA-256 of 16 files + folder list before == after: IDENTICAL
   PASS T04b: nothing written, the Desktop is identical
+== T04b install with a full path inside a Desktop folder
+    | Exception: inside a Desktop folder
+    | exit=1
+  PASS T04c: refused
+  SHA-256 of 16 files + folder list before == after: IDENTICAL
+  PASS T04d: nothing written, the Desktop is identical
 == T05 install when the package folder is wrong (missing): stops after the folder is made? it must not leave a half install silently
-    | Copy-Item: Cannot find path '/tmp/v5vt/w2/fix/no-such-package' because it does not exist.
+    | Copy-Item: Cannot find path '/tmp/v5vt/w3/fix/no-such-package' because it does not exist.
     | exit=1
   PASS T05a: the copy error is reported, exit not 0
-    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5vt/w2/fix/Docs/v5"
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5vt/w3/fix/Docs/v5"
     | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS T05b: VERIFY does not call the empty folder OK
@@ -61,4 +67,4 @@
 == T10 install, edit a file, undo still removes only the one folder (the order saves the edited file first)
   PASS T10a: VERIFY names the edited file before the undo
 
-INSTALL/UNDO COMMAND TESTS: 26 of 26 pass
+INSTALL/UNDO COMMAND TESTS: 28 of 28 pass

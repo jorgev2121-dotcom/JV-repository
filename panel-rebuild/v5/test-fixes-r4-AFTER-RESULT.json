@@ -1,7 +1,7 @@
 {
  "pkg": "/home/user/JV-repository/panel-rebuild/v5/package",
- "pass": 71,
- "total": 71,
+ "pass": 75,
+ "total": 75,
  "results": [
   {
    "id": "F2",
@@ -402,6 +402,30 @@
   {
    "id": "F14",
    "name": "RAMBO step \"save a JOB file\" is click by click (File Explorer, right-click, New, Text Document)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F14",
+   "name": "Copy packet and open for LOCAL: the status line hands Jorge no command or file path job (it said: Copied. Hand the packet to the desktop executor (RAMBO) with the blue RAMBO button at the )",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F14",
+   "name": "Copy packet and open for CODEX: the status line hands Jorge no command or file path job (it said: Copied. Open Windows Terminal, type codex, press Enter, then press Ctrl+V.)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F14",
+   "name": "Copy packet and open for RAMBO: the status line hands Jorge no command or file path job (it said: Copied. Open the Claude desktop app, click the Code tab, click in the message box and pres)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "id": "F14",
+   "name": "Copy packet and open for GROK: the status line hands Jorge no command or file path job (it said: Copied. Paste the packet into grok.com. The desktop executor (RAMBO) can run Second-Opinio)",
    "status": "PASS",
    "why": ""
   },

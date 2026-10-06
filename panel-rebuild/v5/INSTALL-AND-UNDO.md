@@ -12,18 +12,18 @@ There is no installer script and no rollback script. They were removed on purpos
    - It is not the Desktop, and is not inside the Desktop.
    - It is not inside the folder that holds the real v3 launcher (`VTES-LLM-LAUNCHER_v3.html`).
    - It is not inside a git checkout (for example `C:\Users\JV\JV-repository`).
-2. **Run this one command in PowerShell.** Put the two full paths from the order in the two quoted places. It creates the NEW folder (with no -Force, so an existing folder stops it) and copies the package in. It stops at the first error and copies nothing if the folder already exists.
+2. **Run this one command in PowerShell.** Put the two full paths from the order in the two quoted places. It refuses a path that is not a full path, a path with a Desktop folder in it, and a path whose parent folder is missing. It creates the NEW folder (with no -Force, so an existing folder stops it) and copies the package in. It stops at the first error and copies nothing if the folder already exists. It cannot see whether the path is inside a git checkout or inside the folder that holds the real v3 launcher: step 1 is how you make sure of those two.
 
 <!-- INSTALL-CMD -->
 ```
-$New='FULL PATH OF THE NEW FOLDER'; $Pkg='FULL PATH OF THE package FOLDER'; if ($New -notmatch '^[A-Za-z]:[\\/]') { throw 'not a full path' }; if (-not (Test-Path -LiteralPath (Split-Path $New -Parent) -PathType Container)) { throw 'the parent folder does not exist' }; New-Item -ItemType Directory -Path $New -ErrorAction Stop | Out-Null; Copy-Item -Path (Join-Path $Pkg '*') -Destination $New -Recurse -ErrorAction Stop
+$New='FULL PATH OF THE NEW FOLDER'; $Pkg='FULL PATH OF THE package FOLDER'; if ($New -notmatch '^[A-Za-z]:[\\/]') { throw 'not a full path' }; if ($New -match '[\\/]Desktop([\\/]|$)') { throw 'inside a Desktop folder' }; if (-not (Test-Path -LiteralPath (Split-Path $New -Parent) -PathType Container)) { throw 'the parent folder does not exist' }; New-Item -ItemType Directory -Path $New -ErrorAction Stop | Out-Null; Copy-Item -Path (Join-Path $Pkg '*') -Destination $New -Recurse -ErrorAction Stop
 ```
 
 3. **Run the check straight away.** It only reads. It writes nothing anywhere.
 
 <!-- VERIFY-CMD -->
 ```
-powershell -NoProfile -ExecutionPolicy Bypass -File "FULL PATH OF panel-rebuild\v5\VERIFY-v5.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 358a288e9f928a8d7611eb276c301ee80cf54f2b2d5d9fe0f7abebbdc5e3bd65
+powershell -NoProfile -ExecutionPolicy Bypass -File "FULL PATH OF panel-rebuild\v5\VERIFY-v5.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 8d3632b3b0e0168dcb56e13a555b699cd460556e4b2f84d5bd3830afe0fa4a27
 ```
 
 4. **Read the answer.**

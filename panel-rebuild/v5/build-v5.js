@@ -56,6 +56,10 @@ rep('rambo-slot', '<h1>VTES LLM Launcher</h1>\n', '<h1>VTES LLM Launcher</h1>\n<
 rep('url-llm06', "url:'https://chatgpt.com'", "url:''");
 // F13: AirDrop does not exist on a Windows PC
 rep('airdrop', 'Send the packet with AirDrop or Notes first.', 'Get the packet onto the iPhone first (see the steps on this card).');
+// F14: the line printed after "Copy packet and open" must not hand Jorge a command or a file job either (LOCAL, CODEX, RAMBO)
+rep('how-local', "how:'Save the packet as JOB-*.md in G:\\\\My Drive\\\\VTES-Inbox-LOCAL with CLASS: and PROMPT: lines.'", "how:'Hand the packet to the desktop executor (RAMBO) with the blue RAMBO button at the top; it saves the job file for you.'");
+rep('how-codex', "how:'Windows Terminal: codex exec \"<task>\" then paste.'", "how:'Open Windows Terminal, type codex, press Enter, then press Ctrl+V.'");
+rep('how-rambo', "how:'Save the packet as JOB-*.md in G:\\\\My Drive\\\\VTES-Inbox.'", "how:'Open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.'");
 // F15: the typed schedule on repair row 10 keeps its words and gets a visible label
 rep('row10', '<td>Burn-rate agent installed, runs 7:00 AM daily</td>', '<td>Burn-rate agent installed, runs 7:00 AM daily <span class="v5typed">(typed note 2026-10-02, Eastern time)</span></td>');
 // --- start: top block, first load of the data files, then every 60 seconds ---

@@ -9,7 +9,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V01: VERIFY wrote nothing (whole fixture identical before and after)
 == V02 edited code file (one byte appended)
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: vtes5-ui.js has SHA-256 8e1dde1e946b0b7d3b68aae34537c98325beb3616bdd36fa47256c435955b7d1 but the manifest says 43ce99f99e46ae797271764acc97886ea93ba4ee039f007c4a218b09fdbdc258
+    |   EDITED: vtes5-ui.js has SHA-256 9baba3dad8e0b2e80795d487fd15ec54764d6f3ad1038b8bd459734c4d7b5c2b but the manifest says 8b1efd89c657681b82aa98b5d0edf50fd19d9ff671c9640b981fb9e88fbfe154
     | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V02: exit code 1
@@ -20,7 +20,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V02: VERIFY wrote nothing (whole fixture identical before and after)
 == V03 edited file with the same size (one byte flipped)
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 4362bd07d2d7937859b10e7e889eaedf2d98d3c1553f18afe93adba53b2fd6a2 but the manifest says c83f6793b0ecb6dc8ce1cdf72dea60c94a309738f5bb606a67f18696946e3b55
+    |   EDITED: vtes5-live.js has SHA-256 2b3c68caa0102b2a6194d32f0179bbe5fed4b3a3fd314bc99b261d1afb316b64 but the manifest says 30fb758bc444200530f3c2502d39b3ef9bab574cf0b2511db381a53e91b1df15
     | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V03: exit code 1
@@ -137,7 +137,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V12: VERIFY wrote nothing (whole fixture identical before and after)
 == V13 UNREADABLE manifest (run as nobody)
-    | CANNOT CHECK: MANIFEST.sha256 cannot be read: Exception calling "ReadAllLines" with "1" argument(s): "Access to the path '/tmp/v5vt/w/fix/Docs/v5/MANIFEST.sha256' is denied."
+    | CANNOT CHECK: MANIFEST.sha256 cannot be read: Exception calling "ReadAllLines" with "1" argument(s): "Access to the path '/tmp/v5vt/all/verify/fix/Docs/v5/MANIFEST.sha256' is denied."
     | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V13: exit code 2
@@ -163,7 +163,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V14: VERIFY wrote nothing (whole fixture identical before and after)
 == V15 missing manifest
-    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5vt/w/fix/Docs/v5"
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5vt/all/verify/fix/Docs/v5"
     | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V15: exit code 2
@@ -172,7 +172,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   SHA-256 of 15 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V15: VERIFY wrote nothing (whole fixture identical before and after)
 == V16 folder does not exist
-    | CANNOT CHECK: the folder "/tmp/v5vt/w/fix/Docs/nope" does not exist (or is not a folder)
+    | CANNOT CHECK: the folder "/tmp/v5vt/all/verify/fix/Docs/nope" does not exist (or is not a folder)
     | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V16: exit code 2
@@ -299,7 +299,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V24a: VERIFY wrote nothing (whole fixture identical before and after)
   (without the expected manifest hash a doctored manifest passes: that is why the order carries the hash)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   MANIFEST CHANGED: its SHA-256 is 9e332f0eddf181e9227650fb467024b7f1e911ba2cc5885de00e2d63f2f718c4 but the order expects 358a288e9f928a8d7611eb276c301ee80cf54f2b2d5d9fe0f7abebbdc5e3bd65 (so the
+    |   MANIFEST CHANGED: its SHA-256 is 235a17390bf92c66ae92a829ee8a49b3975efbca8a2efe79077272c4a2a1020c but the order expects 8d3632b3b0e0168dcb56e13a555b699cd460556e4b2f84d5bd3830afe0fa4a27 (so the
     | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V24b: exit code 1
@@ -316,7 +316,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V25a: VERIFY wrote nothing (whole fixture identical before and after)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   MANIFEST CHANGED: its SHA-256 is 358a288e9f928a8d7611eb276c301ee80cf54f2b2d5d9fe0f7abebbdc5e3bd65 but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the
+    |   MANIFEST CHANGED: its SHA-256 is 8d3632b3b0e0168dcb56e13a555b699cd460556e4b2f84d5bd3830afe0fa4a27 but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the
     | Nothing was written anywhere. Nothing was changed.
     | exit=1
   PASS V25b: exit code 1
@@ -342,7 +342,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V27: VERIFY wrote nothing (whole fixture identical before and after)
   PASS V27b: the real v3 launcher in the fixture Desktop is byte-identical afterwards
 == V28 Verify pointed at the Desktop folder (not a package): reports problems, writes nothing
-    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5vt/w/fix/Desktop"
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5vt/all/verify/fix/Desktop"
     | Nothing was written anywhere. Nothing was changed.
     | exit=2
   PASS V28: exit code 2

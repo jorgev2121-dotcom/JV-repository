@@ -125,6 +125,9 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
     T('F14', 'LOCAL steps do not hand Jorge a file-and-command job (no "CLASS: line and a PROMPT: line"); they say the desktop executor (RAMBO) does it', !/CLASS: line and a PROMPT: line/.test(local) && /desktop executor \(RAMBO\)/.test(local), local);
     T('F14', 'GROK steps do not tell Jorge to run Second-Opinion.ps1 -Prompt; they say the desktop executor (RAMBO) runs it', !/run Second-Opinion\.ps1 -Prompt/.test(grok) && /desktop executor \(RAMBO\)/.test(grok) && /you type nothing/i.test(grok), grok);
     T('F14', 'RAMBO step "save a JOB file" is click by click (File Explorer, right-click, New, Text Document)', /right-click/.test(rambo) && /Text Document/.test(rambo) && !/save the packet as JOB-something\.md in G:/i.test(rambo), rambo);
+    for (const [to, bad] of [['LOCAL', /CLASS:|JOB-\*\.md|G:\\/], ['CODEX', /codex exec|<task>/], ['RAMBO', /JOB-\*\.md|G:\\/], ['GROK', /Second-Opinion\.ps1 -Prompt/]]) {
+      await p.selectOption('#to', to); await p.click('#go'); await sleep(p, 300); const stt = await p.innerText('#status');
+      T('F14', 'Copy packet and open for ' + to + ': the status line hands Jorge no command or file path job (it said: ' + stt.slice(0, 90) + ')', !bad.test(stt) && stt.length > 20, stt); }
     T('F17', 'the footer no longer claims "your v3 file is untouched"', !/untouched/i.test(body) && /TRK-2026-9910-B . v5 . built .* . CURRENT\./.test(body.replace(/\s+/g, ' ')), (body.match(/.{40}CURRENT.{60}/) || [''])[0]);
     await ctx.close(); }
   // ---------- F15: repair row 10 and times with no zone

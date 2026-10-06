@@ -1,7 +1,7 @@
 {
  "pkg": "/tmp/claude-0/-home-user-JV-repository/d8afd7cd-0df8-5cf7-92fa-c8a3bfdbb605/scratchpad/before-pkg",
  "pass": 11,
- "total": 71,
+ "total": 75,
  "results": [
   {
    "id": "F2",
@@ -373,7 +373,7 @@
    "id": "F12",
    "name": "\"Copy packet and open\" with To = LLM-06 opens no page (v3 opened chatgpt.com)",
    "status": "FAIL",
-   "why": "file:///tmp/v5t-h4AnQd/VTES-LLM-LAUNCHER_v5.html,chrome-error://chromewebdata/"
+   "why": "file:///tmp/v5t-510zUm/VTES-LLM-LAUNCHER_v5.html,chrome-error://chromewebdata/"
   },
   {
    "id": "F13",
@@ -404,6 +404,30 @@
    "name": "RAMBO step \"save a JOB file\" is click by click (File Explorer, right-click, New, Text Document)",
    "status": "FAIL",
    "why": "Steps:On the PC, open the Claude desktop app (or click the green D icon near the clock).Click the Code tab.If the app lists several sessions, pick the one named RAMBO (typed advice, UNVERIFIED).Click in the message box.Press Ctrl+V.Or save the packet as JOB-something.md in G:\\My Drive\\VTES-Inbox."
+  },
+  {
+   "id": "F14",
+   "name": "Copy packet and open for LOCAL: the status line hands Jorge no command or file path job (it said: Copied. Save the packet as JOB-*.md in G:\\My Drive\\VTES-Inbox-LOCAL with CLASS: and PROMPT)",
+   "status": "FAIL",
+   "why": "Copied. Save the packet as JOB-*.md in G:\\My Drive\\VTES-Inbox-LOCAL with CLASS: and PROMPT: lines."
+  },
+  {
+   "id": "F14",
+   "name": "Copy packet and open for CODEX: the status line hands Jorge no command or file path job (it said: Copied. Windows Terminal: codex exec \"<task>\" then paste.)",
+   "status": "FAIL",
+   "why": "Copied. Windows Terminal: codex exec \"<task>\" then paste."
+  },
+  {
+   "id": "F14",
+   "name": "Copy packet and open for RAMBO: the status line hands Jorge no command or file path job (it said: Copied. Save the packet as JOB-*.md in G:\\My Drive\\VTES-Inbox.)",
+   "status": "FAIL",
+   "why": "Copied. Save the packet as JOB-*.md in G:\\My Drive\\VTES-Inbox."
+  },
+  {
+   "id": "F14",
+   "name": "Copy packet and open for GROK: the status line hands Jorge no command or file path job (it said: Copied. On the PC run Second-Opinion.ps1 -Prompt \"<question>\", or paste the packet into gr)",
+   "status": "FAIL",
+   "why": "Copied. On the PC run Second-Opinion.ps1 -Prompt \"<question>\", or paste the packet into grok.com."
   },
   {
    "id": "F17",

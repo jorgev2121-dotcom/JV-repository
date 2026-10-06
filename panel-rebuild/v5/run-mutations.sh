@@ -17,5 +17,5 @@ mut M5-vtes-link-always test-v5-worlds vtes5-ui.js "if (V.schemeRegistered() && 
 mut M6-267009-is-failed test-fixes-r4 vtes5-live.js "if (b.last_result === RES_RUNNING) {" "if (false) {"
 mut M7-housekeeping-green-when-fresh test-fixes-r4 vtes5-live.js "if (d.report_delivered === false) {" "if (false) {"
 mut M8-daily-bot-capped-at-an-hour test-fixes-r4 vtes5-live.js "var MAX_BOT_SEC = 7 * 24 * 3600;" "var MAX_BOT_SEC = 3600;"
-mut M9-two-answers-on-a-card test-fixes-r4 vtes5-ui.js "var cs = m.bot ? comboState(m) :" "var cs = false ? comboState(m) :"
+mut M9-two-answers-on-a-card test-fixes-r4 vtes5-ui.js "cls = RANK[cb] > RANK[ce] ? cb : ce," "cls = ce,"
 mut M10-search-reads-state-lines test-fixes-r4 vtes5-ui.js "c.setAttribute('data-s', t3[gi][i]" "c.setAttribute('data-x', t3[gi][i]"

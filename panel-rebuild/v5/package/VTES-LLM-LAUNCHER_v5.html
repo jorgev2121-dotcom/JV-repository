@@ -64,7 +64,7 @@ h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 /* flaw F5: on laptops and phones the tab bar is ONE compact row that scrolls sideways, so the RAMBO paste button (directly under the title) is on the first screen. Wide screens keep the wrapped bar. */
 @media(max-width:1500px){.tabs{flex-wrap:nowrap;overflow-x:auto;padding:6px 0;gap:6px;-webkit-overflow-scrolling:touch}.tab{flex:0 0 auto;white-space:nowrap}h1{margin:8px 0 2px;font-size:26px}.v5rambo .btn{font-size:19px;padding:10px 14px;margin:0}}
 </style></head><body>
-<script>window.VTES5_BUILT = "2026-10-06T10:21:58Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
+<script>window.VTES5_BUILT = "2026-10-06T10:38:19Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
 <div class="tabs" id="tabs"></div>
 <h1>VTES LLM Launcher</h1>
 <div class="v5rambo" id="v5rambo"></div>
@@ -174,9 +174,9 @@ var PICK=[
 ['Long documents, CDM analysis','LLM-03','Cowork is the analyst. It cannot receive from the bus: you paste.'],
 ['Repo work, QC, research, dispatch','LLM-02','Cloud Claude Code. Cannot touch the PC.']];
 var WIN=[];LLMS.forEach(function(w){WIN.push({id:w.id,n:w.n,url:w.url,how:w.how})});
-WIN.push({id:'LOCAL',n:'LOCAL (Ollama)',url:'',how:'Save the packet as JOB-*.md in G:\\My Drive\\VTES-Inbox-LOCAL with CLASS: and PROMPT: lines.'});
-WIN.push({id:'CODEX',n:'CODEX',url:'',how:'Windows Terminal: codex exec "<task>" then paste.'});
-WIN.push({id:'RAMBO',n:'CLAUDE / RAMBO',url:'',how:'Save the packet as JOB-*.md in G:\\My Drive\\VTES-Inbox.'});
+WIN.push({id:'LOCAL',n:'LOCAL (Ollama)',url:'',how:'Hand the packet to the desktop executor (RAMBO) with the blue RAMBO button at the top; it saves the job file for you.'});
+WIN.push({id:'CODEX',n:'CODEX',url:'',how:'Open Windows Terminal, type codex, press Enter, then press Ctrl+V.'});
+WIN.push({id:'RAMBO',n:'CLAUDE / RAMBO',url:'',how:'Open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.'});
 WIN.push({id:'GROK',n:'GROK',url:'',how:'Paste the packet into grok.com. The desktop executor (RAMBO) can run Second-Opinion.ps1 for you.'});
 function win(id){return WIN.filter(function(w){return w.id===id})[0]}
 function $(i){return document.getElementById(i)}
