@@ -1,0 +1,337 @@
+{
+ "total": 55,
+ "pass": 55,
+ "fail": 0,
+ "results": [
+  {
+   "world": "NONE",
+   "name": "no JS errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "no contradictory typed timings (every 2 minutes / every 15 minutes / 15-minute)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "no placeholder address example.com",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "age stamp present",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "read-me-first panel open with 7 numbered sentences",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "Miami-Dade has 22 proof links",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "Grok card states no bots and a next step",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "every window card has plain name first (RAMBO card)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "paste button on LLM-01 gives a visible result",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "paste button on LLM-03 gives a visible result",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "paste button on LLM-05 gives a visible result",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "all 6 data badges red (NO DATA), none green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "no executor chip is green; none up",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "every card state is red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "vtes:// is NOT clickable and RAMBO shows the one-step fix",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "Miami counter says unknown of 300",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "token monitor and housekeeping say NO DATA, no invented numbers",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "tick text says interval unknown",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "NONE",
+   "name": "completion percentage says NO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "no JS errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "no contradictory typed timings (every 2 minutes / every 15 minutes / 15-minute)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "no placeholder address example.com",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "age stamp present",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "read-me-first panel open with 7 numbered sentences",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "Miami-Dade has 22 proof links",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "Grok card states no bots and a next step",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "every window card has plain name first (RAMBO card)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "paste button on LLM-01 gives a visible result",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "paste button on LLM-03 gives a visible result",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "paste button on LLM-05 gives a visible result",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "six data badges green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "LLM-01 and LLM-02 state green from heartbeat",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "LLM-07 state is red and says DOWN",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "LLM-03 (not in heartbeat) still red NO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "timing read from file: every 5 minutes",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "vtes:// link now clickable for RAMBO only after registered=true",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "token numbers shown from file",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "housekeeping last report shown",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "Miami counter reads 7 of 300",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "completion shows 75% (9 of 12 checks)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FRESH",
+   "name": "repairs come from state file",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "no JS errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "no contradictory typed timings (every 2 minutes / every 15 minutes / 15-minute)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "no placeholder address example.com",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "age stamp present",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "read-me-first panel open with 7 numbered sentences",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "Miami-Dade has 22 proof links",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "Grok card states no bots and a next step",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "every window card has plain name first (RAMBO card)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "paste button on LLM-01 gives a visible result",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "paste button on LLM-03 gives a visible result",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "paste button on LLM-05 gives a visible result",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "heartbeat badge says STALE since and is red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "token monitor says STALE and warns old numbers",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STALE",
+   "name": "no executor chip is green when heartbeat is stale",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

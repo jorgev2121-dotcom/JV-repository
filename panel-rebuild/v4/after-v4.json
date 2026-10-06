@@ -1,0 +1,567 @@
+{
+ "total": 80,
+ "pass": 80,
+ "fail": 0,
+ "results": [
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "page",
+   "label": "VTES-LLM-LAUNCHER_v4.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "local-link",
+   "label": "VTES-REMINDERS.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "local-link",
+   "label": "VTES-PANEL.html",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://docs.google.com/document/d/1tqRhgNV-x-ZNzP5g_iTnPb3AwdVZgKTV6T",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1t48b9mvp53sicxbsYvd3mBjuBo8xfY0_/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1dnVieZEEC2H3xNI2lVqAnWfme0mK98kO/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1xzBT1GCYkFsNpCsC5FFpaCMwBrisGQAZ/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1Z5m-8lQdDyroTYNqEl5VzeSOn4pUOn3s/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1YlTorY-w6Gff0TBiHmMAtkccEaWz1qvj/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/103RjsXYBPMTB7RXrVca93QRPFPMfae9l/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1Sett3KYNpxOwcW2ddSDkeOlZe9xUg9Nu/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1xCFNgzvou6vsE82Bm65QaXT3Ns6wIc1n/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/12CCgmd1jcFomJZDLnDL0-3anuHiy0XYK/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1IU-wcx_5fVuKEJPAJw0j-2_zbEC5lubz/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1ArxF3o9ZfdHRB9cagpo6aLYsumG_hesk/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1aMjJj4B_RTnsuEK7zpUoAz2JRj1rTUWH/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1wGKsjrwvo7q34eTKAO7rlYvroASMVElX/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1mSp3dlmvxCkk80fGYOAe3po3-kRwDGmn/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1U6DHLvirKxeYc8P18-9TV6A4K-O4Qnp4/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1CJWObVncV2WtWtghlVyXQs5mWuSdsW0D/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1206ihC17HIk2IFKnYDJrFqySLpKml_gv/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1eZlpGm5o_QhS-ymx_A-Lnrsjk8yrKRMl/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1xqnUBSml1puN0caJAeiWZCcBo85QHS2L/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1c1dTYOoPHHXHGBu__dPUNQuwjUPDwU8p/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1wRPHDSjnRZtF5_0JkIInLFm4J3rFLA4x/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/file/d/1xDlwM42EFkLEyskPEmMh_LRRgp-WFVQ5/view",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://claude.ai/code/session_01CAqZRvV1WjuuxZCNwrE9Gf",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://claude.ai",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://chatgpt.com",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://grok.com",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://gemini.google.com",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://copilot.microsoft.com",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/drive/folders/1hI2TmVn86Cnh7h_6s93TG0KE1QzVCV",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "https-link",
+   "label": "https://drive.google.com/drive/folders/1NDadXJz9eKpRbmYrE-CRH2RtKbynQC",
+   "status": "PASS",
+   "why": "syntax ok; site not fetched from cloud"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "🖥️ 01 RAMBO desktopNO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "☁️ 02 Cloud keeperNO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "🤝 03 CoworkNO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "💬 04 ChatNO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "📱 05 iPhoneNO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "🧭 06 CodexNO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "💻 LocalNO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "🔮 07 GrokNO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "♊ 08 GeminiNO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "🪟 10 CopilotNO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "🎙",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "🔊",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Speechify",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Console",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Dir",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Panels",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Map",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Dock",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Flow chart",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Wiring diagram",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Subscriptions",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Copy status report",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Copy find-me line",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "🎙 Tap to dictate",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Copy text",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Copy + open chat",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "🔊 Read aloud",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Open Speechify",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Save bot",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "📎 Attach",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Clear this pad",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Choose folder",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Reconnect",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Saving: ON",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Download pad",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Add answer to pad",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "🔊 Read it aloud",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Open in Speechify",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Copy packet and open",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Just show the packet",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Copy hand-off packet for Claude Code Desktop Executor",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Copy hand-off packet for Claude Code Cloud Executor",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Copy hand-off packet for Claude Cowork",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Copy hand-off packet for Claude Chat",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Copy hand-off packet for Claude iPhone",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  },
+  {
+   "page": "VTES-LLM-LAUNCHER_v4.html",
+   "kind": "button",
+   "label": "Copy hand-off packet for Codex CLI Executor",
+   "status": "PASS",
+   "why": "hidden button, click ran without error"
+  }
+ ]
+}

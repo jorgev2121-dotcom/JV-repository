@@ -15,7 +15,7 @@ Write it atomically: write to NAME.js.tmp then rename, so the page never reads h
 
 ## The six files
 1. data\vtes4-heartbeat.js   NAME=heartbeat   writer: the poller (RAMBO scheduled task)   LIMIT 15 minutes
-   Fields: interval_sec (number, the REAL tick, e.g. 300), executors: { "LLM-01": {"state":"up|down|unknown","last_seen":"ISO"}, ... }
+   Fields: interval_sec (number, the REAL tick, e.g. 300), vtes_scheme_registered (true only after VTES-Open.ps1 -Install succeeded on the PC; until true the panel shows vtes:// addresses as not available, never as links), executors: { "LLM-01": {"state":"up|down|unknown","last_seen":"ISO"}, ... } with keys LLM-01, LLM-02, LLM-03, LLM-04, LLM-05, LLM-06, LLM-07, LLM-08, LLM-10 and LOCAL. An executor older than 3 ticks (3 x interval_sec) shows STALE
    Panel uses interval_sec for every "runs every N" sentence (no typed timings anywhere) and executors[].state for the header dots and card states.
 2. data\vtes4-state.js       NAME=state       writer: the STATE-OF-PLAY exporter   LIMIT 26 hours
    Fields: open_items (n), in_progress (n), blocked (n), repairs: [{"id","text","status":"OPEN|DONE"}], money: [{"item","status"}]
