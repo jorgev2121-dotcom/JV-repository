@@ -258,10 +258,10 @@
     return t.replace(new RegExp('[\\u00a0\\u1680\\u180e\\u2000-\\u200a\\u202f\\u205f\\u3000]', 'g'), ' ');
   }
   function luhn(d) { var sum = 0, alt = false; for (var i = d.length - 1; i >= 0; i--) { var n = +d.charAt(i); if (alt) { n *= 2; if (n > 9) { n -= 9; } } sum += n; alt = !alt; } return sum % 10 === 0; }
-  var TOKC = '[0-9OoIl|SBZ]*[0-9][0-9OoIl|SBZ]*', SEPC = '(?:[ \\t]*[-\\u2010-\\u2015\\u2212\\u2043\\ufe58\\ufe63.\\u00b7\\u2022_/][ \\t]*|[ \\t]{1,3})';
+  var TOKC = '[0-9OoIl|SBZ]*[0-9][0-9OoIl|SBZ]*', SEPC = '(?:\\s*[-\\u2010-\\u2015\\u2212\\u2043\\ufe58\\ufe63.\\u00b7\\u2022_/]\\s*|\\s{1,3})';
   var SSN_WORD = /(?:^|[^a-z])(?:ssn|ss\s*#|s\.\s*s\.\s*n|social\s*sec|soc\.?\s*sec|ss)(?![a-z])/i;
   var DOB_WORD = /(?:^|[^a-z])(?:dob|d\.o\.b|date\s+of\s+birth|born)(?![a-z])/i, DATE_PAT = /\d{1,2}\s*[\/\-.]\s*\d{1,2}\s*[\/\-.]\s*\d{2,4}|\d{4}\s*-\s*\d{1,2}\s*-\s*\d{1,2}|(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}/i;
-  var WORDS = /\b(?:zero|oh|one|two|three|four|five|six|seven|eight|nine)(?:[\s,.\-]+(?:zero|oh|one|two|three|four|five|six|seven|eight|nine)\b){8,}/i;
+  var DW = '(?:zero|oh|one|two|three|four|five|six|seven|eight|nine)', WORDS = new RegExp('\\b' + DW + '(?:[\\s,.\\-]+(?:(?:dash|hyphen)[\\s,.\\-]+)?' + DW + '\\b){8,}', 'i');
   function runsOf(t) {
     var re = new RegExp('(?:' + TOKC + ')(?:' + SEPC + TOKC + ')*', 'g'), out = [], m;
     while ((m = re.exec(t)) !== null) {
@@ -280,7 +280,9 @@
       var isNine = (r.real === 9 || r.like === 9), folio = (r.real === 13 && r.realGroups.join('-') === '2-4-3-4');
       var zip4 = (r.realGroups.join('-') === '5-4' && /-/.test(r.txt) && new RegExp('(?:^|[^A-Za-z])(' + STATES.join('|') + ')[ ,]*$').test(before) && !SSN_WORD.test(near));
       var permit = (r.realGroups.join('-') === '4-5' && /^(19|20)\d\d/.test(r.digits) && !SSN_WORD.test(near));
-      if (isNine && !zip4 && !permit) { why.push('a run of 9 digits'); }
+      /* the run may have other digits joined on in front or behind ("Job 1262 123-45-6789"), so the SSN, ITIN and EIN shapes are also looked for INSIDE the run: one group of 9, or the groups 3-2-4, 3-3-3 or 2-7 next to each other */
+      var shape = ' ' + r.realGroups.join(' ') + ' ', inside = /(^| )9 /.test(shape) || / 3 2 4 | 3 3 3 | 2 7 /.test(shape);
+      if ((isNine && !zip4 && !permit) || inside) { why.push('a run of 9 digits'); }
       if (r.real >= 15 && r.real <= 19) { why.push('a card-like number'); }
       else if ((r.real === 13 || r.real === 14) && !folio && luhn(r.digits)) { why.push('a card-like number'); }
       if (r.real >= 9 && SSN_WORD.test(near)) { why.push('an SSN word beside 9 or more digits'); }

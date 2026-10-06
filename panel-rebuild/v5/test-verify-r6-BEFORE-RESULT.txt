@@ -32,21 +32,21 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V03: VERIFY wrote nothing (whole fixture identical before and after)
 == V04 data file rewritten by a writer (fix round 6, flaw 11: expected, answer is still OK)
-    | OK: all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were rewritten by a PC writer, which is expected (listed bel
-    |   EDITED (data file) - expected: data/vtes5-heartbeat.js was rewritten by a PC writer (SHA-256 5f55326a58a8b11121970d85a920927c8e2ff743afb5e25091ad4be816d35648)
-    | This script contains no write command.
-    | exit=0
-  PASS V04: exit code 0
-  PASS V04: prints "OK: all 11 of 11 package files are present and readable"
-  PASS V04: prints "10 page and script files are identical"
-  PASS V04: prints "EDITED (data file) - expected: data/vtes5-heartbeat.js"
+    | PROBLEMS (1); 10 of 11 package files are identical:
+    |   EDITED: data/vtes5-heartbeat.js (data file) has SHA-256 5f55326a58a8b11121970d85a920927c8e2ff743afb5e25091ad4be816d35648 but the manifest says b1179b8b7850d6514d9aa2c34aafe3427535ef1b0ce45155b
+    | This script contains no write command, so it changed nothing in the folder.
+    | exit=1
+  FAIL V04: exit code 0
+  FAIL V04: prints "OK: all 11 of 11 package files are present and readable"
+  FAIL V04: prints "10 page and script files are identical"
+  FAIL V04: prints "EDITED (data file) - expected: data/vtes5-heartbeat.js"
   PASS V04: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V04: VERIFY wrote nothing (whole fixture identical before and after)
-  PASS V04b: no PROBLEMS word in the answer
+  FAIL V04b: no PROBLEMS word in the answer
 == V05 missing file
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   MISSING: vtes5-config.js (settings file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: vtes5-config.js (not in the folder, or not reachable: ItemNotFoundException)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V05: exit code 1
@@ -150,7 +150,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V12: VERIFY wrote nothing (whole fixture identical before and after)
 == V13 UNREADABLE manifest (run as nobody)
-    | CANNOT CHECK: MANIFEST.sha256 cannot be read: Exception calling "ReadAllLines" with "1" argument(s): "Access to the path '/tmp/v5nobody-work/fix/Docs/v5/MANIFEST.sha256' is denied."
+    | CANNOT CHECK: MANIFEST.sha256 cannot be read: Exception calling "ReadAllLines" with "1" argument(s): "Access to the path '/tmp/v5nobody-work2/fix/Docs/v5/MANIFEST.sha256' is denied."
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V13: exit code 2
@@ -178,7 +178,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V14: VERIFY wrote nothing (whole fixture identical before and after)
 == V15 missing manifest
-    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5nobody-work/fix/Docs/v5"
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5nobody-work2/fix/Docs/v5"
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V15: exit code 2
@@ -188,7 +188,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   SHA-256 of 15 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V15: VERIFY wrote nothing (whole fixture identical before and after)
 == V16 folder does not exist
-    | CANNOT CHECK: the folder "/tmp/v5nobody-work/fix/Docs/nope" does not exist (or is not a folder)
+    | CANNOT CHECK: the folder "/tmp/v5nobody-work2/fix/Docs/nope" does not exist (or is not a folder)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V16: exit code 2
@@ -375,7 +375,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V27: VERIFY wrote nothing (whole fixture identical before and after)
   PASS V27b: the real v3 launcher in the fixture Desktop is byte-identical afterwards
 == V28 Verify pointed at the Desktop folder (not a package): reports problems, writes nothing
-    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5nobody-work/fix/Desktop"
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5nobody-work2/fix/Desktop"
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V28: exit code 2
@@ -397,7 +397,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   SHA-256 of 15 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V29: VERIFY wrote nothing (whole fixture identical before and after)
 == V31 a path with .. in it (flaw N19): clear sentence, no scrambled names
-    | CANNOT CHECK: the path "/tmp/v5nobody-work/fix/Docs/x/../v5" contains "..". Give the plain full path with no "." or ".." in it
+    | CANNOT CHECK: the path "/tmp/v5nobody-work2/fix/Docs/x/../v5" contains "..". Give the plain full path with no "." or ".." in it
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V31: exit code 2
@@ -408,7 +408,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V31: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V31: VERIFY wrote nothing (whole fixture identical before and after)
-    | CANNOT CHECK: the path "/tmp/v5nobody-work/fix/Docs/./v5" contains ".". Give the plain full path with no "." or ".." in it
+    | CANNOT CHECK: the path "/tmp/v5nobody-work2/fix/Docs/./v5" contains ".". Give the plain full path with no "." or ".." in it
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V31b: exit code 2
@@ -417,7 +417,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V31b: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V31b: VERIFY wrote nothing (whole fixture identical before and after)
-    | CANNOT CHECK: the path "/tmp/v5nobody-work/fix/Docs/v5/.." contains "..". Give the plain full path with no "." or ".." in it
+    | CANNOT CHECK: the path "/tmp/v5nobody-work2/fix/Docs/v5/.." contains "..". Give the plain full path with no "." or ".." in it
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS V31c: exit code 2
@@ -450,7 +450,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V33: VERIFY wrote nothing (whole fixture identical before and after)
 == V34 the folder is inside a git checkout (flaw N5, caught after the fact)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   WRONG PLACE: the folder is inside a git checkout (found .git in /tmp/v5nobody-work/fix/Docs/repo)
+    |   WRONG PLACE: the folder is inside a git checkout (found .git in /tmp/v5nobody-work2/fix/Docs/repo)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V34: exit code 1
@@ -463,108 +463,106 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V35a: OK answer closes with the sentence about the script's own source
   PASS V35b: no claim about everything on the machine
 == V36 all seven data files and the settings file rewritten: expected, still OK, exit 0 (flaw 11)
-    | OK: all 11 of 11 package files are present and readable. 3 page and script files are identical (SHA-256). 8 data or settings file(s) were rewritten by a PC writer, which is expected (listed belo
-    |   EDITED (data file) - expected: data/vtes5-bots.js was rewritten by a PC writer (SHA-256 0481d8db8f5f487f1a8627129e71bd9e3d8cdb0b21fb39adb22dc6c8277180b7)
-    |   EDITED (data file) - expected: data/vtes5-health.js was rewritten by a PC writer (SHA-256 0a1e6965c3fa72af7bd6b726cac8a36f999ec2ab77bef86ebbcd90a4448b9f82)
-    |   EDITED (data file) - expected: data/vtes5-heartbeat.js was rewritten by a PC writer (SHA-256 0af1a5983cdc56d391cc339dae7de0029d2074406af7d4b3b99e859b3d931818)
-    |   EDITED (data file) - expected: data/vtes5-housekeeping.js was rewritten by a PC writer (SHA-256 2b0f619e7fd8616a157f7020f8cb820c7348d6537f5b77afd5cf869214804d23)
-    |   EDITED (data file) - expected: data/vtes5-miamidade.js was rewritten by a PC writer (SHA-256 78be0fe07c0fc301fa93a3b3ccd4c19d726f054d430ff683b69a8f3e18dcb2aa)
-    |   EDITED (data file) - expected: data/vtes5-state.js was rewritten by a PC writer (SHA-256 4f21e197cadea779f898857f589bfd6f5ed98944f1ae8fad62489c67e3da160f)
-    |   EDITED (data file) - expected: data/vtes5-tokens.js was rewritten by a PC writer (SHA-256 91f4d855020743e9a63a0650c6054c6f3aed35dabebf82a4061f5a3a51c1f0db)
-    |   EDITED (settings file) - expected: vtes5-config.js was rewritten by a PC writer (SHA-256 9e9e1114614ef6260055e1b5ea0f4e57fec6f3c643a542deb2b54a90472282ce)
-    | This script contains no write command.
-    | exit=0
-  PASS V36: exit code 0
-  PASS V36: prints "OK: all 11 of 11 package files are present and readable"
-  PASS V36: prints "3 page and script files are identical"
-  PASS V36: prints "EDITED (settings file) - expected: vtes5-config.js"
-  PASS V36: prints "EDITED (data file) - expected: data/vtes5-miamidade.js"
+    | PROBLEMS (8); 3 of 11 package files are identical:
+    |   EDITED: data/vtes5-bots.js (data file) has SHA-256 0481d8db8f5f487f1a8627129e71bd9e3d8cdb0b21fb39adb22dc6c8277180b7 but the manifest says 773ad0f23bc3ca4f13ea86feeb0bc8c5791aa39d559f40010db273
+    |   EDITED: data/vtes5-health.js (data file) has SHA-256 0a1e6965c3fa72af7bd6b726cac8a36f999ec2ab77bef86ebbcd90a4448b9f82 but the manifest says ad7b029122d4ac7c2572d2e66a5c143dc1304bc8a13c203ad0f2
+    |   EDITED: data/vtes5-heartbeat.js (data file) has SHA-256 0af1a5983cdc56d391cc339dae7de0029d2074406af7d4b3b99e859b3d931818 but the manifest says b1179b8b7850d6514d9aa2c34aafe3427535ef1b0ce45155b
+    |   EDITED: data/vtes5-housekeeping.js (data file) has SHA-256 2b0f619e7fd8616a157f7020f8cb820c7348d6537f5b77afd5cf869214804d23 but the manifest says 9d15db4762fe925d1c2b214727cc08fc3258c7de907bac
+    |   EDITED: data/vtes5-miamidade.js (data file) has SHA-256 78be0fe07c0fc301fa93a3b3ccd4c19d726f054d430ff683b69a8f3e18dcb2aa but the manifest says 4d1c441d3dbe2a7816ad4ba82f07520c9398e4e6a844916fd
+    |   EDITED: data/vtes5-state.js (data file) has SHA-256 4f21e197cadea779f898857f589bfd6f5ed98944f1ae8fad62489c67e3da160f but the manifest says f8ef348c54842b1da0b2ce8611881e74c2b575ceaa95c72968241
+    |   EDITED: data/vtes5-tokens.js (data file) has SHA-256 91f4d855020743e9a63a0650c6054c6f3aed35dabebf82a4061f5a3a51c1f0db but the manifest says ccdcb5579c727d41e6dcd6afd23b9fbcc19611d6fe8ea90ab41b
+    |   EDITED: vtes5-config.js has SHA-256 9e9e1114614ef6260055e1b5ea0f4e57fec6f3c643a542deb2b54a90472282ce but the manifest says ee4c839fe92bae5acaadf6ef4efff32fe5f8728754d318858b218f961cafe7e4
+    | This script contains no write command, so it changed nothing in the folder.
+    | exit=1
+  FAIL V36: exit code 0
+  FAIL V36: prints "OK: all 11 of 11 package files are present and readable"
+  FAIL V36: prints "3 page and script files are identical"
+  FAIL V36: prints "EDITED (settings file) - expected: vtes5-config.js"
+  FAIL V36: prints "EDITED (data file) - expected: data/vtes5-miamidade.js"
   PASS V36: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V36: VERIFY wrote nothing (whole fixture identical before and after)
 == V37 a data file AND a code file changed: the code file is PROBLEMS, the data file is only listed as expected
-    | PROBLEMS (1); 9 of 11 package files are identical:
+    | PROBLEMS (2); 9 of 11 package files are identical:
+    |   EDITED: data/vtes5-state.js (data file) has SHA-256 73cb3858a687a8494ca3323053016282f3dad39d42cf62ca4e79dda2aac7d9ac but the manifest says f8ef348c54842b1da0b2ce8611881e74c2b575ceaa95c72968241
     |   EDITED: vtes5-ui.js has SHA-256 81764b4e74b7f3ff19883dc08cbfe725d41d2b4ca56a796e1a2bcf6fbda7b01b but the manifest says 18d81fb891303f83d63e70f62e63971e77372b26d867e7d4d3abe2e611715a55
-    |   (expected, not a problem) EDITED (data file) - expected: data/vtes5-state.js was rewritten by a PC writer (SHA-256 73cb3858a687a8494ca3323053016282f3dad39d42cf62ca4e79dda2aac7d9ac)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V37: exit code 1
   PASS V37: prints "EDITED: vtes5-ui.js"
-  PASS V37: prints "(expected, not a problem) EDITED (data file) - expected: data/vtes5-state.js"
+  FAIL V37: prints "(expected, not a problem) EDITED (data file) - expected: data/vtes5-state.js"
   PASS V37: does NOT say OK
   PASS V37: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V37: VERIFY wrote nothing (whole fixture identical before and after)
-  PASS V37b: the data file is not listed as a problem
+  FAIL V37b: the data file is not listed as a problem
 == V38 every page and script file has CRLF line endings (git for Windows, flaw 12): ONE plain sentence naming the cause, not 8 EDITED lines
-    | PROBLEMS (2); 8 of 11 package files are identical:
-    |   LINE ENDINGS CHANGED (CRLF): MANIFEST.sha256 differs from the package ONLY because its line endings are Windows style (CRLF) instead of LF. Its words are right, but it is not the file from the
-    |   LINE ENDINGS CHANGED (CRLF): 3 file(s) differ from the package ONLY because their line endings are Windows style (CRLF) instead of the package's LF: VTES-LLM-LAUNCHER_v5.html, vtes5-live.js, v
+    | PROBLEMS (4); 8 of 11 package files are identical:
+    |   MANIFEST CHANGED: its SHA-256 is 6f02154e23ee4bfe7137e6f4fe911bac14d71fb6182cd908f5027f3b094bebfc but the order expects 87195add67f9a00cb9ee853ba370a43440864623cac5e60fb520f13208a1b23a (so the
+    |   EDITED: VTES-LLM-LAUNCHER_v5.html has SHA-256 c79fef42309ade4d9331540f05ad07789ea6a8705535eebeadb44e9e2f208bf9 but the manifest says fbb99f73bcaaceec804843aeddee208838dec6291a398327d2d988efbed
+    |   EDITED: vtes5-live.js has SHA-256 74cc0224358e1da39268c1c08dde979c7799590cf3ba295e1578ad9c85e631b3 but the manifest says 52ce3b01f64c5953ed845544fa2e383038fac197f918f29eb9ee61a003527925
+    |   EDITED: vtes5-ui.js has SHA-256 a6d92ec40d9e7fa2452636e0dcfcc906b7de5813e34d1c802892b1dfcad6c1f7 but the manifest says 18d81fb891303f83d63e70f62e63971e77372b26d867e7d4d3abe2e611715a55
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V38: exit code 1
-  PASS V38: prints "LINE ENDINGS CHANGED (CRLF)"
-  PASS V38: prints "VTES-LLM-LAUNCHER_v5.html, vtes5-live.js, vtes5-ui.js"
-  PASS V38: prints "git for Windows"
-  PASS V38: prints "MANIFEST.sha256 differs from the package ONLY because its line endings"
+  FAIL V38: prints "LINE ENDINGS CHANGED (CRLF)"
+  FAIL V38: prints "VTES-LLM-LAUNCHER_v5.html, vtes5-live.js, vtes5-ui.js"
+  FAIL V38: prints "git for Windows"
+  FAIL V38: prints "MANIFEST.sha256 differs from the package ONLY because its line endings"
   PASS V38: does NOT say OK
   PASS V38: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V38: VERIFY wrote nothing (whole fixture identical before and after)
-  PASS V38b: no EDITED line for a CRLF-only change
-  PASS V38c: the manifest is not called 'changed' when only its line endings differ
+  FAIL V38b: no EDITED line for a CRLF-only change
+  FAIL V38c: the manifest is not called 'changed' when only its line endings differ
 == V39 CRLF in one data file only: expected, OK
-    | OK: all 11 of 11 package files are present and readable. 10 page and script files are identical (SHA-256). 1 data or settings file(s) were rewritten by a PC writer, which is expected (listed bel
-    |   EDITED (data file) - expected: data/vtes5-bots.js was rewritten by a PC writer (SHA-256 9b1b9a29c1cba7496ab958f7e9029414f8d72aa0dcc2b135457775d1fcbd2136)
-    | This script contains no write command.
-    | exit=0
-  PASS V39: exit code 0
-  PASS V39: prints "EDITED (data file) - expected: data/vtes5-bots.js"
+    | PROBLEMS (1); 10 of 11 package files are identical:
+    |   EDITED: data/vtes5-bots.js (data file) has SHA-256 9b1b9a29c1cba7496ab958f7e9029414f8d72aa0dcc2b135457775d1fcbd2136 but the manifest says 773ad0f23bc3ca4f13ea86feeb0bc8c5791aa39d559f40010db273
+    | This script contains no write command, so it changed nothing in the folder.
+    | exit=1
+  FAIL V39: exit code 0
+  FAIL V39: prints "EDITED (data file) - expected: data/vtes5-bots.js"
   PASS V39: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V39: VERIFY wrote nothing (whole fixture identical before and after)
 == V40 the folder ITSELF is a symbolic link to a real package (flaw 5): PROBLEMS, LINK IN PATH
-    | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/v5nobody-work/fix/Docs/v5), so the files may really live somewhere else, for example on the Desktop or inside a git che
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS V40: exit code 1
-  PASS V40: prints "LINK IN PATH: the folder itself is a link or junction"
-  PASS V40: does NOT say OK
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | This script contains no write command.
+    | exit=0
+  FAIL V40: exit code 1
+  FAIL V40: prints "LINK IN PATH: the folder itself is a link or junction"
+  FAIL V40: does NOT say OK
   PASS V40: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V40: VERIFY wrote nothing (whole fixture identical before and after)
 == V41 a PARENT folder is a link (flaw 5): PROBLEMS, LINK IN PATH, names the parent
-    | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the parent folder /tmp/v5nobody-work/fix/Docs/parent-link is a link or junction (it points to /tmp/v5nobody-work/fix/Docs/real-parent), so the files may really live somewhere els
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS V41: exit code 1
-  PASS V41: prints "LINK IN PATH: the parent folder"
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | This script contains no write command.
+    | exit=0
+  FAIL V41: exit code 1
+  FAIL V41: prints "LINK IN PATH: the parent folder"
   PASS V41: prints "parent-link"
-  PASS V41: does NOT say OK
+  FAIL V41: does NOT say OK
   PASS V41: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 28 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V41: VERIFY wrote nothing (whole fixture identical before and after)
 == V42 the folder is a link into the git checkout's package (flaw 5, the checker's S13b)
-    | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/v5nobody-work/fix/Docs/repo2/panel-rebuild/v5/package), so the files may really live somewhere else, for example on the
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS V42: exit code 1
-  PASS V42: prints "LINK IN PATH: the folder itself"
-  PASS V42: does NOT say OK
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | This script contains no write command.
+    | exit=0
+  FAIL V42: exit code 1
+  FAIL V42: prints "LINK IN PATH: the folder itself"
+  FAIL V42: does NOT say OK
   PASS V42: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 28 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V42: VERIFY wrote nothing (whole fixture identical before and after)
 == V43 the folder is a link into the Desktop (flaw 5, the checker's S12)
-    | PROBLEMS (1); 11 of 11 package files are identical:
-    |   LINK IN PATH: the folder itself is a link or junction (it points to /tmp/v5nobody-work/fix/Desktop/v5), so the files may really live somewhere else, for example on the Desktop or inside a git 
-    | This script contains no write command, so it changed nothing in the folder.
-    | exit=1
-  PASS V43: exit code 1
-  PASS V43: prints "LINK IN PATH: the folder itself"
-  PASS V43: does NOT say OK
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | This script contains no write command.
+    | exit=0
+  FAIL V43: exit code 1
+  FAIL V43: prints "LINK IN PATH: the folder itself"
+  FAIL V43: does NOT say OK
   PASS V43: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
   SHA-256 of 28 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V43: VERIFY wrote nothing (whole fixture identical before and after)
@@ -594,4 +592,4 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V30a: VERIFY-v5.ps1 is pure ASCII
   PASS V30b: no write command appears in VERIFY-v5.ps1 (outside comments)
 
-VERIFY TESTS: 274 of 274 pass
+VERIFY TESTS: 242 of 274 pass

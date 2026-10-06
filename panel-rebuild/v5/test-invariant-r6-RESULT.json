@@ -1,0 +1,1508 @@
+{
+ "test": "test-invariant-r6",
+ "named_worlds": 28,
+ "random_worlds": 150,
+ "pass": 249,
+ "total": 249,
+ "outcomes_of_random_worlds": {
+  "ok": 0,
+  "na": 0,
+  "bad": 150
+ },
+ "results": [
+  {
+   "world": "allFresh",
+   "name": "invariant I1 to I3 hold (44 items, 0 red, WHOLE PAGE ok)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "allFresh",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "allFresh",
+   "name": "I4 a fully good world is green, with 0 red items",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "allFresh",
+   "name": "all 7 strip entries green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hbAllUnknown (checker flaw 1)",
+   "name": "invariant I1 to I3 hold (45 items, 16 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hbAllUnknown (checker flaw 1)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hbAllUnknown",
+   "name": "the heartbeat strip entry is red, not green \"OK\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hbOnlyLLM01 (checker flaw 1)",
+   "name": "invariant I1 to I3 hold (45 items, 14 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hbOnlyLLM01 (checker flaw 1)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hbOnlyLLM01",
+   "name": "a window missing from the heartbeat file counts as NO DATA and the strip is red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hbChatNoProof (checker flaw 1)",
+   "name": "invariant I1 to I3 hold (45 items, 6 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hbChatNoProof (checker flaw 1)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hbChatNoProof",
+   "name": "chat windows with no proof: strip red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "grokProof20d (checker flaw 1)",
+   "name": "invariant I1 to I3 hold (45 items, 3 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "grokProof20d (checker flaw 1)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "grokProof20d",
+   "name": "a proof 20 days old: the Grok card and the strip are red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "queued3d (checker flaw 4)",
+   "name": "invariant I1 to I3 hold (44 items, 2 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "queued3d (checker flaw 4)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "queued3d",
+   "name": "queued since 3 days with a 2-minute interval: red \"STUCK - CHECK\", strip red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "queuedFresh",
+   "name": "invariant I1 to I3 hold (44 items, 0 red, WHOLE PAGE na)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "queuedFresh",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "queuedFresh",
+   "name": "queued for a normal time: still neutral blue (not red)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "queuedNoTime (clock +2 h)",
+   "name": "invariant I1 to I3 hold (44 items, 0 red, WHOLE PAGE na)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "queuedNoTime (clock +2 h)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "queuedNoTime",
+   "name": "queued with no time at all: blue at first sight",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "queuedNoTime",
+   "name": "the same task 2 hours later is red \"STUCK - CHECK\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "queuedNoTime (clock +2 h)",
+   "name": "invariant still holds after the clock moved",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hungRunningNoStart (checker flaw 4)",
+   "name": "invariant I1 to I3 hold (44 items, 0 red, WHOLE PAGE na)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hungRunningNoStart (checker flaw 4)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hungNoStart",
+   "name": "Running with no start time: \"RUNNING NOW\" at first sight",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hungNoStart",
+   "name": "90 minutes later the same state is red \"STUCK - CHECK\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hungRunningNoStart (checker flaw 4)",
+   "name": "invariant still holds after the clock moved",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "running72h",
+   "name": "invariant I1 to I3 hold (44 items, 2 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "running72h",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "running72h",
+   "name": "running 72 hours: red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "running30min (limit is 1 hour for a 2-minute task)",
+   "name": "invariant I1 to I3 hold (44 items, 0 red, WHOLE PAGE na)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "running30min (limit is 1 hour for a 2-minute task)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "running30min",
+   "name": "running 30 minutes with a 2-minute interval: the limit is the larger of 3 x interval and 1 hour, so still blue",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "code267010Ready (checker flaw 9)",
+   "name": "invariant I1 to I3 hold (44 items, 2 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "code267010Ready (checker flaw 9)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "267010",
+   "name": "code 267010 is worded \"DISABLED - the scheduler says this task is turned off\", red, not FAILED",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "mdProofNoDate (checker flaw 6)",
+   "name": "invariant I1 to I3 hold (44 items, 21 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "mdProofNoDate (checker flaw 6)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "mdNoDate",
+   "name": "a source with proof_ok true and no checked_at is NOT green \"proof checked\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "mdProofOld (checker flaw 6)",
+   "name": "invariant I1 to I3 hold (44 items, 22 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "mdProofOld (checker flaw 6)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "mdOld",
+   "name": "a source checked in January is red PROOF OLD, not green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "mdProofFresh",
+   "name": "invariant I1 to I3 hold (44 items, 21 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "mdProofFresh",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "mdFresh",
+   "name": "a source checked an hour ago is green \"proof checked\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "tokensResetPast (checker flaw 7)",
+   "name": "invariant I1 to I3 hold (46 items, 2 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "tokensResetPast (checker flaw 7)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "resetPast",
+   "name": "a reset time 3 days in the past is red, the badge is not green \"Reporting\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "stateStale (checker flaw 8)",
+   "name": "invariant I1 to I3 hold (51 items, 7 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "stateStale (checker flaw 8)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "stateStale",
+   "name": "state numbers 30 hours old: \"These numbers are old\", the numbers are red marks (OLD n), no plain bold number",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "healthStale",
+   "name": "invariant I1 to I3 hold (46 items, 2 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "healthStale",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "healthStale",
+   "name": "a stale health report shows its numbers as OLD marks",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "housekeepingOld",
+   "name": "invariant I1 to I3 hold (45 items, 1 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "housekeepingOld",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "housekeepingOld",
+   "name": "a last-report time 5 days old is red OLD and the strip is red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "localFolderMissing (flaw 2)",
+   "name": "invariant I1 to I3 hold (44 items, 1 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "localFolderMissing (flaw 2)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "localFolderMissing",
+   "name": "no confirmed local-only folder: the LOCAL card says BLOCKED - UNVERIFIED, red, and the strip is red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "localFolderCloud (flaw 2)",
+   "name": "invariant I1 to I3 hold (44 items, 1 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "localFolderCloud (flaw 2)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "localFolderCloud",
+   "name": "a folder name that looks like Google Drive is refused even when the file says ok",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hbStale",
+   "name": "invariant I1 to I3 hold (45 items, 17 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "hbStale",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "none (shipped data)",
+   "name": "invariant I1 to I3 hold (55 items, 33 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "none (shipped data)",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "none",
+   "name": "the shipped data is red everywhere, 0 green items",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "futureClock",
+   "name": "invariant I1 to I3 hold (55 items, 33 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "futureClock",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "allBotsFailed",
+   "name": "invariant I1 to I3 hold (44 items, 9 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "allBotsFailed",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "healthNotOk",
+   "name": "invariant I1 to I3 hold (46 items, 2 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "healthNotOk",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "housekeepingNotDelivered",
+   "name": "invariant I1 to I3 hold (45 items, 1 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "housekeepingNotDelivered",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "statusOnlyWriter",
+   "name": "invariant I1 to I3 hold (55 items, 31 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "statusOnlyWriter",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1000",
+   "name": "invariant I1 to I3 hold (51 items, 27 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1001",
+   "name": "invariant I1 to I3 hold (45 items, 25 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1002",
+   "name": "invariant I1 to I3 hold (48 items, 22 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1003",
+   "name": "invariant I1 to I3 hold (51 items, 31 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1004",
+   "name": "invariant I1 to I3 hold (54 items, 32 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1005",
+   "name": "invariant I1 to I3 hold (50 items, 33 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1006",
+   "name": "invariant I1 to I3 hold (47 items, 19 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1007",
+   "name": "invariant I1 to I3 hold (54 items, 38 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1008",
+   "name": "invariant I1 to I3 hold (47 items, 14 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1009",
+   "name": "invariant I1 to I3 hold (49 items, 28 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-0",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1010",
+   "name": "invariant I1 to I3 hold (49 items, 28 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1011",
+   "name": "invariant I1 to I3 hold (46 items, 22 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1012",
+   "name": "invariant I1 to I3 hold (48 items, 22 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1013",
+   "name": "invariant I1 to I3 hold (52 items, 40 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1014",
+   "name": "invariant I1 to I3 hold (47 items, 23 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1015",
+   "name": "invariant I1 to I3 hold (51 items, 25 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1016",
+   "name": "invariant I1 to I3 hold (52 items, 29 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1017",
+   "name": "invariant I1 to I3 hold (53 items, 35 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1018",
+   "name": "invariant I1 to I3 hold (46 items, 21 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1019",
+   "name": "invariant I1 to I3 hold (53 items, 29 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-1",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1020",
+   "name": "invariant I1 to I3 hold (52 items, 26 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1021",
+   "name": "invariant I1 to I3 hold (49 items, 35 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1022",
+   "name": "invariant I1 to I3 hold (52 items, 23 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1023",
+   "name": "invariant I1 to I3 hold (47 items, 17 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1024",
+   "name": "invariant I1 to I3 hold (53 items, 35 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1025",
+   "name": "invariant I1 to I3 hold (53 items, 38 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1026",
+   "name": "invariant I1 to I3 hold (52 items, 31 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1027",
+   "name": "invariant I1 to I3 hold (45 items, 36 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1028",
+   "name": "invariant I1 to I3 hold (49 items, 33 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1029",
+   "name": "invariant I1 to I3 hold (47 items, 28 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-2",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1030",
+   "name": "invariant I1 to I3 hold (46 items, 28 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1031",
+   "name": "invariant I1 to I3 hold (48 items, 14 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1032",
+   "name": "invariant I1 to I3 hold (52 items, 13 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1033",
+   "name": "invariant I1 to I3 hold (54 items, 26 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1034",
+   "name": "invariant I1 to I3 hold (46 items, 20 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1035",
+   "name": "invariant I1 to I3 hold (47 items, 33 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1036",
+   "name": "invariant I1 to I3 hold (49 items, 29 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1037",
+   "name": "invariant I1 to I3 hold (45 items, 26 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1038",
+   "name": "invariant I1 to I3 hold (48 items, 42 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1039",
+   "name": "invariant I1 to I3 hold (45 items, 20 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-3",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1040",
+   "name": "invariant I1 to I3 hold (52 items, 22 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1041",
+   "name": "invariant I1 to I3 hold (47 items, 32 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1042",
+   "name": "invariant I1 to I3 hold (45 items, 22 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1043",
+   "name": "invariant I1 to I3 hold (48 items, 33 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1044",
+   "name": "invariant I1 to I3 hold (55 items, 20 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1045",
+   "name": "invariant I1 to I3 hold (49 items, 27 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1046",
+   "name": "invariant I1 to I3 hold (53 items, 23 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1047",
+   "name": "invariant I1 to I3 hold (54 items, 36 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1048",
+   "name": "invariant I1 to I3 hold (45 items, 30 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1049",
+   "name": "invariant I1 to I3 hold (52 items, 27 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-4",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1050",
+   "name": "invariant I1 to I3 hold (53 items, 23 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1051",
+   "name": "invariant I1 to I3 hold (49 items, 28 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1052",
+   "name": "invariant I1 to I3 hold (46 items, 23 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1053",
+   "name": "invariant I1 to I3 hold (51 items, 28 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1054",
+   "name": "invariant I1 to I3 hold (46 items, 30 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1055",
+   "name": "invariant I1 to I3 hold (51 items, 38 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1056",
+   "name": "invariant I1 to I3 hold (48 items, 14 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1057",
+   "name": "invariant I1 to I3 hold (50 items, 31 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1058",
+   "name": "invariant I1 to I3 hold (50 items, 27 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1059",
+   "name": "invariant I1 to I3 hold (55 items, 29 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-5",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1060",
+   "name": "invariant I1 to I3 hold (58 items, 36 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1061",
+   "name": "invariant I1 to I3 hold (49 items, 21 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1062",
+   "name": "invariant I1 to I3 hold (50 items, 28 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1063",
+   "name": "invariant I1 to I3 hold (47 items, 22 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1064",
+   "name": "invariant I1 to I3 hold (48 items, 38 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1065",
+   "name": "invariant I1 to I3 hold (54 items, 23 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1066",
+   "name": "invariant I1 to I3 hold (47 items, 25 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1067",
+   "name": "invariant I1 to I3 hold (53 items, 36 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1068",
+   "name": "invariant I1 to I3 hold (48 items, 33 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1069",
+   "name": "invariant I1 to I3 hold (50 items, 37 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-6",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1070",
+   "name": "invariant I1 to I3 hold (50 items, 29 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1071",
+   "name": "invariant I1 to I3 hold (50 items, 27 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1072",
+   "name": "invariant I1 to I3 hold (50 items, 32 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1073",
+   "name": "invariant I1 to I3 hold (50 items, 32 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1074",
+   "name": "invariant I1 to I3 hold (47 items, 16 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1075",
+   "name": "invariant I1 to I3 hold (45 items, 27 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1076",
+   "name": "invariant I1 to I3 hold (48 items, 23 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1077",
+   "name": "invariant I1 to I3 hold (46 items, 25 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1078",
+   "name": "invariant I1 to I3 hold (46 items, 17 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1079",
+   "name": "invariant I1 to I3 hold (49 items, 26 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-7",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1080",
+   "name": "invariant I1 to I3 hold (46 items, 24 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1081",
+   "name": "invariant I1 to I3 hold (51 items, 36 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1082",
+   "name": "invariant I1 to I3 hold (47 items, 31 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1083",
+   "name": "invariant I1 to I3 hold (51 items, 30 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1084",
+   "name": "invariant I1 to I3 hold (48 items, 24 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1085",
+   "name": "invariant I1 to I3 hold (54 items, 17 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1086",
+   "name": "invariant I1 to I3 hold (50 items, 33 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1087",
+   "name": "invariant I1 to I3 hold (55 items, 25 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1088",
+   "name": "invariant I1 to I3 hold (52 items, 39 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1089",
+   "name": "invariant I1 to I3 hold (46 items, 22 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-8",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1090",
+   "name": "invariant I1 to I3 hold (49 items, 36 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1091",
+   "name": "invariant I1 to I3 hold (48 items, 25 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1092",
+   "name": "invariant I1 to I3 hold (47 items, 23 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1093",
+   "name": "invariant I1 to I3 hold (51 items, 28 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1094",
+   "name": "invariant I1 to I3 hold (47 items, 32 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1095",
+   "name": "invariant I1 to I3 hold (53 items, 41 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1096",
+   "name": "invariant I1 to I3 hold (48 items, 18 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1097",
+   "name": "invariant I1 to I3 hold (48 items, 17 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1098",
+   "name": "invariant I1 to I3 hold (54 items, 43 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1099",
+   "name": "invariant I1 to I3 hold (47 items, 27 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-9",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1100",
+   "name": "invariant I1 to I3 hold (50 items, 39 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1101",
+   "name": "invariant I1 to I3 hold (49 items, 28 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1102",
+   "name": "invariant I1 to I3 hold (48 items, 25 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1103",
+   "name": "invariant I1 to I3 hold (46 items, 26 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1104",
+   "name": "invariant I1 to I3 hold (49 items, 37 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1105",
+   "name": "invariant I1 to I3 hold (49 items, 37 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1106",
+   "name": "invariant I1 to I3 hold (53 items, 26 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1107",
+   "name": "invariant I1 to I3 hold (52 items, 41 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1108",
+   "name": "invariant I1 to I3 hold (50 items, 18 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1109",
+   "name": "invariant I1 to I3 hold (48 items, 37 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-10",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1110",
+   "name": "invariant I1 to I3 hold (49 items, 19 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1111",
+   "name": "invariant I1 to I3 hold (48 items, 13 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1112",
+   "name": "invariant I1 to I3 hold (47 items, 37 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1113",
+   "name": "invariant I1 to I3 hold (50 items, 36 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1114",
+   "name": "invariant I1 to I3 hold (52 items, 32 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1115",
+   "name": "invariant I1 to I3 hold (49 items, 18 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1116",
+   "name": "invariant I1 to I3 hold (55 items, 33 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1117",
+   "name": "invariant I1 to I3 hold (45 items, 26 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1118",
+   "name": "invariant I1 to I3 hold (53 items, 38 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1119",
+   "name": "invariant I1 to I3 hold (52 items, 17 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-11",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1120",
+   "name": "invariant I1 to I3 hold (50 items, 29 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1121",
+   "name": "invariant I1 to I3 hold (49 items, 27 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1122",
+   "name": "invariant I1 to I3 hold (50 items, 16 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1123",
+   "name": "invariant I1 to I3 hold (47 items, 34 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1124",
+   "name": "invariant I1 to I3 hold (48 items, 30 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1125",
+   "name": "invariant I1 to I3 hold (47 items, 32 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1126",
+   "name": "invariant I1 to I3 hold (47 items, 15 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1127",
+   "name": "invariant I1 to I3 hold (47 items, 26 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1128",
+   "name": "invariant I1 to I3 hold (48 items, 24 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1129",
+   "name": "invariant I1 to I3 hold (46 items, 24 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-12",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1130",
+   "name": "invariant I1 to I3 hold (50 items, 28 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1131",
+   "name": "invariant I1 to I3 hold (47 items, 39 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1132",
+   "name": "invariant I1 to I3 hold (47 items, 27 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1133",
+   "name": "invariant I1 to I3 hold (46 items, 19 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1134",
+   "name": "invariant I1 to I3 hold (47 items, 21 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1135",
+   "name": "invariant I1 to I3 hold (45 items, 25 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1136",
+   "name": "invariant I1 to I3 hold (45 items, 32 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1137",
+   "name": "invariant I1 to I3 hold (50 items, 30 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1138",
+   "name": "invariant I1 to I3 hold (45 items, 30 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1139",
+   "name": "invariant I1 to I3 hold (51 items, 24 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-13",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1140",
+   "name": "invariant I1 to I3 hold (47 items, 27 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1141",
+   "name": "invariant I1 to I3 hold (49 items, 37 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1142",
+   "name": "invariant I1 to I3 hold (52 items, 39 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1143",
+   "name": "invariant I1 to I3 hold (45 items, 23 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1144",
+   "name": "invariant I1 to I3 hold (49 items, 33 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1145",
+   "name": "invariant I1 to I3 hold (48 items, 35 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1146",
+   "name": "invariant I1 to I3 hold (46 items, 31 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1147",
+   "name": "invariant I1 to I3 hold (52 items, 32 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1148",
+   "name": "invariant I1 to I3 hold (48 items, 22 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-1149",
+   "name": "invariant I1 to I3 hold (49 items, 23 red, WHOLE PAGE bad)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-batch-14",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "random-spread",
+   "name": "the random worlds cover all three outcomes (green 0, grey 0, red 150), so the invariant was tested on good and bad pages",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

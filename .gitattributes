@@ -1,0 +1,4 @@
+# TRK-2026-9910-B fix round 6, flaw 12. The panel v5 files must keep their exact bytes (LF line endings) on every machine:
+# git for Windows (core.autocrlf=true) would otherwise turn LF into CRLF at checkout and the SHA-256 check (VERIFY-v5.ps1) would fail for a reason nobody can see.
+# -text = never convert line endings for these files, whatever the machine setting says.
+panel-rebuild/v5/** -text

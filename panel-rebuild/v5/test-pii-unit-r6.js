@@ -7,7 +7,7 @@ const BLOCK = [
   '123456789', 'SSN 123-45-6789', 'social 123 45 6789', 'Social Security Number: 123 45 6789', '123.45.6789', '123 - 45 - 6789', '123' + cp(0x2013) + '45' + cp(0x2013) + '6789', '123' + cp(0x2011) + '45' + cp(0x2011) + '6789', '123' + cp(0x2014) + '45' + cp(0x2014) + '6789',
   '123' + cp(0x2212) + '45' + cp(0x2212) + '6789', FW('123-45-6789'), FW('123456789'), AR('123-45-6789'), DEV('123 45 6789'), MATH('123456789'), '1' + cp(0x00a0) + '23' + cp(0x00a0) + '45' + cp(0x00a0) + '6789', '123' + cp(0x200b) + '456' + cp(0x200b) + '789',
   'l23-45-6789', 'I23 45 6789', '123-45-678g'.replace('g', '9'), 'ss#123456789', 'ss# 123456789', 'S.S.N. 123456789', 'S.S.N.123456789', 'SSN123-45-6789', 'xSSN123456789y', 'SSN:123-45-6789ext', 'SSN 123-45-6789ext', 'ssn=123456789;', 'my ssn is 123 45 6789 ok',
-  '1 2 3 4 5 6 7 8 9', '123 456 789', '12-3456789', 'EIN 12-3456789', 'tax id 123456789', 'ITIN 912-70-1234', 'SSN 123-45-6789 12', 'SSN 123-45-6789 and more words after it', 'prefix ABC123456789',
+  '1 2 3 4 5 6 7 8 9', '123 456 789', 'TRK 1262 123456789', 'ssn: 1 2 3 - 4 5 - 6 7 8 9', 'Social: 12345-6789', '(123-45-6789)', 'Social Security 123-45-678 9', 'Job 1262 123-45-6789', 'order 5 12 3456789', 'line1\n123\n45\n6789', '123\r\n45\r\n6789', 'one two three dash four five dash six seven eight nine', 'One Two Three hyphen Four Five hyphen Six Seven Eight Nine', '123/45/6789', '123 / 45 / 6789', '12-3456789', 'EIN 12-3456789', 'tax id 123456789', 'ITIN 912-70-1234', 'SSN 123-45-6789 12', 'SSN 123-45-6789 and more words after it', 'prefix ABC123456789',
   '4111111111111111', '4111-1111-1111-1111', '4111 1111 1111 1111', '4111 1111 1111 1111 exp 12/29', '4111.1111.1111.1111', FW('4111 1111 1111 1111'), '378282246310005', '3782 822463 10005', '5555555555554444', '6011 0009 9013 9424',
   '4222222222222', 'DOB 04/12/1975 acct 123456789012', 'born 1975-04-12, card 4111 1111 1111 1111', 'date of birth 04/12/1975 and number 12345678',
   'one two three four five six seven eight nine', 'One, Two, Three, Four, Five, Six, Seven, Eight, Nine', 'zero one two three four five six seven eight',
@@ -15,7 +15,7 @@ const BLOCK = [
 ];
 const CARRY = [
   'Call 305-555-1234', 'Call (305) 555-1234 today', '+1 305 555 1234', '305.555.1234', '1-800-555-0100', 'folio 30-4021-001-0010', 'folio 01-4120-001-0010', 'Check permit 123 and call 305-555-0100 about folio 01-4120-001-0010',
-  'permit 2024-12345', 'permit 2024 12345', 'Permit BP2021-12345', 'Miami FL 33143-1234', '123 Main St, Miami, FL 33143', 'unit 143, 2026-10-06', '14598 SW 110 ST', 'Order 12345', 'amount $1,234,567', 'Invoice 2026-1250', 'TRK-2026-1262',
+  '1 800 555 1234', 'FL 33143-1234', 'Miami, FL 33143-1234 and call 305-555-1234', 'call 305 555 1234 then 305 555 0100', 'call me at five five five', 'one two three', 'permit 2024-12345', 'permit 2024 12345', 'permit 2024/12345', 'Permit BP2021-12345', 'Miami FL 33143-1234', '123 Main St, Miami, FL 33143', 'unit 143, 2026-10-06', '14598 SW 110 ST', 'Order 12345', 'amount $1,234,567', 'Invoice 2026-1250', 'TRK-2026-1262',
   'Check the Bal Harbour permit summary for anything Claude missed.', 'on 10/06/2026 at 2:00 PM', 'room 12, lot 34, block 56', 'ref 12345-ABC', '(no note typed)', '3040210010011'
 ];
 const FALSE_ALARMS = ['Order 12345 6789', 'ref 98765-4321', 'invoice 123456789 sent', 'the number 987654321 on the permit card', 'lot 1 2 3 4 5 6 7 8 9'];

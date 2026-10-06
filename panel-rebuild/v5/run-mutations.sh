@@ -1,5 +1,5 @@
 #!/bin/bash
-# run-mutations.sh - proves the tests can FAIL: breaks the live layer in eighteen ways (M1-M10 from round 4, M11-M18 added in round 5) on a scratch copy and runs the matching test against each; each must report failures. TRK-2026-9910-B
+# run-mutations.sh - proves the tests can FAIL: breaks the live layer in twenty-six ways (M1-M10 from round 4, M11-M18 added in round 5, M19-M26 added in round 6; M12, M13, M15, M17 and M18 were re-pointed at the round-6 code) on a scratch copy and runs the matching test against each; each must report failures. TRK-2026-9910-B
 HERE=$(cd "$(dirname "$0")" && pwd); W=${1:?scratch dir}; rm -rf "$W"; mkdir -p "$W"
 mut() { local name=$1 test=$2 file=$3 from=$4 to=$5; local d=$W/$name; mkdir -p "$d"; cp -a "$HERE"/. "$d"/; python3 - "$d/package/$file" "$from" "$to" <<'PY'
 import sys
@@ -21,14 +21,23 @@ mut M8-daily-bot-capped-at-an-hour test-fixes-r4 vtes5-live.js "var MAX_BOT_SEC 
 mut M9-two-answers-on-a-card test-fixes-r4 vtes5-ui.js "cls = RANK[cb] > RANK[ce] ? cb : ce," "cls = ce," &
 mut M10-search-reads-state-lines test-fixes-r4 vtes5-ui.js "c.setAttribute('data-s', t3[gi][i]" "c.setAttribute('data-x', t3[gi][i]" &
 mut M11-bots-strip-ignores-failed-bots test-fixes-r5 vtes5-live.js "if (notFine.length) { return bad(" "if (false) { return bad(" &
-mut M12-heartbeat-green-while-all-down test-fixes-r5 vtes5-live.js "if (unhealthy === ids.length) {" "if (false) {" &
+mut M12-strip-ignores-the-cards test-invariant-r6 vtes5-ui.js "if (V.rankOf(w) > V.rankOf(baseCls)) {" "if (false) {" &
 wait
-mut M13-running-task-never-stuck test-fixes-r5 vtes5-live.js "if (runMin > stuckMin) {" "if (false) {" &
+mut M13-running-task-never-stuck test-fixes-r5 vtes5-live.js "if (heldMin > stuckLimit) {" "if (false) {" &
 mut M14-impossible-count-green test-fixes-r5 vtes5-live.js "if (d.counted !== undefined && d.counted !== null && !isCount(d.counted, MD_TARGET)) {" "if (false) {" &
-mut M15-personal-data-guard-removed test-fixes-r5 vtes5-ui.js "if (toId === 'LOCAL' || !PII_RE.test(note || '')) { return note; }" "return note;" &
+mut M15-personal-data-guard-removed test-fixes-r5 vtes5-ui.js "if (!why.length) { return note; }" "return note;" &
 mut M16-tab-hint-never-shown test-fixes-r5 vtes5-ui.js "h.style.display = hidden ? 'block' : 'none';" "h.style.display = 'none';" &
-mut M17-queued-is-no-data test-fixes-r5 vtes5-live.js "if (st === 'queued') {" "if (false) {" &
-mut M18-old-report-time-trusted test-fixes-r5 vtes5-live.js "if ((NOW() - t) / 60000 > limitMinutes) {" "if (false) {" &
+mut M17-queued-is-no-data test-fixes-r5 vtes5-live.js "var waiting = (st === 'queued')," "var waiting = false," &
+mut M18-old-report-time-trusted test-fixes-r5 vtes5-live.js "if ((NOW() - t) / 60000 > o.limitMin) {" "if (false) {" &
 wait
+mut M19-reset-time-in-the-past-trusted test-invariant-r6 vtes5-live.js "if (t <= NOW()) {" "if (false) {" &
+mut M20-queued-without-a-time-never-stuck test-invariant-r6 vtes5-live.js "refAt = firstSeen(name, st + '|' + String(b.last_result), now);" "refAt = now;" &
+mut M21-267010-called-failed test-invariant-r6 vtes5-live.js "if (b.last_result === RES_DISABLED) {" "if (false) {" &
+mut M22-miami-check-date-ignored test-invariant-r6 vtes5-ui.js "if (!j) { return mark('ok', 'proof checked '" "if (true) { return mark('ok', 'proof checked '" &
+mut M23-old-numbers-shown-plain test-invariant-r6 vtes5-ui.js "if (fresh === false) { return red('OLD ' + n, file); }" "if (false) { return red('OLD ' + n, file); }" &
+mut M24-cloud-folder-accepted-for-local test-invariant-r6 vtes5-ui.js "var CLOUD_RE = /google" "var CLOUD_RE = /zzzzgoogle" &
+wait
+mut M25-nine-digit-rule-removed test-pii-unit-r6 vtes5-ui.js "if ((isNine && !zip4 && !permit) || inside) {" "if (false) {" &
+mut M26-card-rule-removed test-privacy-matrix-r6 vtes5-ui.js "if (r.real >= 15 && r.real <= 19) {" "if (false) {" &
 wait
 cat "$W"/M*.line | sort -V

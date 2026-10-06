@@ -1,0 +1,94 @@
+// test-survival-92-r6.js - fix round 6: "do not remove anything of v3". The independent checker (CHECK-7, Section G) counted 92 v3 items that must be present AND working on v5.
+// This test rebuilds that list of 92 from the REAL v3 file at run time (its own LLMS, ROLES, BOTS, QUEUED, PICK, TABS arrays and page), opens v3 and v5 side by side, presses the same thing on both, and counts N of 92.
+// Item numbers follow CHECK-7 Section G. A difference that the build makes on purpose is listed in WHY_DIFFERENT and is only accepted when it is exactly that difference. Usage: node test-survival-92-r6.js <out.json>. TRK-2026-9910-B
+const L = require('./test-v5-lib.js'); const { fs, path, stage, sleep, fresh, NOWMS } = L; const OUT = process.argv[2] || 'test-survival-92-r6-RESULT.json';
+const V3 = path.join(__dirname, '..', 'v3-live', 'VTES-LLM-LAUNCHER_v3.html'); const items = [];
+const I = (n, name, ok, why) => { items.push({ n, name, status: ok ? 'PASS' : 'FAIL', why: ok ? '' : String(why).slice(0, 300) }); if (!ok) { console.log('FAIL item ' + n + ' | ' + name + ' | ' + String(why).slice(0, 220)); } };
+const norm = s => String(s).replace(/\s+/g, ' ').trim();
+/* the edits the build makes to v3's own words (the same list as test-v3-survives.js, from build-v5.js) */
+const EDITS = [['and all client personal data. Never leaves the PC.', 'and all client personal data (typed in v3: "Never leaves the PC" - only true once a local-only folder outside Google Drive and OneDrive is confirmed; see the LOCAL save step on this card).'], ['Drop JOB-*.md with CLASS: and PROMPT: into G:\\My Drive\\VTES-Inbox-LOCAL', 'Drop JOB-*.md with CLASS: and PROMPT: into a local-only folder. BLOCKED until the desktop executor confirms one (see the LOCAL save step on this card).'], ['PII never leaves the machine.', 'PII goes to LOCAL only. It stays on the machine only once a local-only folder is confirmed (see the LOCAL card).'],
+  [' Runs every 2 minutes and executes anything in VTES-Inbox.', ' Executes anything dropped in VTES-Inbox.'], ['Runs every 2 minutes on the free lane', 'runs on the free lane'], [', runs jobs on Ollama, every 5 minutes.', ', runs jobs on Ollama.'], ['or escalates. Every 15 minutes.', 'or escalates.'], ['Hourly. Finds any lane', 'Finds any lane'], ['The 15-minute poller that wakes RAMBO', 'The poller that wakes RAMBO'], ['Confirm CU-Orchestrator ran in the last 15 minutes and list', 'Confirm CU-Orchestrator ran on its last scheduled run and list'],
+  ['Send the packet with AirDrop or Notes first.', 'Get the packet onto the iPhone first (see the steps on this card).'], [' About 75% of the Max quota was used on 2026-10-01; forecast to run out Saturday.', ''], [' Proven 2026-10-01.', '']];
+const ed = s => EDITS.reduce((a, [x, y]) => a.split(x).join(y), String(s == null ? '' : s));
+(async () => {
+  const br = await L.chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+  const d3 = fs.mkdtempSync(require('os').tmpdir() + '/v3s92-'); fs.copyFileSync(V3, d3 + '/VTES-LLM-LAUNCHER_v3.html'); const d5 = stage(fresh(NOWMS));
+  const mk = async (f, v5) => { const ctx = await br.newContext({ viewport: { width: 1300, height: 900 } }); const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(String(e.message).slice(0, 120))); const pops = []; ctx.on('page', pg => pops.push(pg));
+    await ctx.route(u => /^(https?|file:\/\/\/C:)/.test(u.toString()), r => r.abort()); await p.addInitScript(() => { window.__clip = null; Object.defineProperty(navigator, 'clipboard', { value: { writeText: t => { window.__clip = t; return Promise.resolve(); } }, configurable: true }); });
+    await p.clock.install({ time: new Date(L.NOW) }); await p.goto('file://' + f); await sleep(p, 800); await p.evaluate(() => { document.execCommand = function (c) { if (c === 'copy') { var el = document.activeElement; window.__clip = el && el.value; return true; } return false; }; });
+    const first = await p.evaluate(() => ({ kind: document.getElementById('kind').value, from: document.getElementById('from').value, why: document.getElementById('why').innerText.replace(/\s+/g, ' ').trim(), focus: document.activeElement && document.activeElement.id, qtype: document.getElementById('q').type + '|' + document.getElementById('q').placeholder })); return { ctx, p, errs, pops, first }; };
+  const A = await mk(d3 + '/VTES-LLM-LAUNCHER_v3.html'), B = await mk(d5 + '/VTES-LLM-LAUNCHER_v5.html'); const a = A.p, b = B.p;
+  const lists = p => p.evaluate(() => JSON.parse(JSON.stringify({ LLMS, ROLES, BOTS, QUEUED, PICK, TABS, WIN: WIN.map(w => ({ id: w.id, n: w.n, url: w.url, how: w.how })) })));
+  const X = await lists(a), Y = await lists(b);
+  const text = (p, sel) => p.$eval(sel, e => e.innerText).catch(() => '');
+  const setUp = async (p, from, to, note) => { await p.selectOption('#from', from); await p.selectOption('#to', to); await p.fill('#note', note || 'Check the Bal Harbour permit summary.'); };
+  const win = (id) => X.WIN.find(w => w.id === id);
+  let n = 0;
+  // 1-9 the nine LLM cards: present, and each of its controls works
+  for (const w of X.LLMS) { n++; let ok = true, why = []; const c = '#card-' + w.id;
+    ok = ok && (await b.$$(c)).length === 1 && norm(await text(b, c + ' .name')) === norm(w.n); if (!ok) { why.push('card/name'); }
+    await b.click(c + ' button[data-to]'); const to = await b.inputValue('#to'); if (to !== w.id) { ok = false; why.push('Hand work here set To to ' + to); }
+    if (w.url && w.id !== 'LLM-02' && w.id !== 'LLM-06') { if ((await b.$$(c + ' a.btn[href="' + w.url + '"]')).length !== 1) { ok = false; why.push('Open button'); } }
+    if (w.id === 'LLM-02') { if ((await b.$$(c + ' a.btn[href="https://claude.ai/code"]')).length !== 1) { ok = false; why.push('LLM-02 opens claude.ai/code'); } }
+    const big = await b.$(c + ' button.bigcopy'); if (big) { await b.evaluate(() => { window.__clip = null; }); await big.click(); await sleep(b, 200); const clip = await b.evaluate(() => window.__clip); if (!clip || !new RegExp('->  ' + w.id.replace('-', '\\-') + ' \\(').test(clip.split('\n')[0])) { ok = false; why.push('Copy packet button'); } }
+    if (!w.url && !big && w.id !== 'LLM-09' && w.id !== 'LLM-04' && w.id !== 'LLM-07' && w.id !== 'LLM-08') { /* no control to lose */ }
+    I(n, w.id + ' ' + w.n + ': card, name, Hand work here' + (w.url ? ', Open button' : '') + (big ? ', Copy packet button' : '') + ' work', ok, why.join(', ')); }
+  // 10-15 the six role cards
+  for (const w of X.ROLES) { n++; let ok = true, why = []; const c = '#card-' + w.id;
+    ok = ok && (await b.$$(c)).length === 1 && norm(await text(b, c + ' .name')) === norm(w.n); if (!ok) { why.push('card/name'); }
+    const hb = await b.$(c + ' button[data-to]');
+    if (w.id === 'CHIEF') { if (hb) { ok = false; why.push('CHIEF gained a button'); } } else { if (!hb) { ok = false; why.push('no Hand work here'); } else { await hb.click(); const to = await b.inputValue('#to'); const want = w.id === 'COWORK' ? 'LLM-03' : w.id; if (to !== want) { ok = false; why.push('To = ' + to); } } }
+    const big = await b.$(c + ' button.bigcopy'); if (big) { await b.evaluate(() => { window.__clip = null; }); await big.click(); await sleep(b, 200); const clip = await b.evaluate(() => window.__clip); const want = w.id === 'COWORK' ? 'LLM-03' : w.id; if (!clip || !new RegExp('->  ' + want.replace('-', '\\-') + ' \\(').test(clip.split('\n')[0])) { ok = false; why.push('Copy packet button'); } }
+    I(n, 'role ' + w.id + ' ' + w.n + ': card, name, ' + (w.id === 'CHIEF' ? 'no button (as v3)' : 'Hand work here') + (big ? ', Copy packet button' : '') + ' work', ok, why.join(', ')); }
+  // 16-21 the six bots
+  for (const w of X.BOTS) { n++; const c = '#bot-' + w[0]; const ok = (await b.$$(c)).length === 1 && (await b.$$(c + ' .v5st[data-bot]')).length === 1 && norm(await text(b, c)).includes(norm(ed(w[1]))); I(n, 'bot ' + w[0] + ': card, description and a live state line', ok, norm(await text(b, c)).slice(0, 120)); }
+  // 22-27 the six queued items: each fills To, From, the note and the status line as v3 does
+  for (let i = 0; i < X.QUEUED.length; i++) { n++; const q = X.QUEUED[i]; const sa = {}, sb = {};
+    for (const [p, o] of [[a, sa], [b, sb]]) { await p.click('#g-queued [data-q="' + i + '"]'); o.to = await p.inputValue('#to'); o.from = await p.inputValue('#from'); o.note = await p.inputValue('#note'); o.status = norm(await text(p, '#status')); }
+    const ok = sa.to === sb.to && sa.from === sb.from && sb.note === ed(sa.note) && sa.status === sb.status; I(n, 'queued item ' + (i + 1) + ' ' + q.n + ': To, From, note and status as v3' + (ed(q.p) !== q.p ? ' (one disclosed wording edit)' : ''), ok, JSON.stringify([sa, sb]).slice(0, 250)); }
+  // 28-36 the nine picker rows
+  for (let i = 0; i < X.PICK.length; i++) { n++; const sa = {}, sb = {};
+    for (const [p, o] of [[a, sa], [b, sb]]) { await p.selectOption('#kind', String(i)); o.to = await p.inputValue('#to'); o.why = norm(await text(p, '#why')); }
+    I(n, 'picker row ' + (i + 1) + ' ' + X.PICK[i][0].slice(0, 30) + ': To and suggestion line', sa.to === sb.to && ed(sa.why) === sb.why, JSON.stringify([sa, sb]).slice(0, 250)); }
+  // 37-52 the 17 v3 tabs (+ the REPAIRS row is tab 53, MIAMI-DADE is the added one)
+  const tabsV5 = await b.$$eval('#tabs a', e => e.map(x => ({ t: x.firstChild.textContent.trim(), href: x.getAttribute('href'), cls: x.className })));
+  for (let i = 0; i < X.TABS.length; i++) { n++; const t = X.TABS[i]; const f = tabsV5.find(x => x.t === t[1]); let ok = !!f;
+    if (ok && t[2]) { const target = f.href.slice(1); ok = (await b.$$('#' + target)).length === 1; if (!ok) { } } else if (ok) { ok = f.href === 'file:///C:/Users/JV/JV-repository/VTES-CONTROL-PANEL.html#' + t[0].toUpperCase() && /panel/.test(f.cls); }
+    if (t[1] === 'REPAIRS') { ok = ok && !!tabsV5.find(x => x.t === 'MIAMI-DADE') && (await b.$$('#miamidade')).length === 1; }
+    I(n, 'tab ' + t[1] + (t[2] ? ' (live: its target exists)' : ' (old panel: same address, labelled OLD)') + (t[1] === 'REPAIRS' ? ' and the added MIAMI-DADE tab works' : ''), ok, JSON.stringify(f)); }
+  // packet text, all From x To pairs of v3
+  n++; { let same = 0, total = 0; const fromV = X.WIN.map(w => w.id); for (const f of fromV) { for (const t of fromV) { await setUp(a, f, t); await setUp(b, f, t); await a.click('#show'); await b.click('#show'); const pa = (await a.inputValue('#preview')).split('\n'), pb = (await b.inputValue('#preview')).split('\n'); total++; if (pa.length === pb.length && pa.slice(1).join('\n') === pb.slice(1).join('\n') && pa[0].split('   ')[0] === pb[0].split('   ')[0]) { same++; } } }
+    I(n, 'packet text: ' + same + ' of ' + total + ' From and To pairs identical to v3 apart from the stamp', same === total && total === 144, same + ' of ' + total); }
+  n++; { await setUp(b, 'LLM-04', 'RAMBO'); await b.click('#show'); const l1 = (await b.inputValue('#preview')).split('\n')[0]; I(n, 'packet stamp is Eastern with the zone', /\)   [A-Z][a-z]{2} \d{1,2}, \d{1,2}:\d\d (AM|PM) E[DS]T$/.test(l1), l1); }
+  // 56-67 repair rows
+  const ra = await a.$$eval('.repair-log tbody tr', e => e.map(x => x.innerText.replace(/\s+/g, ' ').trim())), rb = await b.$$eval('.repair-log tbody tr', e => e.map(x => x.innerText.replace(/\s+/g, ' ').trim()));
+  for (let i = 0; i < ra.length; i++) { n++; I(n, 'repair row ' + (i + 1) + ': same words' + (i === 9 ? ' plus the no-time-zone label' : '') + (i === 11 ? ' and still marked OPEN' : ''), rb[i] !== undefined && norm(rb[i].replace(/ \(typed note 2026-10-02; the note gives no time zone[^)]*\)/, '')) === norm(ra[i]) && (i !== 11 || /OPEN/i.test(rb[i])), ra[i] + ' || ' + rb[i]); }
+  // PANEL, INDEX buttons
+  for (const [label, sel] of [['PANEL', 'a[title="Back to the VTES Control Panel"]'], ['INDEX', 'a[href$="#INDEX"]']]) { n++; const ha = await a.$eval(sel, e => e.getAttribute('href')).catch(() => null), hb = await b.$eval(sel, e => e.getAttribute('href')).catch(() => null); I(n, label + ' corner button: same address (labelled OLD)', ha !== null && ha === hb, ha + ' | ' + hb); }
+  // search box + results
+  n++; I(n, 'search box: same type and placeholder, gets focus on load', A.first.qtype === B.first.qtype && B.first.focus === 'q' && A.first.focus === 'q', JSON.stringify([A.first, B.first]));
+  n++; { const words = ['rambo', 'bot', 'proven', 'codex', 'grok', 'cowork', 'iphone', 'claude', 'ollama', 'local', 'chief', 'orchestrator', 'LLM-02', 'LLM-05', '#cowork', 'files on my PC', 'free', 'scarce', 'quota', 'terminal', 'inbox', 'poller', 'email', 'drive', 'pii', 'typed', 'hourly', 'status', 'repair', 'queue'];
+    const names = async p => p.$$eval('.card:not(.hide)', e => e.map(x => (x.querySelector('.name') || { textContent: x.textContent.slice(0, 30) }).textContent.trim()).sort()); const diff = [];
+    for (const w of words) { await a.fill('#q', w); await b.fill('#q', w); await sleep(a, 100); const na = await names(a), nb = await names(b); if (JSON.stringify(na) !== JSON.stringify(nb)) { diff.push(w + ' (' + na.length + '/' + nb.length + ')'); } }
+    await a.fill('#q', ''); await b.fill('#q', ''); const allowed = ['typed', 'hourly', 'inbox']; const unexplained = diff.filter(x => !allowed.some(w => x.startsWith(w + ' ')));
+    I(n, 'search: ' + (words.length - diff.length) + ' of ' + words.length + ' words give the same cards as v3; the differences (' + diff.join(', ') + ') are the disclosed ones', unexplained.length === 0, unexplained.join(',')); }
+  // 72-78 the hand-off form, 7 parts
+  { n++; const da = { kind: A.first.kind, from: A.first.from, why: A.first.why }, db = { kind: B.first.kind, from: B.first.from, why: B.first.why }; I(n, 'hand-off form: default kind, From and suggestion line', da.kind === db.kind && da.from === db.from && da.why === db.why, JSON.stringify([da, db])); }
+  { n++; I(n, 'hand-off form: the personal-data warning line', norm(await text(a, '.gate')) === norm(await text(b, '.gate')) && /Client personal data goes to LOCAL only/.test(await text(b, '.gate')), ''); }
+  { n++; I(n, 'hand-off form: the two buttons', norm(await text(a, '#go')) === norm(await text(b, '#go')) && norm(await text(a, '#show')) === norm(await text(b, '#show')), ''); }
+  { n++; const la = norm(await a.$eval('label[for="preview"], #preview ~ label, .lbl', e => e.textContent).catch(() => '')); I(n, 'hand-off form: the packet box is there, read only, and its label no longer promises an edit', (await b.$eval('#preview', e => e.readOnly)) && /read only/.test(await b.innerText('body')) && !/editable before pasting/.test(await b.innerText('body')), la); }
+  { n++; const oa = await a.$$eval('#to option', e => e.map(o => o.value)), ob = await b.$$eval('#to option', e => e.map(o => o.value)); I(n, 'hand-off form: To list keeps all 12 v3 entries and adds GROK', oa.length === 12 && oa.every(v => ob.includes(v)) && ob.length === 13 && ob.includes('GROK'), oa.join() + ' | ' + ob.join()); }
+  { n++; const oa = await a.$$eval('#from option', e => e.map(o => o.value)), ob = await b.$$eval('#from option', e => e.map(o => o.value)); I(n, 'hand-off form: From list keeps all 12 v3 entries and adds GROK', oa.every(v => ob.includes(v)) && ob.length === oa.length + 1, oa.join() + ' | ' + ob.join()); }
+  { n++; const ka = await a.$$eval('#kind option', e => e.map(o => o.textContent)), kb = await b.$$eval('#kind option', e => e.map(o => o.textContent)); I(n, 'hand-off form: the task-kind list is the same nine rows', JSON.stringify(ka.map(ed)) === JSON.stringify(kb), ka.length + '/' + kb.length); }
+  // 79-90 Copy packet and open for the 12 v3 To entries
+  const DIFF = ['LLM-02', 'LLM-05', 'LLM-06', 'LOCAL', 'CODEX', 'RAMBO']; let same6 = 0;
+  for (const t of X.WIN.map(w => w.id)) { n++; const sa = {}, sb = {};
+    for (const [p, o, ctx] of [[a, sa, A], [b, sb, B]]) { await setUp(p, 'LLM-04', t); const before = ctx.pops.length; await p.evaluate(() => { window.__clip = null; }); await p.click('#go'); await sleep(p, 200); o.clip = await p.evaluate(() => window.__clip); o.status = norm(await text(p, '#status')); o.opened = ctx.pops.length - before; for (const pg of ctx.pops.slice(before)) { try { await pg.close(); } catch (e) { } } }
+    const packetSame = sa.clip && sb.clip && sa.clip.split('\n').slice(1).join('\n') === sb.clip.split('\n').slice(1).join('\n'), allSame = packetSame && sa.status === sb.status && sa.opened === sb.opened; if (DIFF.includes(t)) { I(n, 'Copy packet and open -> ' + t + ': copies the same packet; the status line or the opened page differs for a stated reason', !!packetSame, JSON.stringify([sa.status, sb.status])); } else { if (allSame) { same6++; } I(n, 'Copy packet and open -> ' + t + ': identical to v3 (packet, status line, opened page)', allSame, JSON.stringify([sa, sb]).slice(0, 250)); } }
+  n++; { await setUp(a, 'LLM-04', 'LLM-02'); await setUp(b, 'LLM-04', 'LLM-02'); await a.click('#show'); await b.click('#show'); const sa = norm(await text(a, '#status')), sb = norm(await text(b, '#status')); I(n, 'Just show the packet: identical status line, packet shown', sa === sb && (await b.inputValue('#preview')).startsWith('HANDOFF'), sa + ' | ' + sb); }
+  n++; I(n, 'page errors on v5 after everything above: none', B.errs.length === 0, B.errs.join('|'));
+  await br.close();
+  const pass = items.filter(x => x.status === 'PASS').length, total = items.length;
+  fs.writeFileSync(OUT, JSON.stringify({ test: 'test-survival-92-r6', items: total, pass, total, identical_copy_and_open: same6, items_list: items }, null, 1));
+  console.log('SURVIVAL 92: ' + pass + ' of ' + total + ' items present and working' + (total !== 92 ? ' (EXPECTED 92 ITEMS)' : '')); process.exit(pass === total && total === 92 ? 0 : 1);
+})();

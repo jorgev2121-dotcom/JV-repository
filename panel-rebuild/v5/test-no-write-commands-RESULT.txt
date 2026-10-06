@@ -18,8 +18,11 @@ PASS the only PowerShell script in the folder is VERIFY-v5.ps1 (found: VERIFY-v5
 PASS no script of any kind ships inside the package (found 0)
 PASS INSTALL-BY-HAND.md starts with the explicit path under G:\My Drive\MY-DESK\VTES-PANEL\
 PASS INSTALL-BY-HAND.md says the folder is created by hand in File Explorer
-PASS INSTALL-BY-HAND.md copies by drag and drop
+PASS INSTALL-BY-HAND.md reads the exact bytes from the branch with git show and never switches the checkout
 PASS INSTALL-BY-HAND.md never the Desktop
+PASS INSTALL-BY-HAND.md says where VERIFY-v5.ps1 is (one folder up on the same branch, not in the package)
+PASS INSTALL-BY-HAND.md reads the file names back (hidden extension)
+PASS INSTALL-BY-HAND.md names the CRLF and link answers
 PASS INSTALL-BY-HAND.md never a git checkout
 PASS INSTALL-BY-HAND.md runs VERIFY-v5.ps1
 PASS INSTALL-BY-HAND.md says there is nothing to undo because the real v3 is never touched
@@ -33,4 +36,4 @@ PASS TEST-REPORT.md does not point at INSTALL-AND-UNDO.md
 PASS KNOWN-LIMITS.md does not point at INSTALL-AND-UNDO.md
 PASS DATA-CONTRACT.md does not point at INSTALL-AND-UNDO.md
 
-NO-WRITE-COMMANDS: 34 of 34 checks pass
+NO-WRITE-COMMANDS: 37 of 37 checks pass

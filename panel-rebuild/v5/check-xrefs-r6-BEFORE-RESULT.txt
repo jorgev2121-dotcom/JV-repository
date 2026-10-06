@@ -1,0 +1,3 @@
+FAIL KNOWN-LIMITS.md:6 "DESKTOP-WORK item 9 (Desktop shortcut)" tag "Desktop shortcut" does not match the title of DESKTOP-WORK item 9: "local jobs without any claude window (fix round 5, flaw n10; updated in round 6)"
+FAIL KNOWN-LIMITS item 3 names DESKTOP-WORK item 10 (Desktop shortcut)
+CROSS-REFERENCES: 26 of 28 checks pass (19 of 20 references resolve and match their tag)

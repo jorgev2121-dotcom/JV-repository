@@ -35,7 +35,7 @@ echo "== V03 edited file with the same size (one byte flipped)"; mk; python3 - "
 import sys; p=sys.argv[1]; b=bytearray(open(p,'rb').read()); b[100]^=1; open(p,'wb').write(b)
 PY
 ARGP=$N; V V03 1 "EDITED: vtes5-live.js"
-echo "== V04 data file rewritten by a writer"; mk; echo 'window.VTES_DATA.heartbeat = {"at":"x"};' > $N/data/vtes5-heartbeat.js; ARGP=$N; V V04 1 "EDITED: data/vtes5-heartbeat.js" "(data file)"
+echo "== V04 data file rewritten by a writer (fix round 6, flaw 11: expected, answer is still OK)"; mk; echo 'window.VTES_DATA.heartbeat = {"at":"x"};' > $N/data/vtes5-heartbeat.js; ARGP=$N; V V04 0 "OK: all 11 of 11 package files are present and readable" "10 page and script files are identical" "EDITED (data file) - expected: data/vtes5-heartbeat.js"; O=$(asroot -Path "$N" 2>&1); hasnot "$O" "PROBLEMS"; chk "V04b: no PROBLEMS word in the answer" $?
 echo "== V05 missing file"; mk; rm $N/vtes5-config.js; ARGP=$N; V V05 1 "MISSING: vtes5-config.js"
 echo "== V06 missing data folder"; mk; rm -rf $N/data; ARGP=$N; V V06 1 "MISSING: data/vtes5-bots.js" "MISSING: data/vtes5-tokens.js"
 echo "== V07 extra file"; mk; echo hi > $N/notes.txt; ARGP=$N; V V07 1 "EXTRA FILE: notes.txt"
@@ -70,6 +70,26 @@ echo "== V32 a doubled separator in the path is read correctly (not scrambled)";
 echo "== V33 the folder is inside a Desktop folder (flaw N5, caught after the fact)"; mk; cp -a $N "$W/fix/Desktop/v5copy"; ARGP="$W/fix/Desktop/v5copy"; V V33 1 "WRONG PLACE: the folder is inside a Desktop folder"
 echo "== V34 the folder is inside a git checkout (flaw N5, caught after the fact)"; mk; mkdir -p "$W/fix/Docs/repo/.git"; cp -a $N "$W/fix/Docs/repo/v5"; ARGP="$W/fix/Docs/repo/v5"; V V34 1 "WRONG PLACE: the folder is inside a git checkout"
 echo "== V35 the OK line and the closing line say only what the script can know"; mk; ARGP=$N; O=$(asroot -Path "$N" 2>&1); has "$O" "This script contains no write command."; chk "V35a: OK answer closes with the sentence about the script's own source" $?; hasnot "$O" "Nothing was written"; chk "V35b: no claim about everything on the machine" $?
+echo "== V36 all seven data files and the settings file rewritten: expected, still OK, exit 0 (flaw 11)"; mk; for f in heartbeat bots state health tokens housekeeping miamidade; do echo "window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.$f = {\"at\":\"2026-10-06T14:00:00-04:00\"};" > $N/data/vtes5-$f.js; done; echo 'window.VTES5_CONFIG = { "status_dir_url": "file:///C:/x/" };' > $N/vtes5-config.js; ARGP=$N; V V36 0 "OK: all 11 of 11 package files are present and readable" "3 page and script files are identical" "EDITED (settings file) - expected: vtes5-config.js" "EDITED (data file) - expected: data/vtes5-miamidade.js"
+echo "== V37 a data file AND a code file changed: the code file is PROBLEMS, the data file is only listed as expected"; mk; echo 'x' > $N/data/vtes5-state.js; echo x >> $N/vtes5-ui.js; ARGP=$N; V V37 1 "EDITED: vtes5-ui.js" "(expected, not a problem) EDITED (data file) - expected: data/vtes5-state.js"; O=$(asroot -Path "$N" 2>&1); hasnot "$O" "EDITED: data/vtes5-state.js"; chk "V37b: the data file is not listed as a problem" $?
+echo "== V38 every page and script file has CRLF line endings (git for Windows, flaw 12): ONE plain sentence naming the cause, not 8 EDITED lines"; mk; python3 - "$N" <<'PY2'
+import sys,os
+root=sys.argv[1]
+for rel in ['VTES-LLM-LAUNCHER_v5.html','vtes5-live.js','vtes5-ui.js','MANIFEST.sha256']:
+    p=os.path.join(root,rel); b=open(p,'rb').read(); open(p,'wb').write(b.replace(b'\r\n',b'\n').replace(b'\n',b'\r\n'))
+PY2
+ARGP=$N; EXTRA="-ExpectManifestSha256 $(sha256sum "$PKG/MANIFEST.sha256" | cut -c1-64)"; V V38 1 "LINE ENDINGS CHANGED (CRLF)" "VTES-LLM-LAUNCHER_v5.html, vtes5-live.js, vtes5-ui.js" "git for Windows" "MANIFEST.sha256 differs from the package ONLY because its line endings"; O=$(asroot -Path "$N" $EXTRA 2>&1); hasnot "$O" "EDITED: "; chk "V38b: no EDITED line for a CRLF-only change" $?; hasnot "$O" "MANIFEST CHANGED"; chk "V38c: the manifest is not called 'changed' when only its line endings differ" $?; EXTRA=
+echo "== V39 CRLF in one data file only: expected, OK"; mk; python3 - "$N/data/vtes5-bots.js" <<'PY2'
+import sys
+p=sys.argv[1]; b=open(p,'rb').read(); open(p,'wb').write(b.replace(b'\n',b'\r\n')+b'\r\n')
+PY2
+ARGP=$N; V V39 0 "EDITED (data file) - expected: data/vtes5-bots.js"
+echo "== V40 the folder ITSELF is a symbolic link to a real package (flaw 5): PROBLEMS, LINK IN PATH"; mk; ln -s $N $W/fix/Docs/v5link; ARGP=$W/fix/Docs/v5link; V V40 1 "LINK IN PATH: the folder itself is a link or junction"
+echo "== V41 a PARENT folder is a link (flaw 5): PROBLEMS, LINK IN PATH, names the parent"; mk; mkdir -p $W/fix/Docs/real-parent; cp -a $N $W/fix/Docs/real-parent/v5; ln -s $W/fix/Docs/real-parent $W/fix/Docs/parent-link; ARGP=$W/fix/Docs/parent-link/v5; V V41 1 "LINK IN PATH: the parent folder" "parent-link"
+echo "== V42 the folder is a link into the git checkout's package (flaw 5, the checker's S13b)"; mk; mkdir -p "$W/fix/Docs/repo2/.git" "$W/fix/Docs/repo2/panel-rebuild/v5"; cp -a $N "$W/fix/Docs/repo2/panel-rebuild/v5/package"; ln -s "$W/fix/Docs/repo2/panel-rebuild/v5/package" "$W/fix/Docs/v5-git-link"; ARGP="$W/fix/Docs/v5-git-link"; V V42 1 "LINK IN PATH: the folder itself"
+echo "== V43 the folder is a link into the Desktop (flaw 5, the checker's S12)"; mk; cp -a $N "$W/fix/Desktop/v5"; ln -s "$W/fix/Desktop/v5" "$W/fix/Docs/v5-desk-link"; ARGP="$W/fix/Docs/v5-desk-link"; V V43 1 "LINK IN PATH: the folder itself"
+echo "== V44 a data file replaced by a link is still a problem"; mk; cp $N/data/vtes5-state.js $W/fix/Docs/real-state.js; rm $N/data/vtes5-state.js; ln -s $W/fix/Docs/real-state.js $N/data/vtes5-state.js; ARGP=$N; V V44 1 "LINK: data/vtes5-state.js"
+echo "== V45 a data file missing is still a problem, tagged (data file)"; mk; rm $N/data/vtes5-tokens.js; ARGP=$N; V V45 1 "MISSING: data/vtes5-tokens.js (data file)"
 echo "== V30 the source script itself is ASCII only and has no write commands"
 LC_ALL=C grep -qP '[^\x00-\x7F]' "$VER"; [ $? -ne 0 ]; chk "V30a: VERIFY-v5.ps1 is pure ASCII" $?
 ! grep -nEi 'Set-Content|Add-Content|Out-File|New-Item|Remove-Item|Copy-Item|Move-Item|Rename-Item|WriteAll|AppendAll|Start-Transcript|Set-ItemProperty|New-ItemProperty|\| *Set-|>>? *\$|FileMode\]::(Create|Append|Truncate|CreateNew|OpenOrCreate)' "$VER" | grep -v '^[0-9]*:#'; chk "V30b: no write command appears in VERIFY-v5.ps1 (outside comments)" $?
