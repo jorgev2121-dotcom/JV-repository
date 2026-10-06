@@ -1,11 +1,21 @@
 # DATA-CONTRACT - what the PC must write so the v4 panel is never green by default (TRK-2026-9910-B)
 
-Round 2 text (fix round 1, 2026-10-06). Replaces the first version.
+Round 3 text (fix round 2, 2026-10-06). Replaces round 2 text. New rules are marked (R2).
 
 Rule (charter Rule 4, Tier 3 enforcement): every status, count and time on the panel is READ from the files below. Nobody types a status.
 If a file is missing, or its "at" is empty, the panel shows **NO DATA** in red. If "at" is older than the limit, it shows **STALE since <time>** in red.
 **Green appears only when the file is present AND fresh AND says OK.** What "says OK" means is written per file below.
 A website answering is never a status. The page shows a separate small "site answers" mark for the four chat sites; it is grey and never the light.
+
+## Rules for time, tick and proof (R2)
+1. **A time in the future is INVALID.** A file `at`, a window `last_seen` or a `proof_at` more than 2 minutes ahead of the PC clock shows red **BAD CLOCK**, is never green, and its numbers are not shown. (Writer and page share one PC, so 2 minutes is generous.)
+2. **Every time on the page is Eastern, short form, with the zone** ("Oct 6, 2:05 PM EDT"). The **year is added whenever it is not the current year** ("Oct 6, 2027, 2:00 PM EDT"). This includes hand-off packet stamps and conversation-pad entries.
+3. **`interval_sec` must be a number from 1 to 3600.** Anything else (zero, negative, text, bigger than 3600) makes the whole heartbeat file red **NOT OK** and every window red. A missing `interval_sec` falls back to 600 seconds (the 10-minute schedule Write-VtesStatus.ps1 documents).
+4. **GREEN needs proof from the poller.** A window is green only when `data\vtes4-heartbeat.js` is valid and fresh AND that window's own `executors[id].last_seen` is within 3 ticks AND its state is "up" (chat-only windows also need a fresh `proof_at`). A report that comes only from `vtes-status.js` (Write-VtesStatus.ps1 always writes "up" and checks nothing) shows a grey **"WRITER SAYS UP, NOT PROVEN"**, never green, and is not counted as "confirmed up".
+5. **BOTS (Grok bots)** shows UP only with a poller report that has proof; otherwise it shows NOT BUILT. It can never show both.
+6. **A stale or invalid Miami-Dade file turns every proof mark neutral grey** ("proof not current"). Only a fresh file (7 days) can show a green "proof checked".
+7. **The page re-reads every data file, `vtes-status.js` and `vtes-reminders.js` every 60 seconds** (cache-busted) and re-evaluates the header chips, the cards, the top strip and the panels together, so a page left docked all day never contradicts itself. A file that has been deleted counts as NO DATA on the next tick.
+8. Optional: `vtes-reminders.js` may set `window.VTES_REMINDERS_AT = "ISO time"`. Without it the bell has a dashed border and says its count may be old. The bell is red only when a reminder is due or overdue, blue when some are open but none is due, grey when none is open.
 
 ## Format
 Each file is a small JavaScript file (not JSON) so it opens from file:// with no server. Pure ASCII. In the SAME folder as the launcher, in the sub-folder `data\`.
@@ -20,7 +30,7 @@ Write it atomically: write NAME.js.tmp, then rename, so the page never reads hal
 The PC already has a heartbeat writer: `Write-VtesStatus.ps1`, which writes `vtes-status.js` (one entry per window: `st`, `seen`, `note`) every time it is run.
 v4 reads that file too (the page loads vtes-status.js). The new poller file below adds what vtes-status.js cannot say (the tick, the vtes:// flags, down, proof).
 For one window the page takes whichever report has the newer `seen`. Nobody should build a second, separate "alive" system.
-Write-VtesStatus.ps1 only accepts the ids LLM-01..08, LLM-10 and BOTS: the desktop executor adds LLM-09, LOCAL and CHIEF to its list (then re-runs Verify-VtesPanel.ps1 -Build and INSTALL-v4.ps1 so the tamper check knows the new fingerprints).
+Write-VtesStatus.ps1 only accepts the ids LLM-01..08, LLM-10 and BOTS: the desktop executor runs `EDIT-VtesStatus-v4.ps1 -LiveDir ...` to add LLM-09, LOCAL and CHIEF. That script backs the file up, lists the edit in the install record and updates that one manifest line, so no `Verify-VtesPanel.ps1 -Build` is needed and ROLLBACK-v4.ps1 puts everything back exactly. Its entries are never proof (rule 4 above).
 
 ## The six files
 1. `data\vtes4-heartbeat.js`  NAME=heartbeat  writer: the poller (a RAMBO scheduled task)  LIMIT 15 minutes
@@ -30,7 +40,7 @@ Write-VtesStatus.ps1 only accepts the ids LLM-01..08, LLM-10 and BOTS: the deskt
    - `addresses_filled`: { "LLM-01": true|false, ... } - the poller READS vtes-addresses.json each tick and records, per window id, whether that entry has a non-empty `url` or `run`. A vtes:// link appears on a card only when `vtes_scheme_registered` is true AND that window's flag is true. A missing flag means false.
    - `executors`: { "LLM-01": {"state":"up|down|unknown","last_seen":"ISO","proof_at":"ISO (chat-only windows)"}, ... }
    The twelve keys: LLM-01, LLM-02, LLM-03, LLM-04, LLM-05, LLM-06, LLM-07, LLM-08, LLM-09, LLM-10, LOCAL, CHIEF (and optionally BOTS).
-   "says OK" = the file is fresh. An executor is green only if its state is "up" AND its own last_seen is newer than 3 ticks (3 x interval_sec; if no interval_sec, 3 x 10 minutes, the schedule Write-VtesStatus.ps1 documents).
+   "says OK" = the file is fresh and valid (rules 1 and 3). An executor is green only if its state is "up" AND its own last_seen is newer than 3 ticks (3 x interval_sec; if no interval_sec, 3 x 10 minutes) AND not in the future.
 2. `data\vtes4-state.js`  NAME=state  writer: the STATE-OF-PLAY exporter  LIMIT 26 hours
    Fields: `open_items` (n), `in_progress` (n), `blocked` (n), `repairs`: [{"id","text","status":"OPEN|DONE"}], `money`: [{"item","status"}]. The page shows all of them (money included, in the Health panel).
 3. `data\vtes4-health.js`  NAME=health  writer: the daily HEALTH report task  LIMIT 26 hours

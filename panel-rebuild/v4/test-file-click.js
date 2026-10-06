@@ -21,7 +21,7 @@ const STALE = clone(FRESH); STALE.heartbeat.at = iso(1440); STALE.tokens.at = is
 const BADHEALTH = clone(FRESH); BADHEALTH.health.ok = false;
 const WORLDS = { NONE: null, FRESH, STALE, BADHEALTH };
 const results = [], counts = {};
-const add = (world, net, kind, label, status, why) => results.push({ world, net, kind, label: String(label || '').replace(/\s+/g, ' ').slice(0, 80), status, why: why || '' });
+const add = (world, net, kind, label, status, why, key) => results.push({ world, net, kind, label: String(label || '').replace(/\s+/g, ' ').slice(0, 80), status, why: why || '', key: key || '' });
 const T = (world, net, name, ok, why) => add(world, net, 'assert', name, ok ? 'PASS' : 'FAIL', ok ? '' : why);
 function stage(world) {
   const d = fs.mkdtempSync(path.join(os.tmpdir(), 'v4file-'));
@@ -84,11 +84,11 @@ function stage(world) {
     const clickAll = async (view) => {
       const n = await p.$$eval('button', b => b.length);
       for (let i = 0; i < n; i++) {
-        const info = await p.$$eval('button', (bs, i) => { const b = bs[i]; return b ? { t: (b.textContent || b.title || b.id || 'button').trim(), d: b.disabled, v: !!(b.offsetWidth || b.offsetHeight), id: b.id } : null; }, i);
-        if (!info) continue; if (info.d) { add(world, net, 'button', view + ': ' + info.t, 'PASS', 'disabled'); continue; }
+        const info = await p.$$eval('button', (bs, i) => { const b = bs[i]; return b ? { t: (b.textContent || b.title || b.id || 'button').trim(), d: b.disabled, v: !!(b.offsetWidth || b.offsetHeight), id: b.id, cid: b.getAttribute('data-id') || '', ds: b.getAttribute('data-to') || '' } : null; }, i);
+        if (!info) continue; const key = info.id ? '#' + info.id : (info.cid ? 'chip ' + info.cid : (info.ds ? 'packet button for ' + info.ds : info.t)); if (info.d) { add(world, net, 'button', view + ': ' + info.t, 'PASS', 'disabled', key); continue; }
         const before = errs.length;
         await p.$$eval('button', (bs, i) => bs[i] && bs[i].click(), i).catch(e => errs.push(e.message)); await p.waitForTimeout(40);
-        add(world, net, 'button', view + ': ' + info.t, errs.length > before ? 'FAIL' : 'PASS', errs.length > before ? errs.slice(before).join('|') : (info.v ? '' : 'hidden at this view, click ran without error'));
+        add(world, net, 'button', view + ': ' + info.t, errs.length > before ? 'FAIL' : 'PASS', errs.length > before ? errs.slice(before).join('|') : (info.v ? '' : 'hidden at this view, click ran without error'), key);
       }
     };
     const links = async (view) => {
@@ -129,8 +129,11 @@ function stage(world) {
   const kinds = {}; results.forEach(r => { kinds[r.kind] = (kinds[r.kind] || 0) + 1; });
   // the checker's way of counting: ONE world (empty data, internet ON), each distinct item once, however many views show it
   const uniq = {}, seen = new Set();
-  results.filter(r => r.world === 'NONE' && r.net === 'ON' && r.kind !== 'assert').forEach(r => { const k = r.kind + '|' + r.label.replace(/^(console|dir|map-\w+): /, ''); if (!seen.has(k)) { seen.add(k); uniq[r.kind] = (uniq[r.kind] || 0) + 1; } });
+  // ONE counting method (fix round 2): an item is one distinct control in the shipped state, identified by kind + label or address, counted once across all views.
+  // The 12 window chips are buttons, so they are counted ONCE, inside "button". The separate chip-by-chip click run (kind chip) checks them again but adds nothing to the count.
+  results.filter(r => r.world === 'NONE' && r.net === 'ON' && r.kind !== 'assert' && r.kind !== 'chip' && !(r.kind === 'page' && /no script errors/.test(r.label))).forEach(r => { const k = r.kind + '|' + (r.key || r.label.replace(/^(console|dir|map-\w+): /, '')); if (!seen.has(k)) { seen.add(k); uniq[r.kind] = (uniq[r.kind] || 0) + 1; } });
   const uniqTotal = Object.values(uniq).reduce((a, b) => a + b, 0);
+  fs.writeFileSync(OUT.replace(/\.json$/, '') + '-ITEMS.txt', 'ITEM LIST (NONE world, internet ON, one method: kind + id/address/label, chips counted once as buttons, the no-script-errors check is not an item)\n' + [...seen].sort().map((k, i) => (i + 1) + '. ' + k).join('\n') + '\n');
   const pass = results.filter(r => r.status === 'PASS').length;
   fs.writeFileSync(OUT, JSON.stringify({ total: results.length, pass, fail: results.length - pass, kinds, uniqueNoneOn: { total: uniqTotal, uniq }, results }, null, 1));
   console.log(pass + ' of ' + results.length + ' pass; ' + (results.length - pass) + ' fail'); console.log(JSON.stringify(kinds)); console.log('checker-style unique count (NONE, internet ON): ' + uniqTotal + ' ' + JSON.stringify(uniq));

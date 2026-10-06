@@ -56,7 +56,7 @@ v4 rolled back WITH NOTES: 12 of 13 tracked files are byte-identical to before v
     ---
     > de120a2468d6d12a53edbc7d5b31b9f8a657884d230c15e8dbc77f8865012653  ./Write-VtesStatus.ps1
     37a38
-    > 322ae5a51836b62d0bd40a71db3d45c218cd21aa32dbf6319b7e75aed72658d7  ./vtes-verify.js
+    > 8a9a7c720bf869a3547eeae237cb58019203a33990ac630301acd717bd8f2388  ./vtes-verify.js
 == C2: install; EDIT-VtesStatus-v4.ps1 (the safe way, no -Build); install again; rollback
 OK: 32 code files match
 DONE. Open VTES-LLM-LAUNCHER_v4.html in <work>/C2. v3 is untouched beside it. Rollback: <work>/C2/_Rollback/ROLLBACK-v4.ps1 -LiveDir "<work>/C2"

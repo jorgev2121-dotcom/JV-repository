@@ -1,0 +1,94 @@
+ITEM LIST (NONE world, internet ON, one method: kind + id/address/label, chips counted once as buttons, the no-script-errors check is not an item)
+1. button|#addans
+2. button|#attbtn
+3. button|#botsave
+4. button|#clearpad
+5. button|#cp
+6. button|#cpfind
+7. button|#go
+8. button|#mapcopy
+9. button|#mic
+10. button|#readans
+11. button|#sendbtn
+12. button|#show
+13. button|#spans
+14. button|#speak
+15. button|#speechify
+16. button|#svdl
+17. button|#svpause
+18. button|#svpick
+19. button|#svre
+20. button|#t_con
+21. button|#t_dir
+22. button|#t_dock
+23. button|#t_map
+24. button|#t_mic
+25. button|#t_pan
+26. button|#t_sp
+27. button|#t_speak
+28. button|#v4rambobtn
+29. button|Copy JOB template
+30. button|Flow chart
+31. button|Subscriptions
+32. button|Wiring diagram
+33. button|chip CHIEF
+34. button|chip LLM-01
+35. button|chip LLM-02
+36. button|chip LLM-03
+37. button|chip LLM-04
+38. button|chip LLM-05
+39. button|chip LLM-06
+40. button|chip LLM-07
+41. button|chip LLM-08
+42. button|chip LLM-09
+43. button|chip LLM-10
+44. button|chip LOCAL
+45. button|packet button for CHIEF
+46. button|packet button for LLM-01
+47. button|packet button for LLM-02
+48. button|packet button for LLM-03
+49. button|packet button for LLM-04
+50. button|packet button for LLM-05
+51. button|packet button for LLM-06
+52. button|packet button for LLM-07
+53. button|packet button for LLM-08
+54. button|packet button for LLM-09
+55. button|packet button for LLM-10
+56. dropdown|select #1 (12 options all chosen)
+57. dropdown|select #2 (12 options all chosen)
+58. expander|details #1
+59. expander|details #2
+60. https-link|https://chatgpt.com
+61. https-link|https://claude.ai
+62. https-link|https://claude.ai/code/session_01CAqZRvV1WjuuxZCNwrE9Gf
+63. https-link|https://copilot.microsoft.com
+64. https-link|https://docs.google.com/document/d/1tqRhgNV-x-ZNzP5g_iTnPb3AwdVZgKTV6TLoFZR2N7o/
+65. https-link|https://drive.google.com/drive/folders/1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN
+66. https-link|https://drive.google.com/drive/folders/1hI2TmVn86Cnh7h_6s93TG0KE1QzVCV5F
+67. https-link|https://drive.google.com/file/d/103RjsXYBPMTB7RXrVca93QRPFPMfae9l/view
+68. https-link|https://drive.google.com/file/d/1206ihC17HIk2IFKnYDJrFqySLpKml_gv/view
+69. https-link|https://drive.google.com/file/d/12CCgmd1jcFomJZDLnDL0-3anuHiy0XYK/view
+70. https-link|https://drive.google.com/file/d/1ArxF3o9ZfdHRB9cagpo6aLYsumG_hesk/view
+71. https-link|https://drive.google.com/file/d/1CJWObVncV2WtWtghlVyXQs5mWuSdsW0D/view
+72. https-link|https://drive.google.com/file/d/1IU-wcx_5fVuKEJPAJw0j-2_zbEC5lubz/view
+73. https-link|https://drive.google.com/file/d/1Sett3KYNpxOwcW2ddSDkeOlZe9xUg9Nu/view
+74. https-link|https://drive.google.com/file/d/1U6DHLvirKxeYc8P18-9TV6A4K-O4Qnp4/view
+75. https-link|https://drive.google.com/file/d/1YlTorY-w6Gff0TBiHmMAtkccEaWz1qvj/view
+76. https-link|https://drive.google.com/file/d/1Z5m-8lQdDyroTYNqEl5VzeSOn4pUOn3s/view
+77. https-link|https://drive.google.com/file/d/1aMjJj4B_RTnsuEK7zpUoAz2JRj1rTUWH/view
+78. https-link|https://drive.google.com/file/d/1c1dTYOoPHHXHGBu__dPUNQuwjUPDwU8p/view
+79. https-link|https://drive.google.com/file/d/1dnVieZEEC2H3xNI2lVqAnWfme0mK98kO/view
+80. https-link|https://drive.google.com/file/d/1eZlpGm5o_QhS-ymx_A-Lnrsjk8yrKRMl/view
+81. https-link|https://drive.google.com/file/d/1mSp3dlmvxCkk80fGYOAe3po3-kRwDGmn/view
+82. https-link|https://drive.google.com/file/d/1t48b9mvp53sicxbsYvd3mBjuBo8xfY0_/view
+83. https-link|https://drive.google.com/file/d/1wGKsjrwvo7q34eTKAO7rlYvroASMVElX/view
+84. https-link|https://drive.google.com/file/d/1wRPHDSjnRZtF5_0JkIInLFm4J3rFLA4x/view
+85. https-link|https://drive.google.com/file/d/1xCFNgzvou6vsE82Bm65QaXT3Ns6wIc1n/view
+86. https-link|https://drive.google.com/file/d/1xDlwM42EFkLEyskPEmMh_LRRgp-WFVQ5/view
+87. https-link|https://drive.google.com/file/d/1xqnUBSml1puN0caJAeiWZCcBo85QHS2L/view
+88. https-link|https://drive.google.com/file/d/1xzBT1GCYkFsNpCsC5FFpaCMwBrisGQAZ/view
+89. https-link|https://gemini.google.com
+90. https-link|https://grok.com
+91. local-link|VTES-PANEL.html
+92. local-link|VTES-REMINDERS.html
+93. page|load from file://

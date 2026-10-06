@@ -1,0 +1,427 @@
+{
+ "total": 70,
+ "pass": 70,
+ "fail": 0,
+ "results": [
+  {
+   "world": "FUTURE",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTURE",
+   "name": "N1: 0 green chips",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTURE",
+   "name": "N1: 0 green cards",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTURE",
+   "name": "N1: 0 green badges",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTURE",
+   "name": "N1: no vtes:// link",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTURE",
+   "name": "N1: age line says BAD CLOCK and is red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTURE",
+   "name": "N1: the year 2027 is shown",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTURE",
+   "name": "N1: card says BAD CLOCK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTURE",
+   "name": "N1: chip says BAD CLOCK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTURE",
+   "name": "N1: panels show no future numbers (token burn 41000 hidden)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTURE",
+   "name": "N1: year shown when not the current year, hidden when it is",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTUREEXEC",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTUREEXEC",
+   "name": "N1: 0 green chips",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTUREEXEC",
+   "name": "N1: 0 green cards",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTUREEXEC",
+   "name": "N1: card says BAD CLOCK",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTUREPROOF",
+   "name": "N1: chat window with a future proof time is not green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "FUTUREPROOF",
+   "name": "other windows still green (test is not just everything red)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N3: 0 green chips",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N3: 0 green cards",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N3: 0 green badges",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N3: RAMBO card says WRITER SAYS UP, NOT PROVEN (grey)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N3: RAMBO chip is grey (st-unk), not green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N3: chat window Chat (LLM-04) ignores the status writer: NO DATA",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N4: windows confirmed up = 0 of 12",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N4: the age line does not contradict (says no valid data file, status writer cannot prove)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N4: Map Grok Bots box says NOT BUILT and never UP",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N4: Map Grok Bots box subtitle says NOT BUILT",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N13: the Map says plainly it does not draw LOCAL and CHIEF",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N4: no \"ride on SuperGrok\" and one Grok sentence",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STATUSONLY",
+   "name": "N4: wiring node for Grok Bots is not UP",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BOTSPROVEN",
+   "name": "N4: with a proven report the box shows UP and not NOT BUILT",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BIGTICK",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BIGTICK",
+   "name": "N5: 0 green chips with interval_sec 864000",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BIGTICK",
+   "name": "N5: 0 green cards",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BIGTICK",
+   "name": "N5: heartbeat badge says NOT OK about interval_sec",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BIGTICK",
+   "name": "N5: interval_sec 3600 with 2-day-old sightings: 0 green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BIGTICK",
+   "name": "N5: interval_sec 3601 with 2-day-old sightings: 0 green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BIGTICK",
+   "name": "N5: interval_sec 0 with 2-day-old sightings: 0 green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BIGTICK",
+   "name": "N5: interval_sec \"300\" with 2-day-old sightings: 0 green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BIGTICK",
+   "name": "N5: interval_sec -5 with 2-day-old sightings: 0 green",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BIGTICK",
+   "name": "N5: interval_sec 3600 (the maximum) is accepted: a sighting 100 minutes ago is green (3 ticks = 180 min)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "OLDMIAMI",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "OLDMIAMI",
+   "name": "N6: 0 green \"proof checked\" marks from a 30-day-old file",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "OLDMIAMI",
+   "name": "N6: all 22 proof marks neutral grey",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "OLDMIAMI",
+   "name": "N6: the Miami-Dade badge says STALE (red)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "OLDMIAMI",
+   "name": "N6 control: with a fresh file, 2 proof checked marks show",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BELL",
+   "name": "N12: overdue item -> red bell, count 2",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BELL",
+   "name": "N12: open but not due -> blue bell (not red), count 1",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BELL",
+   "name": "N12: nothing open -> grey bell, no count",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BELL",
+   "name": "N12: the title says the file has no time stamp (age unknown)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "BELL",
+   "name": "N12: shipped reminders file: bell colour is computed (red only if something is due)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STAMPS",
+   "name": "N7: packet stamp is Eastern short form with the zone",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STAMPS",
+   "name": "N7: conversation-pad entry is Eastern short form with the zone",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STAMPS",
+   "name": "N7: an older saved pad entry is shown in Eastern form too (and a year when not current)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "STAMPS",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-NOWRITER",
+   "name": "at load: lights, cards and strip agree and are green (control)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-NOWRITER",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-NOWRITER",
+   "name": "N2: after 2 hours 0 green chips",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-NOWRITER",
+   "name": "N2: after 2 hours 0 green cards (cards agree with the header)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-NOWRITER",
+   "name": "N2: after 2 hours the heartbeat (15 min limit) and tokens (30 min limit) strip badges are red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-NOWRITER",
+   "name": "N2: the daily files (state, health, housekeeping, Miami-Dade) are still inside their own limits, so still green: honest, not everything red",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-NOWRITER",
+   "name": "N2: the top age line is red and says it was re-checked at the new time",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-NOWRITER",
+   "name": "N2: cards say STALE, same as the chips",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-NOWRITER",
+   "name": "N2: the vtes:// link is gone after the heartbeat went stale",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-WRITER",
+   "name": "no page errors",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-WRITER",
+   "name": "N2: after 2 hours with a live writer the lights are still green and cards agree",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-WRITER",
+   "name": "N2: the new files were read (burn rate 53000 shown, so the reload is cache-busted)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-WRITER",
+   "name": "N2: a deleted data file shows NO DATA on the next tick",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "world": "TWOHOURS-WRITER",
+   "name": "N2: when the writer stops, the lights AND the cards both go red within a tick",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

@@ -126,15 +126,17 @@
     if (reload.busy) { return; } reload.busy = true;
     var stamp = Date.now(), jobs = Object.keys(FILES).map(function (n) { return { name: n, src: FILES[n], kind: 'data' }; });
     jobs.push({ name: 'status', src: 'vtes-status.js', kind: 'status' }, { name: 'reminders', src: 'vtes-reminders.js', kind: 'reminders' });
-    var left = jobs.length, fin = false;
-    function end() { if (fin) { return; } fin = true; reload.busy = false; try { done && done(); } catch (e) { } }
-    var guard = setTimeout(end, 10000);
+    var left = jobs.length, completed = false;
+    function end() { reload.busy = false; try { done && done(); } catch (e) { } }
+    /* if a file hangs, repaint anyway after 10 seconds; when the loads do finish, repaint again */
+    var guard = setTimeout(function () { if (!completed) { end(); } }, 10000);
+    window.VTES_STATUS = {}; /* the placeholder file keeps old entries (|| {}), so start empty and let the file refill it */
     jobs.forEach(function (j) {
       var s = document.createElement('script');
       function one(ok) {
         if (s.parentNode) { s.parentNode.removeChild(s); }
         if (!ok) { if (j.kind === 'data') { delete D[j.name]; } else if (j.kind === 'status') { window.VTES_STATUS = {}; } }
-        if (--left === 0) { clearTimeout(guard); end(); }
+        if (--left === 0) { completed = true; clearTimeout(guard); end(); }
       }
       s.onload = function () { one(true); }; s.onerror = function () { one(false); };
       s.src = j.src + '?t=' + stamp; document.head.appendChild(s);
