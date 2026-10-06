@@ -4,6 +4,30 @@
 
 ---
 
+## START HERE — update 2026-10-06 04:05Z (12:05 AM Miami): THE 300 APPS, AND YOUR REGISTRATION
+
+**Section A — The answer.** **The 300 apps were never built. What you saw at 8 PM was a preview with samples, made by a different Claude window, and nothing was ever ordered to the desktop.**
+
+1. That window was titled "Security key activation". It is not this one. It stopped around 9:17 PM waiting on three decisions.
+2. It made four pages. I counted them. 22 county sites. 18 credential cards. 12 launcher cards. 8 folders with 16 documents.
+3. The only "300" is a subtitle. No page has a working county link. No PDFs, no pictures, no proof.
+4. Its one order to the desktop sat on a side branch the desktop never reads. That is the same failure as before.
+
+**Section B — What I did about it, in the last hour.**
+
+1. **Your registration is approved and ordered to the desktop** (one-time, your login only, one-command undo).
+2. **The 22-site deep catalog is ordered**: one worker per site, three to four layers deep, orange-tree format, a counter that says "n of 300", and a twice-monthly check that finds changed addresses. **It does not log in with passwords.**
+3. **Your panel requirements are written down in your words** (window names, RAMBO, Grok, blind token monitor, indexed and OCR'd) for the final judge.
+4. These are orders, not results. **Nothing is done until the desktop sends proof.**
+
+**Section C — One objection.** Logging in twice a month on its own can lock your accounts and needs passwords stored where an agent can read them. Safer: passkeys plus a no-login check that addresses still work. I did not order the login part.
+
+**Your 12-hour clock:** checkpoint about noon Miami today. The handover file is ready if you decide to replace me.
+
+Did you want me to hold the login idea until you choose passkeys?
+
+---
+
 ## START HERE — update 2026-10-06 03:15Z (11:15 PM Miami, Monday): YOUR CLICKS WORKED
 
 **Yes, the window saved your clicks. It is not frozen.** There is one file per click, from 11:03 to 11:04 PM. I read all of them.

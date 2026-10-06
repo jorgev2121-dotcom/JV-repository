@@ -5,7 +5,7 @@
 
 ## Answer first
 
-**Determination: do not step down tonight. Put the cloud session on a 24-hour audited probation, with a handover file already written so replacing it costs nothing. If Jorge's next check finds any item with no owner, or any item assigned to a lane that cannot receive, or any item untouched for 24 hours that is not waiting on Jorge, the cloud session recommends its own replacement and hands over at once.**
+**Determination: do not step down tonight. Put the cloud session on a 12-hour audited probation (Jorge's own term, granted by him ~12:00 AM Miami 2026-10-06; checkpoint no later than ~12:00 PM Miami), with a handover file already written so replacing it costs nothing. If Jorge's next check finds any item with no owner, or any item assigned to a lane that cannot receive, or any item untouched for 24 hours that is not waiting on Jorge, the cloud session recommends its own replacement and hands over at once.**
 Jorge can order a step-down at any time, for any reason. This is a recommendation, not a request to be kept.
 
 ## What went wrong (each with evidence)
@@ -33,7 +33,7 @@ I cannot touch the PC, OneDrive, the registry, the county sites or the live pane
 - **Objection:** a replacement starts with no memory of the last five weeks. The failures above are process failures (no owner, no chasing, receipts counted as work), and a new agent in the same process would repeat them.
 - **Answer:** the process fix is the tool for any agent: a delegation ledger where every item has an owner lane, a file proving it was delegated, and a last-touched date, checked on Jorge's schedule. If that ledger shows I cannot hold it, replace me.
 
-## Conditions for the next 24 hours
+## Conditions for the 12-hour probation (checkpoint ~12:00 PM Miami Tue 10-06)
 
 1. **The delegation ledger exists tonight** (two files in this folder). Every open item names its owner lane and the file that delegated it.
 2. **The tripwire above.**
@@ -57,3 +57,9 @@ TRK-2026-9960 · v1 · 2026-10-06 · CURRENT
 **Updated count of what is mine:** the ledgers list 10 open items owned by the cloud session out of 46. That is the number Jorge should check next time.
 
 TRK-2026-9960 · v1.1 · 2026-10-06 · CURRENT
+
+
+## Addendum 2026-10-06 04:05Z (12:05 AM Miami) — the 8 PM chat
+Jorge asked what happened to the "300 apps". Findings: it was a separate cloud window (Security key activation, Haiku), not this one. It made four static mock-ups (22 / 16 / 18 / 12 items; zero county links; zero proof; the only "300" is a subtitle) and left a 3-site probe order on an unmerged branch. **Fault 12 (mine): I did not sweep the other cloud sessions' open promises until Jorge asked, so the same fall-through (orders written where the desktop cannot see) went unseen for ~4 hours.** Fixed now: three orders written to the Drive Inbox (registration approved; 22-source catalog + freshness; panel requirements) — ids in OPEN-ITEMS. Standing change: each hourly cycle lists sibling cloud sessions and checks for undelivered orders.
+
+TRK-2026-9960 · v2 · 2026-10-06 · SELF-EVALUATION (cloud keeper)
