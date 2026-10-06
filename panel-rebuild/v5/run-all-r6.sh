@@ -11,6 +11,8 @@ node test-v3-before.js test-v3-before-RESULT.json | tail -1
 node test-v3-packets.js test-v3-packets-RESULT.json | tail -1
 node test-fixes-r4.js test-fixes-r4-AFTER-RESULT.json | tail -1
 node test-fixes-r5.js test-fixes-r5-AFTER-RESULT.json | tail -1
+node test-fixes-r6.js test-fixes-r6-RESULT.json | tail -1
+node test-survival-92-r6.js test-survival-92-r6-RESULT.json | tail -1
 node test-invariant-r6.js test-invariant-r6-RESULT.json | tail -1
 node test-privacy-matrix-r6.js test-privacy-matrix-r6-RESULT.json | tail -1
 node test-pii-unit-r6.js test-pii-unit-r6-RESULT.json | tail -1
