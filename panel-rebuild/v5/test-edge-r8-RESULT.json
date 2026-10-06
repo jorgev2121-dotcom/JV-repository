@@ -1,0 +1,321 @@
+{
+ "test": "test-edge-r8",
+ "pass": 56,
+ "total": 56,
+ "groups": {
+  "e1 refused": {
+   "n": 17,
+   "ok": 17
+  },
+  "e1 allowed": {
+   "n": 5,
+   "ok": 5
+  },
+  "e1 proof": {
+   "n": 4,
+   "ok": 4
+  },
+  "e2": {
+   "n": 7,
+   "ok": 7
+  },
+  "e3": {
+   "n": 3,
+   "ok": 3
+  },
+  "e4": {
+   "n": 6,
+   "ok": 6
+  },
+  "e15": {
+   "n": 13,
+   "ok": 13
+  },
+  "e20": {
+   "n": 1,
+   "ok": 1
+  }
+ },
+ "rows": [
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\Users\\JV\\Box\\LOCAL",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\Users\\JV\\pCloud Drive\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\Users\\JV\\MEGAsync\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\Users\\JV\\Nextcloud\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\Users\\JV\\AppData\\Local\\Google\\DriveFS\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\Users\\JV\\ONEDRI~1\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\PROGRA~1\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\VTES-LOCAL-ONLY",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\Temp\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: D:\\LOCAL",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: \\\\pc\\share\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\VTES-LOCAL\\..\\Users\\JV\\OneDrive",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\Users\\JV\\Desktop\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\Users\\JV\\Documents\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: G:\\My Drive\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\VTES-LOCALX\\y",
+   "ok": true
+  },
+  {
+   "grp": "e1 refused",
+   "name": "not confirmed: C:\\Users\\JV\\Sync\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 allowed",
+   "name": "confirmed: C:\\VTES-LOCAL\\",
+   "ok": true
+  },
+  {
+   "grp": "e1 allowed",
+   "name": "confirmed: C:\\VTES-LOCAL",
+   "ok": true
+  },
+  {
+   "grp": "e1 allowed",
+   "name": "confirmed: c:\\vtes-local\\jobs",
+   "ok": true
+  },
+  {
+   "grp": "e1 allowed",
+   "name": "confirmed: C:\\AI\\state\\local\\",
+   "ok": true
+  },
+  {
+   "grp": "e1 allowed",
+   "name": "confirmed: C:\\AI\\state\\local\\jobs\\2026",
+   "ok": true
+  },
+  {
+   "grp": "e1 proof",
+   "name": "with who-checked and proof, confirmed: C:\\Weird\\Folder",
+   "ok": true
+  },
+  {
+   "grp": "e1 proof",
+   "name": "a cloud-looking or short name is refused even with proof: C:\\Users\\JV\\Box\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 proof",
+   "name": "a cloud-looking or short name is refused even with proof: C:\\Users\\JV\\ONEDRI~1\\x",
+   "ok": true
+  },
+  {
+   "grp": "e1 proof",
+   "name": "a cloud-looking or short name is refused even with proof: C:\\Users\\JV\\OneDrive\\x",
+   "ok": true
+  },
+  {
+   "grp": "e2",
+   "name": "id \"101\" does not turn source 01 green",
+   "ok": true
+  },
+  {
+   "grp": "e2",
+   "name": "id \" 01 \" (spaces) is source 01",
+   "ok": true
+  },
+  {
+   "grp": "e2",
+   "name": "id \"1\" is source 01",
+   "ok": true
+  },
+  {
+   "grp": "e2",
+   "name": "id \"0001\" is NOT source 01",
+   "ok": true
+  },
+  {
+   "grp": "e2",
+   "name": "listed twice (not ok, then ok): the worst row wins",
+   "ok": true
+  },
+  {
+   "grp": "e2",
+   "name": "listed twice (ok, then not ok): the worst row wins",
+   "ok": true
+  },
+  {
+   "grp": "e2",
+   "name": "listed twice (fresh, then 30 days old): the old row wins",
+   "ok": true
+  },
+  {
+   "grp": "e3",
+   "name": "a health file whose values sit under a __proto__ literal is not green",
+   "ok": true
+  },
+  {
+   "grp": "e3",
+   "name": "a token file whose numbers sit under a __proto__ literal is not green",
+   "ok": true
+  },
+  {
+   "grp": "e3",
+   "name": "the sanitiser drops keys that are only inherited",
+   "ok": true
+  },
+  {
+   "grp": "e4",
+   "name": "heartbeat time with no zone: NO ZONE, never green (cards that depend on it, such as the LOCAL save line, may be red)",
+   "ok": true
+  },
+  {
+   "grp": "e4",
+   "name": "token time with no zone: grey NO ZONE, not green",
+   "ok": true
+  },
+  {
+   "grp": "e4",
+   "name": "a bot last-run time with no zone: grey NO ZONE, not green",
+   "ok": true
+  },
+  {
+   "grp": "e4",
+   "name": "a window time with no zone: grey NO ZONE, not green",
+   "ok": true
+  },
+  {
+   "grp": "e4",
+   "name": "a daily-report time with no zone: the health strip entry is not green",
+   "ok": true
+  },
+  {
+   "grp": "e4",
+   "name": "a time WITH a zone is still green (control)",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"file://other-pc/share/\": refused, nothing is loaded from it",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"file:///C:/x/\": refused, nothing is loaded from it",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"http://x/\": refused, nothing is loaded from it",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"https://x/\": refused, nothing is loaded from it",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"\\\\\\\\host\\\\share\\\\\": refused, nothing is loaded from it",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"C:/x/\": refused, nothing is loaded from it",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"C:\\\\x\\\\\": refused, nothing is loaded from it",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"../x/\": refused, nothing is loaded from it",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"a/../b/\": refused, nothing is loaded from it",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"/abs/\": refused, nothing is loaded from it",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"st/\": a relative folder is read",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"st\": a relative folder is read",
+   "ok": true
+  },
+  {
+   "grp": "e15",
+   "name": "status_dir_url \"sub/dir/\": a relative folder is read",
+   "ok": true
+  },
+  {
+   "grp": "e20",
+   "name": "no Read me, note or step sentence is over 25 words (44 text blocks read)",
+   "ok": true
+  }
+ ]
+}

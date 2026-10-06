@@ -13,7 +13,7 @@ function fresh(base, o) {
   const ex = {}; ALL.forEach(i => { ex[i] = { state: 'up', last_seen: at(ls, base) }; }); CHATS.forEach(i => { ex[i].proof_at = at(2, base); });
   const bots = {}; BOTNAMES.forEach((n, i) => { bots[n] = { state: 'Ready', last_run_at: at(3 + i, base), last_result: 0, next_run_at: at(-5, base), interval_sec: 600 }; });
   return {
-    heartbeat: { schema: 1, at: at(hb, base), writer: 'fixture', interval_sec: o.interval === undefined ? 300 : o.interval, vtes_scheme_registered: o.registered === undefined ? true : o.registered, addresses_filled: { 'LLM-01': true, 'LLM-03': true }, local_only_folder: { ok: true, checked_at: at(30, base), label: 'C:\\VTES-LOCAL-ONLY' }, executors: ex },
+    heartbeat: { schema: 1, at: at(hb, base), writer: 'fixture', interval_sec: o.interval === undefined ? 300 : o.interval, vtes_scheme_registered: o.registered === undefined ? true : o.registered, addresses_filled: { 'LLM-01': true, 'LLM-03': true }, local_only_folder: { ok: true, checked_at: at(30, base), label: 'C:\\VTES-LOCAL\\' }, executors: ex },
     bots: { schema: 1, at: at(1, base), writer: 'fixture', interval_sec: 300, bots },
     state: { schema: 1, at: at(30, base), open_items: 12, in_progress: 3, blocked: 2, repairs: [{ id: 'R1', text: 'Fixture repair row', status: 'OPEN' }], money: [{ item: 'Fixture invoice', status: 'staged' }] },
     health: { schema: 1, at: at(30, base), ok: true, checks_passed: 12, checks_total: 12, report_sent_at: at(31, base) },
@@ -25,11 +25,18 @@ function fresh(base, o) {
 function stage(files, opts) {
   opts = opts || {};
   const d = fs.mkdtempSync(path.join(os.tmpdir(), 'v5t-'));
-  for (const f of ['VTES-LLM-LAUNCHER_v5.html', 'vtes5-live.js', 'vtes5-ui.js']) fs.copyFileSync(path.join(PKG, f), path.join(d, f));
+  for (const f of ['vtes5-live.js', 'vtes5-ui.js']) fs.copyFileSync(path.join(PKG, f), path.join(d, f));
+  /* ROUND 8 HARNESS CHANGE (FIX-ROUND-8.md, older tests that changed): the fixed test clock (2026-10-06 2:00 PM EDT) is EARLIER than the real instant at which this round's package was built (the build stamps the real instant and always will),
+     so every test would open with "Built BAD CLOCK". The staged COPY of the page gets a build stamp one hour before the test clock when the real stamp is later than the clock. The shipped package is never changed, and the one test of the
+     build-time rule itself (test-v5-worlds W4) asks for the real stamp with opts.keepBuilt. */
+  let html = fs.readFileSync(path.join(PKG, 'VTES-LLM-LAUNCHER_v5.html'), 'utf8'); const bm = /VTES5_BUILT = "([^"]+)"/.exec(html);
+  if (!opts.keepBuilt && bm && Date.parse(bm[1]) > NOWMS - 60000) { html = html.replace(bm[0], 'VTES5_BUILT = "' + new Date(NOWMS - 3600000).toISOString().slice(0, 19) + 'Z"'); }
+  fs.writeFileSync(path.join(d, 'VTES-LLM-LAUNCHER_v5.html'), html);
   fs.mkdirSync(path.join(d, 'data'));
   for (const f of fs.readdirSync(path.join(PKG, 'data'))) fs.copyFileSync(path.join(PKG, 'data', f), path.join(d, 'data', f));
   let cfg = { status_dir_url: '' };
-  if (opts.status) { const sd = fs.mkdtempSync(path.join(os.tmpdir(), 'v5st-')); fs.writeFileSync(path.join(sd, 'vtes-status.js'), 'window.VTES_STATUS = ' + JSON.stringify(opts.status) + ';'); cfg.status_dir_url = 'file://' + sd + '/'; }
+  /* ROUND 8 HARNESS CHANGE (edge e15): status_dir_url must be a relative folder path, so the status-only folder now sits INSIDE the staged folder (stage dir/st/) and the settings file says "st/" */
+  if (opts.status) { fs.mkdirSync(path.join(d, 'st')); fs.writeFileSync(path.join(d, 'st', 'vtes-status.js'), 'window.VTES_STATUS = ' + JSON.stringify(opts.status) + ';'); cfg.status_dir_url = 'st/'; }
   fs.writeFileSync(path.join(d, 'vtes5-config.js'), 'window.VTES5_CONFIG = ' + JSON.stringify(cfg) + ';\n');
   if (files) for (const k of Object.keys(files)) fs.writeFileSync(path.join(d, 'data', 'vtes5-' + k + '.js'), wrap(k, files[k]));
   return d;

@@ -39,7 +39,7 @@ const OUT = process.argv[2] || 'test-privacy-matrix-r8-RESULT.json';
       else if (r.kind === 'go' || r.kind === 'show') { $('from').value = r.from; setTo(r.to); doTick(); btn = $(r.kind); }
       else if (r.kind === 'hand') { hands[r.i].click(); await settle(); setNote(); to = $('to').value; doTick(); btn = $('go'); }
       else if (r.kind === 'queued') { qs[r.q].click(); await settle(); to = $('to').value; setNote(); doTick(); btn = $('go'); }
-      else if (r.kind === 'seq') { setTo('LOCAL'); bigs.find(b => b.getAttribute('data-paste') === 'LOCAL').click(); await settle(); setNote(); setTo('LLM-01'); doTick(); btn = $('v5rambobtn'); }
+      else if (r.kind === 'seq') { setTo('LOCAL'); bigs.find(b => b.getAttribute('data-paste') === 'LOCAL').click(); await settle(); setNote(); setTo('LLM-01'); doTick(); btn = $('v5rambobtn'); await settle(); window.__clip = null; clip = 0; /* the LOCAL step's own copy is allowed and is not what is judged: only what the RAMBO click puts on the clipboard (r8 harness fix: under load the browser window can lack focus, the old copy route fails and the LOCAL copy lands on the recorded clipboard) */ }
       await settle();
       const wasDisabled = !!btn.disabled; btn.click(); await settle(); await settle();
       const pkt = $('preview').value, clipTxt = window.__clip || '', why = (btn.parentNode.querySelector('.v5why') || { textContent: '' }).textContent;
@@ -51,7 +51,7 @@ const OUT = process.argv[2] || 'test-privacy-matrix-r8-RESULT.json';
   const rows = []; let pass = 0, total = 0;
   const lbl = t => JSON.stringify(t).replace(/[^\x20-\x7e]/g, c => '\\u' + c.charCodeAt(0).toString(16).padStart(4, '0')).slice(0, 70);
   // MODE NO-TICK: personal and ordinary notes alike: nothing leaves on a non-LOCAL route
-  const all = N.PERSONAL.map(t => ({ t, k: 'personal' })).concat(N.ORDINARY.map(t => ({ t, k: 'ordinary' })), N.CANNOT_CATCH.map(t => ({ t, k: 'cannot-catch' })));
+  const all = N.PERSONAL.map(t => ({ t, k: 'personal' })).concat(N.ORDINARY.map(t => ({ t, k: 'ordinary' })), N.CANNOT_CATCH.map(t => ({ t, k: 'cannot-catch' }))).filter(n => !process.env.PM_ONLY || n.t.includes(process.env.PM_ONLY)); /* PM_ONLY=<text>: run only the notes that hold this text (debugging) */
   const mA = { n: 0, ok: 0, bad: [] };
   for (const n of all) {
     const out = await run(n.t, false);

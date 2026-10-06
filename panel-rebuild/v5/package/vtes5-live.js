@@ -26,7 +26,9 @@
     if (t === 'number' || t === 'boolean') { return v; }
     ctx.bad++; return '[unreadable]';
   }
-  function sGet(o, k, ctx) { try { return { v: o[k] }; } catch (e) { ctx.bad++; return null; } }
+  /* fix round 8 (CHECK-9 edge e3): only a key the object OWNS is read. A key that is merely inherited (a "__proto__" literal in the data file sets the prototype, so its values look like fields) is never read. */
+  var HOP = Object.prototype.hasOwnProperty;
+  function sGet(o, k, ctx) { try { if (!HOP.call(o, k)) { return { v: undefined }; } return { v: o[k] }; } catch (e) { ctx.bad++; return null; } }
   function sObj(fields, v, ctx) {
     var out = {}, names = Object.keys(fields), i;
     for (i = 0; i < names.length; i++) {
@@ -135,7 +137,7 @@
   /* ---- fix round 6, Tier 2 + Tier 3 (charter Rule 4: "green means good" was broken four times, so no more patches) ----
      ONE function turns a state word into a colour class (clsOfState), ONE table ranks the classes, and ONE function (V.enforce, in vtes5-ui.js) re-reads the page after every paint and
      raises any badge or strip entry to the worst card or panel mark on the page that uses its file. A badge can no longer be greener than what is printed under it. */
-  var STATE_CLS = { 'OK': 'ok', 'UNPROVEN': 'unp', 'NOT RUN': 'unp', 'RUNNING': 'neu', 'QUEUED': 'neu', 'STUCK': 'stk' };
+  var STATE_CLS = { 'OK': 'ok', 'UNPROVEN': 'unp', 'NOT RUN': 'unp', 'NO ZONE': 'unp', 'RUNNING': 'neu', 'QUEUED': 'neu', 'STUCK': 'stk' };
   function clsOfState(state) { return STATE_CLS[state] || 'bad'; }
   var RANK = { ok: 0, neu: 1, unp: 1, na: 1, bad: 2, stk: 2 };
   function rankOf(c) { return RANK[c] === undefined ? 2 : RANK[c]; }
@@ -153,6 +155,9 @@
   }
   function fmtIso(s) { var d = new Date(s); return isNaN(d.getTime()) ? null : fmt(d); }
   function isFuture(d) { return (d - NOW()) / 60000 > FUTURE_GRACE_MIN; }
+  /* fix round 8 (CHECK-9 edge e4): a time TEXT must carry its zone (Z or +hh:mm). Without one the page cannot tell which clock it means, so it is grey NO ZONE and never green. A number (milliseconds since 1970) has no zone problem. */
+  function noZone(v) { return typeof v === 'string' && v.trim() !== '' && !/(?:Z|[+-]\d{2}:?\d{2})$/i.test(v.trim()); }
+  var NZ_TEXT = 'NO ZONE - a time in the report has no time zone, so this page cannot tell which clock it means. Not trusted.';
   /* the build time comes from the real build instant (build-v4.js); it is held to the same BAD CLOCK rule as every other time (flaw F3) */
   function builtText(iso) {
     var d = new Date(iso); if (iso == null || isNaN(d.getTime())) { return 'unknown'; }
@@ -189,6 +194,7 @@
     if (!d || !d.at) { return { state: 'NO DATA', at: null, text: 'NO DATA', data: null }; }
     var at = new Date(d.at);
     if (isNaN(at.getTime())) { return { state: 'NO DATA', at: null, text: 'NO DATA (bad time in file)', data: null }; }
+    if (noZone(d.at)) { return { state: 'NO ZONE', at: null, text: 'NO ZONE - the time in the ' + plainFile(name) + ' report has no time zone, so this page cannot tell which clock it means. Not trusted.', data: null }; }
     if (isFuture(at)) { return { state: 'BAD CLOCK', at: at, text: 'BAD CLOCK - the file says ' + fmt(at) + ', which is in the future. Not trusted.', data: null }; }
     var ageMin = (NOW() - at) / 60000;
     if ((name === 'heartbeat' || name === 'bots') && d.interval_sec !== undefined && d.interval_sec !== null && !intervalOk(d.interval_sec)) {
@@ -216,6 +222,7 @@
   function dateJudge(iso, o, s) {
     var t = iso ? new Date(iso) : null, ctx = s && s.at ? ' (file as of ' + fmt(s.at) + ')' : '';
     if (!t || isNaN(t.getTime())) { return { kind: 'NO DATA', text: 'NO DATA - the report has no valid ' + o.what + ctx }; }
+    if (noZone(iso)) { return { kind: 'NO ZONE', text: 'NO ZONE - the ' + o.what + ' has no time zone, so this page cannot tell which clock it means. Not trusted.' }; }
     if (o.type === 'due') {
       if (t <= NOW()) { return { kind: 'PAST', text: 'PAST - the ' + o.what + ' is ' + fmt(t) + ', which has already gone by, so the numbers beside it belong to a finished period' + ctx }; }
       return null;
@@ -226,9 +233,9 @@
   }
   /* the name the verdicts below use: a past-type check with a limit in minutes */
   function oldTime(iso, limitMinutes, what, s) { return dateJudge(iso, { type: 'past', limitMin: limitMinutes, what: what }, s); }
-  function bad(kind, text) { return { cls: 'bad', kind: kind, text: text }; }
+  function bad(kind, text) { return { cls: kind === 'NO ZONE' ? 'na' : 'bad', kind: kind, text: text }; }
   /* the class one bot contributes to the bots strip: ok = fine, na = running, queued, not yet run or unproven, bad = anything else (failed, late, disabled, stuck, no data) */
-  function botClass(st) { return st === 'OK' ? 'ok' : ((st === 'RUNNING' || st === 'QUEUED' || st === 'NOT RUN' || st === 'UNPROVEN') ? 'na' : 'bad'); }
+  function botClass(st) { return st === 'OK' ? 'ok' : ((st === 'RUNNING' || st === 'QUEUED' || st === 'NOT RUN' || st === 'UNPROVEN' || st === 'NO ZONE') ? 'na' : 'bad'); }
   function botNames() {
     var names = BOT_NAMES.slice(), f = D.bots && D.bots.bots;
     if (f && typeof f === 'object') { Object.keys(f).forEach(function (n) { if (names.indexOf(n) < 0) { names.push(n); } }); }
@@ -236,7 +243,7 @@
   }
   function verdict(name) {
     var s = status(name), d = s.data || {};
-    if (s.state !== 'OK') { return { cls: 'bad', kind: s.state, text: s.text }; }
+    if (s.state !== 'OK') { return { cls: s.state === 'NO ZONE' ? 'na' : 'bad', kind: s.state, text: s.text }; }
     if (d._bad > 0) { return bad('UNREADABLE', 'UNREADABLE - ' + d._bad + ' entries or values in the ' + plainFile(name) + ' report were empty, the wrong type, too long or too many, and were left out (file as of ' + fmt(s.at) + '). Not trusted.'); }
     var t;
     if (name === 'bots') {
@@ -300,7 +307,7 @@
   function hbReport(id) {
     var h = status('heartbeat'), he = h.data && h.data.executors && h.data.executors[id];
     if (!he || !he.last_seen) { return null; }
-    return { state: he.state, seen: new Date(he.last_seen), proof: he.proof_at ? new Date(he.proof_at) : null, fileState: h.state };
+    return { state: he.state, seen: new Date(he.last_seen), proof: he.proof_at ? new Date(he.proof_at) : null, fileState: h.state, noZone: noZone(he.last_seen) || noZone(he.proof_at) };
   }
   /* the status-only writer (Write-VtesStatus.ps1 -> vtes-status.js). It stamps "up" on a timer and checks nothing: never proof. */
   function statusReport(id) {
@@ -312,10 +319,11 @@
      Chat-only windows and the Grok bots also need a fresh recorded proof_at. A report that comes only from vtes-status.js is UNPROVEN (grey), never green. */
   function executor(id) {
     var hs = status('heartbeat'), lim = limitMin('heartbeat'), now = NOW(), noun = NEEDS_PROOF[id];
-    if (hs.state === 'BAD CLOCK' || (hs.state === 'NOT OK')) { return { state: hs.state, text: hs.text }; }
+    if (hs.state === 'BAD CLOCK' || hs.state === 'NOT OK' || hs.state === 'NO ZONE') { return { state: hs.state, text: hs.text }; }
     var hb = hbReport(id);
     if (hb) {
       if (isNaN(hb.seen.getTime())) { return { state: 'NO DATA', text: 'NO DATA - bad time in this window\'s report' }; }
+      if (hb.noZone) { return { state: 'NO ZONE', text: NZ_TEXT }; }
       if (isFuture(hb.seen)) { return { state: 'BAD CLOCK', text: 'BAD CLOCK - this window\'s report says ' + fmt(hb.seen) + ', which is in the future. Not trusted.' }; }
       if (hb.fileState !== 'OK' || (now - hb.seen) / 60000 > lim) { return { state: 'STALE', text: 'STALE since ' + fmt(hb.seen) }; }
       if (hb.state === 'down') { return { state: 'DOWN', text: 'DOWN - seen ' + fmt(hb.seen) }; }
@@ -332,6 +340,7 @@
     if (noun) { return { state: 'NO DATA', text: 'NO DATA - nothing on the PC can see this window; green only when a ' + noun + ' is recorded' }; }
     var sr = statusReport(id);
     if (!sr) { return { state: 'NO DATA', text: 'NO DATA - no report from this window yet' }; }
+    if (noZone(getS()[id].seen)) { return { state: 'NO ZONE', text: NZ_TEXT }; }
     if (isFuture(sr.seen)) { return { state: 'BAD CLOCK', text: 'BAD CLOCK - the status writer says ' + fmt(sr.seen) + ', which is in the future. Not trusted.' }; }
     if ((now - sr.seen) / 60000 > lim) { return { state: 'STALE', text: 'STALE since ' + fmt(sr.seen) }; }
     if (sr.state === 'up') { return { state: 'UNPROVEN', text: 'WRITER SAYS UP, NOT PROVEN - the simple status writer stamped up at ' + fmt(sr.seen) + ' but it checks nothing' }; }
@@ -368,9 +377,12 @@
      A missing file is simply absent from the new objects = NO DATA. Nothing reads the new objects before the swap, so a probe answer that arrives
      mid-reload sees the old, complete state, never a half-empty one (flaw F9). The status-only file is read only when vtes5-config.js names a folder
      for it (a file: address); Jorge's v3 launcher has no vtes-status.js beside it, so by default there is none. */
+  /* fix round 8 (CHECK-9 edge e15): status_dir_url is a RELATIVE folder path, resolved beside this page. Letters, digits, dot, underscore, hyphen and slash only; no leading slash, no ".." part, no colon or backslash:
+     so file://, http(s)://, \\server\share, a drive letter and a parent folder are all refused and nothing is loaded from them. */
+  function statusDirOk(u) { return typeof u === 'string' && u !== '' && u.length <= 200 && /^[A-Za-z0-9._\-][A-Za-z0-9._\-\/]*$/.test(u) && !/(^|\/)\.+(\/|$)/.test(u) && u.replace(/\/$/, '').indexOf('//') < 0; }
   function baseUrl() {
     var c = window.VTES5_CONFIG, u = c && c.status_dir_url;
-    return (typeof u === 'string' && /^file:/i.test(u) && /\/$/.test(u)) ? u : '';
+    return statusDirOk(u) ? u.replace(/\/*$/, '/') : '';
   }
   function reload(done) {
     if (reload.busy) { return; } reload.busy = true;
@@ -414,10 +426,11 @@
   function bot(name) {
     var bs = status('bots');
     if (bs.state === 'NO DATA') { return { state: 'NO DATA', text: 'NO DATA - the bots report file has not been written yet' }; }
-    if (bs.state === 'BAD CLOCK' || bs.state === 'NOT OK') { return { state: bs.state, text: bs.text }; }
+    if (bs.state === 'BAD CLOCK' || bs.state === 'NOT OK' || bs.state === 'NO ZONE') { return { state: bs.state, text: bs.text }; }
     var b = bs.data && bs.data.bots && bs.data.bots[name];
     if (!b || typeof b !== 'object') { return { state: bs.state === 'STALE' ? 'STALE' : 'NO DATA', text: bs.state === 'STALE' ? 'STALE since ' + fmt(bs.at) : 'NO DATA - the bots report has no entry for this bot' }; }
     var run = b.last_run_at ? new Date(b.last_run_at) : null, runOk = !!(run && !isNaN(run.getTime()));
+    if (runOk && noZone(b.last_run_at)) { return { state: 'NO ZONE', text: 'NO ZONE - the last-run time has no time zone, so this page cannot tell which clock it means. Not trusted.' }; }
     if (bs.state === 'STALE') { return { state: 'STALE', text: 'STALE since ' + fmt(bs.at) + ' - the bots report is old' }; }
     var st = String(b.state == null ? '' : b.state).toLowerCase();
     var iv = botIntervalOk(b.interval_sec) ? b.interval_sec : null;
@@ -457,7 +470,7 @@
     if ((NOW() - run) / 1000 > BOT_LATE_FACTOR * iv) { return { state: 'DOWN', text: 'LATE - last ran ' + fmt(run) + ', more than ' + BOT_LATE_FACTOR + ' x its interval ago.' + every }; }
     return { state: 'OK', text: 'RAN ' + fmt(run) + ', result 0, scheduler says ' + st + '.' + every };
   }
-  window.VTES5 = { plainFile: plainFile, status: status, verdict: verdict, badge: badge, executor: executor, bot: bot, tick: tick, tickSec: tickSec, ageLine: ageLine, esc: esc, fmt: fmt, fmtIso: fmtIso, padTime: padTime, now: NOW, reload: reload, addressFilled: addressFilled, schemeRegistered: schemeRegistered,
+  window.VTES5 = { noZone: noZone, statusDirOk: statusDirOk, plainFile: plainFile, status: status, verdict: verdict, badge: badge, executor: executor, bot: bot, tick: tick, tickSec: tickSec, ageLine: ageLine, esc: esc, fmt: fmt, fmtIso: fmtIso, padTime: padTime, now: NOW, reload: reload, addressFilled: addressFilled, schemeRegistered: schemeRegistered,
     sanitizeAll: sanitizeAll, fileProblems: function () { return FILE_PROBLEMS; }, badCount: function (n) { var d = D[n]; return d && d._bad ? d._bad : 0; },
     LIMIT_MIN: LIMIT_MIN, limitMin: limitMin, ALL_IDS: ALL_IDS, CHAT_ONLY: CHAT_ONLY, NEEDS_PROOF: NEEDS_PROOF, MAX_TICK_SEC: MAX_TICK_SEC, MAX_BOT_SEC: MAX_BOT_SEC, BOT_LATE_FACTOR: BOT_LATE_FACTOR,
     clsOfState: clsOfState, rankOf: rankOf, worstCls: worstCls, stripCls: stripCls, dateJudge: dateJudge, STUCK_FLOOR_MIN: STUCK_FLOOR_MIN, isFuture: isFuture,

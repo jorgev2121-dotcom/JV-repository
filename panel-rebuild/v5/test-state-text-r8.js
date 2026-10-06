@@ -13,7 +13,7 @@ const WORLDS = [
   ['shipped data (no data files)', null], ['fresh: registered, LLM-01 and LLM-03 filled', fresh(NOWMS)], ['registered, every address filled', reg(f => { f.heartbeat.addresses_filled = FILLED; })],
   ['registered, no address filled', reg(f => { f.heartbeat.addresses_filled = {}; })], ['shortcuts not registered', reg(f => { f.heartbeat.vtes_scheme_registered = false; })],
   ['heartbeat stale (5 hours)', reg(f => { f.heartbeat.at = at(300); f.heartbeat.addresses_filled = FILLED; })], ['heartbeat unreadable', reg(f => { f.heartbeat = { junk: 1 }; })],
-  ['local folder confirmed, every address filled', reg(f => { f.heartbeat.addresses_filled = FILLED; f.heartbeat.local_only_folder.label = 'C:\\VTES-LOCAL-ONLY'; })], ['local folder not confirmed', reg(f => { f.heartbeat.local_only_folder = { ok: false }; })]
+  ['local folder confirmed, every address filled', reg(f => { f.heartbeat.addresses_filled = FILLED; f.heartbeat.local_only_folder.label = 'C:\\VTES-LOCAL\\'; })], ['local folder not confirmed', reg(f => { f.heartbeat.local_only_folder = { ok: false }; })]
 ];
 const TICKS = ['empty note', 'note, not ticked', 'note, ticked'];
 const checks = []; let bad = 0;
@@ -51,7 +51,7 @@ function analyse(world, ts, route, s) {
   if (/ready/i.test(st)) { C('S5 status says ready', tag, !go.disabled, 'status "' + st + '" while Copy packet and open is disabled'); }
   if (/\btick\b/i.test(st)) { C('S6 status says tick', tag, go.disabled, 'status "' + st + '" while Copy packet and open is enabled'); }
   s.sentences.forEach(x => {
-    const m = PRESS.exec(x.t); if (!m || /tick|switched off|not allowed|only after/i.test(x.t)) { return; }
+    const m = PRESS.exec(x.t); if (!m || /tick|switched off|not allowed|only after|do not|don't|never/i.test(x.t)) { return; }
     const what = m[1].toLowerCase(); let b = null;
     if (what.indexOf('copy packet and open') === 0) { b = go; } else if (what.indexOf('just show') === 0 || what.indexOf('show packet') === 0) { b = show; }
     else if (what.indexOf('blue') === 0) { b = x.card ? s.btns.find(q => q.card === x.card && /^big:/.test(q.k)) : top; }

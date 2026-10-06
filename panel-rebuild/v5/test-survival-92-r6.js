@@ -45,7 +45,8 @@ const ed = s => EDITS.reduce((a, [x, y]) => a.split(x).join(y), String(s == null
   // 22-27 the six queued items: each fills To, From, the note and the status line as v3 does
   for (let i = 0; i < X.QUEUED.length; i++) { n++; const q = X.QUEUED[i]; const sa = {}, sb = {};
     for (const [p, o] of [[a, sa], [b, sb]]) { await p.click('#g-queued [data-q="' + i + '"]'); o.to = await p.inputValue('#to'); o.from = await p.inputValue('#from'); o.note = await p.inputValue('#note'); o.status = norm(await text(p, '#status')); }
-    const ok = sa.to === sb.to && sa.from === sb.from && sb.note === ed(sa.note) && sa.status === sb.status; I(n, 'queued item ' + (i + 1) + ' ' + q.n + ': To, From, note and status as v3' + (ed(q.p) !== q.p ? ' (one disclosed wording edit)' : ''), ok, JSON.stringify([sa, sb]).slice(0, 250)); }
+    const ok = sa.to === sb.to && sa.from === sb.from && sb.note === ed(sa.note) && sb.status === (sa.to === 'LOCAL' ? sa.status : 'The item is in the note box for ' + sa.to + '. The packet is not made yet. Tick the box under the note box, then press Copy packet and open.');
+    /* ROUND 8 CHANGE (FIX-ROUND-8.md, older tests that changed): v3 printed "Packet ready for X. Press Copy packet and open." even while Copy packet and open was switched off (CHECK-9 flaw 2). v5 prints that line only when the button is on (LOCAL needs no tick); for every other lane, unticked, it says the item is in the note box and the box must be ticked. The To, From and note checks are unchanged. */ I(n, 'queued item ' + (i + 1) + ' ' + q.n + ': To, From, note and status as v3' + (ed(q.p) !== q.p ? ' (one disclosed wording edit)' : ''), ok, JSON.stringify([sa, sb]).slice(0, 250)); }
   // 28-36 the nine picker rows
   for (let i = 0; i < X.PICK.length; i++) { n++; const sa = {}, sb = {};
     for (const [p, o] of [[a, sa], [b, sb]]) { await p.selectOption('#kind', String(i)); o.to = await p.inputValue('#to'); o.why = norm(await text(p, '#why')); }

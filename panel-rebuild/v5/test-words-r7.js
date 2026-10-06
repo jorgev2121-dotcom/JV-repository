@@ -15,7 +15,7 @@ const textOutsideRambo = p => p.evaluate(() => {
 });
 const sets = () => [
   ['shipped data', null], ['fresh data', fresh(NOWMS)],
-  ['local folder confirmed (plain C: path)', (() => { const f = fresh(NOWMS); f.heartbeat.local_only_folder.label = 'C:\\VTES-LOCAL-ONLY'; return f; })()],
+  ['local folder confirmed (plain C: path)', (() => { const f = fresh(NOWMS); f.heartbeat.local_only_folder.label = 'C:\\VTES-LOCAL\\'; return f; })()],
   ['bots disabled, running, failed', (() => { const f = fresh(NOWMS); f.bots.bots['CU-Orchestrator'].state = 'Disabled'; f.bots.bots['CU-Local-Executor'] = { state: 'Running', last_result: 267009, last_run_at: at(5), interval_sec: 600 }; f.bots.bots['CU-TokenMonitor-Hourly'].last_result = 1; f.bots.bots['CU-Propagation-Check'].last_result = 267010; f.bots.bots['VTES-LOCAL-POLLER'] = { state: 'Ready', last_result: 267011 }; return f; })()],
   ['stale and unreadable data', (() => { const f = fresh(NOWMS); f.tokens.programs = { name: 'x', tokens_today: 1 }; f.state.at = at(60 * 40); f.miamidade.at = at(60 * 24 * 8); f.heartbeat.at = at(60 * 5); return f; })()]
 ];
@@ -24,12 +24,12 @@ const sets = () => [
   // (1) jargon
   for (const [nm, files] of sets()) {
     const d = stage(files); const { ctx, p, errs } = await open(br, d); const texts = await textOutsideRambo(p); const bad = [];
-    texts.forEach(t => JARGON.forEach(re => { if (re.test(t) && bad.length < 6) { bad.push(re + ' in "' + t.slice(0, 120) + '"'); } }));
+    texts.forEach(t => JARGON.forEach(re => { /* ROUND 8 CHANGE (FIX-ROUND-8.md, older tests that changed): the Read me must say where the change list is, in the owner's words ("the list is in PORT-REPORT.md"), so that one file name is allowed in the Read me only. */ if (re.test(t) && !(re.source === '\\.md\\b' && /the list is in PORT-REPORT\.md\./.test(t) && t.replace(/PORT-REPORT\.md/g, '').search(re) < 0) && bad.length < 6) { bad.push(re + ' in "' + t.slice(0, 120) + '"'); } }));
     T('jargon', 'no jargon outside "For RAMBO" lines (' + nm + '; ' + texts.length + ' text pieces)', bad.length === 0, bad.join(' || ')); await ctx.close();
   }
   // (2) contradiction BLOCKED vs CONFIRMED
   {
-    const f = fresh(NOWMS); f.heartbeat.local_only_folder.label = 'C:\\VTES-LOCAL-ONLY';
+    const f = fresh(NOWMS); f.heartbeat.local_only_folder.label = 'C:\\VTES-LOCAL\\';
     const d = stage(f); const { ctx, p } = await open(br, d); window_open: await p.evaluate(() => { window.open = () => null; });
     const live = await p.evaluate(() => document.querySelector('[data-localfolder]').textContent); T('contradiction', 'live LOCAL line says CONFIRMED with a C:\\ folder', /CONFIRMED by the desktop executor/.test(live) && !/BLOCKED/.test(live), live);
     await p.evaluate(() => { document.getElementById('to').value = 'LOCAL'; document.getElementById('to').dispatchEvent(new Event('change', { bubbles: true })); document.getElementById('go').click(); }); await sleep(p, 300);
@@ -89,7 +89,8 @@ const sets = () => [
   // (8) local-folder allow rule
   {
     const cases = [['G:\\VTES-LOCAL', false], ['G:\\Shared drives\\VTES-LOCAL', false], ['G:\\My Drive\\VTES-LOCAL', false], ['C:\\Users\\JV\\Desktop\\VTES-LOCAL', false], ['C:\\Users\\JV\\OneDrive\\VTES-LOCAL', false], ['C:\\Users\\JV\\Documents\\VTES-LOCAL', false], ['C:\\Users\\JV\\Dropbox\\x', false], ['D:\\VTES-LOCAL', false], ['\\\\server\\share\\x', false],
-      ['VTES-LOCAL-ONLY', false], ['C:\\VTES-LOCAL-ONLY', true], ['C:\\Data\\VTES-LOCAL', true], ['C:\\Users\\JV\\VTES-LOCAL', true]];
+      ['VTES-LOCAL-ONLY', false], ['C:\\VTES-LOCAL-ONLY', false], ['C:\\Data\\VTES-LOCAL', false], ['C:\\Users\\JV\\VTES-LOCAL', false], ['C:\\VTES-LOCAL\\', true], ['C:\\AI\\state\\local\\jobs', true]];
+    /* ROUND 8 CHANGE (FIX-ROUND-8.md, older tests that changed): the local-folder check is now a true ALLOW rule (CHECK-9 edge e1). The three plain C:\ names that the deny-list rule accepted (C:\VTES-LOCAL-ONLY, C:\Data\VTES-LOCAL, C:\Users\JV\VTES-LOCAL) are now REFUSED unless the PC also gives who checked and the not-synced proof; only C:\VTES-LOCAL\ and C:\AI\state\local\ (and anything inside them) are confirmed by name. The expectation went from true to false for those three, on purpose. */
     for (const [label, expect] of cases) {
       const f = fresh(NOWMS); f.heartbeat.local_only_folder.label = label; const d = stage(f); const { ctx, p } = await open(br, d);
       const t = await p.evaluate(() => { const e = document.querySelector('[data-localfolder]'); return { c: e.className, t: e.textContent }; });

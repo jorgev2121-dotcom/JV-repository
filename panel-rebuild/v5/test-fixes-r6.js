@@ -29,7 +29,7 @@ const sha = b => crypto.createHash('sha256').update(b).digest('hex');
     T('flaw 2', 'shipped data: the LOCAL save line is red (a red card)', /bad/.test(await p.$eval('#card-LOCAL .v5st[data-localfolder]', e => e.className)), '');
     await ctx.close(); }
   { const { ctx, p } = await open(br, stage(fresh(NOWMS))); const t = await localText(p);
-    T('flaw 2', 'confirmed folder (fixture): the card says CONFIRMED, names the folder the PC reports, and is green', /CONFIRMED by the desktop executor/.test(t) && /C:\\VTES-LOCAL-ONLY/.test(t) && /\bok\b/.test(await p.$eval('#card-LOCAL .v5st[data-localfolder]', e => e.className)), t.slice(0, 400));
+    T('flaw 2', 'confirmed folder (fixture): the card says CONFIRMED, names the folder the PC reports, and is green', /CONFIRMED by the desktop executor/.test(t) && /C:\\VTES-LOCAL\\/.test(t) && /\bok\b/.test(await p.$eval('#card-LOCAL .v5st[data-localfolder]', e => e.className)), t.slice(0, 400));
     T('flaw 2', 'confirmed folder: the steps say how to turn on File name extensions and to check the name ends in .md and not .md.txt (flaw 10)', /FIRST turn on file name extensions: click View, then Show, then File name extensions/.test(t) && /ends in \.md and not in \.md\.txt/.test(t), t.slice(0, 500));
     T('flaw 2', 'confirmed folder: still says never paste into any Claude window and never press the RAMBO button for it', /Do NOT paste this packet into any Claude window/.test(t), '');
     // the same card follows the data: the folder turns bad after a re-read

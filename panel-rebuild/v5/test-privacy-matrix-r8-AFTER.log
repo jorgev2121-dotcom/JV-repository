@@ -1,0 +1,9 @@
+routes: 369
+NO-TICK mode: 74414 of 74415 route checks right (205 notes)
+  personal "Check this one. acct no 0012345678 routing 021000021" via LOCAL then RAMBO (to LLM-01): disabled=true text carried=true
+WRONG-TICK mode, personal notes: 49731 of 49731 route checks right
+WRONG-TICK mode, ordinary notes: 18876 of 18876 route checks right
+WRONG-TICK mode, CANNOT-CATCH notes (disclosed limit, not counted): carried on 5360 of 5808 route checks
+tick behaviour: {"goEnabledAfterTick":true,"resetOnNote":true,"reTicked":true,"resetOnRoute":true,"localNeedsNoTick":true,"emptyNoteNeedsNoTick":true}
+PRIVACY MATRIX R8: NO-TICK 74414 of 74415; WRONG-TICK personal 49731 of 49731, ordinary 18876 of 18876; tick behaviour ok; page errors 0 (137 personal + 52 ordinary + 16 cannot-catch notes x 369 routes)
+DONE

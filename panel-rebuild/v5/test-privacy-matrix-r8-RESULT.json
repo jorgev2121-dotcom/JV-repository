@@ -1,0 +1,41 @@
+{
+ "test": "test-privacy-matrix-r8",
+ "personal_notes": 137,
+ "ordinary_notes": 52,
+ "cannot_catch_notes": 16,
+ "routes": 369,
+ "noTick": {
+  "n": 74415,
+  "ok": 74414,
+  "bad": [
+   "personal \"Check this one. acct no 0012345678 routing 021000021\" via LOCAL then RAMBO (to LLM-01): disabled=true text carried=true"
+  ]
+ },
+ "wrongTick": {
+  "personal": {
+   "n": 49731,
+   "ok": 49731,
+   "bad": []
+  },
+  "ordinary": {
+   "n": 18876,
+   "ok": 18876,
+   "bad": []
+  },
+  "cannot": {
+   "n": 5808,
+   "carried": 5360
+  }
+ },
+ "tick": {
+  "goEnabledAfterTick": true,
+  "resetOnNote": true,
+  "reTicked": true,
+  "resetOnRoute": true,
+  "localNeedsNoTick": true,
+  "emptyNoteNeedsNoTick": true
+ },
+ "pass": 143023,
+ "total": 143024,
+ "page_errors": 0
+}

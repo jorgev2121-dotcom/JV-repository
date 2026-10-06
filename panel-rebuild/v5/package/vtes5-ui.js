@@ -3,17 +3,19 @@
 (function () {
   var V = window.VTES5, esc = V.esc;
   /* flaw N13: the Grok history is a typed note, labelled with its date. The live sentence is the only part this page knows. */
-  var GROK_TYPED = 'Typed note, dated 2026-10-06 (carried from the v4 build, which cites the registry brief of 2026-10-06; not checked by this page): no Grok bot had been built, although one was asked for many times, and Grok chat had been unproven for 31 days.';
+  var GROK_TYPED = 'Typed note, dated 2026-10-06, not checked by this page. It comes from the v4 build, which cites the registry brief of 2026-10-06. It says no Grok bot had been built, although one was asked for many times. It says Grok chat had been unproven for 31 days.';
   function botsBuilt() { return V.executor('BOTS').state === 'OK'; }
-  function grokText() { return 'Grok is chat only. Live check: ' + (botsBuilt() ? 'a Grok bot is reporting UP with proof.' : 'no Grok bot is reporting UP with proof (' + V.executor('BOTS').text + ').') + ' ' + GROK_TYPED; }
+  function grokText() { return 'Grok is chat only. Live check: ' + (botsBuilt() ? 'a Grok bot is reporting UP with proof.' : 'no Grok bot is reporting UP with proof. Reason: ' + V.executor('BOTS').text + '.') + ' ' + GROK_TYPED; }
   var NOTE_PRE = 'Typed note, not live: ';
   /* fix round 6, flaw 2 (Tier 2: the instruction to save client data into G:\My Drive\VTES-Inbox-LOCAL is REMOVED: Google Drive for desktop uploads every file in that folder to Google).
      The page now says plainly that the LOCAL save step is BLOCKED / UNVERIFIED until the desktop executor (RAMBO) records, in the heartbeat file, a folder that is NOT inside Google Drive, OneDrive or another syncing folder. */
-  var CLOUD_RE = /google\s*drive|my\s*drive|shared\s*drives?|onedrive|dropbox|icloud|box\s*sync|\bsync|^\s*[gG]:|^\s*\\\\|\bdesktop\b|\bdocuments\b/i;
-  /* fix round 7 (class 4): an ALLOW-style rule. A folder is CONFIRMED only if its name is a plain C:\ path outside Users\<name>\Desktop, OneDrive and Documents,
-     or the desktop executor writes local_only_verified_by AND not_synced_proof (a sentence that says how it checked the folder is not synced). G:\, shared drives, Desktop, Documents, OneDrive, Dropbox and My Drive are always refused. */
-  var BAD_PATH = /^[a-zA-Z]:\\users\\[^\\]*\\(desktop|onedrive[^\\]*|documents|dropbox[^\\]*)(\\|$)/i;
-  function pathOk(label) { return /^[cC]:\\/.test(label) && !BAD_PATH.test(label); }
+  var CLOUD_RE = /google\s*drive|my\s*drive|shared\s*drives?|onedrive|dropbox|icloud|box\s*sync|\bbox\b|pcloud|\bmega(?:sync)?\b|nextcloud|owncloud|drivefs|sharepoint|tresorit|syncthing|\bsync|^\s*[gG]:|^\s*\\\\|\bdesktop\b|\bdocuments\b/i;
+  /* fix round 8 (CHECK-9 edge e1): a true ALLOW rule. A folder is CONFIRMED only when its name is on the allow list below (C:\VTES-LOCAL\ or C:\AI\state\local\, or anything inside them), OR the desktop executor writes BOTH local_only_verified_by and
+     not_synced_proof (a sentence that says how it checked the folder is not synced). Whatever the proof, a name that looks like a cloud or sync folder (Google Drive, OneDrive, Dropbox, Box, pCloud, MEGA, Nextcloud, DriveFS, a shared drive, a Desktop or Documents folder),
+     a short 8.3 name (ONEDRI~1: it hides what the folder is), a ".." part, a drive other than C:, or a network name is refused. */
+  var LOCAL_ALLOW = /^[cC]:\\(?:VTES-LOCAL|AI\\state\\local)(?:\\|$)/i;
+  function badName(label) { return CLOUD_RE.test(label) || /~\d/.test(label) || /(^|[\\\/])\.\.([\\\/]|$)/.test(label); }
+  function pathOk(label) { return LOCAL_ALLOW.test(label) && !badName(label); }
   var LOCAL_LIMIT_MIN = 26 * 60;
   function localFolder() {
     var h = V.status('heartbeat'), lf = (h.state === 'OK' && h.data) ? h.data.local_only_folder : null, none = 'BLOCKED - UNVERIFIED. ';
@@ -21,8 +23,8 @@
     if (!lf || lf.ok !== true) { return { cls: 'bad', ok: false, text: none + 'The desktop executor (RAMBO) has not confirmed a local-only folder: one that is NOT inside Google Drive, OneDrive or any other folder that uploads to the cloud. Until it does, do not save client personal data in any file.' }; }
     var label = String(lf.label == null ? '' : lf.label);
     var proven = !!(lf.local_only_verified_by && String(lf.local_only_verified_by).trim() && lf.not_synced_proof && String(lf.not_synced_proof).trim());
-    if (label && !CLOUD_RE.test(label) && !pathOk(label) && !proven) { return { cls: 'bad', ok: false, text: none + 'The folder name the PC reports ("' + label + '") is not a plain C:\\ folder outside Desktop, Documents and OneDrive, and the PC has not given who checked it and how it knows the folder is not synced. Client personal data must not go there.' }; }
-    if (!label || CLOUD_RE.test(label)) { return { cls: 'bad', ok: false, text: none + 'The folder the PC reports ("' + label + '") has no name or looks like a cloud-synced folder. Client personal data must not go there.' }; }
+    if (!label || badName(label)) { return { cls: 'bad', ok: false, text: none + 'The folder the PC reports ("' + label + '") has no name, looks like a cloud-synced folder, is a short (8.3) name or has a ".." part. Client personal data must not go there.' }; }
+    if (!pathOk(label) && !proven) { return { cls: 'bad', ok: false, text: none + 'The folder name the PC reports ("' + label + '") is not under C:\\VTES-LOCAL\\ or C:\\AI\\state\\local\\, and the PC has not given who checked it and how it knows the folder is not synced. Client personal data must not go there.' }; }
     var j = V.dateJudge(lf.checked_at, { type: 'past', limitMin: LOCAL_LIMIT_MIN, what: 'local-folder check time' }, null);
     if (j) { return { cls: 'bad', ok: false, text: none + 'The local-only folder check is not usable: ' + j.text + '.' }; }
     return { cls: 'ok', ok: true, label: label, text: 'CONFIRMED by the desktop executor as of ' + V.fmtIso(lf.checked_at) + ': a local-only folder exists, named "' + label + '" (outside Google Drive and OneDrive). The PC reports it; this page cannot see the folder itself.' };
@@ -56,8 +58,8 @@
       steps: ['On the PC, open the Claude desktop app (or click the orange X icon near the clock).', 'Click the Cowork tab.', 'Click in the message box.', 'Press Ctrl+V.'],
       fix: 'Nothing for you to do. The Desktop Executor (RAMBO) finds the Claude desktop app shortcut on the PC, writes it into the address book entry for LLM-03, then registers the window shortcuts. Whether that shortcut lands on the Cowork tab is UNVERIFIED.' },
     'LLM-04': { live: 'LLM-04', fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-04 and registers the window shortcuts.' },
-    'LLM-05': { live: 'LLM-05', desk: 'the iPhone',
-      steps: ['Press the blue button to copy the packet on this PC.', 'Paste it into a new email to yourself and press Send (this page never sends anything for you).', 'On the iPhone, open that email and copy the packet.', 'Open the Claude app, tap in the message box and paste the packet.'],
+    'LLM-05': { live: 'LLM-05', desk: 'the iPhone', phone: true,
+      steps: ['Copy the packet on this PC with the blue button.', 'Paste it into a new email to yourself and press Send (this page never sends anything for you).', 'On the iPhone, open that email and copy the packet.', 'Open the Claude app, tap in the message box and paste the packet.'],
       fix: 'Nothing for you to do. The Desktop Executor (RAMBO) fills in the address book entry for LLM-05 and registers the window shortcuts.' },
     'LLM-06': { live: 'LLM-06', desk: 'Codex CLI',
       steps: ['First time only: double-click the desktop shortcut named "Codex - sign in (Jorge)" and follow the sign-in window that opens (typed from v3, UNVERIFIED on this PC).',
@@ -101,10 +103,14 @@
   }
   function stateHtml(e, label) { return '<b>' + esc(label || 'State:') + '</b> ' + esc(e.text); }
   /* the address line: a link only when the PC says the vtes:// address is registered AND the address book entry is filled; otherwise one plain sentence saying what is missing */
+  /* fix round 8 (CHECK-9 flaw 4): ONE flag decides whether a card has a working one-click link. The link, the sentence about it and the "no Open button" sentence are all drawn from this one answer.
+     A phone window (LLM-05) never has one: this PC cannot know that the shortcut opens an app on the iPhone. */
+  function oneClick(w, m) { return !!(w && w.a && /^vtes:\/\//.test(w.a) && !m.phone && !m.noaddr && V.schemeRegistered() && V.addressFilled(w.id)); }
   function addrHtml(w, m) {
     if (!w.a || m.noaddr) { return ''; }
+    if (m.phone) { return '<span class="v5na" data-na="' + esc(w.id) + '">This window is on the iPhone. The PC cannot open it. Use the steps below. <i class="v5forrambo">For RAMBO: the address is ' + esc(w.a) + '.</i></span>'; }
     if (/^vtes:\/\//.test(w.a)) {
-      if (V.schemeRegistered() && V.addressFilled(w.id)) { return '<a class="btn" href="' + esc(w.a) + '">Open ' + esc(w.n) + ' with one click (a shortcut the PC set up)</a>'; }
+      if (oneClick(w, m)) { return '<a class="btn" href="' + esc(w.a) + '">Open ' + esc(w.n) + ' with one click (a shortcut the PC set up)</a>'; }
       var hb = V.status('heartbeat'), why;
       if (hb.state !== 'OK') { why = 'the PC has not reported whether the shortcuts are set up (PC check-in report: ' + hb.state + ')'; }
       else if (!V.schemeRegistered()) { why = 'the shortcuts are not set up on the PC yet'; }
@@ -121,12 +127,21 @@
     return '<div class="card" data-k="' + esc((o.k || '').toLowerCase()) + '" id="card-' + esc(o.id) + '"><div class="id">' + esc(o.id) + ' &middot; ' + (o.e || '') + '</div><div class="name">' + esc(o.n) + '</div><div class="role">' + esc(o.r) + '</div>' + (extra || '') + '</div>';
   }
   function hostOf(u) { var m = /^https?:\/\/([^\/]+)/.exec(String(u)); return m ? m[1] : 'a web page'; }
+  function nopenText(w, m) {
+    var on = allow(w.id), lead = oneClick(w, m) ? 'The one-click link above opens this window.' : 'A web page cannot open a desktop app, so there is no Open button.';
+    return lead + (on ? ' Press the blue button to copy the packet, then follow these steps:' : ' The blue button is switched off until you tick the box under the note box. Then press it and follow these steps:');
+  }
+  function refreshNopen() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-nopen]'), function (el) {
+      var id = el.getAttribute('data-nopen'), w = window.LLMS.filter(function (x) { return x.id === id; })[0]; if (w) { V.setText(el, nopenText(w, META[id] || {})); }
+    });
+  }
   function llmCard(w) {
     var m = META[w.id] || {}, e = V.executor(m.live || w.id);
     var j = esc(w.j) + (m.tick ? ' Check-in interval: <span class="v5tick">' + esc(V.tick()) + '</span> (read from the PC check-in report).' : '');
     var open = w.url ? '<a class="btn" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(m.openLabel || ('Open ' + w.n + ' (' + hostOf(w.url) + ')')) + '</a>' : '';
     var big = (!w.url && m.desk) ? '<button class="btn bigcopy" type="button" data-paste="' + esc(w.id) + '">Copy packet for ' + esc(m.desk) + '</button>' : '';
-    var nopen = (!w.url && m.desk) ? '<div class="v5na2">A web page cannot open a desktop app, so there is no Open button. Press the blue button, then follow these steps:' + steps(m) + '</div>' : '';
+    var nopen = (!w.url && m.desk) ? '<div class="v5na2"><span data-nopen="' + esc(w.id) + '">' + esc(nopenText(w, m)) + '</span>' + steps(m) + '</div>' : '';
     var how = (w.how || m.how) ? '<div class="addr">How to open (typed instruction from v3, not checked by this page): ' + esc(m.how || w.how) + '</div>' : '';
     var body = '<div class="v5st ' + stCls(e) + '" data-files="heartbeat" data-state="' + esc(w.id) + '">' + stateHtml(e) + '</div>' +
       '<p>' + j + '</p>' + (m.grok ? '<p class="v5note" data-grok="1">' + esc(grokText()) + '</p><p><b>' + esc(m.next) + '</b></p>' : '') +
@@ -201,6 +216,7 @@
       var id = el.getAttribute('data-addr'), w = window.LLMS.filter(function (x) { return x.id === id; })[0]; V.setHtml(el, addrHtml(w, META[id] || {}));
     });
     guardEach('[data-grok]', function (el) { V.setText(el, grokText()); });
+    guardEach('[data-nopen]', function () { refreshNopen(); });
   }
   /* ---- panels ---- */
   function drive(id) { return 'https://drive.google.com/file/d/' + id + '/view'; }
@@ -230,19 +246,24 @@
     ['22', 'Pembroke Pines / Broward', '1xDlwM42EFkLEyskPEmMh_LRRgp-WFVQ5', '']
   ];
   var MD_INDEX = 'https://docs.google.com/document/d/1tqRhgNV-x-ZNzP5g_iTnPb3AwdVZgKTV6TLoFZR2N7o/edit';
-  var READ = [
-    'This page is built on your v3 launcher. Everything from v3 is still here except one link: the Open Codex CLI link to chatgpt.com, which was removed on purpose because Codex runs on your PC, not in a web page.',
+  /* fix round 8 (CHECK-9 flaws 1, 3): every sentence here is a claim, and test-claims-r8.js proves each one on real behaviour. The first Read me paragraph gets its number from the build (the change list); the guard paragraph says only what the guard does. */
+  function readItems() {
+    var n = window.VTES5_TEXT_CHANGES, cnt = (typeof n === 'number' && isFinite(n) && n >= 0 && Math.floor(n) === n) ? n + ' lines of text were' : 'Some lines of text were';
+    return [
+    'This page is built on your v3 launcher. Every card, bot, queued item, picker row, repairs row and tab from v3 is still here. ' + cnt + ' changed, added to or removed on purpose; the list is in PORT-REPORT.md.',
     'A red box that says NO DATA means nothing on the PC has reported yet. Red is the truth, not a bug.',
     'Green appears only when a fresh report file with proof says so. Grey NOT PROVEN means only the simple status writer said up, and it checks nothing.',
-    'To hand work to RAMBO, press the big blue RAMBO button directly under the page title. Then open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.',
-    'A web page cannot open a desktop app. So desktop windows have a Copy packet button and the exact steps, not an Open button.',
+    'To hand work to RAMBO, press the big blue RAMBO button directly under the page title. If you typed a note, tick the box under the note box first. Then open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.',
+    'A web page cannot open a desktop app. So a desktop window has a Copy packet button and the exact steps. When the PC has set up a one-click shortcut for a window, a link appears as well.',
     'Tabs marked OLD PANEL go to a snapshot made on 2026-09-02. They are not live.',
     'Client personal data goes to LOCAL only. Before a note goes anywhere else, you must tick the box under the note box: "This note has NO client personal data". Until it is ticked, the copy and show buttons for that destination are switched off. The tick clears itself when you change the note or the To choice.',
-    'As a second check, this page looks at the DIGITS in your note. It leaves the note out when it finds a Social Security number, a card number, a bank, licence or passport number, or a date of birth written in many ways, including spelled out in words, split with commas, or hidden in base64 or hex. It can also leave out a harmless nine-digit number such as a permit number. It CANNOT catch names, home addresses, email addresses, phone numbers, or any identifier written without digits. Only the tick box and you stop those.',
+    'The tick box is the real protection. As a second check, this page looks at the DIGITS in your note. It leaves the note out when it finds nine digits in a row, or a card number, in many layouts. It also looks for a Social Security, licence, passport, bank or date-of-birth label near digits. It can still miss some spellings. It cannot catch names, home addresses, email addresses or phone numbers. It misses digits written as words in other languages (it knows English and Spanish) or in other scripts. It misses digits with letters between them, digit groups with more than four words between them, and encodings split into pieces. It can also leave out a harmless nine-digit number such as a permit number.',
     'The line "WHOLE PAGE" at the top of Live status is never greener than the worst card or panel on this page. If one card is red, it is not green.',
     'Words marked typed note were typed by hand on the date shown. This page does not check them.',
     'Every time is Eastern time with the zone. The year is added when it is not this year.'
-  ];
+    ];
+  }
+
   /* ---- fix round 6, flaw 3 (Tier 3, fail closed): the personal-data guard works on the DIGITS, not on a pattern.
      The note is normalised (NFKC: full-width and compatibility digits and spaces become plain ones; every other-script decimal digit becomes 0-9; zero-width characters are dropped), then every run of digit groups
      joined by single separators (hyphen, any dash, dot, middle dot, underscore, space, tab) is measured. Letters that look like digits (O o I l | S B Z) count only when stuck to real digits, and the run is measured twice,
@@ -281,20 +302,26 @@
     t = t.replace(new RegExp('[\\u00ad\\u200b-\\u200f\\u2028\\u2029\\u2060\\ufeff]', 'g'), '');
     try { t = t.replace(/[\p{M}\p{Cf}]/gu, ''); } catch (e) { }
     t = asciiDigits(t);
-    return t.replace(new RegExp('[\\u00a0\\u1680\\u180e\\u2000-\\u200a\\u202f\\u205f\\u3000]', 'g'), ' ');
+    t = t.replace(new RegExp('[\\u00a0\\u1680\\u180e\\u2000-\\u200a\\u202f\\u205f\\u3000]', 'g'), ' ');
+    /* fix round 8 (CHECK-9 flaw 1): markdown and format characters (* _ ~ and the back-tick) are dropped, so "SSN **123**-45-6789" is read as "SSN 123-45-6789" */
+    return t.replace(/[*_~`]/g, '');
   }
   function luhn(d) { var sum = 0, alt = false; for (var i = d.length - 1; i >= 0; i--) { var n = +d.charAt(i); if (alt) { n *= 2; if (n > 9) { n -= 9; } } sum += n; alt = !alt; } return sum % 10 === 0; }
   var TOKC = '[0-9OoIl|SBZ]*[0-9][0-9OoIl|SBZ]*', SEPC = '(?:\\s*[-\\u2010-\\u2015\\u2212\\u2043\\ufe58\\ufe63.\\u00b7\\u2022_/]\\s*|\\s{1,3})';
-  var SSN_WORD = /(?:^|[^a-z])(?:ssn|ss\s*#|s\.\s*s\.\s*n|social\s*sec|soc\.?\s*sec|seguro\s*social|itin|tax\s*id|ss)(?![a-z])/i;
+  var SSN_WORD = /(?:^|[^a-z])(?:ssn|ss\s*#|s\.\s*s\.\s*n|social\s*sec(?:urity)?|soc\.?\s*sec(?:urity)?|seguro\s*social|itin|tax\s*id|ss)(?![a-z])/i;
   var ID_WORD = /(?:^|[^a-z])(?:passport|pasaporte|licen[cs]e|licencia|driver'?s?|dl\s*#|account|acct|a\/c|routing|aba|iban|swift|bank|cuenta|banco)(?![a-z])/i;
   var DOB_WORD = /(?:^|[^a-z])(?:dob|d\.o\.b|date\s+of\s+birth|birth\s*date|birthday|born|fecha\s+de\s+nacimiento|nacido|nacida)(?![a-z])/i;
-  var MON = '(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\\.?';
-  var DATE_PAT = new RegExp('\\d{1,2}\\s*[\\/\\-.]\\s*\\d{1,2}\\s*[\\/\\-.]\\s*\\d{2,4}|\\d{4}\\s*-\\s*\\d{1,2}\\s*-\\s*\\d{1,2}|' + MON + '\\s+\\d{1,2}|\\d{1,2}\\s+' + MON, 'i');
+  var MON = '(?:january|jan|february|feb|march|mar|april|apr|may|june|jun|july|jul|august|aug|september|sept|sep|october|oct|november|nov|december|dec)\\b\\.?';
+  /* fix round 8: a day written as a word or an ordinal (second, 2nd, twenty-first) beside a month name is a date too ("DOB: January second nineteen seventy") */
+  var DAYW = '(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth|fifteenth|sixteenth|seventeenth|eighteenth|nineteenth|twentieth|twenty[- ]?(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth)|thirtieth|thirty[- ]?first|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty(?:[- ]?(?:one|two|three|four|five|six|seven|eight|nine))?|thirty(?:[- ]?one)?|\\d{1,2}(?:st|nd|rd|th)?)';
+  var DATE_PAT = new RegExp('\\d{1,2}\\s*[\\/\\-.]\\s*\\d{1,2}\\s*[\\/\\-.]\\s*\\d{2,4}|\\d{4}\\s*-\\s*\\d{1,2}\\s*-\\s*\\d{1,2}|' + MON + '\\s+(?:the\\s+)?' + DAYW + '\\b|\\b' + DAYW + '\\s+(?:of\\s+)?' + MON, 'i');
   var DW = '(?:zero|oh|one|two|three|four|five|six|seven|eight|nine)', WORDS = new RegExp('\\b' + DW + '(?:[\\s,.\\-]+(?:(?:dash|hyphen)[\\s,.\\-]+)?' + DW + '\\b){8,}', 'i');
   /* a phone number is carried, and it is taken out of the text first, so that a ZIP code written just before it ("Miami FL 33186 305-555-1234") does not join it into one long number */
   var PHONE_RE = /(?<![0-9])(?:\+?1[ .\-]?)?(?:\([0-9]{3}\)[ .\-]?|[0-9]{3}[ .\-])[0-9]{3}[ .\-][0-9]{4}(?![0-9])/g;
   function maskPhones(t) { try { return t.replace(PHONE_RE, ' PHONE '); } catch (e) { return t; } }
-  var NOT_CITY = /^(?:Order|Ref|Reference|Invoice|Account|Acct|Number|Num|No|Id|Tax|Social|Ssn|Itin|Ein|Check|Case|Job|Folio|Permit|Item|Lot|Unit|Routing)$/;
+  /* fix round 8 (CHECK-9 flaw 1): a ZIP+4 is carried only right after a two-letter state code or a Florida city on this list. A capital-letter word of any other kind ("Maria Fakename 12345-6789") is no longer enough. */
+  var FL_CITIES = ['Miami Beach', 'Miami Gardens', 'Miami Lakes', 'Miami Shores', 'Miami Springs', 'North Miami Beach', 'North Miami', 'Miami', 'Hialeah', 'Hialeah Gardens', 'Doral', 'Homestead', 'Florida City', 'Coral Gables', 'Kendall', 'Pinecrest', 'Palmetto Bay', 'Cutler Bay', 'Key Biscayne', 'Aventura', 'Sunny Isles Beach', 'Bal Harbour', 'Surfside', 'Medley', 'Sweetwater', 'Opa-locka', 'Opa locka', 'West Miami', 'South Miami', 'El Portal', 'Biscayne Park', 'Virginia Gardens', 'Miami Dade', 'Fort Lauderdale', 'Hollywood', 'Hallandale Beach', 'Pembroke Pines', 'Miramar', 'Weston', 'Davie', 'Plantation', 'Sunrise', 'Tamarac', 'Coral Springs', 'Pompano Beach', 'Deerfield Beach', 'Boca Raton', 'Delray Beach', 'Boynton Beach', 'West Palm Beach', 'Palm Beach', 'Key West', 'Islamorada', 'Marathon', 'Naples', 'Orlando', 'Tampa', 'Jacksonville', 'Naranja', 'Princeton', 'Goulds', 'Perrine', 'Cooper City', 'Dania Beach', 'Lauderhill', 'Margate', 'Oakland Park', 'Wilton Manors'];
+  var CITY_END = new RegExp('(?:^|[^A-Za-z])(?:' + FL_CITIES.map(function (c) { return c.replace(/[-\\s]+/g, '[- ]'); }).join('|') + ')[ ,]*$', 'i');
   function runsOf(t) {
     var re = new RegExp('(?:' + TOKC + ')(?:' + SEPC + TOKC + ')*', 'g'), out = [], m;
     while ((m = re.exec(t)) !== null) {
@@ -310,8 +337,7 @@
     runs.forEach(function (r) {
       var before = t.slice(Math.max(0, r.at - 60), r.at), after = t.slice(r.end, r.end + 40), near = before.slice(-40) + ' ' + after;
       var isNine = (r.real === 9 || r.like === 9), folio = (r.real === 13 && r.realGroups.join('-') === '2-4-3-4');
-      var wordBefore = (before.match(/([A-Za-z]+)[ ,]*$/) || [])[1] || '';
-      var zipOk = new RegExp('(?:^|[^A-Za-z])(' + STATES.join('|') + ')[ ,]*$').test(before) || (/^[A-Z][a-z]{2,}$/.test(wordBefore) && !NOT_CITY.test(wordBefore));
+      var zipOk = new RegExp('(?:^|[^A-Za-z])(' + STATES.join('|') + ')[ ,]*$').test(before) || CITY_END.test(before);
       var zip4 = (r.realGroups.join('-') === '5-4' && /-/.test(r.txt) && zipOk && !SSN_WORD.test(near));
       var permit = (r.realGroups.join('-') === '4-5' && /^(19|20)\d\d/.test(r.digits) && !SSN_WORD.test(near));
       var shape = ' ' + r.realGroups.join(' ') + ' ', inside = /(^| )9 /.test(shape) || / 3 2 4 | 3 3 3 | 2 7 /.test(shape);
@@ -370,6 +396,19 @@
       else if (total >= 8 && ID_WORD.test(near)) { why.push('a bank, licence or passport word beside 8 or more digits'); }
     }
   }
+  /* fix round 8 (CHECK-9 flaw 1): an SSN, licence or date-of-birth label, then digit groups with up to FOUR words between the label and the last digit group ("SSN 123 apples 45 pears 6789"). The digits are added up. 9 or more (8 for a date of birth) is blocked. */
+  var DL_WORD = /(?:^|[^a-z])(?:licen[cs]e|licencia|driver'?s?|dl|d\.l\.)(?![a-z])/gi;
+  function labelReasons(t0, why) {
+    var t = stripMarks(t0), kinds = [[new RegExp(SSN_WORD.source, 'gi'), 9, 'an SSN label with 9 or more digits within four words'], [DL_WORD, 9, 'a licence label with 9 or more digits within four words'], [new RegExp(DOB_WORD.source, 'gi'), 8, 'a date-of-birth label with 8 or more digits within four words']];
+    kinds.forEach(function (k) {
+      var re = k[0], m, n = 0; re.lastIndex = 0;
+      while ((m = re.exec(t)) !== null && n++ < 200) {
+        var rest = t.slice(m.index + m[0].length, m.index + m[0].length + 200), toks = rest.match(/[0-9]+|[A-Za-z]+/g) || [], words = 0, digits = 0;
+        for (var i = 0; i < toks.length; i++) { if (/^[0-9]/.test(toks[i])) { digits += toks[i].length; } else if (!/^(?:and|then|also|next|y|luego|dash|hyphen|guion)$/i.test(toks[i])) { words++; if (words > 4) { break; } } if (digits >= k[1]) { break; } }
+        if (digits >= k[1]) { why.push(k[2]); break; }
+      }
+    });
+  }
   var ENC_NOTE = 'a number hidden in base64 or hex';
   function printable(s) { if (s.length < 9) { return false; } var ok = 0; for (var i = 0; i < s.length; i++) { var c = s.charCodeAt(i); if (c >= 32 && c <= 126) { ok++; } } return ok / s.length >= 0.95; }
   function encodedReasons(t, why) {
@@ -377,18 +416,21 @@
     while (!hit && (m = re.exec(t)) !== null && n++ < 200) {
       try { var dec = atob(m[0].length % 4 ? m[0] + '===='.slice(m[0].length % 4) : m[0]); if (printable(dec)) { var w2 = []; coreReasons(normNote(dec), w2); looseReasons(normNote(dec), w2); if (w2.length || /[0-9]{9,}/.test(dec)) { hit = true; } } } catch (e) { }
     }
-    var hre = /\b(?:[0-9a-fA-F]{2}){9,}\b/g; n = 0;
+    /* fix round 8: hex pairs may be joined by a space, colon, comma or hyphen, or carry 0x or \\x in front of each pair; the bytes are decoded and 9 or more digit characters are enough, printable or not */
+    var hre = /(?:(?:0x|\\x)?[0-9a-fA-F]{2}[ :,\-]?){9,}/gi; n = 0;
     while (!hit && (m = hre.exec(t)) !== null && n++ < 200) {
-      var bytes = m[0].match(/../g).map(function (h) { return parseInt(h, 16); }), s = String.fromCharCode.apply(null, bytes.slice(0, 200));
-      if (printable(s) && s.replace(/[^0-9]/g, '').length >= 9) { hit = true; }
+      var pairs = m[0].replace(/0x|\\x/gi, '').replace(/[ :,\-]/g, ''); if (pairs.length % 2) { pairs = pairs.slice(0, pairs.length - 1); } if (pairs.length < 18) { continue; }
+      var bytes = pairs.match(/../g).map(function (h) { return parseInt(h, 16); }), s = String.fromCharCode.apply(null, bytes.slice(0, 200)), dig = bytes.filter(function (b) { return b >= 48 && b <= 57; }).length;
+      if ((printable(s) && s.replace(/[^0-9]/g, '').length >= 9) || dig >= 9) { hit = true; }
     }
     var xre = /\b0x([0-9a-fA-F]{6,8})\b/g;
     while (!hit && (m = xre.exec(t)) !== null) { var v = parseInt(m[1], 16); if (v >= 100000000 && v <= 999999999) { hit = true; } }
     if (hit) { why.push(ENC_NOTE); }
   }
   function otherReasons(t, why) {
-    if (/(?<![A-Za-z0-9])[A-Z]\d{8}(?!\d)/.test(t)) { why.push('a passport-style number (a letter and 8 digits)'); }
-    if (/(?<![A-Za-z0-9])[A-Za-z][ \-]?\d{3}[ \-]?\d{3}[ \-]?\d{2}[ \-]?\d{3}[ \-]?\d(?!\d)/.test(t)) { why.push('a driver licence number (a letter and 12 digits)'); }
+    if (/(?<![A-Za-z0-9])[A-Za-z]\d{8}(?!\d)/.test(t)) { why.push('a passport-style number (a letter and 8 digits)'); }
+    if (/(?<![A-Za-z0-9])[A-Za-z](?:[ \-]?\d){12}(?!\d)/.test(t)) { why.push('a driver licence number (a letter and 12 digits, with or without spaces)'); }
+    if (/\d{20,}/.test(t)) { why.push('a run of 20 or more digits'); }
     if (/(?<![A-Za-z0-9])[A-Z]{2}\d{2}[ ]?[A-Z0-9]{4}[ ]?(?:[A-Z0-9]{4}[ ]?){1,7}[A-Z0-9]{1,4}(?![A-Za-z0-9])/.test(t) && (t.match(/[0-9]/g) || []).length >= 10 && /(?<![A-Za-z0-9])[A-Z]{2}\d{2}[ ]?\d{4}/.test(t)) { why.push('an IBAN-style bank number'); }
     var dob = DOB_WORD.exec(t), i = 0;
     while (dob) { var from = Math.max(0, dob.index - 60), seg = t.slice(from, dob.index + dob[0].length + 60); if (DATE_PAT.test(seg)) { why.push('a date of birth'); break; } dob = null; }
@@ -399,7 +441,7 @@
     var t = normNote(t0);
     if (!t) { return why; }
     var tm = maskPhones(t);
-    coreReasons(tm, why); looseReasons(tm, why); encodedReasons(t, why); otherReasons(tm, why);
+    coreReasons(tm, why); looseReasons(tm, why); labelReasons(tm, why); encodedReasons(t, why); otherReasons(tm, why);
     return why.filter(function (x, i, a) { return a.indexOf(x) === i; });
   }
   function guardNote(note, toId) {
@@ -446,6 +488,7 @@
       if (route === 'LOCAL') { msg = 'To is LOCAL: no tick needed.'; } else if (noteText() === '') { msg = 'The note is empty: no tick needed.'; } else if (tickedFor(route)) { msg = 'Ticked for this note and for ' + route + '. If you change the note or To, the tick clears.'; } else { msg = 'NOT TICKED: the copy and show buttons for ' + route + ' are switched off until you tick.'; }
       if (m.textContent !== msg) { m.textContent = msg; }
     } catch (e) { }
+    try { followQueued(); refreshNopen(); } catch (e) { }
   }
   function onAckChange() { var c = byId('v5ack'); if (c && c.checked) { ACK.on = true; ACK.note = noteText(); ACK.route = toRoute(); } else { ACK.on = false; } applyGate(); try { if (window.refresh) { window.refresh(); } } catch (e) { } }
   function initGate() {
@@ -455,6 +498,14 @@
     document.addEventListener('click', function () { setTimeout(applyGate, 0); });
     setInterval(applyGate, 1000); applyGate();
   }
+  /* fix round 8 (CHECK-9 flaw 2): the line printed after a queued button is computed from the REAL state of Copy packet and open. It says "ready" only while that button is switched on, and it changes by itself when the box is ticked or cleared. */
+  var Q = { text: '' };
+  function queuedText() {
+    var to = toRoute();
+    return allow(to) ? 'Packet ready for ' + to + '. Press Copy packet and open.' : 'The item is in the note box for ' + to + '. The packet is not made yet. Tick the box under the note box, then press Copy packet and open.';
+  }
+  function queuedStatus() { var s = byId('status'); if (!s) { return; } Q.text = queuedText(); s.textContent = Q.text; }
+  function followQueued() { var s = byId('status'); if (!Q.text || !s) { return; } if (s.textContent !== Q.text) { Q.text = ''; return; } var n = queuedText(); if (n !== Q.text) { Q.text = n; s.textContent = n; } }
   function gatedPacket(route) { return allow(route) ? window.packet() : reasonFor(route); }
   function mark(cls, t, file) { return '<span class="v5b ' + cls + '"' + (file ? ' data-files="' + file + '"' : '') + '>' + esc(t) + '</span>'; }
   function num(x, suffix) { return (typeof x === 'number' && isFinite(x)) ? x + (suffix || '') : null; }
@@ -471,15 +522,18 @@
   function dateVal(iso, o, file) {
     var j = V.dateJudge(iso, o, null), t = V.fmtIso(iso);
     if (!j) { return '<b>' + esc(t) + '</b>'; }
+    if (j.kind === 'NO ZONE') { return mark('na', 'NO ZONE - ' + t, file); }
     return red(j.kind === 'NO DATA' || !t ? 'NO DATA' : j.kind + ' - ' + t, file);
   }
   var OLDSENT = 'These numbers are old. Do not trust them.';
-  function noNums(s) { return s.state === 'NO DATA' || s.state === 'BAD CLOCK' || (s.state === 'NOT OK' && !s.data); }
+  function noNums(s) { return s.state === 'NO DATA' || s.state === 'BAD CLOCK' || s.state === 'NO ZONE' || (s.state === 'NOT OK' && !s.data); }
+  function nzMark(file) { return mark('na', 'NO ZONE', file); }
+  function badWord(s, file) { return s.state === 'NO ZONE' ? nzMark(file) : red(s.state === 'BAD CLOCK' ? 'BAD CLOCK' : 'NO DATA', file); }
   function tokens() {
     var s = V.status('tokens'), d = s.data || {}, ok = s.state === 'OK', pastReset = ok && V.dateJudge(d.window_resets_at, { type: 'due', what: 'x' }, null);
     var rows = (d.programs || []).map(function (p) { return '<tr><td>' + esc(p.name) + '</td><td>' + valR(p.tokens_today, '', 0, undefined, false, ok) + '</td></tr>'; }).join('');
     return '<div class="pn" id="pn-tokens" data-files="tokens"><h3>Token monitor (bot CU-TokenMonitor-Hourly)</h3><p>' + V.badge('tokens', 'Reporting') + '</p>' +
-      (noNums(s) ? '<p>' + red(s.state === 'BAD CLOCK' ? 'BAD CLOCK' : 'NO DATA') + ' ' + (s.state === 'BAD CLOCK' ? 'The token report is dated in the future, so none of its numbers are shown.' : 'The token monitor has not reported yet. No burn rate is shown because none was measured.') + '</p>' :
+      (noNums(s) ? '<p>' + badWord(s) + ' ' + (s.state === 'BAD CLOCK' ? 'The token report is dated in the future, so none of its numbers are shown.' : (s.state === 'NO ZONE' ? 'The token report has a time with no time zone, so none of its numbers are shown.' : 'The token monitor has not reported yet. No burn rate is shown because none was measured.')) + '</p>' :
         '<p>Burn rate per hour: ' + valR(d.burn_per_hour, '', 0, undefined, false, ok) + ' tokens. This window used: ' + valR(d.window_used_pct, '%', 0, 100, false, ok) + '. This week used: ' + valR(d.week_used_pct, '%', 0, 100, false, ok) + '. Window resets: ' + dateVal(d.window_resets_at, { type: 'due', what: 'window reset time' }) + '.' +
         (pastReset ? ' ' + red('The reset time has already gone by, so these numbers belong to a finished window. Do not trust them.') : '') + '</p>' +
         '<table><tr><th>Program</th><th>Tokens today</th></tr>' + (rows || '<tr><td colspan="2">' + red('NO DATA') + '</td></tr>') + '</table>' +
@@ -488,7 +542,7 @@
   function housekeeping() {
     var s = V.status('housekeeping'), d = s.data || {}, ok = s.state === 'OK';
     return '<div class="pn" id="pn-house" data-files="housekeeping"><h3>Housekeeping agent</h3><p>' + V.badge('housekeeping', 'Reported') + '</p>' +
-      (noNums(s) ? '<p>' + red(s.state === 'BAD CLOCK' ? 'BAD CLOCK' : 'NO DATA') + ' ' + (s.state === 'BAD CLOCK' ? 'The housekeeping report is dated in the future, so it is not shown.' : 'No housekeeping report has ever been recorded here.') + ' Last report time: ' + red('NONE') + '.</p>' :
+      (noNums(s) ? '<p>' + badWord(s) + ' ' + (s.state === 'BAD CLOCK' ? 'The housekeeping report is dated in the future, so it is not shown.' : (s.state === 'NO ZONE' ? 'The housekeeping report has a time with no time zone, so it is not shown.' : 'No housekeeping report has ever been recorded here.')) + ' Last report time: ' + red('NONE') + '.</p>' :
         '<p>Last report: ' + dateVal(d.last_report_at, { type: 'past', limitMin: V.LIMIT_MIN.housekeeping, what: 'last-report time' }) + '. Delivered: ' + (d.report_delivered === true ? '<b>yes</b>' : (d.report_delivered === false ? red('NO - not delivered') : red('UNKNOWN'))) + (d.delivered_to ? ' to ' + esc(d.delivered_to) : '') + '. Items cleaned: ' + valR(d.items_cleaned, '', 0, undefined, true, ok) + '.</p>' + (ok ? '' : '<p>' + red(OLDSENT) + '</p>')) + '</div>';
   }
   function health() {
@@ -498,17 +552,17 @@
     var impossible = (typeof d.checks_passed === 'number' && typeof d.checks_total === 'number' && !okCounts);
     var up = 0, seen = 0; V.ALL_IDS.forEach(function (id) { var e = V.executor(id); if (e.state === 'OK') { up++; } if (e.state !== 'NO DATA') { seen++; } });
     var money = (sd.money || []).map(function (m) { return '<li>' + (sOk ? '' : red('OLD', 'state') + ' ') + esc(m.item) + ': ' + esc(m.status) + '</li>'; }).join('');
-    var upTxt = up + ' of ' + V.ALL_IDS.length;
+    var upTxt = up + ' of ' + V.ALL_IDS.length, hz = s.state === 'NO ZONE', sz = st.state === 'NO ZONE';
     return '<div class="pn" id="pn-health" data-files="health"><h3>Health and state</h3><p>' + V.badge('health', 'Report') + ' ' + V.badge('state', 'State') + '</p>' +
       '<p>Windows confirmed up now: ' + (seen === 0 ? red('NO DATA', 'heartbeat') + ' (no window has reported)' : (up === V.ALL_IDS.length ? '<b>' + upTxt + '</b>' : red(upTxt, 'heartbeat'))) + '. This counts the windows and roles on this page, not tasks.</p>' +
-      '<p>Health report: ' + (pct ? (hOk ? '<b>' + esc(pct) + '</b>' : red('OLD ' + pct)) : (impossible ? red('IMPOSSIBLE (' + d.checks_passed + ' of ' + d.checks_total + ')') : red('NO DATA'))) + '. Daily report sent: ' + dateVal(d.report_sent_at, { type: 'past', limitMin: V.LIMIT_MIN.health, what: 'daily-report-sent time' }) + '.' + (hOk || !pct ? '' : ' ' + red(OLDSENT)) + '</p>' +
-      '<p>Open items: ' + valR(sd.open_items, '', 0, undefined, true, sOk, 'state') + '. In progress: ' + valR(sd.in_progress, '', 0, undefined, true, sOk, 'state') + '. Blocked: ' + valR(sd.blocked, '', 0, undefined, true, sOk, 'state') + '.' + (st.state === 'STALE' ? ' ' + red(OLDSENT, 'state') : '') + '</p>' +
-      '<p>Money items (read from the state file, not typed):</p>' + (money ? '<ul>' + money + '</ul>' : '<p>' + red('NO DATA', 'state') + '</p>') + '</div>';
+      '<p>Health report: ' + (hz ? nzMark('health') : (pct ? (hOk ? '<b>' + esc(pct) + '</b>' : red('OLD ' + pct)) : (impossible ? red('IMPOSSIBLE (' + d.checks_passed + ' of ' + d.checks_total + ')') : red('NO DATA')))) + '. Daily report sent: ' + dateVal(d.report_sent_at, { type: 'past', limitMin: V.LIMIT_MIN.health, what: 'daily-report-sent time' }) + '.' + (hOk || !pct ? '' : ' ' + red(OLDSENT)) + '</p>' +
+      (sz ? '<p>Open items: ' + nzMark('state') + '. In progress: ' + nzMark('state') + '. Blocked: ' + nzMark('state') + '.</p>' : '<p>Open items: ' + valR(sd.open_items, '', 0, undefined, true, sOk, 'state') + '. In progress: ' + valR(sd.in_progress, '', 0, undefined, true, sOk, 'state') + '. Blocked: ' + valR(sd.blocked, '', 0, undefined, true, sOk, 'state') + '.' + (st.state === 'STALE' ? ' ' + red(OLDSENT, 'state') : '') + '</p>') +
+      '<p>Money items (read from the state file, not typed):</p>' + (money ? '<ul>' + money + '</ul>' : '<p>' + (sz ? nzMark('state') : red('NO DATA', 'state')) + '</p>') + '</div>';
   }
   function repairsLive() {
     var st = V.status('state'), sd = (st.state === 'OK' || st.state === 'STALE') ? (st.data || {}) : {}, rep = sd.repairs || [], sOk = st.state === 'OK';
     var li = rep.map(function (r) { return '<li>' + (sOk ? '' : red('OLD') + ' ') + esc(r.status) + ': ' + esc(r.text) + '</li>'; }).join('');
-    return '<div class="pn" id="pn-repairs-live" data-files="state"><h3>Live repair rows (read from the state data file, none typed)</h3><p>' + V.badge('state', 'State') + '</p>' + (li ? '<ul>' + li + '</ul>' + (sOk ? '' : '<p>' + red(OLDSENT) + '</p>') : '<p>' + red('NO DATA') + ' No data file supplies repair rows, so none are shown. The table above is the hand-typed log.</p>') + '</div>';
+    return '<div class="pn" id="pn-repairs-live" data-files="state"><h3>Live repair rows (read from the state data file, none typed)</h3><p>' + V.badge('state', 'State') + '</p>' + (li ? '<ul>' + li + '</ul>' + (sOk ? '' : '<p>' + red(OLDSENT) + '</p>') : '<p>' + (st.state === 'NO ZONE' ? nzMark('state') : red('NO DATA')) + ' No data file supplies repair rows, so none are shown. The table above is the hand-typed log.</p>') + '</div>';
   }
   /* flaw 6: a source is "proof checked" (green) only when proof_ok is true AND its own checked_at is a valid time within 7 days. No date = grey. Older = red. Future = red BAD CLOCK. */
   function mdProof(p) {
@@ -516,18 +570,26 @@
     var j = V.dateJudge(p.checked_at, { type: 'past', limitMin: V.LIMIT_MIN.miamidade, what: 'proof check date' }, null);
     if (!j) { return mark('ok', 'proof checked ' + V.fmtIso(p.checked_at)); }
     if (j.kind === 'NO DATA') { return mark('na', 'PROOF OK BUT NO CHECK DATE: not counted as checked'); }
+    if (j.kind === 'NO ZONE') { return mark('na', 'PROOF OK BUT THE CHECK DATE HAS NO TIME ZONE: not counted as checked'); }
     return red('PROOF ' + (j.kind === 'BAD CLOCK' ? 'DATE IN THE FUTURE (BAD CLOCK)' : 'OLD (checked ' + V.fmtIso(p.checked_at) + ', more than 7 days ago)'));
   }
+  function mdKey(id) { var s = String(id == null ? '' : id).trim(); if (/^(0[1-9]|1\d|2[0-2])$/.test(s)) { return s; } if (/^[1-9]$/.test(s)) { return '0' + s; } return null; }
+  function mdRank(p) { if (p.proof_ok !== true) { return 3; } var j = V.dateJudge(p.checked_at, { type: 'past', limitMin: V.LIMIT_MIN.miamidade, what: 'proof check date' }, null); if (!j) { return 0; } return (j.kind === 'NO DATA' || j.kind === 'NO ZONE') ? 1 : 2; }
   function miami() {
     var s = V.status('miamidade'), d = s.data || {}, counted = (!noNums(s) && typeof d.counted === 'number') ? d.counted : null, impossible = counted !== null && (counted < 0 || counted > 300 || Math.floor(counted) !== counted);
-    var fresh = s.state === 'OK', proof = {}; (fresh ? (d.sources || []) : []).forEach(function (x) { var k = ('0' + String(x.id).replace(/\D/g, '')).slice(-2); proof[k] = x; });
+    var fresh = s.state === 'OK', proof = {}, unknownIds = 0;
+    /* fix round 8 (CHECK-9 edge e2): an id matches a source only EXACTLY after trimming ("1" or "01" is source 01; "101" and "0001" are not). When one id is listed twice, the WORST row wins (not ok, then old or future, then no date, then ok). An id that is not one of the 22 is counted and shown red. */
+    (fresh ? (d.sources || []) : []).forEach(function (x) {
+      var k = mdKey(x.id); if (k === null) { unknownIds++; return; }
+      if (!proof[k] || mdRank(x) > mdRank(proof[k])) { proof[k] = x; }
+    });
     var items = MD.map(function (r) {
       var p = proof[r[0]], chk = fresh ? (p ? ' ' + mdProof(p) : ' ' + red('NOT RE-CHECKED')) : ' ' + mark('na', 'proof not current (the Miami-Dade file is ' + s.state + ')');
       return '<li><b>' + r[0] + ' ' + esc(r[1]) + '</b> - <a href="' + drive(r[2]) + '" target="_blank" rel="noopener">Open the proof file for source ' + r[0] + ' (a file in Google Drive)</a>' + (r[3] ? ' - <i class="v5typed">typed note from 2026-08-16, not re-checked: ' + esc(r[3]) + '</i>' : '') + chk + '</li>';
     }).join('');
     return '<div class="pn" id="pn-miami" data-files="miamidade"><p>' + V.badge('miamidade', 'Counted') + '</p>' +
       '<p>Counted so far: ' + (impossible ? red('IMPOSSIBLE (' + counted + ')') + ' of 300' : (counted !== null && !fresh ? red('OLD ' + counted + ' of 300', 'miamidade') + ' ' + red(OLDSENT, 'miamidade') : '<b>' + (counted === null ? 'unknown' : counted) + ' of 300</b>')) + (counted === null ? ' (not counted yet)' : '') + '.</p>' +
-      '<p>Each link opens that site\'s proof file in Drive. They are plain text files, not the Orange Tree portal. <a href="' + MD_INDEX + '" target="_blank" rel="noopener">Open the full index document (Google Docs)</a>.</p><ol class="md">' + items + '</ol></div>';
+      (unknownIds ? '<p>' + red(unknownIds + ' entries in the Miami-Dade file have an id that is not one of the 22 sources, and were ignored') + '</p>' : '') + '<p>Each link opens that site\'s proof file in Drive. They are plain text files, not the Orange Tree portal. <a href="' + MD_INDEX + '" target="_blank" rel="noopener">Open the full index document (Google Docs)</a>.</p><ol class="md">' + items + '</ol></div>';
   }
   var DASHFILES = ['heartbeat', 'bots', 'state', 'health', 'tokens', 'housekeeping', 'miamidade'];
   function dash() { return '<span class="v5b na" id="v5overall" data-overall="1">WHOLE PAGE: checking</span>' + DASHFILES.map(function (n) { return '<span>' + esc(V.plainFile(n)) + ': ' + V.badge(n, 'OK') + '</span>'; }).join(''); }
@@ -617,7 +679,7 @@
   }
   window.VTES5U = {
     guardNote: guardNote, piiReasons: piiReasons, enforce: enforce, pageItems: pageItems, MD: MD, META: META, grokText: grokText, botsBuilt: botsBuilt, botsSub: function () { return botsBuilt() ? 'UP (proof)' : 'NOT BUILT'; },
-    pasteTo: pasteTo, repaint: repaint,
+    pasteTo: pasteTo, repaint: repaint, queuedStatus: queuedStatus,
     /* builds the three card grids from the v3 arrays and the top block; wires the big copy buttons */
     renderAll: function (LLMS, ROLES, BOTS) {
       /* flaw F10: the search must match only the text v3 matched. v3's own render (still in the page) has just drawn the three grids; take each card's text before it is replaced. */
@@ -652,7 +714,7 @@
     /* fix round 7: the frame (RAMBO button, Read me first, Live status heading) is drawn FIRST and uses no data file, so a bad data file can never take it away */
     renderFrame: function (builtIso) {
       document.getElementById('v5rambo').innerHTML = '<button class="btn" type="button" id="v5rambobtn">Copy packet for RAMBO (Claude Code Desktop Executor)</button><div class="paste v5cs" id="v5ramboout" role="status"></div>';
-      document.getElementById('v5top').innerHTML = '<div class="v5watch" id="v5watch" role="alert" style="display:none"></div><details class="v5read" id="v5read" open><summary>Read me first</summary><ol>' + READ.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol></details>' +
+      document.getElementById('v5top').innerHTML = '<div class="v5watch" id="v5watch" role="alert" style="display:none"></div><details class="v5read" id="v5read" open><summary>Read me first</summary><ol>' + readItems().map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol></details>' +
         '<h2 id="livestatus">Live status</h2><div class="v5age" id="v5age"><span id="v5age1">Checking the data files...</span><span id="v5age2"></span><span id="v5age3"></span></div><div class="v5dash" id="v5dash"><span class="v5b na" id="v5overall" data-overall="1">WHOLE PAGE: checking</span></div><div id="v5health"></div>';
       document.getElementById('v5rambobtn').addEventListener('click', function () { pasteTo('LLM-01', document.getElementById('v5ramboout'), getSteps(META['LLM-01'])); });
       try { initGate(); } catch (e) { }

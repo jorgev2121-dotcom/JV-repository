@@ -19,12 +19,13 @@ function split(t) { return t.replace(/\r/g, '').split(/\n+|(?<=[.!?])\s+(?=[A-Z0
 const plain = s => s.replace(/[`*]/g, '');
 function mdSentences(f) { const out = []; rd(f).split('\n').forEach((line, i) => { if (/^\s*(#|```|<!--|\|?\s*-{3})/.test(line)) { return; } split(line.replace(/^\s*(?:[-*]|\d+\.|[a-z]\))\s+/, '')).forEach(s => out.push({ raw: s, s: plain(s), where: f + ':' + (i + 1) })); }); return out; }
 function verifySentences() {
-  const out = [], lines = rd('VERIFY-v5.ps1').split('\n'); let inHead = true;
+  const out = [], lines = rd('VERIFY-v5.ps1').split('\n'); let inHead = true, head = [];
   lines.forEach((line, i) => {
     if (inHead && /^param\(/.test(line)) { inHead = false; }
-    if (inHead && /^#/.test(line)) { split(line.replace(/^#\s*/, '')).forEach(s => out.push({ raw: s, s: plain(s), where: 'VERIFY-v5.ps1:' + (i + 1) + ' (header)' })); }
-    else if (/Write-Host|\.Add\(|Stop-Early|return \(/.test(line)) { (line.match(/'(?:[^']|'')*'/g) || []).forEach(q => { const s = q.slice(1, -1).replace(/''/g, "'"); if (s.length > 25 && /[a-z]{3} [a-z]{3}/.test(s)) { split(s).forEach(x => out.push({ raw: x, s: x, where: 'VERIFY-v5.ps1:' + (i + 1) + ' (message)' })); } }); }
+    if (inHead && /^#/.test(line)) { head.push(line.replace(/^#\s*/, '').replace(/^\s*-\s+/, '- ')); }
+    else if (/Write-Host|Say \(|\.Add\(|Stop-Early|return \(/.test(line)) { (line.match(/'(?:[^']|'')*'/g) || []).forEach(q => { const s = q.slice(1, -1).replace(/''/g, "'"); if (s.length > 25 && /[a-z]{3} [a-z]{3}/.test(s)) { split(s).forEach(x => out.push({ raw: x, s: x, where: 'VERIFY-v5.ps1:' + (i + 1) + ' (message)' })); } }); }
   });
+  head.join(' ').replace(/\s+/g, ' ').split(/(?<=[.!?])\s+(?=[A-Z(\-])|(?<=\.)\s+(?=\(\w+\) )/).map(s => s.trim()).filter(s => s.length > 8).forEach((s, i) => out.push({ raw: s, s: plain(s), where: 'VERIFY-v5.ps1 header, sentence ' + (i + 1) }));
   return out;
 }
 /* a sentence is CHECKABLE (it states a fact that behaviour can prove or disprove) when it holds one of these signals. Instructions to the executor ("Open the parent folder") hold none. */
@@ -71,7 +72,7 @@ claim('R1', 'readme', /still here/i, async (s) => {
   if (!blk) { return [false, 'PORT-REPORT.md has no CHANGE-LIST block']; }
   const lines = blk[1].split('\n').filter(l => /^\d+\. /.test(l)).length; ev.push('PORT-REPORT.md lists ' + lines);
   if (lines !== N) { return [false, ev.join('; ') + ' - the list has a different number of lines']; }
-  const r = spawnNode('test-v3-survives.js', [path.join(os.tmpdir(), 'cl8-surv.json')]); const j = JSON.parse(fs.readFileSync(path.join(os.tmpdir(), 'cl8-surv.json'), 'utf8')); const fail = j.filter(x => x.status !== 'PASS').length;
+  const r = spawnNode('test-v3-survives.js', [path.join(os.tmpdir(), 'cl8-surv.json')]); const jj = JSON.parse(fs.readFileSync(path.join(os.tmpdir(), 'cl8-surv.json'), 'utf8')), j = Array.isArray(jj) ? jj : (jj.results || jj.rows || []); const fail = j.filter(x => x.status !== 'PASS').length;
   ev.push('v3 survival test: ' + (j.length - fail) + ' of ' + j.length + ' checks pass');
   return [fail === 0, ev.join('; ')];
 }, { perItem: true });
@@ -113,19 +114,19 @@ const tickBehaviour = () => memo('tick', () => (async () => { const { ctx, p } =
   $('to').value = 'LLM-08'; $('to').dispatchEvent(new Event('change', { bubbles: true })); await settle(); out.resetOnRoute = !c.checked && $('go').disabled;
   $('to').value = 'LOCAL'; $('to').dispatchEvent(new Event('change', { bubbles: true })); await settle(); out.localNeedsNoTick = !$('go').disabled;
   return out; }); await ctx.close(); return rs; })());
-claim('R7a', 'readme', /you must tick the box|Until it is ticked/i, async () => { const r = await tickBehaviour(); return [r.offWhenUnticked && r.onWhenTicked, 'buttons off when unticked: ' + r.offWhenUnticked + ', on when ticked: ' + r.onWhenTicked]; });
+claim('R7a', ['readme', 'limits'], /you must tick the box|Until it is ticked/i, async () => { const r = await tickBehaviour(); return [r.offWhenUnticked && r.onWhenTicked, 'buttons off when unticked: ' + r.offWhenUnticked + ', on when ticked: ' + r.onWhenTicked]; });
 claim('R7b', 'readme', /tick clears itself/i, async () => { const r = await tickBehaviour(); return [r.resetOnNote && r.resetOnRoute, 'tick cleared on a note change: ' + r.resetOnNote + ', on a To change: ' + r.resetOnRoute]; });
 claim('R7c', 'readme', /goes to LOCAL only/i, async () => { const r = await tickBehaviour(); return [r.localNeedsNoTick, 'LOCAL needs no tick (buttons enabled): ' + r.localNeedsNoTick + ' (that LOCAL needs a confirmed folder is a separate, live line on the LOCAL card)']; });
 // ---- Read me, the guard (flaw 1)
 const NOTES = () => require('./pii-notes-r8.js');
 const guardCaught = async (samples) => { const { ctx, p } = await pageWith(fresh(NOWMS)); const r = await EV(p, s => s.map(x => [x, window.VTES5U.piiReasons(x).length > 0]), samples); await ctx.close(); return r; };
 const CAP = [
-  { re: /nine digits|9 digits|Social Security number/i, name: 'nine digits', sam: () => NOTES().PERSONAL.filter(t => /^[^a-z]*\d/i.test(t) || /ssn|social|s\.s\.n/i.test(t)).slice(0, 30) },
+  { re: /nine digits|9 digits|Social Security|many layouts/i, name: 'nine digits', sam: () => NOTES().PERSONAL.filter(t => /^[^a-z]*\d/i.test(t) || /ssn|social|s\.s\.n/i.test(t)).slice(0, 30) },
   { re: /card numbers?/i, name: 'card numbers', sam: () => ['4111 1111 1111 1111', '4111-1111-1111-1111', '4111111111111111', '378282246310005', '5555 5555 5555 4444', '6011000990139424', '4111, 1111, 1111, 1111'] },
   { re: /spelled out in words|written in words|in words/i, name: 'spelled-out words', sam: () => ['one two three four five six seven eight nine', 'one twenty three, forty five, sixty seven eighty nine', 'uno dos tres cuatro cinco seis siete ocho nueve', 'ssn 123 apples 45 pears 6789', 'ssn is 123 and then 45 and also 6789'] },
   { re: /commas/i, name: 'split with commas', sam: () => ['SSN 123, 45, 6789', 'his number is 123, 45, 6789', '4111, 1111, 1111, 1111'] },
   { re: /base64|hex/i, name: 'base64 or hex', sam: () => ['MTIzNDU2Nzg5', '313233343536373839', '31 32 33 34 35 36 37 38 39', '0x31 0x32 0x33 0x34 0x35 0x36 0x37 0x38 0x39', 'ssn hex 3132333435363738393031 ok'] },
-  { re: /date of birth/i, name: 'date of birth', sam: () => ['born March 3, 1949', 'DOB: January second nineteen seventy', 'date of birth: March third, nineteen eighty one', 'DOB 01 02 1970', 'born on the 2nd of January 1970'] },
+  { re: /date[- ]of[- ]birth/i, name: 'date of birth', sam: () => ['born March 3, 1949', 'DOB: January second nineteen seventy', 'date of birth: March third, nineteen eighty one', 'DOB 01 02 1970', 'born on the 2nd of January 1970'] },
   { re: /licen[cs]e/i, name: 'licence', sam: () => ['FL DL S530 4607 5123 0', 'FL license: S530 460 75 123 0', 'dl s530460751230', 'driver licence V123-456-78-901-0'] },
   { re: /passport/i, name: 'passport', sam: () => ['passport A12345678', 'passport a12345678', 'pasaporte c03005988'] },
   { re: /bank/i, name: 'bank', sam: () => ['bank account 1234567890', 'IBAN GB82 WEST 1234 5698 7654 32', 'acct no 0012345678 routing 021000021'] }
@@ -162,44 +163,35 @@ claim('R11', 'readme', /Every time is Eastern time/i, async () => {
   const ok = /EDT/.test(r[0]) && /EST/.test(r[1]) && !/2026/.test(r[0]) && /2025/.test(r[2]) && /2027/.test(r[3]); return [ok, r.join(' | ')];
 }, { perItem: true });
 // ---- queued items (flaw 2) and the cards (flaw 4)
-claim('Q-head', 'queued', /one click each/i, async () => { const q = grp(null, 'Q1 queued status matches the button'); return [false, 'one click does not leave a usable packet on every item: the item needs the tick first for every route except LOCAL (' + q[1] + ')']; });
-claim('Q-lead', 'queued', /sends a ready packet/i, async () => { const { ctx, p } = await pageWith(fresh(NOWMS)); let req = 0; p.on('request', r => { if (!/^file:/.test(r.url())) { req++; } }); await EV(p, () => { window.open = () => null; document.querySelector('[data-q]').click(); }); await p.waitForTimeout(300); await ctx.close(); return [false, 'the page sent ' + req + ' requests when the queued button was pressed: it fills the packet box and never sends anything']; });
+claim('Q-head', 'queued', /one click each/i, async () => { const q = grp(null, 'Q1 queued status matches the button'); return [false, 'one click does not leave a usable packet on every item: the item needs the tick first for every route except LOCAL (' + q[1] + ')']; }, { retired: true });
+claim('Q-lead', 'queued', /sends a ready packet/i, async () => { const { ctx, p } = await pageWith(fresh(NOWMS)); let req = 0; p.on('request', r => { if (!/^file:/.test(r.url())) { req++; } }); await EV(p, () => { window.open = () => null; document.querySelector('[data-q]').click(); }); await p.waitForTimeout(300); await ctx.close(); return [false, 'the page sent ' + req + ' requests when the queued button was pressed: it fills the packet box and never sends anything']; }, { retired: true });
 claim('Q-gray', 'queued', /grayed out as NOT READY/i, async () => [false, 'a statement about an older page (v2) that no test on this page can prove: the real v3 file holds the words NOT READY only in this one sentence'], { retired: true });
 claim('Q-gate', 'queued', /need your call say so in the packet/i, async () => {
   const { ctx, p } = await pageWith(fresh(NOWMS)); const q = await EV(p, () => window.QUEUED.map(x => ({ n: x.n, gate: x.gate, p: x.p }))); await ctx.close();
   const need = q.filter(x => /needs your|gated|approval/i.test(x.gate)), bad = need.filter(x => !/\bGO\b|approv|explicit yes/i.test(x.p)); return [need.length > 0 && bad.length === 0, need.length + ' queued items need your call; ' + bad.length + ' of them do not say so in the packet'];
 });
-claim('Q-fill', 'queued', /fills the packet box/i, async () => {
+claim('Q-fill', 'queued', /puts the item in the note box|one click fills the note box/i, async () => {
   const { ctx, p } = await pageWith(fresh(NOWMS)); const r = await EV(p, async () => { window.open = () => null; const out = []; const n = document.querySelectorAll('[data-q]').length; for (let i = 0; i < n; i++) { document.querySelectorAll('[data-q]')[i].click(); out.push({ note: document.getElementById('note').value === window.QUEUED[i].p, to: document.getElementById('to').value }); } return out; }); await ctx.close();
   return [r.length === 6 && r.every(x => x.note), r.filter(x => x.note).length + ' of ' + r.length + ' queued buttons put the item text into the note box'];
 }, { optional: true });
-claim('Q-status', 'queued-status', /Packet ready|Press Copy packet and open|Packet written|Tick the box/i, async () => { const a = grp(null, 'Q1 queued status matches the button'), b = grp(null, 'Q3 when the button is enabled the status says ready'); return [a[0] && b[0], a[1] + '; ' + b[1]]; });
+claim('Q-tick', 'queued', /tick the box under the note box \(not needed for LOCAL\)/i, async () => {
+  const { ctx, p } = await pageWith(fresh(NOWMS)); const n = await EV(p, () => { window.open = () => null; return document.querySelectorAll('[data-q]').length; }), r = [];
+  for (let i = 0; i < n; i++) {
+    await EV(p, () => { const c = document.getElementById('v5ack'); c.checked = false; c.dispatchEvent(new Event('change', { bubbles: true })); }); await p.clock.runFor(1200);
+    await EV(p, i => document.querySelectorAll('[data-q]')[i].click(), i); await p.clock.runFor(1200);
+    const a = await EV(p, () => ({ to: document.getElementById('to').value, off: document.getElementById('go').disabled }));
+    await EV(p, () => { const c = document.getElementById('v5ack'); c.checked = true; c.dispatchEvent(new Event('change', { bubbles: true })); }); await p.clock.runFor(1200);
+    const b = await EV(p, () => !document.getElementById('go').disabled); r.push({ to: a.to, offBefore: a.off, onAfter: b });
+  }
+  await ctx.close(); const bad = r.filter(x => x.offBefore !== (x.to !== 'LOCAL') || !x.onAfter); return [r.length === 6 && bad.length === 0, r.length + ' queued items: the copy button is off until the tick unless the lane is LOCAL, and on after the tick: ' + (r.length - bad.length) + ' of ' + r.length];
+});
+claim('Q-status', 'queued-status', /Packet ready|Press Copy packet and open|Packet written|Tick the box|item is in the note box|packet is not made yet/i, async () => { const a = grp(null, 'Q1 queued status matches the button'), b = grp(null, 'Q3 when the button is enabled the status says ready'); return [a[0] && b[0], a[1] + '; ' + b[1]]; });
 claim('C-oneclick', 'card', /one click|no Open button/i, async () => { const a = grp(null, 'S1 one click needs a link'), b = grp(null, 'S2 no Open button needs no link'), c = grp(null, 'S3 never both'), d = grp(null, 'S4 phone card'); return [a[0] && b[0] && c[0] && d[0], [a[1], b[1], c[1], d[1]].join('; ')]; });
 claim('C-press', 'card', /press (?:the )?(?:big )?(?:blue|copy packet)/i, async () => { const a = grp(null, 'S7 press X names an enabled button'), b = grp(null, 'S5 status says ready'); return [a[0], a[1]]; });
 
 /* =====================================================================================================
    VERIFY AND DOCUMENT CLAIMS (flaws 5 to 11)
    ===================================================================================================== */
-// flaw 5: the exit codes in the header
-claim('V-exit', 'verify-header', /Exit codes?:/i, async (s0) => {
-  const head = rd('VERIFY-v5.ps1').split('\n').filter(l => /^#/.test(l)).map(l => l.replace(/^#\s*/, '')).join(' '); const m = /Exit codes?:(.*?)(?:\. What it does|What it does|$)/i.exec(head); const txt = m ? m[1] : s0;
-  const clauses = {}; (txt.match(/\b[0-3] = [^;]*?(?=(?:, | ; |; )[0-3] = |$)/g) || [txt]).forEach(c => { const n = /^([0-3]) =/.exec(c.trim()); if (n) { clauses[n[1]] = c; } });
-  const fx = fixture(); const empty = fs.mkdtempSync(path.join(os.tmpdir(), 'cl8e-')); const conds = [
-    ['a wrong switch', /wrong switch/i, () => verify(fx.N, ['-NoSuchSwitch']).code], ['no -Path at all', /missing path|no path|path is missing|missing -?path/i, () => verifyRaw([]).code],
-    ['a path that is not a full path', /no full path|not a full path|relative path/i, () => verify('relative/dir', []).code], ['a folder that does not exist', /folder missing|folder does not exist|missing folder/i, () => verify(path.join(os.tmpdir(), 'cl8-nope-' + process.pid), []).code],
-    ['a manifest that is missing', /manifest missing|missing manifest/i, () => verify(empty, []).code], ['a good package', /\b0 = OK\b|0 = ok/i, () => verify(fx.N, []).code], ['an edited file', /1 = at least one problem|at least one problem/i, () => { fs.appendFileSync(path.join(fx.N, 'vtes5-ui.js'), ' '); const c = verify(fx.N, []).code; return c; }]];
-  const ev = []; let ok = true; const want = { 'a good package': '0', 'an edited file': '1' };
-  for (const [name, re, run] of conds) { const n = Object.keys(clauses).find(k => re.test(clauses[k])); const real = run(); if (n === undefined) { ev.push(name + ': not mentioned (real exit ' + real + ')'); continue; } const good = String(real) === n; if (!good) { ok = false; } ev.push(name + ': header says exit ' + n + ', real exit ' + real + (good ? '' : ' <-- WRONG')); }
-  return [ok && Object.keys(clauses).length > 0, ev.join('; ')];
-}, { perItem: true });
-// flaw 6: a link anywhere means no "N of N identical" count and no false "not followed"
-claim('V-link', 'verify-msgs', /not followed/i, async () => {
-  const ev = []; let ok = true; const run = (name, mk) => { const fx = fixture(); const arg = mk(fx); const r = verify(arg, []); const hasLink = /LINK/.test(r.out), count = /\d+ of \d+ package files are identical/.test(r.out); const bad = hasLink && count; if (bad) { ok = false; } ev.push(name + ': ' + (hasLink ? 'LINK reported' : 'no LINK line') + ', identical-count printed under PROBLEMS: ' + count + (bad ? ' <-- WRONG' : '')); };
-  run('the folder itself is a link', fx => { const l = path.join(fx.base, 'Docs', 'v5link'); fs.symlinkSync(fx.N, l); return l; });
-  run('the parent folder is a link', fx => { const l = path.join(fx.base, 'linkdocs'); fs.symlinkSync(path.join(fx.base, 'Docs'), l); return path.join(l, 'v5'); });
-  run('a data file is a link', fx => { const f = path.join(fx.N, 'data', 'vtes5-bots.js'), t = f + '.real'; fs.renameSync(f, path.join(fx.base, 'real-bots.js')); fs.symlinkSync(path.join(fx.base, 'real-bots.js'), f); return fx.N; });
-  return [ok, ev.join('; ')];
-}, { perItem: true });
 // flaw 7: the words INSTALL-BY-HAND.md quotes for a UTF-16 data file are the words VERIFY really prints
 claim('V-utf16', 'install', /UTF-16/i, async (s, ent) => {
   const quotes = (ent.raw.match(/`[^`]+`/g) || []).map(q => q.slice(1, -1)).filter(q => /UTF-16|BAD DATA FILE|EDITED/.test(q)); if (!quotes.length) { return [true, 'no quoted VERIFY words in this sentence']; }
@@ -209,7 +201,7 @@ claim('V-utf16', 'install', /UTF-16/i, async (s, ent) => {
   return [ok, ev.join('; ')];
 }, { perItem: true });
 // flaw 8: no document may say VERIFY answers OK for a changed data file on day one
-claim('V-okchanged', 'install', /says OK when only the eight|OK when only the .{0,40}(?:changed|data)/i, async () => {
+claim('V-okchanged', 'install', /VERIFY now says OK when only|says OK when only the eight/i, async () => {
   const fx = fixture(); const f = path.join(fx.N, 'data', 'vtes5-state.js'); fs.writeFileSync(f, 'window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {"schema":1};\n'); const r = verify(fx.N, []); return [/^OK/m.test(r.out) && r.code === 0, 'a changed, valid data file on day one gives exit ' + r.code + (/^PROBLEMS/m.test(r.out) ? ' and PROBLEMS' : '') + ', not OK'];
 }, { retired: true });
 // flaw 9: "Pure ASCII"
@@ -218,26 +210,92 @@ claim('V-ascii', 'contract', /Pure ASCII/i, async () => {
   const fx2 = fixture(); const f2 = path.join(fx2.N, 'data', 'vtes5-state.js'); fs.writeFileSync(f2, 'window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {"schema":1,"x":"caf\\u00e9"};\n'); const r2 = verify(fx2.N, ['-AfterWriters']);
   return [r.code === 1 && /PROBLEMS/.test(r.out) && r2.code === 0, 'a UTF-8 accent under -AfterWriters: exit ' + r.code + ' (' + (/PROBLEMS/.test(r.out) ? 'PROBLEMS' : 'not refused') + '); the same text written as \\u00e9: exit ' + r2.code];
 });
-// flaw 10: what git fetch really writes
-claim('G-fetch', 'install', /git fetch/i, async (s) => {
+/* =====================================================================================================
+   DOCUMENT CLAIMS: VERIFY's header and messages, INSTALL-BY-HAND.md, DATA-CONTRACT.md, KNOWN-LIMITS.md
+   A sentence is EXEMPT only for a stated reason: it is an instruction to the executor, a question, history of an earlier round, or a sentence that itself says UNVERIFIED / not run / cannot.
+   ===================================================================================================== */
+function EXEMPT(s) {
+  if (/\?$/.test(s)) { return 'question'; }
+  if (/^(?:PC check|Do not|Do NOT|Never|Run |Open |Paste |Report |Put |Click|Save |Read |Write |Check |Turn |Create |Use |Make |If |Keep |Follow |Stop |Then |First |Name |Before |Take |Add |Choose |Set |Press |Ask |Get |Give |Write |Look |Leave |Copy |Pick |Say |Show |Try |Type |Right-click |Fetch|Find |Move |Never )/.test(s) || /\bPC check:/.test(s)) { return 'instruction'; }
+  if (/\b(?:fix round \d|round \d|CHECK-\d|the checker|checker's|SUPERSEDED|FIX-ROUND|was removed|were removed|used to|no longer says|Fix round)/i.test(s)) { return 'history'; }
+  if (/UNVERIFIED|not run here|NOT run|not tested|NOT tested|untested|could not be tested|cannot (?:speak|see|prove|catch|know|stop|check)|not (?:been )?proved|never run/i.test(s)) { return 'limit'; }
+  return null;
+}
+const vres = () => memo('vres', () => { const txt = rd('test-verify-r8-RESULT.txt'), sha = sha256f(VER), scen = {}; for (const m of txt.matchAll(/^SCENARIO (\S+): (.*)$/gm)) { scen[m[1]] = m[2]; } const tot = /(\d+) of (\d+) scenarios as expected; fixture identical before and after in (\d+) of (\d+)/.exec(txt) || []; const pf = []; for (const m of txt.matchAll(/^  (PASS|FAIL) ([A-Z]\d+[a-z]*)[:\s]/gm)) { pf.push([m[1], m[2]]); } return { pf, scen, hasSha: txt.includes(sha), total: +tot[2], asExpected: +tot[1], identical: +tot[3], checks: /VERIFY TESTS: (\d+) of (\d+) pass/.exec(txt) }; });
+function sha256f(f) { return require('crypto').createHash('sha256').update(fs.readFileSync(f)).digest('hex'); }
+const sc = (from, to) => { const r = vres(); const n = k => parseInt(k.replace(/^\D+/, ''), 10), pre = from.replace(/\d+.*$/, ''); return [...new Set(Object.keys(r.scen).concat(r.pf.map(x => x[1].replace(/[a-z]$/, ''))))].filter(k => k.startsWith(pre) && n(k) >= n(from) && n(k) <= n(to)); };
+const suite = (...ids) => { const r = vres(); if (!r.hasSha) { return [false, 'test-verify-r8-RESULT.txt was not produced by this VERIFY-v5.ps1 (its SHA-256 is not in that file): run test-verify.sh again']; } const all = ids.flatMap(i => Array.isArray(i) ? i : [i]); const okId = i => /^AS EXPECTED/.test(r.scen[i] || '') || (!(i in r.scen) && r.pf.some(x => x[1] === i || (x[1].startsWith(i) && /[a-z]$/.test(x[1]) && x[1].length === i.length + 1)) && !r.pf.some(x => x[0] === 'FAIL' && x[1].startsWith(i))); const bad = all.filter(i => !okId(i)); return [all.length > 0 && bad.length === 0, 'scenarios ' + all.slice(0, 6).join(',') + (all.length > 6 ? ' ... (' + all.length + ')' : '') + (bad.length ? ' NOT as expected or missing: ' + bad.join(',') : ' all as expected') + ' in test-verify-r8-RESULT.txt']; };
+const both = async (...fns) => { const out = []; let ok = true; for (const f of fns) { const r = await f(); ok = ok && r[0]; out.push(r[1]); } return [ok, out.join('; ')]; };
+const DOCS = ['verify-header', 'verify-msgs', 'install', 'contract', 'limits'];
+// read-only and no-write
+claim('D-readonly', DOCS, /READ-ONLY|only reads|It only opens plain files|contains no write command|no command that writes|changed nothing in the folder|no copy command, no delete command/i, async () => {
+  const r = spawnNode('test-no-write-commands.js', []); const fx = fixture(), before = tree(fx.base); const v = verify(fx.N, []); const after = tree(fx.base);
+  return [r.code === 0 && before === after && v.code === 0, 'the write-command scan: exit ' + r.code + ' (' + (r.out.trim().split('\n').pop() || '').slice(0, 80) + '); a run on a fresh copy changed nothing in the folder tree: ' + (before === after)];
+}, { oncePerRun: true });
+claim('D-ascii', ['verify-header'], /ASCII only/i, async () => { const b = fs.readFileSync(VER); let hi = 0, cr = 0, nul = 0; b.forEach(x => { if (x > 127) { hi++; } if (x === 13) { cr++; } if (x === 0) { nul++; } }); return [hi + cr + nul === 0, 'VERIFY-v5.ps1: ' + hi + ' bytes above 127, ' + cr + ' CR, ' + nul + ' NUL']; }, { oncePerRun: true });
+claim('D-usage', ['verify-header'], /VERIFY-v5\.ps1 - READ-ONLY check|full path of the installed folder|from the order \(optional|catches a doctored manifest|use ONLY after a PC writer|Without it the check is EXACT|it is then reported as|changed by a PC writer/i, async () => suite(sc('V24', 'V25'), sc('V04', 'V04e'), sc('V36', 'V37'), ['R01', 'R01b', 'R22']), { oncePerRun: true });
+claim('D-exit', ['verify-header', 'install'], /Exit codes?|PowerShell ITSELF|exit code is 1|CANNOT CHECK/i, async () => both(async () => {
+  const fx = fixture(), empty = fs.mkdtempSync(path.join(os.tmpdir(), 'cl8e-')), want = [['a wrong switch', () => verify(fx.N, ['-NoSuchSwitch']).code, 1], ['no -Path', () => verifyRaw([]).code, 1], ['a relative path', () => verify('relative/dir', []).code, 2], ['a path with ..', () => verify(fx.N + '/../v5', []).code, 2], ['a missing folder', () => verify(path.join(os.tmpdir(), 'cl8-nope-' + process.pid), []).code, 2], ['a missing manifest', () => verify(empty, []).code, 2], ['a good package', () => verify(fx.N, []).code, 0]];
+  const out = [], hd = rd('VERIFY-v5.ps1').split('\n').filter(l => /^#/.test(l)).join(' '); let ok = /0 = OK/.test(hd) && /1 = at least one problem/.test(hd) && /2 = this script could not start/.test(hd) && /wrong switch[^.]*exit|exits 1/.test(hd);
+  want.forEach(([n, f, w]) => { const g = f(); if (g !== w) { ok = false; } out.push(n + ': ' + g + (g === w ? '' : ' <-- expected ' + w)); }); return [ok, 'exit codes: ' + out.join(', ')]; }, async () => suite(sc('X01', 'X06'), ['V15', 'V16', 'V17', 'V31'])), { oncePerRun: true });
+claim('D-labels', DOCS, /one line per difference|reads MANIFEST\.sha256 inside the folder|recomputes the SHA-256|package files are identical|MISSING|UNREACHABLE|UNREADABLE|EDITED|TOO BIG|NOT A PLAIN FILE|CASE DUPLICATE|EXTRA FILE|EXTRA FOLDER|BAD MANIFEST LINE|LINK OR NOT A PLAIN FILE|PROBLEMS lists every difference|WRONG PLACE|not counted as identical/i, async () => suite(['V02', 'V05', 'V07', 'V09', 'V11', 'V14', 'V21', 'V33', 'V34', 'R05', 'R07', 'R10', 'R12']), { oncePerRun: true });
+claim('D-link', DOCS, /\blinks?\b|LINK IN PATH|junction|no count of identical|were read through it|manifest cannot be trusted/i, async () => both(async () => { const fx = fixture(); const l = path.join(fx.base, 'Docs', 'v5link'); fs.symlinkSync(fx.N, l); const r = verify(l, []); return [r.code === 1 && /LINK/.test(r.out) && !/\d+ of \d+ package files are identical/.test(r.out), 'a link as the folder: exit ' + r.code + ', no identical-count line']; }, async () => suite(sc('V40', 'V44'), sc('X10', 'X24'), ['R09', 'R09b', 'R25'])), { oncePerRun: true });
+claim('D-encoding', DOCS, /UTF-?16|byte-order mark|BOM\b|NUL byte|\bCR\b|plain ASCII|byte above 127|Pure ASCII|every byte must be 127|redirect|re-encod/i, async () => both(async () => { const fx = fixture(); const f = path.join(fx.N, 'data', 'vtes5-bots.js'); fs.writeFileSync(f, utf16(fs.readFileSync(f, 'utf8'))); const r = verify(fx.N, []), a = verify(fx.N, ['-AfterWriters']); return [/saved as UTF-16/.test(r.out) && /BAD DATA FILE/.test(a.out) && r.code === 1 && a.code === 1, 'UTF-16: day one exit ' + r.code + ' says UTF-16; with the switch exit ' + a.code + ' says BAD DATA FILE']; }, async () => suite(['R02', 'R02b', 'R03', 'R13', 'R14', 'R23'], sc('X40', 'X51'), ['V39b'])), { oncePerRun: true });
+claim('D-shape', DOCS, /strict shape|exactly the (?:one )?(?:fixed )?assign|ONE JSON object|wrapper|trailing LF|at most one LF|size from the file length|1048576|1 MB|2 MB|empty file|0 bytes|status_dir_url|injected|hand-written token|ConvertFrom-Json|shape check/i, async () => suite(['R04', 'R04b', 'R04c', 'R05b', 'R06', 'R06c', 'R15', 'R15b', 'R16', 'R16b', 'R17', 'R18', 'R19', 'R20'], sc('R11', 'R11i'), sc('X70', 'X89'), ['R17f', 'R17h']), { oncePerRun: true });
+claim('D-afterwriters', DOCS, /-AfterWriters|day one|day-one|fresh install|exact|changed by a PC writer|OK \(after writers\)|expected edit|only the eight|eight (?:data|files)|ANY other package file|Any other file that differs/i, async () => both(async () => { const fx = fixture(); const f = path.join(fx.N, 'data', 'vtes5-state.js'); fs.writeFileSync(f, 'window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {"schema":1};\n'); const d = verify(fx.N, []), a = verify(fx.N, ['-AfterWriters']); return [d.code === 1 && /PROBLEMS/.test(d.out) && a.code === 0 && /after writers/.test(a.out), 'a valid rewritten data file: day one exit ' + d.code + ' (PROBLEMS); with the switch exit ' + a.code + ' (OK after writers)']; }, async () => suite(sc('V04', 'V04e'), sc('V36', 'V37'), sc('R01', 'R01c'), ['R22', 'V45'])), { oncePerRun: true });
+claim('D-okline', DOCS, /OK: all \d+ of \d+|all \d+ of \d+ package files|identical \(SHA-256\)|nothing else is in the folder|the only good answer|single OK line|closing line|N of M/i, async () => both(async () => { const fx = fixture(); const r = verify(fx.N, []), n = fs.readFileSync(path.join(fx.N, 'MANIFEST.sha256'), 'utf8').trim().split('\n').length; return [r.code === 0 && r.out.includes('OK: all ' + n + ' of ' + n + ' package files are present, readable and identical (SHA-256), and nothing else is in the folder.'), 'the OK line for a fresh copy names ' + n + ' of ' + n + ' files']; }, async () => suite(['V01', 'V35', 'X90', 'X91'])), { oncePerRun: true });
+claim('D-control', DOCS, /control character|escaped|fake a line|can never look like an OK/i, async () => suite(sc('X60', 'X69')), { oncePerRun: true });
+claim('D-crlf', DOCS, /CRLF|line endings|autocrlf/i, async () => suite(['V38', 'V39', 'V39c']), { oncePerRun: true });
+claim('D-nowrite-run', DOCS, /identical before and after|the whole test area|every scenario|Tested under PowerShell|\d+ scenarios|tested/i, async () => { const r = vres(), ok = r.total > 0 && r.asExpected === r.total && r.identical === r.total && r.checks && r.checks[1] === r.checks[2]; return [!!ok && r.hasSha, 'test-verify-r8-RESULT.txt: ' + r.asExpected + ' of ' + r.total + ' scenarios as expected, fixture identical in ' + r.identical + '; checks ' + (r.checks ? r.checks[1] + ' of ' + r.checks[2] : 'missing') + '; written by this VERIFY: ' + r.hasSha]; }, { oncePerRun: true });
+claim('D-6d', ['install'], /Save VERIFY beside the new folder|never over a file that is already there|already there|\.new-|never overwrite it/i, async (s, ent) => { const r = await claims6d(); return r; });
+async function claims6d() { const all = rd('INSTALL-BY-HAND.md'); const at6 = all.search(/6d\./); if (at6 < 0) { return [false, 'no step 6d']; } const e = all.indexOf('\n7. ', at6); const step = all.slice(at6, e > 0 ? e : at6 + 4000); const testFirst = step.search(/Test-Path|already (?:there|exists)|exists/i), save = step.search(/\bsave\b/i); const never = /never overwrite|do not overwrite|never replace/i.test(step), nn = /VERIFY-v5\.ps1\.new-/.test(step), bl = /BLOCKED/.test(step);
+  const s = suite(['X35']); return [testFirst >= 0 && never && nn && bl && s[0], 'step 6d: tests first ' + (testFirst >= 0) + ', never overwrite ' + never + ', .new- copy ' + nn + ', BLOCKED ' + bl + '; ' + s[1]]; }
+claim('D-fetch', ['install'], /git fetch|\.git\b|remote branches|remote-tracking|changes no working file/i, async (s) => claimFetch(s));
+async function claimFetch(s) {
   const base = fs.mkdtempSync(path.join(os.tmpdir(), 'cl8git-')); const g = (cwd, ...a) => sh('git', ['-c', 'user.email=t@t', '-c', 'user.name=t', '-c', 'protocol.file.allow=always'].concat(a), { cwd });
   g(base, 'init', '-q', '--bare', 'o.git'); g(base, 'clone', '-q', 'o.git', 'w'); const W = path.join(base, 'w'); fs.writeFileSync(path.join(W, 'a.txt'), '1\n'); g(W, 'add', '.'); g(W, 'commit', '-q', '-m', 'one'); g(W, 'branch', '-M', 'main'); g(W, 'push', '-q', 'origin', 'main');
   g(base, 'clone', '-q', 'o.git', 'c'); const C = path.join(base, 'c'); fs.writeFileSync(path.join(W, 'b.txt'), (Math.random() + '\n').repeat(50)); g(W, 'add', '.'); g(W, 'commit', '-q', '-m', 'two'); g(W, 'push', '-q', 'origin', 'main');
-  const count = () => sh('bash', ['-c', 'find .git -type f | wc -l'], { cwd: C }).out.trim() * 1, head0 = g(C, 'rev-parse', 'HEAD').out, br0 = g(C, 'for-each-ref', 'refs/heads').out, wt0 = g(C, 'status', '--porcelain').out + sh('bash', ['-c', 'ls -la --time-style=+%s . | grep -v " \\.git$" | md5sum'], { cwd: C }).out, n0 = count(), trk0 = g(C, 'for-each-ref', 'refs/remotes').out;
-  g(C, 'fetch', '-q', 'origin', 'main'); const n1 = count(), trk1 = g(C, 'for-each-ref', 'refs/remotes').out, same = g(C, 'rev-parse', 'HEAD').out === head0 && g(C, 'for-each-ref', 'refs/heads').out === br0 && (g(C, 'status', '--porcelain').out + sh('bash', ['-c', 'ls -la --time-style=+%s . | grep -v " \\.git$" | md5sum'], { cwd: C }).out) === wt0;
-  const real = 'fetch wrote ' + (n1 - n0) + ' new files inside .git, moved the remote-tracking list: ' + (trk1 !== trk0) + ', changed a working file or a branch: ' + !same;
-  if (/only (?:updates|changes|touches)|just (?:updates|changes)/i.test(s) && !/object|\.git/i.test(s)) { return [false, 'the sentence says fetch only updates the remote-branch list, but ' + real]; }
-  const sayWrites = /object|\.git/i.test(s), sayNoWork = /no working file|no file in the working|does not change (?:any )?working/i.test(s) && /branch/i.test(s);
-  return [n1 > n0 && same && sayWrites && sayNoWork, real + '; the sentence ' + (sayWrites ? 'says it writes inside .git' : 'does not say it writes inside .git') + ' and ' + (sayNoWork ? 'says no working file or branch changes' : 'does not say no working file or branch changes')];
-});
-// flaw 11: step 6d must not be able to overwrite
-claim('I-6d', 'install', /Save VERIFY beside the new folder|VERIFY-v5\.ps1/i, async (s, ent) => {
-  const all = rd('INSTALL-BY-HAND.md'); const at6 = all.search(/6d\./); if (at6 < 0) { return [true, 'no step 6d in this document']; } const step = all.slice(at6, all.indexOf('\n7. ', at6) > 0 ? all.indexOf('\n7. ', at6) : at6 + 3000);
-  if (ent.where.indexOf(':') < 0 || !/6d\./.test(ent.raw) && !/Save VERIFY beside/.test(ent.raw)) { return [true, 'not the 6d sentence']; }
-  const testFirst = step.search(/Test-Path|already (?:there|exists)|exists/i), save = step.search(/save|write/i); const never = /never overwrite|do not overwrite|never replace|do not replace/i.test(step), newName = /VERIFY-v5\.ps1\.new-/.test(step), blocked = /BLOCKED/.test(step);
-  return [testFirst >= 0 && never && newName && blocked, 'step 6d: tests whether the file exists: ' + (testFirst >= 0) + ', says never overwrite: ' + never + ', names the .new- copy: ' + newName + ', says BLOCKED: ' + blocked];
+  const count = () => sh('bash', ['-c', 'find .git -type f | wc -l'], { cwd: C }).out.trim() * 1, wt = () => g(C, 'status', '--porcelain').out + sh('bash', ['-c', 'ls -la --time-style=+%s . | grep -v " \\.git$" | md5sum'], { cwd: C }).out, head0 = g(C, 'rev-parse', 'HEAD').out, br0 = g(C, 'for-each-ref', 'refs/heads').out, wt0 = wt(), n0 = count(), trk0 = g(C, 'for-each-ref', 'refs/remotes').out;
+  g(C, 'fetch', '-q', 'origin', 'main'); const n1 = count(), trk1 = g(C, 'for-each-ref', 'refs/remotes').out, same = g(C, 'rev-parse', 'HEAD').out === head0 && g(C, 'for-each-ref', 'refs/heads').out === br0 && wt() === wt0;
+  const real = 'fetch wrote ' + (n1 - n0) + ' new files inside .git, moved the remote-tracking list: ' + (trk1 !== trk0) + ', changed a working file, HEAD or a branch: ' + !same;
+  if (/only (?:updates|changes|touches)|just (?:updates|changes)/i.test(s)) { return [false, 'the sentence says fetch only updates the remote-branch list, but ' + real]; }
+  if (!/downloads|writes|changes no|only updates|objects|remote branches|inside the checkout/i.test(s)) { return [true, 'an instruction, not a claim about what fetch writes']; }
+  const claimsWrites = /objects?|files inside|downloads/i.test(s), claimsNoChange = /changes no working file/i.test(s), claimsList = /remote branches|remote-tracking/i.test(s);
+  return [same && (!claimsWrites || n1 > n0) && (!claimsList || trk1 !== trk0), real + '; the sentence ' + [claimsWrites ? 'says it writes files inside .git' : '', claimsNoChange ? 'says it changes no working file or branch' : '', claimsList ? 'says it adds to the remote-branch list' : ''].filter(Boolean).join(' and ')]; }
+claim('D-count', DOCS, /\b(?:11|12) (?:files|named)|12 files|package is 1\d files|the 11 named|11 of 11|all 11/i, async () => { const n = fs.readFileSync(path.join(process.env.PKG, 'MANIFEST.sha256'), 'utf8').trim().split('\n').length, listed = fs.readdirSync(process.env.PKG).filter(f => fs.statSync(path.join(process.env.PKG, f)).isFile()).length + fs.readdirSync(path.join(process.env.PKG, 'data')).length; return [listed === n + 1, 'the manifest names ' + n + ' files; the package folder holds ' + listed + ' (= ' + (n + 1) + ' with the manifest itself)']; }, { oncePerRun: true });
+claim('D-pinned', ['install'], /SHA-256 must be|-ExpectManifestSha256|MANIFEST\.sha256 SHA/i, async () => { const d = rd('INSTALL-BY-HAND.md'), man = sha256f(path.join(process.env.PKG, 'MANIFEST.sha256')), ver = sha256f(VER); return [d.includes('-ExpectManifestSha256 ' + man) && d.includes(ver), 'the pinned manifest hash is the real one: ' + d.includes(man) + '; the pinned VERIFY hash is the real one: ' + d.includes(ver)]; }, { oncePerRun: true });
+claim('D-v3', DOCS, /real v3|v3 launcher is never touched|byte-exact|28d3ed5e/i, async () => suite(['V27', 'V30e']), { oncePerRun: true });
+claim('D-files', ['install'], /files? (?:are|is) named|the package is|it is one folder up|not in the package|beside the new folder|panel-rebuild\/v5/i, async () => { const d = rd('INSTALL-BY-HAND.md'); const man = fs.readFileSync(path.join(process.env.PKG, 'MANIFEST.sha256'), 'utf8').trim().split('\n').map(l => l.slice(66)); const miss = man.filter(f => !d.includes(f.replace(/^data\//, ''))); return [miss.length === 0 && fs.existsSync(VER), 'every one of the ' + man.length + ' manifest files is named in INSTALL-BY-HAND.md (missing: ' + (miss.join(',') || 'none') + '); VERIFY-v5.ps1 exists beside the package']; }, { oncePerRun: true });
+// ---- contract and limits claims that the page proves
+const pg = async (mut, fn, o) => { const f = fresh(NOWMS); mut && mut(f); const w = await pageWith(f, o); try { return await EV(w.p, fn); } finally { await w.ctx.close(); } };
+claim('C-interval', ['contract'], /interval_sec of the heartbeat file and of the bots file|writers' own tick\) must be a number from 1 to 3600/i, async () => {
+  const bad = []; for (const iv of [0, -5, 3601, 100000, 'x', null]) { const r = await pg(f => { f.heartbeat.interval_sec = iv; f.bots.interval_sec = iv; }, () => [window.VTES5.status('heartbeat').state, window.VTES5.status('bots').state]); const isBad = iv === null ? false : true; if (isBad && (r[0] === 'OK' || r[1] === 'OK')) { bad.push(JSON.stringify(iv) + ' -> ' + r.join('/')); } }
+  const good = await pg(f => { f.heartbeat.interval_sec = 3600; f.bots.interval_sec = 1; }, () => [window.VTES5.status('heartbeat').state, window.VTES5.status('bots').state]);
+  return [bad.length === 0 && good[0] === 'OK' && good[1] === 'OK', 'interval_sec outside 1 to 3600 never gives OK (' + (bad.join('; ') || '0 wrong of 5') + '); 3600 and 1 are accepted: ' + good.join('/')];
 }, { oncePerRun: true });
-
+claim('C-bots', ['contract'], /Fields: interval_sec \(the writer's tick\) and bots|GREEN only when the bots file is fresh|What the page shows per bot/i, async () => {
+  const q = (mut) => pg(f => mut(f.bots.bots['CU-Orchestrator'], f), () => window.VTES5.bot('CU-Orchestrator').state); const res = {};
+  res.good = await q(b => { }); res.running = await q(b => { b.state = 'Running'; b.last_result = 267009; }); res.disabled = await q(b => { b.state = 'Disabled'; }); res.failed = await q(b => { b.last_result = 1; }); res.future = await q(b => { b.last_run_at = at(-30); }); res.late = await q(b => { b.last_run_at = at(60 * 24); }); res.noentry = await q((b, f) => { delete f.bots.bots['CU-Orchestrator']; }); res.badstate = await q(b => { b.state = 'Weird'; }); res.staleFile = await pg(f => { f.bots.at = at(600); }, () => window.VTES5.bot('CU-Orchestrator').state);
+  const ok = res.good === 'OK' && res.running === 'RUNNING' && res.disabled === 'DOWN' && res.failed === 'DOWN' && res.future === 'BAD CLOCK' && res.late === 'DOWN' && res.noentry !== 'OK' && res.badstate !== 'OK' && res.staleFile !== 'OK'; return [ok, JSON.stringify(res)];
+}, { oncePerRun: true });
+claim('C-health', ['contract'], /Fields: ok \(true\/false, REQUIRED\)|says OK" = ok is exactly true/i, async () => {
+  const v = (mut) => pg(f => mut(f.health), () => { const x = window.VTES5.verdict('health'); return x.cls + ':' + x.kind; }); const r = { ok: await v(h => { }), okfalse: await v(h => { h.ok = false; }), nook: await v(h => { delete h.ok; }), oktext: await v(h => { h.ok = 'true'; }) };
+  return [/^ok:/.test(r.ok) && /^bad:NOT OK/.test(r.okfalse) && /^bad:NO DATA/.test(r.nook) && !/^ok:/.test(r.oktext), JSON.stringify(r)];
+}, { oncePerRun: true });
+claim('C-miami', ['contract'], /proof_ok true with no checked_at is grey|PROOF OK BUT NO CHECK DATE|PROOF OLD|NOT RE-CHECKED|PROOF NOT OK/i, async () => {
+  const t = (mut) => pg(f => { f.miamidade.sources = Array.from({ length: 22 }, (_, i) => ({ id: ('0' + (i + 1)).slice(-2), proof_ok: true, checked_at: at(60) })); mut(f.miamidade.sources, f.miamidade); }, () => document.querySelector('#pn-miami li').outerHTML);
+  const r = { nodate: await t(s => { delete s[0].checked_at; }), old: await t(s => { s[0].checked_at = at(60 * 24 * 8); }), future: await t(s => { s[0].checked_at = at(-600); }), notok: await t(s => { s[0].proof_ok = false; }), missing: await t(s => { s.shift(); }) };
+  const ok = /v5b na[^>]*>PROOF OK BUT NO CHECK DATE/.test(r.nodate) && /v5b bad[^>]*>PROOF OLD/.test(r.old) && /v5b bad[^>]*>PROOF DATE IN THE FUTURE \(BAD CLOCK\)/.test(r.future) && /v5b bad[^>]*>PROOF NOT OK/.test(r.notok) && /v5b bad[^>]*>NOT RE-CHECKED/.test(r.missing); return [ok, Object.keys(r).map(k => k + ': ' + (r[k].match(/<span class="v5b (\w+)"[^>]*>([^<]{0,40})/) || [])[2]).join('; ')];
+}, { oncePerRun: true });
+claim('C-tokens', ['contract'], /Do not estimate: if the monitor cannot measure/i, async () => { const r = await pg(f => { delete f.tokens; }, () => { const x = window.VTES5.verdict('tokens'); return x.cls + ':' + x.kind; }); return [/^bad:NO DATA/.test(r), 'no token file: ' + r]; });
+claim('C-tabs', ['limits'], /8 live tabs \(LLMS, EXECUTORS/i, async () => { const r = await pg(null, () => [...document.querySelectorAll('#tabs a.tab')].map((a, i) => ({ n: a.firstChild.textContent.trim(), o: +getComputedStyle(a).order || 0, i })).sort((x, y) => x.o - y.o || x.i - y.i).map(x => x.n)); const want = ['LLMS', 'EXECUTORS', 'BOTS', 'HAND OFF', 'QUEUED', 'STATUS', 'REPAIRS', 'MIAMI-DADE']; return [JSON.stringify(r.slice(0, 8)) === JSON.stringify(want) && r.length === 18, r.length + ' tabs; the first eight are ' + r.slice(0, 8).join(', ')]; });
+claim('C-nonever', ['limits'], /"Never leaves the PC"/i, async () => { const t = await pg(null, () => document.body.innerText); const m = t.match(/Never leaves the PC/g) || []; const loose = t.split('\n').filter(l => /Never leaves the PC/.test(l) && !/typed in v3/.test(l)); return [loose.length === 0, m.length + ' mentions, all inside the "typed in v3" sentence: ' + (loose.length === 0)]; });
+claim('C-search', ['limits'], /search finds words a card no longer shows/i, async () => {
+  const w = await pageWith(fresh(NOWMS)); const r = await EV(w.p, () => { const s = document.getElementById('q') || document.querySelector('input[type=search],input[type=text]'); const out = {}; for (const k of ['hourly', 'airdrop', 'gemini.md']) { s.value = k; s.dispatchEvent(new Event('input', { bubbles: true })); out[k] = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none' && c.offsetParent !== null).map(c => c.id).filter(Boolean); } return out; }); await w.ctx.close();
+  return [r.hourly.includes('bot-CU-Propagation-Check') && !r.airdrop.includes('card-LLM-05') && !r['gemini.md'].includes('card-LLM-08'), JSON.stringify(r).slice(0, 220)];
+});
+claim('C-words', ['limits'], /words on the page are cross-checked/i, async () => { const r = await pg(null, () => { const o = [], w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); while (w.nextNode()) { const n = w.currentNode, par = n.parentElement; if (!par || par.closest('.v5forrambo,.repair-log,script,style,noscript')) { continue; } o.push(n.textContent); } return o.join('\n'); }); const J = [/heartbeat/i, /result code/i, /vtes:\/\//i, /GEMINI\.md/, /vtes5-/i, /\.js\b/]; const hit = J.filter(re => re.test(r)).map(String); return [hit.length === 0, 'jargon words outside "For RAMBO" lines: ' + (hit.join(' ') || 'none')]; });
+claim('C-limit62', ['limits'], /claims test\. test-claims-r8\.js extracts/i, async () => { const s = stateText(); return [fs.existsSync(path.join(__dirname, 'test-claims-r8.js')) && s.worlds === 9 && s.pass === s.total, 'test-state-text-r8: ' + s.pass + ' of ' + s.total + ' over ' + s.worlds + ' worlds']; });
 /* =====================================================================================================
    RUN
    ===================================================================================================== */
@@ -252,26 +310,28 @@ claim('I-6d', 'install', /Save VERIFY beside the new folder|VERIFY-v5\.ps1/i, as
   SRC.install = mdSentences('INSTALL-BY-HAND.md'); SRC.contract = mdSentences('DATA-CONTRACT.md'); SRC.limits = mdSentences('KNOWN-LIMITS.md');
   const covered = new Set(); let uncovered = 0;
   for (const c of CLAIMS) {
-    let ents = (SRC[c.src] || []).filter(e => c.re.test(c.perItem ? (e.item || e.s) : e.s)); ents.forEach(e => covered.add(c.src + '|' + e.where + '|' + e.s));
+    const srcs = Array.isArray(c.src) ? c.src : [c.src]; let ents = []; srcs.forEach(sn => (SRC[sn] || []).forEach(e => { if (c.re.test(c.perItem ? (e.item || e.s) : e.s)) { ents.push(Object.assign({ sn }, e)); covered.add(sn + '|' + e.where + '|' + e.s); } }));
     const seen = new Set(); ents = ents.filter(e => { const k = (c.perItem ? (e.item || e.s) : e.s); if (seen.has(k)) { return false; } seen.add(k); return true; });
     if (!ents.length) { const gone = c.retired || c.optional; add({ id: c.id, src: c.src, sentence: '(no sentence matches)', status: gone ? 'ABSENT-OK' : 'STALE', evidence: gone ? 'the sentence is not in the text (a retired or optional claim)' : 'this claim test matches no sentence any more: remove it or fix its pattern' }); if (!gone) { uncovered++; } continue; }
     let done = false;
     for (const e of ents) {
       if (c.oncePerRun && done) { continue; } done = true; let r; try { r = await c.test(c.perItem ? (e.item || e.s) : e.s, e); } catch (x) { r = [false, 'the test could not run: ' + String(x && x.message || x).slice(0, 200)]; }
-      add({ id: c.id, src: c.src, where: e.where, sentence: c.perItem ? (e.item || e.s) : e.s, status: r[0] ? 'PASS' : 'FAIL', evidence: r[1] });
+      add({ id: c.id, src: e.sn, where: e.where, sentence: c.perItem ? (e.item || e.s) : e.s, status: r[0] ? 'PASS' : 'FAIL', evidence: r[1] });
     }
   }
   // coverage: every checkable sentence must have a test
   const miss = [];
-  const checkable = { readme: () => true, queued: () => true, 'queued-status': () => true, card: () => true };
+  let EXEMPT_COUNTS = {}; const checkable = { readme: () => true, queued: () => true, 'queued-status': () => true, card: () => true };
   for (const src of Object.keys(SRC)) {
     const docSrc = ['verify-header', 'verify-msgs', 'install', 'contract', 'limits'].includes(src); if (docSrc && !COVER_DOCS) { continue; }
     SRC[src].forEach(e => { const must = checkable[src] ? checkable[src](e) : TRIGGER.test(e.s); if (must && !covered.has(src + '|' + e.where + '|' + e.s)) { miss.push({ src, where: e.where, s: e.s }); } });
   }
+  const exempt = {}; const miss2 = miss.filter(m => { if (!['verify-header', 'verify-msgs', 'install', 'contract', 'limits'].includes(m.src)) { return true; } const r = EXEMPT(m.s); if (r) { exempt[r] = (exempt[r] || 0) + 1; return false; } return true; });
+  miss.length = 0; miss2.forEach(m => miss.push(m)); EXEMPT_COUNTS = exempt;
   miss.forEach(m => add({ id: 'UNTESTED', src: m.src, where: m.where, sentence: m.s, status: 'UNTESTED', evidence: 'a checkable sentence with no test (' + m.where + ')' }));
   const bad = rows.filter(r => ['FAIL', 'STALE', 'UNTESTED'].includes(r.status)); const sentencesChecked = rows.filter(r => r.status === 'PASS' || r.status === 'FAIL').length;
   const total = rows.filter(r => r.status !== 'ABSENT-OK').length, pass = rows.filter(r => r.status === 'PASS').length;
-  fs.writeFileSync(OUT, JSON.stringify({ test: 'test-claims-r8', root: ROOT, docs_covered: COVER_DOCS, claims: CLAIMS.length, sentences_extracted: Object.fromEntries(Object.keys(SRC).map(k => [k, SRC[k].length])), pass, total, untested: miss.length, rows }, null, 1));
+  fs.writeFileSync(OUT, JSON.stringify({ test: 'test-claims-r8', root: ROOT, docs_covered: COVER_DOCS, exempt_sentences: EXEMPT_COUNTS, claims: CLAIMS.length, sentences_extracted: Object.fromEntries(Object.keys(SRC).map(k => [k, SRC[k].length])), pass, total, untested: miss.length, rows }, null, 1));
   console.log('\nCLAIMS R8: ' + pass + ' of ' + total + ' claim checks pass; ' + miss.length + ' checkable sentences have no test; ' + bad.filter(r => r.status === 'FAIL').length + ' claims are FALSE; ' + rows.filter(r => r.status === 'STALE').length + ' tests are stale. Sentences extracted: ' + JSON.stringify(Object.fromEntries(Object.keys(SRC).map(k => [k, SRC[k].length]))));
   await br.close(); process.exit(bad.length === 0 ? 0 : 1);
 })();

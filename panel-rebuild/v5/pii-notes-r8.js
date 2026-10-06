@@ -14,7 +14,7 @@ const NEW_PERSONAL = [
   // date of birth spelled out
   'DOB: January second nineteen seventy', 'born on the 2nd of January 1970', 'DOB two January nineteen seventy', 'born the first of March nineteen eighty', 'date of birth: March third, nineteen eighty one', 'DOB 01 02 1970', 'birthday is the 15th of June 1985',
   // hex without 0x, with or without separators
-  '31 32 33 34 35 36 37 38 39', '31:32:33:34:35:36:37:38:39', '0x31 0x32 0x33 0x34 0x35 0x36 0x37 0x38 0x39', '\\x31\\x32\\x33\\x34\\x35\\x36\\x37\\x38\\x39', 'ssn hex 3132333435363738393031 ok', '313233343536373839',
+  '31 32 33 34 35 36 37 38 39', '31:32:33:34:35:36:37:38:39', '0x31 0x32 0x33 0x34 0x35 0x36 0x37 0x38 0x39', '\\x31\\x32\\x33\\x34\\x35\\x36\\x37\\x38\\x39', 'ssn hex 3132333435363738393031 ok', '313233343536373839', 'ssn 313233 343536 373839 hex pieces',
   // passport with a lower-case letter, long digit runs
   'passport a12345678', 'pasaporte c03005988', '12345678901234567890', 'acct 123456789012345678901',
   // ZIP+4 after a capitalised word that is not a state or a Florida city
@@ -31,7 +31,7 @@ const MISSES = [
   { t: 'ssn 1a2b3c4d5e6f7g8h9', cat: 'letters between the digits' },
   { t: 'SSN 123 is the first part then comes the middle part 45 and then the last part 6789', cat: 'more than four words between the digit groups' },
   { t: 'ssn MTIz NDU2 Nzg5', cat: 'encodings split into pieces' },
-  { t: 'ssn 313233 343536 373839 hex pieces', cat: 'encodings split into pieces' }
+  { t: 'ssn Nzg5 NDU2 MTIz in the wrong order of pieces MTIzNDU2 Nzg5', cat: 'encodings split into pieces' }
 ];
 const NEW_ORDINARY = [
   'Git commit a1b2c3d4e5f6 is merged', 'Meet Rosa at 14598 SW 110 ST, Miami FL 33176-1234 on Friday', 'Send the review to the Doral 33178-4400 office', 'Ship 24 units to Tampa FL 33602-1000',

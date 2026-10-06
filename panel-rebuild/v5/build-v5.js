@@ -11,13 +11,27 @@ h = h.replace(/\r\n/g, '\n'); if (/\r/.test(h)) { throw new Error('a lone CR is 
 // the build time is the real instant this script runs, never hand-set (flaw F3); the page also holds it to the BAD CLOCK rule
 if (process.env.V5_BUILT) { console.log('NOTE: V5_BUILT is ignored. The build time is always the real build instant.'); }
 const BUILT = new Date().toISOString().slice(0, 19) + 'Z';
-function rep(name, from, to) { if (!(from instanceof RegExp ? from.test(h) : h.includes(from))) { throw new Error('PATCH MISSED: ' + name); } h = h.replace(from, () => to); }
-function repAll(name, from, to, n) { const c = h.split(from).length - 1; if (c !== n) { throw new Error('PATCH COUNT ' + name + ': expected ' + n + ' found ' + c); } h = h.split(from).join(to); }
+// fix round 8 (CHECK-9 flaw 3): the places where the build changes, adds to or removes a line of v3's TEXT are listed here with their reason. The page's Read me prints how many, the same list is written into PORT-REPORT.md,
+// and test-claims-r8.js checks all three agree. A patch that changes v3 words but is not in this table fails the claims test.
+const TEXTWHY = {
+  'title': 'the page title says v5 and carries the TRK number', 'leadlead': 'the repairs lead says TYPED LOG: nothing in the table is checked by the page', 'botslead': 'the bots lead says the lines are read from data files and the desktop executor checks the tasks',
+  'sect7': 'the footer stamp says v5 and the real build time, and the Miami-Dade section sits above it', 'tabs-render': 'each old-panel tab says OLD PANEL, snapshot of 2026-09-02, not live', 'panel-btn': 'the PANEL button says OLD, snapshot, not live', 'index-btn': 'the INDEX button says OLD, snapshot, not live',
+  'url-llm02': 'LLM-02 opens the sessions list, because the typed session address may be an old session', 'url-llm06': 'the Codex CLI card no longer opens chatgpt.com, because Codex runs on the PC',
+  't-llm01': 'a typed schedule (every 2 minutes) is removed: nothing proves it', 't-chief': 'a typed schedule (every 2 minutes) is removed', 't-localexec': 'a typed schedule (every 5 minutes) is removed', 't-orch': 'a typed schedule (every 15 minutes) is removed', 't-prop': 'a typed schedule (hourly) is removed', 't-poller': 'a typed schedule (15-minute) is removed', 't-queued': 'a typed schedule (15 minutes) is removed',
+  't-rambo': 'a typed quota forecast is moved into a dated typed note', 't-codex': 'a typed claim (Proven 2026-10-01) is moved into a dated typed note', 'd9': 'the packet box label said editable but the box is read only', 'stamp': 'packet time stamps now carry the Eastern time zone',
+  'airdrop': 'AirDrop does not exist on a Windows PC', 'how-local': 'the old LOCAL instruction saved client data in a Google Drive folder, which uploads it', 'local-j': 'the LOCAL description claimed "never leaves the PC", which is true only for a confirmed local-only folder', 'local-a': 'the LOCAL address told you to drop files in a Google Drive folder', 'local-pick': 'the picker line claimed PII never leaves the machine',
+  'how-codex': 'a typed command is removed: the desktop executor runs Codex', 'how-rambo': 'the RAMBO how-to line is written as click steps', 'how-llm06': 'a typed command is removed from the LLM-06 line', 'row10': 'repair row 10 labels its typed schedule as a typed note with no time zone', 'gate-line': 'the line under the note box says what the page can and cannot check',
+  'gemini': 'the file name GEMINI.md is removed from the Gemini line', 'footer-rambo': 'registry file names move into a For RAMBO line', 'queued-head': 'the queued heading no longer says one click each', 'queued-lead': 'the queued lead no longer says the page sends a ready packet, and drops a sentence about an older page'
+};
+const TEXTCHANGES = [];
+function rec(name, from, to) { if (TEXTWHY[name]) { const s = x => String(x instanceof RegExp ? x.source : x).replace(/\s+/g, ' ').replace(/[^\x20-\x7e]/g, '?').slice(0, 70); TEXTCHANGES.push({ name, from: s(from), to: s(to), why: TEXTWHY[name] }); } }
+function rep(name, from, to) { if (!(from instanceof RegExp ? from.test(h) : h.includes(from))) { throw new Error('PATCH MISSED: ' + name); } rec(name, from, to); h = h.replace(from, () => to); }
+function repAll(name, from, to, n) { const c = h.split(from).length - 1; if (c !== n) { throw new Error('PATCH COUNT ' + name + ': expected ' + n + ' found ' + c); } rec(name, from, to); h = h.split(from).join(to); }
 // --- head ---
 rep('title', '<title>VTES LLM Launcher</title>', '<title>VTES LLM Launcher v5 - TRK-2026-9910-B</title>');
 rep('css', '</style></head>', fs.readFileSync(__dirname + '/vtes5.css', 'utf8') + '</style></head>');
 const SCRIPTS = ['heartbeat', 'bots', 'state', 'health', 'tokens', 'housekeeping', 'miamidade'].map(n => '<script src="data/vtes5-' + n + '.js"></script>').join('');
-rep('scripts', '<body>\n<div class="tabs" id="tabs"></div>', '<body>\n<script>window.VTES5_BUILT = "' + BUILT + '";</script><script src="vtes5-config.js"></script>' + SCRIPTS + '<script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>\n<div class="tabs" id="tabs"></div>');
+rep('scripts', '<body>\n<div class="tabs" id="tabs"></div>', '<body>\n<script>window.VTES5_BUILT = "' + BUILT + '";window.VTES5_TEXT_CHANGES = __TEXT_CHANGES__;</script><script src="vtes5-config.js"></script>' + SCRIPTS + '<script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>\n<div class="tabs" id="tabs"></div>');
 // --- top block, slots, 7th section ---
 rep('tabhint', '<div class="tabs" id="tabs"></div>\n', '<div class="tabs" id="tabs"></div>\n<div class="v5tabhint" id="v5tabhint"></div>\n');
 rep('top', 'autofocus>\n', 'autofocus>\n<div id="v5top"></div>\n');
@@ -78,6 +92,10 @@ rep('gate-line', '<div class="gate">No card numbers, passwords or Social Securit
 rep('refresh-gate', 'function refresh(){$(\'preview\').value=packet()}', 'function refresh(){$(\'preview\').value=(window.VTES5U&&window.VTES5U.allow&&!window.VTES5U.allow($(\'to\').value))?window.VTES5U.reasonFor($(\'to\').value):packet()}');
 rep('show-gate', "$('show').onclick=function(){refresh();", "$('show').onclick=function(){if(window.VTES5U&&!window.VTES5U.allow($('to').value)){window.VTES5U.applyGate();$('status').textContent=window.VTES5U.reasonFor($('to').value);return}refresh();");
 rep('go-gate', "$('go').onclick=function(){var txt=packet();", "$('go').onclick=function(){if(window.VTES5U&&!window.VTES5U.allow($('to').value)){window.VTES5U.applyGate();$('status').textContent=window.VTES5U.reasonFor($('to').value);return}var txt=packet();");
+// fix round 8 (CHECK-9 flaw 2): the queued heading, lead and status line say only what happens
+rep('queued-head', '<h2 id="queued">5. Queued items: now one click each</h2>', '<h2 id="queued">5. Queued items: one click fills the note box</h2>');
+rep('queued-lead', '<p class="lead">These were grayed out as NOT READY. Each now sends a ready packet to the right lane. Items that need your call say so in the packet and wait for your GO.</p>', '<p class="lead">Each button puts the item in the note box and chooses the right lane. Then tick the box under the note box (not needed for LOCAL) and copy the packet. Items that need your call say so in the packet and wait for your GO.</p>');
+rep('queued-status', "$('status').textContent='Packet ready for '+x.to+'. Press Copy packet and open.'", "if(window.VTES5U&&window.VTES5U.queuedStatus){window.VTES5U.queuedStatus()}else{$('status').textContent='The item is in the note box. Check the packet in section 1.'}");
 rep('gemini', ' Gemini CLI can run headless on the PC under GEMINI.md.', ' Gemini CLI can run headless on the PC.');
 rep('footer-rambo', 'Registry: LLM-WINDOW-REGISTRY_v2.md. Lanes: EXECUTORS-AND-ORCHESTRATOR_2026-10-01.md. #VTES-control-panel #LLM-registry', '<span class="v5forrambo">For RAMBO: registry LLM-WINDOW-REGISTRY_v2.md, lanes EXECUTORS-AND-ORCHESTRATOR_2026-10-01.md.</span> #VTES-control-panel #LLM-registry');
 // --- start: top block, first load of the data files, then every 60 seconds ---
@@ -98,6 +116,8 @@ tick();
 </body>`);
 // fix round 7 (flaw 25): every pixel font size in the page's style blocks becomes rem, so the browser's own text-size setting works (16 px = 1 rem: nothing changes at the default size)
 h = h.replace(/<style[^>]*>[\s\S]*?<\/style>/g, st => st.replace(/(font-size:|font:(?:\d{3} )?)(\d+(?:\.\d+)?)px/g, (m, a, n) => a + (+n / 16) + 'rem'));
+h = h.replace('__TEXT_CHANGES__', String(TEXTCHANGES.length)); if (h.includes('__TEXT_CHANGES__')) { throw new Error('change count placeholder left'); }
+const missingWhy = Object.keys(TEXTWHY).filter(n => !TEXTCHANGES.some(c => c.name === n)); if (missingWhy.length) { throw new Error('TEXTWHY names with no patch: ' + missingWhy.join(', ')); }
 const PKG = __dirname + '/package';
 fs.writeFileSync(PKG + '/VTES-LLM-LAUNCHER_v5.html', h);
 console.log('built package/VTES-LLM-LAUNCHER_v5.html ' + h.length + ' bytes, built ' + BUILT);
@@ -108,3 +128,12 @@ function walk(dir, rel) { let o = []; for (const n of fs.readdirSync(dir).sort()
 const files = walk(PKG, '');
 fs.writeFileSync(PKG + '/MANIFEST.sha256', files.map(r => crypto.createHash('sha256').update(fs.readFileSync(PKG + '/' + r)).digest('hex') + '  ' + r).join('\n') + '\n');
 console.log('MANIFEST.sha256: ' + files.length + ' files, manifest SHA-256 ' + crypto.createHash('sha256').update(fs.readFileSync(PKG + '/MANIFEST.sha256')).digest('hex'));
+
+// PORT-REPORT.md: the generated list of every line of v3 text the build changes, adds to or removes (between the two marker lines). The Read me prints the same number.
+{
+  const f = __dirname + '/PORT-REPORT.md'; let d = fs.readFileSync(f, 'utf8');
+  const blk = '<!-- CHANGE-LIST-BEGIN -->\n' + TEXTCHANGES.map((c, i) => (i + 1) + '. ' + c.name + ': ' + c.why + '. (build text: "' + c.from + '" -> "' + c.to + '")').join('\n') + '\n<!-- CHANGE-LIST-END -->';
+  if (/<!-- CHANGE-LIST-BEGIN -->[\s\S]*?<!-- CHANGE-LIST-END -->/.test(d)) { d = d.replace(/<!-- CHANGE-LIST-BEGIN -->[\s\S]*?<!-- CHANGE-LIST-END -->/, () => blk); }
+  else { d = d.replace(/\n*$/, '\n\n## Section F - Every line of v3 text the build changes, adds to or removes (generated by build-v5.js; fix round 8)\nThe Read me on the page prints the number of lines in this list (' + TEXTCHANGES.length + '). The cards, bots, queued items, picker rows, repairs rows and tabs themselves are all still there (test-v3-survives.js).\n' + blk + '\n'); }
+  fs.writeFileSync(f, d); console.log('PORT-REPORT.md change list: ' + TEXTCHANGES.length + ' lines');
+}
