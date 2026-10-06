@@ -98,7 +98,7 @@ All ten sit directly under the real root:
 
 ## What needs Jorge (cheap, one word each)
 
-1. ~~Bay Harbor units: part of the Plaza job (TRK-2026-1265)?~~ **Answered: yes.** Waiting only on "go" to fold them in.
+1. Bay Harbor units: part of the Plaza job (TRK-2026-1265)? **OPEN. Jorge's "yes" was retracted a moment later. Needs a clear one-word answer, or a unit-by-unit answer.**
 2. Palmer Trust at 5000 SW 75 Ave: a real, paying job? **yes / no**
 3. OK to archive or delete the shadow root (Flag 1)? **yes / no**
 4. A registry look from the desktop to get the next free numbers (cloud cannot see it). Cloud will queue this.
