@@ -31,3 +31,5 @@ h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 @media(max-width:1500px){.tabs{flex-wrap:nowrap;align-items:center;overflow-x:scroll;scrollbar-width:auto;scrollbar-color:#1b5e9e #d9d5cc;padding:6px 0 4px;gap:6px}.tabs::-webkit-scrollbar{height:16px}.tabs::-webkit-scrollbar-track{background:#d9d5cc;border-radius:8px}.tabs::-webkit-scrollbar-thumb{background:#1b5e9e;border-radius:8px;border:2px solid #d9d5cc}.tab{flex:0 0 auto;white-space:nowrap}.tab.here{order:1}.tab.panel{order:2}.tab small{white-space:normal;max-width:190px}h1{margin:8px 0 2px;font-size:26px}.v5rambo .btn{font-size:19px;padding:10px 14px;margin:0}}
 /* flaw N12: the OLD PANEL warning is never under 14 px: the PANEL and INDEX corner buttons (12 px in v3) too */
 #vtes-back-to-panel a{font-size:14px}
+/* fix round 6: lines meant for the desktop executor only are smaller and italic; the WHOLE PAGE line is bold */
+.v5forrambo{font-size:14px;font-style:italic;color:#444}#v5overall{font-weight:700}

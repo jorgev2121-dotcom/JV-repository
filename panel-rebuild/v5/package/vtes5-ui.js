@@ -258,7 +258,7 @@
     return t.replace(new RegExp('[\\u00a0\\u1680\\u180e\\u2000-\\u200a\\u202f\\u205f\\u3000]', 'g'), ' ');
   }
   function luhn(d) { var sum = 0, alt = false; for (var i = d.length - 1; i >= 0; i--) { var n = +d.charAt(i); if (alt) { n *= 2; if (n > 9) { n -= 9; } } sum += n; alt = !alt; } return sum % 10 === 0; }
-  var TOKC = '[0-9OoIl|SBZ]*[0-9][0-9OoIl|SBZ]*', SEPC = '(?:[ \\t]*[-\\u2010-\\u2015\\u2212\\u2043\\ufe58\\ufe63.\\u00b7\\u2022_][ \\t]*|[ \\t]{1,3})';
+  var TOKC = '[0-9OoIl|SBZ]*[0-9][0-9OoIl|SBZ]*', SEPC = '(?:[ \\t]*[-\\u2010-\\u2015\\u2212\\u2043\\ufe58\\ufe63.\\u00b7\\u2022_/][ \\t]*|[ \\t]{1,3})';
   var SSN_WORD = /(?:^|[^a-z])(?:ssn|ss\s*#|s\.\s*s\.\s*n|social\s*sec|soc\.?\s*sec|ss)(?![a-z])/i;
   var DOB_WORD = /(?:^|[^a-z])(?:dob|d\.o\.b|date\s+of\s+birth|born)(?![a-z])/i, DATE_PAT = /\d{1,2}\s*[\/\-.]\s*\d{1,2}\s*[\/\-.]\s*\d{2,4}|\d{4}\s*-\s*\d{1,2}\s*-\s*\d{1,2}|(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d{1,2}/i;
   var WORDS = /\b(?:zero|oh|one|two|three|four|five|six|seven|eight|nine)(?:[\s,.\-]+(?:zero|oh|one|two|three|four|five|six|seven|eight|nine)\b){8,}/i;
