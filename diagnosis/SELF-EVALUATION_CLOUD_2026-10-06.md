@@ -42,3 +42,18 @@ I cannot touch the PC, OneDrive, the registry, the county sites or the live pane
 5. **The handover is ready now:** `diagnosis/HANDOVER_CLOUD_STEP-DOWN-READY_2026-10-06.md`.
 
 TRK-2026-9960 · v1 · 2026-10-06 · CURRENT
+
+---
+
+## Added after the two ledgers came back (2026-10-06, Drive clock ~04:20Z)
+
+**The ledger agents found four more cloud faults. I checked the first one myself.**
+
+1. **I kept asking Jorge for the lead-list vendor's name when it was already in Drive.** The desktop wrote `_HASHTAGS_REISKIP.txt` on 10-05 at 12:27 PM ET: the vendor is **REISkip (app.reiskip.com)**, the one Jorge paid about $90. I read that file's location only tonight, and I put the question to Jorge in at least four messages after it existed. **Verified by me this cycle.** The earlier 10-04 Gmail search could not have found it (the charge was not in that mailbox), but I should have re-searched Drive the next cycle.
+2. **I asked Jorge's permission for a read-only Gmail search I could run myself** (the five empty Plaza PDFs). Ran it tonight: see the OPEN-ITEMS row.
+3. **I never staged the three charter workstream items as orders** (Medley $8,000 bank check, Einar, Wally orders). Per the ledger, none has a delegation file. **Wally is Priority Zero.**
+4. **I did not log the panel-age order as an OPEN-ITEMS row** when I sent it, and I did not hold the CDM gate for three days.
+
+**Updated count of what is mine:** the ledgers list 10 open items owned by the cloud session out of 46. That is the number Jorge should check next time.
+
+TRK-2026-9960 · v1.1 · 2026-10-06 · CURRENT
