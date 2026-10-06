@@ -1,3 +1,5 @@
+> NOTE (fix round 1): this inventory describes the 2026-09-30 repo copy only. Jorge's live v3 (2026-10-02) has more (see ../REFERENCE file on branch chaude-code-max20-kp2o46). Test names below (test-everything.js, before-v3.json) now live in _Superseded/.
+
 # 01 INVENTORY - v3 launcher and panel, WORKS / DEAD / MISLABELED (TRK-2026-9910-B)
 
 SOURCE USED: the REPO copy (branch executor-tray-icon-1cazza, tools/vtes-panel/, launcher footer "v4 2026-09-30", includes the v3 console).

@@ -1,0 +1,673 @@
+{
+ "total": 3800,
+ "pass": 3800,
+ "fail": 0,
+ "kinds": {
+  "page": 16,
+  "assert": 148,
+  "expander": 16,
+  "dropdown": 16,
+  "local-link": 80,
+  "https-link": 1240,
+  "button": 2168,
+  "chip": 96,
+  "vtes-link": 20
+ },
+ "uniqueNoneOn": {
+  "total": 108,
+  "uniq": {
+   "page": 2,
+   "expander": 2,
+   "dropdown": 2,
+   "local-link": 2,
+   "https-link": 31,
+   "button": 57,
+   "chip": 12
+  }
+ },
+ "uniqueItems": [
+  [
+   "page",
+   "load from file://",
+   "PASS"
+  ],
+  [
+   "expander",
+   "details #1",
+   "PASS"
+  ],
+  [
+   "expander",
+   "details #2",
+   "PASS"
+  ],
+  [
+   "dropdown",
+   "select #1 (12 options all chosen)",
+   "PASS"
+  ],
+  [
+   "dropdown",
+   "select #2 (12 options all chosen)",
+   "PASS"
+  ],
+  [
+   "local-link",
+   "VTES-REMINDERS.html",
+   "PASS"
+  ],
+  [
+   "local-link",
+   "VTES-PANEL.html",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://docs.google.com/document/d/1tqRhgNV-x-ZNzP5g_iTnPb3AwdVZgKTV6TLoFZR2N7o/",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1t48b9mvp53sicxbsYvd3mBjuBo8xfY0_/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1dnVieZEEC2H3xNI2lVqAnWfme0mK98kO/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1xzBT1GCYkFsNpCsC5FFpaCMwBrisGQAZ/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1Z5m-8lQdDyroTYNqEl5VzeSOn4pUOn3s/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1YlTorY-w6Gff0TBiHmMAtkccEaWz1qvj/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/103RjsXYBPMTB7RXrVca93QRPFPMfae9l/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1Sett3KYNpxOwcW2ddSDkeOlZe9xUg9Nu/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1xCFNgzvou6vsE82Bm65QaXT3Ns6wIc1n/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/12CCgmd1jcFomJZDLnDL0-3anuHiy0XYK/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1IU-wcx_5fVuKEJPAJw0j-2_zbEC5lubz/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1ArxF3o9ZfdHRB9cagpo6aLYsumG_hesk/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1aMjJj4B_RTnsuEK7zpUoAz2JRj1rTUWH/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1wGKsjrwvo7q34eTKAO7rlYvroASMVElX/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1mSp3dlmvxCkk80fGYOAe3po3-kRwDGmn/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1U6DHLvirKxeYc8P18-9TV6A4K-O4Qnp4/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1CJWObVncV2WtWtghlVyXQs5mWuSdsW0D/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1206ihC17HIk2IFKnYDJrFqySLpKml_gv/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1eZlpGm5o_QhS-ymx_A-Lnrsjk8yrKRMl/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1xqnUBSml1puN0caJAeiWZCcBo85QHS2L/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1c1dTYOoPHHXHGBu__dPUNQuwjUPDwU8p/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1wRPHDSjnRZtF5_0JkIInLFm4J3rFLA4x/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/file/d/1xDlwM42EFkLEyskPEmMh_LRRgp-WFVQ5/view",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://claude.ai/code/session_01CAqZRvV1WjuuxZCNwrE9Gf",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://claude.ai",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://chatgpt.com",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://grok.com",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://gemini.google.com",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://copilot.microsoft.com",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/drive/folders/1hI2TmVn86Cnh7h_6s93TG0KE1QzVCV5F",
+   "PASS"
+  ],
+  [
+   "https-link",
+   "https://drive.google.com/drive/folders/1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🖥️ 01 RAMBO desktopNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: ☁️ 02 Cloud keeperNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🤝 03 CoworkNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 💬 04 ChatNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 📱 05 iPhoneNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🧭 06 CodexNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 💻 LocalNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🔮 07 GrokNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: ♊ 08 GeminiNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🧮 09 GovernorNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🎖️ ChiefNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🪟 10 CopilotNO DATA",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🎙",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🔊",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Speechify",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Console",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Dir",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Panels",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Map",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Dock",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy hand-off packet for RAMBO (Claude Code Desktop Executor)",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Flow chart",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Wiring diagram",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Subscriptions",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy status report",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy find-me line",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🎙 Tap to dictate",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy text",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy + open chat",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🔊 Read aloud",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Open Speechify",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Save bot",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 📎 Attach",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Clear this pad",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Choose folder",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Reconnect",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Saving: ON",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Download pad",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Add answer to pad",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: 🔊 Read it aloud",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Open in Speechify",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy packet and open",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Just show the packet",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy hand-off packet for Claude Code Desktop Executor",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy hand-off packet for Claude Code Cloud Executor",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy hand-off packet for Claude Cowork",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy hand-off packet for Claude Chat",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy hand-off packet for Claude iPhone",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy hand-off packet for Codex CLI Executor",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy JOB template",
+   "PASS"
+  ],
+  [
+   "button",
+   "console: Copy hand-off packet for Grok (Fabian)",
+   "PASS"
+  ],
+  [
+   "button",
+   "dir: Tap again to clear",
+   "PASS"
+  ],
+  [
+   "button",
+   "dir: Saving: OFF",
+   "PASS"
+  ],
+  [
+   "button",
+   "dir: Copy hand-off packet for Gemini",
+   "PASS"
+  ],
+  [
+   "button",
+   "dir: Copy hand-off packet for Governor",
+   "PASS"
+  ],
+  [
+   "button",
+   "dir: Copy hand-off packet for Chief",
+   "PASS"
+  ],
+  [
+   "button",
+   "dir: Copy hand-off packet for Microsoft Copilot",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select LLM-01",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select LLM-02",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select LLM-03",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select LLM-04",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select LLM-05",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select LLM-06",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select LOCAL",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select LLM-07",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select LLM-08",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select LLM-09",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select CHIEF",
+   "PASS"
+  ],
+  [
+   "chip",
+   "select LLM-10",
+   "PASS"
+  ],
+  [
+   "page",
+   "no script errors during the whole walk",
+   "PASS"
+  ]
+ ],
+ "assertionsAcrossEightRuns": {
+  "first view: RAMBO paste button visible": {
+   "pass": 8,
+   "fail": 0
+  },
+  "no amber lights anywhere": {
+   "pass": 8,
+   "fail": 0
+  },
+  "flaw 2: no light green with all data empty (internet ON)": {
+   "pass": 1,
+   "fail": 0
+  },
+  "separate site-answers mark shows yes": {
+   "pass": 4,
+   "fail": 0
+  },
+  "flaw 3: no vtes:// link clickable": {
+   "pass": 4,
+   "fail": 0
+  },
+  "flaw 6: exactly one CURRENT footer visible": {
+   "pass": 8,
+   "fail": 0
+  },
+  "flaw 6: age line shows Eastern zone, no raw ISO": {
+   "pass": 8,
+   "fail": 0
+  },
+  "flaw 20: no doubled DOWN - DOWN": {
+   "pass": 8,
+   "fail": 0
+  },
+  "flaw 8: one Grok statement, no contradiction (\"NO Grok bots exist\" gone, no \"rid": {
+   "pass": 8,
+   "fail": 0
+  },
+  "flaw 9: LLM-09 and CHIEF cards and lights exist": {
+   "pass": 8,
+   "fail": 0
+  },
+  "flaw 11: bell count equals the real open reminders (21)": {
+   "pass": 8,
+   "fail": 0
+  },
+  "flaw 7: Map capability words labelled typed note": {
+   "pass": 8,
+   "fail": 0
+  },
+  "flaw 9: Governor node on the Map has a light": {
+   "pass": 8,
+   "fail": 0
+  },
+  "flaw 6: Map has no CURRENT footer of its own": {
+   "pass": 24,
+   "fail": 0
+  },
+  "flaw 7: Subscriptions has no bare green ACTIVE; typed notes labelled": {
+   "pass": 8,
+   "fail": 0
+  },
+  "flaw 10: RAMBO paste button gives a visible result and a HANDOFF packet": {
+   "pass": 8,
+   "fail": 0
+  },
+  "flaw 2: no light green with all data empty (internet OFF)": {
+   "pass": 1,
+   "fail": 0
+  },
+  "separate site-answers mark shows no": {
+   "pass": 4,
+   "fail": 0
+  },
+  "flaw 2: lights green exactly for fresh up windows (01,02,09,CHIEF, and 04 which ": {
+   "pass": 2,
+   "fail": 0
+  },
+  "flaw 2: Grok light red and card DOWN agree": {
+   "pass": 2,
+   "fail": 0
+  },
+  "flaw 3: only vtes://llm-01 clickable (entry filled); 03 and 09 (empty entries) a": {
+   "pass": 2,
+   "fail": 0
+  },
+  "flaw 6: window resets shown in short Eastern form": {
+   "pass": 2,
+   "fail": 0
+  },
+  "flaw 5: no light green and none amber when stale": {
+   "pass": 2,
+   "fail": 0
+  },
+  "flaw 3: only the filled entry (01) is clickable": {
+   "pass": 2,
+   "fail": 0
+  },
+  "flaw 4: health ok=false shows red NOT OK, not OK": {
+   "pass": 2,
+   "fail": 0
+  }
+ },
+ "failures": []
+}

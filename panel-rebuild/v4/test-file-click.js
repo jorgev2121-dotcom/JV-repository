@@ -78,7 +78,8 @@ function stage(world) {
     T(world, net, 'flaw 20: no doubled DOWN - DOWN', !/DOWN - DOWN/.test(tx) && !/DOWN - DOWN/.test(await p.$$eval('#chips .chip', c => c.map(x => x.title).join('|'))), 'doubled');
     T(world, net, 'flaw 8: one Grok statement, no contradiction ("NO Grok bots exist" gone, no "ride on SuperGrok")', !/NO Grok bots exist|ride on SuperGrok|nothing set up yet/.test(tx), 'x');
     T(world, net, 'flaw 9: LLM-09 and CHIEF cards and lights exist', (await p.$$('#card-LLM-09,#card-CHIEF')).length === 2 && (await p.$$('#chips [data-id="LLM-09"],#chips [data-id="CHIEF"]')).length === 2, 'missing');
-    T(world, net, 'flaw 11: bell shows the real reminder count (no phantom)', true, '');
+    const want = await p.evaluate(() => (window.VTES_REMINDERS || []).filter(r => !r.done).length), got = (await p.textContent('#remn')).trim();
+    T(world, net, 'flaw 11: bell count equals the real open reminders (' + want + ')', String(want) === got, 'bell=' + got + ' reminders=' + want);
     // ---- walk: Console, Dir, Map 3 tabs, click everything
     const clickAll = async (view) => {
       const n = await p.$$eval('button', b => b.length);
