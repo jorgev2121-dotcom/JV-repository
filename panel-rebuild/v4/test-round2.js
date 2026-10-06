@@ -28,7 +28,8 @@ const T = (world, name, ok, why) => { results.push({ world, name, status: ok ? '
 function stage(files, opts) {
   opts = opts || {};
   const d = fs.mkdtempSync(path.join(os.tmpdir(), 'v4r2-'));
-  for (const f of ['VTES-LLM-LAUNCHER_v4.html', 'vtes4-live.js', 'vtes4-cards.js', 'vtes4-panels.js', 'vtes-status.js']) fs.copyFileSync(path.join(HERE, f), path.join(d, f));
+  for (const f of ['VTES-LLM-LAUNCHER_v4.html', 'vtes4-live.js', 'vtes4-cards.js', 'vtes4-panels.js']) fs.copyFileSync(path.join(HERE, f), path.join(d, f));
+  fs.writeFileSync(path.join(d, 'vtes-status.js'), 'window.VTES_STATUS = window.VTES_STATUS || {};');
   fs.mkdirSync(path.join(d, 'data'));
   for (const f of fs.readdirSync(path.join(HERE, 'data'))) fs.copyFileSync(path.join(HERE, 'data', f), path.join(d, 'data', f));
   for (const f of ['vtes-reminders.js', 'vtes-common.js']) { const s = path.join(HERE, 'v3-source', f); if (fs.existsSync(s)) fs.copyFileSync(path.join(HERE, 'v3-source', f), path.join(d, f)); }

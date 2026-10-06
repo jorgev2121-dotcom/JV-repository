@@ -1,103 +1,140 @@
-== A: verify, install, install, rollback (CHECK-3 run A)
+== S1: single install, then rollback
+v3 folder fingerprinted (read only): 38 files, SHA256 of each
+Record written first: <scratch>/w3/s1/vtes-panel-v4/v4-install-record.txt
+new folder check: 10 of 10 copied files have the same SHA256 as the package
+v3 untouched: SHA256 of all 38 files in the v3 folder is identical before and after
+DONE. Open <scratch>/w3/s1/vtes-panel-v4/VTES-LLM-LAUNCHER_v4.html (add a
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S1a: install left the v3 folder identical
+  new folder: 12 files; config: window.VTES4_CONFIG = { "v3_dir": "/tmp/claude-0/-home-user-JV-repository/790fd7c0-47ba-5fff-b76c-d113b8afb8e6/scratchpa
+  PASS S1b: new folder holds 12 files (10 package + config + record)
+  PASS S1c: config is pure ASCII
+removed folder data
+removed folder <scratch>/w3/s1/vtes-panel-v4
+v4 rolled back completely: the new folder and everything INSTALL put in it are gone. The v3 folder was never written to by v4 and was not touched by this rollback.
+  PASS S1d: rollback removed the new folder
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S1e: v3 folder identical after rollback
+== S2: second install while the first is there (CHECK-4 S2)
+  STOP: <scratch>/w3/s2/vtes-panel-v4 already exists. v4 never installs into or over 
+  PASS S2a: second install refused ('already exists')
+  PASS S2b: the new folder is byte-identical after the refused second install
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S2c: v3 identical
+== S3: install fails part-way (test hook stops before data/vtes4-state.js), then rollback (CHECK-4 S3)
+FAILED part-way: test-only stop before data\vtes4-state.js
+The record was written BEFORE the first copy, so the rollback still works: /home/user/JV-repository/panel-rebuild/v4/ROLLBACK-v4.ps1 -NewDir "/tmp/claude-0/-home-user-JV-
+exit=5
+  PASS S3a: failed install exits 5 and says FAILED
+  files in the new folder after the failure: 6
+removed folder <scratch>/w3/s3/vtes-panel-v4
+v4 rolled back completely: the new folder and everything INSTALL put in it are gone. The v3 folder was never written to by v4 and was not touched by this rollback.
+  PASS S3b: rollback of the half-failed install removed everything
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S3c: v3 identical
+== S4: after install, run Verify-VtesPanel.ps1 in the v3 folder (the old DESKTOP-WORK proof step), then rollback (CHECK-4 S4, F7)
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S4a: v3 identical right after install
 OK: 28 code files match
-Record written first: <work>/A/_Rollback/v4-install-record.txt
-v3 untouched (SHA256 identical before and after): VTES-CONTROL-PANEL.html, VTES-LLM-LAUNCHER.html
-OK: 32 code files match
-DONE. Open VTES-LLM-LAUNCHER_v4.html in <work>/A. v3 is untouched beside it. Rollback: <work>/A/_Rollback/ROLLBACK-v4.ps1 -LiveDir "<work>/A"
-v3 untouched (SHA256 identical before and after): VTES-CONTROL-PANEL.html, VTES-LLM-LAUNCHER.html
-OK: 32 code files match
-DONE. Open VTES-LLM-LAUNCHER_v4.html in <work>/A. v3 is untouched beside it. Rollback: <work>/A/_Rollback/ROLLBACK-v4.ps1 -LiveDir "<work>/A"
-removed vtes4-panels.js
-MANIFEST.sha256: v4 lines taken out; the file is byte-identical to before v4
-v3 check OK (same SHA256 as before v4): VTES-CONTROL-PANEL.html
-v3 check OK (same SHA256 as before v4): VTES-LLM-LAUNCHER.html
-manifest check (read-only): OK, 28 code files match
-v4 rolled back. Every file v4 or its helpers could touch is byte-identical to before v4 (13 of 13). v3 is exactly as it was.
-  SHA256 of 39 files before == after: IDENTICAL
-  PASS A: every file identical, nothing left over
-== A0: same, but vtes-verify.js did not exist before
-OK: 32 code files match
-DONE. Open VTES-LLM-LAUNCHER_v4.html in <work>/A0. v3 is untouched beside it. Rollback: <work>/A0/_Rollback/ROLLBACK-v4.ps1 -LiveDir "<work>/A0"
-v3 check OK (same SHA256 as before v4): VTES-LLM-LAUNCHER.html
-manifest check (read-only): OK, 28 code files match
-v4 rolled back. Every file v4 or its helpers could touch is byte-identical to before v4 (13 of 13). v3 is exactly as it was.
-  SHA256 of 38 files before == after: IDENTICAL
-  PASS A0: every file identical (vtes-verify.js removed again)
-== B: MANIFEST.sha256 unreadable (run as the non-root user nobody), then INSTALL, then ROLLBACK (CHECK-3 run B)
-  as nobody, can the manifest be read? NO
-STOP: MANIFEST.sha256 exists but cannot be read, so it cannot be backed up. Nothing was changed. Reason: Exception calling "OpenRead" with "1" argument(s): "Access to the path '<work-b>/live/MANIFEST.sha256' is denied."
-STOP: no install record in that folder, so I cannot tell what v4 changed here. THIS ROLLBACK CHANGED NOTHING.
-  SHA256 of 37 files before == after: IDENTICAL
-  PASS B: nothing changed or left over
-== C1: install; hand-edit Write-VtesStatus.ps1; Verify -Build in the live folder; install again; rollback; verify (CHECK-3 run C)
-OK: 32 code files match
-DONE. Open VTES-LLM-LAUNCHER_v4.html in <work>/C1. v3 is untouched beside it. Rollback: <work>/C1/_Rollback/ROLLBACK-v4.ps1 -LiveDir "<work>/C1"
-1
-MANIFEST.sha256 written: 28 files
-OK: 32 code files match
-DONE. Open VTES-LLM-LAUNCHER_v4.html in <work>/C1. v3 is untouched beside it. Rollback: <work>/C1/_Rollback/ROLLBACK-v4.ps1 -LiveDir "<work>/C1"
-NOTE: MANIFEST.sha256 differs from before v4 only because it was changed legitimately after the install (for example a rebuild). Only the v4 lines were taken out; your later changes were kept.
-AUDIT: MANIFEST.sha256 is not byte-identical to before v4 (see the notes).
-v3 check OK (same SHA256 as before v4): VTES-CONTROL-PANEL.html
-v3 check OK (same SHA256 as before v4): VTES-LLM-LAUNCHER.html
-manifest check (read-only): OK, 28 code files match
-v4 rolled back WITH NOTES: 12 of 13 tracked files are byte-identical to before v4; the others are explained in the notes above.
-  Verify after rollback:
-    OK: 28 code files match
-  PASS C1: tamper check quiet after rollback
-  (differences below are the two legitimate hand changes only: the edited writer and the rebuilt manifest; vtes-verify.js is rewritten by the Verify I just ran)
-  SHA256 differs (38 files before):
-    4c4
-    < 872088fe5d8ec375fca062e8f51670e0778c817e3878e2f9d25cb06015937744  ./MANIFEST.sha256
-    ---
-    > e9e18fc4fb2a71433da03fe479cccfaba968cd62e03a2244430b885dcfd71e7c  ./MANIFEST.sha256
-    24c24
-    < e4e3b2b06dd6fb4d0e37da207e37caa1657842ac9b772f2dc1e8b5793c44146a  ./Write-VtesStatus.ps1
-    ---
-    > de120a2468d6d12a53edbc7d5b31b9f8a657884d230c15e8dbc77f8865012653  ./Write-VtesStatus.ps1
-    37a38
-    > 8a9a7c720bf869a3547eeae237cb58019203a33990ac630301acd717bd8f2388  ./vtes-verify.js
-== C2: install; EDIT-VtesStatus-v4.ps1 (the safe way, no -Build); install again; rollback
-OK: 32 code files match
-DONE. Open VTES-LLM-LAUNCHER_v4.html in <work>/C2. v3 is untouched beside it. Rollback: <work>/C2/_Rollback/ROLLBACK-v4.ps1 -LiveDir "<work>/C2"
-Added LLM-09, LOCAL, CHIEF to $ValidIds in Write-VtesStatus.ps1. Backup: Write-VtesStatus.ps1.pre-v4. Listed in the install record. ROLLBACK-v4.ps1 puts it back.
-Run Verify-VtesPanel.ps1 once to confirm the tamper check is quiet.
-    after edit: OK: 32 code files match
-    writer self-test: RESULT: 8 passed, 0 failed
-OK: 32 code files match
-DONE. Open VTES-LLM-LAUNCHER_v4.html in <work>/C2. v3 is untouched beside it. Rollback: <work>/C2/_Rollback/ROLLBACK-v4.ps1 -LiveDir "<work>/C2"
-restored Write-VtesStatus.ps1
-MANIFEST.sha256: v4 lines taken out; the file is byte-identical to before v4
-v3 check OK (same SHA256 as before v4): VTES-CONTROL-PANEL.html
-v3 check OK (same SHA256 as before v4): VTES-LLM-LAUNCHER.html
-manifest check (read-only): OK, 28 code files match
-v4 rolled back. Every file v4 or its helpers could touch is byte-identical to before v4 (14 of 14). v3 is exactly as it was.
-  SHA256 of 39 files before == after: IDENTICAL
-  PASS C2: every file identical, writer and manifest back
-== D: install fails part-way (the folder name data is a plain file), then ROLLBACK
-COPY  data\vtes4-heartbeat.js   (new file)
-FAILED part-way: Could not find a part of the path '<work>/D/data/vtes4-heartbeat.js'.
-The install record was written BEFORE the first copy, so the rollback still works: run <work>/D/_Rollback/ROLLBACK-v4.ps1 -LiveDir "<work>/D"
-  v4 files left in folder after the failed install: 3
-v3 check OK (same SHA256 as before v4): VTES-LLM-LAUNCHER.html
-manifest check (read-only): OK, 28 code files match
-v4 rolled back. Every file v4 or its helpers could touch is byte-identical to before v4 (13 of 13). v3 is exactly as it was.
-  SHA256 of 39 files before == after: IDENTICAL
-  PASS D: half-failed install rolled back exactly
-== E: INSTALL with no -LiveDir
-STOP: INSTALL requires -LiveDir "the folder the Desktop shortcut for the launcher really opens". It never picks a folder by itself. Nothing was changed.
-  SHA256 of 38 files before == after: IDENTICAL
-  PASS E: refused, nothing changed
-== F: INSTALL into a git checkout
-STOP: <work>/F is inside a git checkout (found .git in <work>/F). v4 will not install into a git working copy. Nothing was changed.
-  SHA256 of 38 files before == after: IDENTICAL
-  PASS F: refused, nothing changed
-== G: live folder with only the name VTES-CONTROL-PANEL.html is recognised
-FLAG: MANIFEST.sha256 was not found in the live folder, so no tamper-check entry was added. The desktop executor should report this.
-v3 untouched (SHA256 identical before and after): VTES-CONTROL-PANEL.html
-DONE. Open VTES-LLM-LAUNCHER_v4.html in <work>/G. v3 is untouched beside it. Rollback: <work>/G/_Rollback/ROLLBACK-v4.ps1 -LiveDir "<work>/G"
-v3 check OK (same SHA256 as before v4): VTES-CONTROL-PANEL.html
-v4 rolled back. Every file v4 or its helpers could touch is byte-identical to before v4 (13 of 13). v3 is exactly as it was.
-  SHA256 of 36 files before == after: IDENTICAL
-  PASS G: recognised, installed, rolled back exactly
-RESULT: 9 passed, 0 failed
+v4 rolled back completely: the new folder and everything INSTALL put in it are gone. The v3 folder was never written to by v4 and was not touched by this rollback.
+  PASS S4b: rollback removed the new folder
+  v3 folder: SHA256 of 39 files (and the folder list) before == after: IDENTICAL
+  PASS S4c: the rollback did not touch v3 (same as just after Verify; v4 leaves nothing in vtes-verify.js because it never writes there)
+== S5: install, rollback, install, rollback (two rounds) (CHECK-4 S5, F7)
+DONE. Open /tmp/claude-0/-home-user-JV-repository/790fd7c0-47ba-5fff-b76c-d113b8
+v4 rolled back completely: the new folder and everything INSTALL put in it are gone. The v3 folder was never written to 
+  PASS S5a: second round rolled back completely
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S5b: v3 identical after two rounds
+== S6: git refusals (CHECK-4 S6a, S6b, S6c)
+  STOP: the v3 folder as typed (<scratch>/w3/s6a/vtes-panel) is inside a git checkout (found .g
+  PASS S6a: v3 folder inside a git checkout: refused
+  PASS S6a2: no new folder created
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S6a3: v3 identical
+  STOP: the v3 folder as typed (<scratch>/w3/s6b/link) is inside a git checkout (git says so). v4 will not install into a git
+  PASS S6b: a symlink into a git checkout is refused (F5)
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S6b2: v3 identical
+  PASS S6b3: git status of the checkout is clean (nothing written there)
+  PASS S6b4: no new folder anywhere
+  STOP: the v3 folder as typed (<scratch>/w3/s6c/vtes-panel) is inside a git checkout (found .g
+  PASS S6c: a .git FILE in a parent is refused
+  STOP: the v3 folder as typed (<scratch>/w3/s6d-repo/typed) is inside a git checkout (found .g
+  PASS S6d: typed path inside git, real path outside: refused
+  PASS S6d2: no new folder
+  STOP: the v3 folder (real path) (<scratch>/w3/s6e-repo/tools/vtes-panel) is inside a git checkout (found .git in /tmp/claud
+  PASS S6e: with git NOT installed, the walk over the REAL path alone still refuses the link (F5)
+== S7: no -LiveDir (CHECK-4 S7, S7b)
+  STOP: INSTALL requires -LiveDir "the v3 panel folder the Desktop shortcut really opens". It never picks a folder by itse
+  PASS S7: refused
+  PASS S7b: -DryRun without -LiveDir refused
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S7c: nothing changed
+== S8: rollback with no record (CHECK-4 S8)
+  STOP: <scratch>/w3/s8/vtes-panel-v4 has no v4-install-record.txt, so I cannot tell what INSTALL created there. THIS ROLLBAC
+  PASS S8: refused, says it changed nothing
+  v3 folder: SHA256 of 39 files (and the folder list) before == after: IDENTICAL
+  PASS S8b: everything identical, the folder and its file are still there
+== S9: F1 - a later change to the v3 writer is never overwritten by an old backup
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S9a: v3 identical, the writer is still version B
+  PASS S9b: Write-VtesStatus.ps1 is still the version B hash (9066fef5ece11dec685f177e47d815f741c055c59a28156c00861b366cdbd7af)
+== S10 and S11: F6 - a manifest with Windows line ends, or with a byte-order mark
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S10: CRLF manifest byte-identical
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S11: BOM manifest byte-identical
+== S12: F14 - folders that already exist stay (empty data and _Rollback inside v3; an empty vtes-panel-v4 beside it)
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S12a: empty data and _Rollback folders in v3 still there
+  PASS S12b: an existing empty vtes-panel-v4 is refused
+  PASS S12c: rollback does not remove a folder that has no record
+== S13: F2 and F15 - v3 writer already hand-edited before install (Verify already says PROBLEM)
+  Verify before: PROBLEM: changed = Write-VtesStatus.ps1 ; missing = 
+  Verify after install: PROBLEM: changed = Write-VtesStatus.ps1 ; missing = 
+  v3 folder: SHA256 of 39 files (and the folder list) before == after: IDENTICAL
+  PASS S13a: v3 identical (manifest and writer untouched)
+  PASS S13b: the tamper alarm is exactly as loud as before (install did not hide it)
+== S14: rollback twice
+  PASS S14: second rollback says folder not found, changes nothing
+== S15: a stranger file in the new folder is never removed
+LEFT IN PLACE (not in the record, so not removed): data, notes.txt, data/extra.js
+exit=4
+  PASS S15a: exit 4, says what is left
+  PASS S15b: both stranger files untouched
+  PASS S15c: everything in the record was removed
+== S16: a record that lists a path outside the folder is refused, nothing removed
+  REFUSED: the record lists a path that is not a plain path inside the new folder: ../canary.txt. NOTHING WAS REMOVED.
+  PASS S16a: refused (..)
+  PASS S16b: nothing removed, canary still there
+  PASS S16c: refused (absolute path)
+  PASS S16d: /etc/hostname still there
+== S17: a record that belongs to another folder is refused
+  PASS S17: refused
+  PASS S17b: nothing removed
+== S18: rollback -DryRun lists and removes nothing
+Rollback of <scratch>/w3/s18/vtes-panel-v4. The recor
+I WILL REMOVE (and nothing else):
+  file   <scratch>/w3/s18/vtes-panel-v4/v4-install-re
+  file   <scratch>/w3/s18/vtes-panel-v4/VTES-LLM-LAUN
+  PASS S18: dry run printed the list, new folder unchanged
+== S19: non-ASCII folder name is written as \u escapes and percent codes
+window.VTES4_CONFIG = { "v3_dir": "<scratch>/w3/s19/Jos\u00e9", "v3_dir_url": "file:///tmp/claude-0/-home-user-JV-repositor
+  PASS S19: ASCII config, url has %C3%A9, string has \u00e9
+== S20: dangling link where the new folder would go, and v3 typed through a link
+  PASS S20a: a dangling link counts as existing: refused
+DONE. Open <scratch>/w3
+  PASS S20b: v3 typed through a link: the new folder goes next to the REAL v3 folder
+  v3 folder: SHA256 of 38 files (and the folder list) before == after: IDENTICAL
+  PASS S20c: v3 identical
+== S21: Undo_Manifests stub is listed in the record and removed by the rollback
+  DONE lines: 1
+  stub: Rollback_Panel-v4_2026-10-06_0808.ps1
+Rollback of <scratch>/w3/s22/vtes-panel-v4. The record lists 12
+  stub   <scratch>/w3/home/OneDrive/Documents/Reports/Undo_Mani
+removed stub <scratch>/w3/home/OneDrive/Documents/Reports/Undo_
+  PASS S21: stub removed
+== ASCII check of the two scripts
+  PASS INSTALL and ROLLBACK are pure ASCII
+RESULT: 58 passed, 0 failed

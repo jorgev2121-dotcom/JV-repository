@@ -1,0 +1,41 @@
+== OLD S9 (F1): install, EDIT, legit change, rollback, redeploy writer B, install, EDIT, rollback
+manifest check (read-only): PROBLEM with Write-VtesStatus.ps1
+ROLLED BACK, but a check failed (see above): tell the desktop executor.
+  writer B sha d6c95252aa92, writer after the second rollback e4e3b2b06dd6 (they must be equal)
+  FLAW F1 REPRODUCED: an old copy was put back over the newer writer
+  Verify: PROBLEM: changed = Write-VtesStatus.ps1 ; missing = 
+== OLD S13 (F2, F15): writer hand-edited before install; Verify already says PROBLEM; install, EDIT
+  Verify before: PROBLEM: changed = Write-VtesStatus.ps1 ; missing = 
+  INSTALL exit code: 0 ; last line: Every light is red NO DATA until the writers in DATA-CONTRACT.md exist. That is the true state.
+  PROBLEM lines printed by INSTALL (its own Verify run): 1
+  Verify after EDIT: OK: 32 code files match
+== OLD S6b (F5): symlink into a git checkout
+Record written first: <scratch>/wold/s6b/li
+COPY  VTES-LLM-LAUNCHER_v4.html   (new file)
+COPY  vtes4-live.js   (new file)
+  git status of the checkout:
+     M tools/vtes-panel/MANIFEST.sha256
+    ?? tools/vtes-panel/MANIFEST.sha256.pre-v4
+    ?? tools/vtes-panel/VTES-LLM-LAUNCHER_v4.html
+    ?? tools/vtes-panel/_Rollback/
+    (10 entries)
+== OLD S10 (F6): CRLF manifest;  S11: manifest with a byte-order mark
+NOTE: MANIFEST.sha256 differs from before v4 only because it was changed legitimately after the install (for example a rebuild). Only the v4
+v4 rolled back WITH NOTES: 12 of 13 tracked files are byte-identical to before v4; the others are explained in the notes above.
+    v3 folder DIFFERS:
+      < 455a0b8cedadb5a51d47eccc5ae1d9a02ff1a4231258ebc06e26134743056a46  ./MANIFEST.sha256
+      > 872088fe5d8ec375fca062e8f51670e0778c817e3878e2f9d25cb06015937744  ./MANIFEST.sha256
+    .pre-v4 files left: 0
+    v3 folder DIFFERS:
+      < 38a5f1db6645457dacd2e291665d7bd3244af8053dc31ac2b830e847c9c21626  ./MANIFEST.sha256
+      > 872088fe5d8ec375fca062e8f51670e0778c817e3878e2f9d25cb06015937744  ./MANIFEST.sha256
+== OLD S4 (F7): install, EDIT, Verify (the documented proof step), rollback
+manifest check (read-only): OK, 28 code files match
+v4 rolled back WITH NOTES: 13 of 14 tracked files are byte-identical to before v4; the others are explained in the notes above.
+    v3 folder DIFFERS:
+      > b1b28580331539ded2911bae1ce58a87fe77140255a4101b96dae8a69eae7d0e  ./vtes-verify.js
+    .pre-v4 files left: 0
+== OLD S12 (F14): empty data and _Rollback folders existed before
+    v3 folder DIFFERS:
+      < DIR ./_Rollback
+      < DIR ./data

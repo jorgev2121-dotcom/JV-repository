@@ -25,7 +25,8 @@ const add = (world, net, kind, label, status, why, key) => results.push({ world,
 const T = (world, net, name, ok, why) => add(world, net, 'assert', name, ok ? 'PASS' : 'FAIL', ok ? '' : why);
 function stage(world) {
   const d = fs.mkdtempSync(path.join(os.tmpdir(), 'v4file-'));
-  for (const f of ['VTES-LLM-LAUNCHER_v4.html', 'vtes4-live.js', 'vtes4-cards.js', 'vtes4-panels.js', 'vtes-status.js']) { fs.copyFileSync(path.join(HERE, f), path.join(d, f)); }
+  for (const f of ['VTES-LLM-LAUNCHER_v4.html', 'vtes4-live.js', 'vtes4-cards.js', 'vtes4-panels.js']) { fs.copyFileSync(path.join(HERE, f), path.join(d, f)); }
+  fs.writeFileSync(path.join(d, 'vtes-status.js'), 'window.VTES_STATUS = window.VTES_STATUS || {};');
   fs.mkdirSync(path.join(d, 'data'));
   for (const f of fs.readdirSync(path.join(HERE, 'data'))) { fs.copyFileSync(path.join(HERE, 'data', f), path.join(d, 'data', f)); }
   for (const f of ['vtes-reminders.js', 'vtes-common.js']) { const s = path.join(HERE, 'v3-source', f); if (fs.existsSync(s)) fs.copyFileSync(s, path.join(d, f)); }
