@@ -213,6 +213,6 @@ const badgeOf = (p, sel) => p.$$eval(sel + ' .v5b[data-src]', e => e.map(x => x.
         } else { T('N11', tag + ': the bar does not scroll, so no hint is shown and all 18 tabs are on screen at once', !m.hintShown && m.initially.length === 18, m.initially.length + ' visible'); }
         await ctx.close(); } }
     await br2.close(); }
-  fs.writeFileSync(path.join(__dirname, OUT), JSON.stringify({ pass: res.filter(r => r.status === 'PASS').length, total: res.length, fail: res.filter(r => r.status === 'FAIL').length, results: res }, null, 1));
+  fs.writeFileSync(path.resolve(__dirname, OUT), JSON.stringify({ pass: res.filter(r => r.status === 'PASS').length, total: res.length, fail: res.filter(r => r.status === 'FAIL').length, results: res }, null, 1));
   console.log('FIXES R5: ' + res.filter(r => r.status === 'PASS').length + ' of ' + res.length + ' pass');
 })().catch(e => { console.error(e); process.exit(2); });

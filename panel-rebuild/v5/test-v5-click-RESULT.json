@@ -566,7 +566,7 @@
   },
   {
    "grp": "layout",
-   "name": "at 1300 px wide all 8 section jumps leave the heading visible under the sticky bar (70 px tall)",
+   "name": "at 1300 px wide all 8 section jumps leave the heading visible under the sticky bar (87 px tall)",
    "status": "PASS",
    "why": ""
   },

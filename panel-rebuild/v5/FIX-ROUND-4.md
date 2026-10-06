@@ -1,5 +1,7 @@
 # FIX-ROUND-4 - what changed after the independent check CHECK-5 (TRK-2026-9910-B, 2026-10-06)
 
+**Superseded by FIX-ROUND-5.md (history only).** Every number in this file is the round-4 number. Round 5 deleted the copy and delete commands described in Section B and in INSTALL-AND-UNDO.md (that file is gone; see INSTALL-BY-HAND.md), and the test files named here were changed or removed as FIX-ROUND-5.md says.
+
 SONNET 5.5 · PANEL V5 FIX ROUND 4. Window: ☁️ CODE · CLOUD / WEB EXECUTOR. Model: Sonnet 5.5 (claude-sonnet-5-5; not Opus). Branch claude/panel-v5-port. Work only in panel-rebuild/v5/ (v3-live did not change). No Drive writes, no PC, no pull request.
 
 ## Section A - Answer first

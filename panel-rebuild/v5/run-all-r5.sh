@@ -1,8 +1,8 @@
 #!/bin/bash
-# run-all-r5.sh <pwsh-dir> <scratch-dir> : builds the package, then runs every test of fix round 5 and writes every result file. TRK-2026-9910-B
+# run-all-r5.sh <pwsh-dir> <scratch-dir> : runs every test (on the package as it is) of fix round 5 and writes every result file. TRK-2026-9910-B
 # The VERIFY scenarios run as the unprivileged user "nobody", which cannot read a scratch folder inside a private home, so VERIFY_WORK defaults to /tmp/v5nobody-work (deleted afterwards).
 HERE=$(cd "$(dirname "$0")" && pwd); PWD_DIR=${1:?pwsh dir}; W=${2:?scratch}; VW=${VERIFY_WORK:-/tmp/v5nobody-work}; cd "$HERE"; mkdir -p "$W"
-node build-v5.js
+# NOTE: the package is NOT rebuilt here. build-v5.js stamps the real build instant into the page, so a rebuild changes the manifest hash that INSTALL-BY-HAND.md carries. Run `node build-v5.js` once, put the new hash in INSTALL-BY-HAND.md, then run this.
 node test-v5-click.js test-v5-click-RESULT.json | tail -1
 node test-v5-worlds.js test-v5-worlds-RESULT.json | tail -1
 node test-v3-survives.js test-v3-survives-RESULT.json | tail -1

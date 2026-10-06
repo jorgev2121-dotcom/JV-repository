@@ -280,7 +280,7 @@
       if (t && h) {
         var hidden = t.scrollWidth > t.clientWidth + 2;
         h.style.display = hidden ? 'block' : 'none';
-        V.setText(h, hidden ? 'There are ' + t.querySelectorAll('a.tab').length + ' tabs. Some are off the right edge: drag the bar under the tabs to the right, or hold Shift and turn the mouse wheel. The amber OLD PANEL tabs are at the end.' : '');
+        V.setText(h, hidden ? 'There are ' + t.querySelectorAll('a.tab').length + ' tabs. Some are off the right edge: drag the bar under the tabs to the right, swipe the tabs sideways, or hold Shift and turn the mouse wheel. The amber OLD PANEL tabs are at the end.' : '');
       }
     },
     renderTop: function (builtIso) {

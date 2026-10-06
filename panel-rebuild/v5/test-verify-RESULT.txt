@@ -10,7 +10,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V01: VERIFY wrote nothing (whole fixture identical before and after)
 == V02 edited code file (one byte appended)
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: vtes5-ui.js has SHA-256 467d94ec477d9987f3fd013b727cd64e568e4fdde9d686c0ade018977b3408c2 but the manifest says e087eedc19c626da63001d50885fe23e8eb72b5ea9cc5e2e9937f175c5152e80
+    |   EDITED: vtes5-ui.js has SHA-256 507bd68ea94e69800735196942b690de2f6809a4ea9e1c1aeab2c95c20fb22dd but the manifest says 694aedbf647d1423f411c06317d5c82631278859abd8994afdaf98b180ebd0f3
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V02: exit code 1
@@ -326,7 +326,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   PASS V24a: VERIFY wrote nothing (whole fixture identical before and after)
   (without the expected manifest hash a doctored manifest passes: that is why the order carries the hash)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   MANIFEST CHANGED: its SHA-256 is 970c7c928e84b96e092067b55c5624cc28e2e46b64d55fc2810ef3dc99778359 but the order expects 3a028ba9a02be3a3bb1e7dd9a76b09d61b48fd7fe06cecfa18fd57cff064c442 (so the
+    |   MANIFEST CHANGED: its SHA-256 is c96e0a085e63950e223e68d296535ee9e804b10e4e7cd566fed68fb466ec0139 but the order expects 92612e1500116e60ea403df00860d774807137cca537e66248a4e522428abecb (so the
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V24b: exit code 1
@@ -345,7 +345,7 @@ PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6
   SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
   PASS V25a: VERIFY wrote nothing (whole fixture identical before and after)
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   MANIFEST CHANGED: its SHA-256 is 3a028ba9a02be3a3bb1e7dd9a76b09d61b48fd7fe06cecfa18fd57cff064c442 but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the
+    |   MANIFEST CHANGED: its SHA-256 is 92612e1500116e60ea403df00860d774807137cca537e66248a4e522428abecb but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS V25b: exit code 1

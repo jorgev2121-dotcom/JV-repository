@@ -8,22 +8,27 @@ if a not in s: print('MUTATION TEXT NOT FOUND'); sys.exit(3)
 open(p,'w').write(s.replace(a,b,1))
 PY
   [ $? -eq 0 ] || { echo "$name: could not apply"; return; }
-  local out; out=$(PKG=$d/package node "$HERE/$test.js" "$W/$name.json" 2>&1 | tail -1); echo "$name: $out"; }
-mut M1-future-dates-trusted test-v5-worlds vtes5-live.js "function isFuture(d) { return (d - NOW()) / 60000 > FUTURE_GRACE_MIN; }" "function isFuture(d) { return false; }"
-mut M2-writer-counts-as-proof test-v5-worlds vtes5-live.js "return { state: 'UNPROVEN', text: 'WRITER SAYS UP" "return { state: 'OK', text: 'WRITER SAYS UP"
-mut M3-fixed-15-minute-limit test-v5-worlds vtes5-live.js "return Math.min(Math.max(3 * sec / 60, MIN_LIMIT_MIN), MAX_LIMIT_MIN);" "return 15;"
-mut M4-late-bot-still-green test-v5-worlds vtes5-live.js "if ((NOW() - run) / 1000 > BOT_LATE_FACTOR * iv) {" "if (false) {"
-mut M5-vtes-link-always test-v5-worlds vtes5-ui.js "if (V.schemeRegistered() && V.addressFilled(w.id)) {" "if (true) {"
-mut M6-267009-is-failed test-fixes-r4 vtes5-live.js "if (b.last_result === RES_RUNNING) {" "if (false) {"
-mut M7-housekeeping-green-when-fresh test-fixes-r4 vtes5-live.js "if (d.report_delivered === false) {" "if (false) {"
-mut M8-daily-bot-capped-at-an-hour test-fixes-r4 vtes5-live.js "var MAX_BOT_SEC = 7 * 24 * 3600;" "var MAX_BOT_SEC = 3600;"
-mut M9-two-answers-on-a-card test-fixes-r4 vtes5-ui.js "cls = RANK[cb] > RANK[ce] ? cb : ce," "cls = ce,"
-mut M10-search-reads-state-lines test-fixes-r4 vtes5-ui.js "c.setAttribute('data-s', t3[gi][i]" "c.setAttribute('data-x', t3[gi][i]"
-mut M11-bots-strip-ignores-failed-bots test-fixes-r5 vtes5-live.js "if (notFine.length) { return bad(" "if (false) { return bad("
-mut M12-heartbeat-green-while-all-down test-fixes-r5 vtes5-live.js "if (unhealthy === ids.length) {" "if (false) {"
-mut M13-running-task-never-stuck test-fixes-r5 vtes5-live.js "if (runMin > stuckMin) {" "if (false) {"
-mut M14-impossible-count-green test-fixes-r5 vtes5-live.js "if (d.counted !== undefined && d.counted !== null && !isCount(d.counted, MD_TARGET)) {" "if (false) {"
-mut M15-personal-data-guard-removed test-fixes-r5 vtes5-ui.js "if (toId === 'LOCAL' || !PII_RE.test(note || '')) { return note; }" "return note;"
-mut M16-tab-hint-never-shown test-fixes-r5 vtes5-ui.js "h.style.display = hidden ? 'block' : 'none';" "h.style.display = 'none';"
-mut M17-queued-is-no-data test-fixes-r5 vtes5-live.js "if (st === 'queued') {" "if (false) {"
-mut M18-old-report-time-trusted test-fixes-r5 vtes5-live.js "if ((NOW() - t) / 60000 > limitMinutes) {" "if (false) {"
+  local out; out=$(PKG=$d/package node "$HERE/$test.js" "$W/$name.json" 2>&1 | tail -1); echo "$name: $out" > "$W/$name.line"; }
+mut M1-future-dates-trusted test-v5-worlds vtes5-live.js "function isFuture(d) { return (d - NOW()) / 60000 > FUTURE_GRACE_MIN; }" "function isFuture(d) { return false; }" &
+mut M2-writer-counts-as-proof test-v5-worlds vtes5-live.js "return { state: 'UNPROVEN', text: 'WRITER SAYS UP" "return { state: 'OK', text: 'WRITER SAYS UP" &
+mut M3-fixed-15-minute-limit test-v5-worlds vtes5-live.js "return Math.min(Math.max(3 * sec / 60, MIN_LIMIT_MIN), MAX_LIMIT_MIN);" "return 15;" &
+mut M4-late-bot-still-green test-v5-worlds vtes5-live.js "if ((NOW() - run) / 1000 > BOT_LATE_FACTOR * iv) {" "if (false) {" &
+mut M5-vtes-link-always test-v5-worlds vtes5-ui.js "if (V.schemeRegistered() && V.addressFilled(w.id)) {" "if (true) {" &
+mut M6-267009-is-failed test-fixes-r4 vtes5-live.js "if (b.last_result === RES_RUNNING) {" "if (false) {" &
+wait
+mut M7-housekeeping-green-when-fresh test-fixes-r4 vtes5-live.js "if (d.report_delivered === false) {" "if (false) {" &
+mut M8-daily-bot-capped-at-an-hour test-fixes-r4 vtes5-live.js "var MAX_BOT_SEC = 7 * 24 * 3600;" "var MAX_BOT_SEC = 3600;" &
+mut M9-two-answers-on-a-card test-fixes-r4 vtes5-ui.js "cls = RANK[cb] > RANK[ce] ? cb : ce," "cls = ce," &
+mut M10-search-reads-state-lines test-fixes-r4 vtes5-ui.js "c.setAttribute('data-s', t3[gi][i]" "c.setAttribute('data-x', t3[gi][i]" &
+mut M11-bots-strip-ignores-failed-bots test-fixes-r5 vtes5-live.js "if (notFine.length) { return bad(" "if (false) { return bad(" &
+mut M12-heartbeat-green-while-all-down test-fixes-r5 vtes5-live.js "if (unhealthy === ids.length) {" "if (false) {" &
+wait
+mut M13-running-task-never-stuck test-fixes-r5 vtes5-live.js "if (runMin > stuckMin) {" "if (false) {" &
+mut M14-impossible-count-green test-fixes-r5 vtes5-live.js "if (d.counted !== undefined && d.counted !== null && !isCount(d.counted, MD_TARGET)) {" "if (false) {" &
+mut M15-personal-data-guard-removed test-fixes-r5 vtes5-ui.js "if (toId === 'LOCAL' || !PII_RE.test(note || '')) { return note; }" "return note;" &
+mut M16-tab-hint-never-shown test-fixes-r5 vtes5-ui.js "h.style.display = hidden ? 'block' : 'none';" "h.style.display = 'none';" &
+mut M17-queued-is-no-data test-fixes-r5 vtes5-live.js "if (st === 'queued') {" "if (false) {" &
+mut M18-old-report-time-trusted test-fixes-r5 vtes5-live.js "if ((NOW() - t) / 60000 > limitMinutes) {" "if (false) {" &
+wait
+wait
+cat "$W"/M*.line | sort -V

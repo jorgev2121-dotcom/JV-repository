@@ -263,7 +263,7 @@
   },
   {
    "world": "W2-fresh",
-   "name": "health panel: 11 windows counted, numbers 12 / 3 / 2, money list, 9 of 12 checks",
+   "name": "health panel: 11 windows counted, numbers 12 / 3 / 2, money list, 12 of 12 checks",
    "status": "PASS",
    "why": ""
   },
@@ -683,7 +683,7 @@
   },
   {
    "world": "W11-grok",
-   "name": "BOTS up without proof_at: still \"No Grok bot has been built\"",
+   "name": "BOTS up without proof_at: still \"no Grok bot is reporting UP with proof\"",
    "status": "PASS",
    "why": ""
   },
@@ -725,7 +725,7 @@
   },
   {
    "world": "W13-redraw",
-   "name": "a 392-character selection in the Health panel survives 3 ticks",
+   "name": "a 394-character selection in the Health panel survives 3 ticks",
    "status": "PASS",
    "why": ""
   },
@@ -743,7 +743,7 @@
   },
   {
    "world": "W14-10hours",
-   "name": "after 600 reloads the DOM node count did not grow by more than 10% (733 -> 735)",
+   "name": "after 600 reloads the DOM node count did not grow by more than 10% (736 -> 738)",
    "status": "PASS",
    "why": ""
   },

@@ -20,7 +20,7 @@ The order you are working from gives you ONE full path for the NEW folder. If it
 
 <!-- VERIFY-CMD -->
 ```
-powershell -NoProfile -ExecutionPolicy Bypass -File "FULL PATH OF VERIFY-v5.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 MANIFEST_SHA_PLACEHOLDER
+powershell -NoProfile -ExecutionPolicy Bypass -File "FULL PATH OF VERIFY-v5.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 92612e1500116e60ea403df00860d774807137cca537e66248a4e522428abecb
 ```
 
 10. **Report the answer, word for word.**

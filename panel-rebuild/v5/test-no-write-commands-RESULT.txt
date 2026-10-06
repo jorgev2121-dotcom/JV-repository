@@ -23,14 +23,14 @@ PASS INSTALL-BY-HAND.md never the Desktop
 PASS INSTALL-BY-HAND.md never a git checkout
 PASS INSTALL-BY-HAND.md runs VERIFY-v5.ps1
 PASS INSTALL-BY-HAND.md says there is nothing to undo because the real v3 is never touched
-FAIL INSTALL-BY-HAND.md says deleting the v5 folder is Jorge's decision, by hand, with his yes, never by a script
+PASS INSTALL-BY-HAND.md says deleting the v5 folder is Jorge's decision, by hand, with his yes, never by a script
 PASS INSTALL-BY-HAND.md asks the closing yes/no question
 PASS INSTALL-BY-HAND.md holds exactly one command block (the read-only VERIFY line): 1
-FAIL the one command block is only the VERIFY line, carrying a real 64-hex manifest hash
-FAIL DESKTOP-WORK.md does not point at INSTALL-AND-UNDO.md
-FAIL PORT-REPORT.md does not point at INSTALL-AND-UNDO.md
+PASS the one command block is only the VERIFY line, carrying a real 64-hex manifest hash
+PASS DESKTOP-WORK.md does not point at INSTALL-AND-UNDO.md
+PASS PORT-REPORT.md does not point at INSTALL-AND-UNDO.md
 PASS TEST-REPORT.md does not point at INSTALL-AND-UNDO.md
-FAIL KNOWN-LIMITS.md does not point at INSTALL-AND-UNDO.md
-FAIL DATA-CONTRACT.md does not point at INSTALL-AND-UNDO.md
+PASS KNOWN-LIMITS.md does not point at INSTALL-AND-UNDO.md
+PASS DATA-CONTRACT.md does not point at INSTALL-AND-UNDO.md
 
-NO-WRITE-COMMANDS: 28 of 34 checks pass
+NO-WRITE-COMMANDS: 34 of 34 checks pass

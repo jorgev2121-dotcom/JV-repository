@@ -1,19 +1,19 @@
 {
- "pass": 191,
+ "pass": 60,
  "total": 191,
- "fail": 0,
+ "fail": 131,
  "results": [
   {
    "id": "N10",
    "name": "LOCAL card: no step tells the user to use the blue RAMBO button or any Claude, Cowork, Codex or Grok window (only \"Do NOT\" lines may name them)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Hand it to the desktop executor (RAMBO): use the blue RAMBO button at the top, then tell it \"save this as a LOCAL job\". The desktop executor (RAMBO) writes the job file with its CLASS and PROMPT lines. You do not write the file or type a command."
   },
   {
    "id": "N10",
    "name": "LOCAL card: the steps do say not to hand the packet to a Claude window",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "There is no window. Press the button to copy the packet. || Hand it to the desktop executor (RAMBO): use the blue RAMBO button at the top, then tell it \"save this as a LOCAL job\". The desktop executor (RAMBO) writes the job file with its CLASS and PROMPT lines. You do not write the file or type a co"
   },
   {
    "id": "N10",
@@ -24,44 +24,44 @@
   {
    "id": "N10",
    "name": "with the fake Social Security number in the note, the packet for LOCAL carries it and the packets for the other 12 destinations do not (13 destinations tried)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "carrying: LLM-01,LLM-02,LLM-03,LLM-04,LLM-05,LLM-06,LLM-07,LLM-08,LLM-09,LOCAL,CODEX,RAMBO,GROK"
   },
   {
    "id": "N10",
    "name": "no packet addressed to LLM-01 (RAMBO), any Claude window, COWORK, CODEX, GROK or Gemini carries the number (11 tried)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "leaking: LLM-01,LLM-02,LLM-03,LLM-04,LLM-05,RAMBO,CODEX,LLM-06,LLM-07,GROK,LLM-08"
   },
   {
    "id": "N10",
    "name": "pressing each of the 9 big copy buttons with the number in the note: only the LOCAL button puts it in the clipboard",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "leaking buttons: LLM-01,LLM-03,LLM-05,LLM-06,CODEX,RAMBO,GROK,LLM-03"
   },
   {
    "id": "N10",
    "name": "the blue RAMBO button at the top (the one the old LOCAL steps pointed at) copies a packet to LLM-01 WITHOUT the number",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "HANDOFF  LLM-04 (Claude Chat)  ->  LLM-01 (Claude Code Desktop)   Oct 6, 2:00 PM EDT\n#handoff #LLM-0"
   },
   {
    "id": "N10",
    "name": "\"Copy packet and open\" for every destination: the number is copied only for LOCAL",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLM-01,LLM-02,LLM-03,LLM-04,LLM-05,LLM-06,LLM-07,LLM-08,LLM-09,CODEX,RAMBO,GROK"
   },
   {
    "id": "N10",
    "name": "the line after \"Copy packet and open\" for LOCAL does not point at RAMBO or a Claude window as the way to do the job",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Copied. Hand the packet to the desktop executor (RAMBO) with the blue RAMBO button at the top; it saves the job file for you."
   },
   {
    "id": "N10",
    "name": "GROK card: no step says to use the blue RAMBO button",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Press the button to copy the packet. || Open grok.com in your browser, click in the message box and press Ctrl+V. || If you want the Second-Opinion script used instead, hand the packet to the desktop executor (RAMBO) with the blue RAMBO button at the top. The desktop executor (RAMBO) runs it; you ty"
   },
   {
    "id": "N10",
@@ -78,7 +78,7 @@
   {
    "id": "N10",
    "name": "GROK card: no step routes the packet through RAMBO at all",
-   "status": "PASS",
+   "status": "FAIL",
    "why": ""
   },
   {
@@ -102,20 +102,20 @@
   {
    "id": "N10",
    "name": "the note \"ssn 123456789 for the client\" is left out of the packet for LLM-01 and the packet says why",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "s of South Florida). Not technical. He dictates and listens by text-to-speech.\n\nTASK, IN HIS WORDS:\nssn 123456789 for the client\n\nHOW TO ANSWER:\n- Answer first, reasoning after. Short paragraphs. No t"
   },
   {
    "id": "N10",
    "name": "the note \"social security: 123 45 6789\" is left out of the packet for LLM-01 and the packet says why",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "s of South Florida). Not technical. He dictates and listens by text-to-speech.\n\nTASK, IN HIS WORDS:\nsocial security: 123 45 6789\n\nHOW TO ANSWER:\n- Answer first, reasoning after. Short paragraphs. No t"
   },
   {
    "id": "N10",
    "name": "the note \"Social Security number 123456789\" is left out of the packet for LLM-01 and the packet says why",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "s of South Florida). Not technical. He dictates and listens by text-to-speech.\n\nTASK, IN HIS WORDS:\nSocial Security number 123456789\n\nHOW TO ANSWER:\n- Answer first, reasoning after. Short paragraphs. "
   },
   {
    "id": "N10",
@@ -138,44 +138,44 @@
   {
    "id": "N1",
    "name": "world allBotsFail: the strip entry \"bots\" is RED (never green \"OK\" above six FAILED bots)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "bots: OK - as of Oct 6, 1:59 PM EDT"
   },
   {
    "id": "N1",
    "name": "world allBotsFail: the strip says how many bots are not fine (\"6 of 6\")",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "bots: OK - as of Oct 6, 1:59 PM EDT"
   },
   {
    "id": "N1",
    "name": "world allBotsFail: the age line says at least one file is not OK",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Built Oct 6, 6:38 AM EDT, data as of Oct 6, 1:00 PM EDT (oldest file). Re-checked Oct 6, 2:00 PM EDT."
   },
   {
    "id": "N1",
    "name": "one failed bot out of six: the strip entry is red",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "bots: OK - as of Oct 6, 1:59 PM EDT"
   },
   {
    "id": "N1",
    "name": "one disabled bot: the strip entry is red",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "bots: OK - as of Oct 6, 1:59 PM EDT"
   },
   {
    "id": "N1",
    "name": "one bot missing from the bots file: the strip entry is red (NO DATA for that bot)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "bots: OK - as of Oct 6, 1:59 PM EDT"
   },
   {
    "id": "N1",
    "name": "one bot running now and none failed: the strip entry is grey, never green and not red",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "bots: OK - as of Oct 6, 1:59 PM EDT"
   },
   {
    "id": "N1",
@@ -186,50 +186,50 @@
   {
    "id": "N1",
    "name": "world allDown: the heartbeat strip entry is RED, never green \"OK\"",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "heartbeat: OK - as of Oct 6, 1:59 PM EDT"
   },
   {
    "id": "N1",
    "name": "world allDown: the badge in the Health panel line is not green either",
-   "status": "PASS",
+   "status": "FAIL",
    "why": ""
   },
   {
    "id": "N1",
    "name": "one window down out of the rest: the heartbeat entry is grey (never green)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "heartbeat: OK - as of Oct 6, 1:59 PM EDT"
   },
   {
    "id": "N1",
    "name": "a fresh heartbeat file that lists no window at all: red",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "heartbeat: OK - as of Oct 6, 1:59 PM EDT"
   },
   {
    "id": "N3",
    "name": "housekeeping: last report 40 days old (Aug 27): the panel badge is red and says /OLD/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Reported - as of Oct 6, 1:00 PM EDT"
   },
   {
    "id": "N3",
    "name": "housekeeping: last report 40 days old (Aug 27): the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "housekeeping: OK - as of Oct 6, 1:00 PM EDT"
   },
   {
    "id": "N3",
    "name": "housekeeping: last report dated in the future (Oct 9): the panel badge is red and says /BAD CLOCK/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Reported - as of Oct 6, 1:00 PM EDT"
   },
   {
    "id": "N3",
    "name": "housekeeping: last report dated in the future (Oct 9): the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "housekeeping: OK - as of Oct 6, 1:00 PM EDT"
   },
   {
    "id": "N3",
@@ -240,14 +240,14 @@
   {
    "id": "N3",
    "name": "housekeeping: items_cleaned is negative: the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Reported - as of Oct 6, 1:00 PM EDT"
   },
   {
    "id": "N3",
    "name": "housekeeping: items_cleaned is negative: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "housekeeping: OK - as of Oct 6, 1:00 PM EDT"
   },
   {
    "id": "N3",
@@ -258,26 +258,26 @@
   {
    "id": "N3",
    "name": "health: 2 of 10 checks passed with the daily report sent Jun 18: the panel badge is red and says /OLD/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Report - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
    "name": "health: 2 of 10 checks passed with the daily report sent Jun 18: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "health: OK - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
    "name": "health: 14 of 10 checks passed (140 percent): the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Report - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
    "name": "health: 14 of 10 checks passed (140 percent): the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "health: OK - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
@@ -288,14 +288,14 @@
   {
    "id": "N3",
    "name": "health: daily report dated in the future: the panel badge is red and says /BAD CLOCK/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Report - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
    "name": "health: daily report dated in the future: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "health: OK - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
@@ -306,14 +306,14 @@
   {
    "id": "N3",
    "name": "health: -1 of 10 checks passed: the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Report - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
    "name": "health: -1 of 10 checks passed: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "health: OK - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
@@ -324,128 +324,128 @@
   {
    "id": "N3",
    "name": "health: 0 of 10 checks passed: the panel badge is red and says /FAILING/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Report - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
    "name": "health: 0 of 10 checks passed: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "health: OK - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
    "name": "health: 2 of 10 checks passed with a report sent today (not impossible, but not good): the panel badge is grey and says /PARTIAL/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Report - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
    "name": "health: 2 of 10 checks passed with a report sent today (not impossible, but not good): the strip entry is grey, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "health: OK - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
    "name": "miamidade: counted 450 of 300: the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Counted - as of Oct 6, 1:40 PM EDT"
   },
   {
    "id": "N3",
    "name": "miamidade: counted 450 of 300: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "miamidade: OK - as of Oct 6, 1:40 PM EDT"
   },
   {
    "id": "N3",
    "name": "miamidade: counted 450 of 300: the impossible number is not shown as a plain value",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Counted - as of Oct 6, 1:40 PM EDT\n\nCounted so far: 450 of 300.\n\nEach link opens that site's proof file in Drive. They are plain text files, not the Orange Tree portal. Open the full index document.\n\n"
   },
   {
    "id": "N3",
    "name": "miamidade: counted -3 of 300: the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Counted - as of Oct 6, 1:40 PM EDT"
   },
   {
    "id": "N3",
    "name": "miamidade: counted -3 of 300: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "miamidade: OK - as of Oct 6, 1:40 PM EDT"
   },
   {
    "id": "N3",
    "name": "miamidade: counted -3 of 300: the impossible number is not shown as a plain value",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Counted - as of Oct 6, 1:40 PM EDT\n\nCounted so far: -3 of 300.\n\nEach link opens that site's proof file in Drive. They are plain text files, not the Orange Tree portal. Open the full index document.\n\n0"
   },
   {
    "id": "N3",
    "name": "miamidade: counted 7.5 of 300: the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Counted - as of Oct 6, 1:40 PM EDT"
   },
   {
    "id": "N3",
    "name": "miamidade: counted 7.5 of 300: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "miamidade: OK - as of Oct 6, 1:40 PM EDT"
   },
   {
    "id": "N3",
    "name": "miamidade: counted 7.5 of 300: the impossible number is not shown as a plain value",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Counted - as of Oct 6, 1:40 PM EDT\n\nCounted so far: 7.5 of 300.\n\nEach link opens that site's proof file in Drive. They are plain text files, not the Orange Tree portal. Open the full index document.\n\n"
   },
   {
    "id": "N3",
    "name": "tokens: burn rate -5 tokens per hour: the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Reporting - as of Oct 6, 1:58 PM EDT"
   },
   {
    "id": "N3",
    "name": "tokens: burn rate -5 tokens per hour: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "tokens: OK - as of Oct 6, 1:58 PM EDT"
   },
   {
    "id": "N3",
    "name": "tokens: burn rate -5 tokens per hour: the impossible number is not shown as a plain value",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Token monitor (bot CU-TokenMonitor-Hourly)\n\nReporting - as of Oct 6, 1:58 PM EDT\n\nBurn rate per hour: -5 tokens. This window used: 33%. This week used: 61%. Window resets: Oct 6, 5:00 PM EDT.\n\nProgram"
   },
   {
    "id": "N3",
    "name": "tokens: window used 250 percent: the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Reporting - as of Oct 6, 1:58 PM EDT"
   },
   {
    "id": "N3",
    "name": "tokens: window used 250 percent: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "tokens: OK - as of Oct 6, 1:58 PM EDT"
   },
   {
    "id": "N3",
    "name": "tokens: window used 250 percent: the impossible number is not shown as a plain value",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Token monitor (bot CU-TokenMonitor-Hourly)\n\nReporting - as of Oct 6, 1:58 PM EDT\n\nBurn rate per hour: 41000 tokens. This window used: 250%. This week used: 61%. Window resets: Oct 6, 5:00 PM EDT.\n\nPro"
   },
   {
    "id": "N3",
    "name": "tokens: week used -2 percent: the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Reporting - as of Oct 6, 1:58 PM EDT"
   },
   {
    "id": "N3",
    "name": "tokens: week used -2 percent: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "tokens: OK - as of Oct 6, 1:58 PM EDT"
   },
   {
    "id": "N3",
@@ -456,14 +456,14 @@
   {
    "id": "N3",
    "name": "tokens: a program with -10 tokens today: the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | Reporting - as of Oct 6, 1:58 PM EDT"
   },
   {
    "id": "N3",
    "name": "tokens: a program with -10 tokens today: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "tokens: OK - as of Oct 6, 1:58 PM EDT"
   },
   {
    "id": "N3",
@@ -474,14 +474,14 @@
   {
    "id": "N3",
    "name": "state: open_items is -1: the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | State - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
    "name": "state: open_items is -1: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "state: OK - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
@@ -492,14 +492,14 @@
   {
    "id": "N3",
    "name": "state: blocked is 2.5: the panel badge is red and says /IMPOSSIBLE/",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5b ok | State - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
    "name": "state: blocked is 2.5: the strip entry is red, never green",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "state: OK - as of Oct 6, 1:30 PM EDT"
   },
   {
    "id": "N3",
@@ -540,38 +540,38 @@
   {
    "id": "N2",
    "name": "world hung (every 2 minutes, started 3 days ago): the bot line says \"RUNNING FOR 72 HOURS - CHECK\"",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Bot CU-Inbox-Job-Watcher: RUNNING NOW - the scheduler says this task is running (result code 267009 means running, not failed) (last ran Oct 3, 1:55 PM EDT). Scheduled every 2 minutes (read from the task schedule)."
   },
   {
    "id": "N2",
    "name": "world hung: the line carries the start time (the last-run time, Oct 3)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Bot CU-Inbox-Job-Watcher: RUNNING NOW - the scheduler says this task is running (result code 267009 means running, not failed) (last ran Oct 3, 1:55 PM EDT). Scheduled every 2 minutes (read from the task schedule)."
   },
   {
    "id": "N2",
    "name": "world hung: the colour is the strong grey-red class, not neutral blue and not plain",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st neu"
   },
   {
    "id": "N2",
    "name": "world hung: the line no longer says \"RUNNING NOW\"",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Bot CU-Inbox-Job-Watcher: RUNNING NOW - the scheduler says this task is running (result code 267009 means running, not failed) (last ran Oct 3, 1:55 PM EDT). Scheduled every 2 minutes (read from the task schedule)."
   },
   {
    "id": "N2",
    "name": "world hung: the RAMBO card carries the same warning, not blue",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st neu | State of LLM-01: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Inbox-Job-Watcher is not fine: RUNNING NOW - the scheduler says this task is running (result code 267009 means running,"
   },
   {
    "id": "N2",
    "name": "world hung: the strip entry for bots is red",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "bots: OK - as of Oct 6, 1:59 PM EDT"
   },
   {
    "id": "N2",
@@ -582,8 +582,8 @@
   {
    "id": "N2",
    "name": "running 7 minutes, every 2 minutes: STUCK, in minutes",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st neu | Bot CU-Inbox-Job-Watcher: RUNNING NOW - the scheduler says this task is running (result code 267009 means running, not failed) (last ran Oct 6, 1:53 PM EDT). Sc"
   },
   {
    "id": "N2",
@@ -594,14 +594,14 @@
   {
    "id": "N2",
    "name": "running 90 minutes, no interval known: STUCK (over 1 hour), \"1 HOUR\"",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st neu | Bot CU-Inbox-Job-Watcher: RUNNING NOW - the scheduler says this task is running (result code 267009 means running, not failed) (last ran Oct 6, 12:30 PM EDT)."
   },
   {
    "id": "N2",
    "name": "running 5 hours, no interval known: STUCK, \"5 HOURS\"",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st neu | Bot CU-Inbox-Job-Watcher: RUNNING NOW - the scheduler says this task is running (result code 267009 means running, not failed) (last ran Oct 6, 8:58 AM EDT)."
   },
   {
    "id": "N2",
@@ -612,20 +612,20 @@
   {
    "id": "N2",
    "name": "running 3.5 hours, hourly bot: STUCK",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st neu | Bot CU-Inbox-Job-Watcher: RUNNING NOW - the scheduler says this task is running (result code 267009 means running, not failed) (last ran Oct 6, 10:30 AM EDT). S"
   },
   {
    "id": "N2",
    "name": "scheduler state Running with result 0, started 2 days ago, every 2 minutes: STUCK too",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st bad | Bot CU-Inbox-Job-Watcher: LATE - last ran Oct 4, 2:00 PM EDT, more than 1.5 x its interval ago. Scheduled every 2 minutes (read from the task schedule)."
   },
   {
    "id": "N2",
    "name": "running with no start time at all: neutral, and says how long cannot be judged",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st neu | Bot CU-Inbox-Job-Watcher: RUNNING NOW - the scheduler says this task is running (result code 267009 means running, not failed). Scheduled every 2 minutes (read "
   },
   {
    "id": "N2",
@@ -636,38 +636,38 @@
   {
    "id": "N14",
    "name": "CHIEF card, bot running now: one answer: colour neu, the sentence agrees and never says \"not fine\" (while its own text says \"not failed\")",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st neu | State of CHIEF: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Orchestrator is not fine: RUNNING NOW - the scheduler says this task is running (result code 267009 means running, not failed) (last ran Oct 6, 1:59 PM EDT). Scheduled every 10 min"
   },
   {
    "id": "N14",
    "name": "CHIEF card, bot queued: one answer: colour neu, the sentence agrees and never says \"not fine\" (while its own text says \"not failed\")",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st bad | State of CHIEF: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Orchestrator is not fine: NO DATA - the scheduler state is \"queued\" (last ran Oct 6, 1:54 PM EDT)"
   },
   {
    "id": "N14",
    "name": "CHIEF card, bot not yet run: one answer: colour unp, the sentence agrees and never says \"not fine\" (while its own text says \"not failed\")",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st unp | State of CHIEF: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Orchestrator is not fine: NOT YET RUN - the scheduler says this task has not run yet (result code 267011). Scheduled every 10 minutes (read from the task schedule)."
   },
   {
    "id": "N14",
    "name": "CHIEF card, bot failed: one answer: colour bad, the sentence agrees",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st bad | State of CHIEF: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Orchestrator is not fine: FAILED - the last run (Oct 6, 1:54 PM EDT) ended with result code 1. Scheduled every 10 minutes (read from the task schedule)."
   },
   {
    "id": "N14",
    "name": "CHIEF card, bot disabled: one answer: colour bad, the sentence agrees",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st bad | State of CHIEF: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Orchestrator is not fine: DISABLED - the scheduler says this task is switched off (last ran Oct 6, 1:54 PM EDT). Scheduled every 10 minutes (read from the task schedule)."
   },
   {
    "id": "N14",
    "name": "CHIEF card, bot stuck: one answer: colour stk, the sentence agrees",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st neu | State of CHIEF: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Orchestrator is not fine: RUNNING NOW - the scheduler says this task is running (result code 267009 means running, not failed) (last ran Oct 6, 9:00 AM EDT). Scheduled every 10 min"
   },
   {
    "id": "N14",
@@ -684,14 +684,14 @@
   {
    "id": "N17",
    "name": "scheduler state Queued: the bot line says QUEUED in neutral blue, not red NO DATA",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "v5st bad | Bot CU-Propagation-Check: NO DATA - the scheduler state is \"queued\" (last ran Oct 6, 1:53 PM EDT)"
   },
   {
    "id": "N17",
    "name": "scheduler state Queued: the strip entry is not red (one queued bot, none failed: grey)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "bots: OK - as of Oct 6, 1:59 PM EDT"
   },
   {
    "id": "N17",
@@ -702,62 +702,62 @@
   {
    "id": "N13",
    "name": "no data: the sentence \"no Grok bot had been built, ... asked for many times\" is inside a note labelled \"Typed note, dated 2026-10-06\" and says the page does not check it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Grok is chat only. No Grok bot has been built (asked for many times, never built). Typed note, registry brief of 2026-10-06: Grok chat has been unproven for 31 days (not checked by this page). Next step: RAMBO sends Grok one test message and writes the result into the heartbeat file; until then this"
   },
   {
    "id": "N13",
    "name": "no data: the old unlabelled sentence \"No Grok bot has been built (asked for many times, never built)\" is gone",
-   "status": "PASS",
+   "status": "FAIL",
    "why": ""
   },
   {
    "id": "N13",
    "name": "no data: the only live claim is about the heartbeat file (UP with proof, or no Grok bot is reporting UP)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLM-07 · 🔮 Grok (SuperGrok) Fabian: second opinion State: NO DATA - nothing on the PC can see this window; green only when a test reply is recorded Sanity-checks Claude with the live web. Chat only; cannot write files. Paste a Drive link to hand it a file. Grok is chat only. No Grok bot has been bu"
   },
   {
    "id": "N13",
    "name": "stale heartbeat (400 minutes): the sentence \"no Grok bot had been built, ... asked for many times\" is inside a note labelled \"Typed note, dated 2026-10-06\" and says the page does not check it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Grok is chat only. No Grok bot has been built (asked for many times, never built). Typed note, registry brief of 2026-10-06: Grok chat has been unproven for 31 days (not checked by this page). Next step: RAMBO sends Grok one test message and writes the result into the heartbeat file; until then this"
   },
   {
    "id": "N13",
    "name": "stale heartbeat (400 minutes): the old unlabelled sentence \"No Grok bot has been built (asked for many times, never built)\" is gone",
-   "status": "PASS",
+   "status": "FAIL",
    "why": ""
   },
   {
    "id": "N13",
    "name": "stale heartbeat (400 minutes): the only live claim is about the heartbeat file (UP with proof, or no Grok bot is reporting UP)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLM-07 · 🔮 Grok (SuperGrok) Fabian: second opinion State: STALE since Oct 6, 1:59 PM EDT Sanity-checks Claude with the live web. Chat only; cannot write files. Paste a Drive link to hand it a file. Grok is chat only. No Grok bot has been built (asked for many times, never built). Typed note, regist"
   },
   {
    "id": "N13",
    "name": "fresh heartbeat, BOTS without proof: the sentence \"no Grok bot had been built, ... asked for many times\" is inside a note labelled \"Typed note, dated 2026-10-06\" and says the page does not check it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Grok is chat only. No Grok bot has been built (asked for many times, never built). Typed note, registry brief of 2026-10-06: Grok chat has been unproven for 31 days (not checked by this page). Next step: RAMBO sends Grok one test message and writes the result into the heartbeat file; until then this"
   },
   {
    "id": "N13",
    "name": "fresh heartbeat, BOTS without proof: the old unlabelled sentence \"No Grok bot has been built (asked for many times, never built)\" is gone",
-   "status": "PASS",
+   "status": "FAIL",
    "why": ""
   },
   {
    "id": "N13",
    "name": "fresh heartbeat, BOTS without proof: the only live claim is about the heartbeat file (UP with proof, or no Grok bot is reporting UP)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLM-07 · 🔮 Grok (SuperGrok) Fabian: second opinion State: UP - seen Oct 6, 1:59 PM EDT Sanity-checks Claude with the live web. Chat only; cannot write files. Paste a Drive link to hand it a file. Grok is chat only. No Grok bot has been built (asked for many times, never built). Typed note, registry"
   },
   {
    "id": "N13",
    "name": "fresh heartbeat, BOTS with proof: the sentence \"no Grok bot had been built, ... asked for many times\" is inside a note labelled \"Typed note, dated 2026-10-06\" and says the page does not check it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "Grok is chat only. A Grok bot is reporting UP with proof. Typed note, registry brief of 2026-10-06: Grok chat has been unproven for 31 days (not checked by this page). Next step: RAMBO sends Grok one test message and writes the result into the heartbeat file; until then this card stays red. Pool: Su"
   },
   {
    "id": "N13",
@@ -768,74 +768,74 @@
   {
    "id": "N13",
    "name": "fresh heartbeat, BOTS with proof: the only live claim is about the heartbeat file (UP with proof, or no Grok bot is reporting UP)",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLM-07 · 🔮 Grok (SuperGrok) Fabian: second opinion State: UP - seen Oct 6, 1:59 PM EDT Sanity-checks Claude with the live web. Chat only; cannot write files. Paste a Drive link to hand it a file. Grok is chat only. A Grok bot is reporting UP with proof. Typed note, registry brief of 2026-10-06: Gro"
   },
   {
    "id": "N15",
    "name": "repair row 10 keeps \"runs 7:00 AM daily\" and its label says only \"typed note 2026-10-02\" and that no time zone was given",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "2026-10-02 AGENTS Burn-rate agent installed, runs 7:00 AM daily (typed note 2026-10-02, Eastern time) ADDED"
   },
   {
    "id": "N15",
    "name": "the words \"Eastern time\" are not attached to the typed 7:00 AM",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "2026-10-02 AGENTS Burn-rate agent installed, runs 7:00 AM daily (typed note 2026-10-02, Eastern time) ADDED"
   },
   {
    "id": "N15",
    "name": "every clock time on the page carries EDT or EST right after it, except the typed 7:00 AM, which says plainly that no zone was given",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "7:00 AM daily (typed note 2026-10-02, Eastern time) ADDED 2026-10-02 AGENTS DD site runner built, 4 defects fixed, run across 4 ca"
   },
   {
    "id": "N16",
-   "name": "LLM-06 card: \"First time only: sign in\" comes BEFORE the step that pastes (step 1 before step 2)",
-   "status": "PASS",
-   "why": ""
+   "name": "LLM-06 card: \"First time only: sign in\" comes BEFORE the step that pastes (step 4 before step 3)",
+   "status": "FAIL",
+   "why": "On the PC, open Windows Terminal. || Type codex and press Enter. || Press Ctrl+V. || First time only: double-click the desktop shortcut named \"Codex - sign in (Jorge)\" and follow the sign-in window that opens (typed from v3, UNVERIFIED on this PC)."
   },
   {
    "id": "N16",
-   "name": "CODEX card: \"First time only: sign in\" comes BEFORE the step that pastes (step 1 before step 2)",
-   "status": "PASS",
-   "why": ""
+   "name": "CODEX card: \"First time only: sign in\" comes BEFORE the step that pastes (step 0 before step 3)",
+   "status": "FAIL",
+   "why": "On the PC, open Windows Terminal. || Type codex and press Enter. || Press Ctrl+V."
   },
   {
    "id": "F14",
    "name": "the bots lead line no longer says \"Check any of them with Get-ScheduledTask\" and says the desktop executor checks them",
-   "status": "PASS",
+   "status": "FAIL",
    "why": ""
   },
   {
    "id": "F14",
    "name": "no step tells the user to open Windows Terminal or type codex",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "on, then follow these steps: On the PC, open Windows Terminal. Type codex and press Enter. Press Ctrl"
   },
   {
    "id": "F14",
    "name": "the typed addresses `codex exec \"<task>\"` and `Second-Opinion.ps1 -Prompt \"<question>\"` appear only on lines that say the desktop executor (RAMBO) runs them and you type nothing",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "card-CODEX:codex exec,card-GROK:Second-Opinion\\.ps1"
   },
   {
    "id": "F14",
    "name": "the LLM-06 card line no longer says \"type codex\"",
-   "status": "PASS",
+   "status": "FAIL",
    "why": ""
   },
   {
    "id": "N12",
    "name": "all 22 OLD PANEL warning elements (10 tab names, 10 tab labels, the PANEL and INDEX buttons) are at least 14 px",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "[[\"tab APPROVALS\",13],[\"tab SESSIONS\",13],[\"tab JOBS\",13],[\"tab CAPSULES\",13],[\"tab BRIDGES\",13],[\"tab AGENTS\",13],[\"tab USAGE\",13],[\"tab PLAUD\",13],[\"tab CLIENTS\",13],[\"tab RULES\",13],[\"corner ← PANEL (OLD\",12],[\"corner INDEX (OLD, \",12]]"
   },
   {
    "id": "N12",
    "name": "every text on the page that contains the word OLD is at least 14 px",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "[[\"A\",\"← PANEL (OLD, snapshot of 2026\",12],[\"A\",\"INDEX (OLD, snapshot of 2026-0\",12]]"
   },
   {
    "id": "N11",
@@ -845,21 +845,21 @@
   },
   {
    "id": "N11",
-   "name": "shipped data 1366x657: the RAMBO button is whole on the first screen (225-268 of 657)",
+   "name": "shipped data 1366x657: the RAMBO button is whole on the first screen (148-191 of 657)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "shipped data 1366x657: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
    "name": "shipped data 1366x657: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLMS,EXECUTORS,BOTS,HAND OFF,QUEUED,STATUS,APPROVALS"
   },
   {
    "id": "N11",
@@ -869,21 +869,21 @@
   },
   {
    "id": "N11",
-   "name": "shipped data 1280x609: the RAMBO button is whole on the first screen (225-268 of 609)",
+   "name": "shipped data 1280x609: the RAMBO button is whole on the first screen (148-191 of 609)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "shipped data 1280x609: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
    "name": "shipped data 1280x609: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLMS,EXECUTORS,BOTS,HAND OFF,QUEUED,STATUS,APPROVALS"
   },
   {
    "id": "N11",
@@ -893,39 +893,39 @@
   },
   {
    "id": "N11",
-   "name": "shipped data 1280x720: the RAMBO button is whole on the first screen (225-268 of 720)",
+   "name": "shipped data 1280x720: the RAMBO button is whole on the first screen (148-191 of 720)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "shipped data 1280x720: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
    "name": "shipped data 1280x720: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLMS,EXECUTORS,BOTS,HAND OFF,QUEUED,STATUS,APPROVALS"
   },
   {
    "id": "N11",
-   "name": "shipped data 390x844: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
-   "status": "PASS",
-   "why": ""
+   "name": "shipped data 390x844: all 18 tabs can be brought fully into view (reachable: 8 of 18)",
+   "status": "FAIL",
+   "why": "[\"LLMS\",\"EXECUTORS\",\"BOTS\",\"HAND OFF\",\"QUEUED\",\"STATUS\",\"REPAIRS\",\"MIAMI-DADE\"]"
   },
   {
    "id": "N11",
-   "name": "shipped data 390x844: the RAMBO button is whole on the first screen (297-386 of 844)",
+   "name": "shipped data 390x844: the RAMBO button is whole on the first screen (148-237 of 844)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "shipped data 390x844: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
@@ -935,21 +935,21 @@
   },
   {
    "id": "N11",
-   "name": "shipped data 1440x789: the RAMBO button is whole on the first screen (225-268 of 789)",
+   "name": "shipped data 1440x789: the RAMBO button is whole on the first screen (148-191 of 789)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "shipped data 1440x789: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
    "name": "shipped data 1440x789: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLMS,EXECUTORS,BOTS,HAND OFF,QUEUED,STATUS,APPROVALS,SESSIONS"
   },
   {
    "id": "N11",
@@ -959,21 +959,21 @@
   },
   {
    "id": "N11",
-   "name": "shipped data 1000x700: the RAMBO button is whole on the first screen (225-268 of 700)",
+   "name": "shipped data 1000x700: the RAMBO button is whole on the first screen (148-191 of 700)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "shipped data 1000x700: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
    "name": "shipped data 1000x700: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLMS,EXECUTORS,BOTS,HAND OFF,QUEUED,STATUS"
   },
   {
    "id": "N11",
@@ -983,7 +983,7 @@
   },
   {
    "id": "N11",
-   "name": "shipped data 1600x789: the RAMBO button is whole on the first screen (351-398 of 789)",
+   "name": "shipped data 1600x789: the RAMBO button is whole on the first screen (346-393 of 789)",
    "status": "PASS",
    "why": ""
   },
@@ -1001,21 +1001,21 @@
   },
   {
    "id": "N11",
-   "name": "fresh data 1366x657: the RAMBO button is whole on the first screen (225-268 of 657)",
+   "name": "fresh data 1366x657: the RAMBO button is whole on the first screen (148-191 of 657)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "fresh data 1366x657: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
    "name": "fresh data 1366x657: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLMS,EXECUTORS,BOTS,HAND OFF,QUEUED,STATUS,APPROVALS"
   },
   {
    "id": "N11",
@@ -1025,21 +1025,21 @@
   },
   {
    "id": "N11",
-   "name": "fresh data 1280x609: the RAMBO button is whole on the first screen (225-268 of 609)",
+   "name": "fresh data 1280x609: the RAMBO button is whole on the first screen (148-191 of 609)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "fresh data 1280x609: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
    "name": "fresh data 1280x609: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLMS,EXECUTORS,BOTS,HAND OFF,QUEUED,STATUS,APPROVALS"
   },
   {
    "id": "N11",
@@ -1049,39 +1049,39 @@
   },
   {
    "id": "N11",
-   "name": "fresh data 1280x720: the RAMBO button is whole on the first screen (225-268 of 720)",
+   "name": "fresh data 1280x720: the RAMBO button is whole on the first screen (148-191 of 720)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "fresh data 1280x720: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
    "name": "fresh data 1280x720: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLMS,EXECUTORS,BOTS,HAND OFF,QUEUED,STATUS,APPROVALS"
   },
   {
    "id": "N11",
-   "name": "fresh data 390x844: all 18 tabs can be brought fully into view (reachable: 18 of 18)",
-   "status": "PASS",
-   "why": ""
+   "name": "fresh data 390x844: all 18 tabs can be brought fully into view (reachable: 8 of 18)",
+   "status": "FAIL",
+   "why": "[\"LLMS\",\"EXECUTORS\",\"BOTS\",\"HAND OFF\",\"QUEUED\",\"STATUS\",\"REPAIRS\",\"MIAMI-DADE\"]"
   },
   {
    "id": "N11",
-   "name": "fresh data 390x844: the RAMBO button is whole on the first screen (297-386 of 844)",
+   "name": "fresh data 390x844: the RAMBO button is whole on the first screen (148-237 of 844)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "fresh data 390x844: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
@@ -1091,21 +1091,21 @@
   },
   {
    "id": "N11",
-   "name": "fresh data 1440x789: the RAMBO button is whole on the first screen (225-268 of 789)",
+   "name": "fresh data 1440x789: the RAMBO button is whole on the first screen (148-191 of 789)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "fresh data 1440x789: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
    "name": "fresh data 1440x789: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLMS,EXECUTORS,BOTS,HAND OFF,QUEUED,STATUS,APPROVALS,SESSIONS"
   },
   {
    "id": "N11",
@@ -1115,21 +1115,21 @@
   },
   {
    "id": "N11",
-   "name": "fresh data 1000x700: the RAMBO button is whole on the first screen (225-268 of 700)",
+   "name": "fresh data 1000x700: the RAMBO button is whole on the first screen (148-191 of 700)",
    "status": "PASS",
    "why": ""
   },
   {
    "id": "N11",
    "name": "fresh data 1000x700: the bar scrolls sideways, so a scroll bar is drawn (17 px) and a plain hint of at least 14 px is shown under it",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "{\"bar\":17,\"hint\":\"\",\"px\":0}"
   },
   {
    "id": "N11",
    "name": "fresh data 1000x700: without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen",
-   "status": "PASS",
-   "why": ""
+   "status": "FAIL",
+   "why": "LLMS,EXECUTORS,BOTS,HAND OFF,QUEUED,STATUS"
   },
   {
    "id": "N11",
@@ -1139,7 +1139,7 @@
   },
   {
    "id": "N11",
-   "name": "fresh data 1600x789: the RAMBO button is whole on the first screen (351-398 of 789)",
+   "name": "fresh data 1600x789: the RAMBO button is whole on the first screen (346-393 of 789)",
    "status": "PASS",
    "why": ""
   },

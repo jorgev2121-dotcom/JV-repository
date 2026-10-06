@@ -3,8 +3,16 @@ M2-writer-counts-as-proof: WORLDS: 126 of 129 pass
 M3-fixed-15-minute-limit: WORLDS: 126 of 129 pass
 M4-late-bot-still-green: WORLDS: 128 of 129 pass
 M5-vtes-link-always: WORLDS: 123 of 129 pass
-M6-267009-is-failed: FIXES-R4: 74 of 75 pass (/tmp/v5vt/all/mut/M6-267009-is-failed/package)
-M7-housekeeping-green-when-fresh: FIXES-R4: 74 of 75 pass (/tmp/v5vt/all/mut/M7-housekeeping-green-when-fresh/package)
-M8-daily-bot-capped-at-an-hour: FIXES-R4: 71 of 75 pass (/tmp/v5vt/all/mut/M8-daily-bot-capped-at-an-hour/package)
-M9-two-answers-on-a-card: FIXES-R4: 71 of 75 pass (/tmp/v5vt/all/mut/M9-two-answers-on-a-card/package)
-M10-search-reads-state-lines: FIXES-R4: 72 of 75 pass (/tmp/v5vt/all/mut/M10-search-reads-state-lines/package)
+M6-267009-is-failed: FIXES-R4: 74 of 75 pass (/tmp/claude-0/-home-user-JV-repository/09753356-e81e-5c9c-b4cf-b7a3cc1e55bc/scratchpad/mutwork2/M6-267009-is-failed/package)
+M7-housekeeping-green-when-fresh: FIXES-R4: 74 of 75 pass (/tmp/claude-0/-home-user-JV-repository/09753356-e81e-5c9c-b4cf-b7a3cc1e55bc/scratchpad/mutwork2/M7-housekeeping-green-when-fresh/package)
+M8-daily-bot-capped-at-an-hour: FIXES-R4: 71 of 75 pass (/tmp/claude-0/-home-user-JV-repository/09753356-e81e-5c9c-b4cf-b7a3cc1e55bc/scratchpad/mutwork2/M8-daily-bot-capped-at-an-hour/package)
+M9-two-answers-on-a-card: FIXES-R4: 71 of 75 pass (/tmp/claude-0/-home-user-JV-repository/09753356-e81e-5c9c-b4cf-b7a3cc1e55bc/scratchpad/mutwork2/M9-two-answers-on-a-card/package)
+M10-search-reads-state-lines: FIXES-R4: 72 of 75 pass (/tmp/claude-0/-home-user-JV-repository/09753356-e81e-5c9c-b4cf-b7a3cc1e55bc/scratchpad/mutwork2/M10-search-reads-state-lines/package)
+M11-bots-strip-ignores-failed-bots: FIXES R5: 184 of 191 pass
+M12-heartbeat-green-while-all-down: FIXES R5: 190 of 191 pass
+M13-running-task-never-stuck: FIXES R5: 179 of 191 pass
+M14-impossible-count-green: FIXES R5: 185 of 191 pass
+M15-personal-data-guard-removed: FIXES R5: 183 of 191 pass
+M16-tab-hint-never-shown: FIXES R5: 179 of 191 pass
+M17-queued-is-no-data: FIXES R5: 188 of 191 pass
+M18-old-report-time-trusted: FIXES R5: 187 of 191 pass
