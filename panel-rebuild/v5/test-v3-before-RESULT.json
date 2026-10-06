@@ -89,7 +89,7 @@
   {
    "id": 9,
    "what": "packet stamp is Eastern short form with the zone",
-   "v3": "v3: \"e Desktop)   10/6/2026, 6:00:32 PM\"",
+   "v3": "v3: \"e Desktop)   10/6/2026, 6:00:31 PM\"",
    "v5": "v5: \"Code Desktop)   Oct 6, 2:00 PM EDT\"",
    "v5_fixed": true
   },

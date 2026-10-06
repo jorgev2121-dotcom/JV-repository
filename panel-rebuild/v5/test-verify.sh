@@ -7,8 +7,9 @@
 # PowerShell's own cache lives under HOME=<work>/home, outside the fixture, and is not counted. Telemetry and update checks are switched off by the environment variables below.
 # Fix round 7: every scenario runs under `timeout 60` (a hang is exit 124 and fails). The expected answer of every scenario is written on its V line in this file, before any run.
 # Expectations are built from the package that is there NOW (file count from MANIFEST.sha256); no hash or count is hard-coded.
-# Environment: PKG (package folder), VSRC (the VERIFY script to test, default the one beside this file), AFTERSW (the switch name, default -AfterWriters).
-PWD_DIR=${1:?pwsh dir}; W=${2:?work dir needed}; HERE=$(cd "$(dirname "$0")" && pwd); PKG=${PKG:-$HERE/package}
+# Fix round 8 (TRK-2026-9910-B): scenarios X01-X92 added (exit codes, links never counted, UTF-16 words, non-ASCII refused, control characters escaped, status_dir_url). NOPATH, OKLINEONLY and LASTO are new harness switches.
+# Environment: DOCDIR (folder holding the two documents the text checks read, default this folder), PKG (package folder), VSRC (the VERIFY script to test, default the one beside this file), AFTERSW (the switch name, default -AfterWriters).
+PWD_DIR=${1:?pwsh dir}; W=${2:?work dir needed}; HERE=$(cd "$(dirname "$0")" && pwd); DOCDIR=${DOCDIR:-$HERE}; PKG=${PKG:-$HERE/package}
 REALV3=$(cd "$HERE/../v3-live" && pwd)/VTES-LLM-LAUNCHER_v3.html
 V3SHA=28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6f6c333411fe3
 VER=$W/VERIFY-v5.ps1
@@ -27,27 +28,29 @@ mk() { rm -rf "$W/fix"; mkdir -p "$W/fix/Desktop/old-stuff" "$W/fix/Docs"; cp "$
   cp -a "$PKG" "$W/fix/Docs/v5"; chmod -R a+rX "$W/fix"; chmod -R u+w "$W/fix"; N=$W/fix/Docs/v5; }
 # "nobody" is simulated by dropping the read-override rights (CAP_DAC_OVERRIDE and CAP_DAC_READ_SEARCH) from the bounding set: the process is still root but cannot read a chmod 000 file or folder.
 # (A setpriv --reuid=nobody run could not start here: the scratch path is under a root-only folder, and an exec after a uid change cannot resolve its own path.)
-asnobody() { timeout 60 setpriv --bounding-set -dac_override,-dac_read_search "$PW" -NoProfile -File "$VER" "$@"; }
-asroot() { timeout 60 "$PW" -NoProfile -File "$VER" "$@"; }
-NOTS=(); MAXSEC=58
+asnobody() { timeout 60 setpriv --bounding-set -dac_override,-dac_read_search "$PW" -NoProfile -File "$VER" "$@" </dev/null; }
+asroot() { timeout 60 "$PW" -NoProfile -File "$VER" "$@" </dev/null; }
+NOTS=(); MAXSEC=58; NOPATH=; OKLINEONLY=; LASTO=
 # V <label> <expected exit> <must-contain...>  runs as root unless AS=nobody; NOTS=(...) lists text that must NOT appear; checks exit code, text, time, and that nothing in the fixture changed.
 # A "scenario" is one V call. It counts as expected only if every assertion of that call passed. It counts as identical only if the whole fixture was the same before and after.
 V() { local lab=$1 want=$2; shift 2; local f0=$FAIL; snap $W/b.snap; local O t0 t1 el; t0=$(date +%s)
-  if [ "$AS" = nobody ]; then O=$(asnobody -Path "$ARGP" $EXTRA 2>&1; echo "exit=$?"); else O=$(asroot -Path "$ARGP" $EXTRA 2>&1; echo "exit=$?"); fi
+  local PA=(-Path "$ARGP"); [ -n "$NOPATH" ] && PA=()   # round 8: NOPATH=1 leaves -Path out altogether
+  if [ "$AS" = nobody ]; then O=$(asnobody "${PA[@]}" $EXTRA 2>&1; echo "exit=$?"); else O=$(asroot "${PA[@]}" $EXTRA 2>&1; echo "exit=$?"); fi; LASTO=$O
   t1=$(date +%s); el=$((t1-t0)); echo "$O" | grep -v '^Folder:\|^MANIFEST.sha256 SHA' | sed 's/^/    | /' | cut -c1-230; snap $W/a.snap
   has "$O" "exit=$want"; chk "$lab: exit code $want" $?; for m in "$@"; do has "$O" "$m"; chk "$lab: prints \"$m\"" $?; done
   for m in "${NOTS[@]}"; do hasnot "$O" "$m"; chk "$lab: does NOT print \"$m\"" $?; done
-  if [ "$want" != "0" ]; then hasnot "$O" "OK: all"; chk "$lab: does NOT say OK" $?; hasnot "$O" "OK (after writers)"; chk "$lab: does NOT say OK (after writers)" $?; fi
+  if [ "$want" != "0" ] && [ -n "$OKLINEONLY" ]; then ! echo "$O" | grep -q '^OK'; chk "$lab: no output line starts with OK (a file name cannot fake one)" $?; hasnot "$O" "OK (after writers)"; chk "$lab: does NOT say OK (after writers)" $?
+  elif [ "$want" != "0" ]; then hasnot "$O" "OK: all"; chk "$lab: does NOT say OK" $?; hasnot "$O" "OK (after writers)"; chk "$lab: does NOT say OK (after writers)" $?; fi
   hasnot "$O" "Nothing was written anywhere"; chk "$lab: does not claim \"Nothing was written anywhere\" (flaw N18: a script cannot know that)" $?
   [ "$el" -le "$MAXSEC" ]; chk "$lab: finished in $el s (limit $MAXSEC s, never hangs)" $?
   same $W/b.snap $W/a.snap; local idok=$?; chk "$lab: VERIFY wrote nothing (whole fixture identical before and after)" $idok
   SC=$((SC+1)); [ "$FAIL" = "$f0" ] && SCOK=$((SCOK+1)) || BADLIST="$BADLIST $lab"; [ $idok = 0 ] && SCID=$((SCID+1))
   echo "SCENARIO $lab: $([ "$FAIL" = "$f0" ] && echo 'AS EXPECTED' || echo 'NOT AS EXPECTED'); fixture identical before and after: $([ $idok = 0 ] && echo YES || echo NO)"
-  NOTS=(); }
+  NOTS=(); OKLINEONLY=; }
 GOODJSON='{ "schema": 1, "at": "2026-10-06T14:00:00-04:00", "writer": "test writer" }'
 DW='window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.'
 okdata() { printf '%s%s = %s;\n' "$DW" "$1" "$GOODJSON" > "$N/data/vtes5-$1.js"; }
-okall() { for f in heartbeat bots state health tokens housekeeping miamidade; do okdata $f; done; printf 'window.VTES5_CONFIG = { "status_dir_url": "file:///C:/x/" };\n' > "$N/vtes5-config.js"; }
+okall() { for f in heartbeat bots state health tokens housekeeping miamidade; do okdata $f; done; printf 'window.VTES5_CONFIG = { "status_dir_url": "status/" };\n' > "$N/vtes5-config.js"; }
 setdata() { printf '%s' "$2" > "$N/data/vtes5-$1.js"; }   # exact bytes, no added newline
 NLC=$'\n'; AS=; EXTRA=; AW=${AFTERSW:--AfterWriters}
 echo "PowerShell: $("$PW" -NoProfile -c '$PSVersionTable.PSVersion.ToString()'); real v3: $(sha256sum "$REALV3" | cut -c1-64); package files in the manifest: $NF (of which 8 are data or settings files)"
@@ -166,8 +169,8 @@ echo "== R07b a named pipe in place of a data file, WITH $AW: refused without op
 echo "== R07c an EXTRA named pipe in the folder: reported, never opened"; mk; mkfifo $N/extra.pipe; ARGP=$N; V R07c 1 "EXTRA FILE: extra.pipe is a named pipe and is not part of the package (not opened)"
 echo "== R07d a unix socket in place of a package file"; mk; rm $N/vtes5-live.js; python3 -c "import socket,sys,os; os.chdir(sys.argv[1]); s=socket.socket(socket.AF_UNIX); s.bind('vtes5-live.js')" $N; ARGP=$N; V R07d 1 "NOT A PLAIN FILE: vtes5-live.js is a socket"
 echo "== R07e a device file (a copy of the null device) in place of a package file"; mk; rm $N/vtes5-live.js; if mknod $N/vtes5-live.js c 1 3 2>/dev/null; then ARGP=$N; V R07e 1 "NOT A PLAIN FILE: vtes5-live.js is a device"; else echo "  SKIPPED R07e: mknod is not permitted here (not counted as a scenario)"; fi
-echo "== R08 (S57) a named pipe as MANIFEST.sha256: refused without opening, exit 1, no hang"; mk; rm $N/MANIFEST.sha256; mkfifo $N/MANIFEST.sha256; ARGP=$N; V R08 1 "PROBLEMS (1)" "MANIFEST.sha256 is a named pipe, not a plain file. It was not followed and not opened."
-echo "== R09 (S65) MANIFEST.sha256 as a symbolic link to a good copy: PROBLEMS, not followed"; mk; cp $N/MANIFEST.sha256 $W/fix/Docs/real-manifest; rm $N/MANIFEST.sha256; ln -s $W/fix/Docs/real-manifest $N/MANIFEST.sha256; ARGP=$N; V R09 1 "PROBLEMS (1)" "MANIFEST.sha256 is a link, not a plain file. It was not followed and not opened."
+echo "== R08 (S57) a named pipe as MANIFEST.sha256: refused without opening, exit 1, no hang"; mk; rm $N/MANIFEST.sha256; mkfifo $N/MANIFEST.sha256; ARGP=$N; V R08 1 "PROBLEMS (1)" "MANIFEST.sha256 is a named pipe, not a plain file. It was not opened."
+echo "== R09 (S65) MANIFEST.sha256 as a symbolic link to a good copy: PROBLEMS, not followed"; mk; cp $N/MANIFEST.sha256 $W/fix/Docs/real-manifest; rm $N/MANIFEST.sha256; ln -s $W/fix/Docs/real-manifest $N/MANIFEST.sha256; ARGP=$N; V R09 1 "PROBLEMS (1)" "MANIFEST.sha256 is a link, not a plain file. It was not opened."
 echo "== R09b MANIFEST.sha256 as a dangling link: PROBLEMS (type is checked before it is followed)"; mk; rm $N/MANIFEST.sha256; ln -s $W/fix/Docs/nowhere $N/MANIFEST.sha256; ARGP=$N; V R09b 1 "MANIFEST.sha256 is a link"
 echo "== R09c MANIFEST.sha256 is a folder: cannot check, exit 2"; mk; rm $N/MANIFEST.sha256; mkdir $N/MANIFEST.sha256; ARGP=$N; V R09c 2 "CANNOT CHECK" "a folder has that name"
 echo "== R09d MANIFEST.sha256 saved as UTF-16: cannot check, exit 2 (NUL bytes)"; mk; python3 - "$N/MANIFEST.sha256" <<'PY3'
@@ -228,7 +231,7 @@ echo "== R17b settings file with status_dir_url as a number; R17c without status
 mk; printf 'window.VTES5_CONFIG = { "other": "x" };\n' > $N/vtes5-config.js; V R17c 1 'vtes5-config.js must hold status_dir_url as a text string'
 mk; printf 'window.VTES5_CONFIG = { "status_dir_url": null };\n' > $N/vtes5-config.js; V R17d 1 'vtes5-config.js must hold status_dir_url as a text string'
 mk; printf 'window.VTES5_CONFIG = { "status_dir_url": {"a":1} };\n' > $N/vtes5-config.js; V R17e 1 'vtes5-config.js must hold status_dir_url as a text string'; EXTRA=
-echo "== R17f settings file: a valid string value (with and without the comment line, no trailing LF) is accepted WITH $AW"; mk; printf 'window.VTES5_CONFIG = { "status_dir_url": "file:///C:/Users/JV/status/" };' > $N/vtes5-config.js; ARGP=$N; EXTRA=$AW; V R17f 0 "changed by a PC writer (passes the strict shape check): vtes5-config.js"
+echo "== R17f settings file: a valid string value (with and without the comment line, no trailing LF) is accepted WITH $AW"; mk; printf 'window.VTES5_CONFIG = { "status_dir_url": "status/" };' > $N/vtes5-config.js; ARGP=$N; EXTRA=$AW; V R17f 0 "changed by a PC writer (passes the strict shape check): vtes5-config.js"
 mk; printf '/* a note */\nwindow.VTES5_CONFIG = { "status_dir_url": "" };\n' > $N/vtes5-config.js; V R17g 0 "changed by a PC writer (passes the strict shape check): vtes5-config.js"
 echo "== R17h settings file: a comment that closes early and then runs code; a script line before it"; mk; printf '/* a */ fetch(1); /* b */\nwindow.VTES5_CONFIG = { "status_dir_url": "" };\n' > $N/vtes5-config.js; V R17h 1 'vtes5-config.js is not the one assignment "window.VTES5_CONFIG = {...};"'
 mk; printf 'fetch(1);\nwindow.VTES5_CONFIG = { "status_dir_url": "" };\n' > $N/vtes5-config.js; V R17i 1 'vtes5-config.js is not the one assignment'
@@ -267,17 +270,17 @@ mk; setdata state "${DW}state = $GOODJSON
 mk; setdata state "${DW}state = $GOODJSON;
 // end
 "; V R19e 1 'data\vtes5-state.js'; EXTRA=
-echo "== R20 text and escapes WITH $AW: UTF-8 letters, escapes and a pretty-printed multi-line object (LF only) are accepted; invalid UTF-8 is refused"; mk; ARGP=$N; EXTRA=$AW
+echo "== R20 text and escapes WITH $AW: ASCII text with \u escapes and a pretty-printed multi-line object (LF only) are accepted (round 8: a real accent byte is refused, see X40); invalid UTF-8 is refused as not plain ASCII"; mk; ARGP=$N; EXTRA=$AW
 python3 - "$N/data/vtes5-state.js" <<'PY3'
 import sys
-open(sys.argv[1],'wb').write(('window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {\n  "schema": 1,\n  "name": "Jos\u00e9 \\u00e9 \\n \\"q\\" \\\\ \\/",\n  "list": [1, 2.5, -3e2, true, false, null, {"x": []}],\n  "empty": {}\n};\n').encode('utf-8'))
+open(sys.argv[1],'wb').write(('window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {\n  "schema": 1,\n  "name": "Jose \\u00e9 \\n \\"q\\" \\\\ \\/",\n  "list": [1, 2.5, -3e2, true, false, null, {"x": []}],\n  "empty": {}\n};\n').encode('utf-8'))
 PY3
 V R20a 0 "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"
 mk; python3 - "$N/data/vtes5-state.js" <<'PY3'
 import sys
 open(sys.argv[1],'wb').write(b'window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {"a":"\xc3\x28"};\n')
 PY3
-V R20b 1 'data\vtes5-state.js is not valid UTF-8'
+V R20b 1 'data\vtes5-state.js contains characters that are not plain ASCII'
 mk; python3 - "$N/data/vtes5-state.js" <<'PY3'
 import sys
 open(sys.argv[1],'wb').write(b'window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {"a":"\x01"};\n')
@@ -304,6 +307,166 @@ echo "== R27 a path with .. and the switch: refused, exit 2"; mk; ARGP="$W/fix/D
 echo "== R28 a hidden extra file and a hidden extra folder (dot names)"; mk; echo hi > $N/.hidden; mkdir $N/.hid-dir; ARGP=$N; V R28 1 "EXTRA FILE: .hidden" "EXTRA FOLDER: .hid-dir"
 echo "== R29 a big extra file (200 MB) is listed as EXTRA but never read or hashed (fast)"; mk; truncate -s 200M $N/big.bin; ARGP=$N; MAXSEC=12; V R29 1 "EXTRA FILE: big.bin is not part of the package"; MAXSEC=58
 echo "== R30 the unreadable data folder run as root (root can read it): a chmod 000 folder is still listed fine, so this is OK"; mk; chmod 000 $N/data; ARGP=$N; V R30 0 "OK: all $NF of $NF"; chmod 755 $N/data
+# ---------------- fix round 8: new scenarios (X01 ...). The expected answer is written on each V line, BEFORE any run. ----------------
+setcfg() { printf 'window.VTES5_CONFIG = { "status_dir_url": %s };\n' "$1" > "$N/vtes5-config.js"; }   # $1 = the JSON text of the value, quotes included
+NOTLINKCOUNT=("package files are identical" "not followed")
+# ===== F5: exit codes. A wrong switch and a missing -Path are refused by PowerShell itself with exit 1; a relative path, a missing folder: exit 2 (VERIFY's own)
+echo "== X01 (F5) a wrong switch: PowerShell itself refuses, exit 1, and it names the switch"; mk; ARGP=$N; EXTRA="-Bogus"; NOTS=("CANNOT CHECK" "PROBLEMS"); V X01 1 "Bogus"
+echo "== X02 (F5) a second wrong switch spelling, together with the right switch: exit 1"; mk; ARGP=$N; EXTRA="$AW -Nonsense"; NOTS=("PROBLEMS"); V X02 1 "Nonsense"
+echo "== X03 (F5) no -Path at all (no keyboard input here): PowerShell itself refuses, exit 1, and it names Path"; mk; ARGP=$N; NOPATH=1; EXTRA=; NOTS=("CANNOT CHECK" "PROBLEMS"); V X03 1 "Path"; NOPATH=
+echo "== X04 (F5) a relative path: VERIFY's own exit 2, CANNOT CHECK"; mk; ARGP=Docs/v5; V X04 2 "CANNOT CHECK" "is not a full path"
+echo "== X05 (F5) a missing folder: VERIFY's own exit 2, CANNOT CHECK"; mk; ARGP=$W/fix/Docs/not-there; V X05 2 "CANNOT CHECK" "does not exist"
+echo "== X06 (F5) the header states exactly these three exit codes (a text check on the script)"
+grep -q '^#   Exit codes (each one is tested): 0 = OK. 1 = ' "$VER"; chk "X06a: the header has an Exit codes line" $?
+grep -q 'PowerShell itself' "$VER" && sed -n '1,20p' "$VER" | grep -q 'wrong switch' && sed -n '1,20p' "$VER" | grep -q 'no -Path'; chk "X06b: the header says a wrong switch and a missing -Path are refused by PowerShell itself (exit 1)" $?
+sed -n '1,20p' "$VER" | grep -q 'relative path'; chk "X06c: the header says a relative path is exit 2" $?
+! sed -n '1,20p' "$VER" | grep -q 'or a wrong switch)'; chk "X06d: the old false sentence (wrong switch = exit 2) is gone from the header" $?
+# ===== F6: a link anywhere in the answer means NO count of identical files is printed
+echo "== X10 (F6) the folder ITSELF is a link: exit 1, LINK IN PATH, files were read through it, no count"; mk; ln -s $N $W/fix/Docs/v5link; ARGP=$W/fix/Docs/v5link; NOTS=("${NOTLINKCOUNT[@]}" "of $NF package"); V X10 1 "PROBLEMS (1); no count of identical files is given, because a link was found:" "LINK IN PATH: the folder itself is a link or junction" "files were read through it, so no count of identical files is given"
+echo "== X11 (F6) a PARENT folder is a link: exit 1, names the parent, no count"; mk; mkdir -p $W/fix/Docs/rp; cp -a $N $W/fix/Docs/rp/v5; ln -s $W/fix/Docs/rp $W/fix/Docs/plink; ARGP=$W/fix/Docs/plink/v5; NOTS=("${NOTLINKCOUNT[@]}" "of $NF package"); V X11 1 "no count of identical files is given, because a link was found:" "LINK IN PATH: the parent folder" "plink" "files were read through it, so no count of identical files is given"
+echo "== X12 (F6) a DATA file is a link: exit 1, says it was not opened, no count"; mk; cp $N/data/vtes5-state.js $W/fix/Docs/rs.js; rm $N/data/vtes5-state.js; ln -s $W/fix/Docs/rs.js $N/data/vtes5-state.js; ARGP=$N; NOTS=("${NOTLINKCOUNT[@]}" "of $NF package"); V X12 1 "no count of identical files is given, because a link was found:" "LINK: data/vtes5-state.js is a link, not a plain file (it was not opened)"
+echo "== X13 (F6) the MANIFEST is a link: exit 1, not opened, the package files were not checked, no count"; mk; cp $N/MANIFEST.sha256 $W/fix/Docs/rm; rm $N/MANIFEST.sha256; ln -s $W/fix/Docs/rm $N/MANIFEST.sha256; ARGP=$N; NOTS=("${NOTLINKCOUNT[@]}" "of $NF package"); V X13 1 "PROBLEMS (1); the package files were not checked" "MANIFEST.sha256 is a link, not a plain file. It was not opened."
+echo "== X14 (F6) an EXTRA file is a link: exit 1, no count"; mk; ln -s $W/fix/Desktop/old-stuff/notes.txt $N/to-notes.txt; ARGP=$N; NOTS=("${NOTLINKCOUNT[@]}" "of $NF package"); V X14 1 "no count of identical files is given, because a link was found:" "LINK: to-notes.txt is a link and is not in the manifest"
+echo "== X15 (F6) an EXTRA folder is a link (to the Desktop): exit 1, no count, and the Desktop's files are not listed as extra files"; mk; ln -s $W/fix/Desktop $N/to-desktop; ARGP=$N; NOTS=("${NOTLINKCOUNT[@]}" "of $NF package" "EXTRA FILE: to-desktop/"); V X15 1 "no count of identical files is given, because a link was found:" "LINK: the folder to-desktop is a link, not a real folder, and it is not in the manifest"
+echo "== X16 (F6) a CODE file is a link: exit 1, no count"; mk; cp $N/vtes5-ui.js $W/fix/Docs/ru.js; rm $N/vtes5-ui.js; ln -s $W/fix/Docs/ru.js $N/vtes5-ui.js; ARGP=$N; NOTS=("${NOTLINKCOUNT[@]}" "of $NF package"); V X16 1 "no count of identical files is given, because a link was found:" "LINK: vtes5-ui.js is a link, not a plain file (it was not opened)"
+echo "== X17 (F6) a link AND an edited file AND an extra file: all three are listed, and still no count"; mk; ln -s $W/fix/Desktop $N/to-desktop; echo x >> $N/vtes5-live.js; echo hi > $N/extra.txt; ARGP=$N; NOTS=("${NOTLINKCOUNT[@]}"); V X17 1 "PROBLEMS (3); no count of identical files is given, because a link was found:" "EDITED: vtes5-live.js" "EXTRA FILE: extra.txt" "LINK: the folder to-desktop"
+echo "== X18 (F6) the folder is a link WITH $AW and a valid rewritten data file: exit 1, no OK, no count"; mk; okdata bots; ln -s $N $W/fix/Docs/v5link; ARGP=$W/fix/Docs/v5link; EXTRA=$AW; NOTS=("${NOTLINKCOUNT[@]}" "changed by a PC writer and pass"); V X18 1 "LINK IN PATH: the folder itself" "no count of identical files is given, because a link was found:" "(not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js"; EXTRA=
+echo "== X19 (F6) CONTROL: a plain problem with NO link still prints its count (extra file: all of them are identical; edited file: one fewer)"; mk; echo hi > $N/extra.txt; ARGP=$N; V X19 1 "PROBLEMS (1); $NF of $NF package files are identical:"
+mk; echo x >> $N/vtes5-ui.js; ARGP=$N; V X19b 1 "PROBLEMS (1); $((NF-1)) of $NF package files are identical:"
+echo "== X20 (F6) a dangling extra link (points nowhere): exit 1, no count"; mk; ln -s $W/fix/Docs/nowhere $N/dangling; ARGP=$N; NOTS=("${NOTLINKCOUNT[@]}"); V X20 1 "LINK: dangling is a link and is not in the manifest" "no count of identical files is given, because a link was found:"
+echo "== X21 (F6) link to the folder, path given with a trailing slash: still LINK IN PATH, no count"; mk; ln -s $N $W/fix/Docs/v5link; ARGP=$W/fix/Docs/v5link/; NOTS=("${NOTLINKCOUNT[@]}" "of $NF package"); V X21 1 "LINK IN PATH: the folder itself" "no count of identical files is given, because a link was found:"
+echo "== X22 (F6) a link to a link to the real folder: exit 1, no count"; mk; ln -s $N $W/fix/Docs/hop1; ln -s $W/fix/Docs/hop1 $W/fix/Docs/hop2; ARGP=$W/fix/Docs/hop2; NOTS=("${NOTLINKCOUNT[@]}" "of $NF package"); V X22 1 "LINK IN PATH: the folder itself" "no count of identical files is given, because a link was found:"
+echo "== X23 (F6) a link to a package that is also edited (folder link AND an edited file): the edit is named, no count"; mk; echo x >> $N/vtes5-ui.js; ln -s $N $W/fix/Docs/v5link; ARGP=$W/fix/Docs/v5link; NOTS=("${NOTLINKCOUNT[@]}"); V X23 1 "EDITED: vtes5-ui.js" "LINK IN PATH: the folder itself" "no count of identical files is given, because a link was found:"
+echo "== X24 (F6) the word 'not followed' appears nowhere in VERIFY's printed text (a text check on the script)"
+! grep -v '^ *#' "$VER" | grep -q 'not followed'; chk "X24: no printed sentence of VERIFY-v5.ps1 says 'not followed'" $?
+# ===== F7: a UTF-16 data file on day one prints EDITED (with the UTF-16 reason); BAD DATA FILE appears only with -AfterWriters
+echo "== X30 (F7) day one, NO switch, one data file saved as UTF-16: EDITED line that also says it is saved as UTF-16; no BAD DATA FILE line"; mk; python3 - "$N/data/vtes5-bots.js" <<'PY3'
+import sys
+p=sys.argv[1]; t=open(p,'rb').read().decode('utf-8'); open(p,'wb').write(b'\xff\xfe'+t.encode('utf-16-le'))
+PY3
+ARGP=$N; NOTS=("BAD DATA FILE"); V X30 1 "EDITED: data/vtes5-bots.js (data file) has SHA-256" "It is also not a valid data file: data\\vtes5-bots.js is saved as UTF-16"
+echo "== X31 (F7) the same file WITH $AW: BAD DATA FILE line that says UTF-16; no EDITED line"; ARGP=$N; EXTRA=$AW; NOTS=("EDITED"); V X31 1 "BAD DATA FILE: data\\vtes5-bots.js is saved as UTF-16"; EXTRA=
+echo "== X32 (F7) the document quotes the real day-one words and does not promise BAD DATA FILE on day one"
+grep -q 'EDITED' "$DOCDIR/INSTALL-BY-HAND.md" && grep -q 'It is also not a valid data file' "$DOCDIR/INSTALL-BY-HAND.md"; chk "X32a: INSTALL-BY-HAND.md quotes the day-one words (EDITED ... It is also not a valid data file)" $?
+! grep -q 'BAD DATA FILE ... saved as UTF-16' "$DOCDIR/INSTALL-BY-HAND.md"; chk "X32b: INSTALL-BY-HAND.md no longer promises 'BAD DATA FILE ... saved as UTF-16' on day one" $?
+grep -q 'is what you see with `-AfterWriters`' "$DOCDIR/INSTALL-BY-HAND.md"; chk "X32c: INSTALL-BY-HAND.md says the BAD DATA FILE line is what you see with -AfterWriters (and on day one only if the manifest lists the UTF-16 bytes, scenario R23)" $?
+echo "== X33 (F8) the document no longer says VERIFY says OK when only the eight files changed"
+! grep -q 'VERIFY now says OK when only the eight' "$DOCDIR/INSTALL-BY-HAND.md"; chk "X33: that round-6 sentence (false since round 7) is gone from INSTALL-BY-HAND.md" $?
+# ===== F9: any byte above 127 in a data or settings file is refused (UTF-16, BOM and NUL are named first)
+ACCENT='window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = { "schema": 1, "at": "2026-10-06T14:00:00-04:00", "writer": "Jos'$'\xc3\xa9'' writer" };'
+echo "== X40 (F9) an accent (UTF-8 e-acute) in a data file WITH $AW: refused, names the file, with the escape advice"; mk; setdata state "$ACCENT"; ARGP=$N; EXTRA=$AW; NOTS=("changed by a PC writer" "OK (after writers)"); V X40 1 'data\vtes5-state.js contains characters that are not plain ASCII (a writer must write accents as \u00e9 escapes); do not use this folder' "BAD DATA FILE"; EXTRA=
+echo "== X41 (F9) the same accent file WITHOUT the switch: EDITED, and it also says not plain ASCII"; ARGP=$N; V X41 1 "EDITED: data/vtes5-state.js (data file)" 'It is also not a valid data file: data\vtes5-state.js contains characters that are not plain ASCII'
+echo "== X42 (F9) a UTF-8 BOM in front of ASCII text WITH $AW: the BOM sentence, not the ASCII one"; mk; python3 - "$N/data/vtes5-bots.js" <<'PY3'
+import sys
+p=sys.argv[1]; b=open(p,'rb').read(); open(p,'wb').write(b'\xef\xbb\xbf'+b)
+PY3
+ARGP=$N; EXTRA=$AW; NOTS=("not plain ASCII"); V X42 1 'data\vtes5-bots.js starts with a UTF-8 byte-order mark (BOM)'; EXTRA=
+echo "== X43 (F9) a JSON escape backslash-u00e9 (pure ASCII bytes) WITH $AW: accepted"; mk; setdata state "${DW}state = { \"schema\": 1, \"at\": \"2026-10-06T14:00:00-04:00\", \"writer\": \"Jos\\u00e9 writer\" };"; ARGP=$N; EXTRA=$AW; NOTS=("not plain ASCII"); V X43 0 "OK (after writers)" "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"; EXTRA=
+echo "== X44 (F9) pure ASCII data file WITH $AW: accepted"; mk; okdata state; ARGP=$N; EXTRA=$AW; NOTS=("not plain ASCII"); V X44 0 "OK (after writers)" "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"; EXTRA=
+echo "== X45 (F9) a single Latin-1 byte (0xE9, not valid UTF-8) WITH $AW: also refused as not plain ASCII"; mk; python3 - "$N/data/vtes5-state.js" <<'PY3'
+import sys
+open(sys.argv[1],'wb').write(b'window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {"a":"Jos\xe9"};\n')
+PY3
+ARGP=$N; EXTRA=$AW; V X45 1 'data\vtes5-state.js contains characters that are not plain ASCII (a writer must write accents as \u00e9 escapes); do not use this folder'; EXTRA=
+echo "== X46 (F9) UTF-16 with an accent WITH $AW: the UTF-16 sentence comes first"; mk; python3 - "$N/data/vtes5-state.js" <<'PY3'
+import sys
+t='window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {"a":"Jos\u00e9"};\n'
+open(sys.argv[1],'wb').write(b'\xff\xfe'+t.encode('utf-16-le'))
+PY3
+ARGP=$N; EXTRA=$AW; NOTS=("not plain ASCII"); V X46 1 'data\vtes5-state.js is saved as UTF-16'; EXTRA=
+echo "== X47 (F9) an accent in the comment line of the settings file WITH $AW: refused, names vtes5-config.js"; mk; python3 - "$N/vtes5-config.js" <<'PY3'
+import sys
+open(sys.argv[1],'wb').write('/* Jos\u00e9 */\nwindow.VTES5_CONFIG = { "status_dir_url": "" };\n'.encode('utf-8'))
+PY3
+ARGP=$N; EXTRA=$AW; V X47 1 'vtes5-config.js contains characters that are not plain ASCII (a writer must write accents as \u00e9 escapes); do not use this folder'; EXTRA=
+echo "== X48 (F9) an accent in a JSON KEY WITH $AW: refused"; mk; python3 - "$N/data/vtes5-health.js" <<'PY3'
+import sys
+open(sys.argv[1],'wb').write('window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.health = {"caf\u00e9": 1};\n'.encode('utf-8'))
+PY3
+ARGP=$N; EXTRA=$AW; V X48 1 'data\vtes5-health.js contains characters that are not plain ASCII'; EXTRA=
+echo "== X49 (F9) a NUL byte AND an accent: the NUL sentence comes first"; mk; python3 - "$N/data/vtes5-state.js" <<'PY3'
+import sys
+open(sys.argv[1],'wb').write(b'window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {"a":"\xc3\xa9\x00"};\n')
+PY3
+ARGP=$N; EXTRA=$AW; NOTS=("not plain ASCII"); V X49 1 'data\vtes5-state.js contains NUL bytes'; EXTRA=
+echo "== X50 (F9) a byte 0x80 alone (the smallest non-ASCII value) and 0x7F (DEL, which is ASCII): 0x80 refused, 0x7F is plain ASCII and a valid JSON string character, so it is accepted"; mk; python3 - "$N/data/vtes5-state.js" <<'PY3'
+import sys
+open(sys.argv[1],'wb').write(b'window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {"a":"x\x80"};\n')
+PY3
+ARGP=$N; EXTRA=$AW; V X50 1 'data\vtes5-state.js contains characters that are not plain ASCII'
+mk; python3 - "$N/data/vtes5-state.js" <<'PY3'
+import sys
+open(sys.argv[1],'wb').write(b'window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.state = {"a":"x\x7f"};\n')
+PY3
+NOTS=("not plain ASCII"); V X50b 0 "changed by a PC writer (passes the strict shape check): data/vtes5-state.js"; EXTRA=
+echo "== X51 (F9) the contract says the same words (a text check on DATA-CONTRACT.md)"
+grep -q 'not plain ASCII' "$DOCDIR/DATA-CONTRACT.md"; chk "X51a: DATA-CONTRACT.md says a non-ASCII byte is refused as 'not plain ASCII'" $?
+grep -q '\\u00e9' "$DOCDIR/DATA-CONTRACT.md"; chk "X51b: DATA-CONTRACT.md tells writers to write accents as \\u00e9 escapes" $?
+# ===== E14: control characters in names are printed escaped, so a name cannot fake a line
+FAKE="x"$'\n'"OK: all $NF of $NF package files are present, readable and identical (SHA-256), and nothing else is in the folder."
+echo "== X60 (E14) an extra FILE whose name holds a newline and then 'OK: all ...': exit 1, shown escaped as \\n, and NO output line starts with OK"; mk; echo hi > "$N/$FAKE"; ARGP=$N; OKLINEONLY=1; V X60 1 'EXTRA FILE: x\nOK: all' "PROBLEMS (1)"
+echo "== X61 (E14) an extra file with byte 0x01 in its name: shown as \\x01, and the raw byte 0x01 is not in the output"; mk; echo hi > "$N/a"$'\x01'"b"; ARGP=$N; V X61 1 'EXTRA FILE: a\x01b is not part of the package'
+! printf '%s' "$LASTO" | LC_ALL=C grep -q $'\x01'; chk "X61b: no raw 0x01 byte in the output" $?
+echo "== X62 (E14) an extra FOLDER whose name holds a newline and OK: escaped"; mk; mkdir "$N/d"$'\n'"OK: fake"; ARGP=$N; OKLINEONLY=1; V X62 1 'EXTRA FOLDER: d\nOK: fake'
+echo "== X63 (E14) an extra LINK whose name holds a newline: escaped, with the link wording"; mk; ln -s $W/fix/Desktop/old-stuff/notes.txt "$N/l"$'\n'"OK: fake"; ARGP=$N; OKLINEONLY=1; V X63 1 'LINK: l\nOK: fake is a link and is not in the manifest'
+echo "== X64 (E14) a CASE DUPLICATE pair whose names hold byte 0x01: both escaped"; mk; echo a > "$N/q"$'\x01'"r"; echo b > "$N/Q"$'\x01'"R"; ARGP=$N; V X64 1 'CASE DUPLICATE' 'q\x01r' 'Q\x01R'
+echo "== X65 (E14) a manifest line whose path holds byte 0x01 (file not there): MISSING, escaped"; mk; echo "$(printf '0%.0s' $(seq 64))  m"$'\x01'"n" >> $N/MANIFEST.sha256; ARGP=$N; V X65 1 'MISSING: m\x01n (not in the folder)'
+! printf '%s' "$LASTO" | LC_ALL=C grep -q $'\x01'; chk "X65b: no raw 0x01 byte in the output" $?
+echo "== X66 (E14) an ESC byte (0x1b, a screen-control start) and a tab in a name: escaped, no raw ESC in the output"; mk; echo hi > "$N/e"$'\x1b'"[2Jf"$'\t'"g"; ARGP=$N; V X66 1 'EXTRA FILE: e\x1b[2Jf\tg is not part of the package'
+! printf '%s' "$LASTO" | LC_ALL=C grep -q $'\x1b'; chk "X66b: no raw ESC byte in the output" $?
+echo "== X67 (E14) a carriage return in a name: escaped as \\r, no raw CR in the output"; mk; echo hi > "$N/c"$'\r'"OK: fake"; ARGP=$N; OKLINEONLY=1; V X67 1 'EXTRA FILE: c\rOK: fake'
+! printf '%s' "$LASTO" | grep -q $'\r'; chk "X67b: no raw CR in the output" $?
+echo "== X68 (E14) the -Path folder NAME holds a newline and OK (package copied there, plus one extra file): exit 1, the Folder line shows the escaped name, no line starts with OK"; mk; cp -a $N "$W/fix/Docs/v5"$'\n'"OK: fake"; echo hi > "$W/fix/Docs/v5"$'\n'"OK: fake/extra.txt"; ARGP="$W/fix/Docs/v5"$'\n'"OK: fake"; OKLINEONLY=1; V X68 1 "PROBLEMS (1)" 'v5\nOK: fake' "EXTRA FILE: extra.txt"
+echo "== X68b (E14) the same folder name with the package intact: exit 0, exactly ONE output line starts with OK (the real one), and the Folder line shows the escaped name"; mk; cp -a $N "$W/fix/Docs/v5"$'\n'"OK: fake"; ARGP="$W/fix/Docs/v5"$'\n'"OK: fake"; V X68b 0 "OK: all $NF of $NF package files"; has "$LASTO" 'Folder: '; chk "X68c: a Folder line is printed" $?; has "$LASTO" 'v5\nOK: fake'; chk "X68d: the folder name is printed escaped (v5\\nOK: fake)" $?; [ "$(echo "$LASTO" | grep -c '^OK')" = 1 ]; chk "X68e: exactly one line starts with OK" $?
+echo "== X69 (E14) a name with a newline inside data/: escaped, with the folder part kept"; mk; echo hi > "$N/data/z"$'\n'"OK: fake"; ARGP=$N; OKLINEONLY=1; V X69 1 'EXTRA FILE: data/z\nOK: fake'
+# ===== E15: status_dir_url must be empty or a relative folder path (checked in the exact check too)
+echo "== X70 (E15) status_dir_url = file://other-pc/share/ WITH $AW: refused"; mk; setcfg '"file://other-pc/share/"'; ARGP=$N; EXTRA=$AW; NOTS=("OK (after writers)" "changed by a PC writer"); V X70 1 'vtes5-config.js holds a status_dir_url that is not allowed' "BAD DATA FILE"
+echo "== X71 (E15) http://x/ WITH $AW: refused"; mk; setcfg '"http://x/"'; V X71 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X72 (E15) a network path \\\\host\\share WITH $AW: refused"; mk; setcfg '"\\\\host\\share"'; V X72 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X73 (E15) C:/x (a drive letter) WITH $AW: refused"; mk; setcfg '"C:/x"'; V X73 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X74 (E15) ../x WITH $AW: refused"; mk; setcfg '"../x"'; V X74 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X75 (E15) /abs WITH $AW: refused"; mk; setcfg '"/abs"'; V X75 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X76 (E15) status/ WITH $AW: accepted (exit 0)"; mk; setcfg '"status/"'; NOTS=("is not allowed"); V X76 0 "OK (after writers)" "changed by a PC writer (passes the strict shape check): vtes5-config.js"
+echo "== X77 (E15) the empty string WITH $AW: accepted (exit 0)"; mk; setcfg '""'; NOTS=("is not allowed"); V X77 0 "changed by a PC writer (passes the strict shape check): vtes5-config.js" "OK"
+echo "== X78 (E15) a deeper relative path with dot, underscore and dash, no trailing slash: accepted"; mk; setcfg '"a/b-c_d.e/f"'; NOTS=("is not allowed"); V X78 0 "changed by a PC writer (passes the strict shape check): vtes5-config.js"
+echo "== X79 (E15) a .. segment in the middle (a/../b) WITH $AW: refused"; mk; setcfg '"a/../b"'; V X79 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X80 (E15) two slashes in a row (a//b) WITH $AW: refused"; mk; setcfg '"a//b"'; V X80 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X81 (E15) a backslash path C:\\x\\ WITH $AW: refused"; mk; setcfg '"C:\\x\\"'; V X81 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X82 (E15) file: with nothing after it WITH $AW: refused"; mk; setcfg '"file:"'; V X82 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X83 (E15) a space in the path WITH $AW: refused"; mk; setcfg '"my status/"'; V X83 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X84 (E15) the exact check (NO switch) also reports it: EDITED with the reason"; mk; setcfg '"http://x/"'; ARGP=$N; EXTRA=; NOTS=("changed by a PC writer"); V X84 1 "EDITED: vtes5-config.js (settings file)" 'It is also not a valid data file: vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X85 (E15) the old documented value file:///C:/x/ is refused now WITH $AW"; mk; setcfg '"file:///C:/x/"'; EXTRA=$AW; V X85 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X86 (E15) a single dot (.) WITH $AW: refused (a part made only of dots)"; mk; setcfg '"."'; V X86 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X87 (E15) a leading ./ WITH $AW: refused (the part '.' is made only of dots)"; mk; setcfg '"./status/"'; V X87 1 'vtes5-config.js holds a status_dir_url that is not allowed'
+echo "== X88 (E15) digits and capitals are letters and digits: accepted"; mk; setcfg '"Status2026/Daily"'; NOTS=("is not allowed"); V X88 0 "changed by a PC writer (passes the strict shape check): vtes5-config.js"
+echo "== X89 (E15) a tilde (not in the allowed list) WITH $AW: refused"; mk; setcfg '"~/status"'; V X89 1 'vtes5-config.js holds a status_dir_url that is not allowed'; EXTRA=
+echo "== X89b (E15) the contract states the same rule (a text check on DATA-CONTRACT.md)"
+grep -q 'relative folder path' "$DOCDIR/DATA-CONTRACT.md"; chk "X89b: DATA-CONTRACT.md says status_dir_url is empty or a relative folder path" $?
+# ===== re-run of the shipped package
+echo "== X90 the shipped package, nothing changed: exit 0, the exact OK line and the closing sentence"; mk; ARGP=$N; NOTS=("changed by a PC writer" "PROBLEMS"); V X90 0 "OK: all $NF of $NF package files are present, readable and identical (SHA-256), and nothing else is in the folder." "This script contains no write command."
+echo "== X91 the shipped package with the expected manifest hash AND $AW: exit 0, the same exact OK line"; mk; ARGP=$N; EXTRA="-ExpectManifestSha256 $GOODMAN $AW"; NOTS=("changed by a PC writer" "PROBLEMS" "(after writers)"); V X91 0 "OK: all $NF of $NF package files are present, readable and identical (SHA-256), and nothing else is in the folder."; EXTRA=
+echo "== X92 (F9/E15) the shipped data files and settings file pass the new checks even WITH $AW and a rewrite of each in the same bytes (no change: OK line)"; mk; ARGP=$N; EXTRA=$AW; NOTS=("is not allowed" "not plain ASCII"); V X92 0 "OK: all $NF of $NF package files"; EXTRA=
+echo "== X34 (F10) what 'git fetch origin <branch>' really changes in a checkout (a real git run in a scratch repo, not VERIFY): objects are written inside .git; no working file and no branch changes"
+G=$W/gitproof; rm -rf "$G"; mkdir -p "$G"; GI="git -c user.name=t -c user.email=t@t -c init.defaultBranch=main"
+$GI init -q "$G/origin" && (cd "$G/origin" && echo a > a.txt && $GI add a.txt && $GI commit -q -m one && $GI clone -q "$G/origin" "$G/pc" && $GI checkout -q -b claude/panel-v5-port && echo b > b.txt && $GI add b.txt && $GI commit -q -m two && $GI checkout -q main)
+(cd "$G/pc" && find .git -type f | wc -l > "$G/files-before"; find . -path ./.git -prune -o -type f -print0 | sort -z | xargs -0 sha256sum > "$G/work-before"; git branch -a > "$G/br-before"; git rev-parse HEAD > "$G/head-before"; git count-objects > "$G/obj-before"
+  git fetch -q origin claude/panel-v5-port; find .git -type f | wc -l > "$G/files-after"; find . -path ./.git -prune -o -type f -print0 | sort -z | xargs -0 sha256sum > "$G/work-after"; git branch > "$G/brl-after"; git rev-parse HEAD > "$G/head-after"; git count-objects > "$G/obj-after"; git branch -a > "$G/br-after")
+[ "$(cat $G/files-after)" -gt "$(cat $G/files-before)" ]; chk "X34a: after the fetch there are MORE files inside the checkout's .git folder ($(cat $G/files-before) before, $(cat $G/files-after) after)" $?
+! cmp -s "$G/obj-before" "$G/obj-after"; chk "X34b: git's own object count changed (before: $(tr '\n' ' ' < $G/obj-before); after: $(tr '\n' ' ' < $G/obj-after))" $?
+cmp -s "$G/work-before" "$G/work-after"; chk "X34c: no working file changed (SHA-256 of every file outside .git is the same)" $?
+cmp -s "$G/head-before" "$G/head-after"; chk "X34d: the checked-out commit is the same" $?
+(cd "$G/pc" && [ "$(git branch | tr -d ' *')" = "main" ]); chk "X34e: no local branch was created or switched (only 'main' exists locally)" $?
+grep -q 'origin/claude/panel-v5-port' "$G/br-after" && ! grep -q 'origin/claude/panel-v5-port' "$G/br-before"; chk "X34f: the list of remote branches gained origin/claude/panel-v5-port" $?
+rm -rf "$G"
+echo "== X35 (F11) the document's step 6d tests for the file first and never overwrites, moves or deletes it (text checks on INSTALL-BY-HAND.md)"
+D6=$(grep -F -- '- 6d.' "$DOCDIR/INSTALL-BY-HAND.md"; sed -n '/^   - 6d\./,/^7\. /p' "$DOCDIR/INSTALL-BY-HAND.md")
+has "$D6" 'Test-Path -LiteralPath'; chk "X35a: 6d tells the executor to test for the file with Test-Path -LiteralPath" $?
+has "$D6" 'never overwrite it, never move it, never delete it'; chk "X35b: 6d says never overwrite, never move, never delete an existing file" $?
+has "$D6" 'Get-FileHash'; chk "X35c: 6d reads the existing file's SHA-256" $?
+has "$D6" 'VERIFY-v5.ps1.new-'; chk "X35d: 6d names the beside-copy VERIFY-v5.ps1.new-<YYYYMMDD-HHMM>" $?
+has "$D6" 'BLOCKED'; chk "X35e: 6d reports BLOCKED when the hashes differ" $?
+has "$D6" 'Do not run step 9 with the old file'; chk "X35f: 6d forbids step 9 with the old file" $?
+has "$D6" 'not BLOCKED'; chk "X35g: 6d says an existing file with the pinned hash is used as it is (not BLOCKED)" $?
 echo "== V30 the source script itself is ASCII only and has no write commands"
 LC_ALL=C grep -qP '[^\x00-\x7F]' "$VER"; [ $? -ne 0 ]; chk "V30a: VERIFY-v5.ps1 is pure ASCII" $?
 ! grep -c $'\r' "$VER" | grep -qv '^0$'; chk "V30c: VERIFY-v5.ps1 has no CR (LF line endings only)" $?

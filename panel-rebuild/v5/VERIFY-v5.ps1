@@ -1,4 +1,4 @@
-# VERIFY-v5.ps1 - READ-ONLY check of an installed copy of the launcher v5 package. TRK-2026-9910-B (fix round 7). ASCII only.
+# VERIFY-v5.ps1 - READ-ONLY check of an installed copy of the launcher v5 package. TRK-2026-9910-B (fix round 8). ASCII only.
 #
 #   powershell -NoProfile -ExecutionPolicy Bypass -File VERIFY-v5.ps1 -Path "C:\full\path\of\the\folder" [-ExpectManifestSha256 <64 hex>] [-AfterWriters]
 #
@@ -8,13 +8,20 @@
 #   -AfterWriters          (optional) use ONLY after a PC writer has started. Without it the check is EXACT: every one of the files, the seven data files and the settings
 #                          file included, must be byte-for-byte the shipped one. With it, a data or settings file whose bytes differ from the manifest is allowed ONLY if it passes
 #                          the strict shape check below; it is then reported as "changed by a PC writer (passes the strict shape check)".
-#   Exit codes: 0 = OK, 1 = at least one problem, 2 = it could not even start (no full path, folder missing, manifest missing or unreadable, or a wrong switch).
+#   Exit codes (each one is tested): 0 = OK. 1 = at least one problem was found (a manifest that is a link or not a plain file is also 1). PowerShell ITSELF also exits 1, before this script
+#     starts, when the command line is wrong: a wrong switch, or no -Path (with no keyboard answer possible; in a window where PowerShell can ask, it may ask for the path instead - not tested).
+#     2 = this script could not start its check: -Path is a relative path or a short name, has "." or ".." in it, the folder does not exist, or MANIFEST.sha256 is missing, is a folder, is too big, holds NUL bytes or cannot be read.
 #
 # What it does: reads MANIFEST.sha256 inside the folder, recomputes the SHA-256 of every file the manifest lists, and prints either
 #   OK ...                    (every file is there and readable and identical, and nothing else is in the folder), or
 #   PROBLEMS (n) and one line per difference: MISSING, UNREACHABLE, UNREADABLE, EDITED, TOO BIG, NOT A PLAIN FILE, CASE DUPLICATE, EXTRA FILE, EXTRA FOLDER, LINK, BAD MANIFEST LINE, ...
 # What it never does: this script contains no command that writes, copies, moves or deletes anything (a test scans this source for such commands). It only opens plain files for reading.
 # It cannot speak for PowerShell itself: the PowerShell program may keep its own cache files outside the checked folder. The checked folder, its parent and the Desktop were identical before and after in every test run.
+#
+# Fix round 8 (checker 5): (F5) the exit-code line above says what really happens. (F6) when any LINK finding exists (LINK, LINK IN PATH) the PROBLEMS line gives NO count of identical files, because files may
+# have been read through a link; every sentence says only what happened ("it was not opened", "files were read through it"). (F9) a data or settings file with any byte above 127 is refused: a writer must
+# write accents as JSON \u00e9 escapes. (E14) every name or path is printed with control characters escaped (\n, \r, \t, \xNN), so a file name cannot fake a line such as "OK:". (E15) the settings file's
+# status_dir_url must be empty or a relative folder path: only letters, digits, dot, underscore, dash and slash; not starting with a slash; no empty part (two slashes in a row) and no part made only of dots.
 #
 # Fix round 7 (CHECK-8 flaws 4, 9, 16, 17, 18, 19): the seven data files data/vtes5-*.js and the settings file vtes5-config.js are DATA and are checked STRICTLY:
 #   - size from the file length FIRST (at most 1048576 bytes; the file is not read if it is bigger, and an empty file is refused); UTF-8 only; no byte-order mark; no UTF-16; no NUL byte; no CR;
@@ -44,9 +51,25 @@ $capData = 1048576      # data and settings files
 $capScript = 1048576    # scripts and the manifest
 $capPage = 2097152      # the page
 
+# every line printed goes through here: a control character in a file or folder name (newline, carriage return, tab, escape, any byte below 32, DEL, 0x80-0x9F, U+2028/9) is shown as \n \r \t \xNN \uNNNN
+function Protect-Text([string]$s) {
+    $sb = New-Object System.Text.StringBuilder
+    foreach ($ch in $s.ToCharArray()) {
+        $c = [int]$ch
+        if ($c -eq 10) { [void]$sb.Append('\n') }
+        elseif ($c -eq 13) { [void]$sb.Append('\r') }
+        elseif ($c -eq 9) { [void]$sb.Append('\t') }
+        elseif ($c -lt 32 -or ($c -ge 127 -and $c -le 159)) { [void]$sb.Append('\x' + $c.ToString('x2')) }
+        elseif ($c -eq 8232 -or $c -eq 8233) { [void]$sb.Append('\u' + $c.ToString('x4')) }
+        else { [void]$sb.Append($ch) }
+    }
+    return $sb.ToString()
+}
+function Say([string]$s) { Write-Host (Protect-Text $s) }
+
 function Stop-Early([string]$why) {
-    Write-Host ('CANNOT CHECK: ' + $why)
-    Write-Host 'This script contains no write command, so it changed nothing in the folder.'
+    Say ('CANNOT CHECK: ' + $why)
+    Say 'This script contains no write command, so it changed nothing in the folder.'
     exit 2
 }
 
@@ -167,7 +190,8 @@ function Test-DataFile([string]$full, [string]$rel, [long]$len, [byte[]]$bytes) 
         return ($nm + ' contains NUL bytes, so it is not a plain text data file; do not use this folder')
     }
     if ($bytes.Length -ge 3 -and $bytes[0] -eq 239 -and $bytes[1] -eq 187 -and $bytes[2] -eq 191) { return ($nm + ' starts with a UTF-8 byte-order mark (BOM); it must be plain UTF-8 without one; do not use this folder') }
-    try { $text = (New-Object System.Text.UTF8Encoding($false, $true)).GetString($bytes) } catch { return ($nm + ' is not valid UTF-8; do not use this folder') }
+    if ([Text.Encoding]::GetEncoding(28591).GetString($bytes) -cmatch '[\x80-\xff]') { return ($nm + ' contains characters that are not plain ASCII (a writer must write accents as \u00e9 escapes); do not use this folder') }
+    $text = (New-Object System.Text.UTF8Encoding($false, $true)).GetString($bytes)
     if ($text.IndexOf([char]13) -ge 0) { return ($nm + ' holds a Windows line ending (CR); the file must use LF only, and end with a semicolon and at most one LF; do not use this folder') }
     $name = ''
     if ($rel -ceq 'vtes5-config.js') {
@@ -190,6 +214,13 @@ function Test-DataFile([string]$full, [string]$rel, [long]$len, [byte[]]$bytes) 
     if ($name -eq '') {
         $p = $obj.PSObject.Properties['status_dir_url']
         if ($p -eq $null -or $p.Value -isnot [string]) { return ($nm + ' must hold status_dir_url as a text string; do not use this folder') }
+        $u = [string]$p.Value
+        $uok = ($u -ceq '')
+        if (-not $uok) {
+            $uok = ($u -cmatch '^[A-Za-z0-9._-]+(/[A-Za-z0-9._-]+)*/?\z')
+            if ($uok) { foreach ($part in $u.Split('/')) { if ($part -ne '' -and $part.Trim('.') -eq '') { $uok = $false } } }
+        }
+        if (-not $uok) { return ($nm + ' holds a status_dir_url that is not allowed: it must be empty, or a relative folder path made only of letters, digits, dot, underscore, dash and slash (for example status/), not starting with a slash, with no empty part and no part made only of dots (so no ".."); a file: or http: address, a drive letter or a network path is refused; do not use this folder') }
     }
     return ''
 }
@@ -212,10 +243,10 @@ $manKind = Get-Kind $manItem
 if ($manKind -eq 'folder') { Stop-Early ('MANIFEST.sha256 is missing from "' + $root + '" (a folder has that name)') }
 if ($manKind -ne 'file') {
     $what = 'a link'; if ($manKind.StartsWith('other:')) { $what = Get-KindWords $manKind }
-    Write-Host ('Folder: ' + $root)
-    Write-Host ('PROBLEMS (1); the package files were not checked, because the manifest cannot be trusted:')
-    Write-Host ('  LINK OR NOT A PLAIN FILE: MANIFEST.sha256 is ' + $what + ', not a plain file. It was not followed and not opened. Use a real MANIFEST.sha256 file.')
-    Write-Host 'This script contains no write command, so it changed nothing in the folder.'
+    Say ('Folder: ' + $root)
+    Say ('PROBLEMS (1); the package files were not checked, because the manifest cannot be trusted:')
+    Say ('  LINK OR NOT A PLAIN FILE: MANIFEST.sha256 is ' + $what + ', not a plain file. It was not opened. Use a real MANIFEST.sha256 file.')
+    Say 'This script contains no write command, so it changed nothing in the folder.'
     exit 1
 }
 if ($manItem.Length -gt $capScript) { Stop-Early ('MANIFEST.sha256 is ' + $manItem.Length + ' bytes, more than the limit of ' + $capScript + '; it was not read') }
@@ -225,8 +256,8 @@ if ([Array]::IndexOf($manBytes, [byte]0) -ge 0) { Stop-Early 'MANIFEST.sha256 ho
 $manText = (New-Object System.Text.UTF8Encoding($false, $false)).GetString($manBytes)
 if ($manText.Length -gt 0 -and $manText[0] -eq [char]0xFEFF) { $manText = $manText.Substring(1) }
 $manLines = $manText -split "`r`n|`n|`r"
-Write-Host ('Folder: ' + $root)
-Write-Host ('MANIFEST.sha256 SHA-256: ' + $manSha)
+Say ('Folder: ' + $root)
+Say ('MANIFEST.sha256 SHA-256: ' + $manSha)
 if ($ExpectManifestSha256 -ne '') {
     if ($manSha -ne $ExpectManifestSha256.ToLower()) {
         $manLf = ''; try { $manLf = Get-ShaLf $manBytes } catch { $manLf = '' }
@@ -280,7 +311,7 @@ foreach ($rel in $entries.Keys) {
     }
     $kind = Get-Kind $it
     if ($kind -eq 'folder') { $problems.Add('NOT A FILE: ' + $rel + ' is a folder'); continue }
-    if ($kind -eq 'link') { $problems.Add('LINK: ' + $rel + ' is a link, not a plain file (not followed)'); continue }
+    if ($kind -eq 'link') { $problems.Add('LINK: ' + $rel + ' is a link, not a plain file (it was not opened)'); continue }
     if ($kind -ne 'file') { $problems.Add('NOT A PLAIN FILE: ' + $rel + $tag + ' is ' + (Get-KindWords $kind) + ', not a plain file. It was not opened.'); continue }
     $len = [long]$it.Length
     $cap = Get-Cap $rel
@@ -331,7 +362,7 @@ foreach ($it in $all) {
     if ($kind -eq 'folder') {
         if (-not $listedDirs.Contains($rel)) { $problems.Add('EXTRA FOLDER: ' + $rel + ' is not part of the package') }
     } elseif ($kind -eq 'link') {
-        if ($it.PSIsContainer) { $problems.Add('LINK: the folder ' + $rel + ' is a link (not followed, not in the manifest)') }
+        if ($it.PSIsContainer) { $problems.Add('LINK: the folder ' + $rel + ' is a link, not a real folder, and it is not in the manifest') }
         elseif (-not $listed.Contains($rel)) { $problems.Add('LINK: ' + $rel + ' is a link and is not in the manifest') }
     } else {
         if (-not $listed.Contains($rel)) {
@@ -350,7 +381,7 @@ while ($true) {
         $tgt = ''; try { $tgt = (@($wi.Target) -join ' ') } catch { $tgt = '' }
         if ($tgt -eq '') { $tgt = 'a place this script could not read' }
         $who = 'the parent folder ' + $walk; if ($walk -eq $root) { $who = 'the folder itself' }
-        $problems.Add('LINK IN PATH: ' + $who + ' is a link or junction (it points to ' + $tgt + '), so the files may really live somewhere else, for example on the Desktop or inside a git checkout. Not followed. Use a real folder path.')
+        $problems.Add('LINK IN PATH: ' + $who + ' is a link or junction (it points to ' + $tgt + '), so the files may really live somewhere else, for example on the Desktop or inside a git checkout. The files were read through it, so no count of identical files is given. Use a real folder path.')
     }
     $wp = [IO.Path]::GetDirectoryName($walk)
     if ([string]::IsNullOrEmpty($wp) -or $wp -eq $walk) { break }
@@ -370,16 +401,18 @@ while ($true) {
 # 6. the answer
 if ($problems.Count -eq 0) {
     if ($changedList.Count -eq 0) {
-        Write-Host ('OK: all ' + $okCount + ' of ' + $entries.Count + ' package files are present, readable and identical (SHA-256), and nothing else is in the folder.')
+        Say ('OK: all ' + $okCount + ' of ' + $entries.Count + ' package files are present, readable and identical (SHA-256), and nothing else is in the folder.')
     } else {
-        Write-Host ('OK (after writers): all ' + $entries.Count + ' of ' + $entries.Count + ' package files are present and readable. ' + $okCount + ' page and script files are identical (SHA-256). ' + $changedList.Count + ' data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below). Nothing else is in the folder.')
-        foreach ($e in $changedList) { Write-Host ('  ' + $e) }
+        Say ('OK (after writers): all ' + $entries.Count + ' of ' + $entries.Count + ' package files are present and readable. ' + $okCount + ' page and script files are identical (SHA-256). ' + $changedList.Count + ' data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below). Nothing else is in the folder.')
+        foreach ($e in $changedList) { Say ('  ' + $e) }
     }
-    Write-Host 'This script contains no write command.'
+    Say 'This script contains no write command.'
     exit 0
 }
-Write-Host ('PROBLEMS (' + $problems.Count + '); ' + $okCount + ' of ' + $entries.Count + ' package files are identical:')
-foreach ($p in $problems) { Write-Host ('  ' + $p) }
-foreach ($e in $changedList) { Write-Host ('  (not a problem) ' + $e) }
-Write-Host 'This script contains no write command, so it changed nothing in the folder.'
+$linkFound = (@($problems | Where-Object { $_.StartsWith('LINK: ') -or $_.StartsWith('LINK IN PATH: ') }).Count -gt 0)
+if ($linkFound) { Say ('PROBLEMS (' + $problems.Count + '); no count of identical files is given, because a link was found:') }
+else { Say ('PROBLEMS (' + $problems.Count + '); ' + $okCount + ' of ' + $entries.Count + ' package files are identical:') }
+foreach ($p in $problems) { Say ('  ' + $p) }
+foreach ($e in $changedList) { Say ('  (not a problem) ' + $e) }
+Say 'This script contains no write command, so it changed nothing in the folder.'
 exit 1

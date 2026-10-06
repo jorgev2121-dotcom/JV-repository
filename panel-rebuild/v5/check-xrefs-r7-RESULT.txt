@@ -28,7 +28,7 @@ PASS KNOWN-LIMITS.md: does not say "Every card, tab and button from v3 is still 
 PASS DATA-CONTRACT.md: does not say "Every card, tab and button from v3 is still here"
 PASS PORT-REPORT.md: does not say "Every card, tab and button from v3 is still here"
 PASS TEST-REPORT.md: does not say "Every card, tab and button from v3 is still here"
-PASS the Read me names the one removed link (Open Codex CLI to chatgpt.com)
+PASS the Read me says how many lines of v3 text were changed, and PORT-REPORT.md lists the removed Codex link (Open Codex CLI to chatgpt.com)
 PASS PORT-REPORT.md quotes the CODEX / GROK address prefix exactly as the page shows it (CHECK-8 flaw 10)
 PASS the LLM-06 card has no web address (the link really is removed): the Read me sentence is true
 PASS vtes5-ui.js: no jargon phrase in a displayed string outside "For RAMBO" lines ()

@@ -36,7 +36,8 @@ const MISSES = [
 const NEW_ORDINARY = [
   'Git commit a1b2c3d4e5f6 is merged', 'Meet Rosa at 14598 SW 110 ST, Miami FL 33176-1234 on Friday', 'Send the review to the Doral 33178-4400 office', 'Ship 24 units to Tampa FL 33602-1000',
   'Version 3.2.1 of v5 was built on 2026-10-06', 'Task REF-20261006 done, 12 of 12 tests pass', 'Remind me to *bold* the heading and use _italics_ in the report', 'The DOB column is missing in the sheet, fix the header',
-  'Weather was 78 degrees, 45 percent humidity, 12 mph wind', 'The licence renewal is step 1 then step 2 then step 3', 'Born again hurricane shutters were installed on the 2nd floor', 'Account for the three permits on the list: 4 and 5 and 6'
+  'Weather was 78 degrees, 45 percent humidity, 12 mph wind', 'The licence renewal is step 1 then step 2 then step 3', 'Born again hurricane shutters were installed on the 2nd floor', 'Account for the three permits on the list: 4 and 5 and 6',
+  'Ship to Hialeah Gardens 33018-1234 on Monday', 'Send the plans to Opa-locka 33054-1234', 'Office is in Sunny Isles Beach 33160-1234', 'Mail to Cutler Bay 33189-1234 and Pembroke Pines 33025-1234'
 ];
 const FALSE_ALARMS = R7.FALSE_ALARMS.concat(['tracking 94001118992233445566778']);
 module.exports = {

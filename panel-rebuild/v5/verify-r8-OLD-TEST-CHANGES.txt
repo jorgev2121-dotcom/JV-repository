@@ -1,0 +1,37 @@
+verify-r8-OLD-TEST-CHANGES.txt - fix round 8, TRK-2026-9910-B
+Every older scenario of test-verify.sh whose expectation or fixture changed in round 8, and why. Every other older scenario (V01-V45, R01-R30 except those below, V30) keeps its old
+expected answer word for word and passes (216 of 216 scenarios as expected on the final VERIFY, see test-verify-r8-RESULT.txt).
+
+1. R08 (MANIFEST.sha256 is a named pipe)
+   OLD: prints "MANIFEST.sha256 is a named pipe, not a plain file. It was not followed and not opened."
+   NEW: prints "MANIFEST.sha256 is a named pipe, not a plain file. It was not opened."
+   Why: "not followed" is a word for links; for a pipe it said something that did not happen (F6). Exit code (1), PROBLEMS (1) and the "MANIFEST.sha256 is a named pipe" part are unchanged. Equal strictness.
+
+2. R09 (MANIFEST.sha256 is a link)
+   OLD: prints "MANIFEST.sha256 is a link, not a plain file. It was not followed and not opened."
+   NEW: prints "MANIFEST.sha256 is a link, not a plain file. It was not opened."
+   Why: same (F6). Equal strictness. X13 adds: no "identical" count and no "not followed" in that answer.
+
+3. R20a (text and escapes under -AfterWriters)
+   OLD fixture: a data file holding a real accent (UTF-8 e-acute) AND the JSON escape; expected: accepted (exit 0).
+   NEW fixture: the same file with the real accent replaced by plain "e" (the JSON escape stays); expected: accepted (exit 0).
+   Why: F9 (owner's decision): any byte above 127 is refused. The refusal of the real accent is proved by X40, X41, X45, X47, X48, X50. Accepting the escape is proved here and by X43.
+
+4. R20b (invalid UTF-8 bytes, under -AfterWriters)
+   OLD: exit 1 and "data\vtes5-state.js is not valid UTF-8"
+   NEW: exit 1 and "data\vtes5-state.js contains characters that are not plain ASCII"
+   Why: F9. Bytes above 127 are refused with the ASCII sentence before the text is decoded, so the old "not valid UTF-8" sentence can no longer be reached. Same exit code, same refusal.
+
+5. The okall helper (used by V36, V36b, R02, R02b) and R17f
+   OLD: the settings file was written with status_dir_url "file:///C:/x/" (R17f: "file:///C:/Users/JV/status/") and expected to be accepted.
+   NEW: status_dir_url "status/" in both. The expected answers of V36, V36b, R02, R02b and R17f are unchanged.
+   Why: E15. A file: address is now refused. Proved by X70, X85 (file: addresses refused).
+
+6. Harness changes (no expected answer weakened)
+   - asroot and asnobody now run with standard input from /dev/null (so a missing -Path cannot wait for a keyboard; X03).
+   - V can leave -Path out (NOPATH=1, used only by X03).
+   - V keeps the raw output in LASTO so extra checks can look at raw bytes (X61b, X65b, X66b, X67b, X68c-e).
+   - OKLINEONLY=1 (used only by X60, X62, X63, X67, X68, X69): for a failing run, the old check "the output does not contain the text OK: all" is replaced by "no output line starts with OK".
+     Reason: in those scenarios the file name itself contains the words "OK: all" and VERIFY must print the name (escaped) on an EXTRA FILE line; the line-start test is the one that proves the name cannot fake an OK line.
+     The old substring check still runs in every other scenario.
+   - A DOCDIR variable lets the BEFORE run read the old documents (verify-r8-BEFORE-RESULT.txt).

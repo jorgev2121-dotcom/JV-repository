@@ -321,7 +321,7 @@
   function maskPhones(t) { try { return t.replace(PHONE_RE, ' PHONE '); } catch (e) { return t; } }
   /* fix round 8 (CHECK-9 flaw 1): a ZIP+4 is carried only right after a two-letter state code or a Florida city on this list. A capital-letter word of any other kind ("Maria Fakename 12345-6789") is no longer enough. */
   var FL_CITIES = ['Miami Beach', 'Miami Gardens', 'Miami Lakes', 'Miami Shores', 'Miami Springs', 'North Miami Beach', 'North Miami', 'Miami', 'Hialeah', 'Hialeah Gardens', 'Doral', 'Homestead', 'Florida City', 'Coral Gables', 'Kendall', 'Pinecrest', 'Palmetto Bay', 'Cutler Bay', 'Key Biscayne', 'Aventura', 'Sunny Isles Beach', 'Bal Harbour', 'Surfside', 'Medley', 'Sweetwater', 'Opa-locka', 'Opa locka', 'West Miami', 'South Miami', 'El Portal', 'Biscayne Park', 'Virginia Gardens', 'Miami Dade', 'Fort Lauderdale', 'Hollywood', 'Hallandale Beach', 'Pembroke Pines', 'Miramar', 'Weston', 'Davie', 'Plantation', 'Sunrise', 'Tamarac', 'Coral Springs', 'Pompano Beach', 'Deerfield Beach', 'Boca Raton', 'Delray Beach', 'Boynton Beach', 'West Palm Beach', 'Palm Beach', 'Key West', 'Islamorada', 'Marathon', 'Naples', 'Orlando', 'Tampa', 'Jacksonville', 'Naranja', 'Princeton', 'Goulds', 'Perrine', 'Cooper City', 'Dania Beach', 'Lauderhill', 'Margate', 'Oakland Park', 'Wilton Manors'];
-  var CITY_END = new RegExp('(?:^|[^A-Za-z])(?:' + FL_CITIES.map(function (c) { return c.replace(/[-\\s]+/g, '[- ]'); }).join('|') + ')[ ,]*$', 'i');
+  var CITY_END = new RegExp('(?:^|[^A-Za-z])(?:' + FL_CITIES.map(function (c) { return c.replace(/[-\s]+/g, '[- ]'); }).join('|') + ')[ ,]*$', 'i');
   function runsOf(t) {
     var re = new RegExp('(?:' + TOKC + ')(?:' + SEPC + TOKC + ')*', 'g'), out = [], m;
     while ((m = re.exec(t)) !== null) {
