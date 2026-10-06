@@ -13,13 +13,13 @@ function fresh(base, o) {
   const ex = {}; ALL.forEach(i => { ex[i] = { state: 'up', last_seen: at(ls, base) }; }); CHATS.forEach(i => { ex[i].proof_at = at(2, base); });
   const bots = {}; BOTNAMES.forEach((n, i) => { bots[n] = { state: 'Ready', last_run_at: at(3 + i, base), last_result: 0, next_run_at: at(-5, base), interval_sec: 600 }; });
   return {
-    heartbeat: { schema: 1, at: at(hb, base), writer: 'fixture', interval_sec: o.interval === undefined ? 300 : o.interval, vtes_scheme_registered: o.registered === undefined ? true : o.registered, addresses_filled: { 'LLM-01': true, 'LLM-03': true }, executors: ex },
+    heartbeat: { schema: 1, at: at(hb, base), writer: 'fixture', interval_sec: o.interval === undefined ? 300 : o.interval, vtes_scheme_registered: o.registered === undefined ? true : o.registered, addresses_filled: { 'LLM-01': true, 'LLM-03': true }, local_only_folder: { ok: true, checked_at: at(30, base), label: 'VTES-LOCAL-ONLY (fixture)' }, executors: ex },
     bots: { schema: 1, at: at(1, base), writer: 'fixture', interval_sec: 300, bots },
     state: { schema: 1, at: at(30, base), open_items: 12, in_progress: 3, blocked: 2, repairs: [{ id: 'R1', text: 'Fixture repair row', status: 'OPEN' }], money: [{ item: 'Fixture invoice', status: 'staged' }] },
     health: { schema: 1, at: at(30, base), ok: true, checks_passed: 12, checks_total: 12, report_sent_at: at(31, base) },
     tokens: { schema: 1, at: at(2, base), burn_per_hour: 41000, window_used_pct: 33, window_resets_at: at(-180, base), week_used_pct: 61, programs: [{ name: 'fixture-program', tokens_today: 1234 }] },
     housekeeping: { schema: 1, at: at(60, base), last_report_at: at(60, base), report_delivered: true, delivered_to: 'jorge', items_cleaned: 17 },
-    miamidade: { schema: 1, at: at(20, base), counted: 7, target: 300, sources: [{ id: '01', proof_ok: true }, { id: '03', proof_ok: true }] }
+    miamidade: { schema: 1, at: at(20, base), counted: 7, target: 300, sources: Array.from({ length: 22 }, (_, i) => ({ id: ('0' + (i + 1)).slice(-2), proof_ok: true, checked_at: at(60 * 24, base) })) }
   };
 }
 function stage(files, opts) {

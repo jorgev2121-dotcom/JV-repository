@@ -50,7 +50,7 @@ const badgeOf = (p, sel) => p.$$eval(sel + ' .v5b[data-src]', e => e.map(x => x.
     for (const id of ['GROK', 'CODEX', 'COWORK']) { const t = await p.$$eval('#card-' + id + ' .v5steps li', e => e.map(x => x.textContent)); T('N10', id + ' card: no step says to use the blue RAMBO button', t.length > 0 && !t.some(x => /blue RAMBO button/i.test(x)), t.join(' || ')); }
     T('N10', 'GROK card: no step routes the packet through RAMBO at all', !(await p.$$eval('#card-GROK .v5steps li', e => e.map(x => x.textContent))).some(x => /RAMBO/.test(x)), '');
     // control: ordinary notes are untouched
-    for (const ok of ['Check permit 123 and call 305-555-0100 about folio 01-4120-001-0010', 'Order 12345 6789', 'unit 143, 2026-10-06']) { await setNote(p, ok); const pk = await packetFor(p, 'LLM-01'); T('N10', 'control: the note "' + ok + '" is still carried to LLM-01 unchanged', pk.indexOf(ok) >= 0, ''); }
+    for (const ok of ['Check permit 123 and call 305-555-0100 about folio 01-4120-001-0010', 'Order 12345', 'unit 143, 2026-10-06']) { await setNote(p, ok); const pk = await packetFor(p, 'LLM-01'); T('N10', 'control: the note "' + ok + '" is still carried to LLM-01 unchanged', pk.indexOf(ok) >= 0, ''); }
     for (const bad of ['ssn 123456789 for the client', 'social security: 123 45 6789', 'Social Security number 123456789']) { await setNote(p, bad); const pk = await packetFor(p, 'LLM-01'); T('N10', 'the note "' + bad + '" is left out of the packet for LLM-01 and the packet says why', pk.indexOf('NOT INCLUDED') >= 0 && !/123.?45.?6789|123456789/.test(pk), pk.slice(200, 400)); }
     T('N10', '0 page errors', errs.length === 0, errs.join('|')); await ctx.close(); }
 
@@ -63,7 +63,7 @@ const badgeOf = (p, sel) => p.$$eval(sel + ' .v5b[data-src]', e => e.map(x => x.
     T('N1', 'world allBotsFail: all six bots show red FAILED lines', reds === 6, 'red bot lines: ' + reds);
     T('N1', 'world allBotsFail: the strip entry "bots" is RED (never green "OK" above six FAILED bots)', b === 'bad' && !/bots: OK/.test(bt), bt);
     T('N1', 'world allBotsFail: the strip says how many bots are not fine ("6 of 6")', /6 of 6/.test(bt), bt);
-    T('N1', 'world allBotsFail: the age line says at least one file is not OK', /At least one data file is missing, stale, in the future or not OK/.test(await o.p.innerText('#v5age')), await o.p.innerText('#v5age')); await o.ctx.close();
+    T('N1', 'world allBotsFail: the age line says at least one file is not OK', /At least one data file or card is missing, stale, in the future or not OK/.test(await o.p.innerText('#v5age')), await o.p.innerText('#v5age')); await o.ctx.close();
     const f1 = fresh(NOWMS); f1.bots.bots['CU-Orchestrator'].last_result = 1; const o1 = await open(br, stage(f1)); T('N1', 'one failed bot out of six: the strip entry is red', (await stripCls(o1.p, 'bots')) === 'bad', await stripTxt(o1.p, 'bots')); await o1.ctx.close();
     const f2 = fresh(NOWMS); f2.bots.bots['CU-Orchestrator'].state = 'Disabled'; const o2 = await open(br, stage(f2)); T('N1', 'one disabled bot: the strip entry is red', (await stripCls(o2.p, 'bots')) === 'bad', await stripTxt(o2.p, 'bots')); await o2.ctx.close();
     const f3 = fresh(NOWMS); delete f3.bots.bots['CU-Propagation-Check']; const o3 = await open(br, stage(f3)); T('N1', 'one bot missing from the bots file: the strip entry is red (NO DATA for that bot)', (await stripCls(o3.p, 'bots')) === 'bad', await stripTxt(o3.p, 'bots')); await o3.ctx.close();
@@ -75,7 +75,7 @@ const badgeOf = (p, sel) => p.$$eval(sel + ' .v5b[data-src]', e => e.map(x => x.
     T('N1', 'world allDown: the heartbeat strip entry is RED, never green "OK"', hc === 'bad' && !/heartbeat: OK/.test(ht), ht);
     T('N1', 'world allDown: the badge in the Health panel line is not green either', !/v5b ok/.test(await oh.p.$eval('#v5dash', e => e.innerHTML.split('</span>').filter(x => /heartbeat/.test(x)).join(''))), '');
     await oh.ctx.close();
-    const h2 = fresh(NOWMS); h2.heartbeat.executors['LLM-02'].state = 'down'; const oh2 = await open(br, stage(h2)); T('N1', 'one window down out of the rest: the heartbeat entry is grey (never green)', (await stripCls(oh2.p, 'heartbeat')) === 'na', await stripTxt(oh2.p, 'heartbeat')); await oh2.ctx.close();
+    const h2 = fresh(NOWMS); h2.heartbeat.executors['LLM-02'].state = 'down'; const oh2 = await open(br, stage(h2)); T('N1', 'one window down out of the rest: the heartbeat entry is red (round 6: never greener than the worst card)', (await stripCls(oh2.p, 'heartbeat')) === 'bad', await stripTxt(oh2.p, 'heartbeat')); await oh2.ctx.close();
     const h3 = fresh(NOWMS); h3.heartbeat.executors = {}; const oh3 = await open(br, stage(h3)); T('N1', 'a fresh heartbeat file that lists no window at all: red', (await stripCls(oh3.p, 'heartbeat')) === 'bad', await stripTxt(oh3.p, 'heartbeat')); await oh3.ctx.close(); }
 
   // ================= N3: stale, impossible or out-of-range content is never green (the checker's cases)
@@ -121,14 +121,15 @@ const badgeOf = (p, sel) => p.$$eval(sel + ' .v5b[data-src]', e => e.map(x => x.
     T('N2', 'world hung: the strip entry for bots is red', (await stripCls(o.p, 'bots')) === 'bad', await stripTxt(o.p, 'bots')); await o.ctx.close();
     const cases = [
       ['running 3 minutes, every 2 minutes: still neutral (under 3 x 2 minutes = 6)', mk(3, 120), 'RUNNING NOW', 'neu'],
-      ['running 7 minutes, every 2 minutes: STUCK, in minutes', mk(7, 120), 'RUNNING FOR 7 MINUTES - CHECK', 'stk'],
+      ['running 7 minutes, every 2 minutes: still neutral (round 6: the limit is the larger of 3 x interval and 1 hour)', mk(7, 120), 'RUNNING NOW', 'neu'],
+      ['running 70 minutes, every 2 minutes: STUCK, "1 HOUR"', mk(70, 120), 'RUNNING FOR 1 HOUR - CHECK', 'stk'],
       ['running 30 minutes, no interval known: still neutral (under 1 hour)', mk(30, null), 'RUNNING NOW', 'neu'],
       ['running 90 minutes, no interval known: STUCK (over 1 hour), "1 HOUR"', mk(90, null), 'RUNNING FOR 1 HOUR - CHECK', 'stk'],
       ['running 5 hours, no interval known: STUCK, "5 HOURS"', mk(5 * 60 + 2, null), 'RUNNING FOR 5 HOURS - CHECK', 'stk'],
       ['running 2.5 hours, hourly bot: still neutral (under 3 hours)', mk(150, 3600), 'RUNNING NOW', 'neu'],
       ['running 3.5 hours, hourly bot: STUCK', mk(210, 3600), 'RUNNING FOR 3 HOURS - CHECK', 'stk'],
       ['scheduler state Running with result 0, started 2 days ago, every 2 minutes: STUCK too', mk(2 * 24 * 60, 120, w => { w.last_result = 0; }), 'RUNNING FOR 48 HOURS - CHECK', 'stk'],
-      ['running with no start time at all: neutral, and says how long cannot be judged', mk(1, 120, w => { delete w.last_run_at; }), 'cannot be judged', 'neu'] ];
+      ['running with no start time at all: neutral, and says how long cannot be judged', mk(1, 120, w => { delete w.last_run_at; }), 'first saw this state', 'neu'] ];
     for (const [name, f, txt, cls] of cases) { const o = await open(br, stage(f)); const b = await botCls(o.p, 'CU-Inbox-Job-Watcher'); T('N2', name, b.txt.indexOf(txt) >= 0 && new RegExp('\\b' + cls + '\\b').test(b.cls), b.cls + ' | ' + b.txt.slice(0, 160)); await o.ctx.close(); }
     // result 1 is still red FAILED, 0 and finished is still green
     const f = fresh(NOWMS); f.bots.bots['CU-Local-Executor'].last_result = 1; const oo = await open(br, stage(f)); const b1 = await botCls(oo.p, 'CU-Local-Executor'), b0 = await botCls(oo.p, 'CU-Orchestrator'); T('N2', 'controls: result 1 is still red FAILED; a finished result 0 task is still green', /FAILED/.test(b1.txt) && /\bbad\b/.test(b1.cls) && /\bok\b/.test(b0.cls), b1.cls + ' / ' + b0.cls); await oo.ctx.close(); }
@@ -177,8 +178,8 @@ const badgeOf = (p, sel) => p.$$eval(sel + ' .v5b[data-src]', e => e.map(x => x.
     T('F14', 'the bots lead line no longer says "Check any of them with Get-ScheduledTask" and says the desktop executor checks them', !/Get-ScheduledTask/.test(body) && /The desktop executor \(RAMBO\) checks the tasks on the PC; you type nothing/.test(body), '');
     T('F14', 'no step tells the user to open Windows Terminal or type codex', !/open Windows Terminal|Type codex|type codex/.test(body), (body.match(/.{40}(open Windows Terminal|ype codex).{40}/) || [''])[0]);
     const cards = await o.p.$$eval('#g-llm .card, #g-roles .card', e => e.map(c => ({ id: c.id, t: c.innerText.replace(/\s+/g, ' ') }))); const loose = [];
-    for (const c of cards) { for (const re of [/codex exec/, /Second-Opinion\.ps1/, /Get-ScheduledTask/]) { if (re.test(c.t) && !/the desktop executor \(RAMBO\) runs it, you type nothing/.test(c.t)) { loose.push(c.id + ':' + re.source); } } }
-    T('F14', 'the typed addresses `codex exec "<task>"` and `Second-Opinion.ps1 -Prompt "<question>"` appear only on lines that say the desktop executor (RAMBO) runs them and you type nothing', loose.length === 0 && /codex exec[^|]*/.test(body) && /Address \(typed in v3; the desktop executor \(RAMBO\) runs it, you type nothing\): codex exec/.test(body) && /Address \(typed in v3; the desktop executor \(RAMBO\) runs it, you type nothing\): Second-Opinion\.ps1/.test(body), loose.join(','));
+    for (const c of cards) { for (const re of [/codex exec/, /Second-Opinion\.ps1/, /Get-ScheduledTask/]) { if (re.test(c.t) && !/(the desktop executor \(RAMBO\) runs it, you type nothing|the desktop executor runs it, you type nothing)/.test(c.t)) { loose.push(c.id + ':' + re.source); } } }
+    T('F14', 'the typed addresses `codex exec "<task>"` and `Second-Opinion.ps1 -Prompt "<question>"` appear only on lines that say the desktop executor (RAMBO) runs them and you type nothing', loose.length === 0 && /codex exec[^|]*/.test(body) && /For RAMBO only \(typed in v3; the desktop executor runs it, you type nothing\): codex exec/.test(body) && /For RAMBO only \(typed in v3; the desktop executor runs it, you type nothing\): Second-Opinion\.ps1/.test(body), loose.join(','));
     T('F14', 'the LLM-06 card line no longer says "type codex"', !/Windows Terminal, type codex/.test(body) && /You type no command: the desktop executor runs Codex for you/.test(body), '');
     await o.ctx.close(); }
 

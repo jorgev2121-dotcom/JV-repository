@@ -14,14 +14,14 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
   { const f = fresh(NOWMS), B = f.bots.bots;
     B['CU-Inbox-Job-Watcher'].last_result = 267009; B['CU-Inbox-Job-Watcher'].state = 'Running';
     B['CU-Local-Executor'].last_result = 267011; delete B['CU-Local-Executor'].last_run_at;
-    B['CU-TokenMonitor-Hourly'].last_result = 1; B['CU-Orchestrator'].last_result = 267011; B['CU-Propagation-Check'].state = 'Running'; B['VTES-LOCAL-POLLER'].last_result = 267010;
+    B['CU-TokenMonitor-Hourly'].last_result = 1; B['CU-Orchestrator'].last_result = 267011; B['CU-Propagation-Check'].state = 'Running'; B['VTES-LOCAL-POLLER'].last_result = 2147942402;
     const { ctx, p, errs } = await open(br, stage(f));
     const run = await botCls(p, 'CU-Inbox-Job-Watcher'), nyr = await botCls(p, 'CU-Local-Executor'), failed = await botCls(p, 'CU-TokenMonitor-Hourly'), nyr2 = await botCls(p, 'CU-Orchestrator'), ok = await botCls(p, 'CU-Propagation-Check'), other = await botCls(p, 'VTES-LOCAL-POLLER');
     T('F2', '267009 means RUNNING: neutral blue, says RUNNING NOW, never FAILED', /RUNNING NOW/.test(run.txt) && !/FAILED/.test(run.txt) && /\bneu\b/.test(run.cls), run.cls + ' | ' + run.txt);
     T('F2', '267011 means NOT YET RUN: grey, even with no last-run time, never FAILED', /NOT YET RUN/.test(nyr.txt) && !/FAILED/.test(nyr.txt) && /\bunp\b/.test(nyr.cls), nyr.cls + ' | ' + nyr.txt);
     T('F2', '267011 with a last-run time is also grey NOT YET RUN', /NOT YET RUN/.test(nyr2.txt) && /\bunp\b/.test(nyr2.cls), nyr2.cls + ' | ' + nyr2.txt);
     T('F2', 'result 1 is still red FAILED with its code', /FAILED.*result code 1\b/.test(failed.txt) && /\bbad\b/.test(failed.cls), failed.txt);
-    T('F2', 'any other non-zero code (267010) is red FAILED', /FAILED.*267010/.test(other.txt) && /\bbad\b/.test(other.cls), other.txt);
+    T('F2', 'any other non-zero code (2147942402) is red FAILED', /FAILED.*2147942402/.test(other.txt) && /\bbad\b/.test(other.cls), other.txt);
     T('F2', 'a running task with result 0 is still green', /\bok\b/.test(ok.cls), ok.cls + ' | ' + ok.txt);
     T('F2', '0 page errors', errs.length === 0, errs.join('|')); await ctx.close(); }
   // ---------- F3: green only when the file is fresh AND its content says good
@@ -59,10 +59,10 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
   { const f = fresh(NOWMS), B = f.bots.bots; B['CU-Orchestrator'].state = 'Disabled'; B['CU-Inbox-Job-Watcher'].state = 'Disabled'; B['CU-Local-Executor'].last_result = 1;
     const { ctx, p } = await open(br, stage(f));
     for (const [card, word, bot] of [['CHIEF', 'DISABLED', 'CU-Orchestrator'], ['RAMBO', 'DISABLED', 'CU-Inbox-Job-Watcher'], ['LOCAL', 'FAILED', 'CU-Local-Executor']]) {
-      const r = await p.evaluate(c => { const el = document.getElementById('card-' + c); const st = [...el.querySelectorAll('.v5st')]; return { n: st.length, cls: st.map(x => x.className), txt: st.map(x => x.textContent), green: el.querySelectorAll('.v5st.ok').length, red: el.querySelectorAll('.v5st.bad').length }; }, card);
+      const r = await p.evaluate(c => { const el = document.getElementById('card-' + c); const st = [...el.querySelectorAll('.v5st[data-state]')]; return { n: st.length, cls: st.map(x => x.className), txt: st.map(x => x.textContent), green: el.querySelectorAll('.v5st[data-state].ok').length, red: el.querySelectorAll('.v5st[data-state].bad').length }; }, card);
       T('F6', card + ' card (window UP, bot ' + word + '): exactly ONE status line, red, and it says ' + word + ' and names ' + bot, r.n === 1 && r.green === 0 && r.red === 1 && new RegExp(word).test(r.txt[0]) && r.txt[0].includes(bot), JSON.stringify(r)); }
     await ctx.close();
-    const g = await open(br, stage(fresh(NOWMS))); const r2 = await g.p.evaluate(() => ['CHIEF', 'RAMBO', 'LOCAL'].map(c => { const el = document.getElementById('card-' + c); return { n: el.querySelectorAll('.v5st').length, ok: el.querySelectorAll('.v5st.ok').length, txt: el.querySelector('.v5st').textContent }; }));
+    const g = await open(br, stage(fresh(NOWMS))); const r2 = await g.p.evaluate(() => ['CHIEF', 'RAMBO', 'LOCAL'].map(c => { const el = document.getElementById('card-' + c); return { n: el.querySelectorAll('.v5st[data-state]').length, ok: el.querySelectorAll('.v5st[data-state].ok').length, txt: el.querySelector('.v5st[data-state]').textContent }; }));
     T('F6', 'control: window UP and bot fine: still one line, green, naming both', r2.every(x => x.n === 1 && x.ok === 1 && /UP/.test(x.txt) && /RAN/.test(x.txt)), JSON.stringify(r2)); await g.ctx.close();
     const t = fresh(NOWMS); const o = await open(br, stage(t)); await o.p.evaluate(() => 0);
     const f2 = fresh(NOWMS + 60000); f2.bots.bots['CU-Orchestrator'].state = 'Disabled'; for (const k of Object.keys(f2)) { fs.writeFileSync(path.join(path.dirname(o.p.url().replace('file://', '')), 'data', 'vtes5-' + k + '.js'), L.wrap(k, f2[k])); }
@@ -99,7 +99,7 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
     const q = async (p, t) => { await p.fill('#q', t); await sleep(p, 120); return names(p); };
     const same = ['rambo', 'bot', 'proven', 'codex', 'grok', 'cowork', 'iphone', 'claude', 'ollama', 'local', 'chief', 'orchestrator', 'LLM-02', 'LLM-05', '#cowork', 'files on my PC', 'free', 'scarce', 'quota', 'terminal', 'inbox', 'poller', 'email', 'drive', 'pii'];
     const diffs = []; let counts = {};
-    for (const t of same) { const a = await q(p3, t), b = await q(o5.p, t); counts[t] = a.length + '/' + b.length; if (JSON.stringify(a) !== JSON.stringify(b)) { diffs.push(t + ': v3 ' + a.length + ' v5 ' + b.length); } }
+    for (const t of same) { const a = await q(p3, t), b = await q(o5.p, t); counts[t] = a.length + '/' + b.length; const expectB = (t === 'inbox') ? a.filter(n => !/^LOCAL/.test(n)) : a; /* round 6, flaw 2: the LOCAL card no longer names the folder VTES-Inbox-LOCAL (it is inside Google Drive), so the word inbox no longer finds it */ if (JSON.stringify(expectB) !== JSON.stringify(b)) { diffs.push(t + ': v3 ' + a.length + ' v5 ' + b.length); } }
     T('F10', 'for ' + same.length + ' search words the same cards match on v3 and on v5 (counts v3/v5: ' + JSON.stringify(counts) + ')', diffs.length === 0, diffs.join(' ; '));
     const r5 = await q(o5.p, 'rambo'), b5 = await q(o5.p, 'bot'), p5 = await q(o5.p, 'proven');
     T('F10', '"rambo" stays near v3 (9 cards), "bot" stays 6, "proven" stays 1 (v5 gives ' + r5.length + ', ' + b5.length + ', ' + p5.length + ')', r5.length === 9 && b5.length === 6 && p5.length === 1, [r5.length, b5.length, p5.length].join(','));
@@ -122,7 +122,7 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
     T('F13', 'the iPhone card gives a step that works on a Windows PC (a new email to yourself)', /new email to yourself/.test(await p.innerText('#card-LLM-05')), '');
     const steps = async id => (await p.$$eval('#card-' + id + ' .v5na2', e => e.map(x => x.textContent).join(' ')));
     const local = await steps('LOCAL'), grok = await steps('GROK'), rambo = await steps('RAMBO');
-    T('F14', 'LOCAL steps are click by click in File Explorer and send the packet nowhere else (round 5, N10: they used to hand it to RAMBO, which is Claude)', /right-click/.test(local) && /Text Document/.test(local) && /VTES-Inbox-LOCAL/.test(local) && !/blue RAMBO button for it[^.]*\./.test(local.replace(/Do NOT[^.]*\./, '')), local);
+    T('F14', 'LOCAL steps are click by click in File Explorer and send the packet nowhere else (round 5, N10: they used to hand it to RAMBO, which is Claude)', /right-click/i.test(local) && /Text Document/.test(local) && /File name extensions/.test(local) && !/open Google Drive, open the folder VTES-Inbox-LOCAL/.test(local) && !/blue RAMBO button for it[^.]*\./.test(local.replace(/Do NOT[^.]*\./, '')), local);
     T('F14', 'GROK steps do not tell Jorge to run Second-Opinion.ps1 -Prompt and (round 5, N10) do not route the packet through RAMBO', !/Second-Opinion\.ps1/.test(grok) && !/RAMBO/.test(grok.replace(/Steps:/, '')) && /grok\.com/.test(grok), grok);
     T('F14', 'RAMBO step "save a JOB file" is click by click (File Explorer, right-click, New, Text Document)', /right-click/.test(rambo) && /Text Document/.test(rambo) && !/save the packet as JOB-something\.md in G:/i.test(rambo), rambo);
     for (const [to, bad] of [['LOCAL', /CLASS:|JOB-\*\.md|G:\\/], ['CODEX', /codex exec|<task>/], ['RAMBO', /JOB-\*\.md|G:\\/], ['GROK', /Second-Opinion\.ps1 -Prompt/]]) {

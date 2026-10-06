@@ -68,7 +68,7 @@ h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 /* flaw N12: the OLD PANEL warning is never under 14 px: the PANEL and INDEX corner buttons (12 px in v3) too */
 #vtes-back-to-panel a{font-size:14px}
 </style></head><body>
-<script>window.VTES5_BUILT = "2026-10-06T11:41:12Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
+<script>window.VTES5_BUILT = "2026-10-06T13:56:35Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
 <div class="tabs" id="tabs"></div>
 <div class="v5tabhint" id="v5tabhint"></div>
 <h1>VTES LLM Launcher</h1>
@@ -148,7 +148,7 @@ var LLMS=[
 {id:'LLM-08',e:'\u264a',n:'Gemini',r:'Volume drafter: free, Drive-native',j:'Cheap bulk drafting and summarizing. Gemini CLI can run headless on the PC under GEMINI.md.',pool:'Google account (free)',cls:'free',t:'#LLM-08 #GEMINI #google #volume',a:'vtes://llm-08',url:'https://gemini.google.com',how:'',k:'gemini google volume drafter cheap free drive native summarize cli'},
 {id:'LLM-09',e:'\ud83e\uddf0',n:'Thin API router',r:'Standby bridge only',j:'Routing bridge, never the main engine. Every API run is priced first and sent to you for approval.',pool:'API (priced, approved)',cls:'scarce',t:'#LLM-09 #API-ROUTER #standby',a:'',url:'',how:'Standby. Nothing to open.',k:'api router litellm bridge standby'}];
 var ROLES=[
-{id:'LOCAL',e:'\ud83c\udfe0',n:'LOCAL: Ollama',r:'Free, on your machine',j:'Classify, tag, extract, summarise, rename, and all client personal data. Never leaves the PC.',pool:'FREE',cls:'free',t:'#LOCAL #OLLAMA #PII',a:'Drop JOB-*.md with CLASS: and PROMPT: into G:\\My Drive\\VTES-Inbox-LOCAL',k:'local ollama free classify tag extract summarise rename pii'},
+{id:'LOCAL',e:'\ud83c\udfe0',n:'LOCAL: Ollama',r:'Free, on your machine',j:'Classify, tag, extract, summarise, rename, and all client personal data (typed in v3: "Never leaves the PC" - only true once a local-only folder outside Google Drive and OneDrive is confirmed; see the LOCAL save step on this card).',pool:'FREE',cls:'free',t:'#LOCAL #OLLAMA #PII',a:'Drop JOB-*.md with CLASS: and PROMPT: into a local-only folder. BLOCKED until the desktop executor confirms one (see the LOCAL save step on this card).',k:'local ollama free classify tag extract summarise rename pii'},
 {id:'CODEX',e:'\ud83e\udded',n:'CODEX',r:'Code, HTML, scripts, files',j:'Separate ChatGPT pool.',pool:'ChatGPT pool (not Claude)',cls:'free',t:'#CODEX',a:'codex exec "<task>"',k:'codex code html scripts files chatgpt'},
 {id:'RAMBO',e:'\ud83d\udda5\ufe0f',n:'CLAUDE / RAMBO',r:'Judgment, client-facing, legal',j:'Use only for what needs Claude.',pool:'Claude Max (scarce)',cls:'scarce',t:'#RAMBO #CLAUDE',a:'Drop JOB-*.md into G:\\My Drive\\VTES-Inbox',k:'claude rambo judgment client facing legal'},
 {id:'GROK',e:'\ud83d\udd2e',n:'GROK',r:'Second opinion',j:'Round-trip question only; cannot write files or run commands.',pool:'Paid xAI key',cls:'free',t:'#GROK #FABIAN',a:'Second-Opinion.ps1 -Prompt "<question>"',k:'grok second opinion xai'},
@@ -170,7 +170,7 @@ var QUEUED=[
 {n:'Orchestrator / Chief seat',to:'LOCAL',p:'Confirm CU-Orchestrator ran on its last scheduled run and list any open RECEIPT items it flagged.',gate:''}];
 var PICK=[
 ['Classify, tag, extract, summarise, rename','LOCAL','Free and private. Client personal data must use this lane.'],
-['Client personal data (PII)','LOCAL','PII never leaves the machine.'],
+['Client personal data (PII)','LOCAL','PII goes to LOCAL only. It stays on the machine only once a local-only folder is confirmed (see the LOCAL card).'],
 ['Code, HTML, scripts, build a file','CODEX','Separate ChatGPT pool: keeps the Claude Max quota for judgment.'],
 ['Second opinion or live web check','LLM-07','Grok sanity-checks Claude with the live web. Chat only.'],
 ['Bulk drafting or summaries','LLM-08','Gemini is free and Drive-native.'],
@@ -179,7 +179,7 @@ var PICK=[
 ['Long documents, CDM analysis','LLM-03','Cowork is the analyst. It cannot receive from the bus: you paste.'],
 ['Repo work, QC, research, dispatch','LLM-02','Cloud Claude Code. Cannot touch the PC.']];
 var WIN=[];LLMS.forEach(function(w){WIN.push({id:w.id,n:w.n,url:w.url,how:w.how})});
-WIN.push({id:'LOCAL',n:'LOCAL (Ollama)',url:'',how:'Do not give this packet to any Claude window. Follow the steps on the LOCAL card: save it as a JOB file in the VTES-Inbox-LOCAL folder.'});
+WIN.push({id:'LOCAL',n:'LOCAL (Ollama)',url:'',how:'Do not give this packet to any Claude window. Follow the steps on the LOCAL card. Saving it is BLOCKED until the desktop executor confirms a local-only folder (not inside Google Drive or OneDrive).'});
 WIN.push({id:'CODEX',n:'CODEX',url:'',how:'Follow the steps on the CODEX card. You type no command: the desktop executor (RAMBO) runs Codex.'});
 WIN.push({id:'RAMBO',n:'CLAUDE / RAMBO',url:'',how:'Open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.'});
 WIN.push({id:'GROK',n:'GROK',url:'',how:'Paste the packet into grok.com. The desktop executor (RAMBO) can run Second-Opinion.ps1 for you.'});

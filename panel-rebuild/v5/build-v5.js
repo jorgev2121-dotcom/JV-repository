@@ -6,6 +6,8 @@ const raw = fs.readFileSync(SRC);
 const REAL_SHA = '28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6f6c333411fe3';
 if (crypto.createHash('sha256').update(raw).digest('hex') !== REAL_SHA) { throw new Error('the v3 source is not the real v3 launcher (SHA-256 differs)'); }
 let h = raw.toString('utf8');
+// fix round 6 (flaw 12): v3 has two CRLF line ends in a file that is otherwise LF. The package must be pure LF so VERIFY can tell "only the line endings changed (CRLF)" from a real edit. Normalised here, the build fails if any CR is left.
+h = h.replace(/\r\n/g, '\n'); if (/\r/.test(h)) { throw new Error('a lone CR is left in the v3 text'); }
 // the build time is the real instant this script runs, never hand-set (flaw F3); the page also holds it to the BAD CLOCK rule
 if (process.env.V5_BUILT) { console.log('NOTE: V5_BUILT is ignored. The build time is always the real build instant.'); }
 const BUILT = new Date().toISOString().slice(0, 19) + 'Z';
@@ -60,7 +62,11 @@ rep('url-llm06', "url:'https://chatgpt.com'", "url:''");
 // F13: AirDrop does not exist on a Windows PC
 rep('airdrop', 'Send the packet with AirDrop or Notes first.', 'Get the packet onto the iPhone first (see the steps on this card).');
 // F14: the line printed after "Copy packet and open" must not hand Jorge a command or a file job either (LOCAL, CODEX, RAMBO)
-rep('how-local', "how:'Save the packet as JOB-*.md in G:\\\\My Drive\\\\VTES-Inbox-LOCAL with CLASS: and PROMPT: lines.'", "how:'Do not give this packet to any Claude window. Follow the steps on the LOCAL card: save it as a JOB file in the VTES-Inbox-LOCAL folder.'");
+rep('how-local', "how:'Save the packet as JOB-*.md in G:\\\\My Drive\\\\VTES-Inbox-LOCAL with CLASS: and PROMPT: lines.'", "how:'Do not give this packet to any Claude window. Follow the steps on the LOCAL card. Saving it is BLOCKED until the desktop executor confirms a local-only folder (not inside Google Drive or OneDrive).'");
+// fix round 6, flaw 2: v3 told Jorge to drop client data into a folder inside Google Drive and claimed it never leaves the PC. Both statements are replaced.
+rep('local-j', 'and all client personal data. Never leaves the PC.', 'and all client personal data (typed in v3: "Never leaves the PC" - only true once a local-only folder outside Google Drive and OneDrive is confirmed; see the LOCAL save step on this card).');
+rep('local-a', "a:'Drop JOB-*.md with CLASS: and PROMPT: into G:\\\\My Drive\\\\VTES-Inbox-LOCAL'", "a:'Drop JOB-*.md with CLASS: and PROMPT: into a local-only folder. BLOCKED until the desktop executor confirms one (see the LOCAL save step on this card).'");
+rep('local-pick', "'PII never leaves the machine.'", "'PII goes to LOCAL only. It stays on the machine only once a local-only folder is confirmed (see the LOCAL card).'");
 rep('how-codex', "how:'Windows Terminal: codex exec \"<task>\" then paste.'", "how:'Follow the steps on the CODEX card. You type no command: the desktop executor (RAMBO) runs Codex.'");
 rep('how-rambo', "how:'Save the packet as JOB-*.md in G:\\\\My Drive\\\\VTES-Inbox.'", "how:'Open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.'");
 // F14 (round 5): the LLM-06 card line and the status after "Copy packet and open" must not hand Jorge a typed command either

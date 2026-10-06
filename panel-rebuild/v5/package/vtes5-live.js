@@ -18,7 +18,10 @@
   /* Windows Task Scheduler result codes that are not failures (flaw F2): 267009 = 0x41301 task is running now, 267011 = 0x41303 task has not run yet */
   var RES_RUNNING = 267009, RES_NOT_YET = 267011;
   /* flaw N2 (RI-002: a process in the task list is not a run making progress): a task shown as running for longer than 3 x its own interval, or 1 hour when no valid interval is known, is STUCK */
-  var STUCK_FACTOR = 3, STUCK_NO_INTERVAL_MIN = 60;
+  var STUCK_FACTOR = 3, STUCK_FLOOR_MIN = 60;
+  /* fix round 6 (flaws 4, 9): the ONE limit for "running", "queued" and "running with no start time" is 3 x the task's own interval or 1 hour, whichever is larger; with no valid interval it is 1 hour.
+     267010 (0x41302) is the scheduler's "task is disabled" code: it is worded DISABLED, not FAILED. */
+  var RES_DISABLED = 267010;
   /* the six bots on this page (the names v3 lists); a bot named in the bots file but not here is judged too (flaw N1) */
   var BOT_NAMES = ['CU-Inbox-Job-Watcher', 'CU-Local-Executor', 'CU-TokenMonitor-Hourly', 'CU-Orchestrator', 'CU-Propagation-Check', 'VTES-LOCAL-POLLER'];
   /* the Miami-Dade target the page shows ("n of 300") */
@@ -34,6 +37,15 @@
   /* the windows and roles this page shows (LLM-10 Copilot is not on Jorge's v3 page) */
   var ALL_IDS = ['LLM-01', 'LLM-02', 'LLM-03', 'LLM-04', 'LLM-05', 'LLM-06', 'LLM-07', 'LLM-08', 'LLM-09', 'LOCAL', 'CHIEF'];
   var NOW = function () { return window.VTES5_NOW ? new Date(window.VTES5_NOW) : new Date(); };
+  /* ---- fix round 6, Tier 2 + Tier 3 (charter Rule 4: "green means good" was broken four times, so no more patches) ----
+     ONE function turns a state word into a colour class (clsOfState), ONE table ranks the classes, and ONE function (V.enforce, in vtes5-ui.js) re-reads the page after every paint and
+     raises any badge or strip entry to the worst card or panel mark on the page that uses its file. A badge can no longer be greener than what is printed under it. */
+  var STATE_CLS = { 'OK': 'ok', 'UNPROVEN': 'unp', 'NOT RUN': 'unp', 'RUNNING': 'neu', 'QUEUED': 'neu', 'STUCK': 'stk' };
+  function clsOfState(state) { return STATE_CLS[state] || 'bad'; }
+  var RANK = { ok: 0, neu: 1, unp: 1, na: 1, bad: 2, stk: 2 };
+  function rankOf(c) { return RANK[c] === undefined ? 2 : RANK[c]; }
+  function worstCls(list) { var w = 'ok'; (list || []).forEach(function (c) { if (rankOf(c) > rankOf(w)) { w = c; } }); return w; }
+  function stripCls(c) { var r = rankOf(c); return r === 0 ? 'ok' : (r === 1 ? 'na' : 'bad'); }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   /* every time on the page: Eastern, short form, with the zone, e.g. "Oct 6, 2:05 PM EDT"; the year is added whenever it is not the current year */
   function easternYear(d) { return d.toLocaleString('en-US', { timeZone: 'America/New_York', year: 'numeric' }); }
@@ -99,14 +111,23 @@
      cls 'ok' = green, 'bad' = red, 'na' = grey (fresh file, but nothing was counted). Fresh alone is never green except for files whose only content is "I wrote this" (heartbeat, bots, state). */
   function isCount(x, max) { return isNum(x) && x >= 0 && Math.floor(x) === x && (max === undefined || x <= max); }
   function isPct(x) { return isNum(x) && x >= 0 && x <= 100; }
-  /* a time field in a report: returns null when fine, else the red verdict text (flaws N3 and N1: stale, future or missing times are never green) */
-  function oldTime(iso, limitMinutes, what, s) {
-    var t = iso ? new Date(iso) : null;
-    if (!t || isNaN(t.getTime())) { return { kind: 'NO DATA', text: 'NO DATA - the report has no valid ' + what + ' (file as of ' + fmt(s.at) + ')' }; }
-    if (isFuture(t)) { return { kind: 'BAD CLOCK', text: 'BAD CLOCK - the ' + what + ' says ' + fmt(t) + ', which is in the future. Not trusted.' }; }
-    if ((NOW() - t) / 60000 > limitMinutes) { return { kind: 'OLD', text: 'OLD - the ' + what + ' is ' + fmt(t) + ', more than ' + Math.round(limitMinutes / 60) + ' hours ago (file as of ' + fmt(s.at) + ')' }; }
+  /* fix round 6 (flaws 6, 7, 8): the ONE freshness rule for every date shown as a value.
+     o.type 'past': a time an event happened (report sent, last report, proof checked) - older than o.limitMin is OLD.
+     o.type 'due': a time something is due or resets - in the past is PAST. In the future (more than the grace) is BAD CLOCK for 'past' types. A missing or unreadable time is NO DATA.
+     Returns null when fine, else {kind, text}. Nothing that fails this rule is ever shown green or as a plain value. */
+  function dateJudge(iso, o, s) {
+    var t = iso ? new Date(iso) : null, ctx = s && s.at ? ' (file as of ' + fmt(s.at) + ')' : '';
+    if (!t || isNaN(t.getTime())) { return { kind: 'NO DATA', text: 'NO DATA - the report has no valid ' + o.what + ctx }; }
+    if (o.type === 'due') {
+      if (t <= NOW()) { return { kind: 'PAST', text: 'PAST - the ' + o.what + ' is ' + fmt(t) + ', which has already gone by, so the numbers beside it belong to a finished period' + ctx }; }
+      return null;
+    }
+    if (isFuture(t)) { return { kind: 'BAD CLOCK', text: 'BAD CLOCK - the ' + o.what + ' says ' + fmt(t) + ', which is in the future. Not trusted.' }; }
+    if ((NOW() - t) / 60000 > o.limitMin) { return { kind: 'OLD', text: 'OLD - the ' + o.what + ' is ' + fmt(t) + ', more than ' + (o.limitMin >= 120 ? Math.round(o.limitMin / 60) + ' hours' : Math.round(o.limitMin) + ' minutes') + ' ago' + ctx }; }
     return null;
   }
+  /* the name the verdicts below use: a past-type check with a limit in minutes */
+  function oldTime(iso, limitMinutes, what, s) { return dateJudge(iso, { type: 'past', limitMin: limitMinutes, what: what }, s); }
   function bad(kind, text) { return { cls: 'bad', kind: kind, text: text }; }
   /* the class one bot contributes to the bots strip: ok = fine, na = running, queued, not yet run or unproven, bad = anything else (failed, late, disabled, stuck, no data) */
   function botClass(st) { return st === 'OK' ? 'ok' : ((st === 'RUNNING' || st === 'QUEUED' || st === 'NOT RUN' || st === 'UNPROVEN') ? 'na' : 'bad'); }
@@ -127,13 +148,9 @@
       if (soft.length) { return { cls: 'na', kind: 'BOTS NOT ALL PROVEN', text: soft.length + ' of ' + names.length + ' bots are running, queued, not yet run or cannot be judged (' + soft.join(', ') + '); none has failed (file as of ' + fmt(s.at) + ')' }; }
     }
     if (name === 'heartbeat') {
-      /* flaw N1: the heartbeat file being fresh is not "good" while the windows it reports are down */
-      var ids = Object.keys(d.executors && typeof d.executors === 'object' ? d.executors : {}), unhealthy = 0;
-      ALL_IDS.forEach(function (i) { if (ids.indexOf(i) < 0 && d.executors && d.executors[i]) { ids.push(i); } });
-      ids.forEach(function (i) { var st = executor(i).state; if (st === 'DOWN' || st === 'STALE' || st === 'BAD CLOCK' || st === 'NOT OK') { unhealthy++; } });
+      /* fix round 6 (flaw 1): this verdict judges the FILE only. The windows it reports are cards on the page; the strip takes its colour from those cards (V.enforce), never from a second opinion here. */
+      var ids = Object.keys(d.executors && typeof d.executors === 'object' ? d.executors : {});
       if (!ids.length) { return bad('NO WINDOWS', 'NO WINDOWS REPORTED - the heartbeat file is fresh (as of ' + fmt(s.at) + ') but lists no window'); }
-      if (unhealthy === ids.length) { return bad('ALL DOWN', 'EVERY WINDOW IS DOWN, STALE OR NOT TRUSTED - ' + unhealthy + ' of ' + ids.length + ' reported (file as of ' + fmt(s.at) + ')'); }
-      if (unhealthy > 0) { return { cls: 'na', kind: 'SOME DOWN', text: unhealthy + ' of ' + ids.length + ' reported windows are down, stale or not trusted (file as of ' + fmt(s.at) + ')' }; }
     }
     if (name === 'state') {
       var badNum = ['open_items', 'in_progress', 'blocked'].filter(function (k) { return d[k] !== undefined && !isCount(d[k]); });
@@ -168,13 +185,15 @@
       (d.programs || []).forEach(function (p) { if (p && p.tokens_today !== undefined && !(isNum(p.tokens_today) && p.tokens_today >= 0)) { imp.push('tokens_today of ' + p.name); } });
       if (imp.length) { return bad('IMPOSSIBLE', 'IMPOSSIBLE - ' + imp.join(', ') + ' in the token report is below 0 or above 100%, which cannot be true (file as of ' + fmt(s.at) + ')'); }
       if (!isNum(d.burn_per_hour) || !isNum(d.window_used_pct)) { return { cls: 'bad', kind: 'INCOMPLETE', text: 'INCOMPLETE - the token report lacks the burn rate or the window used (file as of ' + fmt(s.at) + ')' }; }
+      /* flaw 7: a reset time that has already gone by means the numbers belong to a finished window */
+      t = dateJudge(d.window_resets_at, { type: 'due', what: 'window reset time' }, s); if (t) { return bad(t.kind, t.text); }
     }
     return { cls: 'ok', kind: 'OK', text: s.text };
   }
   /* html badge: green only when the verdict is green */
   function badge(name, okLabel) {
     var v = verdict(name);
-    return '<span class="v5b ' + v.cls + '" data-src="' + name + '">' + esc(v.cls === 'ok' ? (okLabel || 'OK') + ' - ' + v.text : v.text) + '</span>';
+    return '<span class="v5b ' + v.cls + '" data-src="' + name + '" data-lbl="' + esc(okLabel || 'OK') + '">' + esc(v.cls === 'ok' ? (okLabel || 'OK') + ' - ' + v.text : v.text) + '</span>';
   }
   /* the tick in seconds: the heartbeat's own interval_sec when valid, else the 10-minute schedule Write-VtesStatus.ps1 documents */
   function tickSec() { var d = D.heartbeat; return (d && intervalOk(d.interval_sec)) ? d.interval_sec : STATUS_FILE_TICK_SEC; }
@@ -229,18 +248,18 @@
     var s = h.data.interval_sec; return 'every ' + (s % 60 === 0 ? (s / 60) + ' minutes' : s + ' seconds') + (h.state === 'STALE' ? ' (STALE)' : '');
   }
   /* the age line in three parts, so the minute-by-minute "Re-checked" time can change without the rest being redrawn (flaw F16) */
-  function ageLine(builtIso) {
+  function ageLine(builtIso, pageBad) {
     var oldest = null, bad = false, clock = [];
     Object.keys(LIMIT_MIN).forEach(function (n) {
       var s = status(n), vd = verdict(n); if (s.state !== 'OK' || vd.cls === 'bad') { bad = true; }
       if (s.state === 'BAD CLOCK') { clock.push(n); } else if (s.at && (!oldest || s.at < oldest)) { oldest = s.at; }
     });
-    var builtBadNow = builtBad(builtIso); if (builtBadNow) { bad = true; }
+    var builtBadNow = builtBad(builtIso); if (builtBadNow || pageBad) { bad = true; }
     var only = (!oldest && !clock.length && Object.keys(getS()).length) ? ' Only the status-only writer (vtes-status.js) has reported, and it cannot prove anything.' : '';
     var a = 'Built ' + builtText(builtIso) + ', data as of ' + (oldest ? fmt(oldest) + ' (oldest file)' : 'NO DATA (no valid data file has been written yet)') +
       (clock.length ? '. BAD CLOCK: ' + clock.join(', ') + ' dated in the future, not trusted' : '') + '. ';
     var b = 'Re-checked ' + fmt(NOW()) + '.';
-    var c = (bad ? ' At least one data file is missing, stale, in the future or not OK (or the build time is not trusted): see the red marks below.' : '') + only;
+    var c = (bad ? ' At least one data file or card is missing, stale, in the future or not OK (or the build time is not trusted): see the red marks below.' : '') + only;
     return { bad: bad, text: a + b + c, a: a, b: b, c: c };
   }
   /* ---- redraw only what changed (flaw F16): a node whose html or text is already right is never touched, so a text selection inside it survives ---- */
@@ -286,6 +305,9 @@
     });
   }
   /* ---- one bot (a scheduled task) from the bots file: the Windows scheduler's own report, read by a writer on the PC. It proves the task ran and how it ended, not that its work was right. ---- */
+  /* the first moment this page saw a task in a given state (in memory only; a reload starts the count again). Used only when the report itself gives no time. */
+  var SEEN = {};
+  function firstSeen(name, key, now) { var f = SEEN[name]; if (!f || f.key !== key) { f = SEEN[name] = { key: key, at: now }; } return f.at; }
   function bot(name) {
     var bs = status('bots');
     if (bs.state === 'NO DATA') { return { state: 'NO DATA', text: 'NO DATA - the bots report file has not been written yet' }; }
@@ -300,21 +322,29 @@
     var badIv = (b.interval_sec !== undefined && b.interval_sec !== null && !iv) ? ' The interval_sec in the report is not a number from 1 to ' + MAX_BOT_SEC + ' (7 days), so lateness cannot be judged.' : '';
     var lastTxt = runOk ? ' (last ran ' + fmt(run) + ')' : '';
     if (runOk && isFuture(run)) { return { state: 'BAD CLOCK', text: 'BAD CLOCK - the last run says ' + fmt(run) + ', which is in the future. Not trusted.' }; }
-    if (st === 'disabled') { return { state: 'DOWN', text: 'DISABLED - the scheduler says this task is switched off' + lastTxt + '.' + every }; }
-    /* flaw N17: Windows also reports the state Queued. It is neutral (waiting to start), never red NO DATA */
-    if (st === 'queued') { return { state: 'QUEUED', text: 'QUEUED - the scheduler says this task is queued to start' + lastTxt + '.' + every }; }
-    if (st !== 'ready' && st !== 'running') { return { state: 'NO DATA', text: 'NO DATA - the scheduler state is "' + (st || 'missing') + '"' + lastTxt }; }
-    /* flaw N2 (RI-002): "running" is only good news for a while. A task shown as running for more than 3 x its interval (1 hour when no valid interval is known) is STUCK, with the time it started (the scheduler's last-run time) */
-    if ((st === 'running' || b.last_result === RES_RUNNING) && runOk) {
-      var runMin = (NOW() - run) / 60000, stuckMin = iv ? STUCK_FACTOR * iv / 60 : STUCK_NO_INTERVAL_MIN;
-      if (runMin > stuckMin) {
-        var runFor = runMin >= 60 ? Math.floor(runMin / 60) + (Math.floor(runMin / 60) === 1 ? ' HOUR' : ' HOURS') : Math.max(1, Math.floor(runMin)) + (Math.floor(runMin) <= 1 ? ' MINUTE' : ' MINUTES');
-        return { state: 'STUCK', text: 'RUNNING FOR ' + runFor + ' - CHECK. Started ' + fmt(run) + ' (the scheduler\'s last-run time). That is more than ' + (iv ? STUCK_FACTOR + ' x its ' + everyText(iv) + ' interval' : '1 hour') + ', so it may be hung: a task in the scheduler list is not proof it is making progress.' };
-      }
+    if (st === 'disabled') { return { state: 'DOWN', text: 'DISABLED - the scheduler says this task is turned off' + lastTxt + '.' + every }; }
+    /* flaw 9: 267010 (0x41302) is the scheduler's own "this task is disabled" code. Red is right, FAILED is the wrong word. */
+    if (b.last_result === RES_DISABLED) { return { state: 'DOWN', text: 'DISABLED - the scheduler says this task is turned off (result code ' + RES_DISABLED + ' means disabled, not failed)' + lastTxt + '.' + every }; }
+    if (st !== 'ready' && st !== 'running' && st !== 'queued') { return { state: 'NO DATA', text: 'NO DATA - the scheduler state is "' + (st || 'missing') + '"' + lastTxt }; }
+    /* flaws N2, N17 and 4 (RI-002: a process in the task list is not a run making progress). "Running", "queued" and "running with no start time" are good news only for a while:
+       one limit for all three = 3 x the task's own interval or 1 hour, whichever is larger (1 hour when no valid interval is known), counted from the best time the report gives:
+       the start of the run (running), the scheduler's last-run time (queued), or, when the report gives no time at all, the moment this page first saw that state (lost when the page is reloaded; KNOWN-LIMITS). */
+    var waiting = (st === 'queued'), running = (st === 'running' || b.last_result === RES_RUNNING);
+    if (waiting || running) {
+      var stuckLimit = iv ? Math.max(STUCK_FACTOR * iv / 60, STUCK_FLOOR_MIN) : STUCK_FLOOR_MIN, now = NOW(), refAt, how;
+      if (runOk) { refAt = run; how = waiting ? 'its last scheduled run was ' + fmt(run) : 'Started ' + fmt(run) + ' (the scheduler\'s last-run time)'; }
+      else { refAt = firstSeen(name, st + '|' + String(b.last_result), now); how = 'the report gives no ' + (waiting ? 'last-run' : 'start') + ' time, so this page counts from ' + fmt(refAt) + ', when it first saw this state (a reload of the page restarts that count)'; }
+      var heldMin = (now - refAt) / 60000;
+      if (heldMin > stuckLimit) {
+        var heldFor = heldMin >= 60 ? Math.floor(heldMin / 60) + (Math.floor(heldMin / 60) === 1 ? ' HOUR' : ' HOURS') : Math.max(1, Math.floor(heldMin)) + (Math.floor(heldMin) <= 1 ? ' MINUTE' : ' MINUTES');
+        var limTxt = 'more than ' + (iv ? '3 x its ' + everyText(iv) + ' interval or 1 hour, whichever is larger' : '1 hour') + ' (' + Math.round(stuckLimit) + ' minutes)';
+        if (running && runOk) { return { state: 'STUCK', text: 'RUNNING FOR ' + heldFor + ' - CHECK. ' + how + '. That is ' + limTxt + ', so it may be hung: a task in the scheduler list is not proof it is making progress.' }; }
+        return { state: 'STUCK', text: 'STUCK - CHECK. ' + (waiting ? 'QUEUED for ' : 'RUNNING for ') + heldFor + ': ' + how + '. That is ' + limTxt + ', so it may be hung: a task in the scheduler list is not proof it is making progress.' }; }
+      if (waiting) { return { state: 'QUEUED', text: 'QUEUED - the scheduler says this task is queued to start' + lastTxt + '.' + every + ' It turns red STUCK - CHECK after ' + Math.round(stuckLimit) + ' minutes of waiting.' }; }
     }
     if (typeof b.last_result === 'number' && isFinite(b.last_result)) {
       /* flaw F2: 267009 is "running now" (neutral) and 267011 is "not yet run" (grey); any other non-zero code is a failure */
-      if (b.last_result === RES_RUNNING) { return { state: 'RUNNING', text: 'RUNNING NOW - the scheduler says this task is running (result code ' + RES_RUNNING + ' means running, not failed)' + (runOk ? lastTxt : ' (no start time given, so how long it has been running cannot be judged)') + '.' + every }; }
+      if (b.last_result === RES_RUNNING) { return { state: 'RUNNING', text: 'RUNNING NOW - the scheduler says this task is running (result code ' + RES_RUNNING + ' means running, not failed)' + (runOk ? lastTxt : ' (no start time given: this page counts how long it has been running from when it first saw this state)') + '.' + every + ' It turns red STUCK - CHECK after ' + Math.round(stuckLimit) + ' minutes.' }; }
       if (b.last_result === RES_NOT_YET) { return { state: 'NOT RUN', text: 'NOT YET RUN - the scheduler says this task has not run yet (result code ' + RES_NOT_YET + ')' + '.' + every }; }
     }
     if (!runOk) { return { state: 'NO DATA', text: 'NO DATA - no last-run time for this bot' + (st ? ' (scheduler says "' + st + '")' : '') }; }
@@ -326,5 +356,6 @@
   }
   window.VTES5 = { status: status, verdict: verdict, badge: badge, executor: executor, bot: bot, tick: tick, tickSec: tickSec, ageLine: ageLine, esc: esc, fmt: fmt, fmtIso: fmtIso, padTime: padTime, now: NOW, reload: reload, addressFilled: addressFilled, schemeRegistered: schemeRegistered,
     LIMIT_MIN: LIMIT_MIN, limitMin: limitMin, ALL_IDS: ALL_IDS, CHAT_ONLY: CHAT_ONLY, NEEDS_PROOF: NEEDS_PROOF, MAX_TICK_SEC: MAX_TICK_SEC, MAX_BOT_SEC: MAX_BOT_SEC, BOT_LATE_FACTOR: BOT_LATE_FACTOR,
+    clsOfState: clsOfState, rankOf: rankOf, worstCls: worstCls, stripCls: stripCls, dateJudge: dateJudge, STUCK_FLOOR_MIN: STUCK_FLOOR_MIN, isFuture: isFuture,
     builtText: builtText, builtBad: builtBad, setHtml: setHtml, setText: setText, statusMap: getS };
 })();

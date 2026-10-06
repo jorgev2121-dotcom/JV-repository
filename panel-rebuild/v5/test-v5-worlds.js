@@ -35,10 +35,10 @@ const TYPED = /every \d+ (minutes?|seconds?)|15-minute|every 15|300 seconds|ever
     T(W, 'the other six addresses give one plain sentence: "the address book entry ... is empty"', (await p.$$eval('.v5na', a => a.filter(x => /registered, but the address book entry for LLM-0\d is empty/.test(x.textContent)).length)) === 6, '');
     T(W, 'token monitor shows 41000, 33%, 61%, program 1234', /41000/.test(await p.innerText('#v5tokens')) && /33%/.test(await p.innerText('#v5tokens')) && /61%/.test(await p.innerText('#v5tokens')) && /1234/.test(await p.innerText('#v5tokens')), await p.innerText('#v5tokens'));
     T(W, 'housekeeping: last report time, Delivered yes, to jorge', /Oct 6, 1:00 PM EDT/.test(await p.innerText('#v5house')) && /Delivered: yes to jorge/.test(await p.innerText('#v5house')), await p.innerText('#v5house'));
-    T(W, 'Miami-Dade: counted 7 of 300, exactly 2 "proof checked", 20 NOT RE-CHECKED', /7 of 300/.test(await p.innerText('#v5miami')) && (await p.$$('#v5miami li .v5b.ok')).length === 2 && (await p.$$eval('#v5miami li', l => l.filter(x => /NOT RE-CHECKED/.test(x.textContent)).length)) === 20, '');
+    T(W, 'Miami-Dade: counted 7 of 300, 22 "proof checked" (each with its own check date inside 7 days), 0 NOT RE-CHECKED', /7 of 300/.test(await p.innerText('#v5miami')) && (await p.$$('#v5miami li .v5b.ok')).length === 22 && (await p.$$eval('#v5miami li', l => l.filter(x => /NOT RE-CHECKED/.test(x.textContent)).length)) === 0, '');
     T(W, 'health panel: 11 windows counted, numbers 12 / 3 / 2, money list, 12 of 12 checks', /Windows confirmed up now: 10 of 11|Windows confirmed up now: 11 of 11/.test(await p.innerText('#v5health')) && /Open items: 12\. In progress: 3\. Blocked: 2/.test(await p.innerText('#v5health')) && /Fixture invoice: staged/.test(await p.innerText('#v5health')) && /12 of 12 health checks passed \(100%\)/.test(await p.innerText('#v5health')), await p.innerText('#v5health'));
     T(W, 'live repair row from the state file shows', /OPEN: Fixture repair row/.test(await p.innerText('#v5repairs')), '');
-    T(W, 'strip: 7 files all OK green', (await p.$$('#v5dash .v5b.ok')).length === 7, String((await p.$$('#v5dash .v5b.ok')).length));
+    T(W, 'strip: 7 files all OK green, and WHOLE PAGE green', (await p.$$('#v5dash .v5b.ok[data-src]')).length === 7 && (await p.$$('#v5dash #v5overall.ok')).length === 1, String((await p.$$('#v5dash .v5b.ok[data-src]')).length));
     T(W, 'age line is not red when every file is fresh and OK', !(await p.$eval('#v5age', e => e.classList.contains('bad'))), await p.innerText('#v5age'));
     await ctx.close(); }
   // ---------------- W3 stale: heartbeat 40 min old with a 5-minute tick
@@ -94,7 +94,7 @@ const TYPED = /every \d+ (minutes?|seconds?)|15-minute|every 15|300 seconds|ever
   { const W = 'W7-miami'; const f = fresh(NOWMS); f.miamidade.at = at(30 * 1440); const d = stage(f); const { ctx, p } = await open(br, d);
     T(W, '30-day-old file: 0 green "proof checked", 22 neutral marks', (await p.$$('#v5miami .v5b.ok')).length === 0 && (await p.$$('#v5miami .v5b.na')).length === 22, String((await p.$$('#v5miami .v5b.na')).length));
     T(W, 'the badge says STALE', /STALE/.test(await p.$eval('#v5dash [data-src="miamidade"]', e => e.textContent)), ''); await ctx.close();
-    const f2 = fresh(NOWMS); f2.miamidade.counted = null; f2.miamidade.sources = [{ id: 3, proof_ok: true }, { id: '7', proof_ok: false }, { id: 'xx', proof_ok: true }]; const d2 = stage(f2); const o2 = await open(br, d2);
+    const f2 = fresh(NOWMS); f2.miamidade.counted = null; f2.miamidade.sources = [{ id: 3, proof_ok: true, checked_at: at(60) }, { id: '7', proof_ok: false }, { id: 'xx', proof_ok: true, checked_at: at(60) }]; const d2 = stage(f2); const o2 = await open(br, d2);
     T(W, 'counted null: says unknown of 300', /unknown of 300/.test(await o2.p.innerText('#v5miami')), '');
     T(W, 'bare number 3 read as 03 (checked); "7" read as 07 (PROOF NOT OK); "xx" ignored', (await o2.p.$$eval('#v5miami li', l => [l[2].textContent, l[6].textContent])).every((t, i) => i === 0 ? /proof checked/.test(t) : /PROOF NOT OK/.test(t)) && (await o2.p.$$('#v5miami li .v5b.ok')).length === 1, ''); await o2.ctx.close();
     const f3 = fresh(NOWMS); f3.miamidade.at = at(-30); const d3 = stage(f3); const o3 = await open(br, d3);
@@ -157,7 +157,7 @@ const TYPED = /every \d+ (minutes?|seconds?)|15-minute|every 15|300 seconds|ever
   // ---------------- W15 a half-copied package: no config file and no data folder
   { const W = 'W15-halfpackage'; const d = stage(null); fs.unlinkSync(path.join(d, 'vtes5-config.js')); fs.rmSync(path.join(d, 'data'), { recursive: true }); const { ctx, p, errs } = await open(br, d);
     T(W, 'page loads with 0 page errors with no config file and no data folder', errs.length === 0, errs.join('|'));
-    T(W, 'every card says NO DATA, 0 green, 7 red badges, all 6 bot lines NO DATA', (await greenCards(p)).length === 0 && (await p.$$('#v5dash .v5b.bad')).length === 7 && (await p.$$eval('#g-bots .v5st[data-bot]', l => l.filter(x => /NO DATA/.test(x.textContent)).length)) === 6, '');
+    T(W, 'every card says NO DATA, 0 green, 7 red badges, all 6 bot lines NO DATA', (await greenCards(p)).length === 0 && (await p.$$('#v5dash .v5b.bad[data-src]')).length === 7 && (await p.$$eval('#g-bots .v5st[data-bot]', l => l.filter(x => /NO DATA/.test(x.textContent)).length)) === 6, '');
     T(W, 'the hand-off still works (the page is usable with no data at all)', await (async () => { await p.click('#go'); await sleep(p, 200); return /HANDOFF/.test(await p.inputValue('#preview')); })(), ''); await ctx.close(); }
   await br.close();
   const pass = results.filter(r => r.status === 'PASS').length; fs.writeFileSync(OUT, JSON.stringify({ pass, total: results.length, failures: results.filter(r => r.status !== 'PASS'), results }, null, 1));
