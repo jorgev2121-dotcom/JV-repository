@@ -1,3 +1,5 @@
+> **SUPERSEDED by PLAN_BAY-HARBOR-BUILDING-10000-ONE-TRK_2026-10-06_v2.md (2026-10-06 ~04:05Z). Do not use this version.**
+
 > **ON HOLD / VOID (2026-10-06 ~03:50Z, 11:50 PM Miami): Jorge wrote "SORRY. YJAY IS WRONG" right after his "yes the Bay Harbor units are part of the Plaza."** Cloud reads this as a retraction of that answer (he typed "yjay", most likely "that"). **Do not run any step below.** The question of whether the five units belong to TRK-2026-1265 is **open again.** Nothing was ever moved, renamed or deleted, so there is nothing to undo.
 
 # Plan: fold the five Bay Harbor unit capsules into TRK-2026-1265 (The Plaza)
