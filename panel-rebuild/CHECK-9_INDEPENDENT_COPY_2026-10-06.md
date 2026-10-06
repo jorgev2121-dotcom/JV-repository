@@ -1,4 +1,4 @@
-# CHECK-9 - fifth independent check of panel v5 (after fix round 7) - INTERIM (final draft; the type-fuzz re-run is still going, its numbers are marked PENDING)
+# CHECK-9 - fifth independent check of panel v5 (after fix round 7) - FINAL
 
 ☁️ CODE · CLOUD / WEB EXECUTOR · independent checker 5 · 2026-10-06. Configured model: Opus 5.5 (the serving model may differ).
 Checked: branch `claude/panel-v5-port` at commit 09d5d04 (fix round 7). I did not build v5. I did not run or reuse the builder's tests. Every number below comes from my own scripts and data, kept in my scratchpad and not committed. Three helpers inside my session ran parts C, D, E and F with their own new scripts; their numbers are marked "helper run". I re-ran a sample of each helper's key claims myself; those are marked "re-checked". Times are Eastern.
@@ -18,7 +18,7 @@ The 11 are:
 
 What held, measured:
 1. **The page no longer freezes, and green never sits over red.**
-   - Type-fuzz: PENDING (re-run in progress).
+   - Type-fuzz, 1,738 of 1,738 cases: the page painted, kept its frame and v3 parts, never broke the colour rule, ran 0 injected scripts, made 0 network calls, and recovered within 61 seconds after the data was fixed.
    - 152 of 152 hand-made worlds and 400 of 400 seeded random worlds kept the RAMBO button, Read me first and Live status, and never showed a strip entry, badge or WHOLE PAGE line greener than the worst card.
    - 150 of 152 hand-made worlds recovered within 61 seconds after the data was fixed, without a reload. The other 2 recovered when re-run alone (2 of 2). They had failed because my harness was overloaded.
 2. **The watchdog works.**
@@ -161,7 +161,7 @@ What held, measured:
 
 ## Section E - Methods and counts, N of N
 
-1. **Type-fuzz (my run):** 22 bad values for each of 79 fields of the 7 data files, 1,738 cases. The values were: an object, an array, [null], [{}], a string, a number, NaN, Infinity, -1, true, null, undefined, an empty string, a 2 MB string, a throwing getter, `__proto__` and constructor keys, injected HTML and script, right-to-left and zero-width text, 10,000 levels deep (object and array), circular, and 1,000,000 entries. Each case was run three ways: opened bad; opened green then made bad; then fixed, with recovery checked after 61 seconds. Result: PENDING.
+1. **Type-fuzz (my run):** 22 bad values for each of 79 fields of the 7 data files, 1,738 cases. The values were: an object, an array, [null], [{}], a string, a number, NaN, Infinity, -1, true, null, undefined, an empty string, a 2 MB string, a throwing getter, `__proto__` and constructor keys, injected HTML and script, right-to-left and zero-width text, 10,000 levels deep (object and array), circular, and 1,000,000 entries. Each case was run three ways: opened bad; opened green then made bad; then fixed, with recovery checked after 61 seconds. Result: 0 colour-rule breaks, 0 missing frames, 0 scripts run, 0 network calls, 0 storage writes, 0 failed recoveries. My first pass was overloaded and gave false alarms; every flagged case was re-run on a quiet machine. 12 cases stayed green where my own expectation said not green. I checked each by hand and the page is right. In 11 of them a bad BOTS proof time only changes the Grok note to "no Grok bot is reporting UP" (vtes5-ui.js lines 7 and 8), which is not a coloured card. In the 12th, addresses_filled holds an unknown key, which is a valid shape.
 2. **Hand-made worlds (my run): 152.**
    - Each of the 7 files: missing, a folder in its place, empty, syntax error, throwing at load, assigning then throwing, no wrapper, setting the whole data object to null, an array, a string, a proxy that throws, stale, future, a number time, and a time with no zone.
    - 47 meaning worlds: Miami-Dade ids, counts and proof dates; token reset, percent and entries; health counts; housekeeping; state; failed, disabled, extra, running, queued, late and too many bots; missing proof, down, empty and interval cases for windows; 10 local-folder labels; and a `__proto__` literal.
@@ -208,8 +208,8 @@ What held, measured:
 
 I changed only this file in the repository. OPEN-ITEMS.md and RECURRING-ISSUES.md are not updated. Suggested dated line for RECURRING-ISSUES.md:
 
-"2026-10-06: panel v5 CHECK-9 FAIL, small (4 page mislead, 6 wording, 1 install-step damage risk, 0 leak, 21 edge). The round-7 class fixes held: 0 freezes or green-over-red in the worlds run so far, the tick blocked 6,026 of 6,026, VERIFY exact. What recurs is words claiming more than the code does (the Read me twice, a queued status line, shortcut cards). Next fix should be a Tier 3 check that every Read me claim is tested."
+"2026-10-06: panel v5 CHECK-9 FAIL, small (4 page mislead, 6 wording, 1 install-step damage risk, 0 leak, 21 edge). The round-7 class fixes held: 0 freezes or green-over-red in 2,290 worlds, the tick blocked 6,026 of 6,026, VERIFY exact. What recurs is words claiming more than the code does (the Read me twice, a queued status line, shortcut cards). Next fix should be a Tier 3 check that every Read me claim is tested."
 
 Shall the builder fix these 11 before anything is installed? (yes/no)
 
-TRK-2026-9910-B · CHECK-9 · v1 · 2026-10-06 · INTERIM · #VTES-control-panel #panel-v5 #independent-check
+TRK-2026-9910-B · CHECK-9 · v1 · 2026-10-06 · CURRENT · #VTES-control-panel #panel-v5 #independent-check
