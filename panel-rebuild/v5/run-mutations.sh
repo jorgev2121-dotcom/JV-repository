@@ -1,7 +1,7 @@
 #!/bin/bash
 # run-mutations.sh - proves the tests can FAIL: breaks the live layer in thirty-seven ways (M1-M10 from round 4, M11-M18 added in round 5, M19-M26 added in round 6, M27-M37 added in round 7; M12, M13, M15, M17 and M18 were re-pointed at the round-6 code) on a scratch copy and runs the matching test against each; each must report failures. TRK-2026-9910-B
 HERE=$(cd "$(dirname "$0")" && pwd); W=${1:?scratch dir}; rm -rf "$W"; mkdir -p "$W"
-mut() { local name=$1 test=$2 file=$3 from=$4 to=$5; local d=$W/$name; mkdir -p "$d"; cp -a "$HERE"/. "$d"/; python3 - "$d/package/$file" "$from" "$to" <<'PY'
+mut() { if [ -n "$ONLY" ] && ! [[ $1 =~ $ONLY ]]; then return; fi; local name=$1 test=$2 file=$3 from=$4 to=$5; local d=$W/$name; mkdir -p "$d"; cp -a "$HERE"/. "$d"/; python3 - "$d/package/$file" "$from" "$to" <<'PY'
 import sys
 p,a,b=sys.argv[1:4]; s=open(p).read()
 if a not in s: print('MUTATION TEXT NOT FOUND'); sys.exit(3)
@@ -35,7 +35,7 @@ mut M20-queued-without-a-time-never-stuck test-invariant-r6 vtes5-live.js "refAt
 mut M21-267010-called-failed test-invariant-r6 vtes5-live.js "if (b.last_result === RES_DISABLED) {" "if (false) {" &
 mut M22-miami-check-date-ignored test-invariant-r6 vtes5-ui.js "if (!j) { return mark('ok', 'proof checked '" "if (true) { return mark('ok', 'proof checked '" &
 mut M23-old-numbers-shown-plain test-invariant-r6 vtes5-ui.js "if (fresh === false) { return red('OLD ' + n, file); }" "if (false) { return red('OLD ' + n, file); }" &
-mut M24-cloud-folder-accepted-for-local test-invariant-r6 vtes5-ui.js "var CLOUD_RE = /google" "var CLOUD_RE = /zzzzgoogle" &
+mut M24-cloud-folder-accepted-for-local test-invariant-r6 vtes5-ui.js "if (!label || CLOUD_RE.test(label)) { return" "if (!label) { return" &
 wait
 mut M25-nine-digit-rule-removed test-pii-unit-r6 vtes5-ui.js "if ((isNine && !zip4 && !permit) || inside) {" "if (false) {" &
 mut M26-card-rule-removed test-pii-unit-r6 vtes5-ui.js "if (r.real >= 15 && r.real <= 19) {" "if (false) {" &

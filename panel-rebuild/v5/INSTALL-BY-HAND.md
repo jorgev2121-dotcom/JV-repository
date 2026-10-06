@@ -46,10 +46,10 @@ powershell -NoProfile -ExecutionPolicy Bypass -File "G:\My Drive\MY-DESK\VTES-PA
 
 ## Section C - What was tested, and what was not
 
-- `VERIFY-v5.ps1` was run under PowerShell 7.4.6 for Linux (`test-verify.sh`, result in `test-verify-RESULT.txt`). In every scenario the SHA-256 of every file in the whole test area was taken before and after and was identical. Edited, missing, extra, unreadable (as an unprivileged user), linked (the folder itself, a parent folder, a file, a data file), malformed, a path with `..`, a folder inside a Desktop folder, a folder inside a git checkout, CRLF line endings and a data file rewritten by a writer are all reported as stated above, and none is ever called OK when it is not.
+- `VERIFY-v5.ps1` was run under PowerShell 7.4.6 for Linux (`test-verify.sh`, 148 scenarios, result in `test-verify-RESULT.txt`; round 7: the data and settings files are checked as DATA, a fresh install is exact, and a pipe, a oversized file, a case-duplicate name, a manifest that is a link and a data file that is UTF-16, empty or holds injected script are all refused). In every scenario the SHA-256 of every file in the whole test area was taken before and after and was identical. Edited, missing, extra, unreadable (as an unprivileged user), linked (the folder itself, a parent folder, a file, a data file), malformed, a path with `..`, a folder inside a Desktop folder, a folder inside a git checkout, CRLF line endings and a data file rewritten by a writer (accepted only with `-AfterWriters` and only if it passes the strict shape check) are all reported as stated above, and none is ever called OK when it is not.
 - `test-no-write-commands.js` scans this document, `DESKTOP-WORK.md`, `VERIFY-v5.ps1` and every package file, and fails if any of them holds a copy, move, delete, create or write command (result in `test-no-write-commands-RESULT.txt`).
 - NOT tested, UNVERIFIED on the PC: `git show` writing from Windows PowerShell 5.1, Windows junctions (only Linux symbolic links were tested), whether `G:\My Drive` itself is reported as a link by VERIFY on the PC, File Explorer behaviour, Google Drive for desktop behaviour. See KNOWN-LIMITS.md, Section I, for the exact PC check of each.
 
 Did VERIFY print the OK line, and did you paste it into the report? (yes/no)
 
-TRK-2026-9910-B · INSTALL-BY-HAND · v2 · 2026-10-06 · CURRENT · #VTES-control-panel #panel-v5
+TRK-2026-9910-B · INSTALL-BY-HAND · v3 · 2026-10-06 · CURRENT · #VTES-control-panel #panel-v5

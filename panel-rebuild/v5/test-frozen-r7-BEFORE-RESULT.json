@@ -24,6 +24,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -51,6 +52,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -78,6 +80,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -86,6 +89,7 @@
     "watch": null
    },
    "frozenGreen": true,
+   "noBox": true,
    "pass": false
   },
   {
@@ -97,6 +101,7 @@
     "strip": [],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": false,
     "readme": false,
     "live": false,
@@ -110,6 +115,7 @@
     "strip": [],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": false,
     "readme": false,
     "live": false,
@@ -121,6 +127,7 @@
    "topMissing": true,
    "frozenGreen": 0,
    "recovered": false,
+   "noBox": true,
    "pass": false
   },
   {
@@ -146,6 +153,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -173,6 +181,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -200,6 +209,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -208,6 +218,7 @@
     "watch": null
    },
    "frozenGreen": true,
+   "noBox": true,
    "pass": false
   },
   {
@@ -219,6 +230,7 @@
     "strip": [],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -232,6 +244,7 @@
     "strip": [],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -243,6 +256,7 @@
    "topMissing": false,
    "frozenGreen": 0,
    "recovered": false,
+   "noBox": true,
    "pass": false
   },
   {
@@ -268,6 +282,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -295,6 +310,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -322,6 +338,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -330,6 +347,7 @@
     "watch": null
    },
    "frozenGreen": true,
+   "noBox": true,
    "pass": false
   },
   {
@@ -346,6 +364,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -364,6 +383,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -375,6 +395,7 @@
    "topMissing": false,
    "frozenGreen": 0,
    "recovered": false,
+   "noBox": true,
    "pass": false
   },
   {
@@ -400,6 +421,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -427,6 +449,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -454,6 +477,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -462,6 +486,7 @@
     "watch": null
    },
    "frozenGreen": true,
+   "noBox": true,
    "pass": false
   },
   {
@@ -479,6 +504,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -498,6 +524,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -509,6 +536,7 @@
    "topMissing": false,
    "frozenGreen": 0,
    "recovered": false,
+   "noBox": true,
    "pass": false
   },
   {
@@ -534,6 +562,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -561,6 +590,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -588,6 +618,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -596,6 +627,7 @@
     "watch": null
    },
    "frozenGreen": true,
+   "noBox": true,
    "pass": false
   },
   {
@@ -613,6 +645,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -632,6 +665,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -643,6 +677,7 @@
    "topMissing": false,
    "frozenGreen": 0,
    "recovered": false,
+   "noBox": true,
    "pass": false
   },
   {
@@ -668,6 +703,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -695,6 +731,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -722,6 +759,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -730,6 +768,7 @@
     "watch": null
    },
    "frozenGreen": false,
+   "noBox": true,
    "pass": true
   },
   {
@@ -755,6 +794,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -782,6 +822,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -793,6 +834,7 @@
    "topMissing": false,
    "frozenGreen": 0,
    "recovered": true,
+   "noBox": true,
    "pass": true
   },
   {
@@ -818,6 +860,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -845,6 +888,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -872,6 +916,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -880,6 +925,7 @@
     "watch": null
    },
    "frozenGreen": true,
+   "noBox": true,
    "pass": false
   },
   {
@@ -891,6 +937,7 @@
     "strip": [],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -904,6 +951,7 @@
     "strip": [],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -915,6 +963,7 @@
    "topMissing": false,
    "frozenGreen": 0,
    "recovered": false,
+   "noBox": true,
    "pass": false
   },
   {
@@ -940,6 +989,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -967,6 +1017,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -994,6 +1045,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1002,6 +1054,7 @@
     "watch": null
    },
    "frozenGreen": true,
+   "noBox": true,
    "pass": false
   },
   {
@@ -1018,6 +1071,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1036,6 +1090,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1047,6 +1102,7 @@
    "topMissing": false,
    "frozenGreen": 0,
    "recovered": false,
+   "noBox": true,
    "pass": false
   },
   {
@@ -1072,6 +1128,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1099,6 +1156,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1126,6 +1184,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1134,6 +1193,7 @@
     "watch": null
    },
    "frozenGreen": true,
+   "noBox": true,
    "pass": false
   },
   {
@@ -1145,6 +1205,7 @@
     "strip": [],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": false,
     "readme": false,
     "live": false,
@@ -1158,6 +1219,7 @@
     "strip": [],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": false,
     "readme": false,
     "live": false,
@@ -1169,6 +1231,7 @@
    "topMissing": true,
    "frozenGreen": 0,
    "recovered": false,
+   "noBox": true,
    "pass": false
   },
   {
@@ -1194,6 +1257,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1221,6 +1285,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1248,6 +1313,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1256,6 +1322,7 @@
     "watch": null
    },
    "frozenGreen": false,
+   "noBox": true,
    "pass": true
   },
   {
@@ -1281,6 +1348,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1308,6 +1376,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1319,6 +1388,7 @@
    "topMissing": false,
    "frozenGreen": 0,
    "recovered": true,
+   "noBox": true,
    "pass": true
   },
   {
@@ -1344,6 +1414,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1371,6 +1442,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1398,6 +1470,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1406,6 +1479,7 @@
     "watch": null
    },
    "frozenGreen": false,
+   "noBox": true,
    "pass": true
   },
   {
@@ -1431,6 +1505,7 @@
     ],
     "redCards": 3,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1458,6 +1533,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1469,6 +1545,7 @@
    "topMissing": false,
    "frozenGreen": 0,
    "recovered": true,
+   "noBox": true,
    "pass": true
   },
   {
@@ -1494,6 +1571,7 @@
     ],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1521,6 +1599,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1548,6 +1627,7 @@
     ],
     "redCards": 15,
     "cards": 15,
+    "panelFail": 0,
     "rambo": true,
     "readme": true,
     "live": true,
@@ -1556,6 +1636,7 @@
     "watch": null
    },
    "frozenGreen": true,
+   "noBox": true,
    "pass": false
   },
   {
@@ -1567,6 +1648,7 @@
     "strip": [],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": false,
     "readme": false,
     "live": false,
@@ -1580,6 +1662,7 @@
     "strip": [],
     "redCards": 0,
     "cards": 15,
+    "panelFail": 0,
     "rambo": false,
     "readme": false,
     "live": false,
@@ -1591,6 +1674,7 @@
    "topMissing": true,
    "frozenGreen": 0,
    "recovered": false,
+   "noBox": true,
    "pass": false
   }
  ]

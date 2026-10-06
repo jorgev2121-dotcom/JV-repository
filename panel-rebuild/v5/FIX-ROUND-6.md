@@ -1,5 +1,7 @@
 # FIX-ROUND-6 - what changed after the third independent check CHECK-7 (TRK-2026-9910-B, 2026-10-06)
 
+**SUPERSEDED by FIX-ROUND-7.md (2026-10-06, after CHECK-8): the numbers in this file are the round-6 numbers.**
+
 ☁️ CODE · CLOUD / WEB EXECUTOR. SONNET 5.5 · PANEL V5 FIX ROUND 6. Model: claude-sonnet-5-5 (not Opus; the serving model may differ). Branch claude/panel-v5-port. Work only in panel-rebuild/v5/ (v3-live did not change), plus one new root file `.gitattributes`. No pull request, no Drive write, no PC, nothing sent, nothing installed.
 
 ## Section A - Answer first

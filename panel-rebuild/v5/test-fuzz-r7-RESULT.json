@@ -1,9 +1,9 @@
 {
- "summary": "2535 of 2536 fuzz cases pass (typefuzz 2144 of 2145; hand 91 of 91; random 300 of 300), 1648 s",
+ "summary": "2536 of 2536 fuzz cases pass (typefuzz 2145 of 2145; hand 91 of 91; random 300 of 300), 1645 s",
  "groups": {
   "typefuzz": {
    "n": 2145,
-   "pass": 2144
+   "pass": 2145
   },
   "hand": {
    "n": 91,
@@ -31909,9 +31909,7 @@
   },
   {
    "name": "typefuzz heartbeat.local_only_folder.label = 2MB-string",
-   "fails": [
-    "after fix: still shows unreadable"
-   ],
+   "fails": [],
    "atOpen": {
     "overall": "v5b bad",
     "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 1 of 7 reports red",
@@ -31919,11 +31917,11 @@
    },
    "pageErrors": 0,
    "recovered": {
-    "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 1 of 7 reports red"
+    "overall": "v5b ok",
+    "text": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green"
    },
    "net": 0,
-   "pass": false,
+   "pass": true,
    "group": "typefuzz"
   },
   {

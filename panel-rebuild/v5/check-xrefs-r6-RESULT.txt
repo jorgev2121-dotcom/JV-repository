@@ -7,18 +7,18 @@ PASS DESKTOP-WORK.md:31 "DATA-CONTRACT file 7 (miamidade)" -> DATA-CONTRACT file
 PASS KNOWN-LIMITS.md:6 "DESKTOP-WORK item 10 (Desktop shortcut)" -> DESKTOP-WORK item 10 [Desktop shortcut] exists and the tag matches its title
 PASS KNOWN-LIMITS.md:10 "item 4 (Windows)" -> KNOWN-LIMITS item 4 [Windows] exists and the tag matches its title
 PASS KNOWN-LIMITS.md:11 "item 4 (Windows)" -> KNOWN-LIMITS item 4 [Windows] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:41 "item 55 (VERIFY treats the data and settings files as DATA)" -> KNOWN-LIMITS item 55 [VERIFY treats the data and settings files as DATA] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:41 "item 55 (VERIFY treats the data and settings files as DATA)" -> KNOWN-LIMITS item 55 [VERIFY treats the data and settings files as DATA] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:54 "DESKTOP-WORK item 11 (local-only folder)" -> DESKTOP-WORK item 11 [local-only folder] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:54 "DESKTOP-WORK item 9 (LOCAL jobs)" -> DESKTOP-WORK item 9 [LOCAL jobs] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:55 "item 34 (personal-data guard)" -> KNOWN-LIMITS item 34 [personal-data guard] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:57 "item 43 (first sight)" -> KNOWN-LIMITS item 43 [first sight] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:58 "item 38 (stuck-task limit)" -> KNOWN-LIMITS item 38 [stuck-task limit] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:69 "Section I item 4 (link)" -> KNOWN-LIMITS Section I item 4 [link] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:95 "DESKTOP-WORK item 11 (local-only folder)" -> DESKTOP-WORK item 11 [local-only folder] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:99 "item 28 (VERIFY was run in PowerShell)" -> KNOWN-LIMITS item 28 [VERIFY was run in PowerShell] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:100 "DESKTOP-WORK item 11 (local-only folder)" -> DESKTOP-WORK item 11 [local-only folder] exists and the tag matches its title
-PASS KNOWN-LIMITS.md:104 "item 55 (VERIFY treats the data and settings files as DATA)" -> KNOWN-LIMITS item 55 [VERIFY treats the data and settings files as DATA] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:40 "item 55 (VERIFY treats the data and settings files as DATA)" -> KNOWN-LIMITS item 55 [VERIFY treats the data and settings files as DATA] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:40 "item 55 (VERIFY treats the data and settings files as DATA)" -> KNOWN-LIMITS item 55 [VERIFY treats the data and settings files as DATA] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:52 "DESKTOP-WORK item 11 (local-only folder)" -> DESKTOP-WORK item 11 [local-only folder] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:52 "DESKTOP-WORK item 9 (LOCAL jobs)" -> DESKTOP-WORK item 9 [LOCAL jobs] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:53 "item 34 (personal-data guard)" -> KNOWN-LIMITS item 34 [personal-data guard] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:55 "item 43 (first sight)" -> KNOWN-LIMITS item 43 [first sight] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:56 "item 38 (stuck-task limit)" -> KNOWN-LIMITS item 38 [stuck-task limit] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:66 "Section I item 4 (link)" -> KNOWN-LIMITS Section I item 4 [link] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:92 "DESKTOP-WORK item 11 (local-only folder)" -> DESKTOP-WORK item 11 [local-only folder] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:96 "item 28 (VERIFY was run in PowerShell)" -> KNOWN-LIMITS item 28 [VERIFY was run in PowerShell] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:97 "DESKTOP-WORK item 11 (local-only folder)" -> DESKTOP-WORK item 11 [local-only folder] exists and the tag matches its title
+PASS KNOWN-LIMITS.md:100 "item 55 (VERIFY treats the data and settings files as DATA)" -> KNOWN-LIMITS item 55 [VERIFY treats the data and settings files as DATA] exists and the tag matches its title
 PASS package/vtes5-ui.js:35 "DESKTOP-WORK item 11 (local-only folder)" -> DESKTOP-WORK item 11 [local-only folder] exists and the tag matches its title
 PASS package/vtes5-ui.js:41 "DESKTOP-WORK item 9 (LOCAL jobs)" -> DESKTOP-WORK item 9 [LOCAL jobs] exists and the tag matches its title
 PASS package/vtes5-ui.js:41 "item 35 (LOCAL)" -> KNOWN-LIMITS item 35 [LOCAL] exists and the tag matches its title

@@ -25,7 +25,7 @@ const snap = p => p.evaluate(() => {
   const o = document.getElementById('v5overall'), strip = [...document.querySelectorAll('.v5b[data-src]')].map(b => b.className.replace('v5b ', '')),
     cards = [...document.querySelectorAll('.v5st[data-state]')].map(e => e.className.replace('v5st ', '')), age = document.getElementById('v5age2');
   return { overall: o ? o.className.replace('v5b ', '') : 'MISSING', overallText: o ? o.textContent.slice(0, 90) : '', strip, redCards: cards.filter(c => c === 'bad' || c === 'stk').length, cards: cards.length,
-    rambo: !!document.getElementById('v5rambobtn'), readme: !!document.getElementById('v5read'), live: !!document.getElementById('livestatus'), recheck: age ? age.textContent : null, errs: window.__v5errs || 0,
+    panelFail: document.body.innerText.split('COULD NOT BE DRAWN').length - 1, rambo: !!document.getElementById('v5rambobtn'), readme: !!document.getElementById('v5read'), live: !!document.getElementById('livestatus'), recheck: age ? age.textContent : null, errs: window.__v5errs || 0,
     watch: (document.getElementById('v5watch') || {}).style ? document.getElementById('v5watch').style.display : null };
 });
 (async () => {
@@ -50,8 +50,9 @@ const snap = p => p.evaluate(() => {
       }
       // verdicts. FROZEN-GREEN = the page says green (overall ok or MISSING with green strip) while at least one card is red. MISSING top block at open = broken.
       const worse = s => !s ? 0 : ((s.overall === 'ok' || s.overall === 'MISSING') && (s.strip.some(x => x === 'ok') || s.overall === 'MISSING') && s.redCards > 0 ? 1 : 0);
-      if (mode[0] === 'A') { r.frozenGreen = [r.at41, r.at341].some(worse); r.pass = !r.frozenGreen; }
-      else { r.topMissing = !(r.atOpen.rambo && r.atOpen.readme && r.atOpen.live); r.frozenGreen = worse(r.atOpen); r.recovered = r.afterFix.overall !== 'MISSING' && !/NOT REFRESHING/.test(r.afterFix.overallText) && r.afterFix.errs === 0; r.pass = !r.topMissing && !r.frozenGreen && r.recovered; }
+      /* round 7: every shape here is one the SANITISER cleans, so no panel may need its failure box (that box is the second line of defence, tested by test-watchdog-r7.js) */
+      if (mode[0] === 'A') { r.frozenGreen = [r.at41, r.at341].some(worse); r.noBox = [r.at41, r.at341].every(s => s.panelFail === 0 && s.errs === 0); r.pass = !r.frozenGreen && r.noBox; }
+      else { r.topMissing = !(r.atOpen.rambo && r.atOpen.readme && r.atOpen.live); r.frozenGreen = worse(r.atOpen); r.recovered = r.afterFix.overall !== 'MISSING' && !/NOT REFRESHING/.test(r.afterFix.overallText) && r.afterFix.errs === 0; r.noBox = r.atOpen.panelFail === 0 && r.afterFix.panelFail === 0; r.pass = !r.topMissing && !r.frozenGreen && r.recovered && r.noBox; }
       res.push(r); console.log((r.pass ? 'PASS ' : 'FAIL ') + name + ' / ' + mode);
     }
   }

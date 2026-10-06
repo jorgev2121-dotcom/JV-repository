@@ -1489,7 +1489,7 @@
   },
   {
    "g": "long notes",
-   "name": "a note over 20,000 characters is blocked and the check is fast (10 ms)",
+   "name": "a note over 20,000 characters is blocked and the check is fast (8 ms)",
    "status": "PASS",
    "why": ""
   },

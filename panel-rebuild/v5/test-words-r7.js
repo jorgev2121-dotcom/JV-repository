@@ -80,6 +80,12 @@ const sets = () => [
     T('wording', 'a grey strip entry says NOT PROVEN, never NOT FINE (' + grey.length + ' grey entries)', greyFine.length === 0, greyFine.map(s => s.t).join(' || '));
     const ov = await p.evaluate(() => document.getElementById('v5overall').textContent); T('wording', 'WHOLE PAGE line uses NOT PROVEN or NOT FINE words correctly: ' + ov.slice(0, 80), !/NOT ALL PROVEN/.test(ov), ov); await ctx.close();
   }
+  // (7b) a grey strip entry that comes from the pass that raises a badge to its worst mark says NOT PROVEN (a fresh report with a count, and 22 grey "proof ok but no check date" marks)
+  {
+    const f = fresh(NOWMS); f.miamidade.sources = Array.from({ length: 22 }, (_, i) => ({ id: ('0' + (i + 1)).slice(-2), proof_ok: true })); const d = stage(f); const { ctx, p } = await open(br, d);
+    const e = await p.evaluate(() => { const b = document.querySelector('.v5b[data-src="miamidade"]'); return { bc: b.className, bt: b.textContent }; });
+    T('wording', 'grey marks raise the Miami-Dade strip entry to grey NOT PROVEN, not NOT FINE (' + e.bc + ')', /\bna\b/.test(e.bc) && /^NOT PROVEN/.test(e.bt) && !/NOT FINE/.test(e.bt), JSON.stringify(e)); await ctx.close();
+  }
   // (8) local-folder allow rule
   {
     const cases = [['G:\\VTES-LOCAL', false], ['G:\\Shared drives\\VTES-LOCAL', false], ['G:\\My Drive\\VTES-LOCAL', false], ['C:\\Users\\JV\\Desktop\\VTES-LOCAL', false], ['C:\\Users\\JV\\OneDrive\\VTES-LOCAL', false], ['C:\\Users\\JV\\Documents\\VTES-LOCAL', false], ['C:\\Users\\JV\\Dropbox\\x', false], ['D:\\VTES-LOCAL', false], ['\\\\server\\share\\x', false],
