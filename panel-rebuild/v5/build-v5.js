@@ -1,0 +1,52 @@
+// build-v5.js - ports the live layer onto Jorge's REAL v3 launcher (never starts from nothing). Node. TRK-2026-9910-B
+// Reads ../v3-live/VTES-LLM-LAUNCHER_v3.html, FAILS if its SHA-256 is not the one read from Drive, applies each patch, FAILS LOUDLY if a patch finds nothing.
+const fs = require('fs'), crypto = require('crypto');
+const SRC = __dirname + '/../v3-live/VTES-LLM-LAUNCHER_v3.html';
+const raw = fs.readFileSync(SRC);
+const REAL_SHA = '28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6f6c333411fe3';
+if (crypto.createHash('sha256').update(raw).digest('hex') !== REAL_SHA) { throw new Error('the v3 source is not the real v3 launcher (SHA-256 differs)'); }
+let h = raw.toString('utf8');
+// the build time is the real instant this script runs, never hand-set (flaw F3); the page also holds it to the BAD CLOCK rule
+if (process.env.V5_BUILT) { console.log('NOTE: V5_BUILT is ignored. The build time is always the real build instant.'); }
+const BUILT = new Date().toISOString().slice(0, 19) + 'Z';
+function rep(name, from, to) { if (!(from instanceof RegExp ? from.test(h) : h.includes(from))) { throw new Error('PATCH MISSED: ' + name); } h = h.replace(from, () => to); }
+function repAll(name, from, to, n) { const c = h.split(from).length - 1; if (c !== n) { throw new Error('PATCH COUNT ' + name + ': expected ' + n + ' found ' + c); } h = h.split(from).join(to); }
+// --- head ---
+rep('title', '<title>VTES LLM Launcher</title>', '<title>VTES LLM Launcher v5 - TRK-2026-9910-B</title>');
+rep('css', '</style></head>', fs.readFileSync(__dirname + '/vtes5.css', 'utf8') + '</style></head>');
+const SCRIPTS = ['heartbeat', 'bots', 'state', 'health', 'tokens', 'housekeeping', 'miamidade'].map(n => '<script src="data/vtes5-' + n + '.js"></script>').join('');
+rep('scripts', '<body>\n<div class="tabs" id="tabs"></div>', '<body>\n<script>window.VTES5_BUILT = "' + BUILT + '";</script><script src="vtes5-config.js"></script>' + SCRIPTS + '<script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>\n<div class="tabs" id="tabs"></div>');
+// --- top block, slots, 7th section ---
+rep('top', 'autofocus>\n', 'autofocus>\n<div id="v5top"></div>\n');
+rep('leadlead', '<p class="lead">Maintained by hand in VTES-LLM-LAUNCHER_v3.html. Repairs and enhancements across Jorge\'s windows.</p>', '<p class="lead">TYPED LOG. Maintained by hand in VTES-LLM-LAUNCHER_v3.html; the last row was typed on 2026-10-02. Nothing in this table is checked by this page. Repairs and enhancements across Jorge\'s windows.</p>');
+rep('botslead', '<p class="lead">These run by themselves on the PC. Check any of them with Get-ScheduledTask.</p>\n<div class="grid" id="g-bots">', '<p class="lead">These run by themselves on the PC. The line on each card is read from a data file the PC writes (the Windows scheduler\'s own report); red NO DATA means nothing has written it yet. Check any of them with Get-ScheduledTask.</p>\n<div id="v5tokens"></div><div id="v5house"></div>\n<div class="grid" id="g-bots">');
+rep('repairslive', '</tbody></table>\n</div></div>\n', '</tbody></table>\n</div></div>\n<div id="v5repairs"></div>\n');
+rep('sect7', '<p class="sub" style="margin-top:30px">TRK-2026-9910-B v3 2026-10-02 CURRENT.', '<h2 id="miamidade">7. Miami-Dade: 22 public sources</h2>\n<p class="lead">Added in v5. Every link opens that source\'s proof file in Drive. The count says unknown until the PC counts.</p>\n<div id="v5miami"></div>\n\n<p class="sub" style="margin-top:30px">TRK-2026-9910-B &middot; v5 &middot; built <span id="v5fb"></span> &middot; CURRENT &middot; your v3 file is untouched and stays where it is as the rollback.');
+// --- tabs ---
+rep('tabs-status', "['status','STATUS',1]", "['livestatus','STATUS',1]");
+rep('tabs-add', "['repairs','REPAIRS',1]]", "['repairs','REPAIRS',1],['miamidade','MIAMI-DADE',1]]");
+rep('tabs-render', "'<a class=\"tab panel\" href=\"file:///C:/Users/JV/JV-repository/VTES-CONTROL-PANEL.html#'+t[0].toUpperCase()+'\" target=\"_blank\" rel=\"noopener\">'+t[1]+'</a>'", "'<a class=\"tab panel\" title=\"OLD PANEL: a snapshot made on 2026-09-02, not live\" href=\"file:///C:/Users/JV/JV-repository/VTES-CONTROL-PANEL.html#'+t[0].toUpperCase()+'\" target=\"_blank\" rel=\"noopener\">'+t[1]+'<small>OLD PANEL, snapshot of 2026-09-02, not live</small></a>'");
+rep('panel-btn', '&#8592; PANEL</a>', '&#8592; PANEL (OLD, snapshot of 2026-09-02, not live)</a>');
+rep('index-btn', 'workspace index">INDEX</a>', 'workspace index">INDEX (OLD, snapshot of 2026-09-02, not live)</a>');
+// --- defect 4: the hard-coded session address ---
+rep('url-llm02', "url:'https://claude.ai/code/session_01CAqZRvV1WjuuxZCNwrE9Gf'", "url:'https://claude.ai/code'");
+// --- defect 5: every typed interval goes ---
+rep('t-llm01', ' Runs every 2 minutes and executes anything in VTES-Inbox.', ' Executes anything dropped in VTES-Inbox.');
+rep('t-chief', 'CU-Orchestrator is chartered and Runs every 2 minutes on the free lane: closes', 'CU-Orchestrator is chartered and runs on the free lane: closes');
+rep('t-localexec', ', runs jobs on Ollama, every 5 minutes.', ', runs jobs on Ollama.');
+rep('t-orch', 'or escalates. Every 15 minutes.', 'or escalates.');
+rep('t-prop', "'Hourly. Finds any lane", "'Finds any lane");
+rep('t-poller', "'The 15-minute poller that wakes RAMBO", "'The poller that wakes RAMBO");
+rep('t-queued', 'Confirm CU-Orchestrator ran in the last 15 minutes and list', 'Confirm CU-Orchestrator ran on its last scheduled run and list');
+// --- defect 7: typed claims leave the card text (the dated notes are shown, labelled, by vtes5-ui.js) ---
+rep('t-rambo', ' About 75% of the Max quota was used on 2026-10-01; forecast to run out Saturday.', '');
+rep('t-codex', ' Proven 2026-10-01.', '');
+// --- defect 9 and D8 ---
+rep('stamp', 'new Date().toLocaleString()', 'window.VTES5.fmt(window.VTES5.now())');
+rep('win-grok', 'function win(id){', "WIN.push({id:'GROK',n:'GROK',url:'',how:'On the PC run Second-Opinion.ps1 -Prompt \"<question>\", or paste the packet into grok.com.'});\nfunction win(id){");
+// --- cards: the live cards replace the static ones (same data, same order) ---
+rep('render', /\$\('g-llm'\)\.innerHTML=[\s\S]*?\$\('g-queued'\)/, "VTES5U.renderAll(LLMS,ROLES,BOTS);\n$('g-queued')");
+// --- start: top block, first load of the data files, then every 60 seconds ---
+rep('init', "$('kind').value=5;choose();\n", "$('kind').value=5;choose();\nVTES5U.renderTop(window.VTES5_BUILT);\nfunction v5tick(){window.VTES5.reload(function(){VTES5U.refresh(window.VTES5_BUILT);VTES5U.repaint()})}\nv5tick();setInterval(v5tick,60000);\n");
+fs.writeFileSync(__dirname + '/VTES-LLM-LAUNCHER_v5.html', h);
+console.log('built VTES-LLM-LAUNCHER_v5.html ' + h.length + ' bytes, built ' + BUILT);

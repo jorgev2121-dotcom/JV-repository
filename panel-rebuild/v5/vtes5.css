@@ -1,0 +1,21 @@
+/* v5 additions (TRK-2026-9910-B). Large type and plain colours like v3. */
+.v5b{display:inline-block;padding:2px 8px;border-radius:8px;font-weight:800;font-size:14px}
+.v5b.ok{background:#e3f3e8;color:#1d6b3b;border:2px solid #2e7d4f}.v5b.bad{background:#fdeceb;color:#b3261e;border:2px solid #b3261e}
+.v5b.na{background:#eceae4;color:#4a4a47;border:2px dashed #8a8a84}
+.v5st{font-size:16px;margin:0 0 8px;padding:4px 8px;border-radius:8px}.v5st.ok{background:#e3f3e8;color:#1d6b3b;font-weight:700}.v5st.bad{background:#fdeceb;color:#b3261e;font-weight:700}
+.v5st.unp{background:#eceae4;color:#3a3a37;font-weight:700;border:2px dashed #8a8a84}
+.v5na{display:block;background:#fff8e6;border:2px dashed #e0a100;border-radius:10px;padding:8px 10px;font-size:15px;color:#5b3d00}
+.v5na2{background:#eef4fb;border:2px solid #1b5e9e;border-radius:10px;padding:6px 12px;margin:8px 0;font-size:16px}.v5na2 ol,.v5steps{margin:4px 0 4px 22px;padding:0}
+.v5note{font-size:15px;color:#5b5b57;font-style:italic}.v5typed{color:#6b6b66;font-size:14px}
+button.btn{border:0;cursor:pointer}.btn.bigcopy{font-size:20px;padding:14px 18px}
+.tab small{display:block;font-weight:400;font-size:11px;line-height:1.2}
+.v5read{background:#fff;border:2px solid var(--acc);border-radius:12px;padding:6px 14px;margin:10px 0}.v5read ol{margin:4px 0 6px 22px;padding:0;font-size:18px;line-height:1.5}.v5read summary{font-weight:800;font-size:20px;cursor:pointer}
+.v5rambo{margin:10px 0;padding:10px 14px;background:#eef4fb;border:2px solid var(--acc);border-radius:12px}.v5rambo .btn{font-size:21px}
+.v5age{font-weight:800;font-size:16px}.v5age.bad{color:#b3261e}
+.v5dash{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0;font-size:15px}
+.pn{background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 18px;margin:0 0 16px}.pn h3{margin:0 0 6px;font-size:21px}
+.pn table{border-collapse:collapse;font-size:16px}.pn td,.pn th{border:1px solid var(--line);padding:3px 8px;text-align:left}
+ol.md{margin:6px 0 0 22px;padding:0}ol.md li{margin:4px 0}
+.v5old{background:#f3f1ea;border:2px dashed #6b6b66;border-radius:10px;padding:8px 12px;font-size:15px;color:#3a3a37;margin:6px 0}
+.tab.panel{font-size:13px;padding:5px 10px}.tab small{font-size:10px}
+h2[id],[id]{scroll-margin-top:290px}
