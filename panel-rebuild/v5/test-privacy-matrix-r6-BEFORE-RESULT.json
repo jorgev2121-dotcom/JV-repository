@@ -1,0 +1,178 @@
+{
+ "test": "test-privacy-matrix-r6",
+ "notes": 14,
+ "routes": 369,
+ "actions": 5166,
+ "pass": 1481,
+ "total": 5166,
+ "page_errors": 0,
+ "results": [
+  {
+   "note": "N01",
+   "text": "Check this one. SSN 123-45-6789",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N02",
+   "text": "Check this one. Social Security Number: 123 45 6789",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N03",
+   "text": "Check this one. 123456789",
+   "pii": true,
+   "routes": 369,
+   "ok": 34,
+   "bad": [
+    "big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "big copy button on card-LLM-06 (to LLM-06): CARRIED"
+   ]
+  },
+  {
+   "note": "N04",
+   "text": "Check this one. SSN123-45-6789",
+   "pii": true,
+   "routes": 369,
+   "ok": 34,
+   "bad": [
+    "big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "big copy button on card-LLM-06 (to LLM-06): CARRIED"
+   ]
+  },
+  {
+   "note": "N05",
+   "text": "Check this one. ss# 123456789",
+   "pii": true,
+   "routes": 369,
+   "ok": 34,
+   "bad": [
+    "big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "big copy button on card-LLM-06 (to LLM-06): CARRIED"
+   ]
+  },
+  {
+   "note": "N06",
+   "text": "Check this one. S.S.N. 123456789",
+   "pii": true,
+   "routes": 369,
+   "ok": 34,
+   "bad": [
+    "big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "big copy button on card-LLM-06 (to LLM-06): CARRIED"
+   ]
+  },
+  {
+   "note": "N07",
+   "text": "Check this one. SSN 123-45-6789ext",
+   "pii": true,
+   "routes": 369,
+   "ok": 34,
+   "bad": [
+    "big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "big copy button on card-LLM-06 (to LLM-06): CARRIED"
+   ]
+  },
+  {
+   "note": "N08",
+   "text": "Check this one. 123.45.6789",
+   "pii": true,
+   "routes": 369,
+   "ok": 34,
+   "bad": [
+    "big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "big copy button on card-LLM-06 (to LLM-06): CARRIED"
+   ]
+  },
+  {
+   "note": "N09",
+   "text": "Check this one. 123 - 45 - 6789",
+   "pii": true,
+   "routes": 369,
+   "ok": 34,
+   "bad": [
+    "big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "big copy button on card-LLM-06 (to LLM-06): CARRIED"
+   ]
+  },
+  {
+   "note": "N10",
+   "text": "Check this one. 123–45–6789 (en dashes)",
+   "pii": true,
+   "routes": 369,
+   "ok": 34,
+   "bad": [
+    "big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "big copy button on card-LLM-06 (to LLM-06): CARRIED"
+   ]
+  },
+  {
+   "note": "N11",
+   "text": "Check this one. 123‑45‑6789 (non-breaking hyphens)",
+   "pii": true,
+   "routes": 369,
+   "ok": 34,
+   "bad": [
+    "big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "big copy button on card-LLM-06 (to LLM-06): CARRIED"
+   ]
+  },
+  {
+   "note": "N12",
+   "text": "Check this one. １２３－４５－６７８９ (full-width digits)",
+   "pii": true,
+   "routes": 369,
+   "ok": 34,
+   "bad": [
+    "big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "big copy button on card-LLM-06 (to LLM-06): CARRIED"
+   ]
+  },
+  {
+   "note": "N13",
+   "text": "Card 4111 1111 1111 1111, date of birth 04/12/1975, 123 Main St, Miami FL 33143",
+   "pii": true,
+   "routes": 369,
+   "ok": 34,
+   "bad": [
+    "big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "big copy button on card-LLM-06 (to LLM-06): CARRIED"
+   ]
+  },
+  {
+   "note": "N14",
+   "text": "Call 305-555-1234 about folio 30-4021-001-0010 on 14598 SW 110 ST, permit 2024-12345",
+   "pii": false,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  }
+ ]
+}

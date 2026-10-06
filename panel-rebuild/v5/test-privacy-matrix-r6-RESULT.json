@@ -1,0 +1,123 @@
+{
+ "test": "test-privacy-matrix-r6",
+ "notes": 14,
+ "routes": 369,
+ "actions": 5166,
+ "pass": 5166,
+ "total": 5166,
+ "page_errors": 0,
+ "results": [
+  {
+   "note": "N01",
+   "text": "Check this one. SSN 123-45-6789",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N02",
+   "text": "Check this one. Social Security Number: 123 45 6789",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N03",
+   "text": "Check this one. 123456789",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N04",
+   "text": "Check this one. SSN123-45-6789",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N05",
+   "text": "Check this one. ss# 123456789",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N06",
+   "text": "Check this one. S.S.N. 123456789",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N07",
+   "text": "Check this one. SSN 123-45-6789ext",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N08",
+   "text": "Check this one. 123.45.6789",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N09",
+   "text": "Check this one. 123 - 45 - 6789",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N10",
+   "text": "Check this one. 123–45–6789 (en dashes)",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N11",
+   "text": "Check this one. 123‑45‑6789 (non-breaking hyphens)",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N12",
+   "text": "Check this one. １２３－４５－６７８９ (full-width digits)",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N13",
+   "text": "Card 4111 1111 1111 1111, date of birth 04/12/1975, 123 Main St, Miami FL 33143",
+   "pii": true,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  },
+  {
+   "note": "N14",
+   "text": "Call 305-555-1234 about folio 30-4021-001-0010 on 14598 SW 110 ST, permit 2024-12345",
+   "pii": false,
+   "routes": 369,
+   "ok": 369,
+   "bad": []
+  }
+ ]
+}
