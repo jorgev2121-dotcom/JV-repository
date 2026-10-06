@@ -26,7 +26,7 @@ function post(pathArr, kind) {
   if (!rest.length) { return kind === 'getter-that-throws' ? 'Object.defineProperty(window.VTES_DATA,"' + file + '",{get:function(){throw new Error("boom")},enumerable:true,configurable:true});' : 'window.VTES_DATA.' + file + '=' + KINDS[kind] + ';'; }
   let parent = 'window.VTES_DATA.' + file; rest.slice(0, -1).forEach(k => { parent += q(k); });
   const last = rest[rest.length - 1];
-  return ';(function(){var P=' + parent + ';' + (kind === 'getter-that-throws' ? 'Object.defineProperty(P,' + JSON.stringify(last) + ',{get:function(){throw new Error("boom")},enumerable:true,configurable:true});' : 'P' + q(last) + '=' + KINDS[kind] + ';') + '})();';
+  return ';(function(){try{var P=' + parent + ';' + (kind === 'getter-that-throws' ? 'Object.defineProperty(P,' + JSON.stringify(last) + ',{get:function(){throw new Error("boom")},enumerable:true,configurable:true});' : 'P' + q(last) + '=' + KINDS[kind] + ';') + '}catch(e){}})();';
 }
 function writeAll(dir, now, postBy) {
   const f = fresh(now);
@@ -59,9 +59,11 @@ async function runCase(br, c) {
   const s1 = await snap(p); r.atOpen = { overall: s1.overall, text: s1.overallText, failBox: s1.failBox }; r.fails.push(...judge(s1, 'at open'));
   // one more tick on the bad data
   await p.clock.fastForward(61000); await sleep(p, 700); const s2 = await snap(p); r.fails.push(...judge(s2, 'after 61 s'));
-  r.pageErrors = pg.errs.length; if (pg.errs.length) { r.fails.push('uncaught page error: ' + pg.errs[0]); }
+  /* a data file whose OWN script is broken on purpose (it throws, has a syntax error, or has no wrapper) raises its own load error: the page cannot prevent that and it is not counted. Any other uncaught error is. */
+  const own = c.dataErr ? /load failure|^late$|Unexpected token|Unexpected end|Invalid or unexpected token|Cannot set properties of undefined/ : null; const errs2 = pg.errs.filter(e => !(own && own.test(e)));
+  r.pageErrors = errs2.length; if (errs2.length) { r.fails.push('uncaught page error: ' + errs2[0]); }
   // the data is fixed: recovery within one tick, no reload
-  writeAll(dir, NOWMS + 61000 + 60000, {}); if (c.fix) { c.fix(dir); }
+  if (c.fix) { c.fix(dir); } writeAll(dir, NOWMS + 61000 + 60000, {});
   await p.clock.fastForward(61000); await sleep(p, 900); const s3 = await snap(p); r.recovered = { overall: s3.overall, text: s3.overallText };
   r.fails.push(...judge(s3, 'after fix'));
   if (s3.failBox || s3.watch === 'block' || /NOT REFRESHING/.test(s3.overallText || '')) { r.fails.push('after fix: the page did not recover without a reload'); }
@@ -76,8 +78,8 @@ function caseList() {
   if (mode === 'hand' || mode === 'all') {
     const H = [];
     const bodies = { missing: null, empty: '', throws: 'throw new Error("load failure");', syntax: 'window.VTES_DATA.X = {{{;', 'assign-then-throw': 'window.VTES_DATA.X = {"at":"2026-10-06T17:59:00Z"}; throw new Error("late");', 'whole-VTES_DATA-is-a-string': 'window.VTES_DATA = "text";', 'whole-VTES_DATA-is-an-array': 'window.VTES_DATA = [1,2,3];' };
-    for (const n of FILES) { for (const b of Object.keys(bodies)) { H.push({ name: 'hand ' + n + ' ' + b, group: 'hand', extra: dir => { const f = path.join(dir, 'data', 'vtes5-' + n + '.js'); if (bodies[b] === null) { fs.unlinkSync(f); } else { fs.writeFileSync(f, bodies[b].replace('X', n)); } } }); } }
-    for (const n of FILES) { H.push({ name: 'hand ' + n + ' is a directory', group: 'hand', extra: dir => { const f = path.join(dir, 'data', 'vtes5-' + n + '.js'); fs.unlinkSync(f); fs.mkdirSync(f); }, fix: dir => { const f = path.join(dir, 'data', 'vtes5-' + n + '.js'); try { fs.rmdirSync(f); } catch (e) { } fs.writeFileSync(f, L.wrap(n, fresh(NOWMS + 122000)[n])); } }); }
+    for (const n of FILES) { for (const b of Object.keys(bodies)) { H.push({ name: 'hand ' + n + ' ' + b, group: 'hand', dataErr: ['throws', 'syntax', 'assign-then-throw'].indexOf(b) >= 0, extra: dir => { const f = path.join(dir, 'data', 'vtes5-' + n + '.js'); if (bodies[b] === null) { fs.unlinkSync(f); } else { fs.writeFileSync(f, bodies[b].replace('X', n)); } } }); } }
+    for (const n of FILES) { H.push({ name: 'hand ' + n + ' is a directory', group: 'hand', dataErr: true, extra: dir => { const f = path.join(dir, 'data', 'vtes5-' + n + '.js'); fs.unlinkSync(f); fs.mkdirSync(f); }, fix: dir => { const f = path.join(dir, 'data', 'vtes5-' + n + '.js'); try { fs.rmdirSync(f); } catch (e) { } fs.writeFileSync(f, L.wrap(n, fresh(NOWMS + 122000)[n])); } }); }
     const inj = '<img src=x onerror="window.__pwn=1"><script>window.__pwn=2</script>"\'`</td></tr>';
     for (const n of FILES) {
       const f = fresh(NOWMS)[n]; const paths = []; (function w(o, p) { if (Array.isArray(o)) { if (o.length) { w(o[0], p.concat(0)); } return; } if (o && typeof o === 'object') { for (const k of Object.keys(o)) { if (typeof o[k] === 'string' && k !== 'at') { paths.push(p.concat(k)); } w(o[k], p.concat(k)); } } })(f, []);

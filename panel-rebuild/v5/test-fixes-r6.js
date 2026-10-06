@@ -29,7 +29,7 @@ const sha = b => crypto.createHash('sha256').update(b).digest('hex');
     T('flaw 2', 'shipped data: the LOCAL save line is red (a red card)', /bad/.test(await p.$eval('#card-LOCAL .v5st[data-localfolder]', e => e.className)), '');
     await ctx.close(); }
   { const { ctx, p } = await open(br, stage(fresh(NOWMS))); const t = await localText(p);
-    T('flaw 2', 'confirmed folder (fixture): the card says CONFIRMED, names the folder the PC reports, and is green', /CONFIRMED by the desktop executor/.test(t) && /VTES-LOCAL-ONLY \(fixture\)/.test(t) && /\bok\b/.test(await p.$eval('#card-LOCAL .v5st[data-localfolder]', e => e.className)), t.slice(0, 400));
+    T('flaw 2', 'confirmed folder (fixture): the card says CONFIRMED, names the folder the PC reports, and is green', /CONFIRMED by the desktop executor/.test(t) && /C:\\VTES-LOCAL-ONLY/.test(t) && /\bok\b/.test(await p.$eval('#card-LOCAL .v5st[data-localfolder]', e => e.className)), t.slice(0, 400));
     T('flaw 2', 'confirmed folder: the steps say how to turn on File name extensions and to check the name ends in .md and not .md.txt (flaw 10)', /FIRST turn on file name extensions: click View, then Show, then File name extensions/.test(t) && /ends in \.md and not in \.md\.txt/.test(t), t.slice(0, 500));
     T('flaw 2', 'confirmed folder: still says never paste into any Claude window and never press the RAMBO button for it', /Do NOT paste this packet into any Claude window/.test(t), '');
     // the same card follows the data: the folder turns bad after a re-read
@@ -44,14 +44,16 @@ const sha = b => crypto.createHash('sha256').update(b).digest('hex');
     T('flaw 10', 'no card or step says "name it JOB-something.md" without the extension warning next to it', !(await p.evaluate(() => [...document.querySelectorAll('.card')].filter(c => /name it JOB-something\.md/.test(c.innerText) && !/File name extensions/.test(c.innerText)).map(c => c.id))).length, ''); await ctx.close(); }
   // ---------- flaw 11: VERIFY, DATA-CONTRACT, INSTALL-BY-HAND and DESKTOP-WORK agree on the eight files
   { const ver = fs.readFileSync(path.join(H, 'VERIFY-v5.ps1'), 'utf8'), con = fs.readFileSync(path.join(H, 'DATA-CONTRACT.md'), 'utf8'), ins = fs.readFileSync(path.join(H, 'INSTALL-BY-HAND.md'), 'utf8'), dw = fs.readFileSync(path.join(H, 'DESKTOP-WORK.md'), 'utf8');
-    const vset = [...ver.matchAll(/'((?:data\/)?vtes5-[a-z]+\.js)' = '(data file|settings file)'/g)].map(m => m[1]).sort();
+    /* ROUND 7 CHANGE (listed in FIX-ROUND-7.md, "older tests that changed"): VERIFY no longer has an "expected edit" allowance. The eight data and settings files are now DATA that VERIFY checks strictly.
+       This block now checks that (a) the eight names in VERIFY, DATA-CONTRACT.md and the manifest still agree, (b) the documents quote the NEW VERIFY sentences and no longer promise "expected" edits. */
+    const vset = [...ver.matchAll(/'((?:data\/)?vtes5-[a-z]+\.js)'/g)].map(m => m[1]); const vuniq = [...new Set(vset)].filter(x => /^data\/|^vtes5-config\.js$/.test(x)).sort();
     const sec = (con.split('## Files that change by design')[1] || '').split('\n## ')[0]; const cset = [...sec.matchAll(/^\d+\. ([a-z\/0-9\-\.]+) \((data file|settings file)/gm)].map(m => m[1]).sort();
     const man = fs.readFileSync(path.join(H, 'package', 'MANIFEST.sha256'), 'utf8').trim().split('\n').map(l => l.slice(66)); const dataInManifest = man.filter(f => /^data\/|vtes5-config\.js$/.test(f)).sort();
-    T('flaw 11', 'VERIFY lists exactly 8 expected-change files (' + vset.length + ')', vset.length === 8, vset.join());
-    T('flaw 11', 'the list in VERIFY-v5.ps1 equals the list in DATA-CONTRACT.md ("Files that change by design")', JSON.stringify(vset) === JSON.stringify(cset), vset.join() + ' || ' + cset.join());
-    T('flaw 11', 'both equal the seven data files plus vtes5-config.js that the manifest lists', JSON.stringify(vset) === JSON.stringify(dataInManifest), dataInManifest.join());
-    T('flaw 11', 'INSTALL-BY-HAND.md and DESKTOP-WORK.md quote the sentence VERIFY prints ("EDITED (data file) - expected") and say the answer is still OK', ins.includes('EDITED (data file) - expected') && dw.includes('EDITED (data file) - expected') && ver.includes('EDITED\' + $tag + \' - expected'), '');
-    T('flaw 11', 'INSTALL-BY-HAND.md no longer tells RAMBO that any EDITED line means "do not use the folder"', !/`PROBLEMS` lists every difference, one per line \(including `WRONG PLACE`/.test(ins) && /Any PROBLEMS line is not OK/.test(ins), '');
+    T('flaw 11', 'VERIFY names exactly the 8 data and settings files (' + vuniq.length + ')', vuniq.length === 8, vuniq.join());
+    T('flaw 11', 'the list in VERIFY-v5.ps1 equals the list in DATA-CONTRACT.md ("Files that change by design")', JSON.stringify(vuniq) === JSON.stringify(cset), vuniq.join() + ' || ' + cset.join());
+    T('flaw 11', 'both equal the seven data files plus vtes5-config.js that the manifest lists', JSON.stringify(vuniq) === JSON.stringify(dataInManifest), dataInManifest.join());
+    T('flaw 11', 'INSTALL-BY-HAND.md, DESKTOP-WORK.md and DATA-CONTRACT.md quote the NEW VERIFY sentence ("changed by a PC writer (passes the strict shape check)") and no longer say "- expected"', ins.includes('changed by a PC writer') && dw.includes('changed by a PC writer (passes the strict shape check)') && con.includes('changed by a PC writer (passes the strict shape check)') && !/EDITED \((data|settings) file\) - expected/.test(ins + dw + con) && ver.includes('changed by a PC writer (passes the strict shape check)'), '');
+    T('flaw 11', 'INSTALL-BY-HAND.md says the day-one OK line is the only good answer and that -AfterWriters is for a later check only', /ONLY good answer on day one/.test(ins) && /-AfterWriters/.test(ins), '');
     T('flaw 12', 'the three answers INSTALL-BY-HAND.md names (LINE ENDINGS CHANGED (CRLF), LINK IN PATH, WRONG PLACE) are real VERIFY sentences', ['LINE ENDINGS CHANGED (CRLF)', 'LINK IN PATH', 'WRONG PLACE'].every(s => ver.includes(s) && ins.includes(s)), ''); }
   // ---------- flaw 12: the bytes in git are the bytes in the manifest; .gitattributes keeps them under core.autocrlf=true
   { const man = fs.readFileSync(path.join(H, 'package', 'MANIFEST.sha256'), 'utf8').trim().split('\n').map(l => ({ h: l.slice(0, 64), f: l.slice(66) })); let tracked = true, same = 0, wrong = [];

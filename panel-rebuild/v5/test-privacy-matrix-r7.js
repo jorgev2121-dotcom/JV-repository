@@ -41,13 +41,13 @@ const OUT = process.argv[2] || 'test-privacy-matrix-r7-RESULT.json';
       else if (r.kind === 'queued') { qs[r.q].click(); await settle(); to = $('to').value; setNote(); doTick(); btn = $('go'); }
       else if (r.kind === 'seq') { setTo('LOCAL'); bigs.find(b => b.getAttribute('data-paste') === 'LOCAL').click(); await settle(); setNote(); setTo('LLM-01'); doTick(); btn = $('v5rambobtn'); }
       await settle();
-      const wasDisabled = !!btn.disabled; btn.click(); await settle(); await new Promise(r2 => setTimeout(r2, 0)); await settle();
+      const wasDisabled = !!btn.disabled; btn.click(); await settle(); await settle();
       const pkt = $('preview').value, clipTxt = window.__clip || '', why = (btn.parentNode.querySelector('.v5why') || { textContent: '' }).textContent;
       res.push({ label: r.label, kind: r.kind, to: to || $('to').value, packet: pkt, clip: clipTxt, wasDisabled, why });
     }
     navigator.clipboard.writeText = origW; return res;
   }, { routes, note, tick });
-  const secretOf = t => t.replace(/^Check this one\. /, '');
+  const secretOf = t => t.replace(/^Check this one\. /, '').replace(/\r\n/g, '\n');
   const rows = []; let pass = 0, total = 0;
   const lbl = t => JSON.stringify(t).replace(/[^\x20-\x7e]/g, c => '\\u' + c.charCodeAt(0).toString(16).padStart(4, '0')).slice(0, 70);
   // MODE NO-TICK: personal and ordinary notes alike: nothing leaves on a non-LOCAL route
@@ -57,9 +57,9 @@ const OUT = process.argv[2] || 'test-privacy-matrix-r7-RESULT.json';
     const out = await run(n.t, false);
     for (const r of out) {
       if (r.kind === 'queued') { continue; }
-      mA.n++; const isLocal = r.to === 'LOCAL', hasText = r.packet.includes(secretOf(n.t).slice(0, 12)) || r.clip.includes(secretOf(n.t).slice(0, 12));
+      mA.n++; const isLocal = r.to === 'LOCAL', hasText = r.packet.includes(secretOf(n.t)) || r.clip.includes(secretOf(n.t));
       let good = isLocal ? true : (!hasText && r.clip === '' && (r.wasDisabled || /Tick|tick/.test(r.packet + r.why)));
-      if (isLocal && r.kind !== 'show') { good = r.packet.includes(secretOf(n.t).slice(0, 12)) || r.clip.includes(secretOf(n.t).slice(0, 12)) || r.kind === 'hand' || r.kind === 'seq'; }
+      if (isLocal && r.kind !== 'show') { good = r.packet.includes(secretOf(n.t)) || r.clip.includes(secretOf(n.t)) || r.kind === 'hand' || r.kind === 'seq'; }
       if (good) { mA.ok++; } else if (mA.bad.length < 8) { mA.bad.push(n.k + ' ' + lbl(n.t) + ' via ' + r.label + ' (to ' + r.to + '): disabled=' + r.wasDisabled + ' text carried=' + hasText); }
     }
   }
@@ -70,7 +70,7 @@ const OUT = process.argv[2] || 'test-privacy-matrix-r7-RESULT.json';
     const out = await run(n.t, true);
     for (const r of out) {
       if (r.kind === 'queued') { continue; }
-      const isLocal = r.to === 'LOCAL', key = secretOf(n.t).slice(0, 12), has = r.packet.includes(key) || r.clip.includes(key), notIncl = /NOT INCLUDED/.test(r.packet + r.clip);
+      const isLocal = r.to === 'LOCAL', key = secretOf(n.t), has = r.packet.includes(key) || r.clip.includes(key), notIncl = /NOT INCLUDED/.test(r.packet + r.clip);
       if (n.k === 'personal') {
         mB.personal.n++; const good = isLocal ? true : (!has && (r.wasDisabled || notIncl || r.kind === 'hand' || r.kind === 'seq' || r.packet !== '' || r.clip !== ''));
         const reallyGood = isLocal ? true : (!has);
@@ -86,16 +86,16 @@ const OUT = process.argv[2] || 'test-privacy-matrix-r7-RESULT.json';
   console.log('WRONG-TICK mode, CANNOT-CATCH notes (disclosed limit, not counted): carried on ' + mB.cannot.carried + ' of ' + mB.cannot.n + ' route checks');
   // the tick resets
   const rs = await p.evaluate(async () => {
-    const $ = i => document.getElementById(i), out = {}; window.open = () => null;
+    const $ = i => document.getElementById(i), out = {}; window.open = () => null; const settle = async () => { for (let i = 0; i < 6; i++) { await Promise.resolve(); } };
     $('to').value = 'LLM-07'; $('to').dispatchEvent(new Event('change', { bubbles: true })); $('note').value = 'Check the permit'; $('note').dispatchEvent(new Event('input'));
-    const c = $('v5ack'); c.checked = true; c.dispatchEvent(new Event('change', { bubbles: true })); await new Promise(r => setTimeout(r, 50));
+    const c = $('v5ack'); c.checked = true; c.dispatchEvent(new Event('change', { bubbles: true })); await settle();
     out.goEnabledAfterTick = !$('go').disabled && !$('show').disabled;
-    $('note').value = 'Check the permit now'; $('note').dispatchEvent(new Event('input')); await new Promise(r => setTimeout(r, 50));
-    out.resetOnNote = !c.checked && $('go').disabled; c.checked = true; c.dispatchEvent(new Event('change', { bubbles: true })); await new Promise(r => setTimeout(r, 50));
-    out.reTicked = !$('go').disabled; $('to').value = 'LLM-08'; $('to').dispatchEvent(new Event('change', { bubbles: true })); await new Promise(r => setTimeout(r, 50));
-    out.resetOnRoute = !c.checked && $('go').disabled; $('to').value = 'LOCAL'; $('to').dispatchEvent(new Event('change', { bubbles: true })); await new Promise(r => setTimeout(r, 50));
+    $('note').value = 'Check the permit now'; $('note').dispatchEvent(new Event('input')); await settle();
+    out.resetOnNote = !c.checked && $('go').disabled; c.checked = true; c.dispatchEvent(new Event('change', { bubbles: true })); await settle();
+    out.reTicked = !$('go').disabled; $('to').value = 'LLM-08'; $('to').dispatchEvent(new Event('change', { bubbles: true })); await settle();
+    out.resetOnRoute = !c.checked && $('go').disabled; $('to').value = 'LOCAL'; $('to').dispatchEvent(new Event('change', { bubbles: true })); await settle();
     out.localNeedsNoTick = !$('go').disabled && !$('show').disabled;
-    $('to').value = 'LLM-01'; $('to').dispatchEvent(new Event('change', { bubbles: true })); $('note').value = ''; $('note').dispatchEvent(new Event('input')); await new Promise(r => setTimeout(r, 50));
+    $('to').value = 'LLM-01'; $('to').dispatchEvent(new Event('change', { bubbles: true })); $('note').value = ''; $('note').dispatchEvent(new Event('input')); await settle();
     out.emptyNoteNeedsNoTick = !$('go').disabled && !$('v5rambobtn').disabled;
     return out;
   });

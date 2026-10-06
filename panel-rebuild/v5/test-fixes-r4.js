@@ -20,7 +20,7 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
     T('F2', '267009 means RUNNING: neutral blue, says RUNNING NOW, never FAILED', /RUNNING NOW/.test(run.txt) && !/FAILED/.test(run.txt) && /\bneu\b/.test(run.cls), run.cls + ' | ' + run.txt);
     T('F2', '267011 means NOT YET RUN: grey, even with no last-run time, never FAILED', /NOT YET RUN/.test(nyr.txt) && !/FAILED/.test(nyr.txt) && /\bunp\b/.test(nyr.cls), nyr.cls + ' | ' + nyr.txt);
     T('F2', '267011 with a last-run time is also grey NOT YET RUN', /NOT YET RUN/.test(nyr2.txt) && /\bunp\b/.test(nyr2.cls), nyr2.cls + ' | ' + nyr2.txt);
-    T('F2', 'result 1 is still red FAILED with its code', /FAILED.*result code 1\b/.test(failed.txt) && /\bbad\b/.test(failed.cls), failed.txt);
+    T('F2', 'result 1 is still red FAILED with its code (ROUND 7 CHANGE: the words "result code" are jargon and became "error number")', /FAILED.*(result code|error number) 1\b/.test(failed.txt) && /\bbad\b/.test(failed.cls), failed.txt);
     T('F2', 'any other non-zero code (2147942402) is red FAILED', /FAILED.*2147942402/.test(other.txt) && /\bbad\b/.test(other.cls), other.txt);
     T('F2', 'a running task with result 0 is still green', /\bok\b/.test(ok.cls), ok.cls + ' | ' + ok.txt);
     T('F2', '0 page errors', errs.length === 0, errs.join('|')); await ctx.close(); }
@@ -34,11 +34,11 @@ const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) +
     T('F3', 'W2 the status strip entry for housekeeping is red too', s2.length === 1 && /v5b bad/.test(s2[0]) && !/v5b ok/.test(s2[0]), s2.join(';')); await o2.ctx.close();
     const f2b = fresh(NOWMS); delete f2b.housekeeping.report_delivered; const o2b = await open(br, stage(f2b)); const h2b = await o2b.p.$$eval('#pn-house .v5b[data-src]', e => e.map(x => x.className));
     T('F3', 'W2b housekeeping with no report_delivered field: red, not green', h2b.length === 1 && /\bbad\b/.test(h2b[0]), h2b.join(';')); await o2b.ctx.close();
-    const f3 = fresh(NOWMS); f3.miamidade.counted = null; const o3 = await open(br, stage(f3)); const m3 = await o3.p.$$eval('#pn-miami .v5b[data-src]', e => e.map(x => x.className + ' | ' + x.textContent)), s3 = await o3.p.$$eval('#v5dash span', e => e.filter(x => /^miamidade/.test(x.textContent)).map(x => x.innerHTML));
+    const f3 = fresh(NOWMS); f3.miamidade.counted = null; const o3 = await open(br, stage(f3)); const m3 = await o3.p.$$eval('#pn-miami .v5b[data-src]', e => e.map(x => x.className + ' | ' + x.textContent)), s3 = await o3.p.$$eval('#v5dash span', e => e.filter(x => /^(miamidade|Miami-Dade)/.test(x.textContent)).map(x => x.innerHTML));
     T('F3', 'W3 Miami-Dade counted:null: the badge is GREY "not counted", never green "Counted"', m3.length === 1 && /\bna\b/.test(m3[0]) && !/\bok\b/.test(m3[0]) && /NOT COUNTED/i.test(m3[0]), m3.join(';'));
     T('F3', 'W3 the strip entry for Miami-Dade is not green', s3.length === 1 && !/v5b ok/.test(s3[0]), s3.join(';'));
     T('F3', 'W3 the count line still says unknown of 300', /Counted so far: unknown of 300/.test(await o3.p.innerText('#pn-miami')), ''); await o3.ctx.close();
-    const f4 = fresh(NOWMS); f4.tokens = { schema: 1, at: at(2), writer: 'fixture' }; const o4 = await open(br, stage(f4)); const t4 = await o4.p.$$eval('#pn-tokens .v5b[data-src]', e => e.map(x => x.className + ' | ' + x.textContent)), s4 = await o4.p.$$eval('#v5dash span', e => e.filter(x => /^tokens/.test(x.textContent)).map(x => x.innerHTML));
+    const f4 = fresh(NOWMS); f4.tokens = { schema: 1, at: at(2), writer: 'fixture' }; const o4 = await open(br, stage(f4)); const t4 = await o4.p.$$eval('#pn-tokens .v5b[data-src]', e => e.map(x => x.className + ' | ' + x.textContent)), s4 = await o4.p.$$eval('#v5dash span', e => e.filter(x => /^(tokens|token use)/.test(x.textContent)).map(x => x.innerHTML));
     T('F3', 'W4 an empty token report (only schema, at, writer): the badge is red NO DATA, never green "Reporting"', t4.length === 1 && /\bbad\b/.test(t4[0]) && !/\bok\b/.test(t4[0]) && /NO DATA/.test(t4[0]), t4.join(';'));
     T('F3', 'W4 the strip entry for tokens is red', s4.length === 1 && /v5b bad/.test(s4[0]), s4.join(';')); await o4.ctx.close(); }
   // ---------- F5: the RAMBO paste button is on the first screen, directly under the title, above "Read me first"

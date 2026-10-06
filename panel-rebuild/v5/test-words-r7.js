@@ -31,7 +31,7 @@ const sets = () => [
   {
     const f = fresh(NOWMS); f.heartbeat.local_only_folder.label = 'C:\\VTES-LOCAL-ONLY';
     const d = stage(f); const { ctx, p } = await open(br, d); window_open: await p.evaluate(() => { window.open = () => null; });
-    const live = await p.evaluate(() => document.querySelector('[data-localfolder]').textContent); T('contradiction', 'live LOCAL line says CONFIRMED with a C:\\ folder', /CONFIRMED/.test(live) && !/NOT CONFIRMED/.test(live), live);
+    const live = await p.evaluate(() => document.querySelector('[data-localfolder]').textContent); T('contradiction', 'live LOCAL line says CONFIRMED with a C:\\ folder', /CONFIRMED by the desktop executor/.test(live) && !/BLOCKED/.test(live), live);
     await p.evaluate(() => { document.getElementById('to').value = 'LOCAL'; document.getElementById('to').dispatchEvent(new Event('change', { bubbles: true })); document.getElementById('go').click(); }); await sleep(p, 300);
     const blocked = await p.evaluate(() => { const o = []; const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); while (w.nextNode()) { const n = w.currentNode, par = n.parentElement; if (!par || par.closest('script,style,[data-localfolder]')) { continue; } if (/BLOCKED/.test(n.textContent)) { o.push(n.textContent.trim().slice(0, 140)); } } return o; });
     T('contradiction', 'with the folder CONFIRMED no other line on the page says BLOCKED (LOCAL card, status after Copy packet and open)', blocked.length === 0, blocked.join(' || ')); await ctx.close();
@@ -87,7 +87,7 @@ const sets = () => [
     for (const [label, expect] of cases) {
       const f = fresh(NOWMS); f.heartbeat.local_only_folder.label = label; const d = stage(f); const { ctx, p } = await open(br, d);
       const t = await p.evaluate(() => { const e = document.querySelector('[data-localfolder]'); return { c: e.className, t: e.textContent }; });
-      T('local folder', JSON.stringify(label) + (expect ? ' is CONFIRMED' : ' is refused'), expect ? (/\bok\b/.test(t.c) && /CONFIRMED/.test(t.t) && !/NOT CONFIRMED/.test(t.t)) : (/\bbad\b/.test(t.c) && /NOT CONFIRMED/.test(t.t)), t.c + ' ' + t.t.slice(0, 150)); await ctx.close();
+      T('local folder', JSON.stringify(label) + (expect ? ' is CONFIRMED' : ' is refused'), expect ? (/\bok\b/.test(t.c) && /CONFIRMED by the desktop executor/.test(t.t)) : (/\bbad\b/.test(t.c) && /BLOCKED - UNVERIFIED/.test(t.t)), t.c + ' ' + t.t.slice(0, 150)); await ctx.close();
     }
     const withProof = (label, who, proof) => { const f = fresh(NOWMS); Object.assign(f.heartbeat.local_only_folder, { label, local_only_verified_by: who, not_synced_proof: proof }); return f; };
     for (const [nm, f, expect] of [['non-path label, verified_by and not_synced_proof given', withProof('VTES-LOCAL-ONLY', 'RAMBO 2026-10-06', 'Get-Item shows no reparse point and no sync client path'), true], ['non-path label, verified_by only', withProof('VTES-LOCAL-ONLY', 'RAMBO', ''), false], ['G: label even with a proof', withProof('G:\\VTES-LOCAL', 'RAMBO', 'proof text'), false]]) {

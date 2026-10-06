@@ -1,0 +1,1521 @@
+{
+ "test": "test-pii-unit-r7",
+ "pass": 252,
+ "total": 252,
+ "blocked_personal": 168,
+ "carried": 72,
+ "results": [
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"SSN 123-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"social 123 45 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"Social Security Number: 123 45 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123.45.6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123 - 45 - 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123\\u201345\\u20136789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123\\u201145\\u20116789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123\\u201445\\u20146789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123\\u221245\\u22126789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"\\uff11\\uff12\\uff13-\\uff14\\uff15-\\uff16\\uff17\\uff18\\uff19\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"\\uff11\\uff12\\uff13\\uff14\\uff15\\uff16\\uff17\\uff18\\uff19\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"\\u0661\\u0662\\u0663-\\u0664\\u0665-\\u0666\\u0667\\u0668\\u0669\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"\\u0967\\u0968\\u0969 \\u096a\\u096b \\u096c\\u096d\\u096e\\u096f\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"\\ud835\\udfcf\\ud835\\udfd0\\ud835\\udfd1\\ud835\\udfd2\\ud835\\udfd3\\ud835\\udfd4\\ud835\\",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"1\\u00a023\\u00a045\\u00a06789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123\\u200b456\\u200b789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"l23-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"I23 45 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"ss#123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"ss# 123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"S.S.N. 123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"S.S.N.123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"SSN123-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"xSSN123456789y\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"SSN:123-45-6789ext\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"SSN 123-45-6789ext\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"ssn=123456789;\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"my ssn is 123 45 6789 ok\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"1 2 3 4 5 6 7 8 9\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123 456 789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"TRK 1262 123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"ssn: 1 2 3 - 4 5 - 6 7 8 9\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"Social: 12345-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"(123-45-6789)\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"Social Security 123-45-678 9\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"Job 1262 123-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"order 5 12 3456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"line1\\n123\\n45\\n6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123\\r\\n45\\r\\n6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"one two three dash four five dash six seven eight nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"One Two Three hyphen Four Five hyphen Six Seven Eight Nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123/45/6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"123 / 45 / 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"12-3456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"EIN 12-3456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"tax id 123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"ITIN 912-70-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"SSN 123-45-6789 12\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"SSN 123-45-6789 and more words after it\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"prefix ABC123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"4111111111111111\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"4111-1111-1111-1111\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"4111 1111 1111 1111\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"4111 1111 1111 1111 exp 12/29\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"4111.1111.1111.1111\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"\\uff14\\uff11\\uff11\\uff11 \\uff11\\uff11\\uff11\\uff11 \\uff11\\uff11\\uff11\\uff11 \\uff",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"378282246310005\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"3782 822463 10005\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"5555555555554444\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"6011 0009 9013 9424\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"4222222222222\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"DOB 04/12/1975 acct 123456789012\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"born 1975-04-12, card 4111 1111 1111 1111\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"date of birth 04/12/1975 and number 12345678\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"one two three four five six seven eight nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"One, Two, Three, Four, Five, Six, Seven, Eight, Nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"zero one two three four five six seven eight\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"folio 30-4021-001-0010 ssn 123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"call 305-555-1234 ssn 123-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"line1\\n123-45-6789\\nline3\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 block",
+   "name": "blocks \"   123456789   \"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. SSN 123-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. Social Security Number: 123 45 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. SSN123-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. ss# 123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. S.S.N. 123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. SSN 123-45-6789ext\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123.45.6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123 - 45 - 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123\\u201345\\u20136789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123\\u201145\\u20116789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123\\u201445\\u20146789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123\\u221245\\u22126789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. \\uff11\\uff12\\uff13\\uff0d\\uff14\\uff15\\uff0d\\uff16\\uff17\\uff18\\uf",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. \\uff11\\uff12\\uff13\\uff14\\uff15\\uff16\\uff17\\uff18\\uff19\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. \\u0661\\u0662\\u0663-\\u0664\\u0665-\\u0666\\u0667\\u0668\\u0669\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. \\u0967\\u0968\\u0969 \\u096a\\u096b \\u096c\\u096d\\u096e\\u096f\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. \\ud835\\udfcf\\ud835\\udfd0\\ud835\\udfd1\\ud835\\udfd2\\ud835\\udfd3\\ud",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 1\\u00a023\\u00a045\\u00a06789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123\\u200b456\\u200b789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123\\u200d45\\u200d6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. l23-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. I23 45 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. ssn 123\\t45\\t6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123/45/6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123_45_6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. line1\\n123\\n45\\n6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123\\r\\n45\\r\\n6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. one two three four five six seven eight nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. One, Two, Three, Four, Five, Six, Seven, Eight, Nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. one two three dash four five dash six seven eight nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 4111 1111 1111 1111\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 4111-1111-1111-1111\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 4111111111111111\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. \\uff14\\uff11\\uff11\\uff11 \\uff11\\uff11\\uff11\\uff11 \\uff11\\uff11\\",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 378282246310005\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 5555 5555 5555 4444\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 6011000990139424\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. my ssn is 123 45 6789 ok\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. Job 1262 123-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. (123-45-6789)\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. ssn=123456789;\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. Card 4111 1111 1111 1111, date of birth 04/12/1975, 123 Main St",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 1 2 3 4 5 6 7 8 9\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123 456 789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. ssn: 1 2 3 - 4 5 - 6 7 8 9\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. zero one two three four five six seven eight\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. itin 912-70-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. tax id 12-3456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 4111 1111 1111 1111 exp 12/29\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. social 123 45 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. SSN 123, 45, 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. his number is 123, 45, 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 4111, 1111, 1111, 1111\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123:45:6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123    45    6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. (123) 45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. ssn starts 123 then 45 then 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. one 2 three 4 five 6 seven 8 nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. one twenty three, forty five, sixty seven eighty nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. uno dos tres cuatro cinco seis siete ocho nueve\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. ssn1\\u030123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123\\u206345\\u20636789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. MTIzNDU2Nzg5\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 313233343536373839\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. driver licence V123-456-78-901-0\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. FL licence V123456789012\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. passport A12345678\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. passport C03005988\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. bank account 1234567890\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. acct no 0012345678 routing 021000021\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. IBAN GB82 WEST 1234 5698 7654 32\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. DE89370400440532013000 is the account\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. born March 3, 1980\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. DOB 1/2/80\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. DOB 1/2/80 ssn last four 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. date of birth: 04/12/1975\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. John was born on 3 March 1980\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. fecha de nacimiento 3/4/1980\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. ssn, one two three, four five, six seven eight nine\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. number 123 45 6789 is the ssn\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 123-45-6789.\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. ssn:123456789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. SS# 123 45 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. Soc Sec 123-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. seguro social 123-45-6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. ssn uno veintitres, cuarenta y cinco, sesenta y siete ochenta y",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. 0x75BCD15\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. SSN 123 45 67 89\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. card number 4111 1111 1111 1111 cvv 123\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. visa: 4111-1111-1111-1111\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. amex 3782 822463 10005\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. account 12345678 at the bank\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. licencia 123456789012\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "personal",
+   "name": "blocks \"Check this one. pasaporte A12345678\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"Call 305-555-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"Call (305) 555-1234 today\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"+1 305 555 1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"305.555.1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"1-800-555-0100\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"folio 30-4021-001-0010\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"folio 01-4120-001-0010\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"Check permit 123 and call 305-555-0100 about folio 01-4120-001-0010\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"1 800 555 1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"FL 33143-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"Miami, FL 33143-1234 and call 305-555-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"call 305 555 1234 then 305 555 0100\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"call me at five five five\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"one two three\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"permit 2024-12345\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"permit 2024 12345\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"permit 2024/12345\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"Permit BP2021-12345\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"Miami FL 33143-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"123 Main St, Miami, FL 33143\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"unit 143, 2026-10-06\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"14598 SW 110 ST\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"Order 12345\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"amount $1,234,567\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"Invoice 2026-1250\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"TRK-2026-1262\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"Check the Bal Harbour permit summary for anything Claude missed.\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"on 10/06/2026 at 2:00 PM\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"room 12, lot 34, block 56\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"ref 12345-ABC\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"(no note typed)\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "round-6 carry",
+   "name": "carries \"3040210010011\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Check the Bal Harbour permit summary for anything Claude missed.\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Call 305-555-1234 about the Medley invoice\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Folio 30-4021-001-0010 needs the zoning letter\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Folio 01-4120-001-0010 and folio 30-4021-001-0010 are on the list\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Permit 2024-12345 was issued on 10/06/2026\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Permit 2024 12345 final inspection\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Permit BP2021-12345 expired\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"TRK-2026-1262 needs the cover page\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"OPH-2026-0042 has no job yet\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"TRK-2026-0708-JULIA is the Julia file\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Miami 33186-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Miami FL 33186 305-555-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Miami, FL 33143-1234 and call 305-555-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"14598 SW 110 ST, Miami, FL 33186\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"The invoice is for $8,000.00 due on 2026-10-15\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Pay $100.25 to Alec for the DD delivery\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"UPS 1Z999AA10123456784 shipped Monday\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"USPS 9400 1118 9922 3197 4284 90 delivered\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"FedEx 123456789012 is out for delivery\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Case number CE-2024-000123 is open\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Case 24-CC-012345 hearing set for 11/04/2026\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Room 12, lot 34, block 56\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Units 143, 144 and 145 are vacant\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Call me at five five five\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"One two three, easy as that\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Three bedrooms, two baths, 1,500 sq ft, built in 1998\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Meeting at 2:00 PM on October 6, 2026\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Percent complete: 73%. Score 88 of 100.\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Ticket 4471 and ticket 4472 are done\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Call 1-800-555-0100 or (305) 555-0100\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"+1 305 555 1234 is the office\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"See pages 12, 34, 56 and 78 of the report\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Version v12 of TRK-2026-1250 is current\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"The Orange Tree population is 120 of 300 so far\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Send the review links for Avis Builders to Alec\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"No client names in this note, just the plan\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Latitude 25.7617, longitude -80.1918\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Order total 1,234.56 on 2026-10-06\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Remind me about the Einar overdue matter on Friday\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "ordinary",
+   "name": "carries \"Plans were rev 3 dated 2024-03-04 and rev 4 dated 2024-05-06\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "false alarm",
+   "name": "KNOWN false alarm, blocked on purpose: \"Order 12345 6789\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "false alarm",
+   "name": "KNOWN false alarm, blocked on purpose: \"invoice 123456789 sent\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "false alarm",
+   "name": "KNOWN false alarm, blocked on purpose: \"ref 98765-4321\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "false alarm",
+   "name": "KNOWN false alarm, blocked on purpose: \"the number 987654321 on the permit card\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "false alarm",
+   "name": "KNOWN false alarm, blocked on purpose: \"lot 1 2 3 4 5 6 7 8 9\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "undisclosed false alarms fixed",
+   "name": "carries \"Miami 33186-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "undisclosed false alarms fixed",
+   "name": "carries \"Miami FL 33186 305-555-1234\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "long notes",
+   "name": "a note over 20,000 characters is blocked and the check is fast (9 ms)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "long notes",
+   "name": "a long run of spelled digits is blocked and a long run of single digits does not raise an error (it is not shaped like an SSN or a card)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "message",
+   "name": "the \"NOT INCLUDED\" message does not repeat the number",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "message",
+   "name": "for LOCAL the note is returned unchanged",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "page",
+   "name": "0 page errors",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

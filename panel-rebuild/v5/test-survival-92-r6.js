@@ -21,7 +21,7 @@ const ed = s => EDITS.reduce((a, [x, y]) => a.split(x).join(y), String(s == null
   const lists = p => p.evaluate(() => JSON.parse(JSON.stringify({ LLMS, ROLES, BOTS, QUEUED, PICK, TABS, WIN: WIN.map(w => ({ id: w.id, n: w.n, url: w.url, how: w.how })) })));
   const X = await lists(a), Y = await lists(b);
   const text = (p, sel) => p.$eval(sel, e => e.innerText).catch(() => '');
-  const setUp = async (p, from, to, note) => { await p.selectOption('#from', from); await p.selectOption('#to', to); await p.fill('#note', note || 'Check the Bal Harbour permit summary.'); };
+  const setUp = async (p, from, to, note) => { await p.selectOption('#from', from); await p.selectOption('#to', to); await p.fill('#note', note || 'Check the Bal Harbour permit summary.'); /* ROUND 7 CHANGE: v5 needs the confirmation tick for a non-LOCAL To (v3 has no such box) */ if (await p.$('#v5ack')) { await p.uncheck('#v5ack'); await p.check('#v5ack'); } };
   const win = (id) => X.WIN.find(w => w.id === id);
   let n = 0;
   // 1-9 the nine LLM cards: present, and each of its controls works
@@ -74,7 +74,7 @@ const ed = s => EDITS.reduce((a, [x, y]) => a.split(x).join(y), String(s == null
     I(n, 'search: ' + (words.length - diff.length) + ' of ' + words.length + ' words give the same cards as v3; the differences (' + diff.join(', ') + ') are the disclosed ones', unexplained.length === 0, unexplained.join(',')); }
   // 72-78 the hand-off form, 7 parts
   { n++; const da = { kind: A.first.kind, from: A.first.from, why: A.first.why }, db = { kind: B.first.kind, from: B.first.from, why: B.first.why }; I(n, 'hand-off form: default kind, From and suggestion line', da.kind === db.kind && da.from === db.from && da.why === db.why, JSON.stringify([da, db])); }
-  { n++; I(n, 'hand-off form: the personal-data warning line', norm(await text(a, '.gate')) === norm(await text(b, '.gate')) && /Client personal data goes to LOCAL only/.test(await text(b, '.gate')), ''); }
+  { n++; I(n, 'hand-off form: the personal-data warning line', /Client personal data goes to LOCAL only/.test(await text(a, '.gate')) && /Client personal data goes to LOCAL only/.test(await text(b, '.gate')) && /CANNOT catch names, home addresses, email addresses, phone numbers/.test(await text(b, '.gate')) /* ROUND 7 CHANGE: the grey line under the note box is rewritten to say what the guard cannot catch (CHECK-8 flaw 3); it is no longer word for word v3's */, ''); }
   { n++; I(n, 'hand-off form: the two buttons', norm(await text(a, '#go')) === norm(await text(b, '#go')) && norm(await text(a, '#show')) === norm(await text(b, '#show')), ''); }
   { n++; const la = norm(await a.$eval('label[for="preview"], #preview ~ label, .lbl', e => e.textContent).catch(() => '')); I(n, 'hand-off form: the packet box is there, read only, and its label no longer promises an edit', (await b.$eval('#preview', e => e.readOnly)) && /read only/.test(await b.innerText('body')) && !/editable before pasting/.test(await b.innerText('body')), la); }
   { n++; const oa = await a.$$eval('#to option', e => e.map(o => o.value)), ob = await b.$$eval('#to option', e => e.map(o => o.value)); I(n, 'hand-off form: To list keeps all 12 v3 entries and adds GROK', oa.length === 12 && oa.every(v => ob.includes(v)) && ob.length === 13 && ob.includes('GROK'), oa.join() + ' | ' + ob.join()); }

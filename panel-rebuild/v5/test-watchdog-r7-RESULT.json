@@ -1,0 +1,85 @@
+{
+ "test": "test-watchdog-r7",
+ "pass": 13,
+ "total": 13,
+ "results": [
+  {
+   "g": "first paint fails",
+   "name": "the top block (RAMBO button, Read me first, Live status) is on the page although the first paint failed",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "first paint fails",
+   "name": "the page says PAGE NOT REFRESHING - DO NOT TRUST on the WHOLE PAGE line and in the banner at once",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "first paint fails",
+   "name": "no uncaught error escapes",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "later failure",
+   "name": "the page starts green-or-honest with a painted WHOLE PAGE line",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "later failure",
+   "name": "when a paint throws, WHOLE PAGE, every strip entry and the banner turn red PAGE NOT REFRESHING at once",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "later failure",
+   "name": "after the failure goes the page recovers by itself on the next refresh (no reload)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "refresh stops",
+   "name": "after 2 minutes without a redraw the page is NOT yet marked (the limit is 3 minutes)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "refresh stops",
+   "name": "after 4 minutes without a redraw WHOLE PAGE, every strip entry and the banner say PAGE NOT REFRESHING - DO NOT TRUST",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "one panel fails",
+   "name": "a panel that cannot be drawn shows its own red box \"THIS PANEL COULD NOT BE DRAWN\" (6 boxes)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "one panel fails",
+   "name": "the repairs panel, the cards and the strip still paint (panel sizes 190,181,192,181,391, cards 15)",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "one panel fails",
+   "name": "WHOLE PAGE is red while a panel is broken",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "one panel fails",
+   "name": "no uncaught error",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "script missing",
+   "name": "with vtes5-ui.js missing a plain red box says PAGE NOT REFRESHING - DO NOT TRUST",
+   "status": "PASS",
+   "why": ""
+  }
+ ]
+}

@@ -59,7 +59,8 @@ const PACKET_LABELS = ['WHO:', 'TASK, IN HIS WORDS:', 'HOW TO ANSWER:', 'HARD RU
         await p.click('button[data-to="' + i.to + '"]' + (i.text ? ':text-is("' + i.text + '")' : '')); await sleep(p, 150); const v = await p.inputValue('#to'), pv = await p.inputValue('#preview');
         T('hand', '"Hand work here" -> ' + i.to + ': To box shows ' + i.to + ' and the packet is addressed to it', v === i.to && new RegExp('->  ' + i.to.replace(/-/g, '\\-') + ' \\(').test(pv), v + ' | ' + pv.split('\n')[0]); cnt.hand++; mark(i);
       } else if (i.tag === 'button' && i.q !== null) {
-        await p.click('button[data-q="' + i.q + '"]'); await sleep(p, 150); const note = await p.inputValue('#note'), st = await p.innerText('#status'), pv = await p.inputValue('#preview');
+        /* ROUND 7 CHANGE (FIX-ROUND-7.md, older tests that changed): a queued item fills the note box, and the packet is shown only after the confirmation tick, so the test ticks it (the box is ticked, then the packet is read) */
+        await p.click('button[data-q="' + i.q + '"]'); await sleep(p, 150); const stBefore = await p.innerText('#v5ackmsg'); await p.click('#v5ack'); await sleep(p, 150); const note = await p.inputValue('#note'), st = await p.innerText('#status'), pv = await p.inputValue('#preview');
         const Q = await p.evaluate(() => QUEUED); const x = Q[+i.q];
         T('queued', 'queued item ' + i.q + ' "' + x.n.slice(0, 30) + '": note, To and packet filled, status says packet ready', note === x.p && pv.includes(x.p) && /^Packet ready for /.test(st) && (await p.inputValue('#to')) === x.to, st); cnt.queued++; mark(i);
       } else if (i.id === 'go' || i.id === 'show') {
@@ -77,7 +78,7 @@ const PACKET_LABELS = ['WHO:', 'TASK, IN HIS WORDS:', 'HOW TO ANSWER:', 'HARD RU
         for (const v of n) { await p.selectOption('#' + i.id, v); const pv = (await p.inputValue('#preview')).split('\n')[0]; if (!pv.includes(v + ' (')) { ok = false; why = v + ' ' + pv; } }
         await p.selectOption('#from', 'LLM-04'); T('selects', i.id + ' list: each of its ' + n.length + ' options builds a packet with that id (GROK, the dead role button in v3, is in the list)', ok && n.length === 13 && (i.id !== 'to' || n.includes('GROK')), why + ' n=' + n.length); cnt.selects++; mark(i);
       } else if (i.id === 'note') {
-        await p.fill('#note', 'Check the Bal Harbour permit summary.'); await sleep(p, 100); const pv = await p.inputValue('#preview'); await p.fill('#note', '');
+        await p.fill('#note', 'Check the Bal Harbour permit summary.'); /* ROUND 7 CHANGE: the packet is shown after the confirmation tick */ await p.check('#v5ack'); await sleep(p, 100); const pv = await p.inputValue('#preview'); await p.uncheck('#v5ack'); await p.fill('#note', '');
         T('other', 'note box: typed text appears in the packet under TASK; empty note uses the "ask Jorge" line', pv.includes('TASK, IN HIS WORDS:\nCheck the Bal Harbour permit summary.') && /no note typed: ask Jorge/.test(await p.inputValue('#preview')), pv.slice(0, 200)); cnt.other++; mark(i);
       } else if (i.id === 'preview') {
         T('other', 'packet box is read only, and its label no longer says editable', (await p.$eval('#preview', e => e.readOnly)) && !/editable/.test(await p.innerText('label[for="preview"]')), await p.innerText('label[for="preview"]')); cnt.other++; mark(i);
@@ -85,6 +86,10 @@ const PACKET_LABELS = ['WHO:', 'TASK, IN HIS WORDS:', 'HOW TO ANSWER:', 'HARD RU
         const total = await p.$$eval('.card', c => c.length); const vis = async () => p.$$eval('.card', c => c.filter(x => !x.classList.contains('hide')).length); const out = [];
         for (const [q, min, max] of [['LLM-07', 1, 3], ['#grok', 1, 4], ['zzzzqq', 0, 0], ['ramBO', 2, 20], ['orchestrator', 2, 6], ['', total, total]]) { await p.fill('#q', q); await sleep(p, 100); const v = await vis(); out.push([q, v, v >= min && v <= max]); }
         T('other', 'search box: LLM-07, #grok, no match, mixed case, a job word, and cleared all behave (' + JSON.stringify(out) + ')', out.every(o => o[2]), JSON.stringify(out)); cnt.other++; mark(i);
+      } else if (i.id === 'v5ack') {
+        /* ROUND 7: the confirmation tick is a new item on the page; it is clicked and its effect is checked */
+        await p.fill('#note', 'Check the Bal Harbour permit summary.'); await p.selectOption('#to', 'LLM-07'); await sleep(p, 100); const off = await p.$eval('#go', e => e.disabled); await p.check('#v5ack'); await sleep(p, 100); const on = await p.$eval('#go', e => !e.disabled);
+        T('other', 'the confirmation tick: unticked, Copy packet and open is switched off for a non-LOCAL To; ticked, it is on', off && on, JSON.stringify({ off, on })); await p.uncheck('#v5ack'); await p.fill('#note', ''); cnt.other++; mark(i);
       } else { T('other', 'UNHANDLED item ' + i.key, false, JSON.stringify(i)); }
     } catch (e) { T('error', 'exercising ' + i.key, false, e.message.replace(/\u001b\[[0-9;]*m/g, '').slice(0, 900)); }
   }

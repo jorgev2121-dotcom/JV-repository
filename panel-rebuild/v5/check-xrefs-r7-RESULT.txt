@@ -1,0 +1,35 @@
+PASS the package folder holds 12 files = the 11 in the manifest + the manifest itself (12)
+PASS INSTALL-BY-HAND.md: no sentence counts the package wrongly ("The N package files are" / "N files including MANIFEST")
+PASS INSTALL-BY-HAND.md: every "all N of N" says 11 (none wrong)
+PASS INSTALL-BY-HAND.md: no live sentence calls an edited data file "expected"
+PASS DESKTOP-WORK.md: no sentence counts the package wrongly ("The N package files are" / "N files including MANIFEST")
+PASS DESKTOP-WORK.md: every "all N of N" says 11 (none wrong)
+PASS DESKTOP-WORK.md: no live sentence calls an edited data file "expected"
+PASS KNOWN-LIMITS.md: no sentence counts the package wrongly ("The N package files are" / "N files including MANIFEST")
+PASS KNOWN-LIMITS.md: every "all N of N" says 11 (none wrong)
+PASS KNOWN-LIMITS.md: no live sentence calls an edited data file "expected"
+PASS DATA-CONTRACT.md: no sentence counts the package wrongly ("The N package files are" / "N files including MANIFEST")
+PASS DATA-CONTRACT.md: every "all N of N" says 11 (none wrong)
+PASS DATA-CONTRACT.md: no live sentence calls an edited data file "expected"
+PASS PORT-REPORT.md: no sentence counts the package wrongly ("The N package files are" / "N files including MANIFEST")
+PASS PORT-REPORT.md: every "all N of N" says 11 (none wrong)
+PASS PORT-REPORT.md: no live sentence calls an edited data file "expected"
+PASS TEST-REPORT.md: no sentence counts the package wrongly ("The N package files are" / "N files including MANIFEST")
+PASS TEST-REPORT.md: every "all N of N" says 11 (none wrong)
+PASS TEST-REPORT.md: no live sentence calls an edited data file "expected"
+PASS INSTALL-BY-HAND.md step 6b says the package is 12 files: the 11 named in the manifest plus the manifest
+PASS INSTALL-BY-HAND.md step 6b names exactly the 12 files (12 names, all present: true)
+PASS DESKTOP-WORK.md says the package is 12 files in the same words
+PASS the page: does not say "Every card, tab and button from v3 is still here"
+PASS vtes5-ui.js: does not say "Every card, tab and button from v3 is still here"
+PASS INSTALL-BY-HAND.md: does not say "Every card, tab and button from v3 is still here"
+PASS DESKTOP-WORK.md: does not say "Every card, tab and button from v3 is still here"
+PASS KNOWN-LIMITS.md: does not say "Every card, tab and button from v3 is still here"
+PASS DATA-CONTRACT.md: does not say "Every card, tab and button from v3 is still here"
+PASS PORT-REPORT.md: does not say "Every card, tab and button from v3 is still here"
+PASS TEST-REPORT.md: does not say "Every card, tab and button from v3 is still here"
+PASS the Read me names the one removed link (Open Codex CLI to chatgpt.com)
+PASS PORT-REPORT.md quotes the CODEX / GROK address prefix exactly as the page shows it (CHECK-8 flaw 10)
+PASS the LLM-06 card has no web address (the link really is removed): the Read me sentence is true
+PASS vtes5-ui.js: no jargon phrase in a displayed string outside "For RAMBO" lines ()
+CROSS-REFERENCES R7: 34 of 34 checks pass

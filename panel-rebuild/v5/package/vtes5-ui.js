@@ -16,7 +16,7 @@
   function pathOk(label) { return /^[cC]:\\/.test(label) && !BAD_PATH.test(label); }
   var LOCAL_LIMIT_MIN = 26 * 60;
   function localFolder() {
-    var h = V.status('heartbeat'), lf = (h.state === 'OK' && h.data) ? h.data.local_only_folder : null, none = 'NOT CONFIRMED. ';
+    var h = V.status('heartbeat'), lf = (h.state === 'OK' && h.data) ? h.data.local_only_folder : null, none = 'BLOCKED - UNVERIFIED. ';
     if (h.state !== 'OK') { return { cls: 'bad', ok: false, text: none + 'The PC has not reported whether a local-only folder exists (PC check-in report: ' + h.state + '). Do not save client personal data in any file.' }; }
     if (!lf || lf.ok !== true) { return { cls: 'bad', ok: false, text: none + 'The desktop executor (RAMBO) has not confirmed a local-only folder: one that is NOT inside Google Drive, OneDrive or any other folder that uploads to the cloud. Until it does, do not save client personal data in any file.' }; }
     var label = String(lf.label == null ? '' : lf.label);
@@ -34,8 +34,9 @@
       out.push('STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself.');
       out.push('For RAMBO: create or confirm a local-only folder outside every syncing folder (a plain C:\\ path outside Users\\JV\\Desktop, OneDrive and Documents) and record it, with local_only_verified_by and not_synced_proof, under local_only_folder in the heartbeat file (DESKTOP-WORK item 11, local-only folder).');
     } else {
-      out.push('Nothing more for you to do: the desktop executor (RAMBO) saves the packet in the confirmed local-only folder (the LOCAL save step line above names it).',
-        'For RAMBO: FIRST turn on file name extensions (File Explorer, View, Show, File name extensions), so a name ending in .md is not saved as .md.txt and the job is not missed. Create the file with its exact name using your own file tools, read the name back, and write it in the report.');
+      out.push('In File Explorer, open the local-only folder named "' + lf.label + '" (the desktop executor confirmed it is outside Google Drive and OneDrive).',
+        'For RAMBO: FIRST turn on file name extensions: click View, then Show, then File name extensions. Otherwise a name ending in .md is saved as .md.txt and the job is never picked up.',
+        'For RAMBO: right-click an empty spot, click New, click Text Document, name it JOB-something.md, press Enter (click Yes if Windows asks about changing the extension). Check the name ends in .md and not in .md.txt. Open it, press Ctrl+V and save.');
     }
     out.push('For RAMBO: v3 says the job file needs a line starting CLASS: and a line starting PROMPT: (typed from v3, UNVERIFIED); the packet does not have them, and the helper that adds them is still to be built (DESKTOP-WORK item 9, LOCAL jobs). v3 says the bot CU-Local-Executor watches VTES-Inbox-LOCAL: if that folder is inside Google Drive, that lane uploads client data too (KNOWN-LIMITS item 35, LOCAL).');
     return out;
@@ -446,7 +447,7 @@
       if (m.textContent !== msg) { m.textContent = msg; }
     } catch (e) { }
   }
-  function onAckChange() { var c = byId('v5ack'); if (c && c.checked) { ACK.on = true; ACK.note = noteText(); ACK.route = toRoute(); } else { ACK.on = false; } applyGate(); }
+  function onAckChange() { var c = byId('v5ack'); if (c && c.checked) { ACK.on = true; ACK.note = noteText(); ACK.route = toRoute(); } else { ACK.on = false; } applyGate(); try { if (window.refresh) { window.refresh(); } } catch (e) { } }
   function initGate() {
     var c = byId('v5ack'); if (!c || c.__v5wired) { return; } c.__v5wired = true;
     c.addEventListener('change', onAckChange);
@@ -593,7 +594,8 @@
       if (banner) { banner.style.display = trip ? 'block' : 'none'; banner.textContent = trip ? WATCH_TEXT + '. ' + (PAINT.threw ? 'The last redraw of this page failed.' : 'This page has not redrawn for more than 3 minutes.') + ' Everything below may be out of date. Press F5 to reload the page. If this stays, tell the desktop executor (RAMBO).' : ''; }
       if (!trip) { return; }
       var o = document.getElementById('v5overall'); if (o) { o.className = 'v5b bad'; o.textContent = 'WHOLE PAGE: ' + WATCH_TEXT; }
-      try { Array.prototype.forEach.call(document.querySelectorAll('.v5b[data-src]'), function (b) { b.className = 'v5b bad'; b.textContent = WATCH_TEXT; }); } catch (e) { }
+      /* the strip entries are found by class name (no selector engine needed), so a paint that broke querySelectorAll cannot stop the watchdog */
+      try { Array.prototype.forEach.call(document.getElementsByClassName('v5b'), function (b) { if (b.getAttribute('data-src')) { b.className = 'v5b bad'; b.textContent = WATCH_TEXT; } }); } catch (e) { }
     } catch (e) { }
   }
   function paintFailed(e) { PAINT.threw = true; window.__v5lastError = String(e && e.message || e).slice(0, 200); watchdog(); }

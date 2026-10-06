@@ -44,15 +44,18 @@ const NOTES = [
       const bigs = [...document.querySelectorAll('button.bigcopy')], hands = [...document.querySelectorAll('button[data-to]')], qs = [...document.querySelectorAll('[data-q]')];
       window.open = () => null; const res = [];
       const setNote = () => { const n = document.getElementById('note'); n.value = note.text; n.dispatchEvent(new Event('input')); };
+      /* ROUND 7 CHANGE (see FIX-ROUND-7.md, older tests that changed): every non-LOCAL route now needs the confirmation tick, and a big button works only when To already equals its destination. This test plays a person who TICKS BY MISTAKE, so it still tests the digit guard (the second layer). The no-tick case is tested by test-privacy-matrix-r7.js. */
+      const setTo = t2 => { const s = document.getElementById('to'); s.value = t2; s.dispatchEvent(new Event('change', { bubbles: true })); };
+      const tickIt = () => { const c = document.getElementById('v5ack'); c.checked = true; c.dispatchEvent(new Event('change', { bubbles: true })); };
       const preview = () => document.getElementById('preview').value;
       for (const r of routes) {
         setNote(); let to = r.to; document.getElementById('preview').value = '';
-        if (r.kind === 'big') { bigs[r.i].click(); }
-        else if (r.kind === 'top') { document.getElementById('v5rambobtn').click(); }
-        else if (r.kind === 'go' || r.kind === 'show') { document.getElementById('from').value = r.from; document.getElementById('to').value = r.to; document.getElementById('to').dispatchEvent(new Event('input')); document.getElementById(r.kind).click(); }
-        else if (r.kind === 'hand') { hands[r.i].click(); setNote(); to = document.getElementById('to').value; document.getElementById('go').click(); }
-        else if (r.kind === 'queued') { qs[r.q].click(); to = document.getElementById('to').value; document.getElementById('go').click(); }
-        else if (r.kind === 'seq') { bigs.find(b => b.getAttribute('data-paste') === 'LOCAL').click(); await sleepM(); setNote(); document.getElementById('v5rambobtn').click(); }
+        if (r.kind === 'big') { setTo(r.to); tickIt(); bigs[r.i].click(); }
+        else if (r.kind === 'top') { setTo('LLM-01'); tickIt(); document.getElementById('v5rambobtn').click(); }
+        else if (r.kind === 'go' || r.kind === 'show') { document.getElementById('from').value = r.from; document.getElementById('to').value = r.to; document.getElementById('to').dispatchEvent(new Event('input')); document.getElementById('to').dispatchEvent(new Event('change', { bubbles: true })); tickIt(); document.getElementById(r.kind).click(); }
+        else if (r.kind === 'hand') { hands[r.i].click(); setNote(); to = document.getElementById('to').value; tickIt(); document.getElementById('go').click(); }
+        else if (r.kind === 'queued') { qs[r.q].click(); to = document.getElementById('to').value; tickIt(); document.getElementById('go').click(); }
+        else if (r.kind === 'seq') { bigs.find(b => b.getAttribute('data-paste') === 'LOCAL').click(); await sleepM(); setNote(); setTo('LLM-01'); tickIt(); document.getElementById('v5rambobtn').click(); }
         await sleepM(); res.push({ label: r.label, kind: r.kind, to: to || document.getElementById('to').value, packet: preview() });
       }
       return res;

@@ -9,7 +9,7 @@ const V3 = path.join(__dirname, '..', 'v3-live', 'VTES-LLM-LAUNCHER_v3.html');
   const a = await mk(d3 + '/VTES-LLM-LAUNCHER_v3.html'), b = await mk(d5 + '/VTES-LLM-LAUNCHER_v5.html');
   const ids = await a.p.$$eval('#from option', o => o.map(x => x.value)); const ids5 = await b.p.$$eval('#from option', o => o.map(x => x.value));
   const note = 'Test note: check the 2026 permit for 14598 SW 110 ST. Dictated, with "quotes" and an ampersand & a less-than <.';
-  const run = async (p, f, t) => p.evaluate(([f, t, note]) => { document.getElementById('from').value = f; document.getElementById('to').value = t; document.getElementById('note').value = note; window.refresh(); return document.getElementById('preview').value; }, [f, t, note]);
+  const run = async (p, f, t) => p.evaluate(([f, t, note]) => { document.getElementById('from').value = f; document.getElementById('to').value = t; document.getElementById('note').value = note; /* ROUND 7 CHANGE: v5 needs the confirmation tick for a non-LOCAL To (v3 has no such box); the tick is set the way a person does it */ const c = document.getElementById('v5ack'); if (c) { c.checked = false; c.dispatchEvent(new Event('change', { bubbles: true })); c.checked = true; c.dispatchEvent(new Event('change', { bubbles: true })); } window.refresh(); return document.getElementById('preview').value; }, [f, t, note]);
   const strip = s => s.split('\n').map((l, i) => i === 0 ? l.replace(/\)   .*$/, ')   <stamp>') : l).join('\n');
   let same = 0, total = 0; const bad = [];
   for (const f of ids) for (const t of ids) { total++; const x = strip(await run(a.p, f, t)), y = strip(await run(b.p, f, t)); if (x === y) { same++; } else { bad.push(f + '->' + t); } }

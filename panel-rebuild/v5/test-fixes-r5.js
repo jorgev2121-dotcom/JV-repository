@@ -5,14 +5,19 @@
 const L = require('./test-v5-lib.js'); const { fs, path, NOWMS, at, fresh, stage, open, sleep, botCls, stateCls } = L;
 const OUT = process.argv[2] || 'test-fixes-r5-RESULT.json'; const res = [];
 const T = (id, name, ok, why) => { res.push({ id, name, status: ok ? 'PASS' : 'FAIL', why: ok ? '' : String(why).slice(0, 300) }); console.log((ok ? 'PASS ' : 'FAIL ') + id + ' | ' + name + (ok ? '' : ' | ' + String(why).slice(0, 220))); };
+/* ROUND 7 CHANGE (FIX-ROUND-7.md, older tests that changed): every non-LOCAL route needs the confirmation tick. These N10 tests play a person who TICKS BY MISTAKE, so they still test the digit guard (the second layer). `tickFor` ticks the box for the destination. The no-tick case is tested by test-privacy-matrix-r7.js. */
+const tickFor = (p, to) => p.evaluate(to => { const s = document.getElementById('to'); if (to) { s.value = to; s.dispatchEvent(new Event('change', { bubbles: true })); } const c = document.getElementById('v5ack'); if (c) { c.checked = true; c.dispatchEvent(new Event('change', { bubbles: true })); } }, to);
 const stubCopy = p => p.evaluate(() => { window.__clip = null; document.execCommand = function (c) { if (c === 'copy') { var a = document.activeElement; window.__clip = a && a.value; return true; } return false; }; });
 const SSN = '123-45-6789', NOTE = 'SSN ' + SSN + ' client Jane Doe, please classify';
 const setNote = (p, t) => p.evaluate(t => { const n = document.getElementById('note'); n.value = t; n.dispatchEvent(new Event('input', { bubbles: true })); }, t);
-const packetFor = (p, to) => p.evaluate(to => { const s = document.getElementById('to'); s.value = to; s.dispatchEvent(new Event('input', { bubbles: true })); return document.getElementById('preview').value; }, to);
-const stripBadge = (p, name) => p.$$eval('#v5dash span', (e, n) => e.filter(x => x.textContent.indexOf(n + ':') === 0).map(x => x.innerHTML), name);
+/* ROUND 7 CHANGE: the packet for a non-LOCAL destination is built only after the confirmation tick; this helper ticks it (a person who ticks by mistake), so the digit guard is still what is tested. */
+const packetFor = (p, to) => p.evaluate(to => { const s = document.getElementById('to'); s.value = to; s.dispatchEvent(new Event('change', { bubbles: true })); s.dispatchEvent(new Event('input', { bubbles: true })); const c = document.getElementById('v5ack'); if (c) { c.checked = false; c.dispatchEvent(new Event('change', { bubbles: true })); c.checked = true; c.dispatchEvent(new Event('change', { bubbles: true })); } return document.getElementById('preview').value; }, to);
+/* ROUND 7 CHANGE: the strip labels are plain words now (jargon rule), so the tests look the entry up by its plain label */
+const LBL = { heartbeat: 'window check-in', state: 'open items', health: 'health', tokens: 'token use', miamidade: 'Miami-Dade', bots: 'bots', housekeeping: 'housekeeping' };
+const stripBadge = (p, name) => p.$$eval('#v5dash span', (e, n) => e.filter(x => x.textContent.indexOf(n + ':') === 0).map(x => x.innerHTML), LBL[name] || name);
 const isGreen = h => /v5b ok/.test(h.join(''));
 const stripCls = async (p, name) => { const h = await stripBadge(p, name); return /v5b ok/.test(h.join('')) ? 'ok' : /v5b bad/.test(h.join('')) ? 'bad' : /v5b na/.test(h.join('')) ? 'na' : 'none'; };
-const stripTxt = async (p, name) => (await p.$$eval('#v5dash span', (e, n) => e.filter(x => x.textContent.indexOf(n + ':') === 0).map(x => x.textContent), name)).join(' ');
+const stripTxt = async (p, name) => (await p.$$eval('#v5dash span', (e, n) => e.filter(x => x.textContent.indexOf(n + ':') === 0).map(x => x.textContent), LBL[name] || name)).join(' ');
 const badgeOf = (p, sel) => p.$$eval(sel + ' .v5b[data-src]', e => e.map(x => x.className + ' | ' + x.textContent));
 (async () => {
   const br = await L.chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
@@ -20,7 +25,8 @@ const badgeOf = (p, sel) => p.$$eval(sel + ' .v5b[data-src]', e => e.map(x => x.
   { const { ctx, p, errs } = await open(br, stage(fresh(NOWMS))); await stubCopy(p); await setNote(p, NOTE);
     // the steps on the LOCAL card
     const steps = await p.$$eval('#card-LOCAL .v5steps li', e => e.map(x => x.textContent));
-    const tell = steps.filter(x => !/^Do NOT/.test(x) && /RAMBO|Claude|Cowork|Codex|Grok|blue/i.test(x));
+    /* ROUND 7 CHANGE: lines that start "For RAMBO:" are notes for the desktop executor, shown small and italic and marked as such (jargon rule); they are not instructions to the person, so they are skipped here. */
+    const tell = steps.filter(x => !/^(Do NOT|For RAMBO:)/.test(x) && /RAMBO|Claude|Cowork|Codex|Grok|blue/i.test(x));
     T('N10', 'LOCAL card: no step tells the user to use the blue RAMBO button or any Claude, Cowork, Codex or Grok window (only "Do NOT" lines may name them)', steps.length > 0 && tell.length === 0, tell.join(' || '));
     T('N10', 'LOCAL card: the steps do say not to hand the packet to a Claude window', steps.some(x => /^Do NOT/.test(x) && /Claude/.test(x)), steps.join(' || '));
     // LOCAL packet carries the note, addressed to LOCAL
@@ -35,13 +41,13 @@ const badgeOf = (p, sel) => p.$$eval(sel + ' .v5b[data-src]', e => e.map(x => x.
     T('N10', 'no packet addressed to LLM-01 (RAMBO), any Claude window, COWORK, CODEX, GROK or Gemini carries the number (' + claude.length + ' tried)', leak.length === 0, 'leaking: ' + leak.join(','));
     // every big copy button, in the order a user could press them after LOCAL
     const btns = await p.$$eval('button.bigcopy', e => e.map(b => ({ to: b.getAttribute('data-paste'), role: b.getAttribute('data-role') }))); const bl = [];
-    for (let i = 0; i < btns.length; i++) { await stubCopy(p); await p.evaluate(i => document.querySelectorAll('button.bigcopy')[i].click(), i); await sleep(p, 250); const c = await p.evaluate(() => window.__clip); if (c && c.indexOf(SSN) >= 0 && btns[i].to !== 'LOCAL') { bl.push(btns[i].to); } }
+    for (let i = 0; i < btns.length; i++) { await stubCopy(p); await tickFor(p, btns[i].to); await p.evaluate(i => document.querySelectorAll('button.bigcopy')[i].click(), i); await sleep(p, 250); const c = await p.evaluate(() => window.__clip); if (c && c.indexOf(SSN) >= 0 && btns[i].to !== 'LOCAL') { bl.push(btns[i].to); } }
     T('N10', 'pressing each of the ' + btns.length + ' big copy buttons with the number in the note: only the LOCAL button puts it in the clipboard', bl.length === 0, 'leaking buttons: ' + bl.join(','));
     // the top RAMBO button
-    await stubCopy(p); await p.click('#v5rambobtn'); await sleep(p, 250); const rc = await p.evaluate(() => window.__clip);
+    await stubCopy(p); await tickFor(p, 'LLM-01'); await p.click('#v5rambobtn'); await sleep(p, 250); const rc = await p.evaluate(() => window.__clip);
     T('N10', 'the blue RAMBO button at the top (the one the old LOCAL steps pointed at) copies a packet to LLM-01 WITHOUT the number', !!rc && /->  LLM-01 \(/.test(rc.split('\n')[0]) && rc.indexOf(SSN) < 0, String(rc).slice(0, 100));
     // "Copy packet and open" for each destination
-    const gl = []; for (const to of tos) { await p.evaluate(to => { const s = document.getElementById('to'); s.value = to; s.dispatchEvent(new Event('input', { bubbles: true })); }, to); await stubCopy(p); await p.evaluate(() => { window.open = () => null; }); await p.click('#go'); await sleep(p, 250); const c = await p.evaluate(() => window.__clip); if (c && c.indexOf(SSN) >= 0 && to !== 'LOCAL') { gl.push(to); } }
+    const gl = []; for (const to of tos) { await p.evaluate(to => { const s = document.getElementById('to'); s.value = to; s.dispatchEvent(new Event('input', { bubbles: true })); }, to); await stubCopy(p); await p.evaluate(() => { window.open = () => null; }); await tickFor(p, to); await p.click('#go'); await sleep(p, 250); const c = await p.evaluate(() => window.__clip); if (c && c.indexOf(SSN) >= 0 && to !== 'LOCAL') { gl.push(to); } }
     T('N10', '"Copy packet and open" for every destination: the number is copied only for LOCAL', gl.length === 0, gl.join(','));
     // the line printed after "Copy packet and open" for LOCAL
     await p.evaluate(() => { const s = document.getElementById('to'); s.value = 'LOCAL'; s.dispatchEvent(new Event('input', { bubbles: true })); }); await p.click('#go'); await sleep(p, 250); const st = await p.innerText('#status');
@@ -212,6 +218,7 @@ const badgeOf = (p, sel) => p.$$eval(sel + ' .v5b[data-src]', e => e.map(x => x.
           T('N11', tag + ': the bar scrolls sideways, so a scroll bar is drawn (' + m.bar + ' px) and a plain hint of at least 14 px is shown under it', m.bar >= 8 && m.hintShown && m.hintPx >= 14 && /drag the bar/.test(m.hint) && /There are 18 tabs/.test(m.hint), JSON.stringify({ bar: m.bar, hint: m.hint, px: m.hintPx }));
           if (w >= 1000) { T('N11', tag + ': without scrolling, the live tabs STATUS, REPAIRS and MIAMI-DADE are already on screen', ['STATUS', 'REPAIRS', 'MIAMI-DADE', 'LLMS', 'EXECUTORS', 'BOTS', 'HAND OFF', 'QUEUED'].every(x => m.initially.indexOf(x) >= 0), m.initially.join(',')); }
         } else { T('N11', tag + ': the bar does not scroll, so no hint is shown and all 18 tabs are on screen at once', !m.hintShown && m.initially.length === 18, m.initially.length + ' visible'); }
+        /* ROUND 7 CHANGE: the bar now scrolls (one 87 px row) under 1700 px wide, so a 1536 x 730 screen keeps 75 percent of its height (CHECK-8 flaw 22). Widths 1536 and 1600 therefore take the first branch. */
         await ctx.close(); } }
     await br2.close(); }
   fs.writeFileSync(path.resolve(__dirname, OUT), JSON.stringify({ pass: res.filter(r => r.status === 'PASS').length, total: res.length, fail: res.filter(r => r.status === 'FAIL').length, results: res }, null, 1));
