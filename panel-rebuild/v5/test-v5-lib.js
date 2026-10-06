@@ -1,7 +1,7 @@
 // test-v5-lib.js - shared helpers for the v5 browser tests (TRK-2026-9910-B). Opens the page from file://, headless Chromium, Playwright clock.
 const fs = require('fs'), path = require('path'), os = require('os');
 const { chromium } = require(process.env.PW_PATH || '/opt/node-tools/node_modules/playwright');
-const PKG = process.env.PKG || __dirname;
+const PKG = process.env.PKG || path.join(__dirname, 'package');
 const NOW = '2026-10-06T14:00:00-04:00', NOWMS = new Date(NOW).getTime();
 const at = (m, base) => new Date((base === undefined ? NOWMS : base) - m * 60000).toISOString();
 const wrap = (n, o) => 'window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.' + n + ' = ' + JSON.stringify(o) + ';';

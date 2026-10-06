@@ -1,0 +1,368 @@
+PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6f6c333411fe3
+== V01 intact package
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | Nothing was written anywhere.
+    | exit=0
+  PASS V01: exit code 0
+  PASS V01: prints "OK: all 11 of 11 package files"
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V01: VERIFY wrote nothing (whole fixture identical before and after)
+== V02 edited code file (one byte appended)
+    | PROBLEMS (1); 10 of 11 package files are identical:
+    |   EDITED: vtes5-ui.js has SHA-256 8e1dde1e946b0b7d3b68aae34537c98325beb3616bdd36fa47256c435955b7d1 but the manifest says 43ce99f99e46ae797271764acc97886ea93ba4ee039f007c4a218b09fdbdc258
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V02: exit code 1
+  PASS V02: prints "EDITED: vtes5-ui.js"
+  PASS V02: prints "10 of 11 package files are identical"
+  PASS V02: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V02: VERIFY wrote nothing (whole fixture identical before and after)
+== V03 edited file with the same size (one byte flipped)
+    | PROBLEMS (1); 10 of 11 package files are identical:
+    |   EDITED: vtes5-live.js has SHA-256 4362bd07d2d7937859b10e7e889eaedf2d98d3c1553f18afe93adba53b2fd6a2 but the manifest says c83f6793b0ecb6dc8ce1cdf72dea60c94a309738f5bb606a67f18696946e3b55
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V03: exit code 1
+  PASS V03: prints "EDITED: vtes5-live.js"
+  PASS V03: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V03: VERIFY wrote nothing (whole fixture identical before and after)
+== V04 data file rewritten by a writer
+    | PROBLEMS (1); 10 of 11 package files are identical:
+    |   EDITED: data/vtes5-heartbeat.js (data file) has SHA-256 5f55326a58a8b11121970d85a920927c8e2ff743afb5e25091ad4be816d35648 but the manifest says b1179b8b7850d6514d9aa2c34aafe3427535ef1b0ce45155b
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V04: exit code 1
+  PASS V04: prints "EDITED: data/vtes5-heartbeat.js"
+  PASS V04: prints "(data file)"
+  PASS V04: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V04: VERIFY wrote nothing (whole fixture identical before and after)
+== V05 missing file
+    | PROBLEMS (1); 10 of 11 package files are identical:
+    |   MISSING: vtes5-config.js (not in the folder, or not reachable: ItemNotFoundException)
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V05: exit code 1
+  PASS V05: prints "MISSING: vtes5-config.js"
+  PASS V05: does NOT say OK
+  SHA-256 of 15 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V05: VERIFY wrote nothing (whole fixture identical before and after)
+== V06 missing data folder
+    | PROBLEMS (7); 4 of 11 package files are identical:
+    |   MISSING: data/vtes5-bots.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-health.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-heartbeat.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-housekeeping.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-miamidade.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-state.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   MISSING: data/vtes5-tokens.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V06: exit code 1
+  PASS V06: prints "MISSING: data/vtes5-bots.js"
+  PASS V06: prints "MISSING: data/vtes5-tokens.js"
+  PASS V06: does NOT say OK
+  SHA-256 of 9 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V06: VERIFY wrote nothing (whole fixture identical before and after)
+== V07 extra file
+    | PROBLEMS (1); 11 of 11 package files are identical:
+    |   EXTRA FILE: notes.txt is not part of the package
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V07: exit code 1
+  PASS V07: prints "EXTRA FILE: notes.txt"
+  PASS V07: does NOT say OK
+  SHA-256 of 17 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V07: VERIFY wrote nothing (whole fixture identical before and after)
+== V08 extra file inside data
+    | PROBLEMS (1); 11 of 11 package files are identical:
+    |   EXTRA FILE: data/old.bak is not part of the package
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V08: exit code 1
+  PASS V08: prints "EXTRA FILE: data/old.bak"
+  PASS V08: does NOT say OK
+  SHA-256 of 17 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V08: VERIFY wrote nothing (whole fixture identical before and after)
+== V09 extra empty folder
+    | PROBLEMS (1); 11 of 11 package files are identical:
+    |   EXTRA FOLDER: empty-dir is not part of the package
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V09: exit code 1
+  PASS V09: prints "EXTRA FOLDER: empty-dir"
+  PASS V09: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V09: VERIFY wrote nothing (whole fixture identical before and after)
+== V10 extra folder with a file in it
+    | PROBLEMS (3); 11 of 11 package files are identical:
+    |   EXTRA FOLDER: old is not part of the package
+    |   EXTRA FOLDER: old/deep is not part of the package
+    |   EXTRA FILE: old/deep/a.txt is not part of the package
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V10: exit code 1
+  PASS V10: prints "EXTRA FOLDER: old"
+  PASS V10: prints "EXTRA FILE: old/deep/a.txt"
+  PASS V10: does NOT say OK
+  SHA-256 of 17 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V10: VERIFY wrote nothing (whole fixture identical before and after)
+== V11 UNREADABLE file (chmod 000, run as nobody)
+    | PROBLEMS (1); 10 of 11 package files are identical:
+    |   UNREADABLE: vtes5-ui.js cannot be read, so it cannot be checked (MethodInvocationException)
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V11: exit code 1
+  PASS V11: prints "UNREADABLE: vtes5-ui.js"
+  PASS V11: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V11: VERIFY wrote nothing (whole fixture identical before and after)
+== V11b the same file IS readable by root (so the test needed nobody)
+  PASS V11b: this test run is root, which can read the chmod 000 file; only the nobody run proves UNREADABLE
+== V12 UNREADABLE data file and several problems at once
+    | PROBLEMS (3); 9 of 11 package files are identical:
+    |   MISSING: data/vtes5-health.js (data file) (not in the folder, or not reachable: ItemNotFoundException)
+    |   UNREADABLE: data/vtes5-state.js (data file) cannot be read, so it cannot be checked (MethodInvocationException)
+    |   EXTRA FILE: extra.txt is not part of the package
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V12: exit code 1
+  PASS V12: prints "UNREADABLE: data/vtes5-state.js"
+  PASS V12: prints "(data file)"
+  PASS V12: prints "MISSING: data/vtes5-health.js"
+  PASS V12: prints "EXTRA FILE: extra.txt"
+  PASS V12: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V12: VERIFY wrote nothing (whole fixture identical before and after)
+== V13 UNREADABLE manifest (run as nobody)
+    | CANNOT CHECK: MANIFEST.sha256 cannot be read: Exception calling "ReadAllLines" with "1" argument(s): "Access to the path '/tmp/v5vt/w/fix/Docs/v5/MANIFEST.sha256' is denied."
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=2
+  PASS V13: exit code 2
+  PASS V13: prints "CANNOT CHECK"
+  PASS V13: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V13: VERIFY wrote nothing (whole fixture identical before and after)
+== V14 UNREADABLE folder (data chmod 000, run as nobody): cannot prove nothing extra is in it
+    | PROBLEMS (8); 4 of 11 package files are identical:
+    |   MISSING: data/vtes5-bots.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-health.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-heartbeat.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-housekeeping.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-miamidade.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-state.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   MISSING: data/vtes5-tokens.js (data file) (not in the folder, or not reachable: UnauthorizedAccessException)
+    |   UNREADABLE FOLDER: the folder list could not be read completely, so "nothing extra is in it" cannot be proven (UnauthorizedAccessException)
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V14: exit code 1
+  PASS V14: prints "UNREADABLE"
+  PASS V14: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V14: VERIFY wrote nothing (whole fixture identical before and after)
+== V15 missing manifest
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5vt/w/fix/Docs/v5"
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=2
+  PASS V15: exit code 2
+  PASS V15: prints "MANIFEST.sha256 is missing"
+  PASS V15: does NOT say OK
+  SHA-256 of 15 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V15: VERIFY wrote nothing (whole fixture identical before and after)
+== V16 folder does not exist
+    | CANNOT CHECK: the folder "/tmp/v5vt/w/fix/Docs/nope" does not exist (or is not a folder)
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=2
+  PASS V16: exit code 2
+  PASS V16: prints "does not exist"
+  PASS V16: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V16: VERIFY wrote nothing (whole fixture identical before and after)
+== V17 relative path and short name
+    | CANNOT CHECK: "Docs/v5" is not a full path. Give the whole path, for example C:\Users\JV\OneDrive\Documents\VTES-PANEL-v5
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=2
+  PASS V17: exit code 2
+  PASS V17: prints "is not a full path"
+  PASS V17: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V17: VERIFY wrote nothing (whole fixture identical before and after)
+    | CANNOT CHECK: "v5" is not a full path. Give the whole path, for example C:\Users\JV\OneDrive\Documents\VTES-PANEL-v5
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=2
+  PASS V17b: exit code 2
+  PASS V17b: prints "is not a full path"
+  PASS V17b: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V17b: VERIFY wrote nothing (whole fixture identical before and after)
+    | CANNOT CHECK: "./v5" is not a full path. Give the whole path, for example C:\Users\JV\OneDrive\Documents\VTES-PANEL-v5
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=2
+  PASS V17c: exit code 2
+  PASS V17c: prints "is not a full path"
+  PASS V17c: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V17c: VERIFY wrote nothing (whole fixture identical before and after)
+    | CANNOT CHECK: ".." is not a full path. Give the whole path, for example C:\Users\JV\OneDrive\Documents\VTES-PANEL-v5
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=2
+  PASS V17d: exit code 2
+  PASS V17d: prints "is not a full path"
+  PASS V17d: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V17d: VERIFY wrote nothing (whole fixture identical before and after)
+== V18 a file replaced by a link
+    | PROBLEMS (1); 10 of 11 package files are identical:
+    |   LINK: vtes5-ui.js is a link, not a plain file (not followed)
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V18: exit code 1
+  PASS V18: prints "LINK: vtes5-ui.js"
+  PASS V18: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V18: VERIFY wrote nothing (whole fixture identical before and after)
+== V19 an extra link to somewhere else
+    | PROBLEMS (2); 11 of 11 package files are identical:
+    |   LINK: the folder to-desktop is a link (not followed, not in the manifest)
+    |   LINK: to-notes.txt is a link and is not in the manifest
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V19: exit code 1
+  PASS V19: prints "LINK: the folder to-desktop"
+  PASS V19: prints "LINK: to-notes.txt"
+  PASS V19: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V19: VERIFY wrote nothing (whole fixture identical before and after)
+== V20 manifest with a path that leaves the folder
+    | PROBLEMS (1); 11 of 11 package files are identical:
+    |   BAD MANIFEST LINE 12: the path "../Desktop/VTES-LLM-LAUNCHER_v3.html" is not a plain relative path inside the folder (not checked)
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V20: exit code 1
+  PASS V20: prints "BAD MANIFEST LINE"
+  PASS V20: prints "not a plain relative path"
+  PASS V20: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V20: VERIFY wrote nothing (whole fixture identical before and after)
+== V21 manifest with a garbage line
+    | PROBLEMS (1); 11 of 11 package files are identical:
+    |   BAD MANIFEST LINE 12: not "<64 hex>  <path>"
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V21: exit code 1
+  PASS V21: prints "BAD MANIFEST LINE"
+  PASS V21: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V21: VERIFY wrote nothing (whole fixture identical before and after)
+== V22 empty manifest
+    | PROBLEMS (13); 0 of 0 package files are identical:
+    |   BAD MANIFEST: it lists no files
+    |   EXTRA FOLDER: data is not part of the package
+    |   EXTRA FILE: VTES-LLM-LAUNCHER_v5.html is not part of the package
+    |   EXTRA FILE: vtes5-config.js is not part of the package
+    |   EXTRA FILE: vtes5-live.js is not part of the package
+    |   EXTRA FILE: vtes5-ui.js is not part of the package
+    |   EXTRA FILE: data/vtes5-bots.js is not part of the package
+    |   EXTRA FILE: data/vtes5-health.js is not part of the package
+    |   EXTRA FILE: data/vtes5-heartbeat.js is not part of the package
+    |   EXTRA FILE: data/vtes5-housekeeping.js is not part of the package
+    |   EXTRA FILE: data/vtes5-miamidade.js is not part of the package
+    |   EXTRA FILE: data/vtes5-state.js is not part of the package
+    |   EXTRA FILE: data/vtes5-tokens.js is not part of the package
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V22: exit code 1
+  PASS V22: prints "BAD MANIFEST: it lists no files"
+  PASS V22: prints "EXTRA FILE"
+  PASS V22: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V22: VERIFY wrote nothing (whole fixture identical before and after)
+== V23 manifest lists a file twice
+    | PROBLEMS (1); 11 of 11 package files are identical:
+    |   BAD MANIFEST LINE 12: "VTES-LLM-LAUNCHER_v5.html" is listed twice
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V23: exit code 1
+  PASS V23: prints "is listed twice"
+  PASS V23: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V23: VERIFY wrote nothing (whole fixture identical before and after)
+== V24 manifest edited to match an edited file (the order's expected manifest hash catches it)
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | Nothing was written anywhere.
+    | exit=0
+  PASS V24a: exit code 0
+  PASS V24a: prints "OK: all 11 of 11"
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V24a: VERIFY wrote nothing (whole fixture identical before and after)
+  (without the expected manifest hash a doctored manifest passes: that is why the order carries the hash)
+    | PROBLEMS (1); 11 of 11 package files are identical:
+    |   MANIFEST CHANGED: its SHA-256 is 9e332f0eddf181e9227650fb467024b7f1e911ba2cc5885de00e2d63f2f718c4 but the order expects 358a288e9f928a8d7611eb276c301ee80cf54f2b2d5d9fe0f7abebbdc5e3bd65 (so the
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V24b: exit code 1
+  PASS V24b: prints "MANIFEST CHANGED"
+  PASS V24b: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V24b: VERIFY wrote nothing (whole fixture identical before and after)
+== V25 the right expected manifest hash passes; a wrong one fails
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | Nothing was written anywhere.
+    | exit=0
+  PASS V25a: exit code 0
+  PASS V25a: prints "OK: all 11 of 11"
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V25a: VERIFY wrote nothing (whole fixture identical before and after)
+    | PROBLEMS (1); 11 of 11 package files are identical:
+    |   MANIFEST CHANGED: its SHA-256 is 358a288e9f928a8d7611eb276c301ee80cf54f2b2d5d9fe0f7abebbdc5e3bd65 but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V25b: exit code 1
+  PASS V25b: prints "MANIFEST CHANGED"
+  PASS V25b: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V25b: VERIFY wrote nothing (whole fixture identical before and after)
+== V26 trailing slash, spaces and brackets in the path
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | Nothing was written anywhere.
+    | exit=0
+  PASS V26: exit code 0
+  PASS V26: prints "OK: all 11 of 11"
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V26: VERIFY wrote nothing (whole fixture identical before and after)
+== V27 the real v3 launcher sits beside the package and is never read as part of it
+    | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder.
+    | Nothing was written anywhere.
+    | exit=0
+  PASS V27: exit code 0
+  PASS V27: prints "OK: all 11 of 11"
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V27: VERIFY wrote nothing (whole fixture identical before and after)
+  PASS V27b: the real v3 launcher in the fixture Desktop is byte-identical afterwards
+== V28 Verify pointed at the Desktop folder (not a package): reports problems, writes nothing
+    | CANNOT CHECK: MANIFEST.sha256 is missing from "/tmp/v5vt/w/fix/Desktop"
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=2
+  PASS V28: exit code 2
+  PASS V28: prints "MANIFEST.sha256 is missing"
+  PASS V28: does NOT say OK
+  SHA-256 of 16 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V28: VERIFY wrote nothing (whole fixture identical before and after)
+== V29 a package file that is a folder
+    | PROBLEMS (2); 10 of 11 package files are identical:
+    |   NOT A FILE: vtes5-live.js is a folder
+    |   EXTRA FOLDER: vtes5-live.js is not part of the package
+    | Nothing was written anywhere. Nothing was changed.
+    | exit=1
+  PASS V29: exit code 1
+  PASS V29: prints "NOT A FILE: vtes5-live.js"
+  PASS V29: does NOT say OK
+  SHA-256 of 15 files + folder list + permissions + sizes before == after: IDENTICAL
+  PASS V29: VERIFY wrote nothing (whole fixture identical before and after)
+== V30 the source script itself is ASCII only and has no write commands
+  PASS V30a: VERIFY-v5.ps1 is pure ASCII
+  PASS V30b: no write command appears in VERIFY-v5.ps1 (outside comments)
+
+VERIFY TESTS: 145 of 145 pass

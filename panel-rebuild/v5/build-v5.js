@@ -50,5 +50,13 @@ rep('win-grok', 'function win(id){', "WIN.push({id:'GROK',n:'GROK',url:'',how:'O
 rep('render', /\$\('g-llm'\)\.innerHTML=[\s\S]*?\$\('g-queued'\)/, "VTES5U.renderAll(LLMS,ROLES,BOTS);\n$('g-queued')");
 // --- start: top block, first load of the data files, then every 60 seconds ---
 rep('init', "$('kind').value=5;choose();\n", "$('kind').value=5;choose();\nVTES5U.renderTop(window.VTES5_BUILT);VTES5U.measureHeader();window.addEventListener('resize',VTES5U.measureHeader);\nfunction v5tick(){window.VTES5.reload(function(){VTES5U.refresh(window.VTES5_BUILT);VTES5U.repaint()})}\nv5tick();setInterval(v5tick,60000);\n");
-fs.writeFileSync(__dirname + '/VTES-LLM-LAUNCHER_v5.html', h);
-console.log('built VTES-LLM-LAUNCHER_v5.html ' + h.length + ' bytes, built ' + BUILT);
+const PKG = __dirname + '/package';
+fs.writeFileSync(PKG + '/VTES-LLM-LAUNCHER_v5.html', h);
+console.log('built package/VTES-LLM-LAUNCHER_v5.html ' + h.length + ' bytes, built ' + BUILT);
+// vtes5-config.js: shipped with no status folder (the page then does not look for vtes-status.js). No time and no writer name: nothing in it can drift or lack a zone.
+fs.writeFileSync(PKG + '/vtes5-config.js', '/* vtes5-config.js - TRK-2026-9910-B. status_dir_url: a folder holding vtes-status.js, read only (empty = the page does not look for it). */\nwindow.VTES5_CONFIG = { "status_dir_url": "" };\n');
+// MANIFEST.sha256: one line per package file, "<64 hex>  <path with forward slashes>", sorted. It is the only file not listed in itself. VERIFY-v5.ps1 reads it.
+function walk(dir, rel) { let o = []; for (const n of fs.readdirSync(dir).sort()) { const f = dir + '/' + n, r = rel ? rel + '/' + n : n; if (fs.statSync(f).isDirectory()) { o = o.concat(walk(f, r)); } else if (r !== 'MANIFEST.sha256') { o.push(r); } } return o; }
+const files = walk(PKG, '');
+fs.writeFileSync(PKG + '/MANIFEST.sha256', files.map(r => crypto.createHash('sha256').update(fs.readFileSync(PKG + '/' + r)).digest('hex') + '  ' + r).join('\n') + '\n');
+console.log('MANIFEST.sha256: ' + files.length + ' files, manifest SHA-256 ' + crypto.createHash('sha256').update(fs.readFileSync(PKG + '/MANIFEST.sha256')).digest('hex'));
