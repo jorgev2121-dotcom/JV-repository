@@ -1,5 +1,7 @@
 # PORT-REPORT - the live layer ported onto Jorge's real launcher (v5) (TRK-2026-9910-B, 2026-10-06)
 
+**Updated in fix round 8 (2026-10-07, after CHECK-9): see FIX-ROUND-8.md.** Section F at the end is new: the generated list of every line of v3 text the build changes, adds to or removes (34 lines). The Read me on the page prints that number. Tests in Section A item 6 are now 264,474 of 264,474.
+
 **Updated in fix round 6 (2026-10-06, after CHECK-7): see FIX-ROUND-6.md.** The test total in Section A item 6 and the page size are the round-6 ones. Every other number or verdict below is from round 5 unless it says otherwise; FIX-ROUND-6.md gives the current verdict of each CHECK-7 flaw.
 
 **Updated in fix round 5 (the same day, after CHECK-6): every copy and delete command was removed (v5 is installed by hand, INSTALL-BY-HAND.md), VERIFY-v5.ps1 was fixed, and 14 page and verify flaws were fixed (the 6 installer flaws are gone by removal); see FIX-ROUND-5.md for every flaw with its verdict. Round 4 (FIX-ROUND-4.md) removed the installer and rollback scripts. The numbers below are the round-5 numbers.**

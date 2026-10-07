@@ -1,21 +1,8 @@
 {
  "test": "test-fixes-r6",
- "pass": 25,
+ "pass": 27,
  "total": 27,
- "failures": [
-  {
-   "grp": "flaw 12",
-   "name": "`git show HEAD:panel-rebuild/v5/package/<name>` prints bytes whose SHA-256 equals the manifest for all 11 files (9 of 11) - the exact route INSTALL-BY-HAND.md tells RAMBO to use",
-   "status": "FAIL",
-   "why": "VTES-LLM-LAUNCHER_v5.html, vtes5-ui.js"
-  },
-  {
-   "grp": "flaw 12",
-   "name": "`git show HEAD:panel-rebuild/v5/VERIFY-v5.ps1` equals the file whose SHA-256 INSTALL-BY-HAND.md carries",
-   "status": "FAIL",
-   "why": ""
-  }
- ],
+ "failures": [],
  "results": [
   {
    "grp": "F14",
@@ -151,14 +138,14 @@
   },
   {
    "grp": "flaw 12",
-   "name": "`git show HEAD:panel-rebuild/v5/package/<name>` prints bytes whose SHA-256 equals the manifest for all 11 files (9 of 11) - the exact route INSTALL-BY-HAND.md tells RAMBO to use",
-   "status": "FAIL",
-   "why": "VTES-LLM-LAUNCHER_v5.html, vtes5-ui.js"
+   "name": "`git show HEAD:panel-rebuild/v5/package/<name>` prints bytes whose SHA-256 equals the manifest for all 11 files (11 of 11) - the exact route INSTALL-BY-HAND.md tells RAMBO to use",
+   "status": "PASS",
+   "why": ""
   },
   {
    "grp": "flaw 12",
    "name": "`git show HEAD:panel-rebuild/v5/VERIFY-v5.ps1` equals the file whose SHA-256 INSTALL-BY-HAND.md carries",
-   "status": "FAIL",
+   "status": "PASS",
    "why": ""
   },
   {
