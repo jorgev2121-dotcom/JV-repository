@@ -1,0 +1,7 @@
+LOCAL PACKETS: 0 of 416 packets addressed to LOCAL are free of Claude, RAMBO, Cowork, Chat, Outbox and "paste it back" and carry the ordered sentence once; 2652 of 2652 packets (the other combinations show the refusal text of the page, not a packet) to every other To keep the v3 RETURN PATH and FACTS LIVE IN lines (2340 non-LOCAL combinations showed a refusal, not a packet; 13 From x 13 To x 16 notes x 2 tick states)
+LLM-01->LOCAL tick=false note="": contains "Claude"
+LLM-01->LOCAL tick=true note="": contains "Claude"
+LLM-01->LOCAL tick=false note="Please look at: Clas": contains "Claude"
+LLM-01->LOCAL tick=true note="Please look at: Clas": contains "Claude"
+LLM-01->LOCAL tick=false note="Please look at: Clie": contains "Claude"
+LLM-01->LOCAL tick=true note="Please look at: Clie": contains "Claude"

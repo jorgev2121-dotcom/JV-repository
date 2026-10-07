@@ -1,0 +1,18 @@
+FAIL VERIFY-v5.ps1: "INSTALL-BY-HAND.md, Section A, step 6" -> NO SUCH SECTION in INSTALL-BY-HAND (it has: no sections)
+FAIL VERIFY-v5.ps1: printed "step 6" does not say which document it is in (context: "s again (INSTALL-BY-HAND.md, Section A, step 6). Do not edit")
+PASS package/vtes5-ui.js: "DESKTOP-WORK item 11" names an item that exists (12 items)
+PASS package/vtes5-ui.js: "DESKTOP-WORK item 9" names an item that exists (12 items)
+PASS package/vtes5-ui.js: "KNOWN-LIMITS item 43" names an item that exists (62 items)
+PASS DESKTOP-WORK.md: "DATA-CONTRACT file 1" names a file number that exists
+PASS DESKTOP-WORK.md: "DATA-CONTRACT file 2" names a file number that exists
+PASS DESKTOP-WORK.md: "DATA-CONTRACT file 7" names a file number that exists
+PASS KNOWN-LIMITS.md: "PORT-REPORT.md, Section F" -> that section exists
+PASS KNOWN-LIMITS.md: "DESKTOP-WORK item 10" names an item that exists (12 items)
+PASS KNOWN-LIMITS.md: "DESKTOP-WORK item 11" names an item that exists (12 items)
+PASS KNOWN-LIMITS.md: "DESKTOP-WORK item 9" names an item that exists (12 items)
+FAIL PORT-REPORT.md: "KNOWN-LIMITS, Section C" -> NO SUCH SECTION in KNOWN-LIMITS (it has: no sections)
+PASS PORT-REPORT.md: "DESKTOP-WORK item 5" names an item that exists (12 items)
+PASS TEST-REPORT.md: "FIX-ROUND-9.md, Section D" -> that section exists
+PASS TEST-REPORT.md: "FIX-ROUND-9.md, Section D" -> that section exists
+
+CITATIONS R10: 13 of 16 checks pass (16 citations resolved against the real text of 18 files scanned)

@@ -1,0 +1,33 @@
+{
+ "combos_to_local": 416,
+ "to_local_clean": 0,
+ "ordered_sentence_missing": 416,
+ "combos_to_other": 2652,
+ "to_other_with_v3_lines": 2652,
+ "from_entries": 13,
+ "to_entries": 13,
+ "kinds": 9,
+ "notes": 16,
+ "examples_bad": [
+  "LLM-01->LOCAL tick=false note=\"\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=true note=\"\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=false note=\"Please look at: Clas\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=true note=\"Please look at: Clas\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=false note=\"Please look at: Clie\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=true note=\"Please look at: Clie\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=false note=\"Please look at: Code\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=true note=\"Please look at: Code\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=false note=\"Please look at: Seco\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=true note=\"Please look at: Seco\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=false note=\"Please look at: Bulk\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=true note=\"Please look at: Bulk\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=false note=\"Please look at: File\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=true note=\"Please look at: File\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=false note=\"Please look at: Judg\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=true note=\"Please look at: Judg\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=false note=\"Please look at: Long\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=true note=\"Please look at: Long\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=false note=\"Please look at: Repo\": contains \"Claude\"",
+  "LLM-01->LOCAL tick=true note=\"Please look at: Repo\": contains \"Claude\""
+ ]
+}
