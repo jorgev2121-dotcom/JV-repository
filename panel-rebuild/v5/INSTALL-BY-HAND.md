@@ -18,7 +18,7 @@ Follow the steps in order. Stop at the first BLOCKED. Do not touch the real v3 l
 14. For each of the 12 files run `git show origin/claude/panel-v5-port:panel-rebuild/v5/package/<path>` and save the exact bytes under the same path in the new folder.
 15. Save with your own file tools, or another program that writes the bytes it reads. Do not use the PowerShell redirect symbol: it can save UTF-16, and VERIFY refuses that.
 16. Save `VERIFY-v5.ps1` beside the new folder, never inside it: `G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1`. First run `Test-Path -LiteralPath 'G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1'`; read an existing file's SHA-256 with `Get-FileHash -Algorithm SHA256`.
-17. If that file does not exist, save there the exact bytes of `git show origin/claude/panel-v5-port:panel-rebuild/v5/VERIFY-v5.ps1`. Its SHA-256 must be `f291b8c40afd044af1892649028e87efb39c40dd4a714e3715931f46390ce089`. If it differs, stop and report BLOCKED.
+17. If that file does not exist, save there the exact bytes of `git show origin/claude/panel-v5-port:panel-rebuild/v5/VERIFY-v5.ps1`. Its SHA-256 must be `14b9b06b3b889b9a22011b9f3a20459bd194853e3b7209567b1938a8b8d170e5`. If it differs, stop and report BLOCKED.
 18. If that file exists and has that SHA-256, use it as it is. Never overwrite, move, rename or delete it. Write in the report that it was already there: that is not BLOCKED.
 19. If that file exists with another SHA-256, save the new copy beside it as `VERIFY-v5.ps1.new-YYYYMMDD-HHMM`, touch nothing else, and report BLOCKED with both SHA-256 values. Do not run VERIFY.
 20. In File Explorer read every file name in the new folder and in `data`. Each must be one of the 12 names, with no `.txt` added. If one is wrong, stop and report BLOCKED. Do not rename it.
@@ -28,7 +28,7 @@ Follow the steps in order. Stop at the first BLOCKED. Do not touch the real v3 l
 
 <!-- VERIFY-CMD -->
 ```
-powershell -NoProfile -ExecutionPolicy Bypass -File "G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 816e2efa6170f93699aca9e6c2274c51d260fa2c5f4d4bd62b9bf808dc6e4ad0
+powershell -NoProfile -ExecutionPolicy Bypass -File "G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 180cbc35dae0acd41425338a8071b46421a6fc69060986de7685955324cef0e5
 ```
 
 24. Paste VERIFY's whole answer into the report. The install is good only if it prints "OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder".

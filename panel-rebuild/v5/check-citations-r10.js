@@ -12,7 +12,7 @@ const steps = {}; [...rd('INSTALL-BY-HAND.md').matchAll(/^(\d+)\. (.*)$/gm)].for
 function numbered(f) { const o = {}; let cur = null; rd(f).split('\n').forEach(l => { const m = l.match(/^(\d+)\. /); if (m) { cur = m[1]; o[cur] = plain(l); } else if (cur && /^\s+/.test(l) && l.trim()) { o[cur] += ' ' + plain(l); } else if (!l.trim() || /^(Section|#)/.test(l)) { cur = null; } }); return o; }
 const items = { 'KNOWN-LIMITS': numbered('KNOWN-LIMITS.md'), 'DESKTOP-WORK': numbered('DESKTOP-WORK.md') };
 const files = {}; { let inF = false; rd('DATA-CONTRACT.md').split('\n').forEach(l => { if (/^## The seven files/.test(l)) { inF = true; } else if (/^## /.test(l)) { inF = false; } const m = inF && l.match(/^(\d+)\. `data/); if (m) { files[m[1]] = plain(l); } }); }
-const sections = {}; Object.keys(DOCS).forEach(k => { sections[k] = new Set([...rd(DOCS[k]).matchAll(/^#{2,3} Section ([A-Z]\d*)\b/gm)].map(m => m[1])); });
+const sections = {}; Object.keys(DOCS).forEach(k => { sections[k] = new Set([...rd(DOCS[k]).matchAll(/^(?:#{2,3} )?Section ([A-Z]\d*)\b/gm)].map(m => m[1])); });
 // gist: words that must be in the real step AND in the printed sentence that cites it (lower case)
 const GIST = { 'INSTALL-BY-HAND step 27': ['exact bytes', 'new folder'] };
 const DOCRE = '(INSTALL-BY-HAND|KNOWN-LIMITS|DESKTOP-WORK|DATA-CONTRACT|PORT-REPORT|TEST-REPORT|FIX-ROUND-\\d+|CHECK-\\d+_INDEPENDENT)';
@@ -27,6 +27,10 @@ for (const f of SCAN) {
   // 3. "KNOWN-LIMITS item N" / "DESKTOP-WORK item N" / "DATA-CONTRACT file N" must exist
   for (const m of t.matchAll(/(KNOWN-LIMITS|DESKTOP-WORK)(?:\.md)? items? (\d+)/g)) { cites++; say(!!items[m[1]][m[2]], f + ': "' + m[0] + '" names an item that exists (' + Object.keys(items[m[1]]).length + ' items)'); }
   for (const m of t.matchAll(/DATA-CONTRACT(?:\.md)? files? (\d+)/g)) { cites++; say(!!files[m[1]], f + ': "' + m[0] + '" names a file number that exists'); }
+  // 3b. inside a document, a bare "item N", "step N" or "Section X" (no other document named just before it) points into THE SAME document and must exist there
+  if (/\.md$/.test(f) && !/^(FIX-ROUND|CHECK)/.test(f)) { for (const m of t.matchAll(/\b(item|step|Section) ([A-Z]\d*|\d+)\b/g)) { const b = t.slice(Math.max(0, m.index - 45), m.index); if (new RegExp(DOCRE + '(?:\\.md)?,? (?:Section [A-Z]\\d*, )?$').test(b)) { continue; } if (m[1] === 'step' && /^[A-Z]/.test(m[2])) { continue; } const comp = t.slice(Math.max(0, m.index - 140), m.index).match(/(KNOWN-LIMITS|DESKTOP-WORK)(?:\.md)? items? \d+ \([^()]*\)(?: and| or|,)? $/); cites++; if (comp && m[1] === 'item') { say(!!items[comp[1]][m[2]], f + ': "' + comp[1] + ' ... ' + m[0] + '" (second item of a pair) names an item that exists'); continue; }
+    const kind = m[1], n = m[2]; let ok, what; if (kind === 'Section') { ok = sections[own] && sections[own].has(n); what = 'section'; } else if (kind === 'step') { ok = own === 'INSTALL-BY-HAND' && !!steps[n]; what = 'step'; } else { ok = !!(items[own] && items[own][n]) || (own === 'DATA-CONTRACT' && !!files[n]); what = 'item'; }
+    say(!!ok, f + ': own-document "' + m[0] + '" -> ' + (ok ? 'that ' + what + ' exists here' : 'NO SUCH ' + what.toUpperCase() + ' in ' + own)); } }
   // 4. a bare "Section X" or "step N" in text VERIFY or the page prints, with no document named right before it, cannot be resolved by a reader
   if (f === 'VERIFY-v5.ps1' || /^package\//.test(f)) { for (const m of t.matchAll(/\b(Section [A-Z]\b|step \d+\b)/g)) { const b = t.slice(Math.max(0, m.index - 60), m.index); if (!new RegExp(DOCRE + '(?:\\.md)?[ ,]*$').test(b) && !/INSTALL-BY-HAND(?:\.md)?, $/.test(b)) { cites++; say(false, f + ': printed "' + m[0] + '" does not say which document it is in (context: "' + t.slice(Math.max(0, m.index - 40), m.index + 20).replace(/\n/g, ' ') + '")'); } } }
 }

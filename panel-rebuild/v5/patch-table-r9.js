@@ -32,6 +32,8 @@ const P = {
   'd9': ['TEXT', 'the packet box label said editable but the box is read only'],
   'stamp': ['TEXT', 'packet time stamps now carry the Eastern time zone'],
   'win-grok': ['ADD', 'adds a GROK row to the window list, so the picker and the packet can name it'],
+  'packet-local-head': ['TEXT', 'a packet addressed to LOCAL does not name the From window in its first two lines (fix round 10)'],
+  'packet-local-tail': ['TEXT', 'a packet addressed to LOCAL ends with one RETURN PATH line that names the local-only folder and no Claude window, and has no FACTS LIVE IN line (fix round 10)'],
   'guard': ['CODE', 'the note passes through the digit checker before it is put into a packet'],
   'render': ['CODE', 'the live cards replace the static cards (same data, same order)'],
   'search': ['CODE', 'the search matches only the text v3 matched, never the live state lines'],

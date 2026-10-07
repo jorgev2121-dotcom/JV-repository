@@ -1,0 +1,12 @@
+{
+ "combos_to_local": 416,
+ "to_local_clean": 416,
+ "ordered_sentence_missing": 0,
+ "combos_to_other": 2652,
+ "to_other_with_v3_lines": 2652,
+ "from_entries": 13,
+ "to_entries": 13,
+ "kinds": 9,
+ "notes": 16,
+ "examples_bad": []
+}

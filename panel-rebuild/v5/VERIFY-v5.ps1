@@ -339,7 +339,7 @@ foreach ($rel in $entries.Keys) {
     if ($isData) { $okData++ } else { $okPage++ }
 }
 if ($crlf.Count -gt 0) {
-    $problems.Add('LINE ENDINGS CHANGED (CRLF): ' + $crlf.Count + ' file(s) differ from the package ONLY because their line endings are Windows style (CRLF) instead of the package''s LF: ' + ($crlf -join ', ') + '. The usual cause is git for Windows (core.autocrlf = true) converting the files when they were checked out, or a tool re-saving them. The words in the files are not wrong, but the folder is not the package. Get the exact bytes again (INSTALL-BY-HAND.md, Section A, step 6). Do not edit these files.')
+    $problems.Add('LINE ENDINGS CHANGED (CRLF): ' + $crlf.Count + ' file(s) differ from the package ONLY because their line endings are Windows style (CRLF) instead of the package''s LF: ' + ($crlf -join ', ') + '. The usual cause is git for Windows (core.autocrlf = true) converting the files when they were checked out, or a tool re-saving them. The words in the files are not wrong, but the folder is not the package. Get the exact bytes again, into a NEW folder, never over this one (INSTALL-BY-HAND.md, step 27). Do not edit these files.')
 }
 
 # 5. anything in the folder that the manifest does not list. Names are matched exactly (ordinal), and two names that differ only in case are a problem.

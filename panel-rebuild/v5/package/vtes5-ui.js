@@ -45,11 +45,12 @@
     var lf = localFolder(), out = ['There is no window. Press the button to copy the packet. It stays on this PC\'s clipboard until you paste it.',
       'Do NOT paste this packet into any Claude window, Cowork, Codex or Grok.',
       'Do NOT send client personal data to RAMBO or to any Claude window. It goes to LOCAL only.',
-      'Do NOT press the blue RAMBO button for this packet.'];
+      'Do NOT press the blue RAMBO button for this packet.',
+      'Do NOT send the local answer to any Claude window either. The packet tells the local model to write its answer in the local-only folder named on this card.'];
     if (!lf.ok) {
       out.push('STOP HERE. Do NOT save this packet as a file anywhere: no safe folder is confirmed.',
         'Do NOT save it in Google Drive or OneDrive: they upload files to the cloud.',
-        'There is nothing else for you to do. This card changes by itself once a safe folder is confirmed.');
+        'No folder is named on this card yet, so do not use the packet. There is nothing else for you to do. This card changes by itself once a safe folder is confirmed.');
       out.push('For RAMBO: create or confirm a local-only folder outside every syncing folder (a plain C:\\ path outside Users\\JV\\Desktop, OneDrive and Documents) and record it, with local_only_verified_by and not_synced_proof, under local_only_folder in the heartbeat file (DESKTOP-WORK item 11 (local-only folder)).');
     } else {
       out.push('Open File Explorer. Open the local-only folder named "' + lf.label + '".',
@@ -60,7 +61,7 @@
         'Double-click the file to open it. Press Ctrl+V to paste the packet, then save the file.',
         'Do NOT ask RAMBO or any Claude window to do these steps. Do them yourself, by hand.');
     }
-    out.push('For RAMBO: v3 says the job file needs a line starting CLASS: and a line starting PROMPT: (typed from v3, UNVERIFIED); the packet does not have them, and the helper that adds them is still to be built (DESKTOP-WORK item 9 (LOCAL jobs)). v3 says the bot CU-Local-Executor watches VTES-Inbox-LOCAL: if that folder is inside Google Drive, that lane uploads client data too (KNOWN-LIMITS item 43 (LOCAL)).');
+    out.push('For RAMBO: v3 says the job file needs a line starting CLASS: and a line starting PROMPT: (typed from v3, UNVERIFIED); the packet does not have them, and the helper that adds them is still to be built (DESKTOP-WORK item 9 (LOCAL jobs)). v3 says the bot CU-Local-Executor watches VTES-Inbox-LOCAL: if that folder is inside Google Drive, that lane uploads client data too (KNOWN-LIMITS item 44 (VTES-Inbox-LOCAL)).');
     return out;
   }
   function getSteps(m) { return m.stepsFn ? m.stepsFn() : m.steps; }

@@ -1,8 +1,10 @@
-FAIL VERIFY-v5.ps1: "INSTALL-BY-HAND.md, Section A, step 6" -> NO SUCH SECTION in INSTALL-BY-HAND (it has: no sections)
-FAIL VERIFY-v5.ps1: printed "step 6" does not say which document it is in (context: "s again (INSTALL-BY-HAND.md, Section A, step 6). Do not edit")
+PASS VERIFY-v5.ps1: "INSTALL-BY-HAND.md, step 27" names a step that exists (31 steps)
+PASS VERIFY-v5.ps1: "INSTALL-BY-HAND.md, step 27" has an entry in the gist table
+PASS VERIFY-v5.ps1: step 27 really contains "exact bytes" and "new folder"
+PASS VERIFY-v5.ps1: the printed sentence before "INSTALL-BY-HAND.md, step 27" says "exact bytes" and "new folder"
 PASS package/vtes5-ui.js: "DESKTOP-WORK item 11" names an item that exists (12 items)
 PASS package/vtes5-ui.js: "DESKTOP-WORK item 9" names an item that exists (12 items)
-PASS package/vtes5-ui.js: "KNOWN-LIMITS item 43" names an item that exists (62 items)
+PASS package/vtes5-ui.js: "KNOWN-LIMITS item 44" names an item that exists (66 items)
 PASS DESKTOP-WORK.md: "DATA-CONTRACT file 1" names a file number that exists
 PASS DESKTOP-WORK.md: "DATA-CONTRACT file 2" names a file number that exists
 PASS DESKTOP-WORK.md: "DATA-CONTRACT file 7" names a file number that exists
@@ -17,14 +19,20 @@ PASS KNOWN-LIMITS.md: own-document "Section B" -> that section exists here
 PASS KNOWN-LIMITS.md: own-document "Section C" -> that section exists here
 PASS KNOWN-LIMITS.md: own-document "Section D" -> that section exists here
 PASS KNOWN-LIMITS.md: own-document "Section E" -> that section exists here
+PASS KNOWN-LIMITS.md: own-document "item 65" -> that item exists here
+PASS KNOWN-LIMITS.md: own-document "item 66" -> that item exists here
 PASS KNOWN-LIMITS.md: own-document "item 24" -> that item exists here
 PASS KNOWN-LIMITS.md: own-document "Section F" -> that section exists here
 PASS KNOWN-LIMITS.md: own-document "Section G" -> that section exists here
 PASS KNOWN-LIMITS.md: own-document "Section H" -> that section exists here
 PASS KNOWN-LIMITS.md: own-document "Section I" -> that section exists here
 PASS KNOWN-LIMITS.md: own-document "Section J" -> that section exists here
+PASS KNOWN-LIMITS.md: own-document "Section K" -> that section exists here
+PASS KNOWN-LIMITS.md: own-document "item 24" -> that item exists here
+PASS KNOWN-LIMITS.md: own-document "item 24" -> that item exists here
 PASS PORT-REPORT.md: "KNOWN-LIMITS, Section C" -> that section exists
 PASS PORT-REPORT.md: "DESKTOP-WORK item 5" names an item that exists (12 items)
+PASS PORT-REPORT.md: "KNOWN-LIMITS item 52" names an item that exists (66 items)
 PASS PORT-REPORT.md: own-document "Section A" -> that section exists here
 PASS PORT-REPORT.md: own-document "Section F" -> that section exists here
 PASS PORT-REPORT.md: own-document "Section B" -> that section exists here
@@ -35,4 +43,4 @@ PASS PORT-REPORT.md: own-document "Section F" -> that section exists here
 PASS TEST-REPORT.md: "FIX-ROUND-9.md, Section D" -> that section exists
 PASS TEST-REPORT.md: "FIX-ROUND-9.md, Section D" -> that section exists
 
-CITATIONS R10: 34 of 36 checks pass (36 citations resolved against the real text of 18 files scanned)
+CITATIONS R10: 44 of 44 checks pass (41 citations resolved against the real text of 18 files scanned)
