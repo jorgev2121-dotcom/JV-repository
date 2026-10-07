@@ -1,11 +1,7 @@
 routes: 369
-NO-TICK mode: 108900 of 108900 route checks right (300 notes)
-node:internal/process/promises:394
-    triggerUncaughtException(err, true /* fromPromise */);
-    ^
-
-page.evaluate: Target page, context or browser has been closed
-    at run (/home/user/JV-repository/panel-rebuild/v5/test-privacy-matrix-r9.js:26:33)
-    at /home/user/JV-repository/panel-rebuild/v5/test-privacy-matrix-r9.js:70:23
-
-Node.js v22.22.0
+NO-TICK mode: 111078 of 111078 route checks right (306 notes)
+WRONG-TICK mode, personal notes: 73326 of 73326 route checks right
+WRONG-TICK mode, ordinary notes: 31944 of 31944 route checks right
+WRONG-TICK mode, CANNOT-CATCH notes (disclosed limit, not counted): carried on 5360 of 5808 route checks
+tick behaviour: {"goEnabledAfterTick":true,"resetOnNote":true,"reTicked":true,"resetOnRoute":true,"localNeedsNoTick":true,"emptyNoteNeedsNoTick":true}
+PRIVACY MATRIX R9: NO-TICK 111078 of 111078; WRONG-TICK personal 73326 of 73326, ordinary 31944 of 31944; tick behaviour ok; page errors 0 (202 personal + 88 ordinary + 16 cannot-catch notes x 369 routes)

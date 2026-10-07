@@ -12,7 +12,7 @@
   },
   {
    "grp": "F14",
-   "name": "the \"For RAMBO\" lines exist for RAMBO, CODEX and GROK, and for LLM-01 when its link is not live (15 lines) and each starts with \"For RAMBO\"",
+   "name": "the \"For RAMBO\" lines exist for RAMBO, CODEX and GROK, and for LLM-01 when its link is not live (16 lines) and each starts with \"For RAMBO\"",
    "status": "PASS",
    "why": ""
   },
@@ -162,7 +162,7 @@
   },
   {
    "grp": "flaw 12",
-   "name": "control: the same checkout WITHOUT the attribute (forced text conversion) does turn LF into CRLF (1480 CR bytes), so the attribute is what protects the files",
+   "name": "control: the same checkout WITHOUT the attribute (forced text conversion) does turn LF into CRLF (1539 CR bytes), so the attribute is what protects the files",
    "status": "PASS",
    "why": ""
   }

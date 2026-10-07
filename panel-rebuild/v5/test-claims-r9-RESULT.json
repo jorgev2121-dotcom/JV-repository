@@ -1,0 +1,620 @@
+{
+ "test": "test-claims-r9",
+ "counts": {
+  "read": 808,
+  "checkable": 431,
+  "proven": 247,
+  "exempt": 97,
+  "v3": 87,
+  "unmapped": 0,
+  "failed": 0,
+  "exemptList": [
+   "instruction: 22 sentences",
+   "for-rambo: 3 sentences",
+   "typed-label: 18 sentences",
+   "id-only: 9 sentences",
+   "v3-card-text: 1 sentences",
+   "policy: 1 sentences",
+   "packet-v3: 17 sentences",
+   "ibh-instruction: 26 sentences"
+  ]
+ },
+ "pass": 13,
+ "total": 13,
+ "results": [
+  {
+   "name": "always-run claim: tabs-count-small",
+   "ok": true,
+   "ev": "There are 18 tabs. Some are off the righ / 18"
+  },
+  {
+   "name": "always-run claim: grok-next",
+   "ok": true,
+   "ev": "the Grok next-step sentence is absent when green, says red only when red, and says not green otherwise (5 states)"
+  },
+  {
+   "name": "always-run claim: target-constant",
+   "ok": true,
+   "ev": "the target the page prints (300) is the target DATA-CONTRACT.md names (300)"
+  },
+  {
+   "name": "no sentence is unmapped",
+   "ok": true,
+   "ev": "0 unmapped"
+  },
+  {
+   "name": "no claim is false",
+   "ok": true,
+   "ev": "0 false"
+  },
+  {
+   "name": "Read me has at most 10 sentences (it has 10)",
+   "ok": true,
+   "ev": "10"
+  },
+  {
+   "name": "Read me: every sentence has at most 20 words",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "name": "Read me holds no typed number (v3 and v5 are names)",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "name": "the three guard sentences are exactly these and are in the Read me and under the note box",
+   "ok": true,
+   "ev": "The tick box is the real protection. The checker is a second layer: it catches many layouts and can miss some. It cannot catch names, addresses, email addresses or phone numbers. Do not type cards, passwords or Social Security numbers here."
+  },
+  {
+   "name": "Read me does not list what the checker catches or misses",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "name": "PORT-REPORT.md holds exactly the list generated from the real v3 and v5 lines (48 changed lines)",
+   "ok": true,
+   "ev": "the list in the file differs from a fresh diff"
+  },
+  {
+   "name": "every build patch is in the PORT-REPORT.md patch list (51 patches)",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "name": "v3 survival: every card, bot, queued item, picker row, repairs row and tab is still here (166 of 166)",
+   "ok": true,
+   "ev": "166 of 166"
+  }
+ ],
+ "unmapped": [],
+ "failed": [],
+ "v3_unchanged_sentences": [
+  "Every AI window, bot and executor role, one search away.",
+  "Type an ID (LLM-07), a hashtag (#grok), a name, or a job word (files, second opinion, classify, PII).",
+  "1.",
+  "Files, Chrome, 1Password, printer, county sites on the PC",
+  "LLM-01 · Claude Code Desktop",
+  "LLM-02 · Claude Code Cloud",
+  "LLM-03 · Claude Cowork",
+  "LLM-04 · Claude Chat",
+  "LLM-05 · Claude iPhone",
+  "LLM-06 · Codex CLI",
+  "LLM-07 · Grok (SuperGrok)",
+  "LLM-08 · Gemini",
+  "LLM-09 · Thin API router",
+  "Suggested: LLM-01.",
+  "Only RAMBO has hands on the PC.",
+  "LLMs: every window",
+  "LLM-01 to LLM-09, fixed IDs.",
+  "LLM-01 · 🖥️",
+  "Files, OneDrive, Chrome, 1Password, printer, county sites, OCR, tax jackets.",
+  "#LLM-01 #EXEC-DESKTOP #RAMBO #PASTE-D",
+  "LLM-02 · ☁️",
+  "Cannot touch your PC.",
+  "#LLM-02 #EXEC-CLOUD #PASTE-C",
+  "LLM-03 · 🤝",
+  "It can send orders but cannot receive them from the bus.",
+  "#LLM-03 #COWORK #PASTE-X #CDM",
+  "LLM-04 · 💬",
+  "#LLM-04 #CHAT #COCKPIT",
+  "LLM-05 · 📱",
+  "Say \"AP-0088: GO\" from the car and it counts.",
+  "#LLM-05 #IPHONE #voice",
+  "LLM-06 · 🧭",
+  "#LLM-06 #CODEX #BACKUP-EXEC",
+  "LLM-07 · 🔮",
+  "Chat only; cannot write files.",
+  "#LLM-07 #GROK #FABIAN #second-opinion",
+  "LLM-08 · ♊",
+  "#LLM-08 #GEMINI #google #volume",
+  "LLM-09 · 🧰",
+  "Standby bridge only",
+  "Routing bridge, never the main engine.",
+  "Every API run is priced first and sent to you for approval.",
+  "#LLM-09 #API-ROUTER #standby",
+  "Two are not Claude and do not touch the Claude Max quota.",
+  "Use only for what needs Claude.",
+  "Round-trip question only; cannot write files or run commands.",
+  "Sends orders; cannot receive",
+  "Reads every result, closes or escalates",
+  "Meters usage, enforces a 3 GB RAM floor, picks model size, forces PII to local.",
+  "Reads every Outbox result, judges it on the free lane, closes, re-queues or escalates.",
+  "24/7 back-to-back runs",
+  "2026-10-02 LAUNCHER Copy button wiped the clipboard and reported success - replaced the copy routine FIXED",
+  "2026-10-02 LAUNCHER Sticky header hid every anchor target - added scroll-margin-top FIXED",
+  "2026-10-02 LAUNCHER Task box held a completed job - cleared FIXED",
+  "2026-10-02 LAUNCHER 11 of 16 nav tabs pointed at a non-existent ControlPanel.html FIXED",
+  "2026-10-02 PANEL Sticky header hid every anchor target - added scroll-margin-top FIXED",
+  "2026-10-02 PANEL Added IDENTITY section - title block per seat ADDED",
+  "2026-10-02 WINDOWS Every AI window now carries a title block in its caption ADDED",
+  "2026-10-02 SYSTEM Clipboard history was ON and served stale pastes - turned OFF FIXED",
+  "2026-10-02 CODEX AGENTS.md Board-of-5 gate made Codex refuse all work - corrected FIXED",
+  "2026-10-02 AGENTS DD site runner built, 4 defects fixed, run across 4 capsules ADDED",
+  "2026-10-02 PANEL Nodes 1-11 still show a 2026-09-02 snapshot - 90 of 119 tasks disabled OPEN",
+  "#handoff #LLM-04 #LLM-01 #JorgeValdes",
+  "- Report DONE (with proof path), BLOCKED (what you tried, why it failed, the one thing needed), or IN PROGRESS.",
+  "Never say done without checking.",
+  "- Never send, spend, delete, sign, or enter a password for him.",
+  "Cards: nickname and last 4 only.",
+  "- If you cannot open a file or link, say so and ask him to paste it.",
+  "Do not guess.",
+  "RETURN PATH: write your answer so Jorge can paste it back to LLM-04, and tag it #LLM-01.",
+  "LLM-01, #cowork, grok, files on my PC, classify",
+  "Client personal data goes to LOCAL only.",
+  "#handoff #LLM-04 #LOCAL #JorgeValdes",
+  "RETURN PATH: write your answer so Jorge can paste it back to LLM-04, and tag it #LOCAL.",
+  "DO NOT SEND.",
+  "Sending needs Jorge's explicit yes in chat; draft only until then.",
+  "Wire the remaining seats into the mini LLM control panel (LLM-MINI-PANEL-01).",
+  "Prepare it and stop; do not enable it until Jorge says GO.",
+  "Prepare the plan for 24/7 back-to-back runs, including the Claude Max quota impact and the LOCAL/CODEX share.",
+  "Do NOT start background processes until Jorge approves.",
+  "Packet ready for LOCAL.",
+  "Packet ready for RAMBO.",
+  "#handoff #LLM-04 #RAMBO #JorgeValdes",
+  "RETURN PATH: write your answer so Jorge can paste it back to LLM-04, and tag it #RAMBO.",
+  "Packet ready for CODEX.",
+  "#handoff #LLM-04 #CODEX #JorgeValdes",
+  "RETURN PATH: write your answer so Jorge can paste it back to LLM-04, and tag it #CODEX."
+ ],
+ "by_entry": {
+  "old-panel-tabs": [
+   "OLD PANEL, snapshot of 2026-09-02, not live",
+   "← PANEL (OLD, snapshot of 2026-09-02, not live)",
+   "INDEX (OLD, snapshot of 2026-09-02, not live)"
+  ],
+  "tabs-count": [
+   "There are 18 tabs."
+  ],
+  "survives-v3": [
+   "Every card, bot, queued item, picker row, repairs row and tab from v3 is still here."
+  ],
+  "green-needs-proof": [
+   "Green appears only when a fresh report with proof says so; grey means not proven."
+  ],
+  "desk-cards-have-steps": [
+   "A web page cannot open a desktop app, so those cards give a Copy packet button and steps."
+  ],
+  "tick-claims": [
+   "Client personal data goes to LOCAL only; any other lane needs the tick box under the note box.",
+   "NOT TICKED: the copy and show buttons for LLM-01 are switched off until you tick.",
+   "Choose LLM-03 as To first (press Hand work here on its card), then tick.",
+   "Ticked for this note and for LLM-01."
+  ],
+  "guard-layers": [
+   "The checker is a second layer: it catches many layouts and can miss some.",
+   "It cannot catch names, addresses, email addresses or phone numbers."
+  ],
+  "times": [
+   "Built Oct 6, 1:00 PM EDT, data as of NO DATA (no valid data file has been written yet).",
+   "Re-checked Oct 6, 2:00 PM EDT.",
+   "Built Oct 6, 1:00 PM EDT, data as of Oct 6, 1:00 PM EDT (oldest file).",
+   "window check-in: OK - as of Oct 6, 1:59 PM EDT",
+   "bots: OK - as of Oct 6, 1:59 PM EDT",
+   "open items: OK - as of Oct 6, 1:30 PM EDT",
+   "health: OK - as of Oct 6, 1:30 PM EDT",
+   "token use: OK - as of Oct 6, 1:58 PM EDT",
+   "housekeeping: OK - as of Oct 6, 1:00 PM EDT",
+   "Miami-Dade: OK - as of Oct 6, 1:40 PM EDT",
+   "Report - as of Oct 6, 1:30 PM EDT State - as of Oct 6, 1:30 PM EDT",
+   "Daily report sent: Oct 6, 1:29 PM EDT.",
+   "State: UP - seen Oct 6, 1:59 PM EDT",
+   "LOCAL save step: CONFIRMED as of Oct 6, 1:30 PM EDT: the PC reports a local-only folder named \"C:\\VTES-LOCAL\\\" (outside Google Drive and OneDrive).",
+   "Reporting - as of Oct 6, 1:58 PM EDT",
+   "Window resets: Oct 6, 5:00 PM EDT.",
+   "Reported - as of Oct 6, 1:00 PM EDT",
+   "Last report: Oct 6, 1:00 PM EDT.",
+   "State - as of Oct 6, 1:30 PM EDT",
+   "Counted - as of Oct 6, 1:40 PM EDT",
+   "LOCAL save step: CONFIRMED as of Oct 6, 1:30 PM EDT: the PC reports a local-only folder named \"C:\\Data\\Private\" (outside Google Drive and OneDrive).",
+   "window check-in: STALE since Oct 6, 5:40 AM EDT",
+   "bots: STALE since Oct 6, 5:40 AM EDT",
+   "State: STALE since Oct 6, 1:59 PM EDT",
+   "State of LOCAL: STALE since Oct 6, 1:59 PM EDT Its bot CU-Local-Executor: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "State of CHIEF: STALE since Oct 6, 1:59 PM EDT Its bot CU-Orchestrator: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot CU-Inbox-Job-Watcher: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot CU-Local-Executor: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot CU-TokenMonitor-Hourly: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot CU-Orchestrator: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot CU-Propagation-Check: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot VTES-LOCAL-POLLER: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "State of LOCAL: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Local-Executor is NOT FINE: DISABLED - the scheduler says this task is turned off (last ran Oct 6, 1:56 PM EDT).",
+   "Bot CU-Local-Executor: DISABLED - the scheduler says this task is turned off (last ran Oct 6, 1:56 PM EDT).",
+   "State: WRITER SAYS UP, NOT PROVEN - the simple status writer stamped up at Oct 6, 1:59 PM EDT but it checks nothing",
+   "State of LOCAL: WRITER SAYS UP, NOT PROVEN - the simple status writer stamped up at Oct 6, 1:59 PM EDT but it checks nothing Its bot CU-Local-Executor: NO DATA - the bots report file has not been written yet",
+   "Miami-Dade: NOT COUNTED - the file is fresh (as of Oct 6, 1:40 PM EDT) but holds no count",
+   "NOT COUNTED - the file is fresh (as of Oct 6, 1:40 PM EDT) but holds no count",
+   "housekeeping: BAD CLOCK - the file says Oct 6, 3:30 PM EDT, which is in the future.",
+   "BAD CLOCK - the file says Oct 6, 3:30 PM EDT, which is in the future."
+  ],
+  "whole-page-counts": [
+   "WHOLE PAGE: NOT FINE - 33 red and 22 grey of 55 cards and marks; 7 of 7 reports red and 0 of 7 reports grey",
+   "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green"
+  ],
+  "colour-follows-words": [
+   "Blocked: NO DATA.",
+   "State: NO DATA - nothing on the PC can see this window; green only when a test reply is recorded",
+   "State of LLM-06: NO DATA - no report from this window yet",
+   "State of LLM-01: NO DATA - no report from this window yet Its bot CU-Inbox-Job-Watcher: NO DATA - the bots report file has not been written yet",
+   "State of LLM-07: NO DATA - nothing on the PC can see this window; green only when a test reply is recorded",
+   "State of LOCAL: UP - seen Oct 6, 1:59 PM EDT Its bot CU-Local-Executor: RAN Oct 6, 1:56 PM EDT, result 0, scheduler says ready.",
+   "State of LLM-06: UP - seen Oct 6, 1:59 PM EDT",
+   "State of LLM-01: UP - seen Oct 6, 1:59 PM EDT Its bot CU-Inbox-Job-Watcher: RAN Oct 6, 1:57 PM EDT, result 0, scheduler says ready.",
+   "State of CHIEF: UP - seen Oct 6, 1:59 PM EDT Its bot CU-Orchestrator: RAN Oct 6, 1:54 PM EDT, result 0, scheduler says ready.",
+   "Bot CU-Inbox-Job-Watcher: RAN Oct 6, 1:57 PM EDT, result 0, scheduler says ready.",
+   "Bot CU-Local-Executor: RAN Oct 6, 1:56 PM EDT, result 0, scheduler says ready.",
+   "Bot CU-TokenMonitor-Hourly: RAN Oct 6, 1:55 PM EDT, result 0, scheduler says ready.",
+   "Bot CU-Orchestrator: RAN Oct 6, 1:54 PM EDT, result 0, scheduler says ready.",
+   "Bot CU-Propagation-Check: RAN Oct 6, 1:53 PM EDT, result 0, scheduler says ready.",
+   "Bot VTES-LOCAL-POLLER: RAN Oct 6, 1:52 PM EDT, result 0, scheduler says ready.",
+   "State of LLM-07: NO DATA - no recent test reply recorded for this window",
+   "State: NO ZONE - a time in the report has no time zone, so this page cannot tell which clock it means.",
+   "State of LLM-07: NO ZONE - a time in the report has no time zone, so this page cannot tell which clock it means.",
+   "State of LLM-06: STALE since Oct 6, 1:59 PM EDT",
+   "State of LLM-01: STALE since Oct 6, 1:59 PM EDT Its bot CU-Inbox-Job-Watcher: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "State of CHIEF: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Orchestrator is NOT FINE: FAILED - the last run (Oct 6, 1:54 PM EDT) ended with the error number 1.",
+   "Bot CU-Orchestrator: FAILED - the last run (Oct 6, 1:54 PM EDT) ended with the error number 1.",
+   "State of LLM-01: WRITER SAYS UP, NOT PROVEN - the simple status writer stamped up at Oct 6, 1:59 PM EDT but it checks nothing Its bot CU-Inbox-Job-Watcher: NO DATA - the bots report file has not been written yet",
+   "health: PARTIAL - only 9 of 12 health checks passed (file as of Oct 6, 1:30 PM EDT)",
+   "PARTIAL - only 9 of 12 health checks passed (file as of Oct 6, 1:30 PM EDT) NO DATA",
+   "token use: NO ZONE - the time in the token use report has no time zone, so this page cannot tell which clock it means.",
+   "NO ZONE - the time in the token use report has no time zone, so this page cannot tell which clock it means.",
+   "NO ZONE The token report has a time with no time zone, so none of its numbers are shown.",
+   "window check-in: UNREADABLE - 1 entries or values in the window check-in report were empty, the wrong type, too long or too many, and were left out (file as of Oct 6, 1:59 PM EDT).",
+   "bots: UNREADABLE - 1 entries or values in the bots report were empty, the wrong type, too long or too many, and were left out (file as of Oct 6, 1:59 PM EDT).",
+   "State: UNREADABLE - the window check-in report has 1 entries or values that could not be read.",
+   "State of LOCAL: UNREADABLE - the window check-in report has 1 entries or values that could not be read.",
+   "Its bot CU-Local-Executor: UNREADABLE - the bots report has 1 entries or values that could not be read.",
+   "State of LLM-06: UNREADABLE - the window check-in report has 1 entries or values that could not be read.",
+   "Its bot CU-Inbox-Job-Watcher: UNREADABLE - the bots report has 1 entries or values that could not be read.",
+   "State of CHIEF: UNREADABLE - the window check-in report has 1 entries or values that could not be read.",
+   "Its bot CU-Orchestrator: UNREADABLE - the bots report has 1 entries or values that could not be read.",
+   "Bot CU-Inbox-Job-Watcher: UNREADABLE - the bots report has 1 entries or values that could not be read.",
+   "Bot CU-Local-Executor: UNREADABLE - the bots report has 1 entries or values that could not be read.",
+   "Bot CU-TokenMonitor-Hourly: UNREADABLE - the bots report has 1 entries or values that could not be read.",
+   "Bot CU-Orchestrator: UNREADABLE - the bots report has 1 entries or values that could not be read.",
+   "Bot CU-Propagation-Check: UNREADABLE - the bots report has 1 entries or values that could not be read.",
+   "Bot VTES-LOCAL-POLLER: UNREADABLE - the bots report has 1 entries or values that could not be read.",
+   "open items: IMPOSSIBLE - open_items in the state file is not a whole number of 0 or more (file as of Oct 6, 1:30 PM EDT)",
+   "health: IMPOSSIBLE - 20 of 12 health checks passed cannot be true (file as of Oct 6, 1:30 PM EDT)",
+   "token use: IMPOSSIBLE - window_used_pct in the token report is below 0 or above 100%, which cannot be true (file as of Oct 6, 1:58 PM EDT)",
+   "Miami-Dade: IMPOSSIBLE - the count says 999 of 300, which cannot be true (file as of Oct 6, 1:40 PM EDT)",
+   "IMPOSSIBLE - 20 of 12 health checks passed cannot be true (file as of Oct 6, 1:30 PM EDT) IMPOSSIBLE - open_items in the state file is not a whole number of 0 or more (file as of Oct 6, 1:30 PM EDT)",
+   "Health report: IMPOSSIBLE (20 of 12).",
+   "IMPOSSIBLE - window_used_pct in the token report is below 0 or above 100%, which cannot be true (file as of Oct 6, 1:58 PM EDT)",
+   "IMPOSSIBLE - open_items in the state file is not a whole number of 0 or more (file as of Oct 6, 1:30 PM EDT)",
+   "IMPOSSIBLE - the count says 999 of 300, which cannot be true (file as of Oct 6, 1:40 PM EDT)",
+   "Counted so far: IMPOSSIBLE (999) of 300."
+  ],
+  "instruction": [
+   "Do not type cards, passwords or Social Security numbers here.",
+   "Paste it into a new email to yourself and press Send (this page never sends anything for you).",
+   "Use this only if the note holds no client personal data.",
+   "First time only: the shortcut \"Codex - sign in (Jorge)\".",
+   "Never use a New Text Document with hidden extensions.",
+   "Use this only for a packet with no client personal data.",
+   "Never for client personal data: that goes to LOCAL only.",
+   "Open items: 12.",
+   "Until one is, do not save client personal data in any file.",
+   "Open items: IMPOSSIBLE (-2).",
+   "Tick the box under the note box in section 1: \"This note has NO client personal data\".",
+   "Do not give this packet to any Claude window.",
+   "Do not create it.",
+   "Do not open, change or delete it.",
+   "Check that the new folder holds only the empty data folder, and that no parent folder holds a folder named .git.",
+   "Do not run VERIFY.",
+   "Do not rename it.",
+   "Do not write the files again over the folder and do not delete anything.",
+   "Do not choose another path yourself.",
+   "Do not edit any file.",
+   "Do not create a Desktop shortcut: that needs Jorge's yes, as a separate order.",
+   "Do not delete the v5 folder: only Jorge decides that, in File Explorer, after he says yes."
+  ],
+  "packet-readonly": [
+   "The packet (read only: use the buttons above to copy it)"
+  ],
+  "one-click-links": [
+   "The one-click shortcut for Claude Code Desktop does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Claude Code Cloud does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Claude Cowork does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Claude Chat does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Codex CLI does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Grok (SuperGrok) does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Gemini does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "Open Claude Code Desktop with one click (a shortcut the PC set up)",
+   "The one-click shortcut for Claude Code Cloud does not open yet: the shortcuts are set up, but this window's entry is still empty.",
+   "Open Claude Cowork with one click (a shortcut the PC set up)",
+   "The one-click shortcut for Claude Chat does not open yet: the shortcuts are set up, but this window's entry is still empty.",
+   "The one-click shortcut for Codex CLI does not open yet: the shortcuts are set up, but this window's entry is still empty.",
+   "The one-click shortcut for Grok (SuperGrok) does not open yet: the shortcuts are set up, but this window's entry is still empty.",
+   "The one-click shortcut for Gemini does not open yet: the shortcuts are set up, but this window's entry is still empty.",
+   "The one-click shortcut for Claude Code Desktop does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Claude Code Cloud does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Claude Cowork does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Claude Chat does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Codex CLI does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Grok (SuperGrok) does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Gemini does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Claude Code Desktop does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Claude Code Cloud does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Claude Cowork does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Claude Chat does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Codex CLI does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Grok (SuperGrok) does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Gemini does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE)."
+  ],
+  "for-rambo": [
+   "For RAMBO: the address is vtes://llm-01. fill in the address book entry for LLM-01, run VTES-Open.ps1 -Install once (no admin) and record both in the heartbeat file.",
+   "For RAMBO: the address is vtes://llm-02.",
+   "For RAMBO: registry LLM-WINDOW-REGISTRY_v2.md, lanes EXECUTORS-AND-ORCHESTRATOR_2026-10-01.md. #VTES-control-panel #LLM-registry"
+  ],
+  "no-open-button": [
+   "A web page cannot open a desktop app, so there is no Open button."
+  ],
+  "typed-label": [
+   "How to open (typed instruction from v3, not checked by this page): Claude desktop app, Code tab (or green D tray icon), then Ctrl+V.",
+   "How to open (typed instruction from v3, not checked by this page): This opens your list of Claude Code sessions.",
+   "How to open (typed instruction from v3, not checked by this page): Claude desktop app, Cowork tab (or orange X tray icon), then Ctrl+V.",
+   "How to open (typed instruction from v3, not checked by this page): On the iPhone, open the Claude app.",
+   "First time only: double-click the desktop shortcut \"Codex - sign in (Jorge)\" and follow the sign-in window (typed from v3, UNVERIFIED).",
+   "How to open (typed instruction from v3, not checked by this page): You type no command: the desktop executor runs Codex for you (see the steps on the LLM-06 card in section 2).",
+   "Typed note, dated 2026-10-06, not checked by this page.",
+   "It comes from the v4 build, which cites the registry brief of 2026-10-06.",
+   "It says Grok chat had been unproven for 31 days.",
+   "How to open (typed instruction from v3, not checked by this page): Standby.",
+   "For RAMBO: v3 says the job file needs a line starting CLASS: and a line starting PROMPT: (typed from v3, UNVERIFIED); the packet does not have them, and the helper that adds them is still to be built (DESKTOP-WORK item 9 (LOCAL jobs)). v3 says the bot CU-Local-Executor watches VTES-Inbox-LOCAL: if that folder is inside Google Drive, that lane uploads client data too (KNOWN-LIMITS item 43 (LOCAL)).",
+   "Typed note, not live: v3 says \"Proven 2026-10-01\" (not checked by this page).",
+   "For RAMBO only (typed in v3; the desktop executor runs it, you type nothing): codex exec \"<task>\"",
+   "Typed note, not live: on 2026-10-01 v3 said about 75% of the Max quota was used and forecast it to run out on a Saturday.",
+   "For RAMBO only (typed in v3; the desktop executor runs it, you type nothing): Drop JOB-*.md into G:\\My Drive\\VTES-Inbox",
+   "For RAMBO only (typed in v3; the desktop executor runs it, you type nothing): Second-Opinion.ps1 -Prompt \"<question>\"",
+   "Maintained by hand in VTES-LLM-LAUNCHER_v3.html; the last row was typed on 2026-10-02.",
+   "2026-10-02 AGENTS Burn-rate agent installed, runs 7:00 AM daily (typed note 2026-10-02; the note gives no time zone, so this page cannot say which clock it means) ADDED"
+  ],
+  "id-only": [
+   "The Desktop Executor (RAMBO) fills in the address book entry for LLM-02 and registers the window shortcuts.",
+   "Which session is the current one is UNVERIFIED: the single session address typed in v3 was removed because it may be an old session.",
+   "The Desktop Executor (RAMBO) finds the Claude desktop app shortcut on the PC, writes it into the address book entry for LLM-03, then registers the window shortcuts.",
+   "Get the packet onto the iPhone first (see the steps on the LLM-05 card in section 2).",
+   "The poller that wakes RAMBO to execute what is in VTES-Inbox (JOB-0079).",
+   "Added in v5.",
+   "You type no command: the desktop executor runs Codex for you (see the steps on the LLM-06 card in section 2).",
+   "In the same checkout run git fetch origin claude/panel-v5-port.",
+   "TRK-2026-9910-B · INSTALL-BY-HAND · v4 · 2026-10-07 · CURRENT · #VTES-control-panel #panel-v5"
+  ],
+  "phone-no-link": [
+   "The PC cannot open it."
+  ],
+  "v3-card-text": [
+   "Grok is chat only."
+  ],
+  "grok-next": [
+   "Reason: NO DATA - nothing on the PC can see this window; green only when a finished bot task is recorded.",
+   "Reason: UNREADABLE - the window check-in report has 1 entries or values that could not be read."
+  ],
+  "local-folder-lines": [
+   "LOCAL save step: BLOCKED - UNVERIFIED.",
+   "The PC has not reported whether a local-only folder exists (PC check-in report: NO DATA).",
+   "Do not save client personal data in any file.",
+   "Classify, tag, extract, summarise, rename, and all client personal data (typed in v3: \"Never leaves the PC\" - only true once a local-only folder outside Google Drive and OneDrive is confirmed; see the LOCAL save step on this card).",
+   "Do NOT paste this packet into any Claude window, Cowork, Codex or Grok.",
+   "Do NOT send client personal data to RAMBO or to any Claude window.",
+   "Do NOT press the blue RAMBO button for this packet.",
+   "Do NOT save this packet as a file anywhere: no safe folder is confirmed.",
+   "Do NOT save it in Google Drive or OneDrive: they upload files to the cloud.",
+   "For RAMBO: create or confirm a local-only folder outside every syncing folder (a plain C:\\ path outside Users\\JV\\Desktop, OneDrive and Documents) and record it, with local_only_verified_by and not_synced_proof, under local_only_folder in the heartbeat file (DESKTOP-WORK item 11 (local-only folder)).",
+   "Open the local-only folder named \"C:\\VTES-LOCAL\\\".",
+   "Do NOT ask RAMBO or any Claude window to do these steps.",
+   "No local-only folder is confirmed in the PC check-in report: one that is NOT inside Google Drive, OneDrive or any other folder that uploads to the cloud.",
+   "The folder the PC reports (\"G:\\My Drive\\x\") has no name, has a line break or a non-ASCII letter, names a drive other than C:, looks like a cloud-synced folder, is a short (8.3) name or has a \"..\" part.",
+   "Open the local-only folder named \"C:\\Data\\Private\".",
+   "The PC has not reported whether a local-only folder exists (PC check-in report: STALE).",
+   "Where a local file may be saved is shown by the LOCAL save step line on the LOCAL card (section 3)."
+  ],
+  "policy": [
+   "It goes to LOCAL only."
+  ],
+  "no-numbers-when-none": [
+   "No burn rate is shown because none was measured.",
+   "Last report time: NONE.",
+   "NO DATA No data file supplies repair rows, so none are shown."
+  ],
+  "queued-one-click": [
+   "Queued items: one click fills the note box"
+  ],
+  "repairs-live": [
+   "Live repair rows (read from the state data file, none typed)"
+  ],
+  "miami-heading": [
+   "Miami-Dade: 22 public sources"
+  ],
+  "proof-links": [
+   "Every link opens that source's proof file in Drive."
+  ],
+  "numbers-from-data": [
+   "Counted so far: unknown of 300 (not counted yet).",
+   "Windows confirmed up now: 11 of 11.",
+   "Health report: 12 of 12 health checks passed (100%).",
+   "In progress: 3.",
+   "Blocked: 2.",
+   "Burn rate per hour: 41000 tokens.",
+   "This window used: 33%.",
+   "This week used: 61%.",
+   "fixture-program 1234",
+   "Items cleaned: 17.",
+   "Counted so far: 7 of 300.",
+   "This window used: IMPOSSIBLE (140%)."
+  ],
+  "miami-rows": [
+   "01 Property Appraiser - property search - Open the proof file for source 01 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "02 Property Appraiser - comparable sales - Open the proof file for source 02 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "03 Tax Collector - real estate tax - Open the proof file for source 03 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "04 Clerk - Official Records - Open the proof file for source 04 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: PARTIAL: Cloudflare captcha, not worked around proof not current (the Miami-Dade file is NO DATA)",
+   "05 Clerk - civil cases - Open the proof file for source 05 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "06 Building permit menu - Open the proof file for source 06 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "07 EPS e-permitting - Open the proof file for source 07 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: permit status public; folio search needs a login proof not current (the Miami-Dade file is NO DATA)",
+   "08 Building support cases - Open the proof file for source 08 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "09 Code enforcement online - Open the proof file for source 09 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "10 Neighborhood code cases - Open the proof file for source 10 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "11 Unsafe structures - Open the proof file for source 11 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "12 Certificates of Use - Open the proof file for source 12 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: PARTIAL: before 2012 works, newer search retired proof not current (the Miami-Dade file is NO DATA)",
+   "13 DERM code enforcement - Open the proof file for source 13 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "14 DERM public records - Open the proof file for source 14 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "15 Product approval (NOA) search - Open the proof file for source 15 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "16 Zoning and land use - Open the proof file for source 16 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "17 City of Miami permits - Open the proof file for source 17 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: login-blocked per registry banner proof not current (the Miami-Dade file is NO DATA)",
+   "18 Miami Beach permits - Open the proof file for source 18 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "19 Sunbiz (state business records) - Open the proof file for source 19 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "20 DBPR licenses - Open the proof file for source 20 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "21 Florida product approval - Open the proof file for source 21 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "22 Pembroke Pines / Broward - Open the proof file for source 22 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "01 Property Appraiser - property search - Open the proof file for source 01 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "02 Property Appraiser - comparable sales - Open the proof file for source 02 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "03 Tax Collector - real estate tax - Open the proof file for source 03 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "04 Clerk - Official Records - Open the proof file for source 04 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: PARTIAL: Cloudflare captcha, not worked around proof checked Oct 5, 2:00 PM EDT",
+   "05 Clerk - civil cases - Open the proof file for source 05 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "06 Building permit menu - Open the proof file for source 06 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "07 EPS e-permitting - Open the proof file for source 07 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: permit status public; folio search needs a login proof checked Oct 5, 2:00 PM EDT",
+   "08 Building support cases - Open the proof file for source 08 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "09 Code enforcement online - Open the proof file for source 09 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "10 Neighborhood code cases - Open the proof file for source 10 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "11 Unsafe structures - Open the proof file for source 11 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "12 Certificates of Use - Open the proof file for source 12 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: PARTIAL: before 2012 works, newer search retired proof checked Oct 5, 2:00 PM EDT",
+   "13 DERM code enforcement - Open the proof file for source 13 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "14 DERM public records - Open the proof file for source 14 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "15 Product approval (NOA) search - Open the proof file for source 15 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "16 Zoning and land use - Open the proof file for source 16 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "17 City of Miami permits - Open the proof file for source 17 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: login-blocked per registry banner proof checked Oct 5, 2:00 PM EDT",
+   "18 Miami Beach permits - Open the proof file for source 18 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "19 Sunbiz (state business records) - Open the proof file for source 19 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "20 DBPR licenses - Open the proof file for source 20 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "21 Florida product approval - Open the proof file for source 21 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "22 Pembroke Pines / Broward - Open the proof file for source 22 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "01 Property Appraiser - property search - Open the proof file for source 01 (a file in Google Drive) PROOF OK BUT THE CHECK DATE HAS NO TIME ZONE: not counted as checked"
+  ],
+  "footer-stamp": [
+   "TRK-2026-9910-B · v5 · built Oct 6, 1:00 PM EDT · CURRENT."
+  ],
+  "packet-v3": [
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-01 (Claude Code Desktop) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LOCAL (LOCAL (Ollama)) Oct 6, 2:00 PM EDT",
+   "SSN 123-45-6789.",
+   "My number is 123-45-6789 please check",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-03 (Claude Cowork) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> RAMBO (CLAUDE / RAMBO) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> CODEX (CODEX) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-02 (Claude Code Cloud) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-04 (Claude Chat) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-05 (Claude iPhone) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-06 (Codex CLI) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-07 (Grok (SuperGrok)) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-08 (Gemini) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-09 (Thin API router) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> GROK (GROK) Oct 6, 2:00 PM EDT",
+   "#handoff #LLM-04 #GROK #JorgeValdes",
+   "RETURN PATH: write your answer so Jorge can paste it back to LLM-04, and tag it #GROK."
+  ],
+  "intervals": [
+   "Check-in interval: every 5 minutes (read from the PC check-in report).",
+   "Scheduled every 10 minutes (read from the task schedule).",
+   "Check-in interval: every 5 minutes (STALE) (read from the PC check-in report)."
+  ],
+  "no-folder-access": [
+   "This page cannot see the folder itself."
+  ],
+  "strip-counts": [
+   "window check-in: NOT FINE - 3 red and 0 grey of 17 cards and marks on this page depend on the window check-in report (the report itself is fresh: as of Oct 6, 1:59 PM EDT)",
+   "Miami-Dade: NOT PROVEN - 0 red and 1 grey of 22 cards and marks on this page depend on the Miami-Dade report (the report itself is fresh: as of Oct 6, 1:40 PM EDT)",
+   "NOT PROVEN - 0 red and 1 grey of 22 cards and marks on this page depend on the Miami-Dade report (the report itself is fresh: as of Oct 6, 1:40 PM EDT)"
+  ],
+  "bots-counts": [
+   "bots: 2 of 6 bots are not fine (CU-Local-Executor, CU-Orchestrator); see each bot card (file as of Oct 6, 1:59 PM EDT)"
+  ],
+  "age-line": [
+   "Only the simple status writer has reported, and it cannot prove anything."
+  ],
+  "guard-packet": [
+   "(NOT INCLUDED: the note looks like client personal data (a run of 9 digits; a Social Security shape (3, 2 and 4 digits)).",
+   "This page keeps it out of every packet except one for LOCAL."
+  ],
+  "ibh-instruction": [
+   "Stop at the first BLOCKED.",
+   "If it does not, stop and report BLOCKED.",
+   "Never choose a path yourself.",
+   "If it is, stop and report BLOCKED.",
+   "If it does not exist, stop and report BLOCKED.",
+   "If a folder with that name already exists, stop and report BLOCKED.",
+   "If it shows anything else, stop and report BLOCKED.",
+   "If not, stop and report BLOCKED.",
+   "Never run pull, merge, reset or checkout in that checkout.",
+   "Write the output of git rev-parse origin/claude/panel-v5-port in the report.",
+   "Save VERIFY-v5.ps1 beside the new folder, never inside it: G:\\My Drive\\MY-DESK\\VTES-PANEL\\VERIFY-v5.ps1.",
+   "First run Test-Path -LiteralPath 'G:\\My Drive\\MY-DESK\\VTES-PANEL\\VERIFY-v5.ps1'; read an existing file's SHA-256 with Get-FileHash -Algorithm SHA256.",
+   "If that file does not exist, save there the exact bytes of git show origin/claude/panel-v5-port:panel-rebuild/v5/VERIFY-v5.ps1.",
+   "If it differs, stop and report BLOCKED.",
+   "If that file exists and has that SHA-256, use it as it is.",
+   "Never overwrite, move, rename or delete it.",
+   "Write in the report that it was already there: that is not BLOCKED.",
+   "If that file exists with another SHA-256, save the new copy beside it as VERIFY-v5.ps1.new-YYYYMMDD-HHMM, touch nothing else, and report BLOCKED with both SHA-256 values.",
+   "In File Explorer read every file name in the new folder and in data.",
+   "If one is wrong, stop and report BLOCKED.",
+   "If it does not, stop and report BLOCKED.",
+   "Any other answer is BLOCKED.",
+   "Never add -AfterWriters unless the order says so.",
+   "If VERIFY prints \"PROBLEMS\", paste every line, do not use the folder, and report BLOCKED.",
+   "If VERIFY prints \"LINK IN PATH\", \"WRONG PLACE\" or \"CANNOT CHECK\", paste the line and report BLOCKED.",
+   "To stop using v5, close it."
+  ],
+  "ibh-v3-and-tick": [
+   "Do not touch the real v3 launcher on the Desktop."
+  ],
+  "ibh-only-script": [
+   "The only script is VERIFY-v5.ps1, and it only reads."
+  ],
+  "ibh-git-fetch": [
+   "It writes only inside the checkout's .git folder, and changes no branch and no working file."
+  ],
+  "ibh-pkg-12": [
+   "The package is 12 files: MANIFEST.sha256, VTES-LLM-LAUNCHER_v5.html, vtes5-config.js, vtes5-live.js, vtes5-ui.js, and seven data files.",
+   "The seven data files are vtes5-heartbeat.js, vtes5-bots.js, vtes5-state.js, vtes5-health.js, vtes5-tokens.js, vtes5-housekeeping.js and vtes5-miamidade.js, all inside data.",
+   "For each of the 12 files run git show origin/claude/panel-v5-port:panel-rebuild/v5/package/<path> and save the exact bytes under the same path in the new folder.",
+   "Each must be one of the 12 names, with no .txt added."
+  ],
+  "ibh-utf16": [
+   "Do not use the PowerShell redirect symbol: it can save UTF-16, and VERIFY refuses that.",
+   "If PowerShell itself prints a red error about a parameter, nothing was checked: paste it and report BLOCKED.",
+   "If VERIFY prints a day-one line starting \"EDITED: data/vtes5-bots.js (data file) has SHA-256\" with \"saved as UTF-16\", save that file again with a tool that keeps the bytes."
+  ],
+  "ibh-verify-sha": [
+   "Its SHA-256 must be f291b8c40afd044af1892649028e87efb39c40dd4a714e3715931f46390ce089."
+  ],
+  "ibh-ok-line": [
+   "The install is good only if it prints \"OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder\"."
+  ],
+  "ibh-day-one-exact": [
+   "On day one that line is the only good answer."
+  ]
+ }
+}

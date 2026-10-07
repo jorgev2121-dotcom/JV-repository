@@ -225,6 +225,7 @@ module.exports = function (C) {
   exempt('packet-v3', /^HANDOFF |^#handoff|^RETURN PATH|^SSN 123-45-6789\.$|^My number is 123|^Check this one|^- /, 'the packet text is built by the unchanged v3 code, or it is the note the test typed');
   exempt('for-rambo', /^For RAMBO\b/, 'an instruction to the desktop executor, not a statement about the page');
   exempt('instruction', /^(?:Do not|Do NOT|Never (?:use|for)|Open |Click |Press |Right-click |Double-click |Type the |Check that |Use this |Paste |Choose |Tick the box|STOP HERE|First time only|There is nothing else|Without |Copy |Say |Until one is, do not)/, 'an instruction to the person: nothing to prove');
+  exempt('policy', /^(?:It|Client personal data) goes to LOCAL only\.$/, 'a rule for the person (where client data goes), not a statement about page behaviour');
   exempt('v3-card-text', /^(?:Grok is chat only|Standby bridge only|Round-trip question only|Chat only|Routing bridge, never|Every API run is priced|Cannot touch your PC|It can send orders|Sends orders|Reads every|Meters usage|Reads every Outbox|Two are not Claude|Standby\.)/, 'the typed v3 card text, unchanged or repeated in the same words');
 
   /* ---- INSTALL-BY-HAND.md: facts are proved on the real files, real VERIFY runs and a real scratch git repository; the rest are instructions ---- */

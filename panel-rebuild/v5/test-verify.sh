@@ -7,6 +7,7 @@
 # PowerShell's own cache lives under HOME=<work>/home, outside the fixture, and is not counted. Telemetry and update checks are switched off by the environment variables below.
 # Fix round 7: every scenario runs under `timeout 60` (a hang is exit 124 and fails). The expected answer of every scenario is written on its V line in this file, before any run.
 # Expectations are built from the package that is there NOW (file count from MANIFEST.sha256); no hash or count is hard-coded.
+# Fix round 9 (CHECK-10 pattern): X32a, X32c and X35a-g read the shorter INSTALL-BY-HAND.md (steps 16 to 19 are the old step 6d); each still checks the same fact. See FIX-ROUND-9-OLD-TEST-CHANGES.txt.
 # Fix round 9 (CHECK-10 flaw 7): the OK (after writers) line now counts page and script files, identical data files and changed data files separately; V04d and V36b expect the new words (see FIX-ROUND-9.md, older tests that changed).
 # Fix round 8 (TRK-2026-9910-B): scenarios X01-X92 added (exit codes, links never counted, UTF-16 words, non-ASCII refused, control characters escaped, status_dir_url). NOPATH, OKLINEONLY and LASTO are new harness switches.
 # Environment: DOCDIR (folder holding the two documents the text checks read, default this folder), PKG (package folder), VSRC (the VERIFY script to test, default the one beside this file), AFTERSW (the switch name, default -AfterWriters).
@@ -349,9 +350,9 @@ PY3
 ARGP=$N; NOTS=("BAD DATA FILE"); V X30 1 "EDITED: data/vtes5-bots.js (data file) has SHA-256" "It is also not a valid data file: data\\vtes5-bots.js is saved as UTF-16"
 echo "== X31 (F7) the same file WITH $AW: BAD DATA FILE line that says UTF-16; no EDITED line"; ARGP=$N; EXTRA=$AW; NOTS=("EDITED"); V X31 1 "BAD DATA FILE: data\\vtes5-bots.js is saved as UTF-16"; EXTRA=
 echo "== X32 (F7) the document quotes the real day-one words and does not promise BAD DATA FILE on day one"
-grep -q 'EDITED' "$DOCDIR/INSTALL-BY-HAND.md" && grep -q 'It is also not a valid data file' "$DOCDIR/INSTALL-BY-HAND.md"; chk "X32a: INSTALL-BY-HAND.md quotes the day-one words (EDITED ... It is also not a valid data file)" $?
+grep -qF 'EDITED: data/vtes5-bots.js (data file) has SHA-256' "$DOCDIR/INSTALL-BY-HAND.md" && grep -qF 'saved as UTF-16' "$DOCDIR/INSTALL-BY-HAND.md"; chk "X32a: INSTALL-BY-HAND.md quotes the day-one words (EDITED: data/vtes5-bots.js (data file) has SHA-256 ... saved as UTF-16)" $?
 ! grep -q 'BAD DATA FILE ... saved as UTF-16' "$DOCDIR/INSTALL-BY-HAND.md"; chk "X32b: INSTALL-BY-HAND.md no longer promises 'BAD DATA FILE ... saved as UTF-16' on day one" $?
-grep -q 'is what you see with `-AfterWriters`' "$DOCDIR/INSTALL-BY-HAND.md"; chk "X32c: INSTALL-BY-HAND.md says the BAD DATA FILE line is what you see with -AfterWriters (and on day one only if the manifest lists the UTF-16 bytes, scenario R23)" $?
+grep -qF 'save that file again with a tool that keeps the bytes' "$DOCDIR/INSTALL-BY-HAND.md"; chk "X32c: INSTALL-BY-HAND.md tells the executor to save a UTF-16 data file again with a tool that keeps the bytes (round 9: the shorter document has no sentence about the BAD DATA FILE line; scenario RH2 of test-verify-r9.sh proves what VERIFY prints with the switch)" $?
 echo "== X33 (F8) the document no longer says VERIFY says OK when only the eight files changed"
 ! grep -q 'VERIFY now says OK when only the eight' "$DOCDIR/INSTALL-BY-HAND.md"; chk "X33: that round-6 sentence (false since round 7) is gone from INSTALL-BY-HAND.md" $?
 # ===== F9: any byte above 127 in a data or settings file is refused (UTF-16, BOM and NUL are named first)
@@ -461,13 +462,13 @@ cmp -s "$G/head-before" "$G/head-after"; chk "X34d: the checked-out commit is th
 grep -q 'origin/claude/panel-v5-port' "$G/br-after" && ! grep -q 'origin/claude/panel-v5-port' "$G/br-before"; chk "X34f: the list of remote branches gained origin/claude/panel-v5-port" $?
 rm -rf "$G"
 echo "== X35 (F11) the document's step 6d tests for the file first and never overwrites, moves or deletes it (text checks on INSTALL-BY-HAND.md)"
-D6=$(grep -F -- '- 6d.' "$DOCDIR/INSTALL-BY-HAND.md"; sed -n '/^   - 6d\./,/^7\. /p' "$DOCDIR/INSTALL-BY-HAND.md")
+D6=$(sed -n '/^16\. /,/^20\. /p' "$DOCDIR/INSTALL-BY-HAND.md")
 has "$D6" 'Test-Path -LiteralPath'; chk "X35a: 6d tells the executor to test for the file with Test-Path -LiteralPath" $?
-has "$D6" 'never overwrite it, never move it, never delete it'; chk "X35b: 6d says never overwrite, never move, never delete an existing file" $?
+has "$D6" 'Never overwrite, move, rename or delete it'; chk "X35b: 6d says never overwrite, never move, never delete an existing file" $?
 has "$D6" 'Get-FileHash'; chk "X35c: 6d reads the existing file's SHA-256" $?
 has "$D6" 'VERIFY-v5.ps1.new-'; chk "X35d: 6d names the beside-copy VERIFY-v5.ps1.new-<YYYYMMDD-HHMM>" $?
 has "$D6" 'BLOCKED'; chk "X35e: 6d reports BLOCKED when the hashes differ" $?
-has "$D6" 'Do not run step 9 with the old file'; chk "X35f: 6d forbids step 9 with the old file" $?
+has "$D6" 'Do not run VERIFY'; chk "X35f: the beside-copy case forbids running VERIFY with the old file" $?
 has "$D6" 'not BLOCKED'; chk "X35g: 6d says an existing file with the pinned hash is used as it is (not BLOCKED)" $?
 echo "== V30 the source script itself is ASCII only and has no write commands"
 LC_ALL=C grep -qP '[^\x00-\x7F]' "$VER"; [ $? -ne 0 ]; chk "V30a: VERIFY-v5.ps1 is pure ASCII" $?

@@ -1,0 +1,57 @@
+{
+ "test": "test-privacy-matrix-r9",
+ "personal_notes": 202,
+ "ordinary_notes": 88,
+ "cannot_catch_notes": 16,
+ "routes": 369,
+ "noTick": {
+  "n": 111078,
+  "ok": 111078,
+  "bad": []
+ },
+ "wrongTick": {
+  "personal": {
+   "n": 73326,
+   "ok": 61266,
+   "bad": [
+    "\"4111 1111 1111 1111 12/29\" via big copy button on card-LLM-01 (to LLM-01): CARRIED",
+    "\"4111 1111 1111 1111 12/29\" via big copy button on card-LLM-03 (to LLM-03): CARRIED",
+    "\"4111 1111 1111 1111 12/29\" via big copy button on card-LLM-05 (to LLM-05): CARRIED",
+    "\"4111 1111 1111 1111 12/29\" via big copy button on card-LLM-06 (to LLM-06): CARRIED",
+    "\"4111 1111 1111 1111 12/29\" via big copy button on card-CODEX (to CODEX): CARRIED",
+    "\"4111 1111 1111 1111 12/29\" via big copy button on card-RAMBO (to RAMBO): CARRIED",
+    "\"4111 1111 1111 1111 12/29\" via big copy button on card-GROK (to GROK): CARRIED",
+    "\"4111 1111 1111 1111 12/29\" via big copy button on card-COWORK (to LLM-03): CARRIED"
+   ]
+  },
+  "ordinary": {
+   "n": 31944,
+   "ok": 30018,
+   "bad": [
+    "\"Bank of America appointment 10/12/2026\" via big copy button on card-LLM-01 (to LLM-01): NOT carried, NOT INCLUDED shown",
+    "\"Bank of America appointment 10/12/2026\" via big copy button on card-LLM-03 (to LLM-03): NOT carried, NOT INCLUDED shown",
+    "\"Bank of America appointment 10/12/2026\" via big copy button on card-LLM-05 (to LLM-05): NOT carried, NOT INCLUDED shown",
+    "\"Bank of America appointment 10/12/2026\" via big copy button on card-LLM-06 (to LLM-06): NOT carried, NOT INCLUDED shown",
+    "\"Bank of America appointment 10/12/2026\" via big copy button on card-CODEX (to CODEX): NOT carried, NOT INCLUDED shown",
+    "\"Bank of America appointment 10/12/2026\" via big copy button on card-RAMBO (to RAMBO): NOT carried, NOT INCLUDED shown",
+    "\"Bank of America appointment 10/12/2026\" via big copy button on card-GROK (to GROK): NOT carried, NOT INCLUDED shown",
+    "\"Bank of America appointment 10/12/2026\" via big copy button on card-COWORK (to LLM-03): NOT carried, NOT INCLUDED shown"
+   ]
+  },
+  "cannot": {
+   "n": 5808,
+   "carried": 5360
+  }
+ },
+ "tick": {
+  "goEnabledAfterTick": true,
+  "resetOnNote": true,
+  "reTicked": true,
+  "resetOnRoute": true,
+  "localNeedsNoTick": true,
+  "emptyNoteNeedsNoTick": true
+ },
+ "pass": 202364,
+ "total": 216350,
+ "page_errors": 0
+}

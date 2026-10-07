@@ -3,7 +3,7 @@
  "pass": 252,
  "total": 252,
  "blocked_personal": 168,
- "carried": 72,
+ "carried": 71,
  "results": [
   {
    "g": "round-6 block",
@@ -1309,12 +1309,6 @@
   },
   {
    "g": "ordinary",
-   "name": "carries \"USPS 9400 1118 9922 3197 4284 90 delivered\"",
-   "status": "PASS",
-   "why": ""
-  },
-  {
-   "g": "ordinary",
    "name": "carries \"FedEx 123456789012 is out for delivery\"",
    "status": "PASS",
    "why": ""
@@ -1447,6 +1441,12 @@
   },
   {
    "g": "false alarm",
+   "name": "KNOWN false alarm, blocked on purpose: \"USPS 9400 1118 9922 3197 4284 90 delivered\"",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "false alarm",
    "name": "KNOWN false alarm, blocked on purpose: \"Order 12345 6789\"",
    "status": "PASS",
    "why": ""
@@ -1489,7 +1489,7 @@
   },
   {
    "g": "long notes",
-   "name": "a note over 20,000 characters is blocked and the check is fast (8 ms)",
+   "name": "a note over 20,000 characters is blocked and the check is fast (28 ms)",
    "status": "PASS",
    "why": ""
   },

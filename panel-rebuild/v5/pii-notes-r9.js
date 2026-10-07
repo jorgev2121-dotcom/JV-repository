@@ -6,12 +6,12 @@ const R8 = require('./pii-notes-r8.js');
 const CARDS = [
   '4111 1111 1111 1111 12/29', 'card: 4111 1111 1111 1111 / 12 / 29', '4111.1111.1111.1111.1229', '4111-1111-1111-1111 exp 12-29', 'Visa 4111111111111111 exp 12/2029 cvv 123', '5500 0055 5555 5559 12/29', '5500005555555559 05/31',
   'amex 3782 822463 10005 exp 11/28', '378282246310005 11/28', '6011 1111 1111 1117 01/30', '3530 1113 3330 0000 07/27', '4012 8888 8888 1881 09/28 zip 33186', 'card 4222222222222 03/30', 'pay with 4111 1111 1111 1111 and 12 29',
-  'CC 5555 5555 5555 4444 exp 0829', '2026 order 4111 1111 1111 1111 total 52', 'card 4111 1111 1111 1111 123', '4111 1111 1111 1111 1229', 'master 5105 1051 0510 5100 / 08 / 31', '4111/1111/1111/1111 12/29'
+  'CC 5555 5555 5555 4444 exp 0829', '2026 order 4111 1111 1111 1111 total 52', 'card 4111 1111 1111 1111 123', '4111 1111 1111 1111 1229', 'master 5105 1051 0510 5100 / 08 / 31', '4111/1111/1111/1111 12/29', 'card 1234567890123456', 'card number 9876543210987654 exp 11/29', 'card 123456789012345'
 ];
 const SPANISH = [
   'SSN novecientos ochenta y siete sesenta y cinco cuatro tres dos uno', 'seguro social novecientos ochenta y siete sesenta y cinco cuatro tres dos uno', 'ssn doscientos treinta y cuatro cincuenta y seis setenta y ocho noventa',
   'ochocientos uno cuarenta y dos nueve ocho siete seis', 'ssn seiscientos cincuenta y uno cuarenta y cinco ocho siete seis cinco', 'fecha de nacimiento: 3 de marzo de 1980', 'DOB enero 2 1970', 'nacido el 15 de agosto de 1975',
-  'nacida el 4 de julio de 1990', 'fecha de nacimiento 12 de diciembre de 1966', 'DOB: 7 de abril 1981', 'nacido el primero de mayo de 1979', 'DOB 9 de septiembre de 1955'
+  'nacida el 4 de julio de 1990', 'fecha de nacimiento: 3 de enero de 1980', 'DOB: 3 de enero 1981', 'nacido el 20 de febrero de 1972', 'fecha de nacimiento 12 de diciembre de 1966', 'DOB: 7 de abril 1981', 'nacido el primero de mayo de 1979', 'DOB 9 de septiembre de 1955'
 ];
 const LABELLED = [
   'DL 12345678', "driver's license A1234567", "driver's licence number D123456789", 'passport AB1234567', 'passport number: 123456789', 'bank account 123456789012', 'routing 021000021', 'acct number 4567890123', 'account: 98765432101',

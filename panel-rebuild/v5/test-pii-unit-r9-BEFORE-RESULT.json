@@ -3,8 +3,8 @@
  "rows": [
   [
    "personal notes caught",
-   163,
-   196
+   166,
+   202
   ],
   [
    "ordinary notes carried",
@@ -31,6 +31,6 @@
  "misses_still_missed": 8,
  "misses_now_caught": [],
  "ms_for_20000_chars": 1,
- "pass": 256,
- "total": 296
+ "pass": 259,
+ "total": 302
 }

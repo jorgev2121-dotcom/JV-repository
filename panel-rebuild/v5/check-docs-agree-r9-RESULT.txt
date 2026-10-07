@@ -1,0 +1,55 @@
+PASS test-v5-click.js (click everything): 99 of 99
+PASS test-v5-worlds.js (data worlds): 129 of 129
+PASS test-v3-survives.js (nothing of v3 is lost): 166 of 166
+PASS test-v3-before.js (before and after rows): 16 of 16
+PASS test-v3-packets.js (packet pairs identical to v3 apart from the stamp): 144 of 144
+PASS test-fixes-r4.js (round-4 page fixes): 75 of 75
+PASS test-fixes-r5.js (round-5 page fixes): 194 of 194
+PASS test-fixes-r6.js (round-6 page and document fixes): 27 of 27
+PASS test-survival-92-r6.js (survival items): 92 of 92
+PASS test-invariant-r6.js (colour rule in named and random worlds): 249 of 249
+PASS test-pii-unit-r6.js (digit checker, round 6): 113 of 113
+PASS test-frozen-r7.js (frozen-page scenarios): 24 of 24
+PASS test-watchdog-r7.js (watchdog): 13 of 13
+PASS test-pii-unit-r7.js (digit checker, round 7): 252 of 252
+PASS test-words-r7.js (words on the page): 44 of 44
+PASS test-pii-unit-r8.js (digit checker, round 8): 203 of 203
+PASS test-state-text-r8.js (sentences that say ready, Press or one click match the real button): 4689 of 4689
+PASS test-edge-r8.js (round-8 edge items): 56 of 56
+PASS test-pii-unit-r9.js (digit checker, round 9): 302 of 302
+PASS test-fixes-r9.js (one test per CHECK-10 flaw and edge item): 48 of 48
+PASS test-quotematch-r9.js (double-quoted texts in the documents found word for word): 27 of 27
+PASS test-claims-r9.js (independent claims extractor): 13 of 13
+PASS test-privacy-matrix-r6.js (privacy matrix, round 6): 5166 of 5166
+PASS test-privacy-matrix-r7.js (privacy matrix, round 7): 100190 of 100190
+PASS test-privacy-matrix-r8.js (privacy matrix, round 8): 146654 of 146654
+PASS test-privacy-matrix-r9.js (privacy matrix, round 9 (unticked and wrongly ticked, every route)): 216350 of 216350
+PASS test-fuzz-r7.js (type-fuzz and random worlds): 2536 of 2536
+PASS test-verify.sh (VERIFY checks, 216 older scenarios): 1684 of 1684
+PASS test-verify.sh (scenarios) (VERIFY scenarios as expected): 216 of 216
+PASS test-verify-r9.sh (VERIFY checks, new scenarios): 477 of 477
+PASS test-verify-r9.sh (scenarios) (VERIFY new scenarios as expected): 60 of 60
+PASS test-no-write-commands.js (no write command anywhere): 37 of 37
+PASS check-xrefs-r9.js (cross-references and document shape): 36 of 36
+PASS run-mutations.sh (deliberate breaks caught): 69 of 69
+PASS FIX-ROUND-9.md carries exactly the generated table of numbers
+PASS INSTALL-BY-HAND.md carries the real manifest SHA-256 816e2efa6170f93699aca9e6c2274c51d260fa2c5f4d4bd62b9bf808dc6e4ad0
+PASS INSTALL-BY-HAND.md carries the real SHA-256 of VERIFY-v5.ps1 f291b8c40afd044af1892649028e87efb39c40dd4a714e3715931f46390ce089
+PASS the manifest lists 11 files and every hash is the real SHA-256 of that file (11 of 11)
+PASS FIX-ROUND-9.md Flaw 1 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md Flaw 2 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md Flaw 3 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md Flaw 4 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md Flaw 5 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md Flaw 6 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md Flaw 7 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md Flaw 8 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md e9 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md edge 10 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md edge 8 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md edge 31 has a verdict, a file, a test and a tier
+PASS FIX-ROUND-9.md items 38-41 has a verdict, a file, a test and a tier
+PASS every file FIX-ROUND-9.md names exists (36 named)
+PASS no unfilled placeholder in FIX-ROUND-9.md or TEST-REPORT.md
+
+DOCS AGREE R9: 53 of 53 checks pass

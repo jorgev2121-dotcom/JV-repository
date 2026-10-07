@@ -17,9 +17,9 @@ Follow the steps in order. Stop at the first BLOCKED. Do not touch the real v3 l
 13. The seven data files are `vtes5-heartbeat.js`, `vtes5-bots.js`, `vtes5-state.js`, `vtes5-health.js`, `vtes5-tokens.js`, `vtes5-housekeeping.js` and `vtes5-miamidade.js`, all inside `data`.
 14. For each of the 12 files run `git show origin/claude/panel-v5-port:panel-rebuild/v5/package/<path>` and save the exact bytes under the same path in the new folder.
 15. Save with your own file tools, or another program that writes the bytes it reads. Do not use the PowerShell redirect symbol: it can save UTF-16, and VERIFY refuses that.
-16. Save `VERIFY-v5.ps1` beside the new folder, never inside it: `G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1`. First run `Test-Path -LiteralPath 'G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1'`.
+16. Save `VERIFY-v5.ps1` beside the new folder, never inside it: `G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1`. First run `Test-Path -LiteralPath 'G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1'`; read an existing file's SHA-256 with `Get-FileHash -Algorithm SHA256`.
 17. If that file does not exist, save there the exact bytes of `git show origin/claude/panel-v5-port:panel-rebuild/v5/VERIFY-v5.ps1`. Its SHA-256 must be `f291b8c40afd044af1892649028e87efb39c40dd4a714e3715931f46390ce089`. If it differs, stop and report BLOCKED.
-18. If that file exists and has that SHA-256, use it as it is. Never overwrite, move, rename or delete it. Write in the report that it was already there.
+18. If that file exists and has that SHA-256, use it as it is. Never overwrite, move, rename or delete it. Write in the report that it was already there: that is not BLOCKED.
 19. If that file exists with another SHA-256, save the new copy beside it as `VERIFY-v5.ps1.new-YYYYMMDD-HHMM`, touch nothing else, and report BLOCKED with both SHA-256 values. Do not run VERIFY.
 20. In File Explorer read every file name in the new folder and in `data`. Each must be one of the 12 names, with no `.txt` added. If one is wrong, stop and report BLOCKED. Do not rename it.
 21. Run `git status` in the checkout. It must show what it showed before the fetch. If it does not, stop and report BLOCKED.

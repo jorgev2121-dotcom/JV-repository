@@ -38,7 +38,7 @@ mut M23-old-numbers-shown-plain test-invariant-r6 vtes5-ui.js "if (fresh === fal
 mut M24-cloud-folder-accepted-for-local test-words-r7 vtes5-ui.js "if (!label || badName(label)) { return" "if (!label) { return" &
 wait
 mut M25-nine-digit-rule-removed test-pii-unit-r6 vtes5-ui.js "if ((isNine && !zip4 && !permit) || inside) {" "if (false) {" &
-mut M26-card-rule-removed test-pii-unit-r6 vtes5-ui.js "if (r.real >= 15 && r.real <= 19) {" "if (false) {" &
+mut M26-card-rule-removed test-fixes-r9 vtes5-ui.js "if (r.real >= 15 && r.real <= 19 && !zipList && !order377) {" "if (false) {" &
 wait
 wait
 mut M27-sanitiser-passes-raw-data test-frozen-r7 vtes5-live.js "r = g ? sanitizeFile(names[i], g.v) : undefined;" "r = g ? g.v : undefined;" &
@@ -79,7 +79,7 @@ mut M54-card-rule-with-expiry-removed test-fixes-r9 vtes5-ui.js "cardReasons(tm,
 mut M55-spanish-hundreds-removed test-fixes-r9 vtes5-ui.js "novecientos: 900, novecientas: 900 }" "novecientas: 900 }" &
 mut M56-spanish-months-removed test-fixes-r9 vtes5-ui.js "|dec|enero|febrero|" "|dec|xenero|febrero|" &
 mut M57-labelled-id-rule-removed test-fixes-r9 vtes5-ui.js "cardReasons(tm, why); idLabelReasons(tm, why);" "cardReasons(tm, why);" &
-mut M58-local-steps-hand-the-save-to-rambo test-fixes-r9 vtes5-ui.js "Do not ask RAMBO or any Claude window to do them." "Ask RAMBO to save the file with the Claude desktop app." &
+mut M58-local-steps-hand-the-save-to-rambo test-fixes-r9 vtes5-ui.js "Do NOT ask RAMBO or any Claude window to do these steps. Do them yourself, by hand." "Ask RAMBO to save the file with the Claude desktop app." &
 mut M59-grok-sentence-always-shown test-fixes-r9 vtes5-ui.js "if (c === 'ok') { return ''; }" "if (false) { return ''; }" &
 wait
 mut M60-whole-page-ignores-grey-reports test-fixes-r9 vtes5-ui.js "' reports red and ' + bg + ' of '" "' reports red and 0 of '" &

@@ -18,6 +18,9 @@ FAIL personal note carried: "fecha de nacimiento: 3 de marzo de 1980"
 FAIL personal note carried: "DOB enero 2 1970"
 FAIL personal note carried: "nacido el 15 de agosto de 1975"
 FAIL personal note carried: "nacida el 4 de julio de 1990"
+FAIL personal note carried: "fecha de nacimiento: 3 de enero de 1980"
+FAIL personal note carried: "DOB: 3 de enero 1981"
+FAIL personal note carried: "nacido el 20 de febrero de 1972"
 FAIL personal note carried: "fecha de nacimiento 12 de diciembre de 1966"
 FAIL personal note carried: "DOB: 7 de abril 1981"
 FAIL personal note carried: "nacido el primero de mayo de 1979"
@@ -37,10 +40,10 @@ FAIL ordinary note blocked: "The driver dropped 2 boxes at 14598 SW 110 ST"
 FAIL ordinary note blocked: "Amazon order 113-1234567-1234567"
 FAIL ordinary note blocked: "Meeting at 10:30 on 10/12/2026 with the driver"
 FAIL ordinary note blocked: "Bank holiday on 10/14/2026"
-  personal notes caught: 163 of 196
+  personal notes caught: 166 of 202
   ordinary notes carried: 82 of 88
   disclosed false alarms still blocked: 9 of 10
   a note over 20,000 characters is blocked, a 20,000-character ordinary note is carried: 1 of 1
   page errors: 1 of 1
   known misses still missed: 8 of 8; 20,000 characters took 1 ms
-PII UNIT R9: 256 of 296 pass
+PII UNIT R9: 259 of 302 pass

@@ -5,31 +5,31 @@
  "results": [
   {
    "g": "jargon",
-   "name": "no jargon outside \"For RAMBO\" lines (shipped data; 572 text pieces)",
+   "name": "no jargon outside \"For RAMBO\" lines (shipped data; 577 text pieces)",
    "status": "PASS",
    "why": ""
   },
   {
    "g": "jargon",
-   "name": "no jargon outside \"For RAMBO\" lines (fresh data; 584 text pieces)",
+   "name": "no jargon outside \"For RAMBO\" lines (fresh data; 592 text pieces)",
    "status": "PASS",
    "why": ""
   },
   {
    "g": "jargon",
-   "name": "no jargon outside \"For RAMBO\" lines (local folder confirmed (plain C: path); 584 text pieces)",
+   "name": "no jargon outside \"For RAMBO\" lines (local folder confirmed (plain C: path); 592 text pieces)",
    "status": "PASS",
    "why": ""
   },
   {
    "g": "jargon",
-   "name": "no jargon outside \"For RAMBO\" lines (bots disabled, running, failed; 585 text pieces)",
+   "name": "no jargon outside \"For RAMBO\" lines (bots disabled, running, failed; 593 text pieces)",
    "status": "PASS",
    "why": ""
   },
   {
    "g": "jargon",
-   "name": "no jargon outside \"For RAMBO\" lines (stale and unreadable data; 590 text pieces)",
+   "name": "no jargon outside \"For RAMBO\" lines (stale and unreadable data; 595 text pieces)",
    "status": "PASS",
    "why": ""
   },
@@ -95,7 +95,7 @@
   },
   {
    "g": "clock",
-   "name": "a data file that sets VTES5_NOW does not change the page clock (2026-10-06T18:00:01.053Z)",
+   "name": "a data file that sets VTES5_NOW does not change the page clock (2026-10-06T18:00:01.175Z)",
    "status": "PASS",
    "why": ""
   },

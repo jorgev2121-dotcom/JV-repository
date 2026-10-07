@@ -1,7 +1,7 @@
 {
  "test": "test-quotematch-r9",
- "total": 26,
- "pass": 26,
+ "total": 27,
+ "pass": 27,
  "bad": [],
  "docs": [
   {
@@ -14,7 +14,7 @@
   },
   {
    "doc": "DESKTOP-WORK.md",
-   "quotes": 5
+   "quotes": 6
   },
   {
    "doc": "DATA-CONTRACT.md",

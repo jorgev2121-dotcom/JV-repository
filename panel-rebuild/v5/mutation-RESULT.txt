@@ -3,11 +3,11 @@ M2-writer-counts-as-proof: WORLDS: 126 of 129 pass
 M3-fixed-15-minute-limit: WORLDS: 126 of 129 pass
 M4-late-bot-still-green: WORLDS: 128 of 129 pass
 M5-vtes-link-always: WORLDS: 123 of 129 pass
-M6-267009-is-failed: FIXES-R4: 74 of 75 pass (/tmp/claude-0/-home-user-JV-repository/3e2a0929-716b-5dcd-84cd-81a64869e8ab/scratchpad/runall/mut/M6-267009-is-failed/package)
-M7-housekeeping-green-when-fresh: FIXES-R4: 74 of 75 pass (/tmp/claude-0/-home-user-JV-repository/3e2a0929-716b-5dcd-84cd-81a64869e8ab/scratchpad/runall/mut/M7-housekeeping-green-when-fresh/package)
-M8-daily-bot-capped-at-an-hour: FIXES-R4: 71 of 75 pass (/tmp/claude-0/-home-user-JV-repository/3e2a0929-716b-5dcd-84cd-81a64869e8ab/scratchpad/runall/mut/M8-daily-bot-capped-at-an-hour/package)
-M9-two-answers-on-a-card: FIXES-R4: 71 of 75 pass (/tmp/claude-0/-home-user-JV-repository/3e2a0929-716b-5dcd-84cd-81a64869e8ab/scratchpad/runall/mut/M9-two-answers-on-a-card/package)
-M10-search-reads-state-lines: FIXES-R4: 72 of 75 pass (/tmp/claude-0/-home-user-JV-repository/3e2a0929-716b-5dcd-84cd-81a64869e8ab/scratchpad/runall/mut/M10-search-reads-state-lines/package)
+M6-267009-is-failed: FIXES-R4: 74 of 75 pass (/tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/final/mut/M6-267009-is-failed/package)
+M7-housekeeping-green-when-fresh: FIXES-R4: 74 of 75 pass (/tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/final/mut/M7-housekeeping-green-when-fresh/package)
+M8-daily-bot-capped-at-an-hour: FIXES-R4: 71 of 75 pass (/tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/final/mut/M8-daily-bot-capped-at-an-hour/package)
+M9-two-answers-on-a-card: FIXES-R4: 71 of 75 pass (/tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/final/mut/M9-two-answers-on-a-card/package)
+M10-search-reads-state-lines: FIXES-R4: 72 of 75 pass (/tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/final/mut/M10-search-reads-state-lines/package)
 M11-bots-strip-ignores-failed-bots: FIXES R5: 193 of 194 pass
 M12-strip-ignores-the-cards: INVARIANT R6: 129 of 249 pass (28 named worlds, 150 random worlds)
 M13-running-task-never-stuck: FIXES R5: 182 of 194 pass
@@ -23,14 +23,14 @@ M22-miami-check-date-ignored: INVARIANT R6: 247 of 249 pass (28 named worlds, 15
 M23-old-numbers-shown-plain: INVARIANT R6: 248 of 249 pass (28 named worlds, 150 random worlds)
 M24-cloud-folder-accepted-for-local: WORDS R7: 43 of 44 pass
 M25-nine-digit-rule-removed: PII UNIT R6: 88 of 113 pass (73 blocked spellings, 32 carried notes, 5 documented false alarms)
-M26-card-rule-removed: PII UNIT R6: 110 of 113 pass (73 blocked spellings, 32 carried notes, 5 documented false alarms)
+M26-card-rule-removed: FIXES R9: 43 of 45 pass (F1 1/2, F2 1/1, F3 3/4, F5 6/6, F6 4/4, F8 2/2, e10 1/1, e31 4/4, e8 1/1, e9 20/20)
 M27-sanitiser-passes-raw-data: 6 of 24 frozen-page scenarios pass
 M28-watchdog-never-trips: WATCHDOG R7: 10 of 13 pass
-M29-one-panel-failure-stops-the-rest: WATCHDOG R7: 12 of 13 pass
-M30-confirmation-tick-removed: PRIVACY MATRIX R7: NO-TICK 4004 of 51909; WRONG-TICK personal 34485 of 34485, ordinary 14520 of 14520; tick behaviour FAIL; page errors 0 (95 personal + 40 ordinary + 8 cannot-catch notes x 369 routes)
-M31-loose-digit-pass-removed: PII UNIT R7: 243 of 252 pass (168 personal notes blocked, 72 ordinary notes carried, 5 documented false alarms)
-M32-encoded-number-pass-removed: PII UNIT R7: 250 of 252 pass (168 personal notes blocked, 72 ordinary notes carried, 5 documented false alarms)
-M33-local-folder-allow-rule-removed: WORDS R7: 38 of 44 pass
+M29-one-panel-failure-stops-the-rest: WATCHDOG R7: 11 of 13 pass
+M30-confirmation-tick-removed: PRIVACY MATRIX R7: NO-TICK 3976 of 51546; WRONG-TICK personal 34485 of 34485, ordinary 14157 of 14157; tick behaviour FAIL; page errors 0 (95 personal + 39 ordinary + 8 cannot-catch notes x 369 routes)
+M31-loose-digit-pass-removed: PII UNIT R7: 243 of 252 pass (168 personal notes blocked, 71 ordinary notes carried, 6 documented false alarms)
+M32-encoded-number-pass-removed: PII UNIT R7: 250 of 252 pass (168 personal notes blocked, 71 ordinary notes carried, 6 documented false alarms)
+M33-local-folder-allow-rule-removed: WORDS R7: 39 of 44 pass
 M34-data-file-can-set-the-clock: WORDS R7: 43 of 44 pass
 M35-jargon-back-on-the-page: WORDS R7: 39 of 44 pass
 M36-removed-interval-words-not-searchable: WORDS R7: 40 of 44 pass
@@ -38,16 +38,32 @@ M37-grey-entry-says-not-fine: WORDS R7: 43 of 44 pass
 M38-queued-status-always-says-ready: STATE-TEXT R8: 4674 of 4689 checks right (9 worlds x 3 tick states x 8 routes, plus queued items)
 M39-no-open-button-sentence-ignores-the-link: STATE-TEXT R8: 4479 of 4899 checks right (9 worlds x 3 tick states x 8 routes, plus queued items)
 M40-phone-card-can-say-one-click: STATE-TEXT R8: 4605 of 4689 checks right (9 worlds x 3 tick states x 8 routes, plus queued items)
-M41-markdown-characters-not-stripped: PII UNIT R8: 200 of 201 pass
-M42-label-rule-removed: PII UNIT R8: 195 of 201 pass
-M43-licence-with-spaces-not-caught: PII UNIT R8: 202 of 203 pass
-M44-zip4-after-any-capital-word: PII UNIT R8: 198 of 201 pass
-M45-twenty-digit-rule-removed: PII UNIT R8: 199 of 201 pass
+M41-markdown-characters-not-stripped: PII UNIT R9: 295 of 296 pass
+M42-label-rule-removed: PII UNIT R9: 291 of 296 pass
+M43-licence-with-spaces-not-caught: PII UNIT R9: 295 of 296 pass
+M44-zip4-after-any-capital-word: PII UNIT R9: 293 of 296 pass
+M45-twenty-digit-rule-removed: PII UNIT R9: 294 of 296 pass
 M46-inherited-keys-are-read: EDGE R8: 53 of 56 pass
 M47-no-zone-time-accepted: EDGE R8: 54 of 56 pass
 M48-status-dir-any-url: EDGE R8: 46 of 56 pass
 M49-miami-id-matches-by-digits: EDGE R8: 54 of 56 pass
 M50-miami-last-row-wins: EDGE R8: 55 of 56 pass
-M51-local-folder-deny-list-only: EDGE R8: 52 of 56 pass
-M52-read-me-says-except-one-link: CLAIMS R8: 70 of 76 claim checks pass; 0 checkable sentences have no test; 6 claims are FALSE; 0 tests are stale. Sentences extracted: {"readme":33,"queued":4,"queued-status":17,"card":5,"verify-header":33,"verify-msgs":73,"install":117,"contract":168,"limits":257}
-M53-read-me-promises-the-guard-catches-all: CLAIMS R8: 71 of 76 claim checks pass; 0 checkable sentences have no test; 5 claims are FALSE; 0 tests are stale. Sentences extracted: {"readme":33,"queued":4,"queued-status":17,"card":5,"verify-header":33,"verify-msgs":73,"install":117,"contract":168,"limits":257}
+M51-local-folder-deny-list-only: EDGE R8: 53 of 56 pass
+M52-read-me-says-except-one-link: CLAIMS R9: sentences read 809 / checkable 431 / proven 244 / exempt 97 / unchanged v3 text 87 / unmapped 1 / false 2; 11 of 17 pass
+M53-guard-sentence-promises-everything: CLAIMS R9: sentences read 810 / checkable 432 / proven 245 / exempt 96 / unchanged v3 text 87 / unmapped 2 / false 2; 10 of 17 pass
+M54-card-rule-with-expiry-removed: FIXES R9: 42 of 45 pass (F1 0/2, F2 1/1, F3 3/4, F5 6/6, F6 4/4, F8 2/2, e10 1/1, e31 4/4, e8 1/1, e9 20/20)
+M55-spanish-hundreds-removed: FIXES R9: 44 of 45 pass (F1 2/2, F2 0/1, F3 4/4, F5 6/6, F6 4/4, F8 2/2, e10 1/1, e31 4/4, e8 1/1, e9 20/20)
+M56-spanish-months-removed: FIXES R9: 44 of 45 pass (F1 2/2, F2 0/1, F3 4/4, F5 6/6, F6 4/4, F8 2/2, e10 1/1, e31 4/4, e8 1/1, e9 20/20)
+M57-labelled-id-rule-removed: FIXES R9: 44 of 45 pass (F1 2/2, F2 1/1, F3 3/4, F5 6/6, F6 4/4, F8 2/2, e10 1/1, e31 4/4, e8 1/1, e9 20/20)
+M58-local-steps-hand-the-save-to-rambo: FIXES R9: 44 of 45 pass (F1 2/2, F2 1/1, F3 4/4, F5 5/6, F6 4/4, F8 2/2, e10 1/1, e31 4/4, e8 1/1, e9 20/20)
+M59-grok-sentence-always-shown: FIXES R9: 44 of 45 pass (F1 2/2, F2 1/1, F3 4/4, F5 6/6, F6 3/4, F8 2/2, e10 1/1, e31 4/4, e8 1/1, e9 20/20)
+M60-whole-page-ignores-grey-reports: FIXES R9: 44 of 45 pass (F1 2/2, F2 1/1, F3 4/4, F5 6/6, F6 4/4, F8 1/2, e10 1/1, e31 4/4, e8 1/1, e9 20/20)
+M61-from-does-not-clear-the-tick: FIXES R9: 44 of 45 pass (F1 2/2, F2 1/1, F3 4/4, F5 6/6, F6 4/4, F8 2/2, e10 1/1, e31 4/4, e8 0/1, e9 20/20)
+M62-other-drive-letter-accepted-with-proof: FIXES R9: 43 of 45 pass (F1 2/2, F2 1/1, F3 4/4, F5 6/6, F6 4/4, F8 2/2, e10 1/1, e31 4/4, e8 1/1, e9 18/20)
+M63-unreadable-bots-file-still-green: FIXES R9: 44 of 45 pass (F1 2/2, F2 1/1, F3 4/4, F5 6/6, F6 4/4, F8 2/2, e10 0/1, e31 4/4, e8 1/1, e9 20/20)
+M64-step-line-over-25-words: FIXES R9: 43 of 45 pass (F1 2/2, F2 1/1, F3 4/4, F5 6/6, F6 4/4, F8 2/2, e10 1/1, e31 2/4, e8 1/1, e9 20/20)
+M65-verify-counts-all-files-as-page-files: FIXES R9: 46 of 48 pass (F1 2/2, F2 1/1, F3 4/4, F5 6/6, F6 4/4, F7 1/3, F8 2/2, e10 1/1, e31 4/4, e8 1/1, e9 20/20)
+M66-read-me-has-an-eleventh-sentence: CLAIMS R9: sentences read 810 / checkable 431 / proven 245 / exempt 96 / unchanged v3 text 87 / unmapped 1 / false 2; 10 of 16 pass
+M67-tick-message-forgets-from: CLAIMS R9: sentences read 809 / checkable 431 / proven 241 / exempt 96 / unchanged v3 text 87 / unmapped 1 / false 6; 11 of 20 pass
+M68-grok-sentence-says-red-when-grey: FIXES R9: 44 of 45 pass (F1 2/2, F2 1/1, F3 4/4, F5 6/6, F6 3/4, F8 2/2, e10 1/1, e31 4/4, e8 1/1, e9 20/20)
+M69-local-folder-with-line-break-accepted: FIXES R9: 41 of 45 pass (F1 2/2, F2 1/1, F3 4/4, F5 6/6, F6 4/4, F8 2/2, e10 1/1, e31 4/4, e8 1/1, e9 16/20)

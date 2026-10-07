@@ -1,12 +1,12 @@
 {
  "test": "test-privacy-matrix-r7",
  "personal_notes": 95,
- "ordinary_notes": 40,
+ "ordinary_notes": 39,
  "cannot_catch_notes": 8,
  "routes": 369,
  "noTick": {
-  "n": 51909,
-  "ok": 51909,
+  "n": 51546,
+  "ok": 51546,
   "bad": []
  },
  "wrongTick": {
@@ -16,8 +16,8 @@
    "bad": []
   },
   "ordinary": {
-   "n": 14520,
-   "ok": 14520,
+   "n": 14157,
+   "ok": 14157,
    "bad": []
   },
   "cannot": {
@@ -33,7 +33,7 @@
   "localNeedsNoTick": true,
   "emptyNoteNeedsNoTick": true
  },
- "pass": 100916,
- "total": 100916,
+ "pass": 100190,
+ "total": 100190,
  "page_errors": 0
 }

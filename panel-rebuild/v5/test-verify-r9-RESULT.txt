@@ -1,6 +1,6 @@
-VERIFY-v5.ps1 under test, SHA-256 f291b8c40afd044af1892649028e87efb39c40dd4a714e3715931f46390ce089; package manifest SHA-256 5436d03b3a5f70a8ece516046bdbe31c8f68677edaeb431f66f1f3a3ec895b0c
+VERIFY-v5.ps1 under test, SHA-256 f291b8c40afd044af1892649028e87efb39c40dd4a714e3715931f46390ce089; package manifest SHA-256 816e2efa6170f93699aca9e6c2274c51d260fa2c5f4d4bd62b9bf808dc6e4ad0
 PowerShell: 7.4.6; real v3: 28d3ed5e6b8e5713c079afd349b10a3c4b38993768ca850c91c6f6c333411fe3; package files in the manifest: 11 (of which 8 are data or settings files)
-Telemetry/update-check env: POWERSHELL_TELEMETRY_OPTOUT=1 POWERSHELL_UPDATECHECK=Off DOTNET_CLI_TELEMETRY_OPTOUT=1 HOME=/tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/vw9/home
+Telemetry/update-check env: POWERSHELL_TELEMETRY_OPTOUT=1 POWERSHELL_UPDATECHECK=Off DOTNET_CLI_TELEMETRY_OPTOUT=1 HOME=/tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/final/vw9/home
 == R-A: after writers, k of the eight data and settings files rewritten (k = 1..8): the line counts page files, identical data files and changed data files apart, and they add up
     | OK (after writers): all 11 of 11 package files are present and readable. 3 page and script files are identical (SHA-256). 7 data or settings file(s) are identical (SHA-256). 1 data or settings file(s) were changed by a PC wr
     |   changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
@@ -11,7 +11,7 @@ Telemetry/update-check env: POWERSHELL_TELEMETRY_OPTOUT=1 POWERSHELL_UPDATECHECK
   PASS RA1: does NOT print "EDITED"
   PASS RA1: does NOT print "PROBLEMS"
   PASS RA1: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RA1: finished in 1 s (limit 58 s, never hangs)
+  PASS RA1: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RA1: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RA1: AS EXPECTED; fixture identical before and after: YES
@@ -27,7 +27,7 @@ SCENARIO RA1: AS EXPECTED; fixture identical before and after: YES
   PASS RA2: does NOT print "EDITED"
   PASS RA2: does NOT print "PROBLEMS"
   PASS RA2: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RA2: finished in 1 s (limit 58 s, never hangs)
+  PASS RA2: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RA2: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RA2: AS EXPECTED; fixture identical before and after: YES
@@ -81,7 +81,7 @@ SCENARIO RA4: AS EXPECTED; fixture identical before and after: YES
   PASS RA5: does NOT print "EDITED"
   PASS RA5: does NOT print "PROBLEMS"
   PASS RA5: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RA5: finished in 0 s (limit 58 s, never hangs)
+  PASS RA5: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RA5: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RA5: AS EXPECTED; fixture identical before and after: YES
@@ -152,7 +152,7 @@ SCENARIO RA8: AS EXPECTED; fixture identical before and after: YES
   PASS RA8: exactly 8 files are listed as changed by a PC writer (found 8)
 == R-B: after writers, k data files rewritten AND one page file edited: PROBLEMS, never OK
     | PROBLEMS (1); 9 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 d7ec9d1159a3615b3312500ea71932e062a51b6efb18ccfa6d33bc228fcc0b7b but the manifest says 72f0d0602cbf8ba1735fcc727b2685a4aa152c8f6a8e35a8616ef21c7b72f3a5.
+    |   EDITED: vtes5-live.js has SHA-256 3befd0e42d420f946891d433442150d7ed0c2d64a4282d508eb9bca63b5e5d1a but the manifest says 1b509915709563f34f74dbd709b009aeec677d8825a0335d1fae173ff303c271.
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
@@ -162,12 +162,12 @@ SCENARIO RA8: AS EXPECTED; fixture identical before and after: YES
   PASS RB1: does NOT say OK
   PASS RB1: does NOT say OK (after writers)
   PASS RB1: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RB1: finished in 1 s (limit 58 s, never hangs)
+  PASS RB1: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RB1: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RB1: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 8 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 d7ec9d1159a3615b3312500ea71932e062a51b6efb18ccfa6d33bc228fcc0b7b but the manifest says 72f0d0602cbf8ba1735fcc727b2685a4aa152c8f6a8e35a8616ef21c7b72f3a5.
+    |   EDITED: vtes5-live.js has SHA-256 3befd0e42d420f946891d433442150d7ed0c2d64a4282d508eb9bca63b5e5d1a but the manifest says 1b509915709563f34f74dbd709b009aeec677d8825a0335d1fae173ff303c271.
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js (SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
     | This script contains no write command, so it changed nothing in the folder.
@@ -178,12 +178,12 @@ SCENARIO RB1: AS EXPECTED; fixture identical before and after: YES
   PASS RB2: does NOT say OK
   PASS RB2: does NOT say OK (after writers)
   PASS RB2: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RB2: finished in 0 s (limit 58 s, never hangs)
+  PASS RB2: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RB2: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RB2: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 7 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 d7ec9d1159a3615b3312500ea71932e062a51b6efb18ccfa6d33bc228fcc0b7b but the manifest says 72f0d0602cbf8ba1735fcc727b2685a4aa152c8f6a8e35a8616ef21c7b72f3a5.
+    |   EDITED: vtes5-live.js has SHA-256 3befd0e42d420f946891d433442150d7ed0c2d64a4282d508eb9bca63b5e5d1a but the manifest says 1b509915709563f34f74dbd709b009aeec677d8825a0335d1fae173ff303c271.
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js (SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-state.js (SHA-256 a9b6e0223e35e50918dcdc4f1bb409b3d38855df6cd364a9446d795c0fc6b4f0)
@@ -200,7 +200,7 @@ SCENARIO RB2: AS EXPECTED; fixture identical before and after: YES
   PASS RB3: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RB3: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 6 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 d7ec9d1159a3615b3312500ea71932e062a51b6efb18ccfa6d33bc228fcc0b7b but the manifest says 72f0d0602cbf8ba1735fcc727b2685a4aa152c8f6a8e35a8616ef21c7b72f3a5.
+    |   EDITED: vtes5-live.js has SHA-256 3befd0e42d420f946891d433442150d7ed0c2d64a4282d508eb9bca63b5e5d1a but the manifest says 1b509915709563f34f74dbd709b009aeec677d8825a0335d1fae173ff303c271.
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js (SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-health.js (SHA-256 bb89fa1a7ed206577ee05531aa24f1e35e0d694228f7a7c392f1b802e76d6fb6)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
@@ -218,7 +218,7 @@ SCENARIO RB3: AS EXPECTED; fixture identical before and after: YES
   PASS RB4: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RB4: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 5 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 d7ec9d1159a3615b3312500ea71932e062a51b6efb18ccfa6d33bc228fcc0b7b but the manifest says 72f0d0602cbf8ba1735fcc727b2685a4aa152c8f6a8e35a8616ef21c7b72f3a5.
+    |   EDITED: vtes5-live.js has SHA-256 3befd0e42d420f946891d433442150d7ed0c2d64a4282d508eb9bca63b5e5d1a but the manifest says 1b509915709563f34f74dbd709b009aeec677d8825a0335d1fae173ff303c271.
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js (SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-health.js (SHA-256 bb89fa1a7ed206577ee05531aa24f1e35e0d694228f7a7c392f1b802e76d6fb6)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
@@ -237,7 +237,7 @@ SCENARIO RB4: AS EXPECTED; fixture identical before and after: YES
   PASS RB5: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RB5: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 4 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 d7ec9d1159a3615b3312500ea71932e062a51b6efb18ccfa6d33bc228fcc0b7b but the manifest says 72f0d0602cbf8ba1735fcc727b2685a4aa152c8f6a8e35a8616ef21c7b72f3a5.
+    |   EDITED: vtes5-live.js has SHA-256 3befd0e42d420f946891d433442150d7ed0c2d64a4282d508eb9bca63b5e5d1a but the manifest says 1b509915709563f34f74dbd709b009aeec677d8825a0335d1fae173ff303c271.
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js (SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-health.js (SHA-256 bb89fa1a7ed206577ee05531aa24f1e35e0d694228f7a7c392f1b802e76d6fb6)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
@@ -257,7 +257,7 @@ SCENARIO RB5: AS EXPECTED; fixture identical before and after: YES
   PASS RB6: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RB6: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 3 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 d7ec9d1159a3615b3312500ea71932e062a51b6efb18ccfa6d33bc228fcc0b7b but the manifest says 72f0d0602cbf8ba1735fcc727b2685a4aa152c8f6a8e35a8616ef21c7b72f3a5.
+    |   EDITED: vtes5-live.js has SHA-256 3befd0e42d420f946891d433442150d7ed0c2d64a4282d508eb9bca63b5e5d1a but the manifest says 1b509915709563f34f74dbd709b009aeec677d8825a0335d1fae173ff303c271.
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js (SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-health.js (SHA-256 bb89fa1a7ed206577ee05531aa24f1e35e0d694228f7a7c392f1b802e76d6fb6)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
@@ -278,7 +278,7 @@ SCENARIO RB6: AS EXPECTED; fixture identical before and after: YES
   PASS RB7: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RB7: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 2 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 d7ec9d1159a3615b3312500ea71932e062a51b6efb18ccfa6d33bc228fcc0b7b but the manifest says 72f0d0602cbf8ba1735fcc727b2685a4aa152c8f6a8e35a8616ef21c7b72f3a5.
+    |   EDITED: vtes5-live.js has SHA-256 3befd0e42d420f946891d433442150d7ed0c2d64a4282d508eb9bca63b5e5d1a but the manifest says 1b509915709563f34f74dbd709b009aeec677d8825a0335d1fae173ff303c271.
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-bots.js (SHA-256 68e14fa3ea19f7919e86c0c00c1966c12c30e95b4a315cd9016063458a85dac5)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-health.js (SHA-256 bb89fa1a7ed206577ee05531aa24f1e35e0d694228f7a7c392f1b802e76d6fb6)
     |   (not a problem) changed by a PC writer (passes the strict shape check): data/vtes5-heartbeat.js (SHA-256 4f5bb552092564085ee4a06ea84f6b14ecda19fecaf945405deb4152e02f9b50)
@@ -295,13 +295,13 @@ SCENARIO RB7: AS EXPECTED; fixture identical before and after: YES
   PASS RB8: does NOT say OK
   PASS RB8: does NOT say OK (after writers)
   PASS RB8: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RB8: finished in 0 s (limit 58 s, never hangs)
+  PASS RB8: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RB8: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RB8: AS EXPECTED; fixture identical before and after: YES
 == R-C: a single page file edited, no switch: that file is EDITED, the count of identical files is NF-1
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: VTES-LLM-LAUNCHER_v5.html has SHA-256 f70038a70c86c805aa71f77fe8d59c3e9038ec835360cc576e42a68fc16f4f0e but the manifest says 43066e7097bb35a17384f37f9bdf7ab0c8ff37e6f56583c99af4acb37c9607ac.
+    |   EDITED: VTES-LLM-LAUNCHER_v5.html has SHA-256 513000a35aeeec655f7beedc786746f53c302a568be0e0a08512bb19a4bdb9d3 but the manifest says d03afb2f86eb65dedfdd1975531f2075874fbb0f5323efd7fb580662a74a4c3c.
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS RC-VTES-LLM-LAUNCHER_v5.html: exit code 1
@@ -315,7 +315,7 @@ SCENARIO RB8: AS EXPECTED; fixture identical before and after: YES
   PASS RC-VTES-LLM-LAUNCHER_v5.html: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RC-VTES-LLM-LAUNCHER_v5.html: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: vtes5-live.js has SHA-256 d7ec9d1159a3615b3312500ea71932e062a51b6efb18ccfa6d33bc228fcc0b7b but the manifest says 72f0d0602cbf8ba1735fcc727b2685a4aa152c8f6a8e35a8616ef21c7b72f3a5.
+    |   EDITED: vtes5-live.js has SHA-256 3befd0e42d420f946891d433442150d7ed0c2d64a4282d508eb9bca63b5e5d1a but the manifest says 1b509915709563f34f74dbd709b009aeec677d8825a0335d1fae173ff303c271.
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS RC-vtes5-live.js: exit code 1
@@ -329,7 +329,7 @@ SCENARIO RC-VTES-LLM-LAUNCHER_v5.html: AS EXPECTED; fixture identical before and
   PASS RC-vtes5-live.js: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RC-vtes5-live.js: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 10 of 11 package files are identical:
-    |   EDITED: vtes5-ui.js has SHA-256 a128007712f765524246a8e1a4193ca2963cc19a6794bdf56f7acafff98b42b4 but the manifest says 13010e826b7dff6b448fd2b9ac055e3f9467651681f5acc04caeefa010a8d659.
+    |   EDITED: vtes5-ui.js has SHA-256 ce29d4a61844677f0b591db4d4715932ee7aab317444eb60db0509e134da6b85 but the manifest says 3b3a73f0dff94c3f144f532cde302991730d8d2f6e83467c6e70f2e8b421972a.
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS RC-vtes5-ui.js: exit code 1
@@ -338,7 +338,7 @@ SCENARIO RC-vtes5-live.js: AS EXPECTED; fixture identical before and after: YES
   PASS RC-vtes5-ui.js: does NOT say OK
   PASS RC-vtes5-ui.js: does NOT say OK (after writers)
   PASS RC-vtes5-ui.js: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RC-vtes5-ui.js: finished in 1 s (limit 58 s, never hangs)
+  PASS RC-vtes5-ui.js: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RC-vtes5-ui.js: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RC-vtes5-ui.js: AS EXPECTED; fixture identical before and after: YES
@@ -423,7 +423,7 @@ SCENARIO RD-tokens: AS EXPECTED; fixture identical before and after: YES
   PASS RD-housekeeping: does NOT say OK
   PASS RD-housekeeping: does NOT say OK (after writers)
   PASS RD-housekeeping: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RD-housekeeping: finished in 0 s (limit 58 s, never hangs)
+  PASS RD-housekeeping: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RD-housekeeping: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RD-housekeeping: AS EXPECTED; fixture identical before and after: YES
@@ -592,7 +592,7 @@ SCENARIO RE-data/vtes5-housekeeping.js: AS EXPECTED; fixture identical before an
   PASS RE-data/vtes5-miamidade.js: does NOT say OK
   PASS RE-data/vtes5-miamidade.js: does NOT say OK (after writers)
   PASS RE-data/vtes5-miamidade.js: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RE-data/vtes5-miamidade.js: finished in 0 s (limit 58 s, never hangs)
+  PASS RE-data/vtes5-miamidade.js: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 15 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RE-data/vtes5-miamidade.js: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RE-data/vtes5-miamidade.js: AS EXPECTED; fixture identical before and after: YES
@@ -627,12 +627,12 @@ SCENARIO RF1: AS EXPECTED; fixture identical before and after: YES
   PASS RF2: exit code 0
   PASS RF2: prints "OK: all 11 of 11 package files"
   PASS RF2: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RF2: finished in 1 s (limit 58 s, never hangs)
+  PASS RF2: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RF2: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RF2: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   MANIFEST CHANGED: its SHA-256 is 5436d03b3a5f70a8ece516046bdbe31c8f68677edaeb431f66f1f3a3ec895b0c but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the manifest itself is not the on
+    |   MANIFEST CHANGED: its SHA-256 is 816e2efa6170f93699aca9e6c2274c51d260fa2c5f4d4bd62b9bf808dc6e4ad0 but the order expects 0000000000000000000000000000000000000000000000000000000000000000 (so the manifest itself is not the on
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS RF3: exit code 1
@@ -641,7 +641,7 @@ SCENARIO RF2: AS EXPECTED; fixture identical before and after: YES
   PASS RF3: does NOT say OK
   PASS RF3: does NOT say OK (after writers)
   PASS RF3: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RF3: finished in 1 s (limit 58 s, never hangs)
+  PASS RF3: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RF3: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RF3: AS EXPECTED; fixture identical before and after: YES
@@ -652,7 +652,7 @@ SCENARIO RF3: AS EXPECTED; fixture identical before and after: YES
   PASS RF4: prints "OK: all 11 of 11 package files are present, readable and identical (SHA-256)"
   PASS RF4: does NOT print "OK (after writers)"
   PASS RF4: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RF4: finished in 0 s (limit 58 s, never hangs)
+  PASS RF4: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RF4: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RF4: AS EXPECTED; fixture identical before and after: YES
@@ -732,12 +732,12 @@ SCENARIO RG3-vtes5-ui.js: AS EXPECTED; fixture identical before and after: YES
   PASS RG4: does NOT say OK
   PASS RG4: does NOT say OK (after writers)
   PASS RG4: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RG4: finished in 0 s (limit 58 s, never hangs)
+  PASS RG4: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RG4: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RG4: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); no count of identical files is given, because a link was found:
-    |   LINK IN PATH: the parent folder /tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/vw9/fix/DocsLink is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/7e7de169-15
+    |   LINK IN PATH: the parent folder /tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/final/vw9/fix/DocsLink is a link or junction (it points to /tmp/claude-0/-home-user-JV-repository/7e7de
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS RG5: exit code 1
@@ -751,7 +751,7 @@ SCENARIO RG4: AS EXPECTED; fixture identical before and after: YES
   SHA-256 of 28 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RG5: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RG5: AS EXPECTED; fixture identical before and after: YES
-    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/vw9/fix/Docs/v5/../v5" contains "..". Give the plain full path with no "." or ".." in it
+    | CANNOT CHECK: the path "/tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/final/vw9/fix/Docs/v5/../v5" contains "..". Give the plain full path with no "." or ".." in it
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS RG6: exit code 2
@@ -760,7 +760,7 @@ SCENARIO RG5: AS EXPECTED; fixture identical before and after: YES
   PASS RG6: does NOT say OK
   PASS RG6: does NOT say OK (after writers)
   PASS RG6: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RG6: finished in 1 s (limit 58 s, never hangs)
+  PASS RG6: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RG6: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RG6: AS EXPECTED; fixture identical before and after: YES
@@ -773,11 +773,11 @@ SCENARIO RG6: AS EXPECTED; fixture identical before and after: YES
   PASS RG7: does NOT say OK
   PASS RG7: does NOT say OK (after writers)
   PASS RG7: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RG7: finished in 0 s (limit 58 s, never hangs)
+  PASS RG7: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RG7: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RG7: AS EXPECTED; fixture identical before and after: YES
-    | CANNOT CHECK: the folder "/tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/vw9/fix/nothere" does not exist (or is not a folder)
+    | CANNOT CHECK: the folder "/tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/final/vw9/fix/nothere" does not exist (or is not a folder)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=2
   PASS RG8: exit code 2
@@ -786,7 +786,7 @@ SCENARIO RG7: AS EXPECTED; fixture identical before and after: YES
   PASS RG8: does NOT say OK
   PASS RG8: does NOT say OK (after writers)
   PASS RG8: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RG8: finished in 1 s (limit 58 s, never hangs)
+  PASS RG8: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RG8: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RG8: AS EXPECTED; fixture identical before and after: YES
@@ -805,7 +805,7 @@ SCENARIO RG8: AS EXPECTED; fixture identical before and after: YES
   PASS RG9: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RG9: AS EXPECTED; fixture identical before and after: YES
     | PROBLEMS (1); 11 of 11 package files are identical:
-    |   WRONG PLACE: the folder is inside a git checkout (found .git in /tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/vw9/fix/co)
+    |   WRONG PLACE: the folder is inside a git checkout (found .git in /tmp/claude-0/-home-user-JV-repository/7e7de169-15ae-5f8c-90a3-924dadcc7f28/scratchpad/final/vw9/fix/co)
     | This script contains no write command, so it changed nothing in the folder.
     | exit=1
   PASS RG10: exit code 1
@@ -856,7 +856,7 @@ SCENARIO RH2: AS EXPECTED; fixture identical before and after: YES
   PASS RH3: does NOT say OK
   PASS RH3: does NOT say OK (after writers)
   PASS RH3: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RH3: finished in 0 s (limit 58 s, never hangs)
+  PASS RH3: finished in 1 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RH3: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RH3: AS EXPECTED; fixture identical before and after: YES
@@ -897,7 +897,7 @@ SCENARIO RH5: AS EXPECTED; fixture identical before and after: YES
   PASS RH6: does NOT say OK
   PASS RH6: does NOT say OK (after writers)
   PASS RH6: does not claim "Nothing was written anywhere" (flaw N18: a script cannot know that)
-  PASS RH6: finished in 1 s (limit 58 s, never hangs)
+  PASS RH6: finished in 0 s (limit 58 s, never hangs)
   SHA-256 of 16 files + type/mode/size/mtime/link target of every entry before == after: IDENTICAL
   PASS RH6: VERIFY wrote nothing (whole fixture identical before and after)
 SCENARIO RH6: AS EXPECTED; fixture identical before and after: YES

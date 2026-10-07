@@ -8,13 +8,13 @@
   ],
   [
    "ordinary notes carried",
-   56,
-   56
+   55,
+   55
   ],
   [
    "disclosed false alarms still blocked",
-   6,
-   6
+   7,
+   7
   ],
   [
    "a note over 20,000 characters is blocked, a 20,000-character ordinary note is carried",
@@ -30,7 +30,7 @@
  "misses_listed": 8,
  "misses_still_missed": 8,
  "misses_now_caught": [],
- "ms_for_20000_chars": 0,
+ "ms_for_20000_chars": 1,
  "pass": 203,
  "total": 203
 }

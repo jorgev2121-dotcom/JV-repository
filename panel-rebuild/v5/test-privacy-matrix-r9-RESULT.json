@@ -1,23 +1,23 @@
 {
- "test": "test-privacy-matrix-r8",
- "personal_notes": 139,
- "ordinary_notes": 55,
+ "test": "test-privacy-matrix-r9",
+ "personal_notes": 202,
+ "ordinary_notes": 88,
  "cannot_catch_notes": 16,
  "routes": 369,
  "noTick": {
-  "n": 76230,
-  "ok": 76230,
+  "n": 111078,
+  "ok": 111078,
   "bad": []
  },
  "wrongTick": {
   "personal": {
-   "n": 50457,
-   "ok": 50457,
+   "n": 73326,
+   "ok": 73326,
    "bad": []
   },
   "ordinary": {
-   "n": 19965,
-   "ok": 19965,
+   "n": 31944,
+   "ok": 31944,
    "bad": []
   },
   "cannot": {
@@ -33,7 +33,7 @@
   "localNeedsNoTick": true,
   "emptyNoteNeedsNoTick": true
  },
- "pass": 146654,
- "total": 146654,
+ "pass": 216350,
+ "total": 216350,
  "page_errors": 0
 }

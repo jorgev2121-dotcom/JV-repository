@@ -1,6 +1,6 @@
 {
  "test": "test-fixes-r9",
- "pass": 47,
+ "pass": 48,
  "total": 48,
  "groups": {
   "F1": {
@@ -37,7 +37,7 @@
   },
   "e10": {
    "n": 1,
-   "ok": 0
+   "ok": 1
   },
   "e8": {
    "n": 1,
@@ -51,13 +51,13 @@
  "checks": [
   {
    "grp": "F1",
-   "name": "a card number with its expiry or other digits is caught (20 of 20)",
+   "name": "a card number with its expiry or other digits is caught (23 of 23)",
    "ok": true,
    "ev": ""
   },
   {
    "grp": "F2",
-   "name": "Spanish number words, tens joined with y, months and birth words are caught (13 of 13)",
+   "name": "Spanish number words, tens joined with y, months and birth words are caught (16 of 16)",
    "ok": true,
    "ev": ""
   },
@@ -101,11 +101,11 @@
    "grp": "F5",
    "name": "confirmed folder: the steps open the folder, make the file, name it, paste and save, by hand",
    "ok": true,
-   "ev": "There is no window. Press the  / Client personal data goes to L / Do not press the blue RAMBO bu / Open File Explorer. Open the l / Click View, then Show, then Fi / Right-click an empty spot in t / Type the name JOB-something.md / Check that the name ends in .m / Double-click the file to open  / You"
+   "ev": "There is no window. Press the  / Do NOT paste this packet into  / Do NOT send client personal da / Do NOT press the blue RAMBO bu / Open File Explorer. Open the l / Click View, then Show, then Fi / Right-click an empty spot in t / Type the name JOB-something.md / Check that the name ends in .m / Dou"
   },
   {
    "grp": "F5",
-   "name": "confirmed folder: the card says client data never goes to RAMBO or any Claude window",
+   "name": "confirmed folder: the card says not to send client data to RAMBO or any Claude window",
    "ok": true,
    "ev": ""
   },
@@ -147,7 +147,7 @@
   },
   {
    "grp": "e31",
-   "name": "every step line on every card is at most 25 words (43 lines)",
+   "name": "every step line on every card is at most 25 words (44 lines)",
    "ok": true,
    "ev": ""
   },
@@ -191,31 +191,31 @@
    "grp": "e9",
    "name": "no proof: label \"D:\\\\VTES-LOCAL\\\\\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"D:\\VTES-LOCAL\\\") has no name, is not a plain one-line"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"D:\\VTES-LOCAL\\\") has no name, has a line break or a n"
   },
   {
    "grp": "e9",
    "name": "no proof: label \"Z:\\\\Private\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"Z:\\Private\") has no name, is not a plain one-line C:\\"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"Z:\\Private\") has no name, has a line break or a non-A"
   },
   {
    "grp": "e9",
    "name": "no proof: label \"C:\\\\VTES-LOCAL\\\\\\nG:\\\\My Drive\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?G:\\My Drive\") has no name, is not a pl"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?G:\\My Drive\") has no name, has a line "
   },
   {
    "grp": "e9",
    "name": "no proof: label \"C:\\\\VTES-LOCAL\\\\а\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, is not a plain one-lin"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, has a line break or a "
   },
   {
    "grp": "e9",
    "name": "no proof: label \"C:\\\\VTES-LOCAL\\\\Ｃ\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, is not a plain one-lin"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, has a line break or a "
   },
   {
    "grp": "e9",
@@ -233,49 +233,49 @@
    "grp": "e9",
    "name": "no proof: label \"VTES-LOCAL\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"VTES-LOCAL\") has no name, is not a plain one-line C:\\"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder name the PC reports (\"VTES-LOCAL\") is not under C:\\VTES-LOCAL\\ or C:\\A"
   },
   {
    "grp": "e9",
    "name": "no proof: label \"\\\\\\\\server\\\\share\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"\\\\server\\share\") has no name, is not a plain one-line"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"\\\\server\\share\") has no name, has a line break or a n"
   },
   {
    "grp": "e9",
    "name": "no proof: label \"C:\\\\Users\\\\JV\\\\OneDrive\\\\x\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\Users\\JV\\OneDrive\\x\") has no name, is not a plain "
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\Users\\JV\\OneDrive\\x\") has no name, has a line brea"
   },
   {
    "grp": "e9",
    "name": "with proof: label \"D:\\\\VTES-LOCAL\\\\\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"D:\\VTES-LOCAL\\\") has no name, is not a plain one-line"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"D:\\VTES-LOCAL\\\") has no name, has a line break or a n"
   },
   {
    "grp": "e9",
    "name": "with proof: label \"Z:\\\\Private\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"Z:\\Private\") has no name, is not a plain one-line C:\\"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"Z:\\Private\") has no name, has a line break or a non-A"
   },
   {
    "grp": "e9",
    "name": "with proof: label \"C:\\\\VTES-LOCAL\\\\\\nG:\\\\My Drive\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?G:\\My Drive\") has no name, is not a pl"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?G:\\My Drive\") has no name, has a line "
   },
   {
    "grp": "e9",
    "name": "with proof: label \"C:\\\\VTES-LOCAL\\\\а\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, is not a plain one-lin"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, has a line break or a "
   },
   {
    "grp": "e9",
    "name": "with proof: label \"C:\\\\VTES-LOCAL\\\\Ｃ\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, is not a plain one-lin"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, has a line break or a "
   },
   {
    "grp": "e9",
@@ -291,27 +291,27 @@
   },
   {
    "grp": "e9",
-   "name": "with proof: label \"VTES-LOCAL\" is refused",
+   "name": "with proof: label \"VTES-LOCAL\" is CONFIRMED",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"VTES-LOCAL\") has no name, is not a plain one-line C:\\"
+   "ev": "LOCAL save step: CONFIRMED as of Oct 6, 1:30 PM EDT: the PC reports a local-only folder named \"VTES-LOCAL\" (outside Goog"
   },
   {
    "grp": "e9",
    "name": "with proof: label \"\\\\\\\\server\\\\share\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"\\\\server\\share\") has no name, is not a plain one-line"
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"\\\\server\\share\") has no name, has a line break or a n"
   },
   {
    "grp": "e9",
    "name": "with proof: label \"C:\\\\Users\\\\JV\\\\OneDrive\\\\x\" is refused",
    "ok": true,
-   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\Users\\JV\\OneDrive\\x\") has no name, is not a plain "
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\Users\\JV\\OneDrive\\x\") has no name, has a line brea"
   },
   {
    "grp": "e10",
-   "name": "with an unreadable bots file and an unreadable window file no window or bot card is green (1 green)",
-   "ok": false,
-   "ev": "LOCAL save step: CON"
+   "name": "with an unreadable bots file and an unreadable window file no window or bot card is green (0 green)",
+   "ok": true,
+   "ev": ""
   },
   {
    "grp": "e8",

@@ -1,11 +1,23 @@
 routes: 369
-NO-TICK mode: 108900 of 108900 route checks right (300 notes)
-node:internal/process/promises:394
-    triggerUncaughtException(err, true /* fromPromise */);
-    ^
-
-page.evaluate: Target page, context or browser has been closed
-    at run (/home/user/JV-repository/panel-rebuild/v5/test-privacy-matrix-r9.js:26:33)
-    at /home/user/JV-repository/panel-rebuild/v5/test-privacy-matrix-r9.js:70:23
-
-Node.js v22.22.0
+NO-TICK mode: 111078 of 111078 route checks right (306 notes)
+WRONG-TICK mode, personal notes: 61266 of 73326 route checks right
+  "4111 1111 1111 1111 12/29" via big copy button on card-LLM-01 (to LLM-01): CARRIED
+  "4111 1111 1111 1111 12/29" via big copy button on card-LLM-03 (to LLM-03): CARRIED
+  "4111 1111 1111 1111 12/29" via big copy button on card-LLM-05 (to LLM-05): CARRIED
+  "4111 1111 1111 1111 12/29" via big copy button on card-LLM-06 (to LLM-06): CARRIED
+  "4111 1111 1111 1111 12/29" via big copy button on card-CODEX (to CODEX): CARRIED
+  "4111 1111 1111 1111 12/29" via big copy button on card-RAMBO (to RAMBO): CARRIED
+  "4111 1111 1111 1111 12/29" via big copy button on card-GROK (to GROK): CARRIED
+  "4111 1111 1111 1111 12/29" via big copy button on card-COWORK (to LLM-03): CARRIED
+WRONG-TICK mode, ordinary notes: 30018 of 31944 route checks right
+  "Bank of America appointment 10/12/2026" via big copy button on card-LLM-01 (to LLM-01): NOT carried, NOT INCLUDED shown
+  "Bank of America appointment 10/12/2026" via big copy button on card-LLM-03 (to LLM-03): NOT carried, NOT INCLUDED shown
+  "Bank of America appointment 10/12/2026" via big copy button on card-LLM-05 (to LLM-05): NOT carried, NOT INCLUDED shown
+  "Bank of America appointment 10/12/2026" via big copy button on card-LLM-06 (to LLM-06): NOT carried, NOT INCLUDED shown
+  "Bank of America appointment 10/12/2026" via big copy button on card-CODEX (to CODEX): NOT carried, NOT INCLUDED shown
+  "Bank of America appointment 10/12/2026" via big copy button on card-RAMBO (to RAMBO): NOT carried, NOT INCLUDED shown
+  "Bank of America appointment 10/12/2026" via big copy button on card-GROK (to GROK): NOT carried, NOT INCLUDED shown
+  "Bank of America appointment 10/12/2026" via big copy button on card-COWORK (to LLM-03): NOT carried, NOT INCLUDED shown
+WRONG-TICK mode, CANNOT-CATCH notes (disclosed limit, not counted): carried on 5360 of 5808 route checks
+tick behaviour: {"goEnabledAfterTick":true,"resetOnNote":true,"reTicked":true,"resetOnRoute":true,"localNeedsNoTick":true,"emptyNoteNeedsNoTick":true}
+PRIVACY MATRIX R9: NO-TICK 111078 of 111078; WRONG-TICK personal 61266 of 73326, ordinary 30018 of 31944; tick behaviour ok; page errors 0 (202 personal + 88 ordinary + 16 cannot-catch notes x 369 routes)
