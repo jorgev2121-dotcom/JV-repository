@@ -33,7 +33,7 @@ The order you are working from gives you ONE full path for the NEW folder. If it
 
 <!-- VERIFY-CMD -->
 ```
-powershell -NoProfile -ExecutionPolicy Bypass -File "G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 b7b88ecd3cfa3c276999982acb729cc9d352a57071af4c5cb2124f363a8167e0
+powershell -NoProfile -ExecutionPolicy Bypass -File "G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 5436d03b3a5f70a8ece516046bdbe31c8f68677edaeb431f66f1f3a3ec895b0c
 ```
 
 10. **Report the answer, word for word.** There are four kinds of answer:

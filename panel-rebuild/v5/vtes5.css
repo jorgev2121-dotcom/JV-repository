@@ -40,3 +40,4 @@ h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 .v5why{display:none;font-size:15px;font-weight:700;color:#b3261e;background:#fdeceb;border:2px solid #b3261e;border-radius:8px;padding:4px 8px;margin:4px 0}button:disabled{opacity:.55;cursor:not-allowed}
 /* fix round 7: the corner PANEL / INDEX box no longer covers the last line of the footer (phones), and the tab bar is never taller than a quarter of a 1536 x 730 screen */
 body{padding-bottom:96px !important}
+.v5next:empty{display:none}

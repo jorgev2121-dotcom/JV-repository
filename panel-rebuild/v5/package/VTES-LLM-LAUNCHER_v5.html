@@ -76,8 +76,9 @@ h2[id],[id]{scroll-margin-top:calc(var(--hdr,200px) + 8px)}
 .v5why{display:none;font-size:0.9375rem;font-weight:700;color:#b3261e;background:#fdeceb;border:2px solid #b3261e;border-radius:8px;padding:4px 8px;margin:4px 0}button:disabled{opacity:.55;cursor:not-allowed}
 /* fix round 7: the corner PANEL / INDEX box no longer covers the last line of the footer (phones), and the tab bar is never taller than a quarter of a 1536 x 730 screen */
 body{padding-bottom:96px !important}
+.v5next:empty{display:none}
 </style></head><body>
-<script>window.VTES5_BUILT = "2026-10-06T21:20:38Z";window.VTES5_TEXT_CHANGES = 34;</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
+<script>window.VTES5_BUILT = "2026-10-07T02:24:26Z";</script><script src="vtes5-config.js"></script><script src="data/vtes5-heartbeat.js"></script><script src="data/vtes5-bots.js"></script><script src="data/vtes5-state.js"></script><script src="data/vtes5-health.js"></script><script src="data/vtes5-tokens.js"></script><script src="data/vtes5-housekeeping.js"></script><script src="data/vtes5-miamidade.js"></script><script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>
 <div class="tabs" id="tabs"></div>
 <div class="v5tabhint" id="v5tabhint"></div>
 <h1>VTES LLM Launcher</h1>
@@ -96,7 +97,7 @@ body{padding-bottom:96px !important}
 <div id="why"></div>
 <label for="note">What do you want done? (dictate or type)</label>
 <textarea id="note" rows="3" placeholder="Example: Check the Bal Harbour permit summary for anything Claude missed."></textarea>
-<div class="gate">Client personal data goes to LOCAL only. This page can check only digits: it CANNOT catch names, home addresses, email addresses, phone numbers or any identifier written in words. Do not type passwords or card numbers here.</div>
+<div class="gate">The tick box is the real protection. The checker is a second layer: it catches many layouts and can miss some. It cannot catch names, addresses, email addresses or phone numbers. Do not type cards, passwords or Social Security numbers here.</div>
 <div class="v5ackrow"><label class="v5ack" for="v5ack"><input type="checkbox" id="v5ack"> This note has NO client personal data (Social Security, bank, card, licence, passport, date of birth, home address)</label><div class="v5ackmsg" id="v5ackmsg" role="status"></div></div>
 <button class="btn" id="go" type="button">Copy packet and open</button><button class="btn alt" id="show" type="button">Just show the packet</button>
 <div id="status" role="status"></div>

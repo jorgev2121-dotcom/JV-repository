@@ -320,6 +320,8 @@
   function executor(id) {
     var hs = status('heartbeat'), lim = limitMin('heartbeat'), now = NOW(), noun = NEEDS_PROOF[id];
     if (hs.state === 'BAD CLOCK' || hs.state === 'NOT OK' || hs.state === 'NO ZONE') { return { state: hs.state, text: hs.text }; }
+    /* fix round 9 (CHECK-10 edge 10): a window check-in file marked UNREADABLE is not trusted at all, so no window it reports can be green */
+    if (hs.state === 'OK' && hs.data && hs.data._bad > 0) { return { state: 'UNREADABLE', text: 'UNREADABLE - the window check-in report has ' + hs.data._bad + ' entries or values that could not be read. Not trusted.' }; }
     var hb = hbReport(id);
     if (hb) {
       if (isNaN(hb.seen.getTime())) { return { state: 'NO DATA', text: 'NO DATA - bad time in this window\'s report' }; }
@@ -427,6 +429,8 @@
     var bs = status('bots');
     if (bs.state === 'NO DATA') { return { state: 'NO DATA', text: 'NO DATA - the bots report file has not been written yet' }; }
     if (bs.state === 'BAD CLOCK' || bs.state === 'NOT OK' || bs.state === 'NO ZONE') { return { state: bs.state, text: bs.text }; }
+    /* fix round 9 (CHECK-10 edge 10): a bots file marked UNREADABLE is not trusted at all, so no bot it reports can be green */
+    if (bs.state === 'OK' && bs.data && bs.data._bad > 0) { return { state: 'UNREADABLE', text: 'UNREADABLE - the bots report has ' + bs.data._bad + ' entries or values that could not be read. Not trusted.' }; }
     var b = bs.data && bs.data.bots && bs.data.bots[name];
     if (!b || typeof b !== 'object') { return { state: bs.state === 'STALE' ? 'STALE' : 'NO DATA', text: bs.state === 'STALE' ? 'STALE since ' + fmt(bs.at) : 'NO DATA - the bots report has no entry for this bot' }; }
     var run = b.last_run_at ? new Date(b.last_run_at) : null, runOk = !!(run && !isNaN(run.getTime()));

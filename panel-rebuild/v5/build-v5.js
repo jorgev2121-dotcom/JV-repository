@@ -11,34 +11,28 @@ h = h.replace(/\r\n/g, '\n'); if (/\r/.test(h)) { throw new Error('a lone CR is 
 // the build time is the real instant this script runs, never hand-set (flaw F3); the page also holds it to the BAD CLOCK rule
 if (process.env.V5_BUILT) { console.log('NOTE: V5_BUILT is ignored. The build time is always the real build instant.'); }
 const BUILT = new Date().toISOString().slice(0, 19) + 'Z';
-// fix round 8 (CHECK-9 flaw 3): the places where the build changes, adds to or removes a line of v3's TEXT are listed here with their reason. The page's Read me prints how many, the same list is written into PORT-REPORT.md,
-// and test-claims-r8.js checks all three agree. A patch that changes v3 words but is not in this table fails the claims test.
-const TEXTWHY = {
-  'title': 'the page title says v5 and carries the TRK number', 'leadlead': 'the repairs lead says TYPED LOG: nothing in the table is checked by the page', 'botslead': 'the bots lead says the lines are read from data files and the desktop executor checks the tasks',
-  'sect7': 'the footer stamp says v5 and the real build time, and the Miami-Dade section sits above it', 'tabs-render': 'each old-panel tab says OLD PANEL, snapshot of 2026-09-02, not live', 'panel-btn': 'the PANEL button says OLD, snapshot, not live', 'index-btn': 'the INDEX button says OLD, snapshot, not live',
-  'url-llm02': 'LLM-02 opens the sessions list, because the typed session address may be an old session', 'url-llm06': 'the Codex CLI card no longer opens chatgpt.com, because Codex runs on the PC',
-  't-llm01': 'a typed schedule (every 2 minutes) is removed: nothing proves it', 't-chief': 'a typed schedule (every 2 minutes) is removed', 't-localexec': 'a typed schedule (every 5 minutes) is removed', 't-orch': 'a typed schedule (every 15 minutes) is removed', 't-prop': 'a typed schedule (hourly) is removed', 't-poller': 'a typed schedule (15-minute) is removed', 't-queued': 'a typed schedule (15 minutes) is removed',
-  't-rambo': 'a typed quota forecast is moved into a dated typed note', 't-codex': 'a typed claim (Proven 2026-10-01) is moved into a dated typed note', 'd9': 'the packet box label said editable but the box is read only', 'stamp': 'packet time stamps now carry the Eastern time zone',
-  'airdrop': 'AirDrop does not exist on a Windows PC', 'how-local': 'the old LOCAL instruction saved client data in a Google Drive folder, which uploads it', 'local-j': 'the LOCAL description claimed "never leaves the PC", which is true only for a confirmed local-only folder', 'local-a': 'the LOCAL address told you to drop files in a Google Drive folder', 'local-pick': 'the picker line claimed PII never leaves the machine',
-  'how-codex': 'a typed command is removed: the desktop executor runs Codex', 'how-rambo': 'the RAMBO how-to line is written as click steps', 'how-llm06': 'a typed command is removed from the LLM-06 line', 'row10': 'repair row 10 labels its typed schedule as a typed note with no time zone', 'gate-line': 'the line under the note box says what the page can and cannot check',
-  'gemini': 'the file name GEMINI.md is removed from the Gemini line', 'footer-rambo': 'registry file names move into a For RAMBO line', 'queued-head': 'the queued heading no longer says one click each', 'queued-lead': 'the queued lead no longer says the page sends a ready packet, and drops a sentence about an older page'
-};
-const TEXTCHANGES = [];
-function rec(name, from, to) { if (TEXTWHY[name]) { const s = x => String(x instanceof RegExp ? x.source : x).replace(/\s+/g, ' ').replace(/[^\x20-\x7e]/g, '?').slice(0, 70); TEXTCHANGES.push({ name, from: s(from), to: s(to), why: TEXTWHY[name] }); } }
-function rep(name, from, to) { if (!(from instanceof RegExp ? from.test(h) : h.includes(from))) { throw new Error('PATCH MISSED: ' + name); } rec(name, from, to); h = h.replace(from, () => to); }
-function repAll(name, from, to, n) { const c = h.split(from).length - 1; if (c !== n) { throw new Error('PATCH COUNT ' + name + ': expected ' + n + ' found ' + c); } rec(name, from, to); h = h.split(from).join(to); }
+// fix round 9 (CHECK-10 flaw 4, Tier 2): every patch is named in patch-table-r9.js with its kind and reason; a patch that is not in the table stops the build, and so does a name in the table that no patch uses.
+// The list of changed lines in PORT-REPORT.md is NOT written by hand or counted from this table: gen-text-diff-r9.js reads the real v3 page and the v5 page in a browser and diffs the lines a person sees.
+const { P: PATCHES, TRANSFORMS } = require('./patch-table-r9.js'); const USED = [];
+function use(name) { if (!PATCHES[name]) { throw new Error('PATCH NOT IN patch-table-r9.js: ' + name); } USED.push(name); }
+function rep(name, from, to) { use(name); if (!(from instanceof RegExp ? from.test(h) : h.includes(from))) { throw new Error('PATCH MISSED: ' + name); } h = h.replace(from, () => to); }
+function repAll(name, from, to, n) { use(name); const c = h.split(from).length - 1; if (c !== n) { throw new Error('PATCH COUNT ' + name + ': expected ' + n + ' found ' + c); } h = h.split(from).join(to); }
+// values the page text is built from, read from the one place they are defined (vtes5-ui.js), so no number or sentence is typed twice
+const UI_SRC = fs.readFileSync(__dirname + '/package/vtes5-ui.js', 'utf8');
+const GUARD_TEXT = (() => { const m = /var GUARD_TEXT = (\[[^\]]*\]);/.exec(UI_SRC); if (!m) { throw new Error('GUARD_TEXT not found in vtes5-ui.js'); } return JSON.parse(m[1].replace(/'/g, '"').replace(/\\"/g, "'")); })();
+const MD_COUNT = (UI_SRC.match(/^    \['(?:0[1-9]|1\d|2\d)', '/gm) || []).length; if (MD_COUNT < 1) { throw new Error('the Miami-Dade source list was not found in vtes5-ui.js'); }
 // --- head ---
 rep('title', '<title>VTES LLM Launcher</title>', '<title>VTES LLM Launcher v5 - TRK-2026-9910-B</title>');
 rep('css', '</style></head>', fs.readFileSync(__dirname + '/vtes5.css', 'utf8') + '</style></head>');
 const SCRIPTS = ['heartbeat', 'bots', 'state', 'health', 'tokens', 'housekeeping', 'miamidade'].map(n => '<script src="data/vtes5-' + n + '.js"></script>').join('');
-rep('scripts', '<body>\n<div class="tabs" id="tabs"></div>', '<body>\n<script>window.VTES5_BUILT = "' + BUILT + '";window.VTES5_TEXT_CHANGES = __TEXT_CHANGES__;</script><script src="vtes5-config.js"></script>' + SCRIPTS + '<script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>\n<div class="tabs" id="tabs"></div>');
+rep('scripts', '<body>\n<div class="tabs" id="tabs"></div>', '<body>\n<script>window.VTES5_BUILT = "' + BUILT + '";</script><script src="vtes5-config.js"></script>' + SCRIPTS + '<script src="vtes5-live.js"></script><script src="vtes5-ui.js"></script>\n<div class="tabs" id="tabs"></div>');
 // --- top block, slots, 7th section ---
 rep('tabhint', '<div class="tabs" id="tabs"></div>\n', '<div class="tabs" id="tabs"></div>\n<div class="v5tabhint" id="v5tabhint"></div>\n');
 rep('top', 'autofocus>\n', 'autofocus>\n<div id="v5top"></div>\n');
 rep('leadlead', '<p class="lead">Maintained by hand in VTES-LLM-LAUNCHER_v3.html. Repairs and enhancements across Jorge\'s windows.</p>', '<p class="lead">TYPED LOG. Maintained by hand in VTES-LLM-LAUNCHER_v3.html; the last row was typed on 2026-10-02. Nothing in this table is checked by this page. Repairs and enhancements across Jorge\'s windows.</p>');
 rep('botslead', '<p class="lead">These run by themselves on the PC. Check any of them with Get-ScheduledTask.</p>\n<div class="grid" id="g-bots">', '<p class="lead">These run by themselves on the PC. The line on each card is read from a data file the PC writes (the Windows scheduler\'s own report); red NO DATA means nothing has written it yet. The desktop executor (RAMBO) checks the tasks on the PC; you type nothing.</p>\n<div id="v5tokens"></div><div id="v5house"></div>\n<div class="grid" id="g-bots">');
 rep('repairslive', '</tbody></table>\n</div></div>\n', '</tbody></table>\n</div></div>\n<div id="v5repairs"></div>\n');
-rep('sect7', '<p class="sub" style="margin-top:30px">TRK-2026-9910-B v3 2026-10-02 CURRENT.', '<h2 id="miamidade">7. Miami-Dade: 22 public sources</h2>\n<p class="lead">Added in v5. Every link opens that source\'s proof file in Drive. The count says unknown until the PC counts.</p>\n<div id="v5miami"></div>\n\n<p class="sub" style="margin-top:30px">TRK-2026-9910-B &middot; v5 &middot; built <span id="v5fb"></span> &middot; CURRENT.');
+rep('sect7', '<p class="sub" style="margin-top:30px">TRK-2026-9910-B v3 2026-10-02 CURRENT.', '<h2 id="miamidade">7. Miami-Dade: ' + MD_COUNT + ' public sources</h2>\n<p class="lead">Added in v5. Every link opens that source\'s proof file in Drive. The count says unknown until the PC counts.</p>\n<div id="v5miami"></div>\n\n<p class="sub" style="margin-top:30px">TRK-2026-9910-B &middot; v5 &middot; built <span id="v5fb"></span> &middot; CURRENT.');
 // --- tabs ---
 rep('tabs-status', "['status','STATUS',1]", "['livestatus','STATUS',1]");
 rep('tabs-add', "['repairs','REPAIRS',1]]", "['repairs','REPAIRS',1],['miamidade','MIAMI-DADE',1]]");
@@ -88,7 +82,7 @@ rep('how-llm06', "how:'Windows Terminal, type codex, Enter, then Ctrl+V. First t
 // F15: the typed schedule on repair row 10 keeps its words and gets a visible label
 rep('row10', '<td>Burn-rate agent installed, runs 7:00 AM daily</td>', '<td>Burn-rate agent installed, runs 7:00 AM daily <span class="v5typed">(typed note 2026-10-02; the note gives no time zone, so this page cannot say which clock it means)</span></td>');
 // --- fix round 7, CLASS 2: the confirmation tick and the honest grey line under the note box ---
-rep('gate-line', '<div class="gate">No card numbers, passwords or Social Security numbers in this box. Client personal data goes to LOCAL only.</div>', '<div class="gate">Client personal data goes to LOCAL only. This page can check only digits: it CANNOT catch names, home addresses, email addresses, phone numbers or any identifier written in words. Do not type passwords or card numbers here.</div>\n<div class="v5ackrow"><label class="v5ack" for="v5ack"><input type="checkbox" id="v5ack"> This note has NO client personal data (Social Security, bank, card, licence, passport, date of birth, home address)</label><div class="v5ackmsg" id="v5ackmsg" role="status"></div></div>');
+rep('gate-line', '<div class="gate">No card numbers, passwords or Social Security numbers in this box. Client personal data goes to LOCAL only.</div>', '<div class="gate">' + GUARD_TEXT.join(' ') + ' Do not type cards, passwords or Social Security numbers here.</div>\n<div class="v5ackrow"><label class="v5ack" for="v5ack"><input type="checkbox" id="v5ack"> This note has NO client personal data (Social Security, bank, card, licence, passport, date of birth, home address)</label><div class="v5ackmsg" id="v5ackmsg" role="status"></div></div>');
 rep('refresh-gate', 'function refresh(){$(\'preview\').value=packet()}', 'function refresh(){$(\'preview\').value=(window.VTES5U&&window.VTES5U.allow&&!window.VTES5U.allow($(\'to\').value))?window.VTES5U.reasonFor($(\'to\').value):packet()}');
 rep('show-gate', "$('show').onclick=function(){refresh();", "$('show').onclick=function(){if(window.VTES5U&&!window.VTES5U.allow($('to').value)){window.VTES5U.applyGate();$('status').textContent=window.VTES5U.reasonFor($('to').value);return}refresh();");
 rep('go-gate', "$('go').onclick=function(){var txt=packet();", "$('go').onclick=function(){if(window.VTES5U&&!window.VTES5U.allow($('to').value)){window.VTES5U.applyGate();$('status').textContent=window.VTES5U.reasonFor($('to').value);return}var txt=packet();");
@@ -116,8 +110,7 @@ tick();
 </body>`);
 // fix round 7 (flaw 25): every pixel font size in the page's style blocks becomes rem, so the browser's own text-size setting works (16 px = 1 rem: nothing changes at the default size)
 h = h.replace(/<style[^>]*>[\s\S]*?<\/style>/g, st => st.replace(/(font-size:|font:(?:\d{3} )?)(\d+(?:\.\d+)?)px/g, (m, a, n) => a + (+n / 16) + 'rem'));
-h = h.replace('__TEXT_CHANGES__', String(TEXTCHANGES.length)); if (h.includes('__TEXT_CHANGES__')) { throw new Error('change count placeholder left'); }
-const missingWhy = Object.keys(TEXTWHY).filter(n => !TEXTCHANGES.some(c => c.name === n)); if (missingWhy.length) { throw new Error('TEXTWHY names with no patch: ' + missingWhy.join(', ')); }
+const unusedPatches = Object.keys(PATCHES).filter(n => !USED.includes(n)); if (unusedPatches.length) { throw new Error('patch-table-r9.js names with no patch: ' + unusedPatches.join(', ')); }
 const PKG = __dirname + '/package';
 fs.writeFileSync(PKG + '/VTES-LLM-LAUNCHER_v5.html', h);
 console.log('built package/VTES-LLM-LAUNCHER_v5.html ' + h.length + ' bytes, built ' + BUILT);
@@ -129,11 +122,8 @@ const files = walk(PKG, '');
 fs.writeFileSync(PKG + '/MANIFEST.sha256', files.map(r => crypto.createHash('sha256').update(fs.readFileSync(PKG + '/' + r)).digest('hex') + '  ' + r).join('\n') + '\n');
 console.log('MANIFEST.sha256: ' + files.length + ' files, manifest SHA-256 ' + crypto.createHash('sha256').update(fs.readFileSync(PKG + '/MANIFEST.sha256')).digest('hex'));
 
-// PORT-REPORT.md: the generated list of every line of v3 text the build changes, adds to or removes (between the two marker lines). The Read me prints the same number.
+// PORT-REPORT.md: Section F is GENERATED by gen-text-diff-r9.js (it diffs the lines a person sees on the real v3 page and on this page, in a browser). The build stops if it cannot.
 {
-  const f = __dirname + '/PORT-REPORT.md'; let d = fs.readFileSync(f, 'utf8');
-  const blk = '<!-- CHANGE-LIST-BEGIN -->\n' + TEXTCHANGES.map((c, i) => (i + 1) + '. ' + c.name + ': ' + c.why + '. (build text: "' + c.from + '" -> "' + c.to + '")').join('\n') + '\n<!-- CHANGE-LIST-END -->';
-  if (/<!-- CHANGE-LIST-BEGIN -->[\s\S]*?<!-- CHANGE-LIST-END -->/.test(d)) { d = d.replace(/<!-- CHANGE-LIST-BEGIN -->[\s\S]*?<!-- CHANGE-LIST-END -->/, () => blk); }
-  else { d = d.replace(/\n*$/, '\n\n## Section F - Every line of v3 text the build changes, adds to or removes (generated by build-v5.js; fix round 8)\nThe Read me on the page prints the number of lines in this list (' + TEXTCHANGES.length + '). The cards, bots, queued items, picker rows, repairs rows and tabs themselves are all still there (test-v3-survives.js).\n' + blk + '\n'); }
-  fs.writeFileSync(f, d); console.log('PORT-REPORT.md change list: ' + TEXTCHANGES.length + ' lines');
+  const r = require('child_process').spawnSync('node', [__dirname + '/gen-text-diff-r9.js'], { encoding: 'utf8', timeout: 600000 });
+  process.stdout.write(r.stdout || ''); if (r.status !== 0) { throw new Error('gen-text-diff-r9.js failed: ' + (r.stderr || '').slice(-500)); }
 }
