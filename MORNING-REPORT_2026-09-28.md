@@ -6,13 +6,13 @@
 
 ## START HERE — MORNING OF 2026-10-07 (written 1:05 AM Miami; refreshed when you wake). Plain, answer first.
 
-**Section A — The answer.** **Your waiting answers are being carried out again, with receipts. The panel is not installed: the seventh independent check is next. Four things need you, and none is technical.**
+**Section A — The answer.** **Your waiting answers are being carried out again, with receipts. The panel is not installed: the eighth independent check is next. Four things need you, and none is technical.**
 
 **Section B — What happened overnight (from Drive files I read).**
 
 1. **The stalled-answers case: proven working.** The cause was the daily limit of 12 jobs plus "newest file wins". The desktop put your answers first. After midnight, six closed in 55 minutes: RED-4 (no lead-list receipt exists; only a $3 REISkip order dated July 31), RED-6, RED-7, and three owner-directive follow-ups.
 2. **The desktop was quiet 5:31 PM to 9:01 PM Miami and came back by itself.** Cause unknown.
-3. **Panel: six independent checks, then a seventh coming.** The sixth found only wording problems: 8 mislead, 0 damage, 0 leak. Round 9 removes the cause (less text, no lists of what the guard catches, a short numbered install document). Nothing is on your PC.
+3. **Panel: seven independent checks done, an eighth coming.** The seventh (CHECK-11, run after round 9) found only TWO small flaws, down from 25. No damage, no leak. The 11,040 page states and the tick-box tests all held. The two flaws: the install check printed a stale step number, and a note meant for LOCAL still ended with a line about pasting it back to Claude. Round 10 (narrow) fixed both. My own spot check of its pushed work (07:54Z to 08:06Z): no copy, move, delete or write commands in the package or the install check; local-packet test 416 of 416 clean; citation test 44 of 44. The builder's final report is not in yet, and the eighth independent check has not run. Nothing is on your PC.
 
 **Section C — What needs you (smallest actions).**
 
