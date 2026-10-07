@@ -1,0 +1,91 @@
+{
+ "test": "test-quotematch-r9",
+ "total": 154,
+ "pass": 93,
+ "bad": [
+  "INSTALL-BY-HAND.md:7 \"N of M identical\"",
+  "INSTALL-BY-HAND.md:9 \"expected edit\"",
+  "INSTALL-BY-HAND.md:24 \"panel-rebuild/v5/package/data/vtes5-heartbeat.js\"",
+  "INSTALL-BY-HAND.md:28 \"VERIFY-v5.ps1 was already there and has the pinned hash; used as it is\"",
+  "INSTALL-BY-HAND.md:29 \"I did not touch the existing file\"",
+  "INSTALL-BY-HAND.md:40 \"N of M package files are identical\"",
+  "KNOWN-LIMITS.md:4 \"file not found\"",
+  "KNOWN-LIMITS.md:22 \"pick the session named RAMBO\"",
+  "KNOWN-LIMITS.md:24 \"Unproven for 31 days\"",
+  "KNOWN-LIMITS.md:28 \"site answers\"",
+  "KNOWN-LIMITS.md:46 \"Address (typed in v3; the desktop executor (RAMBO) runs it, you type nothing): ...\"",
+  "KNOWN-LIMITS.md:46 \"Check any of them with Get-ScheduledTask\"",
+  "KNOWN-LIMITS.md:46 \"type codex\"",
+  "KNOWN-LIMITS.md:47 \"AirDrop or Notes\"",
+  "KNOWN-LIMITS.md:51 \"No card numbers, passwords or Social Security numbers in this box. Client personal data goes to LOCAL only.\"",
+  "KNOWN-LIMITS.md:52 \"never leaves the PC\"",
+  "KNOWN-LIMITS.md:58 \"nothing was written anywhere\"",
+  "KNOWN-LIMITS.md:63 \"First sight\"",
+  "KNOWN-LIMITS.md:73 \"THIS PANEL COULD NOT BE DRAWN - n unreadable entries\"",
+  "KNOWN-LIMITS.md:74 \"Copy packet for X\"",
+  "KNOWN-LIMITS.md:75 \"Order 12345 6789\"",
+  "KNOWN-LIMITS.md:78 \"every button from v3 is still here\"",
+  "KNOWN-LIMITS.md:78 \"except one link\"",
+  "KNOWN-LIMITS.md:81 \"older tests that changed\"",
+  "KNOWN-LIMITS.md:85 \"words that claim more than the page or the script does\"",
+  "KNOWN-LIMITS.md:89 \" are source 01; \"",
+  "KNOWN-LIMITS.md:106 \"one two three, four five, six seven eight nine\"",
+  "DESKTOP-WORK.md:5 \"how does Jorge get the new launcher\"",
+  "DESKTOP-WORK.md:7 \"expected edit\"",
+  "DESKTOP-WORK.md:31 \"Counted so far: n of 300\"",
+  "DESKTOP-WORK.md:36 \"VTES Launcher v5\"",
+  "DATA-CONTRACT.md:27 \"task disabled\"",
+  "DATA-CONTRACT.md:30 \"The exact shape\"",
+  "DATA-CONTRACT.md:34 \"2026-10-06T14:05:00-04:00\"",
+  "DATA-CONTRACT.md:40 \"SOME DOWN\"",
+  "DATA-CONTRACT.md:41 \"Shared drives\"",
+  "DATA-CONTRACT.md:42 \"up|down|unknown\"",
+  "DATA-CONTRACT.md:42 \"ISO (chat-only windows)\"",
+  "DATA-CONTRACT.md:44 \"Ready|Running|Disabled\"",
+  "DATA-CONTRACT.md:44 \"ISO or null\"",
+  "DATA-CONTRACT.md:45 \"RUNNING FOR n HOURS - CHECK\"",
+  "DATA-CONTRACT.md:45 \"STUCK - CHECK. QUEUED for ...\"",
+  "DATA-CONTRACT.md:45 \"STUCK - CHECK. RUNNING for ...\"",
+  "DATA-CONTRACT.md:47 \"live rows\"",
+  "DATA-CONTRACT.md:55 \"PROOF OLD\"",
+  "DATA-CONTRACT.md:59 \"site answers\"",
+  "PORT-REPORT.md:20 \"before/after\"",
+  "PORT-REPORT.md:23 \"pick the session named RAMBO\"",
+  "PORT-REPORT.md:27 \"scheduled every\"",
+  "PORT-REPORT.md:29 \"31 days unproven\"",
+  "PORT-REPORT.md:47 \"or escalates. Every 15 minutes.\"",
+  "PORT-REPORT.md:47 \"ran in the last 15 minutes\"",
+  "PORT-REPORT.md:48 \"editable before pasting\"",
+  "PORT-REPORT.md:50 \"Send the packet with AirDrop or Notes first.\"",
+  "PORT-REPORT.md:50 \"Get the packet onto the iPhone first (see the steps on this card).\"",
+  "PORT-REPORT.md:50 \"your v3 file is untouched ...\"",
+  "PORT-REPORT.md:51 \"Check any of them with Get-ScheduledTask.\"",
+  "PORT-REPORT.md:51 \"Windows Terminal, type codex, Enter, then Ctrl+V. First time: shortcut ...\"",
+  "PORT-REPORT.md:51 \"You type no command: the desktop executor runs Codex for you (see the steps on this card). First time only: th\"",
+  "PORT-REPORT.md:51 \"Address (typed ...\"",
+  "PORT-REPORT.md:64 \"last 15 minutes\""
+ ],
+ "docs": [
+  {
+   "doc": "INSTALL-BY-HAND.md",
+   "quotes": 7
+  },
+  {
+   "doc": "KNOWN-LIMITS.md",
+   "quotes": 51
+  },
+  {
+   "doc": "DESKTOP-WORK.md",
+   "quotes": 9
+  },
+  {
+   "doc": "DATA-CONTRACT.md",
+   "quotes": 40
+  },
+  {
+   "doc": "PORT-REPORT.md",
+   "quotes": 47
+  }
+ ],
+ "verify_scenarios_read": 22
+}

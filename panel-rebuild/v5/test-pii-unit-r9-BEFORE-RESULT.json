@@ -1,0 +1,36 @@
+{
+ "test": "test-pii-unit-r9",
+ "rows": [
+  [
+   "personal notes caught",
+   163,
+   196
+  ],
+  [
+   "ordinary notes carried",
+   82,
+   88
+  ],
+  [
+   "disclosed false alarms still blocked",
+   9,
+   10
+  ],
+  [
+   "a note over 20,000 characters is blocked, a 20,000-character ordinary note is carried",
+   1,
+   1
+  ],
+  [
+   "page errors",
+   1,
+   1
+  ]
+ ],
+ "misses_listed": 8,
+ "misses_still_missed": 8,
+ "misses_now_caught": [],
+ "ms_for_20000_chars": 1,
+ "pass": 256,
+ "total": 296
+}

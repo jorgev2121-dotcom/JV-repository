@@ -1,0 +1,1194 @@
+{
+ "test": "test-claims-r9",
+ "counts": {
+  "read": 851,
+  "checkable": 463,
+  "proven": 193,
+  "exempt": 75,
+  "v3": 87,
+  "unmapped": 87,
+  "failed": 21,
+  "exemptList": [
+   "id-only: 16 sentences",
+   "instruction: 20 sentences",
+   "for-rambo: 3 sentences",
+   "typed-label: 18 sentences",
+   "v3-card-text: 1 sentences",
+   "packet-v3: 17 sentences"
+  ]
+ },
+ "pass": 2,
+ "total": 122,
+ "results": [
+  {
+   "name": "always-run claim: tabs-count-small",
+   "ok": true,
+   "ev": "There are 18 tabs. Some are off the righ / 18"
+  },
+  {
+   "name": "always-run claim: grok-next",
+   "ok": false,
+   "ev": "grok-red: Grok card is not green but has no next-step sentence"
+  },
+  {
+   "name": "entry matches a sentence: no-folder-access",
+   "ok": false,
+   "ev": "no sentence matches this entry (stale entry)"
+  },
+  {
+   "name": "entry matches a sentence: desk-cards-have-steps",
+   "ok": false,
+   "ev": "no sentence matches this entry (stale entry)"
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | Grey NOT PROVEN means only the simple status writer said up, and it checks nothing."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | A web page cannot open a desktop app."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | It misses digits written as words in other languages (it knows English and Spanish) or in other scripts."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | It misses digits with letters between them, digit groups with more than four words between them, and encodings split into pieces."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | The line \"WHOLE PAGE\" at the top of Live status is never greener than the worst card or panel on this page."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | This page does not check them."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | Every time is Eastern time with the zone."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | This page can check only digits: it CANNOT catch names, home addresses, email addresses, phone numbers or any identifier written in words."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | Only if the note holds no client personal data."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | The PC reports it; this page cannot see the folder itself."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | Otherwise a name ending in .md is saved as .md.txt and the job is never picked up."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "page | Until it does, do not save client personal data in any file."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:3 | Anywhere. Fix round 5 removed them (charter Rule 4, Tier 2: a fifth installer flaw means no scripts at all)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:3 | The only script left is VERIFY-v5.ps1."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:3 | It only reads."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:5 | The real v3 launcher is never touched. It stays on the Desktop exactly as it is. v5 is a second, separate folder."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:7 | Fix round 8 changes this document in six places: (1) step 6a now says what git fetch really writes (files inside the checkout's .git folder) and what it does not change; (2) step 6b quotes the real words VERIFY prints for a UTF-16 data file; (3) step 6d tests whether VERIFY-v5.ps1 is already in the parent folder and never overwrites, moves or deletes it; (4) step 10 now says"
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:9 | Fix round 7 changes this document in three places: (1) a fresh install is EXACT: the \"expected edit\" answer is gone, and the -AfterWriters switch is described in step 10; (2) the package is 12 files, not 11 (the 11 named in the manifest plus the manifest): the old text counted 11 and listed 12; (3) VERIFY now checks the data and settings files as DATA."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:11 | Fix round 6 changes this document in four places: (1) where the package and VERIFY come from is written down (step 6, flaw 12); (2) the exact bytes are read from the branch with git show, never from a checkout that was switched to another branch (flaw 12); (3) file names are read back so a hidden extension cannot turn .md into .md.txt (flaw 10); (4) VERIFY says plainly when"
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:11 | Round 6 also let VERIFY say OK when only the eight data and settings files had changed."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:11 | That is no longer true: since round 7 a fresh install is exact, and a changed data or settings file is accepted only when the order adds -AfterWriters and the file passes the strict shape check."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:15 | If it gives no path, a short name, or a path that does not start with the text in step 1, stop and report BLOCKED."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:15 | Never choose a path yourself."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:17 | It must never be the Desktop, never inside a Desktop folder, and never inside a git checkout (for example C:\\Users\\JV\\JV-repository)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:17 | If it is any of those, stop and report BLOCKED."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:18 | If it does not exist, stop and report BLOCKED."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:19 | Check the new folder name is free. If a folder with that name is already there, stop and report BLOCKED."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:21 | Turn on file name extensions, then check where you are. In File Explorer click View, then Show, then File name extensions, so that every name is shown in full."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:21 | It must show exactly the full path from the order."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:21 | If it shows anything else, stop and report BLOCKED."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:21 | The folder must hold only the empty data folder, and none of its parent folders may hold a folder named .git."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:22 | This is where the package comes from. The package exists only on the branch claude/panel-v5-port, in the folder panel-rebuild/v5/package."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:22 | VERIFY-v5.ps1 is NOT in the package: it is one folder up, at panel-rebuild/v5/VERIFY-v5.ps1, on the same branch."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:23 | 6a."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:23 | Fetch, nothing else. In the repo checkout (C:\\Users\\JV\\JV-repository) first run git status and keep its output for step 8."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:23 | Never switch the checkout to this branch."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:23 | Never run pull, merge, reset or checkout there. Write the output of git rev-parse origin/claude/panel-v5-port in the report."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:24 | 6b."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:24 | The package is 12 files: the 11 named in MANIFEST.sha256, plus MANIFEST.sha256 itself."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:24 | They are MANIFEST.sha256, VTES-LLM-LAUNCHER_v5.html, vtes5-config.js, vtes5-live.js, vtes5-ui.js, and in the data folder vtes5-heartbeat.js, vtes5-bots.js, vtes5-state.js, vtes5-health.js, vtes5-tokens.js, vtes5-housekeeping.js, vtes5-miamidade.js."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:24 | For the seven data files the name starts with the folder, for example \"data/vtes5-heartbeat.js\", so its path on the branch is \"panel-rebuild/v5/package/data/vtes5-heartbeat.js\" (a path without \"data/\" does not exist and git says so)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:24 | On day one it prints EDITED: data/vtes5-bots.js (data file) has SHA-256 ... and, in the same line, It is also not a valid data file: data\\vtes5-bots.js is saved as UTF-16 ...."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:24 | The line BAD DATA FILE: ... saved as UTF-16 is what you see with -AfterWriters (on day one it appears only if the manifest itself lists those UTF-16 bytes)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:25 | 6c."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:25 | The branch carries a .gitattributes line (panel-rebuild/v5/ -text) so that even a checkout keeps the bytes, but you still never check this branch out in the PC's working checkout."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:26 | 6d."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:26 | Save VERIFY beside the new folder, not inside it, and never over a file that is already there. The place is G:\\My Drive\\MY-DESK\\VTES-PANEL\\VERIFY-v5.ps1 (the parent folder of the new folder)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:26 | First test whether that file exists: use Test-Path -LiteralPath \"G:\\My Drive\\MY-DESK\\VTES-PANEL\\VERIFY-v5.ps1\" (it only reads), or look in File Explorer with file name extensions on."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:27 | It does NOT exist: read git show origin/claude/panel-v5-port:panel-rebuild/v5/VERIFY-v5.ps1 and save its exact bytes there with your own file tools."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:27 | Its SHA-256 must be dd99ad8af1ad403b325bdaebe307561b3912b7a3334f290bf07763601a2cff43 (read it with Get-FileHash -Algorithm SHA256)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:27 | If it is different, stop and report BLOCKED."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:28 | It DOES exist: never overwrite it, never move it, never delete it, never rename it."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:28 | Read its SHA-256 with Get-FileHash -Algorithm SHA256."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:28 | If it equals the pinned hash in the line above, use that file as it is, say in the report \"VERIFY-v5.ps1 was already there and has the pinned hash; used as it is\", and carry on."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:28 | That is not BLOCKED."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:29 | It exists and its hash is different: save the new copy (the exact bytes from git show, as above) BESIDE it under the name VERIFY-v5.ps1.new-<YYYYMMDD-HHMM> (today's date and the time now, for example VERIFY-v5.ps1.new-20261006-1405)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:29 | First test that this name does not exist yet (the same test as above); if it does, wait for the next minute and use that name."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:29 | Then report BLOCKED with one line for the cloud keeper: what is there (the old file's SHA-256), the new copy's SHA-256, and \"I did not touch the existing file\"."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:30 | Read the names back. In File Explorer, with file name extensions on (step 5), read every file name in the new folder and in data."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:30 | Every name must be exactly one of the 12 above, ending exactly as written, with no .txt added at the end and no hidden extension."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:30 | If a name is wrong, stop and report BLOCKED."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:31 | It must show the same state as before step 6a (this document never changes the checkout's branch or files)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:31 | If not, stop and report BLOCKED."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:32 | Run the read-only check. Open PowerShell and run this one line."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:32 | If PowerShell itself prints a red error about a parameter (a wrong switch, or no -Path), nothing was checked and PowerShell's exit code is 1: paste that text and report BLOCKED."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:36 | powershell -NoProfile -ExecutionPolicy Bypass -File \"G:\\My Drive\\MY-DESK\\VTES-PANEL\\VERIFY-v5.ps1\" -Path \"FULL PATH OF THE NEW FOLDER\" -ExpectManifestSha256 b7b88ecd3cfa3c276999982acb729cc9d352a57071af4c5cb2124f363a8167e0"
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:40 | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder means a fresh install is good."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:41 | That line is the ONLY good answer on day one. A fresh install is exact: any changed file, a data or settings file included, is PROBLEMS (EDITED), and you report BLOCKED."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:41 | The longer form OK (after writers): ... changed by a PC writer and pass the strict shape check exists only for a LATER check, when the order says to add the switch -AfterWriters to the command in step 9 (it then accepts a changed data or settings file only if it passes the strict shape check in DATA-CONTRACT.md)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:41 | Never add the switch on your own, and never accept the longer form on day one."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:42 | PROBLEMS lists every difference, one per line."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:42 | The lines BAD DATA FILE, TOO BIG, NOT A PLAIN FILE, UNREACHABLE, CASE DUPLICATE and LINK OR NOT A PLAIN FILE (for the manifest) are all PROBLEMS too."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:42 | Two lines have their own meaning: LINE ENDINGS CHANGED (CRLF) means the files are right except for Windows line endings, usually from git for Windows: get the exact bytes again by step 6 in a NEW folder name given by Jorge's order."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:42 | LINK IN PATH means the folder, or a folder above it, is a link or junction, so the files may live somewhere else (the Desktop, a git checkout): stop and report BLOCKED with the line, and do not choose another path yourself."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:42 | When any LINK or LINK IN PATH line is there, VERIFY prints no \"N of M package files are identical\" count at all, because files may have been read through a link; the header then says no count is given because a link was found."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:42 | A data or settings file with any byte above 127 (an accent written as a real accent instead of a \\u00e9 escape) is refused (contains characters that are not plain ASCII), and a status_dir_url in vtes5-config.js that is not empty or a relative folder path is refused (holds a status_dir_url that is not allowed)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:42 | A file or folder name with a control character in it (a new line, for example) is printed with the character escaped, as \\n or \\x01, so a name can never look like an OK: line: paste the line as VERIFY printed it."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:43 | CANNOT CHECK means the path or the manifest could not be read (a path with .. in it, a short name, a missing folder)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:44 | Nothing else. Do not edit any file."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:48 | There is nothing to undo, because the real v3 launcher is never touched. To stop using v5, close it."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:48 | That is all."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:50 | Deleting the v5 folder is Jorge's decision. It is done by hand in File Explorer, only after Jorge says yes, never by a script, and never by you on your own."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:54 | VERIFY-v5.ps1 was run under PowerShell 7.4.6 for Linux (test-verify.sh, 216 scenarios (148 older and 68 added in round 8), result in test-verify-r8-RESULT.txt; round 8: exit codes, a link never gives an \"identical\" count, a UTF-16 data file, a byte above 127, a file name with a control character, status_dir_url, what git fetch writes, and the step 6d wording; round 7: the d"
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:54 | In every scenario the SHA-256 of every file in the whole test area was taken before and after and was identical."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:54 | Edited, missing, extra, unreadable (as an unprivileged user), linked (the folder itself, a parent folder, a file, a data file), malformed, a path with .., a folder inside a Desktop folder, a folder inside a git checkout, CRLF line endings and a data file rewritten by a writer (accepted only with -AfterWriters and only if it passes the strict shape check) are all reported as"
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:55 | test-no-write-commands.js scans this document, DESKTOP-WORK.md, VERIFY-v5.ps1 and every package file, and fails if any of them holds a copy, move, delete, create or write command (result in test-no-write-commands-RESULT.txt)."
+  },
+  {
+   "name": "sentence has a test or an exempt reason",
+   "ok": false,
+   "ev": "INSTALL-BY-HAND.md:56 | NOT tested, UNVERIFIED on the PC: git show writing from Windows PowerShell 5.1, Windows junctions (only Linux symbolic links were tested), whether G:\\My Drive itself is reported as a link by VERIFY on the PC, File Explorer behaviour, Google Drive for desktop behaviour."
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "numbers-from-data | 34 lines of text were changed, added to or removed on purpose; the list is in PORT-REPORT.md. | number(s) 34 not in the data of state no-data [text: 34 lines of text were changed, added to or removed on purpose; the list is in PORT-REPORT.md.]"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "green-needs-proof | Green appears only when a fresh report file with proof says so. | green card from an unreadable file: LLM-01,LLM-03,LLM-04,LLM-05,LLM-06,LLM-07,LLM-08,LLM-09,LOCAL,LOCAL save step: CON,CODEX,RAMBO,GROK,COWORK,CU-Inbox-Job-Watcher,CU-Local-Executor,CU-TokenMonitor-Hourly,CU-Propagation-Check,VTES-LOCAL-POLLER [text: Green appears only when a fresh report file with proof says so."
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "guard-layers | It cannot catch names, home addresses, email addresses or phone numbers. | catches 163 of 196 personal notes, carries 82 of 88 ordinary notes, still misses 8 known layouts, and does not catch a name, an address, an email or a phone number (3 of 3) [text: It cannot catch names, home addresses, email addresses or phone numbers.]"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "whole-page-counts | WHOLE PAGE: NOT FINE - 33 red and 22 grey of 55 cards and marks; 7 of 7 reports red | unreadable WHOLE PAGE line in no-data: WHOLE PAGE: NOT FINE - 33 red and 22 grey of 55 cards and marks; 7 of 7 reports red [text: WHOLE PAGE: NOT FINE - 33 red and 22 grey of 55 cards and marks; 7 of 7 reports red]"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "grok-next | Reason: NO DATA - nothing on the PC can see this window; green only when a finished bot task is recorded. | grok-red: Grok card is not green but has no next-step sentence [text: Reason: NO DATA - nothing on the PC can see this window; green only when a finished bot task is recorded.]"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | LOCAL save step: BLOCKED - UNVERIFIED. | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | The PC has not reported whether a local-only folder exists (PC check-in report: NO DATA). | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed a"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | Do not save client personal data in any file. | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOC"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | Classify, tag, extract, summarise, rename, and all client personal data (typed in v3: \"Never leaves the PC\" - only true  | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere:"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere:"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for cli"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | For RAMBO: create or confirm a local-only folder outside every syncing folder (a plain C:\\ path outside Users\\JV\\Desktop | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere:"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | In File Explorer, open the local-only folder named \"C:\\VTES-LOCAL\\\" (the desktop executor confirmed it is outside Google | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere:"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | The desktop executor (RAMBO) has not confirmed a local-only folder: one that is NOT inside Google Drive, OneDrive or any | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere:"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | The folder the PC reports (\"G:\\My Drive\\x\") has no name, looks like a cloud-synced folder, is a short (8.3) name or has  | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere:"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | In File Explorer, open the local-only folder named \"C:\\Data\\Private\" (the desktop executor confirmed it is outside Googl | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere:"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | The PC has not reported whether a local-only folder exists (PC check-in report: STALE). | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as "
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "tick-claims | NOT TICKED: the copy and show buttons for LLM-01 are switched off until you tick. | ticked: {\"go\":false,\"show\":false,\"msg\":\"Ticked for this note and for LLM-03. If you change the note or To, the tick clears.\"} | changing From did not clear the tick: {\"checked\":true,\"go\":false} [text: NOT TICKED: the copy and show buttons for LLM-01 are switched off until you tick.]"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "tick-claims | Choose LLM-03 as To first (press Hand work here on its card), then tick. | ticked: {\"go\":false,\"show\":false,\"msg\":\"Ticked for this note and for LLM-03. If you change the note or To, the tick clears.\"} | changing From did not clear the tick: {\"checked\":true,\"go\":false} [text: Choose LLM-03 as To first (press Hand work here on its card), then tick.]"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "tick-claims | Ticked for this note and for LLM-01. | ticked: {\"go\":false,\"show\":false,\"msg\":\"Ticked for this note and for LLM-03. If you change the note or To, the tick clears.\"} | changing From did not clear the tick: {\"checked\":true,\"go\":false} [text: Ticked for this note and for LLM-01.]"
+  },
+  {
+   "name": "claim is true",
+   "ok": false,
+   "ev": "local-folder-lines | Where a local file may be saved is shown by the LOCAL save step line on the LOCAL card (section 3). | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been c"
+  },
+  {
+   "name": "no sentence is unmapped",
+   "ok": false,
+   "ev": "87 unmapped"
+  },
+  {
+   "name": "no claim is false",
+   "ok": false,
+   "ev": "21 false"
+  },
+  {
+   "name": "Read me has at most 10 sentences (it has 34)",
+   "ok": false,
+   "ev": "34"
+  },
+  {
+   "name": "Read me: every sentence has at most 20 words",
+   "ok": false,
+   "ev": "Before a note goes anywhere else, you must tick the box under the note box: \"This note has NO client personal data\". || It misses digits with letters between them, digit groups with more than four words between them, and encodings split into pieces. || The line \"WHOLE PAGE\" at the top of Live status is never greener than the worst card or panel on this page."
+  },
+  {
+   "name": "Read me holds no typed number (v3 and v5 are names)",
+   "ok": false,
+   "ev": "34 lines of text were changed, added to or removed on purpose; the list is in PORT-REPORT.md. || Tabs marked OLD PANEL go to a snapshot made on 2026-09-02."
+  },
+  {
+   "name": "the three guard sentences are exactly these and are in the Read me and under the note box",
+   "ok": false,
+   "ev": "Client personal data goes to LOCAL only. This page can check only digits: it CANNOT catch names, home addresses, email addresses, phone numbers or any identifier written in words. Do not type passwords or card numbers here."
+  },
+  {
+   "name": "Read me does not list what the checker catches or misses",
+   "ok": false,
+   "ev": "34 lines of text were changed, added to or removed on purpose; the list is in PORT-REPORT.md. || As a second check, this page looks at the DIGITS in your note. || It leaves the note out when it finds nine digits in a row, or a card number, in many layouts. || It also looks for a Social Security, licence, passport, bank or date-of-birth label near digits. || It misses digits written as words in oth"
+  },
+  {
+   "name": "PORT-REPORT.md holds exactly the list generated from the real v3 and v5 lines (48 changed lines)",
+   "ok": false,
+   "ev": "the list in the file differs from a fresh diff"
+  },
+  {
+   "name": "every build patch is in the PORT-REPORT.md patch list (51 patches)",
+   "ok": false,
+   "ev": "title, css, scripts, tabhint, top, leadlead, botslead, repairslive, sect7, tabs-status, tabs-add, tabs-render, panel-btn, index-btn, url-llm02, t-llm01, t-chief, t-localexec, t-orch, t-prop, t-poller, t-queued, t-rambo, t-codex, d9, stamp, win-grok, guard, render, search, rambo-slot, url-llm06, airdrop, how-local, local-j, local-a, local-pick, how-codex, how-rambo, how-llm06, row10, gate-line, ref"
+  },
+  {
+   "name": "v3 survival: every card, bot, queued item, picker row, repairs row and tab is still here (166 of 166)",
+   "ok": true,
+   "ev": "166 of 166"
+  }
+ ],
+ "unmapped": [
+  "page | Grey NOT PROVEN means only the simple status writer said up, and it checks nothing.",
+  "page | A web page cannot open a desktop app.",
+  "page | It misses digits written as words in other languages (it knows English and Spanish) or in other scripts.",
+  "page | It misses digits with letters between them, digit groups with more than four words between them, and encodings split into pieces.",
+  "page | The line \"WHOLE PAGE\" at the top of Live status is never greener than the worst card or panel on this page.",
+  "page | This page does not check them.",
+  "page | Every time is Eastern time with the zone.",
+  "page | This page can check only digits: it CANNOT catch names, home addresses, email addresses, phone numbers or any identifier written in words.",
+  "page | Only if the note holds no client personal data.",
+  "page | The PC reports it; this page cannot see the folder itself.",
+  "page | Otherwise a name ending in .md is saved as .md.txt and the job is never picked up.",
+  "page | Until it does, do not save client personal data in any file.",
+  "INSTALL-BY-HAND.md:3 | Anywhere. Fix round 5 removed them (charter Rule 4, Tier 2: a fifth installer flaw means no scripts at all).",
+  "INSTALL-BY-HAND.md:3 | The only script left is VERIFY-v5.ps1.",
+  "INSTALL-BY-HAND.md:3 | It only reads.",
+  "INSTALL-BY-HAND.md:5 | The real v3 launcher is never touched. It stays on the Desktop exactly as it is. v5 is a second, separate folder.",
+  "INSTALL-BY-HAND.md:7 | Fix round 8 changes this document in six places: (1) step 6a now says what git fetch really writes (files inside the checkout's .git folder) and what it does not change; (2) step 6b quotes the real words VERIFY prints for a UTF-16 data file; (3) step 6d tests whether VERIFY-v5.ps1 is already in the parent folder and never overwrites, moves or deletes it; (4) step 10 now says that a link in the answer means VERIFY prints no \"N of M identical\" count, that any byte above 127 in a data or settings file is refused, that status_dir_url must be empty or a relative folder path, and that a file name with a control character is printed escaped (as \\n or \\x01); (5) step 9 now says what to do if PowerShell itself refuses the command line; (6) the false round 6 sentence about OK is corrected below.",
+  "INSTALL-BY-HAND.md:9 | Fix round 7 changes this document in three places: (1) a fresh install is EXACT: the \"expected edit\" answer is gone, and the -AfterWriters switch is described in step 10; (2) the package is 12 files, not 11 (the 11 named in the manifest plus the manifest): the old text counted 11 and listed 12; (3) VERIFY now checks the data and settings files as DATA.",
+  "INSTALL-BY-HAND.md:11 | Fix round 6 changes this document in four places: (1) where the package and VERIFY come from is written down (step 6, flaw 12); (2) the exact bytes are read from the branch with git show, never from a checkout that was switched to another branch (flaw 12); (3) file names are read back so a hidden extension cannot turn .md into .md.txt (flaw 10); (4) VERIFY says plainly when the cause is line endings (LINE ENDINGS CHANGED (CRLF)) or a link (LINK IN PATH) (flaws 12 and 5).",
+  "INSTALL-BY-HAND.md:11 | Round 6 also let VERIFY say OK when only the eight data and settings files had changed.",
+  "INSTALL-BY-HAND.md:11 | That is no longer true: since round 7 a fresh install is exact, and a changed data or settings file is accepted only when the order adds -AfterWriters and the file passes the strict shape check.",
+  "INSTALL-BY-HAND.md:15 | If it gives no path, a short name, or a path that does not start with the text in step 1, stop and report BLOCKED.",
+  "INSTALL-BY-HAND.md:15 | Never choose a path yourself.",
+  "INSTALL-BY-HAND.md:17 | It must never be the Desktop, never inside a Desktop folder, and never inside a git checkout (for example C:\\Users\\JV\\JV-repository).",
+  "INSTALL-BY-HAND.md:17 | If it is any of those, stop and report BLOCKED.",
+  "INSTALL-BY-HAND.md:18 | If it does not exist, stop and report BLOCKED.",
+  "INSTALL-BY-HAND.md:19 | Check the new folder name is free. If a folder with that name is already there, stop and report BLOCKED.",
+  "INSTALL-BY-HAND.md:21 | Turn on file name extensions, then check where you are. In File Explorer click View, then Show, then File name extensions, so that every name is shown in full.",
+  "INSTALL-BY-HAND.md:21 | It must show exactly the full path from the order.",
+  "INSTALL-BY-HAND.md:21 | If it shows anything else, stop and report BLOCKED.",
+  "INSTALL-BY-HAND.md:21 | The folder must hold only the empty data folder, and none of its parent folders may hold a folder named .git.",
+  "INSTALL-BY-HAND.md:22 | This is where the package comes from. The package exists only on the branch claude/panel-v5-port, in the folder panel-rebuild/v5/package.",
+  "INSTALL-BY-HAND.md:22 | VERIFY-v5.ps1 is NOT in the package: it is one folder up, at panel-rebuild/v5/VERIFY-v5.ps1, on the same branch.",
+  "INSTALL-BY-HAND.md:23 | 6a.",
+  "INSTALL-BY-HAND.md:23 | Fetch, nothing else. In the repo checkout (C:\\Users\\JV\\JV-repository) first run git status and keep its output for step 8.",
+  "INSTALL-BY-HAND.md:23 | Never switch the checkout to this branch.",
+  "INSTALL-BY-HAND.md:23 | Never run pull, merge, reset or checkout there. Write the output of git rev-parse origin/claude/panel-v5-port in the report.",
+  "INSTALL-BY-HAND.md:24 | 6b.",
+  "INSTALL-BY-HAND.md:24 | The package is 12 files: the 11 named in MANIFEST.sha256, plus MANIFEST.sha256 itself.",
+  "INSTALL-BY-HAND.md:24 | They are MANIFEST.sha256, VTES-LLM-LAUNCHER_v5.html, vtes5-config.js, vtes5-live.js, vtes5-ui.js, and in the data folder vtes5-heartbeat.js, vtes5-bots.js, vtes5-state.js, vtes5-health.js, vtes5-tokens.js, vtes5-housekeeping.js, vtes5-miamidade.js.",
+  "INSTALL-BY-HAND.md:24 | For the seven data files the name starts with the folder, for example \"data/vtes5-heartbeat.js\", so its path on the branch is \"panel-rebuild/v5/package/data/vtes5-heartbeat.js\" (a path without \"data/\" does not exist and git says so).",
+  "INSTALL-BY-HAND.md:24 | On day one it prints EDITED: data/vtes5-bots.js (data file) has SHA-256 ... and, in the same line, It is also not a valid data file: data\\vtes5-bots.js is saved as UTF-16 ....",
+  "INSTALL-BY-HAND.md:24 | The line BAD DATA FILE: ... saved as UTF-16 is what you see with -AfterWriters (on day one it appears only if the manifest itself lists those UTF-16 bytes).",
+  "INSTALL-BY-HAND.md:25 | 6c.",
+  "INSTALL-BY-HAND.md:25 | The branch carries a .gitattributes line (panel-rebuild/v5/ -text) so that even a checkout keeps the bytes, but you still never check this branch out in the PC's working checkout.",
+  "INSTALL-BY-HAND.md:26 | 6d.",
+  "INSTALL-BY-HAND.md:26 | Save VERIFY beside the new folder, not inside it, and never over a file that is already there. The place is G:\\My Drive\\MY-DESK\\VTES-PANEL\\VERIFY-v5.ps1 (the parent folder of the new folder).",
+  "INSTALL-BY-HAND.md:26 | First test whether that file exists: use Test-Path -LiteralPath \"G:\\My Drive\\MY-DESK\\VTES-PANEL\\VERIFY-v5.ps1\" (it only reads), or look in File Explorer with file name extensions on.",
+  "INSTALL-BY-HAND.md:27 | It does NOT exist: read git show origin/claude/panel-v5-port:panel-rebuild/v5/VERIFY-v5.ps1 and save its exact bytes there with your own file tools.",
+  "INSTALL-BY-HAND.md:27 | Its SHA-256 must be dd99ad8af1ad403b325bdaebe307561b3912b7a3334f290bf07763601a2cff43 (read it with Get-FileHash -Algorithm SHA256).",
+  "INSTALL-BY-HAND.md:27 | If it is different, stop and report BLOCKED.",
+  "INSTALL-BY-HAND.md:28 | It DOES exist: never overwrite it, never move it, never delete it, never rename it.",
+  "INSTALL-BY-HAND.md:28 | Read its SHA-256 with Get-FileHash -Algorithm SHA256.",
+  "INSTALL-BY-HAND.md:28 | If it equals the pinned hash in the line above, use that file as it is, say in the report \"VERIFY-v5.ps1 was already there and has the pinned hash; used as it is\", and carry on.",
+  "INSTALL-BY-HAND.md:28 | That is not BLOCKED.",
+  "INSTALL-BY-HAND.md:29 | It exists and its hash is different: save the new copy (the exact bytes from git show, as above) BESIDE it under the name VERIFY-v5.ps1.new-<YYYYMMDD-HHMM> (today's date and the time now, for example VERIFY-v5.ps1.new-20261006-1405).",
+  "INSTALL-BY-HAND.md:29 | First test that this name does not exist yet (the same test as above); if it does, wait for the next minute and use that name.",
+  "INSTALL-BY-HAND.md:29 | Then report BLOCKED with one line for the cloud keeper: what is there (the old file's SHA-256), the new copy's SHA-256, and \"I did not touch the existing file\".",
+  "INSTALL-BY-HAND.md:30 | Read the names back. In File Explorer, with file name extensions on (step 5), read every file name in the new folder and in data.",
+  "INSTALL-BY-HAND.md:30 | Every name must be exactly one of the 12 above, ending exactly as written, with no .txt added at the end and no hidden extension.",
+  "INSTALL-BY-HAND.md:30 | If a name is wrong, stop and report BLOCKED.",
+  "INSTALL-BY-HAND.md:31 | It must show the same state as before step 6a (this document never changes the checkout's branch or files).",
+  "INSTALL-BY-HAND.md:31 | If not, stop and report BLOCKED.",
+  "INSTALL-BY-HAND.md:32 | Run the read-only check. Open PowerShell and run this one line.",
+  "INSTALL-BY-HAND.md:32 | If PowerShell itself prints a red error about a parameter (a wrong switch, or no -Path), nothing was checked and PowerShell's exit code is 1: paste that text and report BLOCKED.",
+  "INSTALL-BY-HAND.md:36 | powershell -NoProfile -ExecutionPolicy Bypass -File \"G:\\My Drive\\MY-DESK\\VTES-PANEL\\VERIFY-v5.ps1\" -Path \"FULL PATH OF THE NEW FOLDER\" -ExpectManifestSha256 b7b88ecd3cfa3c276999982acb729cc9d352a57071af4c5cb2124f363a8167e0",
+  "INSTALL-BY-HAND.md:40 | OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder means a fresh install is good.",
+  "INSTALL-BY-HAND.md:41 | That line is the ONLY good answer on day one. A fresh install is exact: any changed file, a data or settings file included, is PROBLEMS (EDITED), and you report BLOCKED.",
+  "INSTALL-BY-HAND.md:41 | The longer form OK (after writers): ... changed by a PC writer and pass the strict shape check exists only for a LATER check, when the order says to add the switch -AfterWriters to the command in step 9 (it then accepts a changed data or settings file only if it passes the strict shape check in DATA-CONTRACT.md).",
+  "INSTALL-BY-HAND.md:41 | Never add the switch on your own, and never accept the longer form on day one.",
+  "INSTALL-BY-HAND.md:42 | PROBLEMS lists every difference, one per line.",
+  "INSTALL-BY-HAND.md:42 | The lines BAD DATA FILE, TOO BIG, NOT A PLAIN FILE, UNREACHABLE, CASE DUPLICATE and LINK OR NOT A PLAIN FILE (for the manifest) are all PROBLEMS too.",
+  "INSTALL-BY-HAND.md:42 | Two lines have their own meaning: LINE ENDINGS CHANGED (CRLF) means the files are right except for Windows line endings, usually from git for Windows: get the exact bytes again by step 6 in a NEW folder name given by Jorge's order.",
+  "INSTALL-BY-HAND.md:42 | LINK IN PATH means the folder, or a folder above it, is a link or junction, so the files may live somewhere else (the Desktop, a git checkout): stop and report BLOCKED with the line, and do not choose another path yourself.",
+  "INSTALL-BY-HAND.md:42 | When any LINK or LINK IN PATH line is there, VERIFY prints no \"N of M package files are identical\" count at all, because files may have been read through a link; the header then says no count is given because a link was found.",
+  "INSTALL-BY-HAND.md:42 | A data or settings file with any byte above 127 (an accent written as a real accent instead of a \\u00e9 escape) is refused (contains characters that are not plain ASCII), and a status_dir_url in vtes5-config.js that is not empty or a relative folder path is refused (holds a status_dir_url that is not allowed).",
+  "INSTALL-BY-HAND.md:42 | A file or folder name with a control character in it (a new line, for example) is printed with the character escaped, as \\n or \\x01, so a name can never look like an OK: line: paste the line as VERIFY printed it.",
+  "INSTALL-BY-HAND.md:43 | CANNOT CHECK means the path or the manifest could not be read (a path with .. in it, a short name, a missing folder).",
+  "INSTALL-BY-HAND.md:44 | Nothing else. Do not edit any file.",
+  "INSTALL-BY-HAND.md:48 | There is nothing to undo, because the real v3 launcher is never touched. To stop using v5, close it.",
+  "INSTALL-BY-HAND.md:48 | That is all.",
+  "INSTALL-BY-HAND.md:50 | Deleting the v5 folder is Jorge's decision. It is done by hand in File Explorer, only after Jorge says yes, never by a script, and never by you on your own.",
+  "INSTALL-BY-HAND.md:54 | VERIFY-v5.ps1 was run under PowerShell 7.4.6 for Linux (test-verify.sh, 216 scenarios (148 older and 68 added in round 8), result in test-verify-r8-RESULT.txt; round 8: exit codes, a link never gives an \"identical\" count, a UTF-16 data file, a byte above 127, a file name with a control character, status_dir_url, what git fetch writes, and the step 6d wording; round 7: the data and settings files are checked as DATA, a fresh install is exact, and a pipe, a oversized file, a case-duplicate name, a manifest that is a link and a data file that is UTF-16, empty or holds injected script are all refused).",
+  "INSTALL-BY-HAND.md:54 | In every scenario the SHA-256 of every file in the whole test area was taken before and after and was identical.",
+  "INSTALL-BY-HAND.md:54 | Edited, missing, extra, unreadable (as an unprivileged user), linked (the folder itself, a parent folder, a file, a data file), malformed, a path with .., a folder inside a Desktop folder, a folder inside a git checkout, CRLF line endings and a data file rewritten by a writer (accepted only with -AfterWriters and only if it passes the strict shape check) are all reported as stated above, and none is ever called OK when it is not.",
+  "INSTALL-BY-HAND.md:55 | test-no-write-commands.js scans this document, DESKTOP-WORK.md, VERIFY-v5.ps1 and every package file, and fails if any of them holds a copy, move, delete, create or write command (result in test-no-write-commands-RESULT.txt).",
+  "INSTALL-BY-HAND.md:56 | NOT tested, UNVERIFIED on the PC: git show writing from Windows PowerShell 5.1, Windows junctions (only Linux symbolic links were tested), whether G:\\My Drive itself is reported as a link by VERIFY on the PC, File Explorer behaviour, Google Drive for desktop behaviour."
+ ],
+ "failed": [
+  "numbers-from-data | 34 lines of text were changed, added to or removed on purpose; the list is in PORT-REPORT.md. | number(s) 34 not in the data of state no-data [text: 34 lines of text were changed, added to or removed on purpose; the list is in PORT-REPORT.md.]",
+  "green-needs-proof | Green appears only when a fresh report file with proof says so. | green card from an unreadable file: LLM-01,LLM-03,LLM-04,LLM-05,LLM-06,LLM-07,LLM-08,LLM-09,LOCAL,LOCAL save step: CON,CODEX,RAMBO,GROK,COWORK,CU-Inbox-Job-Watcher,CU-Local-Executor,CU-TokenMonitor-Hourly,CU-Propagation-Check,VTES-LOCAL-POLLER [text: Green appears only when a fresh report file with proof says so.]",
+  "guard-layers | It cannot catch names, home addresses, email addresses or phone numbers. | catches 163 of 196 personal notes, carries 82 of 88 ordinary notes, still misses 8 known layouts, and does not catch a name, an address, an email or a phone number (3 of 3) [text: It cannot catch names, home addresses, email addresses or phone numbers.]",
+  "whole-page-counts | WHOLE PAGE: NOT FINE - 33 red and 22 grey of 55 cards and marks; 7 of 7 reports red | unreadable WHOLE PAGE line in no-data: WHOLE PAGE: NOT FINE - 33 red and 22 grey of 55 cards and marks; 7 of 7 reports red [text: WHOLE PAGE: NOT FINE - 33 red and 22 grey of 55 cards and marks; 7 of 7 reports red]",
+  "grok-next | Reason: NO DATA - nothing on the PC can see this window; green only when a finished bot task is recorded. | grok-red: Grok card is not green but has no next-step sentence [text: Reason: NO DATA - nothing on the PC can see this window; green only when a finished bot task is recorded.]",
+  "local-folder-lines | LOCAL save step: BLOCKED - UNVERIFIED. | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: LOCAL save step: BLOCKED - UNVERIFIED.]",
+  "local-folder-lines | The PC has not reported whether a local-only folder exists (PC check-in report: NO DATA). | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: The PC has not reported whether a local-only folder exists (PC check-in report: NO DATA).]",
+  "local-folder-lines | Do not save client personal data in any file. | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: Do not save client personal data in any file.]",
+  "local-folder-lines | Classify, tag, extract, summarise, rename, and all client personal data (typed in v3: \"Never leaves the PC\" - only true  | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: Classify, tag, extract, summarise, rename, and all client personal data (typed in v3: \"Never leaves the PC\" - only true ]",
+  "local-folder-lines | Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL]",
+  "local-folder-lines | Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: Do NOT save it in Google Drive or OneDrive: they upload files to the cloud.]",
+  "local-folder-lines | For RAMBO: create or confirm a local-only folder outside every syncing folder (a plain C:\\ path outside Users\\JV\\Desktop | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: For RAMBO: create or confirm a local-only folder outside every syncing folder (a plain C:\\ path outside Users\\JV\\Desktop]",
+  "local-folder-lines | In File Explorer, open the local-only folder named \"C:\\VTES-LOCAL\\\" (the desktop executor confirmed it is outside Google | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: In File Explorer, open the local-only folder named \"C:\\VTES-LOCAL\\\" (the desktop executor confirmed it is outside Google]",
+  "local-folder-lines | The desktop executor (RAMBO) has not confirmed a local-only folder: one that is NOT inside Google Drive, OneDrive or any | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: The desktop executor (RAMBO) has not confirmed a local-only folder: one that is NOT inside Google Drive, OneDrive or any]",
+  "local-folder-lines | The folder the PC reports (\"G:\\My Drive\\x\") has no name, looks like a cloud-synced folder, is a short (8.3) name or has  | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: The folder the PC reports (\"G:\\My Drive\\x\") has no name, looks like a cloud-synced folder, is a short (8.3) name or has ]",
+  "local-folder-lines | In File Explorer, open the local-only folder named \"C:\\Data\\Private\" (the desktop executor confirmed it is outside Googl | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: In File Explorer, open the local-only folder named \"C:\\Data\\Private\" (the desktop executor confirmed it is outside Googl]",
+  "local-folder-lines | The PC has not reported whether a local-only folder exists (PC check-in report: STALE). | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: The PC has not reported whether a local-only folder exists (PC check-in report: STALE).]",
+  "tick-claims | NOT TICKED: the copy and show buttons for LLM-01 are switched off until you tick. | ticked: {\"go\":false,\"show\":false,\"msg\":\"Ticked for this note and for LLM-03. If you change the note or To, the tick clears.\"} | changing From did not clear the tick: {\"checked\":true,\"go\":false} [text: NOT TICKED: the copy and show buttons for LLM-01 are switched off until you tick.]",
+  "tick-claims | Choose LLM-03 as To first (press Hand work here on its card), then tick. | ticked: {\"go\":false,\"show\":false,\"msg\":\"Ticked for this note and for LLM-03. If you change the note or To, the tick clears.\"} | changing From did not clear the tick: {\"checked\":true,\"go\":false} [text: Choose LLM-03 as To first (press Hand work here on its card), then tick.]",
+  "tick-claims | Ticked for this note and for LLM-01. | ticked: {\"go\":false,\"show\":false,\"msg\":\"Ticked for this note and for LLM-03. If you change the note or To, the tick clears.\"} | changing From did not clear the tick: {\"checked\":true,\"go\":false} [text: Ticked for this note and for LLM-01.]",
+  "local-folder-lines | Where a local file may be saved is shown by the LOCAL save step line on the LOCAL card (section 3). | no-data: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | no-data: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | no-data: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | no-data: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | fresh-green: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | fresh-green: confirmed folder but no by-hand steps | fresh-green: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-unconfirmed: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-unconfirmed: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-unconfirmed: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-bad-folder: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | local-bad-folder: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | local-bad-folder: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | local-bad-folder: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | local-confirmed-proof: a LOCAL sentence about saving names RAMBO or Claude: Scheduled every 10 minutes (read from the task schedule).LOCAL save step: CONFIRMED by the desktop e | local-confirmed-proof: confirmed folder but no by-hand steps | local-confirmed-proof: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | all-stale: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | all-stale: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | all-stale: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo | status-writer-only: a LOCAL sentence about saving names RAMBO or Claude: Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the | status-writer-only: step names RAMBO or Claude: STOP HERE. Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above). Do NOT save it in Google Drive or OneDrive: they upload files to the cloud. Nothing for you to do: the desktop executor (RAMBO) checks for a safe folder and reports it, and the LOCAL save step line then changes by itself. | status-writer-only: step over 25 words: Do NOT paste this packet into any Claude window, into Cowork | status-writer-only: step over 25 words: STOP HERE. Do NOT save this packet as a file anywhere: no fo [text: Where a local file may be saved is shown by the LOCAL save step line on the LOCAL card (section 3).]"
+ ],
+ "v3_unchanged_sentences": [
+  "Every AI window, bot and executor role, one search away.",
+  "Type an ID (LLM-07), a hashtag (#grok), a name, or a job word (files, second opinion, classify, PII).",
+  "Client personal data goes to LOCAL only.",
+  "1.",
+  "Files, Chrome, 1Password, printer, county sites on the PC",
+  "LLM-01 · Claude Code Desktop",
+  "LLM-02 · Claude Code Cloud",
+  "LLM-03 · Claude Cowork",
+  "LLM-04 · Claude Chat",
+  "LLM-05 · Claude iPhone",
+  "LLM-06 · Codex CLI",
+  "LLM-07 · Grok (SuperGrok)",
+  "LLM-08 · Gemini",
+  "LLM-09 · Thin API router",
+  "Suggested: LLM-01.",
+  "Only RAMBO has hands on the PC.",
+  "LLMs: every window",
+  "LLM-01 to LLM-09, fixed IDs.",
+  "LLM-01 · 🖥️",
+  "Files, OneDrive, Chrome, 1Password, printer, county sites, OCR, tax jackets.",
+  "#LLM-01 #EXEC-DESKTOP #RAMBO #PASTE-D",
+  "LLM-02 · ☁️",
+  "Cannot touch your PC.",
+  "#LLM-02 #EXEC-CLOUD #PASTE-C",
+  "LLM-03 · 🤝",
+  "It can send orders but cannot receive them from the bus.",
+  "#LLM-03 #COWORK #PASTE-X #CDM",
+  "LLM-04 · 💬",
+  "#LLM-04 #CHAT #COCKPIT",
+  "LLM-05 · 📱",
+  "Say \"AP-0088: GO\" from the car and it counts.",
+  "#LLM-05 #IPHONE #voice",
+  "LLM-06 · 🧭",
+  "#LLM-06 #CODEX #BACKUP-EXEC",
+  "LLM-07 · 🔮",
+  "Chat only; cannot write files.",
+  "#LLM-07 #GROK #FABIAN #second-opinion",
+  "LLM-08 · ♊",
+  "#LLM-08 #GEMINI #google #volume",
+  "LLM-09 · 🧰",
+  "Standby bridge only",
+  "Routing bridge, never the main engine.",
+  "Every API run is priced first and sent to you for approval.",
+  "#LLM-09 #API-ROUTER #standby",
+  "Two are not Claude and do not touch the Claude Max quota.",
+  "Use only for what needs Claude.",
+  "Round-trip question only; cannot write files or run commands.",
+  "Sends orders; cannot receive",
+  "Reads every result, closes or escalates",
+  "Meters usage, enforces a 3 GB RAM floor, picks model size, forces PII to local.",
+  "Reads every Outbox result, judges it on the free lane, closes, re-queues or escalates.",
+  "24/7 back-to-back runs",
+  "2026-10-02 LAUNCHER Copy button wiped the clipboard and reported success - replaced the copy routine FIXED",
+  "2026-10-02 LAUNCHER Sticky header hid every anchor target - added scroll-margin-top FIXED",
+  "2026-10-02 LAUNCHER Task box held a completed job - cleared FIXED",
+  "2026-10-02 LAUNCHER 11 of 16 nav tabs pointed at a non-existent ControlPanel.html FIXED",
+  "2026-10-02 PANEL Sticky header hid every anchor target - added scroll-margin-top FIXED",
+  "2026-10-02 PANEL Added IDENTITY section - title block per seat ADDED",
+  "2026-10-02 WINDOWS Every AI window now carries a title block in its caption ADDED",
+  "2026-10-02 SYSTEM Clipboard history was ON and served stale pastes - turned OFF FIXED",
+  "2026-10-02 CODEX AGENTS.md Board-of-5 gate made Codex refuse all work - corrected FIXED",
+  "2026-10-02 AGENTS DD site runner built, 4 defects fixed, run across 4 capsules ADDED",
+  "2026-10-02 PANEL Nodes 1-11 still show a 2026-09-02 snapshot - 90 of 119 tasks disabled OPEN",
+  "#handoff #LLM-04 #LLM-01 #JorgeValdes",
+  "- Report DONE (with proof path), BLOCKED (what you tried, why it failed, the one thing needed), or IN PROGRESS.",
+  "Never say done without checking.",
+  "- Never send, spend, delete, sign, or enter a password for him.",
+  "Cards: nickname and last 4 only.",
+  "- If you cannot open a file or link, say so and ask him to paste it.",
+  "Do not guess.",
+  "RETURN PATH: write your answer so Jorge can paste it back to LLM-04, and tag it #LLM-01.",
+  "LLM-01, #cowork, grok, files on my PC, classify",
+  "#handoff #LLM-04 #LOCAL #JorgeValdes",
+  "RETURN PATH: write your answer so Jorge can paste it back to LLM-04, and tag it #LOCAL.",
+  "DO NOT SEND.",
+  "Sending needs Jorge's explicit yes in chat; draft only until then.",
+  "Wire the remaining seats into the mini LLM control panel (LLM-MINI-PANEL-01).",
+  "Prepare it and stop; do not enable it until Jorge says GO.",
+  "Prepare the plan for 24/7 back-to-back runs, including the Claude Max quota impact and the LOCAL/CODEX share.",
+  "Do NOT start background processes until Jorge approves.",
+  "Packet ready for LOCAL.",
+  "Packet ready for RAMBO.",
+  "#handoff #LLM-04 #RAMBO #JorgeValdes",
+  "RETURN PATH: write your answer so Jorge can paste it back to LLM-04, and tag it #RAMBO.",
+  "Packet ready for CODEX.",
+  "#handoff #LLM-04 #CODEX #JorgeValdes",
+  "RETURN PATH: write your answer so Jorge can paste it back to LLM-04, and tag it #CODEX."
+ ],
+ "by_entry": {
+  "old-panel-tabs": [
+   "OLD PANEL, snapshot of 2026-09-02, not live",
+   "← PANEL (OLD, snapshot of 2026-09-02, not live)",
+   "INDEX (OLD, snapshot of 2026-09-02, not live)"
+  ],
+  "tabs-count": [
+   "There are 18 tabs."
+  ],
+  "id-only": [
+   "This page is built on your v3 launcher.",
+   "Tabs marked OLD PANEL go to a snapshot made on 2026-09-02.",
+   "The Desktop Executor (RAMBO) fills in the address book entry for LLM-02 and registers the window shortcuts.",
+   "Which session is the current one is UNVERIFIED: the single session address typed in v3 was removed because it may be an old session.",
+   "The Desktop Executor (RAMBO) finds the Claude desktop app shortcut on the PC, writes it into the address book entry for LLM-03, then registers the window shortcuts.",
+   "Get the packet onto the iPhone first (see the steps on the LLM-05 card in section 2).",
+   "The poller that wakes RAMBO to execute what is in VTES-Inbox (JOB-0079).",
+   "Added in v5.",
+   "You type no command: the desktop executor runs Codex for you (see the steps on the LLM-06 card in section 2).",
+   "Read the path in the order. It must start with G:\\My Drive\\MY-DESK\\VTES-PANEL\\ and end with the NEW folder name, for example G:\\My Drive\\MY-DESK\\VTES-PANEL\\v5.",
+   "Then run git fetch origin claude/panel-v5-port.",
+   "That downloads the branch's objects into files inside the checkout's .git folder and adds origin/claude/panel-v5-port to the checkout's list of remote branches.",
+   "Read each file with git show origin/claude/panel-v5-port:<path> and save the exact bytes it prints, with your own file tools, under the same name in the new folder.",
+   "The path on the branch is panel-rebuild/v5/package/ followed by that name.",
+   "Read the SHA-256 of both files and compare them.",
+   "TRK-2026-9910-B · INSTALL-BY-HAND · v3 · 2026-10-06 · CURRENT · #VTES-control-panel #panel-v5"
+  ],
+  "survives-v3": [
+   "Every card, bot, queued item, picker row, repairs row and tab from v3 is still here."
+  ],
+  "numbers-from-data": [
+   "34 lines of text were changed, added to or removed on purpose; the list is in PORT-REPORT.md.",
+   "Counted so far: unknown of 300 (not counted yet).",
+   "Windows confirmed up now: 11 of 11.",
+   "Health report: 12 of 12 health checks passed (100%).",
+   "In progress: 3.",
+   "Blocked: 2.",
+   "Burn rate per hour: 41000 tokens.",
+   "This window used: 33%.",
+   "This week used: 61%.",
+   "fixture-program 1234",
+   "Items cleaned: 17.",
+   "Counted so far: 7 of 300.",
+   "This window used: IMPOSSIBLE (140%)."
+  ],
+  "green-needs-proof": [
+   "Green appears only when a fresh report file with proof says so."
+  ],
+  "guard-layers": [
+   "It cannot catch names, home addresses, email addresses or phone numbers."
+  ],
+  "times": [
+   "Built Oct 6, 1:00 PM EDT, data as of NO DATA (no valid data file has been written yet).",
+   "Re-checked Oct 6, 2:00 PM EDT.",
+   "Built Oct 6, 1:00 PM EDT, data as of Oct 6, 1:00 PM EDT (oldest file).",
+   "window check-in: OK - as of Oct 6, 1:59 PM EDT",
+   "bots: OK - as of Oct 6, 1:59 PM EDT",
+   "open items: OK - as of Oct 6, 1:30 PM EDT",
+   "health: OK - as of Oct 6, 1:30 PM EDT",
+   "token use: OK - as of Oct 6, 1:58 PM EDT",
+   "housekeeping: OK - as of Oct 6, 1:00 PM EDT",
+   "Miami-Dade: OK - as of Oct 6, 1:40 PM EDT",
+   "Report - as of Oct 6, 1:30 PM EDT State - as of Oct 6, 1:30 PM EDT",
+   "Daily report sent: Oct 6, 1:29 PM EDT.",
+   "State: UP - seen Oct 6, 1:59 PM EDT",
+   "LOCAL save step: CONFIRMED by the desktop executor as of Oct 6, 1:30 PM EDT: a local-only folder exists, named \"C:\\VTES-LOCAL\\\" (outside Google Drive and OneDrive).",
+   "Reporting - as of Oct 6, 1:58 PM EDT",
+   "Window resets: Oct 6, 5:00 PM EDT.",
+   "Reported - as of Oct 6, 1:00 PM EDT",
+   "Last report: Oct 6, 1:00 PM EDT.",
+   "State - as of Oct 6, 1:30 PM EDT",
+   "Counted - as of Oct 6, 1:40 PM EDT",
+   "LOCAL save step: CONFIRMED by the desktop executor as of Oct 6, 1:30 PM EDT: a local-only folder exists, named \"C:\\Data\\Private\" (outside Google Drive and OneDrive).",
+   "window check-in: STALE since Oct 6, 5:40 AM EDT",
+   "bots: STALE since Oct 6, 5:40 AM EDT",
+   "State: STALE since Oct 6, 1:59 PM EDT",
+   "State of LOCAL: STALE since Oct 6, 1:59 PM EDT Its bot CU-Local-Executor: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "State of CHIEF: STALE since Oct 6, 1:59 PM EDT Its bot CU-Orchestrator: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot CU-Inbox-Job-Watcher: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot CU-Local-Executor: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot CU-TokenMonitor-Hourly: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot CU-Orchestrator: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot CU-Propagation-Check: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "Bot VTES-LOCAL-POLLER: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "State of LOCAL: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Local-Executor is NOT FINE: DISABLED - the scheduler says this task is turned off (last ran Oct 6, 1:56 PM EDT).",
+   "Bot CU-Local-Executor: DISABLED - the scheduler says this task is turned off (last ran Oct 6, 1:56 PM EDT).",
+   "State: WRITER SAYS UP, NOT PROVEN - the simple status writer stamped up at Oct 6, 1:59 PM EDT but it checks nothing",
+   "State of LOCAL: WRITER SAYS UP, NOT PROVEN - the simple status writer stamped up at Oct 6, 1:59 PM EDT but it checks nothing Its bot CU-Local-Executor: NO DATA - the bots report file has not been written yet",
+   "Miami-Dade: NOT COUNTED - the file is fresh (as of Oct 6, 1:40 PM EDT) but holds no count",
+   "NOT COUNTED - the file is fresh (as of Oct 6, 1:40 PM EDT) but holds no count",
+   "housekeeping: BAD CLOCK - the file says Oct 6, 3:30 PM EDT, which is in the future.",
+   "BAD CLOCK - the file says Oct 6, 3:30 PM EDT, which is in the future.",
+   "State of CHIEF: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Orchestrator is NOT FINE: NO DATA - the bots report has no entry for this bot"
+  ],
+  "whole-page-counts": [
+   "WHOLE PAGE: NOT FINE - 33 red and 22 grey of 55 cards and marks; 7 of 7 reports red",
+   "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green"
+  ],
+  "colour-follows-words": [
+   "Blocked: NO DATA.",
+   "State: NO DATA - nothing on the PC can see this window; green only when a test reply is recorded",
+   "State of LLM-06: NO DATA - no report from this window yet",
+   "State of LLM-01: NO DATA - no report from this window yet Its bot CU-Inbox-Job-Watcher: NO DATA - the bots report file has not been written yet",
+   "State of LLM-07: NO DATA - nothing on the PC can see this window; green only when a test reply is recorded",
+   "State of LOCAL: UP - seen Oct 6, 1:59 PM EDT Its bot CU-Local-Executor: RAN Oct 6, 1:56 PM EDT, result 0, scheduler says ready.",
+   "State of LLM-06: UP - seen Oct 6, 1:59 PM EDT",
+   "State of LLM-01: UP - seen Oct 6, 1:59 PM EDT Its bot CU-Inbox-Job-Watcher: RAN Oct 6, 1:57 PM EDT, result 0, scheduler says ready.",
+   "State of CHIEF: UP - seen Oct 6, 1:59 PM EDT Its bot CU-Orchestrator: RAN Oct 6, 1:54 PM EDT, result 0, scheduler says ready.",
+   "Bot CU-Inbox-Job-Watcher: RAN Oct 6, 1:57 PM EDT, result 0, scheduler says ready.",
+   "Bot CU-Local-Executor: RAN Oct 6, 1:56 PM EDT, result 0, scheduler says ready.",
+   "Bot CU-TokenMonitor-Hourly: RAN Oct 6, 1:55 PM EDT, result 0, scheduler says ready.",
+   "Bot CU-Orchestrator: RAN Oct 6, 1:54 PM EDT, result 0, scheduler says ready.",
+   "Bot CU-Propagation-Check: RAN Oct 6, 1:53 PM EDT, result 0, scheduler says ready.",
+   "Bot VTES-LOCAL-POLLER: RAN Oct 6, 1:52 PM EDT, result 0, scheduler says ready.",
+   "State of LLM-07: NO DATA - no recent test reply recorded for this window",
+   "State: NO ZONE - a time in the report has no time zone, so this page cannot tell which clock it means.",
+   "State of LLM-07: NO ZONE - a time in the report has no time zone, so this page cannot tell which clock it means.",
+   "State of LLM-06: STALE since Oct 6, 1:59 PM EDT",
+   "State of LLM-01: STALE since Oct 6, 1:59 PM EDT Its bot CU-Inbox-Job-Watcher: STALE since Oct 6, 5:40 AM EDT - the bots report is old",
+   "State of CHIEF: The window is up (UP - seen Oct 6, 1:59 PM EDT), but its bot CU-Orchestrator is NOT FINE: FAILED - the last run (Oct 6, 1:54 PM EDT) ended with the error number 1.",
+   "Bot CU-Orchestrator: FAILED - the last run (Oct 6, 1:54 PM EDT) ended with the error number 1.",
+   "State of LLM-01: WRITER SAYS UP, NOT PROVEN - the simple status writer stamped up at Oct 6, 1:59 PM EDT but it checks nothing Its bot CU-Inbox-Job-Watcher: NO DATA - the bots report file has not been written yet",
+   "health: PARTIAL - only 9 of 12 health checks passed (file as of Oct 6, 1:30 PM EDT)",
+   "PARTIAL - only 9 of 12 health checks passed (file as of Oct 6, 1:30 PM EDT) NO DATA",
+   "token use: NO ZONE - the time in the token use report has no time zone, so this page cannot tell which clock it means.",
+   "NO ZONE - the time in the token use report has no time zone, so this page cannot tell which clock it means.",
+   "NO ZONE The token report has a time with no time zone, so none of its numbers are shown.",
+   "window check-in: UNREADABLE - 1 entries or values in the window check-in report were empty, the wrong type, too long or too many, and were left out (file as of Oct 6, 1:59 PM EDT).",
+   "bots: UNREADABLE - 1 entries or values in the bots report were empty, the wrong type, too long or too many, and were left out (file as of Oct 6, 1:59 PM EDT).",
+   "open items: IMPOSSIBLE - open_items in the state file is not a whole number of 0 or more (file as of Oct 6, 1:30 PM EDT)",
+   "health: IMPOSSIBLE - 20 of 12 health checks passed cannot be true (file as of Oct 6, 1:30 PM EDT)",
+   "token use: IMPOSSIBLE - window_used_pct in the token report is below 0 or above 100%, which cannot be true (file as of Oct 6, 1:58 PM EDT)",
+   "Miami-Dade: IMPOSSIBLE - the count says 999 of 300, which cannot be true (file as of Oct 6, 1:40 PM EDT)",
+   "IMPOSSIBLE - 20 of 12 health checks passed cannot be true (file as of Oct 6, 1:30 PM EDT) IMPOSSIBLE - open_items in the state file is not a whole number of 0 or more (file as of Oct 6, 1:30 PM EDT)",
+   "Health report: IMPOSSIBLE (20 of 12).",
+   "IMPOSSIBLE - window_used_pct in the token report is below 0 or above 100%, which cannot be true (file as of Oct 6, 1:58 PM EDT)",
+   "IMPOSSIBLE - open_items in the state file is not a whole number of 0 or more (file as of Oct 6, 1:30 PM EDT)",
+   "IMPOSSIBLE - the count says 999 of 300, which cannot be true (file as of Oct 6, 1:40 PM EDT)",
+   "Counted so far: IMPOSSIBLE (999) of 300."
+  ],
+  "instruction": [
+   "Do not type passwords or card numbers here.",
+   "Paste it into a new email to yourself and press Send (this page never sends anything for you).",
+   "First time only: the shortcut \"Codex - sign in (Jorge)\".",
+   "Do NOT paste this packet into any Claude window, into Cowork, into Codex or Grok, and do not press the blue RAMBO button for it: client personal data goes to LOCAL only.",
+   "Never use a New Text Document with hidden extensions.",
+   "Never for client personal data: that goes to LOCAL only.",
+   "Open items: 12.",
+   "Open items: IMPOSSIBLE (-2).",
+   "Tick the box under the note box in section 1: \"This note has NO client personal data\".",
+   "Do not give this packet to any Claude window.",
+   "Do not create it.",
+   "Do not open it, do not write into it, do not delete it.",
+   "Do not use PowerShell's redirect symbol to save them: Windows PowerShell 5.1 re-encodes the bytes as UTF-16 and the check fails. Use a binary-safe way (your file tool, or a program that writes the bytes it reads from the git process).",
+   "Do not run step 9 with the old file.",
+   "Do not rename it to fix it: ask.",
+   "Do not use the folder.",
+   "Paste all the lines and report BLOCKED.",
+   "Do not fix it by writing the files again over the folder, and do not delete anything.",
+   "Paste it and report BLOCKED.",
+   "Do not create a Desktop shortcut: that needs Jorge's yes, as a separate order."
+  ],
+  "packet-readonly": [
+   "The packet (read only: use the buttons above to copy it)"
+  ],
+  "one-click-links": [
+   "The one-click shortcut for Claude Code Desktop does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Claude Code Cloud does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Claude Cowork does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Claude Chat does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Codex CLI does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Grok (SuperGrok) does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "The one-click shortcut for Gemini does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: NO DATA).",
+   "Open Claude Code Desktop with one click (a shortcut the PC set up)",
+   "The one-click shortcut for Claude Code Cloud does not open yet: the shortcuts are set up, but this window's entry is still empty.",
+   "Open Claude Cowork with one click (a shortcut the PC set up)",
+   "The one-click shortcut for Claude Chat does not open yet: the shortcuts are set up, but this window's entry is still empty.",
+   "The one-click shortcut for Codex CLI does not open yet: the shortcuts are set up, but this window's entry is still empty.",
+   "The one-click shortcut for Grok (SuperGrok) does not open yet: the shortcuts are set up, but this window's entry is still empty.",
+   "The one-click shortcut for Gemini does not open yet: the shortcuts are set up, but this window's entry is still empty.",
+   "The one-click shortcut for Claude Code Desktop does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Claude Code Cloud does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Claude Cowork does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Claude Chat does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Codex CLI does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Grok (SuperGrok) does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Gemini does not open yet: the shortcuts are not set up on the PC yet.",
+   "The one-click shortcut for Claude Code Desktop does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Claude Code Cloud does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Claude Cowork does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Claude Chat does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Codex CLI does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Grok (SuperGrok) does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE).",
+   "The one-click shortcut for Gemini does not open yet: the PC has not reported whether the shortcuts are set up (PC check-in report: STALE)."
+  ],
+  "for-rambo": [
+   "For RAMBO: the address is vtes://llm-01. fill in the address book entry for LLM-01, run VTES-Open.ps1 -Install once (no admin) and record both in the heartbeat file.",
+   "For RAMBO: the address is vtes://llm-02.",
+   "For RAMBO: registry LLM-WINDOW-REGISTRY_v2.md, lanes EXECUTORS-AND-ORCHESTRATOR_2026-10-01.md. #VTES-control-panel #LLM-registry"
+  ],
+  "no-open-button": [
+   "A web page cannot open a desktop app, so there is no Open button."
+  ],
+  "typed-label": [
+   "How to open (typed instruction from v3, not checked by this page): Claude desktop app, Code tab (or green D tray icon), then Ctrl+V.",
+   "How to open (typed instruction from v3, not checked by this page): This opens your list of Claude Code sessions.",
+   "How to open (typed instruction from v3, not checked by this page): Claude desktop app, Cowork tab (or orange X tray icon), then Ctrl+V.",
+   "How to open (typed instruction from v3, not checked by this page): On the iPhone, open the Claude app.",
+   "First time only: double-click the desktop shortcut named \"Codex - sign in (Jorge)\" and follow the sign-in window that opens (typed from v3, UNVERIFIED on this PC).",
+   "How to open (typed instruction from v3, not checked by this page): You type no command: the desktop executor runs Codex for you (see the steps on the LLM-06 card in section 2).",
+   "Typed note, dated 2026-10-06, not checked by this page.",
+   "It comes from the v4 build, which cites the registry brief of 2026-10-06.",
+   "It says Grok chat had been unproven for 31 days.",
+   "How to open (typed instruction from v3, not checked by this page): Standby.",
+   "For RAMBO: v3 says the job file needs a line starting CLASS: and a line starting PROMPT: (typed from v3, UNVERIFIED); the packet does not have them, and the helper that adds them is still to be built (DESKTOP-WORK item 9 (LOCAL jobs)). v3 says the bot CU-Local-Executor watches VTES-Inbox-LOCAL: if that folder is inside Google Drive, that lane uploads client data too (KNOWN-LIMITS item 35 (LOCAL)).",
+   "Typed note, not live: v3 says \"Proven 2026-10-01\" (not checked by this page).",
+   "For RAMBO only (typed in v3; the desktop executor runs it, you type nothing): codex exec \"<task>\"",
+   "Typed note, not live: on 2026-10-01 v3 said about 75% of the Max quota was used and forecast it to run out on a Saturday.",
+   "For RAMBO only (typed in v3; the desktop executor runs it, you type nothing): Drop JOB-*.md into G:\\My Drive\\VTES-Inbox",
+   "For RAMBO only (typed in v3; the desktop executor runs it, you type nothing): Second-Opinion.ps1 -Prompt \"<question>\"",
+   "Maintained by hand in VTES-LLM-LAUNCHER_v3.html; the last row was typed on 2026-10-02.",
+   "2026-10-02 AGENTS Burn-rate agent installed, runs 7:00 AM daily (typed note 2026-10-02; the note gives no time zone, so this page cannot say which clock it means) ADDED"
+  ],
+  "phone-no-link": [
+   "The PC cannot open it."
+  ],
+  "v3-card-text": [
+   "Grok is chat only."
+  ],
+  "grok-next": [
+   "Reason: NO DATA - nothing on the PC can see this window; green only when a finished bot task is recorded."
+  ],
+  "local-folder-lines": [
+   "LOCAL save step: BLOCKED - UNVERIFIED.",
+   "The PC has not reported whether a local-only folder exists (PC check-in report: NO DATA).",
+   "Do not save client personal data in any file.",
+   "Classify, tag, extract, summarise, rename, and all client personal data (typed in v3: \"Never leaves the PC\" - only true once a local-only folder outside Google Drive and OneDrive is confirmed; see the LOCAL save step on this card).",
+   "Do NOT save this packet as a file anywhere: no folder has been confirmed as safe for client personal data (see the LOCAL save step line above).",
+   "Do NOT save it in Google Drive or OneDrive: they upload files to the cloud.",
+   "For RAMBO: create or confirm a local-only folder outside every syncing folder (a plain C:\\ path outside Users\\JV\\Desktop, OneDrive and Documents) and record it, with local_only_verified_by and not_synced_proof, under local_only_folder in the heartbeat file (DESKTOP-WORK item 11 (local-only folder)).",
+   "In File Explorer, open the local-only folder named \"C:\\VTES-LOCAL\\\" (the desktop executor confirmed it is outside Google Drive and OneDrive).",
+   "The desktop executor (RAMBO) has not confirmed a local-only folder: one that is NOT inside Google Drive, OneDrive or any other folder that uploads to the cloud.",
+   "The folder the PC reports (\"G:\\My Drive\\x\") has no name, looks like a cloud-synced folder, is a short (8.3) name or has a \"..\" part.",
+   "In File Explorer, open the local-only folder named \"C:\\Data\\Private\" (the desktop executor confirmed it is outside Google Drive and OneDrive).",
+   "The PC has not reported whether a local-only folder exists (PC check-in report: STALE).",
+   "Where a local file may be saved is shown by the LOCAL save step line on the LOCAL card (section 3)."
+  ],
+  "no-numbers-when-none": [
+   "No burn rate is shown because none was measured.",
+   "Last report time: NONE.",
+   "NO DATA No data file supplies repair rows, so none are shown."
+  ],
+  "queued-one-click": [
+   "Queued items: one click fills the note box"
+  ],
+  "repairs-live": [
+   "Live repair rows (read from the state data file, none typed)"
+  ],
+  "miami-heading": [
+   "Miami-Dade: 22 public sources"
+  ],
+  "proof-links": [
+   "Every link opens that source's proof file in Drive."
+  ],
+  "miami-rows": [
+   "01 Property Appraiser - property search - Open the proof file for source 01 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "02 Property Appraiser - comparable sales - Open the proof file for source 02 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "03 Tax Collector - real estate tax - Open the proof file for source 03 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "04 Clerk - Official Records - Open the proof file for source 04 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: PARTIAL: Cloudflare captcha, not worked around proof not current (the Miami-Dade file is NO DATA)",
+   "05 Clerk - civil cases - Open the proof file for source 05 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "06 Building permit menu - Open the proof file for source 06 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "07 EPS e-permitting - Open the proof file for source 07 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: permit status public; folio search needs a login proof not current (the Miami-Dade file is NO DATA)",
+   "08 Building support cases - Open the proof file for source 08 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "09 Code enforcement online - Open the proof file for source 09 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "10 Neighborhood code cases - Open the proof file for source 10 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "11 Unsafe structures - Open the proof file for source 11 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "12 Certificates of Use - Open the proof file for source 12 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: PARTIAL: before 2012 works, newer search retired proof not current (the Miami-Dade file is NO DATA)",
+   "13 DERM code enforcement - Open the proof file for source 13 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "14 DERM public records - Open the proof file for source 14 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "15 Product approval (NOA) search - Open the proof file for source 15 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "16 Zoning and land use - Open the proof file for source 16 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "17 City of Miami permits - Open the proof file for source 17 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: login-blocked per registry banner proof not current (the Miami-Dade file is NO DATA)",
+   "18 Miami Beach permits - Open the proof file for source 18 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "19 Sunbiz (state business records) - Open the proof file for source 19 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "20 DBPR licenses - Open the proof file for source 20 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "21 Florida product approval - Open the proof file for source 21 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "22 Pembroke Pines / Broward - Open the proof file for source 22 (a file in Google Drive) proof not current (the Miami-Dade file is NO DATA)",
+   "01 Property Appraiser - property search - Open the proof file for source 01 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "02 Property Appraiser - comparable sales - Open the proof file for source 02 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "03 Tax Collector - real estate tax - Open the proof file for source 03 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "04 Clerk - Official Records - Open the proof file for source 04 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: PARTIAL: Cloudflare captcha, not worked around proof checked Oct 5, 2:00 PM EDT",
+   "05 Clerk - civil cases - Open the proof file for source 05 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "06 Building permit menu - Open the proof file for source 06 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "07 EPS e-permitting - Open the proof file for source 07 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: permit status public; folio search needs a login proof checked Oct 5, 2:00 PM EDT",
+   "08 Building support cases - Open the proof file for source 08 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "09 Code enforcement online - Open the proof file for source 09 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "10 Neighborhood code cases - Open the proof file for source 10 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "11 Unsafe structures - Open the proof file for source 11 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "12 Certificates of Use - Open the proof file for source 12 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: PARTIAL: before 2012 works, newer search retired proof checked Oct 5, 2:00 PM EDT",
+   "13 DERM code enforcement - Open the proof file for source 13 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "14 DERM public records - Open the proof file for source 14 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "15 Product approval (NOA) search - Open the proof file for source 15 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "16 Zoning and land use - Open the proof file for source 16 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "17 City of Miami permits - Open the proof file for source 17 (a file in Google Drive) - typed note from 2026-08-16, not re-checked: login-blocked per registry banner proof checked Oct 5, 2:00 PM EDT",
+   "18 Miami Beach permits - Open the proof file for source 18 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "19 Sunbiz (state business records) - Open the proof file for source 19 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "20 DBPR licenses - Open the proof file for source 20 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "21 Florida product approval - Open the proof file for source 21 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "22 Pembroke Pines / Broward - Open the proof file for source 22 (a file in Google Drive) proof checked Oct 5, 2:00 PM EDT",
+   "01 Property Appraiser - property search - Open the proof file for source 01 (a file in Google Drive) PROOF OK BUT THE CHECK DATE HAS NO TIME ZONE: not counted as checked"
+  ],
+  "footer-stamp": [
+   "TRK-2026-9910-B · v5 · built Oct 6, 1:00 PM EDT · CURRENT."
+  ],
+  "packet-v3": [
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-01 (Claude Code Desktop) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LOCAL (LOCAL (Ollama)) Oct 6, 2:00 PM EDT",
+   "SSN 123-45-6789.",
+   "My number is 123-45-6789 please check",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-03 (Claude Cowork) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> RAMBO (CLAUDE / RAMBO) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> CODEX (CODEX) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-02 (Claude Code Cloud) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-04 (Claude Chat) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-05 (Claude iPhone) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-06 (Codex CLI) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-07 (Grok (SuperGrok)) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-08 (Gemini) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> LLM-09 (Thin API router) Oct 6, 2:00 PM EDT",
+   "HANDOFF LLM-04 (Claude Chat) -> GROK (GROK) Oct 6, 2:00 PM EDT",
+   "#handoff #LLM-04 #GROK #JorgeValdes",
+   "RETURN PATH: write your answer so Jorge can paste it back to LLM-04, and tag it #GROK."
+  ],
+  "intervals": [
+   "Check-in interval: every 5 minutes (read from the PC check-in report).",
+   "Scheduled every 10 minutes (read from the task schedule).",
+   "Check-in interval: every 5 minutes (STALE) (read from the PC check-in report)."
+  ],
+  "strip-counts": [
+   "window check-in: NOT FINE - 3 red and 0 grey of 17 cards and marks on this page depend on the window check-in report (the report itself is fresh: as of Oct 6, 1:59 PM EDT)",
+   "Miami-Dade: NOT PROVEN - 0 red and 1 grey of 22 cards and marks on this page depend on the Miami-Dade report (the report itself is fresh: as of Oct 6, 1:40 PM EDT)",
+   "NOT PROVEN - 0 red and 1 grey of 22 cards and marks on this page depend on the Miami-Dade report (the report itself is fresh: as of Oct 6, 1:40 PM EDT)"
+  ],
+  "bots-counts": [
+   "bots: 2 of 6 bots are not fine (CU-Local-Executor, CU-Orchestrator); see each bot card (file as of Oct 6, 1:59 PM EDT)"
+  ],
+  "age-line": [
+   "Only the simple status writer has reported, and it cannot prove anything."
+  ],
+  "tick-claims": [
+   "NOT TICKED: the copy and show buttons for LLM-01 are switched off until you tick.",
+   "Choose LLM-03 as To first (press Hand work here on its card), then tick.",
+   "Ticked for this note and for LLM-01."
+  ],
+  "guard-packet": [
+   "(NOT INCLUDED: the note looks like client personal data (a run of 9 digits; a Social Security shape (3, 2 and 4 digits)).",
+   "This page keeps it out of every packet except one for LOCAL."
+  ]
+ }
+}
