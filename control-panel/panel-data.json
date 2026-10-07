@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-09-30 00:00 UTC",
+  "generated_at_iso": "2026-09-30T00:00:00+00:00",
+  "active_model": "NONE — all models blocked or unknown",
+  "models": [
+    {
+      "name": "gemini",
+      "api_status": "NO-KEY",
+      "api_detail": "GEMINI_API_KEY not set",
+      "plan": "Free",
+      "pct_remaining": null,
+      "quota_note": "CHECK aistudio.google.com",
+      "recommendation": "SKIP",
+      "recommendation_reason": "NO-KEY"
+    },
+    {
+      "name": "grok",
+      "api_status": "NO-KEY",
+      "api_detail": "XAI_API_KEY not set",
+      "plan": "unknown",
+      "pct_remaining": null,
+      "quota_note": "CHECK console.x.ai",
+      "recommendation": "SKIP",
+      "recommendation_reason": "NO-KEY"
+    },
+    {
+      "name": "openai",
+      "api_status": "NO-KEY",
+      "api_detail": "OPENAI_API_KEY not set",
+      "plan": "unknown",
+      "pct_remaining": null,
+      "quota_note": "CHECK platform.openai.com/usage",
+      "recommendation": "SKIP",
+      "recommendation_reason": "NO-KEY"
+    },
+    {
+      "name": "anthropic",
+      "api_status": "NO-KEY",
+      "api_detail": "ANTHROPIC_API_KEY not set",
+      "plan": "unknown",
+      "pct_remaining": null,
+      "quota_note": "CHECK claude.ai/settings/usage",
+      "recommendation": "SKIP",
+      "recommendation_reason": "NO-KEY"
+    }
+  ],
+  "quota_warning_threshold_pct": 20,
+  "note": "SEED FILE — no API keys wired yet. Run: python vts-llm-panel/health_monitor.py to overwrite with live data. TRK-2026-9953"
+}
