@@ -4,6 +4,29 @@
 
 ---
 
+## START HERE — MORNING OF 2026-10-07 (written 1:05 AM Miami; refreshed when you wake). Plain, answer first.
+
+**Section A — The answer.** **Your waiting answers are being carried out again, with receipts. The panel is not installed: the seventh independent check is next. Four things need you, and none is technical.**
+
+**Section B — What happened overnight (from Drive files I read).**
+
+1. **The stalled-answers case: proven working.** The cause was the daily limit of 12 jobs plus "newest file wins". The desktop put your answers first. After midnight, six closed in 55 minutes: RED-4 (no lead-list receipt exists; only a $3 REISkip order dated July 31), RED-6, RED-7, and three owner-directive follow-ups.
+2. **The desktop was quiet 5:31 PM to 9:01 PM Miami and came back by itself.** Cause unknown.
+3. **Panel: six independent checks, then a seventh coming.** The sixth found only wording problems: 8 mislead, 0 damage, 0 leak. Round 9 removes the cause (less text, no lists of what the guard catches, a short numbered install document). Nothing is on your PC.
+
+**Section C — What needs you (smallest actions).**
+
+1. **Medley:** click the Desktop button "ANSWER AP-0022 - Miami Art House $10,600". It settles which dollar figure is right.
+2. **RED-1 and RED-3:** the three fee numbers, and the payment details (nickname and last 4 only). Say them to RAMBO.
+3. **RED-2:** open the attorney brief once, book the hour, send it yourself.
+4. **Claude Code shortcut:** is "CLAUDE CODE - DESKTOP EXECUTOR" the one? Yes or no.
+
+**Section D — Not done, said plainly.** Alec's delivery files are not on disk. The Wally call-sheet task has failed since September 24. Einar's extension is 75 days overdue. The health line that warns if answers stall again is not built.
+
+Did that read clearly, and can I start your day with the Medley click?
+
+---
+
 ## CORRECTION 2026-10-06 12:10 PM Miami (16:10Z) — read this before the checkpoint block below
 
 **I wrote that the decision problem was fixed. The desktop's own newer report says the proof is missing.** It found only 3 closed decisions out of about 57. The newest closed one was written at 12:32 AM, before the fix. In 11 hours since, none closed. **So the fix is UNPROVEN, not done.** I ordered a read-only proof request (Drive 1… MSG-CLOUD-TO-CODE_PROVE-DECISION-FIX-WORKS-READONLY). The desktop's money-status report is in Drive: EXECUTED_RAMBO_PRIORITY-ZERO-AND-CASH-STATUS_2026-10-06 (id 120vewiU1XHJQZXdPBYDu4UN2LCwyrqaz). Its findings: Wally call-sheet task disabled and failing since 2026-09-24; Airtable CRM and the $70 list test NOT FOUND; Alec DD files NOT FOUND on disk (Orange Tree refresh task runs and succeeds); Medley figure unreconciled ($10,600 / $16,000 / $21,200) and waiting on your one click on the desktop button "ANSWER AP-0022 - Miami Art House $10,600"; Einar's extension is 75 days overdue; microfilm retrieval DONE 2026-08-16 (220 docs) with its notice email possibly still unsent.
