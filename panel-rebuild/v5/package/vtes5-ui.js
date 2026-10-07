@@ -30,6 +30,7 @@
   function localFolder() {
     var h = V.status('heartbeat'), lf = (h.state === 'OK' && h.data) ? h.data.local_only_folder : null, none = 'BLOCKED - UNVERIFIED. ';
     if (h.state !== 'OK') { return { cls: 'bad', ok: false, text: none + 'The PC has not reported whether a local-only folder exists (PC check-in report: ' + h.state + '). Do not save client personal data in any file.' }; }
+    if (h.data && h.data._bad > 0) { return { cls: 'bad', ok: false, text: none + 'The PC check-in report is UNREADABLE (part of it could not be read), so no folder can be confirmed. Do not save client personal data in any file.' }; }
     if (!lf || lf.ok !== true) { return { cls: 'bad', ok: false, text: none + 'No local-only folder is confirmed in the PC check-in report: one that is NOT inside Google Drive, OneDrive or any other folder that uploads to the cloud. Until one is, do not save client personal data in any file.' }; }
     var label = String(lf.label == null ? '' : lf.label);
     var proven = !!(lf.local_only_verified_by && String(lf.local_only_verified_by).trim() && lf.not_synced_proof && String(lf.not_synced_proof).trim());
@@ -58,7 +59,7 @@
         'Double-click the file to open it. Press Ctrl+V to paste the packet, then save the file.',
         'You do these steps yourself, by hand. Do not ask RAMBO or any Claude window to do them.');
     }
-    out.push('For RAMBO: v3 says the job file needs a line starting CLASS: and a line starting PROMPT: (typed from v3, UNVERIFIED); the packet does not have them, and the helper that adds them is still to be built (DESKTOP-WORK item 9 (LOCAL jobs)). v3 says the bot CU-Local-Executor watches VTES-Inbox-LOCAL: if that folder is inside Google Drive, that lane uploads client data too (KNOWN-LIMITS item 35 (LOCAL)).');
+    out.push('For RAMBO: v3 says the job file needs a line starting CLASS: and a line starting PROMPT: (typed from v3, UNVERIFIED); the packet does not have them, and the helper that adds them is still to be built (DESKTOP-WORK item 9 (LOCAL jobs)). v3 says the bot CU-Local-Executor watches VTES-Inbox-LOCAL: if that folder is inside Google Drive, that lane uploads client data too (KNOWN-LIMITS item 43 (LOCAL)).');
     return out;
   }
   function getSteps(m) { return m.stepsFn ? m.stepsFn() : m.steps; }

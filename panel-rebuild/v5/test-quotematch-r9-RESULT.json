@@ -1,0 +1,29 @@
+{
+ "test": "test-quotematch-r9",
+ "total": 26,
+ "pass": 26,
+ "bad": [],
+ "docs": [
+  {
+   "doc": "INSTALL-BY-HAND.md",
+   "quotes": 8
+  },
+  {
+   "doc": "KNOWN-LIMITS.md",
+   "quotes": 4
+  },
+  {
+   "doc": "DESKTOP-WORK.md",
+   "quotes": 5
+  },
+  {
+   "doc": "DATA-CONTRACT.md",
+   "quotes": 9
+  },
+  {
+   "doc": "PORT-REPORT.md",
+   "quotes": 0
+  }
+ ],
+ "verify_scenarios_read": 22
+}

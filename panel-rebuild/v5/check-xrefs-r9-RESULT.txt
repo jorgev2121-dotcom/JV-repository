@@ -1,0 +1,38 @@
+PASS DESKTOP-WORK items run 1 to 12 with no gap
+PASS KNOWN-LIMITS items run 1 to 62 with no gap
+PASS DATA-CONTRACT files items run 1 to 7 with no gap
+PASS DESKTOP-WORK.md: "DATA-CONTRACT item 1 (heartbeat)" names an item that exists and holds the words of its tag
+PASS DESKTOP-WORK.md: "DATA-CONTRACT item 2 (bots)" names an item that exists and holds the words of its tag
+PASS DESKTOP-WORK.md: "DATA-CONTRACT item 7 (miamidade)" names an item that exists and holds the words of its tag
+PASS KNOWN-LIMITS.md: "DESKTOP-WORK item 10 (Desktop shortcut)" names an item that exists and holds the words of its tag
+PASS KNOWN-LIMITS.md: "DESKTOP-WORK item 11 (local-only folder)" names an item that exists and holds the words of its tag
+PASS KNOWN-LIMITS.md: "DESKTOP-WORK item 9 (LOCAL jobs)" names an item that exists and holds the words of its tag
+PASS PORT-REPORT.md: "DESKTOP-WORK item 5 (bots report)" names an item that exists and holds the words of its tag
+PASS package/vtes5-ui.js: "DESKTOP-WORK item 11 (local-only folder)" names an item that exists and holds the words of its tag
+PASS package/vtes5-ui.js: "DESKTOP-WORK item 9 (LOCAL jobs)" names an item that exists and holds the words of its tag
+PASS package/vtes5-ui.js: "KNOWN-LIMITS item 43 (LOCAL)" names an item that exists and holds the words of its tag
+PASS every item reference carries its tag in brackets (none untagged)
+PASS the package folder holds 12 files = the 11 in the manifest + the manifest itself (12)
+PASS INSTALL-BY-HAND.md says the package is 12 files
+PASS INSTALL-BY-HAND.md names all 12 package files (none missing)
+PASS INSTALL-BY-HAND.md quotes the OK line with 11 of 11
+PASS INSTALL-BY-HAND.md: every "all N of N" says 11 (none wrong)
+PASS DESKTOP-WORK.md: every "all N of N" says 11 (none wrong)
+PASS KNOWN-LIMITS.md: every "all N of N" says 11 (none wrong)
+PASS DATA-CONTRACT.md: every "all N of N" says 11 (none wrong)
+PASS PORT-REPORT.md: every "all N of N" says 11 (none wrong)
+PASS INSTALL-BY-HAND.md is the install document and has no history header
+PASS INSTALL-BY-HAND.md points at no deleted installer and no install step number that no longer exists
+PASS DESKTOP-WORK.md starts with the header HISTORY AND LIMITS - nothing here is an install step
+PASS DESKTOP-WORK.md points at no deleted installer and no install step number that no longer exists
+PASS KNOWN-LIMITS.md starts with the header HISTORY AND LIMITS - nothing here is an install step
+PASS KNOWN-LIMITS.md points at no deleted installer and no install step number that no longer exists
+PASS DATA-CONTRACT.md starts with the header HISTORY AND LIMITS - nothing here is an install step
+PASS DATA-CONTRACT.md points at no deleted installer and no install step number that no longer exists
+PASS PORT-REPORT.md starts with the header HISTORY AND LIMITS - nothing here is an install step
+PASS PORT-REPORT.md points at no deleted installer and no install step number that no longer exists
+PASS INSTALL-BY-HAND.md is a numbered list of 31 steps with no gap
+PASS every INSTALL-BY-HAND.md step is at most 40 words (none over)
+PASS INSTALL-BY-HAND.md holds no history and no section essays (no fix-round or CHECK words, no second-level headings)
+
+CROSS-REFERENCES R9: 36 of 36 checks pass (10 item references resolved)

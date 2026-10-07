@@ -26,7 +26,7 @@ PASS INSTALL-BY-HAND.md names the CRLF and link answers
 PASS INSTALL-BY-HAND.md never a git checkout
 PASS INSTALL-BY-HAND.md runs VERIFY-v5.ps1
 PASS INSTALL-BY-HAND.md says there is nothing to undo because the real v3 is never touched
-PASS INSTALL-BY-HAND.md says deleting the v5 folder is Jorge's decision, by hand, with his yes, never by a script
+PASS INSTALL-BY-HAND.md says deleting the v5 folder is Jorge's decision, by hand, with his yes
 PASS INSTALL-BY-HAND.md asks the closing yes/no question
 PASS INSTALL-BY-HAND.md holds exactly one command block (the read-only VERIFY line): 1
 PASS the one command block is only the VERIFY line, carrying a real 64-hex manifest hash

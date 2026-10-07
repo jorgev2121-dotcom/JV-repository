@@ -40,7 +40,7 @@ function verifyOutputs() {
   if (CACHE && fs.existsSync(CACHE)) { const c = JSON.parse(fs.readFileSync(CACHE, 'utf8')); corpus += c.surf.map(e => e.examples.map(x => x[0]).join('\n')).join('\n'); }
   const br = await L.chromium.launch(); const hv = await H.harvestAll(br); await br.close(); hv.lines.forEach(l => { corpus += '\n' + l; }); hv.sentences.forEach(e => e.examples.forEach((w, t) => { corpus += '\n' + t; }));
   const pageSrc = rd('package/vtes5-ui.js') + '\n' + rd('package/vtes5-live.js') + '\n' + rd('package/VTES-LLM-LAUNCHER_v5.html') + '\n' + rd('vtes5.css'); const verSrc = rd('VERIFY-v5.ps1').replace(/''/g, "'");
-  const outs = verifyOutputs().join('\n'); const hay = norm(corpus + '\n' + pageSrc + '\n' + verSrc + '\n' + outs);
+  const outsArr = verifyOutputs(); const VN = outsArr.length; const outs = outsArr.join('\n'); const hay = norm(corpus + '\n' + pageSrc + '\n' + verSrc + '\n' + outs);
   const hayEsc = hay.replace(/\\\\/g, '\\');
   const found = q => { const n = norm(q); return hay.includes(n) || hayEsc.includes(n) || hay.includes(n.replace(/[.]+$/, '')); };
   const DOCS = ['INSTALL-BY-HAND.md', 'KNOWN-LIMITS.md', 'DESKTOP-WORK.md', 'DATA-CONTRACT.md', 'PORT-REPORT.md']; const results = []; let total = 0, bad = 0; const badList = [];
@@ -52,7 +52,7 @@ function verifyOutputs() {
     results.push({ doc: f, quotes: n });
   }
   badList.forEach(b => console.log('FAIL quote not found in the page or VERIFY: ' + b));
-  const pass = total - bad; fs.writeFileSync(OUT, JSON.stringify({ test: 'test-quotematch-r9', total, pass, bad: badList, docs: results, verify_scenarios_read: 22 }, null, 1));
-  console.log('QUOTE-MATCH R9: ' + pass + ' of ' + total + ' double-quoted texts found word for word in the page, its source, VERIFY, or the real output of 22 VERIFY runs (' + results.map(r => r.doc + ' ' + r.quotes).join(', ') + ')');
+  const pass = total - bad; fs.writeFileSync(OUT, JSON.stringify({ test: 'test-quotematch-r9', total, pass, bad: badList, docs: results, verify_scenarios_read: VN }, null, 1));
+  console.log('QUOTE-MATCH R9: ' + pass + ' of ' + total + ' double-quoted texts found word for word in the page, its source, VERIFY, or the real output of ' + VN + ' VERIFY runs (' + results.map(r => r.doc + ' ' + r.quotes).join(', ') + ')');
   process.exit(bad ? 1 : 0);
 })().catch(e => { console.error(e); process.exit(2); });

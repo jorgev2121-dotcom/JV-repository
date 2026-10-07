@@ -1,0 +1,65 @@
+// test-fixes-r9.js - fix round 9: one direct test for each CHECK-10 flaw and each cheap edge item (the claims test and the quote-match test cover the words; this file covers the behaviour). TRK-2026-9910-B
+// F1 card number with its expiry, F2 Spanish, F3 labelled IDs (and the ordinary notes that must still be carried), F5 LOCAL steps by hand, F6 Grok sentence follows the state, F7 VERIFY after-writers counts (needs PWSH_DIR),
+// F8 WHOLE PAGE counts grey reports, e9 local label rule, e10 unreadable files are not green, e8 From resets the tick, e31 step lines at most 25 words.
+// Usage: node test-fixes-r9.js <out.json>      (env PKG = package folder, V5DIR = tree with VERIFY-v5.ps1, PWSH_DIR = folder with pwsh)
+const fs = require('fs'), path = require('path'), os = require('os'), cp = require('child_process'), crypto = require('crypto');
+const ROOT = path.resolve(process.env.V5DIR || __dirname); process.env.PKG = process.env.PKG || path.join(ROOT, 'package');
+const L = require('./test-v5-lib.js'); const N = require('./pii-notes-r9.js'); const { stage, open, fresh, NOWMS, at } = L; const OUT = process.argv[2] || 'test-fixes-r9-RESULT.json';
+const checks = []; const C = (grp, name, ok, ev) => { checks.push({ grp, name, ok: !!ok, ev: String(ev === undefined ? '' : ev).slice(0, 300) }); if (!ok) { console.log('FAIL ' + grp + ' ' + name + ' - ' + String(ev).slice(0, 200)); } };
+const PW = process.env.PWSH_DIR ? path.join(process.env.PWSH_DIR, 'pwsh') : null;
+(async () => {
+  const br = await L.chromium.launch(); const words = s => (s.match(/\S+/g) || []).length;
+  const open1 = async (files, o) => { const d = stage(files, o); const r = await open(br, d, o); r.dir = d; return r; };
+  // ---------- F1 F2 F3: the checker ----------
+  { const { ctx, p } = await open1(fresh(NOWMS)); const why = a => p.evaluate(a => a.map(t => window.VTES5U.piiReasons(t).length), a);
+    for (const [grp, list, name] of [['F1', N.CARDS, 'a card number with its expiry or other digits is caught'], ['F2', N.SPANISH, 'Spanish number words, tens joined with y, months and birth words are caught'], ['F3', N.LABELLED, 'a plain ID or a date beside its own label is caught']]) {
+      const r = await why(list); const miss = list.filter((t, i) => !r[i]); C(grp, name + ' (' + (list.length - miss.length) + ' of ' + list.length + ')', miss.length === 0, miss.join(' | ')); }
+    const ord = await why(N.ORDINARY), alarm = N.ORDINARY.filter((t, i) => ord[i]); C('F3', 'ordinary notes are still carried, including the CHECK-10 examples (' + (N.ORDINARY.length - alarm.length) + ' of ' + N.ORDINARY.length + ')', alarm.length === 0, alarm.join(' | '));
+    const ex = ['Bank of America appointment 10/12/2026', 'ZIPs 33186 33187 33189', 'The driver dropped 2 boxes at 14598 SW 110 ST', 'Amazon order 113-1234567-1234567']; const re = await why(ex); C('F3', 'the CHECK-10 false-alarm examples that can be carried are carried', re.every(x => !x), ex.filter((t, i) => re[i]).join(' | '));
+    const fa = await why(N.FALSE_ALARMS); C('F3', 'the notes still held back fail closed (' + fa.filter(x => x).length + ' of ' + N.FALSE_ALARMS.length + ' are held back)', fa.every(x => x), N.FALSE_ALARMS.filter((t, i) => !fa[i]).join(' | '));
+    const strip = await why(['card 4111 1111 1111 1111 12/29', 'exp 12/29 order 4111111111111111', '1229 4111 1111 1111 1111']); C('F1', 'date shapes are taken out and a Luhn-valid 13 to 19 digit stretch is found wherever it sits', strip.every(x => x), strip.join(','));
+    await ctx.close(); }
+  // ---------- F5 / e31: LOCAL steps by hand, step lines at most 25 words ----------
+  { const worlds = [['confirmed', fresh(NOWMS)], ['unconfirmed', (() => { const f = fresh(NOWMS); delete f.heartbeat.local_only_folder; return f; })()], ['no-data', null]];
+    for (const [nm, files] of worlds) { const { ctx, p } = await open1(files); const r = await p.evaluate(() => { const c = document.getElementById('card-LOCAL'); return { text: c.textContent, steps: [...c.querySelectorAll('ol.v5steps li')].map(l => ({ t: l.textContent, ram: l.classList.contains('v5forrambo') })) }; });
+      const sents = r.text.split(/(?<=[.!?])\s+/).filter(s => /sav(?:e|ed|es|ing)\b/i.test(s) && /RAMBO|Claude|Cowork|Codex|Grok|desktop executor/i.test(s) && !/^(?:Do not|Do NOT)/.test(s) && !/^For RAMBO/.test(s));
+      C('F5', nm + ': no LOCAL sentence about saving names RAMBO or a Claude window', sents.length === 0, sents.join(' | '));
+      if (nm === 'confirmed') { C('F5', 'confirmed folder: the steps open the folder, make the file, name it, paste and save, by hand', ['Open File Explorer', 'Right-click an empty spot', 'Type the name JOB-something.md', 'Ctrl+V to paste the packet, then save'].every(k => r.steps.some(s => s.t.includes(k))), r.steps.map(s => s.t.slice(0, 30)).join(' / ')); C('F5', 'confirmed folder: the card says client data never goes to RAMBO or any Claude window', /never goes to RAMBO or to any Claude window/.test(r.text), ''); C('F5', 'confirmed folder: the old For RAMBO save step is gone', !r.steps.some(s => s.ram && /save|Ctrl\+V/.test(s.t)), ''); }
+      const longS = r.steps.filter(s => !s.ram && words(s.t) > 25); C('e31', nm + ': LOCAL step lines are at most 25 words', longS.length === 0, longS.map(s => s.t.slice(0, 50)).join(' | ')); await ctx.close(); }
+    const { ctx, p } = await open1(fresh(NOWMS)); const all = await p.evaluate(() => [...document.querySelectorAll('ol.v5steps li:not(.v5forrambo)')].map(l => l.textContent)); const bad = all.filter(t => words(t) > 25); C('e31', 'every step line on every card is at most 25 words (' + all.length + ' lines)', bad.length === 0, bad.map(t => t.slice(0, 60)).join(' | ')); await ctx.close(); }
+  // ---------- F6: the Grok sentence ----------
+  { const mk = f => { const x = fresh(NOWMS); f(x); return x; };
+    const W = { green: mk(() => { }), red: mk(x => { delete x.heartbeat.executors['LLM-07'].proof_at; }), grey: mk(x => { x.heartbeat.executors['LLM-07'].last_seen = x.heartbeat.executors['LLM-07'].last_seen.replace(/Z$/, ''); }), nodata: null };
+    for (const k of Object.keys(W)) { const { ctx, p } = await open1(W[k]); const r = await p.evaluate(() => { const c = document.getElementById('card-LLM-07'); const n = c.querySelector('[data-grokn]'); return { cls: c.querySelector('.v5st').className, next: n ? n.textContent.trim() : null, all: c.textContent }; });
+      const green = /\bok\b/.test(r.cls), red = /\b(bad|stk)\b/.test(r.cls);
+      C('F6', k + ': ' + (green ? 'green card has no next-step sentence' : red ? 'red card says it stays red' : 'grey card says not green'), green ? (!r.next && !/until then this card stays red/.test(r.all)) : (red ? /stays red/.test(r.next || '') : /not green/.test(r.next || '') && !/stays red/.test(r.next)), r.next); await ctx.close(); } }
+  // ---------- F8: WHOLE PAGE counts grey reports ----------
+  { const f = fresh(NOWMS); f.health.checks_passed = 9; const { ctx, p } = await open1(f); const t = await p.evaluate(() => document.getElementById('v5overall').textContent); const m = /NOT PROVEN - (\d+) red and (\d+) grey of (\d+) cards and marks; (\d+) of (\d+) reports red and (\d+) of (\d+) reports grey/.exec(t);
+    C('F8', 'a page made grey only by a report says so with the grey report counted', !!m && +m[6] >= 1 && +m[4] === 0, t); await ctx.close();
+    const rd = f => fs.readFileSync(path.join(ROOT, f), 'utf8'); const lim = rd('KNOWN-LIMITS.md'); const { ctx: c2, p: p2 } = await open1(fresh(NOWMS)); const read = await p2.evaluate(() => document.getElementById('v5read').textContent); await c2.close();
+    C('F8', 'the Read me and KNOWN-LIMITS define grey only as not proven (no list of causes)', /grey means not proven/.test(read) && /Grey NOT PROVEN\*\* is stated generically on the page: grey means not proven/.test(lim) && !/only the simple status writer said up/.test(read + lim), ''); }
+  // ---------- e9: the local label rule ----------
+  { const labels = [['D:\\VTES-LOCAL\\', false], ['Z:\\Private', false], ['C:\\VTES-LOCAL\\\nG:\\My Drive', false], ['C:\\VTES-LOCAL\\\u0430', false], ['C:\\VTES-LOCAL\\\uff23', false], ['C:\\VTES-LOCAL\\jobs', true], ['c:\\ai\\state\\local\\x', true], ['VTES-LOCAL', false], ['\\\\server\\share', false], ['C:\\Users\\JV\\OneDrive\\x', false]];
+    for (const proof of [false, true]) for (const [lab, want] of labels) { const f = fresh(NOWMS); f.heartbeat.local_only_folder = { ok: true, checked_at: at(30), label: lab }; if (proof) { f.heartbeat.local_only_folder.local_only_verified_by = 'RAMBO'; f.heartbeat.local_only_folder.not_synced_proof = 'checked'; }
+      const { ctx, p } = await open1(f); const t = await p.evaluate(() => document.querySelector('[data-localfolder]').textContent); const conf = /CONFIRMED/.test(t); C('e9', (proof ? 'with proof' : 'no proof') + ': label ' + JSON.stringify(lab) + (want ? ' is CONFIRMED' : ' is refused'), conf === want, t.slice(0, 120)); await ctx.close(); } }
+  // ---------- e10: an UNREADABLE file leaves no green card ----------
+  { const f = fresh(NOWMS); f.bots.bots['CU-Orchestrator'] = 'text'; f.heartbeat.executors['LLM-02'] = 5; const { ctx, p } = await open1(f); const g = await p.evaluate(() => [...document.querySelectorAll('.v5st.ok')].map(e => e.getAttribute('data-state') || e.getAttribute('data-bot') || e.textContent.slice(0, 20)));
+    C('e10', 'with an unreadable bots file and an unreadable window file no window or bot card is green (' + g.length + ' green)', g.length === 0, g.join(', ')); await ctx.close(); }
+  // ---------- e8: changing From resets the tick ----------
+  { const { ctx, p } = await open1(fresh(NOWMS)); const r = await p.evaluate(async () => { const $ = i => document.getElementById(i), ev = (e, t) => e.dispatchEvent(new Event(t, { bubbles: true })), w = () => new Promise(x => setTimeout(x, 40)); $('note').value = 'Check the permit'; ev($('note'), 'input'); $('to').value = 'LLM-03'; ev($('to'), 'change'); $('v5ack').checked = true; ev($('v5ack'), 'change'); await w(); const before = !$('go').disabled;
+      const opts = [...$('from').options].map(o => o.value); $('from').value = opts.find(o => o !== $('from').value); ev($('from'), 'change'); await w(); return { before, checked: $('v5ack').checked, goOff: $('go').disabled }; });
+    C('e8', 'ticked, then From changed: the tick clears and the button goes off', r.before && !r.checked && r.goOff, JSON.stringify(r)); await ctx.close(); }
+  // ---------- F7: VERIFY after-writers counts ----------
+  if (PW) { const man = fs.readFileSync(path.join(process.env.PKG, 'MANIFEST.sha256'), 'utf8').trim().split('\n').map(l => l.split('  ')[1]); const dataN = man.filter(x => x.startsWith('data/') || x === 'vtes5-config.js').length, pageN = man.length - dataN;
+    const run = (d, ex) => cp.spawnSync(PW, ['-NoProfile', '-File', path.join(ROOT, 'VERIFY-v5.ps1'), '-Path', d].concat(ex || []), { encoding: 'utf8', env: Object.assign({}, process.env, { HOME: os.tmpdir() }), timeout: 90000 });
+    const cpd = (a, b) => { fs.mkdirSync(b, { recursive: true }); for (const n of fs.readdirSync(a)) { const x = path.join(a, n), y = path.join(b, n); fs.statSync(x).isDirectory() ? cpd(x, y) : fs.copyFileSync(x, y); } };
+    for (const k of [1, 3, 8]) { const d = fs.mkdtempSync(path.join(os.tmpdir(), 'f7-')) + '/v5'; cpd(process.env.PKG, d); const names = man.filter(x => x.startsWith('data/')).concat(['vtes5-config.js']).slice(0, k);
+      names.forEach(n => { fs.writeFileSync(path.join(d, n), n === 'vtes5-config.js' ? 'window.VTES5_CONFIG = { "status_dir_url": "" };\n' : 'window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.' + n.replace(/^data\/vtes5-|\.js$/g, '') + ' = { "schema": 1, "at": "2026-10-06T14:00:00-04:00", "writer": "w" };\n'); });
+      const r = run(d, ['-AfterWriters']), m = /(\d+) page and script files are identical \(SHA-256\)\. (\d+) data or settings file\(s\) are identical \(SHA-256\)\. (\d+) data or settings file\(s\) were changed/.exec(r.stdout);
+      C('F7', k + ' data files rewritten: page ' + pageN + ', identical data ' + (dataN - k) + ', changed ' + k + ', and they add up to the manifest', r.status === 0 && !!m && +m[1] === pageN && +m[2] === dataN - k && +m[3] === k && +m[1] + +m[2] + +m[3] === man.length, r.stdout.split('\n').find(l => /^OK/.test(l)) || r.stdout.slice(0, 200)); } }
+  else { console.log('NOTE: PWSH_DIR not set, the F7 checks (VERIFY counts) were not run'); }
+  await br.close();
+  const pass = checks.filter(c => c.ok).length, groups = {}; checks.forEach(c => { const g = groups[c.grp] = groups[c.grp] || { n: 0, ok: 0 }; g.n++; if (c.ok) { g.ok++; } });
+  fs.writeFileSync(OUT, JSON.stringify({ test: 'test-fixes-r9', pass, total: checks.length, groups, checks }, null, 1));
+  console.log('FIXES R9: ' + pass + ' of ' + checks.length + ' pass (' + Object.keys(groups).sort().map(k => k + ' ' + groups[k].ok + '/' + groups[k].n).join(', ') + ')'); process.exit(pass === checks.length ? 0 : 1);
+})().catch(e => { console.error(e); process.exit(2); });

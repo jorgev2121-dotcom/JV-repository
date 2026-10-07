@@ -1,4 +1,4 @@
-# VERIFY-v5.ps1 - READ-ONLY check of an installed copy of the launcher v5 package. TRK-2026-9910-B (fix round 8). ASCII only.
+# VERIFY-v5.ps1 - READ-ONLY check of an installed copy of the launcher v5 package. TRK-2026-9910-B (fix round 9). ASCII only.
 #
 #   powershell -NoProfile -ExecutionPolicy Bypass -File VERIFY-v5.ps1 -Path "C:\full\path\of\the\folder" [-ExpectManifestSha256 <64 hex>] [-AfterWriters]
 #
@@ -18,6 +18,7 @@
 # What it never does: this script contains no command that writes, copies, moves or deletes anything (a test scans this source for such commands). It only opens plain files for reading.
 # It cannot speak for PowerShell itself: the PowerShell program may keep its own cache files outside the checked folder. The checked folder, its parent and the Desktop were identical before and after in every test run.
 #
+# Fix round 9 (CHECK-10 flaw 7): the OK (after writers) line counts page and script files and data and settings files separately, each only if it was compared by hash and is identical; the counts add up to the manifest.
 # Fix round 8 (checker 5): (F5) the exit-code line above says what really happens. (F6) when any LINK finding exists (LINK, LINK IN PATH) the PROBLEMS line gives NO count of identical files, because files may
 # have been read through a link; every sentence says only what happened ("it was not opened", "files were read through it"). (F9) a data or settings file with any byte above 127 is refused: a writer must
 # write accents as JSON \u00e9 escapes. (E14) every name or path is printed with control characters escaped (\n, \r, \t, \xNN), so a file name cannot fake a line such as "OK:". (E15) the settings file's
@@ -289,6 +290,8 @@ if ($entries.Count -eq 0) { $problems.Add('BAD MANIFEST: it lists no files') }
 $dataSet = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
 foreach ($d in @('data/vtes5-heartbeat.js', 'data/vtes5-bots.js', 'data/vtes5-state.js', 'data/vtes5-health.js', 'data/vtes5-tokens.js', 'data/vtes5-housekeeping.js', 'data/vtes5-miamidade.js', 'vtes5-config.js')) { [void]$dataSet.Add($d) }
 $okCount = 0
+$okPage = 0     # fix round 9 (CHECK-10 flaw 7): page and script files compared by hash and identical
+$okData = 0     # data and settings files compared by hash and identical
 $changedList = New-Object System.Collections.Generic.List[string]
 $crlf = New-Object System.Collections.Generic.List[string]
 foreach ($rel in $entries.Keys) {
@@ -333,6 +336,7 @@ foreach ($rel in $entries.Keys) {
     }
     if ($shape -ne '') { $problems.Add('BAD DATA FILE: ' + $shape); continue }
     $okCount++
+    if ($isData) { $okData++ } else { $okPage++ }
 }
 if ($crlf.Count -gt 0) {
     $problems.Add('LINE ENDINGS CHANGED (CRLF): ' + $crlf.Count + ' file(s) differ from the package ONLY because their line endings are Windows style (CRLF) instead of the package''s LF: ' + ($crlf -join ', ') + '. The usual cause is git for Windows (core.autocrlf = true) converting the files when they were checked out, or a tool re-saving them. The words in the files are not wrong, but the folder is not the package. Get the exact bytes again (INSTALL-BY-HAND.md, Section A, step 6). Do not edit these files.')
@@ -403,7 +407,7 @@ if ($problems.Count -eq 0) {
     if ($changedList.Count -eq 0) {
         Say ('OK: all ' + $okCount + ' of ' + $entries.Count + ' package files are present, readable and identical (SHA-256), and nothing else is in the folder.')
     } else {
-        Say ('OK (after writers): all ' + $entries.Count + ' of ' + $entries.Count + ' package files are present and readable. ' + $okCount + ' page and script files are identical (SHA-256). ' + $changedList.Count + ' data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below). Nothing else is in the folder.')
+        Say ('OK (after writers): all ' + $entries.Count + ' of ' + $entries.Count + ' package files are present and readable. ' + $okPage + ' page and script files are identical (SHA-256). ' + $okData + ' data or settings file(s) are identical (SHA-256). ' + $changedList.Count + ' data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below). Nothing else is in the folder.')
         foreach ($e in $changedList) { Say ('  ' + $e) }
     }
     Say 'This script contains no write command.'

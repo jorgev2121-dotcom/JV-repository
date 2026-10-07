@@ -38,12 +38,12 @@ const ALWAYS = new Set(), INTERNAL = new Set(); require('./claims-registry-r9.js
   const v3sent = new Set(v3arr);
   const surface = surf.map(e => ({ text: e.text, k: e.k, examples: e.examples, where: 'page' }));
   // ---- B. INSTALL-BY-HAND.md ----
-  const ibh = []; rd('INSTALL-BY-HAND.md').split('\n').forEach((line, i) => { if (/^\s*(#|```|<!--)/.test(line) || !line.trim()) { return; } splitS(line.replace(/^\s*(?:\d+\.|[-*])\s+/, '')).forEach(s => ibh.push({ text: s, k: 'ibh|' + s, examples: [[s, []]], where: 'INSTALL-BY-HAND.md:' + (i + 1) })); });
+  const ibh = []; let inFence = false; rd('INSTALL-BY-HAND.md').split('\n').forEach((line, i) => { if (/^\s*```/.test(line)) { inFence = !inFence; return; } if (inFence || /^\s*(#|<!--)/.test(line) || !line.trim()) { return; } splitS(line.replace(/^\s*(?:\d+\.|[-*])\s+/, '')).forEach(s => ibh.push({ text: s, k: 'ibh|' + s, examples: [[s, []]], where: 'INSTALL-BY-HAND.md:' + (i + 1) })); });
   const all = surface.concat(ibh); const chk = all.filter(s => H.checkable(s.text));
   const counts = { read: all.length, checkable: chk.length, proven: 0, exempt: 0, v3: 0, unmapped: 0, failed: 0 }; const unmapped = [], failed = [], used = new Set(), byEntry = {}, v3list = [];
   for (const s of chk) {
     if (s.where === 'page' && v3sent.has(H.tmpl(s.text))) { counts.v3++; v3list.push(s.text); continue; }
-    const e = ENTRIES.find(x => x.re.test(s.text) && (x.kind === 'exempt' && x.id !== 'id-only' ? true : (s.where === 'page' ? !x.ibhOnly : !!x.ibhOnly || x.kind === 'exempt')));
+    const isI = s.where !== 'page'; const e = ENTRIES.find(x => x.re.test(s.text) && (x.id.startsWith('ibh-') ? isI : (x.kind === 'exempt' ? true : !isI)));
     if (!e) { counts.unmapped++; unmapped.push(s.where + ' | ' + s.text); continue; }
     used.add(e.id); (byEntry[e.id] = byEntry[e.id] || []).push(s.text);
     if (e.kind === 'exempt') { counts.exempt++; continue; }

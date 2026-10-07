@@ -1,0 +1,341 @@
+{
+ "test": "test-fixes-r9",
+ "pass": 47,
+ "total": 48,
+ "groups": {
+  "F1": {
+   "n": 2,
+   "ok": 2
+  },
+  "F2": {
+   "n": 1,
+   "ok": 1
+  },
+  "F3": {
+   "n": 4,
+   "ok": 4
+  },
+  "F5": {
+   "n": 6,
+   "ok": 6
+  },
+  "e31": {
+   "n": 4,
+   "ok": 4
+  },
+  "F6": {
+   "n": 4,
+   "ok": 4
+  },
+  "F8": {
+   "n": 2,
+   "ok": 2
+  },
+  "e9": {
+   "n": 20,
+   "ok": 20
+  },
+  "e10": {
+   "n": 1,
+   "ok": 0
+  },
+  "e8": {
+   "n": 1,
+   "ok": 1
+  },
+  "F7": {
+   "n": 3,
+   "ok": 3
+  }
+ },
+ "checks": [
+  {
+   "grp": "F1",
+   "name": "a card number with its expiry or other digits is caught (20 of 20)",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F2",
+   "name": "Spanish number words, tens joined with y, months and birth words are caught (13 of 13)",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F3",
+   "name": "a plain ID or a date beside its own label is caught (24 of 24)",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F3",
+   "name": "ordinary notes are still carried, including the CHECK-10 examples (88 of 88)",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F3",
+   "name": "the CHECK-10 false-alarm examples that can be carried are carried",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F3",
+   "name": "the notes still held back fail closed (10 of 10 are held back)",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F1",
+   "name": "date shapes are taken out and a Luhn-valid 13 to 19 digit stretch is found wherever it sits",
+   "ok": true,
+   "ev": "1,1,1"
+  },
+  {
+   "grp": "F5",
+   "name": "confirmed: no LOCAL sentence about saving names RAMBO or a Claude window",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F5",
+   "name": "confirmed folder: the steps open the folder, make the file, name it, paste and save, by hand",
+   "ok": true,
+   "ev": "There is no window. Press the  / Client personal data goes to L / Do not press the blue RAMBO bu / Open File Explorer. Open the l / Click View, then Show, then Fi / Right-click an empty spot in t / Type the name JOB-something.md / Check that the name ends in .m / Double-click the file to open  / You"
+  },
+  {
+   "grp": "F5",
+   "name": "confirmed folder: the card says client data never goes to RAMBO or any Claude window",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F5",
+   "name": "confirmed folder: the old For RAMBO save step is gone",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "e31",
+   "name": "confirmed: LOCAL step lines are at most 25 words",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F5",
+   "name": "unconfirmed: no LOCAL sentence about saving names RAMBO or a Claude window",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "e31",
+   "name": "unconfirmed: LOCAL step lines are at most 25 words",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F5",
+   "name": "no-data: no LOCAL sentence about saving names RAMBO or a Claude window",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "e31",
+   "name": "no-data: LOCAL step lines are at most 25 words",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "e31",
+   "name": "every step line on every card is at most 25 words (43 lines)",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F6",
+   "name": "green: green card has no next-step sentence",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "F6",
+   "name": "red: red card says it stays red",
+   "ok": true,
+   "ev": "Next step: RAMBO sends Grok one test message and records the result; until then this card stays red."
+  },
+  {
+   "grp": "F6",
+   "name": "grey: grey card says not green",
+   "ok": true,
+   "ev": "Next step: RAMBO sends Grok one test message and records the result; until then this card is not green."
+  },
+  {
+   "grp": "F6",
+   "name": "nodata: red card says it stays red",
+   "ok": true,
+   "ev": "Next step: RAMBO sends Grok one test message and records the result; until then this card stays red."
+  },
+  {
+   "grp": "F8",
+   "name": "a page made grey only by a report says so with the grey report counted",
+   "ok": true,
+   "ev": "WHOLE PAGE: NOT PROVEN - 0 red and 0 grey of 44 cards and marks; 0 of 7 reports red and 1 of 7 reports grey"
+  },
+  {
+   "grp": "F8",
+   "name": "the Read me and KNOWN-LIMITS define grey only as not proven (no list of causes)",
+   "ok": true,
+   "ev": ""
+  },
+  {
+   "grp": "e9",
+   "name": "no proof: label \"D:\\\\VTES-LOCAL\\\\\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"D:\\VTES-LOCAL\\\") has no name, is not a plain one-line"
+  },
+  {
+   "grp": "e9",
+   "name": "no proof: label \"Z:\\\\Private\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"Z:\\Private\") has no name, is not a plain one-line C:\\"
+  },
+  {
+   "grp": "e9",
+   "name": "no proof: label \"C:\\\\VTES-LOCAL\\\\\\nG:\\\\My Drive\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?G:\\My Drive\") has no name, is not a pl"
+  },
+  {
+   "grp": "e9",
+   "name": "no proof: label \"C:\\\\VTES-LOCAL\\\\а\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, is not a plain one-lin"
+  },
+  {
+   "grp": "e9",
+   "name": "no proof: label \"C:\\\\VTES-LOCAL\\\\Ｃ\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, is not a plain one-lin"
+  },
+  {
+   "grp": "e9",
+   "name": "no proof: label \"C:\\\\VTES-LOCAL\\\\jobs\" is CONFIRMED",
+   "ok": true,
+   "ev": "LOCAL save step: CONFIRMED as of Oct 6, 1:30 PM EDT: the PC reports a local-only folder named \"C:\\VTES-LOCAL\\jobs\" (outs"
+  },
+  {
+   "grp": "e9",
+   "name": "no proof: label \"c:\\\\ai\\\\state\\\\local\\\\x\" is CONFIRMED",
+   "ok": true,
+   "ev": "LOCAL save step: CONFIRMED as of Oct 6, 1:30 PM EDT: the PC reports a local-only folder named \"c:\\ai\\state\\local\\x\" (out"
+  },
+  {
+   "grp": "e9",
+   "name": "no proof: label \"VTES-LOCAL\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"VTES-LOCAL\") has no name, is not a plain one-line C:\\"
+  },
+  {
+   "grp": "e9",
+   "name": "no proof: label \"\\\\\\\\server\\\\share\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"\\\\server\\share\") has no name, is not a plain one-line"
+  },
+  {
+   "grp": "e9",
+   "name": "no proof: label \"C:\\\\Users\\\\JV\\\\OneDrive\\\\x\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\Users\\JV\\OneDrive\\x\") has no name, is not a plain "
+  },
+  {
+   "grp": "e9",
+   "name": "with proof: label \"D:\\\\VTES-LOCAL\\\\\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"D:\\VTES-LOCAL\\\") has no name, is not a plain one-line"
+  },
+  {
+   "grp": "e9",
+   "name": "with proof: label \"Z:\\\\Private\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"Z:\\Private\") has no name, is not a plain one-line C:\\"
+  },
+  {
+   "grp": "e9",
+   "name": "with proof: label \"C:\\\\VTES-LOCAL\\\\\\nG:\\\\My Drive\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?G:\\My Drive\") has no name, is not a pl"
+  },
+  {
+   "grp": "e9",
+   "name": "with proof: label \"C:\\\\VTES-LOCAL\\\\а\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, is not a plain one-lin"
+  },
+  {
+   "grp": "e9",
+   "name": "with proof: label \"C:\\\\VTES-LOCAL\\\\Ｃ\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\VTES-LOCAL\\?\") has no name, is not a plain one-lin"
+  },
+  {
+   "grp": "e9",
+   "name": "with proof: label \"C:\\\\VTES-LOCAL\\\\jobs\" is CONFIRMED",
+   "ok": true,
+   "ev": "LOCAL save step: CONFIRMED as of Oct 6, 1:30 PM EDT: the PC reports a local-only folder named \"C:\\VTES-LOCAL\\jobs\" (outs"
+  },
+  {
+   "grp": "e9",
+   "name": "with proof: label \"c:\\\\ai\\\\state\\\\local\\\\x\" is CONFIRMED",
+   "ok": true,
+   "ev": "LOCAL save step: CONFIRMED as of Oct 6, 1:30 PM EDT: the PC reports a local-only folder named \"c:\\ai\\state\\local\\x\" (out"
+  },
+  {
+   "grp": "e9",
+   "name": "with proof: label \"VTES-LOCAL\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"VTES-LOCAL\") has no name, is not a plain one-line C:\\"
+  },
+  {
+   "grp": "e9",
+   "name": "with proof: label \"\\\\\\\\server\\\\share\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"\\\\server\\share\") has no name, is not a plain one-line"
+  },
+  {
+   "grp": "e9",
+   "name": "with proof: label \"C:\\\\Users\\\\JV\\\\OneDrive\\\\x\" is refused",
+   "ok": true,
+   "ev": "LOCAL save step: BLOCKED - UNVERIFIED. The folder the PC reports (\"C:\\Users\\JV\\OneDrive\\x\") has no name, is not a plain "
+  },
+  {
+   "grp": "e10",
+   "name": "with an unreadable bots file and an unreadable window file no window or bot card is green (1 green)",
+   "ok": false,
+   "ev": "LOCAL save step: CON"
+  },
+  {
+   "grp": "e8",
+   "name": "ticked, then From changed: the tick clears and the button goes off",
+   "ok": true,
+   "ev": "{\"before\":true,\"checked\":false,\"goOff\":true}"
+  },
+  {
+   "grp": "F7",
+   "name": "1 data files rewritten: page 3, identical data 7, changed 1, and they add up to the manifest",
+   "ok": true,
+   "ev": "OK (after writers): all 11 of 11 package files are present and readable. 3 page and script files are identical (SHA-256). 7 data or settings file(s) are identical (SHA-256). 1 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below). Nothing else is in the "
+  },
+  {
+   "grp": "F7",
+   "name": "3 data files rewritten: page 3, identical data 5, changed 3, and they add up to the manifest",
+   "ok": true,
+   "ev": "OK (after writers): all 11 of 11 package files are present and readable. 3 page and script files are identical (SHA-256). 5 data or settings file(s) are identical (SHA-256). 3 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below). Nothing else is in the "
+  },
+  {
+   "grp": "F7",
+   "name": "8 data files rewritten: page 3, identical data 0, changed 8, and they add up to the manifest",
+   "ok": true,
+   "ev": "OK (after writers): all 11 of 11 package files are present and readable. 3 page and script files are identical (SHA-256). 0 data or settings file(s) are identical (SHA-256). 8 data or settings file(s) were changed by a PC writer and pass the strict shape check (listed below). Nothing else is in the "
+  }
+ ]
+}
