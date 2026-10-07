@@ -3,7 +3,68 @@
 **Covers 2026-09-26 evening through 2026-09-28 ~04:00 UTC. Nothing was filed, sent, spent, or deleted by any cloud or desktop process. Six things need a word or a click from you — three are new overnight, tied to last night's PC session.**
 
 
-**📌 PINNED COUNTER — the unattended job runner has NO safety lock (it is switched OFF until the lock exists). Day 55 as of 2026-10-06.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
+**📌 PINNED COUNTER — the unattended job runner has NO safety lock (it is switched OFF until the lock exists). Day 56 as of 2026-10-07.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
+---
+
+## START HERE — MORNING OF 2026-10-07 (written 1:05 AM Miami; refreshed when you wake). Plain, answer first.
+
+**Section A — The answer.** **Your waiting answers are being carried out again, with receipts. The panel passed its eighth independent check and is NOT installed; it waits for your yes. Four things need you, and none is technical.**
+
+**Section B — What happened overnight (from Drive files I read).**
+
+1. **The stalled-answers case: proven working.** The cause was the daily limit of 12 jobs plus "newest file wins". The desktop put your answers first. After midnight, six closed in 55 minutes: RED-4 (no lead-list receipt exists; only a $3 REISkip order dated July 31), RED-6, RED-7, and three owner-directive follow-ups.
+2. **The desktop was quiet 5:31 PM to 9:01 PM Miami and came back by itself.** Cause unknown.
+3. **Panel: EIGHT independent checks done. The eighth PASSED with documented limits (7:00 AM Miami): 0 mislead, 0 damage, 0 leak, 23 small edge items. The install order is prepared and NOT sent; it needs your yes.** Earlier detail: seven checks done before it. The seventh (CHECK-11, run after round 9) found only TWO small flaws, down from 25. No damage, no leak. The 11,040 page states and the tick-box tests all held. The two flaws: the install check printed a stale step number, and a note meant for LOCAL still ended with a line about pasting it back to Claude. Round 10 (narrow) fixed both. My own spot check of its pushed work (07:54Z to 08:06Z): no copy, move, delete or write commands in the package or the install check; local-packet test 416 of 416 clean; citation test 44 of 44. The builder's final report is not in yet, and the eighth independent check has not run. Nothing is on your PC.
+
+**Section C — What needs you (smallest actions).**
+
+1. **Medley:** click the Desktop button "ANSWER AP-0022 - Miami Art House $10,600". It settles which dollar figure is right.
+2. **RED-1 and RED-3:** the three fee numbers, and the payment details (nickname and last 4 only). Say them to RAMBO.
+3. **RED-2:** open the attorney brief once, book the hour, send it yourself.
+4. **Claude Code shortcut:** is "CLAUDE CODE - DESKTOP EXECUTOR" the one? Yes or no.
+
+**Section D — Not done, said plainly.** Alec's delivery files are not on disk. The Wally call-sheet task has failed since September 24. Einar's extension is 75 days overdue. The health line that warns if answers stall again is not built.
+
+Did that read clearly, and can I start your day with the Medley click?
+
+---
+
+## CORRECTION 2026-10-06 12:10 PM Miami (16:10Z) — read this before the checkpoint block below
+
+**I wrote that the decision problem was fixed. The desktop's own newer report says the proof is missing.** It found only 3 closed decisions out of about 57. The newest closed one was written at 12:32 AM, before the fix. In 11 hours since, none closed. **So the fix is UNPROVEN, not done.** I ordered a read-only proof request (Drive 1… MSG-CLOUD-TO-CODE_PROVE-DECISION-FIX-WORKS-READONLY). The desktop's money-status report is in Drive: EXECUTED_RAMBO_PRIORITY-ZERO-AND-CASH-STATUS_2026-10-06 (id 120vewiU1XHJQZXdPBYDu4UN2LCwyrqaz). Its findings: Wally call-sheet task disabled and failing since 2026-09-24; Airtable CRM and the $70 list test NOT FOUND; Alec DD files NOT FOUND on disk (Orange Tree refresh task runs and succeeds); Medley figure unreconciled ($10,600 / $16,000 / $21,200) and waiting on your one click on the desktop button "ANSWER AP-0022 - Miami Art House $10,600"; Einar's extension is 75 days overdue; microfilm retrieval DONE 2026-08-16 (220 docs) with its notice email possibly still unsent.
+
+---
+
+## START HERE — 12-HOUR CHECKPOINT, 2026-10-06, 11:25 AM Miami (15:25Z). Written for listening.
+
+**Section A — The answer first.** **In 12 hours the panel is not delivered, and nothing is installed on your PC. Seven independent checks have each found real flaws. A sixth and now seventh fix round is the cause of the delay. I also did not start the other jobs you need most. That is my failure, and I say it plainly.**
+
+**Section B — What is DONE, with proof from files I read.**
+
+1. **The "300 apps" question is answered.** They were never built. A different window made four samples. Nothing was ever ordered to the desktop.
+2. **Your registration is DONE.** RAMBO installed it at 5:41 AM Miami time, for your login only. It tested it for real: it opened the Grok window. Receipt: EXECUTED_MSG-CLOUD-TO-CODE_APPROVED-REGISTER-VTES-ADDRESS (Drive 1BY_CPk0xzy4KnPlk5TwanZBunRwAS7B-). One command undoes it.
+3. **Your "40 of 40 answered, 838 open" problem has a named root cause.** One line in the mailbox script marked every waiting file as "already seen" on every pass. Only 2 of 59 decisions were ever carried out. RAMBO fixed that line at 12:35 AM, with a backup. Receipt: Drive 1TPDfuu6tuVt17zg6Gkt7lKyweEhqwLzT. **Not closed:** a safety cap of 6 a day means the 57 stranded ones need about 10 days. The case stays OPEN until you answer one thing live and it clears.
+4. **The 22-source catalog and the folder convention are delivered.** Each site has a link. The desktop's run result is 20 with proof, 2 partial. I did not re-check the county sites.
+5. **Your real launcher was found.** It is the 24,463-byte page on your Desktop. The rebuild is based on it. Your file was never changed (fingerprint matches).
+
+**Section C — What FAILED, honestly.**
+
+1. **The panel.** Seven independent checks, each with its own scripts: 21, 14, 16, 18, 20, 13 and 25 flaws. The count is not falling. The latest check (just now) found a page that can freeze showing green, a privacy guard that still lets 14 ways of writing a Social Security number through, and an install check that says OK too easily.
+2. **Why the count is not falling:** each round fixed the examples, not the cause. Round 7 now fixes the causes: a page that cannot stop painting, a tick box before any client note can leave the LOCAL lane, a strict install check. A new independent check follows.
+3. **I have not started** these, and you needed them: Alec's Orange Tree delivery and the $100.25 invoice, the Wally pipeline, the Medley $8,000 invoice, Einar, the Grok bots, the token monitor numbers, the housekeeping report, window icons. **I spent the 12 hours on the panel. I should have delegated these in parallel. I am delegating them now.**
+4. **The deep 3 to 4 layer crawl** is blocked on a browser permission click on the PC.
+
+**Section D — What I need from you. Four yes or no answers. Nothing technical.**
+
+1. **Stop rule, yes or no?** The panel is done when no flaw can mislead the page, damage a file or leak personal data. Small edge cases are written down instead. I recommend yes.
+2. **Raise the daily cap from 6 to 12 for one week, yes or no?** It clears your 57 stuck answers in about 5 days. It costs more computer time. It is your spend decision.
+3. **Which shortcut opens your Claude Code desktop app?** And what is Cowork's window address? RAMBO left those two blank rather than guess. Say them by voice or screenshot.
+4. **Do you keep me, or replace me?** The handover file is ready (diagnosis/HANDOVER_CLOUD_STEP-DOWN-READY_2026-10-06.md). My recommendation: keep me only if the next three jobs below start today.
+
+**Next three jobs, starting now:** (1) round 7 fix and a fifth independent check of the panel, (2) Alec DD and Orange Tree to the desktop with the invoice gate, (3) Wally pipeline status order.
+
+Did that read clearly? Shall I proceed on all four of my recommendations?
+
 ---
 
 ## START HERE — update 2026-10-06 04:05Z (12:05 AM Miami): THE 300 APPS, AND YOUR REGISTRATION
