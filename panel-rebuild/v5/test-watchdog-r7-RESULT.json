@@ -53,7 +53,7 @@
   },
   {
    "g": "one panel fails",
-   "name": "a panel that cannot be drawn shows its own red box \"THIS PANEL COULD NOT BE DRAWN\" (6 boxes)",
+   "name": "a panel that cannot be drawn shows its own red box \"THIS PANEL COULD NOT BE DRAWN\" (4 boxes)",
    "status": "PASS",
    "why": ""
   },

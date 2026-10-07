@@ -1,5 +1,5 @@
 {
- "summary": "2536 of 2536 fuzz cases pass (typefuzz 2145 of 2145; hand 91 of 91; random 300 of 300), 1645 s",
+ "summary": "2536 of 2536 fuzz cases pass (typefuzz 2145 of 2145; hand 91 of 91; random 300 of 300), 2135 s",
  "groups": {
   "typefuzz": {
    "n": 2145,
@@ -904,7 +904,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -2162,7 +2162,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 44 cards and marks; 2 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 3 red and 0 grey of 45 cards and marks; 2 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -2621,7 +2621,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -3131,7 +3131,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 3 red and 0 grey of 46 cards and marks; 2 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 1 grey of 46 cards and marks; 2 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -3437,7 +3437,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 4 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 5 red and 0 grey of 46 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -5511,7 +5511,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 5 red and 0 grey of 45 cards and marks; 2 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 3 red and 2 grey of 45 cards and marks; 2 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -5800,7 +5800,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -6310,7 +6310,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 3 red and 0 grey of 46 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -24262,7 +24262,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -24313,7 +24313,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -24330,7 +24330,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -24347,7 +24347,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -24449,7 +24449,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -24466,7 +24466,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -25282,7 +25282,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -25333,7 +25333,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -25350,7 +25350,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -25367,7 +25367,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -25469,7 +25469,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -25486,7 +25486,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -27067,7 +27067,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 3 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 2 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -27118,7 +27118,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 3 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 2 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -27135,7 +27135,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 3 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 2 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -27152,7 +27152,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 3 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 2 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -27254,7 +27254,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 3 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 2 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -27271,7 +27271,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 3 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 2 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -28087,7 +28087,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -28138,7 +28138,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -28155,7 +28155,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -28172,7 +28172,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -28274,7 +28274,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -28291,7 +28291,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 1 red and 1 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36502,7 +36502,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36519,7 +36519,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36536,7 +36536,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36553,7 +36553,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36570,7 +36570,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36587,7 +36587,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36604,7 +36604,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36621,7 +36621,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36637,8 +36637,8 @@
    "name": "typefuzz miamidade.sources.0.id = minus-one",
    "fails": [],
    "atOpen": {
-    "overall": "v5b ok",
-    "text": "WHOLE PAGE: every one of 44 cards and marks and all 7 reports are green",
+    "overall": "v5b bad",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36655,7 +36655,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36672,7 +36672,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36689,7 +36689,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 1 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 1 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36706,7 +36706,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36723,7 +36723,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,
@@ -36740,7 +36740,7 @@
    "fails": [],
    "atOpen": {
     "overall": "v5b bad",
-    "text": "WHOLE PAGE: NOT FINE - 1 red and 0 grey of 44 cards and marks; 0 of 7 reports red",
+    "text": "WHOLE PAGE: NOT FINE - 2 red and 0 grey of 45 cards and marks; 0 of 7 reports red",
     "failBox": false
    },
    "pageErrors": 0,

@@ -35,7 +35,7 @@ mut M20-queued-without-a-time-never-stuck test-invariant-r6 vtes5-live.js "refAt
 mut M21-267010-called-failed test-invariant-r6 vtes5-live.js "if (b.last_result === RES_DISABLED) {" "if (false) {" &
 mut M22-miami-check-date-ignored test-invariant-r6 vtes5-ui.js "if (!j) { return mark('ok', 'proof checked '" "if (true) { return mark('ok', 'proof checked '" &
 mut M23-old-numbers-shown-plain test-invariant-r6 vtes5-ui.js "if (fresh === false) { return red('OLD ' + n, file); }" "if (false) { return red('OLD ' + n, file); }" &
-mut M24-cloud-folder-accepted-for-local test-invariant-r6 vtes5-ui.js "if (!label || badName(label)) { return" "if (!label) { return" &
+mut M24-cloud-folder-accepted-for-local test-words-r7 vtes5-ui.js "if (!label || badName(label)) { return" "if (!label) { return" &
 wait
 mut M25-nine-digit-rule-removed test-pii-unit-r6 vtes5-ui.js "if ((isNine && !zip4 && !permit) || inside) {" "if (false) {" &
 mut M26-card-rule-removed test-pii-unit-r6 vtes5-ui.js "if (r.real >= 15 && r.real <= 19) {" "if (false) {" &

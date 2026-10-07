@@ -107,6 +107,7 @@ function caseList() {
 }
 (async () => {
   const br = await chromium.launch(), cs = caseList(), res = [], t0 = Date.now(); let next = 0;
+  if (process.env.FUZZ_ONLY) { for (let i = cs.length - 1; i >= 0; i--) { if (cs[i].name.indexOf(process.env.FUZZ_ONLY) < 0) { cs.splice(i, 1); } } } /* ROUND 8 harness: FUZZ_ONLY=<text> re-runs only the cases whose name holds this text */
   async function worker() { while (next < cs.length) { const c = cs[next++]; let r; try { r = await runCase(br, c); } catch (e) { r = { name: c.name, pass: false, fails: ['test harness error: ' + e.message] }; } r.group = c.group; res.push(r); if (!r.pass) { console.log('FAIL ' + r.name + ' :: ' + r.fails.slice(0, 2).join(' | ')); } fs.writeFileSync(out + '.partial', JSON.stringify(res.length + ' of ' + cs.length + ' done')); } }
   await Promise.all(Array.from({ length: WORKERS }, worker)); await br.close();
   const groups = {}; res.forEach(r => { const g = groups[r.group] = groups[r.group] || { n: 0, pass: 0 }; g.n++; if (r.pass) { g.pass++; } });

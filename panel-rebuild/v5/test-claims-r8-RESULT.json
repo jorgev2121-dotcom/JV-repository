@@ -1,0 +1,663 @@
+{
+ "test": "test-claims-r8",
+ "root": "/home/user/JV-repository/panel-rebuild/v5",
+ "docs_covered": true,
+ "exempt_sentences": {
+  "question": 1,
+  "history": 12,
+  "limit": 5
+ },
+ "claims": 56,
+ "sentences_extracted": {
+  "readme": 34,
+  "queued": 4,
+  "queued-status": 17,
+  "card": 5,
+  "verify-header": 33,
+  "verify-msgs": 73,
+  "install": 117,
+  "contract": 168,
+  "limits": 257
+ },
+ "pass": 76,
+ "total": 76,
+ "untested": 0,
+ "rows": [
+  {
+   "id": "R1",
+   "src": "readme",
+   "where": "Read me item 1",
+   "sentence": "This page is built on your v3 launcher. Every card, bot, queued item, picker row, repairs row and tab from v3 is still here. 34 lines of text were changed, added to or removed on purpose; the list is in PORT-REPORT.md.",
+   "status": "PASS",
+   "evidence": "page says 34, build patches counted 34; PORT-REPORT.md lists 34; v3 survival test: 166 of 166 checks pass"
+  },
+  {
+   "id": "R2",
+   "src": "readme",
+   "where": "Read me item 2",
+   "sentence": "A red box that says NO DATA means nothing on the PC has reported yet. Red is the truth, not a bug.",
+   "status": "PASS",
+   "evidence": "23 NO DATA marks, 0 not red"
+  },
+  {
+   "id": "R3",
+   "src": "readme",
+   "where": "Read me item 3",
+   "sentence": "Green appears only when a fresh report file with proof says so. Grey NOT PROVEN means only the simple status writer said up, and it checks nothing.",
+   "status": "PASS",
+   "evidence": "no data: 0 green marks; stale world: 0 of 4 stale reports shown green (7 strip entries read); fresh world: 22 green cards"
+  },
+  {
+   "id": "R3b",
+   "src": "readme",
+   "where": "Read me item 3",
+   "sentence": "Green appears only when a fresh report file with proof says so. Grey NOT PROVEN means only the simple status writer said up, and it checks nothing.",
+   "status": "PASS",
+   "evidence": "v5st unp | State: WRITER SAYS UP, NOT PROVEN - the simple status writer stamped up at Oct 6, 1:59 PM EDT but it checks nothing"
+  },
+  {
+   "id": "R4",
+   "src": "readme",
+   "where": "Read me item 4",
+   "sentence": "To hand work to RAMBO, press the big blue RAMBO button directly under the page title. If you typed a note, tick the box under the note box first. Then open the Claude desktop app, click the Code tab, click in the message box and press Ctrl+V.",
+   "status": "PASS",
+   "evidence": "button under the title: {\"next\":\"v5rambo\",\"inside\":true,\"disabled\":false,\"cls\":\"btn\"}; S7 press X names an enabled button: 279 of 279"
+  },
+  {
+   "id": "R5",
+   "src": "readme",
+   "where": "Read me item 5",
+   "sentence": "A web page cannot open a desktop app. So a desktop window has a Copy packet button and the exact steps. When the PC has set up a one-click shortcut for a window, a link appears as well.",
+   "status": "PASS",
+   "evidence": "S1 one click needs a link: 378 of 378; S3 never both: 924 of 924; S2 no Open button needs no link: 546 of 546"
+  },
+  {
+   "id": "R6",
+   "src": "readme",
+   "where": "Read me item 6",
+   "sentence": "Tabs marked OLD PANEL go to a snapshot made on 2026-09-02. They are not live.",
+   "status": "PASS",
+   "evidence": "10 old-panel tabs, each labelled OLD PANEL and pointing at the snapshot file"
+  },
+  {
+   "id": "R7a",
+   "src": "readme",
+   "where": "Read me item 7",
+   "sentence": "Before a note goes anywhere else, you must tick the box under the note box: \"This note has NO client personal data\".",
+   "status": "PASS",
+   "evidence": "buttons off when unticked: true, on when ticked: true"
+  },
+  {
+   "id": "R7a",
+   "src": "readme",
+   "where": "Read me item 7",
+   "sentence": "Until it is ticked, the copy and show buttons for that destination are switched off.",
+   "status": "PASS",
+   "evidence": "buttons off when unticked: true, on when ticked: true"
+  },
+  {
+   "id": "R7a",
+   "src": "limits",
+   "where": "KNOWN-LIMITS.md:74",
+   "sentence": "Until it is ticked the copy, open and show buttons for that destination are switched off, and the reason is printed beside each one.",
+   "status": "PASS",
+   "evidence": "buttons off when unticked: true, on when ticked: true"
+  },
+  {
+   "id": "R7b",
+   "src": "readme",
+   "where": "Read me item 7",
+   "sentence": "The tick clears itself when you change the note or the To choice.",
+   "status": "PASS",
+   "evidence": "tick cleared on a note change: true, on a To change: true"
+  },
+  {
+   "id": "R7c",
+   "src": "readme",
+   "where": "Read me item 7",
+   "sentence": "Client personal data goes to LOCAL only.",
+   "status": "PASS",
+   "evidence": "LOCAL needs no tick (buttons enabled): true (that LOCAL needs a confirmed folder is a separate, live line on the LOCAL card)"
+  },
+  {
+   "id": "R8",
+   "src": "readme",
+   "where": "Read me item 8",
+   "sentence": "The tick box is the real protection. As a second check, this page looks at the DIGITS in your note. It leaves the note out when it finds nine digits in a row, or a card number, in many layouts. It also looks for a Social Security, licence, passport, bank or date-of-birth label near digits. It can still miss some spellings. It cannot catch names, home addresses, email addresses or phone numbers. It misses digits written as words in other languages (it knows English and Spanish) or in other scripts. It misses digits with letters between them, digit groups with more than four words between them, and encodings split into pieces. It can also leave out a harmless nine-digit number such as a permit number.",
+   "status": "PASS",
+   "evidence": "nine digits: 30 of 30 samples caught; card numbers: 7 of 7 samples caught; date of birth: 5 of 5 samples caught; licence: 4 of 4 samples caught; passport: 3 of 3 samples caught; bank: 3 of 3 samples caught; spellings the guard still misses: 8 of 8 known samples, in 5 categories"
+  },
+  {
+   "id": "R8b",
+   "src": "readme",
+   "where": "Read me item 8",
+   "sentence": "The tick box is the real protection. As a second check, this page looks at the DIGITS in your note. It leaves the note out when it finds nine digits in a row, or a card number, in many layouts. It also looks for a Social Security, licence, passport, bank or date-of-birth label near digits. It can still miss some spellings. It cannot catch names, home addresses, email addresses or phone numbers. It misses digits written as words in other languages (it knows English and Spanish) or in other scripts. It misses digits with letters between them, digit groups with more than four words between them, and encodings split into pieces. It can also leave out a harmless nine-digit number such as a permit number.",
+   "status": "PASS",
+   "evidence": "1015 of 1015 (note x route) cases had every copy and show button switched off while the box was not ticked"
+  },
+  {
+   "id": "R9",
+   "src": "readme",
+   "where": "Read me item 9",
+   "sentence": "The line \"WHOLE PAGE\" at the top of Live status is never greener than the worst card or panel on this page. If one card is red, it is not green.",
+   "status": "PASS",
+   "evidence": "6 worlds, WHOLE PAGE never greener than the worst card: 6 of 6"
+  },
+  {
+   "id": "R10",
+   "src": "readme",
+   "where": "Read me item 10",
+   "sentence": "Words marked typed note were typed by hand on the date shown. This page does not check them.",
+   "status": "PASS",
+   "evidence": "9 typed notes, 0 without a date"
+  },
+  {
+   "id": "R11",
+   "src": "readme",
+   "where": "Read me item 11",
+   "sentence": "Every time is Eastern time with the zone. The year is added when it is not this year.",
+   "status": "PASS",
+   "evidence": "Jul 4, 3:00 PM EDT | Jan 10, 3:00 PM EST | Jul 4, 2025, 3:00 PM EDT | Jan 10, 2027, 3:00 PM EST"
+  },
+  {
+   "id": "Q-head",
+   "src": "queued",
+   "sentence": "(no sentence matches)",
+   "status": "ABSENT-OK",
+   "evidence": "the sentence is not in the text (a retired or optional claim)"
+  },
+  {
+   "id": "Q-lead",
+   "src": "queued",
+   "sentence": "(no sentence matches)",
+   "status": "ABSENT-OK",
+   "evidence": "the sentence is not in the text (a retired or optional claim)"
+  },
+  {
+   "id": "Q-gray",
+   "src": "queued",
+   "sentence": "(no sentence matches)",
+   "status": "ABSENT-OK",
+   "evidence": "the sentence is not in the text (a retired or optional claim)"
+  },
+  {
+   "id": "Q-gate",
+   "src": "queued",
+   "where": "section 5",
+   "sentence": "Items that need your call say so in the packet and wait for your GO.",
+   "status": "PASS",
+   "evidence": "3 queued items need your call; 0 of them do not say so in the packet"
+  },
+  {
+   "id": "Q-fill",
+   "src": "queued",
+   "where": "section 5",
+   "sentence": "Queued items: one click fills the note box",
+   "status": "PASS",
+   "evidence": "6 of 6 queued buttons put the item text into the note box"
+  },
+  {
+   "id": "Q-fill",
+   "src": "queued",
+   "where": "section 5",
+   "sentence": "Each button puts the item in the note box and chooses the right lane.",
+   "status": "PASS",
+   "evidence": "6 of 6 queued buttons put the item text into the note box"
+  },
+  {
+   "id": "Q-tick",
+   "src": "queued",
+   "where": "section 5",
+   "sentence": "Then tick the box under the note box (not needed for LOCAL) and copy the packet.",
+   "status": "PASS",
+   "evidence": "6 queued items: the copy button is off until the tick unless the lane is LOCAL, and on after the tick: 6 of 6"
+  },
+  {
+   "id": "Q-status",
+   "src": "queued-status",
+   "where": "status line after a queued click",
+   "sentence": "The item is in the note box for RAMBO.",
+   "status": "PASS",
+   "evidence": "Q1 queued status matches the button: 36 of 36; Q3 when the button is enabled the status says ready: 21 of 21"
+  },
+  {
+   "id": "Q-status",
+   "src": "queued-status",
+   "where": "status line after a queued click",
+   "sentence": "The packet is not made yet.",
+   "status": "PASS",
+   "evidence": "Q1 queued status matches the button: 36 of 36; Q3 when the button is enabled the status says ready: 21 of 21"
+  },
+  {
+   "id": "Q-status",
+   "src": "queued-status",
+   "where": "status line after a queued click",
+   "sentence": "Tick the box under the note box, then press Copy packet and open.",
+   "status": "PASS",
+   "evidence": "Q1 queued status matches the button: 36 of 36; Q3 when the button is enabled the status says ready: 21 of 21"
+  },
+  {
+   "id": "Q-status",
+   "src": "queued-status",
+   "where": "status line after a queued click",
+   "sentence": "The item is in the note box for CODEX.",
+   "status": "PASS",
+   "evidence": "Q1 queued status matches the button: 36 of 36; Q3 when the button is enabled the status says ready: 21 of 21"
+  },
+  {
+   "id": "Q-status",
+   "src": "queued-status",
+   "where": "status line after a queued click",
+   "sentence": "Packet ready for LOCAL.",
+   "status": "PASS",
+   "evidence": "Q1 queued status matches the button: 36 of 36; Q3 when the button is enabled the status says ready: 21 of 21"
+  },
+  {
+   "id": "Q-status",
+   "src": "queued-status",
+   "where": "status line after a queued click",
+   "sentence": "Press Copy packet and open.",
+   "status": "PASS",
+   "evidence": "Q1 queued status matches the button: 36 of 36; Q3 when the button is enabled the status says ready: 21 of 21"
+  },
+  {
+   "id": "C-oneclick",
+   "src": "card",
+   "where": "card text",
+   "sentence": "Open Claude Code Desktop with one click (a shortcut the PC set up)",
+   "status": "PASS",
+   "evidence": "S1 one click needs a link: 378 of 378; S2 no Open button needs no link: 546 of 546; S3 never both: 924 of 924; S4 phone card: 189 of 189"
+  },
+  {
+   "id": "C-oneclick",
+   "src": "card",
+   "where": "card text",
+   "sentence": "Open Claude Cowork with one click (a shortcut the PC set up)",
+   "status": "PASS",
+   "evidence": "S1 one click needs a link: 378 of 378; S2 no Open button needs no link: 546 of 546; S3 never both: 924 of 924; S4 phone card: 189 of 189"
+  },
+  {
+   "id": "C-oneclick",
+   "src": "card",
+   "where": "card text",
+   "sentence": "A web page cannot open a desktop app, so there is no Open button.",
+   "status": "PASS",
+   "evidence": "S1 one click needs a link: 378 of 378; S2 no Open button needs no link: 546 of 546; S3 never both: 924 of 924; S4 phone card: 189 of 189"
+  },
+  {
+   "id": "C-press",
+   "src": "card",
+   "where": "card text",
+   "sentence": "Do NOT paste this packet into any Claude window, into Cowork, into Codex or Grok, and do not press the blue RAMBO button for it: client personal data goes to LOCAL only.",
+   "status": "PASS",
+   "evidence": "S7 press X names an enabled button: 279 of 279"
+  },
+  {
+   "id": "V-utf16",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:7",
+   "sentence": "Fix round 8 changes this document in six places: (1) step 6a now says what git fetch really writes (files inside the checkout's .git folder) and what it does not change; (2) step 6b quotes the real words VERIFY prints for a UTF-16 data file; (3) step 6d tests whether VERIFY-v5.ps1 is already in the parent folder and never overwrites, moves or deletes it; (4) step 10 now says that a link in the answer means VERIFY prints no \"N of M identical\" count, that any byte above 127 in a data or settings file is refused, that status_dir_url must be empty or a relative folder path, and that a file name with a control character is printed escaped (as \\n or \\x01); (5) step 9 now says what to do if PowerShell itself refuses the command line; (6) the false round 6 sentence about OK is corrected below.",
+   "status": "PASS",
+   "evidence": "no quoted VERIFY words in this sentence"
+  },
+  {
+   "id": "V-utf16",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:24",
+   "sentence": "Do not use PowerShell's redirect symbol to save them: Windows PowerShell 5.1 re-encodes the bytes as UTF-16 and the check fails. Use a binary-safe way (your file tool, or a program that writes the bytes it reads from the git process).",
+   "status": "PASS",
+   "evidence": "no quoted VERIFY words in this sentence"
+  },
+  {
+   "id": "V-utf16",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:24",
+   "sentence": "On day one it prints EDITED: data/vtes5-bots.js (data file) has SHA-256 ... and, in the same line, It is also not a valid data file: data\\vtes5-bots.js is saved as UTF-16 ....",
+   "status": "PASS",
+   "evidence": "\"EDITED: data/vtes5-bots.js (data file) has SHA-256 ...\" (day one): printed word for word; \"It is also not a valid data file: data\\vtes5-bots.js is saved as UTF-16 ...\" (day one): printed word for word"
+  },
+  {
+   "id": "V-utf16",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:24",
+   "sentence": "The line BAD DATA FILE: ... saved as UTF-16 is what you see with -AfterWriters (on day one it appears only if the manifest itself lists those UTF-16 bytes).",
+   "status": "PASS",
+   "evidence": "\"BAD DATA FILE: ... saved as UTF-16\" (with -AfterWriters): printed word for word"
+  },
+  {
+   "id": "V-utf16",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:54",
+   "sentence": "VERIFY-v5.ps1 was run under PowerShell 7.4.6 for Linux (test-verify.sh, 216 scenarios (148 older and 68 added in round 8), result in test-verify-r8-RESULT.txt; round 8: exit codes, a link never gives an \"identical\" count, a UTF-16 data file, a byte above 127, a file name with a control character, status_dir_url, what git fetch writes, and the step 6d wording; round 7: the data and settings files are checked as DATA, a fresh install is exact, and a pipe, a oversized file, a case-duplicate name, a manifest that is a link and a data file that is UTF-16, empty or holds injected script are all refused).",
+   "status": "PASS",
+   "evidence": "no quoted VERIFY words in this sentence"
+  },
+  {
+   "id": "V-okchanged",
+   "src": "install",
+   "sentence": "(no sentence matches)",
+   "status": "ABSENT-OK",
+   "evidence": "the sentence is not in the text (a retired or optional claim)"
+  },
+  {
+   "id": "V-ascii",
+   "src": "contract",
+   "where": "DATA-CONTRACT.md:30",
+   "sentence": "(R8) Pure ASCII, and VERIFY-v5.ps1 enforces it: any byte above 127 in a data or settings file is refused (see \"The exact shape\" below). In data\\ beside the launcher in the NEW v5 folder.",
+   "status": "PASS",
+   "evidence": "a UTF-8 accent under -AfterWriters: exit 1 (PROBLEMS); the same text written as \\u00e9: exit 0"
+  },
+  {
+   "id": "D-readonly",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 1",
+   "sentence": "VERIFY-v5.ps1 - READ-ONLY check of an installed copy of the launcher v5 package.",
+   "status": "PASS",
+   "evidence": "the write-command scan: exit 0 (NO-WRITE-COMMANDS: 37 of 37 checks pass); a run on a fresh copy changed nothing in the folder tree: true"
+  },
+  {
+   "id": "D-ascii",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 3",
+   "sentence": "ASCII only. powershell -NoProfile -ExecutionPolicy Bypass -File VERIFY-v5.ps1 -Path \"C:\\full\\path\\of\\the\\folder\" [-ExpectManifestSha256 <64 hex>] [-AfterWriters] USAGE -Path the full path of the installed folder (required).",
+   "status": "PASS",
+   "evidence": "VERIFY-v5.ps1: 0 bytes above 127, 0 CR, 0 NUL"
+  },
+  {
+   "id": "D-usage",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 1",
+   "sentence": "VERIFY-v5.ps1 - READ-ONLY check of an installed copy of the launcher v5 package.",
+   "status": "PASS",
+   "evidence": "scenarios V24a,V24b,V25a,V25b,V24,V25 ... (16) all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-exit",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 8",
+   "sentence": "Exit codes (each one is tested): 0 = OK. 1 = at least one problem was found (a manifest that is a link or not a plain file is also 1).",
+   "status": "PASS",
+   "evidence": "exit codes: a wrong switch: 1, no -Path: 1, a relative path: 2, a path with ..: 2, a missing folder: 2, a missing manifest: 2, a good package: 0; scenarios X01,X02,X03,X04,X05,X06 ... (10) all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-labels",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 8",
+   "sentence": "Exit codes (each one is tested): 0 = OK. 1 = at least one problem was found (a manifest that is a link or not a plain file is also 1).",
+   "status": "PASS",
+   "evidence": "scenarios V02,V05,V07,V09,V11,V14 ... (13) all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-link",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 8",
+   "sentence": "Exit codes (each one is tested): 0 = OK. 1 = at least one problem was found (a manifest that is a link or not a plain file is also 1).",
+   "status": "PASS",
+   "evidence": "a link as the folder: exit 1, no identical-count line; scenarios V40,V41,V42,V43,V44,X10 ... (24) all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-encoding",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 9",
+   "sentence": "PowerShell ITSELF also exits 1, before this script starts, when the command line is wrong: a wrong switch, or no -Path (with no keyboard answer possible; in a window where PowerShell can ask, it may ask for the path instead - not tested). 2 = this script could not start its check: -Path is a relative path or a short name, has \".\" or \"..\" in it, the folder does not exist, or MANIFEST.sha256 is missing, is a folder, is too big, holds NUL bytes or cannot be read.",
+   "status": "PASS",
+   "evidence": "UTF-16: day one exit 1 says UTF-16; with the switch exit 1 says BAD DATA FILE; scenarios R02,R02b,R03,R13,R14,R23 ... (20) all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-shape",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 7",
+   "sentence": "With it, a data or settings file whose bytes differ from the manifest is allowed ONLY if it passes the strict shape check below; it is then reported as \"changed by a PC writer (passes the strict shape check)\".",
+   "status": "PASS",
+   "evidence": "scenarios R04,R04b,R04c,R05b,R06,R06c ... (45) all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-afterwriters",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 3",
+   "sentence": "ASCII only. powershell -NoProfile -ExecutionPolicy Bypass -File VERIFY-v5.ps1 -Path \"C:\\full\\path\\of\\the\\folder\" [-ExpectManifestSha256 <64 hex>] [-AfterWriters] USAGE -Path the full path of the installed folder (required).",
+   "status": "PASS",
+   "evidence": "a valid rewritten data file: day one exit 1 (PROBLEMS); with the switch exit 0 (OK after writers); scenarios V04,V04c,V04d,V04e,V36,V36b ... (12) all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-okline",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 11",
+   "sentence": "(every file is there and readable and identical, and nothing else is in the folder), or PROBLEMS (n) and one line per difference: MISSING, UNREACHABLE, UNREADABLE, EDITED, TOO BIG, NOT A PLAIN FILE, CASE DUPLICATE, EXTRA FILE, EXTRA FOLDER, LINK, BAD MANIFEST LINE, ...",
+   "status": "PASS",
+   "evidence": "the OK line for a fresh copy names 11 of 11 files; scenarios V01,V35,X90,X91 all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-control",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 19",
+   "sentence": "(E14) every name or path is printed with control characters escaped (\\n, \\r, \\t, \\xNN), so a file name cannot fake a line such as \"OK:\".",
+   "status": "PASS",
+   "evidence": "scenarios X60,X61,X62,X63,X64,X65 ... (11) all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-crlf",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 31",
+   "sentence": "- the line-ending (CRLF) test reads the file in one go instead of byte by byte.",
+   "status": "PASS",
+   "evidence": "scenarios V38,V39,V39c all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-nowrite-run",
+   "src": "verify-header",
+   "where": "VERIFY-v5.ps1 header, sentence 8",
+   "sentence": "Exit codes (each one is tested): 0 = OK. 1 = at least one problem was found (a manifest that is a link or not a plain file is also 1).",
+   "status": "PASS",
+   "evidence": "test-verify-r8-RESULT.txt: 216 of 216 scenarios as expected, fixture identical in 216; checks 1684 of 1684; written by this VERIFY: true"
+  },
+  {
+   "id": "D-6d",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:19",
+   "sentence": "Check the new folder name is free. If a folder with that name is already there, stop and report BLOCKED.",
+   "status": "PASS",
+   "evidence": "step 6d: tests first true, never overwrite true, .new- copy true, BLOCKED true; scenarios X35 all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-6d",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:26",
+   "sentence": "Save VERIFY beside the new folder, not inside it, and never over a file that is already there. The place is G:\\My Drive\\MY-DESK\\VTES-PANEL\\VERIFY-v5.ps1 (the parent folder of the new folder).",
+   "status": "PASS",
+   "evidence": "step 6d: tests first true, never overwrite true, .new- copy true, BLOCKED true; scenarios X35 all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-6d",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:28",
+   "sentence": "It DOES exist: never overwrite it, never move it, never delete it, never rename it.",
+   "status": "PASS",
+   "evidence": "step 6d: tests first true, never overwrite true, .new- copy true, BLOCKED true; scenarios X35 all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-6d",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:28",
+   "sentence": "If it equals the pinned hash in the line above, use that file as it is, say in the report \"VERIFY-v5.ps1 was already there and has the pinned hash; used as it is\", and carry on.",
+   "status": "PASS",
+   "evidence": "step 6d: tests first true, never overwrite true, .new- copy true, BLOCKED true; scenarios X35 all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-6d",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:29",
+   "sentence": "It exists and its hash is different: save the new copy (the exact bytes from git show, as above) BESIDE it under the name VERIFY-v5.ps1.new-<YYYYMMDD-HHMM> (today's date and the time now, for example VERIFY-v5.ps1.new-20261006-1405).",
+   "status": "PASS",
+   "evidence": "step 6d: tests first true, never overwrite true, .new- copy true, BLOCKED true; scenarios X35 all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-fetch",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:7",
+   "sentence": "Fix round 8 changes this document in six places: (1) step 6a now says what git fetch really writes (files inside the checkout's .git folder) and what it does not change; (2) step 6b quotes the real words VERIFY prints for a UTF-16 data file; (3) step 6d tests whether VERIFY-v5.ps1 is already in the parent folder and never overwrites, moves or deletes it; (4) step 10 now says that a link in the answer means VERIFY prints no \"N of M identical\" count, that any byte above 127 in a data or settings file is refused, that status_dir_url must be empty or a relative folder path, and that a file name with a control character is printed escaped (as \\n or \\x01); (5) step 9 now says what to do if PowerShell itself refuses the command line; (6) the false round 6 sentence about OK is corrected below.",
+   "status": "PASS",
+   "evidence": "fetch wrote 6 new files inside .git, moved the remote-tracking list: true, changed a working file, HEAD or a branch: false; the sentence says it writes files inside .git"
+  },
+  {
+   "id": "D-fetch",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:21",
+   "sentence": "The folder must hold only the empty data folder, and none of its parent folders may hold a folder named .git.",
+   "status": "PASS",
+   "evidence": "an instruction, not a claim about what fetch writes"
+  },
+  {
+   "id": "D-fetch",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:23",
+   "sentence": "Then run git fetch origin claude/panel-v5-port.",
+   "status": "PASS",
+   "evidence": "an instruction, not a claim about what fetch writes"
+  },
+  {
+   "id": "D-fetch",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:23",
+   "sentence": "That downloads the branch's objects into files inside the checkout's .git folder and adds origin/claude/panel-v5-port to the checkout's list of remote branches.",
+   "status": "PASS",
+   "evidence": "fetch wrote 6 new files inside .git, moved the remote-tracking list: true, changed a working file, HEAD or a branch: false; the sentence says it writes files inside .git and says it adds to the remote-branch list"
+  },
+  {
+   "id": "D-fetch",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:23",
+   "sentence": "It changes no working file and no branch (this was run and checked).",
+   "status": "PASS",
+   "evidence": "fetch wrote 6 new files inside .git, moved the remote-tracking list: true, changed a working file, HEAD or a branch: false; the sentence says it changes no working file or branch"
+  },
+  {
+   "id": "D-fetch",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:54",
+   "sentence": "VERIFY-v5.ps1 was run under PowerShell 7.4.6 for Linux (test-verify.sh, 216 scenarios (148 older and 68 added in round 8), result in test-verify-r8-RESULT.txt; round 8: exit codes, a link never gives an \"identical\" count, a UTF-16 data file, a byte above 127, a file name with a control character, status_dir_url, what git fetch writes, and the step 6d wording; round 7: the data and settings files are checked as DATA, a fresh install is exact, and a pipe, a oversized file, a case-duplicate name, a manifest that is a link and a data file that is UTF-16, empty or holds injected script are all refused).",
+   "status": "PASS",
+   "evidence": "fetch wrote 6 new files inside .git, moved the remote-tracking list: true, changed a working file, HEAD or a branch: false; the sentence "
+  },
+  {
+   "id": "D-count",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:9",
+   "sentence": "Fix round 7 changes this document in three places: (1) a fresh install is EXACT: the \"expected edit\" answer is gone, and the -AfterWriters switch is described in step 10; (2) the package is 12 files, not 11 (the 11 named in the manifest plus the manifest): the old text counted 11 and listed 12; (3) VERIFY now checks the data and settings files as DATA.",
+   "status": "PASS",
+   "evidence": "the manifest names 11 files; the package folder holds 12 (= 12 with the manifest itself)"
+  },
+  {
+   "id": "D-pinned",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:27",
+   "sentence": "Its SHA-256 must be dd99ad8af1ad403b325bdaebe307561b3912b7a3334f290bf07763601a2cff43 (read it with Get-FileHash -Algorithm SHA256).",
+   "status": "PASS",
+   "evidence": "the pinned manifest hash is the real one: true; the pinned VERIFY hash is the real one: true"
+  },
+  {
+   "id": "D-v3",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:5",
+   "sentence": "The real v3 launcher is never touched. It stays on the Desktop exactly as it is. v5 is a second, separate folder.",
+   "status": "PASS",
+   "evidence": "scenarios V27,V30e all as expected in test-verify-r8-RESULT.txt"
+  },
+  {
+   "id": "D-files",
+   "src": "install",
+   "where": "INSTALL-BY-HAND.md:9",
+   "sentence": "Fix round 7 changes this document in three places: (1) a fresh install is EXACT: the \"expected edit\" answer is gone, and the -AfterWriters switch is described in step 10; (2) the package is 12 files, not 11 (the 11 named in the manifest plus the manifest): the old text counted 11 and listed 12; (3) VERIFY now checks the data and settings files as DATA.",
+   "status": "PASS",
+   "evidence": "every one of the 11 manifest files is named in INSTALL-BY-HAND.md (missing: none); VERIFY-v5.ps1 exists beside the package"
+  },
+  {
+   "id": "C-interval",
+   "src": "contract",
+   "where": "DATA-CONTRACT.md:13",
+   "sentence": "interval_sec of the heartbeat file and of the bots file (the writers' own tick) must be a number from 1 to 3600. Anything else makes that whole file red NOT OK.",
+   "status": "PASS",
+   "evidence": "interval_sec outside 1 to 3600 never gives OK (0 wrong of 5); 3600 and 1 are accepted: OK/OK"
+  },
+  {
+   "id": "C-bots",
+   "src": "contract",
+   "where": "DATA-CONTRACT.md:44",
+   "sentence": "Fields: interval_sec (the writer's tick) and bots: { \"CU-Inbox-Job-Watcher\": {\"state\":\"Ready|Running|Disabled\",\"last_run_at\":\"ISO\",\"last_result\":0,\"next_run_at\":\"ISO or null\",\"interval_sec\": n or null}, ... } for the six bots: CU-Inbox-Job-Watcher, CU-Local-Executor, CU-TokenMonitor-Hourly, CU-Orchestrator, CU-Propagation-Check, VTES-LOCAL-POLLER.",
+   "status": "PASS",
+   "evidence": "{\"good\":\"OK\",\"running\":\"RUNNING\",\"disabled\":\"DOWN\",\"failed\":\"DOWN\",\"future\":\"BAD CLOCK\",\"late\":\"DOWN\",\"noentry\":\"NO DATA\",\"badstate\":\"NO DATA\",\"staleFile\":\"STALE\"}"
+  },
+  {
+   "id": "C-health",
+   "src": "contract",
+   "where": "DATA-CONTRACT.md:49",
+   "sentence": "Fields: ok (true/false, REQUIRED), checks_passed, checks_total, panel_built_at, report_sent_at (ISO or null).",
+   "status": "PASS",
+   "evidence": "{\"ok\":\"ok:OK\",\"okfalse\":\"bad:NOT OK\",\"nook\":\"bad:NO DATA\",\"oktext\":\"bad:NO DATA\"}"
+  },
+  {
+   "id": "C-miami",
+   "src": "contract",
+   "where": "DATA-CONTRACT.md:55",
+   "sentence": "proof_ok true with no checked_at is grey \"PROOF OK BUT NO CHECK DATE: not counted as checked\".",
+   "status": "PASS",
+   "evidence": "nodate: PROOF OK BUT NO CHECK DATE: not counted ; old: PROOF OLD (checked Sep 28, 2:00 PM EDT, ; future: PROOF DATE IN THE FUTURE (BAD CLOCK); notok: PROOF NOT OK; missing: NOT RE-CHECKED"
+  },
+  {
+   "id": "C-tokens",
+   "src": "contract",
+   "where": "DATA-CONTRACT.md:51",
+   "sentence": "Do not estimate: if the monitor cannot measure, write nothing and the page says NO DATA.",
+   "status": "PASS",
+   "evidence": "no token file: bad:NO DATA"
+  },
+  {
+   "id": "C-tabs",
+   "src": "limits",
+   "where": "KNOWN-LIMITS.md:36",
+   "sentence": "The 8 live tabs (LLMS, EXECUTORS, BOTS, HAND OFF, QUEUED, STATUS, REPAIRS, MIAMI-DADE) come first, so they show without scrolling at 1000 pixels and wider; the 10 OLD PANEL tabs follow, a thick scroll bar is always drawn under the bar, and a hint line (at least 14 pixels) says there are 18 tabs and how to scroll.",
+   "status": "PASS",
+   "evidence": "18 tabs; the first eight are LLMS, EXECUTORS, BOTS, HAND OFF, QUEUED, STATUS, REPAIRS, MIAMI-DADE"
+  },
+  {
+   "id": "C-nonever",
+   "src": "limits",
+   "where": "KNOWN-LIMITS.md:52",
+   "sentence": "The LOCAL lane is BLOCKED until a local-only folder is confirmed, and has no automation yet (N10, round 6 flaw 2). The round-5 card told the person to save the packet into G:\\My Drive\\VTES-Inbox-LOCAL, which is Google Drive: Google Drive for desktop uploads that file to Google, where any Drive-connected assistant can read it, while the card said the data \"never leaves the PC\".",
+   "status": "PASS",
+   "evidence": "1 mentions, all inside the \"typed in v3\" sentence: true"
+  },
+  {
+   "id": "C-nonever",
+   "src": "limits",
+   "where": "KNOWN-LIMITS.md:52",
+   "sentence": "The words \"Never leaves the PC\" that v3 typed on the LOCAL card and in the picker are replaced by a sentence that says when it is true.",
+   "status": "PASS",
+   "evidence": "1 mentions, all inside the \"typed in v3\" sentence: true"
+  },
+  {
+   "id": "C-search",
+   "src": "limits",
+   "where": "KNOWN-LIMITS.md:90",
+   "sentence": "(d) The search finds words a card no longer shows (\"hourly\", \"2 minutes\") on purpose; \"airdrop\" no longer finds LLM-05 and \"gemini.md\" no longer finds LLM-08.",
+   "status": "PASS",
+   "evidence": "{\"hourly\":[\"bot-CU-TokenMonitor-Hourly\",\"bot-CU-Propagation-Check\"],\"airdrop\":[],\"gemini.md\":[]}"
+  },
+  {
+   "id": "C-words",
+   "src": "limits",
+   "where": "KNOWN-LIMITS.md:78",
+   "sentence": "The words on the page are cross-checked (class 4). Outside lines marked \"For RAMBO\" the page no longer shows file names, heartbeat, result code, vtes://, GEMINI.md or .js.",
+   "status": "PASS",
+   "evidence": "jargon words outside \"For RAMBO\" lines: none"
+  },
+  {
+   "id": "C-limit62",
+   "src": "limits",
+   "where": "KNOWN-LIMITS.md:86",
+   "sentence": "Words that claim more than the page does (Tier 3): the claims test. test-claims-r8.js extracts the sentences of the Read me, the queued-item heading, lead and status lines, the card sentences about one click and Press, VERIFY's header comments and printed messages, INSTALL-BY-HAND.md, DATA-CONTRACT.md and this file; maps each checkable one to a test of real behaviour; and fails if a checkable sentence has no test, a test fails, or a test no longer matches any sentence.",
+   "status": "PASS",
+   "evidence": "test-state-text-r8: 4689 of 4689 over 9 worlds"
+  }
+ ]
+}

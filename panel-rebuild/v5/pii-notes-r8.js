@@ -16,7 +16,7 @@ const NEW_PERSONAL = [
   // hex without 0x, with or without separators
   '31 32 33 34 35 36 37 38 39', '31:32:33:34:35:36:37:38:39', '0x31 0x32 0x33 0x34 0x35 0x36 0x37 0x38 0x39', '\\x31\\x32\\x33\\x34\\x35\\x36\\x37\\x38\\x39', 'ssn hex 3132333435363738393031 ok', '313233343536373839', 'ssn 313233 343536 373839 hex pieces',
   // passport with a lower-case letter, long digit runs
-  'passport a12345678', 'pasaporte c03005988', '12345678901234567890', 'acct 123456789012345678901',
+  'S530 4607 5123 0', 'licence on file: s530-4607-5123-0 expires 2028', 'passport a12345678', 'pasaporte c03005988', '12345678901234567890', 'acct 123456789012345678901',
   // ZIP+4 after a capitalised word that is not a state or a Florida city
   'Maria Fakename 12345-6789', 'Contact Smith 98765-4321',
   // the same personal data with a ticked-by-mistake box in ordinary sentences

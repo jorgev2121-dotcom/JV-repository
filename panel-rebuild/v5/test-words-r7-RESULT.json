@@ -1,7 +1,7 @@
 {
  "test": "test-words-r7",
- "pass": 42,
- "total": 42,
+ "pass": 44,
+ "total": 44,
  "results": [
   {
    "g": "jargon",
@@ -95,7 +95,7 @@
   },
   {
    "g": "clock",
-   "name": "a data file that sets VTES5_NOW does not change the page clock (2026-10-06T18:00:01.073Z)",
+   "name": "a data file that sets VTES5_NOW does not change the page clock (2026-10-06T18:00:01.053Z)",
    "status": "PASS",
    "why": ""
   },
@@ -185,19 +185,31 @@
   },
   {
    "g": "local folder",
-   "name": "\"C:\\\\VTES-LOCAL-ONLY\" is CONFIRMED",
+   "name": "\"C:\\\\VTES-LOCAL-ONLY\" is refused",
    "status": "PASS",
    "why": ""
   },
   {
    "g": "local folder",
-   "name": "\"C:\\\\Data\\\\VTES-LOCAL\" is CONFIRMED",
+   "name": "\"C:\\\\Data\\\\VTES-LOCAL\" is refused",
    "status": "PASS",
    "why": ""
   },
   {
    "g": "local folder",
-   "name": "\"C:\\\\Users\\\\JV\\\\VTES-LOCAL\" is CONFIRMED",
+   "name": "\"C:\\\\Users\\\\JV\\\\VTES-LOCAL\" is refused",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"C:\\\\VTES-LOCAL\\\\\" is CONFIRMED",
+   "status": "PASS",
+   "why": ""
+  },
+  {
+   "g": "local folder",
+   "name": "\"C:\\\\AI\\\\state\\\\local\\\\jobs\" is CONFIRMED",
    "status": "PASS",
    "why": ""
   },

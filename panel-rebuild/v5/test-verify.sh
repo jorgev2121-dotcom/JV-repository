@@ -53,6 +53,7 @@ okdata() { printf '%s%s = %s;\n' "$DW" "$1" "$GOODJSON" > "$N/data/vtes5-$1.js";
 okall() { for f in heartbeat bots state health tokens housekeeping miamidade; do okdata $f; done; printf 'window.VTES5_CONFIG = { "status_dir_url": "status/" };\n' > "$N/vtes5-config.js"; }
 setdata() { printf '%s' "$2" > "$N/data/vtes5-$1.js"; }   # exact bytes, no added newline
 NLC=$'\n'; AS=; EXTRA=; AW=${AFTERSW:--AfterWriters}
+echo "VERIFY-v5.ps1 under test, SHA-256 $(sha256sum "$VER" | cut -c1-64); package manifest SHA-256 $(sha256sum "$PKG/MANIFEST.sha256" | cut -c1-64)"
 echo "PowerShell: $("$PW" -NoProfile -c '$PSVersionTable.PSVersion.ToString()'); real v3: $(sha256sum "$REALV3" | cut -c1-64); package files in the manifest: $NF (of which 8 are data or settings files)"
 echo "Telemetry/update-check env: POWERSHELL_TELEMETRY_OPTOUT=$POWERSHELL_TELEMETRY_OPTOUT POWERSHELL_UPDATECHECK=$POWERSHELL_UPDATECHECK DOTNET_CLI_TELEMETRY_OPTOUT=$DOTNET_CLI_TELEMETRY_OPTOUT HOME=$HOME"
 echo "== V01 intact package"; mk; ARGP=$N; V V01 0 "OK: all $NF of $NF package files"

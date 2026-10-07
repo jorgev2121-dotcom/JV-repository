@@ -41,11 +41,11 @@ function analyse(world, ts, route, s) {
   const go = s.btns.find(b => b.k === 'go'), show = s.btns.find(b => b.k === 'show'), top = s.btns.find(b => b.k === 'top');
   // S1 to S4 depend on the world only; they are checked in the first tick state of each route (cheap, and they stay true in all)
   s.cards.forEach(c => {
-    const one = /one click/i.test(c.text), noOpen = /no Open button/i.test(c.text);
+    const one = /with one click|one-click link above/i.test(c.text), noOpen = /no Open button/i.test(c.text); /* positive claims only: "Open X with one click" and "The one-click link above opens this window"; the sentence "The one-click shortcut for X does not open yet" is a negative statement and is judged by S2 and S3 only */
     if (one) { C('S1 one click needs a link', tag + ' ' + c.id, c.vtesLink, c.id + ' says one click but has no vtes link'); }
     if (noOpen) { C('S2 no Open button needs no link', tag + ' ' + c.id, !c.openLink, c.id + ' says no Open button but has an Open link'); }
     if (one || noOpen) { C('S3 never both', tag + ' ' + c.id, !(one && noOpen), c.id + ' says both'); }
-    if (c.id === 'card-LLM-05') { C('S4 phone card', tag, !/open[^.]*with one click/i.test(c.text), 'LLM-05 says open with one click'); }
+    if (c.id === 'card-LLM-05') { C('S4 phone card', tag, !/open[^.]*with one click|one-click link above/i.test(c.text), 'LLM-05 says open with one click'); }
   });
   const st = s.status || '';
   if (/ready/i.test(st)) { C('S5 status says ready', tag, !go.disabled, 'status "' + st + '" while Copy packet and open is disabled'); }
