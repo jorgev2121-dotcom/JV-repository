@@ -21,17 +21,18 @@ const sets = () => [
 ];
 (async () => {
   const br = await L.chromium.launch();
+  /* ROUND 9 CHANGE (FIX-ROUND-9.md, older tests that changed): the jargon rule still forbids file names outside For RAMBO lines, with two exceptions: the Read me sentence that names PORT-REPORT.md (the owner's words) and the LOCAL steps that tell the PERSON the file name to type (JOB-something.md, .md.txt): CHECK-10 flaw 5 requires those steps to be written for the person. The CONFIRMED check reads the new words. */
   // (1) jargon
   for (const [nm, files] of sets()) {
     const d = stage(files); const { ctx, p, errs } = await open(br, d); const texts = await textOutsideRambo(p); const bad = [];
-    texts.forEach(t => JARGON.forEach(re => { /* ROUND 8 CHANGE (FIX-ROUND-8.md, older tests that changed): the Read me must say where the change list is, in the owner's words ("the list is in PORT-REPORT.md"), so that one file name is allowed in the Read me only. */ if (re.test(t) && !(re.source === '\\.md\\b' && /the list is in PORT-REPORT\.md\./.test(t) && t.replace(/PORT-REPORT\.md/g, '').search(re) < 0) && bad.length < 6) { bad.push(re + ' in "' + t.slice(0, 120) + '"'); } }));
+    texts.forEach(t => JARGON.forEach(re => { /* ROUND 8 CHANGE (FIX-ROUND-8.md, older tests that changed): the Read me must say where the change list is, in the owner's words ("the list is in PORT-REPORT.md"), so that one file name is allowed in the Read me only. */ if (re.test(t) && !(re.source === '\\.md\\b' && (/The text changes are listed in PORT-REPORT\.md\./.test(t) || /JOB-something\.md|ending in \.md|ends in \.md/.test(t)) && t.replace(/PORT-REPORT\.md|JOB-something\.md|\.md\.txt|ending in \.md|ends in \.md/g, '').search(re) < 0) && bad.length < 6) { bad.push(re + ' in "' + t.slice(0, 120) + '"'); } }));
     T('jargon', 'no jargon outside "For RAMBO" lines (' + nm + '; ' + texts.length + ' text pieces)', bad.length === 0, bad.join(' || ')); await ctx.close();
   }
   // (2) contradiction BLOCKED vs CONFIRMED
   {
     const f = fresh(NOWMS); f.heartbeat.local_only_folder.label = 'C:\\VTES-LOCAL\\';
     const d = stage(f); const { ctx, p } = await open(br, d); window_open: await p.evaluate(() => { window.open = () => null; });
-    const live = await p.evaluate(() => document.querySelector('[data-localfolder]').textContent); T('contradiction', 'live LOCAL line says CONFIRMED with a C:\\ folder', /CONFIRMED by the desktop executor/.test(live) && !/BLOCKED/.test(live), live);
+    const live = await p.evaluate(() => document.querySelector('[data-localfolder]').textContent); T('contradiction', 'live LOCAL line says CONFIRMED with a C:\\ folder', /CONFIRMED as of .*the PC reports a local-only folder named/.test(live) && !/BLOCKED/.test(live), live);
     await p.evaluate(() => { document.getElementById('to').value = 'LOCAL'; document.getElementById('to').dispatchEvent(new Event('change', { bubbles: true })); document.getElementById('go').click(); }); await sleep(p, 300);
     const blocked = await p.evaluate(() => { const o = []; const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); while (w.nextNode()) { const n = w.currentNode, par = n.parentElement; if (!par || par.closest('script,style,[data-localfolder]')) { continue; } if (/BLOCKED/.test(n.textContent)) { o.push(n.textContent.trim().slice(0, 140)); } } return o; });
     T('contradiction', 'with the folder CONFIRMED no other line on the page says BLOCKED (LOCAL card, status after Copy packet and open)', blocked.length === 0, blocked.join(' || ')); await ctx.close();
@@ -94,7 +95,7 @@ const sets = () => [
     for (const [label, expect] of cases) {
       const f = fresh(NOWMS); f.heartbeat.local_only_folder.label = label; const d = stage(f); const { ctx, p } = await open(br, d);
       const t = await p.evaluate(() => { const e = document.querySelector('[data-localfolder]'); return { c: e.className, t: e.textContent }; });
-      T('local folder', JSON.stringify(label) + (expect ? ' is CONFIRMED' : ' is refused'), expect ? (/\bok\b/.test(t.c) && /CONFIRMED by the desktop executor/.test(t.t)) : (/\bbad\b/.test(t.c) && /BLOCKED - UNVERIFIED/.test(t.t)), t.c + ' ' + t.t.slice(0, 150)); await ctx.close();
+      T('local folder', JSON.stringify(label) + (expect ? ' is CONFIRMED' : ' is refused'), expect ? (/\bok\b/.test(t.c) && /CONFIRMED as of .*the PC reports a local-only folder named/.test(t.t)) : (/\bbad\b/.test(t.c) && /BLOCKED - UNVERIFIED/.test(t.t)), t.c + ' ' + t.t.slice(0, 150)); await ctx.close();
     }
     const withProof = (label, who, proof) => { const f = fresh(NOWMS); Object.assign(f.heartbeat.local_only_folder, { label, local_only_verified_by: who, not_synced_proof: proof }); return f; };
     for (const [nm, f, expect] of [['non-path label, verified_by and not_synced_proof given', withProof('VTES-LOCAL-ONLY', 'RAMBO 2026-10-06', 'Get-Item shows no reparse point and no sync client path'), true], ['non-path label, verified_by only', withProof('VTES-LOCAL-ONLY', 'RAMBO', ''), false], ['G: label even with a proof', withProof('G:\\VTES-LOCAL', 'RAMBO', 'proof text'), false]]) {

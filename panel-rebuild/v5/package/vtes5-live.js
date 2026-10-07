@@ -268,7 +268,7 @@
         return bad('IMPOSSIBLE', (isNum(d.checks_passed) || isNum(d.checks_total) ? 'IMPOSSIBLE - ' + d.checks_passed + ' of ' + d.checks_total + ' health checks passed cannot be true' : 'NO DATA - the health report has no check counts') + ' (file as of ' + fmt(s.at) + ')');
       }
       t = oldTime(d.report_sent_at, LIMIT_MIN.health, 'daily-report-sent time', s); if (t) { return bad(t.kind, t.text); }
-      if (d.checks_passed === 0) { return bad('FAILING', 'FAILING - 0 of ' + d.checks_total + ' health checks passed (file as of ' + fmt(s.at) + ')'); }
+      if (d.checks_passed === 0) { return bad('FAILING', 'FAILING - ' + d.checks_passed + ' of ' + d.checks_total + ' health checks passed (file as of ' + fmt(s.at) + ')'); }
       if (d.checks_passed < d.checks_total) { return { cls: 'na', kind: 'PARTIAL', text: 'PARTIAL - only ' + d.checks_passed + ' of ' + d.checks_total + ' health checks passed (file as of ' + fmt(s.at) + ')' }; }
     }
     if (name === 'housekeeping') {
@@ -439,7 +439,7 @@
     var st = String(b.state == null ? '' : b.state).toLowerCase();
     var iv = botIntervalOk(b.interval_sec) ? b.interval_sec : null;
     var every = iv ? ' Scheduled every ' + everyText(iv) + ' (read from the task schedule).' : '';
-    var badIv = (b.interval_sec !== undefined && b.interval_sec !== null && !iv) ? ' The check-in interval in the report is not a number from 1 to ' + MAX_BOT_SEC + ' (7 days), so lateness cannot be judged.' : '';
+    var badIv = (b.interval_sec !== undefined && b.interval_sec !== null && !iv) ? ' The check-in interval in the report is not a number from 1 to ' + MAX_BOT_SEC + ' (' + everyText(MAX_BOT_SEC) + '), so lateness cannot be judged.' : '';
     var lastTxt = runOk ? ' (last ran ' + fmt(run) + ')' : '';
     if (runOk && isFuture(run)) { return { state: 'BAD CLOCK', text: 'BAD CLOCK - the last run says ' + fmt(run) + ', which is in the future. Not trusted.' }; }
     if (st === 'disabled') { return { state: 'DOWN', text: 'DISABLED - the scheduler says this task is turned off' + lastTxt + '.' + every }; }
@@ -457,7 +457,7 @@
       var heldMin = (now - refAt) / 60000;
       if (heldMin > stuckLimit) {
         var heldFor = heldMin >= 60 ? Math.floor(heldMin / 60) + (Math.floor(heldMin / 60) === 1 ? ' HOUR' : ' HOURS') : Math.max(1, Math.floor(heldMin)) + (Math.floor(heldMin) <= 1 ? ' MINUTE' : ' MINUTES');
-        var limTxt = 'more than ' + (iv ? '3 x its ' + everyText(iv) + ' interval or 1 hour, whichever is larger' : '1 hour') + ' (' + Math.round(stuckLimit) + ' minutes)';
+        var limTxt = 'more than ' + (iv ? STUCK_FACTOR + ' x its ' + everyText(iv) + ' interval or ' + everyText(STUCK_FLOOR_MIN * 60) + ', whichever is larger' : everyText(STUCK_FLOOR_MIN * 60)) + ' (' + Math.round(stuckLimit) + ' minutes)';
         if (running && runOk) { return { state: 'STUCK', text: 'RUNNING FOR ' + heldFor + ' - CHECK. ' + how + '. That is ' + limTxt + ', so it may be hung: a task in the scheduler list is not proof it is making progress.' }; }
         return { state: 'STUCK', text: 'STUCK - CHECK. ' + (waiting ? 'QUEUED for ' : 'RUNNING for ') + heldFor + ': ' + how + '. That is ' + limTxt + ', so it may be hung: a task in the scheduler list is not proof it is making progress.' }; }
       if (waiting) { return { state: 'QUEUED', text: 'QUEUED - the scheduler says this task is queued to start' + lastTxt + '.' + every + ' It turns red STUCK - CHECK after ' + Math.round(stuckLimit) + ' minutes of waiting.' }; }
@@ -478,5 +478,5 @@
     sanitizeAll: sanitizeAll, fileProblems: function () { return FILE_PROBLEMS; }, badCount: function (n) { var d = D[n]; return d && d._bad ? d._bad : 0; },
     LIMIT_MIN: LIMIT_MIN, limitMin: limitMin, ALL_IDS: ALL_IDS, CHAT_ONLY: CHAT_ONLY, NEEDS_PROOF: NEEDS_PROOF, MAX_TICK_SEC: MAX_TICK_SEC, MAX_BOT_SEC: MAX_BOT_SEC, BOT_LATE_FACTOR: BOT_LATE_FACTOR,
     clsOfState: clsOfState, rankOf: rankOf, worstCls: worstCls, stripCls: stripCls, dateJudge: dateJudge, STUCK_FLOOR_MIN: STUCK_FLOOR_MIN, isFuture: isFuture,
-    builtText: builtText, builtBad: builtBad, setHtml: setHtml, setText: setText, statusMap: getS };
+    MD_TARGET: MD_TARGET, builtText: builtText, builtBad: builtBad, setHtml: setHtml, setText: setText, statusMap: getS };
 })();

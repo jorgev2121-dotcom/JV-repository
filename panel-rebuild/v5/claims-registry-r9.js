@@ -39,8 +39,8 @@ module.exports = function (C) {
     const ws = [...(info.worlds || [])]; if (!ws.length) { return R(false, 'no state known for this sentence'); }
     for (const nm of ws) {
       const w = WLD[nm]; const dataText = JSON.stringify(w.files || {}); const dnums = new Set((dataText.match(/\d+(?:\.\d+)?/g) || []).map(Number));
-      const ok = [...dnums]; const extra = await evalIn(nm, () => ({ md: window.VTES5U.MD.length, ids: window.VTES5.ALL_IDS.length, tabs: document.querySelectorAll('a.tab').length, bots: ['x'].length }));
-      const allowed = new Set(ok.concat([300, extra.md, extra.ids, 100, 7, 6]));
+      const ok = [...dnums]; const extra = await evalIn(nm, () => ({ target: window.VTES5.MD_TARGET, md: window.VTES5U.MD.length, ids: window.VTES5.ALL_IDS.length, tabs: document.querySelectorAll('a.tab').length, bots: ['x'].length }));
+      const allowed = new Set(ok.concat([extra.target, extra.md, extra.ids, 100, 7, 6]));
       (w.files && w.files.heartbeat && w.files.heartbeat.interval_sec ? [w.files.heartbeat.interval_sec / 60] : []).forEach(x => allowed.add(x));
       (w.files && w.files.bots ? Object.values(w.files.bots.bots || {}).map(b => b.interval_sec / 60) : []).forEach(x => allowed.add(x));
       if (w.files && w.files.health) { allowed.add(Math.round(100 * w.files.health.checks_passed / w.files.health.checks_total)); }
@@ -141,10 +141,10 @@ module.exports = function (C) {
     }
     return R(true, 'every time shown is a time from the data, the clock or the build, written by the one time rule');
   });
-  test('local-folder-lines', /LOCAL save step|local-only folder|BLOCKED - UNVERIFIED|Do NOT save|folder the PC reports|safe folder|Do not save client personal data|Open File Explorer|Click View, then Show|Right-click an empty spot|Type the name JOB|Check that the name ends|Double-click the file|You do these steps yourself|Do not ask RAMBO|It never goes to RAMBO/, () => once('local-lines', async () => {
+  test('local-folder-lines', /LOCAL save step|local-only folder|BLOCKED - UNVERIFIED|Do NOT save|folder the PC reports|safe folder|Do not save client personal data|Open File Explorer|Click View, then Show|Right-click an empty spot|Type the name JOB|Check that the name ends|Double-click the file|Do NOT ask RAMBO|Do NOT send client|Do NOT paste this packet|Do NOT press the blue/, () => once('local-lines', async () => {
     const bad = []; const N = ['no-data', 'fresh-green', 'local-unconfirmed', 'local-bad-folder', 'local-confirmed-proof', 'all-stale', 'status-writer-only'];
     for (const nm of N) {
-      const r = await evalIn(nm, () => { const c = document.getElementById('card-LOCAL'); return { text: c.textContent, cls: (c.querySelector('[data-localfolder]') || {}).className, steps: [...c.querySelectorAll('ol.v5steps li')].map(l => l.textContent) }; });
+      const r = await evalIn(nm, () => { const c = document.getElementById('card-LOCAL'); return { text: c.innerText, cls: (c.querySelector('[data-localfolder]') || {}).className, steps: [...c.querySelectorAll('ol.v5steps li')].map(l => l.textContent) }; });
       const sents = r.text.split(/(?<=[.!?])\s+/); const hit = sents.filter(s => /sav(?:e|ed|es|ing)\b/i.test(s) && /RAMBO|Claude|Cowork|Codex|Grok|desktop executor/i.test(s) && !/^Do not|^Do NOT|Do not give this packet to any Claude window/.test(s) && !/^For RAMBO/.test(s));
       if (hit.length) { bad.push(nm + ': a LOCAL sentence about saving names RAMBO or Claude: ' + hit[0].slice(0, 100)); }
       const stepsSave = r.steps.filter(x => /sav(?:e|ed)\b/i.test(x) && !/^For RAMBO/.test(x) && /RAMBO|Claude|desktop executor/.test(x)); if (stepsSave.length) { bad.push(nm + ': step names RAMBO or Claude: ' + stepsSave[0]); }
@@ -217,6 +217,7 @@ module.exports = function (C) {
     return R(true, 'the age line follows the data');
   });
   test('footer-stamp', /^TRK-2026-9910-B · v5 · built/, async () => R(await evalIn('fresh-green', () => document.getElementById('v5fb').textContent === window.VTES5.builtText(window.VTES5_BUILT)), 'the build time on the footer is the build time in the page'));
+  testAlways('target-constant', /^$/, async () => { const t = await evalIn('fresh-green', () => window.VTES5.MD_TARGET); const m = /`target` (\d+)/.exec(rd('DATA-CONTRACT.md')); return R(!!m && +m[1] === t, 'the target the page prints (' + t + ') is the target DATA-CONTRACT.md names (' + (m ? m[1] : 'none') + ')'); });
   /* the EXEMPT entries come last, so a sentence that has a real test is never swallowed by a reason */
   /* ---- EXEMPT: what is not a claim about the page ---- */
   exempt('id-only', { test: s => !KEYWORD.test(s) && !hasDigit(s) }, 'the only digits are names, ids, dates or version names (LLM-01, TRK-2026-9910-B, v5, 2026-10-02), not a count or a promise', 4);

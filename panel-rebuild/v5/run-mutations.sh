@@ -1,5 +1,5 @@
 #!/bin/bash
-# run-mutations.sh - proves the tests can FAIL: breaks the live layer in thirty-seven ways (M1-M10 from round 4, M11-M18 added in round 5, M19-M26 added in round 6, M27-M37 added in round 7; M12, M13, M15, M17 and M18 were re-pointed at the round-6 code) on a scratch copy and runs the matching test against each; each must report failures. TRK-2026-9910-B
+# run-mutations.sh - proves the tests can FAIL: breaks the live layer in sixty-nine ways (M1-M69; the round-9 ones are M54-M69) (M1-M10 from round 4, M11-M18 added in round 5, M19-M26 added in round 6, M27-M37 added in round 7; M12, M13, M15, M17 and M18 were re-pointed at the round-6 code) on a scratch copy and runs the matching test against each; each must report failures. TRK-2026-9910-B
 HERE=$(cd "$(dirname "$0")" && pwd); W=${1:?scratch dir}; rm -rf "$W"; mkdir -p "$W"
 mut() { if [ -n "$ONLY" ] && ! [[ $1 =~ $ONLY ]]; then return; fi; local name=$1 test=$2 file=$3 from=$4 to=$5; local d=$W/$name; mkdir -p "$d"; cp -a "$HERE"/. "$d"/; python3 - "$d/package/$file" "$from" "$to" <<'PY'
 import sys
@@ -8,7 +8,7 @@ if a not in s: print('MUTATION TEXT NOT FOUND'); sys.exit(3)
 open(p,'w').write(s.replace(a,b,1))
 PY
   [ $? -eq 0 ] || { echo "$name: could not apply"; return; }
-  local out; out=$(PKG=$d/package node "$HERE/$test.js" "$W/$name.json" 2>&1 | tail -1); echo "$name: $out" > "$W/$name.line"; }
+  local out; out=$(V5DIR=$d PKG=$d/package node "$HERE/$test.js" "$W/$name.json" 2>&1 | tail -1); echo "$name: $out" > "$W/$name.line"; }
 mut M1-future-dates-trusted test-v5-worlds vtes5-live.js "function isFuture(d) { return (d - NOW()) / 60000 > FUTURE_GRACE_MIN; }" "function isFuture(d) { return false; }" &
 mut M2-writer-counts-as-proof test-v5-worlds vtes5-live.js "return { state: 'UNPROVEN', text: 'WRITER SAYS UP" "return { state: 'OK', text: 'WRITER SAYS UP" &
 mut M3-fixed-15-minute-limit test-v5-worlds vtes5-live.js "return Math.min(Math.max(3 * sec / 60, MIN_LIMIT_MIN), MAX_LIMIT_MIN);" "return 15;" &
@@ -58,12 +58,12 @@ wait
 mut M38-queued-status-always-says-ready test-state-text-r8 vtes5-ui.js "return allow(to) ? 'Packet ready for '" "return true ? 'Packet ready for '" &
 mut M39-no-open-button-sentence-ignores-the-link test-state-text-r8 vtes5-ui.js "lead = oneClick(w, m) ? 'The one-click link above opens this window.'" "lead = false ? 'The one-click link above opens this window.'" &
 mut M40-phone-card-can-say-one-click test-state-text-r8 vtes5-ui.js "!m.phone && !m.noaddr && V.schemeRegistered()" "!m.noaddr && V.schemeRegistered()" &
-mut M41-markdown-characters-not-stripped test-pii-unit-r8 vtes5-ui.js "return t.replace(/[*_~\`]/g, '');" "return t;" &
-mut M42-label-rule-removed test-pii-unit-r8 vtes5-ui.js "looseReasons(tm, why); labelReasons(tm, why);" "looseReasons(tm, why);" &
-mut M43-licence-with-spaces-not-caught test-pii-unit-r8 vtes5-ui.js "[A-Za-z](?:[ \\-]?\\d){12}(?!\\d)" "[A-Za-z]\\d{12}(?!\\d)" &
+mut M41-markdown-characters-not-stripped test-pii-unit-r9 vtes5-ui.js "return t.replace(/[*_~\`]/g, '');" "return t;" &
+mut M42-label-rule-removed test-pii-unit-r9 vtes5-ui.js "looseReasons(tm, why); labelReasons(tm, why);" "looseReasons(tm, why);" &
+mut M43-licence-with-spaces-not-caught test-pii-unit-r9 vtes5-ui.js "[A-Za-z](?:[ \\-]?\\d){12}(?!\\d)" "[A-Za-z]\\d{12}(?!\\d)" &
 wait
-mut M44-zip4-after-any-capital-word test-pii-unit-r8 vtes5-ui.js "|| CITY_END.test(before);" "|| /[A-Z][a-z]{2,}[ ,]*\$/.test(before);" &
-mut M45-twenty-digit-rule-removed test-pii-unit-r8 vtes5-ui.js "if (/\\d{20,}/.test(t)) {" "if (false) {" &
+mut M44-zip4-after-any-capital-word test-pii-unit-r9 vtes5-ui.js "|| CITY_END.test(before);" "|| /[A-Z][a-z]{2,}[ ,]*\$/.test(before);" &
+mut M45-twenty-digit-rule-removed test-pii-unit-r9 vtes5-ui.js "if (/\\d{20,}/.test(t)) {" "if (false) {" &
 mut M46-inherited-keys-are-read test-edge-r8 vtes5-live.js "if (!HOP.call(o, k)) { return { v: undefined }; }" "" &
 mut M47-no-zone-time-accepted test-edge-r8 vtes5-live.js "    if (noZone(d.at)) {" "    if (false) {" &
 mut M48-status-dir-any-url test-edge-r8 vtes5-live.js "return statusDirOk(u) ? u.replace" "return (typeof u === 'string' && u) ? u.replace" &
@@ -71,7 +71,27 @@ mut M49-miami-id-matches-by-digits test-edge-r8 vtes5-ui.js "if (/^[1-9]\$/.test
 mut M50-miami-last-row-wins test-edge-r8 vtes5-ui.js "if (!proof[k] || mdRank(x) > mdRank(proof[k])) { proof[k] = x; }" "proof[k] = x;" &
 mut M51-local-folder-deny-list-only test-edge-r8 vtes5-ui.js "if (!pathOk(label) && !proven) {" "if (false) {" &
 wait
-mut M52-read-me-says-except-one-link test-claims-r8 vtes5-ui.js "Every card, bot, queued item, picker row, repairs row and tab from v3 is still here. ' + cnt + ' changed, added to or removed on purpose; the list is in PORT-REPORT.md." "Everything from v3 is still here except one link.' + '" &
-mut M53-read-me-promises-the-guard-catches-all test-claims-r8 vtes5-ui.js "It can still miss some spellings. " "" &
+mut M52-read-me-says-except-one-link test-claims-r9 vtes5-ui.js "'Every card, bot, queued item, picker row, repairs row and tab from v3 is still here.'," "'Everything from v3 is still here except one link.'," &
+mut M53-guard-sentence-promises-everything test-claims-r9 vtes5-ui.js "'The checker is a second layer: it catches many layouts and can miss some.'" "'The checker catches every layout.'" &
+wait
+# ---- round 9 (M54-M69): each breaks one of the round-9 fixes; test-fixes-r9.js and test-claims-r9.js must notice
+mut M54-card-rule-with-expiry-removed test-fixes-r9 vtes5-ui.js "cardReasons(tm, why); idLabelReasons(tm, why);" "idLabelReasons(tm, why);" &
+mut M55-spanish-hundreds-removed test-fixes-r9 vtes5-ui.js "novecientos: 900, novecientas: 900 }" "novecientas: 900 }" &
+mut M56-spanish-months-removed test-fixes-r9 vtes5-ui.js "|dec|enero|febrero|" "|dec|xenero|febrero|" &
+mut M57-labelled-id-rule-removed test-fixes-r9 vtes5-ui.js "cardReasons(tm, why); idLabelReasons(tm, why);" "cardReasons(tm, why);" &
+mut M58-local-steps-hand-the-save-to-rambo test-fixes-r9 vtes5-ui.js "Do not ask RAMBO or any Claude window to do them." "Ask RAMBO to save the file with the Claude desktop app." &
+mut M59-grok-sentence-always-shown test-fixes-r9 vtes5-ui.js "if (c === 'ok') { return ''; }" "if (false) { return ''; }" &
+wait
+mut M60-whole-page-ignores-grey-reports test-fixes-r9 vtes5-ui.js "' reports red and ' + bg + ' of '" "' reports red and 0 of '" &
+mut M61-from-does-not-clear-the-tick test-fixes-r9 vtes5-ui.js "|| ACK.from !== fromRoute());" ");" &
+mut M62-other-drive-letter-accepted-with-proof test-fixes-r9 vtes5-ui.js "|| /^\\s*[a-bd-zA-BD-Z]:/m.test(label); }" "; }" &
+mut M63-unreadable-bots-file-still-green test-fixes-r9 vtes5-live.js "if (bs.state === 'OK' && bs.data && bs.data._bad > 0) {" "if (false) {" &
+mut M64-step-line-over-25-words test-fixes-r9 vtes5-ui.js "'Right-click an empty spot in the folder. Click New, then Text Document.'" "'Right-click an empty spot in the folder. Click New, then Text Document, and keep going with more and more words so that this one step line is longer than twenty five words in all.'" &
+mut M65-verify-counts-all-files-as-page-files test-fixes-r9 ../VERIFY-v5.ps1 "' + \$okPage + ' page and script files" "' + \$okCount + ' page and script files" &
+wait
+mut M66-read-me-has-an-eleventh-sentence test-claims-r9 vtes5-ui.js "'Client personal data goes to LOCAL only; any other lane needs the tick box under the note box.'" "'Client personal data goes to LOCAL only; any other lane needs the tick box under the note box.', 'This is one more sentence.'" &
+mut M67-tick-message-forgets-from test-claims-r9 vtes5-ui.js "If you change the note, To or From, the tick clears." "If you change the note or To, the tick clears." &
+mut M68-grok-sentence-says-red-when-grey test-fixes-r9 vtes5-ui.js "'until then this card is not green.'" "'until then this card stays red.'" &
+mut M69-local-folder-with-line-break-accepted test-fixes-r9 vtes5-ui.js "|| /[^\\x20-\\x7e]/.test(label) ||" "||" &
 wait
 cat "$W"/M*.line | sort -V

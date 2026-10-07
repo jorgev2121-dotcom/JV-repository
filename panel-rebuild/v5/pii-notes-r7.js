@@ -39,11 +39,12 @@ const ORDINARY = [
   'Check the Bal Harbour permit summary for anything Claude missed.', 'Call 305-555-1234 about the Medley invoice', 'Folio 30-4021-001-0010 needs the zoning letter', 'Folio 01-4120-001-0010 and folio 30-4021-001-0010 are on the list',
   'Permit 2024-12345 was issued on 10/06/2026', 'Permit 2024 12345 final inspection', 'Permit BP2021-12345 expired', 'TRK-2026-1262 needs the cover page', 'OPH-2026-0042 has no job yet', 'TRK-2026-0708-JULIA is the Julia file',
   'Miami 33186-1234', 'Miami FL 33186 305-555-1234', 'Miami, FL 33143-1234 and call 305-555-1234', '14598 SW 110 ST, Miami, FL 33186', 'The invoice is for $8,000.00 due on 2026-10-15', 'Pay $100.25 to Alec for the DD delivery',
-  'UPS 1Z999AA10123456784 shipped Monday', 'USPS 9400 1118 9922 3197 4284 90 delivered', 'FedEx 123456789012 is out for delivery', 'Case number CE-2024-000123 is open', 'Case 24-CC-012345 hearing set for 11/04/2026',
+  'UPS 1Z999AA10123456784 shipped Monday', 'FedEx 123456789012 is out for delivery', 'Case number CE-2024-000123 is open', 'Case 24-CC-012345 hearing set for 11/04/2026',
   'Room 12, lot 34, block 56', 'Units 143, 144 and 145 are vacant', 'Call me at five five five', 'One two three, easy as that', 'Three bedrooms, two baths, 1,500 sq ft, built in 1998', 'Meeting at 2:00 PM on October 6, 2026',
   'Percent complete: 73%. Score 88 of 100.', 'Ticket 4471 and ticket 4472 are done', 'Call 1-800-555-0100 or (305) 555-0100', '+1 305 555 1234 is the office', 'See pages 12, 34, 56 and 78 of the report', 'Version v12 of TRK-2026-1250 is current',
   'The Orange Tree population is 120 of 300 so far', 'Send the review links for Avis Builders to Alec', 'No client names in this note, just the plan', 'Latitude 25.7617, longitude -80.1918', 'Order total 1,234.56 on 2026-10-06',
   'Remind me about the Einar overdue matter on Friday', 'Plans were rev 3 dated 2024-03-04 and rev 4 dated 2024-05-06'
 ];
-const FALSE_ALARMS = ['Order 12345 6789', 'invoice 123456789 sent', 'ref 98765-4321', 'the number 987654321 on the permit card', 'lot 1 2 3 4 5 6 7 8 9'];
+/* ROUND 9 CHANGE (FIX-ROUND-9.md, older tests that changed): the USPS tracking number moved from ORDINARY to FALSE_ALARMS. CHECK-10 flaw 1 makes the guard test every stretch of whole digit groups of 13 to 19 digits with the Luhn check, wherever it sits; some stretch of this 22-digit number passes it, so the note is held back (fail closed) and named only as 'some ordinary notes with long numbers may be held back'. */
+const FALSE_ALARMS = ['USPS 9400 1118 9922 3197 4284 90 delivered', 'Order 12345 6789', 'invoice 123456789 sent', 'ref 98765-4321', 'the number 987654321 on the permit card', 'lot 1 2 3 4 5 6 7 8 9'];
 module.exports = { PERSONAL, CANNOT_CATCH, ORDINARY, FALSE_ALARMS };

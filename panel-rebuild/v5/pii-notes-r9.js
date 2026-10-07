@@ -28,7 +28,7 @@ const NEW_ORDINARY = [
 ];
 // still held back (fail closed): generic wording on the page, named here for the matrix. Each is an ordinary note whose long number looks like a card.
 // CHECK-10 flaw 1 makes the guard test every stretch of 13 to 19 digits with the Luhn check, so a 22-digit tracking number written in groups of four is held back when some stretch passes it by chance (older tests changed: see FIX-ROUND-9.md)
-const MOVED = ['USPS 9400 1118 9922 3197 4284 90 delivered'];
+const MOVED = [];
 const FALSE_ALARMS = R8.FALSE_ALARMS.concat(MOVED, ['FedEx tracking 7712 3456 7890 1234', 'FedEx 1234567890123456', 'Pallet ids 1111 2222 3333 4444']);
 module.exports = {
   PERSONAL: R8.PERSONAL.concat(CARDS, SPANISH, LABELLED), NEW_PERSONAL: CARDS.concat(SPANISH, LABELLED), CARDS, SPANISH, LABELLED, MISSES: R8.MISSES, CANNOT_CATCH: R8.CANNOT_CATCH,

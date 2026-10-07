@@ -28,7 +28,7 @@ Follow the steps in order. Stop at the first BLOCKED. Do not touch the real v3 l
 
 <!-- VERIFY-CMD -->
 ```
-powershell -NoProfile -ExecutionPolicy Bypass -File "G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 3cfe8230918b6ddd2a371b0f8b8412f6263c54d6dd8d070c9b513918e8663fed
+powershell -NoProfile -ExecutionPolicy Bypass -File "G:\My Drive\MY-DESK\VTES-PANEL\VERIFY-v5.ps1" -Path "FULL PATH OF THE NEW FOLDER" -ExpectManifestSha256 816e2efa6170f93699aca9e6c2274c51d260fa2c5f4d4bd62b9bf808dc6e4ad0
 ```
 
 24. Paste VERIFY's whole answer into the report. The install is good only if it prints "OK: all 11 of 11 package files are present, readable and identical (SHA-256), and nothing else is in the folder".

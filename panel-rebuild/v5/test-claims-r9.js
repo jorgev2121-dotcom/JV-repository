@@ -76,6 +76,6 @@ const ALWAYS = new Set(), INTERNAL = new Set(); require('./claims-registry-r9.js
   counts.exemptList = Object.keys(byEntry).filter(k => ENTRIES.find(e => e.id === k).kind === 'exempt').map(k => k + ': ' + byEntry[k].length + ' sentences');
   const pass = results.filter(r => r.ok).length, total = results.length;
   fs.writeFileSync(OUT, JSON.stringify({ test: 'test-claims-r9', counts, pass, total, results, unmapped, failed, v3_unchanged_sentences: v3list, by_entry: byEntry }, null, 1));
-  console.log('CLAIMS R9: sentences read ' + counts.read + ' / checkable ' + counts.checkable + ' / proven ' + counts.proven + ' / exempt ' + counts.exempt + ' / unchanged v3 text ' + counts.v3 + ' / unmapped ' + counts.unmapped + ' / false ' + counts.failed + '; checks ' + pass + ' of ' + total);
+  console.log('CLAIMS R9: sentences read ' + counts.read + ' / checkable ' + counts.checkable + ' / proven ' + counts.proven + ' / exempt ' + counts.exempt + ' / unchanged v3 text ' + counts.v3 + ' / unmapped ' + counts.unmapped + ' / false ' + counts.failed + '; ' + pass + ' of ' + total + ' pass');
   await br.close(); process.exit(pass === total ? 0 : 1);
 })().catch(e => { console.error(e); process.exit(2); });

@@ -22,8 +22,8 @@
      not_synced_proof (a sentence that says how it checked the folder is not synced). Whatever the proof, a name that looks like a cloud or sync folder (Google Drive, OneDrive, Dropbox, Box, pCloud, MEGA, Nextcloud, DriveFS, a shared drive, a Desktop or Documents folder),
      a short 8.3 name (ONEDRI~1: it hides what the folder is), a ".." part, a drive other than C:, or a network name is refused. */
   var LOCAL_ALLOW = /^[cC]:\\(?:VTES-LOCAL|AI\\state\\local)(?:\\|$)/i;
-  /* fix round 9 (CHECK-10 edge 9): even WITH proof a label is refused unless it is ONE line, plain ASCII, and starts with the C: drive. Any other drive letter, any non-ASCII look-alike letter and any line break is refused. */
-  function badName(label) { return CLOUD_RE.test(label) || /~\d/.test(label) || /(^|[\\\/])\.\.([\\\/]|$)/.test(label) || /[^\x20-\x7e]/.test(label) || !/^[cC]:\\/.test(label); }
+  /* fix round 9 (CHECK-10 edge 9): even WITH proof a label is refused when it has a line break, any non-ASCII letter (look-alikes), or names a drive other than C: (D: to Z:, A: and B:). */
+  function badName(label) { return CLOUD_RE.test(label) || /~\d/.test(label) || /(^|[\\\/])\.\.([\\\/]|$)/.test(label) || /[^\x20-\x7e]/.test(label) || /^\s*[a-bd-zA-BD-Z]:/m.test(label); }
   function shownLabel(label) { return String(label).replace(/[^\x20-\x7e]/g, '?').slice(0, 120); }
   function pathOk(label) { return LOCAL_ALLOW.test(label) && !badName(label); }
   var LOCAL_LIMIT_MIN = 26 * 60;
@@ -34,7 +34,7 @@
     if (!lf || lf.ok !== true) { return { cls: 'bad', ok: false, text: none + 'No local-only folder is confirmed in the PC check-in report: one that is NOT inside Google Drive, OneDrive or any other folder that uploads to the cloud. Until one is, do not save client personal data in any file.' }; }
     var label = String(lf.label == null ? '' : lf.label);
     var proven = !!(lf.local_only_verified_by && String(lf.local_only_verified_by).trim() && lf.not_synced_proof && String(lf.not_synced_proof).trim());
-    if (!label || badName(label)) { return { cls: 'bad', ok: false, text: none + 'The folder the PC reports ("' + shownLabel(label) + '") has no name, is not a plain one-line C:\\ path, looks like a cloud-synced folder, is a short (8.3) name or has a ".." part. Client personal data must not go there.' }; }
+    if (!label || badName(label)) { return { cls: 'bad', ok: false, text: none + 'The folder the PC reports ("' + shownLabel(label) + '") has no name, has a line break or a non-ASCII letter, names a drive other than C:, looks like a cloud-synced folder, is a short (8.3) name or has a ".." part. Client personal data must not go there.' }; }
     if (!pathOk(label) && !proven) { return { cls: 'bad', ok: false, text: none + 'The folder name the PC reports ("' + shownLabel(label) + '") is not under C:\\VTES-LOCAL\\ or C:\\AI\\state\\local\\, and the PC has not given who checked it and how it knows the folder is not synced. Client personal data must not go there.' }; }
     var j = V.dateJudge(lf.checked_at, { type: 'past', limitMin: LOCAL_LIMIT_MIN, what: 'local-folder check time' }, null);
     if (j) { return { cls: 'bad', ok: false, text: none + 'The local-only folder check is not usable: ' + j.text + '.' }; }
@@ -43,8 +43,9 @@
   /* fix round 9 (CHECK-10 flaw 5, Tier 2): client personal data NEVER goes to RAMBO or any Claude window, so the steps for a confirmed folder are written for the PERSON, by hand. No line that talks about saving names RAMBO, Claude or the desktop executor. */
   function localSteps() {
     var lf = localFolder(), out = ['There is no window. Press the button to copy the packet. It stays on this PC\'s clipboard until you paste it.',
-      'Client personal data goes to LOCAL only. It never goes to RAMBO or to any Claude window, Cowork, Codex or Grok.',
-      'Do not press the blue RAMBO button for this packet.'];
+      'Do NOT paste this packet into any Claude window, Cowork, Codex or Grok.',
+      'Do NOT send client personal data to RAMBO or to any Claude window. It goes to LOCAL only.',
+      'Do NOT press the blue RAMBO button for this packet.'];
     if (!lf.ok) {
       out.push('STOP HERE. Do NOT save this packet as a file anywhere: no safe folder is confirmed.',
         'Do NOT save it in Google Drive or OneDrive: they upload files to the cloud.',
@@ -57,7 +58,7 @@
         'Type the name JOB-something.md and press Enter. Click Yes if Windows asks about changing the extension.',
         'Check that the name ends in .md and not in .md.txt.',
         'Double-click the file to open it. Press Ctrl+V to paste the packet, then save the file.',
-        'You do these steps yourself, by hand. Do not ask RAMBO or any Claude window to do them.');
+        'Do NOT ask RAMBO or any Claude window to do these steps. Do them yourself, by hand.');
     }
     out.push('For RAMBO: v3 says the job file needs a line starting CLASS: and a line starting PROMPT: (typed from v3, UNVERIFIED); the packet does not have them, and the helper that adds them is still to be built (DESKTOP-WORK item 9 (LOCAL jobs)). v3 says the bot CU-Local-Executor watches VTES-Inbox-LOCAL: if that folder is inside Google Drive, that lane uploads client data too (KNOWN-LIMITS item 43 (LOCAL)).');
     return out;
@@ -274,7 +275,7 @@
     'The text changes are listed in PORT-REPORT.md.',
     'A red NO DATA box means the page has no usable report for that item.',
     'Green appears only when a fresh report with proof says so; grey means not proven.',
-    'To hand work to RAMBO, press the big blue button under the title, then paste in the Claude desktop app.',
+    'To hand work to RAMBO: tick the box if you typed a note, then press the big blue button.',
     'A web page cannot open a desktop app, so those cards give a Copy packet button and steps.',
     'Client personal data goes to LOCAL only; any other lane needs the tick box under the note box.'
     ].concat(GUARD_TEXT);
@@ -486,9 +487,10 @@
       }
     });
   }
+  var NOTE_MAX = 20000;
   function piiReasons(raw) {
     var t0 = String(raw == null ? '' : raw), why = [];
-    if (t0.length > 20000) { return ['a note longer than 20,000 characters, which cannot be checked']; }
+    if (t0.length > NOTE_MAX) { return ['a note longer than ' + NOTE_MAX.toLocaleString('en-US') + ' characters, which cannot be checked']; }
     var t = normNote(t0);
     if (!t) { return why; }
     var tm = maskPhones(t);
@@ -623,7 +625,7 @@
     if (!j) { return mark('ok', 'proof checked ' + V.fmtIso(p.checked_at)); }
     if (j.kind === 'NO DATA') { return mark('na', 'PROOF OK BUT NO CHECK DATE: not counted as checked'); }
     if (j.kind === 'NO ZONE') { return mark('na', 'PROOF OK BUT THE CHECK DATE HAS NO TIME ZONE: not counted as checked'); }
-    return red('PROOF ' + (j.kind === 'BAD CLOCK' ? 'DATE IN THE FUTURE (BAD CLOCK)' : 'OLD (checked ' + V.fmtIso(p.checked_at) + ', more than 7 days ago)'));
+    return red('PROOF ' + (j.kind === 'BAD CLOCK' ? 'DATE IN THE FUTURE (BAD CLOCK)' : 'OLD (checked ' + V.fmtIso(p.checked_at) + ', more than ' + Math.round(V.LIMIT_MIN.miamidade / 1440) + ' days ago)'));
   }
   function mdKey(id) { var s = String(id == null ? '' : id).trim(); if (/^(0[1-9]|1\d|2[0-2])$/.test(s)) { return s; } if (/^[1-9]$/.test(s)) { return '0' + s; } return null; }
   function mdRank(p) { if (p.proof_ok !== true) { return 3; } var j = V.dateJudge(p.checked_at, { type: 'past', limitMin: V.LIMIT_MIN.miamidade, what: 'proof check date' }, null); if (!j) { return 0; } return (j.kind === 'NO DATA' || j.kind === 'NO ZONE') ? 1 : 2; }
@@ -640,7 +642,7 @@
       return '<li><b>' + r[0] + ' ' + esc(r[1]) + '</b> - <a href="' + drive(r[2]) + '" target="_blank" rel="noopener">Open the proof file for source ' + r[0] + ' (a file in Google Drive)</a>' + (r[3] ? ' - <i class="v5typed">typed note from 2026-08-16, not re-checked: ' + esc(r[3]) + '</i>' : '') + chk + '</li>';
     }).join('');
     return '<div class="pn" id="pn-miami" data-files="miamidade"><p>' + V.badge('miamidade', 'Counted') + '</p>' +
-      '<p>Counted so far: ' + (impossible ? red('IMPOSSIBLE (' + counted + ')') + ' of 300' : (counted !== null && !fresh ? red('OLD ' + counted + ' of 300', 'miamidade') + ' ' + red(OLDSENT, 'miamidade') : '<b>' + (counted === null ? 'unknown' : counted) + ' of 300</b>')) + (counted === null ? ' (not counted yet)' : '') + '.</p>' +
+      '<p>Counted so far: ' + (impossible ? red('IMPOSSIBLE (' + counted + ')') + ' of ' + V.MD_TARGET : (counted !== null && !fresh ? red('OLD ' + counted + ' of ' + V.MD_TARGET, 'miamidade') + ' ' + red(OLDSENT, 'miamidade') : '<b>' + (counted === null ? 'unknown' : counted) + ' of ' + V.MD_TARGET + '</b>')) + (counted === null ? ' (not counted yet)' : '') + '.</p>' +
       (unknownIds ? '<p>' + red(unknownIds + ' entries in the Miami-Dade file have an id that is not one of the 22 sources, and were ignored') + '</p>' : '') + '<p>Each link opens that site\'s proof file in Drive. They are plain text files, not the Orange Tree portal. <a href="' + MD_INDEX + '" target="_blank" rel="noopener">Open the full index document (Google Docs)</a>.</p><ol class="md">' + items + '</ol></div>';
   }
   var DASHFILES = ['heartbeat', 'bots', 'state', 'health', 'tokens', 'housekeeping', 'miamidade'];
@@ -705,7 +707,7 @@
       var now = Date.now(), ref = PAINT.lastOk || PAINT.start, old = (now - ref) > WATCH_MS, trip = PAINT.threw || old;
       PAINT.tripped = trip;
       var banner = document.getElementById('v5watch');
-      if (banner) { banner.style.display = trip ? 'block' : 'none'; banner.textContent = trip ? WATCH_TEXT + '. ' + (PAINT.threw ? 'The last redraw of this page failed.' : 'This page has not redrawn for more than 3 minutes.') + ' Everything below may be out of date. Press F5 to reload the page. If this stays, tell the desktop executor (RAMBO).' : ''; }
+      if (banner) { banner.style.display = trip ? 'block' : 'none'; banner.textContent = trip ? WATCH_TEXT + '. ' + (PAINT.threw ? 'The last redraw of this page failed.' : 'This page has not redrawn for more than ' + Math.round(WATCH_MS / 60000) + ' minutes.') + ' Everything below may be out of date. Press F5 to reload the page. If this stays, tell the desktop executor (RAMBO).' : ''; }
       if (!trip) { return; }
       var o = document.getElementById('v5overall'); if (o) { o.className = 'v5b bad'; o.textContent = 'WHOLE PAGE: ' + WATCH_TEXT; }
       /* the strip entries are found by class name (no selector engine needed), so a paint that broke querySelectorAll cannot stop the watchdog */
