@@ -100,3 +100,4 @@ enough to identify it exactly, with no description needed.
 - **PASTE-X-010** · (used earlier, same branch as X-009, not logged at the time; recorded 2026-10-08)
 - **PASTE-X-011** · 2026-10-08 · Jorge's phone (text message) → to Daniel Felipe and Miall Mulkay: please send the Medley violation notice photo, NOV/citation numbers and any old plans or microfilm (TUS-26-1033).
 | PASTE-D-064 | 2026-10-08 | Desktop (RAMBO / Claude Code on PC) | Restart pointer: read VTES-Inbox, execute today's .md orders oldest first starting with panel v5 + v5.1 install, write EXECUTED_/BLOCKER_ per order | Cloud |
+| PASTE-X-012 | 2026-10-08 | Anywhere (email/Grammarly) | Unsafe-structures owner email v1 (marketing/unsafe-structures/CAMPAIGN-COPY_UNSAFE-STRUCTURES_v1_2026-10-08.md) | Cloud |
