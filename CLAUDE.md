@@ -333,6 +333,14 @@ forbidden, for four reasons — recorded here so no future session reintroduces 
    "point zero four seven." `p047` is spoken as "p zero four seven" and can be said
    back as "page 47."
 
+### 9.2a Report numbers — `RPT-<TYPE>-NNNN` (owner request 2026-10-08)
+
+Internal reports (panel status, books, billing, night reports) carry a **report-type number**,
+not a TRK: `RPT-PANEL-0001`, `RPT-BOOKS-0001`. The type code says what kind of report it is so
+Jorge can ask for "another RPT-PANEL". Plain sequence per type, never reused, stamped in the
+header and footer of every page. Types and the issue log live in `REPORT-TYPES.md`; add a line
+there before publishing.
+
 ### 9.3 Stamp the ID on the page itself
 
 **A page identified only by its filename loses its identity the moment it is
@@ -509,3 +517,49 @@ LIBRARIAN-RND → `JOB-0085` dictation → retro sweeps → the rest by scorecar
 producing appointments and the three money items collected or delivered. **Each dated
 within 30 days.**
 
+
+---
+
+## 13. Rule 9 — Guided choices (OWNER-DIRECTIVE GUIDED-CHOICES-01, 2026-10-08)
+
+**Owner directive, issued by Jorge 2026-10-08:** he wants every decision handled the way
+Google guides a user — he says what he wants, the AI offers two clear choices, he clicks
+one, and it keeps going step by step until the goal is reached.
+
+**How every session obeys it:**
+
+1. **When Jorge must decide anything, ask with clickable buttons** (the `AskUserQuestion`
+   tool in Claude Code), not a typed question. Two options is the default; never more than four.
+2. **The recommended option is always first and labelled "(Recommended)".** Rule 7 still
+   stands: options are plain-language outcomes ("Send it" / "Hold until Monday"), never
+   technical menus. If only one sensible path exists, don't ask; do it and say so.
+3. **One small step per click.** Break a big decision into a chain of small ones, and
+   carry on after each answer without waiting to be told.
+4. **The closing question (OD-01) should be a button whenever the surface supports it.**
+   **Typing a new message closes an open pop-up; that is NOT a "no".** If Jorge sends a message
+   without answering, show the same question again in the next reply.
+   A click is cheaper than typing or dictating.
+   **Jorge, 2026-10-08: "pop up questions like that anytime … even if it's midstream … stop the reply
+   and ask the questions. Let's get it right the first time."** Ask the moment a fact only he has
+   would change the work; do not finish a long reply first. A pop-up closed by a session restart is
+   also not an answer: ask again.
+5. **Surfaces without buttons** (mailbox files, the iPhone, other LLMs): write the two
+   choices as `Reply 1 — …` / `Reply 2 — …` so he can answer with one word.
+6. **The VTES panel follows the same pattern** in its approval section (see
+   `panel-rebuild/ROUND-11-APPROVAL-SYSTEM_SPEC_2026-10-08.md`, Guided mode).
+
+---
+
+## 14. Rule 10 — Round table, request log, sweeper (owner directives 2026-10-08)
+
+Full protocol: `ROUND-TABLE-PROTOCOL.md`. The essentials:
+
+1. **Every request Jorge makes gets a `REQUEST-LOG.md` row in the same reply that answers it**:
+   time, his words, your interpretation, "Enhances / Duplicate of" if it repeats something, status,
+   and where it is tracked. Then an OPEN-ITEMS row. A request with no row was dropped.
+2. **Write your round-table entry** (`round-table/YYYY-MM-DD_<WINDOW>_<session>.md`, mirrored to
+   Drive `Shared Folders for all LLMs/ROUND-TABLE/`) after every reply that changed anything, and
+   always before a pause of 10 minutes or more.
+3. **Before changing a protocol, copy the current version to `_REVISIONS/<NAME>/`.**
+4. **Files dropped in VTES-Inbox end in `.md`** (RI-057). No ACK within ~15 minutes means the
+   order was not seen.

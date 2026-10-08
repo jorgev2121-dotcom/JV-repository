@@ -1,0 +1,77 @@
+<title>All Open Tasks</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a single timeline down the page, one entry per request, his words then my answer. Sections lettered for "re-read Section C". */
+:root{
+  --bg:#f5f6f3; --card:#ffffff; --ink:#1c2321; --mut:#5a6460; --line:#d6dbd6; --accent:#1b5e9e; --rail:#b9c4be;
+  --ok:#1d6b3b; --ok-bg:#e3f3e8; --mv:#173f66; --mv-bg:#e8f0f8; --you:#6b4100; --you-bg:#fff1cc; --bad:#b3261e; --bad-bg:#fdeceb; --soon:#4a4a47; --soon-bg:#eceae4;
+  --f-body:"Source Sans 3","Segoe UI",Arial,sans-serif; --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:1.0625rem/1.6 var(--f-body)}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px;padding-block:20px 72px}
+header{border-bottom:3px solid var(--ink);padding-bottom:12px}
+.rpt{font:700 .95rem var(--f-mono);color:var(--accent)}
+h1{font-size:2rem;margin:2px 0;text-wrap:balance}
+.meta{color:var(--mut);font-size:.97rem}
+h2{font-size:1.35rem;margin:30px 0 10px;text-wrap:balance}
+h2 .sec{display:block;font:700 .8rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.box{background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:12px 18px}
+.box p{margin:.35em 0}
+ol.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:3px solid var(--rail);display:grid;gap:14px}
+ol.tl li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+ol.tl li::before{content:"";position:absolute;left:-31px;top:16px;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.when{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:700 .85rem var(--f-mono);color:var(--mut)}
+.said{margin:6px 0 4px;font-style:italic}
+.did{margin:4px 0 0}
+.pill{display:inline-block;font:800 .72rem var(--f-body);letter-spacing:.04em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:2px solid currentColor}
+.ok{color:var(--ok);background:var(--ok-bg)}.mv{color:var(--mv);background:var(--mv-bg)}.you{color:var(--you);background:var(--you-bg)}.bad{color:var(--bad);background:var(--bad-bg)}.soon{color:var(--soon);background:var(--soon-bg);border-style:dashed}
+ul.plain{margin:6px 0;padding-left:22px}
+ul.plain li{margin:4px 0}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:8px;font:700 .85rem var(--f-mono);color:var(--mut);text-align:right}
+@media print{body{background:#fff;color:#000}footer{position:fixed;bottom:0;left:0;right:0;background:#fff}ol.tl li{break-inside:avoid}}
+</style><style>ol.tasks{margin:0;padding-left:30px;display:grid;gap:8px}ol.tasks li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px}ol.tasks .who{font:700 .8rem var(--f-mono);color:var(--mut)}ol.tasks li::marker{font-weight:800;color:var(--accent)}</style>
+<div class="wrap">
+<header>
+  <div class="rpt">RPT-STATUS-0002</div>
+  <h1>All Open Tasks</h1>
+  <div class="meta">Everything you asked for that is not finished yet, numbered so you can say "move 7 to first" or comment on a number. Thursday 2026-10-08, 11:45 AM. Dates are estimates.</div>
+</header>
+
+<h2><span class="sec">Section A</span>Clients and money (in today's order)</h2>
+<ol class="tasks">
+  <li><b>Medley: ask for the violation numbers and microfilm.</b> Three emails go to your Outlook Drafts for you to read and send; plus one text and three calls. <span class="who">YOU + RAMBO · today by 4:30 PM</span></li>
+  <li><b>Medley: send the $8,000 deposit invoice</b> (50% of $16,000). <span class="who">RAMBO drafts, YOU send · today or tomorrow</span></li>
+  <li><b>Medley: get Julio Silva's signed proposal</b> ($9,500, or your $8,000 limit). Pay 50% from Medley's deposit. <span class="who">YOU + Julio · this week</span></li>
+  <li><b>Medley: hire a Philippine drafter</b>, $1,000 ($500 now, $500 in 30 days). Drafting help only; a Florida-licensed professional must seal the plans. <span class="who">CLOUD posts the job, YOU interview · start by Tue Oct 13</span></li>
+  <li><b>Medley: finish the plan set.</b> About 13 items are missing: cover sheet, seating plan, the bar, mezzanine structure, energy forms and more. <span class="who">Julio + drafter · within 30 days</span></li>
+  <li><b>TEDC: rename the 3 folders and draft about $30,000 of invoices.</b> <span class="who">RAMBO, then YOU send · tomorrow</span></li>
+  <li><b>#10980 reimbursement of about $300</b> to Miguel Zaldivar (MZ Solutions). <span class="who">RAMBO drafts, YOU send · tomorrow</span></li>
+  <li><b>Alec: first finished report (10362 SW 180 St),</b> then the other four, then the $100.25 invoice. <span class="who">RAMBO + YOU at the PC 20 min · first one today about 4 PM</span></li>
+  <li><b>Collect old money:</b> invoice 6095 $1,400, invoice 6101 $2,500, the AMN Doral back half, and TEDC's possible double payment of $575. <span class="who">CLOUD drafts · Oct 10</span></li>
+  <li><b>Microfilm:</b> pay the $44 City of Miami fee, give the 993 pages a job number, and pay $93.75 to Miami-Dade. <span class="who">YOU, one Desktop click · Oct 10</span></li>
+  <li><b>Plaza PH11:</b> send the two drafts and call the owner. <span class="who">YOU · Oct 9</span></li>
+  <li><b>Cutler Bay permit TRK-1310:</b> look up the status and tell the client. <span class="who">RAMBO · Oct 9</span></li>
+  <li><b>Einar:</b> download one product-approval form. <span class="who">RAMBO · Oct 10</span></li>
+  <li><b>Tax jackets, 12 properties:</b> type them and deliver, one at a time. <span class="who">RAMBO + OCR · Oct 15</span></li>
+  <li><b>Majestic 310:</b> ask the Building Department for the stamped plans. <span class="who">RAMBO drafts, YOU send · Oct 12</span></li>
+  <li><b>Wally pipeline (new business):</b> create the free Airtable account, and restart the daily call sheet. <span class="who">YOU, one click + RAMBO · Oct 10</span></li>
+  <li><b>Roof:</b> pay Axel $750 and Mike Valdes $300. <span class="who">YOU · this week</span></li>
+  <li><b>Loan or credit line of about $10,000</b> to carry 3 months (see RPT-CASH-0001). <span class="who">YOU · decide by Oct 25</span></li>
+</ol>
+
+<h2><span class="sec">Section B</span>Systems (running in the background)</h2>
+<ol class="tasks" start="19">
+  <li><b>New control panel:</b> install v5, then the color key and hover help, then the approvals page. <span class="who">RAMBO · Oct 9</span></li>
+  <li><b>Books:</b> QuickBooks read-only with data sharing off, the 2025 profit and loss draft, and the Excel reconciliation. <span class="who">RAMBO · Oct 10</span></li>
+  <li><b>OCR that never stops</b> (Paperless) and the catch-up agent that logs forgotten requests. <span class="who">RAMBO · tonight</span></li>
+  <li><b>Billing Sentinel:</b> finds fees you paid for clients and never billed. <span class="who">RAMBO + CLOUD · Oct 14</span></li>
+  <li><b>Find what sent the October 6 email</b> from your Gmail to a fake address. <span class="who">RAMBO · today</span></li>
+  <li><b>Icon launcher</b> for your roughly 300 sites, built from 1Password. <span class="who">CLOUD + RAMBO · Oct 16</span></li>
+  <li><b>Your morning inbox summary</b> (a Cowork routine) has not arrived in 10 days. Fix it. <span class="who">CLOUD · Oct 9</span></li>
+  <li><b>Your two quick switches:</b> Opus for RAMBO (Desktop icon), and extra usage with a $250 limit. <span class="who">YOU · any time</span></li>
+</ol>
+
+<footer>RPT-STATUS-0002 · v1 · 2026-10-08 · CURRENT</footer>
+</div>

@@ -1,0 +1,85 @@
+<title>Today's Game Plan</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a single timeline down the page, one entry per request, his words then my answer. Sections lettered for "re-read Section C". */
+:root{
+  --bg:#f5f6f3; --card:#ffffff; --ink:#1c2321; --mut:#5a6460; --line:#d6dbd6; --accent:#1b5e9e; --rail:#b9c4be;
+  --ok:#1d6b3b; --ok-bg:#e3f3e8; --mv:#173f66; --mv-bg:#e8f0f8; --you:#6b4100; --you-bg:#fff1cc; --bad:#b3261e; --bad-bg:#fdeceb; --soon:#4a4a47; --soon-bg:#eceae4;
+  --f-body:"Source Sans 3","Segoe UI",Arial,sans-serif; --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:1.0625rem/1.6 var(--f-body)}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px;padding-block:20px 72px}
+header{border-bottom:3px solid var(--ink);padding-bottom:12px}
+.rpt{font:700 .95rem var(--f-mono);color:var(--accent)}
+h1{font-size:2rem;margin:2px 0;text-wrap:balance}
+.meta{color:var(--mut);font-size:.97rem}
+h2{font-size:1.35rem;margin:30px 0 10px;text-wrap:balance}
+h2 .sec{display:block;font:700 .8rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.box{background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:12px 18px}
+.box p{margin:.35em 0}
+ol.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:3px solid var(--rail);display:grid;gap:14px}
+ol.tl li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+ol.tl li::before{content:"";position:absolute;left:-31px;top:16px;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.when{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:700 .85rem var(--f-mono);color:var(--mut)}
+.said{margin:6px 0 4px;font-style:italic}
+.did{margin:4px 0 0}
+.pill{display:inline-block;font:800 .72rem var(--f-body);letter-spacing:.04em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:2px solid currentColor}
+.ok{color:var(--ok);background:var(--ok-bg)}.mv{color:var(--mv);background:var(--mv-bg)}.you{color:var(--you);background:var(--you-bg)}.bad{color:var(--bad);background:var(--bad-bg)}.soon{color:var(--soon);background:var(--soon-bg);border-style:dashed}
+ul.plain{margin:6px 0;padding-left:22px}
+ul.plain li{margin:4px 0}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:8px;font:700 .85rem var(--f-mono);color:var(--mut);text-align:right}
+@media print{body{background:#fff;color:#000}footer{position:fixed;bottom:0;left:0;right:0;background:#fff}ol.tl li{break-inside:avoid}}
+.st{display:grid;gap:10px}.st li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;list-style:none}.st .row1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.st .t{font:700 .85rem var(--f-mono);color:var(--mut)}ol.st{padding:0;margin:0}
+</style><style>.sched li .when{min-width:0}.gap{color:var(--bad);font-weight:700}.have{color:var(--ok);font-weight:700}</style>
+<div class="wrap">
+<header>
+  <div class="rpt">RPT-STATUS-0001 · v3</div>
+  <h1>Today's Game Plan</h1>
+  <div class="meta">Thursday 2026-10-08. First written 10:40 AM; <b>updated 2:55 PM with what actually happened.</b> All times are estimates.</div>
+</header>
+
+<h2><span class="sec">Section A</span>The short answer</h2>
+<div class="box">
+  <p><b>Most of this morning's plan did not happen.</b> Almost every step after 11 AM depended on RAMBO, the helper on your PC, and <b>RAMBO has not finished a single order since about 1:49 this morning.</b> It receives orders (your PC acknowledges them automatically) but does not carry them out.</p>
+  <p><b>Why this page looked the same:</b> it was mine to update, and I didn't. When you asked for the numbered task list at 11:45, I made it as a separate page (RPT-STATUS-0002) instead of updating this one. <b>From now on, a report is updated at the same link you already have.</b></p>
+  <p><b>The one thing that unblocks most of the list:</b> check the RAMBO window on your PC. If it's closed or stuck, paste PASTE-D-064 into it.</p>
+</div>
+
+<h2><span class="sec">Section B</span>This morning's plan, step by step: what happened</h2>
+<ol class="st">
+  <li><div class="row1"><span class="t">10:45 AM · YOU</span><span class="pill ok">Partly done</span></div><div class="did"><b>Quick clicks.</b> Done: TEDC folder rename "yes", Medley contract $16,000. Still open: the $44 microfilm fee, the Opus switch, extra usage.</div></li>
+  <li><div class="row1"><span class="t">11:00 AM · YOU · DUE 4:30 PM</span><span class="pill you">Waiting on you</span></div><div class="did"><b>Medley violation and microfilm requests.</b> Your Outlook wouldn't let me save drafts, so <b>5 emails are in your Gmail Drafts</b>: owners, architect, Building Official, plus the architect (resend the 2020 plans) and Julio (correction). Not sent yet, as far as I can see. The text and 3 calls are also still open. Reminder set for 3:30 PM.</div></li>
+  <li><div class="row1"><span class="t">11:00 AM · RAMBO</span><span class="pill bad">Not done</span></div><div class="did"><b>New panel install, OCR engine, QuickBooks read-only.</b> Ordered 8:47 AM, acknowledged 9:57 AM, never carried out. (My first copy lacked the .md ending, which cost about 70 minutes.)</div></li>
+  <li><div class="row1"><span class="t">11:00 AM · CLOUD → RAMBO</span><span class="pill bad">Not done</span></div><div class="did"><b>TEDC invoices (~$30,000), Medley $8,000 invoice, collection notes.</b> Ordered to RAMBO because the files are on your PC; not carried out.</div></li>
+  <li><div class="row1"><span class="t">1:00 PM · RAMBO + YOU</span><span class="pill bad">Did not happen</span></div><div class="did"><b>Alec's first report, 10362 SW 180 St.</b> Needs RAMBO at the county sites with you for 20 minutes.</div></li>
+  <li><div class="row1"><span class="t">3:00 PM · CLOUD</span><span class="pill soon">Waiting on step 5</span></div><div class="did">Orange Tree format and review pop-up for Alec's report.</div></li>
+  <li><div class="row1"><span class="t">4:00 PM · RAMBO</span><span class="pill soon">Not started</span></div><div class="did">Plaza PH11 drafts, Einar's product approval, Majestic plan-set request.</div></li>
+</ol>
+
+<h2><span class="sec">Section C</span>Done today that wasn't on the plan</h2>
+<ul class="plain">
+  <li><b>Cash plan v3</b> (RPT-CASH-0002): about $3,270 a month short before business income; recommendation is collect first, then pay down Chase.</li>
+  <li><b>U.S. Bank Shield Visa application submitted</b> by you; decision in 7 to 10 business days. I check on October 20.</li>
+  <li><b>Medley research:</b> no violation number anywhere in email; what's drawn and what's still missing.</li>
+  <li><b>Unsafe-structures leads page</b> (RPT-LEADS-0001) with 20 real sample properties and multi-select filters; the protocol found and joined into one file.</li>
+  <li><b>Owner email for the campaign</b> (v2), and the ListKit email to Taj in your Gmail Drafts.</li>
+  <li><b>Orders filed for RAMBO:</b> PaperPort OCR sweep, unsafe structures 2021 to 2026, QuickBooks bank feed, legalization-pros directory.</li>
+</ul>
+
+<h2><span class="sec">Section D</span>The rest of today, in order</h2>
+<ol class="tl sched">
+  <li><div class="when">NOW · YOU, 2 minutes</div><div class="did"><b>Look at the RAMBO window.</b> If closed or stuck, paste PASTE-D-064. This unblocks steps 3 to 7 above.</div></li>
+  <li><div class="when">BEFORE 4:30 PM · YOU, 10 minutes</div><div class="did"><b>Send the Medley emails</b> from Gmail Drafts, the text, and the 3 calls. Medley is closed tomorrow.</div></li>
+  <li><div class="when">ONCE RAMBO RUNS · RAMBO</div><div class="did">Panel install first, then QuickBooks connect (it will pop approvals on your screen), then the TEDC and Medley invoice drafts.</div></li>
+  <li><div class="when">TONIGHT · RAMBO, unattended</div><div class="did">Unsafe structures 2021 to 2026, and the PaperPort OCR sweep, taking turns. Morning check at 8:52 AM with real counts.</div></li>
+</ol>
+
+<h2><span class="sec">Section E</span>When you see your first finished job</h2>
+<div class="box">
+  <p><b>Alec, 10362 SW 180 St (TRK-1536) moves to tomorrow,</b> if RAMBO is running and you can give it 20 minutes at the PC. <b>Ready now for your comments:</b> the report as it stands (RPT-REVIEW-0001).</p>
+</div>
+
+<footer>RPT-STATUS-0001 · v3 · 2026-10-08 · CURRENT (v3: what actually happened, updated 2:55 PM)</footer>
+</div>

@@ -1,0 +1,74 @@
+<title>Today's Game Plan</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a single timeline down the page, one entry per request, his words then my answer. Sections lettered for "re-read Section C". */
+:root{
+  --bg:#f5f6f3; --card:#ffffff; --ink:#1c2321; --mut:#5a6460; --line:#d6dbd6; --accent:#1b5e9e; --rail:#b9c4be;
+  --ok:#1d6b3b; --ok-bg:#e3f3e8; --mv:#173f66; --mv-bg:#e8f0f8; --you:#6b4100; --you-bg:#fff1cc; --bad:#b3261e; --bad-bg:#fdeceb; --soon:#4a4a47; --soon-bg:#eceae4;
+  --f-body:"Source Sans 3","Segoe UI",Arial,sans-serif; --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:1.0625rem/1.6 var(--f-body)}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px;padding-block:20px 72px}
+header{border-bottom:3px solid var(--ink);padding-bottom:12px}
+.rpt{font:700 .95rem var(--f-mono);color:var(--accent)}
+h1{font-size:2rem;margin:2px 0;text-wrap:balance}
+.meta{color:var(--mut);font-size:.97rem}
+h2{font-size:1.35rem;margin:30px 0 10px;text-wrap:balance}
+h2 .sec{display:block;font:700 .8rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.box{background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:12px 18px}
+.box p{margin:.35em 0}
+ol.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:3px solid var(--rail);display:grid;gap:14px}
+ol.tl li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+ol.tl li::before{content:"";position:absolute;left:-31px;top:16px;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.when{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:700 .85rem var(--f-mono);color:var(--mut)}
+.said{margin:6px 0 4px;font-style:italic}
+.did{margin:4px 0 0}
+.pill{display:inline-block;font:800 .72rem var(--f-body);letter-spacing:.04em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:2px solid currentColor}
+.ok{color:var(--ok);background:var(--ok-bg)}.mv{color:var(--mv);background:var(--mv-bg)}.you{color:var(--you);background:var(--you-bg)}.bad{color:var(--bad);background:var(--bad-bg)}.soon{color:var(--soon);background:var(--soon-bg);border-style:dashed}
+ul.plain{margin:6px 0;padding-left:22px}
+ul.plain li{margin:4px 0}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:8px;font:700 .85rem var(--f-mono);color:var(--mut);text-align:right}
+@media print{body{background:#fff;color:#000}footer{position:fixed;bottom:0;left:0;right:0;background:#fff}ol.tl li{break-inside:avoid}}
+</style><style>.sched li .when{min-width:0}.gap{color:var(--bad);font-weight:700}.have{color:var(--ok);font-weight:700}</style>
+<div class="wrap">
+<header>
+  <div class="rpt">RPT-STATUS-0001</div>
+  <h1>Today's Game Plan</h1>
+  <div class="meta">Thursday 2026-10-08, written 10:40 AM. How the work moves, what we do today and in what order, and the first client job you can look at. All times are estimates.</div>
+</header>
+
+<h2><span class="sec">Section A</span>How everything works, in plain words</h2>
+<ol class="tl">
+  <li><div class="did"><b>1. You ask.</b> Every request goes into a notebook called the request log, with the time and your exact words. Nothing gets lost.</div></li>
+  <li><div class="did"><b>2. The Cloud window (me) plans.</b> I turn your request into step-by-step instructions and check the work. I cannot touch your computer.</div></li>
+  <li><div class="did"><b>3. RAMBO does the work on your computer.</b> I drop instructions in a mailbox folder called VTES-Inbox. RAMBO picks them up, does the job, and leaves a note in VTES-Outbox: done, or stuck and why.</div></li>
+  <li><div class="did"><b>4. Papers get read by a robot.</b> OCR is like a scanner that types out what it sees. Every document goes on two shelves: the raw scan shelf, and the finished, typed shelf.</div></li>
+  <li><div class="did"><b>5. Reports are cooked from the shelves.</b> Like shopping a grocery store where you know every aisle, the report builder grabs what each job needs and puts it into the Orange Tree report.</div></li>
+  <li><div class="did"><b>6. You approve with one click.</b> Before anything goes to a client, costs money, or moves a client file, you get a card with two buttons. Nothing goes out without your click.</div></li>
+  <li><div class="did"><b>7. A watchdog checks that work is really moving.</b> Every 15 minutes it checks that the count of finished work went up. If it didn't, it raises a red flag.</div></li>
+  <li><div class="did"><b>8. Every day ends with a scorecard,</b> like "5 of 12 done", never "good progress".</div></li>
+</ol>
+
+<h2><span class="sec">Section B</span>Today, in order</h2>
+<ol class="tl sched">
+  <li><div class="when">10:45 – 11:00 AM · YOU, 15 minutes</div><div class="did"><b>Your quick clicks:</b> the TEDC folder rename, the Medley contract amount, the $44 microfilm fee, the Opus switch, extra usage, and keeping 1Password open. I'll ask each one as a two-button question.</div></li>
+  <li><div class="when">11:00 – 11:30 AM · YOU + RAMBO · MEDLEY, MUST FINISH BY 4:30 PM</div><div class="did"><b>Medley (Teatro Miami): ask for the violation notice numbers and microfilm, in writing and by phone.</b> RAMBO puts 3 emails in your Outlook Drafts: to the theatre owners, the architect Jorge Fabregat, and the Building Official Elio Alvarez. You approve them with one click. You send one text to the owners, and make 3 short calls: Mr. Alvarez at (305) 887-9541 ext. 104, Daniel Felipe at 305-793-9312, and the architect. Medley's office closes at 4:30 PM today and is closed tomorrow. From now on, owner reports go out on the 5th, 15th and 25th. The first is October 15.</div></li>
+<li><div class="when">11:00 AM – 12:30 PM · RAMBO</div><div class="did">Install the new panel. Switch on the catch-up agent and the OCR engine. Read QuickBooks and turn its data sharing off. You don't need to watch this.</div></li>
+  <li><div class="when">11:00 AM – 12:00 PM · CLOUD</div><div class="did">Draft the TEDC invoices (about $30,000) and the Medley invoice. Draft three collection notes (invoices 6095 and 6101, and AMN Doral). Ask RAMBO for the Cutler Bay permit status. Each draft comes to you for one click.</div></li>
+  <li><div class="when">1:00 – 3:00 PM · RAMBO + YOU for 20 minutes at the start</div><div class="did"><b>Finish Alec's first report (10362 SW 180 St).</b> RAMBO opens the county sites that block robots: building permits, Clerk records, certificate of use, and the property pictures. You solve any "I'm not a robot" boxes.</div></li>
+  <li><div class="when">3:00 – 4:00 PM · CLOUD</div><div class="did">Put the finished report into the Orange Tree format and pop it up for your review.</div></li>
+  <li><div class="when">4:00 – 5:00 PM · RAMBO</div><div class="did">Plaza PH11 drafts, Einar's product-approval download, and the Majestic plan-set request.</div></li>
+  <li><div class="when">Tonight · RAMBO, unattended</div><div class="did">OCR runs all night, the 2025 books draft gets built, and the tax jackets get typed one by one. Morning scorecard at 7 AM.</div></li>
+</ol>
+
+<h2><span class="sec">Section C</span>When you see your first finished job</h2>
+<div class="box">
+  <p><b>Alec, 10362 SW 180 St (TRK-1536): a review copy at about 4 PM today,</b> if the 1 PM session with you at the PC happens. The final copy follows your comments, by noon tomorrow.</p>
+  <p>Every job that reaches "ready to review" pops up as its own page numbered RPT-REVIEW, even with blanks still in it, so you can comment early. The first 20 in line: Alec's 5 reports, the 331 Tamiami book, the 12 tax jackets, Majestic 310, and the TEDC invoices.</p>
+  <p><b>Ready now for your comments:</b> Alec's 10362 SW 180 St report as it stands (RPT-REVIEW-0001).</p>
+</div>
+
+<footer>RPT-STATUS-0001 · v2 · 2026-10-08 · CURRENT (v2 adds Medley)</footer>
+</div>

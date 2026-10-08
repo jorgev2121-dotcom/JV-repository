@@ -205,3 +205,7 @@ machine. So the detection half works and the recovery half does not.
 **This is the first thing to fix, ahead of any new work.** A queue twelve hours deep is
 worth nothing to an executor that stops at hour four with nobody to restart it.
 
+
+
+## 2026-10-08 addition — OD-110 PaperPort OCR sweep
+Queue B for PaperPort is now RUNNABLE under orphan onboarding: OCR to mirror copies, OPH block 0100–1999, hashtags + per-document disclosure, filing proposals only (morning approval). Order: mailbox/to-desktop/MSG-CLOUD-TO-CODE_PAPERPORT-OCR-SWEEP_2026-10-08.md. Nightly 7 PM–7 AM until 0 pending; then refill with Queue A.

@@ -1,0 +1,23 @@
+name: mdc-legalization-pros
+on:
+  push:
+    branches: [claude/modest-brown-rqbnkp]
+    paths: [tools/poc/mdc_legalization_pros.py, .github/workflows/mdc-legalization-pros.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/poc/mdc_legalization_pros.py
+      - name: Commit results
+        run: |
+          git config user.name "jv-data-bot"
+          git config user.email "jv-data-bot@users.noreply.github.com"
+          git add data/pros
+          git commit -m "data: legalization permits + pros directory (public Miami-Dade permit layer)" || echo "nothing to commit"
+          git pull --rebase origin claude/modest-brown-rqbnkp || true
+          git push origin HEAD:claude/modest-brown-rqbnkp

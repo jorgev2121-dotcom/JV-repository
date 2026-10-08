@@ -96,3 +96,11 @@ enough to identify it exactly, with no description needed.
 - **PASTE-X-008** · 2026-09-28 · Received by Cloud (planning and quality-check window) → read the charter files, write the team deployment plan naming each role, and put the 17 owner gates in front of Jorge as one-word questions. Result: `TEAM-DEPLOYMENT-PLAN_2026-09-28.md`.
 - **PASTE-D-059** · 2026-09-28 · Desktop ("Jorge-PC" session) → owner directive N-1 and N-2: rebuild `VTES-LOCAL-POLLER` and make the heartbeat task permanent. Detail is in `mailbox/to-desktop/OWNER-DIRECTIVE_N1-N2_rebuild-poller-and-heartbeat_2026-09-28.md`.
 - **PASTE-D-063** · 2026-09-28 · Desktop ("Jorge-PC") → final owner hand-off. Supersedes D-059/060/062. Run `Executor-Takeover_PASTE-D-063.ps1`: check tasks, keep the job-watcher off, rebuild `VTES-LOCAL-POLLER` around the existing `VTES-Bridge-Poller.ps1`, write both result files. Then take over the GREEN night queue. Detail: `mailbox/to-desktop/OWNER-ORDER_PASTE-D-063_executor-takeover_2026-09-28.md`.
+- **PASTE-X-009** · (used earlier: Gemini takeover, not logged at the time; recorded 2026-10-08)
+- **PASTE-X-010** · (used earlier, same branch as X-009, not logged at the time; recorded 2026-10-08)
+- **PASTE-X-011** · 2026-10-08 · Jorge's phone (text message) → to Daniel Felipe and Miall Mulkay: please send the Medley violation notice photo, NOV/citation numbers and any old plans or microfilm (TUS-26-1033).
+| PASTE-D-064 | 2026-10-08 | Desktop (RAMBO / Claude Code on PC) | Restart pointer: read VTES-Inbox, execute today's .md orders oldest first starting with panel v5 + v5.1 install, write EXECUTED_/BLOCKER_ per order | Cloud |
+| PASTE-X-012 | 2026-10-08 | Anywhere (email/Grammarly) | Unsafe-structures owner email v1 (marketing/unsafe-structures/CAMPAIGN-COPY_UNSAFE-STRUCTURES_v1_2026-10-08.md) | Cloud |
+| PASTE-X-013 | 2026-10-08 | Anywhere (email/Grammarly) | Unsafe-structures owner email v2 | Cloud |
+| PASTE-X-014 | 2026-10-08 | ChatGPT / Codex | Pointer to handoff/HANDOFF_RAMBO-UNEXECUTED-ORDERS_2026-10-08.md (16 unexecuted RAMBO orders) | Cloud |
+| PASTE-X-015 | 2026-10-08 | ChatGPT / Codex / any LLM | Read VTES-TASK-QUEUE.json in Drive Shared Folders for all LLMs, claim an item that fits your tools | Cloud |

@@ -1,0 +1,112 @@
+{
+ "total_permits_in_layer": 139653,
+ "legalization_like_count": 3678,
+ "our_2020_c_numbers": 161,
+ "our_2020_c_numbers_found_in_layer": 41,
+ "rows_pulled": 3678,
+ "rows_with_architect": 111,
+ "architects": 38,
+ "engineers": 6,
+ "owner_builder_rows": 2141,
+ "contractors": 841,
+ "scope_counts": [
+  [
+   "fence/wall",
+   774
+  ],
+  [
+   "windows/doors",
+   430
+  ],
+  [
+   "other",
+   394
+  ],
+  [
+   "addition",
+   368
+  ],
+  [
+   "electrical",
+   354
+  ],
+  [
+   "enclosure",
+   286
+  ],
+  [
+   "interior",
+   276
+  ],
+  [
+   "mechanical/AC",
+   249
+  ],
+  [
+   "shed/accessory",
+   223
+  ],
+  [
+   "plumbing",
+   153
+  ],
+  [
+   "pool/deck",
+   93
+  ],
+  [
+   "roof",
+   74
+  ],
+  [
+   "carport/canopy",
+   43
+  ],
+  [
+   "conversion/unit",
+   2
+  ]
+ ],
+ "permit_types": [
+  [
+   "BLDG",
+   2283
+  ],
+  [
+   "ELEC",
+   541
+  ],
+  [
+   "MECH",
+   345
+  ],
+  [
+   "PLUM",
+   261
+  ],
+  [
+   "MBLD",
+   157
+  ],
+  [
+   "ZIPS",
+   120
+  ],
+  [
+   "LPGX",
+   8
+  ],
+  [
+   "MPLU",
+   2
+  ],
+  [
+   "MMEC",
+   2
+  ]
+ ],
+ "issued_range": [
+  "2024-10-07",
+  "2026-10-06"
+ ]
+}

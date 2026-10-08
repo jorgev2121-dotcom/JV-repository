@@ -1,0 +1,183 @@
+<title>VTES Panel Status</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a control-room status sheet. Summary strip first, then lettered sections (A-I) so Jorge can say "re-read Section D". */
+:root{
+  --bg:#f5f6f3; --card:#ffffff; --ink:#1c2321; --mut:#5a6460; --line:#d6dbd6; --accent:#1b5e9e;
+  --ok:#1d6b3b; --ok-bg:#e3f3e8; --mv:#173f66; --mv-bg:#e8f0f8; --you:#6b4100; --you-bg:#fff1cc;
+  --bad:#b3261e; --bad-bg:#fdeceb; --soon:#4a4a47; --soon-bg:#eceae4;
+  --f-body:"Source Sans 3","Segoe UI",Arial,sans-serif; --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141917; --card:#1d2422; --ink:#e7ece9; --mut:#a3aea9; --line:#33403b; --accent:#7fb3e6;
+  --ok:#8fd6a6; --ok-bg:#183626; --mv:#a9c9ec; --mv-bg:#16283b; --you:#f3c96b; --you-bg:#3a2c0c;
+  --bad:#f19a92; --bad-bg:#3d1714; --soon:#c9c7c0; --soon-bg:#2b2b29; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141917; --card:#1d2422; --ink:#e7ece9; --mut:#a3aea9; --line:#33403b; --accent:#7fb3e6;
+  --ok:#8fd6a6; --ok-bg:#183626; --mv:#a9c9ec; --mv-bg:#16283b; --you:#f3c96b; --you-bg:#3a2c0c;
+  --bad:#f19a92; --bad-bg:#3d1714; --soon:#c9c7c0; --soon-bg:#2b2b29; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:1.0625rem/1.55 var(--f-body)}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:16px;padding-block:20px 72px}
+header.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;border-bottom:3px solid var(--ink);padding-bottom:12px}
+h1{font-size:2rem;margin:0;line-height:1.15;text-wrap:balance}
+.rpt{font:700 0.95rem var(--f-mono);color:var(--accent);letter-spacing:.02em}
+.meta{color:var(--mut);font-size:.95rem}
+.answer{background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin:18px 0}
+.answer p{margin:.3em 0}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0 6px}
+.tile{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:10px;padding:10px 14px}
+.tile b{display:block;font:800 2rem/1 var(--f-body);font-variant-numeric:tabular-nums;color:var(--c)}
+.tile span{font-weight:600}
+h2{font-size:1.35rem;margin:30px 0 8px;text-wrap:balance}
+h2 .sec{font:700 .8rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut);display:block}
+ul.items{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ul.items li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:start}
+ul.items li > div{min-width:0}
+.nm{font-weight:700}
+.dt{color:var(--mut);font-size:.97rem}
+.eta{font:700 .85rem var(--f-mono);white-space:nowrap;color:var(--ink);text-align:right}
+.pill{display:inline-block;font:800 .75rem var(--f-body);letter-spacing:.04em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:2px solid currentColor;white-space:nowrap}
+.ok{color:var(--ok);background:var(--ok-bg)} .mv{color:var(--mv);background:var(--mv-bg)} .you{color:var(--you);background:var(--you-bg)}
+.bad{color:var(--bad);background:var(--bad-bg)} .soon{color:var(--soon);background:var(--soon-bg);border-style:dashed}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chips span{font-weight:600;font-size:.95rem;padding:3px 10px;border-radius:8px;background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok)}
+.note{color:var(--mut);font-size:.95rem}
+.dia{background:#fbfaf7;border:1px solid var(--line);border-radius:12px;padding:12px;overflow-x:auto}
+.dia pre{margin:0;min-width:760px}
+.key{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+abbr{text-decoration:underline dotted;cursor:help}
+footer.stamp{margin-top:36px;border-top:1px solid var(--line);padding-top:8px;font:700 .85rem var(--f-mono);color:var(--mut);text-align:right}
+@media (max-width:560px){ul.items li{grid-template-columns:1fr}.eta{text-align:left}}
+@media print{body{background:#fff;color:#000}.wrap{padding-block:0 40px}footer.stamp{position:fixed;bottom:0;right:0;left:0;background:#fff}ul.items li,.tile{break-inside:avoid}}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div>
+    <div class="rpt">RPT-PANEL-0001</div>
+    <h1>VTES Panel Status</h1>
+    <div class="meta">Report type RPT-PANEL: what is live, what is on the dashboard but not connected, what is queued, with expected dates. Thursday 2026-10-08, written by the Cloud window.</div>
+  </div>
+  <div class="meta">Sources: your paste of the live panel (built 2026-10-07 07:46), the repo, and the VTES-Inbox / Outbox on Drive.</div>
+</header>
+
+<div class="answer">
+  <p><b>Section A, the answer.</b> All five slices of the panel overhaul are built, and they passed the eighth independent check on 2026-10-07. <b>But slice 5 is the install, and it has not happened yet.</b> The install order sat unread from 8:47 AM because I saved it without the ".md" ending the PC watches for. I re-filed it correctly at 9:54 AM. So the panel on your screen is still the old one.</p>
+  <p>Every date below is an estimate set today. A date moves only when this report is reissued.</p>
+</div>
+
+<div class="strip">
+  <div class="tile" style="--c:var(--ok)"><b>22</b><span>Live now</span><div class="note">21 tabs plus the PROJECTS page</div></div>
+  <div class="tile" style="--c:var(--bad)"><b>7</b><span>On the dashboard, not connected</span><div class="note">shows, but the data is stale or missing</div></div>
+  <div class="tile" style="--c:var(--mv)"><b>14</b><span>Queued, not on the dashboard yet</span><div class="note">with expected dates</div></div>
+  <div class="tile" style="--c:var(--you)"><b>6</b><span>Waiting on you</span><div class="note">one click or one yes each</div></div>
+</div>
+
+<h2><span class="sec">Section B</span>The five slices of the overhaul</h2>
+<ul class="items">
+  <li><span class="pill ok">Done</span><div><div class="nm">Slice 1: inventory and click-test</div><div class="dt">Every tab, link and button listed and marked works, dead or mislabelled. Automatic click-everything test written.</div></div><div class="eta">2026-10-07</div></li>
+  <li><span class="pill ok">Done</span><div><div class="nm">Slice 2: live data layer</div><div class="dt">The page reads files the PC writes. Missing or old data shows NO DATA or STALE in red, never a typed guess.</div></div><div class="eta">2026-10-07</div></li>
+  <li><span class="pill ok">Done</span><div><div class="nm">Slice 3: window and executor cards</div><div class="dt">Plain names, a working Open or Paste button on every card, real state from the data layer.</div></div><div class="eta">2026-10-07</div></li>
+  <li><span class="pill ok">Done</span><div><div class="nm">Slice 4: panels</div><div class="dt">Miami-Dade 22 sources, token monitor, housekeeping, Grok card, "Read me first", panel-age stamp.</div></div><div class="eta">2026-10-07</div></li>
+  <li><span class="pill mv">Waiting on RAMBO</span><div><div class="nm">Slice 5: install, tests, known limits</div><div class="dt">Tests and limits done. The install itself has not run. Order re-filed correctly 2026-10-08 9:54 AM.</div></div><div class="eta">est. 2026-10-09</div></li>
+</ul>
+
+<h2><span class="sec">Section C</span>Live now, on the panel you use today</h2>
+<div class="chips">
+  <span>READ ALOUD</span><span>INDEX</span><span>CONNECTORS</span><span>SEND</span><span>NOW</span><span>DECISIONS</span><span>LLMS</span><span>IDENTITY</span><span>BOTS</span><span>HANDOFF</span><span>QUEUED</span><span>STATUS</span><span>APPROVALS (72)</span><span>SESSIONS</span><span>CAPSULES</span><span>BRIDGES</span><span>AGENTS</span><span>USAGE</span><span>PLAUD</span><span>RULES</span><span>EXECUTORS</span><span>PROJECTS page (daily review)</span>
+</div>
+<p class="note">"Live" means the tab exists and opens on your panel. This report did not test the data behind each one, except the stale ones listed in Section D.</p>
+
+<h2><span class="sec">Section D</span>On the dashboard, but not connected</h2>
+<ul class="items">
+  <li><span class="pill bad">Not wired</span><div><div class="nm">CLAUDE button</div><div class="dt">Does nothing today. Replaced by the big "Copy packet for RAMBO" button in v5.</div></div><div class="eta">est. 2026-10-09</div></li>
+  <li><span class="pill bad">Stale</span><div><div class="nm">JOBS</div><div class="dt">Snapshot from 2026-09-24, 14 days old. Fixed when PROJECTS moves into the panel.</div></div><div class="eta">est. 2026-10-10</div></li>
+  <li><span class="pill bad">Stale</span><div><div class="nm">CLIENTS</div><div class="dt">Snapshot from 2026-09-24, 14 days old.</div></div><div class="eta">est. 2026-10-10</div></li>
+  <li><span class="pill bad">Unreliable</span><div><div class="nm">NEEDS YOU feed</div><div class="dt">The Orchestrator script has flagged finished work as "needs you" at least four times. Replaced by NEEDS MY APPROVAL.</div></div><div class="eta">est. 2026-10-11</div></li>
+  <li><span class="pill soon">After v5</span><div><div class="nm">Bots, token monitor, housekeeping cards</div><div class="dt">Show NO DATA until the PC starts writing their data files.</div></div><div class="eta">est. 2026-10-10</div></li>
+  <li><span class="pill soon">After v5</span><div><div class="nm">Miami-Dade count</div><div class="dt">Says "unknown" until the PC counts. Becomes live with the County Monitor.</div></div><div class="eta">est. 2026-10-13</div></li>
+  <li><span class="pill soon">After v5</span><div><div class="nm">10 tan OLD PANEL tabs</div><div class="dt">APPROVALS through RULES open a snapshot from 2026-09-02, clearly marked not live. Each gets its own date once v5 is installed.</div></div><div class="eta">date set after install</div></li>
+</ul>
+
+<h2><span class="sec">Section E</span>Queued, not on the dashboard yet</h2>
+<ul class="items">
+  <li><span class="pill mv">Order sent</span><div><div class="nm">Panel v5 install</div><div class="dt">RAMBO copies the checked files into a new folder and runs the fingerprint check.</div></div><div class="eta">est. 2026-10-09</div></li>
+  <li><span class="pill mv">Built, tested</span><div><div class="nm">Panel v5.1: colour key, hover help, greyed-out pages</div><div class="dt">Built and browser-tested by Cloud today. Installs right after v5.</div></div><div class="eta">est. 2026-10-09</div></li>
+  <li><span class="pill mv">Order sent</span><div><div class="nm">BOOKS draft (2025 P&amp;L from the files on your PC)</div><div class="dt">No login needed. Marked DRAFT, not for taxes.</div></div><div class="eta">est. 2026-10-10</div></li>
+  <li><span class="pill soon">Planned</span><div><div class="nm">PROJECTS inside the panel</div><div class="dt">Today it is a separate page.</div></div><div class="eta">est. 2026-10-10</div></li>
+  <li><span class="pill soon">Planned</span><div><div class="nm">Panel-age line in the daily HEALTH report</div><div class="dt">You said yes on 2026-10-06. Not built yet.</div></div><div class="eta">est. 2026-10-10</div></li>
+  <li><span class="pill soon">Planned</span><div><div class="nm">NEEDS MY APPROVAL (guided cards, two buttons)</div><div class="dt">One card at a time, recommended choice first, no typing.</div></div><div class="eta">est. 2026-10-11</div></li>
+  <li><span class="pill soon">Planned</span><div><div class="nm">ORANGE TREE</div><div class="dt">Master report per job. RAMBO is upgrading the Plaza, Balmoral, Sugar Hill, Garden Walk and Edison pages.</div></div><div class="eta">est. 2026-10-12</div></li>
+  <li><span class="pill soon">Planned</span><div><div class="nm">LLM LIBRARY</div><div class="dt">Waiting on your yes to the three tiers.</div></div><div class="eta">est. 2026-10-12</div></li>
+  <li><span class="pill mv">Order sent</span><div><div class="nm">Billing Sentinel phase 1 (account list)</div><div class="dt">Needs 1Password open on the PC when RAMBO runs.</div></div><div class="eta">est. 2026-10-09</div></li>
+  <li><span class="pill soon">Planned</span><div><div class="nm">COUNTY MONITOR</div><div class="dt">Daily check of permit sites for every active job.</div></div><div class="eta">est. 2026-10-13</div></li>
+  <li><span class="pill soon">Planned</span><div><div class="nm">BILLING</div><div class="dt">Money you paid for clients that was never billed. One click per invoice.</div></div><div class="eta">est. 2026-10-14</div></li>
+  <li><span class="pill soon">Planned</span><div><div class="nm">PROTOCOLS</div><div class="dt">Every rule, when it changed, and any conflicts.</div></div><div class="eta">est. 2026-10-15</div></li>
+  <li><span class="pill soon">Planned</span><div><div class="nm">LAUNCHER (about 300 sites as icons)</div><div class="dt">See Section I.</div></div><div class="eta">est. 2026-10-16</div></li>
+  <li><span class="pill soon">Planned</span><div><div class="nm">Daily books refresh and live BOOKS page</div><div class="dt">Needs QuickBooks, which you put on hold. Stays undated until you say go.</div></div><div class="eta">on hold</div></li>
+</ul>
+
+<h2><span class="sec">Section F</span>Waiting on you</h2>
+<ul class="items">
+  <li><span class="pill you">1 click</span><div><div class="nm">Opus for RAMBO, the smarter model</div><div class="dt">Double-click "SWITCH TO OPUSPLAN - click me" on your Desktop, then the green button. RAMBO then plans with Opus and works with Sonnet.</div></div><div class="eta">any time</div></li>
+  <li><span class="pill you">1 click</span><div><div class="nm">Extra usage, so work never stops</div><div class="dt">"Get more usage" on the usage banner. Turn on extra usage with a $250 monthly limit.</div></div><div class="eta">before Saturday</div></li>
+  <li><span class="pill you">Keep open</span><div><div class="nm">1Password unlocked on the PC</div><div class="dt">RAMBO found it closed at 1:43 AM today. Billing phase 1 needs it open.</div></div><div class="eta">today</div></li>
+  <li><span class="pill you">Yes / no</span><div><div class="nm">Grok and 9Router: drop or keep</div><div class="dt">Both are dormant. Recommended: drop both.</div></div><div class="eta">any time</div></li>
+  <li><span class="pill you">Review</span><div><div class="nm">Turn on the Dispatcher</div><div class="dt">It picks the right worker and model for each job, but runs in test mode until you switch it on after a week of checked decisions.</div></div><div class="eta">after review</div></li>
+  <li><span class="pill soon">On hold</span><div><div class="nm">QuickBooks sign-in</div><div class="dt">You closed this question today. I will not ask again unless you bring it up.</div></div><div class="eta">your call</div></li>
+</ul>
+
+<h2><span class="sec">Section G</span>Everything pending, as a flowchart</h2>
+<div class="key"><span class="pill ok">Done</span><span class="pill mv">In progress</span><span class="pill you">Waiting on you</span><span class="pill soon">Planned</span></div>
+<div class="dia">
+<pre class="mermaid">
+flowchart LR
+  subgraph PANEL["Control panel"]
+    S["5 slices built and checked<br/>DONE 10-07"]:::done --> I["v5 install<br/>waiting on RAMBO<br/>est 10-09"]:::move
+    I --> G["v5.1 colour key + hover help<br/>built + tested<br/>est 10-09"]:::move
+    G --> PR["PROJECTS in panel<br/>est 10-10"]:::soon
+    G --> AP["NEEDS MY APPROVAL<br/>est 10-11"]:::soon
+    G --> OT["ORANGE TREE<br/>est 10-12"]:::soon
+    G --> LL["LLM LIBRARY<br/>est 10-12"]:::soon
+    G --> PT["PROTOCOLS<br/>est 10-15"]:::soon
+    G --> LA["LAUNCHER<br/>est 10-16"]:::soon
+  end
+  subgraph MONEY["Money"]
+    B0["Books draft from PC files<br/>order sent<br/>est 10-10"]:::move --> BK["BOOKS page<br/>draft est 10-10"]:::soon
+    QB["QuickBooks sign-in<br/>on hold"]:::you -.-> BK
+    P1["Billing phase 1<br/>order sent"]:::move --> P2["Bank feed"]:::soon --> P3["COUNTY MONITOR<br/>est 10-13"]:::soon --> P4["Match fees to jobs<br/>draft invoices"]:::soon --> BL["BILLING page<br/>est 10-14"]:::soon
+  end
+  subgraph YOU["Waiting on you"]
+    U1["Opus switch<br/>Desktop icon"]:::you
+    U2["Extra usage<br/>$250 limit"]:::you
+    U3["1Password open"]:::you
+  end
+  U1 -.-> I
+  U3 -.-> P1
+  AP --> BL
+  classDef done fill:#e3f3e8,stroke:#1d6b3b,stroke-width:2px,color:#1c2321
+  classDef move fill:#e8f0f8,stroke:#173f66,stroke-width:2px,color:#1c2321
+  classDef you fill:#fff1cc,stroke:#6b4100,stroke-width:2px,color:#1c2321
+  classDef soon fill:#eceae4,stroke:#4a4a47,stroke-width:2px,stroke-dasharray:5 4,color:#1c2321
+</pre>
+</div>
+
+<h2><span class="sec">Section H</span>Why it feels slow, and what changes</h2>
+<ul class="items">
+  <li><span class="pill bad">My mistake</span><div><div class="nm">Four orders were invisible to the PC, and that was my fault</div><div class="dt">I saved today's orders without the ".md" ending the PC's inbox watcher looks for, so RAMBO never saw them. The first version of this report blamed RAMBO, wrongly. All four were re-filed correctly at 9:54 AM, and the rule is now written down so no session repeats it.</div></div><div class="eta">fixed 9:54 AM</div></li>
+<li><span class="pill ok">Done today</span><div><div class="nm">Work that does not need your PC runs in parallel</div><div class="dt">Cloud built and tested v5.1 today while RAMBO was quiet, so it is ready the moment v5 lands.</div></div><div class="eta">2026-10-08</div></li>
+  <li><span class="pill you">Your click</span><div><div class="nm">Smarter models where they matter</div><div class="dt">This Cloud window is on Opus now. RAMBO is still on Sonnet until you click the Opus switch in Section F.</div></div><div class="eta">any time</div></li>
+  <li><span class="pill mv">In test mode</span><div><div class="nm">Token monitor and Governor</div><div class="dt">I read "authentic agent" as the Governor, which checks real usage. The Dispatcher, which hands work to the right worker, is still in test mode. Switching it on is in Section F.</div></div><div class="eta">after review</div></li>
+</ul>
+
+<h2><span class="sec">Section I</span>The icon launcher (your request today)</h2>
+<div class="answer">
+  <p><b>What you asked:</b> bring back the picture-icon launcher for your roughly 300 sites. You want it grouped like 1Password (for example, Banking holding every card and account), searchable by any word or hashtag with a count of matches, and with a preview on hover. And you'd rather use something ready-made than build from scratch.</p>
+  <p><b>The earlier build:</b> RAMBO looked for it and couldn't find it. The closest files are TaskbarLaunchers and Favorites-Launcher.</p>
+  <p><b>My recommendation:</b> use the list 1Password already has. It holds the site names, web addresses, groups and tags, and the launcher reads only those, never passwords. Then show it as a LAUNCHER page inside your panel, with each site's own icon, search with a match count, and a small preview captured once per site.</p>
+  <p><b>The ready-made alternative is Dashy,</b> a free dashboard app with groups, icons and search. My objection: it needs a program called Docker running on your PC all the time, which is one more thing that can go down, and you want the panel always up.</p>
+  <p>LAUNCHER is now a greyed-out page on the panel, expected 2026-10-16. I'll go this way unless you object.</p>
+</div>
+
+<footer class="stamp">RPT-PANEL-0001 · v2 · 2026-10-08 · CURRENT (v2 corrects Section H)</footer>
+</div>

@@ -126,15 +126,3 @@ rather than being crammed into the identity.
    it stays `OPH-` until a real number is issued for 14598.
 5. **The OPH number goes in the filename AND the document body**, same as a TRK. A
    number that exists only in a filename dies when the file is printed or re-saved.
-
----
-
-## Disclosure rule — owner directive, 2026-10-08
-
-Jorge: *"You seem to never disclose the hashtags for which you've applied and or ORPHAN tracking numbers."*
-
-**Every OCR, intake or onboarding report must list, per document: the file, its OPH number, every hashtag applied, and the TRK if (and only if) it was an exact match.** A report that gives only counts ("OCR'd 40 files") is incomplete and does not count as DONE under Rule 2. Reports also state the first and last OPH issued in the run.
-
-Standard hashtag set (body/metadata only, never the filename): always `#OPH-2026-NNNN`, `#<source>` (e.g. `#PaperPort`); when the literal string is in the text: `#<street-address>`, `#<folio>`, `#<permit-no>`, `#<issuer>`, `#<doc-type>`, `#<party-surname>`; `#TRK-2026-NNNN` only on exact match.
-
-Batch sweeps reserve an OPH block in ORPHAN-REGISTER.md before they start, so parallel workers never collide.
