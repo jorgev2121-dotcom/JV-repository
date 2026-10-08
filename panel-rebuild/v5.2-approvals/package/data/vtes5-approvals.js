@@ -1,0 +1,21 @@
+window.VTES5_APPROVALS = {"schema": 1, "written": "2026-10-08T10:25:00-04:00", "writer": "SAMPLE shipped with panel v5.2 - every item is marked sample and is not real. The PC (RAMBO) replaces this file with the real list.", "sample": true, "items": [
+ {"id": "SAMPLE-TEDC-RENAME", "sample": true, "title": "Rename the 3 TEDC folders to their master numbers", "why": "The three TEDC job folders still carry old numbers, and the invoices cannot be drafted until the folders match the master numbers 1463, 1466 and 1469.", "trk": "TRK-2026-1463", "source": "OPEN-ITEMS.md (sample)", "choices": [
+  {"label": "Yes, rename them", "recommended": true, "effect": "RAMBO, the desktop window, renames the 3 folders to 1463, 1466 and 1469 and keeps a list of the old names so it can be undone.", "followup": {"title": "Draft the invoices after the rename?", "why": "The invoices use the new folder numbers, so they come after the rename.", "choices": [
+   {"label": "Yes, draft the invoices", "recommended": true, "effect": "RAMBO, the desktop window, renames the folders, then drafts the invoices and shows them to you to check. Nothing is sent."},
+   {"label": "Rename only", "recommended": false, "effect": "RAMBO, the desktop window, renames the folders and stops. The invoices wait for another day."}]}},
+  {"label": "Not yet", "recommended": false, "effect": "Nothing changes. This card comes back the next time the PC writes the list."}]},
+ {"id": "SAMPLE-MEDLEY-TOTAL", "sample": true, "title": "Medley contract: which total is right?", "why": "The records show two totals for the Medley job, 21,200 dollars and 16,000 dollars, and the invoice needs one.", "source": "OPEN-ITEMS.md (sample)", "choices": [
+  {"label": "$21,200", "recommended": false, "effect": "RAMBO, the desktop window, drafts the Medley invoice on the 21,200 dollar total for you to check. Nothing is sent."},
+  {"label": "$16,000", "recommended": false, "effect": "RAMBO, the desktop window, drafts the Medley invoice on the 16,000 dollar total for you to check. Nothing is sent."}]},
+ {"id": "SAMPLE-AP-0002", "sample": true, "title": "Pay the $44 City of Miami microfilm fee (AP-0002)", "why": "The city will not release the microfilm copies until the 44 dollar fee is paid.", "money": 44, "source": "STATUS.md approval AP-0002 (sample)", "choices": [
+  {"label": "Yes, pay $44", "recommended": true, "effect": "RAMBO, the desktop window, opens the City of Miami payment page, fills it in and stops before the pay button. You make the last click."},
+  {"label": "Not now", "recommended": false, "effect": "Nothing is paid.", "followup": {"title": "When should this card come back?", "why": "The fee is still owed, so the card will return.", "choices": [
+   {"label": "Tomorrow morning", "recommended": true, "effect": "Nothing is paid. RAMBO, the desktop window, puts this card back on the list tomorrow morning."},
+   {"label": "Next week", "recommended": false, "effect": "Nothing is paid. RAMBO, the desktop window, puts this card back on the list next Monday."}]}}]},
+ {"id": "SAMPLE-PLAZA-PH11", "sample": true, "title": "Send the two Plaza PH11 drafts", "why": "Two emails about the Plaza PH11 permit are drafted and waiting for your OK.", "source": "OPEN-ITEMS.md (sample)", "choices": [
+  {"label": "Show me both drafts first", "recommended": true, "effect": "RAMBO, the desktop window, opens both drafts in Gmail on your PC so you can read them. Nothing is sent."},
+  {"label": "Send both now", "recommended": false, "effect": "RAMBO, the desktop window, sends both drafts from your Gmail and files the sent copies in the Plaza job folder."}]},
+ {"id": "SAMPLE-AIRTABLE", "sample": true, "title": "Create the free Airtable account for the Wally pipeline", "why": "The Wally sales pipeline needs a place to keep leads and calls, and the free Airtable plan costs nothing.", "source": "CLAUDE.md Article 2, Wally pipeline (sample)", "choices": [
+  {"label": "Yes, create it", "recommended": true, "effect": "RAMBO, the desktop window, opens the Airtable sign-up page with your email filled in. You click the last sign-up button."},
+  {"label": "Not now", "recommended": false, "effect": "Nothing is created. The Wally pipeline keeps waiting."}]}
+]};

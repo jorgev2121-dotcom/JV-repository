@@ -1,0 +1,69 @@
+PASS 1536x730: v5.1 page errors 0 -> []
+PASS 1536x730: v5.2 page errors 0 (shipped package) -> []
+PASS 1536x730: search "ollama" hides the same cards as v5.1 -> {"v51":"26 of 28","v52":"26 of 28"}
+PASS 1536x730: LOCAL packet last line unchanged -> "RETURN PATH: write your answer in the local-only folder named in the card. Do not send it to any Claude window."
+PASS 1536x730: card renders under the colour key, amber header -> {"head":"5 things need your OK","headCls":"v52head you","afterKey":true,"placeholder":false,"tab":"NEEDS MY APPROVAL5 waiting","greyTabs":8,"choices":["Yes, rename them (Recommended)","Not yet"],"sample":1,"count":"Card 1 of 5","allButtons":true}
+PASS 1536x730: placeholder replaced, tab live (grey tabs 9 -> 8) -> {"tab":"NEEDS MY APPROVAL5 waiting","grey":8}
+PASS 1536x730: recommended first and labelled, card 1 of 5, SAMPLE tag -> ["Yes, rename them (Recommended)","Not yet"]
+PASS 1536x730: no sideways scroll (shipped page)
+PASS 1536x730: NEEDS MY APPROVAL tab jumps to the section, header not under the tab bar -> {"barBottom":119,"headTop":131,"sticky":true}
+PASS 1536x730: clicking Recommended advances to the follow-up card
+PASS 1536x730: focus moves to the new card heading
+PASS 1536x730: no-FSA: Done card shows with Copy fallback and the RAMBO paste sentence -> "4 things need your OK\n\nOne card at a time. The blue button is the recommended answer.\n\nList written by the PC Oct 8, 10:34 AM EDT.\n\nYou answered 1 here. It leav"
+PASS 1536x730: no-FSA: no "saved"/"sent" claim anywhere
+PASS 1536x730: no-FSA: header now 4 things
+PASS 1536x730: Copy answer copies the answer text -> {"copied":"Copied. Now paste it into the RAMBO window.","clip":"# APPROVE SAMPLE-TEDC-RENAME\n\nSAMPLE - not real. This is a test answer from the "}
+PASS 1536x730: Next card: Medley shows "No recommendation" and card 1 of 4
+PASS 1536x730: Later moves to card 2 of 4 without answering
+PASS 1536x730: no-FSA flow page errors 0 -> []
+PASS 1536x730: no sideways scroll (done/follow-up flow)
+PASS 1536x730: FSA: first answer asks once for the VTES-Inbox folder
+PASS 1536x730: FSA: green Done card after the write was read back -> "v52card ok"
+PASS 1536x730: FSA: one file APPROVE_<id>_<yyyymmdd-hhmmss>.md with id, label, time, signature -> ["APPROVE_SAMPLE-TEDC-RENAME_20261008-143432.md"]
+PASS 1536x730: FSA: second answer writes without asking again -> "2 files, 1 folder prompts"
+PASS 1536x730: FSA flow page errors 0 -> []
+PASS 1536x730: wrong folder is refused and nothing is written
+PASS 1536x730: closed folder window falls back to Copy, no saved claim -> "4 things need your OK\n\nOne card at a time. The blue button is the recommended answer.\n\nList written by the PC Oct 8, 10:34 AM EDT.\n\nYou answered 1 here. It leaves this list when the PC next writes it.\n\nSAMPLE - not real\n\nNot sent yet. One step left.\n\nYou chose: Yes, rename them, then Yes, draft the invoices.\n\nWhat happens next: RAMBO, the desktop window, renames the folders, then drafts the invoices and shows them to you to check. Nothing is sent.\n\nYou closed the folder window, so nothing was saved. Nothing has reached RAMBO yet.\n\nCopy answer\nCopies your answer so you can paste it.\n\nThen paste"
+PASS 1536x730: data removed: red NO DATA line, no cards, never "0 items" -> "NO DATA - the PC has not written the approvals list, or it is not there. This does not mean nothing needs your OK."
+PASS 1536x730: data removed: page errors 0 (the missing-file console line is expected) -> {"pageErrors":[],"consoleErrors":1}
+PASS 1536x730: data removed: rest of panel unchanged
+PASS 1536x730: list older than 26 hours: red STALE since line -> "STALE since Oct 7, 4:34 AM EDT - this list is old. Do not trust it. RAMBO should write a new one."
+PASS 390x844: v5.1 page errors 0 -> []
+PASS 390x844: v5.2 page errors 0 (shipped package) -> []
+PASS 390x844: search "ollama" hides the same cards as v5.1 -> {"v51":"26 of 28","v52":"26 of 28"}
+PASS 390x844: LOCAL packet last line unchanged -> "RETURN PATH: write your answer in the local-only folder named in the card. Do not send it to any Claude window."
+PASS 390x844: card renders under the colour key, amber header -> {"head":"5 things need your OK","headCls":"v52head you","afterKey":true,"placeholder":false,"tab":"NEEDS MY APPROVAL5 waiting","greyTabs":8,"choices":["Yes, rename them (Recommended)","Not yet"],"sample":1,"count":"Card 1 of 5","allButtons":true}
+PASS 390x844: placeholder replaced, tab live (grey tabs 9 -> 8) -> {"tab":"NEEDS MY APPROVAL5 waiting","grey":8}
+PASS 390x844: recommended first and labelled, card 1 of 5, SAMPLE tag -> ["Yes, rename them (Recommended)","Not yet"]
+PASS 390x844: no sideways scroll (shipped page)
+PASS 390x844: NEEDS MY APPROVAL tab jumps to the section, header not under the tab bar -> {"barBottom":-834,"headTop":12,"sticky":false}
+PASS 390x844: clicking Recommended advances to the follow-up card
+PASS 390x844: focus moves to the new card heading
+PASS 390x844: no-FSA: Done card shows with Copy fallback and the RAMBO paste sentence -> "4 things need your OK\n\nOne card at a time. The blue button is the recommended answer.\n\nList written by the PC Oct 8, 10:34 AM EDT.\n\nYou answered 1 here. It leav"
+PASS 390x844: no-FSA: no "saved"/"sent" claim anywhere
+PASS 390x844: no-FSA: header now 4 things
+PASS 390x844: Copy answer copies the answer text -> {"copied":"Copied. Now paste it into the RAMBO window.","clip":"# APPROVE SAMPLE-TEDC-RENAME\n\nSAMPLE - not real. This is a test answer from the "}
+PASS 390x844: Next card: Medley shows "No recommendation" and card 1 of 4
+PASS 390x844: Later moves to card 2 of 4 without answering
+PASS 390x844: no-FSA flow page errors 0 -> []
+PASS 390x844: no sideways scroll (done/follow-up flow)
+PASS 390x844: FSA: first answer asks once for the VTES-Inbox folder
+PASS 390x844: FSA: green Done card after the write was read back -> "v52card ok"
+PASS 390x844: FSA: one file APPROVE_<id>_<yyyymmdd-hhmmss>.md with id, label, time, signature -> ["APPROVE_SAMPLE-TEDC-RENAME_20261008-143457.md"]
+PASS 390x844: FSA: second answer writes without asking again -> "2 files, 1 folder prompts"
+PASS 390x844: FSA flow page errors 0 -> []
+PASS 390x844: wrong folder is refused and nothing is written
+PASS 390x844: closed folder window falls back to Copy, no saved claim -> "4 things need your OK\n\nOne card at a time. The blue button is the recommended answer.\n\nList written by the PC Oct 8, 10:34 AM EDT.\n\nYou answered 1 here. It leaves this list when the PC next writes it.\n\nSAMPLE - not real\n\nNot sent yet. One step left.\n\nYou chose: Yes, rename them, then Yes, draft the invoices.\n\nWhat happens next: RAMBO, the desktop window, renames the folders, then drafts the invoices and shows them to you to check. Nothing is sent.\n\nYou closed the folder window, so nothing was saved. Nothing has reached RAMBO yet.\n\nCopy answer\nCopies your answer so you can paste it.\n\nThen paste"
+PASS 390x844: data removed: red NO DATA line, no cards, never "0 items" -> "NO DATA - the PC has not written the approvals list, or it is not there. This does not mean nothing needs your OK."
+PASS 390x844: data removed: page errors 0 (the missing-file console line is expected) -> {"pageErrors":[],"consoleErrors":1}
+PASS 390x844: data removed: rest of panel unchanged
+PASS 390x844: list older than 26 hours: red STALE since line -> "STALE since Oct 7, 4:34 AM EDT - this list is old. Do not trust it. RAMBO should write a new one."
+PASS 768x365 (200% zoom): Tab reaches the first button after 1 presses; focus ring visible -> "solid 4px"
+PASS 768x365 (200% zoom): Enter answers; Done card shows
+PASS 768x365 (200% zoom): no sideways scroll
+PASS 768x365 keyboard page errors 0 -> []
+PASS no speech engine: plain note instead of Read aloud, no errors -> []
+PASS Read aloud button runs without error -> []
+PASS reload after the file is deleted shows NO DATA
+
+67 of 67 checks passed
