@@ -2333,3 +2333,12 @@ status report (RPT-PANEL-0001 v1) wrongly blamed RAMBO.
 title ending `.md` and `contentMimeType: text/markdown`. Before saying an order is "waiting on
 RAMBO", check the Outbox for an `ACK_<name>_AUTO.md` within ~15 minutes; no ACK means the
 order was not seen, which is cloud's problem to fix, not RAMBO's.
+
+**RI-015 recurrence, 2026-10-08 ~15:50Z (11:50 AM ET) — sixth instance, same shape, different layer.** The
+VTES-Inbox auto-ACK poller is alive (ACKs within 3 minutes for 11 orders filed 12:47-15:46Z), but the
+executor itself produced **zero** EXECUTED_/BLOCKER_ files after the 11:00Z burn-rate report. A live
+receipt-writer over a dead worker reads as "working" to anyone counting ACKs. Rule reaffirmed: an ACK
+closes nothing; only EXECUTED_/BLOCKER_ does. Workaround used: Medley emails drafted in Gmail by cloud
+so a 4:30 PM deadline did not depend on the PC. Cause of the stall not yet known (asked in the
+MEDLEY-AMENDMENT order). Tier 3 watchdog (OCR/SWEEPER heartbeats) was approved at 10:16 AM but is itself
+one of the unexecuted orders.
