@@ -2319,3 +2319,17 @@ future master key is generated on the PC and never pasted into chat.
 - 2026-10-07 (panel, words-claim-more-than-code class, 3rd recurrence): CHECK-10 FAIL on 8 wording flaws; round 8's Tier 3 claims test reported '76 of 76, 0 false' while an independent extractor found 34 false of 1,034 sentences (keyword extraction = weak point). Round 9 = Tier 2: shrink the claim surface (no enumerations, no typed counts, generated lists, short install doc) plus a dumb independent extractor. If check 7 still finds only wording, the next option is to install the current build into the NEW folder with the documented limits, since no flaw can damage a file or leak data while the tick holds.
 
 - 2026-10-07 (panel, words-claim-more-than-code class; closed at edge size): CHECK-12 PASS WITH DOCUMENTED LIMITS: 0 mislead, 0 damage, 0 leak, 23 edge (9 new in round 10). Both CHECK-11 flaws fixed. Round 10's own new lines still broke the 25-word rule and item 55's consistency, so new lines need the same tests as old ones. Also: cloud keeper launched a checker with a short commit hash as source_revision; the session failed (ref_not_found) and cost 45 min. Use a branch name or full 40-char SHA, and verify get_session shows running within 5 minutes.
+
+## RI-057 · 2026-10-08 — Cloud orders filed to VTES-Inbox WITHOUT the `.md` ending are never picked up
+
+**What happened:** five orders cloud filed on 2026-10-08 (panel v5 install, Billing Sentinel
+phase 1, Books B0, two v5.1 installs) were created through the Drive connector with titles
+that had no `.md` ending (stored as text/plain). The PC's Inbox watcher acknowledged a Cowork
+`.md` message at 13:27Z the same morning but never touched these. **Every cloud order it has
+ever acknowledged ends in `.md` (text/markdown).** About 70 minutes were lost, and the first
+status report (RPT-PANEL-0001 v1) wrongly blamed RAMBO.
+
+**Fix (Tier 2, removes the cause):** every file cloud drops in VTES-Inbox is created with a
+title ending `.md` and `contentMimeType: text/markdown`. Before saying an order is "waiting on
+RAMBO", check the Outbox for an `ACK_<name>_AUTO.md` within ~15 minutes; no ACK means the
+order was not seen, which is cloud's problem to fix, not RAMBO's.
