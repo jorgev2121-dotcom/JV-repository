@@ -539,6 +539,10 @@ one, and it keeps going step by step until the goal is reached.
    **Typing a new message closes an open pop-up; that is NOT a "no".** If Jorge sends a message
    without answering, show the same question again in the next reply.
    A click is cheaper than typing or dictating.
+   **Jorge, 2026-10-08: "pop up questions like that anytime … even if it's midstream … stop the reply
+   and ask the questions. Let's get it right the first time."** Ask the moment a fact only he has
+   would change the work; do not finish a long reply first. A pop-up closed by a session restart is
+   also not an answer: ask again.
 5. **Surfaces without buttons** (mailbox files, the iPhone, other LLMs): write the two
    choices as `Reply 1 — …` / `Reply 2 — …` so he can answer with one word.
 6. **The VTES panel follows the same pattern** in its approval section (see
