@@ -51,3 +51,4 @@ Columns: ID · time · window · his words (start) · interpretation · duplicat
 ## Owner answers, 2026-10-08 ~11:50 AM
 - **Julio Silva's signed proposal: $9,500** (first draw $4,750, paid from Medley's deposit). Supersedes the $8,000 cap of 2026-09-28.
 - **Philippine drafter: "pending task"**: stays on the list (RPT-STATUS-0002 item 4, start by Tue 2026-10-13); no ad posted yet.
+| RQ-20261008-23 | 12:35 PM | "How easy would it be for you to access and get the bank detail information with owner limited to clicking access approved?" | Get bank activity with Jorge only clicking approvals | Enhances RQ-03/RQ-07 | IN PROGRESS: Jorge chose "QuickBooks bank feed (Recommended)" 12:40 PM; order 1 file QUICKBOOKS-BANK-FEED-CONNECT (needs Jorge at the PC for each bank's Allow screen; waits on RAMBO, which is stalled) | OD-109-A |
