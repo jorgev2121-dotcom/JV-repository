@@ -2342,3 +2342,5 @@ closes nothing; only EXECUTED_/BLOCKER_ does. Workaround used: Medley emails dra
 so a 4:30 PM deadline did not depend on the PC. Cause of the stall not yet known (asked in the
 MEDLEY-AMENDMENT order). Tier 3 watchdog (OCR/SWEEPER heartbeats) was approved at 10:16 AM but is itself
 one of the unexecuted orders.
+
+**RI-015 recurrence, 2026-10-08 ~17:40Z (1:40 PM ET) — seventh instance, still open.** Owner noticed the panel unchanged ("Measured at 2026-10-08 13:16 … zero improvement"). Drive shows ~20 cloud orders auto-ACKed today (13:57Z–17:37Z, the PC watcher works) and **zero EXECUTED or BLOCKER from RAMBO since 05:49Z** (last real work: overnight decisions; 11:00Z Burn-Rate is a scheduled task). Panel v5 + v5.1 install orders: filed 12:47Z without `.md` (cloud's fault, RI-057), re-filed and ACKed 13:57Z, never executed. Data refresh still runs, which is why the old page updates its timestamp but shows nothing new. Cause not provable from the cloud: the RAMBO session itself is not taking orders (closed, idle, or waiting at a prompt). Owner action requested: look at the RAMBO window; PASTE-D-064 if it needs a restart.
