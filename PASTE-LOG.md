@@ -102,3 +102,4 @@ enough to identify it exactly, with no description needed.
 | PASTE-D-064 | 2026-10-08 | Desktop (RAMBO / Claude Code on PC) | Restart pointer: read VTES-Inbox, execute today's .md orders oldest first starting with panel v5 + v5.1 install, write EXECUTED_/BLOCKER_ per order | Cloud |
 | PASTE-X-012 | 2026-10-08 | Anywhere (email/Grammarly) | Unsafe-structures owner email v1 (marketing/unsafe-structures/CAMPAIGN-COPY_UNSAFE-STRUCTURES_v1_2026-10-08.md) | Cloud |
 | PASTE-X-013 | 2026-10-08 | Anywhere (email/Grammarly) | Unsafe-structures owner email v2 | Cloud |
+| PASTE-X-014 | 2026-10-08 | ChatGPT / Codex | Pointer to handoff/HANDOFF_RAMBO-UNEXECUTED-ORDERS_2026-10-08.md (16 unexecuted RAMBO orders) | Cloud |

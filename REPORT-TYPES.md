@@ -16,6 +16,7 @@ page header AND in the footer stamp of every printed page:
 - **RPT-REVIEW** — a client job shown to Jorge for comment the moment it is review-ready, blanks marked; one per job version.
 - **RPT-CASH** — cash in hand, money in and out, months of runway and loan size; uses only the last balance Jorge stated (Article 5).
 - **RPT-STATUS** — whole-business status of every open item (OPEN-ITEMS digest).
+- **RPT-PROS** — directories of design professionals and contractors from public permit records.
 - **RPT-LEADS** — marketing lead lists (unsafe structures and other prospects), filterable, real county data only.
 
 New types are added here before first use.
@@ -31,6 +32,7 @@ New types are added here before first use.
 | RPT-STATUS-0002 | 2026-10-08 | All Open Tasks (26 numbered) | reports/RPT-STATUS-0002.html |
 | RPT-CASH-0002 | 2026-10-08 | Cash Plan, Full Picture (replaces RPT-CASH-0001) | reports/RPT-CASH-0002.html |
 | RPT-LEADS-0001 | 2026-10-08 | Unsafe Structures Leads — 2020 (v2: multi-select filters, click-down details) | marketing/unsafe-structures/RPT-LEADS-0001_UnsafeStructures-2020_v2.html |
+| RPT-PROS-0001 | 2026-10-08 | Legalization Pros Directory (885 pros from 3,678 permits, 24 months) | marketing/pros/RPT-PROS-0001_Legalization-Pros_v1.html |
 
 
 
