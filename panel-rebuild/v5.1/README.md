@@ -11,10 +11,10 @@ a hover explanation on every window, tab, button and abbreviation.
 1. One colour scheme: green done, blue in progress, amber waiting on Jorge, red stalled/broken,
    grey dashed not built yet, tan old snapshot. Blue button = does it now; white = optional.
 2. A colour key under the tab bar (folds away; remembers).
-3. Eight greyed-out tabs and placeholder sections with expected dates (estimates, edited in the
+3. Nine greyed-out tabs and placeholder sections with expected dates (estimates, edited in the
    PLANNED list at the top of `vtes5-guide.js`): NEEDS MY APPROVAL, BILLING, BOOKS, PROJECTS,
-   COUNTY MONITOR, ORANGE TREE, LLM LIBRARY, PROTOCOLS.
-4. Hover (or tap) explanation on all 26 tabs, all 36 buttons, section headings, and every
+   COUNTY MONITOR, ORANGE TREE, LLM LIBRARY, LAUNCHER, PROTOCOLS. (LAUNCHER added after the main test; re-checked: 0 errors, 27 of 27 tabs and all buttons explained.)
+4. Hover (or tap) explanation on all 27 tabs, all 36 buttons, section headings, and every
    abbreviation or in-house word (TRK, OPH, RAMBO, LOCAL, MDC, EPS, DD, OCR, PII, AP-NNNN, OD-NN ...).
 5. Status words in tables (OK, STALLED, NEEDS-YOU, OPEN, FIXED ...) become coloured pills.
 
@@ -27,4 +27,4 @@ Fixed during test: grey tabs sorted first on laptop width (now last); v5's hint 
 "18 tabs ... amber" (now counts live and says tan).
 
 **Not tested here:** Edge on Jorge's PC, PowerShell VERIFY on Windows (RAMBO does both).
-**MANIFEST.sha256 SHA-256:** `2ce0e082f387df240b2962f10d5551e98c2bf4c5d6e95c398353c3504d8fe8f7`
+**MANIFEST.sha256 SHA-256:** `27e4b3cd8b9ea55c73aae81047348456618ede08555b43598d57f06350c51796`

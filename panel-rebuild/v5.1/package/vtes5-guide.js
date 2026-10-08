@@ -13,6 +13,7 @@
     { id: 'county', tab: 'COUNTY MONITOR', what: 'Daily check of the county and city permit sites for every active job: new fees, inspections, citations.', eta: '2026-10-13', dep: 'Builds on the 22 Miami-Dade sources (section 7).' },
     { id: 'orangetree', tab: 'ORANGE TREE', what: 'Your master report for each job or property, with every document in one place.', eta: '2026-10-12', dep: 'RAMBO is upgrading the Plaza, Balmoral, Sugar Hill, Garden Walk and Edison pages.' },
     { id: 'library', tab: 'LLM LIBRARY', what: 'Read-only library of every AI chat and document, in date order.', eta: '2026-10-12', dep: 'Waiting on your yes to the three tiers.' },
+    { id: 'launcher', tab: 'LAUNCHER', what: 'Every website and app you use (about 300) as picture icons, grouped like 1Password (Banking, County, Clients...). Search by any word or hashtag, see how many match, hover to preview the page.', eta: '2026-10-16', dep: 'Built from the names, web addresses and groups already in 1Password (never passwords).' },
     { id: 'protocols', tab: 'PROTOCOLS', what: 'Every rule and protocol, when it was written and changed, and any that conflict.', eta: '2026-10-15', dep: 'Built after the PROJECTS page.' }
   ];
 

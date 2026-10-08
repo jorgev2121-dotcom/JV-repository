@@ -333,6 +333,14 @@ forbidden, for four reasons — recorded here so no future session reintroduces 
    "point zero four seven." `p047` is spoken as "p zero four seven" and can be said
    back as "page 47."
 
+### 9.2a Report numbers — `RPT-<TYPE>-NNNN` (owner request 2026-10-08)
+
+Internal reports (panel status, books, billing, night reports) carry a **report-type number**,
+not a TRK: `RPT-PANEL-0001`, `RPT-BOOKS-0001`. The type code says what kind of report it is so
+Jorge can ask for "another RPT-PANEL". Plain sequence per type, never reused, stamped in the
+header and footer of every page. Types and the issue log live in `REPORT-TYPES.md`; add a line
+there before publishing.
+
 ### 9.3 Stamp the ID on the page itself
 
 **A page identified only by its filename loses its identity the moment it is
