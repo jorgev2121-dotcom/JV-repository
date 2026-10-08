@@ -19,6 +19,8 @@ $tsDir    = Join-Path $repoRoot "TaskScheduler"
 $tasks = @(
     @{ Name="VTES-QueueRunner";   Xml="QueueRunner.xml"   }
     @{ Name="VTES-HealthMonitor"; Xml="HealthMonitor.xml" }
+    @{ Name="VTES-Relay";         Xml="Relay.xml"         }
+    @{ Name="VTES-Scorekeeper";   Xml="Scorekeeper.xml"   }
 )
 
 foreach ($t in $tasks) {
@@ -38,7 +40,14 @@ foreach ($t in $tasks) {
 
 Write-Host ""
 Write-Host "Verify in Task Scheduler: taskschd.msc → Task Scheduler Library → VTES"
-Write-Host "Both tasks should show Status: Ready"
+Write-Host "All four tasks should show Status: Ready:"
+Write-Host "  VTES-QueueRunner   — nightly 10:00 PM"
+Write-Host "  VTES-HealthMonitor — every 5 minutes"
+Write-Host "  VTES-Relay         — every hour"
+Write-Host "  VTES-Scorekeeper   — 7:00 AM and 7:00 PM"
 Write-Host ""
 Write-Host "To test queue-runner now (dry run):"
 Write-Host "  pwsh -File `"$repoRoot\scripts\queue-runner.ps1`" -DryRun"
+Write-Host ""
+Write-Host "To test scorekeeper now:"
+Write-Host "  pwsh -File `"$repoRoot\scripts\scorekeeper.ps1`" -DryRun"
