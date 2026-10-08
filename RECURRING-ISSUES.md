@@ -885,6 +885,12 @@ side could diagnose why its schedule stopped firing. Logged as a data point for 
 pattern, not investigated further — out of reach from cloud or desktop.
 
 **Recurrence 2026-10-08 3:40 PM ET (cloud, from Drive timestamps) — the Claude execution lane, not the scheduled tasks.**
+**CORRECTION 3:45 PM ET, from RAMBO's own roll call:** nothing was dead. All six desktop tasks were Ready, result 0,
+recent runs; the LOCAL lane passed a live test (3:44:57 PM, dolphin-mistral, 44 s, $0). The 24 jobs were held by the
+**owner-set money guard in `C:\AI\scripts\Inbox-Job-Watcher.ps1`: 12 Claude sessions/day (until 2026-10-13, then 6),
+used up by 1:46 AM.** So this is NOT an RI-015 instance. It is an RI-002-shaped visibility gap: the cap fires silently
+and cloud read it as a dead lane. Real Tier 2 fix: the watcher writes a `CAP-REACHED_<date>.md` file to Outbox the
+moment the cap trips. The text below is kept as the original reasoning.
 Poller (3:38), reconciler (3:40), uptime heartbeat (3:36) and FINISHER-01 (3:30) were all alive. But 24 Inbox jobs logged
 today (ledger rows 656-679) had zero results; the last real result was 1:20 AM ET. The desktop bridge session
 `Claude Code desktop executor` had been idle since 10:10 PM ET 10/7, parked on six owner questions. **Same RI-002 shape:
