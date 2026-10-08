@@ -1,0 +1,79 @@
+<title>Cash Plan, 3 Months</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a single timeline down the page, one entry per request, his words then my answer. Sections lettered for "re-read Section C". */
+:root{
+  --bg:#f5f6f3; --card:#ffffff; --ink:#1c2321; --mut:#5a6460; --line:#d6dbd6; --accent:#1b5e9e; --rail:#b9c4be;
+  --ok:#1d6b3b; --ok-bg:#e3f3e8; --mv:#173f66; --mv-bg:#e8f0f8; --you:#6b4100; --you-bg:#fff1cc; --bad:#b3261e; --bad-bg:#fdeceb; --soon:#4a4a47; --soon-bg:#eceae4;
+  --f-body:"Source Sans 3","Segoe UI",Arial,sans-serif; --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:1.0625rem/1.6 var(--f-body)}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px;padding-block:20px 72px}
+header{border-bottom:3px solid var(--ink);padding-bottom:12px}
+.rpt{font:700 .95rem var(--f-mono);color:var(--accent)}
+h1{font-size:2rem;margin:2px 0;text-wrap:balance}
+.meta{color:var(--mut);font-size:.97rem}
+h2{font-size:1.35rem;margin:30px 0 10px;text-wrap:balance}
+h2 .sec{display:block;font:700 .8rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.box{background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:12px 18px}
+.box p{margin:.35em 0}
+ol.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:3px solid var(--rail);display:grid;gap:14px}
+ol.tl li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+ol.tl li::before{content:"";position:absolute;left:-31px;top:16px;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.when{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:700 .85rem var(--f-mono);color:var(--mut)}
+.said{margin:6px 0 4px;font-style:italic}
+.did{margin:4px 0 0}
+.pill{display:inline-block;font:800 .72rem var(--f-body);letter-spacing:.04em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:2px solid currentColor}
+.ok{color:var(--ok);background:var(--ok-bg)}.mv{color:var(--mv);background:var(--mv-bg)}.you{color:var(--you);background:var(--you-bg)}.bad{color:var(--bad);background:var(--bad-bg)}.soon{color:var(--soon);background:var(--soon-bg);border-style:dashed}
+ul.plain{margin:6px 0;padding-left:22px}
+ul.plain li{margin:4px 0}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:8px;font:700 .85rem var(--f-mono);color:var(--mut);text-align:right}
+@media print{body{background:#fff;color:#000}footer{position:fixed;bottom:0;left:0;right:0;background:#fff}ol.tl li{break-inside:avoid}}
+</style><div class="wrap">
+<header>
+  <div class="rpt">RPT-CASH-0001</div>
+  <h1>Cash Plan, 3 Months</h1>
+  <div class="meta">Thursday 2026-10-08. Last known balance: <b>$7,000, said by Jorge on 2026-10-08</b>. Overhead $5,000 a month. No live bank access is used; the balance changes only when Jorge says a new number.</div>
+</header>
+
+<h2><span class="sec">Section A</span>The answer</h2>
+<div class="box">
+  <p><b>Line up a loan or credit line of about $10,000.</b> That carries you 3 months even if no money comes in at all.</p>
+  <p>If Medley pays its $8,000 deposit and you pay Julio from it, you only need about $7,000. If TEDC pays its roughly $30,000, you need no loan.</p>
+  <p><b>Without a loan, your cash lasts about one month</b>, roughly to mid-November.</p>
+</div>
+
+<h2><span class="sec">Section B</span>Money going out</h2>
+<ol class="tl">
+  <li><div class="when">This week</div><div class="did">Axel, roof handyman: $750. Mike Valdes, roof pressure cleaning: $300. <b>Leaves $5,950.</b></div></li>
+  <li><div class="when">Next week</div><div class="did">Philippine architect deposit: $500. <b>Leaves $5,450.</b> The other $500 is due 30 days later.</div></li>
+  <li><div class="when">Every month</div><div class="did">Overhead: $5,000, which is $15,000 over 3 months.</div></li>
+  <li><div class="when">When Medley pays</div><div class="did">Julio Silva, 50% of $9,500: $4,750. <b>Paid from Medley's deposit, not from your $7,000</b>, as you chose today.</div></li>
+</ol>
+
+<h2><span class="sec">Section C</span>Money coming in</h2>
+<ol class="tl">
+  <li><div class="when">About $300</div><div class="did">Reimbursement of the Miami-Dade fee on job #10980 (10980 SW 202 Dr, Unit 29). The invoice goes to Miguel Zaldivar at MZ Solutions, whose last email address bounced. RAMBO is finding the exact amount and a working address.</div></li>
+  <li><div class="when">$8,000</div><div class="did">Medley deposit, 50% of $16,000. The invoice is being drafted today. When it lands, $4,750 goes to Julio and $3,250 stays with you.</div></li>
+  <li><div class="when">About $30,000</div><div class="did">TEDC invoices (Sugar Hill and Garden Walk), drafting now after today's rename. Not counted below, because the timing is unknown.</div></li>
+</ol>
+
+<h2><span class="sec">Section D</span>Three-month picture</h2>
+<ol class="tl">
+  <li><div class="when">Total you need</div><div class="did">$1,050 roof + $1,000 Philippine architect + $15,000 overhead = <b>$17,050</b>.</div></li>
+  <li><div class="when">If nothing comes in</div><div class="did">$17,050 minus $7,000 cash minus $300 reimbursement = <b>about $9,750 short. Loan: about $10,000.</b></div></li>
+  <li><div class="when">If Medley's deposit lands</div><div class="did">$3,250 more stays with you after Julio, so you're <b>about $6,500 short. Loan: about $7,000.</b></div></li>
+  <li><div class="when">If TEDC pays</div><div class="did">About $30,000 comes in. <b>No loan needed.</b></div></li>
+</ol>
+
+<h2><span class="sec">Section E</span>Before paying Julio</h2>
+<div class="box">
+  <p><b>Julio has not sent a written proposal, and nothing is signed.</b> On September 28 you asked for $8,000 all-in, including the architect, the engineer and the as-built letters. $9,500 is $1,500 more.</p>
+  <p>Recommended: Julio sends a one-page signed proposal today (scope, $9,500 or $8,000, a 30-day finish date, the engineer named). The first 50% is paid the day Medley's deposit arrives.</p>
+  <p>Medley's whole contract is $16,000. Julio at $9,500 plus the Philippine architect at $1,000 leaves you $5,500 for your own work on the job.</p>
+</div>
+
+<footer>RPT-CASH-0001 · v1 · 2026-10-08 · CURRENT</footer>
+</div>
