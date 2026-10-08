@@ -63,3 +63,5 @@ Columns: ID · time · window · his words (start) · interpretation · duplicat
 **Owner answers 2026-10-08 ~12:35 PM (pop-up):** $600 email company — "Check the company first": done, see finance/LISTKIT-COLD-EMAIL-CHECK_2026-10-08.md. U.S. Bank — "Yes, finish it today".
 
 **Owner answers 2026-10-08 ~12:45 PM (pop-up):** U.S. Bank — "Yes, opening it now": live guidance in progress. ListKit — "Yes, draft it": Gmail draft r-671330720849652508 to taj@listkit.io (Outlook drafts unavailable — no Mail.ReadWrite). Jorge sends.
+
+**Owner report 2026-10-08 ~1:00 PM:** "US bank, application, submitted, just now, they said, seven to 10 business days, for reply." → RQ-20261008-25/27/28 application step DONE (owner-submitted). Decision expected ~Mon 10-19 to Thu 10-22. Check routine set for Tue 10-20 9:47 AM ET.

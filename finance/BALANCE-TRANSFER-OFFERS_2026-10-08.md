@@ -27,3 +27,6 @@ Owner request (RQ-20261008-25): find the U.S. Bank balance-transfer application 
 Applying is owner-only (SSN/income, signup = RED). Nothing applied for, sent or paid by Cloud.
 
 OD-109-A · BALANCE-TRANSFER · v1 · 2026-10-08 · CURRENT
+
+## Update 2026-10-08 ~1:00 PM
+Owner submitted the application. U.S. Bank: reply in 7–10 business days (≈ Mon 10-19 to Thu 10-22). Cloud check routine Tue 10-20 9:47 AM ET. Status: PENDING DECISION.
