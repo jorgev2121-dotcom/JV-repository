@@ -141,3 +141,18 @@ Jorge involvement: one-time folder selection click when the section first loads.
 ---
 
 ROUND-11-APPROVAL-SYSTEM · v1 · 2026-10-08 · CURRENT
+
+---
+
+## Addendum 2026-10-08 — Guided mode (CLAUDE.md Rule 9)
+
+Owner wants every decision as a click-through: two plain-language choices, recommended
+first, one small step per screen, until done. Applies to this section:
+
+- Each approval row opens as a **card**, not a table row: one sentence of what it is,
+  then two large buttons (recommended first, e.g. [Send invoice — Recommended] [Hold]).
+- If an answer needs a follow-up (e.g. Hold → "until when?"), the next card appears in
+  place with two more buttons. No typing anywhere in the chain.
+- Large text, high contrast, one card on screen at a time, a "Read aloud" button on each card.
+- Every chain ends with a green "Done" card stating what will happen next and which
+  window does it.

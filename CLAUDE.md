@@ -509,3 +509,27 @@ LIBRARIAN-RND → `JOB-0085` dictation → retro sweeps → the rest by scorecar
 producing appointments and the three money items collected or delivered. **Each dated
 within 30 days.**
 
+
+---
+
+## 13. Rule 9 — Guided choices (OWNER-DIRECTIVE GUIDED-CHOICES-01, 2026-10-08)
+
+**Owner directive, issued by Jorge 2026-10-08:** he wants every decision handled the way
+Google guides a user — he says what he wants, the AI offers two clear choices, he clicks
+one, and it keeps going step by step until the goal is reached.
+
+**How every session obeys it:**
+
+1. **When Jorge must decide anything, ask with clickable buttons** (the `AskUserQuestion`
+   tool in Claude Code), not a typed question. Two options is the default; never more than four.
+2. **The recommended option is always first and labelled "(Recommended)".** Rule 7 still
+   stands: options are plain-language outcomes ("Send it" / "Hold until Monday"), never
+   technical menus. If only one sensible path exists, don't ask; do it and say so.
+3. **One small step per click.** Break a big decision into a chain of small ones, and
+   carry on after each answer without waiting to be told.
+4. **The closing question (OD-01) should be a button whenever the surface supports it.**
+   A click is cheaper than typing or dictating.
+5. **Surfaces without buttons** (mailbox files, the iPhone, other LLMs): write the two
+   choices as `Reply 1 — …` / `Reply 2 — …` so he can answer with one word.
+6. **The VTES panel follows the same pattern** in its approval section (see
+   `panel-rebuild/ROUND-11-APPROVAL-SYSTEM_SPEC_2026-10-08.md`, Guided mode).
