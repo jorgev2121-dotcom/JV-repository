@@ -1,0 +1,75 @@
+<title>Cash Plan, Full Picture</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a single timeline down the page, one entry per request, his words then my answer. Sections lettered for "re-read Section C". */
+:root{
+  --bg:#f5f6f3; --card:#ffffff; --ink:#1c2321; --mut:#5a6460; --line:#d6dbd6; --accent:#1b5e9e; --rail:#b9c4be;
+  --ok:#1d6b3b; --ok-bg:#e3f3e8; --mv:#173f66; --mv-bg:#e8f0f8; --you:#6b4100; --you-bg:#fff1cc; --bad:#b3261e; --bad-bg:#fdeceb; --soon:#4a4a47; --soon-bg:#eceae4;
+  --f-body:"Source Sans 3","Segoe UI",Arial,sans-serif; --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:1.0625rem/1.6 var(--f-body)}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px;padding-block:20px 72px}
+header{border-bottom:3px solid var(--ink);padding-bottom:12px}
+.rpt{font:700 .95rem var(--f-mono);color:var(--accent)}
+h1{font-size:2rem;margin:2px 0;text-wrap:balance}
+.meta{color:var(--mut);font-size:.97rem}
+h2{font-size:1.35rem;margin:30px 0 10px;text-wrap:balance}
+h2 .sec{display:block;font:700 .8rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.box{background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:12px 18px}
+.box p{margin:.35em 0}
+ol.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:3px solid var(--rail);display:grid;gap:14px}
+ol.tl li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+ol.tl li::before{content:"";position:absolute;left:-31px;top:16px;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.when{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:700 .85rem var(--f-mono);color:var(--mut)}
+.said{margin:6px 0 4px;font-style:italic}
+.did{margin:4px 0 0}
+.pill{display:inline-block;font:800 .72rem var(--f-body);letter-spacing:.04em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:2px solid currentColor}
+.ok{color:var(--ok);background:var(--ok-bg)}.mv{color:var(--mv);background:var(--mv-bg)}.you{color:var(--you);background:var(--you-bg)}.bad{color:var(--bad);background:var(--bad-bg)}.soon{color:var(--soon);background:var(--soon-bg);border-style:dashed}
+ul.plain{margin:6px 0;padding-left:22px}
+ul.plain li{margin:4px 0}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:8px;font:700 .85rem var(--f-mono);color:var(--mut);text-align:right}
+@media print{body{background:#fff;color:#000}footer{position:fixed;bottom:0;left:0;right:0;background:#fff}ol.tl li{break-inside:avoid}}
+</style><div class="wrap">
+<header>
+  <div class="rpt">RPT-CASH-0002 · replaces RPT-CASH-0001</div>
+  <h1>Cash Plan, Full Picture</h1>
+  <div class="meta">Thursday 2026-10-08, 12:20 PM. Built from your snips and your own numbers, taken as stated for planning (no live bank access). Cash $7,000, income about $1,950 a month, half the household budget, all cards, family loans.</div>
+</header>
+
+<h2><span class="sec">Section A</span>The answer</h2>
+<div class="box">
+  <p><b>You spend about $3,270 a month more than your $1,950 income brings in,</b> before any business money.</p>
+  <p><b>If no client pays, your cash runs out in mid-November, and you're about $4,900 short by the end of December.</b> That's half the $10,000 I estimated this morning, because your $1,950 income now counts.</p>
+  <p><b>If Medley pays its $8,000 deposit</b> and Julio gets his $4,750 from it, you're about $1,600 short by December. <b>If TEDC pays even $10,000 of its roughly $30,000,</b> you end the year with about $12,500.</p>
+  <p><b>The biggest leak is card interest:</b> about $1,200 a month, $854 of it on the Chase Ink card alone. Your $1,200 Chase payment covers interest and barely touches the $41,856 balance.</p>
+</div>
+
+<h2><span class="sec">Section B</span>What goes out each month</h2>
+<ol class="tl">
+  <li><div class="when">Personal budget</div><div class="did">$3,634.97. Cars, insurance, phones, QuickBooks, Microsoft, and card payments, including $1,200 to Chase Ink.</div></li>
+  <li><div class="when">Your half of the household</div><div class="did">$1,587.00. Mortgage, HOA, utilities, TV, sofa, plus water, insurance and taxes, which are paid every 3 months.</div></li>
+  <li><div class="when">The lumpy months</div><div class="did">October about $4,720. November about $5,500 (your half of home insurance, about $817). December about $5,450 (your half of property taxes, about $774).</div></li>
+  <li><div class="when">This week and next, one time</div><div class="did">Roof: Axel $750 and Mike Valdes $300. Philippine drafter: $500 next week and $500 in 30 days.</div></li>
+  <li><div class="when">Comes in</div><div class="did">About $1,950 a month into Bank of America. Bank of America overdraft room of about $1,000 is not counted.</div></li>
+</ol>
+
+<h2><span class="sec">Section C</span>What you owe</h2>
+<ol class="tl">
+  <li><div class="when">Credit cards</div><div class="did"><b>$57,709 owed of $85,100 in limits (68% used).</b> Chase Ink $41,856 at 24.49%. Discover $9,405 at 26.49%. Citi $6,408. Amazon $39. American Express and PayPal Credit at zero.</div></li>
+  <li><div class="when">Room left on cards</div><div class="did">$27,391 in total. American Express $7,200, Citi $7,692, Chase $5,044, PayPal $4,400, Discover $2,595, Amazon $461.</div></li>
+  <li><div class="when">Family</div><div class="did">Your mom $25,000 and Alec $12,000. No interest, no payments, no deadline.</div></li>
+  <li><div class="when">Not on your sheets</div><div class="did">The $232,900 SBA loan (no payment seen since 2022) and the tax debt behind the IRS levy. See the questions at the end.</div></li>
+</ol>
+
+<h2><span class="sec">Section D</span>Three ways to proceed</h2>
+<ol class="tl">
+  <li><div class="when">1 · Collect first, borrow nothing yet (Recommended)</div><div class="did">This week, send every invoice: Medley's $8,000 deposit, TEDC's roughly $30,000, the #10980 $300 reimbursement, and the two old invoices totaling $3,900. Julio is paid only from Medley's deposit. <b>If Medley's deposit hasn't arrived by November 1,</b> cover November from the $7,200 of room on American Express, and pay it back the day a client pays. <i>Risk: clients pay late and the card balance grows. Lasts: as long as clients pay within about 30 days.</i></div></li>
+  <li><div class="when">2 · A small bridge now</div><div class="did">Line up about $5,000 now: a short personal loan, a credit-union line, or, if you're comfortable, a short-term family top-up. That covers you to January even if nobody pays. Pay it off from TEDC. <i>Risk: one more payment, and the approval may be harder with 68% of your card limits in use. Lasts: 3 months.</i></div></li>
+  <li><div class="when">3 · Fix the interest leak when TEDC pays</div><div class="did">When TEDC pays, put most of it on the Chase Ink card. Paying $25,000 off saves about $500 a month in interest. Or move Chase to a lower-rate loan or a 0% balance-transfer offer, usually with a 3 to 5% fee. <i>Risk: running the card back up. Lasts: permanent if the card stays paid down.</i></div></li>
+</ol>
+<p class="meta"><b>My recommendation: 1 now, then 3 the day TEDC pays.</b> Planning help only; not tax, legal or lending advice.</p>
+
+<footer>RPT-CASH-0002 · v1 · 2026-10-08 · CURRENT</footer>
+</div>
