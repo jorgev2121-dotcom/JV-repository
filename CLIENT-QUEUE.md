@@ -11,11 +11,11 @@ Each item: what · money · next step · who · Jorge's action · projected done
 1. **TEDC — Sugar Hill + Garden Walk invoices (~$30,000).** 47 days quiet.
    Next: rename 3 folders to the master numbers (1412→1463 GW East, 1413→1466 GW West,
    1414→1469 Sugar Hill), then draft the invoices for one-click send. Who: RAMBO.
-   Jorge: one yes to the rename (RED, filing). Done: 2026-10-09.
+   Jorge: one yes to the rename (RED, filing). **YES given 2026-10-08 10:52 AM; order filed.** Done: 2026-10-09.
 2. **Medley — 7265 NW 74 St Bay 2 (TUS-26-1033).** Draft invoice bills $10,600 (milestone 1 of
    $21,200); another record says $16,000 total / $8,000 deposit; no signed agreement found.
    Next: invoice at the right figure. Who: Cloud drafts, RAMBO sends after his click.
-   Jorge: one answer, $21,200 or $16,000. Done: 2026-10-09.
+   Jorge: one answer, $21,200 or $16,000. **Answered $16,000 (2026-10-08 10:52 AM): deposit invoice $8,000 drafting.** Plus today: NOV/microfilm requests by email and phone before 4:30 PM; owner reports 5th/15th/25th. Done: 2026-10-09.
 3. **Alec — DD reports, 5 properties + 331 Tamiami, then invoice $100.25.** 12 of 22 sources
    done; 0 of 5 reports at Alec standard. Missing: 10 browser-only sources (Clerk, EPS, Permit
    Menu, Tax Collector) and the imagery step (property-appraiser sketch + Pictometry).
