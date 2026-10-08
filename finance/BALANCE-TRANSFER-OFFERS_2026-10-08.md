@@ -43,3 +43,6 @@ Owner submitted the application. U.S. Bank: reply in 7–10 business days (≈ M
 - "Document (4)" / "multi page upload proces…" — POINT mailer, "$103,000" pre-approval. Point is a home-equity investment against the house, not a card or balance transfer. Not recommended without a full review (shared home).
 - Order amendment OD-110-A1 (Drive 1mTGVcC68NiFp1M4sg4h3M1uIxcctG7gw) puts these first in the PaperPort OCR run.
 - Before any second application: settle the stated-income question (RQ-30).
+
+## Update 2026-10-08 ~1:15 PM ET — income clarified by owner
+Owner: "My income is $1,950, plus or minus a couple dollars" (Social Security ≈ $2,100+ less 15% offset). This contradicts the $177,500 entered on the U.S. Bank Shield application and the earlier pop-up answer. **Cloud recommendation: call U.S. Bank 800-285-8585 before the decision and correct the income (or withdraw).** Any further application (e.g. Bank of America) must state the true income. RPT-CASH-0002's $1,950/mo assumption stands.
