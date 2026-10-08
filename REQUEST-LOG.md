@@ -72,3 +72,5 @@ Columns: ID · time · window · his words (start) · interpretation · duplicat
 **Owner report 2026-10-08 ~1:00 PM:** "US bank, application, submitted, just now, they said, seven to 10 business days, for reply." → RQ-20261008-25/27/28 application step DONE (owner-submitted). Decision expected ~Mon 10-19 to Thu 10-22. Check routine set for Tue 10-20 9:47 AM ET.
 
 **Owner answers 2026-10-08 ~1:20 PM (pop-up):** Both "Yes, draft it". Gmail drafts: r-3643985025481325522 to Fabregat (cc Julio) — resend B2020-0177 approved set via Drive/Dropbox, change-of-architect forms coming, any NOV copy?; r-4947373660418720425 to Julio — W2026066388 is not Medley, proposal by Monday. Jorge sends.
+
+**Owner answers 2026-10-08 ~2:05 PM (pop-up):** Income $177,500 — "My personal income, correct" (owner-confirmed; Cloud's concern recorded in RQ-30 and resolved by owner statement; RPT-CASH-0002 used ~$1,950/mo and omits these sources → cash plan needs the income sources to be accurate). BofA mailer — "Yes, sending it now" (awaiting screenshot). RAMBO — "I'll check it now".
