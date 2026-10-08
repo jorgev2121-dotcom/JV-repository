@@ -35,3 +35,8 @@ Status per architect: LS-1, A-1, P-1 finished; E-1, M-1 half done; never submitt
 - Julio: no written number. Jorge's cap 09-28: $8,000 all-in. Today's figure $9,500 (Jorge).
 
 TUS-26-1033 · Research · Medley Email Findings · v2 · 2026-10-08 · CURRENT
+
+## Update 2026-10-08 ~1:35 PM ET — was the 2020 approved set saved?
+- Drive: NO (title and full-text search for B2020-0177 / APPROVED SET: only notes mention it).
+- Gmail: NO. Outlook: only the 09-24 WeTransfer email and a 09-28 WeTransfer "expired, but you can still recover it" email with a recover link: https://we.tl/t-wNeTvRSbcmxxMq1u (Cloud's network blocks WeTransfer, so untested; may require a WeTransfer account).
+- PC: unverified. The PC holds `EP1 Approved_1730701.zip` (177 MB, twice, Downloads, 2026-07-16) — a Miami-Dade e-plan process 1730701, NOT shown to be Medley's B2020-0177. Order MSG-CLOUD-TO-CODE_10980-REIMBURSE-JULIO-PROPOSAL-MEDLEY-2020-SET asks RAMBO to check.

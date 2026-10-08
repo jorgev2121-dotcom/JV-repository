@@ -29,3 +29,5 @@ New types are added here before first use.
 | RPT-CASH-0001 | 2026-10-08 | Cash Plan, 3 Months | reports/RPT-CASH-0001.html |
 | RPT-STATUS-0002 | 2026-10-08 | All Open Tasks (26 numbered) | reports/RPT-STATUS-0002.html |
 | RPT-CASH-0002 | 2026-10-08 | Cash Plan, Full Picture (replaces RPT-CASH-0001) | reports/RPT-CASH-0002.html |
+
+| RPT-LEADS | Lead lists for marketing (unsafe structures, filtered prospects) | RPT-LEADS-0001 — Unsafe Structures 2020, sample of 20 + full year, filterable, 2026-10-08 |
