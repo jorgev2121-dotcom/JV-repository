@@ -37,3 +37,9 @@ Owner submitted the application. U.S. Bank: reply in 7–10 business days (≈ M
 - **Cloud flag:** $177,500 does not match the files (Social Security ≈ $2,150/mo gross; RPT-CASH-0002 income ≈ $1,950/mo; no business draws recorded). Asked owner what it includes. If it overstates personal income, recommend calling U.S. Bank (800-285-8585) to correct before the decision. Income on a bank credit application must be accurate; verification could include tax transcripts.
 - Smartly Checking bonus: $450 tier needs $8,000+ qualifying direct deposits within 90 days ($350 at $5,000; $250 at $2,000); $12/mo fee waivable; new-customer only. Recommendation: wait for card decision; offer on screen runs to 11-10.
 - SBA: a defaulted, personally guaranteed SBA loan can appear on the personal credit report as a charge-off/collection (7 years from first delinquency); Treasury offset itself is not reported. Card applications don't usually ask; answer truthfully if asked. Check own reports free at annualcreditreport.com.
+
+## Update 2026-10-08 ~2:00 PM (RQ-20261008-33) — other offers seen in PaperPort screenshot
+- "BOA Credit Card - Balanc…" — Bank of America card mailer (paper, scanned). Thumbnail shows "21" (likely intro months). Details unread. Not in Gmail or Outlook.
+- "Document (4)" / "multi page upload proces…" — POINT mailer, "$103,000" pre-approval. Point is a home-equity investment against the house, not a card or balance transfer. Not recommended without a full review (shared home).
+- Order amendment OD-110-A1 (Drive 1mTGVcC68NiFp1M4sg4h3M1uIxcctG7gw) puts these first in the PaperPort OCR run.
+- Before any second application: settle the stated-income question (RQ-30).
