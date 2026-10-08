@@ -8,8 +8,7 @@
 ## High-water mark
 
 ```
-Next OPH to issue:  OPH-2026-0010   (general use)
-Reserved block:     OPH-2026-0100 to OPH-2026-1999 — PaperPort OCR sweep (OD-110, RAMBO), reserved 2026-10-08. Other sessions skip this range.
+Next OPH to issue:  OPH-2026-0010
 ```
 
 **Update this line every time a number is issued.** Orphan numbers increment by
