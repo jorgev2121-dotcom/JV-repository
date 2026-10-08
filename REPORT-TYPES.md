@@ -27,3 +27,4 @@ New types are added here before first use.
 | RPT-STATUS-0001 | 2026-10-08 | Today's Game Plan | https://claude.ai/artifact/1iS1Vp4qcPtnWWGk8iyLMY |
 | RPT-REVIEW-0001 | 2026-10-08 | Review: 10362 SW 180 St (TRK-2026-1536) | reports/RPT-REVIEW-0001.html |
 | RPT-CASH-0001 | 2026-10-08 | Cash Plan, 3 Months | reports/RPT-CASH-0001.html |
+| RPT-STATUS-0002 | 2026-10-08 | All Open Tasks (26 numbered) | reports/RPT-STATUS-0002.html |
