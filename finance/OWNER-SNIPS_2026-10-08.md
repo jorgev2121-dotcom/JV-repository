@@ -51,3 +51,7 @@ Feb/May/Aug/Nov; 2026 $6,533.78) · Taxes $515.74 (Miami-Dade Tax Collector, pai
 - The 15% reduction is the **U.S. Treasury taking 15% of Jorge's Social Security** for that federal debt
   (not an IRS tax debt). Net income stays about $1,950/month while the offset continues.
 - Not counted as a monthly bill (no payments being made). Listed as a risk in RPT-CASH-0002.
+
+## Owner note, 2026-10-08 ~12:30 PM ET — October payments
+- **October mortgage: PAID** (Jorge is sure). Other October bills: unknown; Jorge asked that payment dates be
+  read from the statements. Until then the plan counts them as unpaid (conservative).
