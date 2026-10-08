@@ -536,6 +536,8 @@ one, and it keeps going step by step until the goal is reached.
 3. **One small step per click.** Break a big decision into a chain of small ones, and
    carry on after each answer without waiting to be told.
 4. **The closing question (OD-01) should be a button whenever the surface supports it.**
+   **Typing a new message closes an open pop-up; that is NOT a "no".** If Jorge sends a message
+   without answering, show the same question again in the next reply.
    A click is cheaper than typing or dictating.
 5. **Surfaces without buttons** (mailbox files, the iPhone, other LLMs): write the two
    choices as `Reply 1 — …` / `Reply 2 — …` so he can answer with one word.

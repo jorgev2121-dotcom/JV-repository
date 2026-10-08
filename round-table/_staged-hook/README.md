@@ -1,4 +1,4 @@
-# Staged: automatic round-table writer for cloud sessions (NOT ACTIVE)
+# Automatic round-table writer for cloud sessions — ACTIVE since 2026-10-08 10:17 AM ET (Jorge approved)
 
 `round-table.js` appends every owner message and reply, with times, to `round-table/live/` at the
 end of each turn, then commits and pushes only that folder. `settings.json.STAGED` is the project

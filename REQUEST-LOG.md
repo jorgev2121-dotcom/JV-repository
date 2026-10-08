@@ -31,3 +31,9 @@ Columns: ID · time · window · his words (start) · interpretation · duplicat
 - 9:16 AM — "yes, 1Password CLI is on."
 - 9:24 AM — Jorge switched this session to Opus 5.5.
 - 9:33 AM — Jorge closed the QuickBooks sign-in question (on hold; do not re-ask unprompted).
+| RQ-20261008-16 | 10:12 AM | "Okay, confession … let's jump back into it … pending tasks that clients are waiting for … number it and let's tackle them one at a time … CRM to each job … where our army of agents and protocols have the potential to fail … personal assistant … email triage … enhancements … pivotal … put those in priority" | Back to client work: one numbered list, closed one at a time, each with next step and projected date; failure points first; why no assistant updates; promote enhancements that unblock client work; panel continues on background agents | — | IN PROGRESS | OPEN-ITEMS CLIENT-QUEUE |
+| RQ-20261008-17 | 10:15 AM | "Please pop up the request for approval … when I entered my last prompt, it disappeared." | Re-show the approval pop-up | — | DONE (approved: all three switches + QuickBooks sign-in) | REQUEST-LOG answers |
+
+## Owner answers, 2026-10-08 10:16 AM
+- **All three switches ON:** cloud auto-log (active 10:17 AM, hook in .claude/), PC catch-up sweeper every 5 minutes, Paperless OCR 24/7 with watchdog.
+- **QuickBooks: "Yes, sign in"** (read-only). Supersedes the 9:33 AM hold, which was a pop-up closed by typing, not a no.
