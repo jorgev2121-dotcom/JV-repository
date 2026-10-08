@@ -46,3 +46,4 @@ Owner submitted the application. U.S. Bank: reply in 7–10 business days (≈ M
 
 ## Update 2026-10-08 ~1:15 PM ET — income clarified by owner
 Owner: "My income is $1,950, plus or minus a couple dollars" (Social Security ≈ $2,100+ less 15% offset). This contradicts the $177,500 entered on the U.S. Bank Shield application and the earlier pop-up answer. **Cloud recommendation: call U.S. Bank 800-285-8585 before the decision and correct the income (or withdraw).** Any further application (e.g. Bank of America) must state the true income. RPT-CASH-0002's $1,950/mo assumption stands.
+- Owner decision ~1:20 PM ET: "no, leave bank app as submitted." Recorded. Cloud boundary: no help preparing/altering documents to support $177,500; further applications only at true income.
