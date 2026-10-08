@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<!--
+  VT ES Health Monitor — Task Scheduler Definition
+  TRK-2026-9957
+
+  INSTALL: same steps as QueueRunner.xml.
+  Runs every 5 minutes. Detects hung tasks (no output file growth in 15 min).
+
+  Register-ScheduledTask -Xml (Get-Content .\HealthMonitor.xml -Raw) -TaskName "VTES-HealthMonitor" -Force
+-->
+<Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Description>VT ES Health Monitor — checks output file growth every 5 minutes, resets hung tasks.</Description>
+    <URI>\VTES\HealthMonitor</URI>
+  </RegistrationInfo>
+
+  <Triggers>
+    <TimeTrigger>
+      <Repetition>
+        <Interval>PT5M</Interval>
+        <StopAtDurationEnd>false</StopAtDurationEnd>
+      </Repetition>
+      <StartBoundary>2026-10-09T00:00:00</StartBoundary>
+      <Enabled>true</Enabled>
+    </TimeTrigger>
+  </Triggers>
+
+  <Principals>
+    <Principal id="Author">
+      <LogonType>S4U</LogonType>
+      <RunLevel>LeastPrivilege</RunLevel>
+    </Principal>
+  </Principals>
+
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <ExecutionTimeLimit>PT2M</ExecutionTimeLimit>
+    <Enabled>true</Enabled>
+    <Hidden>true</Hidden>
+    <Priority>7</Priority>
+  </Settings>
+
+  <Actions Context="Author">
+    <Exec>
+      <Command>pwsh.exe</Command>
+      <Arguments>-NonInteractive -NoProfile -ExecutionPolicy Bypass -File "C:\Users\JV\source\JV-repository\scripts\health-monitor.ps1"</Arguments>
+    </Exec>
+  </Actions>
+</Task>
