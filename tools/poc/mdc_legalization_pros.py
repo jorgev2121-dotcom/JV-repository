@@ -5,7 +5,7 @@ UA={'User-Agent':'TeamUSASales-research/1.0 (read-only public records; Jorge@Tea
 BASE='https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/miamidade_permit_data/FeatureServer/0/query'
 F=['ProcessNumber','PermitNumber','MasterPermitNumber','PermitType','ResidentialCommercial','ApplicationTypeDescription','ProposedUseDescription','DetailDescriptionComments','CategoryDescription1','CategoryDescription2','EstimatedValue','ApplicationDate','PermitIssuedDate','LastApprovedInspDate','CoCcDate','FolioNumber','PropertyAddress','City','OwnerName','ArchitectName','ContractorNumber','ContractorName','ContractorAddress','ContractorCity','ContractorZip','ContractorPhone']
 def q(where,offset=0,count=False):
-    p={'where':where,'outFields':','.join(F),'f':'json','resultOffset':offset,'resultRecordCount':2000,'orderByFields':'ObjectId'}
+    p={'where':where,'outFields':','.join(F),'f':'json','resultOffset':offset,'resultRecordCount':1000,'orderByFields':'ObjectId'}
     if count: p={'where':where,'returnCountOnly':'true','f':'json'}
     req=urllib.request.Request(BASE+'?'+urllib.parse.urlencode(p),headers=UA)
     with urllib.request.urlopen(req,timeout=60) as r: return json.loads(r.read().decode())
@@ -22,8 +22,8 @@ rows=[];off=0
 while True:
     time.sleep(2); d=q(where,off); feats=d.get('features',[])
     rows+= [x['attributes'] for x in feats]
-    if len(feats)<2000 or off>40000: break
-    off+=2000
+    if len(feats)<1000 or off>40000: break
+    off+=1000
 # our 2020 unsafe-structures C-numbers
 cn=json.load(open('marketing/unsafe-structures/uns2020_v2.json'))
 procs=sorted({t[1] for o in cn for t in o['trail'] if t[0].startswith('Process')})
@@ -51,8 +51,10 @@ pros=collections.defaultdict(lambda:{'role':'','name':'','license':'','address':
 for a in all_rows:
     key_items=[]
     arch=(a.get('ArchitectName') or '').strip()
-    if arch and arch.upper() not in ('NOT LISTED','NONE','N/A','OWNER'): key_items.append(('architect',arch,'','',''))
-    if (a.get('ContractorName') or '').strip(): key_items.append(('contractor',a['ContractorName'].strip(),a.get('ContractorNumber') or '',' '.join(str(a.get(k) or '') for k in ('ContractorAddress','ContractorCity','ContractorZip')).strip(),a.get('ContractorPhone') or ''))
+    if arch and arch.upper() not in ('NOT LISTED','NONE','N/A','OWNER','NOT REQUIRED'):
+        role='engineer' if re.search(r'\bP\.?E\.?\b|ENGINEER|ENGINEERING|\bPE\b',arch.upper()) else 'architect'
+        key_items.append((role,arch,'','',''))
+    if (a.get('ContractorName') or '').strip() and (a.get('ContractorName') or '').strip().upper() not in ('OWNER','OWNER BUILDER','OWNER/BUILDER'): key_items.append(('contractor',a['ContractorName'].strip(),a.get('ContractorNumber') or '',' '.join(str(a.get(k) or '') for k in ('ContractorAddress','ContractorCity','ContractorZip')).strip(),a.get('ContractorPhone') or ''))
     for role,name,lic,addr,ph in key_items:
         p=pros[(role,name.upper())]; p.update(role=role,name=name,license=lic or p['license'],address=addr or p['address'],phone=ph or p['phone'])
         p['jobs'].add(a.get('ProcessNumber')); p['scopes'][scope(a)]+=1; p['types'][a.get('PermitType') or '']+=1; p['cities'].add(a.get('City') or '')
@@ -67,10 +69,12 @@ out.sort(key=lambda r:(order[r['role']],-r['legalization_jobs']))
 with open('data/pros/PROS-DIRECTORY.csv','w',newline='') as f:
     w=csv.DictWriter(f,fieldnames=list(out[0].keys()) if out else ['role']); w.writeheader(); w.writerows(out)
 arch_listed=sum(1 for a in all_rows if (a.get('ArchitectName') or '').strip().upper() not in ('','NOT LISTED','NONE','N/A','OWNER'))
-summary.update(rows_pulled=len(rows),rows_with_architect=arch_listed,architects=sum(1 for r in out if r['role']=='architect'),contractors=sum(1 for r in out if r['role']=='contractor'),scope_counts=collections.Counter(scope(a) for a in all_rows).most_common(),permit_types=collections.Counter(a.get('PermitType') for a in all_rows).most_common(),issued_range=[min((str(a.get('PermitIssuedDate')) for a in all_rows if a.get('PermitIssuedDate')),default=''),max((str(a.get('PermitIssuedDate')) for a in all_rows if a.get('PermitIssuedDate')),default='')])
+summary.update(rows_pulled=len(rows),rows_with_architect=arch_listed,architects=sum(1 for r in out if r['role']=='architect'),engineers=sum(1 for r in out if r['role']=='engineer'),owner_builder_rows=sum(1 for a in all_rows if (a.get('ContractorName') or '').strip().upper() in ('OWNER','OWNER BUILDER','OWNER/BUILDER')),contractors=sum(1 for r in out if r['role']=='contractor'),scope_counts=collections.Counter(scope(a) for a in all_rows).most_common(),permit_types=collections.Counter(a.get('PermitType') for a in all_rows).most_common(),issued_range=[min((str(a.get('PermitIssuedDate')) for a in all_rows if a.get('PermitIssuedDate')),default=''),max((str(a.get('PermitIssuedDate')) for a in all_rows if a.get('PermitIssuedDate')),default='')])
 json.dump(summary,open('data/pros/SUMMARY.json','w'),indent=1,default=str)
 print(json.dumps(summary,indent=1,default=str))
 print('TOP ARCHITECTS'); [print(r['legalization_jobs'],r['name'],'|',r['top_scopes']) for r in out if r['role']=='architect'][:0]
 for r in [r for r in out if r['role']=='architect'][:15]: print(r['legalization_jobs'],r['name'],'|',r['top_scopes'])
+print('TOP ENGINEERS')
+for r in [r for r in out if r['role']=='engineer'][:15]: print(r['legalization_jobs'],r['name'],'|',r['top_scopes'])
 print('TOP CONTRACTORS')
 for r in [r for r in out if r['role']=='contractor'][:15]: print(r['legalization_jobs'],r['name'],r['license'],r['phone'],'|',r['top_scopes'])
