@@ -3,104 +3,110 @@
  "legalization_like_count": 3678,
  "our_2020_c_numbers": 161,
  "our_2020_c_numbers_found_in_layer": 41,
- "rows_pulled": 1000,
- "rows_with_architect": 24,
- "architects": 14,
- "contractors": 263,
+ "rows_pulled": 3678,
+ "rows_with_architect": 111,
+ "architects": 38,
+ "engineers": 6,
+ "owner_builder_rows": 2141,
+ "contractors": 841,
  "scope_counts": [
   [
    "fence/wall",
-   207
+   774
   ],
   [
    "windows/doors",
-   133
+   430
   ],
   [
    "other",
-   105
-  ],
-  [
-   "electrical",
-   102
+   394
   ],
   [
    "addition",
-   102
+   368
+  ],
+  [
+   "electrical",
+   354
   ],
   [
    "enclosure",
-   78
+   286
   ],
   [
    "interior",
-   69
+   276
   ],
   [
    "mechanical/AC",
-   67
+   249
   ],
   [
    "shed/accessory",
-   66
+   223
   ],
   [
    "plumbing",
-   39
-  ],
-  [
-   "roof",
-   32
+   153
   ],
   [
    "pool/deck",
-   29
+   93
+  ],
+  [
+   "roof",
+   74
   ],
   [
    "carport/canopy",
-   11
+   43
   ],
   [
    "conversion/unit",
-   1
+   2
   ]
  ],
  "permit_types": [
   [
    "BLDG",
-   631
+   2283
   ],
   [
    "ELEC",
-   158
+   541
   ],
   [
    "MECH",
-   98
+   345
   ],
   [
    "PLUM",
-   68
+   261
   ],
   [
    "MBLD",
-   43
+   157
   ],
   [
    "ZIPS",
-   39
+   120
   ],
   [
    "LPGX",
-   2
+   8
   ],
   [
    "MPLU",
+   2
+  ],
+  [
+   "MMEC",
    2
   ]
  ],
  "issued_range": [
   "2024-10-07",
-  "2026-09-09"
+  "2026-10-06"
  ]
 }
