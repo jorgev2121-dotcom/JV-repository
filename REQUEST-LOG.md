@@ -60,3 +60,5 @@ Columns: ID · time · window · his words (start) · interpretation · duplicat
 **Owner answers 2026-10-08 ~12:15 PM (pop-up):** Needs/wants starting rule (OD-109-A §2) — "Yes, use it". Medley emails — "Not yet, remind me": reminder routine trig_01XG71eMz7ndUBLotDa25sz9 set for 3:30 PM ET (checks Gmail Sent; never sends).
 
 **Owner answers 2026-10-08 ~12:35 PM (pop-up):** $600 email company — "Check the company first": done, see finance/LISTKIT-COLD-EMAIL-CHECK_2026-10-08.md. U.S. Bank — "Yes, finish it today".
+
+**Owner answers 2026-10-08 ~12:45 PM (pop-up):** U.S. Bank — "Yes, opening it now": live guidance in progress. ListKit — "Yes, draft it": Gmail draft r-671330720849652508 to taj@listkit.io (Outlook drafts unavailable — no Mail.ReadWrite). Jorge sends.
