@@ -1,0 +1,91 @@
+<title>Today's Round Table</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a single timeline down the page, one entry per request, his words then my answer. Sections lettered for "re-read Section C". */
+:root{
+  --bg:#f5f6f3; --card:#ffffff; --ink:#1c2321; --mut:#5a6460; --line:#d6dbd6; --accent:#1b5e9e; --rail:#b9c4be;
+  --ok:#1d6b3b; --ok-bg:#e3f3e8; --mv:#173f66; --mv-bg:#e8f0f8; --you:#6b4100; --you-bg:#fff1cc; --bad:#b3261e; --bad-bg:#fdeceb; --soon:#4a4a47; --soon-bg:#eceae4;
+  --f-body:"Source Sans 3","Segoe UI",Arial,sans-serif; --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141917;--card:#1d2422;--ink:#e7ece9;--mut:#a3aea9;--line:#33403b;--accent:#7fb3e6;--rail:#3c4a44;--ok:#8fd6a6;--ok-bg:#183626;--mv:#a9c9ec;--mv-bg:#16283b;--you:#f3c96b;--you-bg:#3a2c0c;--bad:#f19a92;--bad-bg:#3d1714;--soon:#c9c7c0;--soon-bg:#2b2b29;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:1.0625rem/1.6 var(--f-body)}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px;padding-block:20px 72px}
+header{border-bottom:3px solid var(--ink);padding-bottom:12px}
+.rpt{font:700 .95rem var(--f-mono);color:var(--accent)}
+h1{font-size:2rem;margin:2px 0;text-wrap:balance}
+.meta{color:var(--mut);font-size:.97rem}
+h2{font-size:1.35rem;margin:30px 0 10px;text-wrap:balance}
+h2 .sec{display:block;font:700 .8rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.box{background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:12px 18px}
+.box p{margin:.35em 0}
+ol.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:3px solid var(--rail);display:grid;gap:14px}
+ol.tl li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+ol.tl li::before{content:"";position:absolute;left:-31px;top:16px;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.when{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:700 .85rem var(--f-mono);color:var(--mut)}
+.said{margin:6px 0 4px;font-style:italic}
+.did{margin:4px 0 0}
+.pill{display:inline-block;font:800 .72rem var(--f-body);letter-spacing:.04em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:2px solid currentColor}
+.ok{color:var(--ok);background:var(--ok-bg)}.mv{color:var(--mv);background:var(--mv-bg)}.you{color:var(--you);background:var(--you-bg)}.bad{color:var(--bad);background:var(--bad-bg)}.soon{color:var(--soon);background:var(--soon-bg);border-style:dashed}
+ul.plain{margin:6px 0;padding-left:22px}
+ul.plain li{margin:4px 0}
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:8px;font:700 .85rem var(--f-mono);color:var(--mut);text-align:right}
+@media print{body{background:#fff;color:#000}footer{position:fixed;bottom:0;left:0;right:0;background:#fff}ol.tl li{break-inside:avoid}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="rpt">RPT-CHRONO-0001</div>
+  <h1>Today's Round Table</h1>
+  <div class="meta">Everything you asked the Cloud window on Thursday 2026-10-08, and what was done, in time order. Times are Miami time, taken from the session record. Each request has an ID from the new request log.</div>
+</header>
+
+<h2><span class="sec">Section A</span>The short version</h2>
+<div class="box">
+  <p><b>You made 15 requests between 8:45 and 10:05 AM.</b> Four are done, seven are in progress, two are planned, one is waiting on you, and one is blocked on a single click of yours.</p>
+  <p><b>The biggest finding:</b> orders I sent the PC this morning were invisible to it, because I saved them without the ".md" ending. That was my mistake. They were re-filed at 9:54 AM.</p>
+  <p><b>What needs you</b> is in Section C.</p>
+</div>
+
+<h2><span class="sec">Section B</span>Request by request</h2>
+<ol class="tl">
+  <li><div class="when">8:45 AM · RQ-01 <span class="pill ok">Done</span></div><div class="said">"Confirm you can reach my computer … advise what has not been completed on the VTES control panel …"</div><div class="did">I corrected one point: the Cloud window cannot touch your PC, and only RAMBO can. The new panel (v5) was fully built and had passed its eighth check, but was waiting for your yes to install.</div></li>
+  <li><div class="when">8:47 AM · RQ-02 <span class="pill mv">In progress</span></div><div class="said">"yes, install panel v5"</div><div class="did">Install order sent to RAMBO. It turned out to be invisible to the PC (see 9:53) and was re-filed at 9:54 AM.</div></li>
+  <li><div class="when">9:04 AM · RQ-03 <span class="pill mv">In progress</span></div><div class="said">"…automate the download of my bank statements … P&amp;L and balance sheet … invoices for client reimbursement … 1Password … one-click approvals …"</div><div class="did">Wrote owner directive OD-109, BILLING SENTINEL. It covers a daily bank feed, matching payments to jobs, and draft invoices you approve with one click. Phase 1 (listing your accounts) was sent to RAMBO.</div></li>
+  <li><div class="when">9:04 AM · RQ-04 <span class="pill you">Needs you</span></div><div class="said">"the prompted text to speech window that Rambo will make open by default, with. 3."</div><div class="did">Your dictation cut off here. I don't know what you wanted, and I haven't guessed.</div></li>
+  <li><div class="when">9:07 AM · RQ-05 <span class="pill mv">In progress</span></div><div class="said">"…incorporate monitoring of the municipality and permitting departments … add it to the VTES control panel"</div><div class="did">Added daily county and city portal checks for every active job (OD-109), plus a BILLING tab on the panel.</div></li>
+  <li><div class="when">9:16 AM · answer</div><div class="said">"yes, 1Password CLI is on."</div><div class="did">Noted. RAMBO had found 1Password closed at 1:43 AM, so it needs to stay open when RAMBO runs.</div></li>
+  <li><div class="when">9:19 AM · RQ-06 <span class="pill soon">Planned</span></div><div class="said">"…put my one click approval button on the control panel so I don't need to navigate …"</div><div class="did">Wrote the plan for a NEEDS MY APPROVAL page: every pending item with one button. Expected October 11.</div></li>
+  <li><div class="when">9:23 AM · RQ-07 <span class="pill mv">In progress</span></div><div class="said">"…I uploaded all of my bank history statements for 2025 … profit and loss … QuickBooks …"</div><div class="did">Found them on your PC in the Downloads folder: 8 Chase files, a full year of Bank of America, and 4 card files. Nobody had ever built a P&amp;L from them. I recommended QuickBooks Online, which you already pay for, run by RAMBO so you never open it. A draft 2025 P&amp;L order went to RAMBO.</div></li>
+  <li><div class="when">9:24 AM · switch</div><div class="said">You switched this window to Opus 5.5.</div></li>
+  <li><div class="when">9:31 AM · RQ-08 <span class="pill ok">Done</span></div><div class="said">"…You tell it what you want it to do, and it starts giving you choices, two choices …"</div><div class="did">Made it Rule 9 in your charter: every decision comes as two clear buttons, with the recommended one first. I advised against a separate overlay app, since it would be one more window to juggle.</div></li>
+  <li><div class="when">9:33 AM · answer</div><div class="said">You closed the QuickBooks sign-in question.</div><div class="did">QuickBooks is on hold. I won't ask again unless you bring it up.</div></li>
+  <li><div class="when">9:33 AM · RQ-09 <span class="pill bad">Blocked</span></div><div class="said">"…my promotional $250 credit … trigger automatically …"</div><div class="did">No Claude window can change your account's billing. Your one click: "Get more usage", then turn on extra usage with a $250 limit. Nothing was set up for you.</div></li>
+  <li><div class="when">9:38 AM · RQ-10 <span class="pill mv">In progress</span></div><div class="said">"…buttons … do not have color legend … add the pages … grayed out … hover over all …"</div><div class="did">Built and browser-tested panel v5.1: one color scheme with a key, 9 greyed-out pages with dates, and hover help on every tab, button and abbreviation. It installs right after v5.</div></li>
+  <li><div class="when">9:48 AM · RQ-11 <span class="pill ok">Done</span></div><div class="said">"…five slices … accounting of what is live … artifact … tracking number that indicates the type of report …"</div><div class="did">All five slices are built; the install is the step still waiting. I published report RPT-PANEL-0001 and started report numbers that name the report type.</div></li>
+  <li><div class="when">9:48 AM · RQ-12 <span class="pill soon">Planned</span></div><div class="said">"…icons for shortcuts … grouping them by type … hover … out of the box …"</div><div class="did">This repeats an earlier PROJECTS item. Plan: build it from the list 1Password already has, as a LAUNCHER page in the panel. Expected October 16.</div></li>
+  <li><div class="when">9:48 AM · RQ-13 <span class="pill ok">Done</span></div><div class="said">"…we are moving too slow … smarter models … diagram …"</div><div class="did">Drew the flowchart. The real slowdown turned out to be my filing mistake (next entry). Your Opus switch for RAMBO is one click on the Desktop.</div></li>
+  <li><div class="when">9:53 AM · check-in <span class="pill ok">Fixed</span></div><div class="said">My scheduled check found no replies from the PC.</div><div class="did">Cause: I had saved every order without ".md". Re-filed all four, corrected the report, and logged it as recurring issue RI-057.</div></li>
+  <li><div class="when">10:01 AM · RQ-14 <span class="pill mv">In progress</span></div><div class="said">"Please provide a synopsis … round table … revisions … OCR protocol … 24/7 … two lanes … grocery store …"</div><div class="did">This page. A round-table rule for every window. A revisions folder. Three options for OCR that never stops, with my recommendation.</div></li>
+  <li><div class="when">10:05 AM · RQ-15 <span class="pill mv">In progress</span></div><div class="said">"…request log … the wording and your interpretation … handed off to orchestrator … an agent that's five minutes behind us …"</div><div class="did">Started the request log (every row on this page comes from it). The automatic catch-up agent needs your yes; see Section C.</div></li>
+</ol>
+
+<h2><span class="sec">Section C</span>What needs you</h2>
+<ul class="plain">
+  <li><b>One yes, three switches:</b> (1) let cloud sessions write the log automatically after every reply; (2) let RAMBO run the catch-up agent on your PC every 5 minutes; (3) start Paperless as the OCR engine that never stops. The PC's safety system won't let Claude switch on anything that runs by itself without you.</li>
+  <li><b>Finish one sentence:</b> what did you want the text-to-speech window to do (RQ-04)?</li>
+  <li><b>Extra usage:</b> "Get more usage", with a $250 limit.</li>
+  <li><b>Opus for RAMBO:</b> double-click "SWITCH TO OPUSPLAN - click me" on your Desktop.</li>
+  <li><b>Keep 1Password open</b> while RAMBO works.</li>
+</ul>
+
+<h2><span class="sec">Section D</span>Where everything is</h2>
+<ul class="plain">
+  <li>Request log: REQUEST-LOG.md in the repo, mirrored to Drive, Shared Folders for all LLMs, ROUND-TABLE.</li>
+  <li>The rule every window follows: ROUND-TABLE-PROTOCOL.md (charter Rule 10).</li>
+  <li>OCR options: OCR-ALWAYS-ON_OPTIONS_2026-10-08.md.</li>
+  <li>Panel status: report RPT-PANEL-0001.</li>
+</ul>
+
+<footer>RPT-CHRONO-0001 · v1 · 2026-10-08 · CURRENT</footer>
+</div>

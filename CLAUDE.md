@@ -541,3 +541,19 @@ one, and it keeps going step by step until the goal is reached.
    choices as `Reply 1 — …` / `Reply 2 — …` so he can answer with one word.
 6. **The VTES panel follows the same pattern** in its approval section (see
    `panel-rebuild/ROUND-11-APPROVAL-SYSTEM_SPEC_2026-10-08.md`, Guided mode).
+
+---
+
+## 14. Rule 10 — Round table, request log, sweeper (owner directives 2026-10-08)
+
+Full protocol: `ROUND-TABLE-PROTOCOL.md`. The essentials:
+
+1. **Every request Jorge makes gets a `REQUEST-LOG.md` row in the same reply that answers it**:
+   time, his words, your interpretation, "Enhances / Duplicate of" if it repeats something, status,
+   and where it is tracked. Then an OPEN-ITEMS row. A request with no row was dropped.
+2. **Write your round-table entry** (`round-table/YYYY-MM-DD_<WINDOW>_<session>.md`, mirrored to
+   Drive `Shared Folders for all LLMs/ROUND-TABLE/`) after every reply that changed anything, and
+   always before a pause of 10 minutes or more.
+3. **Before changing a protocol, copy the current version to `_REVISIONS/<NAME>/`.**
+4. **Files dropped in VTES-Inbox end in `.md`** (RI-057). No ACK within ~15 minutes means the
+   order was not seen.

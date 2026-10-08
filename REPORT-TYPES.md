@@ -12,6 +12,7 @@ page header AND in the footer stamp of every printed page:
 - **RPT-BOOKS** — P&L, balance sheet, AR/AP (OD-109-A).
 - **RPT-BILL** — unbilled reimbursements and invoice queue (OD-109).
 - **RPT-NIGHT** — overnight run report with denominators (Rule 8).
+- **RPT-CHRONO** — chronological recap of a day's requests and replies (round table), for Jorge to catch up.
 - **RPT-STATUS** — whole-business status of every open item (OPEN-ITEMS digest).
 
 New types are added here before first use.
@@ -20,3 +21,4 @@ New types are added here before first use.
 | Number | Date | Title | Where |
 |---|---|---|---|
 | RPT-PANEL-0001 | 2026-10-08 | VTES Panel Status | https://claude.ai/artifact/HctGdFCtiUoeVJdpVycjMG ; source reports/RPT-PANEL-0001.html |
+| RPT-CHRONO-0001 | 2026-10-08 | Today's Round Table | https://claude.ai/artifact/G1DjPtsbaVcj3raHc4qLzy ; source reports/RPT-CHRONO-0001.html |
