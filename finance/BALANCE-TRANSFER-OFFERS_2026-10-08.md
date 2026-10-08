@@ -1,0 +1,29 @@
+# Balance-transfer offers — email search, 2026-10-08
+
+Owner request (RQ-20261008-25): find the U.S. Bank balance-transfer application he started, whether it was completed, any decision, and any approved amount.
+
+## What the email shows (Outlook jorge@teamusasales.com; Gmail jorgev2121 searched too, nothing)
+
+1. **U.S. Bank Shield Visa — PRE-APPROVED, application NOT submitted.**
+   - 2026-10-06 10:52 AM ET, usbanks@notifications.usbank.com, "Submit your application soon to accept your pre-approval offer": "Now that you've been pre-approved for a Shield Visa credit card, you have 3 days to complete your application. If you don't complete your application in 3 days, you'll need to restart the pre-approval process." → pre-approval window ends about **Fri 2026-10-09** (exact cut-off unknown).
+   - 2026-10-06 12:10 PM and 2026-10-07 12:11 PM ET, 1800USBanks@email.usbank.com: "Your application is saved … complete it within 30 days."
+   - **No approval, decline, or credit-limit email exists.** No dollar amount appears in any U.S. Bank email. Pre-approval is not final approval (final decision needs a hard credit check).
+2. **Citi — existing balance transfer(s) already on the account.** Citi AutoPay reminders 07-17, 08-18, 09-17: "Don't forget about your balance transfer(s) … impacts your Minimum Payment Due. Your AutoPay is set to $300." Promo end date not in email → RAMBO/bill-dates order to read it from the Citi site. Matters because a promo ending would jump the rate on the Citi $6,408.
+3. Marketing only (not applications): Costco Citi Visa (09-22), AAA/ACG card by U.S. Bank (07-21), Amex Blue Cash Preferred (08-06, 08-20).
+
+## Shield Visa public terms (verify on the application's Rates and Fees box)
+- 0% intro APR on purchases and balance transfers for 21 billing cycles; transfers must be made within 60 days of opening.
+- Balance-transfer fee 5% ($5 min). No annual fee. After intro: 16.99%–27.99% variable.
+- Cannot transfer balances from other U.S. Bank accounts.
+- Sources: usbank.com/credit-cards/shield-visa-credit-card ; nerdwallet.com/credit-cards/reviews/us-bank-shield
+
+## Math (planning only)
+- Every $10,000 moved off Chase Ink (24.49%): fee $500; interest saved ≈ $204/month; fee repaid in ≈ 2.5 months; ≈ $3,800 net saved over 21 cycles if paid down.
+- Limit is unknown; with 68% card utilization and the SBA default, a modest limit is likely. Unverified.
+
+## Risk flagged to owner (Rule 3)
+"Re-use the card I paid off" = the freed Chase room gets spent and total debt grows by the transferred amount plus the 5% fee. Recommended: freed room is the emergency backup only (replaces Amex in RPT-CASH-0002 Plan 1), not new spending.
+
+Applying is owner-only (SSN/income, signup = RED). Nothing applied for, sent or paid by Cloud.
+
+OD-109-A · BALANCE-TRANSFER · v1 · 2026-10-08 · CURRENT
