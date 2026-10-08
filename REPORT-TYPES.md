@@ -13,6 +13,7 @@ page header AND in the footer stamp of every printed page:
 - **RPT-BILL** — unbilled reimbursements and invoice queue (OD-109).
 - **RPT-NIGHT** — overnight run report with denominators (Rule 8).
 - **RPT-CHRONO** — chronological recap of a day's requests and replies (round table), for Jorge to catch up.
+- **RPT-REVIEW** — a client job shown to Jorge for comment the moment it is review-ready, blanks marked; one per job version.
 - **RPT-STATUS** — whole-business status of every open item (OPEN-ITEMS digest).
 
 New types are added here before first use.
@@ -22,3 +23,5 @@ New types are added here before first use.
 |---|---|---|---|
 | RPT-PANEL-0001 | 2026-10-08 | VTES Panel Status | https://claude.ai/artifact/HctGdFCtiUoeVJdpVycjMG ; source reports/RPT-PANEL-0001.html |
 | RPT-CHRONO-0001 | 2026-10-08 | Today's Round Table | https://claude.ai/artifact/G1DjPtsbaVcj3raHc4qLzy ; source reports/RPT-CHRONO-0001.html |
+| RPT-STATUS-0001 | 2026-10-08 | Today's Game Plan | https://claude.ai/artifact/1iS1Vp4qcPtnWWGk8iyLMY |
+| RPT-REVIEW-0001 | 2026-10-08 | Review: 10362 SW 180 St (TRK-2026-1536) | reports/RPT-REVIEW-0001.html |
