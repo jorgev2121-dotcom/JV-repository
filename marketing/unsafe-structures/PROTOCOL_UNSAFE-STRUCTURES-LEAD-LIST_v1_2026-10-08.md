@@ -33,3 +33,10 @@ CSV: owner name · owner type · mailing address · property address · folio ·
 - Mail: the safest channel for homeowners and the one the existing Wally plan was built on.
 
 RPT-LEADS protocol · v1 · 2026-10-08 · CURRENT
+
+## Addendum 2026-10-08 ~3:15 PM — proof of concept from a cloud runner (no PC, no login)
+GitHub Actions run 37829963974 reached, read-only:
+- **County permit GIS layer** (ArcGIS, public): https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/miamidade_permit_data/FeatureServer/0 — 61 fields incl. **ArchitectName**, ContractorName/Number/Address/**Phone**, ProcessNumber (C-numbers), PermitNumber, PermitType, ApplicationTypeDescription, DetailDescriptionComments (work description), EstimatedValue, ApplicationDate, PermitIssuedDate, LastApprovedInspDate, CoCcDate, FolioNumber, OwnerName, legal description, square footage, category codes. Window: roughly the last 24 months.
+- **Property Appraiser** service by folio (200 OK, zoning / land use / jurisdiction block).
+- **RER Regulation Support Web Viewer** (case activity logs) and the county permits page and Open Data hub: all 200 OK.
+**Conclusion:** public-data jobs can run on a cloud runner on a schedule, with no RAMBO window. Older permits (before the ~24-month window) still need the permit search pages.
