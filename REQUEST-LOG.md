@@ -66,3 +66,5 @@ Columns: ID · time · window · his words (start) · interpretation · duplicat
 **Owner answers 2026-10-08 ~12:45 PM (pop-up):** U.S. Bank — "Yes, opening it now": live guidance in progress. ListKit — "Yes, draft it": Gmail draft r-671330720849652508 to taj@listkit.io (Outlook drafts unavailable — no Mail.ReadWrite). Jorge sends.
 
 **Owner report 2026-10-08 ~1:00 PM:** "US bank, application, submitted, just now, they said, seven to 10 business days, for reply." → RQ-20261008-25/27/28 application step DONE (owner-submitted). Decision expected ~Mon 10-19 to Thu 10-22. Check routine set for Tue 10-20 9:47 AM ET.
+
+**Owner answers 2026-10-08 ~1:20 PM (pop-up):** Both "Yes, draft it". Gmail drafts: r-3643985025481325522 to Fabregat (cc Julio) — resend B2020-0177 approved set via Drive/Dropbox, change-of-architect forms coming, any NOV copy?; r-4947373660418720425 to Julio — W2026066388 is not Medley, proposal by Monday. Jorge sends.
