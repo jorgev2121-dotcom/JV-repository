@@ -28,6 +28,6 @@ To stop receiving these emails, reply STOP or click [UNSUBSCRIBE LINK].
 1. One analogy works better than three: the ticket clinic (taught by a client) is the clearest; heart surgeon, car wash and lawn removed to keep it short.
 2. "Less than the county will charge you in two months" is only true where the case shows daily fines; used only for those owners.
 3. "My regular clients are real estate attorneys and title companies": keep only if accurate (credibility line).
-4. "Free" research call: confirm that's your intent; remove "free" if not.
+4. "Free" research call: CONFIRMED by Jorge 2026-10-08 ("Sure").
 
 Not legal advice. CAMPAIGN-COPY · v2 · 2026-10-08 · DRAFT
