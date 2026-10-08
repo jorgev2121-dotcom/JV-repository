@@ -1,0 +1,332 @@
+{
+ "queue": "VTES-TASK-QUEUE",
+ "version": 1,
+ "updated": "2026-10-08T15:30-04:00",
+ "rules": [
+  "Read this file first. Pick an item whose fit matches your tools and whose claimed_by is empty.",
+  "Claim it: set claimed_by to your window name and the time; set status IN-PROGRESS.",
+  "Write the result as EXECUTED_<order>.md or BLOCKER_<order>.md in VTES-Outbox, then set status DONE or BLOCKED here.",
+  "Never send, pay, file, move, rename or delete without Jorge's click. Cards: nickname + last 4 only. Never bypass a captcha."
+ ],
+ "items": [
+  {
+   "id": "Q-001",
+   "tags": [
+    "#TEDC",
+    "#Medley",
+    "#Invoices"
+   ],
+   "orders": [
+    "MSG-CLOUD-TO-CODE_TEDC-RENAME-AND-INVOICES-PLUS-MEDLEY-DEPOSIT_2026-10-08.md"
+   ],
+   "drive_ids": [],
+   "fit": "PC-ONLY",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": "(Drive 1ae81bLNDoGbJdUyGhx31qdQ_AAURNjXH). Rename 3 TEDC folders; draft ~$30,000 TEDC invoices + Medley $8,000 deposit invoice. **[PC-ONLY]** (Drive G:, QuickBooks)."
+  },
+  {
+   "id": "Q-002",
+   "tags": [
+    "#10980",
+    "#Julio",
+    "#Medley2020Set"
+   ],
+   "orders": [
+    "\u202610980-REIMBURSE-JULIO-PROPOSAL-MEDLEY-2020-SET_2026-10-08.md"
+   ],
+   "drive_ids": [
+    "1JI6pz3qgWMqPN9TSTOb-BY5GKCSvfx5l"
+   ],
+   "fit": "PC-ONLY",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": ". Find the ~$300 Miami-Dade fee paid for #10980 and draft a reimbursement invoice; find Julio Silva's proposal in Outlook; look for the Medley 2020 approved set on the PC. **[PC-ONLY]**."
+  },
+  {
+   "id": "Q-003",
+   "tags": [
+    "#Medley",
+    "#NOV"
+   ],
+   "orders": [
+    "\u2026MEDLEY-NOV-REQUESTS-TODAY_2026-10-08.md",
+    "\u2026MEDLEY-AMENDMENT-DRAFTS-NOW-IN-GMAIL_2026-10-08.md"
+   ],
+   "drive_ids": [
+    "1QBhjh3SmGDrKggJyM_-DkQ5nhqCOxcfD",
+    "1TLqqgxdiDp_BI00qvr8Xb_YZEY9uKfHK"
+   ],
+   "fit": "NONE NEEDED",
+   "status": "SUPERSEDED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": "+ amendment  . **Mostly superseded:** the 3 request emails already sit in Jorge's Gmail Drafts; remaining = log calls/texts after Jorge sends. **[NONE NEEDED]**."
+  },
+  {
+   "id": "Q-004",
+   "tags": [
+    "#Bills",
+    "#October"
+   ],
+   "orders": [
+    "\u2026BILL-PAYMENT-DATES-OCTOBER_2026-10-08.md"
+   ],
+   "drive_ids": [
+    "14NpIS-JRpjINAEQcJ8S3b0iu4O3dhQWx"
+   ],
+   "fit": "PC-ONLY",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": ". Read payment dates of October bills from bank/card sites. **[PC-ONLY]** (logins)."
+  },
+  {
+   "id": "Q-005",
+   "tags": [
+    "#QuickBooks",
+    "#BankFeed"
+   ],
+   "orders": [
+    "\u2026QUICKBOOKS-BANK-FEED-CONNECT_2026-10-08.md",
+    "\u2026ADDENDUM-1PASSWORD-FALLBACK",
+    "\u2026AMENDMENT-2-RUN-NOW-TOPMOST-APPROVALS"
+   ],
+   "drive_ids": [
+    "1xGImQn3F2Lh_TnilIiciz5ULIxtb8SCP",
+    "1iVAdODV-_lm5xvLs1LfqOlnBeQP64QEJ",
+    "1uVQKhtEpWCppSxzpJd8pv8lKC-MVZB1H"
+   ],
+   "fit": "PC-ONLY",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": "+   +  . Connect cards and checking to QuickBooks Online bank feed; data sharing OFF; topmost pop-ups for Jorge's approvals. **[PC-ONLY]** (Jorge's logins and MFA)."
+  },
+  {
+   "id": "Q-006",
+   "tags": [
+    "#Books",
+    "#PnL2025"
+   ],
+   "orders": [
+    "\u2026BOOKS-B0-DRAFT-2025-PNL_2026-10-08.md",
+    "\u2026BOOKS-ADDENDUM-EXCEL-AND-QB-PRIVACY",
+    "\u2026BOOKS-ADDENDUM-2-CARDS-NEEDS-VS-WANTS"
+   ],
+   "drive_ids": [
+    "1D-KFXQRz1Qa-rgxtaypwG3y_HcfHXs_k",
+    "1oEU0Fy53YfxAIgtn8PECtTRWqyqcGdeE",
+    "1VqllXEMAWhgeLQZ41R3L-JahdIkPW6Yz"
+   ],
+   "fit": "PC-ONLY",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": "+   +  . Draft 2025 P&L, Excel reconciliation, tag card charges NEED/WANT/BUSINESS/UNSURE. **[PC-ONLY]** (bank exports on PC); could become [CLOUD-OK] if Jorge uploads the CSV exports to Drive."
+  },
+  {
+   "id": "Q-007",
+   "tags": [
+    "#BillingSentinel"
+   ],
+   "orders": [
+    "\u2026BILLING-SENTINEL-PHASE1_2026-10-08.md"
+   ],
+   "drive_ids": [
+    "1crXqk8RxjdzS2Z6nYFyEw80A36SffWV_"
+   ],
+   "fit": "MIXED",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": ". Find county fees paid for clients and never billed. **[MIXED]**."
+  },
+  {
+   "id": "Q-008",
+   "tags": [
+    "#Panel",
+    "#v5"
+   ],
+   "orders": [
+    "\u2026INSTALL-PANEL-V5-NEW-FOLDER_2026-10-08.md"
+   ],
+   "drive_ids": [
+    "19GHQPVoRcEiSQVaw95_kMlgBTFXIeQgh"
+   ],
+   "fit": "PC-ONLY",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": ". Install the rebuilt control panel into a new folder (Jorge approved). **[PC-ONLY]**."
+  },
+  {
+   "id": "Q-009",
+   "tags": [
+    "#Panel",
+    "#v5.1"
+   ],
+   "orders": [
+    "\u2026INSTALL-PANEL-V5.1-GUIDE_v2_2026-10-08.md"
+   ],
+   "drive_ids": [
+    "1MKuEWeE0ylbc_R47ZXwbU6vYi5WAhdZO"
+   ],
+   "fit": "PC-ONLY",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": ". Add the colour key, greyed \"coming soon\" pages, hover help. **[PC-ONLY]**."
+  },
+  {
+   "id": "Q-010",
+   "tags": [
+    "#Switches",
+    "#Paperless",
+    "#Sweeper"
+   ],
+   "orders": [
+    "\u2026OWNER-APPROVED-SWITCHES-AND-QUICKBOOKS_2026-10-08.md"
+   ],
+   "drive_ids": [
+    "1y9ET5FWMXAQ6nypG7GVnY9_ksrsAFIKl"
+   ],
+   "fit": "PC-ONLY",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": ". Turn on approved switches (catch-up sweeper, Paperless OCR). **[PC-ONLY]**."
+  },
+  {
+   "id": "Q-011",
+   "tags": [
+    "#NightOCR",
+    "#Board",
+    "#RoundTable"
+   ],
+   "orders": [
+    "\u2026NIGHT-OCR-BOARD-ROUNDTABLE_2026-10-08.md"
+   ],
+   "drive_ids": [
+    "1rAfOJO7MhOqnITr13M5N2vH_hBv3TruF"
+   ],
+   "fit": "PC-ONLY",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": ". Night OCR lane + board/round-table mirror. **[PC-ONLY]**."
+  },
+  {
+   "id": "Q-012",
+   "tags": [
+    "#Gmail",
+    "#Oct6"
+   ],
+   "orders": [
+    "\u2026WHO-SENT-THE-OCT6-GMAIL_2026-10-08.md"
+   ],
+   "drive_ids": [
+    "1PJLvU-B-ooyfEFJmLHmqxjHamT7vssEl"
+   ],
+   "fit": "PC-ONLY",
+   "status": "ANSWERED-PARTIAL",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": ". **Answered by Cloud:** the 2026-10-06 email was Jorge's 3 questions to ListKit sent to placeholder recipient@example.com; which tool sent it is still unknown. **[PC-ONLY]** for the tool trace."
+  },
+  {
+   "id": "Q-013",
+   "tags": [
+    "#PaperPort",
+    "#OCR",
+    "#OPH"
+   ],
+   "orders": [
+    "\u2026PAPERPORT-OCR-SWEEP_2026-10-08.md",
+    "\u2026AMENDMENT-1-PRIORITY-BANK-OFFERS"
+   ],
+   "drive_ids": [
+    "1vAg9i6e-2X0NlHpCPFdG9iSXoOFjFLc2",
+    "1mTGVcC68NiFp1M4sg4h3M1uIxcctG7gw"
+   ],
+   "fit": "PC-ONLY",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": "+  . OCR every PaperPort folder into a mirror, issue OPH-2026-0100\u20261999, hashtags, filing proposals only. Bank-offer mailers first. **[PC-ONLY]** (PaperPort is local)."
+  },
+  {
+   "id": "Q-014",
+   "tags": [
+    "#UnsafeStructures",
+    "#Leads"
+   ],
+   "orders": [
+    "\u2026UNSAFE-STRUCTURES-2021-2026-AND-ENRICH_2026-10-08.md",
+    "\u2026AMENDMENT-1-FIELDS-AND-LIENS"
+   ],
+   "drive_ids": [
+    "1cBJdkveWHTtYOH_VHkSuYAs659YuPcw2",
+    "1q_l6JG-BcbqX-fQukBXaprSTBCsDNm7d"
+   ],
+   "fit": "CLOUD-OK",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": "+  . Download RER Unsafe Structures OPEN cases 2021\u20132026 by year; add zoning, year built, liens, Clerk recordings, number trail. **[CLOUD-OK]** for the public parts (RER viewer, Property Appraiser, ArcGIS); Clerk images may need a browser."
+  },
+  {
+   "id": "Q-015",
+   "tags": [
+    "#LegalizationPros"
+   ],
+   "orders": [
+    "\u2026LEGALIZATION-PROS-DIRECTORY_2026-10-08.md"
+   ],
+   "drive_ids": [
+    "1N5OIurqqVu5yPRpUXuXAGgC1hqUZIo92"
+   ],
+   "fit": "CLOUD-OK",
+   "status": "DONE-PARTIAL",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": ". **Partly DONE by Cloud via GitHub Actions** (repo jorgev2121-dotcom/jv-repository, branch claude/modest-brown-rqbnkp, data/pros/): 3,678 legalization-type permits, 37 architects, 7 engineers, 841 contractors. Remaining: DBPR/FBPE license checks, Sunbiz. **[CLOUD-OK]**."
+  },
+  {
+   "id": "Q-016",
+   "tags": [
+    "#ClosedCases",
+    "#Pros2023-2026"
+   ],
+   "orders": [
+    "\u2026CLOSED-LEGALIZATION-PROS-DATABASE_2023-2026_2026-10-08.md"
+   ],
+   "drive_ids": [
+    "1AlwUb4A3g2fJvrScVpSAJrI0tMcZzDlA"
+   ],
+   "fit": "CLOUD-OK",
+   "status": "NOT-STARTED",
+   "assigned_to": "RAMBO",
+   "claimed_by": "",
+   "updated": "2026-10-08T15:30-04:00",
+   "summary": ". Closed unsafe-structure cases by year, closure type, scope groups, professionals. **[CLOUD-OK]** (public), 20-case pilot first."
+  }
+ ]
+}

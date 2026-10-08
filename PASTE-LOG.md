@@ -103,3 +103,4 @@ enough to identify it exactly, with no description needed.
 | PASTE-X-012 | 2026-10-08 | Anywhere (email/Grammarly) | Unsafe-structures owner email v1 (marketing/unsafe-structures/CAMPAIGN-COPY_UNSAFE-STRUCTURES_v1_2026-10-08.md) | Cloud |
 | PASTE-X-013 | 2026-10-08 | Anywhere (email/Grammarly) | Unsafe-structures owner email v2 | Cloud |
 | PASTE-X-014 | 2026-10-08 | ChatGPT / Codex | Pointer to handoff/HANDOFF_RAMBO-UNEXECUTED-ORDERS_2026-10-08.md (16 unexecuted RAMBO orders) | Cloud |
+| PASTE-X-015 | 2026-10-08 | ChatGPT / Codex / any LLM | Read VTES-TASK-QUEUE.json in Drive Shared Folders for all LLMs, claim an item that fits your tools | Cloud |
