@@ -45,3 +45,9 @@ Feb/May/Aug/Nov; 2026 $6,533.78) · Taxes $515.74 (Miami-Dade Tax Collector, pai
   (the household account). Overdraft room there: about $1,000 if absolutely needed.
 - Family loans, 0% interest, no terms, no payments: **Mom $25,000 · Alec $12,000** (total $37,000).
 - Business cash stated earlier today: **$7,000**.
+
+## Owner note, 2026-10-08 ~12:25 PM ET — SBA loans and the 15% offset
+- **Two SBA loans are in default** (one known to be $232,900 original; the second amount not stated).
+- The 15% reduction is the **U.S. Treasury taking 15% of Jorge's Social Security** for that federal debt
+  (not an IRS tax debt). Net income stays about $1,950/month while the offset continues.
+- Not counted as a monthly bill (no payments being made). Listed as a risk in RPT-CASH-0002.
