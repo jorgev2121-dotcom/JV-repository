@@ -884,6 +884,10 @@ fix (find and remove what disables it) isn't available from here; only Cowork's 
 side could diagnose why its schedule stopped firing. Logged as a data point for the
 pattern, not investigated further — out of reach from cloud or desktop.
 
+**Recurrence note 2026-09-28 02:50 UTC — the fix order itself got stuck behind the fault.** Jorge's PC-ALWAYS-ON-01 directive (2026-09-27 19:42 ET) was routed into VTES-Inbox, whose reader (VTES-LOCAL-POLLER) is one of the dead tasks. Three hours later: not picked up, heartbeat still frozen at 2026-09-24 11:33 ET. **Lesson for every lane: never route a repair order for the Inbox poller through the Inbox.** A dead-poller fix must go to a live interactive desktop session or a double-click file. Tier 3 enforcement (a SYSTEM task that re-enables these tasks every 30 min) remains the recommended fix for this RI; cloud drafted one but it needs Jorge's explicit OK before delivery because it installs a permanent background task.
+
+**Recurrence 2026-10-06 22:17 UTC — heartbeat.json stopped again.** Last write `alive_at 2026-10-06T17:29:55-04:00` (21:30 UTC); still frozen 47 min later at the cloud recheck. Had been fresh every 5 min since the 10-01 21:45 UTC restart (5 days). Cause not yet known — PC shutdown/sleep at 5:30 PM ET is as likely as another task disable; asked Jorge. If he did not turn it off, this is the 3rd logged occurrence and Rule 4 applies: Tier 3 enforcement task (pending his OK) or Tier 2 replace-the-poller, no patches. **Cause found 2026-10-09 (cross-session):** another cloud session's desktop proof shows DESKTOP-OTB90LR "up since 2026-10-06 17:33" — the PC **rebooted** at 17:33 ET, 4 min after the last heartbeat (17:29). The poller then stayed silent until ~08:45 ET next day, so **VTES-LOCAL-POLLER does not restart on boot** (no at-startup trigger, or it only starts at user logon). Not a task-disable this time. Durable fix = give the poller an At-startup/At-logon trigger (same pattern as the Claude-RC-Watchdog task now in progress, PASTE-D-065).
+
 ---
 
 ## RI-016 — OCR output is not attached to tracking numbers
