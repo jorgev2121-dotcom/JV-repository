@@ -2325,3 +2325,5 @@ future master key is generated on the PC and never pasted into chat.
 - 2026-10-09 — Panel v5 install order sat 2 days as a draft after PASS (Oct 7 to Oct 9). Pattern: work finished, last hand-off never sent (same family as RI-056: acknowledged, not executed). Fix applied: order sent; the roadmap board now shows the last step per task.
 
 - 2026-10-09 — Printer scan landed in OneDrive\Pictures\ControlCenter4\OCR as text only, untouched by any intake (SITTING). Same family as the RI holding-area problem: documents enter outside 01-JOBS with no OPH. Owners: SCAN-OUTPUT-IMAGE-PLUS-TEXT-01 / MR-PAPERPORT-BOT-01 jobs.
+
+- 2026-10-09 — Codex-lane PII guard false-positive: blocked the panel v5 install order (no client data in it) on 2026-10-09 01:26 and left it for "Claude after the cap resets"; nobody re-picked it. Same family as RI-056 (orders acknowledged, never executed). Other CODEX-PII blockers on non-client jobs today: RAM-GUARD-AND-AUTO-RESET-01, PANEL-WINDOWS-CROSS-LLM-DIAGNOSIS. Needs a Tier 2 fix: route Claude-addressed orders back to Claude, never to Codex, when the cap resets.
