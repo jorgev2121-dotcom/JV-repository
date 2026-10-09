@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<!--
+  VT ES Scorekeeper — Task Scheduler Definition
+  JOB-0084 | TRK-2026-9959
+
+  Runs twice daily: 07:00 AM and 07:00 PM.
+  Reads queue.jsonl, writes a scorecard with done/total denominator.
+  Rule 8: always a denominator. A run with no report counts as a failed run.
+
+  Register-ScheduledTask -Xml (Get-Content .\Scorekeeper.xml -Raw) -TaskName "VTES-Scorekeeper" -Force
+-->
+<Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Description>VT ES Scorekeeper — twice-daily queue progress report with denominator.</Description>
+    <URI>\VTES\Scorekeeper</URI>
+  </RegistrationInfo>
+
+  <Triggers>
+    <!-- Morning run — 07:00 AM -->
+    <CalendarTrigger>
+      <StartBoundary>2026-10-09T07:00:00</StartBoundary>
+      <Enabled>true</Enabled>
+      <ScheduleByDay>
+        <DaysInterval>1</DaysInterval>
+      </ScheduleByDay>
+    </CalendarTrigger>
+    <!-- Evening run — 07:00 PM -->
+    <CalendarTrigger>
+      <StartBoundary>2026-10-09T19:00:00</StartBoundary>
+      <Enabled>true</Enabled>
+      <ScheduleByDay>
+        <DaysInterval>1</DaysInterval>
+      </ScheduleByDay>
+    </CalendarTrigger>
+  </Triggers>
+
+  <Principals>
+    <Principal id="Author">
+      <LogonType>S4U</LogonType>
+      <RunLevel>LeastPrivilege</RunLevel>
+    </Principal>
+  </Principals>
+
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <ExecutionTimeLimit>PT5M</ExecutionTimeLimit>
+    <Enabled>true</Enabled>
+    <Hidden>true</Hidden>
+    <Priority>7</Priority>
+  </Settings>
+
+  <Actions Context="Author">
+    <Exec>
+      <Command>pwsh.exe</Command>
+      <Arguments>-NonInteractive -NoProfile -ExecutionPolicy Bypass -File "C:\Users\JV\source\JV-repository\scripts\scorekeeper.ps1"</Arguments>
+    </Exec>
+  </Actions>
+</Task>

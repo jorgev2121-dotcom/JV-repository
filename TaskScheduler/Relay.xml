@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<!--
+  VT ES One-Click Relay — Task Scheduler Definition
+  JOB-0082 | TRK-2026-9959
+
+  Runs hourly. Checks cloud-to-desktop mailbox and packages any undelivered
+  items into a relay packet in mailbox\outbox\.
+
+  Register-ScheduledTask -Xml (Get-Content .\Relay.xml -Raw) -TaskName "VTES-Relay" -Force
+-->
+<Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Description>VT ES One-Click Relay — packages cloud-to-desktop mailbox items hourly.</Description>
+    <URI>\VTES\Relay</URI>
+  </RegistrationInfo>
+
+  <Triggers>
+    <TimeTrigger>
+      <Repetition>
+        <Interval>PT1H</Interval>
+        <StopAtDurationEnd>false</StopAtDurationEnd>
+      </Repetition>
+      <StartBoundary>2026-10-09T00:00:00</StartBoundary>
+      <Enabled>true</Enabled>
+    </TimeTrigger>
+  </Triggers>
+
+  <Principals>
+    <Principal id="Author">
+      <LogonType>S4U</LogonType>
+      <RunLevel>LeastPrivilege</RunLevel>
+    </Principal>
+  </Principals>
+
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <ExecutionTimeLimit>PT5M</ExecutionTimeLimit>
+    <Enabled>true</Enabled>
+    <Hidden>true</Hidden>
+    <Priority>7</Priority>
+  </Settings>
+
+  <Actions Context="Author">
+    <Exec>
+      <Command>pwsh.exe</Command>
+      <Arguments>-NonInteractive -NoProfile -ExecutionPolicy Bypass -File "C:\Users\JV\source\JV-repository\scripts\relay.ps1"</Arguments>
+    </Exec>
+  </Actions>
+</Task>
