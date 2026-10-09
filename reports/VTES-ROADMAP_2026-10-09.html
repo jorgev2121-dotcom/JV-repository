@@ -1,0 +1,225 @@
+<title>VTES Roadmap Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one dispatch-board column: summary strip, filter bar, sortable ledger table (scrolls sideways inside its own box on phones). */
+:root{
+  --bg:#f3f5f4; --panel:#ffffff; --ink:#18221f; --muted:#5a6863; --line:#d5ddd9; --accent:#0f6b5c;
+  --ok:#1d7a3e; --warn:#a86400; --bad:#b3261e; --idle:#5d6670;
+  --ok-bg:#e3f2e8; --warn-bg:#fbefd9; --bad-bg:#fbe3e1; --idle-bg:#e8ebee;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Atkinson Hyperlegible",Verdana,Arial,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111816; --panel:#18211e; --ink:#e4ece8; --muted:#9aaba4; --line:#2c3a35; --accent:#4cc2a8;
+  --ok:#6fd38f; --warn:#f0b35a; --bad:#ff8a80; --idle:#a8b2bb;
+  --ok-bg:#183524; --warn-bg:#3a2b12; --bad-bg:#3d1c1a; --idle-bg:#252c31; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111816; --panel:#18211e; --ink:#e4ece8; --muted:#9aaba4; --line:#2c3a35; --accent:#4cc2a8;
+  --ok:#6fd38f; --warn:#f0b35a; --bad:#ff8a80; --idle:#a8b2bb;
+  --ok-bg:#183524; --warn-bg:#3a2b12; --bad-bg:#3d1c1a; --idle-bg:#252c31; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1400px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:grid;gap:18px}
+h1{font-family:var(--display);font-size:2.2rem;letter-spacing:.02em;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:0;max-width:70ch}
+.stamp{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 14px}
+.tile b{display:block;font-family:var(--display);font-size:2rem;line-height:1;font-variant-numeric:tabular-nums}
+.tile span{font-size:.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.why{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);padding:12px 16px;border-radius:4px}
+.why h2{font-family:var(--display);margin:0 0 6px;font-size:1.3rem}
+.why ol{margin:0;padding-left:1.2em;display:grid;gap:4px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.bar label{display:grid;gap:2px;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+select,input{font:inherit;font-size:.95rem;padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:var(--panel);color:var(--ink)}
+input{min-width:0;width:220px;max-width:100%}
+.box{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:1100px}
+th{font-family:var(--display);font-size:1rem;letter-spacing:.04em;text-align:left;padding:10px;border-bottom:2px solid var(--line);position:sticky;top:0;background:var(--panel)}
+th button{all:unset;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+th[aria-sort="ascending"] button::after{content:"▲";font-size:.7em}
+th[aria-sort="descending"] button::after{content:"▼";font-size:.7em}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.95rem}
+td.id{font-family:var(--mono);font-size:.8rem;white-space:nowrap}
+.t{font-weight:700}
+.d{color:var(--muted);margin-top:2px}
+.tags{font-family:var(--mono);font-size:.75rem;color:var(--accent);margin-top:4px;word-break:break-word}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+.s-IN{background:var(--warn-bg);color:var(--warn)}
+.s-BL{background:var(--bad-bg);color:var(--bad)}
+.s-NO{background:var(--idle-bg);color:var(--idle)}
+.s-DO{background:var(--ok-bg);color:var(--ok)}
+.flow{margin:0;padding-left:1.1em;font-size:.85rem}
+.flow li.done{color:var(--muted);text-decoration:line-through}
+.date{font-family:var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+.late{color:var(--bad);font-weight:700}
+.meter{height:6px;background:var(--idle-bg);border-radius:3px;margin-top:4px;width:80px}
+.meter i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.you{font-size:.8rem;font-weight:700;color:var(--bad)}
+.foot{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header style="display:grid;gap:6px">
+    <h1>VTES Roadmap Board</h1>
+    <p class="sub">Every pending job, who does it, the steps to finish, and the date it should go live. Click a column header to sort. Dates are projections from Cloud, not promises.</p>
+    <p class="stamp">Snapshot: Oct 9, 2026, 10:45 AM EDT · Cloud window · source: OPEN-ITEMS.md and Drive VTES-Inbox</p>
+  </header>
+
+  <section class="strip" id="strip" aria-label="Summary"></section>
+
+  <section class="why">
+    <h2>Why you saw no panel improvement</h2>
+    <ol>
+      <li>The new panel (v5) was built and passed its check on Oct 7. <b>Nobody sent the install order.</b> It sat as a draft for 2 days.</li>
+      <li>Sent today, 10:42 AM, to the desktop executor (RAMBO). This is the item that unlocks the rest.</li>
+      <li>Your current page (v3) shows a frozen snapshot. That is why it says RAMBO is not connected while other windows show him active. v5 re-reads status every 60 seconds.</li>
+    </ol>
+  </section>
+
+  <div class="bar">
+    <label for="fStatus">Status<select id="fStatus"><option value="">All</option></select></label>
+    <label for="fStream">Workstream<select id="fStream"><option value="">All</option></select></label>
+    <label for="fOwner">Who acts<select id="fOwner"><option value="">All</option></select></label>
+    <label for="fText">Search<input id="fText" type="search" placeholder="word or #hashtag"></label>
+  </div>
+
+  <div class="box">
+    <table id="board">
+      <thead><tr>
+        <th data-k="live" aria-sort="ascending"><button>Goes live</button></th>
+        <th data-k="id"><button>ID</button></th>
+        <th data-k="title"><button>Task</button></th>
+        <th data-k="stream"><button>Stream</button></th>
+        <th data-k="status"><button>Status</button></th>
+        <th data-k="owner"><button>Who acts</button></th>
+        <th data-k="pct"><button>Done</button></th>
+        <th>Workflow</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="foot">TRK-2026-9910-B · v1 · 2026-10-09 · CURRENT · #VTES #RoadmapBoard</p>
+</div>
+
+<script>
+const TODAY = "2026-10-09";
+// steps: [text, done]
+const ROWS = [
+ {id:"PANEL-01",title:"Install the new control panel (v5)",stream:"Control panel",status:"IN PROGRESS",owner:"RAMBO",pct:85,live:"2026-10-10",
+  d:"Copies the checked v5 panel into a new folder on Drive. Your old v3 page stays as it is. Adds live status, the Miami-Dade, token and housekeeping pages, and real Copy buttons.",
+  tags:"#VTES #ControlPanel #PanelV5 #RAMBO #DesktopExecutor #TRK-2026-9910-C",
+  steps:[["Build v5",1],["8 independent checks, PASS Oct 7",1],["Install order sent Oct 9",1],["RAMBO installs and runs VERIFY",0],["Cloud reads the receipt",0],["You open v5",0]]},
+ {id:"PANEL-02",title:"Refresh-now button and live RAMBO light",stream:"Control panel",status:"NOT STARTED",owner:"Cloud",pct:0,live:"2026-10-13",
+  d:"v5 already re-reads every 60 seconds. This adds a button to force it now, and ties the RAMBO light to the real Remote Control connection.",
+  tags:"#VTES #ControlPanel #LiveStatus #RAMBO #RefreshButton",
+  steps:[["Wait for PANEL-01 to go live",0],["Add button and RAMBO link check",0],["One independent check",0],["RAMBO installs v5.1",0]]},
+ {id:"PANEL-03",title:"Status feeds that fill the panel",stream:"Control panel",status:"NOT STARTED",owner:"RAMBO",pct:10,live:"2026-10-16",
+  d:"Small scheduled scripts on your PC write the heartbeat, bots, tokens, health and housekeeping files. Until they run, v5 shows NO DATA in red instead of lying.",
+  tags:"#VTES #ControlPanel #Heartbeat #TokenMonitor #Housekeeping #DataContract",
+  steps:[["Data rules written",1],["Write the 7 feed scripts",0],["Schedule them",0],["Panel turns green with proof",0]]},
+ {id:"PANEL-04",title:"Start actions from the panel",stream:"Control panel",status:"IN PROGRESS",owner:"RAMBO",pct:40,live:"2026-10-14",
+  d:"Copy packet and open buttons work in v5 today. One-click open of each window needs the vtes:// link registered on your PC (you approved it Oct 6). A web page cannot run programs on its own.",
+  tags:"#VTES #ControlPanel #Actions #vtes-link #HandOff #NotReadOnly",
+  steps:[["Copy-packet buttons built",1],["Your approval Oct 6",1],["RAMBO registers vtes:// link",0],["Fill window addresses",0],["Test each Open button",0]]},
+ {id:"PANEL-05",title:"Fix the dead Focus-Claude link",stream:"Control panel",status:"IN PROGRESS",owner:"RAMBO",pct:30,live:"2026-10-10",
+  d:"Your screenshot: the v3 page points a browser at a Windows shortcut (.lnk). Browsers cannot start shortcuts, and the file may be missing. v5 replaces it with the vtes:// link.",
+  tags:"#VTES #ControlPanel #DeadLink #Focus-Claude #ERR_FILE_NOT_FOUND",
+  steps:[["Cause found",1],["RAMBO checks if file exists (in today's order)",0],["Replaced by vtes:// in v5",0]]},
+ {id:"RAMBO-01",title:"Keep RAMBO connected (auto-restart)",stream:"Desktop reliability",status:"BLOCKED",owner:"You",pct:70,live:"2026-10-09",you:"Paste PASTE-D-065 into Jorge-PC",
+  d:"A watchdog on your PC restarts the Remote Control link every 10 minutes if it drops. Built and pushed. Waiting only for your paste.",
+  tags:"#RAMBO #DesktopExecutor #RemoteControl #Watchdog #Uptime #RI-002",
+  steps:[["Watchdog written",1],["PC reconnected Oct 9",1],["You paste PASTE-D-065",0],["Task shows Ready + OK log",0]]},
+ {id:"RI-056",title:"Your decisions actually get closed",stream:"Desktop reliability",status:"IN PROGRESS",owner:"RAMBO",pct:75,live:"2026-10-13",
+  d:"Clicks you made on decision pages were only being acknowledged. Fixed Oct 6 and proven on real decisions. Cap raised to 12 a day until Oct 13.",
+  tags:"#RI-056 #Decisions #Approvals #RAMBO #RecurringIssue",
+  steps:[["Root cause found",1],["Fix proven on 2 decisions",1],["Backlog drains",0],["Cap review Oct 13",0]]},
+ {id:"WALLY-01",title:"Airtable CRM goes live",stream:"Wally pipeline",status:"BLOCKED",owner:"You",pct:5,live:"2026-10-16",you:"Yes or no: create the Airtable account",
+  d:"Priority Zero: no incoming pipeline means no cash. RAMBO found no Airtable CRM on Oct 6. Creating an account is a signup, so it needs your yes.",
+  tags:"#Wally #CRM #Airtable #Pipeline #PriorityZero #Sales",
+  steps:[["Status checked Oct 6",1],["Your yes to sign up",0],["Build tables and import leads",0],["Wally gets access",0]]},
+ {id:"WALLY-02",title:"Daily call sheet running again",stream:"Wally pipeline",status:"BLOCKED",owner:"RAMBO",pct:10,live:"2026-10-11",
+  d:"The daily call-sheet task has been switched off and failing since Sep 24. RAMBO repairs it and proves one good run.",
+  tags:"#Wally #CallSheet #Pipeline #PriorityZero #ScheduledTask",
+  steps:[["Failure found",1],["Diagnose error 267014",0],["Repair and re-enable",0],["One clean run with a sheet",0]]},
+ {id:"WALLY-03",title:"$70 / 500-record list test",stream:"Wally pipeline",status:"BLOCKED",owner:"You",pct:0,live:"2026-10-16",you:"Yes or no: spend $70",
+  d:"Buy one small lead list to test before spending more. Spending money needs your yes.",
+  tags:"#Wally #LeadList #Pipeline #Spend #PriorityZero",
+  steps:[["Your yes",0],["Buy and load list",0],["Call sheet uses it",0],["Count appointments",0]]},
+ {id:"WALLY-04",title:"Wally access and how-it-works email",stream:"Wally pipeline",status:"BLOCKED",owner:"You",pct:80,live:"2026-10-10",you:"Press Send on the draft",
+  d:"A draft email to Wally may still sit unsent in Outlook. Sending is your click.",
+  tags:"#Wally #Email #Onboarding #PriorityZero",
+  steps:[["Draft written",1],["Confirm draft found",0],["You press Send",0]]},
+ {id:"CASH-01",title:"Medley $8,000 invoice",stream:"Cash collection",status:"BLOCKED",owner:"You",pct:40,live:"2026-10-10",you:"One click: AP-0022 on the Desktop",
+  d:"Three different amounts are on file ($10,600, $16,000 with $8,000 due, $21,200). Your click picks the right one, then the invoice is drafted.",
+  tags:"#Cash #Invoice #Medley #MiamiArtHouse #TUS-26-1033",
+  steps:[["Amounts found",1],["You pick the amount",0],["Draft invoice",0],["You send",0]]},
+ {id:"CASH-02",title:"Alec DD + Orange Tree, then $100.25 invoice",stream:"Cash collection",status:"IN PROGRESS",owner:"RAMBO",pct:45,live:"2026-10-14",
+  d:"The Orange Tree refresh runs daily. The DD files were not found in MY-DESK on Oct 6. Deliver the DD, then invoice $100.25.",
+  tags:"#Cash #AlecValdes #DueDiligence #OrangeTree #Invoice #TRK-2026-1582",
+  steps:[["Orange Tree refresh running",1],["Locate or rebuild DD files",0],["Deliver to Alec",0],["Invoice $100.25",0]]},
+ {id:"CASH-03",title:"Einar extension, 75+ days overdue",stream:"Cash collection",status:"BLOCKED",owner:"You",pct:20,live:"2026-10-10",you:"Yes or no: was it submitted?",
+  d:"The extension ran out Jul 23. Either you already submitted it, or you allow a call to Officer Libio.",
+  tags:"#Einar #TUS-26-1018 #CodeEnforcement #Overdue",
+  steps:[["Overdue found",1],["Your answer",0],["Call or file",0]]},
+ {id:"CASH-04",title:"Microfilm notice email",stream:"Cash collection",status:"BLOCKED",owner:"You",pct:90,live:"2026-10-10",you:"Press Send",
+  d:"The 220 microfilm documents were retrieved Aug 16. The notice email may be unsent.",
+  tags:"#Microfilm #Email #TRK-2026-9131 #TRK-2026-9133",
+  steps:[["Docs retrieved",1],["Email drafted",1],["You press Send",0]]},
+ {id:"JOB-01",title:"Bay Harbor Building 10000: one job number",stream:"Filing",status:"BLOCKED",owner:"You",pct:30,live:"2026-10-13",you:"Confirm: 5 units = one job",
+  d:"Five unit folders (221, 301, 302, 404, 425) need one tracking number. RAMBO reads the registry for the next free number.",
+  tags:"#BayHarbor #Building10000 #TRK #Registry #Filing",
+  steps:[["Plan written",1],["You confirm",0],["Next free TRK read",0],["Folders folded (morning only)",0]]},
+ {id:"OCR-01",title:"PaperPort scan restart",stream:"Filing",status:"BLOCKED",owner:"RAMBO",pct:20,live:"2026-10-14",
+  d:"Stuck until the desktop executor is reliable. Starts again after RAMBO-01.",
+  tags:"#PaperPort #OCR #Scan #NightRun",
+  steps:[["Blocked on RAMBO-01",0],["Resume scan",0],["Night report with count",0]]},
+ {id:"MDC-01",title:"Miami-Dade: count toward 300 sites",stream:"Research",status:"IN PROGRESS",owner:"RAMBO",pct:7,live:"2026-10-30",
+  d:"22 sources are catalogued; 20 answer, 2 block robots. The panel shows the real count once the feed runs.",
+  tags:"#MiamiDade #MDC #Scrape #Sources #CountyProof #TRK-2026-9007",
+  steps:[["22-source catalog",1],["Panel tab built",1],["Feed the count",0],["Grow toward 300",0]]},
+ {id:"GROK-01",title:"Grok bots actually doing work",stream:"Control panel",status:"NOT STARTED",owner:"Cloud",pct:0,live:"2026-10-23",
+  d:"Asked for many times, never built. v5 shows the true state (not running). Needs a plan and one proven task.",
+  tags:"#Grok #Bots #xAI #Executors #ControlPanel",
+  steps:[["Honest state on panel",0],["Pick one task",0],["Build and prove once",0]]},
+ {id:"TRK-REG",title:"Tracking registry into the repo",stream:"Filing",status:"NOT STARTED",owner:"RAMBO",pct:0,live:"2026-10-20",
+  d:"The registry lives only on your PC. Copying it here lets every window check the next free number.",
+  tags:"#TRK #Registry #TRK-2026-9017 #Filing",
+  steps:[["Copy registry (read-only)",0],["Reconcile gaps",0],["Cloud mirror",0]]},
+];
+const ORDER={"BLOCKED":0,"IN PROGRESS":1,"NOT STARTED":2,"DONE":3};
+const cls=s=>"s-"+s.slice(0,2);
+const tb=document.querySelector("#board tbody");
+let sortK="live",dir=1;
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function fmt(d){const [y,m,dd]=d.split("-");return new Date(+y,m-1,+dd).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})}
+function fill(sel,key){[...new Set(ROWS.map(r=>r[key]))].sort().forEach(v=>{const o=document.createElement("option");o.value=v;o.textContent=v;sel.append(o)})}
+fill(fStatus,"status");fill(fStream,"stream");fill(fOwner,"owner");
+try{const s=JSON.parse(localStorage.getItem("vtesBoard")||"{}");if(s.k){sortK=s.k;dir=s.d}}catch(e){}
+function render(){
+  const q=fText.value.trim().toLowerCase();
+  const rows=ROWS.filter(r=>(!fStatus.value||r.status===fStatus.value)&&(!fStream.value||r.stream===fStream.value)&&(!fOwner.value||r.owner===fOwner.value)
+    &&(!q||(r.title+r.d+r.tags+r.id).toLowerCase().includes(q)));
+  rows.sort((a,b)=>{let x=a[sortK],y=b[sortK];if(sortK==="status"){x=ORDER[x];y=ORDER[y]}return (x>y?1:x<y?-1:0)*dir});
+  tb.innerHTML=rows.map(r=>`<tr>
+    <td class="date ${r.live<TODAY?"late":""}">${fmt(r.live)}</td>
+    <td class="id">${r.id}</td>
+    <td style="min-width:300px"><div class="t">${esc(r.title)}</div><div class="d">${esc(r.d)}</div><div class="tags">${esc(r.tags)}</div></td>
+    <td>${r.stream}</td>
+    <td><span class="pill ${cls(r.status)}">${r.status}</span></td>
+    <td>${r.owner}${r.you?`<div class="you">${esc(r.you)}</div>`:""}</td>
+    <td class="date">${r.pct}%<div class="meter"><i style="width:${r.pct}%"></i></div></td>
+    <td style="min-width:220px"><ol class="flow">${r.steps.map(s=>`<li class="${s[1]?"done":""}">${esc(s[0])}</li>`).join("")}</ol></td></tr>`).join("");
+  document.querySelectorAll("th[data-k]").forEach(th=>th.setAttribute("aria-sort",th.dataset.k===sortK?(dir>0?"ascending":"descending"):"none"));
+}
+document.querySelectorAll("th[data-k] button").forEach(b=>b.addEventListener("click",()=>{const k=b.parentElement.dataset.k;dir=k===sortK?-dir:1;sortK=k;try{localStorage.setItem("vtesBoard",JSON.stringify({k:sortK,d:dir}))}catch(e){}render()}));
+[fStatus,fStream,fOwner].forEach(e=>e.addEventListener("change",render));fText.addEventListener("input",render);
+const c=s=>ROWS.filter(r=>r.status===s).length;
+const yours=ROWS.filter(r=>r.owner==="You").length;
+const avg=Math.round(ROWS.reduce((a,r)=>a+r.pct,0)/ROWS.length);
+strip.innerHTML=[[ROWS.length,"Pending tasks"],[c("BLOCKED"),"Blocked"],[c("IN PROGRESS"),"In progress"],[c("NOT STARTED"),"Not started"],[yours,"Need your one click"],[avg+"%","Average done"]]
+  .map(([n,l])=>`<div class="tile"><b>${n}</b><span>${l}</span></div>`).join("");
+render();
+</script>
