@@ -500,6 +500,13 @@ Payment cards show **nickname + last-4 only**; full numbers never written to any
 **Live bank-balance display was declined as a risk** — a "last-known balance" line the
 owner updates by voice, stamped with its date, is the substitute.
 
+**Paid API runs need a cost estimate and Jorge's approval first (owner directive 2026-09-29).**
+> Jorge: *"API keys fees apply — request approval with cost estimate before running."*
+Any run that spends money through an API key (OpenRouter, xAI, OpenAI, Anthropic API, Gemini API)
+first runs `tools/llm_cost_gate.py estimate`, which writes `approvals/<RUN-ID>.md` with a dollar
+figure, and runs only after `llm_cost_gate.py check` passes. Flat-fee subscriptions (Claude Max etc.)
+and local Ollama are exempt. Keys are prepaid with auto top-up OFF, so the worst case is capped.
+
 ### Article 6 — Build order (was the thaw order; active now that Article 1 is repealed)
 
 `JOB-0082` one-click relay → `JOB-0084`/`0084-A` SCOREKEEPER → `JOB-0086`
