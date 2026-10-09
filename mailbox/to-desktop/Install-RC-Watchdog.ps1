@@ -6,7 +6,7 @@ param([string]$Source = (Join-Path $PSScriptRoot 'RC-Watchdog.ps1'), [string]$Wo
 $dir = Join-Path $env:USERPROFILE 'ClaudeWatchdog'
 New-Item -ItemType Directory -Force -Path $dir | Out-Null
 $dest = Join-Path $dir 'RC-Watchdog.ps1'
-Copy-Item -Path $Source -Destination $dest -Force
+if ((Resolve-Path $Source).Path -ne $dest) { Copy-Item -Path $Source -Destination $dest -Force }
 
 $taskArgs = "-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File `"$dest`" -WorkDir `"$WorkDir`""
 $action   = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument $taskArgs
