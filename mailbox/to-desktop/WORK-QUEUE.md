@@ -648,6 +648,31 @@ Read-only, checkpoint mode — look and report, change nothing:
 
 ---
 
+## 22. Broken shortcut pop-up: "shortcut file no longer exists" in OneDrive\Scripts\Panel · PASTE-D-068 → DESKTOP
+
+**Reported by Jorge 2026-10-09.** When he clicks something, a pop-up says a Windows
+shortcut under `C:\Users\JV\OneDrive\Scripts\Panel\` no longer exists. The cloud
+cannot see the PC, and the full filename was cut off in what he pasted. **Do not ask
+Jorge diagnostic questions. Find it yourself.**
+
+Checkpoint mode: do one step, show the proof, then stop.
+
+1. **Find it (read-only).**
+   - List `C:\Users\JV\OneDrive\Scripts\Panel\` with dates, or record that the folder is gone.
+   - Search for anything that points into that folder: Desktop and Start-menu `.lnk` targets,
+     `VTES-CONTROL-PANEL.html`, `BRIDGE-PICKER.hta`, the scripts in `OneDrive\Scripts\`,
+     the browser's start pages, and Task Scheduler.
+   - Check the OneDrive recycle bin and the Windows recycle bin for the missing `.lnk`.
+   - Report: what Jorge clicked, which file it calls, and whether that file was deleted,
+     moved, or never created.
+2. **Fix (only after step 1's proof is shown).**
+   - If it was moved, re-point the caller to the real file.
+   - If it is in a recycle bin, restore it.
+   - If its target is gone for good, remove the dead button rather than leave a pop-up.
+   - Back up any file before editing it (`.bak-YYYYMMDD`). Delete nothing without Jorge's yes.
+3. **Proof.** Click the same button once. It should open the right thing with no pop-up.
+   Push a short result to `mailbox/to-cloud/`.
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
