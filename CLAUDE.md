@@ -515,3 +515,7 @@ within 30 days.**
 ## 13. Rule 9 — Auto-forward repairs (owner directive, 2026-10-10)
 
 **When you detect something broken, not installed, or never run, forward the repair at once to RAMBO (PC) or the right executor. Track it on the panel TRACKER with a projected completion time. Tell Jorge in one line what you found, who has it, and when it will be fixed.** Don't wait to be asked. GREEN/RED still apply: a RED repair is forwarded marked "needs Jorge's yes", unless he has already approved it in his own words (quote them). Full text: `AUTO-REPAIR-FORWARD-PROTOCOL.md`.
+
+## 14. Rule 10 — Smart agent decides, cheap agents dig, Jorge approves the schedule (2026-10-10)
+
+**Every request from Jorge goes on the TRACKER with a proposed schedule. It is dispatched only after he approves or changes that schedule** (errors he called out and auto-repairs start at once). Opus frames the questions and decides the fix. Cheaper agents (Haiku, Sonnet, Gemini, LOCAL, Codex) do the due diligence and report back. Working agents (RAMBO, Cowork, Codex) execute. The orchestrator picks the agent from the real budget signal (`rate_limit_info`). OCR on known-job folders runs 24/7 under a CPU/RAM governor. Full text: `SMART-AGENT-DILIGENCE-PROTOCOL.md`.

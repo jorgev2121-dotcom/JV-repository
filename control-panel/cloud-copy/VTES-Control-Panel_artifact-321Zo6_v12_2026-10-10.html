@@ -84,6 +84,8 @@ details.hand{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}d
 .gauge .notch{position:absolute;top:-2px;bottom:-2px;width:3px;background:var(--ink)}
 .gauge span{position:relative;display:block;text-align:center;font-family:var(--mono);font-size:12px;font-weight:700;line-height:22px;color:var(--ink);text-shadow:0 0 3px var(--panel)}
 .tk.p0{border:2px solid var(--bad)}
+.apprbox{margin-top:10px;padding:10px;border:2px solid var(--st);border-radius:8px;font-size:13px}
+.apprbox input{font-size:14px;padding:4px;margin:4px 0;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:5px}
 </style></head><body>
 <div class="header">
 <h1>VTES Control Panel</h1>
@@ -513,7 +515,7 @@ function hrs(ms){var h=ms/3600000;return h<1?Math.round(h*60)+' min':h<48?(Math.
 function tView(t){var now=Date.now(),s=Date.parse(t.build_start||t.created||''),d=Date.parse(t.build_due||''),pct=Math.max(0,Math.min(100,Number(t.pct)||0));
 var exp=(isNaN(s)||isNaN(d)||d<=s)?null:Math.max(0,Math.min(100,Math.round((now-s)/(d-s)*100)));
 var st=t.status||'queued',col;
-if(st==='blocked')col='down';else if(st==='done'||st==='rolled-out')col='live';else if(!isNaN(d)&&now>d&&pct<100)col='down';else if(exp!==null&&pct+10<exp)col='wait';else if(st==='queued')col='off';else col='live';
+if(st==='proposed'||(!t.schedule_approved&&st!=='done'&&st!=='rolled-out'))col='wait';else if(st==='blocked')col='down';else if(st==='done'||st==='rolled-out')col='live';else if(!isNaN(d)&&now>d&&pct<100)col='down';else if(exp!==null&&pct+10<exp)col='wait';else if(st==='queued')col='off';else col='live';
 var rollout=Date.parse(t.rollout_due||'');if(isNaN(rollout)&&!isNaN(d))rollout=d+((Number(t.test_hours)||0)*3600000);
 return {pct:pct,exp:exp,col:col,rollout:rollout,due:d,st:st}}
 function gauge(t,v){return '<div class="gauge" data-st="'+v.col+'" title="Filled = work done. Notch = where it should be by now."><div class="fill" style="width:'+v.pct+'%"></div>'+(v.exp!==null?'<div class="notch" style="left:'+v.exp+'%"></div>':'')+'<span>'+v.pct+'%</span></div>'}
@@ -524,20 +526,26 @@ return '<div class="card tk'+(t.owner_error?' p0':'')+'"><div class="enthead"><h
 '<p class="kv">'+esc(URG[t.urgency]||t.urgency||'P2')+' · assigned to <b>'+esc(t.assignee||'not assigned')+'</b> · '+esc(id)+'</p>'+gauge(t,v)+
 '<p class="kv" style="margin-top:6px">'+esc(eta)+' · then testing '+(Number(t.test_hours)||0)+' h · rollout '+(isNaN(v.rollout)?'not set':fmtT(new Date(v.rollout).toISOString()))+'</p>'+
 (t.proof?'<p class="kv">Proof: '+esc(t.proof)+'</p>':'')+(t.source?'<p class="kv"><a href="'+esc(t.source)+'" target="_blank" rel="noopener" style="color:var(--accent)">Open the chat it came from ↗</a></p>':'')+
-'<div class="actions">'+(t.owner_error?'':'<button class="act" style="border-color:var(--bad);color:var(--bad)" onclick="VTES.tflag(\''+id+'\')">🚨 This is an error: fix first</button>')+
+apprBox(id,t,v)+'<div class="actions">'+(t.owner_error?'':'<button class="act" style="border-color:var(--bad);color:var(--bad)" onclick="VTES.tflag(\''+id+'\')">🚨 This is an error: fix first</button>')+
 '<select onchange="VTES.tassign(\''+id+'\',this.value)" style="font-size:13px;padding:6px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--ink)"><option value="">Reassign to…</option>'+LANES.map(function(l){return '<option>'+l+'</option>'}).join('')+'</select>'+
 '<button class="act details" onclick="VTES.toggle(\'tn-'+id+'\')">Add note</button></div>'+
 '<div class="commentbox" id="tn-'+id+'"><textarea id="tnt-'+id+'" placeholder="Your note. The sweeper agent reads these."></textarea><div style="margin-top:6px"><button class="act" onclick="VTES.tnote(\''+id+'\')">Save note</button></div></div>'+
 (log?'<details class="hand"><summary>Activity log</summary><ul class="lay">'+log+'</ul></details>':'')+'</div>'}
+function toLocalInput(iso){var d=new Date(iso);if(isNaN(d))return '';var p=function(n){return ('0'+n).slice(-2)};return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'T'+p(d.getHours())+':'+p(d.getMinutes())}
+function apprBox(id,t,v){if(t.status==='done'||t.status==='rolled-out')return '';
+if(t.schedule_approved)return '<p class="kv" style="color:var(--good)">✅ Schedule approved by you '+esc(fmtT(t.approved_at))+(t.schedule_changed?' (you changed it)':'')+'.</p>';
+return '<div class="apprbox" data-st="wait"><b>⏳ Waiting on your OK for this schedule.</b> Done by '+esc(fmtT(t.build_due))+', then '+(Number(t.test_hours)||0)+' h of testing.'+
+'<div class="actions"><button class="act approve" onclick="VTES.tapprove(\''+id+'\')">✅ Approve schedule</button><button class="act" onclick="VTES.toggle(\'ch-'+id+'\')">✏️ Change schedule</button></div>'+
+'<div class="commentbox" id="ch-'+id+'"><label class="kv">Done by <input type="datetime-local" id="chd-'+id+'" value="'+toLocalInput(t.build_due)+'"></label><br><label class="kv">Testing hours <input type="number" min="0" step="1" id="cht-'+id+'" value="'+(Number(t.test_hours)||0)+'" style="width:70px"></label><div style="margin-top:6px"><button class="act approve" onclick="VTES.tchange(\''+id+'\')">Send my schedule to the orchestrator</button></div></div></div>'}
 function tOrder(a,b){var A=TRK[a],B=TRK[b];if(!!B.owner_error!==!!A.owner_error)return B.owner_error?1:-1;var u=(A.urgency||'P2').localeCompare(B.urgency||'P2');if(u)return u;return (A.build_due||'9').localeCompare(B.build_due||'9')}
 function drawTracker(){var el=document.getElementById('trackbody');if(!el)return;var ids=Object.keys(TRK);
 var open=ids.filter(function(i){var s=TRK[i].status;return s!=='done'&&s!=='rolled-out'});
 var show=(TRKFILTER==='open'?open:ids).sort(tOrder);
-var done=ids.length-open.length,p0=open.filter(function(i){return TRK[i].owner_error}).length;
-document.getElementById('tracksum').textContent=ids.length?(open.length+' open of '+ids.length+' tasks · '+done+' done · '+p0+' owner-flagged errors at the top'):'';
+var done=ids.length-open.length,p0=open.filter(function(i){return TRK[i].owner_error}).length,wt=open.filter(function(i){return !TRK[i].schedule_approved}).length;
+document.getElementById('tracksum').textContent=ids.length?(open.length+' open of '+ids.length+' tasks · '+done+' done · '+p0+' owner-flagged errors at the top · '+wt+' waiting on your OK'):'';
 el.innerHTML=show.length?show.map(tCard).join(''):'<p class="notwired">'+(TRK_STATE==='nodb'?'The task list could not load in this view. Nothing is shown rather than old numbers.':'No tasks recorded yet.')+'</p>';legendAudit()}
 var TRK_STATE='loading';
-panes.TRACKER=function(){return '<p class="lead"><b>Every task found in your chats, with who has it and when it will be working.</b> A sweeper agent reads the chats every 2 hours, adds tasks it finds, and updates the gauges. Each gauge fills to 100% as work gets done. The notch is where it should be by now. When the gauge is full, it goes to testing for the hours shown, then rollout.</p>'+
+panes.TRACKER=function(){return '<p class="lead"><b>Every task found in your chats, with who has it and when it will be working.</b> A sweeper agent reads the chats every 2 hours, adds tasks it finds with a proposed schedule, and updates the gauges. <b>Nothing is dispatched until you approve or change its schedule</b>, except errors you called out, which start at once. Each gauge fills to 100% as work gets done. The notch is where it should be by now. When the gauge is full, it goes to testing for the hours shown, then rollout.</p>'+
 '<p class="flagnote"><b>Owner rule:</b> anything you call an error goes straight to the top as P0. It never goes to the back of the line. Tap 🚨 on any task, or say “that is an error” in any chat and the sweeper flags it.</p>'+legendHtml()+
 '<div class="actions" style="margin:0 0 10px"><button class="act" onclick="VTES.tfilter2(\'open\')">Open tasks</button><button class="act" onclick="VTES.tfilter2(\'all\')">All, including done</button></div><p class="freshness" id="tracksum"></p><div id="trackbody"><p class="notwired">Loading tasks…</p></div>'};
 async function tWrite(id,patch,logText){var db=await getDb();if(!db){alert('Could not save: the task list is not reachable in this view.');return}
@@ -546,6 +554,8 @@ try{await db.doc('tracker/'+id).update(patch)}catch(e){alert('Save failed. Nothi
 VTES.tflag=function(id){tWrite(id,{owner_error:true,urgency:'P0'},'Flagged as an error by the owner. Moved to P0, top of the list.')};
 VTES.tassign=function(id,v){if(v)tWrite(id,{assignee:v},'Reassigned to '+v+'.')};
 VTES.tnote=function(id){var e=document.getElementById('tnt-'+id);if(e&&e.value.trim()){tWrite(id,{},'Note: '+e.value.trim());e.value=''}};
+VTES.tapprove=function(id){tWrite(id,{schedule_approved:true,approved_at:new Date().toISOString()},'Owner approved the proposed schedule. Orchestrator may dispatch.')};
+VTES.tchange=function(id){var d=document.getElementById('chd-'+id),h=document.getElementById('cht-'+id);var dt=d&&d.value?new Date(d.value):null;if(!dt||isNaN(dt)){alert('Pick a date and time first.');return}var hh=Math.max(0,Number(h&&h.value)||0);tWrite(id,{build_due:dt.toISOString(),test_hours:hh,schedule_approved:true,schedule_changed:true,approved_at:new Date().toISOString()},'Owner changed the schedule: done by '+fmtT(dt.toISOString())+', testing '+hh+' h. Sent back to the orchestrator.')};
 VTES.tfilter2=function(k){TRKFILTER=k;drawTracker()};
 (async function(){var db=await getDb();if(!db){TRK_STATE='nodb';drawTracker();return}
 try{db.collection('tracker').onSnapshot(function(snap){TRK={};(snap.docs||[]).forEach(function(d){TRK[d.id]=(typeof d.data==='function'?d.data():d.data)||{}});TRK_STATE='ok';drawTracker()},function(){TRK_STATE='nodb';drawTracker()})}catch(e){TRK_STATE='nodb';drawTracker()}})();

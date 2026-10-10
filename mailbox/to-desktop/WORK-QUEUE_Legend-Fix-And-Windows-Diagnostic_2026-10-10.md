@@ -11,7 +11,7 @@
 
 ## Job 2 — same one-legend fix on the PC panel (tracker T-20261010-05)
 1. Back up `C:\Users\JV\Desktop\VTES-CONTROL-PANEL-HOME.html` to `.bak-20261011` first.
-2. Copy how it is done in `control-panel/cloud-copy/VTES-Control-Panel_artifact-321Zo6_v11_2026-10-10.html`: one `LEGEND` table, every colored button gets `data-st`, and a self-check line that counts the buttons that match.
+2. Copy how it is done in `control-panel/cloud-copy/VTES-Control-Panel_artifact-321Zo6_v12_2026-10-10.html`: one `LEGEND` table, every colored button gets `data-st`, and a self-check line that counts the buttons that match.
 3. Reply with the self-check line, for example "Legend check: N of N colored buttons match the legend."
 
 Receipt: EXECUTED_ with the output, or BLOCKER_ with what you tried, why it failed, and the one small thing you need.
