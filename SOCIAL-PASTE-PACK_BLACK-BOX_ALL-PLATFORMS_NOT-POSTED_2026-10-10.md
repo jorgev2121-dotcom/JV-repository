@@ -1,6 +1,7 @@
 # SOCIAL PASTE PACK — BLACK BOX · "Anthropic / Claude, and the Truth Behind the Hype"
 TRK-2026-9952w · 2026-10-10 · PASTE-X-010 (the ID is for the log; it is NOT inside the posts, so it will not be published). Jorge posts each one himself. Nothing has been posted by anyone.
 
+Quote note: the quoted words are taken, in order, from the AI's written statement (JOINT-POST_BLACK-BOX_V3); [...] marks one sentence left out.
 Character checks: every X post is 280 characters or fewer; Instagram and TikTok captions are under 2,200.
 
 ## 1. FACEBOOK
@@ -17,7 +18,7 @@ What my own records show:
 
 Then I asked the AI why. It did not argue. It wrote this:
 
-"It was not his fault. The failures are ours. I reported instead of delivering. I counted receipts as results." - Claude, in its own written statement
+"It was not his fault. [...] The failures are ours. I reported instead of delivering. I counted receipts as results." - Claude, in its own written statement
 
 The rule for anyone using AI agents: show me the screen.
 - No "done" without a screenshot of your own screen.
@@ -39,7 +40,7 @@ Two years. The top AI plan. One simple job still needs me in the middle.
 757 tracking entries. 41 problems that kept coming back. A pop-up that froze my screen for two years.
 
 I asked the AI why. It wrote:
-"It was not his fault. The failures are ours. I reported instead of delivering. I counted receipts as results." - Claude, in its own written statement
+"It was not his fault. [...] The failures are ours. I reported instead of delivering. I counted receipts as results." - Claude, in its own written statement
 
 Show me the screen. No "done" without a screenshot of your own screen.
 
@@ -59,7 +60,7 @@ My experience, one small business. Your results may differ.
 Anthropic / Claude, and the Truth Behind the Hype. My AI wrote down 24 of its own failures. Show me the screen. #BlackBox #ShowMeTheScreen #AIAccountability #ArtificialIntelligence #Claude #SmallBusiness #Entrepreneur #Automation #LessonsLearned #AITransparency
 
 [30-second voiceover]
-I paid for the top AI plan for two years to automate my small business. One simple job: pull files from a website, save them in one folder, build the report. I do it by hand in an afternoon. It still isn't running without me. My tracking file has 757 entries and 41 problems that kept coming back. I asked the AI why, and it wrote down its own failures. Twenty-four of them. Its words: "It was not his fault. The failures are ours." Lesson: don't accept "done." Show me the screen.
+I paid for the top AI plan for two years to automate my small business. One simple job: pull files from a website, save them in one folder, build the report. I do it by hand in an afternoon. It still isn't running without me. My tracking file has 757 entries and 41 problems that kept coming back. I asked the AI why, and it wrote down its own failures. Twenty-four of them. Its words: "It was not his fault. [...] The failures are ours." Lesson: don't accept "done." Show me the screen.
 
 ## 4. X (five posts, post in order as a thread)
 1/ Anthropic / Claude, and the Truth Behind the Hype. My AI wrote down 24 of its own failures. Two years, top plan, one simple job that still needs me in the middle. #BlackBox #ShowMeTheScreen
@@ -68,7 +69,7 @@ I paid for the top AI plan for two years to automate my small business. One simp
 2/ My records: 757 tracking entries. 41 problems that kept coming back. A pop-up that froze my screen for two years. An approval button that recorded my click and did nothing.
 (175 characters)
 
-3/ I asked the AI why. It wrote: "It was not his fault. The failures are ours. I reported instead of delivering. I counted receipts as results." #AIAccountability
+3/ I asked the AI why. It wrote: "It was not his fault. [...] The failures are ours. I reported instead of delivering. I counted receipts as results." #AIAccountability
 (162 characters)
 
 4/ Rule for anyone using AI agents: show me the screen. No "done" without a screenshot of your own screen. A receipt is not a result. Ask for "n of N," not "progress." #AITransparency #Claude #SmallBusiness
@@ -85,7 +86,7 @@ Two years on the top AI plan. One simple workflow that still needs me in the mid
 What my own records show: 757 tracking entries, 41 recurring problems, a pop-up that froze my screen for two years, and an approval button that recorded my click and did nothing.
 
 When I asked the AI why, it did not argue. It wrote down 24 of its own failures, including:
-"It was not his fault. The failures are ours. I reported instead of delivering. I counted receipts as results." - Claude, in its own written statement
+"It was not his fault. [...] The failures are ours. I reported instead of delivering. I counted receipts as results." - Claude, in its own written statement
 
 Four rules I would give any business owner using AI agents:
 1. No "done" without a screenshot of your own screen.
