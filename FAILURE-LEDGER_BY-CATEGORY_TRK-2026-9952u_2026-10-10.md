@@ -30,6 +30,7 @@ Category assignment below uses the titles in RECURRING-ISSUES.md; the details ar
 - **Next fix holds if:** the before/after steal counts fall to near zero and a nightly guard catches new offenders. Job 9952r is sent. Not yet proven.
 
 ## Category 5 — Batch and pipeline work (RI-004, 016, 017, 020)
+- **Cause named in RI-004:** one session ran out of working memory around item 4 or 5 of 20 and degraded silently.
 - **Failed:** batches deliver the first few items (Miami-Dade scrape 3–4 of 20); OCR output not attached to tracking numbers; long file paths break OCR; job files outside the filing system.
 - **Should have happened:** one template per site (folder, scrape, enhance, assembler) and one subagent per item with a result file each.
 - **Why not implemented:** each request was built as a one-off.
@@ -38,7 +39,8 @@ Category assignment below uses the titles in RECURRING-ISSUES.md; the details ar
 ## Category 6 — Filing and numbering (RI-012, 013)
 - **Failed:** two filename conventions, a registry range that doesn't match real numbers.
 - **Should have happened:** one convention, reconciled registry before any new number.
-- **Next fix holds if:** a script that rejects non-conforming names. I did not read the full detail.
+- **Detail read 2026-10-10 (RI-012, 013):** the registry stated range 1247–1367 but Drive held numbers above it (1536, 1611) and below it (0708-JULIA), plus two folders with no tracking number. RI-016: only about 6 of ~54 OCR sidecars (about 11%) carried a tracking number, so a search returned the text but not the job.
+- **Next fix holds if:** a script rejects non-conforming names and a count shows sidecars with a tracking number rising from about 11% toward 100%.
 
 ## Category 7 — Windows tooling traps (RI-032 to 036, 009 to 011)
 - **Failed:** encoding, window-handle and UAC-prompt traps that made scripts fail silently; screenshot paste; dictation tools.

@@ -29,3 +29,14 @@ Two years, one small business, one simple workflow that still needs me in the mi
 4. Anything about money lost should be a number he can document.
 
 Do you want me to trim this to a 30-second version, yes or no?
+
+## 30-second version (about 75 words)
+"Two years. The top Claude plan. One simple job: scrape a site, save the files in one folder, clean them up, and let one program build the report. I do it by hand in an afternoon.
+
+It still isn't running without me.
+
+My tracking file has 757 entries and 41 problems that kept coming back. A button recorded my approval and did nothing.
+
+Lesson: don't accept 'done.' Ask for a screenshot of the finished work on your own screen first."
+
+Caption: Two years, one small business, one simple workflow. Ask for proof before you pay for another month. #smallbusiness #AI
