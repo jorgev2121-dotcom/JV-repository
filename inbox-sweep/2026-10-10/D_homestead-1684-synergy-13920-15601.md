@@ -159,3 +159,53 @@ CAPSULE.md (2026-08-24) open items: confirm job and requestor; assign MASTER TRK
 
 **Count: 11 placeholders · 0 NEW-NOT-SAVED attachments.**
 
+---
+
+## Section E — 15601 SW 137 AVE
+
+Drive capsule: `TRK-TBD _ FOLIO-TBD _ 15601 SW 137 AVE` (folder id 1C7IbxE_K81HqLmqdXwD0-cvF6N9bOdY-).
+_STAGE.md: stage 04-OCR-INDEXED since 2026-10-05, overdue YES, TRK, folio and client all [VERIFY], next_action "[VERIFY] - no next action on file".
+CAPSULE.md (2026-08-24): "Folio: UNKNOWN - not on the 2026-08-19 order ledger. Job / requestor: UNASSIGNED." Open: confirm job and requestor; assign MASTER TRK; confirm folio.
+
+**The most important thing: the capsule's three "unknowns" are all already known — the mailbox answers them.** This is **TRK-2026-1650**: a limited-scope due-diligence report (violations and liens) on **Pine Brook / Sheffield Apartments, folio 30-5926-001-0010**, **ordered by Miguel Zaldivar of MZ Solutions** and **emailed to him on 2026-08-19** from Outlook (subject "15601 SW 137 Avenue, Miami FL 33177 - Due-Diligence Report (Violations & Liens) - TRK-2026-1650"). The report and its life-expectancy addendum sit in `VTES-Outbox`, not in the capsule. The capsule was created five days later only because the jacket arrived with "no home".
+
+### Placeholders (waiting on)
+
+1. **Tracking number on the Drive capsule** — still TRK-TBD; TRK-2026-1650 is already in use on the delivered report and email. I did not open the master registry (it lives on Jorge's PC), so "registered" is UNVERIFIED. Waiting on: owner OK to relabel (RED).
+2. **Folio on the capsule** — FOLIO-TBD; 30-5926-001-0010 per the delivered report. Waiting on: the same relabel.
+3. **Client / requestor on the capsule** — UNASSIGNED; it is Miguel Zaldivar, MZ Solutions (miguel@mzsolutions.org, 305-206-7413). Miguel's 2026-08-27 email shows the deal is for TEDC (Sheldon K. Powell). Who pays — MZ Solutions or TEDC — is not on file. Waiting on: Jorge, one line.
+4. **WASD final-balance payoff / estoppel** — the one open item the 2026-08-19 report names ("confirm the final WASD balance is cleared via a payoff/estoppel before closing"). Waiting on: a request to Miami-Dade Water and Sewer; no WASD email found since 2026-07-01.
+5. **Delivered report and addendum are outside the capsule** — `3059260010010_DD-REPORT_15601-SW-137-AVE_2026-08-19.pdf` and `3059260010010_LIFE-EXPECTANCY-FLAGS_2026-08-19.pdf` are in `VTES-Outbox` (folder 1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN). Waiting on: a filing decision (filing is RED; morning task).
+6. **Tax-jacket deliverable** `2026-09-03 _ TRK-TBD _ TaxJacket _ 15601 SW 137 AVE DELIVERABLE _ v2.pdf` (built 2026-09-03). Whether it was ever sent to Miguel: no outbound email found for it — UNVERIFIED, likely not sent. Waiting on: Jorge to say send or hold.
+7. **Invoice for TRK-2026-1650.** No invoice email or ledger row found for 1650 (searched Outlook and Drive). Waiting on: Jorge to set the fee and send it.
+8. **Unit-count conflict to resolve before any further deliverable:** report says 90 units (312 per PA roll); Miguel's feasibility study says 354-unit redevelopment. Waiting on: a check against the PA record.
+9. **Next action on file** in _STAGE.md. Waiting on: the override file (desktop).
+
+### Received by email
+
+1. **2026-08-24** · from cpl@MiamiDadePA.gov (Yaira Campbell, Property Appraiser) · "BLDG JACKET FOR 15601 SW 137 AVE" · in BOTH mailboxes (Gmail thread 1a03572b558731c3; Outlook) · attachments `ACS.pdf` (8,311,248 bytes) and `ACS (2).pdf` (11,513,557 bytes).
+   Fills: the building / tax jacket.
+   Drive: `07-TAX-JACKET_2026-08-24\ORIGINAL\` (inside this capsule) holds `TAXJACKET_15601-SW-137-AVE_part02_2026-08-24.pdf` (8,310,976 bytes = ACS.pdf) and `..._part01_...pdf` (11,513,259 bytes = ACS (2).pdf). Sizes match to within email-encoding overhead. Enhanced, FINAL and deliverable versions also present.
+   **Status: ALREADY-SAVED.**
+2. **2026-08-27** · from miguel@mzsolutions.org (Miguel Zaldivar, MZ Solutions) · "Check it out." · Outlook only · attachment **`Park_at_Sheffield_Feasibility_Study 4% LIHTC.pdf`** (123,228 bytes) — "Park at Sheffield Redevelopment Feasibility Study, 354-Unit Garden Apartment Redevelopment, 15601 SW 137th Avenue ... Prepared for: TEDc (Sheldon K. Powell) ... Prepared by: Cove Architecture".
+   Fills: no ordered placeholder; it is client-side context for this property (the redevelopment the DD supports) and it identifies the end client (TEDC).
+   Drive: **no file with this name or title anywhere in Drive** (searched title and full text).
+   **Status: NEW-NOT-SAVED.**
+3. 2026-08-19 · Jorge's own outbound to Miguel with `3059260010010_DD-REPORT_15601-SW-137-AVE_2026-08-19.pdf` (sent twice, 19:51 and 19:56 UTC). Own outbound. IRRELEVANT as a received item; the PDF exists in Drive `VTES-Outbox` (placeholder 5).
+4. Other MZ Solutions emails since 2026-08-01 concern other jobs (10980 SW 202 Dr / TRK-2026-1667, Plaza of Bal Harbour, 20001 SW 110 CT, Bayside). IRRELEVANT to this capsule.
+
+**Count: 9 placeholders · 1 NEW-NOT-SAVED attachment (the Park at Sheffield feasibility study).**
+
+---
+
+## Totals for this sweep (5 jobs)
+
+1. 535 NW 7 ST Homestead — 9 placeholders · 1 NEW-NOT-SAVED (`Survey.pdf`, missing from the Drive capsule; reportedly in OneDrive).
+2. TRK-2026-1684 — 12 placeholders · 0 NEW-NOT-SAVED. Kat's 2026-09-05 answer (names Elisa Caso, blanket go-ahead) is unrecorded.
+3. TRK-2026-2221 Synergy — 7 placeholders · 0 NEW-NOT-SAVED. Victor silent since 2026-09-28; follow-up sits in Drafts.
+4. 13920 SW 34 ST — 11 placeholders · 0 NEW-NOT-SAVED. Already TRK-2026-1567.
+5. 15601 SW 137 AVE — 9 placeholders · 1 NEW-NOT-SAVED (feasibility study). Already TRK-2026-1650, client Miguel Zaldivar.
+
+**Pattern across three of the five: the capsule says TRK-TBD but a tracking number was already issued** (535 NW 7 ST = 1532, 13920 SW 34 ST = 1567, 15601 SW 137 AVE = 1650). The 2026-08-24 jacket intake created new "TRK-TBD" capsules instead of finding the existing jobs. That is a candidate for `RECURRING-ISSUES.md` (not logged by this read-only worker).
+
+Did you want the two unsaved attachments filed into their capsules tomorrow morning?

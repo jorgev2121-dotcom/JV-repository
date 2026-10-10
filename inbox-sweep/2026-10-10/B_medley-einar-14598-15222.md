@@ -143,3 +143,45 @@ Misfile alert, recorded under Section C: on 2026-07-02 Tomas Hernandez sent Jorg
 **Most important:** the permit has not been shown to be submitted. The deadline is now real and close: comply by 2026-11-16, hearing 2026-11-19. The next step is agreeing Tomas's sign-and-seal price, and he said on 2026-10-09 that he would call Jorge to do it.
 
 ---
+
+## Section C — TUS-25-1023 · 14598 SW 110 St, Miami · folio 30-5910-018-0210 · Eduardo "Eddie" Miguelez
+
+Capsule: Drive folder `TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami` (id 1O3pf_cqyUV34yuU3j5enBbKtXn-_PAt5). Master permit 2026-012823. Process C2025117736. Plumbing/sprinkler permit 2026035476. Citation 2024-0228754 / A2023-003010.
+
+Sources read: `_STAGE.md` (says "no next action on file," stale), `CAPSULE.md` (2026-06-04), `XREF-DASHBOARD_14598_TUS-25-1023.html` (2026-06-23), `_CONTACTS-EXTRACTED.txt`, and the file list inside `_PORTAL_TUS-25-1023.html` (131 documents; the newest filed email is dated 2026-06-12).
+
+### Placeholders (waiting on)
+
+1. **Corrected and re-sealed Certified As-Built Letter (page 2 year "2022" should read "2012").** Waiting on Tomas Hernandez, P.E. Asked 2026-07-06. A follow-up dated 2026-10-09 ("13 weeks later") is sitting **unsent in Drafts** in Outlook. Per that draft, this letter is the only thing holding up the resubmittal to Miami-Dade (Bernard Chitolie).
+2. **Confirmation that the code edition (FBC 2010, 4th Edition, HVHZ) still applies if the install predates 2012-03-15.** Waiting on Tomas. Asked 2026-07-06.
+3. **County "new" concealed-work forms filled out for the plans revision (CAT 082).** Waiting on Tomas or Jorge. Forms received from Gilberto Martin (Miami-Dade Building Division Director) 2026-07-09 and forwarded to Tomas 2026-07-17. The county also said to replace Building Official Edward Rojas with Sergio Ascunce on the forms. No completed forms found.
+4. **Resubmittal of the plans rework plus as-built letter on process C2025117736.** Waiting on items 1 to 3. A 2026-07-06 Outlook item "Plans REWORK / As-Built Letter for review" has no sender, so it looks like an unsent draft (UNVERIFIED).
+5. **Reschedule the plumbing/sprinkler inspection on permit 2026035476.** Open since 2026-06-04 (Chitolie). No later email found.
+6. **Re-inspection fee amount on permit 2026035476 confirmed on ePayment.** Open since 2026-06-04.
+7. **Electrical sub-permit qualifier under master 2026-012823 (David Morales or David Guirola, P.E.).** Open since 2026-05. On 2026-07-03 Jorge asked an electrician at Einarsuarez@yahoo.com to confirm the wiring matches the plans (a separate matter from the Broward job). No reply found in either mailbox.
+8. **Close out master permit 2026-012823 and citation 2024-0228754.** The end goal; open.
+9. **Clerk code-enforcement folio search for open citations and amounts (manual).** Blocked since 2026-06-23 (the site rejects scripted searches).
+10. **Lien and satisfaction search in Clerk Official Records (paid, $1 per unit).** Blocked since 2026-06-23 pending a spend decision.
+11. **Zoning resolutions / variances research for the nonconforming lot.** Open since 2026-06-23.
+12. **Client name and billing.** `_STAGE.md` shows client, amount, invoiced and paid all as [VERIFY]. CAPSULE.md names the owner as Eduardo "Eddie" Miguelez. In a forwarded email of 2026-05-04 the owner says he "could not continue paying the permit." Billing status is UNVERIFIED.
+
+Already closed (not a placeholder): the building / tax jacket was requested 2026-06-23 and delivered as `2026-09-03 _ TUS-25-1023 _ TaxJacket _ 14598 SW 110 St Miami DELIVERABLE _ v2.pdf`.
+
+### Received by email (2026-07-01 to 2026-10-10, with attachments)
+
+1. **2026-07-02 · Tomas Hernandez, P.E. (tomtechengineer@gmail.com) → Jorge · Outlook · "Certified as built letter"**
+   - `Certified As-Built Letter 2026-012823.pdf` — **NEW-NOT-SAVED.** No file by this name, or with "As-Built" in the title, is in the 14598 capsule or anywhere in Drive. This is the sealed letter (version 1, carrying the 2022 typo), and it is the base document for placeholder 1. Even with the typo it should be on file.
+2. **2026-07-09 · Gilberto Martin, Miami-Dade RER (Gilberto.Martin@miamidade.gov) → Jorge · Outlook · "RE: need 'new' form … PE As-Built Letter … process C2025-117736 for CAT 082"** (forwarded by Jorge to Tomas 2026-07-17 with the same files). Fills part of placeholder 3 (the blank forms).
+   - `1 - Concealed Work Process Design Professionals.pdf` — **NEW-NOT-SAVED** (not found anywhere in Drive)
+   - `2 - Model Cover Letter Concealed Work.docx` — **NEW-NOT-SAVED** (not found anywhere in Drive)
+   - `3 - Standardized Concealed Inspection Report Form v1_1.pdf` — **NEW-NOT-SAVED to the capsule.** A loose copy sits in the My Drive root, not in the job folder. A zip of the thread, `RE_ need _new_ form … .zip`, sits in `01-JOBS/_CONVERGE-STAGING/_Permits-unsorted`, also outside the capsule.
+3. **2026-08-24 · Miami-Dade Property Appraiser (cpl@miamidadepa.gov) → jorgev2121@gmail.com · Gmail · "bldg jacket for 14598 SW 110 ST"**
+   - `ACS.pdf`, `ACS (2).pdf`, `ACS (3).pdf` — **ALREADY-SAVED** in processed form: the 14598 capsule holds `TAXJACKET_14598-SW-110-ST-33186_part01/02/03_2026-08-24.pdf` and the 2026-09-03 deliverable. **Filing flag:** raw files named `ACS.pdf`, `ACS (2).pdf` and `ACS (3).pdf` (dated 2026-09-14) are filed under `TRK-2026-1310 _ 10980 SW 202 Dr Cutler Bay / 01-INTAKE / PRIOR-FILING_TRK-2026-1310`, with a fourth copy in that capsule's `_QUARANTINE-REVIEW-LATER`. Whether those are the 14598 jacket in the wrong job folder is UNVERIFIED. I did not open them.
+
+Not counted: the 2026-07-03 electrical email to Einarsuarez@yahoo.com and the 2026-07-01 forward of `AS-BUILT_14598-SW-110-St_FOR-TOMAS_2026-06-12.docx` are Jorge's own outbound sends.
+
+**Count for TUS-25-1023: 12 placeholders · 4 NEW-NOT-SAVED (the sealed as-built letter plus 3 county forms) · 3 ALREADY-SAVED · 0 IRRELEVANT.**
+
+**Most important:** the sealed Certified As-Built Letter from 2026-07-02 is not in the job folder. The corrected re-seal has been waited on for 13 weeks, and the follow-up asking for it is sitting unsent in Drafts.
+
+---
