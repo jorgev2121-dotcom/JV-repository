@@ -1,6 +1,6 @@
 # SIMPLIFY PLAN: stop building, start using (2026-10-10)
 
-TRK-2026-9953 (internal admin band) · v1 · 2026-10-10 · PROPOSED
+TRK not yet issued: the registry lives on the PC, and the number I first used (9953) was already taken · v1 · 2026-10-10 · PROPOSED
 
 ## Why (measured 2026-10-10 on the base branch)
 - In one month the repo built up 750 tracked items, 218 documents, 44 branches, a 511-line charter and 41 recurring issues.
