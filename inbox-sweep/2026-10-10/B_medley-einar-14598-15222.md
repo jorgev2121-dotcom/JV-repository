@@ -99,3 +99,47 @@ Not counted (Jorge's own outbound sends): 2026-08-07 site photo report, 2026-08-
 **Most important:** no signed proposal and no payment proof arrived. The $10,600 is still waiting on a signature. Separately, the old approved plan set B2020-0177 (WeTransfer) expired 2026-09-27 and needs to be recovered before WeTransfer deletes it.
 
 ---
+
+## Section B — TUS-26-1018 · 8621 Pasadena Blvd, Pembroke Pines · folio 5141-09-12-0810 · Einar H. Suarez and Barbara Rodriguez
+
+Capsule: Drive folder `TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines` (id 1_ns65eLr8UwnboHsY92NmUTqsuBQ8YXI). The folio is on the job status board and the NOV, but the folder name still says FOLIO-TBD.
+
+Sources read: `_STAGE.md` (says "no next action on file," stale), `CAPSULE.md` (2026-05-28), `JOB-STATUS-BOARD_TUS-26-1018.html` (2026-06-22), `_MEMO_2026-10-09_Hearing-Rescheduled-and-CAD-Blocker.md`, `_CONTACTS-EXTRACTED.txt`, and the file list inside `_PORTAL_TUS-26-1018.html` (114 documents).
+
+**Answer to "was the permit submitted?": UNVERIFIED, and most likely no.** No permit number, submittal receipt or City of Pembroke Pines permit email exists in either mailbox or in the capsule. As of 2026-10-09 the engineer had not even agreed a price to sign and seal. The old 2026-07-23 deadline is replaced: Officer Joseph Libio emailed on 2026-09-23 that the case (No. 260301031) is extended to the **2026-11-19 hearing**; the NOV's comply-by date is **2026-11-16**.
+
+### Placeholders (waiting on)
+
+1. **Sealed engineering (as-built letter plus wind-pressure justification) from Tomas Hernandez, P.E. (TomTech).** Waiting on Tomas. Requested 2026-06-12. On 2026-10-09 Tomas said he visited the house and will call Jorge to agree the sign-and-seal price.
+2. **Sign-and-seal price agreed between Jorge and Tomas.** Waiting on Jorge and Tomas. Raised 2026-10-09.
+3. **Window and door plans with Tomas's title block, drawn by Julio Silva.** Julio sent plans to Tomas on 2026-09-30 (Jorge was not copied). On 2026-10-09 Tomas asked Julio to add his engineer details to the title block. Waiting on Julio. **Jorge has no copy of Julio's 2026-09-30 plans in either mailbox or in Drive.**
+4. **AutoCAD (.dwg) base file for the title block.** Julio asked on 2026-09-22 and 2026-09-23. The 2026-10-09 memo calls this "the live blocker," but Julio's 2026-09-30 send of plans suggests he may have worked around it. UNVERIFIED whether this is still needed. No .dwg exists in the capsule.
+5. **Signed and notarized Limited Power of Attorney / owner-agent authorization.** Waiting on the owners. Sent 2026-06-06 and 2026-06-07. Board status "TO SIGN." No signed copy found.
+6. **Signed hold-harmless / consultant agreement.** Waiting on the owners. Board status "BLANK" as of 2026-06-22.
+7. **Signed and notarized permit application (owner plus qualifier).** Waiting on the owners and MZ Solutions. Sent 2026-06-06. Status "PREPARED," not signed.
+8. **Notice of Commencement — decide if it is required for a $4,500 job.** Waiting on Jorge. Open since 2026-06-22.
+9. **Current Certificate of Insurance from MZ Solutions with the City of Pembroke Pines as holder.** Waiting on Miguel Zaldivar. Requested 2026-06-11. The capsule only has `MZ_COI_GL-WC_2026-05-01.pdf`. Note: miguel@mzsolutions.com bounced on 2026-10-02; the working address is miguel@mzsolutions.org.
+10. **FL-20359.1 product approval PDF, HVHZ version.** CAPSULE.md TODO since 2026-05-17. Probably done: the portal lists `FL20359_R4_AE_MG300-HR-LMI.pdf` and related files. Treat as likely closed, UNVERIFIED.
+11. **Confirm with Vista whether doors need their own approval.** CAPSULE.md TODO since 2026-05-28. The portal lists door approval `FL26942_R6_AE_MG3000-Door-LMI.pdf`, so this is probably answered. UNVERIFIED.
+12. **Confirm who drafted the elevations (Engel, or Hugh McLean).** Open since 2026-06-22.
+13. **Permit fee payment at submittal.** Waiting on submittal.
+14. **Permit submittal to the City of Pembroke Pines.** Must be in before the comply-by date of 2026-11-16 to cure the case ahead of the 2026-11-19 hearing.
+15. **Decision on attending or responding to the 2026-11-19 Special Magistrate hearing.** The NOV says failure to appear lets the magistrate rule on the City's case alone. Waiting on Jorge.
+16. **Job value, invoice and payment.** `_STAGE.md` shows amount, invoiced and paid all as [VERIFY]. The job board shows a job value of $4,500 (that is the window value, not necessarily Jorge's fee). No invoice found.
+
+### Received by email (2026-07-01 to 2026-10-10, with attachments)
+
+**No attachment received in either mailbox fills an Einar placeholder.** Nothing from the owners, no signed paper, no permit receipt, and no sealed letter.
+
+1. **2026-09-27 · Jorge to himself (Outlook) · "Einar Suarez citation information attached."** Attachment `Escaneo sept 26, 2026, 4.44 p.m..pdf` (the NOV and summons, case 260301031). Saved in Drive, renamed, as `2026-09-26_Notice-of-Violation-and-Summons_Case260301031.pdf` (same size, about 1.08 MB). **ALREADY-SAVED.**
+2. **2026-10-09 · "FW: 8621 Pasadena Blvd" (Outlook).** This is an **unsent draft** in Jorge's mailbox, not a received email. Its attachment is the forwarded Tomas/Julio thread. **IRRELEVANT** (no new file).
+3. **2026-09-23 · Officer Joseph Libio, jlibio@ppines.com.** "I am extending this case to the 11/19/26 hearing." No attachment, so not counted, but it is the key update. It is recorded in the 2026-10-09 memo.
+4. **2026-09-30 · Julio Silva → Tomas Hernandez · plans "for the window replacement in Pembroke Pines."** Jorge was not on this email, so it is not in either mailbox. The attachment name is unknown. **UNVERIFIED — not received by Jorge.**
+
+Misfile alert, recorded under Section C: on 2026-07-02 Tomas Hernandez sent Jorge `Certified As-Built Letter 2026-012823.pdf`. Permit 2026-012823 is the master permit for 14598 SW 110 St, **not** for Einar.
+
+**Count for TUS-26-1018: 16 placeholders · 0 NEW-NOT-SAVED · 1 ALREADY-SAVED · 1 IRRELEVANT.**
+
+**Most important:** the permit has not been shown to be submitted. The deadline is now real and close: comply by 2026-11-16, hearing 2026-11-19. The next step is agreeing Tomas's sign-and-seal price, and he said on 2026-10-09 that he would call Jorge to do it.
+
+---

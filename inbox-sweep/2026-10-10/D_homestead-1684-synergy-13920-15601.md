@@ -80,3 +80,82 @@ Sources: CAPSULE.md (2026-09-01), report v4-CLIENT Section 4 "two doors still sh
 
 **Count: 12 placeholders (2 of them answered but not recorded) · 0 NEW-NOT-SAVED attachments.**
 
+---
+
+## Section C — TRK-2026-2221 · Synergy General Contracting trifold brochure (Victor Seijas)
+
+Drive capsule: `TRK-2026-2221 _ Synergy General Contracting Trifold Brochure (Victor Seijas)` (folder id 1Q0yAWiytBFAbxn7JAD9MOP5epehbLnp1).
+_STAGE.md: stage 08-DELIVERED since 2026-10-04, overdue YES, **money_defect YES**, client [VERIFY], next_action "[VERIFY] - no next action on file". Stage proof: `05-REPORTS-DELIVERABLES\SAMPLES-ABC.html`.
+Client per `_HASHTAGS.txt`: Victor Seijas, vic2669@gmail.com (Project Manager & Estimator, Synergy GC). Designer: Bryan Diaz, bryandiazdev@gmail.com.
+
+**The most important thing: Victor has not replied since 2026-09-28, when he wrote "Call me when you can."** The three samples (A, B, C) were emailed to him from Outlook on 2026-10-04 (subject "Synergy trifold brochure - three versions to choose from"). No answer from him in either mailbox since. A follow-up with the same three PDFs sits **unsent in Outlook Drafts**, dated 2026-10-09 ("Synergy Trifold Brochure - 3 Final Design Samples for Your Review").
+
+### Placeholders (waiting on)
+
+1. **Victor's choice of Sample A, B or C, or his changes.** Samples sent 2026-10-04. Waiting on: Victor.
+2. **The phone call Victor asked for.** "Call me when you can", 2026-09-28. `_HASHTAGS.txt` lists it as still owed as of 2026-10-04. No call log found. Waiting on: Jorge.
+3. **Victor's photos** for the photo slots ("add some photos", 2026-09-28). None received by email. Waiting on: Victor.
+4. **Final print-ready file** after his pick. Waiting on: item 1.
+5. **Follow-up draft of 2026-10-09** — unsent in Outlook Drafts. Waiting on: Jorge to send it or delete it (sending email needs his OK).
+6. **Money: fee, invoice, payment.** All [VERIFY]; money_defect YES. No invoice found. Waiting on: Jorge to set the fee.
+7. **Client field in _STAGE.md** still [VERIFY] although `_HASHTAGS.txt` names Victor. Waiting on: the override file (desktop).
+
+### Received by email
+
+1. **2026-09-28 12:46 PM ET** · from vic2669@gmail.com (Victor Seijas) · "Fwd: Synergy trifold assets" · in BOTH mailboxes (Gmail thread 1a0e8e950cdf65a0; Outlook) · attachments `synergy-trifold-brochure.pdf`, `synergy-trifold-brochure-p1.svg`, `synergy-trifold-brochure-p2.svg`, `synergy-mark.svg`.
+   Fills: the designer's original art (intake).
+   Drive: same names in `01-INTAKE\original-assets-from-Bryan\` (pdf, p1.svg, p2.svg, mark.svg).
+   **Status: ALREADY-SAVED.**
+2. **2026-09-28 4:21 PM ET** · from vic2669@gmail.com · "Fwd: Synergy trifold assets" ("Call me when you can") · both mailboxes · attachments `synergy-trifold-brochure.pdf`, `synergy-trifold-brochure.docx`, `synergy-mark.svg`, `synergy-trifold-brochure-p1.svg`, `synergy-trifold-brochure-p2.svg`.
+   Fills: the editable Word file Victor asked Bryan for.
+   Drive: all five names present in `01-INTAKE\original-assets-from-Bryan\`, including `synergy-trifold-brochure.docx`.
+   **Status: ALREADY-SAVED.**
+3. 2026-09-29 (Gmail, sent), 2026-10-04 (Outlook, sent, three sample PDFs), 2026-10-09 (Outlook, DRAFT, unsent) · Jorge's own outbound. IRRELEVANT as received items. The three sample PDFs are already in `05-REPORTS-DELIVERABLES\`.
+4. 2026-10-06 · Gmail, sent · "Synergy Construction Contact Sheet Transcript" to VSeijas@bellsouth.net and vanessa@teamusasales.com — the copy to vanessa@teamusasales.com **bounced** (Delivery Status Notification, same day). Different matter (FIU job-fair contact sheet), no attachment. IRRELEVANT to this capsule; noted because a bounce went unhandled.
+5. 2026-09-23 · Handshake "Invoice #8503 for Synergy General Contracting, LLC — FIU Fall 2026 Career Expo" · no attachment · a different Synergy matter (recruiting). IRRELEVANT to this capsule.
+
+**Count: 7 placeholders · 0 NEW-NOT-SAVED attachments.**
+
+---
+
+## Section D — 13920 SW 34 ST (Medina-Rodriguez) · folio 30-4915-001-1121
+
+Drive capsule: `TRK-TBD _ 30-4915-001-1121 _ 13920 SW 34 ST (Medina-Rodriguez)` (folder id 17P7SwyVURWYCh9w4spWp7hu3mAyOvB6n).
+_STAGE.md: stage 04-OCR-INDEXED since 2026-10-05, overdue YES, TRK [VERIFY], client [VERIFY], next_action "[VERIFY] - no next action on file".
+CAPSULE.md (2026-08-24) open items: confirm job and requestor; assign MASTER TRK; confirm folio.
+
+**The most important thing: this job already HAS a tracking number — TRK-2026-1567 — issued 2026-08-09 in the master registry** (registry line 203: "13920 SW 34 ST - Medina-Rodriguez DD capsule + crosswalk (JOB-0030-C; folio 30-4915-001-1121; 7 closed cases ...; open Q: was permit 2018007118 finaled)"). Source: Drive report `RESOLVE-9401c_13920-SW-34-ST-IS-NOT-MISFILED-..._2026-08-19.md`. The Drive capsule, its portal and the 2026-09-03 tax-jacket deliverable all still say TRK-TBD. The job is JOB-0030-C (full due diligence, restarted 2026-08-03).
+
+### Placeholders (waiting on)
+
+1. **Tracking number on the Drive capsule** — still TRK-TBD; registry already has TRK-2026-1567. Waiting on: owner OK to relabel (registry/filing edits are RED). Also the tax-jacket deliverable `2026-09-03 _ TRK-TBD _ TaxJacket _ 13920 SW 34 ST DELIVERABLE _ v2.pdf` carries TRK-TBD in its name.
+2. **Client / requestor confirmation.** CAPSULE.md names "Medina-Rodriguez" (owner of record). Report 9401c says the referring contacts are Cesar Garcia and David, and the design firm is Guirola & Associates PA. Who is paying is not on file. Waiting on: Jorge, one line.
+3. **Folio confirmation** — CAPSULE.md asks for it, but the PA lookup (SITE-01, 2026-10-02) and the registry both match 30-4915-001-1121. Effectively answered; waiting on someone to tick it.
+4. **The registry's open question: was permit 2018007118 finaled?** Unanswered since 2026-08-09. Waiting on: permit search (item 7) or a read of the 114 Dropbox PDFs.
+5. **114 client PDFs outside every capsule** (Dropbox `TEAM - Legalizations\_13920 SW 34 St. - Cesar Garcia - David - Guirola`), including `_Invoice 6039 .pdf`, a reimbursement invoice from Cesar dated 2023-09-14, and a $926.84 county ePayment of 2023-03-17. Waiting on: OD-12 — Jorge to say "link by index" (recommended) or "copy". Asked 2026-08-19.
+6. **Possible money owed** — invoice 6039 and the Cesar reimbursement invoice; payment status unknown. Waiting on: item 5, then a check.
+7. **DD runner of 2026-10-02: 5 of 22 county sites done, 17 blocked.** The ones that need Jorge or a headed browser:
+   - SITE-03 Tax Collector (bot wall; needs a browser lookup with the dashed folio).
+   - SITE-04 Clerk Official Records (Turnstile captcha) — the lien and satisfaction proof JOB-0030-C requires.
+   - SITE-05 Clerk civil cases (captcha, plus a party name).
+   - SITE-06 county Building Permit menu (reCAPTCHA) — answers item 4.
+   - SITE-07 EPS and SITE-12 Certificates of Use (need a signed-in EPS session).
+   - SITE-09 Code Enforcement Online, SITE-18 Miami Beach, SITE-22 Pembroke Pines/Broward (site errors; retry).
+   - SITE-13 and SITE-14 DERM (zero results, unverified).
+   - SITE-02 comparable sales (needs a sales-year range), SITE-15 NOA, SITE-19 Sunbiz, SITE-20 DBPR, SITE-21 product approval (need an input that is not on file). SITE-17 City of Miami does not apply (not a City folio).
+8. **JOB-0030-C expanded scope not delivered:** microfilm phase-one snapshot, open/expired permit and C-number pipeline, WASD/septic, zoning resolutions, FEMA flood plus aerial timeline, and the folio-to-satisfaction crosswalk, plus the JOB-0030-C-1 addendum (permit status, holds, ANALYZER-SEED json). Waiting on: item 7. No microfilm has been ordered as far as the mailboxes show (no microfilm email for this address since 2026-07-01).
+9. **Tax-jacket package sent to Jorge for review on 2026-09-03** (email "TAX JACKET PACKAGE — 13920 SW 34 ST — Medina-Rodriguez", still unread in both mailboxes). Waiting on: Jorge's review and OK to deliver.
+10. **Final DD report to the client.** `05-Deliverables` is an empty shell. Waiting on: items 4 to 8.
+11. **Money: billable, invoiced, paid** all [VERIFY]. Waiting on: item 2.
+
+### Received by email
+
+1. **2026-08-24** · from cpl@MiamiDadePA.gov (Yaira Campbell, Property Appraiser) · "BLDG JACKET FOR 13920 SW 34 ST" · in BOTH mailboxes (Gmail thread 1a035694f6c0778c; Outlook) · attachments `ACS.pdf` (681,725 bytes), `ACS (2).pdf` (300,901 bytes), `ACS (3).pdf` (772,102 bytes).
+   Fills: the building / tax jacket.
+   Drive: `07-TAX-JACKET_2026-08-24\ORIGINAL\` holds `TAXJACKET_13920-SW-34-ST-33175_part01` (294 KB = ACS (2)), `_part02` (754 KB = ACS (3)) and `_part03` (665 KB = ACS). Sizes match to the KB. Enhanced, FINAL and deliverable versions also present.
+   **Status: ALREADY-SAVED.**
+2. 2026-09-03 · from jorgev2121@gmail.com to itself · "TAX JACKET PACKAGE — 13920 SW 34 ST — Medina-Rodriguez" · no attachment (a link). Own outbound. IRRELEVANT as a received item; listed as placeholder 9.
+3. No email from Medina, Rodriguez, Guirola, Cesar Garcia, or any county sender other than the PA, for this address or folio (with or without dashes), since 2026-07-01.
+
+**Count: 11 placeholders · 0 NEW-NOT-SAVED attachments.**
+

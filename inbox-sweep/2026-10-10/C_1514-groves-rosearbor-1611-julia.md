@@ -121,3 +121,83 @@ Only outgoing or self-addressed items matched:
 Counts: 10 placeholders, 0 NEW-NOT-SAVED.
 
 ---
+
+## Section D — TRK-2026-1611 Pembroke Pines Contractor Registration (MZ Solutions, Miguel Zaldivar, CGC1528486)
+
+Drive folder: `TRK-2026-1611 - Pembroke Pines Contractor Registration (MZ Solutions)` (id 1PF4ivT-kbDxroOJTpog0G7krsL7KAizs).
+_STAGE.md: stage 04-OCR-INDEXED, entered 2026-08-19, overdue YES, next_action "[VERIFY] - no next action on file".
+`REGISTRATION-RESULT.md` (2026-08-17): **DONE. MZ Solutions is registered with the City of Pembroke Pines, Contractor ID-000049083.** The City asked for nothing further.
+
+### Placeholders (waiting on)
+
+1. **Stage record is out of date.** _STAGE.md still says 04-OCR-INDEXED with no next action, but the work is DONE per `REGISTRATION-RESULT.md` and the City's 2026-08-17 email. This is waiting on a stage override in `_MATTER-OVERRIDES.json` (Code, desktop).
+2. **Billing.** amount_billable, invoiced and paid all read "[VERIFY]". `03-INVOICES-PAYMENTS` is an empty shell. UNVERIFIED whether MZ Solutions was ever billed for this registration. Waiting on Jorge to say whether it is billable.
+3. **Updated state licence in the capsule.** The capsule holds `Miguel Zaldivar - CGC1528486 - State Licence Renewal 2026.pdf`. A newer `M. Zaldivar CGC License Renewal 2028.pdf` arrived 2026-09-03 (see below), but it was filed only under TRK-2026-1265. Not urgent, since the City already approved, but the 1611 copy will look expired after the 2026 renewal date.
+4. **Optional:** the City technician asked for a Google review. Jorge's call only; not a blocker.
+
+### Received by email
+
+| Date | Sender | Subject | Attachments | Fills placeholder | Status |
+|---|---|---|---|---|---|
+| 2026-08-17 | PinesPermits@cgasolutions.com (Toni Hamilton) | RE: Contractor Registration - MZ Solutions LLC - CGC1528486 - Qualifier Miguel Zaldivar | None (body only, ID-000049083) | This is the approval itself | **ALREADY-SAVED** as `02-Correspondence/2026-08-17 - Pembroke Pines - REGISTRATION APPROVED - Contractor ID-000049083.msg`. No attachment. |
+| 2026-09-03 | miguel@mzsolutions.org | Fwd: Bal Harbor GL and GC License | `M. Zaldivar CGC License Renewal 2028.pdf`, `Bal Harbour Building Department_MZ Solutions, LLC_MAIN CERTIFICATE 2026-202_9-3-2026_1926220343.pdf`, `image.png` | Placeholder 3 (newer licence) | **ALREADY-SAVED, but in a different job.** It is in Drive as `2026-09-03 _ TRK-2026-1265 _ Licensing _ M. Zaldivar CGC License Renewal 2028.pdf` and the matching Bal Harbour certificate, both under TRK-2026-1265 (Bal Harbour). There is no copy in the 1611 capsule. The GL certificate is addressed to Bal Harbour, so it is IRRELEVANT for 1611. |
+| 2026-08-11 | miguel@mzsolutions.org | Miguel Zadlivar has shared a file with you using Dropbox ("M. Zaldivar CGC License Renewal 2026.pdf") | None; Dropbox link only | Licence used for the submission | **ALREADY-SAVED** as `01-Related-Docs/Miguel Zaldivar - CGC1528486 - State Licence Renewal 2026.pdf`. |
+
+Matched but **IRRELEVANT** to 1611:
+- The 2026-08-15 outgoing submission "Contractor Registration - MZ Solutions LLC ..." (sent by Jorge; its 3 attachments are already in 01-Related-Docs).
+- All "8621 Pasadena Blvd" and Einar Suarez Pembroke Pines mail. That is TUS-26-1018, the Pembroke Pines impact-window job, a different job. Note: a 2026-10-09 "FW: 8621 Pasadena Blvd" with attachments exists for that job.
+- MZ mail about Bal Harbour (TRK-2026-1265), 10980 SW 202 Dr (TRK-2026-1667), Bayside, and the Feasibility Study.
+
+Searches run:
+- Gmail: "Pembroke Pines", ppines.com, 000049083, TRK-2026-1611, CGC1528486, from:mzsolutions.org.
+- Outlook: the same terms, plus sender miguel@mzsolutions.org (25 of more than 25 results reviewed by subject).
+
+Counts: 3 placeholders, plus 1 optional. 0 NEW-NOT-SAVED.
+
+---
+
+## Section E — TRK-2026-0708-JULIA Julia's Place Bond Release (Enrique "Henry" Piwko)
+
+Drive folder: `TRK-2026-0708-JULIA - Julia's Place Bond Release (Piwko)` (id 15KM95sd22UzsRroDNwshRryfr2PqoH-t).
+_STAGE.md: stage 04-OCR-INDEXED, entered 2026-08-19, overdue YES, next_action "[VERIFY] - no next action on file".
+Capsule contents: one deliverable, `02-Deliverables/W9_Enrique-Piwko_FOR-SIGNATURE_TRK-2026-0708-JULIA.pdf`. Everything else is a shell.
+From the email bodies: Miami-Dade County confirmed **$8,415.00** of bond remaining, out of an original $22,719 cashier's check. Finance needs a W-9 from Piwko before release. After the W-9: release inspection, then Finance, then about 6 to 8 weeks.
+
+### Placeholders (waiting on)
+
+1. **Signed W-9 from Enrique (Henry) Piwko, with SSN.** Ordered 2026-07-14. **Not received.** No email from henrypiwko@icloud.com, or any other Piwko address, exists in either mailbox since 2026-06-01.
+2. **The August resend was never sent.** There are **four copies of "Julia's Place bond release - one signature needed (W-9)" sitting in Outlook as drafts**, dated 2026-08-05 and 2026-08-06, addressed to henrypiwko@icloud.com. Two were opened and confirmed isDraft = true. The other two show the same pattern (no sender), but are UNVERIFIED.
+3. **Correction to the draft text.** The draft says the July email "went to a misspelled address and bounced — you never received it". The bounce notice shows **only hernrypiwko@gmail.com bounced**. The July 14 email was also addressed to henrypiwko@icloud.com, and that copy did not bounce. So Henry may already have the July W-9. UNVERIFIED whether he opened it.
+4. **County release inspection.** Waiting on the W-9 (item 1). Not ordered.
+5. **Release packet to Miami-Dade Finance, then the refund check of $8,415.00.** Waiting on items 1 and 4. The County estimates 6 to 8 weeks after the packet.
+6. **Fee and invoice to Piwko.** amount_billable, invoiced and paid all read "[VERIFY]". UNVERIFIED.
+7. **Stage record.** _STAGE.md has no next action; it should read "waiting on Piwko W-9". Needs a desktop override.
+
+### Received by email
+
+**None.** No inbound email with attachments for this job since 2026-07-01, in either mailbox. Nothing at all has come from Piwko.
+
+Only outgoing or system items matched:
+- 2026-07-14, Jorge to hernrypiwko@gmail.com and henrypiwko@icloud.com, "Julia's Place Bond Release - W-9 needed with your signature". Has an attachment (Jorge's own W-9).
+- 2026-07-14, Microsoft Outlook "Undeliverable", for the gmail typo address only. Its attachment is the returned original message. **IRRELEVANT** for filing.
+- 2026-08-05 and 2026-08-06, four unsent drafts, each with `W9_Piwko_PREFILLED_TRK-2026-0708-JULIA.pdf` (Jorge's outgoing form). The capsule has the equivalent `W9_Enrique-Piwko_FOR-SIGNATURE_TRK-2026-0708-JULIA.pdf`, so **ALREADY-SAVED** (equivalent outgoing form). UNVERIFIED that the two PDFs are byte-identical: the file names differ, and their sizes are 230 KB and 213 KB.
+
+Searches run:
+- Gmail: Piwko, Piko, "Julia's Place", "Julias Place", "Julia Place", TRK-2026-0708, "bond release", W-9, W9, henrypiwko, "Enrique Piwko".
+- Outlook: the same terms, plus sender henrypiwko@icloud.com.
+
+Counts: 7 placeholders, 0 NEW-NOT-SAVED.
+
+---
+
+## Summary across the five jobs
+
+1. **1514 NW 73 St:** 7 placeholders, 0 new attachments. Most important: no TRK number, and no quote from MZ Solutions for RFQ-2026-0714 (due 2026-07-28).
+2. **TRK-2026-1256 Groves at Sunset:** 12 placeholders, 1 new attachment (`PH-FEEDER-OPTIONS_13-60-01441_TRK-2026-1436.pdf`, Jorge's own sheet, low priority). Most important: Karla has not sent the 4 equipment photos, and the 2026-10-09 follow-up is an unsent Outlook draft.
+3. **TRK-2026-1588 Rose Arbor:** 10 placeholders, 0 new attachments. Most important: Jorge to name a price and invoice (money_defect YES, 58 days).
+4. **TRK-2026-1611 Pembroke Pines registration:** 3 placeholders plus 1 optional, 0 new attachments. The work is DONE (ID-000049083). Most important: decide whether it is billable, and correct the stale stage.
+5. **TRK-2026-0708-JULIA:** 7 placeholders, 0 new attachments. Most important: Piwko's W-9 was never received, and the August resend is 4 unsent drafts. $8,415 is waiting on it.
+
+**Across all five jobs, no client sent back any missing document since 2026-07-01.** Every open item is still waiting on someone.
+
+Read-only run. Nothing was saved, moved, sent, drafted or labelled. Is this the level of detail you want for the other sweep groups?
