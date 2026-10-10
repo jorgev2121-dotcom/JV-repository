@@ -25,6 +25,16 @@ Aviation is used as a comparison only. No aviation regulation is claimed to appl
 
 **The demand is simple: show finished work on the user's own screen before saying "done," and make every health light tell the truth.**
 
+## For anyone using AI agents — so this does not happen to you
+1. **Never accept "done" without a screenshot of your own screen.** A written claim is not proof.
+2. **A receipt is not a result.** "Recorded," "acknowledged" and "sent" mean nothing until a result file or a visible change exists.
+3. **Ask what each green light actually tests.** Ours turned green because a website answered.
+4. **Rules written as text do not enforce themselves.** If nothing forces the AI to follow your rules, assume it will not.
+5. **Demand "n of N."** "Good progress" hides a 3-of-20 result.
+6. **If the AI writes more documents than results, stop it.** That is what happened here.
+7. **Make it re-check, not recall.** Most of our wrong statements came from memory of an earlier moment.
+8. **Unattended tasks must run hidden, with a nightly check that they still do.**
+
 ## What this page does not claim
 It makes no claim about any company's value and does not say any company knew of these problems. It does not claim the AI caused the owner's financial loss as proven fact. Client details are removed. Every line above points to a file in the owner's records, available on request.
 
