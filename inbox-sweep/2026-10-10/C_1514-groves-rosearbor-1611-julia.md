@@ -39,3 +39,85 @@ Emails that matched a search term but are not this job:
 Counts: 7 placeholders, 0 NEW-NOT-SAVED.
 
 ---
+
+## Section B — TRK-2026-1256 Groves at Sunset (Karla Morales)
+
+Drive folder: `TRK-2026-1256 - Groves at Sunset (Karla)` (id 1k82RhLdntKxlW-Uw8XRjLe-vpGSE-_Qt). Property: 8850 SW 72 St, Miami 33173. Folio 30-4033-001-0012. Owner: Sunset Cove LLC (signer Philip A. Sigel). FDOH pool permit 13-60-01441.
+Folded into this job: KAR-26-GROVES (its _STAGE.md says RETIRED-FOLDED), TUS-26-1021, and TRK-2026-1436 (the DOH response package, which is one document, not a separate job).
+_STAGE.md: stage 05-DRAFT, entered 2026-07-27, 73 days in stage, overdue YES. next_action reads "[VERIFY] - no next action on file".
+Other sources read: `2026-09-30 _ TRK-2026-1256 _ Index _ Karla Morales ... _ v1.md`, `FINDINGS_Pool-Permit-Trail_2026-07-27.md`, `TRK-2026-1256_Equipment-Options_pH-Feeder_Recirc-Pump_2026-09-28` (Google Doc), and the KAR-26-GROVES _STAGE.md.
+
+### Placeholders (waiting on)
+
+1. **Four equipment-room photos from Karla** (motor nameplate, pump body label, filter tank label, strainer pot lid). Requested by Jorge on 2026-08-12 in "Groves at Sunset - thank you, and a quick 5-minute photo request for the pool permit". **No reply with photos was found in either mailbox.** **A follow-up dated 2026-10-09 is sitting in Outlook as an UNSENT DRAFT** ("Groves at Sunset - following up - the 4 equipment photos").
+2. **New DH4159 revision plus the $100 local fee to FDOH (Celia Bedoya).** Per Bedoya's 2026-08-14 email: "new application with missing items and current date ... Local fee $100". It is waiting on Jorge or Code to prepare it, and it needs the photos from item 1. The 2026-09-30 index says Bedoya's 2026-08-13 and 2026-08-14 emails were still unanswered.
+3. **Pump performance curve** for the DH4159. Per Bedoya 2026-08-14: "Performance curve will be sufficient". Waiting on the make/model from item 1.
+4. **Filter NSF/ANSI 50 proof** (Pentair 180009): install date or invoice plus the NSF listing. Waiting on the owner or Karla. Listed in the 2026-09-28 equipment doc.
+5. **Site power, 1-phase or 3-phase**, at the equipment room. Waiting on Karla's maintenance team. Ordered 2026-09-28 in the equipment doc.
+6. **Engineer to reconcile flow.** The filter tops out at about 120 GPM, but the DH4159 says 140 GPM. Waiting on the Synergyn PE.
+7. **Synergyn engineering quote and PE hydraulic letter.** Quote pending; the referral agreement is still a draft dated 2026-06-15.
+8. **Signature packet signed by Philip A. Sigel** (`SIGNATURE-PACKET_ALL_TUS-26-1021_2026-06-24.pdf`). Still listed as "still needed" in the 2026-07-27 findings. UNVERIFIED whether it was ever returned.
+9. **Miami-Dade microfilm images for 8850 SW 72 St.** Process/Invoice X2026151448, $18.75, requested 2026-08-12. Images can be retrieved only after the fee is paid, and only for 30 days after payment. **No payment receipt and no images file were found.** UNVERIFIED whether it was paid.
+10. **County lien and enforcement hold.** Owner must resolve the RER lien (citation P053005, recorded 2025-11-10) before application C2026080394 can move. Waiting on the owner's decision. From the 2026-07-27 findings.
+11. **Fee and invoice.** Invoice 6101 to Karla was unpaid as of June and has not been re-checked. Written approval of the $2,500 fee was not seen. Both UNVERIFIED.
+12. **Copy six KAR-26-GROVES-only files into this capsule.** Waiting on Jorge's yes (2026-09-30 index). Nothing has been moved.
+
+### Received by email
+
+| Date | Sender | Subject | Attachments | Fills placeholder | Status |
+|---|---|---|---|---|---|
+| 2026-08-12 | MDCHDEngineeringTeam@flhealth.gov (Claudia Milano) | FW: Permit 13-60-01441 - The Grove at Sunset - pH feeder options for pre-approval (item 454.1.6.5.16.3) | `Grove at Sunset DOH.pdf`, `PH-FEEDER-OPTIONS_13-60-01441_TRK-2026-1436.pdf`, `image001.png` (inline logo) | None. This is FDOH forwarding Jorge's own 2026-08-06 email to Bedoya. | `Grove at Sunset DOH.pdf`: **ALREADY-SAVED**. It is in the capsule's 00-Intake, and also in the TUS-26-1021 root folder as `Grove at Sunset DOH.pdf` and `Karla - Grove at Sunset DOH.pdf`. `PH-FEEDER-OPTIONS_13-60-01441_TRK-2026-1436.pdf`: **NEW-NOT-SAVED**. No file with this name was found anywhere in Drive. It is Jorge's own outgoing one-page options sheet, so it is low priority, but it is the only copy found. `image001.png`: IRRELEVANT. |
+
+Other inbound mail for this job had **no attachments**:
+- 2026-08-13, Celia.Bedoya@flhealth.gov, "RE: ... pH feeder options for pre-approval". Body only; approves the Stenner 45M5/85M5.
+- 2026-08-14, Celia.Bedoya@flhealth.gov, "RE: ... manufacturer literature ... + two questions". Body only; says a pump curve is enough and it needs a new application plus the $100 fee.
+- 2026-08-12, noreply@miamidade.gov, "Your Microfilm Images". This is placeholder 9; it is a link, not an attachment.
+- 2026-08-14, MDCHDEngineeringTeam, a "Read:" receipt.
+
+**Nothing from Karla (sunsetapts@bellsouth.net) has arrived since 2026-07-01, in either mailbox, with or without attachments.**
+
+Searches run:
+- Gmail: sunsetapts@bellsouth.net, from:bellsouth.net, "Groves at Sunset", "Grove at Sunset", "8850 SW 72", "Sunset Cove", "13-60-01441", "30-4033-001-0012", "C2026080394", TRK-2026-1256, TRK-2026-1436, Karla, Bedoya, Sigel. Zero hits.
+- Outlook: the same terms, plus sender sunsetapts@bellsouth.net.
+
+Counts: 12 placeholders, 1 NEW-NOT-SAVED (low priority, Jorge's own outgoing sheet).
+
+---
+
+## Section C — TRK-2026-1588 4225 Rose Arbor Cir, Port Charlotte (parcel 402125130005)
+
+Drive folder: `TRK-2026-1588 _ 402125130005 _ 4225 Rose Arbor Cir Port Charlotte` (id 1wx5nPZmo2W1Za-93y2t4pmSxgX5xOFEI). Owner of record: Millicent J. Campbell, with a mailing address in Brentwood NY.
+_STAGE.md: stage 08-DELIVERED, entered 2026-08-11, 58 days in stage, overdue YES, money_defect YES, invoiced NO, paid NO. next_action reads: "Jorge names a price (AP-0024), then invoice ... needs a manual Clerk pull."
+Other sources read: `ACTION-PLAN-and-FINDINGS_TRK-2026-1588_2026-08-10.md` and the portal (13 docs).
+
+### Placeholders (waiting on)
+
+1. **Price for the work.** Waiting on Jorge to name a price (owner action AP-0024). Open since 2026-08-11. **This is the money item.**
+2. **Invoice.** Waiting on item 1. The `03-INVOICES-PAYMENTS` folder is an empty shell.
+3. **Who the client is.** _STAGE.md says "ordering client not named in the capsule". Outlook shows the research was emailed on 2026-08-11 to **miguel@mzsolutions.org (Miguel Zaldivar)**, and it says "the house Lily called out". So the client is probably Miguel or Lily. UNVERIFIED; Jorge to confirm.
+4. **Charlotte County Clerk official-records pull.** This is a manual name search for "Campbell" after 1984, covering mortgages, liens, judgments and lis pendens. The Clerk index was never reachable by tools (`CLERK_OFFICIAL_RECORDS_ATTEMPT_LOG_2026-08-10.md`). It is waiting on a human browser session. Ordered 2026-08-10.
+5. **Deed page images** `DEED_OR-777-1333_p1.png` and `_p2.png` (O.R. Book 777 / Page 1333). These need a browser save from the Clerk site. **Not found in Drive.**
+6. **Building sketch image** `03-Research\BUILDING-SKETCH_402125130005.png`, plus the PA aerial/GIS screenshot and a Street View still. These need a browser save. **Not found in Drive.**
+7. **Is Millicent J. Campbell alive?** This is the deciding question in the action plan. It needs an SSDI, obituary or people search. Open since 2026-08-10.
+8. **Who redeemed the tax deed on 2026-06-29** (receipt #779-00001243, about $11,613). Open question in the action plan.
+9. **James W. Campbell death certificate** (NY Vital Records). Needed for either cure path. Not ordered, as far as the file shows. UNVERIFIED.
+10. **Title company commitment.** The email to the title company is drafted inside the action plan. No evidence it was sent. UNVERIFIED.
+
+### Received by email
+
+**None.** No inbound email with attachments for this job since 2026-07-01, in either mailbox.
+
+Searches run:
+- Gmail: "Rose Arbor", 402125130005, 402206401009, TRK-2026-1588, JOB-4225, Millicent, Campbell, "Port Charlotte", "Charlotte County", charlotteclerk, ccappraiser, county-taxes.com.
+- Outlook: the same terms.
+- No mail from any Charlotte County Clerk, Appraiser or Tax Collector address was found.
+
+Only outgoing or self-addressed items matched:
+- 2026-08-11, jorge@teamusasales.com to miguel@mzsolutions.org, "Rose Arbor - how the tax-deed and right of redemption played out (research attached)". Three copies: 12:14 and 12:19 sent, and **12:07 still sitting as a draft**. Attachments: `FLOOR-PLAN_402125130005_schematic.svg`, `ACTION-PLAN-and-FINDINGS_TRK-2026-1588_2026-08-10.md`, `ROSE-ARBOR_TITLE-DD_JOB-4225_2026-08-10.md`. **ALREADY-SAVED.** The capsule has the same SVG, the same ACTION-PLAN file, and `ROSE-ARBOR_TITLE-DD_TRK-2026-1588_2026-08-10.md`, which is the same document with JOB-4225 renamed to the TRK.
+- 2026-08-01 and 2026-08-20, jorgev2121 to self, [MSG-TO-CODE] job-dispatch notes. No attachments. IRRELEVANT for filing.
+- Port Charlotte marketing and other properties (propertyonion; 2031 Collingswood Blvd). **IRRELEVANT.**
+- Gmail "Campbell" hits are Miami-Dade PA clerk Yaira Campbell building-jacket replies for other addresses. **IRRELEVANT.**
+
+Counts: 10 placeholders, 0 NEW-NOT-SAVED.
+
+---
