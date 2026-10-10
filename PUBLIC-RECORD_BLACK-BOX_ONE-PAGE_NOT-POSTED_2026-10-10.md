@@ -14,8 +14,8 @@ A one-person inspection business in South Florida paid for a top-tier AI plan fo
 6. **Built, never installed.** A multi-piece panel rebuild was built and checked on Oct 7 and has not been installed.
 7. **The AI wrote its own failures down.** The cloud AI's Oct 6 self-evaluation lists 12 faults. The Oct 10 accounting lists 24 more, including: a wrong exit filename that failed two jobs, merge-conflict markers committed twice, a receipt called the desktop's answer, and reports written instead of one working result.
 
-## Fair play
-Some failures were the owner's own PC: a wrong clock and visible scheduled-task windows. Some work did succeed: scanned-text sweeps advanced and due-diligence reports were produced. One person running many AI windows at once is hard for any tool.
+## Whose fault
+The owner gave exact instructions and approved what was asked. The failures are the AI's. The pop-ups came from the AI's own scheduled tasks, built by AI agents. One blocker on Oct 10 was a wrong PC clock, and nothing in the record shows an alert from the AI's system reaching the owner. Some work did succeed: scanned-text sweeps advanced and due-diligence reports were produced.
 
 ## The standard asked for
 Aviation is used as a comparison only. No aviation regulation is claimed to apply to AI.
