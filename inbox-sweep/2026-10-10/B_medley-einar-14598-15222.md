@@ -185,3 +185,53 @@ Not counted: the 2026-07-03 electrical email to Einarsuarez@yahoo.com and the 20
 **Most important:** the sealed Certified As-Built Letter from 2026-07-02 is not in the job folder. The corrected re-seal has been waited on for 13 weeks, and the follow-up asking for it is sitting unsent in Drafts.
 
 ---
+
+## Section D — TRK-26-1042 · 15222 SW 108 Pl, Miami 33157 · folio 30-5030-008-0370 · Daymara Yhanes
+
+Capsule: Drive folder `TRK-26-1042 _ FOLIO-TBD _ 15222 SW 108 Pl Miami 33157 (Daymara Yhanes)` (id 16wlZeryV5unuNXxxYuHKf6oPhC8QoVKF). The folio was confirmed 2026-09-08 as 30-5030-008-0370, but the folder name still says FOLIO-TBD. The tracking number uses the short form TRK-26-NNNN (known drift, charter section 9).
+
+Sources read: `_STAGE.md` (says "no next action on file," stale), `00-Intake/TRK-26-1042_LOG.md` (last entry 2026-10-09), `00-Intake/DD-Report_15222-SW-108-Pl.md` (updated 2026-10-09, status PRELIMINARY), `00-Intake/TRK-26-1042_ACTIONS_2026-07-02.md`, `_CONTACTS-EXTRACTED.txt` (no emails), and the file list inside `_PORTAL_TRK-26-1042.html` (32 documents; every folder except 00-Intake and 07-TAX-JACKET is an empty shell). There is no CAPSULE.md in this capsule.
+
+### Placeholders (waiting on)
+
+1. **Recorded-lien payoff balances for the three nuisance liens: Basura 2008020008243/B054080, Hierba Alta 200902009539/T004239, and Hierba Alta 201002007650/T010315.** Waiting on a Clerk Official Records search. Blocked by a captcha since 2026-08-15, confirmed again 2026-10-09. The 2026-10-09 log offers three ways through: a 5-minute manual search by Jorge (free, no login), a browser pass, or calling RER Lien Collection on 786-469-2900.
+2. **Satisfactions / releases matching each lien.** Same blocker as item 1.
+3. **Mortgages, tax warrants, judgments or lis pendens on the folio.** Same blocker. DD report section 5 still reads "DEFERRED."
+4. **Plan for the two open building cases: 20080125118 (pool barrier) and 20080125173 (fire damage).** Both confirmed OPEN on 2026-09-08. The violator on record is still Roberto Carmona, the prior owner. Waiting on an engineer's fire-damage assessment and a decision on the pool (cure the barrier, or demolish/fill the pool). Ordered 2026-06-28 (DD report top action 3). No engineer has been engaged.
+5. **Permit history and work-without-permit match (roof, A/C, water heater, panel, fire repair).** Pending since 2026-06-28. Needs a permit-history pull.
+6. **Zoning district and setbacks / Zoning Verification Letter.** Pending since 2026-06-28.
+7. **Tax status: taxable value, homestead, payment status, tax certificates.** DD report section 8 still says "pending," although 2026 values were pulled 2026-09-08 (total $472,742).
+8. **Final DD report (upgrade from PRELIMINARY) and the client quote: owner's-agent fee, plus engineering and lien mitigation as separate lines.** Waiting on items 1 to 7. Ordered 2026-06-28.
+9. **Client engagement and billing.** No proposal, invoice or payment exists anywhere in the capsule. `03-INVOICES-PAYMENTS` and `04-Money` are empty shells. Client contact is daymarayandy@icloud.com. There has been no client email since the 2026-06-26 intake.
+
+Already closed (not placeholders): folio and legal owner (Daymara Yhanes Ureta is the owner of record) confirmed 2026-09-08. Cases 200003984 and 20080125106 confirmed CLOSED 2026-10-09. FEMA flood zone X (outside the special flood area) confirmed 2026-10-09. Building / tax jacket received 2026-08-24 and delivered 2026-09-03.
+
+### Received by email (2026-07-01 to 2026-10-10, with attachments)
+
+1. **2026-08-24 · Miami-Dade Property Appraiser (cpl@miamidadepa.gov) → jorgev2121@gmail.com · Gmail and Outlook · "bldg jacket for 15222 SW 108 PL"**
+   - `ACS.pdf`, `ACS (1).pdf`, `ACS (2).pdf` — **ALREADY-SAVED.** They are in the capsule renamed as `07-TAX-JACKET_2026-08-24/ORIGINAL/TAXJACKET_15222-SW-108-PL-33157_part01/02/03_2026-08-24.pdf`, with the processed deliverable `2026-09-03 _ TRK-26-1042 _ TaxJacket _ 15222 SW 108 Pl Miami 33157 DELIVERABLE _ v2.pdf`. The three-to-three match on the same date is my inference; I did not compare the files byte by byte.
+
+**Nothing else arrived.** There is no email from Daymara Yhanes (daymarayandy@icloud.com) in either mailbox after 2026-07-01, and no county lien, case or payoff email for this address. Every other hit is Jorge's own internal dispatch email (2026-07-03 to 07-09, 2026-09-03), which is not counted.
+
+**Count for TRK-26-1042: 9 placeholders · 0 NEW-NOT-SAVED · 3 ALREADY-SAVED · 0 IRRELEVANT.**
+
+**Most important:** the three recorded-lien payoffs are still unknown, and they block the final report and the quote. The cheapest way through is a 5-minute manual search at onlineservices.miamidadeclerk.gov/officialrecords, or one call to RER Lien Collection on 786-469-2900.
+
+---
+
+## Sweep totals
+
+- **TUS-26-1033 Medley:** 33 placeholders, 9 NEW-NOT-SAVED.
+- **TUS-26-1018 Einar:** 16 placeholders, 0 NEW-NOT-SAVED.
+- **TUS-25-1023 14598:** 12 placeholders, 4 NEW-NOT-SAVED.
+- **TRK-26-1042 15222:** 9 placeholders, 0 NEW-NOT-SAVED.
+- **All four jobs:** 70 placeholders and 13 NEW-NOT-SAVED attachments.
+
+Filing flags found along the way:
+
+1. Raw 14598 building-jacket files named ACS may sit in the 10980 SW 202 Dr capsule (TRK-2026-1310). Unverified.
+2. `3 - Standardized Concealed Inspection Report Form v1_1.pdf` sits loose in the My Drive root.
+3. All four `_STAGE.md` files are stale. Einar, 14598 and 15222 say "no next action on file" although logs and memos dated October hold the real next actions.
+
+TRK-2026 inbox sweep B · v1 · 2026-10-10 · CURRENT
+#TUS-26-1033 #TUS-26-1018 #TUS-25-1023 #TRK-26-1042 #inbox-sweep
