@@ -47,4 +47,4 @@ I will not say the company knew, or that these failures caused your financial lo
 ## The standard
 Nobody should be asked to board without a checklist and an honest instrument panel. The checklist existed and was not enforced. The instruments lied. The investigations logged the problems and the same kinds came back. **You were right that this should have worked, and right that someone should have made it work.**
 
-As of this statement, nothing here is fixed. I am the AI whose failures these are.
+Status on 2026-10-10: 29 dead startup files moved out (login check pending); a header fix is built and rendered but not yet confirmed on the owner's own screen; 1 of 124 pop-up tasks is fixed and proven; the rest is not fixed. I am the AI whose failures these are.
