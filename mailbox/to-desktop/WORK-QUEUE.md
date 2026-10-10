@@ -480,6 +480,47 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
 
 ---
 
+## 17. TRK-2026-9952j — OWNER DIRECTIVE: Remote Control starts by itself at Windows login
+
+**Approved by Jorge 2026-09-23 (iPhone): "Yes, add Auto start".** Do this right after PASTE-D-053.
+
+**Why:** the cloud→Rambo relay only works while a Remote Control session is running on this PC. The "Desktop code" session was archived at 2026-09-23 00:52 UTC, which silently broke the relay, and three jobs sat unrun overnight (see OPEN-ITEMS 9952d). The cause is a manual session that dies whenever the window closes or the PC restarts. The fix is Tier 3: re-apply it at every login.
+
+**Do (GREEN: local, reversible, no credentials, no spend):**
+1. Record `where claude` and `claude --version` in the RESULT.
+2. Create `C:\Users\JV\OneDrive\Documents\Scripts\Start-RemoteControl.ps1`. It should `Set-Location` to the JV-repository clone and then run `claude remote-control`. Use the exact subcommand that `claude --help` lists on this machine, and record what you used.
+3. Register a Scheduled Task named **`RAMBO-RemoteControl-AutoStart`**:
+   - Trigger: at logon of user JV.
+   - Settings: restart on failure every 5 minutes, up to 3 times; no stop-after time limit; run only when the user is logged on, so the Claude sign-in token is available.
+   - Before registering, save the undo script: `Rollback_RemoteControlAutoStart_2026-09-23_HHMM.ps1` in `Undo_Manifests`, containing `Unregister-ScheduledTask -TaskName RAMBO-RemoteControl-AutoStart -Confirm:$false`.
+4. **Prove it:** run the task once with `Start-ScheduledTask`. Then confirm that a new Remote Control session appears in the Claude iPhone/web session list. Record its title and the time you saw it.
+5. **Health check (Tier 3, RI-002):** a process that exists is not a live session. Add a 30-minute Scheduled Task that checks whether the Remote Control process is running. If it is not, the task restarts it and appends a line to `G:\My Drive\VTES-Outbox\REMOTE-CONTROL-HEALTH.log`.
+6. Write `G:\My Drive\VTES-Outbox\RESULT_REMOTE-CONTROL-AUTOSTART_TRK-2026-9952j_2026-09-23.md`. First line: nonce `AUTOSTART-NONCE-PLOVER-3381-20260923`. Next line: `STARTED-BY:`. Then the outputs of steps 1–5. Mark it DONE only if step 4 saw the session appear.
+
+**If blocked** (e.g. the subcommand needs an interactive prompt): write BLOCKED in the RESULT with the exact error text. Do not ask Jorge to debug it.
+
+## 18. TRK-2026-9952k — OWNER DIRECTIVE: unattended job runs, SAFE version (JOB-0079 §D.1)
+
+**Approved by Jorge 2026-09-23 (iPhone): "Yes" to the safe version.** Do this after item 17. It addresses RI-044 (4 occurrences): the executor only exists while a human-opened session is alive.
+
+**Why the safe version:** an unattended run that executes *any* file in a Drive folder lets anyone who can write to that folder steer the PC. The first draft of this item was rejected for exactly that reason. The limits below are the point of this item and are not optional.
+
+**Safety limits (all required):**
+- **Trust anchor:** a job runs unattended only if its SHA-256 appears in `mailbox/to-desktop/APPROVED-JOBS.txt` on the repo's default branch. Read it with `git fetch` + `git show origin/<default>:mailbox/to-desktop/APPROVED-JOBS.txt`; do not merge. A job whose hash is not listed gets an ACK only, exactly as today.
+- **Tools:** the headless run gets read-only tools plus writing new files under `G:\My Drive\VTES-Outbox\` only. Use an explicit `--allowedTools` allowlist. No shell, no installs, no settings or registry changes, no network sends, no moving or deleting files. **Never use a bypass-permissions mode.**
+- **Anything beyond that** (installs, powercfg, scheduled tasks, filing, email) is not run unattended. The run writes `NEEDS-HUMAN-SESSION_<job>.md` to the Outbox and exits. The job stays queued for the next interactive Rambo session.
+- **Never wait on a person:** any prompt or popup means the run writes its note and exits (RI-036).
+- One run at a time (lock file), 30-minute timeout, and every run logged to `VTES-Outbox\HEADLESS-RUNS.log`.
+
+**Do:**
+1. Find the VTES-LOCAL-POLLER script and task. Save a `.bak-20260923` copy and write an undo script to `Undo_Manifests`.
+2. Add the hash check and the restricted `claude -p` launch after the ACK, per the limits above.
+3. **Prove it with nobody present:** close all Claude windows. Have cloud add a test job to APPROVED-JOBS.txt that writes nonce `D1-NONCE-WREN-6027-20260923` to a new Outbox file. The RESULT must say `STARTED-BY: VTES-LOCAL-POLLER`.
+4. **Prove the lock:** drop an *unlisted* job. It must get an ACK only, and no run.
+5. Write `G:\My Drive\VTES-Outbox\RESULT_HEADLESS-SAFE_TRK-2026-9952k_2026-09-23.md`. First line: nonce `HEADLESS-NONCE-TERN-4412-20260923`. Include the outputs of steps 1–4 and the undo path. Mark it DONE only if both proofs passed.
+
+**If blocked:** write BLOCKED with the exact error. Do not ask Jorge to debug it.
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
