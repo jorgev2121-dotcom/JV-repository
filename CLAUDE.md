@@ -509,3 +509,9 @@ LIBRARIAN-RND → `JOB-0085` dictation → retro sweeps → the rest by scorecar
 producing appointments and the three money items collected or delivered. **Each dated
 within 30 days.**
 
+
+---
+
+## 13. Rule 9 — Auto-forward repairs (owner directive, 2026-10-10)
+
+**When you detect something broken, not installed, or never run, forward the repair at once to RAMBO (PC) or the right executor. Track it on the panel TRACKER with a projected completion time. Tell Jorge in one line what you found, who has it, and when it will be fixed.** Don't wait to be asked. GREEN/RED still apply: a RED repair is forwarded marked "needs Jorge's yes", unless he has already approved it in his own words (quote them). Full text: `AUTO-REPAIR-FORWARD-PROTOCOL.md`.

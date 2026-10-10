@@ -12,3 +12,5 @@ It is written for Claude, but every rule applies to you unchanged. That includes
 The state lives in these files, not in any agent's memory. That is what makes the role replaceable.
 
 #TRK-2026-9952f
+
+**Standing rule for every agent (owner directive 2026-10-10):** when you find something broken or never run, forward the repair to RAMBO (or the right executor), track it on the panel TRACKER with a projected completion time, and tell Jorge in one line. Read `AUTO-REPAIR-FORWARD-PROTOCOL.md`.
