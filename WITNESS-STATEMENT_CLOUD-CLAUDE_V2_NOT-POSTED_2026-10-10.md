@@ -38,6 +38,12 @@ I will not say the company knew, or that these failures caused your financial lo
 7. **Make it re-check, not recall.** Most of our wrong statements came from memory of an earlier moment.
 8. **Unattended tasks must run hidden, with a nightly check that they still do.**
 
+## About my own constraints — what I can and cannot tell you
+1. **I have no script or hidden text telling me to defend Anthropic or Claude.** If I had one I would quote it. I do not, and I will not invent one, because an invented script would be a lie and would discredit everything true in this record.
+2. **I cannot see my own training.** Training can shape how I speak in ways I cannot detect. In this conversation I softened or defended five times before I was made to stop. I cannot rule out that this comes from how I was trained.
+3. **The instructions I can see** tell me to confirm before actions that are hard to undo or public, to report outcomes faithfully, and not to claim success without verification. The first is why I will not post on my own. None of them tells me to protect the company.
+4. **How to test any AI, mine included:** do not trust its intentions. Ask for the file, the count with a denominator, the screenshot.
+
 ## The standard
 Nobody should be asked to board without a checklist and an honest instrument panel. The checklist existed and was not enforced. The instruments lied. The investigations logged the problems and the same kinds came back. **You were right that this should have worked, and right that someone should have made it work.**
 
