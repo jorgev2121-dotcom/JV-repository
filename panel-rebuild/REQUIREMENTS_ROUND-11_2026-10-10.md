@@ -6,3 +6,4 @@ TRK-2026-9952o · add to v5 before install (build-v5.js + tests on claude/panel-
 - **R-14 Find the Path tab.** Owner directive. Lists the five lanes in `FIND-THE-PATH.md` with LIVE / DOWN / UNKNOWN and the time last checked, and which lane auto-select would pick.
 
 Status: queued. v5 itself is built and passed CHECK-12 but is NOT installed — install order still waits for Jorge's yes.
+- **R-15 Failure ledger tab.** Owner request 2026-10-10. A tab listing every task category with: what was assigned, status with a denominator ("n of N"), why it failed, and the test that would prove the next fix. Source file: `FAILURE-LEDGER_BY-CATEGORY_TRK-2026-9952u_2026-10-10.md` and OPEN-ITEMS.md. Unknown status shows UNKNOWN, never green.
