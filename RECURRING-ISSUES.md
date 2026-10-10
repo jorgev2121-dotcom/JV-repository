@@ -106,6 +106,7 @@ installed updaters, then execute Tier 2, then write the Tier 3 scheduled task.
   2026-08-18 conviction) or it becomes a focus-stealer itself. TRK-2026-9410.
 
 ---
+- **2026-10-10 recurrence:** PDF Viewer Plus SE pops up at login on `Startup\Force-Drive-Snap.vbs.disabled-20260708`. Root cause: a renamed file left IN the Startup folder still launches. Tier 2: move it out (TRK-2026-9952n). Rule: never "disable" a Startup item by renaming — move it.
 
 ## RI-002 — False completion reports
 

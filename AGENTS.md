@@ -18,3 +18,7 @@ The executor is headless, so nobody can answer a prompt: use `npx --yes`, never 
 Job filenames must END in `_YYYY-MM-DD.md`. Put any version tag before the TRK (`NAME-R2_TRK-2026-NNNN_2026-09-24.md`). A `_v2.md` suffix gets ACKed but is never run (observed 2026-09-23).
 
 #TRK-2026-9952f
+
+
+## Find the Path
+When Jorge says "F" or "Find the path", follow `FIND-THE-PATH.md`: name your window, check the lanes to the desktop executor live, auto-pick the first LIVE one, report.
