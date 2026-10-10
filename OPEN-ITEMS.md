@@ -884,3 +884,4 @@ not recorded anywhere — that is itself the problem this file exists to prevent
 | TRK-2026-9952p | Panel header covers the page (6th sighting, 5 recorded requests) | Drive job sent to VTES-Inbox: find the live file from the window, fix the builder, screenshot proof | IN PROGRESS — waiting on EXECUTED/BLOCKER |
 | TRK-2026-9952q | History report: header requests and RI-001 pop-ups | REPORT_POPUPS-AND-HEADER-HISTORY_TRK-2026-9952q_2026-10-10.md | DONE (report). Fix of all 51 tasks awaits Jorge's yes |
 | TRK-2026-9952r | Wrap all ~51 console-launching scheduled tasks in Run-Hidden + nightly guard (RI-001 Tier 2+3) | Drive job sent to VTES-Inbox 2026-10-10 after Jorge said yes | IN PROGRESS — waiting on EXECUTED/BLOCKER with BEFORE/AFTER table |
+| TRK-2026-9952s | Clipboard conflict: read-only census (Jorge asked 3 times) | Drive job sent 2026-10-10; removal needs his yes after the table | IN PROGRESS — waiting on EXECUTED/BLOCKER |
