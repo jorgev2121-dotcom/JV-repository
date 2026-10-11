@@ -29,7 +29,7 @@ These are tracker IDs, not TRK numbers. A task that becomes a client job still g
 
 ## Section D — How it is wired
 
-- **Schedule:** Routine "VTES task sweeper (every 2 hours)", trigger trig_01Ri9ipkXwqxhvJdV2eTLij2, firing at :18 past every second hour UTC into the cloud session session_01FdGTRVtDwdX9dVbnggQTfG.
+- **Schedule:** Routine "VTES task sweeper (every 2 hours)", trigger trig_01Ri9ipkXwqxhvJdV2eTLij2, firing at :18 past 12, 14, 16, 18, 20, 22, 0 and 2 UTC (8:18 AM to 10:18 PM Miami) into the cloud session session_01FdGTRVtDwdX9dVbnggQTfG. Night runs were dropped on 2026-10-11 because each quiet run in that long session cost about $3.40 of usage and four quiet runs in a row found nothing.
 - **Why not a fresh session each run:** tried first on 2026-10-10 15:18Z. The fresh session had ArtifactData but NOT list_sessions or list_events, so it could not read any chat. The fix was to fire into a session that has those tools.
 - **Reads:** Claude Code Remote `list_sessions` and `list_events` (user and assistant turns only).
 - **Writes:** the panel database through the ArtifactData tool, collections `tracker` and `tracker_meta`.
