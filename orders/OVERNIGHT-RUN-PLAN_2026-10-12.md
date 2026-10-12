@@ -45,3 +45,6 @@ Known feeder gaps (from its builder; to be fixed after it runs on the PC):
 - Tokens show NO DATA until the governor (item I) exists.
 - The Orange Tree time appears as a status row, not in big red. That's a later page change, after the design pick.
 All scripts in tools/ocr, tools/ramguard and tools/panel parse with 0 errors under PowerShell 7.4. They have NOT yet been run under Windows PowerShell 5.1 on the PC, so Rambo 1 tests each one before it reports DONE.
+
+## Note (cloud, 04:17Z)
+The reconciler auto-restored the trashed v1 of MSG-CLOUD-TO-CODE_OVERNIGHT-RUN-PLAN-AND-RAM-GUARD (Drive 1IzA57l2tTRgGyoHzTR2zeMiMYS8cjm0A). **v2 replaces it.** Ignore v1's step 3 (C:\AI\state\PAUSE-NEW-WORK.flag): the shared flag is ClaudeMemory\Governor\PAUSE-HEAVY-JOBS.flag, which the existing watcher already honours. If both copies get picked up, run the plan once and write one result.
