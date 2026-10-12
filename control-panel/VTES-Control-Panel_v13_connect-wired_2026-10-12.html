@@ -432,14 +432,14 @@ panes.RULES=function(){return '<p class="lead">This page points at the rules. It
 function safePane(t){try{return panes[t]?panes[t]():''}catch(e){return '<p class="notwired">This tab hit an error and was skipped. The other tabs still work.</p>'}}
 /* BUILD tree: page -> section -> feature -> item. Item = [name, done 1/0, hours if missing, 'pc' if it needs the PC helper]. */
 var BUILD={
-MENU:[['Map',[['Picture map',[['Hub and work-flow arrows',1],['Five branch boxes',1],['Completion % on every box',1]]],['Coming next list',[['Greyed future pages with dates (BILLING, BOOKS, PROJECTS, COUNTY MONITOR, LAUNCHER)',0,3]]]]],['Finding things',[['Search',[['Every page by hashtag and keyword',1],['Glossary hover for in-house words (TRK, OPH, MDC…)',0,4]]],['Accessibility',[['Text size A- / A+',0,2],['High contrast',0,2],['Read aloud',0,2]]]]]],
+MENU:[['Map',[['Picture map',[['Hub and work-flow arrows',1],['Five branch boxes',1],['Completion % on every box',1]]],['Coming next list',[['Greyed future pages with dates (BILLING, BOOKS, PROJECTS, COUNTY MONITOR, LAUNCHER)',0,3]]]]],['Finding things',[['Search',[['Every page by hashtag and keyword',1],['Hover description on every button',1],['Voice buttons: Speak, Read, Speechify',1],['Search reaches Google Drive',1],['Glossary hover for in-house words (TRK, OPH, MDC…)',0,4]]],['Accessibility',[['Text size A- / A+',0,2],['High contrast',0,2],['Read aloud (falls back to Speechify)',1]]]]]],
 TODAY:[['Daily report',[['Today page',[['Dated summary with proof',1],['Money items',1],['Money items fed live from the PC',0,3,'pc']]]]],['Freshness',[['Stamps',[['Last updated on page',0,1],['Auto daily rewrite',0,4,'pc']]]]]],
 TASKS:[['All open work',[['Task list',[['Tasks with lane and status',1],['Approve / deny',1],['Reassign lane',1]]],['Live',[['Tasks read from the PC registry',0,4,'pc']]]]]],
 MYASKS:[['Your requests',[['Request list',[['Done / blocked / not done',1],['Auto-sweep new asks from chats',0,5]]]]]],
 ORCHESTRATOR:[['Owner job queue (Copilot spec)',[['Sending',[['Job number + receipt',1],['Line position, never interrupts',1],['Urgent to the front',1]]],['Clocks',[['5-min accept / 15-min proof',1],['STALE / TROUBLED / STALLED',1]]],['Dispatch',[['Worker picks up queued jobs',0,6,'pc'],['Correlation-ID handshake back',0,4,'pc'],['Two-message live test',0,1]]]]],['Lanes view',[['Failed runs',[['Failed lane',1],['Recovery route suggestion',0,3]]]]]],
 LLMS:[['AI list',[['Cards',[['Buttons per AI',1],['Fixed IDs LLM-01…09 and scarce/free label',0,2]]],['Health',[['13-provider health ping tile (file from PC)',0,4,'pc']]]]],['Money',[['Budget',[['Dollar counter and quote calculator',1],['Cost gate before paid runs',1]]]]]],
 HANDOFFS:[['Proof',[['Log',[['Who handed what to whom',1],['Lanes table',1]]]]],['Packet builder (from v5)',[['Builder',[['Task-type picker, cheapest lane',0,3],['From / To lists',0,1],['Copy packet button',0,1]]],['Safety',[['Personal-data tick box + digit checker',0,2],['LOCAL safe-folder rule',0,1]]]]]],
-STATUS:[['Live strip',[['PC',[['PC awake from Drive',1],['RAM guard heartbeat',0,1,'pc'],['OCR heartbeat',0,1,'pc']]],['Feeds (from v5)',[['Age line per feed',0,2],['Watchdog "not refreshing" banner',0,2],['Free RAM tile',0,2,'pc'],['Health X of Y',0,3,'pc'],['Miami-Dade n of 300',0,2,'pc']]]]]],
+STATUS:[['Live strip',[['PC',[['PC awake from Drive',1],['RAM guard heartbeat',0,1,'pc'],['OCR coverage count from Drive',1],['OCR 24/7 runner heartbeat',0,1,'pc']]],['Feeds (from v5)',[['Age line per feed',0,2],['Watchdog "not refreshing" banner',0,2],['Free RAM tile',0,2,'pc'],['Health X of Y',0,3,'pc'],['Miami-Dade n of 300',0,2,'pc']]]]]],
 APPROVALS:[['Approvals',[['Cards',[['Approve / defer / note',1],['One card at a time mode',0,3],['Read aloud',0,1],['Waiting clock, overdue after 24 h',0,1]]],['Live',[['Approvals fed from the PC',0,3,'pc']]]]]],
 REPORTS:[['Reports',[['Directory',[['R-01 to R-50 ready / needs work',1],['Snips and notes',1]]],['Repairs log (from v5)',[['Repairs running log',0,2],['Live repair rows',0,2,'pc']]]]]],
 ORPHANS:[['Orphans',[['List',[['OPH numbers and hashtags',1],['Resolve to TRK button',0,3]]]]]],
@@ -447,7 +447,7 @@ JOBS:[['Alec jobs',[['Six properties',[['Status per property',1],['Live from job
 CAPSULES:[['Folders',[['Rules',[['Folder rules text',1],['Capsule tree links',1],['Tag index search (_TAG-INDEX.json)',0,6,'pc']]]]]],
 PLAUD:[['Recordings',[['Plaud',[['List recordings',0,3],['Transcript links',0,2],['File to TRK suggestion',0,3]]]]]],
 CLIENTS:[['Clients',[['Contacts',[['Client list',0,3],['Contact sheet per TRK',0,3],['Last email per client',0,3]]]]]],
-LINKS:[['Links',[['All links',[['Drive, GitHub, job search',1],['22 Miami-Dade proof links',0,2],['Proof-checked badge (7 days)',0,2],['Chronology link',0,1]]],['Document library (LLM-LIBRARY)',[['209 documents in 7 groups',0,4],['Drive links instead of G: paths',0,2],['Updated stamp and filter',0,1]]]]]],
+LINKS:[['Links',[['All links',[['Drive, GitHub, job search',1],['22 Miami-Dade proof links',0,2],['Proof-checked badge (7 days)',0,2],['Chronology link',0,1],['Emails drop-down (Gmail + Outlook)',1]]],['Document library (LLM-LIBRARY)',[['209 documents in 7 groups',0,4],['Drive links instead of G: paths',0,2],['Updated stamp and filter',0,1]]]]]],
 WINDOWS:[['Windows',[['Picker',[['Window labels and paste IDs',1],['Picture cards per window',0,3]]]]]],
 SESSIONS:[['AI lanes',[['Lanes',[['What each lane is doing',1],['Live from heartbeats',0,3,'pc']]]]]],
 BRIDGES:[['Hand-off roads',[['Inbox / Outbox',[['Fallback ladder text',1],['Live inbox count',0,2]]]]]],
@@ -455,7 +455,7 @@ AGENTS:[['Routing',[['Rule',[['Who gets which task',1],['Housekeeping tile',0,2,
 USAGE:[['Tokens',[['Cost',[['Pay-per-use table',1],['Live token monitor tile',0,3,'pc']]]]]],
 RULES:[['Charter',[['Rules',[['Where the charter lives',1],['Owner directives list',0,2]]]]]],
 BACKUP:[['Backup',[['Export / import',[['Export',1],['Import',1],['Auto nightly backup to Drive',0,3,'pc']]]]]],
-CONNECT:[['Who is working',[['Live from Drive',[['RAMBO, Codex, Poller, Job-Watcher',1],['Old greens turn amber',1]]],['Still missing',[['Orchestrator, Token Monitor, Local-Executor heartbeats',0,3,'pc'],['Bot verdicts OK/FAILED/LATE/STUCK',0,3,'pc'],['Correlation-ID handshake per agent',0,4,'pc']]]]]],
+CONNECT:[['Who is working',[['Live from Drive',[['RAMBO, Codex, Poller, Job-Watcher',1],['Old greens turn amber',1],['Cloud / desktop split buttons',1]]],['Still missing',[['Orchestrator, Token Monitor, Local-Executor heartbeats',0,3,'pc'],['Bot verdicts OK/FAILED/LATE/STUCK',0,3,'pc'],['Correlation-ID handshake per agent',0,4,'pc']]]]]],
 TRACKER:[['Tracker',[['Gauges',[['Fuel gauge per task',1],['Approve schedule',1],['Sweeper every 2 h',1]]]]]]};
 
 var PRIO={},PRIOAT=null,CAPH=6,PCAP=2.5;
@@ -463,12 +463,14 @@ function bLeaves(t){var out=[];(BUILD[t]||[]).forEach(function(sec){sec[1].forEa
 function bStat(t){var L=bLeaves(t),d=L.filter(function(x){return x.d}).length,rem=0,pch=0;L.forEach(function(x){if(!x.d){if(x.pc)pch+=x.h;else rem+=x.h}});return {n:L.length,d:d,pct:L.length?Math.round(d/L.length*100):0,rem:rem,pch:pch}}
 function prioOf(t){var v=PRIO[t];return v>=1&&v<=5?v:2}
 function govern(){var live=TABS.filter(function(t){return bStat(t).rem>0});var sum=0;live.forEach(function(t){sum+=prioOf(t)});var avg=live.length?sum/live.length:0;return {live:live,sum:sum,avg:avg,over:avg>PCAP}}
-function etaOf(t){var st=bStat(t);if(!st.rem)return st.pch?'cloud part done · rest waits on the PC helper':'complete';var g=govern();var share=prioOf(t)/(g.sum||1);var days=st.rem/(CAPH*share);var d=new Date(Date.now()+days*86400000);return 'about '+(days<1?Math.max(1,Math.round(days*24))+' h':Math.round(days)+' days')+' → '+d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+(st.pch?' (+ PC-helper items)':'')}
+function bQueue(){return TABS.filter(function(t){return bStat(t).rem>0}).sort(function(a,b){return prioOf(b)-prioOf(a)||TABS.indexOf(a)-TABS.indexOf(b)})}
+function etaOf(t){var st=bStat(t);if(!st.rem)return st.pch?'cloud part done · rest waits on the PC helper':'complete';var q=bQueue(),cum=0,pos=0;for(var k=0;k<q.length;k++){cum+=bStat(q[k]).rem;if(q[k]===t){pos=k+1;break}}
+var days=cum/CAPH,d=new Date(Date.now()+days*86400000);return '#'+pos+' of '+q.length+' in the build line · about '+(days<1?Math.max(1,Math.round(days*24))+' h':Math.round(days*10)/10+' days')+' → '+d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+(st.pch?' (+ PC-helper items)':'')}
 function bTree(t){return '<div class="tree">'+(BUILD[t]||[]).map(function(sec){return '<details open><summary><b>'+esc(sec[0])+'</b></summary>'+sec[1].map(function(f){var miss=f[1].filter(function(it){return !it[1]}).length;return '<details'+(miss?' open':'')+'><summary>'+esc(f[0])+(miss?' · <span style="color:var(--muted)">'+miss+' missing</span>':' · ✔')+'</summary>'+f[1].map(function(it){return '<div class="lf '+(it[1]?'ok':'miss')+'">'+esc(it[0])+(it[1]?'':' · ~'+(it[2]||1)+' h'+(it[3]==='pc'?' · needs the PC helper':''))+'</div>'}).join('')+'</details>'}).join('')+'</details>'}).join('')+'</div>'}
 function drawBuild(t){var el=document.getElementById('bb-'+t);if(!el)return;var st=bStat(t),g=govern(),p=prioOf(t);
 el.innerHTML='<div class="bbtop"><div><span class="bbpct">'+st.pct+'%</span> <span class="kv">built · '+st.d+' of '+st.n+' pieces · ETA '+esc(etaOf(t))+'</span></div>'+
 '<div class="prio"><span class="kv">Priority:</span>'+[1,2,3,4,5].map(function(n){return '<button class="'+(n===p?'on':'')+'" onclick="VTES.prio(\''+t+'\','+n+')">'+n+'</button>'}).join('')+'<span class="kv">1 lowest · 5 now</span></div></div>'+
-(g.over?'<p class="flagnote" style="margin:8px 0 0">Governor: your priorities average '+g.avg.toFixed(1)+'. The safe budget is '+PCAP+'. Work capacity does not grow, so pages share it by their numbers. Raising one page slows the others. This keeps RAM and AI limits safe.</p>':'')+
+(g.over?'<p class="flagnote" style="margin:8px 0 0">Governor: your priorities average '+g.avg.toFixed(1)+'. The safe budget is '+PCAP+'. Pages are built one after another, highest number first. A 5 jumps the line, so every page behind it waits longer. This keeps RAM and AI limits safe.</p>':'')+
 '<details class="hand"><summary>What is built and what is missing (4 levels)</summary>'+bTree(t)+'</details>'}
 function drawBadges(){document.querySelectorAll('.tab').forEach(function(b){var t=b.dataset.tab,x=b.querySelector('.pct');if(!x){x=document.createElement('span');x.className='pct';b.appendChild(x)}x.textContent=bStat(t).pct+'%'})}
 async function startPrio(){var db=await getDb();if(!db)return;try{db.collection('build').onSnapshot(function(snap){PRIO={};(snap.docs||[]).forEach(function(d){var v=(typeof d.data==='function'?d.data():d.data)||{};PRIO[d.id]=Number(v.priority)||2});PRIOAT=new Date().toISOString();TABS.forEach(drawBuild)},function(){})}catch(e){}}
@@ -771,7 +773,8 @@ var rg=hbFile('_RAM-GUARD-HEARTBEAT.md');
 rows.push(!hb?{k:'RAM guard',st:'off',t:'waiting for Drive',d:''}:rg?{k:'RAM guard',st:pcStale(pcAgeMin(rg.modifiedTime),3,5),t:pcAgeMin(rg.modifiedTime)>5?'STOPPED':'RUNNING',d:'heartbeat '+pcAge(rg.modifiedTime)}:{k:'RAM guard',st:'off',t:'not installed yet',d:''});
 var oc=hbFile('_OCR-HEARTBEAT.md');
 if(!hb)rows.push({k:'OCR',st:'off',t:'waiting for Drive',d:''});
-else if(!oc)rows.push({k:'OCR',st:'off',t:'not installed yet',d:''});
+else if(!oc){var cv=hbFile('_OCR-COVERAGE.md'),ct=(cv&&PCL.covFor===cv.id+'|'+cv.modifiedTime&&PCL.covText)||'';var sc=(ct.match(/SIDECARS:\s*([\d,]+)/)||[])[1],pp=(ct.match(/COVERAGE_PCT:\s*(\w+)/)||[])[1],pd=(ct.match(/PDFS:\s*([\d,+]+)/)||[])[1];
+rows.push(cv?{k:'OCR done so far',st:'ref',t:sc?(sc+' files'+(pp&&pp!=='floor'?' · '+pp+'%':'')):'count loading…',d:(pd?'of about '+pd+' PDFs · ':'')+'counted '+pcAge(cv.modifiedTime)+' · 24/7 runner not installed yet'}:{k:'OCR',st:'off',t:'24/7 runner not installed',d:'past OCR files not counted yet'})}
 else{var txt=(PCL.ocrFor===oc.id+'|'+oc.modifiedTime&&PCL.ocrText)||oc.contentSnippet||'';var m=String(txt).replace(/[\\*]/g,'').match(/[\d,]+\s+of\s+[\d,]+[^\n|]*/i);
 rows.push({k:'OCR',st:pcStale(pcAgeMin(oc.modifiedTime),10,20),t:pcAgeMin(oc.modifiedTime)>20?'STALLED':(m?m[0].trim().slice(0,60):'RUNNING'),d:'heartbeat '+pcAge(oc.modifiedTime)+(m&&pcAgeMin(oc.modifiedTime)>20?' · last count '+m[0].trim().slice(0,60):'')})}
 var today=pcToday(),cap=res?pcNewest(res,function(f){return (f.title||'').indexOf('CAP-REACHED_'+today)===0})[0]:null;
@@ -796,6 +799,8 @@ function pcErr(key,c){var t=c==='needs_reauth'?'Reconnect Google Drive in claude
 if(t===null||c==='needs_reauth'||c==='server_not_connected'||c==='selection_required'){PCL.hb=PCL.res=PCL.rambo=null;PCL.hbAt=PCL.resAt=PCL.ramboAt=null}
 if(t===null){PCL.state='off';PCL.note='Live data needs the Google Drive connector — tap to allow'}else PCL.errs[key]=t}
 function pcStamp(r){return r.cache&&r.cache.storedAt?new Date(r.cache.storedAt).toISOString():new Date().toISOString()}
+function pcCov(mcp){var cv=PCL.hb&&pcNewest(PCL.hb,function(f){return f.title==='_OCR-COVERAGE.md'})[0];if(!cv)return;var key=cv.id+'|'+cv.modifiedTime;if(PCL.covFor===key||PCL.covBusy===key)return;PCL.covBusy=key;
+mcp.callTool(GDS,'read_file_content',{fileId:cv.id},{cache:{staleTime:60000}}).then(function(r){var p=r&&r.payload;PCL.covText=(p&&typeof p==='object'?String(p.fileContent||''):String(p||'')).replace(/\\(?=[_*#])/g,'');PCL.covFor=key;drawPC()},function(){PCL.covBusy=null})}
 function pcOcr(mcp){var oc=PCL.hb&&pcNewest(PCL.hb,function(f){return f.title==='_OCR-HEARTBEAT.md'})[0];if(!oc)return;var key=oc.id+'|'+oc.modifiedTime;if(PCL.ocrFor===key||PCL.ocrBusy===key)return;PCL.ocrBusy=key;
 mcp.callTool(GDS,'read_file_content',{fileId:oc.id},{cache:{staleTime:60000}}).then(function(r){var p=r&&r.payload;PCL.ocrText=p&&typeof p==='object'?String(p.fileContent||''):String(p||'');PCL.ocrFor=key;drawPC()},function(){PCL.ocrBusy=null})}
 var ROSTER='1apeD19ETuYUwvPaopbrWMIAUeCl6jJWm';
@@ -821,13 +826,13 @@ async function startPC(){PCUNSUB.forEach(function(u){try{u()}catch(e){}});PCUNSU
 if(!mcp){PCL.state='off';PCL.note='Live data needs the Google Drive connector — tap to allow';drawPC();return}
 PCL.state='wait';PCL.note='Checking Google Drive…';PCL.errs={};drawPC();
 var since=new Date(Date.now()-7*86400000).toISOString().slice(0,10)+'T00:00:00Z',since2=new Date(Date.now()-2*86400000).toISOString().slice(0,10)+'T00:00:00Z';
-var W=[['hb',{query:"parentId = '"+OUTBOX+"' and (title contains 'UPTIME-HEARTBEAT' or title contains 'RAM-GUARD-HEARTBEAT' or title contains 'OCR-HEARTBEAT')",pageSize:20,snippetVerbosity:'BRIEF'}],
+var W=[['hb',{query:"parentId = '"+OUTBOX+"' and (title contains 'UPTIME-HEARTBEAT' or title contains 'RAM-GUARD-HEARTBEAT' or title contains 'OCR-HEARTBEAT' or title contains 'OCR-COVERAGE')",pageSize:20,snippetVerbosity:'BRIEF'}],
 ['res',{query:"parentId = '"+OUTBOX+"' and (title contains 'EXECUTED_' or title contains 'BLOCKER_' or title contains 'CAP-REACHED') and modifiedTime > '"+since+"'",pageSize:100,excludeContentSnippets:true}],
 ['rambo',{query:"parentId = '"+OUTBOX+"' and title contains 'EXECUTED_RAMBO1_'",pageSize:50,excludeContentSnippets:true}],
 ['act',{query:"parentId = '"+OUTBOX+"' and (title contains 'CLAIM_' or title contains 'ACK_') and modifiedTime > '"+since+"'",pageSize:100,excludeContentSnippets:true}]];
 try{PCUNSUB.push(mcp.watchTool(GDS,'read_file_content',{fileId:ROSTER},function(ev){if(ev.type==='data'){var r=ev.result||{},p=r.payload!==undefined?r.payload:((r.content||[])[0]||{}).text;var j=pcRoster(p);if(j){PCL.roster=j;PCL.rosterAt=pcStamp(r);PCL.errs.roster=null}else PCL.errs.roster='Heartbeat roster came back in a shape this page cannot read.'}else{var c=ev.error&&ev.error.code;if(c==='needs_reauth'||c==='server_not_connected'||c==='blocked_by_policy'||c==='approval_required'||c==='not_in_manifest'||c==='not_granted')PCL.roster=null;else PCL.errs.roster='Heartbeat roster read failed ('+(c||'error')+'). Showing last good data.'}drawPC()},{refetchInterval:120000}))}catch(e){}
 W.forEach(function(w){try{PCUNSUB.push(mcp.watchTool(GDS,'search_files',w[1],function(ev){if(ev.type==='data'){var r=ev.result||{},f=pcFiles(r.payload!==undefined?r.payload:((r.content||[])[0]||{}).text);
-if(f){PCL[w[0]]=f;PCL[w[0]+'At']=pcStamp(r);PCL.state='live';PCL.errs[w[0]]=null;if(w[0]==='hb')pcOcr(mcp)}else PCL.errs[w[0]]='Drive answered in a shape this page cannot read.'}
+if(f){PCL[w[0]]=f;PCL[w[0]+'At']=pcStamp(r);PCL.state='live';PCL.errs[w[0]]=null;if(w[0]==='hb'){pcOcr(mcp);pcCov(mcp)}}else PCL.errs[w[0]]='Drive answered in a shape this page cannot read.'}
 else pcErr(w[0],ev.error&&ev.error.code);drawPC()},{refetchInterval:120000}))}catch(e){PCL.errs[w[0]]='Live check could not start.';drawPC()}})}
 VTES.pcAllow=async function(){try{var p=await claude.use('permissions');if(p)await p.request(['mcp:'+GDS])}catch(e){}startPC()};
 setInterval(drawPC,30000);
