@@ -488,6 +488,16 @@ Never overwrite a tag file or client document, never send anything outbound, nev
 
 ---
 
+## 17. OD-112 — Control panel wired, 30-second video, missed-task watcher (2026-10-12)
+
+Owner order, Jorge, 2026-10-12 (first ordered about 2026-10-09; the order never reached this file).
+1. **Control panel.** Find the existing VTES control panel source (the Orange Tree "every job you have" panel, vts-llm-panel, Agent Control Panel). Wire the cloud snapshot board (see the "VTES Control Panel" Artifact) into it so each row shows executor, state, ETA from OPEN-ITEMS and TO-CLOUD. Jorge's Copilot-designed index window is the look to match; ask Jorge to paste a screenshot of it, once.
+2. **Video.** Record a 30-second screen video of the finished panel working. Save to the repo's reports folder and Drive; give Jorge the file name.
+3. **Watcher.** Make the existing reconciler read each new chat export/handoff and append missed tasks to OPEN-ITEMS. Prove it by catching a planted missed item. No new system: extend the reconciler (CLAUDE.md Art. 1).
+4. Report DONE/BLOCKED/IN PROGRESS with evidence to TO-CLOUD.md. Never write numbered paste blocks for Jorge (OD-109).
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by

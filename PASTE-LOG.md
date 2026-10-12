@@ -94,3 +94,4 @@ enough to identify it exactly, with no description needed.
 - **PASTE-D-037** · 2026-10-12 · Desktop → item 14 in `WORK-QUEUE.md` (OD-108): close popup windows, elevated Claude installer, 333-rotation N-of-333 report, Tier 2/3 fixes for logged recurrences, proof-of-done gate, Outlook stuck-Outbox
 - **PASTE-D-038** · 2026-10-12 · Desktop → item 15 in `WORK-QUEUE.md` (OD-110): Miami-Dade microfilm pull for 20001 SW 110 CT, merged review PDF, import, plain-English report, Medley second-set note
 - **PASTE-D-039** · 2026-10-12 · Desktop → item 16 in `WORK-QUEUE.md` (OD-111, PRIORITY): hashtag gap census across open jobs, proposed tags, uniform job report, Orange Tree placeholder register, control-panel queued-work board
+- **PASTE-D-040** · 2026-10-12 · Desktop → item 17 in `WORK-QUEUE.md` (OD-112): wire control panel, 30-second video, missed-task watcher
