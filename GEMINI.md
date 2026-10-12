@@ -11,4 +11,10 @@ It is written for Claude, but every rule applies to you unchanged. That includes
 
 The state lives in these files, not in any agent's memory. That is what makes the role replaceable.
 
+**Sending a job to the PC through Drive (`VTES-Inbox\MSG-CLOUD-TO-CODE_*.md`)?** The PC's headless executor
+accepts only two exit files: `VTES-Outbox\EXECUTED_<exact job filename>` or `VTES-Outbox\BLOCKER_<exact job filename>`.
+Any other name counts as FAILED-VERIFICATION (TRK-2026-9952l). Always put that exit contract in the job.
+The executor is headless, so nobody can answer a prompt: use `npx --yes`, never plain `npx`, and put a timeout on every command (TRK-2026-9952d v3).
+Job filenames must END in `_YYYY-MM-DD.md`. Put any version tag before the TRK (`NAME-R2_TRK-2026-NNNN_2026-09-24.md`). A `_v2.md` suffix gets ACKed but is never run (observed 2026-09-23).
+
 #TRK-2026-9952f
