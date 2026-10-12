@@ -10,6 +10,9 @@ Assemble the legalization (impact windows and doors) permit packet for the City 
 1. **Route = City Development Hub only.** Do not email the packet to the permit address.
 2. **HOLD the upload until the packet is complete** (items 1-9 below all in hand and approved by Jorge on the preview). Dry run may proceed now; upload may not.
 
+3. **Update 2026-10-12 evening:** Jorge spoke to Tomas by phone; Tomas is finalizing and will email the sealed documents. Cloud watches Gmail and Outlook every ~10 min (session-only, expires in 7 days) and will alert Jorge on arrival. Jorge is the contact person on the Hub; GC is Miguel Zaldivar (MZ Solutions), already pre-approved with the City. Jorge reviews first, then authorizes the upload.
+4. **Notarization is UNCONFIRMED.** Jorge believes everything is notarized. Cloud searched Drive titles, Gmail and Outlook and found only the unsigned drafts (permit application FINAL 2026-06-11, NOC, POA, hold-harmless). Desktop: check the capsule and any scans for signed and notarized copies; report found / not found per document before the preview.
+
 ## Packet manifest (what exists, what is missing)
 1. Plans A1.0 Floor and A2.0 Elevations: ARRIVED 2026-10-12 1:35 PM ET from Julio Silva (jdrafters@gmail.com), unread in Gmail and Outlook Inbox, subject "Fwd: 8621 Pasadena Blvd". Julio says digitally signed. **UNVERIFIED:** nobody has opened the PDFs to confirm Tomas Hernandez PE #62469 seal and signature. Tomas's last word (10/9) was that he would call Jorge to agree the sign-and-seal price. Save both PDFs into the TUS-26-1018 capsule, 02_Files-Attachments, named per charter 9.1.
 2. Sealed wind-pressure letter and as-built letter from Tomas: NOT RECEIVED (requested 6/12). City asked for a flattened PDF.
