@@ -20,6 +20,8 @@ Lanes: Claude and Codex only (Jorge, 2026-10-12).
 8. Desktop and taskbar AI icons: inventory and screenshot, then one proposed clean layout. Nothing is moved until Jorge says yes. HELD
 9. **1Password SSOT-02 (owner directive 10-12):** phase 0 gate (CLI switch), phase 1 counts, phase 2 consolidate + one autofill + no personal/work picker, phase 3 rotate in batches (high-stakes last, with Jorge), phase 4 weekly auto-heal. HELD
 10. **AI protocols, programs, triggers and hooks registry (repeat request 10-12):** copy with secrets redacted to "Shared Folders for all LLMs\AI-AUTOMATION-REGISTRY_2026-10-12", an index by owner, a first-pass conflict list, and a panel tab. Foundation for the PAD + bot + AI-oversight hybrid. HELD
+11. **Miami-Dade access letter:** issue the TRK from the registry, re-verify every contact on the live sites, check vendor registration (for the logo request). Draft only; Jorge says "send". HELD
+12. **Logo permission request (Jorge 10-12):** separate draft is in outreach/; it goes out only after item 11 confirms vendor status. Never claim "approved vendor" unless registered. HELD
 
 ## Running at the same time (parallel)
 - CLOUD, all night: relays each proof to Jorge by phone and email, re-sends any order Codex swallows, and alerts if the panel or governor heartbeat stops.
