@@ -366,6 +366,41 @@ Logged as **RI-046**.
 
 ---
 
+## 14. OD-108 — Desktop recovery: too many windows, recurring blockers, 333 rotation status (2026-10-12)
+
+**Owner order, Jorge, 2026-10-12:** the desktop is buried in popup windows, the same
+blockers keep coming back, he is frustrated. He needs the executor to find the
+problems and fix them, not report them.
+
+### Steps — in this order
+
+1. **Windows.** List every open window (title + process). Close duplicates, error
+   dialogs and stuck popups. Keep Outlook, one Claude Code window, and 1Password.
+   Do not close anything holding unsaved work — save or list it instead.
+2. **Claude installer.** `ClaudeSetup.log` says "Administrator access is required."
+   Re-run the installer elevated (Run as administrator). If it prompts for an admin
+   password, that is the one thing Jorge must supply — ask once, plainly.
+3. **333 rotation.** Did the run finish? Report `N of 333` with the output file path
+   and whether the output file is still growing (NIGHT-PROTOCOL: growth, not process
+   existence). No passwords or values in the report.
+4. **Blocker list.** Read `RECURRING-ISSUES.md`. For every item logged two or more
+   times, apply a Tier 2 or Tier 3 fix (CLAUDE.md Rule 4) — no Tier 1 patches.
+5. **Proof-of-done gate.** Two CDM claims in `C:\AI\state\claims.jsonl` (TRK-2026-1294)
+   point at missing files. Produce the files or correct the claims, then re-run the gate.
+6. **Mail stuck in Outbox.** Same zombie-process routine as item 13 step 0, then list
+   Outlook rules (names only) and whether any rule moves mail to Outbox/Drafts.
+
+### Report back (TO-CLOUD.md)
+
+DONE / BLOCKED / IN PROGRESS per step, with the evidence for each. Each BLOCKED needs
+a WORKAROUND-CERT (FREEZE Article 4). End with one yes/no question.
+
+### Never
+
+- Never type or store a password value. Never delete a client document.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
