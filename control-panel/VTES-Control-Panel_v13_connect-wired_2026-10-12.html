@@ -82,7 +82,13 @@ details.hand{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}d
 .gauge .fill{position:absolute;left:0;top:0;bottom:0;background:var(--st);opacity:.85;transition:width .6s}
 .gauge .notch{position:absolute;top:-2px;bottom:-2px;width:3px;background:var(--ink)}
 .gauge span{position:relative;display:block;text-align:center;font-family:var(--mono);font-size:12px;font-weight:700;line-height:22px;color:var(--ink);text-shadow:0 0 3px var(--panel)}
-.tk.p0{border:2px solid var(--bad)}.buildbar{margin-bottom:6px}
+.tk.p0{border:2px solid var(--bad)}
+.tabs{flex-wrap:wrap;overflow:visible;gap:4px 2px}.tab{position:relative;padding:12px 30px 7px 8px;font-size:11px}
+.tab .pct{position:absolute;top:1px;right:2px;font-size:9.5px;font-weight:700;color:var(--muted);background:var(--pill-bg);border-radius:8px;padding:0 4px;line-height:14px}
+.bbox{border:1px dashed var(--line);border-radius:10px;padding:10px 12px;margin:0 0 14px;background:var(--panel)}
+.bbtop{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}.bbpct{font-family:var(--mono);font-size:22px;font-weight:700}
+.prio{display:flex;gap:4px;align-items:center;flex-wrap:wrap}.prio button{min-width:38px;min-height:34px;border-radius:7px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-weight:700;cursor:pointer}.prio button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tree details{margin:2px 0 2px 14px}.tree summary{cursor:pointer;font-size:13px;min-height:26px}.tree .lf{font-size:12.5px;margin:2px 0 2px 28px}.tree .lf.miss{color:var(--muted);font-style:italic;opacity:.75}.tree .lf.miss::before{content:"▢ "}.tree .lf.ok::before{content:"✔ ";color:var(--good)}.buildbar{margin-bottom:6px}
 .tab.r1{outline:3px solid #8b5cf6;outline-offset:-3px;border-radius:6px}.tab.r2{outline:3px solid #db2777;outline-offset:-3px;border-radius:6px}.tab.r3{outline:3px solid #0891b2;outline-offset:-3px;border-radius:6px}
 #recentbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;margin:6px 0 4px}#recentbar b{font-family:var(--mono);font-size:11px;color:var(--muted)}
 .rc{font-family:var(--sans);font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:16px;background:var(--panel);color:var(--ink);cursor:pointer;border:3px solid}.rc.r1{border-color:#8b5cf6}.rc.r2{border-color:#db2777}.rc.r3{border-color:#0891b2}
@@ -107,7 +113,7 @@ details.hand{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}d
 <h1>VTES Control Panel</h1>
 <div id="alertbar"></div><div style="display:flex;gap:8px;align-items:center;margin:0 0 6px"><button class="act" onclick="location.reload()" style="min-height:32px;padding:4px 10px">&#8635; Refresh</button><button class="act" onclick="VTES.show('MENU')" style="min-height:32px;padding:4px 10px">&#9776; Menu / Index</button><button class="act" onclick="VTES.show('CONNECT')" style="min-height:32px;padding:4px 10px">&#128268; Connect: LLMs, agents, bots</button><button class="act" onclick="VTES.show('TRACKER')" style="min-height:32px;padding:4px 10px">&#9981; Task tracker</button></div><div id="lb" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.85);padding:12px;overflow:auto;cursor:zoom-out"><div id="lbt" style="color:#fff;font-weight:700;margin-bottom:8px"></div><img id="lbi" style="width:100%;max-width:1000px;display:block;margin:0 auto;border-radius:8px"></div>
 <p class="freshness" id="health"></p><p class="freshness" id="freshness"></p>
-<input id="q" type="search" placeholder="Search #hashtag, window, report, link..." autocomplete="off" style="width:100%;font-size:15px;padding:10px 12px;margin:0 0 8px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)">
+<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:0 0 8px"><input id="q" type="search" placeholder="Search #hashtag, window, report, link..." autocomplete="off" style="flex:1;min-width:160px;font-size:15px;padding:10px 12px;margin:0;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)"><button class="act" id="micbtn" title="Dictate into the search box" onclick="VTES.dictate()" style="min-height:40px">🎤 Speak</button><button class="act" title="Read the highlighted words out loud" onclick="VTES.readSel()" style="min-height:40px">🔊 Read</button><button class="act" title="Copy the highlighted words and open Speechify" onclick="VTES.speechify()" style="min-height:40px">📖 Speechify</button></div><p class="freshness" id="voicemsg" style="margin:0 0 6px"></p>
 <div class="tabs" id="tabs"></div><div id="recentbar"></div><p id="tabdesc"></p>
 </div>
 <div style="padding:0 16px"><section class="pcstrip" id="pcstrip" aria-live="polite"></section></div>
@@ -411,6 +417,48 @@ panes.PLAUD=function(){return '<p class="notwired">No live Plaud data wired in y
 panes.CLIENTS=function(){return '<p class="notwired">No live client list wired in yet.</p>'};
 panes.RULES=function(){return '<p class="lead">This page points at the rules. It does not replace them.</p><div class="card"><h3>Repo charter</h3><p class="kv">CLAUDE.md in the repository. Section 10 has the window banner, chat label standard, and where-to-paste rule.</p></div><div class="card"><h3>Three states only</h3><p>DONE with proof, BLOCKED, or IN PROGRESS.</p></div><div class="card"><h3>Changes to the PC</h3><p>No registry, shell, or default-app change without your yes on that exact change.</p></div>'};
 function safePane(t){try{return panes[t]?panes[t]():''}catch(e){return '<p class="notwired">This tab hit an error and was skipped. The other tabs still work.</p>'}}
+/* BUILD tree: page -> section -> feature -> item. Item = [name, done 1/0, hours if missing, 'pc' if it needs the PC helper]. */
+var BUILD={
+MENU:[['Map',[['Picture map',[['Hub and work-flow arrows',1],['Five branch boxes',1],['Completion % on every box',1]]],['Coming next list',[['Greyed future pages with dates (BILLING, BOOKS, PROJECTS, COUNTY MONITOR, LAUNCHER)',0,3]]]]],['Finding things',[['Search',[['Every page by hashtag and keyword',1],['Glossary hover for in-house words (TRK, OPH, MDC…)',0,4]]],['Accessibility',[['Text size A- / A+',0,2],['High contrast',0,2],['Read aloud',0,2]]]]]],
+TODAY:[['Daily report',[['Today page',[['Dated summary with proof',1],['Money items',1],['Money items fed live from the PC',0,3,'pc']]]]],['Freshness',[['Stamps',[['Last updated on page',0,1],['Auto daily rewrite',0,4,'pc']]]]]],
+TASKS:[['All open work',[['Task list',[['Tasks with lane and status',1],['Approve / deny',1],['Reassign lane',1]]],['Live',[['Tasks read from the PC registry',0,4,'pc']]]]]],
+MYASKS:[['Your requests',[['Request list',[['Done / blocked / not done',1],['Auto-sweep new asks from chats',0,5]]]]]],
+ORCHESTRATOR:[['Owner job queue (Copilot spec)',[['Sending',[['Job number + receipt',1],['Line position, never interrupts',1],['Urgent to the front',1]]],['Clocks',[['5-min accept / 15-min proof',1],['STALE / TROUBLED / STALLED',1]]],['Dispatch',[['Worker picks up queued jobs',0,6,'pc'],['Correlation-ID handshake back',0,4,'pc'],['Two-message live test',0,1]]]]],['Lanes view',[['Failed runs',[['Failed lane',1],['Recovery route suggestion',0,3]]]]]],
+LLMS:[['AI list',[['Cards',[['Buttons per AI',1],['Fixed IDs LLM-01…09 and scarce/free label',0,2]]],['Health',[['13-provider health ping tile (file from PC)',0,4,'pc']]]]],['Money',[['Budget',[['Dollar counter and quote calculator',1],['Cost gate before paid runs',1]]]]]],
+HANDOFFS:[['Proof',[['Log',[['Who handed what to whom',1],['Lanes table',1]]]]],['Packet builder (from v5)',[['Builder',[['Task-type picker, cheapest lane',0,3],['From / To lists',0,1],['Copy packet button',0,1]]],['Safety',[['Personal-data tick box + digit checker',0,2],['LOCAL safe-folder rule',0,1]]]]]],
+STATUS:[['Live strip',[['PC',[['PC awake from Drive',1],['RAM guard heartbeat',0,1,'pc'],['OCR heartbeat',0,1,'pc']]],['Feeds (from v5)',[['Age line per feed',0,2],['Watchdog "not refreshing" banner',0,2],['Free RAM tile',0,2,'pc'],['Health X of Y',0,3,'pc'],['Miami-Dade n of 300',0,2,'pc']]]]]],
+APPROVALS:[['Approvals',[['Cards',[['Approve / defer / note',1],['One card at a time mode',0,3],['Read aloud',0,1],['Waiting clock, overdue after 24 h',0,1]]],['Live',[['Approvals fed from the PC',0,3,'pc']]]]]],
+REPORTS:[['Reports',[['Directory',[['R-01 to R-50 ready / needs work',1],['Snips and notes',1]]],['Repairs log (from v5)',[['Repairs running log',0,2],['Live repair rows',0,2,'pc']]]]]],
+ORPHANS:[['Orphans',[['List',[['OPH numbers and hashtags',1],['Resolve to TRK button',0,3]]]]]],
+JOBS:[['Alec jobs',[['Six properties',[['Status per property',1],['Live from job folders',0,4,'pc']]]]]],
+CAPSULES:[['Folders',[['Rules',[['Folder rules text',1],['Capsule tree links',1],['Tag index search (_TAG-INDEX.json)',0,6,'pc']]]]]],
+PLAUD:[['Recordings',[['Plaud',[['List recordings',0,3],['Transcript links',0,2],['File to TRK suggestion',0,3]]]]]],
+CLIENTS:[['Clients',[['Contacts',[['Client list',0,3],['Contact sheet per TRK',0,3],['Last email per client',0,3]]]]]],
+LINKS:[['Links',[['All links',[['Drive, GitHub, job search',1],['22 Miami-Dade proof links',0,2],['Proof-checked badge (7 days)',0,2],['Chronology link',0,1]]],['Document library (LLM-LIBRARY)',[['209 documents in 7 groups',0,4],['Drive links instead of G: paths',0,2],['Updated stamp and filter',0,1]]]]]],
+WINDOWS:[['Windows',[['Picker',[['Window labels and paste IDs',1],['Picture cards per window',0,3]]]]]],
+SESSIONS:[['AI lanes',[['Lanes',[['What each lane is doing',1],['Live from heartbeats',0,3,'pc']]]]]],
+BRIDGES:[['Hand-off roads',[['Inbox / Outbox',[['Fallback ladder text',1],['Live inbox count',0,2]]]]]],
+AGENTS:[['Routing',[['Rule',[['Who gets which task',1],['Housekeeping tile',0,2,'pc']]]]]],
+USAGE:[['Tokens',[['Cost',[['Pay-per-use table',1],['Live token monitor tile',0,3,'pc']]]]]],
+RULES:[['Charter',[['Rules',[['Where the charter lives',1],['Owner directives list',0,2]]]]]],
+BACKUP:[['Backup',[['Export / import',[['Export',1],['Import',1],['Auto nightly backup to Drive',0,3,'pc']]]]]],
+CONNECT:[['Who is working',[['Live from Drive',[['RAMBO, Codex, Poller, Job-Watcher',1],['Old greens turn amber',1]]],['Still missing',[['Orchestrator, Token Monitor, Local-Executor heartbeats',0,3,'pc'],['Bot verdicts OK/FAILED/LATE/STUCK',0,3,'pc'],['Correlation-ID handshake per agent',0,4,'pc']]]]]],
+TRACKER:[['Tracker',[['Gauges',[['Fuel gauge per task',1],['Approve schedule',1],['Sweeper every 2 h',1]]]]]]};
+
+var PRIO={},PRIOAT=null,CAPH=6,PCAP=2.5;
+function bLeaves(t){var out=[];(BUILD[t]||[]).forEach(function(sec){sec[1].forEach(function(f){f[1].forEach(function(it){out.push({n:it[0],d:!!it[1],h:it[2]||0,pc:it[3]==='pc',sec:sec[0],f:f[0]})})})});return out}
+function bStat(t){var L=bLeaves(t),d=L.filter(function(x){return x.d}).length,rem=0,pch=0;L.forEach(function(x){if(!x.d){if(x.pc)pch+=x.h;else rem+=x.h}});return {n:L.length,d:d,pct:L.length?Math.round(d/L.length*100):0,rem:rem,pch:pch}}
+function prioOf(t){var v=PRIO[t];return v>=1&&v<=5?v:2}
+function govern(){var live=TABS.filter(function(t){return bStat(t).rem>0});var sum=0;live.forEach(function(t){sum+=prioOf(t)});var avg=live.length?sum/live.length:0;return {live:live,sum:sum,avg:avg,over:avg>PCAP}}
+function etaOf(t){var st=bStat(t);if(!st.rem)return st.pch?'cloud part done · rest waits on the PC helper':'complete';var g=govern();var share=prioOf(t)/(g.sum||1);var days=st.rem/(CAPH*share);var d=new Date(Date.now()+days*86400000);return 'about '+(days<1?Math.max(1,Math.round(days*24))+' h':Math.round(days)+' days')+' → '+d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+(st.pch?' (+ PC-helper items)':'')}
+function bTree(t){return '<div class="tree">'+(BUILD[t]||[]).map(function(sec){return '<details open><summary><b>'+esc(sec[0])+'</b></summary>'+sec[1].map(function(f){var miss=f[1].filter(function(it){return !it[1]}).length;return '<details'+(miss?' open':'')+'><summary>'+esc(f[0])+(miss?' · <span style="color:var(--muted)">'+miss+' missing</span>':' · ✔')+'</summary>'+f[1].map(function(it){return '<div class="lf '+(it[1]?'ok':'miss')+'">'+esc(it[0])+(it[1]?'':' · ~'+(it[2]||1)+' h'+(it[3]==='pc'?' · needs the PC helper':''))+'</div>'}).join('')+'</details>'}).join('')+'</details>'}).join('')+'</div>'}
+function drawBuild(t){var el=document.getElementById('bb-'+t);if(!el)return;var st=bStat(t),g=govern(),p=prioOf(t);
+el.innerHTML='<div class="bbtop"><div><span class="bbpct">'+st.pct+'%</span> <span class="kv">built · '+st.d+' of '+st.n+' pieces · ETA '+esc(etaOf(t))+'</span></div>'+
+'<div class="prio"><span class="kv">Priority:</span>'+[1,2,3,4,5].map(function(n){return '<button class="'+(n===p?'on':'')+'" title="'+(n===1?'lowest':n===5?'do now':'')+'" onclick="VTES.prio(\''+t+'\','+n+')">'+n+'</button>'}).join('')+'<span class="kv">1 lowest · 5 now</span></div></div>'+
+(g.over?'<p class="flagnote" style="margin:8px 0 0">Governor: your priorities average '+g.avg.toFixed(1)+'. The safe budget is '+PCAP+'. Work capacity does not grow, so pages share it by their numbers. Raising one page slows the others. This keeps RAM and AI limits safe.</p>':'')+
+'<details class="hand"><summary>What is built and what is missing (4 levels)</summary>'+bTree(t)+'</details>'}
+function drawBadges(){document.querySelectorAll('.tab').forEach(function(b){var t=b.dataset.tab,x=b.querySelector('.pct');if(!x){x=document.createElement('span');x.className='pct';b.appendChild(x)}x.textContent=bStat(t).pct+'%'})}
+async function startPrio(){var db=await getDb();if(!db)return;try{db.collection('build').onSnapshot(function(snap){PRIO={};(snap.docs||[]).forEach(function(d){var v=(typeof d.data==='function'?d.data():d.data)||{};PRIO[d.id]=Number(v.priority)||2});PRIOAT=new Date().toISOString();TABS.forEach(drawBuild)},function(){})}catch(e){}}
 var TABINFO={
 MENU:{e:'🏠',l:'Menu and map',g:'start',d:'Start here. A picture of every page and how they connect.',t:['#menu','#index','#map','#home','#start']},
 TODAY:{e:'📅',l:'Today',g:'start',d:'What happened today, with proof, and what needs you.',t:['#today','#daily','#report','#proof']},
@@ -439,15 +487,15 @@ RULES:{e:'📜',l:'Standing rules',g:'kitchen',d:'Where the charter and owner di
 BACKUP:{e:'💾',l:'Backup',g:'kitchen',d:'Export and import this panel.',t:['#backup','#export','#import']}};
 var GROUPS5=[['who','🔌 Who is working','Live status of every AI and bot.'],['click','✅ Needs your click','The only places you must act.'],['docs','📄 Documents','Reports, jobs and loose files.'],['links','🪟 Links and windows','Find a link or the right window.'],['kitchen','🍳 Behind the kitchen door','How it works. Rarely needed.']];
 function tInfo(t){return TABINFO[t]||{e:'•',l:t,g:'start',d:'',t:[]}}
-function mapBtn(t){var i=tInfo(t);return '<button class="mapbtn" data-st="'+(TABSTATE[t]||'none')+'" title="'+esc(i.d)+'" onclick="VTES.show(\''+t+'\')"><span class="e">'+i.e+'</span><span>'+esc(i.l)+'<small>'+esc(i.d)+' · p.'+pg(t)+'</small></span></button>'}
+function mapBtn(t){var i=tInfo(t);return '<button class="mapbtn" data-st="'+(TABSTATE[t]||'none')+'" title="'+esc(i.d)+'" onclick="VTES.show(\''+t+'\')"><span class="e">'+i.e+'</span><span>'+esc(i.l)+' <span class="kv" style="color:var(--muted)">'+bStat(t).pct+'%</span><small>'+esc(i.d)+' · p.'+pg(t)+'</small></span></button>'}
 var RECENT=[];try{RECENT=JSON.parse(localStorage.getItem('vtes_recent')||'[]')||[]}catch(e){RECENT=[]}
 function drawRecent(cur){document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('r1','r2','r3');var k=RECENT.indexOf(b.dataset.tab);if(k>=0&&k<3)b.classList.add('r'+(k+1))});
 var rb=document.getElementById('recentbar');if(rb)rb.innerHTML=RECENT.length?'<b>YOU WERE HERE:</b>'+RECENT.slice(0,3).map(function(t,k){var i=tInfo(t);return '<button class="rc r'+(k+1)+'" title="'+esc(i.d)+'" onclick="VTES.show(\''+t+'\')">'+(k+1)+' · '+i.e+' '+esc(i.l)+'</button>'}).join(''):'';
 var td=document.getElementById('tabdesc');if(td&&cur){var i=tInfo(cur);td.innerHTML='<b>'+i.e+' '+esc(i.l)+'</b> — '+esc(i.d)+' '+chips(i.t)}}
 function markRecent(t){RECENT=[t].concat(RECENT.filter(function(x){return x!==t})).slice(0,3);try{localStorage.setItem('vtes_recent',JSON.stringify(RECENT))}catch(e){}drawRecent(t)}
 function render(){REPBASE=TABS.indexOf('REPORTS')+1;
-document.getElementById('tabs').innerHTML=TABS.map(function(t,i){return '<button class="tab'+(i===0?' active':'')+'" data-st="'+(TABSTATE[t]||'none')+'" data-tab="'+t+'" title="'+esc(tInfo(t).l+': '+tInfo(t).d)+'" onclick="VTES.show(\''+t+'\')">'+tInfo(t).e+' '+t+'</button>'}).join('');drawRecent('MENU');
-document.getElementById('main').innerHTML=TABS.map(function(t,i){return '<div class="pane'+(i===0?' active':'')+'" id="pane-'+t+'">'+safePane(t)+'</div>'}).join('');
+document.getElementById('tabs').innerHTML=TABS.map(function(t,i){return '<button class="tab'+(i===0?' active':'')+'" data-st="'+(TABSTATE[t]||'none')+'" data-tab="'+t+'" title="'+esc(tInfo(t).l+': '+tInfo(t).d)+'" onclick="VTES.show(\''+t+'\')">'+tInfo(t).e+' '+t+'</button>'}).join('');drawRecent('MENU');setTimeout(function(){drawBadges();TABS.forEach(drawBuild);startPrio()},0);
+document.getElementById('main').innerHTML=TABS.map(function(t,i){return '<div class="pane'+(i===0?' active':'')+'" id="pane-'+t+'"><div class="bbox" id="bb-'+t+'"></div>'+safePane(t)+'</div>'}).join('');
 document.getElementById('freshness').textContent='Layout rebuilt 2026-09-29 (v6). Data sections are dated where they appear. No automatic 4-hour check is running yet.';
 loadLocal();loadLS();drawReports();drawLLM();drawLog();drawQueue();alerts();drawTasks();healthLine(false);document.getElementById('q').addEventListener('input',doSearch);
 drawConnect();drawTracker();legendAudit();
@@ -481,6 +529,14 @@ var job={text:t.value.trim(),source:'ORCHESTRATOR page',created:now,urgent:urg,e
 try{await db.doc('jobs/'+id).set(job);JOBS[id]=job;var pos=Object.keys(JOBS).filter(function(i){var s=JOBS[i].status;return s==='RECEIVED'||s==='QUEUED'}).sort(jobOrder).indexOf(id)+1;t.value='';
 if(r)r.innerHTML='<div class="apprbox" data-st="live" style="margin-top:10px"><b>✅ RECEIVED · QUEUED</b><br>Job number <b>'+esc(id)+'</b> · position '+pos+' in line · worker: '+esc(ex)+(busy?' · a job is running now, yours waits':'')+'</div>';drawJobs()}catch(e){if(r)r.innerHTML='<p class="flagnote">Save failed. Nothing was queued. Your text is still in the box.</p>'}},
 jobsRefresh:function(){startJobs()},
+dictate:function(){var m=document.getElementById('voicemsg'),q=document.getElementById('q');var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(!SR){m.textContent='This window cannot use the microphone directly. Click in the search box, then press the Windows key + H to dictate.';q.focus();return}
+try{var r=new SR();r.lang='en-US';r.interimResults=true;m.textContent='Listening… speak now.';r.onresult=function(e){var t='';for(var k=0;k<e.results.length;k++)t+=e.results[k][0].transcript;q.value=t;doSearch()};r.onerror=function(e){m.textContent=e.error==='not-allowed'||e.error==='service-not-allowed'?'The microphone is blocked in this window. Click in the search box, then press the Windows key + H to dictate.':'Dictation stopped ('+e.error+'). Try Windows key + H.';q.focus()};r.onend=function(){if(/Listening/.test(m.textContent))m.textContent=''};r.start()}catch(e){m.textContent='Microphone not available here. Click in the search box, then press Windows key + H.';q.focus()}},
+readSel:function(){var m=document.getElementById('voicemsg'),t=String(window.getSelection()||'').trim();if(!t){var d=document.getElementById('tabdesc');t=d?d.textContent:'';m.textContent='Nothing highlighted, so reading this page\'s description. Highlight words first to read them.'}
+if(!('speechSynthesis' in window)){m.textContent='Read-aloud is not available in this window. Use Speechify instead.';return}speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t.slice(0,4000));u.rate=1;speechSynthesis.speak(u)},
+speechify:async function(){var m=document.getElementById('voicemsg'),t=String(window.getSelection()||'').trim();var ok=false;if(t){try{await navigator.clipboard.writeText(t);ok=true}catch(e){}}
+window.open('https://app.speechify.com/','_blank','noopener');m.textContent=t?(ok?'Highlighted words copied. In Speechify, paste them (Ctrl+V) to listen.':'Could not copy here. Press Ctrl+C on your highlight, then paste into Speechify.'):'Speechify opened. Tip: highlight words first and they are copied for you. If you use the Speechify browser button, it can read this page directly.'},
+prio:async function(t,n){PRIO[t]=n;TABS.forEach(drawBuild);var db=await getDb();if(!db){alert('Not saved: the priority list is not reachable in this view.');return}try{await db.doc('build/'+t).set({priority:n,at:new Date().toISOString(),by:'Jorge (panel)'})}catch(e){alert('Save failed. Priority not changed.')}},
 show:function(tab){var qq=document.getElementById('q');if(qq&&qq.value){qq.value='';doSearch()}document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('active',b.dataset.tab===tab)});document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('active',p.id==='pane-'+tab)});markRecent(tab);window.scrollTo(0,0)},
 toggle:function(id){var e=document.getElementById(id);if(e)e.classList.toggle('open')},
 bucket:function(b){curBucket=b;drawReports()},
@@ -601,7 +657,7 @@ VTES.recheck=async function(){var m=window._mcp;startPC();if(!m){startLive();ret
 startLive();
 /* ===== TRACKER: every task the sweeper agent finds in the chats, with a fuel gauge per task. Data lives in db collection "tracker". ===== */
 var TRK={},TRKFILTER='open';
-var LANES=['Cloud Code','RAMBO (Desktop)','Cowork','Codex','Grok bot','Jorge'];
+var TLANES=['Cloud Code','RAMBO (Desktop)','Cowork','Codex','Grok bot','Jorge'];
 var URG={P0:'P0 · OWNER-FLAGGED ERROR, fix first',P1:'P1 · today',P2:'P2 · this week',P3:'P3 · when free'};
 function hrs(ms){var h=ms/3600000;return h<1?Math.round(h*60)+' min':h<48?(Math.round(h*10)/10)+' h':Math.round(h/24)+' days'}
 function tView(t){var now=Date.now(),s=Date.parse(t.build_start||t.created||''),d=Date.parse(t.build_due||''),pct=Math.max(0,Math.min(100,Number(t.pct)||0));
@@ -619,7 +675,7 @@ return '<div class="card tk'+(t.owner_error?' p0':'')+'"><div class="enthead"><h
 '<p class="kv" style="margin-top:6px">'+esc(eta)+' · then testing '+(Number(t.test_hours)||0)+' h · rollout '+(isNaN(v.rollout)?'not set':fmtT(new Date(v.rollout).toISOString()))+'</p>'+
 (t.proof?'<p class="kv">Proof: '+esc(t.proof)+'</p>':'')+(t.source?'<p class="kv"><a href="'+esc(t.source)+'" target="_blank" rel="noopener" style="color:var(--accent)">Open the chat it came from ↗</a></p>':'')+
 apprBox(id,t,v)+'<div class="actions">'+(t.owner_error?'':'<button class="act" style="border-color:var(--bad);color:var(--bad)" onclick="VTES.tflag(\''+id+'\')">🚨 This is an error: fix first</button>')+
-'<select onchange="VTES.tassign(\''+id+'\',this.value)" style="font-size:13px;padding:6px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--ink)"><option value="">Reassign to…</option>'+LANES.map(function(l){return '<option>'+l+'</option>'}).join('')+'</select>'+
+'<select onchange="VTES.tassign(\''+id+'\',this.value)" style="font-size:13px;padding:6px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--ink)"><option value="">Reassign to…</option>'+TLANES.map(function(l){return '<option>'+l+'</option>'}).join('')+'</select>'+
 '<button class="act details" onclick="VTES.toggle(\'tn-'+id+'\')">Add note</button></div>'+
 '<div class="commentbox" id="tn-'+id+'"><textarea id="tnt-'+id+'" placeholder="Your note. The sweeper agent reads these."></textarea><div style="margin-top:6px"><button class="act" onclick="VTES.tnote(\''+id+'\')">Save note</button></div></div>'+
 (log?'<details class="hand"><summary>Activity log</summary><ul class="lay">'+log+'</ul></details>':'')+'</div>'}
