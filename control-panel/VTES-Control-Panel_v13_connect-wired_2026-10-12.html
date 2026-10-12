@@ -83,6 +83,19 @@ details.hand{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}d
 .gauge .notch{position:absolute;top:-2px;bottom:-2px;width:3px;background:var(--ink)}
 .gauge span{position:relative;display:block;text-align:center;font-family:var(--mono);font-size:12px;font-weight:700;line-height:22px;color:var(--ink);text-shadow:0 0 3px var(--panel)}
 .tk.p0{border:2px solid var(--bad)}
+.tab.r1{outline:3px solid #8b5cf6;outline-offset:-3px;border-radius:6px}.tab.r2{outline:3px solid #db2777;outline-offset:-3px;border-radius:6px}.tab.r3{outline:3px solid #0891b2;outline-offset:-3px;border-radius:6px}
+#recentbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;margin:6px 0 4px}#recentbar b{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.rc{font-family:var(--sans);font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:16px;background:var(--panel);color:var(--ink);cursor:pointer;border:3px solid}.rc.r1{border-color:#8b5cf6}.rc.r2{border-color:#db2777}.rc.r3{border-color:#0891b2}
+#tabdesc{font-size:13px;color:var(--ink);margin:2px 0 8px;line-height:1.45}#tabdesc .chip{font-size:10.5px}
+.map{max-width:900px;margin:0 auto}.hub{display:block;width:100%;max-width:420px;margin:0 auto;text-align:center;padding:14px;border:3px solid var(--accent);border-radius:14px;background:var(--panel);color:var(--ink);font-size:17px;font-weight:700;font-family:var(--sans);cursor:pointer}
+.trunk{width:4px;height:22px;background:var(--accent);margin:0 auto}.rail{height:4px;background:var(--accent);margin:0 8%;border-radius:2px}
+.branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:0}
+.branch{position:relative;border:2px solid var(--line);border-radius:12px;background:var(--panel);padding:12px 12px 8px;margin-top:22px}
+.branch::before{content:"";position:absolute;top:-24px;left:50%;width:4px;height:22px;background:var(--accent);transform:translateX(-50%)}
+.branch h5{margin:0 0 2px;font-size:16px;font-family:var(--sans)}.branch p.bd{margin:0 0 8px;font-size:12px;color:var(--muted)}
+.mapbtn{display:flex;gap:8px;align-items:center;width:100%;text-align:left;border:1px solid var(--line);border-left:6px solid var(--st,var(--line));border-radius:8px;background:var(--bg);color:var(--ink);padding:8px 10px;margin:0 0 6px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;min-height:44px}
+.mapbtn small{display:block;font-weight:400;color:var(--muted);font-size:11.5px}.mapbtn .e{font-size:20px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:4px;justify-content:center;margin:8px 0 4px}.flow button{font-family:var(--sans);font-size:13px;font-weight:600;padding:6px 10px;border-radius:18px;border:2px solid var(--accent);background:var(--panel);color:var(--ink);cursor:pointer}.flow i{font-style:normal;color:var(--accent);font-weight:700}
 .apprbox{margin-top:10px;padding:10px;border:2px solid var(--st);border-radius:8px;font-size:13px}
 .apprbox input{font-size:14px;padding:4px;margin:4px 0;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:5px}
 .pcstrip{max-width:900px;margin:12px auto 0;padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
@@ -95,7 +108,7 @@ details.hand{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}d
 <div id="alertbar"></div><div style="display:flex;gap:8px;align-items:center;margin:0 0 6px"><button class="act" onclick="location.reload()" style="min-height:32px;padding:4px 10px">&#8635; Refresh</button><button class="act" onclick="VTES.show('MENU')" style="min-height:32px;padding:4px 10px">&#9776; Menu / Index</button><button class="act" onclick="VTES.show('CONNECT')" style="min-height:32px;padding:4px 10px">&#128268; Connect: LLMs, agents, bots</button><button class="act" onclick="VTES.show('TRACKER')" style="min-height:32px;padding:4px 10px">&#9981; Task tracker</button></div><div id="lb" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.85);padding:12px;overflow:auto;cursor:zoom-out"><div id="lbt" style="color:#fff;font-weight:700;margin-bottom:8px"></div><img id="lbi" style="width:100%;max-width:1000px;display:block;margin:0 auto;border-radius:8px"></div>
 <p class="freshness" id="health"></p><p class="freshness" id="freshness"></p>
 <input id="q" type="search" placeholder="Search #hashtag, window, report, link..." autocomplete="off" style="width:100%;font-size:15px;padding:10px 12px;margin:0 0 8px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)">
-<div class="tabs" id="tabs"></div>
+<div class="tabs" id="tabs"></div><div id="recentbar"></div><p id="tabdesc"></p>
 </div>
 <div style="padding:0 16px"><section class="pcstrip" id="pcstrip" aria-live="polite"></section></div>
 <main id="main"></main>
@@ -183,7 +196,7 @@ var panes={};
 function tagsFor(t,extra){var s=(t+" "+(extra||"")).toLowerCase(),m=[["window","#windows"],["which","#windows"],["approval","#approvals"],["alec","#alec"],["10980","#10980"],["orange","#orangetree"],["capsule","#capsules"],["jacket","#jackets"],["tax","#tax"],["map","#maps"],["handoff","#handoff"],["comms","#handoff"],["hub","#windows"],["orchestrator","#orchestrator"],["subscription","#usage"],["usage","#usage"],["housing","#housing"],["tedc","#housing"],["control","#controlpanel"],["status","#status"],["board","#boards"],["plaud","#plaud"],["financial","#money"],["balance","#money"],["dispatch","#dispatch"],["inbox","#bridge"],["outbox","#bridge"],["heartbeat","#health"],["watchdog","#health"],["github","#github"],["drive.google","#drive"],["spreadsheets","#sheet"],["iphone","#iphone"],["chrome","#browser"],["screen","#screenmirror"],["county","#records"],["email","#email"]],o=["#vtes"];m.forEach(function(x){if(s.indexOf(x[0])>=0&&o.indexOf(x[1])<0)o.push(x[1])});return o}
 var WTAGS=[["#codedesktop","#rambo","#pc","#paste-d","#subscription"],["#codecloud","#web","#paste-c","#subscription"],["#cowork","#routines","#paste-x","#subscription"],["#chat","#claude-ai","#paste-x","#subscription"],["#powershell","#pc","#scripts"],["#chatgpt","#gemini","#grok","#copilot","#otherllm"]];
 var INDEX=[];
-function buildIndex(){INDEX=[];
+function buildIndex(){INDEX=[];TABS.forEach(function(t){var i=tInfo(t);INDEX.push({kind:'Page',name:i.e+' '+i.l,sub:i.d,tags:i.t.concat(['#page','#'+t.toLowerCase()]),text:t,go:t})});
 TABS.forEach(function(t){INDEX.push({kind:"Tab",name:t,tags:tagsFor(t,t).concat(["#"+t.toLowerCase()]),go:t})});
 WINDOWS.forEach(function(w,i){INDEX.push({kind:"Window",name:w[0],sub:w[2],tags:WTAGS[i]||["#window"],go:"WINDOWS"})});
 REPORTS.forEach(function(r){var d=REPDATA[r[0]]||{n:'??',t:''};INDEX.push({kind:"Report R-"+d.n,name:r[1],url:"https://claude.ai/artifact/"+r[0],tags:tagsFor(r[1]).concat(["#report","#R-"+d.n,"#"+(bucketOf[r[0]]||"work")]),text:d.t+' '+((RSTATE[r[0]]||{}).comment||''),go:"REPORTS",rid:r[0]})});
@@ -311,15 +324,12 @@ return '<div class="card"><h3>'+esc(item.title)+'</h3><p>'+esc(item.body)+'</p><
 function pg(t){return TABS.indexOf(t)+1}
 function dish(tab,name,desc){return '<button class="dish" data-st="'+(TABSTATE[tab]||'none')+'" onclick="VTES.show(\''+tab+'\')"><span class="dn">'+name+'</span><span class="dots"></span><span class="dp">p.'+pg(tab)+' &middot; '+(LEGEND[TABSTATE[tab]]?LEGEND[TABSTATE[tab]].w:'NO COLOR')+'</span></button><span class="dd">'+desc+'</span>'}
 panes.MENU=function(){
-var rows=REPORTS.map(function(x){var d=REPDATA[x[0]]||{n:'??'},pp=repPage(x[0]);return '<button class="dish" data-st="'+(pp.bk==='ready'?'live':'wait')+'" style="min-height:36px;font-size:13.5px" onclick="VTES.gotoReport(\''+x[0]+'\')"><span class="dn">R-'+d.n+' '+esc(x[1])+'</span><span class="dots"></span><span class="dp">p.'+pg('REPORTS')+'-'+pp.pg+(pp.bk==='ready'?' &#10003;':' &#9874;')+'</span></button>'}).join('');
-return '<div class="menu"><h2>VTES Menu</h2><p class="tagline">Index &middot; tap a line to go to it</p>'+legendHtml()+'<p class="freshness" id="legendcheck" style="text-align:center"></p>'+'<h4>Connect</h4>'+dish("CONNECT","Every LLM, agent and bot","Cloud or Desktop, open the exact chat, live status, who hands off to whom.")+dish("TRACKER","Task tracker with gauges","Every task found in your chats, who has it, when it will be working. Your errors go first.")+
-'<div class="card" style="border:2px solid var(--accent);text-align:left"><h3>&#128421; Where is my Desktop Executor?</h3><p><b>You do not have to open it for normal work.</b> It runs by itself on your PC every 15 minutes and picks up every job filed in VTES-Inbox. Open the window only when a block says PASTE-D.</p><p><b>To open it:</b> on your PC desktop, double-click <b>Claude Desktop Executor</b> (the desktop lane is adding this shortcut and pinning it to the taskbar on 2026-10-02). A web page cannot open a program on your PC, so this panel can only tell you where it is, not launch it.</p><p><b>If the shortcut is not there yet:</b> press the Windows key, type <b>PowerShell</b>, press Enter, then type <span class="kv">cd C:\\Users\\JV\\JV-repository; claude</span> and press Enter. Every reply in that window starts with &#128421;.</p></div>'+
-'<h4>Work</h4>'+dish("TASKS","Approvals: all open work","Approve or deny. Deny a Grok job and Cowork takes it.")+dish("APPROVALS","Waiting on your yes","Five items.")+dish("ORCHESTRATOR","Tell the orchestrator","Type a job. It gets routed.")+dish("LLMS","LLMs, dollars and budgets","Buttons per LLM, dollar counter, quote calculator, agent monitor.")+dish("HANDOFFS","Lanes and handoff proof","Who is available, what succeeded or failed.")+dish("MYASKS","Everything you asked for","Done, blocked, or not done.")+
-'<h4>Documents</h4>'+dish("REPORTS","Reports R-01 to R-50","Two groups, snips you can enlarge, notes and routing.")+dish("ORPHANS","Orphan documents","Loose documents with OPH numbers and hashtags.")+dish("JOBS","Alec due-diligence jobs","Six properties, none finished.")+dish("CAPSULES","Where job files live","Folder rules.")+
-'<h4>Links and windows</h4>'+dish("LINKS","Every link in one place","Drive, GitHub, master job number search.")+dish("WINDOWS","Which window is which","Labels and where to paste.")+dish("SESSIONS","The AI lanes","What each is doing.")+dish("STATUS","What changed today","Dated items only.")+
-'<h4>Behind the kitchen door</h4>'+dish("BRIDGES","How lanes hand off work","Inbox, Outbox, fallback ladder.")+dish("AGENTS","Who gets which task","Routing rule.")+dish("USAGE","What the tokens would cost","Pay-per-use equivalent.")+dish("RULES","Standing rules","Where the charter lives.")+dish("BACKUP","Backup and why it should not go down","Export and Import.")+
-'<h4>Report directory</h4><p class="dd" style="text-align:center">GREEN &#10003; ready to use &nbsp; AMBER &#9874; needs work &nbsp; page = tab-page</p>'+rows+
-'<p class="dd" style="text-align:center;margin-top:18px">Not wired yet: PLAUD (p.'+pg('PLAUD')+') and CLIENTS (p.'+pg('CLIENTS')+').</p></div>'};
+return '<div class="map"><h2 style="font-family:var(--serif);text-align:center;margin:0 0 2px">VTES Map</h2><p class="lead" style="text-align:center;margin:0 auto 10px">Every page as a picture. Tap a box to go there. Your last three pages are ringed in purple, pink and blue at the top.</p>'+
+'<button class="hub" onclick="VTES.show(\'TODAY\')">🏠 YOU · start with 📅 Today</button><div class="trunk"></div>'+
+'<p class="freshness" style="text-align:center;margin:4px 0">HOW WORK FLOWS</p><div class="flow">'+[['ORCHESTRATOR','🎯 You ask'],['TRACKER','⛽ Tracked'],['CONNECT','🔌 An AI works'],['HANDOFFS','🤝 Handed off'],['REPORTS','📄 Result'],['APPROVALS','✅ Your yes']].map(function(f,k){return (k?'<i>→</i>':'')+'<button title="'+esc(tInfo(f[0]).d)+'" onclick="VTES.show(\''+f[0]+'\')">'+f[1]+'</button>'}).join('')+'</div>'+
+'<div class="trunk"></div><div class="rail"></div><div class="branches">'+GROUPS5.map(function(g){return '<div class="branch"><h5>'+g[1]+'</h5><p class="bd">'+g[2]+'</p>'+TABS.filter(function(t){return tInfo(t).g===g[0]}).map(mapBtn).join('')+'</div>'}).join('')+'</div>'+
+'<details class="hand" style="margin-top:16px"><summary>Color legend</summary>'+legendHtml()+'<p class="freshness" id="legendcheck"></p></details>'+
+'<details class="hand"><summary>🖥 Where is my Desktop Executor?</summary><div class="card" style="margin-top:8px"><p><b>You do not have to open it for normal work.</b> It runs by itself on your PC every 15 minutes and picks up every job filed in VTES-Inbox. Open the window only when a block says PASTE-D.</p><p><b>To open it:</b> on your PC desktop, double-click <b>Claude Desktop Executor</b> (the desktop lane is adding this shortcut and pinning it to the taskbar on 2026-10-02). A web page cannot open a program on your PC, so this panel can only tell you where it is, not launch it.</p><p><b>If the shortcut is not there yet:</b> press the Windows key, type <b>PowerShell</b>, press Enter, then type <span class="kv">cd C:\\Users\\JV\\JV-repository; claude</span> and press Enter. Every reply in that window starts with &#128421;.</p></div></details></div>'};
 panes.STATUS=function(){return '<div class="card" id="pcstrip2"></div><p class="lead">Last full status refresh: 2026-09-28. Items below are from that check, not live.</p>'+
 '<div class="card"><h3>5 items waiting on your click</h3><p>See Approvals.</p></div>'+
 '<div class="card"><h3>PC side is unverified</h3><p>No result file has come back from the PowerShell checks (PASTE-D-060, D-061, D-062). Treat them as not run.</p></div>'+
@@ -363,8 +373,42 @@ panes.PLAUD=function(){return '<p class="notwired">No live Plaud data wired in y
 panes.CLIENTS=function(){return '<p class="notwired">No live client list wired in yet.</p>'};
 panes.RULES=function(){return '<p class="lead">This page points at the rules. It does not replace them.</p><div class="card"><h3>Repo charter</h3><p class="kv">CLAUDE.md in the repository. Section 10 has the window banner, chat label standard, and where-to-paste rule.</p></div><div class="card"><h3>Three states only</h3><p>DONE with proof, BLOCKED, or IN PROGRESS.</p></div><div class="card"><h3>Changes to the PC</h3><p>No registry, shell, or default-app change without your yes on that exact change.</p></div>'};
 function safePane(t){try{return panes[t]?panes[t]():''}catch(e){return '<p class="notwired">This tab hit an error and was skipped. The other tabs still work.</p>'}}
+var TABINFO={
+MENU:{e:'🏠',l:'Menu and map',g:'start',d:'Start here. A picture of every page and how they connect.',t:['#menu','#index','#map','#home','#start']},
+TODAY:{e:'📅',l:'Today',g:'start',d:'What happened today, with proof, and what needs you.',t:['#today','#daily','#report','#proof']},
+CONNECT:{e:'🔌',l:'Who is working',g:'who',d:'Every AI, agent and bot. Live colors from your PC files.',t:['#connect','#llm','#agents','#bots','#rambo','#codex','#live']},
+TRACKER:{e:'⛽',l:'Task tracker',g:'who',d:'Every task, who has it, and a fuel gauge to done.',t:['#tracker','#tasks','#gauge','#deadline','#p0']},
+SESSIONS:{e:'🧑‍💻',l:'AI lanes',g:'who',d:'What each AI lane is doing.',t:['#sessions','#lanes','#windows','#ai']},
+HANDOFFS:{e:'🤝',l:'Handoff proof',g:'who',d:'Who handed what to whom, and whether it worked.',t:['#handoffs','#proof','#lanes','#failed']},
+APPROVALS:{e:'✅',l:'Waiting on your yes',g:'click',d:'Only the things that need your click.',t:['#approvals','#waiting','#owner','#yes','#click']},
+TASKS:{e:'📋',l:'All open work',g:'click',d:'Approve or deny each job. Deny a Grok job and Cowork takes it.',t:['#tasks','#approve','#deny','#work']},
+MYASKS:{e:'🗣️',l:'Everything you asked for',g:'click',d:'Each request: done, blocked or not done.',t:['#asks','#requests','#done','#blocked']},
+ORCHESTRATOR:{e:'🎯',l:'Tell the orchestrator',g:'click',d:'Type a job. It gets routed to the right AI.',t:['#orchestrator','#job','#route','#dispatch']},
+REPORTS:{e:'📄',l:'Reports R-01 to R-50',g:'docs',d:'All reports, ready or needs work, with notes.',t:['#reports','#documents','#pdf','#ready']},
+ORPHANS:{e:'🧩',l:'Orphan documents',g:'docs',d:'Loose documents waiting for their job number.',t:['#orphans','#oph','#unfiled','#documents']},
+JOBS:{e:'🏗️',l:'Alec due-diligence jobs',g:'docs',d:'Six properties and where each stands.',t:['#jobs','#alec','#trk','#duediligence','#property']},
+CAPSULES:{e:'🗂️',l:'Where job files live',g:'docs',d:'Folder rules and capsules.',t:['#capsules','#folders','#filing','#drive']},
+PLAUD:{e:'🎙️',l:'Plaud recordings',g:'docs',d:'Not wired yet.',t:['#plaud','#recordings','#voice']},
+CLIENTS:{e:'👥',l:'Clients',g:'docs',d:'Not wired yet.',t:['#clients','#contacts','#crm']},
+LINKS:{e:'🔗',l:'Every link',g:'links',d:'Drive, GitHub and job-number search in one list.',t:['#links','#drive','#github','#search']},
+WINDOWS:{e:'🪟',l:'Which window is which',g:'links',d:'Pictures of each Claude window and where to paste.',t:['#windows','#paste','#desktop','#cloud','#cowork']},
+STATUS:{e:'🩺',l:'What changed',g:'links',d:'Dated status items only.',t:['#status','#changes','#health']},
+LLMS:{e:'💵',l:'LLMs and budgets',g:'kitchen',d:'Each AI, its dollars and limits.',t:['#llms','#money','#budget','#tokens','#cost']},
+USAGE:{e:'📊',l:'Token cost',g:'kitchen',d:'What the tokens would cost pay-per-use.',t:['#usage','#tokens','#cost','#money']},
+BRIDGES:{e:'🌉',l:'How lanes hand off',g:'kitchen',d:'Inbox, Outbox and the fallback ladder.',t:['#bridges','#inbox','#outbox','#drive']},
+AGENTS:{e:'🧭',l:'Who gets which task',g:'kitchen',d:'The routing rule.',t:['#agents','#routing','#rules']},
+RULES:{e:'📜',l:'Standing rules',g:'kitchen',d:'Where the charter and owner directives live.',t:['#rules','#charter','#directives']},
+BACKUP:{e:'💾',l:'Backup',g:'kitchen',d:'Export and import this panel.',t:['#backup','#export','#import']}};
+var GROUPS5=[['who','🔌 Who is working','Live status of every AI and bot.'],['click','✅ Needs your click','The only places you must act.'],['docs','📄 Documents','Reports, jobs and loose files.'],['links','🪟 Links and windows','Find a link or the right window.'],['kitchen','🍳 Behind the kitchen door','How it works. Rarely needed.']];
+function tInfo(t){return TABINFO[t]||{e:'•',l:t,g:'start',d:'',t:[]}}
+function mapBtn(t){var i=tInfo(t);return '<button class="mapbtn" data-st="'+(TABSTATE[t]||'none')+'" title="'+esc(i.d)+'" onclick="VTES.show(\''+t+'\')"><span class="e">'+i.e+'</span><span>'+esc(i.l)+'<small>'+esc(i.d)+' · p.'+pg(t)+'</small></span></button>'}
+var RECENT=[];try{RECENT=JSON.parse(localStorage.getItem('vtes_recent')||'[]')||[]}catch(e){RECENT=[]}
+function drawRecent(cur){document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('r1','r2','r3');var k=RECENT.indexOf(b.dataset.tab);if(k>=0&&k<3)b.classList.add('r'+(k+1))});
+var rb=document.getElementById('recentbar');if(rb)rb.innerHTML=RECENT.length?'<b>YOU WERE HERE:</b>'+RECENT.slice(0,3).map(function(t,k){var i=tInfo(t);return '<button class="rc r'+(k+1)+'" title="'+esc(i.d)+'" onclick="VTES.show(\''+t+'\')">'+(k+1)+' · '+i.e+' '+esc(i.l)+'</button>'}).join(''):'';
+var td=document.getElementById('tabdesc');if(td&&cur){var i=tInfo(cur);td.innerHTML='<b>'+i.e+' '+esc(i.l)+'</b> — '+esc(i.d)+' '+chips(i.t)}}
+function markRecent(t){RECENT=[t].concat(RECENT.filter(function(x){return x!==t})).slice(0,3);try{localStorage.setItem('vtes_recent',JSON.stringify(RECENT))}catch(e){}drawRecent(t)}
 function render(){REPBASE=TABS.indexOf('REPORTS')+1;
-document.getElementById('tabs').innerHTML=TABS.map(function(t,i){return '<button class="tab'+(i===0?' active':'')+'" data-st="'+(TABSTATE[t]||'none')+'" data-tab="'+t+'" onclick="VTES.show(\''+t+'\')">'+t+'</button>'}).join('');
+document.getElementById('tabs').innerHTML=TABS.map(function(t,i){return '<button class="tab'+(i===0?' active':'')+'" data-st="'+(TABSTATE[t]||'none')+'" data-tab="'+t+'" title="'+esc(tInfo(t).l+': '+tInfo(t).d)+'" onclick="VTES.show(\''+t+'\')">'+tInfo(t).e+' '+t+'</button>'}).join('');drawRecent('MENU');
 document.getElementById('main').innerHTML=TABS.map(function(t,i){return '<div class="pane'+(i===0?' active':'')+'" id="pane-'+t+'">'+safePane(t)+'</div>'}).join('');
 document.getElementById('freshness').textContent='Layout rebuilt 2026-09-29 (v6). Data sections are dated where they appear. No automatic 4-hour check is running yet.';
 loadLocal();loadLS();drawReports();drawLLM();drawLog();drawQueue();alerts();drawTasks();healthLine(false);document.getElementById('q').addEventListener('input',doSearch);
@@ -393,7 +437,7 @@ search:function(t){var q=document.getElementById('q');q.value=t;doSearch();windo
 jump:function(t){document.getElementById('q').value='';doSearch();VTES.show(t)},
 ack:function(){ACK=true;alerts()},
 send:async function(){var t=document.getElementById('oq');if(!t||!t.value.trim())return;var item={text:t.value.trim(),at:new Date().toISOString(),status:"queued"};QUEUE.push(item);t.value='';drawQueue();var db=await getDb();try{if(db)await db.doc('orchestrator/queue').set({items:QUEUE})}catch(e){}},
-show:function(tab){var qq=document.getElementById('q');if(qq&&qq.value){qq.value='';doSearch()}document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('active',b.dataset.tab===tab)});document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('active',p.id==='pane-'+tab)});window.scrollTo(0,0)},
+show:function(tab){var qq=document.getElementById('q');if(qq&&qq.value){qq.value='';doSearch()}document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('active',b.dataset.tab===tab)});document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('active',p.id==='pane-'+tab)});markRecent(tab);window.scrollTo(0,0)},
 toggle:function(id){var e=document.getElementById(id);if(e)e.classList.toggle('open')},
 bucket:function(b){curBucket=b;drawReports()},
 move:async function(id){bucketOf[id]=bucketOf[id]==="ready"?"work":"ready";RSTATE[id]=Object.assign(RSTATE[id]||{},{bucket:bucketOf[id],at:new Date().toISOString()});try{localStorage.setItem('vtes_rstate',JSON.stringify(RSTATE))}catch(e){}drawReports();var db=await getDb();try{if(db)await db.doc('reports/'+id).set(RSTATE[id])}catch(e){}},
