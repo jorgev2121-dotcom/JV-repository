@@ -528,3 +528,15 @@ Full text: `OWNER-DIRECTIVE_1PASSWORD-SSOT-02_2026-10-12.md` (extends SSOT-01 of
 - **Only 1Password autofills.** Other password savers' autofill is switched off once 1Password holds a verified copy. No personal-vs-work picker.
 - **Rotate lowest-risk first.** Money, government, Microsoft 365, Google, Apple and 1Password itself go last, only with Jorge present.
 - **Reports carry counts, never secrets.**
+
+---
+
+## 14. Standing protocol — share links and show what you made (OWNER-DIRECTIVE SHARE-LINK-01, 2026-10-12)
+
+Jorge: *"Give access to link. Always. As an owner's directive. As a default. Also pop up the image or attachment or link in this chat so I can view it."*
+
+- **Show it in the chat, every time.** After publishing or finding an artifact, open it with the Artifact tool's `open` action. Images and files go through SendUserFile with `display: render`. Never just name a file.
+- **Link sharing is on by default** for system, design and status pages. Agents cannot flip the claude.ai Share switch, so say so once and give the one click: page → Share → "Anyone with the link".
+- **Two exceptions, said plainly:**
+  - A page with client names, addresses or money stays private unless Jorge says otherwise for that page.
+  - A page that uses connectors (the `mcp` capability) cannot be public-link shared by platform rule. Share a read-only copy in Drive "Shared Folders for all LLMs" instead.
