@@ -516,3 +516,15 @@ LIBRARIAN-RND → `JOB-0085` dictation → retro sweeps → the rest by scorecar
 producing appointments and the three money items collected or delivered. **Each dated
 within 30 days.**
 
+
+---
+
+## 13. Standing protocol — 1Password is the single source of truth (OWNER-DIRECTIVE 1PASSWORD-SSOT-02, 2026-10-12)
+
+Full text: `OWNER-DIRECTIVE_1PASSWORD-SSOT-02_2026-10-12.md` (extends SSOT-01 of 2026-10-10).
+
+- **Never reveal a password.** Passwords are created only by 1Password's suggested-password prompt. No agent reads, prints or types one.
+- **Quarantine, never delete.** Deleting anything needs Jorge's yes for each batch.
+- **Only 1Password autofills.** Other password savers' autofill is switched off once 1Password holds a verified copy. No personal-vs-work picker.
+- **Rotate lowest-risk first.** Money, government, Microsoft 365, Google, Apple and 1Password itself go last, only with Jorge present.
+- **Reports carry counts, never secrets.**

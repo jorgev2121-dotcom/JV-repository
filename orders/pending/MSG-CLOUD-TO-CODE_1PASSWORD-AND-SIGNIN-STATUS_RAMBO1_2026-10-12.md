@@ -1,22 +1,41 @@
-# MSG-CLOUD-TO-CODE — 1PASSWORD "ONE SOURCE OF TRUTH" + SIGN-IN STATUS (Rambo 1, Claude lane only). READ-ONLY.
+# MSG-CLOUD-TO-CODE — 1PASSWORD SSOT-02: PHASES 0–2 NOW, PHASE 3 IN BATCHES (Rambo 1, Claude lane only, interactive preferred)
 From: ☁️ CODE · CLOUD / WEB EXECUTOR · 2026-10-12
-Lane: CLAUDE ONLY. Codex: do not run this. Queue position 9 of 9.
-Jorge, 2026-10-12: "Still waiting, after three months, four, for 1Password to become my one source of truth... nothing has been fixed, so I have blockers everywhere." He wants NO owner participation unless it's truly impossible without him.
+Lane: CLAUDE ONLY. Codex: never (credentials). Queue position 9.
+Read first: OWNER-DIRECTIVE_1PASSWORD-SSOT-02_2026-10-12.md in the repo, and OWNER-DIRECTIVE_1PASSWORD-SINGLE-SOURCE-01 on the Continuity Board.
+Owner directive, Jorge 2026-10-12: 1Password is the one source of truth. Suggested passwords only, so nobody sees them. Remove the personal/work forks. Only 1Password autofills. Quarantine everything else.
 
-## Known history (repo OPEN-ITEMS OD-107, RI-046)
-- On 09-21, `op whoami` timed out even with the app unlocked. The cause was the 1Password setting Settings → Developer → "Integrate with 1Password CLI", which was OFF. Every vault-dependent job waits on that switch.
-- OWNER-DIRECTIVE_1PASSWORD-SINGLE-SOURCE-01 and JOB_GROK-HUB-JOEY-RUN-AND-1PASSWORD-SINGLE-SOURCE-01 (10-10) were blocked by Codex and never run by Claude.
-- New, 10-12: Jorge's Microsoft Copilot (M365) account picker lists the SAME work account twice ("Jorge@TEAMUSASALES.COM" and "jorge@teamusasales.com"). That points to a stale cached sign-in.
+## Never
+- Reveal, print, log or type a password.
+- Delete anything.
+- Touch money, government, Microsoft 365, Google, Apple or 1Password-account passwords without Jorge present.
 
-## Do (read-only, no secrets in output)
-1. Is 1Password installed, running and unlocked? Is the CLI installed? What does `op whoami` return (account and email only)? Is CLI integration ON?
-2. If it's ON: count the vault items by category. Counts only, never names of banking items, never values.
-3. List the Windows/Office cached work-account entries (dsregcmd /status, and the account names in Settings → Accounts → Email & accounts). Say which of the two Copilot entries is stale. Do NOT remove anything.
-4. Say plainly what is still blocking "1Password = one source of truth":
-   - What the PC can finish by itself, and finish it under the existing directive OWNER-DIRECTIVE_1PASSWORD-SINGLE-SOURCE-01: inventory counts only, quarantine never delete, no passwords ever shown to any agent.
-   - The single owner touch, if one is truly unavoidable, as numbered clicks with a screenshot of exactly where to click.
+## Phase 0 — gate (read-only)
+1. Is 1Password unlocked? Is the CLI integration ON? Does `op whoami` work (account and email only)?
+2. If the integration is OFF, stop phases 1–3. Write the single owner click with a screenshot of exactly where it is (Settings → Developer → "Integrate with 1Password CLI").
+
+## Phase 1 — inventory (counts only)
+Logins in each source:
+- 1Password vaults
+- Edge, Chrome and Google Password Manager
+- Windows Credential Manager and Microsoft
+- Import or export files in OneDrive
+Then: duplicates per site, the personal/work account pairs, and the Watchtower counts (weak / reused / compromised).
+
+## Phase 2 — consolidate and remove the forks
+1. Pick one canonical item per site and purpose. Quarantine the rest in the QUARANTINE vault, which is excluded from autofill.
+2. Repair imported web addresses.
+3. Move any plaintext export files to quarantine and flag them for Jorge.
+4. Switch OFF autofill and "offer to save" in the other managers (P3). Log each switch and how to undo it.
+5. Set one default vault, so there's no picker (P4).
+6. The duplicate Microsoft account picker seen 10-12 (Jorge@TEAMUSASALES.COM vs jorge@teamusasales.com): identify the stale cached entry and report it. Do not remove it.
+
+## Phase 3 — rotate, only in an interactive window (Code tab with computer use, or Cowork)
+Batches of 10, starting with Watchtower's lowest-risk sites. Use the 1Password extension's suggested password and its save prompt. One line per site: changed / skipped (why). High-stakes accounts are listed for a session with Jorge.
+
+## Phase 4 — auto-heal
+Weekly scheduled task. Report the task name and its next run.
 
 ## Proof
-EXECUTED_RAMBO1_1PASSWORD-AND-SIGNIN-STATUS_2026-10-12.md
+EXECUTED_RAMBO1_1PASSWORD-SSOT-02_2026-10-12.md, counts only, in this form: scanned N / canonical N / quarantined N / autofills switched off N / rotated N of M / exceptions N.
 
-Is the 1Password CLI switch on?
+Is the 1Password CLI integration ON?
