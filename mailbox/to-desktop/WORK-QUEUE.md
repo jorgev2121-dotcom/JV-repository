@@ -405,8 +405,9 @@ a WORKAROUND-CERT (FREEZE Article 4). End with one yes/no question.
 
 **Owner order, Jorge, 2026-10-12.** Cloud cannot do this: it is EGRESS_BLOCKED from
 miamidade.gov (RI-019). Desktop has unrestricted network and the in-app / Chrome browser.
-Property: **20001 SW 110 CT, TRK-2026-1262** unless Jorge names another address. Do not
-guess a folio or TRK for any other property; ask once.
+Property: **7265 NW 74 St, Bay 2, Medley FL 33166 (Miami Art House), TUS-26-1033**, confirmed by
+Jorge 2026-10-12 (supersedes the 20001 SW 110 CT assumption). Do not guess a folio or TRK
+for any other property; ask once.
 
 ### Steps
 1. Open `https://bldgappl.miamidade.gov/microfilm/` (eMicroFilm, by address or permit
@@ -474,6 +475,9 @@ Add a "Queued work" view to the VTES control panel (find its source; do not rebu
 listing every open work item with owner (which executor), state and ETA. Seed it with the
 items assigned on 2026-10-11 and 2026-10-12 (items 12 to 16 here, the 333 rotation, the
 Wally email, the CDM proof-of-done files, Medley/Alec money items).
+
+### Art House tags to include (added 2026-10-12)
+`#ArtHouse #Miami-Art-House #TUS-26-1033 #7265-NW-74-St #Bay-2 #Medley #Town-of-Medley #Teatro-Miami #Julio-Silva #legalization`, plus owner/agent names found in the contact sheet. Link every document to the Orange Tree-style report, and group documents by type in the placeholder register.
 
 ### Report back (TO-CLOUD.md)
 Per phase: DONE / BLOCKED / IN PROGRESS with denominators and file paths. WORKAROUND-CERT on
