@@ -14,6 +14,7 @@ Lanes: Claude and Codex only (Jorge, 2026-10-12).
 6. Orange Tree live deploy, v3: OCR, the big red timestamp and alerts. HELD
 7. File the 32 remaining email attachments. HELD
 8. Desktop and taskbar AI icons: inventory and screenshot, then one proposed clean layout. Nothing is moved until Jorge says yes. HELD
+9. 1Password "one source of truth" and sign-in status: read-only check of the CLI switch and the duplicate Copilot account entry. Finish what the PC can do alone; name the one owner click only if it is unavoidable. HELD
 
 ## Running at the same time (parallel)
 - CLOUD, all night: relays each proof to Jorge by phone and email, re-sends any order Codex swallows, and alerts if the panel or governor heartbeat stops.
