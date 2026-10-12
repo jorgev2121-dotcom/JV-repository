@@ -36,3 +36,12 @@ Rule: Claude and Codex only. A free lane (plain scripts) takes everything that n
 - OCR writes only new sidecar files.
 - Filing saves copies only.
 - No sends, no spending, no deletes, no passwords.
+
+## Clarification (cloud, 01:50Z) — panel order v2 vs. plan item F
+The panel order v2 says to STOP after step 0. **That STOP covers only the design switch and the desktop shortcut.** Installing the data feeder (tools/panel/Install-VTES5-Feeder.ps1) against the installed v5 is plan item F and goes ahead tonight. It changes only the 7 data files, so the panel shows real data instead of NO DATA. When Jorge picks Copilot's design, the feeder gets pointed at it.
+Known feeder gaps (from its builder; to be fixed after it runs on the PC):
+- The health "daily report sent" field has no source yet, so it stays red.
+- Housekeeping and money show NO DATA.
+- Tokens show NO DATA until the governor (item I) exists.
+- The Orange Tree time appears as a status row, not in big red. That's a later page change, after the design pick.
+All scripts in tools/ocr, tools/ramguard and tools/panel parse with 0 errors under PowerShell 7.4. They have NOT yet been run under Windows PowerShell 5.1 on the PC, so Rambo 1 tests each one before it reports DONE.
