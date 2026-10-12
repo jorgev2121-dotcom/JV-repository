@@ -13,6 +13,9 @@ Copy everything below into G:\My Drive\Shared Folders for all LLMs\AI-AUTOMATION
 6. The cloud side: the repo files in this branch's orders/, tools/, CLAUDE.md and RECURRING-ISSUES.md. The cloud's own scheduled triggers are listed in the cloud's README note in the folder.
 - **Redact before copying.** Any line holding a key, token, password or secret is replaced with `[REDACTED]`. If unsure, redact. No credential values ever leave the PC.
 
+## Also (2 minutes)
+Copy control-panel/VTES-Control-Panel_artifact-321Zo6_v12_2026-10-10.html from the repo into G:\My Drive\Shared Folders for all LLMs\VTES-PANEL-HANDOFF_2026-10-12\ (Drive folder 1wluwWCTmRUSMd5s91Evn579WMgX-7Tkr). The cloud could not upload a file that size.
+
 ## Index
 Write INDEX.md in that folder. Group it by owner (Claude desktop, Claude cloud, Cowork, Codex, Grok/Joey, Copilot, Gemini, Ollama/LOCAL, PAD, plain Windows tasks). One line each: what it does, how often, last run and result, and file link.
 
