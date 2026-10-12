@@ -621,9 +621,9 @@ function driveStatus(x){if(!PCL.res&&!PCL.roster&&!PCL.hb)return null;var aw=pcA
 function fromFile(f,name,hrsLive){if(!f)return aw?{st:'wait',t:'NO RESULT FILE YET',d:'The PC is awake, but no '+name+' file is in VTES-Outbox in the last 7 days.',src:'drive'}:{st:'down',t:'NO HEARTBEAT',d:'No '+name+' file and the PC heartbeat is stale.',src:'drive'};
 var m=pcAgeMin(f.modifiedTime);var st=m<=hrsLive*60?'live':aw?'wait':'down';
 return {st:st,t:st==='live'?'WORKING · '+pcAge(f.modifiedTime):st==='wait'?'QUIET '+pcAge(f.modifiedTime).replace(' ago','')+' · PC awake':'DOWN since '+fmtT(f.modifiedTime),d:'Newest file: '+f.title+' ('+fmtT(f.modifiedTime)+').',src:'drive',url:f.viewUrl,ul:'Open the newest file'}}
-if(x.id==='rambo'){var today=pcToday(),cap=pcLast(new RegExp('^CAP-REACHED_'+today));var rb=pcLast(/^(EXECUTED_RAMBO1_|CLAIM_.*RAMBO1)/);
+if(x.id==='rambo'){var today=pcToday(),cap=pcLast(new RegExp('^CAP-REACHED_'+today));var rb=pcLast(/^(EXECUTED_RAMBO|CLAIM_.*RAMBO)/);
 if(cap&&(!rb||rb.modifiedTime<cap.modifiedTime))return {st:'wait',t:'DAILY RUN CAP REACHED',d:'Cap file '+cap.title+' at '+fmtT(cap.modifiedTime)+'. Headless runs pause until tomorrow; an open Code tab still works.',src:'drive',url:cap.viewUrl,ul:'Open the cap file'};
-return fromFile(rb,'EXECUTED_RAMBO1_ or CLAIM_…RAMBO1',6)}
+return fromFile(rb,'EXECUTED_RAMBO… or CLAIM_…RAMBO',6)}
 if(x.id==='codex')return fromFile(pcLast(/CODEX/),'CODEX',6);
 if(x.id==='job-watcher')return fromFile(pcLast(/^ACK_.*_AUTO|^CAP-REACHED_/),'ACK_…_AUTO',6);
 if(x.id==='poller'){var r=PCL.roster&&PCL.roster['VTES-LOCAL-POLLER'];if(!r)return null;var lm=pcAgeMin(r.last_run);var st=lm===null?'off':lm<=10?'live':lm<=30?'wait':'down';
@@ -637,7 +637,7 @@ var since=new Date(Date.now()-7*86400000).toISOString().slice(0,10)+'T00:00:00Z'
 var W=[['hb',{query:"parentId = '"+OUTBOX+"' and (title contains 'UPTIME-HEARTBEAT' or title contains 'RAM-GUARD-HEARTBEAT' or title contains 'OCR-HEARTBEAT')",pageSize:20,snippetVerbosity:'BRIEF'}],
 ['res',{query:"parentId = '"+OUTBOX+"' and (title contains 'EXECUTED_' or title contains 'BLOCKER_' or title contains 'CAP-REACHED') and modifiedTime > '"+since+"'",pageSize:100,excludeContentSnippets:true}],
 ['rambo',{query:"parentId = '"+OUTBOX+"' and title contains 'EXECUTED_RAMBO1_'",pageSize:50,excludeContentSnippets:true}],
-['act',{query:"parentId = '"+OUTBOX+"' and (title contains 'CLAIM_' or title contains 'ACK_') and modifiedTime > '"+since2+"'",pageSize:100,excludeContentSnippets:true}]];
+['act',{query:"parentId = '"+OUTBOX+"' and (title contains 'CLAIM_' or title contains 'ACK_') and modifiedTime > '"+since+"'",pageSize:100,excludeContentSnippets:true}]];
 try{PCUNSUB.push(mcp.watchTool(GDS,'read_file_content',{fileId:ROSTER},function(ev){if(ev.type==='data'){var r=ev.result||{},p=r.payload!==undefined?r.payload:((r.content||[])[0]||{}).text;var j=pcRoster(p);if(j){PCL.roster=j;PCL.rosterAt=pcStamp(r);PCL.errs.roster=null}else PCL.errs.roster='Heartbeat roster came back in a shape this page cannot read.'}else{var c=ev.error&&ev.error.code;if(c==='needs_reauth'||c==='server_not_connected'||c==='blocked_by_policy'||c==='approval_required'||c==='not_in_manifest'||c==='not_granted')PCL.roster=null;else PCL.errs.roster='Heartbeat roster read failed ('+(c||'error')+'). Showing last good data.'}drawPC()},{refetchInterval:120000}))}catch(e){}
 W.forEach(function(w){try{PCUNSUB.push(mcp.watchTool(GDS,'search_files',w[1],function(ev){if(ev.type==='data'){var r=ev.result||{},f=pcFiles(r.payload!==undefined?r.payload:((r.content||[])[0]||{}).text);
 if(f){PCL[w[0]]=f;PCL[w[0]+'At']=pcStamp(r);PCL.state='live';PCL.errs[w[0]]=null;if(w[0]==='hb')pcOcr(mcp)}else PCL.errs[w[0]]='Drive answered in a shape this page cannot read.'}
