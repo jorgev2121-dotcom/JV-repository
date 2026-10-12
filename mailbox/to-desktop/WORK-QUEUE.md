@@ -401,6 +401,43 @@ a WORKAROUND-CERT (FREEZE Article 4). End with one yes/no question.
 
 ---
 
+## 15. OD-110 — Miami-Dade microfilm pull, merged PDF, import, plain-English report (2026-10-12)
+
+**Owner order, Jorge, 2026-10-12.** Cloud cannot do this: it is EGRESS_BLOCKED from
+miamidade.gov (RI-019). Desktop has unrestricted network and the in-app / Chrome browser.
+Property: **20001 SW 110 CT, TRK-2026-1262** unless Jorge names another address. Do not
+guess a folio or TRK for any other property; ask once.
+
+### Steps
+1. Open `https://bldgappl.miamidade.gov/microfilm/` (eMicroFilm, by address or permit
+   number). Jorge also supplied `.../microfilm/MakeAppointment.aspx`; use whichever page
+   lets you enter the address and see what exists. Read-only: do not book anything, pay,
+   or sign in with stored credentials without Jorge.
+2. Download every PDF/plan available for the address, keeping the site's own formatting.
+3. Build one contiguous review PDF: a separator page before each permit's documents
+   stating the permit number and a one-line description (new permit or document).
+   Footer stamp per CLAUDE.md 9.3. Keep the originals untouched.
+4. OWNER DIRECTIVE (standing default): import the downloads and the merged PDF into the
+   property's own folder/record under its TRK (Drive `01-JOBS`, TRK in file body and
+   filename), with `_VERSION-LOG.md` and a rollback script. New files only; never overwrite.
+5. Read the documents and write a plain-English report with the formatted page style
+   Jorge likes (Artifact, no coded blocks): what exists, what each document supports,
+   and what is missing. Look specifically for support for legalization and for
+   zoning, fire, DERM and other atypical approvals. Say plainly what you could not read.
+6. State in the report that this is ONLY Miami-Dade County microfilm. A second set should
+   exist at the Town of Medley building department's microfilm, plus tax-jacket records
+   to be requested from the Medley department that holds them. List who to ask; do not
+   send any request (outbound is RED).
+
+### Report back (TO-CLOUD.md)
+DONE / BLOCKED / IN PROGRESS with evidence: file count, merged PDF page count, import
+paths. Every BLOCKED needs a WORKAROUND-CERT. End with one yes/no question.
+
+### Never
+- Never pay a fee, book an appointment, or send a request without Jorge. Never delete or rename a client document.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
