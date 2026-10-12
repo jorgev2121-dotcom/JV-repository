@@ -1,4 +1,5 @@
 # RAMBO QUEUE — 2026-10-12 (master list, updated by the cloud each time an item finishes)
+**The full A–Z overnight plan with lanes and target times: orders/OVERNIGHT-RUN-PLAN_2026-10-12.md. Follow that order.** New since the list below: RAM guard (plan item C, tools/ramguard) and the panel feeder (plan item F, tools/panel). Rambo 1 may run 2 items at once ONLY on different folders, each holding C:\AI\state\LOCK_<item>.lock.
 
 Lanes: Claude and Codex only (Jorge, 2026-10-12).
 - RAMBO 1 = Claude, on the PC. Runs ONE order at a time, so two sessions never edit the same file (RI-048).
