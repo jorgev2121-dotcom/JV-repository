@@ -3,7 +3,7 @@
 Lanes: Claude and Codex only (Jorge, 2026-10-12).
 - RAMBO 1 = Claude, on the PC. Runs ONE order at a time, so two sessions never edit the same file (RI-048).
 - RAMBO 2 = Codex, on the PC. Non-client work only, with no Drive access.
-- CLOUD = this session. Watches every 3 hours, relays proof, and re-sends anything Codex swallows.
+- CLOUD = this session. Checks every hour, relays proof, and re-sends anything Codex swallows.
 
 ## Rambo 1, in this order (one after another)
 1. Raise the Claude run counter from 12 to 40, and switch only on real limits. SENT 01:08Z. Status: WAITING (counter resets at midnight ET)
