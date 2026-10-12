@@ -480,7 +480,7 @@ var on=c.filter(function(s){return s.connection_status==='connected'||/RUNNING/.
 return on.length?{st:'live',t:'LIVE · '+on.length+' running',d:c.length+' open cloud sessions. Links to each are below.',src:'live'}:{st:'ref',t:'IDLE',d:'No cloud session running right now. Open one any time.',src:'live'}}
 return null}
 function rowStatus(x){var l=liveStatus(x);if(l)return l;var c=CONN[x.id];
-if(c)return {st:LEGEND[c.state]?c.state:'off',t:c.label||c.state.toUpperCase(),d:(c.note||'')+' Recorded '+fmtT(c.as_of)+' by '+(c.by||'unknown')+'.',src:'record'};
+if(c){var old=c.state==='live'&&(pcAgeMin(c.as_of)===null||pcAgeMin(c.as_of)>1440);return {st:old?'wait':(LEGEND[c.state]?c.state:'off'),t:old?'OLD RECORD · was green '+pcAge(c.as_of):(c.label||c.state.toUpperCase()),d:(old?'A green status older than 24 hours is not proof it still works. ':'')+(c.note||'')+' Recorded '+fmtT(c.as_of)+' by '+(c.by||'unknown')+'.',src:'record'}}
 if(x.live&&!LIVE.at&&LIVE.state==='wait')return {st:'wait',t:'CHECKING…',d:LIVE.note,src:'live'};
 return {st:'off',t:'NO DATA',d:'No status has ever been recorded for this one.',src:'none'}}
 function entCard(x){var s=rowStatus(x),url=s.url||x.url,ul=s.url?s.ul:x.ul;
