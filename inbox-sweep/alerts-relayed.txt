@@ -11,3 +11,4 @@
 2026-10-12 ~12:20Z Jorge: 'yes, pasted it' (PASTE-D-069 in the desktop Code tab). No EXECUTED_RAMBO1_ yet at 12:20Z.
 2026-10-12 13:45Z POSTED to Drive 'Shared Folders for all LLMs/VTES-PANEL-HANDOFF_2026-10-12' (1wluwWCTmRUSMd5s91Evn579WMgX-7Tkr): brief 1qypuN-bXB8tqb5Tenw2woNR2hOeGruKD, MDC draft 1JA2OYT5rQTkuZ4QBGKqFoFlJAvthUx2Q, README 1NRSss_bnv4e94X9k3s8b7KqrKrzjyto9. v12 HTML copy queued for Rambo (item 10).
 2026-10-12 14:17Z tick: no EXECUTED_RAMBO1_/CLAIM/PANEL-CANDIDATES. PC alive (_UPTIME-HEARTBEAT 14:16Z). Desktop window (PASTE-D-069) still silent ~6h after paste. Waiting on Jorge: Connect-page yes/no + what Code tab shows.
+2026-10-12 15:17Z tick: no EXECUTED_RAMBO1_/CLAIM/PANEL-CANDIDATES. New in Outbox: only CODEX BLOCKERs (14:40Z, 15:04Z) + 1 AUTO ACK on Chat-window orders (1PASSWORD-290-BACKLOG, TAGGING-CONTROL-PANEL) - not ours, Codex still taking Claude-only orders (RI already logged). Desktop window still silent.
