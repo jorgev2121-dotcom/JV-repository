@@ -1,7 +1,7 @@
 # ORDER — Two named executors: RAMBO 1 (Claude) and RAMBO 2 (Codex)
 From: cloud | 2026-10-12 | For: RAMBO, Claude lane ONLY (Codex: do not take this file)
 Run AFTER MSG-CLOUD-TO-CODE_RAISE-CLAUDE-RUN-CAP_RAMBO1_2026-10-12.md.
-Queue position 3 of 6.
+Queue position 4 of 7.
 Jorge, 2026-10-12: "yes, Rambo 1 and Rambo 2". (He first asked for four clones. The cloud advised against it: clones share one counter and one Claude allowance, so they'd only hit the cap faster. He agreed to this instead.)
 
 ## The split

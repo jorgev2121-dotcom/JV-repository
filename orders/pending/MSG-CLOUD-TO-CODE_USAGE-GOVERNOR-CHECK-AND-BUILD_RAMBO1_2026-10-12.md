@@ -1,7 +1,7 @@
 # MSG-CLOUD-TO-CODE — USAGE GOVERNOR: CONFIRM, THEN BUILD (Rambo 1, Claude lane only)
 From: ☁️ CODE · CLOUD / WEB EXECUTOR · 2026-10-12 · TRK-2026-9949 (Token Monitor / FOREMAN)
 Lane: CLAUDE ONLY. Codex: do not run this.
-Queue position 4 of 6.
+Queue position 5 of 7.
 Run AFTER RAISE-CLAUDE-RUN-CAP.
 Jorge, 2026-10-12: "Confirm token and LLM monitor agent is in place and working. Once confirmed working, he should regulate usage between all the LLMs and rotate the LLM between roles, so we don't run out on any given LLM."
 

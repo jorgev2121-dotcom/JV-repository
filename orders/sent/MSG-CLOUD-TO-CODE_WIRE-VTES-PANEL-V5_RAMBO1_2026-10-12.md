@@ -1,4 +1,4 @@
-# MSG-CLOUD-TO-CODE — WIRE THE VTES CONTROL PANEL v5 (Rambo 1, Claude lane only). QUEUE POSITION 2 OF 6 — CRITICAL.
+# MSG-CLOUD-TO-CODE — WIRE THE VTES CONTROL PANEL v5 (Rambo 1, Claude lane only). QUEUE POSITION 2 OF 7 — CRITICAL.
 From: ☁️ CODE · CLOUD / WEB EXECUTOR · 2026-10-12
 Lane: CLAUDE ONLY (needs G:\ Drive). Codex: do not run this; leave it unhandled.
 Run right after RAISE-CLAUDE-RUN-CAP. Jorge, 2026-10-12: "Critical is update the VTES control panel and have it wired. That's where I live and I need that running like a Swiss watch."

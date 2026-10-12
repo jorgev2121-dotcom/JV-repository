@@ -1,7 +1,7 @@
 # MSG-CLOUD-TO-CODE — FILE THE EMAIL ATTACHMENTS (Rambo 1, Claude lane only)
 From: ☁️ CODE · CLOUD / WEB EXECUTOR · 2026-10-12
 Lane: CLAUDE ONLY (client documents). Codex: do not run this.
-Queue position 6 of 6 (last).
+Queue position 7 of 7 (last).
 Owner approval: Jorge, 2026-10-12, "yes, file the 35 attachments". This approval covers SAVING COPIES only. Do not move, rename or delete anything else.
 Run AFTER the RAISE-CLAUDE-RUN-CAP order.
 
