@@ -13,6 +13,7 @@ Lanes: Claude and Codex only (Jorge, 2026-10-12).
 5. Usage governor: check what exists, then build the real-limit switch, the usage log and the heartbeat. HELD
 6. Orange Tree live deploy, v3: OCR, the big red timestamp and alerts. HELD
 7. File the 32 remaining email attachments. HELD
+8. Desktop and taskbar AI icons: inventory and screenshot, then one proposed clean layout. Nothing is moved until Jorge says yes. HELD
 
 ## Running at the same time (parallel)
 - CLOUD, all night: relays each proof to Jorge by phone and email, re-sends any order Codex swallows, and alerts if the panel or governor heartbeat stops.
