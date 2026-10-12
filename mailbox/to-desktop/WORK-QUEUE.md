@@ -438,6 +438,52 @@ paths. Every BLOCKED needs a WORKAROUND-CERT. End with one yes/no question.
 
 ---
 
+## 16. OD-111 — Hashtag coverage, uniform job report, placeholder database, control-panel board (2026-10-12) PRIORITY
+
+**Owner order, Jorge, 2026-10-12: stop other tasks, this is the priority.** Cause he
+named: searches for `Art House`, owner names and `Medley` find nothing because those
+words were never saved as hashtags, so the master TRK / capsule is not reachable. Goal:
+one source of truth per job, with Orange Tree (Drive) as the model job.
+
+**Freeze note (CLAUDE.md Art. 1):** this extends the EXISTING per-capsule `_TAGS.txt`
+sidecar and the existing reports; it builds no new system. Anything beyond that stays PARKED.
+
+### Phase 1 — read-only census (GREEN, run overnight, one subagent per job — Rule 5)
+For every open job under `G:\My Drive\01-JOBS\`: read its `_TAGS.txt`, cover sheet,
+contact sheet and file names. Write a NEW file per job, `_TAGS.PROPOSED_2026-10-12.txt`,
+listing missing tags: project/short name (e.g. #ArtHouse, #Medley, #OrangeTree), every
+owner/party/person name, street number, folio, permit and case numbers, municipality,
+contractor. Also write `HASHTAG-GAP-REPORT_2026-10-12.md` with a denominator
+("N of M jobs have the project name tagged"). Never edit an existing `_TAGS.txt` in phase 1.
+
+### Phase 2 — apply (after Jorge says yes, one word)
+Merge proposed tags into each `_TAGS.txt`, additive only, with a `.bak-20261012` copy first
+and a rollback script (CLAUDE.md 9). Then confirm by searching Drive for `#ArtHouse`,
+`#Medley`, and one owner name and showing the hits.
+
+### Phase 3 — uniform report structure (apply to Orange Tree first)
+Page 1 contacts cover sheet (To/From = active, CC = passive, per OCR protocol; TRK carried
+on every contact). Page 2 scope of work. Then the placeholder list: every document the job
+needs, each a placeholder file in the right subfolder. Retrieve data, populate folders, and
+fill Orange Tree as documents arrive. Keep a small placeholder register per job (status:
+MISSING / REQUESTED / RECEIVED, priority, next follow-up). Owner comments or approvals add
+or delete placeholders. Orange Tree today: 8 folders, 46 generated files, 0 documents.
+
+### Phase 4 — control-panel board
+Add a "Queued work" view to the VTES control panel (find its source; do not rebuild it)
+listing every open work item with owner (which executor), state and ETA. Seed it with the
+items assigned on 2026-10-11 and 2026-10-12 (items 12 to 16 here, the 333 rotation, the
+Wally email, the CDM proof-of-done files, Medley/Alec money items).
+
+### Report back (TO-CLOUD.md)
+Per phase: DONE / BLOCKED / IN PROGRESS with denominators and file paths. WORKAROUND-CERT on
+every BLOCKED. End with one yes/no question.
+
+### Never
+Never overwrite a tag file or client document, never send anything outbound, never invent a TRK.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
