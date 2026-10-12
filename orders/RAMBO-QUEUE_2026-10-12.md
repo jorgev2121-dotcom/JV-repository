@@ -7,7 +7,7 @@ Lanes: Claude and Codex only (Jorge, 2026-10-12).
 
 ## Rambo 1, in this order (one after another)
 1. Raise the Claude run counter from 12 to 40, and switch only on real limits. SENT 01:08Z. Status: WAITING (counter resets at midnight ET)
-2. **Wire the VTES control panel v5 (CRITICAL):** feeder every 2 minutes, stale tiles in red, desktop shortcut. SENT 01:16Z. Status: WAITING
+2. **Control panel (CRITICAL):** step 0 finds Copilot's design on the PC (asks Copilot directly, plus a disk search), screenshots every candidate, and STOPS for Jorge to pick. Then it wires the picked design: feeder every 2 minutes, stale tiles in red, desktop shortcut. v2 SENT 01:23Z. Status: WAITING
 3. **Joey / Grok bots check (NEW):** find out whether Joey can receive work at all (a watched folder, a command line, chat only, or an API key), then send one test. Read-only. HELD
 4. Split the work into Rambo 1 and Rambo 2 lanes, plus two panel tiles. HELD (sent automatically when 1 proves Claude is back)
 5. Usage governor: check what exists, then build the real-limit switch, the usage log and the heartbeat. HELD
