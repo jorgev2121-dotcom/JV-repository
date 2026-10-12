@@ -1,4 +1,6 @@
 # RAMBO QUEUE — 2026-10-12 (master list, updated by the cloud each time an item finishes)
+
+**STATUS 05:17Z (1:17 AM ET): BLOCKED.** The Claude counter reset at midnight and was spent by 12:24 AM on 11 older jobs. Codex then declined every order of ours. Nothing is installed. Only start: PASTE-D-069 in the desktop Code tab (an interactive window is not counted). Partial result: Codex reviewed 114 panel candidates; see C:\AI\codex-work\MSG-CLOUD-TO-CODE_WIRE-VTES-PANEL-V5_RAMBO1_2026-10-12_v2_ADDENDUM-1_v2\Panel-Candidates.html on the PC.
 **The full A–Z overnight plan with lanes and target times: orders/OVERNIGHT-RUN-PLAN_2026-10-12.md. Follow that order.** New since the list below: RAM guard (plan item C, tools/ramguard) and the panel feeder (plan item F, tools/panel). Rambo 1 may run 2 items at once ONLY on different folders, each holding C:\AI\state\LOCK_<item>.lock.
 
 Lanes: Claude and Codex only (Jorge, 2026-10-12).
