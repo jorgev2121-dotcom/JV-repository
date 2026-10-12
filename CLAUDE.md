@@ -154,6 +154,7 @@ loses track of which block belongs where.
   "re-read Section B" instead of describing it.
 - **One window per paste block.** Never combine instructions for two windows into one
   block.
+- **OD-109 (2026-10-12) overrides the visible-ID rule below: do not show Jorge numbered paste blocks or code boxes.** Keep IDs in `PASTE-LOG.md` and the work files for executors; show him plain language or a formatted page. See `OWNER-DIRECTIVE_NO-NUMBERED-PASTE-BLOCKS-01_2026-10-12.md`.
 - **One paste block per reply, and keep it short.** Merge everything bound for the
   same window into a single block. Put the actual work in
   `mailbox/to-desktop/WORK-QUEUE.md` and let the paste block be a short pointer at
