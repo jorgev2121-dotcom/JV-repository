@@ -244,17 +244,17 @@ function laneOf(t){var s=TSTATE[t.id];return s&&s.who?s.who:t.who}
 var OCRSRC=[
 {n:'Google Drive',e:'🟦',done:3436,total:3858,pct:89,note:'Counted today from Drive. About 74% if duplicate copies count once. Last new OCR file: Oct 5 — OCR has stopped.',st:'wait'},
 {n:'Gmail · jorgev2121@gmail.com',e:'📧',done:3,total:442,pct:null,note:'442+ threads with PDFs, 161+ with images. Gmail does not OCR attachments; only 3 PDF threads carry a TRK number (filed). Inbox: 42,701 unread of 45,101.',st:'down',lbl:'3 of 442+ filed'},
-{n:'Outlook · Jorge@TeamUsaSales.com',e:'📨',done:null,total:null,pct:null,note:'Counting now.',st:'off'},
-{n:'OneDrive',e:'☁️',done:null,total:null,pct:null,note:'Counting now.',st:'off'},
+{n:'Outlook · Jorge@TeamUsaSales.com',e:'📨',done:184,total:4751,pct:null,lbl:'184 of 4,751+ mention a TRK',note:'7,802 emails with attachments since 2022; at least 4,751 with PDFs (estimate about 6,700). Outlook does not OCR attachments; only 184 emails mention a TRK number since July.',st:'down'},
+{n:'OneDrive',e:'☁️',done:0,total:8934,pct:0,note:'8,934 PDFs and zero OCR text files. Most are field-inspection scans and PaperPort folders. The “Field Inspections Scanned Copy” tree appears twice — up to about 4,000 possible duplicates (not yet verified).',st:'down'},
 {n:'Dropbox',e:'📦',done:null,total:null,pct:null,note:'No connector from the cloud. Needs the PC helper to count.',st:'off',pc:1},
 {n:'PaperPort',e:'🖨️',done:null,total:null,pct:null,note:'On the PC only. Needs the PC helper to count.',st:'off',pc:1},
 {n:'Downloads folder',e:'⬇️',done:null,total:null,pct:null,note:'On the PC only. Needs the PC helper to count.',st:'off',pc:1},
 {n:'C: drive / Desktop',e:'🖥️',done:null,total:null,pct:null,note:'On the PC only. Needs the PC helper to count.',st:'off',pc:1}];
 var TRIAGE=[
 {n:'Gmail triage',e:'📧',v:'42,701 unread of 45,101 · 4 sorting labels',st:'down'},
-{n:'Outlook triage',e:'📨',v:'counting now',st:'off'},
+{n:'Outlook triage',e:'📨',v:'85,306 in inbox · 6,000+ unread',st:'down'},
 {n:'Windows triage',e:'🪟',v:'needs the PC helper',st:'off'},
-{n:'Sync triage (Drive ↔ OneDrive ↔ Dropbox)',e:'🔄',v:'needs the PC helper; OneDrive conflicts counting now',st:'off'}];
+{n:'Sync triage (Drive ↔ OneDrive ↔ Dropbox)',e:'🔄',v:'OneDrive: 2+ sync copies, a possible duplicate folder tree (~4,000 files); Dropbox needs the PC helper',st:'wait'}];
 function ocrBar(x){var pct=x.pct!=null?x.pct:(x.done!=null&&x.total?Math.round(x.done/x.total*100):null);return '<div class="card"><div class="enthead"><h3>'+x.e+' '+esc(x.n)+'</h3><span class="cstat" data-st="'+x.st+'">● '+esc(x.lbl||(pct!=null?pct+'% OCR\'d':(x.pc?'NEEDS PC HELPER':'COUNTING…')))+'</span></div>'+
 '<div class="gauge" data-st="'+x.st+'"><div class="fill" style="width:'+(pct||0)+'%"></div><span>'+(pct!=null?(x.done!=null?x.done.toLocaleString()+' of '+x.total.toLocaleString()+' · ':'')+pct+'%':(x.lbl||'not counted yet'))+'</span></div><p class="kv" style="margin-top:6px">'+esc(x.note)+'</p></div>'}
 var JOBCHK={};
@@ -466,7 +466,7 @@ function safePane(t){try{return panes[t]?panes[t]():''}catch(e){return '<p class
 /* BUILD tree: page -> section -> feature -> item. Item = [name, done 1/0, hours if missing, 'pc' if it needs the PC helper]. */
 var BUILD={
 MENU:[['Map',[['Picture map',[['Hub and work-flow arrows',1],['Five branch boxes',1],['Completion % on every box',1]]],['Coming next list',[['Greyed future pages with dates (BILLING, BOOKS, PROJECTS, COUNTY MONITOR, LAUNCHER)',0,3]]]]],['Finding things',[['Search',[['Every page by hashtag and keyword',1],['Hover description on every button',1],['Voice buttons: Speak, Read, Speechify',1],['Search reaches Google Drive',1],['Glossary hover for in-house words (TRK, OPH, MDC…)',0,4]]],['Accessibility',[['Text size A- / A+',0,2],['High contrast',0,2],['Read aloud (falls back to Speechify)',1]]]]]],
-OCR:[['Scoreboard',[['Sources',[['Google Drive count (89%)',1],['Gmail count',1],['Outlook + OneDrive count',0,1],['PC sources: PaperPort, Downloads, Dropbox, C: drive',0,3,'pc']]],['Protocol',[['Latest-version audit',0,2],['Per-job OCR + email-circle check',1]]]]],['Restart',[['Runner',[['Cloud lane for text PDFs',0,4],['24/7 PC runner for scans',0,3,'pc']]]]]],
+OCR:[['Scoreboard',[['Sources',[['Google Drive count (89%)',1],['Gmail count',1],['Outlook + OneDrive count',1],['PC sources: PaperPort, Downloads, Dropbox, C: drive',0,3,'pc']]],['Protocol',[['Latest-version audit',0,2],['Per-job OCR + email-circle check',1]]]]],['Restart',[['Runner',[['Cloud lane for text PDFs',0,4],['24/7 PC runner for scans',0,3,'pc']]]]]],
 TODAY:[['Daily report',[['Today page',[['Dated summary with proof',1],['Money items',1],['Money items fed live from the PC',0,3,'pc']]]]],['Freshness',[['Stamps',[['Last updated on page',0,1],['Auto daily rewrite',0,4,'pc']]]]]],
 TASKS:[['All open work',[['Task list',[['Tasks with lane and status',1],['Approve / deny',1],['Reassign lane',1]]],['Live',[['Tasks read from the PC registry',0,4,'pc']]]]]],
 MYASKS:[['Your requests',[['Request list',[['Done / blocked / not done',1],['Auto-sweep new asks from chats',0,5]]]]]],

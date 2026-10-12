@@ -205,3 +205,5 @@ machine. So the detection half works and the recovery half does not.
 **This is the first thing to fix, ahead of any new work.** A queue twelve hours deep is
 worth nothing to an executor that stops at hour four with nobody to restart it.
 
+
+- 2026-10-12 (cloud) · GREEN · OneDrive duplicate-tree comparison, read-only: compare "Documents\Field Inspections Scanned Copy" against the copy inside "Field Inspections _ Inspection _ COU _ CU _ Team" (≈4,000 possible duplicate PDFs). Output a new report file only. Deleting anything = RED, Jorge's yes per batch.
