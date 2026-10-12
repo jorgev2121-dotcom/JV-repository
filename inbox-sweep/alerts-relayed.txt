@@ -4,3 +4,4 @@
 2026-10-12 02:17Z WATCH: Codex (12 of 12 runs, now spent) consumed RAISE-CAP v1, OCR v1 and ADDENDUM-1 v1 as EXECUTED_CODEX (declines/partial). Panel v2: BLOCKER_CODEX (held). Overnight plan v1: auto-ACK only.
 2026-10-12 02:18Z RE-SENT: RAISE-CAP v2 1Kz4lVNuVTTt3P5hnnGdvEhivT1Csm1ho; OCR v2 1fixXrfXyrlEfGHjqgUEjO0hQcCEvOEkZ; OVERNIGHT-PLAN v2 1cnMv5i-DfFntukoRj8VSr6-F7dtkOp8M (v1 trashed); ADDENDUM-1 v2 1PzJEG8XHtABX0KcbB3HL8appD0jEvmmE (starts from Codex's Copilot-Search-Result.md).
 2026-10-12 02:18Z FOUND: CU-RAM-Guard already exists (10-10, DIR-0096). Our script renamed CU-RAM-Heartbeat and now shares its flag and floors, so there's no duplicate guard.
+2026-10-12 03:17Z WATCH: no new results. v2 orders waiting for the Claude lane (counter resets 04:00Z). Only new file: the routine BLOCKER_SILENT-SIGNOFF (ORCHESTRATOR handover), not relayed.
