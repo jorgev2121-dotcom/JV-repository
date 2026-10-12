@@ -1,24 +1,26 @@
 <#
-RAM-Guard.ps1 - TRK-2026-9960 family - 2026-10-12 - written by the cloud, installed by Rambo 1.
-Runs every minute. Keeps the PC from crashing during the overnight run. Zero AI tokens.
-  FREE RAM >= 3 GB : GREEN. Clears the pause flag.
-  FREE RAM <  3 GB : AMBER. Writes C:\AI\state\PAUSE-NEW-WORK.flag. The OCR runner and the Inbox watcher
+RAM-Heartbeat.ps1 (file kept as RAM-Guard.ps1) - TRK-2026-9960 family - 2026-10-12 - written by the cloud, installed by Rambo 1.
+Runs every minute. Works ALONGSIDE the existing CU-RAM-Guard (DIR-0096, 10-minute cycle, OneDrive\Scripts\RAM-Guard.ps1)
+and uses the SAME pause flag and floors (6 GB pause, 4 GB floor), so there is one flag, not two. Adds a 1-minute Drive
+heartbeat, the OCR stop at the floor, and the new-process watch. Zero AI tokens.
+  FREE RAM >= 6 GB : GREEN. Clears the shared pause flag.
+  FREE RAM <  6 GB : AMBER. Writes the shared Governor\PAUSE-HEAVY-JOBS.flag. The OCR runner and the Inbox watcher
                      must not START new work while the flag exists (work already running continues).
-  FREE RAM <  1.5 GB: RED. Also stops the OCR runner (it resumes by itself; nothing is lost) and lowers the
+  FREE RAM <  4 GB : RED. Also stops the OCR runner (it resumes by itself; nothing is lost) and lowers the
                      priority of claude/codex/node/python processes. Never kills Jorge's own apps.
 Security watch: lists the 8 biggest processes each minute and flags any process name not seen in the last
 7 days' allowlist (new-process alert, e.g. the 2026-08 fake Defender page, TRK-2026-9355).
 Heartbeat: G:\My Drive\VTES-Outbox\_RAM-GUARD-HEARTBEAT.md. Log: C:\AI\state\RAM-GUARD-LOG.csv
 #>
 param(
-  [double]$AmberGB = 3.0,
-  [double]$RedGB   = 1.5,
+  [double]$AmberGB = 6.0,
+  [double]$RedGB   = 4.0,
   [string]$Heartbeat = 'G:\My Drive\VTES-Outbox\_RAM-GUARD-HEARTBEAT.md',
   [string]$StateDir  = 'C:\AI\state'
 )
 $ErrorActionPreference = 'Continue'
 New-Item -ItemType Directory -Force -Path $StateDir | Out-Null
-$flag  = Join-Path $StateDir 'PAUSE-NEW-WORK.flag'
+$flag  = 'C:\Users\JV\OneDrive\Documents\ClaudeMemory\Governor\PAUSE-HEAVY-JOBS.flag'   # shared with CU-RAM-Guard / RAM-Governor.ps1
 $log   = Join-Path $StateDir 'RAM-GUARD-LOG.csv'
 $seen  = Join-Path $StateDir 'RAM-GUARD-SEEN.csv'
 if (-not (Test-Path $log)) { 'time,freeGB,totalGB,level,action,top' | Set-Content $log -Encoding UTF8 }
@@ -66,7 +68,7 @@ $newText = if ($firstRun) { 'first run - learning the normal process list' } els
 
 $body = @"
 # RAM GUARD HEARTBEAT
-Written: $((Get-Date).ToString('yyyy-MM-dd HH:mm:ss')) (Miami time) by CU-RAM-Guard on $env:COMPUTERNAME. Runs every minute.
+Written: $((Get-Date).ToString('yyyy-MM-dd HH:mm:ss')) (Miami time) by CU-RAM-Heartbeat on $env:COMPUTERNAME. Runs every minute.
 Level: **$level** - free RAM $freeGB GB of $totalGB GB (amber below $AmberGB GB, red below $RedGB GB)
 Action this minute: $action
 Pause flag (no new work starts): $(Test-Path $flag)

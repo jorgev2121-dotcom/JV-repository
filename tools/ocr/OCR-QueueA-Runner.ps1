@@ -75,7 +75,7 @@ try {
 
   foreach ($p in $pending) {
     if (((Get-Date) - $started).TotalMinutes -ge $MaxMinutes) { break }
-    if (Test-Path 'C:\AI\state\PAUSE-NEW-WORK.flag') { $lastErr = 'paused by RAM guard (low memory)'; break }
+    if (Test-Path 'C:\Users\JV\OneDrive\Documents\ClaudeMemory\Governor\PAUSE-HEAVY-JOBS.flag') { $lastErr = 'paused by RAM guard (low memory)'; break }
     $pdf = $p.File.FullName; $current = $pdf
     $side = $pdf -replace '\.pdf$', '.SEARCH.txt'
     $txt = Join-Path $Tmp 'out.txt'; Remove-Item $txt -ErrorAction SilentlyContinue
