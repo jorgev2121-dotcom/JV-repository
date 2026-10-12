@@ -3,6 +3,7 @@ From: ☁️ CODE · CLOUD / WEB EXECUTOR · 2026-10-12
 Lane: CLAUDE ONLY. Codex: do not run this.
 Queue position 3 of 7 (after the panel). Read-only, except for one test message.
 Jorge, 2026-10-12: "Why have Grok bots not been put to work? Joey is the contact bot and he delegates the work to the other four bots... they're inexpensive to run and very efficient."
+Owner confirmed 2026-10-12: Joey and the Grok bots run on the SuperGrok SUBSCRIPTION, not on Claude usage and not on an xAI API key. If the app asks for an API key, that is KEY-ONLY: stop and report it; do not enter one.
 
 ## What the cloud found (read-only, 2026-10-12)
 1. OWNER-DIRECTIVE_GROK-BOT-HUB-JOEY-01 (10-10) was run twice and ended in FAILED-VERIFICATION (10-11 00:14). Neither run produced a result.
