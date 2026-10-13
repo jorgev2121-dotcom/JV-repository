@@ -39,6 +39,7 @@ th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertic
 th{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;color:var(--muted)}
 td.num{font-family:var(--mono);text-align:right}
 .updstamp{font-size:12px;color:var(--good);background:var(--good-bg);border-radius:7px;padding:6px 10px;margin:0 0 8px;display:inline-block}.updstamp.stale{color:var(--warn);background:var(--warn-bg)}
+.wclock{font-size:12px;color:var(--good);background:var(--good-bg);border-radius:7px;padding:3px 8px;margin-left:6px;display:inline-block}.wclock.over{color:var(--warn);background:var(--warn-bg);font-weight:600}.wclock.late{color:var(--bad);background:var(--bad-bg);font-weight:600}.wclock.done{color:var(--muted);background:var(--pill-bg);font-weight:400}
 .flagnote{font-size:12px;color:var(--warn);background:var(--warn-bg);border-radius:7px;padding:8px 10px;margin:8px 0}
 .notwired{font-size:12.5px;color:var(--muted);font-style:italic;padding:16px;border:1px dashed var(--line);border-radius:10px;text-align:center}
 /* dinner menu */
@@ -128,12 +129,13 @@ button.needsyou,a.needsyou{position:relative;outline:2px solid var(--bad);outlin
 <script>
 (function(){
 var TABS=["MENU","TODAY","OCR","TASKS","MYASKS","ORCHESTRATOR","LLMS","HANDOFFS","STATUS","APPROVALS","REPORTS","ORPHANS","LINKS","WINDOWS","SESSIONS","JOBS","CAPSULES","BRIDGES","AGENTS","USAGE","PLAUD","CLIENTS","RULES","BACKUP","CONNECT","TRACKER"];
+var WSINCE='2026-10-10T15:19:23Z';/* earliest record of these cards (panel v12 copy); the real wait may be longer */
 var approvalItems=[
-{id:"claude-desktop-install",title:"Install Claude Desktop",body:"Installer is sitting in Downloads, needs your click on the Windows Administrator prompt.",detail:"File: C:\\Users\\JV\\Downloads\\Claude Setup.exe. Blocked on UAC. No AI can click that box, by design."},
-{id:"outlook-fix",title:"Fix Outlook (stray processes)",body:"One-click script clears leftover processes from the 9/22 crash and reopens Outlook.",detail:"Button: Desktop\\1-BUTTONS\\Windows-Fixes\\CLICK ME - Unstick Outlook.cmd."},
-{id:"edge-cookie-clear",title:"Clear Edge cookies (fixes recurring HTTP 400)",body:"Speechify and Gemini both 400 in your regular Edge profile, load clean in a private window.",detail:"Clear cookies and site data for the Edge Default profile. You will be logged out of sites; 1Password holds the passwords."},
-{id:"codex-backup-install",title:"Install Codex backup software",body:"Requested via a relayed message from another AI session. Not installed.",detail:"Standing rule: no software installs from relayed messages. Say so directly and name the software if you want it."},
-{id:"inbox-approval-gate",title:"Drive-inbox jobs can change files with no approval check",body:"Flagged by another session, not independently verified.",detail:"Related watcher tasks are disabled. CU-Inbox-Job-Watcher stays OFF until the PR #10 safety gate is merged."}
+{id:"claude-desktop-install",since:WSINCE,title:"Install Claude Desktop",body:"Installer is sitting in Downloads, needs your click on the Windows Administrator prompt.",detail:"File: C:\\Users\\JV\\Downloads\\Claude Setup.exe. Blocked on UAC. No AI can click that box, by design."},
+{id:"outlook-fix",since:WSINCE,title:"Fix Outlook (stray processes)",body:"One-click script clears leftover processes from the 9/22 crash and reopens Outlook.",detail:"Button: Desktop\\1-BUTTONS\\Windows-Fixes\\CLICK ME - Unstick Outlook.cmd."},
+{id:"edge-cookie-clear",since:WSINCE,title:"Clear Edge cookies (fixes recurring HTTP 400)",body:"Speechify and Gemini both 400 in your regular Edge profile, load clean in a private window.",detail:"Clear cookies and site data for the Edge Default profile. You will be logged out of sites; 1Password holds the passwords."},
+{id:"codex-backup-install",since:WSINCE,title:"Install Codex backup software",body:"Requested via a relayed message from another AI session. Not installed.",detail:"Standing rule: no software installs from relayed messages. Say so directly and name the software if you want it."},
+{id:"inbox-approval-gate",since:WSINCE,title:"Drive-inbox jobs can change files with no approval check",body:"Flagged by another session, not independently verified.",detail:"Related watcher tasks are disabled. CU-Inbox-Job-Watcher stays OFF until the PR #10 safety gate is merged."}
 ];
 var jobItems=[
 {id:"trk-1536",title:"10362 SW 180 ST - TRK-2026-1536",body:"PARTIAL. Imagery gate (PA sketch + Pictometry) still missing."},
@@ -416,7 +418,7 @@ function drawQueue(){var e=document.getElementById('qlist');if(!e)return;e.inner
 panes.PASSWORDS=function(){return ''};
 function esc(s){return (s||"").replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function actionCard(item){
-return '<div class="card"><h3>'+esc(item.title)+'</h3><p>'+esc(item.body)+'</p><span class="pill wait" id="pill-'+item.id+'">waiting on you</span><div class="actions">'+
+return '<div class="card"><h3>'+esc(item.title)+'</h3><p>'+esc(item.body)+'</p><span class="pill wait" id="pill-'+item.id+'">waiting on you</span>'+(item.since?'<span class="wclock" id="wclock-'+item.id+'" data-since="'+esc(item.since)+'" data-tip="'+esc(WTIP)+'">'+esc(clockText(item.since,false).t)+'</span>':'')+'<div class="actions">'+
 '<button class="act approve" onclick="VTES.decide(\''+item.id+'\',\'approved\')">Approve</button>'+
 '<button class="act defer" onclick="VTES.decide(\''+item.id+'\',\'deferred\')">Defer</button>'+
 (item.detail?'<button class="act details" onclick="VTES.toggle(\'detail-'+item.id+'\')">More details</button>':'')+
@@ -488,7 +490,7 @@ ORCHESTRATOR:[['Owner job queue (Copilot spec)',[['Sending',[['Job number + rece
 LLMS:[['AI list',[['Cards',[['Buttons per AI',1],['Fixed IDs LLM-01…09 and scarce/free label',0,2]]],['Health',[['13-provider health ping tile (file from PC)',0,4,'pc']]]]],['Money',[['Budget',[['Dollar counter and quote calculator',1],['Cost gate before paid runs',1]]]]]],
 HANDOFFS:[['Proof',[['Log',[['Who handed what to whom',1],['Lanes table',1]]]]],['Packet builder (from v5)',[['Builder',[['Task-type picker, cheapest lane',0,3],['From / To lists',1],['Copy packet button',1]]],['Safety',[['Personal-data tick box + digit checker',0,2],['LOCAL safe-folder rule',0,1]]]]]],
 STATUS:[['Live strip',[['PC',[['PC awake from Drive',1],['RAM guard heartbeat',0,1,'pc'],['OCR coverage count from Drive',1],['OCR 24/7 runner heartbeat',0,1,'pc']]],['Feeds (from v5)',[['Age line per feed',0,2],['Watchdog "not refreshing" banner',0,2],['Free RAM tile',0,2,'pc'],['Health X of Y',0,3,'pc'],['Miami-Dade n of 300',0,2,'pc']]]]]],
-APPROVALS:[['Approvals',[['Cards',[['Approve / defer / note',1],['One card at a time mode',0,3],['Read aloud',0,1],['Waiting clock, overdue after 24 h',0,1]]],['Live',[['Approvals fed from the PC',0,3,'pc']]]]]],
+APPROVALS:[['Approvals',[['Cards',[['Approve / defer / note',1],['One card at a time mode',0,3],['Read aloud',0,1],['Waiting clock, overdue after 24 h',1]]],['Live',[['Approvals fed from the PC',0,3,'pc']]]]]],
 REPORTS:[['Reports',[['Directory',[['R-01 to R-50 ready / needs work',1],['Snips and notes',1]]],['Repairs log (from v5)',[['Repairs running log',0,2],['Live repair rows',0,2,'pc']]]]]],
 ORPHANS:[['Orphans',[['List',[['OPH numbers and hashtags',1],['Resolve to TRK button',0,3]]]]]],
 JOBS:[['Alec jobs',[['Six properties',[['Status per property',1],['Live from job folders',0,4,'pc']]]]]],
@@ -653,7 +655,7 @@ show:function(tab){var qq=document.getElementById('q');if(qq&&qq.value){qq.value
 toggle:function(id){var e=document.getElementById(id);if(e)e.classList.toggle('open')},
 bucket:function(b){curBucket=b;drawReports()},
 move:async function(id){bucketOf[id]=bucketOf[id]==="ready"?"work":"ready";RSTATE[id]=Object.assign(RSTATE[id]||{},{bucket:bucketOf[id],at:new Date().toISOString()});try{localStorage.setItem('vtes_rstate',JSON.stringify(RSTATE))}catch(e){}drawReports();var db=await getDb();try{if(db)await db.doc('reports/'+id).set(RSTATE[id])}catch(e){}},
-decide:async function(id,status){var p=document.getElementById('pill-'+id);if(p){p.textContent=status;p.className='pill '+status}var db=await getDb();try{if(db){var r=db.doc('approvals/'+id),v={status:status,decidedAt:new Date().toISOString()};try{await r.update(v)}catch(e2){await r.set(v)}}}catch(e){}},
+decide:async function(id,status){var p=document.getElementById('pill-'+id);if(p){p.textContent=status;p.className='pill '+status}try{drawClocks()}catch(e0){}var db=await getDb();try{if(db){var r=db.doc('approvals/'+id),v={status:status,decidedAt:new Date().toISOString()};try{await r.update(v)}catch(e2){await r.set(v)}}}catch(e){}},
 saveComment:async function(id){var v=document.getElementById('ta-'+id).value,n=document.getElementById('saved-'+id);var db=await getDb();try{if(db)await db.doc('approvals/'+id).update({comment:v,commentAt:new Date().toISOString()});if(n){n.style.display='block';setTimeout(function(){n.style.display='none'},2000)}}catch(e){}}
 };
 /* ===== ONE COLOR LEGEND (RI-056 Tier 2): every colored button on this page gets its color ONLY from LEGEND via data-st. ===== */
@@ -724,6 +726,11 @@ to:['This panel and the morning report'],from:['Windows scheduler'],road:'Report
 var CONNVIEW=null,CONN={},LIVE={state:'wait',note:'Asking the Claude Code Remote connector for the live session list…',at:null,sessions:[]};
 function drawTodayStamp(){var el=document.getElementById('today-stamp');if(!el)return;var t=Date.parse(TODAYAT),age=isNaN(t)?null:Date.now()-t,old=age!==null&&age>86400000;el.classList.toggle('stale',old);el.textContent='Last updated '+fmtT(TODAYAT)+(age===null?'':' · '+hrs(Math.max(0,age))+' ago')+(old?' · OLDER THAN A DAY: the daily rewrite has not run (it needs the PC helper)':' · fresh')}
 setTimeout(drawTodayStamp,0);setInterval(drawTodayStamp,60000);
+var WTIP='How long this card has waited for your yes. Green under 24 hours. Amber OVERDUE after 24 hours. Red after 3 days. Counted from the first record we have, so the real wait may be longer. The clock stops when you press Approve.';
+function clockText(since,done){var t=Date.parse(since);if(isNaN(t))return {t:'Waiting since unknown',c:''};var age=Math.max(0,Date.now()-t),h=hrs(age);if(done)return {t:'Clock stopped · waited '+h,c:'done'};if(age>3*86400000)return {t:'⏰ OVERDUE · waiting '+h+' (more than 3 days)',c:'late'};if(age>86400000)return {t:'⏰ OVERDUE · waiting '+h,c:'over'};return {t:'Waiting '+h,c:''}}
+function drawClocks(){document.querySelectorAll('.wclock').forEach(function(el){var id=el.id.slice(7),p=document.getElementById('pill-'+id),done=!!(p&&/approved/i.test(p.textContent)),r=clockText(el.dataset.since,done);el.textContent=r.t;el.classList.toggle('over',r.c==='over');el.classList.toggle('late',r.c==='late');el.classList.toggle('done',r.c==='done')})}
+setTimeout(drawClocks,0);setInterval(drawClocks,60000);
+setTimeout(function(){if(window.VTES)VTES.waitClock=function(id,iso){var e=document.getElementById('wclock-'+id);if(!e)return null;if(iso)e.dataset.since=iso;drawClocks();return {t:e.textContent,c:e.className}}},0);
 setTimeout(function(){if(window.VTES)VTES.todayStamp=function(iso){if(iso)TODAYAT=iso;drawTodayStamp();var e=document.getElementById('today-stamp');return e?e.textContent:''}},0);
 function fmtT(iso){if(!iso)return 'unknown time';var d=new Date(iso);if(isNaN(d))return iso;try{return d.toLocaleString('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+' Miami'}catch(e){return iso.slice(0,16).replace('T',' ')+' UTC'}}
 function sessUrl(s){return 'https://claude.ai/code/'+s.id}
@@ -926,7 +933,8 @@ render();
 startPC();
 (async function(){var db=await getDb();if(!db)return;try{
 var all=approvalItems.concat(jobItems);
-for(var i=0;i<all.length;i++){var id=all[i].id,d=await db.doc('approvals/'+id).get();if(d&&d.data){if(d.data.status){var p=document.getElementById('pill-'+id);if(p){p.textContent=d.data.status;p.className='pill '+d.data.status}}if(d.data.comment){var t=document.getElementById('ta-'+id);if(t)t.value=d.data.comment}}}
+for(var i=0;i<all.length;i++){var id=all[i].id,d=await db.doc('approvals/'+id).get();if(d&&d.data){if(d.data.status){var p=document.getElementById('pill-'+id);if(p){p.textContent=d.data.status;p.className='pill '+d.data.status}}if(d.data.comment){var t=document.getElementById('ta-'+id);if(t)t.value=d.data.comment}if(d.data.waitingSince){var wc=document.getElementById('wclock-'+id);if(wc)wc.dataset.since=d.data.waitingSince}}}
+try{drawClocks()}catch(e1){}
 var ids2=REPORTS.map(function(x){return x[0]}).concat(ORPHANS.map(function(o){return o[0]}));for(var j=0;j<ids2.length;j++){var rid=ids2[j],rd=await db.doc('reports/'+rid).get();if(rd&&rd.data){RSTATE[rid]=Object.assign(RSTATE[rid]||{},rd.data);if(rd.data.bucket)bucketOf[rid]=rd.data.bucket}}
 try{var ls=await db.doc('llm/state').get();if(ls&&ls.data&&ls.data.ledger){LS=Object.assign(LS,ls.data);drawLLM()}var ts=await db.doc('tasks/state').get();if(ts&&ts.data&&ts.data.map){for(var k in ts.data.map)TSTATE[k]=ts.data.map[k];drawTasks()}healthLine(true)}catch(e){}
 try{var l=await db.doc('handoffs/log').get();if(l&&l.data&&l.data.entries)LOG=l.data.entries;var q=await db.doc('orchestrator/queue').get();if(q&&q.data&&q.data.items)QUEUE=q.data.items}catch(e){}

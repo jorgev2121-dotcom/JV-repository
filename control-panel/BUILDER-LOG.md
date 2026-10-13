@@ -21,3 +21,4 @@
 - 2026-10-13T22:50Z · panel: built TODAY › 'Last updated on page' stamp · 59 of 116 (51%) · tests passed: today-stamp, handoff-packet, view-controls, money-lock, emails-window, hover-tips · published v37
 - 2026-10-13T23:05Z · run 10 done · 4 of 4: panel 59 of 116 (v37), capsules 15601 SW 137 (39/39), 13328 SW 113 CT (22/22), 535 NW 7 ST (22/22; hearing 08-20 ruling unknown — possible lien) · capsules 30 of 40 (75%) · blocked: PC Claude window silent
 - 2026-10-13T23:44Z · run 11 · budget allowed · 4 started: capsules 1514 NW 73 ST, TRK-2026-1296 TEDC creds, TRK-2026-1293 MZ creds, + panel APPROVALS waiting clock · capsules 30 of 40 before run · panel 59 of 116 (51%) · queue: 7 capsules left (2221 Synergy, OPH-0007, Bay Harbor ×5) then panel pieces · blocked: PC Claude window silent
+- 2026-10-13T23:50Z · panel: built APPROVALS 'Waiting clock, overdue after 24 h' · 60 of 116 (52%) · 7 tests passed · published v38
