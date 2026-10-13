@@ -2387,3 +2387,16 @@ branch AND open PR branches; or give each window its own number block.
 ### RI-031 recurrence — 2026-10-13: PASTE-D-070 went into a new CLOUD window ("Rambo identification", 14:24Z), not the PC
 - The real PC window, "🖥️ DESKTOP EXECUTOR · LIVE on Jorge-PC (RAMBO)", session_01X9KWApDTq8SVpbHUxm4JAG, is connected but has been idle since 10-12, waiting for a "yes".
 - **Fix (Tier 2):** the panel's "🖥️ LLM desktop executors" button now lists the live PC window with an "Open this window" link (v35). Jorge never has to find the right window by hand. Every PASTE-D block should carry that link.
+
+### RI-049 recurrence — 2026-10-13: the 40 approved decisions (WAITING-ON-YOU page) still not carried out, about 10 days after approval
+- **Chain of failure:**
+  1. The 10-06 fix repaired the "marked seen, never run" bug in Inbox-Job-Watcher.ps1.
+  2. It left the PC executor capped at **$MaxPerDay = 6** runs per day. The decision runs share that cap with every other order, and the cap is used up by early morning each day. So decisions drain at about 0–2 a day.
+  3. The executor gives up after 2 tries: DECISION_28 got FAILED-VERIFICATION at 00:10 today and is now "left alone".
+  4. Once the cap is hit, orders fail over to Codex, which cannot act (RI-recurrence, 3rd time).
+  5. RAMBO has done nothing since 10-10.
+- **The cap was left "for Jorge" as a spend decision. That is false:** headless Claude Code on the PC runs on the flat-fee Claude Max plan, not an API key, so it is exempt under Article 5.
+- **This is a 2+ recurrence, so patches are forbidden. Options:**
+  1. **Tier 2 (chosen): stop depending on the PC for decisions.** The cloud runner reads every open DECISION file and carries out the cloud-doable ones itself. It bundles the PC ones into ONE desktop order, and puts RED ones on Jorge's morning list. Lifespan: permanent.
+  2. **Tier 3:** a cloud watchdog that re-files any DECISION with no closure after 24 hours. Kept as a backstop.
+  3. **Tier 1 (rejected as the only fix):** raise the PC cap from 6 to 40. Still worth doing, and it is item 0 of the desktop queue copy.
