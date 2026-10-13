@@ -23,3 +23,6 @@
 - 1265: _HASHTAGS.txt has only 4 admin tags. The quarantine folder holds 5 zero-byte PDFs for Bay Harbor Units 322 and 301.
 - 2221: the three brochure TAGS files are identical and carry a misleading #Plans tag.
 - _ALEC-VALDES-DD: $100.25 never invoiced; 51 days in owner review (money item; locked zone).
+- 1536: the DD-book tags carry #TRK-2026-9754 too, so the admin-band tag bug is now on 5 jobs. _STAGE.md says no tax jacket exists, but one is in 07-TAX-JACKET. The DD book is unsent and uninvoiced (money item).
+- 1535: the folder holds multi-lot "Perrine Model A" plans under master permit 2022069000, not just one address.
+- TEDC 1296/1297: no PDFs; the credentials are still in Outlook. 1297 has no street address.

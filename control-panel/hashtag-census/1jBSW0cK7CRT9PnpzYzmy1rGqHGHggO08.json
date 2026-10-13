@@ -1,0 +1,18 @@
+{"id":"1jBSW0cK7CRT9PnpzYzmy1rGqHGHggO08","title":"TRK-2026-1297 - Tuscany Cove folio 01-3114-072-0010 - City of Miami Code Case 00009753 (TEDC)","partial":false,
+"pdfs":0,"search_sidecars":0,"tags_sidecars":0,"tags5_sampled":0,"tags5_of_sampled":0,
+"has_HASHTAGS_txt":false,"hashtags_count":0,"has_people_tags":false,"has_trk_tag":false,
+"other_files":["_TAGS.txt (9 tags: #TRK-2026-1297 #Tuscany-Cove #folio-01-3114-072-0010 #code-case-00009753 #City-of-Miami #TEDC #Tacolcy #JorgeValdes #CU-Inspections; no person-of-record tags)","_PLACEHOLDERS.md (5 open items, 2026-10-10)","_STAGE.md (stage 01-RESEARCH; client/billing all [VERIFY])","_PORTAL_TRK-2026-1297.html","_INDEX.html","01-Emails/TRK-2026-1297_2026-07-31_TEDC_Zaldivar-intake-pointers.md","nightly .bak copies of _PORTAL/_STAGE in root (excluded from listing)"],
+"people":[
+{"name":"Miguel Zaldivar","role":"client contact - VP Construction & Facilities, TEDC","email":"mzaldivar@tedcbuilds.org","evidence":"TRK-2026-1297_2026-07-31_TEDC_Zaldivar-intake-pointers.md; _PLACEHOLDERS.md","misspellings":["Miguel Saldivar","Miguel Zaldivar","Zaldibar","Zaldívar"]},
+{"name":"Tevin Taylor","role":"property manager, TPMC","email":"ttaylor@tpmcmiami.net","evidence":"Zaldivar-intake-pointers.md","misspellings":["Kevin Taylor","Tevin Tailor"]},
+{"name":"Trelana Haines","role":"City of Miami contact (referral 2025-04-03)","email":null,"evidence":"Zaldivar-intake-pointers.md; _PLACEHOLDERS.md","misspellings":["Trelana Haynes","Trelana Hains","Treliana Haines"]},
+{"name":"Robert Santos-Alborna","role":"City of Miami Director (released permit hold 2024-02-07)","email":null,"evidence":"Zaldivar-intake-pointers.md","misspellings":["Roberto Santos Alborna","Robert Santos Alborna"]},
+{"name":"Betsy Del Val","role":"City of Miami staff (looped in Haines 2025-04-03)","email":null,"evidence":"Zaldivar-intake-pointers.md","misspellings":["Betsy Delval","Betsy Del Valle"]},
+{"name":"Jorge Valdes","role":"owner, CU Inspections (tag only)","email":"Jorge@TEAMUSASALES.COM","evidence":"_TAGS.txt; intake pointers source mailbox","misspellings":["Jorge Valdez"]}],
+"companies":[
+{"name":"TEDC / TEDcBuilds - Tacolcy Economic Development Corporation","role":"client / property owner, 5900 NW 7th Ave","email":"mzaldivar@tedcbuilds.org","evidence":"Zaldivar-intake-pointers.md; _TAGS.txt"},
+{"name":"TPMC","role":"property manager (same 5900 NW 7th Ave address)","email":"ttaylor@tpmcmiami.net","evidence":"Zaldivar-intake-pointers.md"},
+{"name":"City of Miami Code Compliance / Building","role":"code case 00009753, permit BD23-016372-001","email":null,"evidence":"title; intake pointers"},
+{"name":"FDOT","role":"party Miguel says actually trimmed the trees","email":null,"evidence":"Zaldivar-intake-pointers.md"}],
+"keywords":["Tuscany Cove","folio 01-3114-072-0010","0131140720010","City of Miami code case 00009753","code case 9753","permit BD23-016372-001","BD23-016372","TEDC","TEDcBuilds","Tacolcy","Tacolcy Economic Development Corporation","5900 NW 7th Ave","tree removal violation","tree trimming / root pruning without permit","arborist report 2023-01-05","repeat violation","permit hold released 2024-02-07","FDOT trimmed trees","Miguel Zaldivar","Trelana Haines","TRK-2026-1297"],
+"notes":"Thin capsule: 0 PDFs, 0 sidecars, no _HASHTAGS.txt (only _TAGS.txt). All subfolders empty except 01-Emails (intake-pointers .md + _INDEX.html). Engagement scope undefined; Miguel's 2026-05-18 'call me' still unanswered per _PLACEHOLDERS.md. Property street address for Tuscany Cove not on file in this capsule. 4 search calls used."}
