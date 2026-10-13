@@ -43,3 +43,4 @@
 2026-10-13T18:17:30Z · watch · mail: nothing new for watched senders. Outbox: EXECUTED_LOCAL JOB-ORCH-RETRY REPLYTOCHATLIN 13:52 ET (PC's local Ollama lane, not our order — proves PC orchestrator alive); still no RAMBO1 receipts. No push.
 2026-10-13T19:18:00Z · watch · ARRIVAL: TRK-2026-1310 Cutler Bay plans APPROVED (Cutie 19:05Z) + plans ready for retrieval (18:59Z). Drive _ARRIVALS 1ioNh-oFVll-5Y50gW_CihHDJktf6pEoc; desktop save order added; relayed once by push + Gmail. Outbox: no RAMBO1 receipts.
 2026-10-13T20:18:30Z · watch · nothing new (mail or Outbox); no RAMBO1 receipts. No push.
+2026-10-13T21:18:00Z · watch · mail: nothing new for watched senders. Outbox: SOS-LLM_PRIMARY-DOWN 13:41 ET from RAMBO watchdog — PC LiteLLM :4001/:4002 DOWN, traffic fell back to local Ollama :11434 (explains EXECUTED_LOCAL Ollama receipts; not proven to be the cause of the silent Claude window). Folded into the 6 PM summary instead of a separate push (summary due 22:00Z).
