@@ -540,3 +540,13 @@ Jorge: *"Give access to link. Always. As an owner's directive. As a default. Als
 - **Two exceptions, said plainly:**
   - A page with client names, addresses or money stays private unless Jorge says otherwise for that page.
   - A page that uses connectors (the `mcp` capability) cannot be public-link shared by platform rule. Share a read-only copy in Drive "Shared Folders for all LLMs" instead.
+
+---
+
+## 15. Standing protocol — every reply can be heard with one key (OWNER-DIRECTIVE READ-ALOUD-01, 2026-10-13)
+
+Full text: `OWNER-DIRECTIVE_READ-ALOUD-01_2026-10-13.md`. Tool: `tools/readaloud/`.
+
+- Jorge clicks **Copy** under a reply and presses **Ctrl+Alt+R**: it opens in big text in Edge and reads aloud by itself. **Ctrl+Alt+S** opens it for Speechify instead.
+- **Write every reply to be heard:** answer first, short paragraphs, numbered lists, few tables, no raw code in the parts meant for Jorge.
+- **Say out loud when a paste block follows.** Never put secrets in a reply.
