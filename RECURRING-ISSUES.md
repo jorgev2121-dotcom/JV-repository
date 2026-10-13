@@ -2350,3 +2350,15 @@ branch AND open PR branches; or give each window its own number block.
 - 2026-10-12 · RECURRENCE — multi-panel drift + false-green status. Jorge asked if 321Zo6 is the revised v5; it is not (3 panels exist). Panel showed RAMBO green from a 2-day-old stored record while RAMBO was silent. Fix: record corrected; page now ambers any green older than 24 h (Tier 2, removes the false-green cause). Panel consolidation options in control-panel/ONE-COCKPIT-PLAN_2026-10-12.md.
 
 - 2026-10-12 · RECURRENCE (RI-015 family, OCR looks like zero): Jorge saw OCR "0 / not installed" on the panel although OCR has produced .SEARCH.txt sidecars since 08-13. Cause: the panel tile only looked for the never-installed 24/7 heartbeat (_OCR-HEARTBEAT.md), i.e. it measured the new runner, not the work done. Fix (Tier 2, removes the false zero): tile now reads _OCR-COVERAGE.md (counted from Drive) and labels the runner separately. Also: panel ETA was a fair-share formula (35 days for 13 h of work) — replaced with a build line in priority order.
+
+### RI-020 recurrence — 2026-10-13 (cloud) — email attachments sat unread for 17+ hours
+
+- **What happened:** Tomas Hernandez (TomTech) emailed the signed and sealed plans A1.0 and A2.0, plus the Certified As-Built Letter, for TUS-26-1018 (8621 Pasadena, Einar) at 2026-10-12 3:55 PM ET. Julio Silva had forwarded the signed sheets at 1:35 PM ET. Nothing noticed either email. Jorge caught it himself on 10-13.
+- **Root cause:** the agreed Tier 3 fix for RI-020 was "a scheduled sweep that reports every holding area." It was never built for mailboxes. The hourly watch (trig_01VTtAhauH65mx7o1CxPx2jj) only searched the Drive Outbox, and the only email sweep was a one-time run on 2026-10-10.
+- **Fix (Tier 3, enforcement), built 2026-10-13:**
+  1. A new step 0 in the hourly watch searches Gmail and Outlook against `inbox-sweep/WATCHLIST.md`.
+  2. Each arrival is logged to `inbox-sweep/ARRIVALS.md`, and a new `_ARRIVALS_<date>.md` file is written in the job's Drive folder.
+  3. Jorge is told once what arrived and what is still missing.
+  4. The desktop is ordered to save the attachment files.
+- **Still uncovered:** Downloads, PaperPort and the Desktop are visible only to the desktop, which has been silent since 10-10. The order to sweep them is queued: `orders/pending/MSG-CLOUD-TO-CODE_SAVE-EMAIL-ATTACHMENTS_2026-10-13.md`.
+- **Tier 2 option (not done; needs Jorge):** an Outlook rule that copies every attachment from a watched sender straight into Drive. This would remove the holding area altogether.
