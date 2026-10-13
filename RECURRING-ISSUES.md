@@ -2383,3 +2383,7 @@ branch AND open PR branches; or give each window its own number block.
   1. **Tier 2 (recommended): remove the Codex failover** for any order that touches the PC or Drive. Codex is used only for pure text jobs. Lifespan: permanent.
   2. **Tier 3:** a watchdog that re-sends any EXECUTED_CODEX receipt containing "BLOCKER" or "Partial" to the Claude window. Lifespan: as long as the watchdog runs.
   3. **Tier 1 (forbidden as the only fix):** raise the watcher's cap number. It will be overwritten again.
+
+### RI-031 recurrence — 2026-10-13: PASTE-D-070 went into a new CLOUD window ("Rambo identification", 14:24Z), not the PC
+- The real PC window, "🖥️ DESKTOP EXECUTOR · LIVE on Jorge-PC (RAMBO)", session_01X9KWApDTq8SVpbHUxm4JAG, is connected but has been idle since 10-12, waiting for a "yes".
+- **Fix (Tier 2):** the panel's "🖥️ LLM desktop executors" button now lists the live PC window with an "Open this window" link (v35). Jorge never has to find the right window by hand. Every PASTE-D block should carry that link.
