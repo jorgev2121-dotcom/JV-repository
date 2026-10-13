@@ -2400,3 +2400,7 @@ branch AND open PR branches; or give each window its own number block.
   1. **Tier 2 (chosen): stop depending on the PC for decisions.** The cloud runner reads every open DECISION file and carries out the cloud-doable ones itself. It bundles the PC ones into ONE desktop order, and puts RED ones on Jorge's morning list. Lifespan: permanent.
   2. **Tier 3:** a cloud watchdog that re-files any DECISION with no closure after 24 hours. Kept as a backstop.
   3. **Tier 1 (rejected as the only fix):** raise the PC cap from 6 to 40. Still worth doing, and it is item 0 of the desktop queue copy.
+
+### 2026-10-13 recurrence — the PC still writes nightly backups as `name.ext.bak-DATE` (53 in the Einar folder alone), hours after CLAUDE.md §9 banned the form
+- **Cause:** the PC's portal and stage builders hard-code the old pattern, and the desktop has not read the new rule.
+- **Fix (Tier 2):** an item in the desktop order ORANGETREE-REFRESH-REPAIR to change the builders' backup pattern to `NAME_bak-DATE.ext`. The existing files go on the BAK-RENAME morning list.

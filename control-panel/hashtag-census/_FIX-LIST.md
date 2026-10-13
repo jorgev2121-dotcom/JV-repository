@@ -30,3 +30,11 @@
 - OCR has carried stray addresses from other jobs into sidecars: #111-NW-1-ST, #13935-SW-106-TER, folio 30-3115-005-3779.
 - 15601 SW 137 AVE is really TRK-2026-1650 (MZ Solutions, Pine Brook/Sheffield). 13920 SW 34 ST is TRK-2026-1567. Both relabels wait on Jorge.
 - The Alec DD Standard reports for 1612 and 1534 are finished, unsent and uninvoiced (money items).
+- Einar (TUS-26-1018), from the capsule pilot:
+  - The 10-12 Tomas arrivals are not in Drive yet; that waits on the desktop.
+  - Two "IT Joey - AI copilot studio" emails from another matter sit in 01_Emails.
+  - The NOV sits in Citations, not in 05_Code-Enforcement-Violations.
+  - Two folder schemes are in use side by side.
+  - 9 stale NEEDS_OCR markers.
+  - _JOB-TREE_TRK-TBD.html is a defect file.
+  - Duplicate FINDINGS.md / CAPSULE.md / June 5 permit and NOC PDFs.
