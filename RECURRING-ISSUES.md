@@ -2375,3 +2375,11 @@ branch AND open PR branches; or give each window its own number block.
 - **Cause:** the single-card `decide()` used `set()` (replace) instead of `update()` (merge). Approve-all had been fixed; the card button had not.
 - **Fix (Tier 2):** the card Approve now merges (v34). A test, `tools/panel/test/decide-keeps-comment-test.js`, guards it. The trk-1536 note was restored from the session transcript.
 - **Rule:** every panel database write to an existing record merges and never replaces. Check each new button against this.
+
+### 2026-10-13 recurrence — the watcher still sends every order to the Codex lane, which cannot act (logged on 10-11 and 10-12)
+- The owner-approved PC order (5 items) went to Codex at 09:53 ET. Codex wrote 5 BLOCKER receipts in its own folder and filed them under an "EXECUTED_CODEX" label. Nothing on the PC changed.
+- **Cause:** the watcher's own "Claude cap" counter. Anthropic's limit is not reached (the desktop session reads "allowed"), but the watcher still fails over to Codex, and Codex runs with folder-only rules and no Drive write access.
+- **This is the third recurrence, so patches are forbidden. Options:**
+  1. **Tier 2 (recommended): remove the Codex failover** for any order that touches the PC or Drive. Codex is used only for pure text jobs. Lifespan: permanent.
+  2. **Tier 3:** a watchdog that re-sends any EXECUTED_CODEX receipt containing "BLOCKER" or "Partial" to the Claude window. Lifespan: as long as the watchdog runs.
+  3. **Tier 1 (forbidden as the only fix):** raise the watcher's cap number. It will be overwritten again.
