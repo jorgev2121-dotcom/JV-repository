@@ -207,3 +207,4 @@ worth nothing to an executor that stops at hour four with nobody to restart it.
 
 
 - 2026-10-12 (cloud) · GREEN · OneDrive duplicate-tree comparison, read-only: compare "Documents\Field Inspections Scanned Copy" against the copy inside "Field Inspections _ Inspection _ COU _ CU _ Team" (≈4,000 possible duplicate PDFs). Output a new report file only. Deleting anything = RED, Jorge's yes per batch.
+- 2026-10-13 (cloud) · GREEN · TAGS-35: one subagent per job folder (35) reads the job's documents and writes a NEW `_TAGS.txt` (names, addresses, folios, permit/case numbers, companies, trades, plus likely misspellings), and proposes an address-first / keywords / TRK-last folder name into `control-panel/NAMING-PROPOSAL_35-JOBS.md`. Renames themselves are RED — morning, with Jorge's yes. Spec: `control-panel/NAMING-CHANGE-ORDER_ADDRESS-TAGS-TRK_2026-10-13.md`.
