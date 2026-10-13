@@ -645,7 +645,7 @@ show:function(tab){var qq=document.getElementById('q');if(qq&&qq.value){qq.value
 toggle:function(id){var e=document.getElementById(id);if(e)e.classList.toggle('open')},
 bucket:function(b){curBucket=b;drawReports()},
 move:async function(id){bucketOf[id]=bucketOf[id]==="ready"?"work":"ready";RSTATE[id]=Object.assign(RSTATE[id]||{},{bucket:bucketOf[id],at:new Date().toISOString()});try{localStorage.setItem('vtes_rstate',JSON.stringify(RSTATE))}catch(e){}drawReports();var db=await getDb();try{if(db)await db.doc('reports/'+id).set(RSTATE[id])}catch(e){}},
-decide:async function(id,status){var p=document.getElementById('pill-'+id);if(p){p.textContent=status;p.className='pill '+status}var db=await getDb();try{if(db)await db.doc('approvals/'+id).set({status:status,decidedAt:new Date().toISOString()})}catch(e){}},
+decide:async function(id,status){var p=document.getElementById('pill-'+id);if(p){p.textContent=status;p.className='pill '+status}var db=await getDb();try{if(db){var r=db.doc('approvals/'+id),v={status:status,decidedAt:new Date().toISOString()};try{await r.update(v)}catch(e2){await r.set(v)}}}catch(e){}},
 saveComment:async function(id){var v=document.getElementById('ta-'+id).value,n=document.getElementById('saved-'+id);var db=await getDb();try{if(db)await db.doc('approvals/'+id).update({comment:v,commentAt:new Date().toISOString()});if(n){n.style.display='block';setTimeout(function(){n.style.display='none'},2000)}}catch(e){}}
 };
 /* ===== ONE COLOR LEGEND (RI-056 Tier 2): every colored button on this page gets its color ONLY from LEGEND via data-st. ===== */
