@@ -38,3 +38,4 @@
 2026-10-13T14:42:55Z · check · no RAMBO1 receipts since 14:20Z; desktop session record unchanged since 2026-10-12 00:58Z despite Jorge typing yes + pasting PASTE-D-070 → the remote link to that window looks stale. Re-check armed 15:03Z.
 2026-10-13T15:04:42Z · check 2 · no RAMBO1 receipts since 14:20Z; PC heartbeat fresh 15:01Z (PC on). The reopened Claude window has written nothing to the Outbox yet — likely waiting on an Allow prompt or still reading.
 2026-10-13T15:19:00Z · watch · mail: nothing new for watched senders since 14:20Z. Outbox: no RAMBO1 receipts; only auto-ACK of RAMBO-QUEUE-COPY 14:29Z; uptime heartbeat fresh 15:16Z. Silent.
+2026-10-13T16:18:30Z · watch · mail: no watched-sender arrivals; logged 2 owner-sent items (13633 SW 142 TER roof receipt = OPH candidate; 10980 SW 202 DR electrical reply). Outbox: no RAMBO1 receipts; uptime heartbeat fresh 16:11Z. No push.
