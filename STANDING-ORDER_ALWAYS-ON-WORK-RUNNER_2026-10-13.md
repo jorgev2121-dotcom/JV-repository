@@ -34,3 +34,17 @@ Running everything at full speed can burn through the usage limit. Then *everyth
 - **Keep the queue at least 12 hours deep** (NIGHT-PROTOCOL rule 1). If fewer than 12 items are queued, the run's last item is refilling the queue from OPEN-ITEMS.
 - Message Jorge **only** when a tab reaches 100%, a P0 item is done, something is blocked, or the budget pauses the runner.
 - **Commit and push** every run.
+
+## Addendum 2026-10-13 14:40Z — the cloud runner takes the stuck Cowork and Grok lanes
+
+Jorge confirmed: "Everything is approved, and/or rerouted if stuck." The panel check shows tasks/state with 138 of 138 approved, and 10 moved to RAMBO.
+
+**Stuck lanes found:**
+- **Grok bot:** the bots were never connected (10-12 finding), so nothing ever picks up these items.
+- **Cowork:** nothing hands Cowork its items automatically.
+
+**Rule from now on:** every APPROVED task in the Cowork or Grok lane is work for this runner. The runner works on Claude Max, a flat fee, so there is no API cost and no quote needed.
+
+Queue position: after P0 and the panel pieces, before the OVERNIGHT-QUEUE items.
+
+The same RED limits apply: it prepares filing, outbound mail and spending, and never executes them. It writes the result per task, and updates the task's log in tasks/state by merging, never replacing.
