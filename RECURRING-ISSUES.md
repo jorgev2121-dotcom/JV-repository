@@ -2351,3 +2351,4 @@ one of the unexecuted orders.
 3. **Tier 1 — Suppression (not recommended, charter violation):** reword each order to dodge the keyword guard. Done once today only as the re-file (v2 is tagged Claude-lane-only, wording unchanged).
 Interim action taken: v2 re-filed 2026-10-09 08:57 ET, Claude/RAMBO lane only (Drive 1_TTAsglgkm0eeQEIbu6ioDJ0E2WOdhT5). Owner yes requested for option 1.
 
+**RI-015 8th instance — follow-up 2026-10-13.** The interim re-file worked once: PaperPort v2 (Claude-lane-only) ran on the Claude lane 2026-10-10 and finished 188 of 188. The same dead end had also caught BOOKS-B0 (Codex BLOCKER 2026-10-09 01:26 ET, never re-run); re-filed v2 the same way. Each re-file is still a manual patch; the durable fix (option 1, Codex takes only CODEX-OK jobs) still waits on the owner's yes.
