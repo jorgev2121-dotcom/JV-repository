@@ -615,13 +615,18 @@ if(r)r.innerHTML='<div class="apprbox" data-st="live" style="margin-top:10px"><b
 jobsRefresh:function(){startJobs()},
 approveAllAsk:function(){var P=pendingAll(),el=document.getElementById('approveall');
 el.innerHTML='<div class="apprbox" data-st="down" style="margin:0 0 8px"><b>🚩 Approve all — owner\'s directive</b><br>'+P.tasks.length+' tasks · '+P.appr.length+' approval cards · '+P.trk.length+' tracker schedules are waiting on you. '+P.stuck+' of them are stuck waiting on you and will be moved to <b>RAMBO (Desktop)</b>.<br>Grok-bot tasks still get a price quote before anything is spent.<div class="actions"><button class="act approve" onclick="VTES.approveAllGo()">Yes — approve all '+(P.tasks.length+P.appr.length+P.trk.length)+'</button><button class="act" onclick="document.getElementById(\'approveall\').innerHTML=\'\'">Cancel</button></div></div>'},
-approveAllGo:async function(){var P=pendingAll(),now=new Date().toISOString(),hm=now.slice(0,16).replace('T',' '),el=document.getElementById('approveall');el.innerHTML='<p class="kv">Approving…</p>';
-P.tasks.forEach(function(t){var s={decision:'approved',at:now,note:'Approved '+hm+' UTC (Approve all, owner\'s directive) for lane: '+t.who};if(isStuck(t)){s.who='NEEDS DESKTOP (Rambo)';s.note='Approved '+hm+' UTC (Approve all). Was stuck waiting on the owner; reassigned to RAMBO (Desktop).'}TSTATE[t.id]=s});saveLocal();drawTasks();
-var db=await getDb(),ok=0,bad=0;try{if(db){await db.doc('tasks/state').set({map:TSTATE});ok+=P.tasks.length}}catch(e){bad+=P.tasks.length}
-for(var i=0;i<P.appr.length;i++){try{await VTES.decide(P.appr[i],'approved');ok++}catch(e){bad++}}
-for(var k=0;k<P.trk.length;k++){var id=P.trk[k],t=TRK[id],patch={schedule_approved:true,approved_at:now};var mv=(t.status==='blocked'||/jorge/i.test(t.assignee||''));if(mv)patch.assignee='RAMBO (Desktop)';try{await tWrite(id,patch,'Owner approved via Approve all'+(mv?'; stuck on owner, reassigned to RAMBO (Desktop).':'.'));ok++}catch(e){bad++}}
-el.innerHTML='<div class="apprbox" data-st="'+(bad?'wait':'live')+'" style="margin:0 0 8px"><b>✅ Done: '+ok+' approved'+(bad?' · '+bad+' could not be saved':'')+'.</b> '+P.stuck+' stuck items moved to RAMBO (Desktop). Recorded '+fmtT(now)+'.</div>'},
-ocrCheck:function(i){ocrCheck(i)},ocrAll:async function(){for(var i=0;i<JOBDIR.length;i++){await ocrCheck(i)}},
+approveAllGo:async function(){var now=new Date().toISOString(),hm=now.slice(0,16).replace('T',' '),el=document.getElementById('approveall');el.innerHTML='<p class="kv">Approving… please wait.</p>';
+var db=await getDb(),res=[];if(!db){el.innerHTML='<div class="apprbox" data-st="down"><b>Not saved.</b> The panel database is not reachable in this view. Press ↻ Refresh and try again.</div>';return}
+try{var cur=await db.doc('tasks/state').get();var m=(cur&&cur.data&&cur.data.map)||{};Object.keys(m).forEach(function(k){if(!TSTATE[k]||TSTATE[k].decision!=='approved')TSTATE[k]=m[k]})}catch(e){}
+var nT=0,nMv=0;TASKS.forEach(function(t){var s0=TSTATE[t.id];if(s0&&s0.decision==='approved')return;if(/^DONE/i.test(t.st||''))return;var s={decision:'approved',at:now,note:'Approve all '+hm+' UTC'};if(isStuck(t)){s.who='NEEDS DESKTOP (Rambo)';s.note+=' · stuck on owner → RAMBO';nMv++}TSTATE[t.id]=s;nT++});
+saveLocal();try{drawTasks()}catch(e){}
+try{await db.doc('tasks/state').set({map:TSTATE});res.push('✅ '+nT+' tasks approved'+(nMv?' ('+nMv+' moved to RAMBO)':''))}catch(e){res.push('❌ tasks not saved ('+((e&&(e.code||e.message))||'error')+')')}
+var nA=0,fA=0;var ids=approvalItems.concat(jobItems).map(function(x){return x.id});for(var i=0;i<ids.length;i++){try{var d=await db.doc('approvals/'+ids[i]).get();if(d&&d.data&&d.data.status==='approved')continue;await db.doc('approvals/'+ids[i]).set(Object.assign({},(d&&d.data)||{},{status:'approved',decidedAt:now}));var p=document.getElementById('pill-'+ids[i]);if(p){p.textContent='approved';p.className='pill approved'}nA++}catch(e){fA++}}
+res.push((fA?'⚠ ':'✅ ')+nA+' approval cards approved'+(fA?' · '+fA+' failed':''));
+var nK=0,fK=0,mK=0;var tk=Object.keys(TRK);for(var k=0;k<tk.length;k++){var id=tk[k],t=TRK[id];if(t.schedule_approved||t.status==='done'||t.status==='rolled-out')continue;var patch={schedule_approved:true,approved_at:now};var mv=(t.status==='blocked'||/jorge/i.test(t.assignee||''));if(mv){patch.assignee='RAMBO (Desktop)';mK++}
+try{var log=(t.log||[]).concat([{at:now,by:'Jorge (panel)',text:'Approve all'+(mv?'; stuck on owner → RAMBO (Desktop).':'.')}]);patch.log=log;patch.updated=now;await db.doc('tracker/'+id).update(patch);nK++}catch(e){fK++}}
+res.push((fK?'⚠ ':'✅ ')+nK+' tracker schedules approved'+(mK?' ('+mK+' moved to RAMBO)':'')+(fK?' · '+fK+' failed':''));
+el.innerHTML='<div class="apprbox" data-st="'+(/❌|⚠/.test(res.join(''))?'wait':'live')+'" style="margin:0 0 8px"><b>Approve all — done '+fmtT(now)+'</b><br>'+res.join('<br>')+'</div>'},ocrCheck:function(i){ocrCheck(i)},ocrAll:async function(){for(var i=0;i<JOBDIR.length;i++){await ocrCheck(i)}},
 connectView:function(v){CONNVIEW=v==='all'?null:v;VTES.show('CONNECT');drawConnect()},
 dictate:function(){var m=document.getElementById('voicemsg'),q=document.getElementById('q');q.focus();var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 var help='🎤 Now press the <b>Windows key + H</b> and speak. Your words go into the search box. (This panel window is not allowed to use the microphone by itself.)';
@@ -834,15 +839,24 @@ else if(cap)rows.push({k:'Claude lane',st:'wait',t:'daily run cap reached',d:'ca
 else if(rb)rows.push({k:'Claude lane',st:pcAgeMin(rb.modifiedTime)<=360?'live':'wait',t:'last result '+pcAge(rb.modifiedTime),d:rb.title});
 else rows.push({k:'Claude lane',st:'off',t:'no EXECUTED_RAMBO1_ result yet',d:''});
 return rows}
+function pcMeaning(t){t=t||'';
+if(/^BLOCKER_SILENT-SIGNOFF/.test(t))return 'Meaning: a helper on your PC stopped working without writing a hand-over note for the next helper. Nothing is broken in your files. It is a reminder that work stopped mid-way.';
+if(/^BLOCKER_CODEX-PII/.test(t))return 'Meaning: Codex refused this job because it contains client personal information (names, addresses, phone numbers). By rule, Codex never gets client details. Claude (RAMBO) must do this job instead.';
+if(/^BLOCKER_CODEX/.test(t))return 'Meaning: Codex picked up a job meant for Claude and could not do it. The job is still waiting for Claude (RAMBO) on your PC.';
+if(/^BLOCKER_/.test(t))return 'Meaning: a helper hit a wall on this job and wrote down why. Open it to see the reason.';
+if(/^EXECUTED-WITH-PROOF|^EXECUTED_/.test(t))return 'Meaning: a helper finished this job and saved proof.';
+if(/^CAP-REACHED/.test(t))return 'Meaning: the PC hit its own daily limit of automatic Claude runs. It starts again tomorrow.';
+return 'A result file written by a helper on your PC.'}
+var PCTIPS={'PC awake':'Is your computer on and awake? Read from a file the PC rewrites every 5 minutes.','RAM guard':'Watches your computer memory so heavy jobs pause before the PC freezes. Not installed yet.','OCR':'The 24/7 helper that makes scanned documents searchable. Not installed yet.','OCR done so far':'How many of your Drive PDFs already have searchable text.','Claude lane':'Whether the automatic Claude helper on your PC can still run today, or hit its daily limit.'};
 function pcHtml(){var head='<div class="pcs-h"><b>LIVE FROM THE PC</b><span class="freshness pcs-f">';
 if(PCL.state==='off')return head+'</span></div><button class="cstat pcs-allow" data-st="off" onclick="VTES.pcAllow()">'+esc(PCL.note)+'</button>';
 var at=[PCL.hbAt,PCL.resAt].filter(Boolean).sort()[0];
 head+=at?'Read from Google Drive '+fmtT(at)+' ('+pcAge(at)+') · checks every 2 min':esc(PCL.note);
 var errs=Object.keys(PCL.errs).map(function(k){return PCL.errs[k]}).filter(Boolean);if(errs.length)head+=' · <span class="st-pending">'+esc(errs[0])+'</span>';
 head+='</span></div>';
-var rows=pcRows().map(function(r){return '<div class="pcs-r"><span class="pcs-k">'+r.k+'</span><span class="cstat mini" data-st="'+r.st+'">'+esc(r.t)+'</span>'+(r.d?'<small>'+esc(r.d)+'</small>':'')+'</div>'}).join('');
+var rows=pcRows().map(function(r){return '<div class="pcs-r" data-tip="'+esc(PCTIPS[r.k]||'')+'"><span class="pcs-k">'+r.k+'</span><span class="cstat mini" data-st="'+r.st+'">'+esc(r.t)+'</span>'+(r.d?'<small>'+esc(r.d)+'</small>':'')+'</div>'}).join('');
 var last=PCL.res?pcNewest(PCL.res,function(f){return /^(EXECUTED_|BLOCKER_)/.test(f.title||'')}).slice(0,5):[];
-var lr=last.length?last.map(function(f){var b=/^BLOCKER_/.test(f.title);return '<div class="pcs-r"><span class="cstat mini" data-st="'+(b?'down':'live')+'">'+(b?'BLOCKER':'DONE')+'</span><a href="'+esc(f.viewUrl||'#')+'" target="_blank" rel="noopener">'+esc(f.title)+'</a><small>'+fmtT(f.modifiedTime)+'</small></div>'}).join(''):'<div class="pcs-r"><small>'+(PCL.res?'No EXECUTED_ or BLOCKER_ files in the last 7 days.':'Waiting for Drive…')+'</small></div>';
+var lr=last.length?last.map(function(f){var b=/^BLOCKER_/.test(f.title),tip=pcMeaning(f.title);return '<div class="pcs-r" data-tip="'+esc(tip)+'"><span class="cstat mini" data-st="'+(b?'down':'live')+'" data-tip="'+esc(tip)+'">'+(b?'BLOCKER':'DONE')+'</span><a href="'+esc(f.viewUrl||'#')+'" target="_blank" rel="noopener" data-tip="'+esc(tip+' Click to open the note.')+'">'+esc(f.title)+'</a><small>'+fmtT(f.modifiedTime)+'</small></div>'}).join(''):'<div class="pcs-r"><small>'+(PCL.res?'No EXECUTED_ or BLOCKER_ files in the last 7 days.':'Waiting for Drive…')+'</small></div>';
 return head+'<div class="pcs-g">'+rows+'</div><details class="hand"><summary>Last 5 results from the PC</summary><div class="pcs-l">'+lr+'</div></details>'}
 function drawPC(){['pcstrip','pcstrip2'].forEach(function(id){var el=document.getElementById(id);if(el)el.innerHTML=pcHtml()});if(document.getElementById('connectbody'))drawConnect();else legendAudit()}
 function pcErr(key,c){var t=c==='needs_reauth'?'Reconnect Google Drive in claude.ai Settings → Connectors.':c==='server_not_connected'||c==='selection_required'?'Add Google Drive in claude.ai Settings → Connectors.':c==='not_in_manifest'||c==='not_granted'||c==='blocked_by_policy'||c==='approval_required'||c==='consent_required'?null:'Drive read failed ('+(c||'error')+'). Showing last good data.';
