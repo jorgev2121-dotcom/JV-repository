@@ -15,3 +15,7 @@
 - **#TRK-2026-9490 / 9754 template bug:** now seen on 4 jobs (1042, Nick 13328, Rose Arbor 1588, NW 32 ST). One sweep should fix the sidecar tags.
 - **Possible misfile, Bay Harbor Unit 301:** 8 PDFs in 01-INTAKE/_FROM-MAJESTIC-MISFILE_2026-10-07 are for the Majestic Building, 9601 Collins, Unit 301 (Gabriela M Valles), not 10000 W Bay Harbor. Review before filing anything.
 - The Bay Harbor unit folders carry #Bal-Harbour, which is wrong. Bay Harbor Islands is a different town.
+- 1514 NW 73 St: no TRK at all. 11 plan PDFs are duplicated between the root and "Bldg Plans". The zip (33186) and the jurisdiction (folio 30- vs "City of Miami") conflict.
+- Sidecars inside known TRK folders carry #ORPH-2026-NNNN / #UNANCHORED-ORPHAN. That prefix is wrong; the standard is OPH. Seen in 1294, 1293 and 1514.
+- 1292: the forbidden dot-page form "TRK-2026-1531.002_" and the short form "TRK-1292" are both in use.
+- Misspellings to add to the people index: "Miguel Zadlivar"; "jorze@" is an OCR error.
