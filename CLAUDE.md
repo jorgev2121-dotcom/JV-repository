@@ -550,3 +550,14 @@ Full text: `OWNER-DIRECTIVE_READ-ALOUD-01_2026-10-13.md`. Tool: `tools/readaloud
 - Jorge clicks **Copy** under a reply and presses **Ctrl+Alt+R**: it opens in big text in Edge and reads aloud by itself. **Ctrl+Alt+S** opens it for Speechify instead.
 - **Write every reply to be heard:** answer first, short paragraphs, numbered lists, few tables, no raw code in the parts meant for Jorge.
 - **Say out loud when a paste block follows.** Never put secrets in a reply.
+
+---
+
+## 16. Standing protocol — pretty format, Orange Tree, money zone locked with 0000 (OWNER-DIRECTIVE PRETTY-AND-MONEY-LOCK-01, 2026-10-13)
+
+Full text: `OWNER-DIRECTIVE_PRETTY-AND-MONEY-LOCK-01_2026-10-13.md`.
+
+- **Everything Jorge views, prints or emails is the pretty, designed artifact.** Plain formats are back-end only.
+- **Default layout is the Orange Tree:** branches that click open, a checkbox per item, "View these together", "Copy for email", printing in color.
+- **Money sections are locked behind the zone code 0000.** While locked they are not shown, copied or printed. A money item is included only after Jorge types 0000 *and* ticks it. 0000 is a stopper, not security, so money pages stay private.
+
