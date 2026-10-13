@@ -48,3 +48,6 @@ Jorge confirmed: "Everything is approved, and/or rerouted if stuck." The panel c
 Queue position: after P0 and the panel pieces, before the OVERNIGHT-QUEUE items.
 
 The same RED limits apply: it prepares filing, outbound mail and spending, and never executes them. It writes the result per task, and updates the task's log in tasks/state by merging, never replacing.
+
+## Addendum 2026-10-13 14:55Z — capsules are priority 1 after P0
+Each run, build up to 4 job capsules per STANDING-ORDER_ENCAPSULATE-EVERY-JOB_2026-10-13.md, one helper per job, until all 40 are done. Panel pieces come after.
