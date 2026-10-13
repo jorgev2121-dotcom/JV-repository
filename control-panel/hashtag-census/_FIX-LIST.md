@@ -11,3 +11,7 @@
 - Julia (0708): _HASHTAGS.txt and _TAGS.txt use different TRK forms.
 - 1286: the folder says "1997 SW 218 St"; the real address is 11997. Two report names use the short form "TRK-1286".
 - Pattern: three tag-file conventions are in use: _HASHTAGS.txt, _TAGS.txt, and per-document .TAGS.txt. About 50 nightly .bak copies sit in every job root.
+- 2362-2364 NW 32 ST: three TRK numbers. The registry says TRK-2026-1561; the sidecars carry 9490 and 9754 (admin band). The client is unclear: the folder says 2362 Acquisition LLC, the resolution names RRR LLC.
+- **#TRK-2026-9490 / 9754 template bug:** now seen on 4 jobs (1042, Nick 13328, Rose Arbor 1588, NW 32 ST). One sweep should fix the sidecar tags.
+- **Possible misfile, Bay Harbor Unit 301:** 8 PDFs in 01-INTAKE/_FROM-MAJESTIC-MISFILE_2026-10-07 are for the Majestic Building, 9601 Collins, Unit 301 (Gabriela M Valles), not 10000 W Bay Harbor. Review before filing anything.
+- The Bay Harbor unit folders carry #Bal-Harbour, which is wrong. Bay Harbor Islands is a different town.
