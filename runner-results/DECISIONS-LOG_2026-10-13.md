@@ -7,3 +7,4 @@ Baseline from the census: 48 unique decisions, 30 closed, 4 failed, 14 open.
 - 15:03Z · **DECISION RED-5 scheduled.** The codex-login reminder fires 2026-10-14 13:47Z (trig_01FhELCCvZRnMTKZBc42h41o); it closes when delivered.
 - 15:04Z · **Decisions 15 and 21 in progress** (Bal Harbour research); **17 and 22 in progress** (Medley board, JOB-0098 explanation).
 - **Next runs:** 18 and 24 (CDM, TEDC). PC bundle: 16, 25, 27, 29, 30. RED, morning list: 19, 26, 28. Duplicates to close: 32–37. TEST is junk.
+- 15:06Z · **DECISION 17 CLOSED** (Medley board, 0 of 33 done, 6 in progress, 27 blocked; 7 yes/no items for Jorge). Outbox 1dRdQm4FK9fXUNZeLikxDH4EG290xOjjT + reply 1XAmGRurY1yzXVBa9Cah6OSVdHXPDwslK. **DECISION 22 CLOSED** (why-not-taken paragraph). Outbox 1ICdx8F6tS7Mo7PBst2dZSqEq3a-Do_uT.

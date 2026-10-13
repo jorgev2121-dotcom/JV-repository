@@ -1,0 +1,314 @@
+<title>Pasadena Job Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+</style>
+
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED</p>
+<h1>TUS-26-1018 · 8621 Pasadena Blvd, Pembroke Pines</h1>
+<div class="facts">
+  <span><b>Owners</b>Einar H. Suarez &amp; Barbara Rodriguez</span>
+  <span><b>Folio</b>5141-09-12-0810</span>
+  <span><b>Code case</b>260301031</span>
+</div>
+<div class="deadline">Comply by 2026-11-16 · Special Magistrate hearing 2026-11-19 · <span id="daysleft">34 days left to comply</span>
+<small>The permit must be submitted before November 16 to cure the case ahead of the hearing.</small></div>
+<p class="stamp">TUS-26-1018 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile c" data-go="status"><span class="n">4</span><b>Arrived October 12</b><small>Sealed sheets, as-built letter, Julio’s copy.</small></button>
+  <button class="tile y" data-go="status"><span class="n">10</span><b>Still missing</b><small>Before the city upload, and after it.</small></button>
+  <button class="tile w" data-go="people"><span class="n">5</span><b>Waiting on</b><small>You, Tomas, the owners, Miguel, the desktop.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> Tomas’s sealed sheets and letter arrived October 12 but are <b>not saved in this Drive folder yet</b>, and the letter needs a corrected date before the city sees it. The draft to Tomas is ready and waits for your “send”.</p></div>
+
+<div class="tags"><b>Hashtags for this job (from _TAGS.txt, October 13)</b>#8621Pasadena #8621 #Pasadena #PasadenaBlvd #Pasadina #Passdena #Pasedena #PembrokePines #Pembroke #Penbroke #PembrookePines #Pines #33024 #Einar #Einer #Eynar #EinarSuarez #Suarez #Suares #Juarez #BarbaraRodriguez #Barbara #Rodriguez #Rodrigez #TomTech #Tomtech #TomasHernandez #Tomas #Thomas #Hernandez #Hernandes #JulioSilva #Julio #jdrafters #MZSolutions #MiguelZaldivar #Zaldivar #impactwindows #windows #doors #ventanas #puertas #legalization #asbuilt #as-built #signandseal #sealedplans #A1.0 #A2.0 #NOV #NoticeOfViolation #citation #260301031 #Libio #JosephLibio #SpecialMagistrate #hearing #Nov19 #5141-09-12-0810 #folio #permit #PembrokePinesPermitPortal #TUS-26-1018 #TUS26-1018</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>95 documents across 13 folders. Left out of the list: backup copies, search and tag sidecars, folder index pages and OCR marker files. Nothing on this page sends, files, moves or deletes anything. Ticks are not saved.</p>
+  <p class="tag">TUS-26-1018 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #TUS-26-1018 #Einar #8621-Pasadena #Pembroke-Pines #capsule #orange-tree</p>
+</footer>
+</div>
+
+<script>
+const FOLDERS=[{"k": "Job root", "t": "Job root", "p": "TUS-26-1018 (top of the job folder)", "fid": "1_ns65eLr8UwnboHsY92NmUTqsuBQ8YXI", "note": "Two _TAGS.txt files sit side by side. The October 13 one is current. 53 backup copies were left out of this list.", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "docs": [["_PORTAL_TUS-26-1018.html", "2026-10-13", 97721, "Web page", "15QfdUJBgCqvaDe4y6q_56E04FBE464gB", ""], ["_DRAFT_EMAIL-TO-TOMAS_corrected-as-built_2026-10-13.md", "2026-10-13", 1258, "Notes", "1KvYULeYb9-fPnOOR1AfsP1UC9Gsse8gq", "DRAFT · NOT SENT"], ["_TAGS.txt", "2026-10-13", 792, "Text", "1IqLQg5qnLlz8LDjCuQZDvqXyjywS33s8", ""], ["_ARRIVALS_2026-10-13.md", "2026-10-13", 3166, "Notes", "1qMBXGFHsNXreiPNpZzpfnrQJAiX8jEQH", "NEW"], ["_PLACEHOLDERS.md", "2026-10-10", 3394, "Notes", "19rPE-s6crWA1ZlAlZa-xLdvXmEupF6Sr", "KEY"], ["_STAGE.md", "2026-10-09", 1134, "Notes", "1FXJsO8aKhX2rM0THFkuRsZ4wHSEb9_r8", ""], ["_CONTACTS-EXTRACTED.txt", "2026-10-05", 723, "Text", "18_Wkce2C6E81xchr9xNU63xtIVaVICWS", ""], ["_TAGS.txt", "2026-08-26", 307, "Text", "1Dkc1e4CRhmZyORzIHxE_xhMpf3q98QD6", "OLDER COPY"], ["_JOB-TREE_TUS-26-1018.html", "2026-08-10", 48791, "Web page", "17vYoDB5Bi19ybuBL63PrhECLNuv8wh90", ""], ["_JOB-TREE_TRK-TBD.html", "2026-08-09", 26125, "Web page", "1cRTiOPDcKBtNry_9jbgdUO_aTmWoy96M", "TRK-TBD"], ["_READ-FIRST.md", "2026-06-28", 480, "Notes", "1u1tX93WuiFidzOOdWGMhYgfGhyTzMFqE", ""]]}, {"k": "01_Emails", "t": "01_Emails", "p": "TUS-26-1018 / 01_Emails", "fid": "1_8KsjGofbTVmVD9IFxApFSzjofFBu4Ju", "note": "Two emails dated 2025-11-11, “IT Joey - AI copilot studio”, are not about this job.", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "docs": [["_pull-log.txt", "2026-06-24", 48404, "Text", "1PGN1Lxnlr9pjINZkufxTwEVnxMC9nBx2", ""], ["2026-06-22_8621 Pasadena Blvd, Pembroke Pines, FL 33024 · Broward_HVHZ_1F8F0000.msg", "2026-06-23", 305152, "Email", "18XEH8pMFxzzZpjQ7urZyg6aEXxtfdWaE", ""], ["2026-06-17_RFQ - Engineering price & turnaround - 8621 Pasadena Blvd, P_1F880000.msg", "2026-06-18", 590336, "Email", "19piZyQdq4XQFCCEhn2c_lhdoZ4C3NKbG", ""], ["2026-06-17_Re_ 8621 Pasadena Blvd, Pembroke Pines - Legalization - Engi_5F790000.msg", "2026-06-18", 46080, "Email", "1WYbNh9Tz6mUL0W5TPd_qQnh3niHgZTAA", ""], ["2026-06-16_Fw_ DRAFT (do not send yet) - As-Built Letter - 8621 Pasaden_28650000.msg", "2026-06-18", 43520, "Email", "1Ov3VN_6r6so6HX9Yg-rxQ4LzeZCkXgo0", ""], ["2026-06-16_Fw_ DRAFT (do not send yet) - As-Built Letter - 8621 Pasaden_28640000.msg", "2026-06-18", 85504, "Email", "1FESOLYAxKjNusP1skDJJy6gnQD3vtzm7", ""], ["2026-06-12_[TUS-26-1018] 8621 Pasadena Blvd, Pembroke Pines - Working P_1F830000.msg", "2026-06-14", 1410560, "Email", "16n3FW9i8MbSpTw27vX2ZiMPVi5TSUFZ-", ""], ["2026-06-12_DRAFT (do not send yet) - As-Built Letter - 8621 Pasadena Bl_1F850000.msg", "2026-06-14", 67584, "Email", "1GIiPGQHuHsZBnq0HQWlZrhzUQmQywy71", ""], ["2026-06-12_8621 Pasadena Blvd, Pembroke Pines - Legalization - Engineer_1F820000.msg", "2026-06-14", 22221312, "Email", "1_4UTx4uHcdMPSPLJCTawdmSNZx809yNT", ""], ["2026-06-11_Certificate Holder_ City of Pembroke Pines Building Departme_30630000.msg", "2026-06-12", 580608, "Email", "1nJzcsb1VD6VV7cRU-nbWBE28qLrYIgvN", ""], ["2025-11-11_IT Joey - AI copilot studio_BFEF0000.msg", "2026-06-12", 4032000, "Email", "1nU3-KeWjShW8wxFpslHThjs7HFFq5osC", "OTHER JOB"], ["2026-06-11_8621 Pasadena Blvd, Pembroke Pines - Legalization - Engineer_1F7C0000.msg", "2026-06-12", 22220288, "Email", "1JZrugsf8FWQ-H-7NEBz-7B32tRZRWboH", ""], ["2025-11-11_IT Joey - AI copilot studio_1EA70000.msg", "2026-06-12", 4060160, "Email", "1nTy9n3VdC5tQlvWjp8mbryzfdV7XX1es", "OTHER JOB"], ["_keywords.txt", "2026-06-09", 746, "Text", "1n2dvqzDKU8C6-iBMF_btohPz-zrkvtsn", ""], ["2026-04-20_8621 Pasedina BLVD - Legalization - impact windows and doors_DF290000.msg", "2026-06-09", 1481728, "Email", "1C8la_frgONS9OV9QMLX134vePzM8ZbXo", ""], ["2026-04-20_8621 Pasedina BLVD Pembroke Pines. - Legalization - Einar Ho_DF2D0000.msg", "2026-06-09", 390656, "Email", "1wnnKx7VDpthp62no2ooFuveSXWefvhm-", ""], ["2026-04-20_Re_ 8621 Pasedina BLVD Pembroke Pines. - Legalization - Eina_DE5E0000.msg", "2026-06-09", 156672, "Email", "1dPsPzzjXGRH8QWOZB3ddj3vEs4PwdoBe", ""], ["2026-06-06_8621 Pasadena Blvd - Permiso + Aviso de Comienzo (firmar y n_1F430000.msg", "2026-06-08", 632320, "Email", "1VJGq2ilSvSG6yYp9fbf29bd4Nc4MsmsG", ""], ["2026-06-07_8621 Pasadena Blvd - Permiso + Aviso de Comienzo (firmar y n_85450000.msg", "2026-06-08", 693760, "Email", "1Zr16fbu0vkwYSQlem8KwvTVwnlf547wS", ""], ["2026-04-01_Legalization -Citation#__________- 8621Passdena BLVD Pembrok_D6370000.msg", "2026-05-28", 481280, "Email", "1OIP4Gb0cKN3TV5CZhzJVBQkS_80_lWdm", ""]]}, {"k": "02_Files-Attachments", "t": "02_Files-Attachments", "p": "TUS-26-1018 / 02_Files-Attachments", "fid": "1S7nqRU5pxy_Iryziky1nBH0oJMpT5uNO", "note": "", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "docs": [["Working-Papers_Einar-8621-Pasadena_2026-06-09.zip", "2026-06-09", 17339006, "ZIP", "1t1Bw0m_A4gOmj7ibLVEaqwdHIl_3UjuB", ""], ["References.md", "2026-05-28", 223, "Notes", "1yCkM_cN38zoD74Mid1cQ2dWPaWjhRVJL", ""]]}, {"k": "02_Files-Attachments/Citations", "t": "Citations", "p": "TUS-26-1018 / 02_Files-Attachments/Citations", "fid": "1B413heiDsLlM-n0k1QsZFNkdo3VY-_72", "note": "The September 26 Notice of Violation and Summons lives here, not in the empty 05_Code-Enforcement-Violations folder.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["2026-09-26_Notice-of-Violation-and-Summons_Case260301031.pdf", "2026-09-27", 1080876, "PDF", "1_EV_0OAIdh_Pv7SrHD9JK1uArY6IxMks", "KEY"]]}, {"k": "02_Files-Attachments/GC-Registration-MZSolutions", "t": "GC-Registration-MZSolutions", "p": "TUS-26-1018 / 02_Files-Attachments/GC-Registration-MZSolutions", "fid": "1ZtxIPU7m7K7OcAoVQoGGyTi9ISEtkvyS", "note": "", "side": {"s": 2, "t": 1, "o": 0, "i": 1}, "docs": [["MZ_COI_GL-WC_2026-05-01.pdf", "2026-06-06", 144629, "PDF", "1AvoaK_rmxpZx9hhn_uw3UidPFF2qxWGO", ""]]}, {"k": "02_Files-Attachments/Working-Papers", "t": "Working-Papers", "p": "TUS-26-1018 / 02_Files-Attachments/Working-Papers", "fid": "10cYi0qa7A-nLb6syKRCo_hByF45t0VYR", "note": "Seven “NEEDS_OCR” marker files here are out of date: search text was made for those files on August 13.", "side": {"s": 14, "t": 10, "o": 7, "i": 1}, "docs": [["8621-Pasadena_Working-Papers_COMBINED_2026-06-12.pdf", "2026-06-12", 1369977, "PDF", "1WreWCxqp7eP41DQ-0Uvi88CMk9BtuNnw", ""], ["DRAFT_Dimensioned-Elevations_8621-Pasadena_2026-06-10.html", "2026-06-10", 123944, "Web page", "1cdQCCPB7uLMZq_IoU8MuIRLRH6BakBLe", ""], ["DRAFT_Wind-Pressure-and-FL-Check_8621-Pasadena_2026-06-10.html", "2026-06-10", 49591, "Web page", "10_GkNCSNfpzc3rOWXjfQWrLL1YZPglt1", ""], ["Window-Letter-to-FL-Crossref_8621-Pasadena_2026-06-10.html", "2026-06-10", 6422, "Web page", "1lyvZggQoacnMu-MLefQYWqbwLUbokQVZ", ""], ["_extract-log.txt", "2026-06-09", 2782, "Text", "1JawYIao4J7Kk3GUSpOCQzuhiMPCFYd66", ""], ["Pembroke-NOC_Einar-8621Pasadena_FILLED_2026-06-05.pdf", "2026-06-06", 295811, "PDF", "1gFlwgt7UlpeBExRiuo-v4FAdGddVrxL_", "2 VERSIONS"], ["Pembroke-Permit_Einar-8621Pasadena_FILLED_2026-06-05.pdf", "2026-06-06", 291964, "PDF", "1BXqTql0VEqMpAPj4WA3ZsFpt3awF0YD-", "2 VERSIONS"], ["Window_Door_Schedule_8621_Pasadena.xlsx", "2026-04-21", 17214, "Spreadsheet", "1D7G2XaCKUsr-EN9pH-tc4DJlPYyU0FWo", ""], ["8621 Pasadena Blvd_ELEVATIONS_Jorge.pdf", "2026-04-21", 36425, "PDF", "1IqY7afEu84H3qYHcXCJq1ZXKPh9Br1jE", ""], ["8621 Pasadena Blvd_ELEVATIONS2_Jorge.pdf", "2026-04-21", 35728, "PDF", "1AfjMyofk1ZkHxhawk5Nva7r4alVEqFhw", ""], ["Elevation- 8621 Pasedina Blvd - Legalization -Pembroke Pines .pdf", "2026-04-20", 37136, "PDF", "1TvJQlil5TnCq4RoA7aPAN5DWatZGqQ2o", ""], ["letters start on second page.pdf", "2026-04-20", 417646, "PDF", "13-wvSim9PLiycMrsF-_IjxCYOvHcwTfD", ""], ["Legalization Impact windows and Doors.pdf", "2026-04-20", 30904, "PDF", "1EZFKCtGLlmjZ9mw1jeLoCBxkM9-rba79", ""], ["FL Numbers to retreival Procuct Approvals  .pdf", "2026-04-20", 838692, "PDF", "1s8w0NBy14Oi2UVCXKthPL_za5-C_OfA1", ""], ["Legalization -Ciitation#________, 8621Passdena BLVD Penbroke Pines FL 33024 - Einar Suarez.pdf", "2026-04-06", 415581, "PDF", "1J34TC8ZhADR4O9JhlzcRpNrZFZfUaU_A", ""]]}, {"k": "02_Files-Attachments/Working-Papers/SUBMITTAL-DRAFT_2026-06-10", "t": "SUBMITTAL-DRAFT_2026-06-10", "p": "TUS-26-1018 / 02_Files-Attachments/Working-Papers/SUBMITTAL-DRAFT_2026-06-10", "fid": "1OIhJO_IFRwaP_p0I46BbT7Krf0akSh7_", "note": "", "side": {"s": 10, "t": 5, "o": 0, "i": 1}, "docs": [["06_Plans-Reviewer-Analytics-and-Gaps.pdf", "2026-06-10", 95496, "PDF", "1PA9kWIM6C4nzqSJCbapoGyh5WzQdYftu", ""], ["04_CBS-Installation-Anchoring-Spec.pdf", "2026-06-10", 76327, "PDF", "1aWH1x_9-e4as2kM2r6b7io0WtQZULb-e", ""], ["03_Wind-Pressure_FL-Check.pdf", "2026-06-10", 203003, "PDF", "1hoc2ba8KLcU1QDjAhNhBo3KKRTXaut3r", ""], ["02_Window-Schedule_FL-Crossref.pdf", "2026-06-10", 121944, "PDF", "1wV7uFGvPRl4wsIfBkcL2tgdomV5QcqUM", ""], ["01_Dimensioned-Elevations.pdf", "2026-06-10", 151283, "PDF", "1JOMM4xYYArGNryN0qMAoOhy4ml4hy47c", ""], ["04_CBS-Installation-Anchoring-Spec.html", "2026-06-10", 4116, "Web page", "13aAwyeZVQuqomzdR4RPevPjaTIYu4BRe", ""], ["02_Window-Schedule_FL-Crossref.html", "2026-06-10", 4961, "Web page", "1_5IKRM-PhUPbbcperbg0VSf-Xvwzcrve", ""], ["01_Dimensioned-Elevations.html", "2026-06-10", 122575, "Web page", "12gi7FtLzMH3SrI_Azjk5XdguFN11YNvU", ""]]}, {"k": "02_Files-Attachments/Permits", "t": "Permits", "p": "TUS-26-1018 / 02_Files-Attachments/Permits", "fid": "1-3iVRFtcg3J_TkPyo_OjEeNI9j2iuyB6", "note": "", "side": {"s": 9, "t": 4, "o": 0, "i": 1}, "docs": [["Pembroke-Permit_Einar_NEW-FORM_FINAL_2026-06-11.pdf", "2026-06-11", 215439, "PDF", "1bMHRJtKzhnCQ-6ZeJd4is6L8_hFGBUC0", ""], ["Pembroke-Permit_Einar_NEW-FORM_2026-06-11.pdf", "2026-06-11", 215402, "PDF", "1EuPvibI-4RQySCFfbgjrDbETMRmy1-f_", ""], ["FL-Numbers-for-TomTech_2026-06-08.html", "2026-06-08", 3414, "Web page", "1ft9yXgyTr4dxXBdD4AUHQV4MA6vg_LiE", ""], ["FL-PRODUCT-APPROVALS_2026-06-06.md", "2026-06-06", 1551, "Notes", "1SJ_iwlOt-HNXxgPemr70FQ5fFGXqDBgR", ""], ["DRAFT-EMAIL_Einar-Owner-Packet_2026-06-06.msg", "2026-06-06", 615424, "Email", "12dipHlYCjd6X9ONqxlAsPfSzNCdv-LhF", ""], ["Pembroke-NOC_Einar-8621Pasadena_FILLED_2026-06-05.pdf", "2026-06-06", 278745, "PDF", "1MObRuih5PrI-WTJNUwsiIfK5Uy7pLRzh", "2 VERSIONS"], ["CARTA-Einar-ES_2026-06-06.html", "2026-06-06", 1599, "Web page", "1-9mfpihhgGKV6MDYeP0aI9Uau6HOY33W", ""], ["Pembroke-Permit_Einar-8621Pasadena_FILLED_2026-06-05.pdf", "2026-06-06", 249933, "PDF", "1PSuX6WQYGlbu49J9HRr3HGNF3BsCvFNj", "2 VERSIONS"], ["STATUS-BOARD_Einar_2026-06-05.html", "2026-06-06", 4302, "Web page", "18LHb1tU42Arhj_4WGjWsqc3oMnbNCxUS", ""], ["COVER-SHEET_Einar-Owner-Packet_2026-06-05.html", "2026-06-06", 3364, "Web page", "1I0uuwMgxsqkwf8msEokm7al-mcn7qVfT", ""], ["GC-QUALIFICATION-CHECKLIST_Pembroke_2026-06-05.md", "2026-06-06", 3149, "Notes", "1yGj43GcR0dF_fltGcx13mnu6jh8t1zJq", ""], ["OWNER-ACTION-SHEET_Einar_2026-06-05.txt", "2026-06-05", 1708, "Text", "1-ZeXZWKoO53anTNwdSENmssC9MYw69Aq", ""], ["_search-results_20359.1.html", "2026-05-31", 459576, "Web page", "1N9fiZrSqPGHjFFQIEm_m2OmTY_TyJM2T", ""], ["INSTRUCTIONS.txt", "2026-05-28", 1556, "Text", "1ZRgun1F5PKi0gNsLLksg25KIoHkpEGS3", ""], ["CAPSULE_working_2026-06-06.md", "2026-05-28", 3249, "Notes", "1pDrzwNgxRIA-7qv9Bz1SUVsBHFAYcUsh", "SAME AS CAPSULE.md"], ["FINDINGS.md", "2026-05-17", 2300, "Notes", "14RgFjImcGf4gWut4PO8wu-twrRjFeVHH", "SAME AS FINDINGS COPY"], ["FL_Approvals_Register.xlsx", "2026-04-20", 11255, "Spreadsheet", "16OjPypfDKLIIXlaM8ZD2B45JSVDMr8cF", ""]]}, {"k": "02_Files-Attachments/Permits/FL-Approval-PDFs", "t": "FL-Approval-PDFs", "p": "TUS-26-1018 / 02_Files-Attachments/Permits/FL-Approval-PDFs", "fid": "1fhoYIUFRLLG2vWXOIeQjXnGtOnBvqXxd", "note": "Three sub-folders here were not opened (5 levels deep): CLOUDED, _superseded, OFFICIAL-floridabuilding.", "side": {"s": 16, "t": 9, "o": 2, "i": 1}, "docs": [["FL38057_R1_AE_MG1500-LMI.pdf", "2026-06-10", 448745, "PDF", "1GsbEGOnoduqucVknAXPSE4fpw4SGa9mg", ""], ["FL40676_R0_AE_MG450-LMI.pdf", "2026-06-10", 1936498, "PDF", "18mOrzJWPC-h7Ea4IobLbGuuSzxKJk1sS", ""], ["FL40676_R0_AE_MG450-SMI.pdf", "2026-06-10", 1816684, "PDF", "1rnaLv1A_xLkBQGAwF8SGmjiNQCgDM6kj", ""], ["FL26942_R6_AE_MG3000-Door-LMI.pdf", "2026-06-08", 467665, "PDF", "1ULGv5rhdGcVung1EwX6llfYgxRO4Svz1", ""], ["FL20359_R4_II_MG300-HR-SMI.pdf", "2026-06-08", 13420500, "PDF", "1KcwFda0m8mobVHxA6Mf6hJ5XMkqf8kdJ", ""], ["FL20359_R4_COI_MG300.pdf", "2026-06-08", 475829, "PDF", "1o67zKZMP7Ve-mN7ngpMk7crWXWuDMIZ6", ""], ["FL20359_R4_AE_MG300-HR-SMI.pdf", "2026-06-08", 554056, "PDF", "1VguhFKaK2rqd9vjSsdHG92r2bmucMcga", ""], ["FL20359_R4_AE_MG300-HR-LMI.pdf", "2026-06-08", 554377, "PDF", "1XR-2NCsG6UAzfuXDBO9JKjf2YD1UDkiS", ""], ["FL20359_R4_II_MG300-HR-LMI.pdf", "2026-06-08", 1740461, "PDF", "1yMFwdQxeFb65n7EOLLPHZ3UoZwD-GfOH", ""]]}, {"k": "02_Files-Attachments/Findings", "t": "Findings", "p": "TUS-26-1018 / 02_Files-Attachments/Findings", "fid": "1ZlQUOPDWP7Zy35nvIu0wrXxJtF-IfP3X", "note": "", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "docs": [["FINDINGS.md", "2026-05-17", 2300, "Notes", "1Xqy9hpZr7asI_wgZXWALzzZosuQMlQZr", "SAME AS PERMITS COPY"]]}, {"k": "02_Files-Attachments/OCR", "t": "OCR", "p": "TUS-26-1018 / 02_Files-Attachments/OCR", "fid": "1SbYtr3P8LxOc-hw18o8Bs6I0sWmT_WQ2", "note": "", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "docs": [["OCR_ImpactWindowsDoors.txt", "2026-05-17", 14897, "Text", "1IdN3gNEzAWmUle4H6pAmgDYE8qBq2ZHG", ""], ["OCR_Legalization-Citation.txt", "2026-05-17", 8036, "Text", "1koRZ7Uvlx77AvXaJGr5tDokK65Qdf60o", ""]]}, {"k": "03_Research-and-Proposal", "t": "03_Research-and-Proposal", "p": "TUS-26-1018 / 03_Research-and-Proposal", "fid": "1RfoRkGQGMgCCtOMRY3ucFbAgbwrKzMWV", "note": "", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "docs": [["_MEMO_2026-10-09_Hearing-Rescheduled-and-CAD-Blocker.md", "2026-10-09", 4994, "Notes", "1n7dtTcjhJ6iTl_gDchh50br9IvDaM1rF", ""], ["_PACKAGE2-STATE.txt", "2026-06-22", 6, "Text", "1CVb55eNoaanyRDwb2YLRQUO6W-H72NqU", ""], ["JOB-STATUS-BOARD_TUS-26-1018.html", "2026-06-22", 13843, "Web page", "1RiMjRvBGUtJNUgFvkoSDz6CokC6YJtzU", ""], ["_MEMO_2026-06-22_Compliance-Extension.md", "2026-06-22", 1520, "Notes", "1Zt-i-fvYNxn63l3EibtK36nGpu-Ba0pW", ""], ["JOB-MATRIX_TUS-26-1018_8621-Pasadena.hta", "2026-06-22", 8303, "HTA", "1N2ab87WneWs2mCnw31ar2sX185M1ABLR", "HTA · OPENS ON PC"], ["_SENT-LOG.md", "2026-06-12", 2431, "Notes", "1S2XZYeHpDw1geCq7nXc4yfiE6_B-y6We", ""], ["CAPSULE.md", "2026-05-28", 3249, "Notes", "1aCrvFcf5fEiYvkObpd9q8Ix73dPKZEz0", "SAME AS PERMITS COPY"]]}, {"k": "04_Permits-and-Applications", "t": "04_Permits-and-Applications", "p": "TUS-26-1018 / 04_Permits-and-Applications", "fid": "1f7tXc-DObH3ylUG-1FxgI8gvQxfQMLbz", "note": "", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "docs": [["PACKAGE-2_Permit-Submittal-Readiness_TUS-26-1018.hta", "2026-06-22", 6869, "HTA", "1QVTrKuUf4cpfpXyDqYegFlbgEU-pQ68m", "HTA · OPENS ON PC"]]}];
+const PILL={done:["p-done","ARRIVED"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag",""],key:["p-key",""],money:["p-money","MONEY"],person:["p-wait","CONTACT"]};
+const STATUS=[
+ ["Arrived October 12",[
+  ["Sealed sheets A1.0 (floor plan with window and door schedule) and A2.0 (elevations)","From Tomas Hernandez, P.E. #62469 (TomTech), by Outlook email, 3:55 PM. Still unread on October 13.","done"],
+  ["Certified As-Built Letter, 8621 Pasadena Boulevard","From Tomas, same email. Addressed to the Pembroke Pines Building Department; certifies the impact windows and doors under FBC 2023.","done"],
+  ["Julio Silva’s forward of the same two sheets, digitally signed","Gmail and Outlook, 1:35 PM. He said you will upload them.","done"],
+  ["AutoCAD base file is no longer needed","Julio and Tomas worked around it.","done"]]],
+ ["Still missing",[
+  ["The October 12 files are not saved in this Drive folder","Checked today: no A1.0, A2.0 or as-built letter anywhere in the job folder. The cloud can read them in email but cannot save them. Queued for the desktop.","miss"],
+  ["Corrected as-built letter from Tomas","The letter is dated June 12, says “door schedule” where it means windows, has the typo “ad”, and does not state the wind pressures. The draft asking Tomas to fix it is ready and not sent.","miss"],
+  ["Signed and notarized permit application (owner and qualifier)","Only the filled, unsigned copy is on file.","miss"],
+  ["Signed and notarized Limited Power of Attorney","Sent to the owners June 6 and 7. No signed copy on file.","miss"],
+  ["Current COI from MZ Solutions, City of Pembroke Pines as holder","The only one on file is dated May 1, 2026. Use miguel@mzsolutions.org; the .com address bounced.","miss"],
+  ["Notice of Commencement: needed or not?","A filled, unsigned copy is on file. Your one answer decides it.","miss"],
+  ["Product approvals FL-20359.1 and FL26942 match sheet A1.0","Probably fine. Confirm when the sheets are opened.","miss"],
+  ["Permit submittal to the City of Pembroke Pines","Must go in before November 16.","miss"],
+  ["Signed hold-harmless / consultant agreement","Not needed for the upload, still open.","miss"],
+  ["Decision on the November 19 hearing","The notice says if nobody appears, the magistrate rules on the city’s case alone.","miss"]]],
+ ["Waiting on",[
+  ["You","Say “send” on the draft to Tomas. Answer yes or no on the Notice of Commencement. Decide on the hearing.","wait"],
+  ["Tomas Hernandez","A corrected, re-dated letter.","wait"],
+  ["The owners, Einar and Barbara","Sign and notarize the permit application and the power of attorney.","wait"],
+  ["Miguel Zaldivar, MZ Solutions","A current COI and the qualifier signature on the permit application.","wait"],
+  ["The desktop helper","Save the three October 12 PDFs into this Drive folder.","wait"]]]
+];
+const PEOPLE=[
+ ["Tomas E. Hernandez, P.E. #62469 · TomTech","Engineer. Sealed A1.0, A2.0 and the as-built letter.","tomtechengineer@gmail.com"],
+ ["Julio Silva","Drafter of the window and door plans.","jdrafters@gmail.com"],
+ ["Miguel Zaldivar · MZ Solutions","Qualifier and contractor. COI and permit signature. The .com address bounced; use .org.","miguel@mzsolutions.org"],
+ ["Officer Joseph Libio · City of Pembroke Pines","Code enforcement officer on case 260301031.","jlibio@ppines.com"],
+ ["Einar H. Suarez & Barbara Rodriguez","Owners of 8621 Pasadena Blvd. Their phone and email are in _CONTACTS-EXTRACTED.txt in the job root.",""],
+ ["Jorge Valdes · Team USA Sales, Inc.","Owner’s agent. 305-300-4500.","Jorge@TeamUsaSales.com"]
+];
+const MONEY=[
+ ["Tomas’s sign-and-seal fee: agree the price, then invoice and pay","Raised October 9 after his site visit. The draft to Tomas asks him to confirm the fee.","money"],
+ ["Job value, your fee, invoice and payment: unverified","_STAGE shows every money line as VERIFY. The job board shows $4,500, which may be the window value, not your fee.","money"],
+ ["Permit fee: paid at submittal","Due when the permit is filed, before November 16.","money"]
+];
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=o.st==='flag'||o.st==='key'?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc') h+='<div class="meta"><span>'+esc(o.date)+'</span><span>'+esc(kb(o.size))+'</span><span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','What arrived, what is missing, who it waits on','4 · 10 · 5',h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    f.docs.forEach(d=>{x+=row({b:f.t,kind:'doc',title:d[0],date:d[1],size:d[2],type:d[3],link:durl(d[4]),st:d[5]?(d[5]==='KEY'||d[5]==='NEW'?'key':'flag'):'',flag:d[5],path:f.p});});
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' search'); if(s.t)sc.push(s.t+' tag'); if(s.o)sc.push(s.o+' OCR marker'); if(s.i)sc.push(s.i+' index');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':'📁 '+f.t),esc(f.p),f.docs.length+' docs',x+(sc.length?'<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>':''),fi===0);
+  });
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> Money items stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='</div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':MONEY.length+' items',m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>it.kind!=='money'||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">TUS-26-1018 · 8621 Pasadena Blvd · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(it.kind==='money'?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=it.kind==='doc'?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc') h+='<p class="meta"><span>'+esc(it.date)+'</span><span>'+esc(kb(it.size))+'</span><span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='TUS-26-1018 · 8621 Pasadena Blvd, Pembroke Pines\nComply by 2026-11-16 · Hearing 2026-11-19 · Case 260301031\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='doc') s+='   '+it.date+' · '+kb(it.size)+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— TUS-26-1018 · Capsule ENHANCED · v1 · 2026-10-13';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>it.kind!=='money'||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+(function(){try{const n=new Date();const d=Math.round((Date.UTC(2026,10,16)-Date.UTC(n.getFullYear(),n.getMonth(),n.getDate()))/86400000);
+  $('daysleft').textContent=d>1?d+' days left to comply':d===1?'1 day left to comply':d===0?'comply date is today':'comply date has passed';}catch(e){}})();
+build();
+</script>
