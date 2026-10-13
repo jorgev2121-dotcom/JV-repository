@@ -38,6 +38,7 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}
 th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
 th{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;color:var(--muted)}
 td.num{font-family:var(--mono);text-align:right}
+.updstamp{font-size:12px;color:var(--good);background:var(--good-bg);border-radius:7px;padding:6px 10px;margin:0 0 8px;display:inline-block}.updstamp.stale{color:var(--warn);background:var(--warn-bg)}
 .flagnote{font-size:12px;color:var(--warn);background:var(--warn-bg);border-radius:7px;padding:8px 10px;margin:8px 0}
 .notwired{font-size:12.5px;color:var(--muted);font-style:italic;padding:16px;border:1px dashed var(--line);border-radius:10px;text-align:center}
 /* dinner menu */
@@ -279,7 +280,9 @@ panes.OCR=function(){return '<p class="lead"><b>How much of every place has been
 '<h4 class="grp">🧹 Triage</h4>'+TRIAGE.map(function(t){return '<div class="card"><div class="enthead"><h3>'+t.e+' '+esc(t.n)+'</h3><span class="cstat" data-st="'+t.st+'">● '+esc(t.v)+'</span></div></div>'}).join('')+
 '<h4 class="grp">🗂️ Per job: OCR and email circle</h4><p class="lead">Tap Check on a job. It counts that job\'s OCR files and PDFs in Drive and looks for its email circle (Email-Tracker or contact circle). <button class="act" onclick="VTES.ocrAll()">Check all jobs</button></p>'+
 JOBDIR.map(function(j,i){return '<div class="card" style="padding:10px 14px"><div class="enthead"><h3 style="font-size:13.5px">'+esc(j[1])+'</h3><span><a class="act openbtn" href="https://drive.google.com/drive/folders/'+j[0]+'" target="_blank" rel="noopener" style="min-height:30px;padding:4px 10px">Folder ↗</a> <button class="act" onclick="VTES.ocrCheck('+i+')" style="min-height:30px;padding:4px 10px">Check</button></span></div><div id="jc-'+i+'" style="margin-top:6px"></div></div>'}).join('')};
+var TODAYAT='2026-10-06T01:40:00Z';
 panes.TODAY=function(){return `
+<div class="updstamp" id="today-stamp" data-tip="When this Today page was last written. It turns amber after 24 hours, which means the daily rewrite has not run.">Last updated ${esc(fmtT(TODAYAT))}</div>
 <p class="lead"><b>Updated Monday 10/05, 9:40 PM ET.</b> Yesterday reviewed, today's results with proof, what is scheduled through 9:00 AM tomorrow, and what needs you. Written from the files in your Outbox, not from the scheduler.</p>
 <div class="flagnote"><b>Bottom line.</b> Today's OCR order finally finished. 193 of 199 documents now have searchable text, all 999 missing hashtag files were written, and 27 job folders got a contacts file. Everything has a one-command undo. Two things still need one click from you: allow Zapier, and approve Claude in Chrome for the Miami 21 read.</div>
 
@@ -478,7 +481,7 @@ function safePane(t){try{return panes[t]?panes[t]():''}catch(e){return '<p class
 var BUILD={
 MENU:[['Map',[['Picture map',[['Hub and work-flow arrows',1],['Five branch boxes',1],['Completion % on every box',1]]],['Coming next list',[['Greyed future pages with dates (BILLING, BOOKS, PROJECTS, COUNTY MONITOR, LAUNCHER)',0,3]]]]],['Finding things',[['Search',[['Every page by hashtag and keyword',1],['Hover description on every button',1],['Voice buttons: Speak, Read, Speechify',1],['Search reaches Google Drive',1],['Glossary hover for in-house words (TRK, OPH, MDC…)',0,4]]],['Accessibility',[['Text size A- / A+',1],['High contrast',1],['Read aloud (falls back to Speechify)',1]]]]]],
 OCR:[['Scoreboard',[['Sources',[['Google Drive count (89%)',1],['Gmail count',1],['Outlook + OneDrive count',1],['PC sources: PaperPort, Downloads, Dropbox, C: drive',0,3,'pc']]],['Protocol',[['Latest-version audit',0,2],['Per-job OCR + email-circle check',1]]]]],['Restart',[['Runner',[['Cloud lane for text PDFs',0,4],['24/7 PC runner for scans',0,3,'pc']]]]]],
-TODAY:[['Daily report',[['Today page',[['Dated summary with proof',1],['Money items',1],['Money items fed live from the PC',0,3,'pc']]]]],['Freshness',[['Stamps',[['Last updated on page',0,1],['Auto daily rewrite',0,4,'pc']]]]]],
+TODAY:[['Daily report',[['Today page',[['Dated summary with proof',1],['Money items',1],['Money items fed live from the PC',0,3,'pc']]]]],['Freshness',[['Stamps',[['Last updated on page',1],['Auto daily rewrite',0,4,'pc']]]]]],
 TASKS:[['All open work',[['Task list',[['Tasks with lane and status',1],['Approve / deny',1],['Reassign lane',1]]],['Live',[['Tasks read from the PC registry',0,4,'pc']]]]]],
 MYASKS:[['Your requests',[['Request list',[['Done / blocked / not done',1],['Auto-sweep new asks from chats',0,5]]]]]],
 ORCHESTRATOR:[['Owner job queue (Copilot spec)',[['Sending',[['Job number + receipt',1],['Line position, never interrupts',1],['Urgent to the front',1]]],['Clocks',[['5-min accept / 15-min proof',1],['STALE / TROUBLED / STALLED',1]]],['Dispatch',[['Worker picks up queued jobs',0,6,'pc'],['Correlation-ID handshake back',0,4,'pc'],['Two-message live test',0,1]]]]],['Lanes view',[['Failed runs',[['Failed lane',1],['Recovery route suggestion',0,3]]]]]],
@@ -719,6 +722,9 @@ to:['This panel and the morning report'],from:['Windows scheduler'],road:'Report
 {id:'propagation',g:'botdesk',e:'🔁',n:'CU-Propagation-Check',r:'Checks that changes reached every copy.',to:['Report file'],from:['Windows scheduler'],road:'Scheduled task on the PC.'}
 ];
 var CONNVIEW=null,CONN={},LIVE={state:'wait',note:'Asking the Claude Code Remote connector for the live session list…',at:null,sessions:[]};
+function drawTodayStamp(){var el=document.getElementById('today-stamp');if(!el)return;var t=Date.parse(TODAYAT),age=isNaN(t)?null:Date.now()-t,old=age!==null&&age>86400000;el.classList.toggle('stale',old);el.textContent='Last updated '+fmtT(TODAYAT)+(age===null?'':' · '+hrs(Math.max(0,age))+' ago')+(old?' · OLDER THAN A DAY: the daily rewrite has not run (it needs the PC helper)':' · fresh')}
+setTimeout(drawTodayStamp,0);setInterval(drawTodayStamp,60000);
+setTimeout(function(){if(window.VTES)VTES.todayStamp=function(iso){if(iso)TODAYAT=iso;drawTodayStamp();var e=document.getElementById('today-stamp');return e?e.textContent:''}},0);
 function fmtT(iso){if(!iso)return 'unknown time';var d=new Date(iso);if(isNaN(d))return iso;try{return d.toLocaleString('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+' Miami'}catch(e){return iso.slice(0,16).replace('T',' ')+' UTC'}}
 function sessUrl(s){return 'https://claude.ai/code/'+s.id}
 function liveStatus(x){var dv=driveStatus(x);if(dv)return dv;

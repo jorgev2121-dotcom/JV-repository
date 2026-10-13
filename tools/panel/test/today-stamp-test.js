@@ -1,0 +1,16 @@
+const {chromium}=require('/opt/node22/lib/node_modules/playwright');
+(async()=>{const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'}).catch(()=>chromium.launch());
+const p=await b.newPage({viewport:{width:1280,height:800}});const errs=[];p.on('pageerror',e=>errs.push(e.message));
+await p.addInitScript(()=>{window.claude={use:async()=>null}});
+await p.goto('file://'+process.argv[2]);await p.waitForTimeout(800);
+await p.evaluate(()=>VTES.show('TODAY'));await p.waitForTimeout(200);
+console.log('stamp visible',await p.isVisible('#today-stamp'));
+const t1=await p.textContent('#today-stamp');console.log('STAMP',t1);
+console.log('has date',/^Last updated Oct 5, 9:40 PM Miami · \d+ (days|h|min) ago/.test(t1));
+console.log('old stamp marked stale',await p.evaluate(()=>document.getElementById('today-stamp').classList.contains('stale'))&&/OLDER THAN A DAY/.test(t1));
+const fresh=await p.evaluate(()=>{VTES.todayStamp(new Date(Date.now()-2*3600000).toISOString());var e=document.getElementById('today-stamp');return {s:e.classList.contains('stale'),t:e.textContent}});
+console.log('fresh stamp not stale',!fresh.s&&/ · 2 h ago · fresh$/.test(fresh.t),fresh.t);
+console.log('tip',await p.evaluate(()=>!!document.getElementById('today-stamp').dataset.tip));
+console.log('BUILD flipped',await p.evaluate(()=>document.documentElement.outerHTML.includes("['Last updated on page',1]")));
+await p.screenshot({path:process.argv[3]});
+console.log('ERRS',errs);await b.close()})();
