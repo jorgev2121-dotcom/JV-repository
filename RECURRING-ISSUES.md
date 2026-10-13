@@ -2366,3 +2366,7 @@ branch AND open PR branches; or give each window its own number block.
 ### 2026-10-13 — Drive "No preview available / ZIP Extractor" on backup files (first logged)
 - **What happened:** Backups named `file.md.bak-DATE` have no extension Drive recognises, so Drive offered "Open with ZIP Extractor / Connect more apps". Jorge had to work out what to do.
 - **Fix (Tier 2):** the naming rule in CLAUDE.md §9 now puts the real extension last: `NAME_bak-DATE.ext`. Existing backups go to a rename plan (OVERNIGHT-QUEUE BAK-RENAME).
+
+### 2026-10-13 — Panel percentages never move: no builder was ever assigned (RI-015 / RI-018 family)
+- **Root cause:** the completion % values are written into the page's BUILD tree. Nothing was scheduled to build pieces or republish the page. The 10-02 "Overnight VTES backlog" routines were one-time runs and are now disabled. The task sweeper only dispatches tracker tasks, and panel pieces were never tracker tasks.
+- **Fix (Tier 3, enforcement):** trig_01EdLXoKjFM3nNsVywHHYz7T, "VTES panel builder (every 2 hours)". It builds 1–2 cloud pieces per run, runs the tests, republishes, and logs "N of 116" to control-panel/BUILDER-LOG.md. Baseline: 54 of 116 (47%). 24 pieces stay blocked until RAMBO answers.
