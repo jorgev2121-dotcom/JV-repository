@@ -51,3 +51,6 @@ The same RED limits apply: it prepares filing, outbound mail and spending, and n
 
 ## Addendum 2026-10-13 14:55Z — capsules are priority 1 after P0
 Each run, build up to 4 job capsules per STANDING-ORDER_ENCAPSULATE-EVERY-JOB_2026-10-13.md, one helper per job, until all 40 are done. Panel pieces come after.
+
+## Addendum 2026-10-13 15:10Z — the runner processes owner DECISIONS (RI-049 Tier 2)
+Each run, read control-panel/DECISIONS-CENSUS_2026-10-13.md. Take up to 4 OPEN decisions marked CLOUD-DOABLE, one helper each. Carry out exactly what Jorge decided. Write runner-results/DECISION_<id>.md with proof, plus a NEW Drive file EXECUTED_CLOUD_<decision file name> in VTES-Outbox so the PC never redoes it. Bundle the PC ones into a single desktop order (at most one per hour). Put RED ones on the morning list. **Do not message Jorge per batch: one summary at 6 PM ET (his choice).**
