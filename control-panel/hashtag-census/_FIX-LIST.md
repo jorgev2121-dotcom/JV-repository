@@ -19,3 +19,7 @@
 - Sidecars inside known TRK folders carry #ORPH-2026-NNNN / #UNANCHORED-ORPHAN. That prefix is wrong; the standard is OPH. Seen in 1294, 1293 and 1514.
 - 1292: the forbidden dot-page form "TRK-2026-1531.002_" and the short form "TRK-1292" are both in use.
 - Misspellings to add to the people index: "Miguel Zadlivar"; "jorze@" is an OCR error.
+- 1310: still tagged #folioTBD, but the folio 30-6007-009-0030 is confirmed through the nested 1667 records. Most of its PDFs are stamped TRK-2026-1667.
+- 1265: _HASHTAGS.txt has only 4 admin tags. The quarantine folder holds 5 zero-byte PDFs for Bay Harbor Units 322 and 301.
+- 2221: the three brochure TAGS files are identical and carry a misleading #Plans tag.
+- _ALEC-VALDES-DD: $100.25 never invoiced; 51 days in owner review (money item; locked zone).
