@@ -40,11 +40,11 @@ All 9 can be done with Drive, Gmail or Outlook-web, or the repo.
 
 - **15 · JOB-0110 / TRK-2026-1265** · APPROVE · Fill the one gap named in the 09-03 owners-of-record report for the 8 Bal Harbour units, which is the Sunbiz officer lookup. Read-only web lookup plus a new report file. · OPEN · `1EkyIUSN-IlYVadOVdYambfhE9qWpVnIa`
 - **17 · TUS-26-1033** · APPROVE · Build the owner approval board and status reply. Reply in `REPLY-TO-CHAT_OWNER-APPROVAL-BOARD-AND-STATUS-01.md` with a three-state close-out and "X of N" counts. · OPEN · `1FtUFLGXuw3LzUrffCZI8-7OUv9yKuGIs`
-- **18 · TRK-2026-1294** · APPROVE · CDM reissue #1. RAMBO declined to take JOB-0100 as builder. Approval routes JOB-0100 builder work to the cloud lane. · OPEN · `1sFJ1bUekVCytp9WOzrQc5obBXD_LGQFu`
+- **18 · TRK-2026-1294** · APPROVE · CDM reissue #1. RAMBO declined to take JOB-0100 as builder. Approval routes JOB-0100 builder work to the cloud lane. · EXECUTED_CLOUD 2026-10-13 (v10+v11 built, Outbox 1sSIbqV_hvE0Pt-ufeLGBMPOiwJBbRXGp) · `1sFJ1bUekVCytp9WOzrQc5obBXD_LGQFu`
 - **20 · TRK-2026-9757** · APPROVE · PASTE-D-049 close-out. The repo fast-forward is reported done. Verify it in git and record the close. · OPEN · `18Loe0CTzwX-t1Tlmv-EA1TdM2WWG-Ji_`
 - **21 · JOB-0110** · APPROVE · Bal Harbour expired-permit reissue clock. Deliverable 3(b) is still open; it is research and a written answer. If it turns into contacting the building department, that part is RED. · OPEN · `1jOn9LbcLSzPXe7OYKwNYPNaETgRSCEUR`
 - **22 · JOB-0098** · APPROVE · The stand-down on items 5–7 of CHAT-HANDOFF-20260831-01 needs explaining. Write Jorge the one-paragraph "why not taken" and close. · OPEN · `12cr7vm1IlX9HWqal2E6KhUpBef8Uc2nb`
-- **24 · TRK-2026-1294** · APPROVE · Finish the CDM rulebook page cites, with author of record Team USA Sales / Jorge Valdes. Document work in Drive. · OPEN · `1T8cqaILDUpO7n2ZdODobCJYlcMoYZT9w`
+- **24 · TRK-2026-1294** · APPROVE · Finish the CDM rulebook page cites, with author of record Team USA Sales / Jorge Valdes. Document work in Drive. · EXECUTED_CLOUD 2026-10-13 (2025/2026-203 cites; 2020-203 PDF needs desktop copy) · `1T8cqaILDUpO7n2ZdODobCJYlcMoYZT9w`
 - **31 · (no TRK)** · APPROVE · Standing-rules file CLAUDE.md, owner directive 01. It already exists in this repo, so verify it and close with the repo path as proof. · FAILED ×2 · `1jK_ozeFwPwST5VJ4a-Qtsjsj7beAhpQw`
 - **RED-5** · APPROVE (daily yes/no) · "Remind me to run codex login at the next natural break". Setting the reminder is cloud work; the login itself is Jorge's. · OPEN · `1KiRpE-1tbon8CY2CR1efst_lJH_HUXc7`
 
