@@ -15,7 +15,7 @@
 
 ## The order
 
-**Trigger:** "VTES panel builder (every 2 hours)", bound to the cloud session.
+**Trigger:** "VTES panel builder (hourly)" — Jorge changed it to hourly on 2026-10-13, bound to the cloud session.
 
 **Every run:**
 1. Read the `var BUILD` tree in the panel file.
