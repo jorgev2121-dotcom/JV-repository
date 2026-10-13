@@ -11,6 +11,8 @@ Built 2026-10-13 after the Tomas Hernandez miss (RI-020 recurrence). The hourly 
 3. Is told to Jorge once, by push and by Gmail to jorgev2121@gmail.com only: what arrived, and what is still missing.
 4. Is added to the desktop order queue to save the actual attachment bytes into the job folder (the cloud can read attachment text but cannot download the files).
 
+**Matching rule (2026-10-13):** first look the sender up in `inbox-sweep/PEOPLE-INDEX.md` to get their jobs. Then use the email words (address, folio, permit or case number) to pick ONE job. If two or more jobs still match, mark the arrival AMBIGUOUS and ask Jorge. Never file against a fuzzy match.
+
 Add a line here whenever a placeholder names a new person we are waiting on. Remove it when the job closes.
 
 ## Waiting-on senders
