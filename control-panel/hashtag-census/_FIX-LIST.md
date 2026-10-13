@@ -26,3 +26,7 @@
 - 1536: the DD-book tags carry #TRK-2026-9754 too, so the admin-band tag bug is now on 5 jobs. _STAGE.md says no tax jacket exists, but one is in 07-TAX-JACKET. The DD book is unsent and uninvoiced (money item).
 - 1535: the folder holds multi-lot "Perrine Model A" plans under master permit 2022069000, not just one address.
 - TEDC 1296/1297: no PDFs; the credentials are still in Outlook. 1297 has no street address.
+- The admin-band tag bug (#TRK-2026-9490/9754) also appears on 15601 SW 137 AVE, 13920 SW 34 ST, 331 Tamiami and 1840 NW 63. That makes about 9 jobs, so it is systemic: the DD-BOOK sidecar generator stamps them. Fix it at the generator, not per file.
+- OCR has carried stray addresses from other jobs into sidecars: #111-NW-1-ST, #13935-SW-106-TER, folio 30-3115-005-3779.
+- 15601 SW 137 AVE is really TRK-2026-1650 (MZ Solutions, Pine Brook/Sheffield). 13920 SW 34 ST is TRK-2026-1567. Both relabels wait on Jorge.
+- The Alec DD Standard reports for 1612 and 1534 are finished, unsent and uninvoiced (money items).
