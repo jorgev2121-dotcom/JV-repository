@@ -2362,3 +2362,7 @@ branch AND open PR branches; or give each window its own number block.
   4. The desktop is ordered to save the attachment files.
 - **Still uncovered:** Downloads, PaperPort and the Desktop are visible only to the desktop, which has been silent since 10-10. The order to sweep them is queued: `orders/pending/MSG-CLOUD-TO-CODE_SAVE-EMAIL-ATTACHMENTS_2026-10-13.md`.
 - **Tier 2 option (not done; needs Jorge):** an Outlook rule that copies every attachment from a watched sender straight into Drive. This would remove the holding area altogether.
+
+### 2026-10-13 — Drive "No preview available / ZIP Extractor" on backup files (first logged)
+- **What happened:** Backups named `file.md.bak-DATE` have no extension Drive recognises, so Drive offered "Open with ZIP Extractor / Connect more apps". Jorge had to work out what to do.
+- **Fix (Tier 2):** the naming rule in CLAUDE.md §9 now puts the real extension last: `NAME_bak-DATE.ext`. Existing backups go to a rename plan (OVERNIGHT-QUEUE BAK-RENAME).

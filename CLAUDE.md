@@ -227,7 +227,7 @@ Suffixes are allowed: `TRK-2026-0708-JULIA`.
 
 - `_VERSION-LOG.md` in every TRK folder: Version · Date · What Changed · Status.
 - Highest `vN` is current. Superseded versions move to `_Superseded\`.
-- Before editing an existing file, make a `.bak-YYYYMMDD` copy.
+- Before editing an existing file, make a backup copy named `NAME_bak-YYYYMMDD.ext`. The real extension stays LAST, e.g. `_PORTAL_TUS-26-1018_bak-20261013.html` or `LAST-BUS-OUT_bak-20260904-1345.md`. **Never** use `NAME.ext.bak-DATE`: Drive cannot preview that, and it offers "ZIP Extractor / Connect more apps" instead (Jorge, 2026-10-13). This is the default for every agent; Jorge never has to choose.
 - After any TRK move/edit/delete, write a rollback script to
   `C:\Users\JV\OneDrive\Documents\Reports\Undo_Manifests\` named
   `Rollback_[Action]_[YYYY-MM-DD]_[HHMM].ps1`.
