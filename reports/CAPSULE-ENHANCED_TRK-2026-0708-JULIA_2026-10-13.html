@@ -1,0 +1,292 @@
+<title>Julia's Place Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+</style>
+
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED · MONEY WORKSTREAM</p>
+<h1>TRK-2026-0708-JULIA · Julia's Place Bond Release</h1>
+<div class="facts">
+  <span><b>Owner</b>Enrique “Henry” Piwko</span>
+  <span><b>Subdivision</b>Julia's Place, Lots 1 to 3, Block 1</span>
+  <span><b>Tentative Plat</b>T-21852</span>
+  <span><b>County</b>Miami-Dade RER, Bond Coordinator</span>
+  <span><b>Stage on file</b>04-OCR-INDEXED (no next action)</span>
+</div>
+<div class="deadline">Release status: NOT STARTED at the County · <span id="c1">169 days</span> since the County asked whether we requested the inspection · <span id="c2">92 days</span> waiting on Henry's W-9
+<small>Two things block the release. 1: the second inspection was never requested on the County's CSS Portal; it does not need the W-9 first. 2: Henry Piwko has not returned the signed W-9 that Finance needs to pay him; the August follow-up sits unsent as 4 drafts. After both: about 6 to 8 weeks. Amounts are in the money zone, code 0000.</small></div>
+<p class="stamp">TRK-2026-0708-JULIA · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile c" data-go="status"><span class="n">4</span><b>Done and on file</b><small>Bond confirmed, authorization, W-9 made, W-9 asked.</small></button>
+  <button class="tile y" data-go="status"><span class="n">5</span><b>Still missing</b><small>Signed W-9, County emails, fee, stage, logs.</small></button>
+  <button class="tile w" data-go="status"><span class="n">4</span><b>Waiting on</b><small>You (two yes/no), Henry, and the desktop.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> Nothing has started at the County. <b>The inspection request is ours to file and does not wait for the W-9.</b> Two yes-or-no answers from you restart it: file the inspection request on the CSS Portal, and send one corrected W-9 chaser to Henry.</p></div>
+
+<div class="tags"><b>Hashtags for this job (from _HASHTAGS.txt of October 9 and _TAGS.txt of August 26)</b>#TRK-2026-0708-JULIA #TRK-2026-0708 #Piwko #Piko #JuliasPlace #Julias-Place #Julia #BondRelease #bond-release #T-21852 #RER-PlatBonds #W-9 #JorgeValdes #CU-Inspections</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>9 files listed in 2 folder branches (1 job document, 8 notes and index pages); 6 empty folders linked (7 folders in all). Left out of the list: 52 backup copies, 1 search and 1 tag sidecar. Total 63 of 63 files accounted for. 8 Outlook emails and 1 Drive note elsewhere are linked but not counted. Nothing on this page sends, files, moves or deletes anything. Ticks are not saved.</p>
+  <p class="tag">TRK-2026-0708-JULIA · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #TRK-2026-0708-JULIA #Piwko #JuliasPlace #BondRelease #T-21852 #capsule #orange-tree</p>
+</footer>
+</div>
+
+<script>
+const FOLDERS=[{"k": "root", "t": "Job root", "p": "TRK-2026-0708-JULIA (top of the job folder)", "fid": "15KM95sd22UzsRroDNwshRryfr2PqoH-t", "note": "Notes, stage, tags and the old portal. No client document sits at the root. 52 backup copies were left out of this list (25 _PORTAL, 27 _STAGE), all in the banned NAME.ext.bak-DATE form.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["_PLACEHOLDERS.md", "2026-10-10", 2566, "Notes", "1c-s49L-hnUtoFNfhXdpg-Ul7r9WaZwvQ", "ONE ROW WRONG"], ["_PORTAL_TRK-2026-0708.html", "2026-10-13", 13411, "Web page", "14Aj55njQpQSTTaMKS9pvE2stgPtP1EBS", "OLD FORMAT"], ["_STAGE.md", "2026-10-09", 1175, "Notes", "1hyzndmyfg28FLdMcA55ohwQRqwtUXcMR", "STALE"], ["_HASHTAGS.txt", "2026-10-09", 373, "Text", "1Rhf9HShESjA_nMqXCYjI1ByUOI-odpwL", ""], ["_CONTACTS-EXTRACTED.txt", "2026-10-05", 489, "Text", "1cs3h1CVherHDYlmZfnqHB5tlLLxkLHJs", "JUNK"], ["_TAGS.txt", "2026-08-26", 253, "Text", "1Z76OXF5J-bEfmx7f9xm4GjDBOqbyCm0Y", ""], ["_INDEX.html", "2026-08-17", 4142, "Web page", "1nn1Aar3JJQk88Uh2KoVeufky-2fAxp4a", ""]], "bak": 52}, {"k": "deliv", "t": "02-Deliverables", "p": "TRK-2026-0708-JULIA / 02-Deliverables", "fid": "1lGnyT3a3pCa2M27f1S7E3SqEykCz2Qrk", "note": "The only job document on file: the W-9 made out for Henry Piwko to sign. The signed copy has not come back.", "side": {"s": 1, "t": 1, "o": 0, "i": 0}, "docs": [["W9_Enrique-Piwko_FOR-SIGNATURE_TRK-2026-0708-JULIA.pdf", "2026-08-15", 218445, "PDF", "1V6XWPhW_7JnvRsEXdBjZM_2A6HaYVWd1", "KEY"], ["_INDEX.html", "2026-08-17", 3078, "Web page", "1VZLCH891drcYiaoN_BVT_19I74Kwq6C6", ""]]}, {"k": "ext", "ext": true, "t": "The email trail (Outlook) and one note elsewhere in Drive", "p": "Not in this folder · not part of the count", "fid": "15KM95sd22UzsRroDNwshRryfr2PqoH-t", "note": "None of these emails is saved in the job folder. The Outlook links open in Outlook on the web for Jorge@TEAMUSASALES.COM. Nothing was sent, saved or deleted.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["County (Natalie Baez), April 27: “were you able to request the inspection? … the workflow was never initiated.” Also quotes the March 5 and March 6 emails.", "2026-04-27", 0, "Email · inbox · never answered", "https://outlook.office365.com/owa/?ItemID=AAMkAGRmNmE4NjI5LTI1ODYtNGUyNC05N2Q3LWU0NTBiNzcxNjY1OABGAAAAAABCTAwPdDHDRbfeF9nqHY2lBwB3zaXUvzi9SK47PNauXGmmAAAAtDGUAAA51wRVZmzQS62ItnbxU4CYAA3U8LIEAAA%3D&exvsurl=1&viewmodel=ReadMessageItem", "KEY"], ["Blank reply to the County, June 19 (Drafts, never sent)", "2026-06-19", 0, "Email · draft", "https://outlook.office365.com/owa/?ItemID=AAMkAGRmNmE4NjI5LTI1ODYtNGUyNC05N2Q3LWU0NTBiNzcxNjY1OABGAAAAAABCTAwPdDHDRbfeF9nqHY2lBwB3zaXUvzi9SK47PNauXGmmAAAAtDGfAAA51wRVZmzQS62ItnbxU4CYAA6gQtr4AAA%3D&exvsurl=1&viewmodel=ReadMessageItem", "UNSENT"], ["W-9 request to Henry, July 13 (sent July 14 to the iCloud and the misspelled Gmail address)", "2026-07-14", 0, "Email · sent", "https://outlook.office365.com/owa/?ItemID=AAMkAGRmNmE4NjI5LTI1ODYtNGUyNC05N2Q3LWU0NTBiNzcxNjY1OABGAAAAAABCTAwPdDHDRbfeF9nqHY2lBwB3zaXUvzi9SK47PNauXGmmAAAAtDGWAAA51wRVZmzQS62ItnbxU4CYAA3Q3h%2ByAAA%3D&exvsurl=1&viewmodel=ReadMessageItem", "SENT"], ["Undeliverable notice, July 14: only hernrypiwko@gmail.com bounced", "2026-07-14", 0, "Email · system", "https://outlook.office365.com/owa/?ItemID=AAMkAGRmNmE4NjI5LTI1ODYtNGUyNC05N2Q3LWU0NTBiNzcxNjY1OABGAAAAAABCTAwPdDHDRbfeF9nqHY2lBwB3zaXUvzi9SK47PNauXGmmAAAAtDGUAAA51wRVZmzQS62ItnbxU4CYAA8DGeCkAAA%3D&exvsurl=1&viewmodel=ReadMessageItem", ""], ["W-9 chaser draft 1 of 4, August 5 (never sent)", "2026-08-05", 0, "Email · draft", "https://outlook.office365.com/owa/?ItemID=AAMkAGRmNmE4NjI5LTI1ODYtNGUyNC05N2Q3LWU0NTBiNzcxNjY1OABGAAAAAABCTAwPdDHDRbfeF9nqHY2lBwB3zaXUvzi9SK47PNauXGmmAAAAtDGfAAA51wRVZmzQS62ItnbxU4CYAA5mgMmHAAA%3D&exvsurl=1&viewmodel=ReadMessageItem", "UNSENT"], ["W-9 chaser draft 2 of 4, August 6 (never sent)", "2026-08-06", 0, "Email · draft", "https://outlook.office365.com/owa/?ItemID=AAMkAGRmNmE4NjI5LTI1ODYtNGUyNC05N2Q3LWU0NTBiNzcxNjY1OABGAAAAAABCTAwPdDHDRbfeF9nqHY2lBwB3zaXUvzi9SK47PNauXGmmAAAAtDGfAAA51wRVZmzQS62ItnbxU4CYAA5mgMmJAAA%3D&exvsurl=1&viewmodel=ReadMessageItem", "UNSENT"], ["W-9 chaser draft 3 of 4, August 6 (never sent)", "2026-08-06", 0, "Email · draft", "https://outlook.office365.com/owa/?ItemID=AAMkAGRmNmE4NjI5LTI1ODYtNGUyNC05N2Q3LWU0NTBiNzcxNjY1OABGAAAAAABCTAwPdDHDRbfeF9nqHY2lBwB3zaXUvzi9SK47PNauXGmmAAAAtDGfAAA51wRVZmzQS62ItnbxU4CYAA5mgMmNAAA%3D&exvsurl=1&viewmodel=ReadMessageItem", "UNSENT"], ["W-9 chaser draft 4 of 4, August 6 (never sent)", "2026-08-06", 0, "Email · draft", "https://outlook.office365.com/owa/?ItemID=AAMkAGRmNmE4NjI5LTI1ODYtNGUyNC05N2Q3LWU0NTBiNzcxNjY1OABGAAAAAABCTAwPdDHDRbfeF9nqHY2lBwB3zaXUvzi9SK47PNauXGmmAAAAtDGfAAA51wRVZmzQS62ItnbxU4CYAA5mgMmOAAA%3D&exvsurl=1&viewmodel=ReadMessageItem", "UNSENT"], ["ACTIVE-MATTERS-BUNDLE_VERIFIED_2026-10-04.md (desktop note: Piwko, Julia's Place and Bond are one matter)", "2026-10-04", 5233, "Notes · Drive", "https://drive.google.com/file/d/1UVk9Euo7Ve47dya6G4DpW9s0Zdo1MaGG/view", ""]]}];
+const EMPTY=[["01-INTAKE", "12t0GzzQHSRgjgAdf2G9wHgCY_XBu1RpZ"], ["02-PERMITS", "1piTSroEorO2G3UwVtACAwAMUFzM_-rkG"], ["03-INVOICES-PAYMENTS", "1b45rcXrviATymUG7PWPmZGaEfznqFCZd"], ["04-CORRESPONDENCE", "1AEVK5M3aaEEDTgD-y6NxUXJ3YLVJOtxt"], ["05-REPORTS-DELIVERABLES", "1LIMW1eHg5bTs9FEVzxVV3zQ-ZAKJ514u"], ["_Superseded", "1Bxki0BAe-BknylM1CM98GN8WThucfLFN"]];
+const PILL={done:["p-done","ARRIVED"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag",""],key:["p-key","KEY"],money:["p-money","MONEY"],person:["p-wait","CONTACT"],finding:["p-flag","FINDING"]};
+const STATUS=[["Release status: NOT STARTED at the County", [["The County has not begun the release", "The County's bond coordinator wrote on April 27: “were you able to request the inspection for Julia's Place? I noticed the workflow was never initiated.” No inspection request, County reply or Finance packet has been found since, in Outlook, Gmail or Drive (checked October 13).", "miss"], ["Blocker 1: the second inspection was never requested", "Requested by us on the County's CSS Portal, using the guide the County sent on March 6. It does NOT need the W-9 first; the County listed the inspection and the W-9 as two separate requirements. An inspection fee and an admin fee apply (see the money zone).", "key"], ["Blocker 2: Henry Piwko's signed W-9 is not back", "Finance needs a current W-9 from the person who bought the cashier's check, Mr. Enrique Piwko, before it can pay out. Asked July 13. No reply from any Piwko address. The August follow-up was drafted four times and never sent.", "wait"], ["Blocker 3: the County's April 27 email was never answered", "A blank reply has sat in Outlook Drafts since June 19.", "miss"], ["After all three: about 6 to 8 weeks", "The inspector files a log. Several County departments review it. The packet goes to Main Finance. The County estimates 6 to 8 weeks from the inspection.", "flag"]]], ["Done and on file", [["The County found and confirmed the bond, March 6", "Subdivision Julia's Place, Tentative Plat T-21852, collateral a cashier's check. Amounts are in the money zone.", "done"], ["Henry authorized Jorge to speak for him, March 6", "The County added Jorge as a contact on the project.", "done"], ["W-9 prepared for Henry's signature", "02-Deliverables, saved August 15.", "done"], ["W-9 request emailed July 13", "It reached henrypiwko@icloud.com. Only the misspelled Gmail copy bounced.", "done"]]], ["Still missing", [["Signed W-9 from Henry Piwko", "Not received. Nothing has come from Henry since at least June 1.", "miss"], ["The County emails are not saved in the job folder", "March 5 request, March 6 bond details with the CSS Portal guide, April 27 follow-up. 04-CORRESPONDENCE is empty. Saving them is filing, so it waits for your yes.", "miss"], ["Our fee and invoice to Henry", "_STAGE shows amount billable, invoiced and paid as [VERIFY]. See the money zone.", "miss"], ["The stage and placeholder notes point the wrong way", "_STAGE.md has no next action. _PLACEHOLDERS.md says the inspection waits on the W-9; the County's own email says it does not.", "miss"], ["No _VERSION-LOG.md and no _ARRIVALS file", "Required in every TRK folder.", "miss"]]], ["Waiting on", [["You: request the inspection on the CSS Portal now? Yes or no", "This is the step that starts the County clock, and it costs fees. It can run while we wait for the W-9.", "wait"], ["You: send ONE corrected W-9 chaser to Henry? Yes or no", "Fix the wording first: the July email was not lost; only the Gmail typo bounced. Keep or remove the 3 spare drafts is your call.", "wait"], ["Henry Piwko: sign and return the W-9", "henrypiwko@icloud.com.", "wait"], ["Desktop: stage override", "Set next action to “request inspection + get W-9” in _MATTER-OVERRIDES.json. _STAGE.md is machine-made and must not be hand-edited.", "wait"]]]];
+const PEOPLE=[["Enrique “Henry” Piwko · owner, remitter of the cashier's check", "The County pays the refund to him, so the W-9 must be in his name. Not reached since July. A misspelled address, hernrypiwko@gmail.com, bounced; do not reuse it.", "henrypiwko@icloud.com"], ["Natalie Baez, MPA, SLDC · Bond Coordinator, Miami-Dade RER", "Handles subdivision improvement bonds. 111 NW 1st Street, 11th Floor, Miami, FL 33128. Phone 305-375-1275. Her April 27 email is unanswered.", "Natalie.Baez@miamidade.gov"], ["Marlene E. Garcia · RER, Natalie's supervisor", "Copied on the whole thread.", "Marlene.Garcia@miamidade.gov"], ["Raul Pino · Chief, RER", "Natalie suggested a thank-you note to him, copying Marlene (your choice only).", "Raul.Pino@miamidade.gov"], ["RER Plat Bonds mailbox", "Where the March 5 request was first sent.", "RERPlatBonds@miamidade.gov"], ["Odalys · belloland.com", "Copied on the County thread from the start. Role not stated in the emails; UNVERIFIED.", "odalys@belloland.com"], ["WASD (Water and Sewer) bonds", "A different department. The County gave this number for any WASD bond: (305) 665-7477. No email on file.", ""], ["Miami-Dade Main Finance", "Issues the refund once the packet arrives. No direct contact on file.", ""], ["Jorge Valdes · owner's agent", "Authorized by Henry on March 6. Jorge@TEAMUSASALES.COM.", ""]];
+const MONEY=[["Bond still held by the County: $8,415.00", "Reduced to this on February 22, 2007, from the original cashier's check of $22,719.00 (County email, March 6, 2026). This is Henry's money, refunded to him, not our fee.", "money"], ["What the remaining $8,415.00 covers", "Paving $3,000.00 · Drainage $3,000.00 · 5-foot sidewalk $1,650.00 · Contingency $765.00. The second inspection checks these items.", "money"], ["Inspection fee and admin fee: amount not on file", "Each inspection request carries both fees under Implementing Order No. 04-111. Who pays (Henry or us, to be reimbursed) is not recorded. Needs your yes before anything is paid.", "money"], ["Our fee to Henry: not set", "_STAGE shows amount billable, invoiced and paid as [VERIFY]. No invoice in Drive. 03-INVOICES-PAYMENTS is empty.", "money"], ["Possible second bond with WASD: about $8,879.00, UNVERIFIED", "Jorge's March 5 request described a WASD bond of about $8,879.00 from 2002 or 2003. The County said WASD bonds are handled by another department, (305) 665-7477. No follow-up found. It may be the same bond or a separate one.", "money"]];
+const FINDINGS=[["The inspection does not have to wait for the W-9", "The County's March 6 email lists two separate needs: request the second inspection on the CSS Portal, and an updated W-9 from Mr. Piwko. _PLACEHOLDERS.md row 4 says the inspection is “waiting on signed W-9”. That is not what the County said, and it has stalled the release since April."], ["The County asked on April 27 and got no answer", "Natalie Baez noted the workflow was never started. A blank reply has sat in Outlook Drafts since June 19. 169 days with no response as of October 13."], ["Four identical W-9 chasers sit unsent in Outlook Drafts", "One from August 5 and three from August 6, all to henrypiwko@icloud.com. Still drafts on October 13. Their text says the July email bounced, but only the misspelled Gmail copy bounced; the iCloud copy was delivered."], ["The whole County email trail is missing from Drive", "March 5, March 6 (bond details and the CSS Portal guide) and April 27. The October 10 inbox sweep searched only from July 1, so it missed them. Saving them is filing and waits for your yes."], ["A possible second bond with WASD was never followed up", "The March 5 request described a WASD bond. The County handles only the subdivision bond and pointed to WASD at (305) 665-7477. UNVERIFIED whether it is a separate bond."], ["_CONTACTS-EXTRACTED.txt is junk", "Its 2 emails and 6 phone numbers are IRS boilerplate from the blank W-9 instructions. None belongs to this job."], ["The job holds 1 document, not 58", "The October 4 desktop bundle counted 58 documents. 52 of the 63 files are backups. The only job document is the unsigned W-9."], ["52 backups use the banned NAME.ext.bak-DATE form", "25 _PORTAL and 27 _STAGE copies, about one a day from August 30 to October 8. Drive cannot preview them. None were touched."], ["Two folder sets side by side; 6 folders are empty", "Only 02-Deliverables is used. 01-INTAKE, 02-PERMITS, 03-INVOICES-PAYMENTS, 04-CORRESPONDENCE, 05-REPORTS-DELIVERABLES and _Superseded hold nothing."], ["The tracking number is non-standard", "TRK-2026-0708-JULIA is below the 1247 seed and carries a suffix (charter §9, known drift). _STAGE.md drops the suffix and shows TRK-2026-0708. Registry edits are your decision."], ["The W-9 in Drive may differ from the one in the drafts", "Drive copy W9_Enrique-Piwko_FOR-SIGNATURE (213 KB). The drafts attach W9_Piwko_PREFILLED (about 230 KB per the October 10 sweep). UNVERIFIED whether they match."]];
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>/^https:/.test(id)?id:'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=(o.st==='flag'||o.st==='key')&&o.flag?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc') h+='<div class="meta"><span>'+esc(o.date)+'</span>'+(o.size?'<span>'+esc(kb(o.size))+'</span>':'')+'<span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':o.kind==='folder'?'Open folder in Drive ↗':/outlook/.test(o.link)?'Open in Outlook ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','Release status and blockers first, then done, missing, and who it waits on','4 · 5 · 4',h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    f.docs.forEach(d=>{x+=row({b:f.t,kind:'doc',title:d[0],date:d[1],size:d[2],type:d[3],link:durl(d[4]),st:d[5]?(d[5]==='KEY'||d[5]==='NEW'?'key':'flag'):'',flag:d[5],path:f.p});});
+    if(f.cnt) x+='<p class="bnote">📦 '+f.cnt+' '+esc(f.cntwhat)+' are counted here, not listed one by one, to keep this page small. Open the folder to see them.</p>';
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' search'); if(s.t)sc.push(s.t+' tag'); if(s.o)sc.push(s.o+' OCR marker'); if(s.i)sc.push(s.i+' index');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':(f.ext?'🔗 ':'📁 ')+f.t),esc(f.p),f.cnt?f.cnt+' counted':f.ext?f.docs.length+' linked':f.docs.length+' docs',x+(sc.length?'<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>':''),fi===0);
+  });
+  let e='<p class="bnote">These folders exist but hold no files. Nothing was put in them.</p>';
+  EMPTY.forEach(f=>{e+=row({b:'Empty folders',kind:'folder',title:f[0],text:'Empty folder',link:furl(f[1])});});
+  branch('empty','','📂 Empty folders','Standard folder set, created but never used',EMPTY.length+' empty',e,false);
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  let fh='<p class="bnote">Found while building this capsule. Nothing was moved, renamed or deleted. Each one waits for your yes.</p>';
+  FINDINGS.forEach(it=>{fh+=row({b:'Findings',kind:'finding',title:it[0],text:it[1],st:'finding'});});
+  branch('findings','','🔎 Findings','Inspection never requested, unanswered County email, 4 unsent drafts, missing email trail',FINDINGS.length+' findings',fh,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> Money items stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='</div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':MONEY.length+' items',m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>it.kind!=='money'||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">TRK-2026-0708-JULIA · Julia\'s Place bond release · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(it.kind==='money'?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=it.kind==='doc'?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc') h+='<p class="meta"><span>'+esc(it.date)+'</span>'+(it.size?'<span>'+esc(kb(it.size))+'</span>':'')+'<span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':/outlook/.test(it.link)?'Open in Outlook ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='TRK-2026-0708-JULIA · Julia\'s Place Bond Release · Enrique (Henry) Piwko\nRelease NOT STARTED at the County · inspection not requested · signed W-9 not received\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='folder') s+='   Open: '+it.link+'\n';
+    else if(it.kind==='doc') s+='   '+it.date+(it.size?' · '+kb(it.size):'')+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— TRK-2026-0708-JULIA · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>it.kind!=='money'||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+build();
+(function(){try{const n=new Date();const d1=Math.floor((n-new Date('2026-04-27T09:13:00-04:00'))/86400000),d2=Math.floor((n-new Date('2026-07-13T13:09:00-04:00'))/86400000);
+if(d1>0)$('c1').textContent=d1+' days';if(d2>0)$('c2').textContent=d2+' days';}catch(e){}})();
+</script>

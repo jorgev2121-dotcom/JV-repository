@@ -1,0 +1,293 @@
+<title>Rose Arbor Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+</style>
+
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED</p>
+<h1>TRK-2026-1588 · 4225 Rose Arbor Cir, Port Charlotte</h1>
+<div class="facts">
+  <span><b>Parcel</b>402125130005 (Charlotte County)</span>
+  <span><b>Legal</b>Port Charlotte Sec 44, Blk 3299, Lot 5</span>
+  <span><b>Owner of record</b>Millicent J. Campbell (Brentwood, NY)</span>
+  <span><b>Work</b>Quiet-title due diligence</span>
+  <span><b>Client</b>Not confirmed (Miguel Zaldivar or Lily)</span>
+  <span><b>Stage</b>08-DELIVERED, not billed</span>
+</div>
+<div class="deadline">Delivered August 10 and 11 · not priced, not invoiced · <span id="daysleft">63 days since delivery</span>
+<small>The research is done. Two things block the next step: a price from you, and a person at a browser for the Charlotte County Clerk records. The big open question for the client is whether Millicent J. Campbell is alive. <a class="open" href="https://drive.google.com/file/d/1LemmoZSwoOd6ger2JlebjNZXkcOH6v1D/view" target="_blank" rel="noopener">Open the action plan ↗</a></small></div>
+<p class="stamp">TRK-2026-1588 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile c" data-go="status"><span class="n">5</span><b>Done and on file</b><small>Title search, owner, deed, tax status, research sent.</small></button>
+  <button class="tile y" data-go="status"><span class="n">7</span><b>Still missing</b><small>Price, client, Clerk pull, Millicent, redeemer, death certificate, images.</small></button>
+  <button class="tile w" data-go="status"><span class="n">4</span><b>Waiting on</b><small>You (three one-word answers), and the desktop.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> <b>This job is finished and has never been billed.</b> Name a price and it can be invoiced. For the client, the deciding fact is whether Millicent J. Campbell is alive: if yes, two recorded papers clear the title; if not, it becomes probate or a quiet-title suit. Also: <b>someone paid off years of back taxes on June 29</b>, so somebody is actively protecting this house.</p></div>
+
+<div class="tags"><b>Hashtags for this job (from _HASHTAGS.txt and _TAGS.txt)</b>#TRK-2026-1588 #RoseArbor #4225RoseArborCir #4225-Rose-Arbor-Cir #PortCharlotte #Port-Charlotte #CharlotteCounty #Charlotte-County #QuietTitle #quiet-title #TitleSearch #Campbell #parcel402125130005 #folio402125130005 #folio402206401009 #JOB-4225 #JorgeValdes #CU-Inspections</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>23 documents listed in 5 folder branches; 4 empty folders linked (9 folders in all, counting the root). Left out of the list: 56 backup copies, 2 search and 1 tag sidecars. Total 82 of 82 files accounted for. 5 related files elsewhere in Drive are linked but not counted. Nothing on this page sends, files, moves or deletes anything. Ticks are not saved.</p>
+  <p class="tag">TRK-2026-1588 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #TRK-2026-1588 #RoseArbor #PortCharlotte #parcel402125130005 #QuietTitle #Campbell #capsule #orange-tree</p>
+</footer>
+</div>
+
+<script>
+const FOLDERS=[{"k": "root", "t": "Job root", "p": "TRK-2026-1588 (top of the job folder)", "fid": "1wx5nPZmo2W1Za-93y2t4pmSxgX5xOFEI", "note": "Placeholder list, stage record, tags and the old portal pages. 56 backup copies are left out of this list (28 portal, 27 _STAGE, 1 _HASHTAGS), all in the banned NAME.ext.bak-DATE form.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["_PLACEHOLDERS.md (the 10 open items)", "2026-10-10", 3020, "Notes", "19mjuO639uEM1pz5kTlupDUy1RcR5gpbR", "KEY"], ["_STAGE.md", "2026-10-09", 2106, "Notes", "1Ocw5Cjbp3lc-Z8OpWQzUTSgdoydyymv5", ""], ["_PORTAL_TRK-2026-1588.html", "2026-10-13", 20498, "Web page", "1LRJi6FfN4ZWYuad-NlSKwTE1_WqRNtgt", "OLD FORMAT"], ["_PORTAL_TRK-2026-1588_EMBEDDED.html", "2026-08-19", 200844, "Web page", "140he8xh54QxV2aEeSFBOUZYvc0K4feL_", "STALE COPY"], ["_HASHTAGS.txt", "2026-08-17", 628, "Text", "1LPiE4XV0gUUYcCbGUAnq9qQ7jbLo0iy4", ""], ["_TAGS.txt", "2026-08-26", 458, "Text", "10y-K1BqBi0zFwIEXrzJsSBcTRXdqmB9k", ""], ["_CONTACTS-EXTRACTED.txt", "2026-10-05", 462, "Text", "1AF8N9IQjUb8vUphV13XZTcL8jK9FvwEi", ""], ["_TRK.txt", "2026-08-11", 15, "Text", "15kvJ0JGrf8iKAlGoWR_srZgO-OIfLB3H", ""], ["_INDEX.html", "2026-08-17", 4624, "Web page", "1MTPY64x2InMRFKcFE-h4G7O7STw29sNZ", ""]], "bak": 56}, {"k": "rep", "t": "05-REPORTS-DELIVERABLES", "p": "TRK-2026-1588 / 05-REPORTS-DELIVERABLES", "fid": "1W_HvW-MrWXy0NDBZqciENo45Sg7I3uMH", "note": "The four deliverables of August 10 and 11, plus a read-aloud copy. This is the finished work.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["ROSE-ARBOR_TITLE-DD_TRK-2026-1588_2026-08-10.md (title search)", "2026-08-17", 8603, "Notes", "19MNwPK-Yf6B3BKsr2gbH74np0_HC5CaE", "KEY"], ["ACTION-PLAN-and-FINDINGS_TRK-2026-1588_2026-08-10.md (deed, tax status, plan)", "2026-08-11", 14460, "Notes", "1LemmoZSwoOd6ger2JlebjNZXkcOH6v1D", "KEY"], ["ROSE-ARBOR_RESEARCH-PACKET_TRK-2026-1588_2026-08-11.html", "2026-08-11", 9767, "Web page", "1y3WoYklb32YxfudmYcXlWdpdEqed5Mn8", "KEY"], ["FIELD-PACK_Owner-Retrieval_TRK-2026-1588.md (what to pull by hand)", "2026-08-11", 3093, "Notes", "11--xw7xfFOKEkZezSjEUCEKGSIWvkQf6", ""], ["ROSE-ARBOR_TITLE-DD_TRK-2026-1588_READALOUD.html", "2026-08-17", 4084, "Web page", "1s2N64ageZIG-plmg4v8YoShaZt_J-OIN", ""], ["_INDEX.html", "2026-08-17", 4290, "Web page", "1HMFs7Xg70O8_tLnz3oKsTXJVW_4N-dW9", ""]]}, {"k": "intake", "t": "01-INTAKE", "p": "TRK-2026-1588 / 01-INTAKE", "fid": "1oWXpTnH1c5lKKEFM4YZ3STNBBAex3xej", "note": "Raw research: the Property Appraiser pull, the log of the blocked Clerk attempts, and the floor-plan sketch. The title report says these are in 03-Research; they are here.", "side": {"s": 1, "t": 0, "o": 0, "i": 0}, "docs": [["PA_RAW_ccappraiser_402125130005_2026-08-10.md", "2026-08-11", 1813, "Notes", "1NKTiz9lB7hgX7dxbd8zt6fK0rl_NLCAU", ""], ["CLERK_OFFICIAL_RECORDS_ATTEMPT_LOG_2026-08-10.md", "2026-08-11", 1988, "Notes", "1qtpNnwJx6elEbYLlObFK9et1UyTTSnjY", "BLOCKED"], ["FLOOR-PLAN_402125130005_schematic.png", "2026-08-11", 70246, "Image", "1sh9-8Tc_rS_ZyyoDRZOp6ypKaJZ0zUQs", ""], ["FLOOR-PLAN_402125130005_schematic.svg", "2026-08-11", 3324, "Image", "1p6_yFkJgwlHjGPVLyNzq3PFQlYoV3P7r", ""], ["_INDEX.html", "2026-08-17", 3887, "Web page", "1dbw1yjMdC8To6ktdC0rf-qS5FV9Ct6NL", ""]]}, {"k": "auto", "t": "_AUTO-FILED", "p": "TRK-2026-1588 / _AUTO-FILED", "fid": "19CNiOWYUs2wGaUgzk06Wu-dz9VCCdodG", "note": "The 2022 Charlotte County tax bill, put here by the auto-filer on August 26. Its text layer also names another owner and address; see Findings.", "side": {"s": 1, "t": 1, "o": 0, "i": 0}, "docs": [["Charlotte-County-Real-Estate-402125130005-2022-Annual-bill.pdf", "2026-08-11", 1139334, "PDF", "1YTM_WDC_rItdAzuFD4H2K-wDOj3d27ja", "CHECK TEXT"]]}, {"k": "sup", "t": "_Superseded", "p": "TRK-2026-1588 / _Superseded", "fid": "1hFZY5RHB2XpRfnRNhQVrUl2nOBkfKQBv", "note": "The first version of the research packet, replaced the same day.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["ROSE-ARBOR_RESEARCH-PACKET_TRK-2026-1588_2026-08-11.html.bak-20260811", "2026-08-11", 7950, "Backup", "1qXYojxB27X4-rLH5gj8LKHUWt_J3aU79", "OLD VERSION"], ["_INDEX.html", "2026-08-15", 3645, "Web page", "14ks7RLODGLeXB7ujcJc7E8pp6DUGN67k", ""]]}, {"k": "ext", "ext": true, "t": "Elsewhere in Drive (the order, the delivery copy, duplicates)", "p": "Not in this folder · not part of the count", "fid": "1zRRWEcpdOJg0C4yhpAX8P5G84BMGY5Km", "note": "Linked so the whole job is in one place. The folder link opens 01-JOBS / _CONVERGE-STAGING / RoseArbor, which holds two more copies of the 2022 tax bill. The order, delivery copy and ACK sit in the VTES mail folders. Nothing was copied or moved.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["JOB-4225-ROSE-ARBOR_QUIET-TITLE-DUE-DILIGENCE_2026-08-01.md (the original order)", "2026-08-01", 2959, "Notes", "1JOXejfjyPVz524bqJP6AeOcsmFcfpTPQ", "ORDER"], ["ROSE-ARBOR_TITLE-DD_DELIVERED_2026-08-10.md (delivery copy, VTES-Outbox)", "2026-09-03", 8524, "Notes", "1UNb95nk0GeGJI4_I6d4jVqNHoX2vYRsK", "DELIVERY COPY"], ["ACK_2026-08-01_OWNER-ESCALATION_SUPERSEDED-ROSE-ARBOR-ALREADY-DELIVERED-TRK-2026-1588.md", "2026-09-03", 2592, "Notes", "12l6lrrQOrQCRrxJbGD5FVcDN_nXNgBTO", ""], ["Charlotte-County-Real-Estate-402125130005-2022-Annual-bill.pdf (copy in _CONVERGE-STAGING)", "2026-08-11", 1139334, "PDF", "1oVUTnEkfYeV5QiREiG8poWRP5rsXRBPZ", "DUPLICATE"], ["Charlotte-County-Real-Estate-402125130005-2022-Annual-bill__dl-20260811-005347.pdf", "2026-08-11", 1139334, "PDF", "1A7S17IhApryuekQ-OkEOUmi_IyEcwAFi", "DUPLICATE"]]}];
+const EMPTY=[["03-Research (the title report points here, but it is empty)", "13hzPTg_cF0oYfLdcN1Btwajuw5fjnUIG"], ["02-PERMITS", "1U3gZ-W7LIM5SWJlRbBP4mHWZVMtgvTiF"], ["03-INVOICES-PAYMENTS (no invoice yet)", "1UZkCFJomKxGWk9CRIYj0RMo5xbv9Gylv"], ["04-CORRESPONDENCE", "1J1WfftBGL-22n9pvIY1KQh8McnuedNfd"]];
+const PILL={done:["p-done","ARRIVED"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag",""],key:["p-key","KEY"],money:["p-money","MONEY"],person:["p-wait","CONTACT"],finding:["p-flag","FINDING"]};
+const STATUS=[["Done and on file", [["Title search delivered August 10 and 11", "Four deliverables in 05-REPORTS-DELIVERABLES: the title search, the action plan with findings, the research packet, and the field pack. Stage 08-DELIVERED.", "done"], ["Owner of record confirmed: Millicent J. Campbell", "From the live Property Appraiser card. Mailing address 175 Grand Blvd, Brentwood, NY 11717. No homestead, so not her Florida home.", "done"], ["The 1984 deed was read and transcribed", "Warranty deed, O.R. Book 777 Page 1333, from General Development Corporation to “James W. Campbell and Millicent J. Campbell, his wife.” Husband and wife means the survivor normally owns it all, with no probate.", "done"], ["Tax status pulled: the tax-deed route is closed", "The taxes were behind for years and a tax-deed application was filed. On June 29, 2026 someone paid it all off and redeemed it. Amounts are in the money zone.", "done"], ["Research emailed to Miguel Zaldivar on August 11", "Two sent copies, with the floor plan, the action plan and the title report attached.", "done"]]], ["Still missing", [["Price and invoice", "No price named (owner action AP-0024) and no invoice. 03-INVOICES-PAYMENTS is empty. Details are in the money zone.", "miss"], ["Who the client is", "The stage file says the client is not named. The research went to Miguel Zaldivar about “the house Lily called out.” Probably Miguel or Lily.", "miss"], ["Charlotte County Clerk records pull", "Mortgages, liens, judgments and lis pendens after 1984 were never searched. The Clerk site blocks automated tools. Needs a person at a browser.", "miss"], ["Is Millicent J. Campbell alive?", "This decides the whole cure path. If she is alive, two recorded papers fix the title. If not, it becomes probate or a quiet-title suit.", "miss"], ["Who redeemed the taxes on June 29, 2026", "Receipt 779-00001243. It could be Millicent, an heir, or a competing investor.", "miss"], ["James W. Campbell death certificate", "Needed for either cure path. Not ordered, as far as the file shows. The Appraiser card notes it is unrecorded.", "miss"], ["Deed page images and the building sketch", "DEED_OR-777-1333 page images, the building sketch, an aerial and a Street View still. None are in Drive.", "miss"]]], ["Waiting on", [["You: name the price, so it can be invoiced", "One number. Open since August 11; 63 days delivered and not billed.", "wait"], ["You: who is the client, Miguel or Lily?", "One word.", "wait"], ["You: send the title-company email, yes or no?", "It is drafted inside the action plan. There is no sign it was sent.", "wait"], ["Desktop: one browser session at the Clerk and Tax Collector sites", "Run the field pack's three searches and save the deed images. Read-only, nothing filed.", "wait"]]]];
+const PEOPLE=[["Millicent J. Campbell · owner of record", "175 Grand Blvd, Brentwood, NY 11717. Earlier address on the 1984 deed: 131-30 223rd St, Laurelton, NY 11413. Whether she is alive is unconfirmed. No email or phone on file.", ""], ["James W. Campbell · co-owner on the 1984 deed, deceased", "His death certificate is not recorded in Charlotte County (the Appraiser card reads “UNREC DC-JWC”). Date of death unknown.", ""], ["Miguel Zaldivar · probable client (MZ Solutions, LLC)", "The research was emailed to him on August 11. Not confirmed as the ordering client.", "miguel@mzsolutions.org"], ["Lily · possible client", "Named in the August 11 email as the one who “called out” the house. No surname, email or phone on file.", ""], ["Charlotte County Tax Collector", "18500 Murdock Circle, Port Charlotte, FL 33948. Phone (941) 743-1350. Holds the June 29 redemption record. Online: charlotte.county-taxes.com (blocks automated tools).", ""], ["Charlotte County Property Appraiser", "Phone (941) 743-1593. ccappraiser.com, parcel 402125130005.", ""], ["Charlotte County Clerk of Court, Official Records", "or.charlotteclerk.com/recording. Search name “Campbell” and legal “Port Charlotte Sec 44 Blk 3299 Lot 5”. Blocks automated tools.", ""], ["Charlotte County Code Compliance", "Phone 941-743-1201, press 2. Code-case status was not checked.", ""], ["Title company (not yet chosen)", "The request email is drafted in the action plan, ready to send once you say yes.", ""]];
+const MONEY=[["Our price: not named (AP-0024), not invoiced, not paid", "The work was delivered August 10 and 11. _STAGE shows amount billable [VERIFY], invoiced NO, paid NO, money defect YES. 03-INVOICES-PAYMENTS is empty.", "money"], ["June 29, 2026 tax redemption: about $11,613", "2023 $4,564.79 + 2024 $3,734.18 + 2025 $3,314.12. Receipt 779-00001243. Redeemed tax-deed application 260170. Payer unknown.", "money"], ["2022 tax bill: $3,130.30, paid July 8, 2024", "Under certificate 2499 (face $2,975.29), receipt INT-00066556. From the PDF in _AUTO-FILED.", "money"], ["Values from the Property Appraiser (2025 certified)", "Just value $176,999 · assessed $141,129 · land $25,000. Trulia estimate $158,532. 1984 purchase of the vacant lot: $67,755.", "money"], ["Cost to cure the title (estimates in the action plan)", "If Millicent is alive: about $300 to $500 to record the death certificate and a surviving-spouse affidavit. Death certificate $15 to $50. Title commitment $150 to $450. Full quiet-title suit, only if needed: about $2,000 to $4,500.", "money"]];
+const FINDINGS=[["The tax-bill PDF names a second owner and address in its text", "Alongside Campbell and 4225 Rose Arbor Cir, the text layer also reads “ELLIOTT GERARD & CAROL A” and “9015 KESTRAL CIR.” It may be a scan leftover, but check it before anyone quotes this bill. Nothing was moved."], ["Three copies of the same tax bill", "One in _AUTO-FILED here, and two more (one with a __dl- name) in 01-JOBS / _CONVERGE-STAGING / RoseArbor. The 2022 bill is also not a standard folder name."], ["The title report still says “Job: JOB-4225” inside", "The filename was changed to TRK-2026-1588, but the body still carries the old job number and no TRK stamp. It also points to 03-Research for the raw files; they are in 01-INTAKE, and 03-Research is empty."], ["A second parcel number is tagged on this job", "_HASHTAGS.txt carries #folio402206401009, the number named in the original order. The Appraiser card returns 402125130005 for this address. Kept as a cross-reference only; confirm the order meant this house."], ["Deed dates do not line up", "The transcribed deed reads “made March 4, 1983,” recorded June 13, 1984. The Appraiser shows the sale as March 1, 1984. Settle it in the Clerk pull."], ["Part of the ordered scope could not be done", "The August 1 order asked for mortgages, lis pendens, liens, code cases and a probate check. The county sites blocked all of these. The verdict is “plausible, contingent on the Clerk pull,” which is a NEEDS-MORE, not a GO."], ["Occupancy is contradicted", "Trulia says “currently occupied,” against the abandoned-house theory. Not verified."], ["Stage clock is stale and the job is unbilled", "_STAGE.md was last regenerated October 8 (58 days). Today it is 63 days since delivery with no price."], ["An unsent draft of the August 11 email", "The October 10 sweep found a third copy, from 12:07 PM, still sitting in Drafts. Two copies were sent."], ["56 backups use the banned NAME.ext.bak-DATE form", "28 _PORTAL, 27 _STAGE and 1 _HASHTAGS, about one a day from August 30 to October 8. Drive cannot preview them. The 200 KB _EMBEDDED portal from August 19 is also a stale duplicate. None were touched."], ["Missing housekeeping files", "No _VERSION-LOG.md and no _ARRIVALS file. The old _PORTAL is in the older format. Filenames do not follow DATE _ TRK _ TYPE."]];
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=(o.st==='flag'||o.st==='key')&&o.flag?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc') h+='<div class="meta"><span>'+esc(o.date)+'</span><span>'+esc(kb(o.size))+'</span><span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':o.kind==='folder'?'Open folder in Drive ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','Done, still missing, and who it waits on','5 · 7 · 4',h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    f.docs.forEach(d=>{x+=row({b:f.t,kind:'doc',title:d[0],date:d[1],size:d[2],type:d[3],link:durl(d[4]),st:d[5]?(d[5]==='KEY'||d[5]==='NEW'?'key':'flag'):'',flag:d[5],path:f.p});});
+    if(f.cnt) x+='<p class="bnote">📦 '+f.cnt+' '+esc(f.cntwhat)+' are counted here, not listed one by one, to keep this page small. Open the folder to see them.</p>';
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' search'); if(s.t)sc.push(s.t+' tag'); if(s.o)sc.push(s.o+' OCR marker'); if(s.i)sc.push(s.i+' index');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':(f.ext?'🔗 ':'📁 ')+f.t),esc(f.p),f.cnt?f.cnt+' counted':f.ext?f.docs.length+' linked':f.docs.length+' docs',x+(sc.length?'<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>':''),fi===0);
+  });
+  let e='<p class="bnote">These folders exist but hold no files. Nothing was put in them.</p>';
+  EMPTY.forEach(f=>{e+=row({b:'Empty folders',kind:'folder',title:f[0],text:'Empty folder',link:furl(f[1])});});
+  branch('empty','','📂 Empty folders','Created but never used',EMPTY.length+' empty',e,false);
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  let fh='<p class="bnote">Found while building this capsule. Nothing was moved, renamed or deleted. Each one waits for your yes.</p>';
+  FINDINGS.forEach(it=>{fh+=row({b:'Findings',kind:'finding',title:it[0],text:it[1],st:'finding'});});
+  branch('findings','','🔎 Findings','Second owner in the tax-bill text, old job number, second parcel, unbilled',FINDINGS.length+' findings',fh,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> Money items stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='</div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':MONEY.length+' items',m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>it.kind!=='money'||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">TRK-2026-1588 · 4225 Rose Arbor Cir · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(it.kind==='money'?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=it.kind==='doc'?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc') h+='<p class="meta"><span>'+esc(it.date)+'</span><span>'+esc(kb(it.size))+'</span><span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='TRK-2026-1588 · 4225 Rose Arbor Cir, Port Charlotte FL 33948 · Parcel 402125130005\nQuiet-title due diligence · Delivered 2026-08-10/11 · Owner of record Millicent J. Campbell\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='folder') s+='   Open: '+it.link+'\n';
+    else if(it.kind==='doc') s+='   '+it.date+' · '+kb(it.size)+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— TRK-2026-1588 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>it.kind!=='money'||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+build();
+(function(){try{const t=new Date('2026-08-11T12:00:00-04:00'),n=new Date();const d=Math.floor((n-t)/86400000);
+$('daysleft').textContent=d+' days since delivery';}catch(e){}})();
+</script>
