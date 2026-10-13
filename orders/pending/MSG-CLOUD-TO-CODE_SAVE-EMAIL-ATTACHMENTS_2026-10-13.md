@@ -29,3 +29,7 @@ Destination: `G:\My Drive\01-JOBS — ONE SOURCE OF TRUTH\TUS-26-1018 _ FOLIO-TB
 4. **Do not move anything from the sweep.** Report only.
 
 Report: a count of files saved, the paths, the SHA-256 of each, and the sweep matches.
+
+## C. Added by the 2026-10-13 13:18Z watch run
+
+- TUS-26-1033 Medley: retrieve the PAID microfilm images for process X2027004874 (7265 NW 74 ST) from http://bldgappl.miamidade.gov/microfilm/AppointmentMaintenance.aspx before ~2026-11-11. Save them into the Medley job folder under `03_Research\Microfilm\`. No payment is needed; it is already paid.
