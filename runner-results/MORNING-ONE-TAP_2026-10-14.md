@@ -4,8 +4,45 @@
 **Written by:** Claude Code, CLOUD lane (☁️), helper for the VTES runner. GREEN: new files only. Nothing was sent, filed, moved or renamed.
 **Pretty version:** reports/MORNING-ONE-TAP_2026-10-14.html (Orange Tree, big checkboxes, Copy my answers, money locked behind 0000).
 
-**29 decisions.** Reply with the number and one word, for example: 1 yes, 2 unsure, 3 keep.
+**29 decisions, plus 12 overnight lines in Section O.** Reply with the number and one word, for example: 1 yes, 2 unsure, 3 keep.
 Money amounts are left out of this file on purpose. They sit only in the locked money zone of the HTML page.
+
+## Section O — Overnight (while you slept)
+
+**Done overnight, 4 items. Nothing to answer.**
+
+O1. **People hashtags: 40 of 40 jobs.** Every job folder has people tags now. 184 people added. Nothing old was changed.
+O2. **Control panel: 64 to 72 of 116.** Tabs at 100%: MENU, RULES, BRIDGES, WINDOWS, ORPHANS, HANDOFFS.
+O3. **3 owner directive files written.** Freeze and Finish, Share Link, 1Password (summary only).
+O4. **OneDrive duplicate check, part 2.** Nothing moved or deleted. See O8.
+
+**New look-only questions, 5 items. Nothing was changed.** Reply with the O number and one word, for example: O5 yes.
+
+O5. **Cutler Bay, TRK-2026-1310: extra TRK tags.**
+   - The old tags also carry #TRK-2026-10052 (too many digits) and #TRK-2026-1667.
+   - Answer: which number is the real job?
+
+O6. **Groves at Sunset, TRK-2026-1256: tag #TRK-2026-1436.**
+   - 1436 is also a Plaza permit number. Likely a permit mistaken for a job.
+   - Answer: which is right?
+
+O7. **15222 SW 108 Pl: short form TRK-26-1042.**
+   - The long form TRK-2026-1042 is not confirmed for this address.
+   - Answer: is the long form right? yes / no / unsure
+
+O8. **OneDrive: the second Field Inspections copy is a near-duplicate of the first.**
+   - The differences found are PaperPort cache files, plus one folder only the first copy has.
+   - Proposal: quarantine the second copy after a PC hash check. Never delete.
+   - Answer: yes / no (recommended: yes)
+
+O9. **Hand-offs: keep Cowork, iPhone and Ollama allowed when client data is ticked?**
+   - Answer: keep / block (recommended: keep)
+
+**Personal notices, 3 items. No amounts.**
+
+O10. **The Office 365 invoice is ready.**
+O11. **A credit card statement is ready.** It sits in the money zone, locked behind 0000.
+O12. **The Slack Pro trial ends October 21.**
 
 ## Section A — Deadlines and at risk
 
@@ -192,6 +229,3 @@ Money amounts are left out of this file on purpose. They sit only in the locked 
 ADMIN · Morning One-Tap · v1 · 2026-10-14 · CURRENT
 
 **Which number shall we start with?**
-
-- (added 06:50Z) HASHTAG v2 check: Cutler Bay folder (TRK-2026-1310) old tags also carry #TRK-2026-10052 (5-digit, malformed) and #TRK-2026-1667, and both #folioTBD and #folio-30-6007-009-0030. Which number is the real job? (Look only; nothing changed.)
-- (added 07:15Z) HASHTAG v2 check: Groves at Sunset folder (TRK-2026-1256) old tags carry #TRK-2026-1436. 1436 also appears as Plaza permit BLC2026-1436 — likely a permit number mistaken for a job number. Which is right? (Look only; nothing changed.)
