@@ -229,3 +229,5 @@ O12. **The Slack Pro trial ends October 21.**
 ADMIN · Morning One-Tap · v1 · 2026-10-14 · CURRENT
 
 **Which number shall we start with?**
+
+- (added 10:55Z) Email attachments: 22 proposed matches in 3 batches (runner-results/ATTACH-ALL_EMAIL_PROPOSAL_2026-10-14.md). 16 belong to Cutler Bay — emails call it TRK-2026-1667 while the folder is TRK-2026-1310 (same question as the Cutler Bay extra tags). Is 1667 the same job as 1310? (Look only; nothing filed.)
