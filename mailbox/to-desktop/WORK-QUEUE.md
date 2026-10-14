@@ -669,7 +669,7 @@ Checkpoint mode: do one step, show the proof, then stop.
    - If it was moved, re-point the caller to the real file.
    - If it is in a recycle bin, restore it.
    - If its target is gone for good, remove the dead button rather than leave a pop-up.
-   - Back up any file before editing it (`.bak-YYYYMMDD`). Delete nothing without Jorge's yes.
+   - Back up any file before editing it (`NAME_bak-YYYYMMDD.ext`, extension last — never `.ext.bak-DATE`). Delete nothing without Jorge's yes.
 3. **Proof.** Click the same button once. It should open the right thing with no pop-up.
    Push a short result to `mailbox/to-cloud/`.
 
