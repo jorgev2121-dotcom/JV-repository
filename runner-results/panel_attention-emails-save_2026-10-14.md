@@ -22,3 +22,17 @@ No backup copy was made in the repo — git history is the backup. Scratch files
 **Heads-up, not changed:** the older red "🚩 Approve all" header button still approves everything, RED items included. The new batch in the list is the safe one.
 
 Tests run together after Feature 1 (same counts on git HEAD before the change): search 28/0 · phone-width 12/0 · menu-glossary 18/0 · button-groups 50/0 · money-lock 0 amounts locked, 0 relocked, no errors · attention 37/0.
+
+## Section B — Feature 2: Emails drop-down becomes sub-category buttons (SPEC_EMAILS-SUBBUTTONS)
+
+**State: DONE locally. Test `tools/panel/test/emails-subbuttons-test.js`: 29 PASS, 0 FAIL.**
+
+1. **"📧 Emails" now opens a bar of big buttons just under the header row.** It has one labelled row per mailbox: "Gmail" and "Outlook (work)". Every email button has the same pale blue tint, an icon, a plain word and a hover tip saying what it opens.
+2. Three buttons are new: **Emails needing a reply** (Gmail unread in the inbox, without promotions), **From the city** (Bal Harbour, Miami-Dade, Pembroke Pines, Medley) and **Outlook unread**. The 7 old links are all kept.
+3. **"View as" switch:** Buttons (the default) · Compact list (the old look) · Big cards (best on the phone). The choice is remembered in each browser.
+4. Minimize, maximize, close, Esc and a click outside all still work. The old emails-window and emails-menu checks still show the same open and close behaviour, and they have no page errors.
+5. The search still finds every email button, now with its mailbox name. The money lock is untouched.
+
+**Not verified:** Outlook on the web has no known direct link for "unread only". The **Outlook unread** button opens the work inbox, and its hover tip says to click Filter, then Unread. This is said plainly rather than shipping a link we guessed.
+
+Tests run together after Feature 2: search 28/0 · phone-width 12/0 · menu-glossary 18/0 · button-groups 50/0 · money-lock 0 amounts locked, 0 relocked, no errors · attention 37/0 · emails-subbuttons 29/0.
