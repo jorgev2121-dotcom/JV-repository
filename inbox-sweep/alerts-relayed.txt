@@ -48,3 +48,4 @@
 2026-10-13T23:17:30Z · watch · nothing new (mail or Outbox); no RAMBO1 receipts. No push.
 2026-10-14T00:17:30Z · watch · nothing new; no RAMBO1 receipts. No push.
 2026-10-14T01:17:30Z · watch · mail: nothing new. Outbox: PC routine reports refreshed (FINISHER-STANDUP, RECONCILER-REPORT, _NEEDS-YOU.json ~01:10Z) — PC scheduled scripts alive; still no RAMBO1 receipts for our orders. No push.
+2026-10-14T02:17:30Z · watch · mail: nothing new. Outbox/Inbox: Cowork filed MSG-COWORK-TO-CODE_CDM-REISSUE_2026-10-14 (Inbox 1T-59xqcHNJwvgiuVJVNcWr2WVyzYhSGL) addressed to desktop Claude OR cloud Code lane; Codex declined (PII rule). → cloud runner takes it next run (02:41Z). No push.
