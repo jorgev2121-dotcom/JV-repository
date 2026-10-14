@@ -941,6 +941,7 @@ u.onend=function(){fin('Finished reading.')};u.onerror=function(){fin(started?'R
 m.textContent='Starting to read…';ss.speak(u);RDT.push(setTimeout(function(){if(!started)fin(NA)},2000));return 'started'}catch(e){fin(NA);return 'unavailable'}},
 readStop:function(){RDGEN++;rdClear();try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}var m=document.getElementById('voicemsg');if(m)m.textContent='Stopped.';return 'stopped'},
 searchNow:function(){doSearch();var sp=document.getElementById('searchpane');if(sp)sp.scrollIntoView({block:'start'});return SHITS.length},
+searchIndex:function(){buildIndex();sExtra();return INDEX},
 driveAgain:function(){var q=document.getElementById('q').value.trim().toLowerCase();if(q)driveSearch(q)},
 hitGo:function(k){var x=SHITS[k];if(!x)return false;if(x.go==='TAG'){VTES.search(x.name);return true}
  if(x.go==='MAIL'){document.getElementById('q').value='';doSearch();var d=document.querySelector('details.mailmenu');if(d)d.open=true;return true}
