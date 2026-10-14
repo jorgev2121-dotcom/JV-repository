@@ -480,6 +480,30 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
 
 ---
 
+## 17. FIU intern-candidate emails for Vanessa (PaperPort images — only the desktop can see them)
+
+Filed 2026-10-14 by CLOUD at Jorge's request. TRK: the desktop session assigns it from the live
+registry (cloud does not hold it and will not invent one). Jorge saved the photos to **PaperPort**
+on his PC; the cloud session cannot read that, so this job belongs to the desktop lane.
+
+1. **Find the images.** Locate the newest items Jorge just saved in PaperPort (a photo of a handwritten
+   notepad, plus event photos). Read-only search. COPY them to a new staging folder; never move or edit originals.
+2. **Email 1 (DRAFT, do not send).** To `Vanessa@synergygc.net`. Subject:
+   `Construction Management — FIU Students as Paid Intern Candidates (Part-Time & Full-Time)`.
+   Attach the original notepad photo inline so the recipients have the original. Below it, a typed table
+   of every candidate: name, contact info, comments. **A "10" in the left margin means PREFERRED candidate** —
+   show those first with a clear "PREFERRED" label so Victor and/or Vanessa can book appointments or ask for resumes.
+   Anything unreadable gets marked "unverified", never guessed.
+3. **Email 2 (DRAFT, do not send).** Same recipient and subject, with "— Event Photos" added. A collage of the
+   event photos, plus a typed attendee reference list built from what is legible in the photos and notes.
+4. **Contact update.** Make `Vanessa@synergygc.net` her default address in Jorge's contacts. Back up the
+   contact first; write the undo path in the log.
+5. **Report.** Save both drafts, the transcription, and the attendee list to the TRK folder, then list them
+   in TO-CLOUD.md with counts ("X of N candidates transcribed, Y marked preferred").
+   Sending is outbound (RED): Jorge sends each draft with one click. `Victor`'s address was not supplied, so he is not on the draft.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
