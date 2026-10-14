@@ -192,3 +192,5 @@ Money amounts are left out of this file on purpose. They sit only in the locked 
 ADMIN · Morning One-Tap · v1 · 2026-10-14 · CURRENT
 
 **Which number shall we start with?**
+
+- (added 06:50Z) HASHTAG v2 check: Cutler Bay folder (TRK-2026-1310) old tags also carry #TRK-2026-10052 (5-digit, malformed) and #TRK-2026-1667, and both #folioTBD and #folio-30-6007-009-0030. Which number is the real job? (Look only; nothing changed.)

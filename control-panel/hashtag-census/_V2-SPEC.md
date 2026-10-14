@@ -13,7 +13,7 @@ For the ONE job you are given (Drive folder id + title):
    - keep every old tag;
    - add `#First-Last` for each person, `#Company-Name` for each company (hyphens, no spaces);
    - add likely misspellings as plain words on a "Misspellings:" line (not as hashtags);
-   - keep the job TRK tag; DROP the stray admin-band tags #TRK-2026-9490 and #TRK-2026-9754 (bug in DD-BOOK generator) and list them under "Removed:".
+   - keep the job TRK tag; DROP the stray admin-band tags #TRK-2026-9490 and #TRK-2026-9754 (bug in DD-BOOK generator) and list under "Removed:" ONLY tags actually present in the old file (else "Removed: none").
    - NEVER invent a TRK. If the folder has none (FOLIO-TBD, TRK-TBD), leave it as it is.
 4. Create `_HASHTAGS_v2.txt` in that folder: mimeType text/plain, disableConversionToGoogleType true.
    Layout: line 1 `# HASHTAGS v2 · <TRK or folder title> · 2026-10-14 · merged from _TAGS.txt/_HASHTAGS.txt + people census`,
@@ -24,3 +24,4 @@ For the ONE job you are given (Drive folder id + title):
    `<folder_id>\t<DONE|SKIPPED-EXISTS|BLOCKED>\t<people added>\t<drive file id or reason>\t<UTC time>`
 7. Scratch files only in /tmp/claude-0/-home-user-JV-repository/6cf01967-6ccb-5506-8c1b-e9975b663611/scratchpad/<folder_id>/. Do not git commit.
 Reply with one line: id · status · people added · new file id.
+- If the old tags carry a DIFFERENT TRK than the folder title (e.g. Cutler Bay old tags had #TRK-2026-10052 and #TRK-2026-1667), keep them but add a line "Check: other TRK tags present: ..." so Jorge can decide in the morning.
