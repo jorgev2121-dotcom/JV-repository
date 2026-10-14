@@ -43,3 +43,4 @@
 - 2026-10-14T07:00Z panel: RULES directives list + BRIDGES live inbox count + WINDOWS picture cards · 67 of 116 (58%) · RULES, BRIDGES, WINDOWS 100% · 4 test suites passed · published v43 · HASHTAG v2 21 of 40
 - 2026-10-14T07:20Z · HASHTAG-PEOPLE v2 DONE 40 of 40 (184 people added; Drive shows 40 files) · panel 67 of 116 (58%) · queue next: ATTACH-ALL prep, OneDrive dup compare, 3 missing directive files · blocked: PC headless cap
 - 2026-10-14T07:45Z · run 19 · budget allowed · 3 started: panel ORPHANS resolve-proposal + LLMS fixed IDs (ORPHANS → 100%), 3 missing directive files, OneDrive duplicate-tree compare (read-only) · panel 67 of 116 (58%) · queue next: ATTACH-ALL prep · blocked: PC headless cap
+- 2026-10-14T07:58Z panel: ORPHANS propose-match (proposal only) + LLM fixed IDs (existing launcher roster) + RULES +3 directives · 69 of 116 (59%) · ORPHANS 100% · 5 suites passed · published v44
