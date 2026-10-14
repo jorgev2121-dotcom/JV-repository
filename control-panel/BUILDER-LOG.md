@@ -34,3 +34,5 @@
 - 2026-10-14T04:00Z · CDM reissue (Cowork, cloud lane): 3 of 5 orders EXECUTED-WITH-PROOF (TOP15 v10, rulebook v16 @111 rows, manifest v36), 2 BLOCKED on Cowork answers (capital stack v12 hash mismatch +65 B; calibration v16 REF-08 duplicate id); reply in Outbox 11E6tCLW3ZsdDBD55zF-oDR6Uuh_5LgQi
 - 2026-10-14T04:30Z · BAK-RENAME plan: 2,147 banned backups across 41 job folders (survey only, no renames); root cause = PC portal/stage builders + 2 repo instructions (fixed in repo now: AUTONOMY.md l44, WORK-QUEUE l672); rename batch waits for Jorge 'yes BAK-RENAME'
 - 2026-10-14T04:44Z · run 16 · budget allowed · 2 started: MORNING ONE-TAP yes/no page, next panel piece · capsules 40 of 40 · panel 62 of 116 (53%) · blocked: PC headless cap (RECURRING, 4th)
+- 2026-10-14T04:48Z · panel: built MENU 'Greyed future pages with dates' (Coming next list) · 63 of 116 (54%) · MENU 11 of 12 (92%) · 23 tests passed · not yet republished/committed (runner)
+- 2026-10-14T05:00Z · published v41 (MENU coming-next, 63 of 116, 54%) · found: panel scrolls sideways at 375px (email bar) — queue fix
