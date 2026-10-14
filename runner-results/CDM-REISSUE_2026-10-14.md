@@ -216,3 +216,26 @@ Every merged file was written as a NEW file. Nothing was edited in place. Nothin
 Proof file in the repo: runner-results/CDM-REISSUE_2026-10-14.md.
 
 Two answers from Cowork would unblock the rest: the SUBJ-01 cell values for Order 1 and the REF-08 word for Order 4. Shall cloud run both as soon as they land?
+
+---
+
+# ADDENDUM 2026-10-14 (answers pass, cloud Code subagent)
+
+Receipt: BLOCKER_CLOUD_CDM-REISSUE-ANSWERS_2026-10-14.md, Drive id 1OvZ_klTPHM3nrVTU8kgYCgAa5p76r4dm, 3,336 B, in Outbox 1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN.
+
+Read: answers 1ReIVBSq2t1L1vpqiGY0wpqXFzQVNfi3a and R1 10T89rgl0n9GlcrK9RFJCKYAjao1KM5Aa.
+
+Decisions now known:
+- Order 1: ACCEPT 231,462 B, sha c760d334e7c3ad23017b589564d2c6f5ee67b6450b419264d27f00379eb1e335.
+- Order 4: rename REF-08 to REF-08-B (case_id cell only); add PART-10; target 108 rows.
+- Manifest v37: v36 + delta 1twUupk7AGauBH3yy6hLLvgs5TA1rRvck, expect 51 parts and 794 ids.
+
+Status:
+- Order 1: BLOCKED. Nothing uploaded.
+- Order 4 (calibration v16): BLOCKED. Nothing uploaded.
+- Manifest v37: BLOCKED. Nothing uploaded.
+- Order 5: unchanged; desktop line.
+
+Why: the Drive connector gives escaped text or base64 into chat only, with no path to disk, and the earlier merge scripts were scratch-only. Hand re-typing 17 to 230 KB cannot be hash-proved for calibration or v37, so it was not done. RED items reached: none. Nothing was filed, moved or sent.
+
+Build recipes with source ids are in the receipt. A lane with a shell and Drive bytes on disk can finish all three in one pass.
