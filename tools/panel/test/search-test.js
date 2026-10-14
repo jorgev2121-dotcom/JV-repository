@@ -52,7 +52,7 @@ ok('every query answers within 500 ms',slow===0,'max '+Math.max(...rows.map(r=>r
 const ph=rows.find(r=>r.q==='#ph11 #PLaza');ok('"#ph11 #PLaza" finds items (AND of both words)',ph.n>=1&&!ph.any,ph.n+' found');
 const phTxt=await p.evaluate(()=>{const el=document.getElementById('q');el.value='#ph11 #PLaza';el.dispatchEvent(new Event('input'));return document.getElementById('searchpane').innerText});
 ok('"#ph11 #PLaza" results mention PH11 and Plaza of Bal Harbour',/PH11/.test(phTxt)&&/Bal Harbour/i.test(phTxt));
-const ab=rows.find(r=>r.kind==='absent');ok('id the page does not hold gives the honest line and offers Drive search',ab.n===0&&ab.honest&&await p.$('#snone button')!==null&&await p.$('#drivehits')!==null);
+const ab=rows.find(r=>r.kind==='absent');await p.fill('#q',ab.q);await p.waitForTimeout(50);ok('id the page does not hold gives the honest line and offers Drive search',ab.n===0&&ab.honest&&await p.$('#snone button')!==null&&await p.$('#drivehits')!==null);
 // Enter + Search button
 await p.fill('#q','');await p.dispatchEvent('#q','input');
 await p.evaluate(()=>{document.getElementById('q').value='TRK-2026-1265'});await p.focus('#q');await p.keyboard.press('Enter');
