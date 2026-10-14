@@ -47,7 +47,7 @@ Jorge@TeamUsaSales.com
 2. **Get the signed papers from the tenant.** Signed proposal, power of attorney (POA) for Jorge, and landlord consent letter. Who: Daniel Felipe / Miall Mulkay sign; Jorge requests. Target: Fri 10-16.
 3. **Get copies of every notice and citation** on case ECC2026-0280 (NOV and any citations, with their deadlines). Who: Jorge asks Code Compliance (covered in the email) and asks the tenant for their copies. Target: Fri 10-16.
 4. **Meet the Town (20 minutes).** Confirm the checklist, whether Fire/DERM goes first, and a hold on code deadlines. Who: Jorge. Target: week of 10-13, no later than Fri 10-23.
-5. **Retrieve the microfilm plans** (order X2027004874, all plans on file for 7265 NW 74 St). Who: Jorge. **Deadline: Wed 11-11 (30 days from 10-12 payment).** Target: by Fri 10-23 so the engineer has them.
+5. **Retrieve the microfilm plans** (order X2027004874, all plans on file for 7265 NW 74 St). Who: desktop executor (owner asked 10-13 to download and save to the job; corrected 10-14 — was wrongly "Jorge"). **Deadline: Wed 11-11 (30 days from 10-12 payment).** Target: by Fri 10-23 so the engineer has them.
 6. **Decide the engineer / architect of record.** They must check the as-built space against sheet A-1 (shows 252 occupants), the mezzanine, seating, parking and occupancy class. Who: Jorge recommends; tenant approves and pays. Target: Fri 10-30.
 7. **Collect the public records answers** (7 items from the 10-12 request). Who: Town provides; Jorge follows up if no date given by 10-20. Target: by Fri 10-30.
 8. **Engineer prepares after-the-fact plans.** Uses microfilm plans, records answers and a site visit. Who: engineer of record. Target: about 2–3 weeks after hire, roughly Fri 11-20.
