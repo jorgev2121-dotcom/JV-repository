@@ -561,3 +561,14 @@ Full text: `OWNER-DIRECTIVE_PRETTY-AND-MONEY-LOCK-01_2026-10-13.md`.
 - **Default layout is the Orange Tree:** branches that click open, a checkbox per item, "View these together", "Copy for email", printing in color.
 - **Money sections are locked behind the zone code 0000.** While locked they are not shown, copied or printed. A money item is included only after Jorge types 0000 *and* ticks it. 0000 is a stopper, not security, so money pages stay private.
 
+
+---
+
+## 17. Standing protocol — every document viewable three ways, as one continuous file (OWNER-DIRECTIVE VIEW-THREE-WAYS-01, 2026-10-14)
+
+Full text: `OWNER-DIRECTIVE_VIEW-THREE-WAYS-01_2026-10-14.md`. Tracker: `control-panel/VIEW-THREE-WAYS_TRACKER.md`.
+
+- **Every job gets one continuous viewer, `_VIEW-ALL_<job>.html`, in its Drive folder.** No exceptions.
+- **View 1 (default): the original page images, top to bottom.** If a document has no image, its pretty report shows instead.
+- **View 2: the pretty report. View 3: the raw OCR transcription it was built from.**
+- Gaps are shown, never hidden. Money stays locked behind 0000. Progress is reported with a denominator until 100%.
