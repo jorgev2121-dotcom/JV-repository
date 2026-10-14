@@ -3,7 +3,7 @@
 // Checks: each renders, the inbox count works with a mocked Google Drive connector (paging, the N+ cap,
 // the "checked HH:MM" stamp) and degrades to "count unavailable — open folder" without one, the three
 // tabs read 100%, the BUILD built-count went up by exactly 3 against the baseline (git HEAD, or an
-// optional 3rd argument path), the 0000 money lock is intact, and 375px has no sideways scroll.
+// optional 3rd argument path; default is the newest commit where the three pieces were still unbuilt), the 0000 money lock is intact, and 375px has no sideways scroll.
 // Usage: node rules-bridges-windows-test.js <abs panel path> <png path> [baseline panel path]
 const {chromium}=require('/opt/node22/lib/node_modules/playwright');
 const fs=require('fs'),path=require('path'),{execFileSync}=require('child_process');
@@ -17,7 +17,10 @@ function stat(B){let n=0,d=0;const per={};Object.keys(B).forEach(t=>{let tn=0,td
 const cur=buildOf(fs.readFileSync(PANEL,'utf8'));let base=null,baseFrom='';
 if(process.argv[4]){base=buildOf(fs.readFileSync(process.argv[4],'utf8'));baseFrom=process.argv[4]}
 else{try{const root=execFileSync('git',['-C',path.dirname(PANEL),'rev-parse','--show-toplevel']).toString().trim();
-  const rel=path.relative(root,PANEL);base=buildOf(execFileSync('git',['-C',root,'show','HEAD:'+rel],{maxBuffer:64e6}).toString());baseFrom='git HEAD'}catch(e){}}
+  const rel=path.relative(root,PANEL);const three=B=>[['RULES','Owner directives list'],['BRIDGES','Live inbox count'],['WINDOWS','Picture cards per window']].some(([t,n])=>B[t].some(s=>s[1].some(f=>f[1].some(it=>it[0]===n&&!it[1]))));
+  // baseline = newest committed version where any of the three pieces is still unbuilt (survives WIP commits)
+  for(const h of execFileSync('git',['-C',root,'log','--format=%h','-40','--',rel]).toString().trim().split('\n')){
+    const B=buildOf(execFileSync('git',['-C',root,'show',h+':'+rel],{maxBuffer:64e6}).toString());if(B&&three(B)){base=B;baseFrom='git '+h;break}}}catch(e){}}
 const C=stat(cur);ok('BUILD parsed',!!cur,C.d+' of '+C.n+' built ('+Math.round(C.d/C.n*100)+'%)');
 if(base){const B=stat(base);ok('BUILD count went up by 3 vs '+baseFrom,C.d-B.d===3&&C.n===B.n,B.d+' -> '+C.d+' of '+C.n)}else ok('baseline available',false,'no git HEAD and no 3rd arg');
 const leaf=(t,name)=>{let v=null;(cur[t]||[]).forEach(s=>s[1].forEach(f=>f[1].forEach(it=>{if(it[0]===name)v=it[1]})));return v};
