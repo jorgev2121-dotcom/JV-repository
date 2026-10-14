@@ -223,6 +223,19 @@ button.act.attn-deny{background:transparent;border-color:var(--bad);color:var(--
 .mailpop.v-list a.mbtn{display:block}
 .mailpop a.mbtn{overflow-wrap:anywhere}
 @media (max-width:600px){.mailpop.v-buttons,.mailpop.v-cards{top:60px;left:8px;right:8px;width:auto;max-height:84vh}.mailpop.v-buttons a.mbtn{flex:1 1 140px}.mailpop.v-cards .mbtns{grid-template-columns:minmax(0,1fr)}details.mailmenu .mailpop.big.v-buttons,details.mailmenu .mailpop.big.v-cards{left:50%;right:auto;width:94vw}}
+/* ===== SAVE + POP-UP COLLECTIONS (2026-10-14): one gold "save" tint. ===== */
+:root{--type-save-bg:#fff4d1;--type-save-bd:#a67c00}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--type-save-bg:#2a2311;--type-save-bd:#d9b84a}}
+:root[data-theme="dark"]{--type-save-bg:#2a2311;--type-save-bd:#d9b84a}
+button.savebtn{font:600 11.5px var(--sans);min-height:28px;padding:2px 9px;margin:4px 0 0 6px;border-radius:7px;border:1px solid var(--type-save-bd);border-left:4px solid var(--type-save-bd);background:var(--type-save-bg);color:var(--ink);cursor:pointer;vertical-align:middle}
+.act.t-save,button.act.t-save{background:var(--type-save-bg);border-color:var(--type-save-bd);border-left:4px solid var(--type-save-bd);color:var(--ink)}
+.act.t-mail,a.act.t-mail{display:inline-flex;align-items:center;text-decoration:none;font-family:var(--sans);font-size:12.5px;font-weight:600;padding:8px 13px;border-radius:7px;min-height:36px;box-sizing:border-box;background:var(--type-mail-bg);border:1px solid var(--type-mail-bd);border-left:4px solid var(--type-mail-bd);color:var(--ink)}
+.svpane{border-color:var(--type-save-bd)}.svdlg{border-color:var(--type-save-bd);width:min(520px,calc(100vw - 16px));top:80px;z-index:3700}
+.svdlg[hidden],.svpane[hidden]{display:none}
+#svname,#svq{display:block;width:100%;box-sizing:border-box;font-size:16px;padding:9px 10px;margin:6px 0;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.svsug{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+button.act.svchip{background:var(--type-save-bg);border-color:var(--type-save-bd);border-left:4px solid var(--type-save-bd);color:var(--ink);font-size:14px;min-height:40px}
+.svit .actions .act{min-height:34px}
 </style></head><body>
 <div class="header">
 <h1>VTES Control Panel</h1>
@@ -369,6 +382,7 @@ function sExtra(){var tg=function(a){return a.filter(function(x,i,r){return x&&r
   Object.keys(em).forEach(function(e){INDEX.push({kind:'Email address',name:e,sub:em[e].join(', '),tags:['#email'],go:'CLIENTS',key:e})});
   CLLAST.forEach(function(x){INDEX.push({kind:'Email (last contact on file)',name:x[0]+' · '+x[1],sub:x[2],text:x[3]+' '+x[4],tags:tg(['#email',x[3]?'#'+String(x[3]).toLowerCase().replace(/[^a-z0-9-]/g,''):'']),go:'CLIENTS',key:x[0]})})}catch(e){}
  try{document.querySelectorAll('details.mailmenu .mailpop a').forEach(function(a){var r=a.closest('.mrow'),h=r?r.querySelector('.mh'):null,w=a.querySelector('.mw');INDEX.push({kind:'Emails menu',name:(h?h.textContent+' · ':'')+(w?w.textContent:a.textContent).trim(),sub:(a.querySelector('.md')||{}).textContent||'',url:a.href,tags:['#email','#emails'],go:'MAIL'})})}catch(e){}
+ svIndex();
  try{LIB.forEach(function(x){INDEX.push({kind:'Library document',name:x[1],sub:LIBG[x[0]]+(x[2]==='.'?'':' · '+x[2]),url:LIBF[x[2]]?D+LIBF[x[2]]:'',tags:['#library','#llmlibrary'],go:'LINKS',key:x[1]})})}catch(e){}
  try{PLREC.forEach(function(r,i){var g=PLSUG[i]||[];INDEX.push({kind:'Plaud recording',name:r[2],sub:plWhen(r[1])+' · '+plDur(r[3])+(g[5]?' · '+g[5]:''),text:r[0]+' '+r[0].replace(/ /g,'')+' '+(g[1]||'')+' '+(g[2]||''),tags:['#plaud','#recording'],go:'PLAUD',key:r[0]})})}catch(e){}
  var seen={};INDEX.forEach(function(x){x.tags.forEach(function(t){seen[t]=(seen[t]||0)+1})});Object.keys(seen).forEach(function(t){INDEX.push({kind:'Hashtag',name:t,sub:seen[t]+(seen[t]===1?' item carries it':' items carry it'),tags:[],go:'TAG'})})}
@@ -378,7 +392,7 @@ if(!q){document.querySelectorAll('.pane').forEach(function(p){p.style.display=''
 var toks=sTokens(q);if(!toks.length)toks=[q.replace(/^#+/,'')||q];
 buildIndex();sExtra();
 var res=[],mode='all';function scan(need){res=[];INDEX.forEach(function(x,i){var nm=(x.name+' '+(x.sub||'')).toLowerCase(),h=(nm+' '+x.tags.join(' ')+' '+x.kind+' '+(x.text||'')).toLowerCase(),n=0,inName=0;
- toks.forEach(function(t){if(h.indexOf(t)>=0){n++;if(nm.indexOf(t)>=0)inName++}});if(n>=need){var sc=n*10+inName*3+(h.indexOf(toks.join(' '))>=0?5:0)-(x.kind==='Hashtag'?4:0);res.push({x:x,sc:sc,i:i})}})}
+ var fz=0;toks.forEach(function(t){if(h.indexOf(t)>=0){n++;if(nm.indexOf(t)>=0)inName++}else if(x.fz&&fzHit(t,x.fz)){n++;fz++}});if(n>=need){var sc=n*10+inName*3+(x.fz&&(fz||inName)?20:0)+(h.indexOf(toks.join(' '))>=0?5:0)-(x.kind==='Hashtag'?4:0);res.push({x:x,sc:sc,i:i})}})}
 scan(toks.length);if(!res.length&&toks.length>1){mode='any';scan(1)}
 res.sort(function(a,b){return b.sc-a.sc||a.i-b.i});var hits=res.map(function(r){return r.x});SHITS=hits.slice(0,60);
 document.querySelectorAll('.pane').forEach(function(p){p.style.display='none'});
@@ -1003,6 +1017,7 @@ searchNow:function(){doSearch();var sp=document.getElementById('searchpane');if(
 searchIndex:function(){buildIndex();sExtra();return INDEX},
 driveAgain:function(){var q=document.getElementById('q').value.trim().toLowerCase();if(q)driveSearch(q)},
 hitGo:function(k){var x=SHITS[k];if(!x)return false;if(x.go==='TAG'){VTES.search(x.name);return true}
+ if(x.go==='SAVED'){document.getElementById('q').value='';doSearch();VTES.savedOpen(x.key);return 'SAVED'}
  if(x.go==='MAIL'){document.getElementById('q').value='';doSearch();var d=document.querySelector('details.mailmenu');if(d)d.open=true;return true}
  VTES.jump(x.go);var key=x.key||x.name;setTimeout(function(){sFlash(key)},60);return x.go},
 speechify:async function(){var m=document.getElementById('voicemsg'),t=String(window.getSelection()||'').trim();var ok=false;if(t){try{await navigator.clipboard.writeText(t);ok=true}catch(e){}}
@@ -1421,7 +1436,7 @@ VTES.attBatchAsk=function(v){ATTCONF=v!==false;attDraw(true)};
 VTES.attBatchGo=async function(){var L=attBatch(attItems()),tk=[],n=0,f=0;ATTCONF=false;ATTMSG='Approving '+L.length+'… please wait.';attDraw(true);
  for(var i=0;i<L.length;i++){try{if(L[i].kind==='task'){tk.push(L[i].id);await attStore(L[i].key,{decision:'approved',kind:'task',id:L[i].id,title:L[i].title})}else await attApply(L[i],'approve',true);n++}catch(e){f++}}
  var w=tk.length?await attTasks(tk,'approved'):'the shared database';ATTBT={};ATTMSG='✅ Batch done: '+n+' approved'+(f?' · '+f+' failed':'')+'. Saved in '+w+'. RED items you did not tick are still waiting.';attDraw(true);return n};
-VTES.attGo=function(t){VTES.attnOpen(false);VTES.show(t)};
+VTES.attGo=function(t){VTES.attnOpen(false);if(/^⭐ /.test(t)&&VTES.savedOpen){VTES.savedOpen(t.slice(2));return}VTES.show(t)};
 VTES.attText=function(){var L=attItems(),t='Waiting on you: '+L.length+'\n\n'+L.map(function(x,i){return (i+1)+'. ['+x.tab+'] '+x.title+'\n   EXEC-01 recommends: '+(ATTWORD[x.rec]||x.rec)+' — '+x.why+(x.risky?'\n   RED: '+x.riskWhy:'')}).join('\n');return document.body.classList.contains('money-open')?t:t.replace(SRX,'🔒$')};
 VTES.attCopy=async function(){var ok=await copyText(VTES.attText());ATTMSG=ok?'Copied. Paste it into your email.':'Could not copy by itself. Select the list and copy it.';attDraw(true);return ok};
 VTES.attRead=function(){var pn=document.getElementById('attnpane');if(!pn)return '';try{var r=document.createRange();r.selectNodeContents(pn);var s=window.getSelection();s.removeAllRanges();s.addRange(r);var out=VTES.readSel();s.removeAllRanges();return out}catch(e){return ''}};
@@ -1431,6 +1446,117 @@ function copyText(txt){return new Promise(function(res){function fb(){try{var a=
 VTES.copyText=copyText;
 setTimeout(attStart,0);
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ATTOPEN)VTES.attnOpen(false)});
+/* ===== SAVE + POP-UP COLLECTIONS (2026-10-14, SPEC_SAVE-POPUP-BUTTON). "⭐ Save" on every search result, capsule, email row,
+   document link, client card. One question: which collection (hashtag). Items live in the db collection "saved" (this browser
+   keeps a mirror). Collections are found by fuzzy hashtags: case, #, hyphens and spaces ignored, edit distance <= 2, plus the
+   people names on the job capsules. Each item: Open · View · Edit note · Send (copy / mailto draft, nothing sent) · Defer ·
+   Comment. Export = one Orange Tree HTML file. A deferred item that comes due shows in "Waiting on you". ===== */
+var SVK='vtes_saved',SAVED={},SVDB='?',SVCUR=null,SVITEM=null,SVSHOWDEF=false,SVMSG='';
+try{SAVED=JSON.parse(localStorage.getItem(SVK)||'{}')||{}}catch(e){SAVED={}}
+function svLocal(){try{localStorage.setItem(SVK,JSON.stringify(SAVED))}catch(e){}}
+function svNorm(s){return String(s||'').toLowerCase().replace(/^#+/,'').replace(/[^a-z0-9]/g,'')}
+function svName(s){s=String(s||'').trim().replace(/\s+/g,'-');if(!s)return '';return '#'+s.replace(/^#+/,'')}
+function svLev(a,b){if(a===b)return 0;var m=a.length,n=b.length;if(Math.abs(m-n)>2)return 9;var d=[],i,j;for(i=0;i<=m;i++){d[i]=[i];for(j=1;j<=n;j++)d[i][j]=i?0:j}
+ for(i=1;i<=m;i++)for(j=1;j<=n;j++){var c=a[i-1]===b[j-1]?0:1;d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+c);if(i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])d[i][j]=Math.min(d[i][j],d[i-2][j-2]+1)}return d[m][n]}
+var SVPEOPLE=null;function svPeople(){if(SVPEOPLE)return SVPEOPLE;SVPEOPLE=[];try{var seen={};CLJOBS.forEach(function(J){J.p.forEach(function(p){if(!seen[p[0]]){seen[p[0]]=1;SVPEOPLE.push(p[0])}})});CLLIST.forEach(function(c){if(!seen[c.n]){seen[c.n]=1;SVPEOPLE.push(c.n)}})}catch(e){}return SVPEOPLE}
+function svVariants(name){var n=svNorm(name),v=[n],raw=String(name||'').toLowerCase().replace(/^#+/,'');raw.split(/[^a-z0-9]+/).forEach(function(w){if(w.length>=4&&v.indexOf(w)<0)v.push(w)});
+ svPeople().forEach(function(pn){var ws=pn.toLowerCase().split(/[^a-z0-9]+/).filter(function(w){return w.length>=3}),full=ws.join('');if(!ws.length)return;if(full===n||ws.some(function(w){return w.length>=4&&(w===n||v.indexOf(w)>0)})){if(v.indexOf(full)<0)v.push(full);ws.forEach(function(w){if(w.length>=4&&v.indexOf(w)<0)v.push(w)})}});return v}
+function fzHit(tok,vars){var t=svNorm(tok);if(t.length<3)return false;var parts=[t].concat(String(tok).toLowerCase().split(/[^a-z0-9]+/).filter(function(w){return w.length>=3}));
+ return vars.some(function(v){if(!v)return false;return parts.some(function(q){if(q===v)return true;if(v.length>=4&&q.indexOf(v)>=0)return true;var lim=v.length>=6?2:v.length>=4?1:0;return lim>0&&q.length>=3&&svLev(q,v)<=lim})})}
+function svColls(){var C={};Object.keys(SAVED).forEach(function(k){var r=SAVED[k];if(!r||!r.coll)return;var c=C[r.norm]||(C[r.norm]={name:r.coll,norm:r.norm,items:[]});c.items.push(r)});
+ return Object.keys(C).map(function(k){var c=C[k];c.vars=svVariants(c.name);c.items.sort(function(a,b){return String(a.savedAt).localeCompare(String(b.savedAt))});return c}).sort(function(a,b){return a.name.localeCompare(b.name)})}
+function svFind(q){var C=svColls(),t=String(q||'').trim();if(!t)return C;var toks=t.split(/[\s,;]+/).filter(Boolean);return C.filter(function(c){return toks.some(function(x){return fzHit(x,c.vars)})})}
+function svDeferred(r){return !!(r.deferUntil&&Date.parse(r.deferUntil)>Date.now())}
+function svHash(s){var h=5381;for(var i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))>>>0;return h.toString(36)}
+var SVSEL=[['#searchpane .hit','Search result'],['.clcard','Job capsule'],['.clrow','Client card'],['.cllastrow','Email (last contact on file)'],['.librow','Document'],['.rep','Report'],['.mdcrow','Miami-Dade proof link'],['.plrow','Plaud recording'],['#pane-ORPHANS .card','Orphan document']];
+function svInject(){SVSEL.forEach(function(s){document.querySelectorAll(s[0]).forEach(function(el){if(el.querySelector(':scope>.savebtn'))return;var b=document.createElement('button');b.type='button';b.className='savebtn';b.dataset.kind=s[1];b.dataset.tip='⭐ Save this '+s[1].toLowerCase()+' into a pop-up collection (a hashtag). You pick which one.';b.innerHTML='⭐ Save';b.setAttribute('onclick','VTES.saveAsk(this)');el.appendChild(b)})})}
+function svFromEl(btn){var el=btn.parentElement,kind=btn.dataset.kind||'Item';if(el.matches('#searchpane .hit')){var x=SHITS[+el.dataset.i]||{};return {kind:x.kind||kind,title:x.name||'',url:x.url||'',sub:x.sub||'',go:x.go||'',tags:(x.tags||[]).slice(0,6)}}
+ var c=el.cloneNode(true);c.querySelectorAll('.savebtn,button,textarea,input,select,script').forEach(function(n){n.remove()});var h=c.querySelector('h3,.clhead,.pltitle,b,a');var title=(h?h.textContent:c.textContent).replace(/\s+/g,' ').trim().slice(0,160);
+ var a=el.querySelector('a[href^="http"]'),pane=el.closest('.pane'),sub=c.textContent.replace(/\s+/g,' ').trim();if(sub.indexOf(title)===0)sub=sub.slice(title.length).trim();
+ return {kind:kind,title:title||'(no title)',url:a?a.href:'',sub:sub.slice(0,240),go:pane?pane.id.replace(/^pane-/,''):'',tags:[]}}
+function svSuggest(it){var C=svColls(),txt=(it.title+' '+it.sub+' '+it.tags.join(' ')).toLowerCase(),sc=C.map(function(c){var s=c.vars.some(function(v){return v.length>=4&&svNorm(txt).indexOf(v)>=0})?2:0;return {c:c,s:s+c.items.length/100}}).sort(function(a,b){return b.s-a.s}).map(function(x){return x.c.name});
+ var extra=it.tags.filter(function(t){return /^#[a-z0-9-]{3,}$/i.test(t)&&!/^#(job|jobs|email|emails|page|link|tasks|clients|client|people)$/i.test(t)});return sc.concat(extra.filter(function(t){return sc.indexOf(t)<0})).slice(0,8)}
+async function svWrite(r){SAVED[r.doc]=r;svLocal();var db=await getDb();if(!db){SVDB='local';return 'this browser only'}try{await db.doc('saved/'+r.doc).set(r);SVDB='ok';return 'the shared database'}catch(e){SVDB='local';return 'this browser only'}}
+function svDlg(){var d=document.getElementById('savedlg');if(d)return d;d=document.createElement('div');d.id='savedlg';d.className='attn-pane svdlg';d.setAttribute('role','dialog');d.setAttribute('aria-label','Save to a collection');d.hidden=true;document.body.appendChild(d);return d}
+VTES.saveAsk=function(btn){var it=btn&&btn.nodeType?svFromEl(btn):btn;if(!it)return false;SVITEM=it;var d=svDlg(),sg=svSuggest(it);
+ d.innerHTML='<div class="mailbar"><b>⭐ Save to a collection</b><button type="button" class="x" data-tip="Close. Nothing is saved." onclick="VTES.saveCancel()">✕</button></div><p class="kv">'+sEsc(it.kind)+'</p><p><b>'+sTxt(it.title)+'</b></p>'+
+ '<label class="kv" for="svname">Which collection (hashtag)? Pick one or type a new name. Misspellings find the right one.</label><input id="svname" list="svlist" autocomplete="off" placeholder="#plaza" value="'+sEsc(sg[0]||'')+'"><datalist id="svlist">'+svColls().map(function(c){return '<option value="'+sEsc(c.name)+'">'}).join('')+'</datalist>'+
+ (sg.length?'<div class="svsug">'+sg.map(function(n){return '<button type="button" class="chip" data-tip="Save into '+sEsc(n)+'" onclick="document.getElementById(\'svname\').value=this.textContent">'+sEsc(n)+'</button>'}).join('')+'</div>':'')+
+ '<div class="actions"><button type="button" class="act approve" id="svgo" data-tip="Save it into this collection. Stored in the shared database." onclick="VTES.saveGo()">⭐ Save</button><button type="button" class="act" data-tip="Cancel. Nothing is saved." onclick="VTES.saveCancel()">Cancel</button></div><p class="kv" id="svmsg" aria-live="polite"></p>';
+ d.hidden=false;var i=document.getElementById('svname');i.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();VTES.saveGo()}});setTimeout(function(){try{i.focus();i.select()}catch(e){}},20);return sg};
+VTES.saveCancel=function(){var d=document.getElementById('savedlg');if(d)d.hidden=true;SVITEM=null};
+VTES.saveGo=async function(name){var it=SVITEM;if(!it)return false;var raw=name||(document.getElementById('svname')||{}).value||'',nm=svName(raw),m=document.getElementById('svmsg');if(!svNorm(nm)){if(m)m.textContent='Type a collection name first, for example #plaza.';return false}
+ var hit=svFind(nm)[0],matched=hit&&svNorm(hit.name)!==svNorm(nm)?hit.name:null;if(hit)nm=hit.name;var norm=svNorm(nm),id=svHash(it.kind+'|'+it.title+'|'+it.url),doc=(id+'_'+norm).slice(0,120);
+ var r=Object.assign({},SAVED[doc]||{comments:[],note:'',deferUntil:''},{doc:doc,coll:nm,norm:norm,kind:it.kind,title:it.title,url:it.url||'',sub:it.sub||'',go:it.go||'',savedAt:(SAVED[doc]&&SAVED[doc].savedAt)||new Date().toISOString(),by:'Jorge (panel)'});
+ var w=await svWrite(r);SVMSG='⭐ Saved “'+it.title.slice(0,60)+'” to '+nm+(matched?' (your “'+raw.trim()+'” matched '+nm+')':'')+'. Stored in '+w+'.';VTES.saveCancel();svToast(SVMSG);svDraw();return nm};
+function svToast(t){var e=document.getElementById('voicemsg');if(e)e.textContent=t}
+function svItemHtml(r){var k=r.doc,c=(r.comments||[]),def=svDeferred(r),body=r.title+'\n'+(r.url||'')+(r.note?'\nNote: '+r.note:''),mt='mailto:?subject='+encodeURIComponent(svMask('Saved: '+r.title))+'&body='+encodeURIComponent(svMask(body));
+ return '<div class="attn-it svit" data-doc="'+sEsc(k)+'" data-st="ref"><div><small class="kv">'+sEsc(r.kind)+(def?' · ⏸ deferred until '+sEsc(fmtT(r.deferUntil)):'')+'</small><br><b class="attn-t">'+sTxt(r.title)+'</b></div>'+(r.note?'<p class="attn-b"><b>Note:</b> '+sTxt(r.note)+'</p>':'')+
+ '<div class="actions">'+(r.url?'<a class="act openbtn" href="'+sEsc(r.url)+'" target="_blank" rel="noopener" data-tip="Open the item itself in a new tab.">Open ↗</a>':(r.go?'<button class="act" data-tip="Go to the tab where this item lives." onclick="VTES.savedGoTab(\''+sEsc(k)+'\')">Open ↗</button>':''))+
+ '<button class="act details" data-tip="View everything saved about this item." onclick="VTES.toggle(\'svv-'+k+'\')">👁 View</button>'+
+ '<button class="act details" data-tip="Write or change your note on this item." onclick="VTES.toggle(\'svn-'+k+'\')">✏️ Edit note</button>'+
+ '<button class="act t-copy" data-tip="Send: copy the title, link and note so you can paste them into an email. Nothing is sent by itself." onclick="VTES.savedCopy(\''+sEsc(k)+'\')">⧉ Copy for email</button>'+
+ '<a class="act t-mail svmail" href="'+sEsc(mt)+'" data-tip="Send: opens a new email draft in your mail program. You press Send yourself; nothing goes out from here.">✉ Email draft</a>'+
+ '<button class="act defer" data-tip="Defer: hide it until a date you pick. It comes back in Waiting on you." onclick="VTES.toggle(\'svd-'+k+'\')">⏳ Defer</button>'+
+ '<button class="act details" data-tip="Comment: add to the thread on this item." onclick="VTES.toggle(\'svc-'+k+'\')">💬 Comment'+(c.length?' ('+c.length+')':'')+'</button></div>'+
+ '<div class="commentbox" id="svv-'+k+'"><p class="kv">Kind: '+sEsc(r.kind)+' · saved '+sEsc(fmtT(r.savedAt))+' · collection '+sEsc(r.coll)+(r.go?' · tab '+sEsc(r.go):'')+'</p>'+(r.url?'<p class="kv">Link: '+sEsc(r.url)+'</p>':'')+(r.sub?'<p>'+sTxt(r.sub)+'</p>':'')+'</div>'+
+ '<div class="commentbox" id="svn-'+k+'"><textarea id="svnt-'+k+'" placeholder="Your note">'+sEsc(r.note||'')+'</textarea><div style="margin-top:6px"><button class="act" data-tip="Save your note on this item." onclick="VTES.savedNote(\''+sEsc(k)+'\')">Save note</button></div></div>'+
+ '<div class="commentbox" id="svd-'+k+'"><label class="kv">Hide until <input type="date" id="svdt-'+k+'" value="'+sEsc((r.deferUntil||'').slice(0,10))+'"></label> <button class="act" data-tip="Hide it until that date, 8 AM." onclick="VTES.savedDefer(\''+sEsc(k)+'\')">Set</button>'+(r.deferUntil?' <button class="act" data-tip="Undo: show it again now." onclick="VTES.savedDefer(\''+sEsc(k)+'\',\'\')">Show it now</button>':'')+'</div>'+
+ '<div class="commentbox" id="svc-'+k+'"><ul class="replog">'+c.map(function(x){return '<li><b>'+sEsc(fmtT(x.at))+'</b> '+sEsc(x.by||'')+': '+sTxt(x.text)+'</li>'}).join('')+'</ul><textarea id="svct-'+k+'" placeholder="Add a comment to the thread"></textarea><div style="margin-top:6px"><button class="act" data-tip="Add your comment. Everyone working on it can read it." onclick="VTES.savedComment(\''+sEsc(k)+'\')">Add comment</button></div></div></div>'}
+function svMask(t){return document.body.classList.contains('money-open')?t:String(t).replace(SRX,'🔒$')}
+function svPaneHtml(){var C=svColls(),q=SVCUR;var head='<div class="mailbar"><b>⭐ Saved collections · '+C.length+'</b><button type="button" class="t-voice" data-tip="Read this out loud." onclick="VTES.savedRead()">🔊</button><button type="button" class="x" data-tip="Close." onclick="VTES.savedOpen(false)">✕</button></div><p class="kv" id="svpmsg" aria-live="polite">'+sEsc(SVMSG)+'</p>';
+ if(q){var c=C.filter(function(x){return x.norm===q})[0];if(!c){SVCUR=null;return svPaneHtml()}var vis=c.items.filter(function(r){return SVSHOWDEF||!svDeferred(r)}),nd=c.items.length-c.items.filter(function(r){return !svDeferred(r)}).length;
+  return head+'<div class="actions"><button class="act" data-tip="Back to all collections." onclick="VTES.savedOpen(\'\')">← All collections</button><button class="act" id="svexp" data-tip="Export this collection as one designed page (Orange Tree) you can open, print or email yourself." onclick="VTES.savedExport(\''+c.norm+'\')">⬇ Export collection</button><button class="act t-copy" data-tip="Copy the whole collection as text for an email. Amounts stay hidden while money is locked." onclick="VTES.savedCopyAll(\''+c.norm+'\')">⧉ Copy all for email</button></div>'+
+  '<h4 class="grp" id="svtitle">⭐ '+sEsc(c.name)+' · '+c.items.length+' item'+(c.items.length===1?'':'s')+'</h4><p class="kv">Also pops up for: '+sEsc(c.vars.slice(0,6).join(', '))+' (and misspellings of them).</p>'+
+  (nd?'<label class="kv"><input type="checkbox" '+(SVSHOWDEF?'checked':'')+' onchange="VTES.savedShowDef(this.checked)"> Show '+nd+' deferred</label>':'')+vis.map(svItemHtml).join('')+(vis.length?'':'<p class="notwired">Everything here is deferred.</p>')}
+ return head+'<input id="svq" type="search" placeholder="Find a collection — misspellings work, e.g. #plza" autocomplete="off" oninput="VTES.savedFilter(this.value)" value=""><div id="svchips" class="svsug">'+svChips(C)+'</div>'+(C.length?'':'<p class="notwired">Nothing saved yet. Press ⭐ Save on any search result, capsule, email row, document or client card.</p>')}
+function svChips(C){return C.map(function(c){var nd=c.items.filter(svDeferred).length;return '<button class="act svchip" data-norm="'+c.norm+'" data-tip="Open the '+sEsc(c.name)+' collection." onclick="VTES.savedOpen(\''+c.norm+'\')">⭐ '+sEsc(c.name)+' · '+c.items.length+(nd?' ('+nd+' deferred)':'')+'</button>'}).join('')}
+function svDraw(){var b=document.getElementById('savedbtn'),C=svColls(),n=Object.keys(SAVED).length;if(b)b.innerHTML='⭐ Saved'+(n?' · '+n:'');var p=document.getElementById('savedpane');if(p&&!p.hidden){var ae=document.activeElement;if(ae&&p.contains(ae)&&/TEXTAREA|INPUT/.test(ae.tagName))return;var sc=p.scrollTop,open=[].map.call(p.querySelectorAll('.commentbox.open'),function(e){return e.id});p.innerHTML=svPaneHtml();open.forEach(function(id){var e=document.getElementById(id);if(e)e.classList.add('open')});p.scrollTop=sc}}
+function svGet(k){return SAVED[k]?JSON.parse(JSON.stringify(SAVED[k])):null}
+VTES.savedOpen=function(q){var p=document.getElementById('savedpane');if(!p)return false;if(q===false){p.hidden=true;return false}if(typeof q==='string'){if(q){var c=svFind(q)[0];SVCUR=c?c.norm:null;if(!c)SVMSG='No collection matches “'+q+'”.'}else SVCUR=null}
+ p.hidden=false;try{VTES.mailWin('close');VTES.attnOpen(false)}catch(e){}p.innerHTML=svPaneHtml();return SVCUR};
+VTES.savedFilter=function(v){var e=document.getElementById('svchips');if(e)e.innerHTML=svChips(svFind(v))||'<p class="kv">No collection matches “'+sEsc(v)+'”.</p>';return svFind(v).map(function(c){return c.name})};
+VTES.savedFind=function(q){return svFind(q).map(function(c){return c.name})};
+VTES.savedList=function(){return JSON.parse(JSON.stringify(SAVED))};
+VTES.savedShowDef=function(v){SVSHOWDEF=!!v;svDraw()};
+VTES.savedGoTab=function(k){var r=SAVED[k];if(!r)return;VTES.savedOpen(false);VTES.show(r.go||'MENU');setTimeout(function(){try{sFlash(r.title.slice(0,30))}catch(e){}},80)};
+VTES.savedNote=async function(k){var r=svGet(k),t=document.getElementById('svnt-'+k);if(!r||!t)return false;r.note=t.value.trim();var w=await svWrite(r);SVMSG='Note saved in '+w+'.';t.blur();svDraw();return w};
+VTES.savedComment=async function(k,txt){var r=svGet(k),t=document.getElementById('svct-'+k),v=txt||(t?t.value.trim():'');if(!r||!v)return false;r.comments=(r.comments||[]).concat([{at:new Date().toISOString(),by:'Jorge (panel)',text:v}]);var w=await svWrite(r);SVMSG='Comment added. Saved in '+w+'.';if(t){t.value='';t.blur()}svDraw();var e=document.getElementById('svc-'+k);if(e)e.classList.add('open');return w};
+VTES.savedDefer=async function(k,date){var r=svGet(k);if(!r)return false;var v=date!==undefined?date:((document.getElementById('svdt-'+k)||{}).value||'');if(v){var d=new Date(v+'T08:00:00');if(isNaN(d)){SVMSG='Pick a date first.';svDraw();return false}r.deferUntil=d.toISOString()}else r.deferUntil='';
+ var w=await svWrite(r);SVMSG=r.deferUntil?'Deferred until '+fmtT(r.deferUntil)+'. It comes back in Waiting on you. Saved in '+w+'.':'Showing it again now.';svDraw();return r.deferUntil};
+VTES.savedCopy=async function(k){var r=SAVED[k];if(!r)return false;var ok=await copyText(svMask(r.title+'\n'+(r.url||'')+(r.note?'\nNote: '+r.note:'')));SVMSG=ok?'Copied. Paste it into your email.':'Could not copy by itself. Use Email draft instead.';svDraw();return ok};
+function svText(c){return svMask('⭐ '+c.name+' · '+c.items.length+' items\n\n'+c.items.map(function(r,i){return (i+1)+'. '+r.title+(r.url?'\n   '+r.url:'')+(r.note?'\n   Note: '+r.note:'')+(svDeferred(r)?'\n   Deferred until '+fmtT(r.deferUntil):'')}).join('\n'))}
+VTES.savedCopyAll=async function(n){var c=svColls().filter(function(x){return x.norm===n})[0];if(!c)return false;var ok=await copyText(svText(c));SVMSG=ok?'Copied the whole collection. Paste it into your email.':'Could not copy by itself.';svDraw();return ok};
+VTES.savedRead=function(){var p=document.getElementById('savedpane');if(!p)return '';try{var r=document.createRange();r.selectNodeContents(p);var s=window.getSelection();s.removeAllRanges();s.addRange(r);var o=VTES.readSel();s.removeAllRanges();return o}catch(e){return ''}};
+function svExportHtml(c){var e=function(t){return sEsc(svMask(t))},now=new Date().toISOString(),kinds={};c.items.forEach(function(r){(kinds[r.kind]=kinds[r.kind]||[]).push(r)});
+ return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Saved '+e(c.name)+'</title><style>'+
+ ':root{--bg:#fffaf2;--ink:#1d1a16;--muted:#6b5f50;--leaf:#2f7d3a;--orange:#e07b16;--line:#ead9c2;--panel:#fff}@media (prefers-color-scheme:dark){:root{--bg:#17130e;--ink:#f3ece2;--muted:#b9a993;--leaf:#6fd27e;--orange:#ffa24a;--line:#3a2f22;--panel:#211a12}}'+
+ 'body{background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,sans-serif;margin:0;padding:16px;max-width:900px;margin:auto}h1{font-size:24px;margin:0 0 4px}.meta{color:var(--muted);font-size:13px}'+
+ 'details.br{border-left:4px solid var(--leaf);margin:12px 0;padding:4px 0 4px 12px}details.br>summary{cursor:pointer;font-weight:700;font-size:17px;color:var(--leaf)}.leaf{display:block;background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--orange);border-radius:10px;padding:10px 12px;margin:8px 0}.leaf a{color:var(--orange);overflow-wrap:anywhere}.leaf small{color:var(--muted)}'+
+ '.bar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.bar button{font:600 14px system-ui;padding:10px 14px;border-radius:9px;border:2px solid var(--orange);background:var(--panel);color:var(--ink);cursor:pointer;min-height:44px}#together{white-space:pre-wrap;background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:10px;display:none}'+
+ '@media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}.bar{display:none}details.br{break-inside:avoid}}</style></head><body>'+
+ '<h1>🍊 ⭐ '+e(c.name)+'</h1><p class="meta">Exported '+e(fmtT(now))+' from the VTES Control Panel · '+c.items.length+' items · '+(document.body.classList.contains('money-open')?'money shown':'money locked (amounts hidden)')+' · #saved #popup '+e(c.name)+'</p>'+
+ '<div class="bar"><button onclick="together()">View these together</button><button onclick="copyEmail()">Copy for email</button><button onclick="window.print()">Print in color</button></div><div id="together"></div>'+
+ Object.keys(kinds).map(function(k){return '<details class="br" open><summary>'+e(k)+' · '+kinds[k].length+'</summary>'+kinds[k].map(function(r){return '<label class="leaf"><input type="checkbox" checked> <b>'+e(r.title)+'</b>'+(r.url?'<br><a href="'+sEsc(r.url)+'" target="_blank" rel="noopener">'+e(r.url)+'</a>':'')+(r.sub?'<br><small>'+e(r.sub)+'</small>':'')+(r.note?'<br>Note: '+e(r.note):'')+((r.comments||[]).length?'<br><small>'+r.comments.map(function(x){return e(fmtT(x.at)+' '+x.text)}).join(' · ')+'</small>':'')+(svDeferred(r)?'<br><small>Deferred until '+e(fmtT(r.deferUntil))+'</small>':'')+'<span hidden class="t">'+e(r.title+(r.url?' — '+r.url:'')+(r.note?' — Note: '+r.note:''))+'</span></label>'}).join('')+'</details>'}).join('')+
+ '<p class="meta">'+e(c.name)+' · exported '+e(now.slice(0,10))+'</p><script>function picked(){return [].slice.call(document.querySelectorAll(".leaf")).filter(function(l){return l.querySelector("input").checked}).map(function(l,i){return (i+1)+". "+l.querySelector(".t").textContent})}'+
+ 'function together(){var t=document.getElementById("together");t.style.display="block";t.textContent=picked().join("\\n")}function copyEmail(){var s=document.title+"\\n\\n"+picked().join("\\n");try{navigator.clipboard.writeText(s)}catch(e){}together()}<\/script></body></html>'}
+VTES.savedExport=async function(n){var c=svColls().filter(function(x){return x.norm===n})[0];if(!c)return '';var html=svExportHtml(c),fn='Saved_'+c.norm+'_'+new Date().toISOString().slice(0,10)+'.html',done=false;
+ try{var dl=await claude.use('downloads');if(dl){await dl.save({filename:fn,data:html});done=true}}catch(e){}
+ if(!done){try{var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},4000);done=true}catch(e){}}
+ SVMSG=done?'Exported '+fn+'. Open it to view, print in color, or email it to yourself.':'Could not export in this window. Use Copy all for email instead.';svDraw();return html};
+/* search: collections and saved items join the top search; collections match by fuzzy hashtag */
+function svIndex(){try{svColls().forEach(function(c){INDEX.push({kind:'Saved collection',name:'⭐ '+c.name,sub:c.items.length+' saved: '+c.items.slice(0,4).map(function(r){return r.title.slice(0,40)}).join(' · '),tags:['#saved','#popup'],go:'SAVED',key:c.norm,fz:c.vars});
+ c.items.forEach(function(r){INDEX.push({kind:'Saved item',name:r.title,sub:'in ⭐ '+c.name+(r.note?' · note: '+r.note:''),url:r.url,text:(r.comments||[]).map(function(x){return x.text}).join(' '),tags:['#saved'],go:'SAVED',key:c.norm})})})}catch(e){}}
+/* "Waiting on you": a deferred item whose date has come is a pop-up you asked for */
+function svDue(){var L=[];Object.keys(SAVED).forEach(function(k){var r=SAVED[k];if(!r.deferUntil||Date.parse(r.deferUntil)>Date.now())return;L.push({kind:'pop',id:k+'_'+r.deferUntil.slice(0,10),doc:k,tab:'⭐ '+r.coll,btn:'savedbtn',type:'Pop-up you asked for (deferred until '+fmtT(r.deferUntil)+')',title:r.title,body:'Saved in '+r.coll+(r.note?'. Note: '+r.note:'')+'.',rec:'approve',why:'You asked to see this again today. Approve marks it seen; Defer puts it off one more day.',
+  onAct:async function(act,until){var x=svGet(k);if(!x)return;x.deferUntil=act==='defer'&&until?until:'';await svWrite(x);svDraw()}})});return L}
+function svStart(){var em=document.querySelector('details.mailmenu');if(!em||document.getElementById('savedbtn'))return;var b=document.createElement('button');b.id='savedbtn';b.className='act t-save';b.style.cssText='min-height:32px;padding:4px 10px';b.dataset.tip='⭐ Your saved pop-up collections. Find one by hashtag, even misspelled.';b.setAttribute('onclick','VTES.savedOpen(\'\')');b.innerHTML='⭐ Saved';em.parentNode.insertBefore(b,em.nextSibling);
+ var p=document.createElement('div');p.id='savedpane';p.className='attn-pane svpane';p.setAttribute('role','dialog');p.setAttribute('aria-label','Saved collections');p.hidden=true;document.body.appendChild(p);svDlg();
+ svInject();var pend=false;new MutationObserver(function(){if(pend)return;pend=true;setTimeout(function(){pend=false;svInject()},150)}).observe(document.getElementById('main'),{childList:true,subtree:true});
+ try{VTES.attSource(svDue,'savedbtn')}catch(e){}svDraw();
+ (async function(){var db=await getDb();if(!db){SVDB='local';return}try{db.collection('saved').onSnapshot(function(snap){var next={};(snap.docs||[]).forEach(function(d){var v=typeof d.data==='function'?d.data():d.data;if(v&&v.doc)next[v.doc]=v});Object.keys(SAVED).forEach(function(k){if(!next[k])next[k]=SAVED[k]});SAVED=next;SVDB='ok';svLocal();svDraw()},function(){SVDB='local'})}catch(e){SVDB='local'}})()}
+document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;var d=document.getElementById('savedlg');if(d&&!d.hidden){VTES.saveCancel();return}var p=document.getElementById('savedpane');if(p&&!p.hidden)VTES.savedOpen(false)});
+setTimeout(svStart,0);
 setInterval(drawPC,30000);
 render();
 startPC();
