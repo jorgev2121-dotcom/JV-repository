@@ -40,3 +40,12 @@ Both are in Jorge's OneDrive for Business, drive id `b!oBUnmATQeEihq25kC0c_-j_4f
 Run the same comparison on the 5 folders whose sizes differ, starting with `2023 PaperPort` (13.4 MB gap) and `Scan folder`, one subagent per folder per Rule 5. Any deletion of duplicates is RED: **Proposal only — Jorge's yes per batch.**
 
 Shall I queue the 5 differing folders as the next overnight item?
+
+## Part 2 roll-up (08:55Z)
+- 16 of 21 sub-folders: byte-identical.
+- AJ Valdes: COMPLETE — 32 of 36 identical; the 4 differences are PaperPort cache files only (no client document differs).
+- Jorge Valdes: 338+ identical, 1 PaperPort cache file only in B; 46 of 54 sub-folders matched by size, not opened.
+- INSPECTIONS-MASTER: identical except one sub-folder only in A (1301 NE 191 ST #F419, 12 files) — A is the more complete copy.
+- 2023 PaperPort: 200 of ~480 listed, all identical; connector caps listings at 200 — the tail needs the PC.
+- Scan folder: 137 of 140 identical; 3 PaperPort cache files differ.
+- **Reading so far: B is a near-exact duplicate of A; the differences found are PaperPort cache files plus one folder A has and B lacks.** Proposal (RED, Jorge's yes): after a full PC-side hash check, quarantine B. Never delete.
