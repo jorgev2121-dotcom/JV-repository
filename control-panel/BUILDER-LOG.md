@@ -45,3 +45,4 @@
 - 2026-10-14T07:45Z · run 19 · budget allowed · 3 started: panel ORPHANS resolve-proposal + LLMS fixed IDs (ORPHANS → 100%), 3 missing directive files, OneDrive duplicate-tree compare (read-only) · panel 67 of 116 (58%) · queue next: ATTACH-ALL prep · blocked: PC headless cap
 - 2026-10-14T07:58Z panel: ORPHANS propose-match (proposal only) + LLM fixed IDs (existing launcher roster) + RULES +3 directives · 69 of 116 (59%) · ORPHANS 100% · 5 suites passed · published v44
 - 2026-10-14T08:45Z · run 20 · budget allowed · 4 started: panel HANDOFFS 3 pieces (→100%), OneDrive dup part 2 ×3 (2023 PaperPort, INSPECTIONS-MASTER, AJ+Jorge Valdes) · panel 69 of 116 (59%) · queue next: ATTACH-ALL prep, OCR latest-version audit · blocked: PC headless cap
+- 2026-10-14T09:00Z panel: HANDOFFS task-type picker + client-data box/digit checker + LOCAL rule · 72 of 116 (62%) · HANDOFFS 100% · tests pass (handoffs +3 check reads 0 because WIP commit already holds it) · published v45
