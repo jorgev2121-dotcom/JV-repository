@@ -30,3 +30,4 @@
 - 2026-10-14T02:44Z · run 14 · budget allowed · 3 started: master CAPSULE INDEX (40 of 40), Cowork CDM reissue (cloud lane), panel APPROVALS read-aloud · capsules 40 of 40 (100%) · panel 60 of 116 (52%) · blocked: PC Claude window silent
 - 2026-10-14T02:50Z · panel: built APPROVALS 'Read aloud' · 61 of 116 (53%) · 8 tests passed · published v39
 - 2026-10-14T03:44Z · run 15 · budget allowed · 2 started (+1 CDM helper still running from run 14): BAK-RENAME plan (all jobs, survey only), panel APPROVALS one-card mode · capsules 40 of 40 · panel 61 of 116 (53%) · blocked: PC Claude window silent
+- 2026-10-14T03:50Z · panel: built APPROVALS 'One card at a time mode' · 62 of 116 (53%) · APPROVALS 4 of 5 (last piece is PC) · 9 tests passed · published v40
