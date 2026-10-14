@@ -1,18 +1,30 @@
 ; VTES Read-Aloud · OWNER-DIRECTIVE READ-ALOUD-01 (2026-10-13)
-; Ctrl+Alt+R : read the text you just copied (click "Copy" under any Claude reply first).
+; Ctrl+Alt+R : read the text you HIGHLIGHTED (in any app). If nothing is highlighted, reads what you last copied.
 ;              Opens it in a clean big-text page in Microsoft Edge and starts Edge "Read aloud" automatically.
-; Ctrl+Alt+S : same page, opened in Chrome, for the Speechify button (press Speechify's play).
+; Ctrl+Alt+S : same, opened in Chrome, for the Speechify button (press Speechify's play).
 ; Nothing is sent anywhere. The text is saved only to %APPDATA%\VTES-ReadAloud\reply.html and overwritten each time.
+; v2 2026-10-14: highlight-to-read added (owner ask: "read highlighted and or auto-populate"). Your clipboard is put back afterwards.
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
 ^!r::ReadCopied("edge")
 ^!s::ReadCopied("chrome")
 
+GrabHighlighted() {
+    saved := ClipboardAll()
+    A_Clipboard := ""
+    Send "^c"
+    got := ClipWait(0.6) ? A_Clipboard : ""
+    A_Clipboard := saved          ; put the old clipboard back
+    return got
+}
+
 ReadCopied(browser) {
-    txt := A_Clipboard
+    txt := GrabHighlighted()
+    if (StrLen(Trim(txt)) < 2)
+        txt := A_Clipboard
     if (StrLen(Trim(txt)) < 2) {
-        MsgBox "Nothing is copied yet.`n`nClick the Copy button under a Claude reply, then press Ctrl+Alt+R.", "Read aloud", 64
+        MsgBox "Nothing to read yet.`n`nHighlight some text (or click Copy under a Claude reply), then press Ctrl+Alt+R.", "Read aloud", 64
         return
     }
     dir := A_AppData "\VTES-ReadAloud"

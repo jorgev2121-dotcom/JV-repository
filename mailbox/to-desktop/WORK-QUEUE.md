@@ -673,6 +673,22 @@ Checkpoint mode: do one step, show the proof, then stop.
 3. **Proof.** Click the same button once. It should open the right thing with no pop-up.
    Push a short result to `mailbox/to-cloud/`.
 
+## 23. REMOVE the PC headless cap, then Speechify everywhere · PASTE-D-071 → DESKTOP · owner yes 2026-10-14 ~8:50 AM ET
+**Owner words:** "yes, remove the PC limit first. Add all enhancements available so speechify becomes available to read highlighted and or auto-populate". RED approved by Jorge in chat. Work from branch `claude/pensive-allen-tyjgl4` (git fetch + checkout that branch first).
+
+**A. Remove the cap (RECURRING-ISSUES 2026-10-14, option 2, Tier 2 — removal).**
+1. Backup first: copy Inbox-Codex-Failover.ps1 to `Inbox-Codex-Failover_bak-20261014.ps1` (same folder). Write rollback `Rollback_Remove-Headless-Cap_2026-10-14_HHMM.ps1` to `C:\Users\JV\OneDrive\Documents\Reports\Undo_Manifests\` (it copies the _bak file back).
+2. In Inbox-Codex-Failover.ps1 (and any other script that writes CAP-REACHED_*.md — search for "CAP-REACHED" and "daily cap"), remove the home-made daily counter so headless Claude runs are limited only by Anthropic's real plan limit. Do not touch any other logic.
+3. Proof: run one headless job; show it starts after the old 6 limit would have blocked it; no new CAP-REACHED file. Write `EXECUTED_REMOVE-HEADLESS-CAP_2026-10-14.md` to VTES-Outbox with the diff, the backup path and the rollback path.
+4. Then drain the stalled queue in order: orders/pending/ (oldest first), RAMBO-QUEUE_2026-10-12.md, the PaperPort-188 table copy, Alec PDFs copy. Codex never gets client data.
+
+**B. Speechify everywhere (YELLOW — rollback first).**
+1. Install the new read-aloud script: run `tools\readaloud\Install-Read-Aloud.ps1` from the branch. New: **highlight text in ANY app, press Ctrl+Alt+R (Edge reads it) or Ctrl+Alt+S (Chrome + Speechify)** — no Copy click needed; the clipboard is restored.
+2. Speechify browser extension in BOTH Chrome and Edge: installed, signed in, enabled. Open its settings and switch ON every option that reads highlighted text or shows the player automatically (right-click "listen"/context menu, the on-page play button, auto-show on all sites). Write down the exact names of the options you switched on — do not guess.
+3. Windows right-click on files: do orders/pending/MSG-CLOUD-TO-CODE_SPEECHIFY-RIGHT-CLICK_2026-10-14.md (HKCU only, rollback first).
+4. If the Speechify Windows desktop app is installed, turn on its own "read selected text" shortcut if it has one; record the key.
+5. Proof: screenshots of each switched-on setting + both right-click menus → `EXECUTED_SPEECHIFY-EVERYWHERE_2026-10-14.md` in VTES-Outbox.
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
