@@ -534,7 +534,7 @@ el.innerHTML='<span class="kv">Counting…</span>';var mcp=window._mcp||null;if(
 try{var seen={},n=0,tok=null,pages=0;do{var inp={query:"parentId = '"+INBOXID+"' and trashed = false",pageSize:100,excludeContentSnippets:true};if(tok)inp.pageToken=tok;
 var r=await mcp.callTool('Google Drive','search_files',inp,{cache:{staleTime:60000}});var p=r&&r.payload;if(typeof p==='string'){try{p=JSON.parse(p)}catch(e){}}var fl=pcFiles(p);if(!fl){if(!pages){off();return}break}
 fl.forEach(function(f){var k=f.id||JSON.stringify(f);if(!seen[k]){seen[k]=1;n++}});tok=p&&p.nextPageToken;pages++}while(tok&&pages<INBOXCAP);
-var hhmm=new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false});
+var hhmm=new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
 el.innerHTML='<span class="ibn" id="inboxn">'+n+(tok?'+':'')+'</span><span class="kv">'+(n===1&&!tok?'file':'files')+' in VTES-Inbox · checked '+hhmm+'</span> '+open+' <button type="button" onclick="inboxCount()">Check again</button>'}
 catch(e){off()}}
 window.inboxCount=inboxCount;setTimeout(inboxCount,1200);
