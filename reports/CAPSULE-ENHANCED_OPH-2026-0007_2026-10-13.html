@@ -139,7 +139,7 @@ function build(){
     if(s.m) x+='<p class="bnote">'+s.m+' money document'+(s.m>1?'s':'')+' from this folder '+(s.m>1?'are':'is')+' kept in the 🔒 Money zone.</p>';
     if(sc.length) x+='<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>';
     const n=(f.cnt?f.cnt+' counted':f.docs.length)+(s.m?' + '+s.m+' 🔒':'');
-    branch('f'+fi,'',esc(fi===0?'📁 Job root':'📁 '+f.t),esc(f.p),n+' docs',x,fi===0);
+    branch('f'+fi,'',esc(fi===0?'📁 Folder root':'📁 '+f.t),esc(f.p),n+' docs',x,fi===0);
   });
   let p='';
   PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
