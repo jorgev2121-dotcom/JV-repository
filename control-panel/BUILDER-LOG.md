@@ -62,3 +62,4 @@
 - 2026-10-14T15:20Z panel v53: Plaza permits block on 1265 + OPH-0007 cross-ref; 9 PH11 queries find it; tests pass · published v53
 - 2026-10-14T15:42Z · runner · budget allowed · items 1 of 1 (owner P0: Medley microfilm/summary, PH11 final scheduled 10-15) · panel 87 of 116 (75%) · queue depth unchanged · blocked: PC silent since PASTE-D-072 (desktop orders wait); county microfilm site blocked from cloud
 - 2026-10-14T16:42Z · runner · budget allowed · items 0 of 0 new · panel 87 of 116 (75%) · queue unchanged · blocked: PC capped (P1 microfilm refused by Codex, PII); county site blocked from cloud; waiting on Jorge's Option 1/2
+- 2026-10-14T17:42Z · runner · budget allowed · items 0 · panel 87 of 116 (75%; cloud-buildable pieces exhausted, the rest are PC) · blocked: PC cap; Medley microfilm (Jorge Option 1/2)
