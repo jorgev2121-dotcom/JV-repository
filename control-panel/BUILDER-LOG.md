@@ -37,3 +37,4 @@
 - 2026-10-14T04:48Z · panel: built MENU 'Greyed future pages with dates' (Coming next list) · 63 of 116 (54%) · MENU 11 of 12 (92%) · 23 tests passed · not yet republished/committed (runner)
 - 2026-10-14T05:00Z · published v41 (MENU coming-next, 63 of 116, 54%) · found: panel scrolls sideways at 375px (email bar) — queue fix
 - 2026-10-14T05:44Z · run 17 · budget allowed · 2 started: panel phone-width fix + MENU glossary (→ MENU 100%), BAK subfolder sweep · panel 63 of 116 (54%) · blocked: PC headless cap
+- 2026-10-14T06:05Z · BAK subfolder sweep: +563 (85 job subfolders, 478 mailbox) → 2,710 in plan; 3,129 Drive-wide; TO-CLOUD.md copies 403 ≈3.4 GB, writer still active 28–54/day (PC agent) — quarantine proposal, Jorge's yes
