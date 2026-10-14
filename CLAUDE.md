@@ -572,3 +572,13 @@ Full text: `OWNER-DIRECTIVE_VIEW-THREE-WAYS-01_2026-10-14.md`. Tracker: `control
 - **View 1 (default): the original page images, top to bottom.** If a document has no image, its pretty report shows instead.
 - **View 2: the pretty report. View 3: the raw OCR transcription it was built from.**
 - Gaps are shown, never hidden. Money stays locked behind 0000. Progress is reported with a denominator until 100%.
+
+---
+
+## 18. Standing protocol — every tag attached, printed, readable, trackable, searchable (OWNER-DIRECTIVE TAGS-EVERYWHERE-01, 2026-10-14)
+
+Full text: `OWNER-DIRECTIVE_TAGS-EVERYWHERE-01_2026-10-14.md`. Tracker: `control-panel/TAGS-EVERYWHERE_TRACKER.md`.
+
+- **Every identifying number becomes a tag on its job:** permit numbers (original and renewal), units, address forms, folio, case and invoice numbers (never amounts), people, companies, misspellings.
+- **Stored in the job's tag files and in the control panel search.** Internal documents print their tags; client-facing ones print only the TRK.
+- **Every tag file says in plain words what the numbers mean.** Progress is tracked with a denominator. Never invent a TRK.
