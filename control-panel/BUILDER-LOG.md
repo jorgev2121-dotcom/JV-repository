@@ -61,3 +61,4 @@
 - 2026-10-14T15:10Z · run 26 · budget allowed · panel v52 published (4 features); owner approved 8 items via panel → helper processing; Medley viewer built (36/36, desktop upload ordered) · panel 87 of 116 (75%) · VIEW-ALL 1 of 40 built · blocked: no PC receipt for PASTE-D-072 after ~110 min
 - 2026-10-14T15:20Z panel v53: Plaza permits block on 1265 + OPH-0007 cross-ref; 9 PH11 queries find it; tests pass · published v53
 - 2026-10-14T15:42Z · runner · budget allowed · items 1 of 1 (owner P0: Medley microfilm/summary, PH11 final scheduled 10-15) · panel 87 of 116 (75%) · queue depth unchanged · blocked: PC silent since PASTE-D-072 (desktop orders wait); county microfilm site blocked from cloud
+- 2026-10-14T16:42Z · runner · budget allowed · items 0 of 0 new · panel 87 of 116 (75%) · queue unchanged · blocked: PC capped (P1 microfilm refused by Codex, PII); county site blocked from cloud; waiting on Jorge's Option 1/2
