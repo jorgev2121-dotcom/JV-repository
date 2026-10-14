@@ -689,6 +689,15 @@ Checkpoint mode: do one step, show the proof, then stop.
 4. If the Speechify Windows desktop app is installed, turn on its own "read selected text" shortcut if it has one; record the key.
 5. Proof: screenshots of each switched-on setting + both right-click menus → `EXECUTED_SPEECHIFY-EVERYWHERE_2026-10-14.md` in VTES-Outbox.
 
+## 24. Claude opens on RAMBO (Code) + Claude Launcher pinned to the taskbar · PASTE-D-072 → DESKTOP · owner ask 2026-10-14 ~9:05 AM ET
+**Owner words (summary):** clicking Claude should open the desktop executor RAMBO by default; all other Claude options one click away; an off-the-rack dashboard pinned as an icon. No official Anthropic launcher exists (docs checked 2026-10-14), so the cloud built `tools/claude-launcher/Claude-Launcher.html` (tested: 11 links, no errors, fits phone width).
+YELLOW — rollback first (`Rollback_Claude-Launcher_2026-10-14_HHMM.ps1` in Undo_Manifests: removes the 2 shortcuts, re-pins the original Claude icon).
+1. Copy `tools\claude-launcher\Claude-Launcher.html` to `C:\VTES-LOCAL\ClaudeLauncher\`.
+2. **Default = RAMBO:** create shortcut "Claude — RAMBO (Code)" whose target is `claude://code/new` (documented Claude desktop deep link; add `?folder=<the repo folder on this PC>` if Desktop accepts it). Unpin the plain Claude icon from the taskbar and pin this one in its place (Claude icon as the shortcut icon). TEST: click it → a new Code session opens. If `claude://` cannot be pinned directly, make the shortcut run `explorer.exe "claude://code/new"`.
+3. **Launcher:** open the launcher HTML in Edge → ⋯ → Apps → "Install this site as an app" (name "Claude Launcher") → right-click its taskbar icon → Pin to taskbar. Also put a shortcut on the Desktop (launchpad only). First click on a 🖥️/🤝/💬 tile: tick "Always allow" for claude://.
+4. TEST every tile once; note any that fail.
+5. Proof: screenshot of the taskbar + launcher → `EXECUTED_CLAUDE-LAUNCHER_2026-10-14.md` in VTES-Outbox.
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
