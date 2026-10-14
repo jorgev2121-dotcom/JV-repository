@@ -57,3 +57,4 @@
 2026-10-14T08:17:30Z · watch · nothing for watched senders. Non-job: card statement ready (money item, amount not recorded), Slack Pro trial ends Oct 21. Outbox: nothing new; no RAMBO1 receipts. No push.
 2026-10-14T09:16:30Z · watch · nothing new (mail none; Outbox none). No push.
 2026-10-14T10:17:50Z · watch · nothing new (marketing only; Outbox none). No push.
+2026-10-14T11:17:40Z · watch · mail: QC-01 audit WARN (Outbox AUDIT_QC-01_2026-10-14, 1m-UDeehufXNYAL6fHorqHN_7471Nl1Lr): EXEC-01 never launched (Codex blocked 6:18 PM; job executor produced nothing 12:03 AM, 2/2 attempts); 7 Codex receipts titled EXECUTED but BLOCKED/PARTIAL; ORCHESTRATOR silent-signoff blocker. Root cause shared with PC headless cap (RI). Added to morning list. Burn-Rate receipt 07:00. No RAMBO1 receipts.
