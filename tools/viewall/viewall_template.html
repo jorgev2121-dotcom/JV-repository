@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medley View All</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree tokens, same as CAPSULE-ENHANCED_TUS-26-1033_2026-10-13 */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1000px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:15px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:8px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+button.on:hover{color:#fff}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,5vw,36px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+.lede{margin:0 0 12px;max-width:68ch}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:8px 0 14px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.tile .n{font-family:var(--display);font-size:36px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:15px;margin-top:4px}
+.tile small{color:var(--muted);font-size:13.5px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)}
+.lockbox{background:var(--money-soft);border:2px solid var(--money);border-radius:12px;padding:12px 14px;margin:0 0 16px}
+.lockbox p{margin:0 0 8px}
+.lockbox form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lockbox input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lockbox .err{color:var(--money);font-weight:700;font-size:15px}
+.lockbox.open{border-style:dashed}
+.amt{font-family:var(--mono);font-size:.92em;color:var(--money);background:var(--money-soft);border-radius:5px;padding:0 4px;white-space:nowrap}
+.viewnote{font-size:15px;color:var(--muted);border-left:3px solid var(--accent);padding-left:10px;margin:0 0 14px}
+.doc{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:0 0 18px;overflow:hidden}
+.dh{padding:12px 15px;border-bottom:1px solid var(--line);background:var(--surface)}
+.dn{font-family:var(--display);font-size:19px;font-weight:600;margin:0;overflow-wrap:anywhere}
+.num{display:inline-block;min-width:2em;font-family:var(--mono);font-size:13px;color:var(--accent);margin-right:6px}
+.dm{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:3px 0 0;overflow-wrap:anywhere}
+.badges{margin:6px 0 0;display:flex;flex-wrap:wrap;gap:5px}
+.links{margin:4px 0 0;display:flex;flex-wrap:wrap;gap:4px 16px}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.open{font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.v{display:none;padding:12px 15px}
+body.view-1 .v1,body.view-2 .v2,body.view-3 .v3{display:block}
+.frame{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--raised)}
+.frame iframe{display:block;width:100%;height:85vh;border:0}
+.hint{font-size:13.5px;color:var(--muted);margin:6px 0 0}
+.rep p{margin:0 0 8px;max-width:72ch}
+.rep .src{font-size:13.5px;color:var(--muted)}
+.gap{background:var(--accent-soft);border:1px dashed var(--accent);color:var(--ink);border-radius:8px;padding:10px 12px;font-weight:600;margin:0 0 10px}
+pre.ocr{font-family:var(--mono);font-size:12.5px;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--raised);border-radius:8px;padding:12px;margin:0;max-height:none}
+.more{font-size:15px;margin:8px 0 0}
+.stamp{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:right;margin:0;padding:6px 15px 10px;overflow-wrap:anywhere}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer p{max-width:72ch}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.dn{font-size:17px}.bar{padding:8px 16px}button{padding:7px 9px;font-size:14px}.tile .n{font-size:30px}.frame iframe{height:80vh}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.lockbox form,.hint{display:none!important}
+  .doc{break-inside:auto}
+  .dh{break-after:avoid}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+</style>
+</head>
+<body class="view-1">
+<div class="bar" role="toolbar" aria-label="Choose how to view">
+  <button id="b1" class="on" aria-pressed="true" data-v="1">1 · Original</button>
+  <button id="b2" aria-pressed="false" data-v="2">2 · Report</button>
+  <button id="b3" aria-pressed="false" data-v="3">3 · Transcription</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays hidden while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">VIEW ALL · THREE WAYS · OWNER-DIRECTIVE VIEW-THREE-WAYS-01 · PILOT</p>
+<h1>TUS-26-1033 · 7265 NW 74 St Bay 2, Medley</h1>
+<p class="lede">Every document in this job, one after another, oldest first. Pick how to read them with the three buttons at the top: <b>1 · Original</b> shows each page itself, <b>2 · Report</b> shows our plain-English summary, <b>3 · Transcription</b> shows the OCR text the summary was built from.</p>
+
+<div class="tiles" aria-label="Tracker counts">
+  <div class="tile"><span class="n">{{N}}</span><b>documents</b><small>PDFs and images, 3 folder levels</small></div>
+  <div class="tile c"><span class="n">{{NIMG}}</span><b>with image</b><small>open in view 1</small></div>
+  <div class="tile c"><span class="n">{{NOCR}}</span><b>with OCR</b><small>from the .SEARCH.txt files</small></div>
+  <div class="tile w"><span class="n">{{NREP}}</span><b>with a report</b><small>{{NPRETTY}} also have their own pretty page</small></div>
+</div>
+
+<div class="lockbox" id="lockbox">
+  <p id="lockmsg"><b>🔒 Money is locked.</b> Every dollar amount on this page is hidden until you type the zone code.</p>
+  <form id="lockform" autocomplete="off"><label for="pin">Zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit" id="lockbtn">Show amounts</button><span class="err" id="pinerr" aria-live="polite"></span></form>
+</div>
+
+<p class="viewnote" id="viewnote">View 1 · Original. Each document’s own pages, shown from Google Drive. You may need to be signed in to Google to see them.</p>
+
+{{BLOCKS}}
+
+<footer>
+  <p><b>What is in this file.</b> {{N}} documents (every PDF and image in the job folder and its subfolders, 3 levels deep). Left out: the _SUPERSEDED folder, backup copies, tag and search sidecars, index pages, and documents that are not PDFs or images (emails, notes, .hta boards). {{NALL3}} of {{N}} documents have all three views. Reports marked “written for this viewer” are short summaries made on 2026-10-14 from the OCR text and the October 13 capsule. OCR text is shown as read from each .SEARCH.txt file, with formatting backslashes and line-end spaces removed, a few broken emoji repaired, and long runs of one repeated line written once with a count (E-1 and A-1 sheets); any text over 20,000 characters is cut and links to the full file.</p>
+  <p>Nothing on this page sends, files, moves or deletes anything. This page has client names and money, so keep it private.</p>
+  <p class="tag">TUS-26-1033 · VIEW-ALL · v1 · 2026-10-14 · CURRENT · prepared by ☁️ Claude (Cloud) · #TUS-26-1033 #Medley #MiamiArtHouse #7265NW74 #view-three-ways #orange-tree</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var M={{MONEY}};
+  var notes={
+    1:'View 1 · Original. Each document’s own pages, shown from Google Drive. You may need to be signed in to Google to see them.',
+    2:'View 2 · Report. Our plain-English summary of each document, in the same order.',
+    3:'View 3 · Transcription. The OCR text each summary was built from, in the same order.'
+  };
+  function $(id){return document.getElementById(id);}
+  function setView(v){
+    document.body.className='view-'+v;
+    [1,2,3].forEach(function(i){var b=$('b'+i);var on=i===v;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');});
+    $('viewnote').textContent=notes[v];
+  }
+  [1,2,3].forEach(function(i){$('b'+i).addEventListener('click',function(){setView(i);window.scrollTo(0,0);});});
+  var unlocked=false;
+  function dec(s){try{return decodeURIComponent(escape(atob(s.split('').reverse().join(''))));}catch(e){return '?';}}
+  function paint(){
+    var els=document.querySelectorAll('.amt');
+    for(var i=0;i<els.length;i++){els[i].textContent=unlocked?dec(M[+els[i].getAttribute('data-m')]):'🔒 $—';}
+    $('lockbox').classList.toggle('open',unlocked);
+    $('lockmsg').innerHTML=unlocked?'<b>🔓 Money is showing.</b> Lock it again before you print, copy or share this page.':'<b>🔒 Money is locked.</b> Every dollar amount on this page is hidden until you type the zone code.';
+    $('pin').style.display=unlocked?'none':'';
+    var lab=document.querySelector('label[for=pin]'); if(lab) lab.style.display=unlocked?'none':'';
+    $('lockbtn').textContent=unlocked?'Lock again':'Show amounts';
+  }
+  $('lockform').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(unlocked){unlocked=false;paint();return;}
+    if($('pin').value==='0000'){unlocked=true;$('pinerr').textContent='';$('pin').value='';paint();}
+    else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}
+  });
+  $('pr').addEventListener('click',function(){window.print();});
+  paint();
+})();
+</script>
+</body>
+</html>
