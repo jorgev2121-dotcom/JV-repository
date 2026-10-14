@@ -40,3 +40,4 @@
 - 2026-10-14T06:05Z · BAK subfolder sweep: +563 (85 job subfolders, 478 mailbox) → 2,710 in plan; 3,129 Drive-wide; TO-CLOUD.md copies 403 ≈3.4 GB, writer still active 28–54/day (PC agent) — quarantine proposal, Jorge's yes
 - 2026-10-14T06:00Z panel: MENU glossary + phone-width fix · 64 of 116 (55%) · MENU 12 of 12 (100%) · phone-width, menu-glossary, money-lock tests passed · published v42
 - 2026-10-14T06:45Z · run 18 · budget allowed · 4 started: panel RULES+BRIDGES+WINDOWS (3 tabs → 100%), HASHTAG-PEOPLE v2 jobs 1/40 2/40 4/40 (Cutler Bay 1310, Synergy 2221, Caso 1684; spec _V2-SPEC.md, registry _V2-STATUS.tsv) · panel 64 of 116 (55%) · queue: HASHTAG v2 37 left, ATTACH-ALL prep, OneDrive dup compare · blocked: PC headless cap
+- 2026-10-14T07:00Z panel: RULES directives list + BRIDGES live inbox count + WINDOWS picture cards · 67 of 116 (58%) · RULES, BRIDGES, WINDOWS 100% · 4 test suites passed · published v43 · HASHTAG v2 21 of 40
