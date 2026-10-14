@@ -31,3 +31,4 @@
 - 2026-10-14T02:50Z · panel: built APPROVALS 'Read aloud' · 61 of 116 (53%) · 8 tests passed · published v39
 - 2026-10-14T03:44Z · run 15 · budget allowed · 2 started (+1 CDM helper still running from run 14): BAK-RENAME plan (all jobs, survey only), panel APPROVALS one-card mode · capsules 40 of 40 · panel 61 of 116 (53%) · blocked: PC Claude window silent
 - 2026-10-14T03:50Z · panel: built APPROVALS 'One card at a time mode' · 62 of 116 (53%) · APPROVALS 4 of 5 (last piece is PC) · 9 tests passed · published v40
+- 2026-10-14T04:00Z · CDM reissue (Cowork, cloud lane): 3 of 5 orders EXECUTED-WITH-PROOF (TOP15 v10, rulebook v16 @111 rows, manifest v36), 2 BLOCKED on Cowork answers (capital stack v12 hash mismatch +65 B; calibration v16 REF-08 duplicate id); reply in Outbox 11E6tCLW3ZsdDBD55zF-oDR6Uuh_5LgQi
