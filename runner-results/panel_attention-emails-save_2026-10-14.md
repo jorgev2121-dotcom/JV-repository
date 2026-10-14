@@ -54,3 +54,34 @@ Tests run together after Feature 2: search 28/0 · phone-width 12/0 · menu-glos
 2. **Export needs a download permission when it runs inside claude.ai.** It tries the `downloads` capability first, then a normal browser download. If v51 does not declare `downloads`, the export may be blocked inside claude.ai until the next publish adds it. "Copy all for email" works either way.
 
 Tests run together after Feature 3: search 28/0 · phone-width 12/0 · menu-glossary 18/0 · button-groups 50/0 · money-lock 0 amounts locked, 0 relocked, no errors · attention 37/0 · emails-subbuttons 29/0 · save-popup 24/0.
+
+## Section D — Feature 4: Master task log (SPEC_MASTER-TASK-LOG, added by the coordinator)
+
+**State: DONE locally. Test `tools/panel/test/master-task-log-test.js`: 27 PASS, 0 FAIL.**
+
+1. **The MYASKS tab is now the Master task log. No second list was built.** A new header button, "📜 Master task log", opens it.
+2. **One row per request, oldest first**, with a "Newest first" switch that is remembered. Each row shows the date and time asked, what you asked, the executor (☁️ Cloud, 🖥️ Desktop RAMBO, 🤝 Cowork, 🎯 Orchestrator, 🧭 EXEC-01, 👤 Jorge), the status and the proof link. A proof given as a repo path links to the file on GitHub.
+3. **All 23 seed rows** from `control-panel/MASTER-TASK-LOG.json` are embedded. The 18 older asks from the old MYASKS table are folded into the same list. Rows in the db collection `task-log` replace or add rows, which is how the runner appends new requests.
+4. **Statuses and colours:** ⏰ Scheduled · 🔄 Running (yellow) · ✅ Completed (green) · 🟢✅ Completed with proof (green, with link) · ⛔ Blocked (red, needs you) · ⏸ Deferred. A status drop-down and count chips let you click through them. Today the counts are 6 scheduled · 11 running · 18 completed (10 of them with proof) · 7 blocked.
+5. **💬 Comment on any row** writes `{taskId, executor, text, at}` to the db collection `task-comments`. EXEC-01's reply shows in the same thread, with its "Agent recommendation" line. If the window has no database, the comment is kept in this browser and says "Not delivered yet". It is sent the next time the panel opens with the database.
+6. **Blocked rows join "Waiting on you",** and the MYASKS tab flashes with its count. Answering one there posts "Owner: YES" or "Owner: NO" to its executor as a comment. That is why the counter is now **157**: the 150 from Section A plus 7 blocked rows.
+7. The money lock is respected. The page fits at 375px, every control has a hover tip, and 🔊 reads the log aloud.
+
+## Section E — Final run, all tests together (after Feature 4)
+
+1. search-test.js: 28 PASS, 0 FAIL
+2. phone-width-test.js: 12 PASS, 0 FAIL
+3. menu-glossary-test.js: 18 PASS, 0 FAIL
+4. button-groups-test.js: 50 PASS, 0 FAIL
+5. money-lock-test.js: 0 dollar amounts visible across 26 tabs while locked, 0 after relocking, no page errors
+6. attention-test.js: 37 PASS, 0 FAIL
+7. emails-subbuttons-test.js: 29 PASS, 0 FAIL
+8. save-popup-test.js: 24 PASS, 0 FAIL
+9. master-task-log-test.js: 27 PASS, 0 FAIL
+10. These also ran with no page errors: approve-all, approvals-onecard, approvals-readaloud, emails-window, hover-tips and view-controls.
+
+**No test compared the BUILD count against git HEAD in this set, so no mismatch showed.**
+
+**One fix on the way:** search-test.js has an approvals read-aloud check that picks the first `[data-id]` on the page. The new log rows briefly took that spot, and the check was skipped silently. The log rows now use `data-task`, and the check runs and passes again.
+
+**Next step needs one yes: shall Cloud republish this build as v52?**

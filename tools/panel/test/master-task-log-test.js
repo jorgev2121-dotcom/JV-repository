@@ -26,7 +26,7 @@ const p=await b.newPage({viewport:{width:1100,height:900}});const errs=[];p.on('
 await p.addInitScript(MOCK);await p.goto('file://'+PANEL);await p.waitForTimeout(1300);
 // 1. header button opens the MYASKS tab; one list
 await p.click('#mtlbtn');await p.waitForTimeout(250);
-const a=await p.evaluate(()=>{const pane=document.getElementById('pane-MYASKS'),rows=[...pane.querySelectorAll('.mtl-row')];return {active:pane.classList.contains('active'),n:rows.length,ids:rows.map(r=>r.dataset.id),old:pane.querySelectorAll('.rep').length,tab:document.querySelector('.tab[data-tab="MYASKS"]').classList.contains('active'),
+const a=await p.evaluate(()=>{const pane=document.getElementById('pane-MYASKS'),rows=[...pane.querySelectorAll('.mtl-row')];return {active:pane.classList.contains('active'),n:rows.length,ids:rows.map(r=>r.dataset.task),old:pane.querySelectorAll('.rep').length,tab:document.querySelector('.tab[data-tab="MYASKS"]').classList.contains('active'),
   lists:document.querySelectorAll('#mtl').length,asked:rows.map(r=>r.querySelector('.mtl-when').textContent),tip:document.getElementById('mtlbtn').dataset.tip,label:document.getElementById('mtlbtn').textContent}});
 ok('header button "📜 Master task log" opens the MYASKS tab',a.active&&a.tab&&/📜 Master task log/.test(a.label)&&!!a.tip);
 ok('one list only: the old MYASKS table is replaced, not duplicated',a.lists===1&&a.old===0);
@@ -35,7 +35,7 @@ ok('db "task-log" appends a row the runner wrote',a.ids.includes('T-20261014-24'
 ok('the older asks are folded into the same log (one list, 18 older + 23 seed + 1 db)',a.n===42,a.n);
 ok('oldest first',a.asked.every((x,i)=>i===0||a.asked[i-1]<=x),a.asked[0]+' … '+a.asked[a.asked.length-1]);
 // 2. row content
-const r=await p.evaluate(()=>{const g=id=>document.querySelector('.mtl-row[data-id="'+id+'"]');const t1=g('T-20261014-01'),t23=g('T-20261014-23'),t10=g('T-20261014-10'),t05=g('T-20261014-05'),t13=g('T-20261014-13');
+const r=await p.evaluate(()=>{const g=id=>document.querySelector('.mtl-row[data-task="'+id+'"]');const t1=g('T-20261014-01'),t23=g('T-20261014-23'),t10=g('T-20261014-10'),t05=g('T-20261014-05'),t13=g('T-20261014-13');
   return {t1:t1&&{st:t1.querySelector('.mtl-st').textContent,ex:t1.querySelector('.mtl-exec').textContent,a:(t1.querySelector('.mtl-meta a')||{}).href,when:t1.querySelector('.mtl-when').textContent,what:t1.querySelector('.mtl-what').textContent},
    t23:t23&&{st:t23.dataset.status,a:(t23.querySelector('.mtl-meta a')||{}).href},t10:t10&&{st:t10.querySelector('.mtl-st').textContent,col:t10.dataset.st},t05:t05&&{st:t05.querySelector('.mtl-st').textContent,col:t05.dataset.st,ex:t05.querySelector('.mtl-exec').textContent},t13:t13&&(t13.querySelector('.mtl-meta a')||{}).href}});
 ok('a row shows date/time asked · what · executor · status · proof link',r.t1&&r.t1.when==='2026-10-14 08:41 ET'&&r.t1.what==='Show the Einar capsule'&&/☁️ Cloud/.test(r.t1.ex)&&/🟢✅ Completed with proof/.test(r.t1.st)&&/claude\.ai\/artifact/.test(r.t1.a),JSON.stringify(r.t1));
@@ -55,7 +55,7 @@ await p.evaluate(()=>VTES.mtlFilter('all'));
 await p.click('#mtlord');const nf=await p.evaluate(()=>[...document.querySelectorAll('#mtlrows .mtl-when')].map(x=>x.textContent));ok('newest-first toggle',nf.every((x,i)=>i===0||nf[i-1]>=x),nf[0]);
 // 4. comment → db task-comments
 await p.evaluate(()=>{VTES.toggle('mtc-T-20261014-22');document.getElementById('mtt-T-20261014-22').value='Please finish the Medley capsule deep dive today.'});
-await p.click('.mtl-row[data-id="T-20261014-22"] .commentbox button');await p.waitForTimeout(250);
+await p.click('.mtl-row[data-task="T-20261014-22"] .commentbox button');await p.waitForTimeout(250);
 const db=await p.evaluate(()=>__db());const cm=Object.keys(db).filter(k=>k.startsWith('task-comments/')).map(k=>db[k]);
 ok('💬 Comment writes {taskId, executor, text, at} to the db collection "task-comments"',cm.length===1&&cm[0].taskId==='T-20261014-22'&&cm[0].executor==='Cloud'&&/Medley capsule/.test(cm[0].text)&&!isNaN(Date.parse(cm[0].at)),JSON.stringify(cm[0]));
 await p.evaluate(()=>__dbput('task-comments/reply1',{taskId:'T-20261014-22',executor:'Cloud',by:'EXEC-01',reply:true,text:'Routed to Cloud. Starting now.',rec:'Approve the 2-pass plan: census first, then fill the gaps.',at:new Date(Date.now()+1000).toISOString()}));await p.waitForTimeout(300);
@@ -64,7 +64,7 @@ ok('the runner\'s reply shows in the same thread, with its agent recommendation'
 ok('every button in the log has a hover tip',await p.evaluate(()=>[...document.querySelectorAll('#pane-MYASKS #mtl button,#pane-MYASKS #mtl select')].every(x=>(x.dataset.tip||'').trim())));
 // 5. reload keeps order choice + thread
 await p.reload();await p.waitForTimeout(1300);await p.evaluate(()=>VTES.show('MYASKS'));await p.waitForTimeout(200);
-const rl=await p.evaluate(()=>({ord:document.getElementById('mtlord').textContent,c:document.querySelector('.mtl-row[data-id="T-20261014-22"] .actions button').textContent}));ok('after reload: newest-first remembered, thread count kept',/Newest first/.test(rl.ord)&&/Comment \(2\)/.test(rl.c),JSON.stringify(rl));
+const rl=await p.evaluate(()=>({ord:document.getElementById('mtlord').textContent,c:document.querySelector('.mtl-row[data-task="T-20261014-22"] .actions button').textContent}));ok('after reload: newest-first remembered, thread count kept',/Newest first/.test(rl.ord)&&/Comment \(2\)/.test(rl.c),JSON.stringify(rl));
 // 6. blocked rows wait on you
 const w=await p.evaluate(()=>{const L=VTES.attItems().filter(x=>x.kind==='mtl');const t=document.querySelector('.tab[data-tab="MYASKS"]');return {n:L.length,flash:t.classList.contains('attn'),badge:+(t.dataset.attn||0),rec:L.every(x=>x.risky&&x.rec==='approve')}});
 ok('blocked rows show in Waiting on you (red), and the MYASKS tab flashes with its count',w.n===f.blocked.n&&w.flash&&w.badge===w.n&&w.rec,JSON.stringify(w));
