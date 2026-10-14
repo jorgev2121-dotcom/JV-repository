@@ -67,3 +67,4 @@
 2026-10-14T18:17:00Z · watch · ARRIVAL: Elio sent the Medley Fire approval PDF link (2026013326) at 18:00Z. Drive _ARRIVALS written; desktop save order added; push + Gmail sent. Outbox: Cowork CDM-RULEBOOK-V17 merge blocked by Codex PII (Cowork lane, not ours).
 2026-10-14T19:17:00Z · watch · no watched-sender arrivals. Seen: Plaza TRK-2026-1265 status reports from another window (Gmail 18:22Z, 18:47Z) and Jorge's self-sent 'Meeting and Construction update status for Bell Harbour' (19:04Z, with attachment), all Jorge-originated, logged only. Medley Fire PDF + microfilm still not in Drive. No push.
 2026-10-14T20:16:15Z · watch · Miguel forwarded 2 old threads (Plaza 220/721 extension apps; Bay Harbor 10000 unit 404 perm app/NOC), no attachments, logged. No new files in Drive. No push.
+2026-10-14T21:16:49Z · watch · nothing new (marketing only; no Outbox results; no Medley files). No push.
