@@ -195,13 +195,11 @@
     },
     {
       "id": "T-20261014-25",
-      "asked": "2026-10-14 11:25 ET",
-      "what": "Medley microfilm PDFs + AI permit summary attached to an Outlook draft pop-up",
-      "exec": "Desktop RAMBO",
+      "asked": "2026-10-14 PM ET",
+      "what": "Follow up with the Town of Medley for its microfilm and records (TUS-26-1033)",
+      "exec": "Cloud EXEC-01",
       "status": "completed",
-      "proof": "Gmail draft r-3267999219005650695 is ready for Jorge to Send. runner-results/EMAIL-DRAFT_MEDLEY-TOWN-RECORDS-FOLLOWUP_2026-10-14.html",
-      "title": "Follow up with the Town of Medley for its microfilm and records (TUS-26-1033)",
-      "executor": "cloud EXEC-01"
+      "proof": "Gmail draft r-3267999219005650695 is ready for Jorge to Send. runner-results/EMAIL-DRAFT_MEDLEY-TOWN-RECORDS-FOLLOWUP_2026-10-14.html"
     }
   ]
 }
