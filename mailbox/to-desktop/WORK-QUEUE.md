@@ -698,6 +698,12 @@ YELLOW — rollback first (`Rollback_Claude-Launcher_2026-10-14_HHMM.ps1` in Und
 4. TEST every tile once; note any that fail.
 5. Proof: screenshot of the taskbar + launcher → `EXECUTED_CLAUDE-LAUNCHER_2026-10-14.md` in VTES-Outbox.
 
+## 25. Panel approvals 2026-10-14 (owner yes 10:38 AM)
+**Owner words:** "YES — go ahead with the workaround in the blocker note", clicked in the panel's "Waiting on you" list at 10:38 AM ET. Covered by the already-pasted PASTE-D-072 queue drain. No new paste ID. Do these after items 23 and 24.
+
+1. **D-062 read-only check (A-20260928-16). GREEN, read-only.** The result never came back since 2026-09-28 (no `PASTE-D-062-RESULT.txt` in VTES-Outbox, searched by cloud 2026-10-14). Run **only section 1** of `mailbox/to-desktop/Executor-Takeover_PASTE-D-063.ps1` (the "Read-only check" block: state of `CU-Uptime-Heartbeat`, `VTES-LOCAL-POLLER`, `CU-Inbox-Job-Watcher`; newest Outbox file; reachability of api.anthropic.com, github.com, drive.google.com; printer queue). Do not run the other sections; they were for the 2026-09-28 rebuild. Write the output to `G:\My Drive\VTES-Outbox\PASTE-D-062-RESULT.txt` with today's date on line one. Proof = that file exists.
+2. **Two PC confirmations from the 17 owner gates (A-20260731-17, gates REG-0009 and REG-0010). GREEN, read-only.** Check whether (a) the Buttons 9/10/13 install package from 2026-07-23 and (b) the Dropbox Auto-Installer Watcher are installed and working on this PC. Look only: list the files, shortcuts and scheduled tasks by name, and the watcher's last run time. Change nothing. Write `EXECUTED_GATES-REG-0009-0010-CHECK_2026-10-14.md` to VTES-Outbox: one line each, "PRESENT and working", "PRESENT but broken (why)", or "NOT FOUND". Jorge has already approved both gates; this check is the proof they can be closed.
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by

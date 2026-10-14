@@ -54,3 +54,6 @@ Each run, build up to 4 job capsules per STANDING-ORDER_ENCAPSULATE-EVERY-JOB_20
 
 ## Addendum 2026-10-13 15:10Z — the runner processes owner DECISIONS (RI-049 Tier 2)
 Each run, read control-panel/DECISIONS-CENSUS_2026-10-13.md. Take up to 4 OPEN decisions marked CLOUD-DOABLE, one helper each. Carry out exactly what Jorge decided. Write runner-results/DECISION_<id>.md with proof, plus a NEW Drive file EXECUTED_CLOUD_<decision file name> in VTES-Outbox so the PC never redoes it. Bundle the PC ones into a single desktop order (at most one per hour). Put RED ones on the morning list. **Do not message Jorge per batch: one summary at 6 PM ET (his choice).**
+
+## Added 2026-10-14 (owner yes A-20260929-07, via panel 10:38 AM)
+- Every 4th hourly cycle (runs at 00:41, 04:41, 08:41, 12:41, 16:41, 20:41 UTC): re-check every link in MY-DESK LINK-REGISTER (v2) and write a NEW LINK-CHECK-LATEST_<date>_<HHMM>.md (count N of M OK + any broken). Tell Jorge only if a link breaks.
