@@ -34,3 +34,4 @@ Report: a count of files saved, the paths, the SHA-256 of each, and the sweep ma
 
 - TUS-26-1033 Medley: retrieve the PAID microfilm images for process X2027004874 (7265 NW 74 ST) from http://bldgappl.miamidade.gov/microfilm/AppointmentMaintenance.aspx before ~2026-11-11. Save them into the Medley job folder under `03_Research\Microfilm\`. No payment is needed; it is already paid.
 - TRK-2026-1310 (Drive 1nW4BWBBxU3SJEZtKWawkIm-GJQoIv3BM): open the 2026-10-13 2:59 PM email from planstrack@miamidade.gov (tracking 3026170181), download the approved plan set from the county link, save into the job folder as a NEW file. Read-only on the county site; no payment.
+- 2026-10-14 · TUS-26-1033 · Elio 18:00Z SharePoint link '2026013326-BatchPrint FIRE APPROVAL.pdf': open on the PC and save into the Medley folder 1m2zOt4hRY1H6ncRZDtqdotdQQYxvj3DM as a new file (link in inbox-sweep/ARRIVALS.md).
