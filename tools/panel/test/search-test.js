@@ -30,7 +30,7 @@ const pools=await p.evaluate(()=>{const IX=VTES.searchIndex(),cd=VTES.clData(),C
   const people=u(CLLIST.map(c=>c.n));
   return {emails,projects,trks,tags,words,people}});
 console.log('pools: emails',pools.emails.length,'projects',pools.projects.length,'TRKs',pools.trks.length,'hashtags',pools.tags.length,'people',pools.people.length);
-const Q=[['fixed','#ph11 #PLaza'],['fixed','miguel@mzsolutions.org'],['absent','BLC2026-1438']];
+const Q=[['fixed','#ph11 #PLaza'],['fixed','miguel@mzsolutions.org'],['absent','BLC2099-9999']];
 for(let i=0;i<4;i++)Q.push(['email',rnd()<0.4?mix(pick(pools.emails)):pick(pools.emails)]);
 for(let i=0;i<4;i++)Q.push(['project/address',rnd()<0.4?mix(pick(pools.projects)):pick(pools.projects)]);
 for(let i=0;i<3;i++)Q.push(['TRK',rnd()<0.5?pick(pools.trks).toLowerCase():pick(pools.trks)]);
