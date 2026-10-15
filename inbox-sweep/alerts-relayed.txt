@@ -76,3 +76,4 @@
 2026-10-15T03:16Z · watch · no new mail. Probe answered (relay works end to end). 11 approvals routed (routedAt, not done). Codex replied PARTIAL to LLM handoff: read files, wrote REPLY_CODEX locally only (cannot write to Drive). P0 microfilm order refused by Codex 02:42Z (PC Claude lane capped) → re-upload after 04:00Z. No push (Jorge informed live in chat).
 2026-10-15T03:42Z · runner · relayed Codex handoff reply to Jorge in chat.
 2026-10-15T04:17Z · watch · no new mail (pdfFiller promo only). Microfilm P0 re-issued 04:17Z, but CAP-REACHED 04:12Z (6/6 spent on failed DECISION_25-27 re-runs) → waits a day unless PASTE-D-073. Told Jorge in chat.
+2026-10-15T05:16Z · watch · no watched mail (promos only). Microfilm 04:17Z order refused by Codex 04:18Z as expected (cap). Already told Jorge; no push.
