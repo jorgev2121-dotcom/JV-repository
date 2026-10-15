@@ -101,6 +101,14 @@ def protect(text):
 def durl(i): return 'https://drive.google.com/file/d/%s/view' % i
 def purl(i): return 'https://drive.google.com/file/d/%s/preview' % i
 
+# Real page images (rendered from the Drive originals by scratchpad/va/render.py)
+import os, glob
+VA = SP + '/va'
+NUM = {m['id']: m['n'] for m in json.load(open(VA + '/manifest.json'))}
+def pages_for(oid):
+    n = NUM.get(oid)
+    return sorted(os.path.basename(f) for f in glob.glob('%s/pages/d%02d_p*.jpg' % (VA, n))) if n else []
+
 D.sort(key=lambda r: (r[0], r[1].lower()))
 n = len(D)
 n_img = sum(1 for r in D if r[3])
@@ -129,7 +137,10 @@ for k, (date, name, folder, oid, sid, hid, kind, flag, summ) in enumerate(D, 1):
             '<p class="badges">%s</p><p class="links">%s</p></div>') % (
         k, html.escape(name), date, html.escape(kind), html.escape(folder), badges, ' '.join(links))
     # view 1
-    if has_img:
+    pg = pages_for(oid) if oid else []
+    if pg:
+        v1 = ''.join('<img class="pg" loading="lazy" src="pages/%s" alt="%s, page %d of %d"><p class="pgn">%s · page %d of %d</p>' % (f, html.escape(name), i, len(pg), html.escape(name), i, len(pg)) for i, f in enumerate(pg, 1))
+    elif has_img:
         v1 = ('<div class="frame"><iframe loading="lazy" src="%s" title="%s" allow="autoplay"></iframe></div>'
               '<p class="hint">If the page above is blank, sign in to Google in this browser, or use “Open the original”.</p>') % (purl(oid), html.escape(name))
     else:
@@ -150,13 +161,13 @@ for k, (date, name, folder, oid, sid, hid, kind, flag, summ) in enumerate(D, 1):
         v3 = '<pre class="ocr">%s</pre>%s' % (protect(t), more)
     else:
         v3 = '<div class="gap">No OCR text yet for this document.</div>'
-    blocks.append('<section class="doc" id="d%d">%s<div class="v v1">%s</div><div class="v v2">%s</div><div class="v v3">%s</div>'
+    blocks.append('<section class="doc" id="d%d">%s<div class="v v1"><p class="vl">1 · ORIGINAL PAGES</p>%s</div><div class="v v2"><p class="vl">2 · REPORT</p>%s</div><div class="v v3"><p class="vl">3 · TRANSCRIPTION</p>%s</div>'
                   '<p class="stamp">TUS-26-1033 · VIEW-ALL · v1 · doc %02d of %d · 2026-10-14 · CURRENT</p></section>' % (k, head, v1, v2, v3, k, n))
 
 all3 = sum(1 for r in D if r[3] and r[8] and r[4] in OCR)
 money_js = json.dumps(MONEY)
 
-tpl = open(SP + '/viewall_template.html').read()
+tpl = open('/home/user/JV-repository/tools/viewall/viewall_template.html').read()
 out = (tpl.replace('{{BLOCKS}}', '\n'.join(blocks))
           .replace('{{N}}', str(n)).replace('{{NIMG}}', str(n_img)).replace('{{NOCR}}', str(n_ocr))
           .replace('{{NREP}}', str(n_rep)).replace('{{NPRETTY}}', str(n_pretty)).replace('{{NALL3}}', str(all3))

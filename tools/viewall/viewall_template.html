@@ -72,7 +72,12 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,5vw,36px);lin
 .open{font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
 .open:hover{text-decoration:underline}
 .v{display:none;padding:12px 15px}
-body.view-1 .v1,body.view-2 .v2,body.view-3 .v3{display:block}
+body.view-1 .v1,body.view-2 .v2,body.view-3 .v3,body.view-4 .v{display:block}
+body.view-4 .v+.v{border-top:2px dashed var(--line)}
+.vl{display:none;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted);margin:0 0 8px}
+body.view-4 .vl{display:block}
+.pg{display:block;width:100%;max-width:100%;height:auto;border:1px solid var(--line);border-radius:4px;margin:0 0 10px;background:#fff}
+.pgn{font-family:var(--mono);font-size:12px;color:var(--muted);margin:-6px 0 12px}
 .frame{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--raised)}
 .frame iframe{display:block;width:100%;height:85vh;border:0}
 .hint{font-size:13.5px;color:var(--muted);margin:6px 0 0}
@@ -103,6 +108,7 @@ footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
   <button id="b1" class="on" aria-pressed="true" data-v="1">1 · Original</button>
   <button id="b2" aria-pressed="false" data-v="2">2 · Report</button>
   <button id="b3" aria-pressed="false" data-v="3">3 · Transcription</button>
+  <button id="b4" aria-pressed="false" data-v="4">4 · All three stacked</button>
   <span class="spacer"></span>
   <button id="pr" title="Print in color. Money stays hidden while locked.">Print</button>
 </div>
@@ -139,17 +145,18 @@ footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
 (function(){
   var M={{MONEY}};
   var notes={
-    1:'View 1 · Original. Each document’s own pages, shown from Google Drive. You may need to be signed in to Google to see them.',
+    1:'View 1 · Original. The actual pages of every document, one after another. Scroll to see everything in the folder.',
     2:'View 2 · Report. Our plain-English summary of each document, in the same order.',
-    3:'View 3 · Transcription. The OCR text each summary was built from, in the same order.'
+    3:'View 3 · Transcription. The OCR text each summary was built from, in the same order.',
+    4:'View 4 · All three stacked. For each document: the real pages, then the report, then the transcription.'
   };
   function $(id){return document.getElementById(id);}
   function setView(v){
     document.body.className='view-'+v;
-    [1,2,3].forEach(function(i){var b=$('b'+i);var on=i===v;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');});
+    [1,2,3,4].forEach(function(i){var b=$('b'+i);var on=i===v;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');});
     $('viewnote').textContent=notes[v];
   }
-  [1,2,3].forEach(function(i){$('b'+i).addEventListener('click',function(){setView(i);window.scrollTo(0,0);});});
+  [1,2,3,4].forEach(function(i){$('b'+i).addEventListener('click',function(){setView(i);window.scrollTo(0,0);});});
   var unlocked=false;
   function dec(s){try{return decodeURIComponent(escape(atob(s.split('').reverse().join(''))));}catch(e){return '?';}}
   function paint(){
