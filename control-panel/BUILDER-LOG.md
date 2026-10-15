@@ -83,3 +83,4 @@
 - 2026-10-15T11:42Z · allowed_warning · items 2 (QC-01 fixes, PR 14 merge) · blocked: PC cap (D-073)
 - 2026-10-15T12:42Z · allowed_warning · items 0 · blocked: PC cap (D-073)
 - 2026-10-15T13:43Z · allowed_warning · items 1 (OCR runner v2 L3 + census, queue item 30) · blocked: PC cap (D-073)
+- 2026-10-15T14:41Z · allowed_warning · items 1 (Bal Harbour renewal packet: envelope, transmittal, courier request, cf8f7a1) · blocked: PC cap (D-073); packet waits on signed+notarized originals
