@@ -766,3 +766,10 @@ Goal: any action on the PC that creates or moves a document or email attachment 
 4. MOVING a file into a job folder is filing, which is RED. It stays a one-click approval until Jorge gives a standing yes for exact-key moves. Until then the bot only saves, stamps and logs.
 5. The cloud watch reads `_INBOX-LOG.csv` hourly and updates the job page placeholders. See control-panel/ROOT-CAUSE_DOCS-NEVER-APPLIED-TO-PLACEHOLDERS_2026-10-15.md.
 Related: item 26 (PAD panel feeds), item 31, item 32.
+
+## 34. MODEL BLOCK on the PC: Desktop executor defaults to Sonnet · owner order 2026-10-15 ~4:10 PM ET · 🖥️ DESKTOP (GREEN, setting only, no client data)
+Jorge ordered Fable 5.1 and Opus 5.5 blocked from running and using his usage limits. He never authorized them.
+1. Back up the Claude Code settings file first (NAME_bak-20261015.ext). Write a rollback script to the Undo_Manifests folder.
+2. Set the default model for Claude Code and for every scheduled task or headless script on this PC to Sonnet 5.5. Search the scripts for "opus", "fable" and "--model" and list every hit.
+3. Do not choose Opus or Fable for any run unless Jorge says so in that run's own order.
+4. Proof: the settings diff and the list of script hits, written to EXECUTED_MODEL-BLOCK_2026-10-15.md in VTES-Outbox. Then report the file name to the cloud.
