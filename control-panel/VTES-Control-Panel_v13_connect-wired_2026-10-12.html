@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>VTES Control Panel v54 (CURRENT)</title>
+<title>VTES Control Panel v56 (CURRENT)</title>
 <meta name="description" content="Menu first page, then one tab per job: approvals, reports, links, windows, and the real numbers.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
 <style>
@@ -154,6 +154,12 @@ button.needsyou,a.needsyou{position:relative;outline:2px solid var(--bad);outlin
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--grp-red:#ff8a80;--grp-edge:#c9c9c9}}
 :root[data-theme="dark"]{--grp-red:#ff8a80;--grp-edge:#c9c9c9}
 .grp{color:var(--grp-red)}
+/* v56 owner ask: same look everywhere — red, larger headings; dark solid frames */
+.branch[data-g]{border:2px solid var(--grp-edge)!important;border-left:6px solid var(--cat-bd)!important}
+.branch h5{font-size:18px!important;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--grp-red)}
+.card{border:2px solid var(--grp-edge)!important}
+.card h3,.card > h4{color:var(--grp-red);font-size:17px;font-weight:800}
+h2{color:var(--grp-red)}
 .tabgrp-b{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
 .tabgrp[data-g="start"],.branch[data-g="start"]{--cat-bg:var(--cat-start-bg);--cat-bd:var(--cat-start-bd)}
 .tabgrp[data-g="click"],.branch[data-g="click"]{--cat-bg:var(--cat-click-bg);--cat-bd:var(--cat-click-bd)}
