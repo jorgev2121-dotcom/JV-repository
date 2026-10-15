@@ -723,3 +723,7 @@ Build each as a PAD flow (Windows Task Scheduler trigger), no Claude run needed,
 7. Nightly 2 AM: backup of the repo + panel export to Drive `BACKUP/` with a dated name → BACKUP.
 8. ORCHESTRATOR: worker picks up a queued job and writes back the same correlation ID (`CID-<date>-<n>`) in its EXECUTED file.
 Rules: GREEN only (read, count, write new status files). No client file is moved, renamed or deleted. No money amounts in any feed. Proof: one EXECUTED_PAD-FEEDS_<date>.md listing each flow, its schedule and the first file it wrote (Drive ID). Grok bots cannot reach the PC, so they are not used for this item; they keep doing reminders. Did each flow write its first file?
+
+## 27. Windows login error + reconnect disconnected agents (from panel orchestrator queue, 2026-10-10; missed 5 days, routed 2026-10-15)
+- Jorge typed into the panel on 10-10: "fix windows login error and fix all LLMs and agent that are disconnected". No check read it until 10-15.
+- PC: capture the exact Windows login error text (screenshot to VTES-Outbox), list which local agents and LLM links are down, and write EXECUTED_/BLOCKER_ to VTES-Outbox. Read-only first; no credential changes without Jorge present (1Password rule).
