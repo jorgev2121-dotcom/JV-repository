@@ -40,3 +40,19 @@ A card receipt that names no unit is not proof of payment for a unit. Say "payme
 4. Courier: Baron Delivery on Demand, orders@barondelivers.com, 305-688-0074. Bill to Team USA Sales, Inc., c/o Jorge Valdes. No account number is on file.
 
 Worked example: `renewal-packet/` and `HEBERT-CLARIFICATION_UNITS-922-321-423_2026-10-15.md`.
+
+## Rule 5. Every report and packet starts with the contact sheet (page 1) and the scope of work (page 2)
+
+**Owner directive, 2026-10-15 (Jorge):** on these and all reports, page 1 is the contact sheet and page 2 is the scope of work, so everything needed is in front of us. No money lines on those pages. Builder: `renewal-packet/_build-cover-and-labels.py`. Apply to every job capsule and report builder, not only Bal Harbour.
+
+## Rule 6. The send sequence for renewals (Jorge, 2026-10-15)
+
+1. Email Hebert Martinez and Olga Kalogeropoulos (copy Miguel and Denilson Nunez) with scans of the fully executed renewal applications, for correctness. Subject and body list the same units and permit numbers as the attachments.
+2. Ask for the renewal fee total per unit and an online payment link. Miguel (GC) pays by card.
+3. Promise the originals, by courier or U.S. Mail, the Village's choice. Backup: scans first, originals follow.
+4. After payment, the only step left is picking up the originals and the new renewal permits that replace the old ones.
+5. Executed hard copies in Jorge's hands count as the executed originals. Verify the Renewal box is marked before sending. Never send anything to the Village without Jorge's yes.
+
+## Rule 7. Label sheets (owner request 2026-10-15)
+
+Letter paper, print at 100 percent. Tab labels 2.5 x 0.5 in, 2 columns by 18 rows, 36 per sheet. Title blocks 4 per sheet. Folder colors: blue legal = originals held, red legal = originals waiting on action, beige letter = job copies, yellow letter = personal. Source: Chat's order of 2026-10-15 (HARDCOPY-FILING files). The exact measurements were not on file in this chat, so each new sheet starts as a SAMPLE for Jorge to approve. Builder: `renewal-packet/_build-cover-and-labels.py`.

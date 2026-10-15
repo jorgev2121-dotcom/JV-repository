@@ -757,3 +757,12 @@ Order of work: 2022-to-today first, then 2021, 2020 and so on. Older sidecars ar
 
 ## 32. Print the Bal Harbour renewal packs, 3 copies each (GREEN, print only; nothing leaves the PC) · owner ask 2026-10-15 · 🖥️ DESKTOP
 Files are in the repo folder renewal-packet/ : PRINT-PACK_3-copies_Unit-423_BLC2024-0714, Unit-922_BLC2024-0717, Unit-321_BLC2024-0707 (each 3 copies of the Renewal-marked application, 3 of the Notice of Commencement, and for 922 and 321 3 of the owner-signed recorded 2024 notice page). Print at 100 percent, black and white is fine, Letter size. Then tell Jorge which printer and the page counts (423: 6, 922: 9, 321: 9). Copy the packs and the v5 and NOC files into the TRK-2026-1265 Drive job folder as new files (do not overwrite). Unit 321 application has a garbled owner address line (needs fixing before signing).
+
+## 33. Document-event bot with Power Automate Desktop (PAD), no AI in the loop · owner ask 2026-10-15 · 🖥️ DESKTOP · free lane
+Goal: any action on the PC that creates or moves a document or email attachment is picked up at once, by rules, with no thinking and no tokens.
+1. Outlook rule plus PAD flow: every new attachment is saved to one Drive folder `_INBOX-ATTACHMENTS` with the name `DATE _ SENDER _ ORIGINAL-NAME` (new file only, nothing overwritten).
+2. PAD folder watchers on Downloads, Desktop, PaperPort and the scanner folder: copy each new file to the same inbox folder and add one line to `_INBOX-LOG.csv` (time, source, name, size).
+3. A matcher reads the file name and text and looks for EXACT keys only: TRK number, permit number (BLC...), folio, unit plus address. Exact hit: write the key into the log row and the sidecar. No exact hit: leave it as an orphan (OPH number). No fuzzy matching, ever.
+4. MOVING a file into a job folder is filing, which is RED. It stays a one-click approval until Jorge gives a standing yes for exact-key moves. Until then the bot only saves, stamps and logs.
+5. The cloud watch reads `_INBOX-LOG.csv` hourly and updates the job page placeholders. See control-panel/ROOT-CAUSE_DOCS-NEVER-APPLIED-TO-PLACEHOLDERS_2026-10-15.md.
+Related: item 26 (PAD panel feeds), item 31, item 32.
