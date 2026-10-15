@@ -582,3 +582,15 @@ Full text: `OWNER-DIRECTIVE_TAGS-EVERYWHERE-01_2026-10-14.md`. Tracker: `control
 - **Every identifying number becomes a tag on its job:** permit numbers (original and renewal), units, address forms, folio, case and invoice numbers (never amounts), people, companies, misspellings.
 - **Stored in the job's tag files and in the control panel search.** Internal documents print their tags; client-facing ones print only the TRK.
 - **Every tag file says in plain words what the numbers mean.** Progress is tracked with a denominator. Never invent a TRK.
+
+
+---
+
+## 19. Standing protocol — agents own follow-through (OWNER-DIRECTIVE AGENTS-OWN-FOLLOW-THROUGH-01, 2026-10-15)
+
+Full text: `OWNER-DIRECTIVE_AGENTS-OWN-FOLLOW-THROUGH-01_2026-10-15.md`. Auditor: `selftest/CHECKS.md`.
+
+- **Jorge's click ends Jorge's part.** An approved or tapped item belongs to an agent until it is DONE with proof or answered with a reason.
+- **EXEC-01 (the hourly check) reads the panel database every hour**: new task-comments, approvals with no `doneAt`, and queued orchestrator items. It acts, routes, or answers, and writes the result back.
+- **Two hours maximum.** Older items turn the panel's "⚙️ waiting on agents" counter red and count as an agent fault, never Jorge's.
+- **The self-test, not Jorge, finds the bugs** (every 6 hours, with an end-to-end probe).

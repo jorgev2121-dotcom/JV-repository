@@ -7,7 +7,7 @@ Each check writes PASS or FAIL with a number to selftest/SELFTEST-LOG.md.
 A NEW failure gets one push plus one Gmail to jorgev2121@gmail.com, and one line in the panel db `attention` collection. It is not repeated while the failure stays the same.
 Fixable failures get fixed in the same run (GREEN only). RED fixes are queued with a one-line ask.
 
-1. PANEL INBOX (end to end). In the panel db (artifact 321Zo6MTHdv9Mj3hGD1QDj), any `task-comments` doc with status "new" older than 70 min, or any `orchestrator/queue` item with status "queued" older than 70 min, is a FAIL: the relay is broken.
+1. PANEL INBOX (end to end). In the panel db (artifact 321Zo6MTHdv9Mj3hGD1QDj), any `task-comments` doc with status "new", any `approvals` doc approved with no `doneAt`, or any `orchestrator/queue` item "queued", older than 2 h, is a FAIL: an agent owes it (OWNER-DIRECTIVE AGENTS-OWN-FOLLOW-THROUGH-01).
 2. PROBE. Write `task-comments/selftest-probe-<YYYYMMDDHH>` {by:"SELF-TEST", status:"new", text:"probe"}. The next hourly step 0b must answer it (reply doc, status answered). If the previous probe is still "new", FAIL.
 3. PANEL LOADS. Artifact read of the panel (path index.html) succeeds and is over 100 KB.
 4. PC ALIVE. Drive VTES-Outbox `_UPTIME-HEARTBEAT.md` modified under 30 min ago.

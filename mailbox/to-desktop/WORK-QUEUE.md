@@ -727,3 +727,7 @@ Rules: GREEN only (read, count, write new status files). No client file is moved
 ## 27. Windows login error + reconnect disconnected agents (from panel orchestrator queue, 2026-10-10; missed 5 days, routed 2026-10-15)
 - Jorge typed into the panel on 10-10: "fix windows login error and fix all LLMs and agent that are disconnected". No check read it until 10-15.
 - PC: capture the exact Windows login error text (screenshot to VTES-Outbox), list which local agents and LLM links are down, and write EXECUTED_/BLOCKER_ to VTES-Outbox. Read-only first; no credential changes without Jorge present (1Password rule).
+
+## 28. Free PC watchdog for the panel (no Claude usage) · OWNER-DIRECTIVE AGENTS-OWN-FOLLOW-THROUGH-01
+- A small scheduled script (PAD or PowerShell, every 30 min) that reads the repo files selftest/SELFTEST-LOG.md and inbox-sweep/last-mail-check.txt. If either is older than 3 hours, it writes BLOCKER_EXEC01-SILENT_<time>.md to VTES-Outbox and shows a Windows toast.
+- Purpose: when Claude's usage limit stops the Cloud checks, something still notices. GREEN: read-only plus one new file.

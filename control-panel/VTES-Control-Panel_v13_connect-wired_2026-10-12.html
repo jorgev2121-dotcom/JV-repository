@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>VTES Control Panel v56 (CURRENT)</title>
+<title>VTES Control Panel v57 (CURRENT)</title>
 <meta name="description" content="Menu first page, then one tab per job: approvals, reports, links, windows, and the real numbers.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
 <style>
@@ -1768,5 +1768,43 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 (function(){var h=document.querySelector('.header');if(!h)return;
 function fit(){var tall=h.offsetHeight>window.innerHeight*0.65;h.classList.toggle('unstick',tall)}
 window.addEventListener('resize',fit);if(window.ResizeObserver)new ResizeObserver(fit).observe(h);fit();setTimeout(fit,600)})();
+</script>
+
+<style>
+#agentbtn.late{background:#b3261e;color:#fff;border-color:#b3261e}
+#agentbtn.ok{background:var(--ok-soft,#e4f2e8);color:var(--ok,#1a6f3c)}
+#agentpop{margin:6px 0;padding:10px 14px;border:2px solid var(--grp-edge,#3a3a3a);border-radius:10px;background:var(--surface,#fff);max-width:900px}
+#agentpop li{margin:4px 0}
+#agentpop .ag{font-family:var(--mono,monospace);font-size:12.5px;opacity:.8}
+</style>
+<script>
+/* WAITING ON AGENTS (2026-10-15, OWNER-DIRECTIVE AGENTS-OWN-FOLLOW-THROUGH-01).
+   "Nothing waiting on you" was true but hid stalls: once Jorge approved or tapped, nothing showed whether an agent did it.
+   This counter lists every approved/sent item an agent still owes, with its age. Red when the oldest is over 2 hours. */
+(function(){
+var AQ={tc:[],ap:[],oq:[]},LATE=2*3600000;
+function val(d){return typeof d.data==='function'?d.data():d.data}
+function age(t){var ms=Date.now()-Date.parse(t||0);if(!(ms>0))return '?';var h=ms/3600000;return h<1?Math.round(ms/60000)+' min':h<48?Math.round(h)+' h':Math.round(h/24)+' days'}
+function esc2(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function items(){var L=[];
+ AQ.tc.forEach(function(d){var v=d.v;if(v&&v.status==='new'&&!v.reply&&v.by!=='SELF-TEST')L.push({at:v.at,what:'Your note: '+String(v.text||'').slice(0,100),who:v.executor||'Cloud'})});
+ AQ.ap.forEach(function(d){var v=d.v;if(v&&v.status==='approved'&&!v.doneAt)L.push({at:v.decidedAt,what:'You approved "'+d.id+'". No agent has reported it done.',who:'EXEC-01'})});
+ AQ.oq.forEach(function(x){if(x&&x.status==='queued')L.push({at:x.at,what:'Orchestrator request: '+String(x.text||'').slice(0,100),who:'Orchestrator'})});
+ return L.sort(function(a,b){return Date.parse(a.at)-Date.parse(b.at)})}
+function draw(){var row=document.getElementById('attnrow');if(!row)return;var b=document.getElementById('agentbtn');
+ if(!b){b=document.createElement('button');b.id='agentbtn';b.className='act';b.setAttribute('data-tip','Things you already approved or sent that an agent still owes. Red means one has waited over 2 hours: that is an agent fault, not yours. The hourly check also reports it.');b.onclick=function(){var p=document.getElementById('agentpop');if(p){p.hidden=!p.hidden}};row.appendChild(b);
+  var p=document.createElement('div');p.id='agentpop';p.hidden=true;row.parentNode.insertBefore(p,row.nextSibling)}
+ var L=items(),late=L.length&&(Date.now()-Date.parse(L[0].at||0))>LATE;
+ b.className='act '+(L.length?(late?'late':''):'ok');
+ b.textContent=L.length?('⚙️ '+L.length+' waiting on agents · oldest '+age(L[0].at)):'⚙️ Agents: all caught up';
+ document.getElementById('agentpop').innerHTML=L.length?('<b>Waiting on agents, oldest first.</b> You do not need to chase these. The hourly check must finish or answer each one; anything over 2 hours is reported as an agent fault.<ul>'+L.map(function(x){return '<li>'+esc2(x.what)+' <span class="ag">· '+esc2(x.who)+' · waiting '+age(x.at)+'</span></li>'}).join('')+'</ul>'):'<b>Nothing is waiting on agents.</b>'}
+(async function(){var db=null;try{db=await claude.use('db')}catch(e){}
+ setInterval(draw,30000);var t=setInterval(function(){if(document.getElementById('attnrow')){draw();clearInterval(t)}},1500);
+ if(!db)return;
+ try{db.collection('task-comments').onSnapshot(function(s){AQ.tc=(s.docs||[]).map(function(d){return{id:d.id,v:val(d)}});draw()})}catch(e){}
+ try{db.collection('approvals').onSnapshot(function(s){AQ.ap=(s.docs||[]).map(function(d){return{id:d.id,v:val(d)}});draw()})}catch(e){}
+ try{db.collection('orchestrator').onSnapshot(function(s){(s.docs||[]).forEach(function(d){if(d.id==='queue'){var v=val(d);AQ.oq=(v&&v.items)||[]}});draw()})}catch(e){}
+})();
+})();
 </script>
 </body></html>
