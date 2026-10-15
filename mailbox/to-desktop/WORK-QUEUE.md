@@ -792,3 +792,5 @@ Jorge has recurring feeder trouble. Gemini gave him PaperPort settings; the clou
 6. Brother-specific: also record whether the Brother TWAIN or WIA driver is the one PaperPort uses, the Brother scanner utility installed (name and version), and whether the scanner is reached by USB or by its network address (the address may change if it is not fixed).
 
 7. Compare against `runner-results/PAPERPORT-SETTINGS-GUIDE_Brother-MFC-L3770CDW_2026-10-15.md` Sections A and B: for each of the 8 settings, write EXPECTED, FOUND, MATCH or MISMATCH. Do not change anything.
+
+8. Known from Jorge's screenshot at 7:11 PM ET: PaperPort's status bar shows **300 DPI, 24-bit color**. Gemini's list says **Grayscale 8-bit**. Expect a MISMATCH on colour mode. PaperPort folder 'My PaperPort Documents' holds 126 items; the Folder Manager window was open on the Documents master folder (C:\Users\JV\OneDrive\Documents). Do not change the folder setting.
