@@ -780,3 +780,11 @@ Jorge clicked "VTES CONTROL PANEL" and got a page that says "Built 2026-10-15 15
 2. Back up what you change (NAME_bak-20261015.ext). Write a rollback script.
 3. Point the "VTES CONTROL PANEL" button, the Desktop shortcut and the Claude Launcher tile at the v58 artifact link. Retire the older pages by moving them to _Superseded.
 4. Proof: screenshot of the click opening the page with the version name in its title, plus the list from step 1, written to EXECUTED_PANEL-POINTER_2026-10-15.md in VTES-Outbox.
+
+## 36. PaperPort and scanner feeder: read-only settings report (GREEN, change nothing) · owner ask 2026-10-15 ~6:50 PM ET · 🖥️ DESKTOP
+Jorge has recurring feeder trouble. Gemini gave him PaperPort settings; the cloud has not seen them. First capture what is actually set, so the two can be compared.
+1. Write a plain-words report, no changes, to `G:\My Drive\VTES-Outbox\EXECUTED_PAPERPORT-SETTINGS-REPORT_2026-10-15.md` (never overwrite).
+2. For each PaperPort scan profile: name, scanner, driver type (TWAIN or WIA), Source (Flatbed / ADF / Duplex ADF), resolution, colour mode, "single page items" option on or off, "multiple pages into one item" on or off, "Hide scanner native user interface" on or off, save format, save folder.
+3. The scanner: make, model, driver name, driver date and version, connection (USB or network), whether Windows lists it as healthy, and the last 10 scanner or PaperPort errors in Event Viewer (time and text only).
+4. Feeder mechanics Jorge can check by eye are NOT for the PC; leave them out.
+5. Proof: the file above. Tell the cloud the file name; the cloud compares it with Gemini's list once Jorge pastes it.
