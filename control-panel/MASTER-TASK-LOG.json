@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-15T19:48Z",
+ "updated": "2026-10-15T19:58Z",
  "tasks": [
   {
    "id": "T-20261014-01",
@@ -202,7 +202,7 @@
    "proof": "Gmail draft r-3267999219005650695 is ready for Jorge to Send. runner-results/EMAIL-DRAFT_MEDLEY-TOWN-RECORDS-FOLLOWUP_2026-10-14.html"
   },
   {
-   "id": "T-20261015-01",
+   "id": "M-20261015-01",
    "asked": "2026-10-15 ~09:00 ET",
    "what": "OCR to latest protocol L3, Phase 1 (2022 to today) first",
    "exec": "Desktop RAMBO (install) / free lane",
@@ -210,7 +210,7 @@
    "proof": "tools/ocr v2 written and cloud-tested; PC install = WORK-QUEUE item 30; no _OCR-HEARTBEAT.md or _OCR-CENSUS.md in Drive 2026-10-15 15:45 ET"
   },
   {
-   "id": "T-20261015-02",
+   "id": "M-20261015-02",
    "asked": "2026-10-15 ~10:00 ET",
    "what": "Bal Harbour renewals Units 423/922/321: marked apps, NOCs, 3-copy print packs, cover sets, envelope, transmittal, courier request",
    "exec": "Cloud",
@@ -218,7 +218,7 @@
    "proof": "renewal-packet/ and envelopes/ in repo; viewer https://claude.ai/artifact/QABs8pH5PU8j4QjHNacBYh v9. Print = item 32 (PC) blocked; signatures not yet collected"
   },
   {
-   "id": "T-20261015-03",
+   "id": "M-20261015-03",
    "asked": "2026-10-15 ~13:00 ET",
    "what": "Send Hebert the fee-total / payment-link request",
    "exec": "Jorge",
@@ -226,7 +226,7 @@
    "proof": "Jorge's own message delivered 14:53 ET (Exchange relay in Outlook). Subject says 'Extension'; Hebert's 9/9 email says renewal. Body not visible to cloud"
   },
   {
-   "id": "T-20261015-04",
+   "id": "M-20261015-04",
    "asked": "2026-10-15 ~14:00 ET",
    "what": "Pasadena capsule: living page, OCR to placeholders, upload/comment/request",
    "exec": "Cloud",
@@ -234,7 +234,7 @@
    "proof": "control-panel/ROOT-CAUSE_DOCS-NEVER-APPLIED-TO-PLACEHOLDERS_2026-10-15.md; waits on Jorge picking option 1/2/3"
   },
   {
-   "id": "T-20261015-05",
+   "id": "M-20261015-05",
    "asked": "2026-10-15 ~14:00 ET",
    "what": "PAD document-event bot",
    "exec": "Desktop RAMBO",
@@ -242,7 +242,7 @@
    "proof": "WORK-QUEUE item 33; PC cap"
   },
   {
-   "id": "T-20261015-06",
+   "id": "M-20261015-06",
    "asked": "2026-10-15 15:20 ET",
    "what": "Report $200 API credit email to Anthropic",
    "exec": "Cloud",
@@ -250,7 +250,7 @@
    "proof": "Gmail send id 1a141178ef400af8 to support@anthropic.com, cc Jorge, with Jorge's explicit permission. Key unused"
   },
   {
-   "id": "T-20261015-07",
+   "id": "M-20261015-07",
    "asked": "2026-10-15 15:44 ET",
    "what": "Pending-task audit since 10-14 AM and fix problems",
    "exec": "Cloud",
