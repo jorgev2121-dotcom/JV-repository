@@ -773,3 +773,10 @@ Jorge ordered Fable 5.1 and Opus 5.5 blocked from running and using his usage li
 2. Set the default model for Claude Code and for every scheduled task or headless script on this PC to Sonnet 5.5. Search the scripts for "opus", "fable" and "--model" and list every hit.
 3. Do not choose Opus or Fable for any run unless Jorge says so in that run's own order.
 4. Proof: the settings diff and the list of script hits, written to EXECUTED_MODEL-BLOCK_2026-10-15.md in VTES-Outbox. Then report the file name to the cloud.
+
+## 35. WRONG OR DATED PANEL PAGE opens from the PC · owner complaint 2026-10-15 ~4:20 PM ET · 🖥️ DESKTOP (GREEN, read first)
+Jorge clicked "VTES CONTROL PANEL" and got a page that says "Built 2026-10-15 15:46. Source dates are shown on each destination." It shows no version number and looks dated. The current panel is the claude.ai page titled "VTES Control Panel v58 (CURRENT)" (artifact 321Zo6MTHdv9Mj3hGD1QDj). That sentence does not appear in v58 or in the repo, so the PC is serving a different page.
+1. Find which file or shortcut produced that page (the click target, the file path, its Built time, which task or script writes it). Read only. List every other panel page file on the PC with its date.
+2. Back up what you change (NAME_bak-20261015.ext). Write a rollback script.
+3. Point the "VTES CONTROL PANEL" button, the Desktop shortcut and the Claude Launcher tile at the v58 artifact link. Retire the older pages by moving them to _Superseded.
+4. Proof: screenshot of the click opening the page with the version name in its title, plus the list from step 1, written to EXECUTED_PANEL-POINTER_2026-10-15.md in VTES-Outbox.
