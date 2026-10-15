@@ -82,7 +82,7 @@ td.num{font-family:var(--mono);text-align:right}
 .cstat.mini{font-size:9.5px;padding:1px 6px;cursor:default}
 .enthead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
 .ent{border-left:5px solid var(--line)}
-h4.grp{font-family:var(--serif);font-size:18px;margin:22px 0 4px}
+h4.grp{font-family:var(--serif);font-size:20px;font-weight:700;margin:22px 0 4px}
 a.act.openbtn{display:inline-flex;align-items:center;text-decoration:none;font-family:var(--sans);font-size:12.5px;font-weight:600;padding:8px 13px;border-radius:7px;background:var(--accent);color:#fff;min-height:36px}
 .sublist{margin-top:8px;display:flex;flex-direction:column;gap:4px}.sublist a{color:var(--accent);font-size:12.5px;text-decoration:none;word-break:break-word}.sublist small{color:var(--muted)}
 details.hand{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}details.hand summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--ink);min-height:28px}
@@ -148,8 +148,12 @@ button.needsyou,a.needsyou{position:relative;outline:2px solid var(--bad);outlin
 
 /* ===== BUTTON GROUPS (2026-10-14): tab buttons grouped by the MENU map branches; one light tint per group, with a text header so meaning never relies on colour. Status colour moved to the bottom strip. ===== */
 .tabs{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:stretch}
-.tabgrp{display:flex;flex-direction:column;gap:3px;min-width:0;max-width:100%;padding:3px 6px 5px;border-radius:12px;border:1px dashed var(--cat-bd);background:color-mix(in srgb,var(--cat-bg) 45%,transparent)}
-.tabgrp-h{margin:0 2px;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.tabgrp{display:flex;flex-direction:column;gap:3px;min-width:0;max-width:100%;padding:3px 6px 5px;border-radius:12px;border:2px solid var(--grp-edge);background:color-mix(in srgb,var(--cat-bg) 45%,transparent)}
+.tabgrp-h{margin:0 2px;font-family:var(--sans);font-size:13.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--grp-red)}
+:root{--grp-red:#b3261e;--grp-edge:#3a3a3a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--grp-red:#ff8a80;--grp-edge:#c9c9c9}}
+:root[data-theme="dark"]{--grp-red:#ff8a80;--grp-edge:#c9c9c9}
+.grp{color:var(--grp-red)}
 .tabgrp-b{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
 .tabgrp[data-g="start"],.branch[data-g="start"]{--cat-bg:var(--cat-start-bg);--cat-bd:var(--cat-start-bd)}
 .tabgrp[data-g="click"],.branch[data-g="click"]{--cat-bg:var(--cat-click-bg);--cat-bd:var(--cat-click-bd)}
@@ -1032,7 +1036,7 @@ res.push((fK?'⚠ ':'✅ ')+nK+' tracker schedules approved'+(mK?' ('+mK+' moved
 el.innerHTML='<div class="apprbox" data-st="'+(/❌|⚠/.test(res.join(''))?'wait':'live')+'" style="margin:0 0 8px"><b>Approve all — done '+fmtT(now)+'</b><br>'+res.join('<br>')+'</div>'},ocrCheck:function(i){ocrCheck(i)},ocrAll:async function(){for(var i=0;i<JOBDIR.length;i++){await ocrCheck(i)}},
 connectView:function(v){CONNVIEW=v==='all'?null:v;VTES.show('CONNECT');drawConnect()},
 dictate:function(){var m=document.getElementById('voicemsg'),q=document.getElementById('q');q.focus();var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-var help='🎤 Now press the <b>Windows key + H</b> and speak. Your words go into the search box. (This panel window is not allowed to use the microphone by itself.)';
+var help='🎤 Claude pages are not allowed to use the microphone, so press the <b>Windows key + H</b> and speak; your words go into the search box. For a real one-click microphone, use the saved copy of this panel (top-right menu → Export, then open the file in Edge or Chrome): there 🎤 Speak listens directly.';
 if(!SR){m.innerHTML=help;return}try{var r=new SR();r.lang='en-US';r.interimResults=true;var got=false,live=false;m.textContent='Listening… speak now.';r.onstart=r.onaudiostart=function(){live=true};setTimeout(function(){if(!live&&!got){try{r.abort()}catch(e){}if(/^Listening/.test(m.textContent))m.innerHTML=help}},2000);setTimeout(function(){try{r.stop()}catch(e){}},20000);r.onresult=function(e){got=true;var t='';for(var k=0;k<e.results.length;k++)t+=e.results[k][0].transcript;q.value=t;doSearch()};r.onerror=function(){if(/^Listening/.test(m.textContent))m.innerHTML=help;q.focus()};r.onend=function(){if(!got){if(/^Listening/.test(m.textContent))m.innerHTML=help}else m.textContent='Done listening. Searching for what you said.'};r.start()}catch(e){m.innerHTML=help}},
 readSel:function(){var m=document.getElementById('voicemsg'),t=String(window.getSelection()||'').trim();if(!t){var d=document.getElementById('tabdesc');t=d?d.textContent.trim():''}
 var NA='🔊 '+RA_NA,g=++RDGEN;rdClear();var ss=null;try{ss=window.speechSynthesis}catch(e){}

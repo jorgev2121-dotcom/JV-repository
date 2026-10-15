@@ -710,3 +710,16 @@ Your last two replies ended by asking Jorge to pick between technical options an
 handing him four decisions. `CLAUDE.md` Rules 1 and 7 forbid both. **Recommend one
 option, give the tradeoff in a single line, and proceed unless he objects.** He is a
 non-technical one-man operation; work handed back to him does not get done.
+
+## Item 26 — Panel feeds to 100% via Power Automate Desktop (PAD) · owner ask 2026-10-14 ~9:45 PM ET · 🖥️ DESKTOP
+Goal: finish the 22 PC-only panel pieces (TASKS, APPROVALS, ORCHESTRATOR, TODAY, SESSIONS, CONNECT, STATUS, OCR, REPORTS, JOBS, CAPSULES, LLMS, AGENTS, USAGE, BACKUP). Each piece only needs the PC to write ONE small status file to Drive VTES-Outbox on a schedule; the panel reads it.
+Build each as a PAD flow (Windows Task Scheduler trigger), no Claude run needed, so the 6-a-day cap does not matter:
+1. Every 5 min: `_RAM-GUARD-HEARTBEAT.md` + free-RAM number → STATUS (RAM guard, Free RAM).
+2. Every 20 min: `_OCR-HEARTBEAT.md` + counts of PaperPort / Downloads / Dropbox / C: scans waiting → STATUS, OCR.
+3. Every 15 min: `heartbeat.json` per lane (Orchestrator, Token Monitor, Local Executor) with OK/FAILED/LATE/STUCK → SESSIONS, CONNECT, USAGE (token monitor tile).
+4. Hourly: export the PC task registry and approvals queue as `PC-TASKS.json` and `PC-APPROVALS.json` → TASKS, APPROVALS, TODAY (no money amounts — counts only).
+5. Hourly: job-folder census `PC-JOBS.json` (folder, file count, newest file date) and `_TAG-INDEX.json` → JOBS, CAPSULES.
+6. Hourly: LLM provider ping results `LLM-HEALTH.json` (13 providers, up/down only) → LLMS; housekeeping counts → AGENTS; repair rows → REPORTS.
+7. Nightly 2 AM: backup of the repo + panel export to Drive `BACKUP/` with a dated name → BACKUP.
+8. ORCHESTRATOR: worker picks up a queued job and writes back the same correlation ID (`CID-<date>-<n>`) in its EXECUTED file.
+Rules: GREEN only (read, count, write new status files). No client file is moved, renamed or deleted. No money amounts in any feed. Proof: one EXECUTED_PAD-FEEDS_<date>.md listing each flow, its schedule and the first file it wrote (Drive ID). Grok bots cannot reach the PC, so they are not used for this item; they keep doing reminders. Did each flow write its first file?
