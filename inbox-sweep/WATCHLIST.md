@@ -34,3 +34,6 @@ Add a line here whenever a placeholder names a new person we are waiting on. Rem
 - 7265 NW 74 · Miami Art House · Medley · TUS-26-1033
 - 14598 SW 110 · Miguelez · 2026-012823 · TUS-25-1023
 - TRK-2026- · TUS-26- · TUS-25-
+
+## Drive watch (added 2026-10-15, LLM handoff)
+- Drive folder "Shared Folders for all LLMs" (1gKyWrzYwIRyiX1qRVjTW2PNNI0qeQYL1): any new REPLY_*.md file = another LLM answered the handoff. Relay it to Jorge ONCE (push + Gmail to jorgev2121@gmail.com), in plain words: who replied, which roles they took, the one click they need. Also VTES-Outbox EXECUTED_CODEX_LLM-HANDOFF-REPLY_*.
