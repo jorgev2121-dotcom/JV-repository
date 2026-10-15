@@ -82,3 +82,4 @@
 - 2026-10-15T10:42Z · allowed_warning · items 0 · blocked: PC cap (D-073)
 - 2026-10-15T11:42Z · allowed_warning · items 2 (QC-01 fixes, PR 14 merge) · blocked: PC cap (D-073)
 - 2026-10-15T12:42Z · allowed_warning · items 0 · blocked: PC cap (D-073)
+- 2026-10-15T13:43Z · allowed_warning · items 1 (OCR runner v2 L3 + census, queue item 30) · blocked: PC cap (D-073)
