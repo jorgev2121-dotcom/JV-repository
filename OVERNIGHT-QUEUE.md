@@ -216,3 +216,8 @@ worth nothing to an executor that stops at hour four with nobody to restart it.
 - 2026-10-14 (cloud) · GREEN · OCR-TEXT-ONLY full count: one helper per job folder (40, Rule 5) walks each folder 2 levels, filtering by mimeType, and lists any .SEARCH.txt/OCR text with no PDF/image beside it → runner-results/ocr-text-only/<folder_id>.md. First pass (runner-results/OCR-TEXT-ONLY-SURVEY_2026-10-14.md): ~22 of ~25 sampled sidecars have their PDF; 3 probable text-only in TRK-2026-1684 Raw (originals elsewhere in 1684). Restoring = new-file copies only, owner yes.
 - 2026-10-14 (cloud) · GREEN · PANEL: Save button + fuzzy-hashtag pop-up collections — spec control-panel/SPEC_SAVE-POPUP-BUTTON_2026-10-14.md; build right after the search fix.
 - 2026-10-14 (cloud) · GREEN · PANEL data: add Plaza permits (BLC2026-1436/1437/1438 for 721/220/PH11, issued 10/13, valid to 4/11/2027, plus the original BLC2024 numbers) to the TRK-2026-1265 capsule data so search finds them — after the attention/emails/save helper finishes.
+
+## Added 2026-10-15 · MASTER-INDEX back-fill (GREEN: reads text, writes new files only)
+- For each of the 40 jobs in control-panel/hashtag-census/_JOBS.tsv: read the job's existing .SEARCH.txt sidecars from Drive, run tools/master_index/extract.py, and write control-panel/master-index/<JOB>.json.
+- One subagent per job, with a registry line written per job as it finishes. Report "N of 40 jobs, M of 3,436 sidecars indexed".
+- No re-OCR, no moving or renaming. Starts after the Saturday 10-17 noon usage reset.

@@ -138,8 +138,10 @@ for k, (date, name, folder, oid, sid, hid, kind, flag, summ) in enumerate(D, 1):
         k, html.escape(name), date, html.escape(kind), html.escape(folder), badges, ' '.join(links))
     # view 1
     pg = pages_for(oid) if oid else []
+    is_money = ('Financial' in folder or bool(re.search(r'PROPOSAL|PROPUESTA|INVOICE|FACTURA|FINANCIAL|PRINT-RUN', name, re.I))
+                or bool(money_re.search(summ or '')) or bool(sid and sid in OCR and money_re.search(OCR[sid])))
     if pg:
-        v1 = ''.join('<img class="pg" loading="lazy" src="pages/%s" alt="%s, page %d of %d"><p class="pgn">%s · page %d of %d</p>' % (f, html.escape(name), i, len(pg), html.escape(name), i, len(pg)) for i, f in enumerate(pg, 1))
+        v1 = ('<p class="mlock">🔒 Money document. Its pages stay blurred until you type the zone code.</p>' if is_money else '') + ''.join('<img class="pg%s" loading="lazy" src="pages/%s" alt="%s, page %d of %d"><p class="pgn">%s · page %d of %d</p>' % (' money' if is_money else '', f, html.escape(name), i, len(pg), html.escape(name), i, len(pg)) for i, f in enumerate(pg, 1))
     elif has_img:
         v1 = ('<div class="frame"><iframe loading="lazy" src="%s" title="%s" allow="autoplay"></iframe></div>'
               '<p class="hint">If the page above is blank, sign in to Google in this browser, or use “Open the original”.</p>') % (purl(oid), html.escape(name))
