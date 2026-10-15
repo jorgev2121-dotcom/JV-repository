@@ -92,3 +92,4 @@
 - 2026-10-15T20:42Z · allowed_warning · items 0 new (idle: waiting on Jorge: yes to recreate Opus jobs and retry 2 refused Fable routines, Miguel v5 page, Unit 404 reply, label sizes; PC items 34-35 wait on PC) · blocked: PC cap (D-073)
 - 2026-10-15T21:42Z · allowed_warning · items 0 new (idle: same owner decisions pending; no new mail 5:16 PM watch) · blocked: PC cap (D-073)
 - 2026-10-15T22:42Z · allowed_warning · items 0 new (idle: same owner decisions pending; 6:16 PM watch found no new mail) · blocked: PC cap (D-073)
+- 2026-10-15T23:42Z · allowed_warning · items 0 new (idle: waiting on Jorge: Scan Settings screenshot, Opus-job replacement yes, Miguel page, Unit 404 reply, label sizes) · blocked: PC cap (D-073)
