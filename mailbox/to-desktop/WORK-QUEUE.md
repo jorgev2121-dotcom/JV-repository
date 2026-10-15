@@ -754,3 +754,6 @@ Order of work: 2022-to-today first, then 2021, 2020 and so on. Older sidecars ar
 2. Open each and say which pages show a signature and a notary seal. Hebert Martinez's reply says they show Units 922 and 321.
 3. Jorge also holds executed hard copies of 922 and 321. If the email scans are not clean, scan the hard copies instead.
 4. Nothing leaves the PC. Sending to the Village is RED and waits for Jorge.
+
+## 32. Print the Bal Harbour renewal packs, 3 copies each (GREEN, print only; nothing leaves the PC) · owner ask 2026-10-15 · 🖥️ DESKTOP
+Files are in the repo folder renewal-packet/ : PRINT-PACK_3-copies_Unit-423_BLC2024-0714, Unit-922_BLC2024-0717, Unit-321_BLC2024-0707 (each 3 copies of the Renewal-marked application, 3 of the Notice of Commencement, and for 922 and 321 3 of the owner-signed recorded 2024 notice page). Print at 100 percent, black and white is fine, Letter size. Then tell Jorge which printer and the page counts (423: 6, 922: 9, 321: 9). Copy the packs and the v5 and NOC files into the TRK-2026-1265 Drive job folder as new files (do not overwrite). Unit 321 application has a garbled owner address line (needs fixing before signing).
