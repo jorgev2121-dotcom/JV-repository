@@ -731,3 +731,12 @@ Rules: GREEN only (read, count, write new status files). No client file is moved
 ## 28. Free PC watchdog for the panel (no Claude usage) · OWNER-DIRECTIVE AGENTS-OWN-FOLLOW-THROUGH-01
 - A small scheduled script (PAD or PowerShell, every 30 min) that reads the repo files selftest/SELFTEST-LOG.md and inbox-sweep/last-mail-check.txt. If either is older than 3 hours, it writes BLOCKER_EXEC01-SILENT_<time>.md to VTES-Outbox and shows a Windows toast.
 - Purpose: when Claude's usage limit stops the Cloud checks, something still notices. GREEN: read-only plus one new file.
+
+## 29. Owner-approved panel items of 10-14 (approved 14:01Z, never run) · Claude lane, client items never to Codex
+1. outlook-fix: run the one-click stray-process clear and reopen Outlook.
+2. edge-cookie-clear: clear Edge cookies for the HTTP 400 fix (1Password signs back in).
+3. inbox-approval-gate: add the approval gate to CU-Inbox-Job-Watcher (already in OWNER-APPROVED-PC-ITEMS_2026-10-13).
+4. codex-backup-install: check first; Codex is already installed and answered an order on 10-14 22:51. If installed, report "already done".
+5. Alec reports TRK-2026-1286, 1292, 1534, 1612 (ready) and 1535, 1536 (PDFs not made): make the missing PDFs, then open ONE Outlook draft to Alec with all ready PDFs attached, for Jorge's Send. Never send.
+6. claude-desktop-install: needs Jorge's own click on the Windows Administrator box; just leave the installer in Downloads and say so.
+Receipt per item: EXECUTED_/BLOCKER_ in VTES-Outbox. The cloud then sets doneAt on each panel approval.

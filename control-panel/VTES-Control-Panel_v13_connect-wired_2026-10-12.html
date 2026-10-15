@@ -1788,7 +1788,7 @@ function age(t){var ms=Date.now()-Date.parse(t||0);if(!(ms>0))return '?';var h=m
 function esc2(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function items(){var L=[];
  AQ.tc.forEach(function(d){var v=d.v;if(v&&v.status==='new'&&!v.reply&&v.by!=='SELF-TEST')L.push({at:v.at,what:'Your note: '+String(v.text||'').slice(0,100),who:v.executor||'Cloud'})});
- AQ.ap.forEach(function(d){var v=d.v;if(v&&v.status==='approved'&&!v.doneAt)L.push({at:v.decidedAt,what:'You approved "'+d.id+'". No agent has reported it done.',who:'EXEC-01'})});
+ AQ.ap.forEach(function(d){var v=d.v;if(v&&v.status==='approved'&&!v.doneAt)L.push({at:v.decidedAt,what:'You approved "'+d.id+'". '+(v.result?'Where it is: '+String(v.result).slice(0,160):'No agent has reported it done.'),who:v.routedAt?'routed '+String(v.routedAt).slice(5,16).replace('T',' '):'EXEC-01'})});
  AQ.oq.forEach(function(x){if(x&&x.status==='queued')L.push({at:x.at,what:'Orchestrator request: '+String(x.text||'').slice(0,100),who:'Orchestrator'})});
  return L.sort(function(a,b){return Date.parse(a.at)-Date.parse(b.at)})}
 function draw(){var row=document.getElementById('attnrow');if(!row)return;var b=document.getElementById('agentbtn');
