@@ -11,7 +11,9 @@ def noc(u): return glob.glob(f"renewal-packet/*Notice-of-Commencement-RENEWAL _ 
 def cov(u,i): return pg(glob.glob(f"renewal-packet/COVER-SET_*Unit-{u}_*")[0],i)
 rec=pymupdf.open(SC+"noc/recorded.pdf")
 _o=pymupdf.open(SC+"o321/o321.pdf"); _pg=_o[0]
-_pg.draw_rect(pymupdf.Rect(428,402,525,424),color=None,fill=(1,1,1)); _pg.insert_text((430,415),"[money hidden]",fontsize=7,fontname="helv",color=(.4,.4,.4))   # money stays locked
+for _a in list(_pg.annots() or []):
+    if "$" in _a.info.get("content","") and any(c.isdigit() for c in _a.info.get("content","")): _pg.delete_annot(_a)   # the cost-of-work figure is a FreeText annotation: delete it, money stays locked
+_pg.insert_text((508,415),"[hidden]",fontsize=7,fontname="helv",color=(.4,.4,.4))
 APP="Application"; 
 U=[("423","BLC2024-0714","Sylvia Azoulay",[
   ("A",APP,pg(W+"423_v1.pdf"),"v1 · 9/2/2026","Owner name typed. Master Permit blank.","bad","Unsigned · Renewal NOT marked"),
