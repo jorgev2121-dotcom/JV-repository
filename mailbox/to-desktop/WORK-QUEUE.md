@@ -740,3 +740,11 @@ Rules: GREEN only (read, count, write new status files). No client file is moved
 5. Alec reports TRK-2026-1286, 1292, 1534, 1612 (ready) and 1535, 1536 (PDFs not made): make the missing PDFs, then open ONE Outlook draft to Alec with all ready PDFs attached, for Jorge's Send. Never send.
 6. claude-desktop-install: needs Jorge's own click on the Windows Administrator box; just leave the installer in Downloads and say so.
 Receipt per item: EXECUTED_/BLOCKER_ in VTES-Outbox. The cloud then sets doneAt on each panel approval.
+
+## 30. OCR to the LATEST protocol (L3), Phase 1 = 2022-01-01 to today · owner ask 2026-10-15 · 🖥️ DESKTOP · free lane, zero AI tokens
+Files: tools/ocr/Install-OCR-QueueA.ps1 (v2), OCR-QueueA-Runner.ps1 (v2), OCR-L3-Lib.ps1, OCR-Census.ps1. Backups: *_bak-20261015.ps1.
+1. Install Tesseract and Poppler if missing (the runner reports tools=False in the heartbeat if they are).
+2. Run Install-OCR-QueueA.ps1. It registers the 15-minute runner and the hourly census. No admin needed.
+3. Check G:\My Drive\VTES-Outbox\_OCR-HEARTBEAT.md grows and _OCR-CENSUS.md appears. Report both files as the proof.
+Tested in the cloud on sample PDFs (text-layer and upgrade paths). NOT tested: scanned pages (no Tesseract in the cloud).
+Order of work: 2022-to-today first, then 2021, 2020 and so on. Older sidecars are upgraded from their own text and backed up to C:\AI\ocr\_bak first.
