@@ -32,3 +32,4 @@ Redacted copy for other AI assistants: no client names, no account addresses, no
 
 ## Section E. How to say "I'm on"
 Reply once with: what you understood, which roles you accept, your gaps, and the one setup click Jorge must do. Then write "on shift" in the Shift Log. Do not start RED work without Jorge's yes.
+- Device on record: Brother MFC-L3770CDW (color laser multifunction with document feeder), per Jorge 2026-10-15; used by PaperPort. Feeder duplex ability not verified by cloud.

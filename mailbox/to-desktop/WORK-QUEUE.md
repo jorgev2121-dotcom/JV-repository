@@ -785,6 +785,8 @@ Jorge clicked "VTES CONTROL PANEL" and got a page that says "Built 2026-10-15 15
 Jorge has recurring feeder trouble. Gemini gave him PaperPort settings; the cloud has not seen them. First capture what is actually set, so the two can be compared.
 1. Write a plain-words report, no changes, to `G:\My Drive\VTES-Outbox\EXECUTED_PAPERPORT-SETTINGS-REPORT_2026-10-15.md` (never overwrite).
 2. For each PaperPort scan profile: name, scanner, driver type (TWAIN or WIA), Source (Flatbed / ADF / Duplex ADF), resolution, colour mode, "single page items" option on or off, "multiple pages into one item" on or off, "Hide scanner native user interface" on or off, save format, save folder.
-3. The scanner: make, model, driver name, driver date and version, connection (USB or network), whether Windows lists it as healthy, and the last 10 scanner or PaperPort errors in Event Viewer (time and text only).
+3. The scanner is a Brother MFC-L3770CDW (Jorge, 2026-10-15). Confirm it in Windows, then: make, model, driver name, driver date and version, connection (USB or network), whether Windows lists it as healthy, and the last 10 scanner or PaperPort errors in Event Viewer (time and text only).
 4. Feeder mechanics Jorge can check by eye are NOT for the PC; leave them out.
 5. Proof: the file above. Tell the cloud the file name; the cloud compares it with Gemini's list once Jorge pastes it.
+
+6. Brother-specific: also record whether the Brother TWAIN or WIA driver is the one PaperPort uses, the Brother scanner utility installed (name and version), and whether the scanner is reached by USB or by its network address (the address may change if it is not fixed).
