@@ -78,3 +78,4 @@
 2026-10-15T04:17Z · watch · no new mail (pdfFiller promo only). Microfilm P0 re-issued 04:17Z, but CAP-REACHED 04:12Z (6/6 spent on failed DECISION_25-27 re-runs) → waits a day unless PASTE-D-073. Told Jorge in chat.
 2026-10-15T05:16Z · watch · no watched mail (promos only). Microfilm 04:17Z order refused by Codex 04:18Z as expected (cap). Already told Jorge; no push.
 2026-10-15T06:17Z · watch + self-test · no new mail; no new failures (inbox + OCR failures already known); probe planted. No push.
+2026-10-15T07:17Z · watch · no new mail (Gmail; Outlook skipped this hour to save usage), no new Outbox results, probe answered. No push.
