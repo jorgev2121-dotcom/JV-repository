@@ -71,3 +71,4 @@
 - 2026-10-14T23:42Z · runner · budget allowed · items 0 · panel 87 of 116 (75%) · blocked: PC cap; Medley files waiting on Jorge
 - 2026-10-15T00:42Z · runner · budget allowed · items 1 (pre-mortem) · panel 87 of 116 (75%) · blocked: PC cap; Medley files waiting on Jorge
 - 2026-10-15T01:42Z · runner · budget near weekly limit · items 0 · panel 87 of 116 (75%) · minimal cycle
+- 2026-10-15T02:42Z · allowed_warning · items 1 of 1 (live session work, see EXEC-LOG) · panel unchanged count · queue depth ≥12 · blocked: PC lane (home-made cap → Codex refusals), microfilm P0 waiting on PASTE-D-073 or midnight reset
