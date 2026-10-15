@@ -10,6 +10,8 @@ def v5(u): return glob.glob(f"renewal-packet/*Application-RENEWAL-MARKED _ Unit-
 def noc(u): return glob.glob(f"renewal-packet/*Notice-of-Commencement-RENEWAL _ Unit-{u} *")[0]
 def cov(u,i): return pg(glob.glob(f"renewal-packet/COVER-SET_*Unit-{u}_*")[0],i)
 rec=pymupdf.open(SC+"noc/recorded.pdf")
+_o=pymupdf.open(SC+"o321/o321.pdf"); _pg=_o[0]
+_pg.draw_rect(pymupdf.Rect(428,402,525,424),color=None,fill=(1,1,1)); _pg.insert_text((430,415),"[money hidden]",fontsize=7,fontname="helv",color=(.4,.4,.4))   # money stays locked
 APP="Application"; 
 U=[("423","BLC2024-0714","Sylvia Azoulay",[
   ("A",APP,pg(W+"423_v1.pdf"),"v1 · 9/2/2026","Owner name typed. Master Permit blank.","bad","Unsigned · Renewal NOT marked"),
@@ -38,7 +40,8 @@ U=[("423","BLC2024-0714","Sylvia Azoulay",[
   ("F","Notice of Commencement",pg(noc("321")),"Renewal notice v1 · 10/15/2026","Permit number blank. Percent filled (0.289290).","warn","Prepared · unsigned"),
   ("G","Owner-executed 2024",rec[0],"Notice of Commencement recorded 6/12/2024 (old permit)","Signed by Israel Schwartz for Adenat, notarized 2/12/2024. Expired one year after recording.","ok","Owner EXECUTED, 2024"),
   ("H","Cover set",cov("321",0),"Page 1 · contact sheet","Always the first page.","ok","Cover"),
-  ("I","Cover set",cov("321",1),"Page 2 · scope of work and tasks","Always the second page.","ok","Cover")],
+  ("I","Cover set",cov("321",1),"Page 2 · scope of work and tasks","Always the second page.","ok","Cover"),
+  ("J","Original 2024 application",_pg,"Unit 321 permit application, Feb 2024 (outside the 45 days)","Owner signature and both notary blocks blank. The 'Shop Drawing' box is marked, not Renewal. Cost of work is hidden (money zone).","bad","Unsigned · Shop Drawing marked")],
   "Your signed hard copy and the 9/9 email scans are not viewable from the cloud.")]
 tree=""; total=0
 for u,perm,owner,items,tail in U:
