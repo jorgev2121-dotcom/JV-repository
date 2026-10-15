@@ -63,3 +63,4 @@ Each run, read control-panel/DECISIONS-CENSUS_2026-10-13.md. Take up to 4 OPEN d
 2. Cheapest first: free tools and PC scripts first, Haiku helpers, Sonnet if needed, Opus for judgment only. No new helper agents until Sat 10-17 noon without Jorge's yes.
 3. Other assistants (Gemini, ChatGPT/Codex, Grok) log their jobs in the same table when they report, so all are judged the same way.
 4. Every hourly run also executes selftest/CHECKS.md check 10 (USAGE GOVERNOR): log the weekly status, find runs refused for usage, and act or ask once.
+5. (QC-01 fix, 2026-10-15) The Drive connector cannot rewrite a file, so the Drive heartbeat goes stale. Once a day (first runner cycle after 11:00 UTC) upload a NEW file EXEC-LOG_<date>.md to the Drive EXEC-LOG folder (1oZzVqwAzzttgD412cpqHCQcXdeqS2d4R) with the day's log so far and a 'Last beat' line at the top; add a second upload at the last cycle before 03:00 UTC.
