@@ -88,3 +88,4 @@
 - 2026-10-15T16:42Z · allowed_warning · items 1 (Bal Harbour: cover sets, task list, sample labels, Village email v3, PAD bot item 33, 3a121ae) · blocked: PC cap (D-073); packet waits on signed copies and label approval
 - 2026-10-15T17:42Z · allowed_warning · items 0 new (idle: waiting on Jorge's signed 922/321 scans, label-size answer, PASTE-D-073) · blocked: PC cap (D-073)
 - 2026-10-15T18:42Z · allowed_warning · items 0 new (idle: waiting on Jorge's signed scans, label-size answer, PASTE-D-073, yes to send Miguel v5) · blocked: PC cap (D-073)
+- 2026-10-15T19:42Z · allowed_warning (last read 18:42Z) · items 0 new (idle: waiting on Jorge: signed scans, label sizes, D-073, yes to send Miguel v5, Unit 404 reply draft yes/no; API-credit report draft emailed to Jorge only) · blocked: PC cap (D-073)
