@@ -748,3 +748,9 @@ Files: tools/ocr/Install-OCR-QueueA.ps1 (v2), OCR-QueueA-Runner.ps1 (v2), OCR-L3
 3. Check G:\My Drive\VTES-Outbox\_OCR-HEARTBEAT.md grows and _OCR-CENSUS.md appears. Report both files as the proof.
 Tested in the cloud on sample PDFs (text-layer and upgrade paths). NOT tested: scanned pages (no Tesseract in the cloud).
 Order of work: 2022-to-today first, then 2021, 2020 and so on. Older sidecars are upgraded from their own text and backed up to C:\AI\ocr\_bak first.
+
+## 31. Save the signed Unit 922 and 321 scans from email into the job folder (GREEN, read and save only) · owner ask 2026-10-15 · 🖥️ DESKTOP
+1. Gmail message id 1a0848e2533236e2 (2026-09-09 03:32 UTC, subject "Permit Extension Applications - Units 220 & 721 ...") has two PDF attachments both named "PERM App - Extention of time submittal -.pdf". The same send is in Outlook Sent, 9/8 11:32 PM. Save both into the TRK-2026-1265 job folder as new files named per CLAUDE.md section 9.1 (do not overwrite anything), then tell the cloud the file names.
+2. Open each and say which pages show a signature and a notary seal. Hebert Martinez's reply says they show Units 922 and 321.
+3. Jorge also holds executed hard copies of 922 and 321. If the email scans are not clean, scan the hard copies instead.
+4. Nothing leaves the PC. Sending to the Village is RED and waits for Jorge.
