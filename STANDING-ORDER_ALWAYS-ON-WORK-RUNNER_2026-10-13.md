@@ -57,3 +57,8 @@ Each run, read control-panel/DECISIONS-CENSUS_2026-10-13.md. Take up to 4 OPEN d
 
 ## Added 2026-10-14 (owner yes A-20260929-07, via panel 10:38 AM)
 - Every 4th hourly cycle (runs at 00:41, 04:41, 08:41, 12:41, 16:41, 20:41 UTC): re-check every link in MY-DESK LINK-REGISTER (v2) and write a NEW LINK-CHECK-LATEST_<date>_<HHMM>.md (count N of M OK + any broken). Tell Jorge only if a link breaks.
+
+## Added 2026-10-15 · JOB PER COST, in dollars (owner: "job per cost, in dollars, not tokens") and cheapest-first
+1. Before each job: read get_session usage.cost_usd. After it: read it again. Write one doc to the panel db `costs` {at, job, result ("done ..." / "blocked ..."), lane, usd = after - before, proof}. One job, one row. Never estimate; use the meter.
+2. Cheapest first: free tools and PC scripts first, Haiku helpers, Sonnet if needed, Opus for judgment only. No new helper agents until Sat 10-17 noon without Jorge's yes.
+3. Other assistants (Gemini, ChatGPT/Codex, Grok) log their jobs in the same table when they report, so all are judged the same way.

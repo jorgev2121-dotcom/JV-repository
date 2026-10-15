@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>VTES Control Panel v57 (CURRENT)</title>
+<title>VTES Control Panel v58 (CURRENT)</title>
 <meta name="description" content="Menu first page, then one tab per job: approvals, reports, links, windows, and the real numbers.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
 <style>
@@ -1805,6 +1805,33 @@ function draw(){var row=document.getElementById('attnrow');if(!row)return;var b=
  try{db.collection('approvals').onSnapshot(function(s){AQ.ap=(s.docs||[]).map(function(d){return{id:d.id,v:val(d)}});draw()})}catch(e){}
  try{db.collection('orchestrator').onSnapshot(function(s){(s.docs||[]).forEach(function(d){if(d.id==='queue'){var v=val(d);AQ.oq=(v&&v.items)||[]}});draw()})}catch(e){}
 })();
+})();
+</script>
+
+<style>
+#costpop{margin:6px 0;padding:10px 14px;border:2px solid var(--grp-edge,#3a3a3a);border-radius:10px;background:var(--surface,#fff);max-width:900px;overflow-x:auto}
+#costpop table{border-collapse:collapse;font-size:14px;min-width:520px}
+#costpop th,#costpop td{padding:4px 8px;border-bottom:1px solid var(--line,#ddd);text-align:left}
+#costpop td.n{text-align:right;font-variant-numeric:tabular-nums}
+</style>
+<script>
+/* JOB PER COST (2026-10-15, owner: "job per cost, in dollars, not tokens"). Each finished job is one row in db `costs`:
+   {job, result, usd, lane, at, proof}. usd = the session's cost meter after the job minus before it (pay-per-use price; a flat-fee plan is not billed per job). */
+(function(){
+var C=[];
+function val(d){return typeof d.data==='function'?d.data():d.data}
+function e(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function money(n){return '$'+(Number(n)||0).toFixed(2)}
+function draw(){var row=document.getElementById('attnrow');if(!row)return;var b=document.getElementById('costbtn');
+ if(!b){b=document.createElement('button');b.id='costbtn';b.className='act';b.setAttribute('data-tip','Each finished job and what it cost in dollars. The judge for every assistant.');b.onclick=function(){var p=document.getElementById('costpop');if(p)p.hidden=!p.hidden};row.appendChild(b);
+  var p=document.createElement('div');p.id='costpop';p.hidden=true;row.parentNode.insertBefore(p,row.nextSibling)}
+ var L=C.slice().sort(function(a,b){return Date.parse(b.at||0)-Date.parse(a.at||0)}),tot=0,done=0;
+ L.forEach(function(x){tot+=Number(x.usd)||0;if(/^done/i.test(x.result||''))done++});
+ b.textContent='💲 Job per cost: '+done+' done · '+money(tot)+(done?' · '+money(tot/done)+' per job':'');
+ document.getElementById('costpop').innerHTML=L.length?'<b>Job per cost, newest first.</b> Dollars at pay-per-use prices.<table><tr><th>When</th><th>Job</th><th>Result</th><th>Who</th><th>Cost</th></tr>'+L.map(function(x){return '<tr><td>'+e(String(x.at||'').slice(0,16).replace('T',' '))+'</td><td>'+e(x.job)+'</td><td>'+e(x.result)+'</td><td>'+e(x.lane)+'</td><td class="n">'+money(x.usd)+'</td></tr>'}).join('')+'</table>':'<b>No jobs logged yet.</b> Each finished job adds one row here, with its cost in dollars.'}
+(async function(){var db=null;try{db=await claude.use('db')}catch(x){}
+ var t=setInterval(function(){if(document.getElementById('attnrow')){draw();clearInterval(t)}},1500);
+ if(!db)return;try{db.collection('costs').onSnapshot(function(s){C=(s.docs||[]).map(function(d){return val(d)||{}});draw()})}catch(x){}})();
 })();
 </script>
 </body></html>
