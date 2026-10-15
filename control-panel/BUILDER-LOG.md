@@ -86,3 +86,4 @@
 - 2026-10-15T14:41Z · allowed_warning · items 1 (Bal Harbour renewal packet: envelope, transmittal, courier request, cf8f7a1) · blocked: PC cap (D-073); packet waits on signed+notarized originals
 - 2026-10-15T15:42Z · allowed_warning · items 1 (Bal Harbour renewal packet: Renewal-marked apps v5, NOCs, 3-copy print packs, Hebert clarification, b2674a6/1370d52) · blocked: PC cap (D-073); packet waits on signatures; print is queue item 32
 - 2026-10-15T16:42Z · allowed_warning · items 1 (Bal Harbour: cover sets, task list, sample labels, Village email v3, PAD bot item 33, 3a121ae) · blocked: PC cap (D-073); packet waits on signed copies and label approval
+- 2026-10-15T17:42Z · allowed_warning · items 0 new (idle: waiting on Jorge's signed 922/321 scans, label-size answer, PASTE-D-073) · blocked: PC cap (D-073)
