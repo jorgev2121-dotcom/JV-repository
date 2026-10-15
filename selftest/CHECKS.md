@@ -16,4 +16,5 @@ Fixable failures get fixed in the same run (GREEN only). RED fixes are queued wi
 7. MAIL WATCH. inbox-sweep/last-mail-check.txt is under 70 min old.
 8. STATUS BOARD. Count nodes STALE (no report in 24 h) on artifact YKFqJDp6UfLFKrnEpub1WN. Report the count; FAIL only if it rises.
 9. VIEWERS. Medley View All (2AwstRCwUPHJDFrZaMocuY) lists 101 page files.
-Denominator line at the top of each run: "N of 9 checks passing".
+Denominator line at the top of each run: "N of 10 checks passing". Check 10 runs every hour.
+10. USAGE GOVERNOR (every hour, not just every 6 h). (a) get_session rate_limit_info.status; write it with the time to selftest/USAGE-LEDGER.md. (b) list_triggers: any run with failure_reason USAGE_LIMIT_REACHED names a model that is out. (c) Action: at "allowed_warning", no helper agents and Opus for judgment only. When a model is out, move the scheduled tasks that use it to the cheapest model with room (Sonnet, then Haiku), and move them back after the reset, ONLY under Jorge's standing yes (record it in this file when given); until then, ask him once. (d) Rotation to other LLMs: only lanes with a working executor count (today: Codex for non-client work). Gemini, ChatGPT web and Grok join when a key or executor exists (cost gate first).
