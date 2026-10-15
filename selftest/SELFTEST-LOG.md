@@ -10,3 +10,10 @@
   10 USAGE: allowed_warning (last read 02:52Z; not re-read this pass to save usage).
   New failures: none, so no alert sent.
 - 2026-10-15T07:18Z · check 2 PROBE: PASS (06:18Z probe answered 07:18Z).
+- 2026-10-15T12:18Z · SELF-TEST pass 2 · 3 of 5 checks run passing (5 skipped to save usage).
+  1 PANEL INBOX: FAIL (known) · 0 new comments; 11 approvals routed, still waiting on the PC (cap).
+  2 PROBE: PASS · 06:18Z probe answered 07:18Z. New probe selftest-probe-2026101512 planted.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT 12:16Z.
+  5 OCR FLOWING: FAIL (known) · no new sidecars (not re-searched this pass; last checked 06:18Z).
+  7 MAIL WATCH: PASS.
+  New failures: none. Also: QC-01 audit WARN at 10:53Z (Drive log stale, unlogged trigger edits) was fixed 11:20Z.
