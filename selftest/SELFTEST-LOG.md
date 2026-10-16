@@ -43,3 +43,12 @@
   10 USAGE: allowed_warning (read 12:2xZ). Context about 21 percent used after compaction.
   Also: QC-01 WARN 10:53Z (EXEC-01 Drive heartbeat stale ~15 h) was my miss; fixed 11:42Z with a new Drive heartbeat, logged in RECURRING-ISSUES.md (2nd occurrence).
   New failures: none, so no alert sent.
+- 2026-10-16T18:22Z · SELF-TEST pass 6 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS for comments (0 new). Known: 11 approvals routed to the PC, waiting on the PC cap.
+  2 PROBE: PASS · 12Z probe answered 13:24Z. New probe selftest-probe-2026101618 planted.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT 18:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday triage still on Fable 5.1; Jorge's usage screen shows the Fable weekly limit at 100%.
+  7 MAIL WATCH: PASS.
+  10 USAGE: allowed_warning. Jorge's screen (2:00 PM ET): weekly all models 97%, Fable 100%, resets in ~22 h (about noon ET Sat 10-17, NOT 10-18 as logged earlier). This session's cost split 95% Opus / 5% Sonnet (the Opus part was before the switch to Sonnet).
+  Security cluster today (14:05Z Claude Chrome device, 14:06Z WordPress reset, 16:18Z Claude Code device, 18:05Z Google sign-in to Notion, 18:09Z OpenAI MFA changed): all unconfirmed by Jorge, pattern fits his own account-setup work. Asked him once (Gmail 14:20Z); not repeated.
+  New failures: none, so no new alert.
