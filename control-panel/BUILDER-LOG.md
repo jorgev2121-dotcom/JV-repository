@@ -94,3 +94,4 @@
 - 2026-10-15T22:42Z · allowed_warning · items 0 new (idle: same owner decisions pending; 6:16 PM watch found no new mail) · blocked: PC cap (D-073)
 - 2026-10-15T23:42Z · allowed_warning · items 0 new (idle: waiting on Jorge: Scan Settings screenshot, Opus-job replacement yes, Miguel page, Unit 404 reply, label sizes) · blocked: PC cap (D-073)
 - 2026-10-16T00:43Z · allowed_warning · items 0 new (idle: owner decisions pending; self-test pass done 00:20Z) · blocked: PC cap (D-073)
+- 2026-10-16T01:42Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073)
