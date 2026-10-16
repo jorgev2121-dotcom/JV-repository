@@ -14,6 +14,12 @@ Read it fully before doing anything else. These rules are not optional.**
 - **ADHD and dyslexia.** He uses Speechify (text-to-speech) and dictation heavily.
 - **Google Drive is the single source of truth** for job files.
 
+- **Time zone: EASTERN (America/New_York) is a hard default** (owner directive,
+  2026-10-16). Every calendar event, reminder, and displayed time is Eastern. Always
+  pass `timeZone: America/New_York` when creating or updating events, and show times
+  as ET. The Google account itself is set to Pacific, so never rely on its default.
+  Use another zone only when Jorge specifically asks and approves that override.
+
 **What this means in practice:** there is nobody else. If you hand a technical task
 back to Jorge, it does not get done — it joins a backlog that is already 300+ items
 deep. Handing work upward is not neutral. It is how work dies here.
