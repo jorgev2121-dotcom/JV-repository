@@ -527,3 +527,22 @@ Your last two replies ended by asking Jorge to pick between technical options an
 handing him four decisions. `CLAUDE.md` Rules 1 and 7 forbid both. **Recommend one
 option, give the tradeoff in a single line, and proceed unless he objects.** He is a
 non-technical one-man operation; work handed back to him does not get done.
+
+## 19. TRK-2026-9952k (follow-up) — why the midnight Claude runs finish nothing, then the safety lock
+
+**Attended session only (PASTE-D-069). Do not drop this file in VTES-Inbox: the unattended runner must not edit itself.**
+
+**Why:** for 4 nights (10-13 to 10-16), all 6 Claude runs were used by 12:12 AM ET, and every visible result was a FAILED-VERIFICATION ("neither legal exit"). That covers 10 approved items, including the **P0 microfilm order X2027004874**, which is cash collection and now left alone after attempt 2 of 2. See RECURRING-ISSUES 2026-10-15.
+
+**Do:**
+1. **Read, don't guess.** Open these three files in `C:\AI\state\job-executor\` and quote the last 30 lines of each in the RESULT:
+   - `MSG-CLOUD-TO-CODE_P0_MICROFILM-X2027004874_CLAUDE-ONLY_2026-10-15_0417Z.md.out.txt`
+   - the `.out.txt` for `DECISION_25_TRK-2026-1684_APPROVE-1.md`
+   - the `.out.txt` for `OWNER-DIRECTIVE_EXECUTIVE-AGENT-APPOINTMENT-01.md`
+
+   Name the cause in one sentence. Examples: a permission prompt nobody can answer, a timeout, a usage limit, or Drive being offline at midnight.
+2. **Fix the cause** if it is local and reversible. Make a `.bak-YYYYMMDD` backup first and write a rollback script to `Undo_Manifests`. If the fix needs money or a credential, write BLOCKER and stop.
+3. **No silent exits.** In `Inbox-Job-Watcher.ps1`, when `claude.exe` exits without an EXECUTED or BLOCKER file, have the watcher itself write `BLOCKER_<job>` with the last 30 lines of `.out.txt`. Back up the script first.
+4. **Re-run the microfilm order once, attended**, and file its real EXECUTED or BLOCKER.
+5. **Only if PR #10 is merged** (`git show origin/claude/chaude-code-max20-kp2o46:mailbox/to-desktop/APPROVED-JOBS.txt` succeeds): add the approved-jobs gate exactly as item 18 says. Otherwise write "gate skipped: PR #10 not merged".
+6. Write `G:\My Drive\VTES-Outbox\RESULT_MIDNIGHT-FAILURES-AND-GATE_TRK-2026-9952k_<date>.md`. First line: nonce `MIDNIGHT-NONCE-HERON-5190-20261016`. Then the cause, the quoted log lines, what changed, the rollback path, and the microfilm outcome.
