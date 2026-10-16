@@ -1,0 +1,2 @@
+# USAGE LEDGER (check 10, hourly)
+- 2026-10-16T12:25Z · allowed_warning · weekly meter resets 10-18 · triage routine (Fable) failed USAGE_LIMIT_REACHED 11:39Z
