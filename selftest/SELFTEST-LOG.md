@@ -26,3 +26,11 @@
   7 MAIL WATCH: PASS.
   10 USAGE: allowed_warning (read 00:19Z); weekly meter resets 10-18.
   New failures: none, so no alert sent.
+- 2026-10-16T06:19Z · SELF-TEST pass 4 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS for comments (0 new). Known: 11 approvals routed to the PC, waiting on the PC cap.
+  2 PROBE: PASS · 00:18Z probe answered 01:18Z. New probe selftest-probe-2026101606 planted.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT 06:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on Fable 5.1, last run failed USAGE_LIMIT_REACHED; its next run is 11:38Z (7:38 AM ET).
+  7 MAIL WATCH: PASS.
+  10 USAGE: allowed_warning (read 06:19Z). This session's own context is about 70 percent full (702k of 1,000k tokens).
+  New failures: none, so no alert sent.
