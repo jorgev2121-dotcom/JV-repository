@@ -134,3 +134,4 @@
 - 2026-10-17T14:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
 - 2026-10-17T15:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
 - 2026-10-17T16:42Z · allowed (weekly reset) · items 0 new (idle) · blocked: PC cap (D-073) unverified, needs Jorge yes to send 15 pending orders · Drive heartbeat written
+- 2026-10-17T17:42Z · allowed · items 0 new (idle) · blocked: PC cap (D-073) unverified, awaiting Jorge yes to send 15 pending orders · Drive heartbeat written
