@@ -116,3 +116,4 @@
 2026-10-17T12:16Z WATCH + SELF-TEST pass 9 — nothing new (Gmail, Outlook, panel, Outbox empty). 12Z probe planted. No Jorge message.
 2026-10-17T13:16Z WATCH — 12Z probe answered 13:18Z. Outbox: BLOCKER_CODEX-PII_MSG-COWORK-TO-CODE_CDM-REISSUE-3_2026-10-17 (Drive 1HXvlwFaV-IC_AHDQLYfZ9AeuJ5QbuSZU, 13:14Z): third reissue of the same CDM order, same cause as the 05:14Z one (Codex lane refuses; PC Claude lane capped). Already told Jorge about this order at 05:16Z; not emailed again, folded into the chat line. Original order text not visible from cloud, not re-sent. Mail, panel: nothing new.
 2026-10-17T14:16Z WATCH — nothing new (Gmail, Outlook, panel empty; Outbox shows only the CDM-reissue-3 blocker already logged 13:16Z). No Jorge message.
+2026-10-17T15:16Z WATCH — nothing new (Gmail, Outlook, panel, Outbox all empty). No Jorge message.
