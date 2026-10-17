@@ -1,0 +1,30 @@
+{
+  "id": "1wx5nPZmo2W1Za-93y2t4pmSxgX5xOFEI",
+  "title": "TRK-2026-1588 _ 402125130005 _ 4225 Rose Arbor Cir Port Charlotte",
+  "partial": false,
+  "pdfs": 1,
+  "search_sidecars": 2,
+  "tags_sidecars": 1,
+  "tags5_sampled": 1,
+  "tags5_of_sampled": 1,
+  "has_HASHTAGS_txt": true,
+  "hashtags_count": 12,
+  "has_people_tags": true,
+  "has_trk_tag": true,
+  "other_files": ["_TAGS.txt", "_CONTACTS-EXTRACTED.txt", "_PLACEHOLDERS.md", "_PORTAL_TRK-2026-1588.html", "_PORTAL_TRK-2026-1588_EMBEDDED.html", "_STAGE.md", "_TRK.txt", "_INDEX.html (root + 3 subfolders)", "_HASHTAGS.txt.bak-20260817", "ROSE-ARBOR_RESEARCH-PACKET_TRK-2026-1588_2026-08-11.html", "ROSE-ARBOR_TITLE-DD_TRK-2026-1588_READALOUD.html", "ROSE-ARBOR_TITLE-DD_TRK-2026-1588_2026-08-10.md", "ACTION-PLAN-and-FINDINGS_TRK-2026-1588_2026-08-10.md", "FIELD-PACK_Owner-Retrieval_TRK-2026-1588.md", "CLERK_OFFICIAL_RECORDS_ATTEMPT_LOG_2026-08-10.md", "PA_RAW_ccappraiser_402125130005_2026-08-10.md", "FLOOR-PLAN_402125130005_schematic.png/.svg (+ .png.SEARCH.txt)", "~54 dated .bak- copies of _PORTAL and _STAGE.md in job root"],
+  "people": [
+    {"name": "Millicent J. Campbell", "role": "owner of record (mailing address Brentwood NY)", "email": null, "evidence": "_PLACEHOLDERS.md; _HASHTAGS.txt (#Campbell)", "misspellings": ["Millicent Cambell", "Milicent Campbell", "Millie Campbell", "Campell"]},
+    {"name": "James W. Campbell", "role": "deceased co-owner (death certificate needed for title cure)", "email": null, "evidence": "_PLACEHOLDERS.md", "misspellings": ["James Cambell", "Jim Campbell"]},
+    {"name": "Miguel Zaldivar", "role": "probable ordering client (research email sent to him)", "email": "miguel@mzsolutions.org", "evidence": "_PLACEHOLDERS.md", "misspellings": ["Saldivar", "Zaldibar"]},
+    {"name": "Lily", "role": "possible ordering client ('the house Lily called out')", "email": null, "evidence": "_PLACEHOLDERS.md", "misspellings": ["Lilly", "Lili"]}
+  ],
+  "companies": [
+    {"name": "Charlotte County Clerk of Court (Official Records)", "role": "county records", "email": null, "evidence": "_PLACEHOLDERS.md; CLERK_OFFICIAL_RECORDS_ATTEMPT_LOG_2026-08-10.md (file name)"},
+    {"name": "Charlotte County Property Appraiser (ccappraiser)", "role": "county", "email": null, "evidence": "PA_RAW_ccappraiser_402125130005_2026-08-10.md (file name)"},
+    {"name": "Charlotte County Tax Collector", "role": "county (2022 annual bill, tax deed redemption)", "email": null, "evidence": "Charlotte-County-Real-Estate-402125130005-2022-Annual-bill.pdf; _PLACEHOLDERS.md"},
+    {"name": "MZ Solutions LLC", "role": "probable client company", "email": "miguel@mzsolutions.org", "evidence": "_PLACEHOLDERS.md"},
+    {"name": "Title company (unnamed)", "role": "title commitment", "email": null, "evidence": "_PLACEHOLDERS.md"}
+  ],
+  "keywords": ["TRK-2026-1588", "4225 Rose Arbor Cir", "4225 Rose Arbor Circle", "4225 Rose Arbor Cir Port Charlotte FL 33948", "Rose Arbor", "RoseArbor", "Port Charlotte", "33948", "Charlotte County", "402125130005", "parcel 402125130005", "402206401009", "JOB-4225", "Campbell", "Millicent Campbell", "quiet title", "title search", "tax deed redemption", "receipt 779-00001243", "O.R. Book 777 Page 1333", "OR 777-1333", "Brentwood NY", "TRK-2026-9754", "the house Lily called out"],
+  "notes": "Only 1 PDF (2022 tax bill, in _AUTO-FILED). Most content is .md/.html research reports in 05-REPORTS-DELIVERABLES and 01-INTAKE. 03-Research, 03-INVOICES-PAYMENTS, 04-CORRESPONDENCE, 02-PERMITS are empty. Tax bill TAGS sidecar also carries #TRK-2026-9754 (admin band) - cross-tag worth checking. Stage 08-DELIVERED, not invoiced; client unconfirmed (Miguel or Lily). #Campbell is the only person-ish tag (surname only)."
+}

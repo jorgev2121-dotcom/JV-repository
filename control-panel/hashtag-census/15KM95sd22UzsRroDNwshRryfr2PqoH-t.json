@@ -1,0 +1,24 @@
+{
+  "id": "15KM95sd22UzsRroDNwshRryfr2PqoH-t",
+  "title": "TRK-2026-0708-JULIA - Julia's Place Bond Release (Piwko)",
+  "partial": false,
+  "pdfs": 1,
+  "search_sidecars": 1,
+  "tags_sidecars": 1,
+  "tags5_sampled": 1,
+  "tags5_of_sampled": 1,
+  "has_HASHTAGS_txt": true,
+  "hashtags_count": 5,
+  "has_people_tags": true,
+  "has_trk_tag": true,
+  "other_files": ["_TAGS.txt", "_CONTACTS-EXTRACTED.txt", "_PLACEHOLDERS.md", "_PORTAL_TRK-2026-0708.html", "_STAGE.md", "_INDEX.html", "~51 dated .bak- copies of _PORTAL and _STAGE.md (2026-08-30 to 2026-10-08) in job root"],
+  "people": [
+    {"name": "Enrique \"Henry\" Piwko", "role": "owner / client", "email": "henrypiwko@icloud.com", "evidence": "_PLACEHOLDERS.md; _HASHTAGS.txt; W9_Enrique-Piwko_FOR-SIGNATURE_TRK-2026-0708-JULIA.pdf", "misspellings": ["Piko", "Pivko", "Piwco", "Hernry", "hernrypiwko@gmail.com (bounced address)", "Henri Piwko"]}
+  ],
+  "companies": [
+    {"name": "Miami-Dade County Finance", "role": "city/county staff (bond release)", "email": null, "evidence": "_PLACEHOLDERS.md"},
+    {"name": "Julia's Place", "role": "property / building name", "email": null, "evidence": "folder title; _HASHTAGS.txt"}
+  ],
+  "keywords": ["TRK-2026-0708-JULIA", "TRK-2026-0708", "Julia's Place", "Julias Place", "Julia", "Piwko", "Piko", "Henry Piwko", "Enrique Piwko", "bond release", "bond refund", "$8,415", "$22,719 cashier's check", "W-9", "W9", "release inspection", "Miami-Dade Finance", "FL 33186", "33186", "Code Enforcement"],
+  "notes": "Only 1 PDF (unsigned W-9). Subfolders 01-INTAKE, 02-PERMITS, 03-INVOICES-PAYMENTS, 04-CORRESPONDENCE, 05-REPORTS-DELIVERABLES, _Superseded are empty; all content in 02-Deliverables. _CONTACTS-EXTRACTED.txt only holds IRS boilerplate emails/phones from the W-9 form (not real contacts). Property address not found in files read; only ZIP 33186. _HASHTAGS.txt uses #TRK-2026-0708-JULIA while _TAGS.txt uses #TRK-2026-0708. Root is cluttered with ~51 nightly .bak- files."
+}

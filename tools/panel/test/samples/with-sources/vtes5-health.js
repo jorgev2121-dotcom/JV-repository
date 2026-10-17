@@ -1,0 +1,1 @@
+window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.health = { "schema": 1, "at": "2026-10-11T21:42:46-04:00", "writer": "CU-VTES5-Feeder (tools/panel/VTES5-Feeder.ps1)", "ok": false, "checks_passed": 7, "checks_total": 10, "report_sent_at": null };

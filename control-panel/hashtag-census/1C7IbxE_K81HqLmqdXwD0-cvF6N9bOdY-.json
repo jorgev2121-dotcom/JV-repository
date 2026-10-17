@@ -1,0 +1,29 @@
+{
+  "id": "1C7IbxE_K81HqLmqdXwD0-cvF6N9bOdY-",
+  "title": "TRK-TBD _ FOLIO-TBD _ 15601 SW 137 AVE",
+  "partial": false,
+  "pdfs": 8,
+  "search_sidecars": 8,
+  "tags_sidecars": 8,
+  "tags5_sampled": 3,
+  "tags5_of_sampled": 1,
+  "has_HASHTAGS_txt": false,
+  "hashtags_count": null,
+  "has_people_tags": null,
+  "has_trk_tag": null,
+  "other_files": ["_TAGS.txt", "CAPSULE.md", "_CONTACTS-EXTRACTED.txt", "_PLACEHOLDERS.md", "_PORTAL_UNASSIGNED_TRK-TBD-FOLIO-TBD-15601-SW-137-AVE.html", "_STAGE.md", "41 .bak-YYYYMMDD copies of _PORTAL and _STAGE.md (daily, 2026-08-30 to 2026-10-08)", "07-TAX-JACKET_2026-08-24/ENHANCED: FINAL_ALL.pdf.PAGEMAP.json, 2x WHAT-WAS-DONE.json, 2x ENHANCED pdf .bak-20260826, _partmaps/ folder"],
+  "people": [
+    {"name": "Miguel Zaldivar", "role": "client / requestor (orderer of DD report)", "email": "miguel@mzsolutions.org", "evidence": "_PLACEHOLDERS.md", "misspellings": ["Miguel Saldivar", "Migel Zaldivar", "Zaldibar"]},
+    {"name": "Sheldon K. Powell", "role": "end client / developer (TEDC)", "email": null, "evidence": "_PLACEHOLDERS.md", "misspellings": ["Sheldon Powel", "Shelden Powell"]},
+    {"name": "Jorge Valdes", "role": "owner / inspector (CU Inspections)", "email": null, "evidence": "CAPSULE.md, _TAGS.txt", "misspellings": ["Jorge Valdez"]}
+  ],
+  "companies": [
+    {"name": "MZ Solutions", "role": "client / requestor", "email": "miguel@mzsolutions.org", "evidence": "_PLACEHOLDERS.md"},
+    {"name": "TEDC", "role": "end client / developer", "email": null, "evidence": "_PLACEHOLDERS.md"},
+    {"name": "Cove Architecture", "role": "architect (prepared feasibility study)", "email": null, "evidence": "_PLACEHOLDERS.md"},
+    {"name": "Miami-Dade Water and Sewer (WASD)", "role": "utility - final balance payoff/estoppel", "email": null, "evidence": "_PLACEHOLDERS.md"},
+    {"name": "Miami-Dade Property Appraiser", "role": "county - supplied tax jacket", "email": null, "evidence": "CAPSULE.md"}
+  ],
+  "keywords": ["15601 SW 137 AVE", "15601 SW 137th Avenue", "15601-SW-137-Ave", "Pine Brook", "Sheffield Apartments", "Park at Sheffield", "folio 30-5926-001-0010", "3059260010010", "TRK-2026-1650", "permit P2023000061", "15515 SW 136 CT", "15595 SW 136 PL", "DD report violations and liens", "life-expectancy flags", "tax jacket", "WASD estoppel", "4% LIHTC feasibility study", "354-unit redevelopment", "90 units", "garden apartments", "MZ Solutions", "TEDC"],
+  "notes": "No _HASHTAGS.txt. Capsule still labelled TRK-TBD / FOLIO-TBD; _PLACEHOLDERS.md says the job is TRK-2026-1650, folio 30-5926-001-0010 (relabel BLOCKED on Jorge). Sampled .TAGS.txt sidecars carry conflicting stray TRK tags in the 9xxx admin band (#TRK-2026-9490, #TRK-2026-9754) - mis-anchoring defect. Only 1 of 3 sampled TAGS has >=5 tags. _CONTACTS-EXTRACTED.txt has 0 emails and 6 phone numbers that look like OCR noise (202/201 area codes). All PDFs live 3 levels deep (07-TAX-JACKET_2026-08-24/ENHANCED and /ORIGINAL); walked one level past the 2-level limit to reach them. Other subfolders (00-Intake, 01-Emails, 02-Permit-Apps, 03-Research, 04-Money, 05-Deliverables, 06-Photos) are empty. _partmaps not walked. Delivered DD report sits outside the capsule in VTES-Outbox. Heavy .bak clutter at job root (41 daily backups)."
+}

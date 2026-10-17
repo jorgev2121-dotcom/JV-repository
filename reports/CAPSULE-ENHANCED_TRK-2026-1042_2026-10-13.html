@@ -1,0 +1,293 @@
+<title>15222 SW 108 Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+</style>
+
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED</p>
+<h1>TRK-2026-1042 · 15222 SW 108 Pl, Miami 33157</h1>
+<div class="facts">
+  <span><b>Client / owner</b>Daymara Yhanes Ureta</span>
+  <span><b>Folio</b>30-5030-008-0370</span>
+  <span><b>Where</b>Unincorporated Miami-Dade (West Perrine)</span>
+  <span><b>House</b>Single family, 4 bed / 2 bath, built 1975</span>
+  <span><b>On file as</b>TRK-26-1042 (short form)</span>
+  <span><b>Stage on file</b>05-DRAFT (stale)</span>
+</div>
+<div class="deadline">Due-diligence report PRELIMINARY · blocked on 3 recorded lien payoffs · no word from the client in <span id="daysleft">109 days</span>
+<small>Two building cases are still OPEN from 2008 (pool barrier, fire damage), in the prior owner's name. One phone call to RER Lien Collection, 786-469-2900, or a 5-minute free Clerk search, unblocks the final report and the quote.</small></div>
+<p class="stamp">TRK-2026-1042 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile c" data-go="status"><span class="n">6</span><b>Done and on file</b><small>Folio, owner, cases, flood zone, tax jacket, preliminary report.</small></button>
+  <button class="tile y" data-go="status"><span class="n">9</span><b>Still missing</b><small>Liens, title, case plan, permits, zoning, tax, quote, billing, photo.</small></button>
+  <button class="tile w" data-go="status"><span class="n">5</span><b>Waiting on</b><small>You (four), and the desktop (one).</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> <b>Everything waits on the three lien payoffs.</b> The Clerk's site blocks scripts with a captcha, so the cheapest path is one call to 786-469-2900. Before spending time on it: the client has been silent for 109 days and has never been sent anything. <b>Is she still a live prospect, yes or no?</b></p></div>
+
+<div class="tags"><b>Hashtags for this job (from _TAGS.txt of August 26, the DD report and the job log)</b>#TRK-2026-1042 #TRK-26-1042 #short-form-TRK-drift #15222-SW-108-Pl #folio-30-5030-008-0370 #Daymara-Yhanes #Daymara-Yhanes-Ureta #Roberto-Carmona #West-Perrine #Unincorporated-MDC #MDC #due-diligence #code-enforcement #liens #pool-barrier #fire-damage #20080125118 #20080125173 #tax-jacket #flood-zone-X #JorgeValdes #CU-Inspections</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>31 documents listed in 6 folder branches; 14 empty folders linked (21 folders in all). Left out of the list: 56 backup copies, 12 search and 12 tag sidecars, and 7 page-map and log files. Total 118 of 118 files accounted for. 1 related file elsewhere in Drive is linked but not counted. Nothing on this page sends, files, moves or deletes anything. Ticks are not saved.</p>
+  <p class="tag">TRK-2026-1042 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #TRK-2026-1042 #TRK-26-1042 #15222-SW-108-Pl #folio-30-5030-008-0370 #Daymara-Yhanes #capsule #orange-tree</p>
+</footer>
+</div>
+
+<script>
+const FOLDERS=[{"k": "root", "t": "Job root", "p": "TRK-26-1042 _ FOLIO-TBD _ 15222 SW 108 Pl Miami 33157 (Daymara Yhanes)", "fid": "16wlZeryV5unuNXxxYuHKf6oPhC8QoVKF", "note": "The old portal, stage and placeholder notes, tags and contacts. 52 backup copies were left out of this list (25 _PORTAL, 27 _STAGE), all in the banned NAME.ext.bak-DATE form.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["_PLACEHOLDERS.md (9 items still missing)", "2026-10-10", 2401, "Notes", "1vk12mQPoEsNmyOv_VrWIc9Cgr_6WQj4P", "KEY"], ["_PORTAL_TRK-26-1042.html", "2026-10-13", 39167, "Web page", "1h44J8mk9--po7IFUUXSVBBmTWQUaP57Y", "OLD FORMAT"], ["_STAGE.md", "2026-10-09", 1161, "Notes", "1vxUGfuhGkmpjQXlhtA7asZAgupY39TdC", "STALE"], ["_CONTACTS-EXTRACTED.txt", "2026-10-05", 395, "Text", "172fsvWEQzfGyPLIJMJ4CztLNpVf7_Nah", "FALSE PHONES"], ["_TAGS.txt", "2026-08-26", 296, "Text", "17Cl8UkIOeOj-WhdIbjGm-W96ePyJoKEC", ""], ["_INDEX.html", "2026-08-17", 5263, "Web page", "1bitOS4rUhMiXcYbouPlA96MpXsuNn4VH", ""]]}, {"k": "intake", "t": "00-Intake", "p": "TRK-26-1042 / 00-Intake", "fid": "1LuKbLw3uWlNP-qt6yofXh5Ni38A2CVo7", "note": "The working heart of the job: the due-diligence report, the job log, the research notes and the checklist. 1 backup copy (TRK-26-1042_LOG.md.bak-20260908) was left out of this list.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["DD-Report_15222-SW-108-Pl.md (due-diligence report, PRELIMINARY)", "2026-10-09", 14819, "Notes", "105YeEq65XHE6vxCU9stVqu40VTDTMeC2", "KEY"], ["TRK-26-1042_LOG.md (job log, last entry October 9)", "2026-10-09", 9192, "Notes", "1IhJ5k_mjAEDaiiDGzfLwoE2Zf2s9pbVF", "KEY"], ["TRK-26-1042_ACTIONS_2026-07-02.md", "2026-07-02", 1446, "Notes", "1xHG-gRhphy5cvumshra7gNvbvKLmNJkn", ""], ["TRK-26-1042_DueDiligence-Checklist.html (16-step to-do list)", "2026-06-28", 8837, "Web page", "13VQ_g3pXdxxRl_j5FbQXaeRuO9Izx8TO", ""], ["TRK-26-1042_Due-Diligence_15222-SW-108-Pl.md", "2026-06-28", 2837, "Notes", "1i2Z2ZZ-x9RgdJuGlfgjlvG7Ln9E9Qt5g", ""], ["TRK-26-1042_Violations-and-Liens-Research.md", "2026-06-28", 3723, "Notes", "1-B2eQEZ3PCs1CnG1-IRMMEYkae5G2k-6", ""], ["TRK-26-1042_Violations-Log_from-client-photo.md", "2026-06-28", 2202, "Notes", "1S2yfuUhGv1XvW7aEtl7i_7rD-4NM0nSi", ""], ["TRK-26-1042_COWORK-SCRAPE-JOB.md", "2026-06-28", 3034, "Notes", "1Qsx7V1BmxYMOWeerIuNm3FJOV92w2j9m", "NEVER RUN"], ["_JOB-TREE_TRK-26-1042.html", "2026-08-10", 12469, "Web page", "1CGcZnWY8dXJu0QxN8H1Kxc9H-2eWzF6v", "OLD FORMAT"], ["_JOB-TREE_TRK-TBD.html", "2026-08-10", 12496, "Web page", "1anEN8hyGaMymn2gsvmqxhU80j0x-LSiw", "DUPLICATE?"], ["_INDEX.html", "2026-08-17", 5029, "Web page", "1asZoGKaysGGeC9Dwnesyg7kpDIc-Np9w", ""]]}, {"k": "tjE", "t": "07-TAX-JACKET_2026-08-24 / ENHANCED", "p": "TRK-26-1042 / 07-TAX-JACKET_2026-08-24 / ENHANCED", "fid": "1SJFLgR3jGRk5hnC-nYSR8Ps7czaVUiY6", "note": "The building / tax jacket from the Property Appraiser, cleaned up. The one to send is the DELIVERABLE v2 (September 3). The others are working stages. Not listed: 3 backup PDFs (NAME.pdf.bak-20260826), 1 page map and 3 WHAT-WAS-DONE logs (JSON), plus the _partmaps subfolder with 3 more page maps.", "side": {"s": 9, "t": 9, "o": 0, "i": 0}, "docs": [["2026-09-03 _ TRK-26-1042 _ TaxJacket _ 15222 SW 108 Pl Miami 33157 DELIVERABLE _ v2.pdf", "2026-09-04", 8078757, "PDF", "1Z6i_gtGDLfDTI_8MmsC_NhWrfwm1cfHD", "KEY"], ["FINAL_ALL.pdf (all three parts in one)", "2026-09-04", 8016186, "PDF", "1jTIxI5qY9wFUeWhQPUZK3FiUt5idvzQe", ""], ["FINAL_15222-SW-108-PL-33157_part01_2026-08-24.pdf", "2026-09-04", 3986791, "PDF", "1vHqKxrfghiuNlyxqByD2klPv4LoL1jNq", ""], ["FINAL_15222-SW-108-PL-33157_part02_2026-08-24.pdf", "2026-09-04", 378637, "PDF", "1arOy1qrDa9MRD11mzKqGeRdkNee0iAiC", ""], ["FINAL_15222-SW-108-PL-33157_part03_2026-08-24.pdf", "2026-09-04", 3651189, "PDF", "15Bsr-xIxde0WI9-ilMw9s6uUu3LXXfVI", ""], ["ENHANCED_15222-SW-108-PL-33157_part01_2026-08-24.pdf", "2026-08-26", 1235958, "PDF", "1brApw-EBB9TSOKt8XfJ_sZIub6bvLhuZ", ""], ["ENHANCED_15222-SW-108-PL-33157_part02_2026-08-24.pdf", "2026-08-26", 1326970, "PDF", "1-7wyc3y-vvMk1m5ZVDTLKqV0VrdiXX_l", ""], ["ENHANCED_15222-SW-108-PL-33157_part03_2026-08-24.pdf", "2026-08-26", 5870485, "PDF", "19R-pWthA-naKBI4teILcBJ_jajf8PvZ4", ""], ["ALBUM_15222-SW-108-PL-33157_part01_2026-08-24.pdf", "2026-08-25", 926933, "PDF", "1Zwub6hKa2T6jdoOY6HfgRSlxGDiXeYHO", ""]]}, {"k": "tjO", "t": "07-TAX-JACKET_2026-08-24 / ORIGINAL", "p": "TRK-26-1042 / 07-TAX-JACKET_2026-08-24 / ORIGINAL", "fid": "1CBtXVojIbB5yLLg35HKxpf4lPrEve_cg", "note": "The three files exactly as the Property Appraiser sent them on August 24 (emailed as ACS.pdf, ACS (1).pdf, ACS (2).pdf), renamed.", "side": {"s": 3, "t": 3, "o": 0, "i": 0}, "docs": [["TAXJACKET_15222-SW-108-PL-33157_part01_2026-08-24.pdf", "2026-08-24", 484089, "PDF", "1RUCrY3rmY9gerhSLZ2e_7-L7PV_1sTln", ""], ["TAXJACKET_15222-SW-108-PL-33157_part02_2026-08-24.pdf", "2026-08-24", 349843, "PDF", "1dR3UCtFntOP_Muey6blPZdww7d7Ir4Zf", ""], ["TAXJACKET_15222-SW-108-PL-33157_part03_2026-08-24.pdf", "2026-08-24", 866239, "PDF", "1Rx7UqUFcgrqiYhrEuLgr7VT8urha-t5o", ""]]}, {"k": "ext", "ext": true, "t": "Elsewhere in Drive (outside this job folder)", "p": "Not in this folder · not part of the count", "fid": "11Ivh48dUOmp8m0UYydRf7vk61xKo-Olb", "note": "The original Cowork job order for this property sits outside the job folder. Linked so it can be found. Nothing was copied or moved.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["TRK-26-1042_COWORK-JOB_15222-due-diligence_2026-06-28.md", "2026-06-28", 3572, "Notes", "1PfdDIPArphoiHH-oqLBhV1c1YPPZ9pCr", "OUTSIDE JOB"]]}, {"k": "money", "t": "04-Money", "p": "TRK-26-1042 / 04-Money", "fid": "1fa9uf5MYFxaiZmK0iyyrdbzbM1pbEX7t", "note": "Only an index page. Its Checks and Invoices subfolders are empty. No proposal, invoice or payment exists for this job.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["_INDEX.html (04-Money)", "2026-08-17", 3023, "Web page", "1KsRNxkXIifYVJUJgq2Oz_Vgd-x9K48Fw", ""]]}, {"k": "perm", "t": "02-Permit-Apps", "p": "TRK-26-1042 / 02-Permit-Apps", "fid": "1yN9i-9sq17DkpP_NE_JsxlSf9-W1ymI5", "note": "Only an index page. Its Signed and Submittal subfolders are empty. No permit work has started.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["_INDEX.html (02-Permit-Apps)", "2026-08-17", 3043, "Web page", "1e3058OhzaCWOXkiwEOdL66GEtULFioxM", ""]]}];
+const EMPTY=[["01-Emails", "1Co9pzvnlHd1ETFSx1dS5sMXEcI9v2XK1"], ["03-Research", "1pcLAsEe7zbGPhqA_s6wEBBtri8QrmS8U"], ["05-Deliverables", "1A4g3lC_mizCWQ7Y-PFRgxBjoESelgAGx"], ["06-Photos", "17_KSUV2-9bxck4oYoO5Y1H0BCsh-aaGz"], ["01-INTAKE", "1eQqU-fYGupD9gJGsbVYNUFy1dcPEZMk_"], ["02-PERMITS", "1zY-HvwcUGfPQcleWRPmvn5XOoi03WcQN"], ["03-INVOICES-PAYMENTS", "1tVQcUD9F0GfDmChYduRlZFobImKLgTno"], ["04-CORRESPONDENCE", "1CWbmaqmox82WS0IythZ0ihguApDn8LfS"], ["05-REPORTS-DELIVERABLES", "12avuUU4-AzFK5M61ipLJSh0cZMlgaEtg"], ["_Superseded", "1yV0o7HNK_fcmEbAl_aZ6wmmOvZsxJ7Pm"], ["04-Money / Checks", "16YQ7C8htCEpe5MwESQCwtJVn-U7QxbpN"], ["04-Money / Invoices", "1n0WWyw2RhRqPSAS1mKP9iG2qvoWL3ayn"], ["02-Permit-Apps / Signed", "1ud_4QjvVL6DObA80G_IwK3ZX1Qwlwp5Y"], ["02-Permit-Apps / Submittal", "15oBwiV4Z0yM3ZCAo6RRruOEER_F8KoWq"]];
+const PILL={done:["p-done","ARRIVED"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag",""],key:["p-key","KEY"],money:["p-money","MONEY"],person:["p-wait","CONTACT"],finding:["p-flag","FINDING"]};
+const STATUS=[["The one blocker", [["The three recorded lien payoffs are still unknown", "Basura 2008020008243 / B054080, Hierba Alta 200902009539 / T004239, and Hierba Alta 201002007650 / T010315. The Clerk's Official Records search is behind a captcha (checked August 15 and again October 9). These payoffs block the final report and the client quote. Cheapest ways through: one phone call to RER Lien Collection, 786-469-2900, or a 5-minute free search by hand at onlineservices.miamidadeclerk.gov/officialrecords.", "key"]]], ["Done and on file", [["Folio and owner confirmed, September 8", "Folio 30-5030-008-0370. Owner of record: Daymara Yhanes Ureta, status active. She is the legal owner, not just a buyer asking questions.", "done"], ["Two open building cases confirmed live, September 8", "20080125118 (pool barrier) and 20080125173 (fire damage). Both still OPEN. The violator on record is still Roberto Carmona, the prior owner.", "done"], ["Two other county cases checked and CLOSED, October 9", "200003984 (unpermitted wooden fence, closed 2002) and 20080125106 (unsafe-structure intake case, closed 2008). No new exposure.", "done"], ["Flood zone confirmed, October 9", "FEMA zone X (shaded), outside the Special Flood Hazard Area. FIRM panel 12086C0463L, effective 2009-09-11. A GIS reading, not a certified letter.", "done"], ["Building / tax jacket received and processed", "Sent by the Property Appraiser August 24. Processed deliverable v2 dated September 3 is in 07-TAX-JACKET / ENHANCED.", "done"], ["Preliminary due-diligence report written", "DD-Report in 00-Intake. Written June 28, updated October 9. Still marked PRELIMINARY.", "done"]]], ["Still missing", [["Lien satisfactions / releases for each lien", "Same captcha wall as the payoffs.", "miss"], ["Mortgages, tax warrants, judgments or lis pendens on the folio", "Report section 5 still says DEFERRED. Same captcha wall.", "miss"], ["A plan for the two open building cases", "Needs an engineer's fire-damage assessment, and a decision on the pool: fix the barrier, or fill / remove the pool. No engineer engaged. Asked for since June 28.", "miss"], ["Permit history and work-without-permit match", "Roof, A/C, water heater, panel, and any fire repair. Pending since June 28.", "miss"], ["Zoning district, setbacks, Zoning Verification Letter", "Pending since June 28. Likely RU-1 single family, not confirmed.", "miss"], ["Tax payment status and tax certificates", "Values were pulled September 8. Payment status is still unknown. Details in the money zone.", "miss"], ["Final report and client quote", "Waiting on the items above. Details in the money zone.", "miss"], ["Client engagement and billing", "No proposal, invoice or payment anywhere. Details in the money zone.", "miss"], ["Daymara's original photo of the code worksheet", "The report says it was saved to the job folder. It is not in any of the 21 folders. Only the typed-up text exists.", "miss"]]], ["Waiting on", [["You: one call to 786-469-2900, or the 5-minute Clerk search", "This single step unblocks the lien section, the final report and the quote.", "wait"], ["You: is Daymara still a live prospect?", "No email from her since the June 26 intake: 109 days. Nothing has been sent to her. One yes or no.", "wait"], ["You: engage an engineer for the fire-damage case?", "Needed before the open cases can be priced.", "wait"], ["Desktop: stage override in _MATTER-OVERRIDES.json", "_STAGE.md is machine-made and must not be hand-edited. It should show the folio, the client and the real next action.", "wait"], ["You: rename TRK-26-1042 to the long form, and which number?", "Renaming is RED and needs a registry decision first. See Findings.", "wait"]]]];
+const PEOPLE=[["Daymara Yhanes Ureta · client, owner of record", "Sent the address and one photo on June 26, 2026, with no message. No contact since. Email taken from the job log and the DD report.", "daymarayandy@icloud.com"], ["Roberto Carmona · prior owner", "Still the violator of record on both open building cases (2008). No contact on file. Not a party to contact; listed so the name is recognised in records.", ""], ["Miami-Dade RER Lien Collection Section", "11805 SW 26 St, Suite 230. Internal Compliance Credit and Collections: 786-469-2900. Can give lien payoffs directly, without the Clerk search.", ""], ["Miami-Dade Clerk, Official Records", "onlineservices.miamidadeclerk.gov/officialrecords. Free Standard Search, no login, but a captcha blocks scripts. Search names: CARMONA ROBERTO and YHANES URETA DAYMARA.", ""], ["Miami-Dade RER, zoning", "786-315-2000. Issues the Zoning Verification Letter.", ""], ["Miami-Dade Property Appraiser", "Sent the building / tax jacket on August 24, 2026.", "cpl@miamidadepa.gov"], ["Jorge Valdes · owner's agent", "Team USA Sales, Inc. Prepared the DD report as owner's agent.", ""]];
+const MONEY=[["No engagement, proposal, invoice or payment exists", "04-Money (Checks, Invoices) and 03-INVOICES-PAYMENTS are empty. _STAGE shows amount billable, invoiced and paid as [VERIFY]. The October 10 inbox sweep found no client email since June 26.", "money"], ["Planned quote shape (from the DD report)", "Three separate lines: your owner's-agent fee, pass-through engineering, and lien mitigation. The lien payoffs are paid by the owner and are not folded into your fee.", "money"], ["Lien payoffs: unknown", "Blocked by the Clerk captcha. The report's lien-math standard is 12.5% a year simple interest from the lien date, reference only; a title company gives the real payoff.", "money"], ["2026 property values: on file", "Pulled from the Property Appraiser on September 8. The figures are in the job log (September 8 entry) and are not repeated on this page.", "money"], ["Tax payment status and tax certificates: unknown", "Still to pull from the Tax Collector.", "money"]];
+const FINDINGS=[["Short-form tracking number hides the whole job", "The folder name and 10 document names (plus their sidecars and 26 backups) use TRK-26-1042. No file name carries TRK-2026-1042; only _TAGS.txt has it in its text, so an exact search misses the job. Also, 1042 is below the 1247 seed, so TRK-2026-1042 is not a registry-issued number either; TRK-REGISTRY.md lists it only as a short-form Cowork job. Renaming is RED and needs your registry decision. Nothing was renamed."], ["The folder name still says FOLIO-TBD", "The folio was confirmed September 8 as 30-5030-008-0370. _TAGS.txt still carries #folio-FOLIO-TBD and _STAGE.md shows the folio as [VERIFY]."], ["_STAGE.md is stale", "05-DRAFT, 102 days in stage, overdue YES, client [VERIFY], next action “none on file”. The real next action is the lien payoff call. Fix is a desktop override, not a hand edit."], ["The DD report contradicts itself", "The header and section 1 still say folio TBD and owner TBD, and section 8 says tax pending, while sections 2 and 7 were updated October 9 with the confirmed folio, owner and flood zone. The footer still reads v1 · 2026-06-28. It was edited without a version bump, and there is no _VERSION-LOG.md."], ["_CONTACTS-EXTRACTED.txt lists two “phones” that are not phones", "(030) 008-0370 and (030) 068-0370 are pieces of the folio 30-5030-008-0370. The second one, 068, does not match the real folio, which suggests an OCR misread somewhere in the tax-jacket text."], ["The client's original photo is missing", "The DD report says image0.jpeg (Daymara's handwritten code worksheet) was saved to the job folder. It is in none of the 21 folders; 06-Photos is empty. It may still be in the June 26 email."], ["The Cowork scrape job was never run", "The June 28 and July 2 Cowork dispatches were never picked up (job log, September 8). The desktop helper did the county pull itself later."], ["56 backups use the banned NAME.ext.bak-DATE form", "25 _PORTAL and 27 _STAGE copies in the root (about one a day from August 30 to October 8), 1 log backup in 00-Intake, and 3 PDF backups in 07-TAX-JACKET / ENHANCED. Drive cannot preview them. None were touched."], ["Two folder sets side by side; 14 folders are empty", "An August 11 set (00-Intake to 06-Photos) and an August 17 set (01-INTAKE to 05-REPORTS-DELIVERABLES). All documents sit in 00-Intake and 07-TAX-JACKET."], ["Two near-identical job-tree pages", "_JOB-TREE_TRK-26-1042.html and _JOB-TREE_TRK-TBD.html, both August 10, 12 KB each. The TBD one is likely an earlier copy. The job tree links to PC-only file paths that do not open on the phone or in the cloud (OPEN-ITEMS TRK-2026-9144)."], ["The Cowork job order is filed outside the job folder", "TRK-26-1042_COWORK-JOB_15222-due-diligence_2026-06-28.md sits in another folder (linked in the Elsewhere branch). Moving it in is filing, so it waits for your yes."], ["Five overlapping versions of the tax jacket, about 33 MB", "ORIGINAL, ENHANCED, ALBUM, FINAL parts, FINAL_ALL and the DELIVERABLE v2. Only the DELIVERABLE follows the DATE _ TRK _ TYPE name grammar. The DELIVERABLE v2 is the one to send."]];
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=(o.st==='flag'||o.st==='key')&&o.flag?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc') h+='<div class="meta"><span>'+esc(o.date)+'</span><span>'+esc(kb(o.size))+'</span><span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':o.kind==='folder'?'Open folder in Drive ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','The blocker, done, still missing, and who it waits on','6 · 9 · 5',h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    f.docs.forEach(d=>{x+=row({b:f.t,kind:'doc',title:d[0],date:d[1],size:d[2],type:d[3],link:durl(d[4]),st:d[5]?(d[5]==='KEY'||d[5]==='NEW'?'key':'flag'):'',flag:d[5],path:f.p});});
+    if(f.cnt) x+='<p class="bnote">📦 '+f.cnt+' '+esc(f.cntwhat)+' are counted here, not listed one by one, to keep this page small. Open the folder to see them.</p>';
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' search'); if(s.t)sc.push(s.t+' tag'); if(s.o)sc.push(s.o+' OCR marker'); if(s.i)sc.push(s.i+' index');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':(f.ext?'🔗 ':'📁 ')+f.t),esc(f.p),f.cnt?f.cnt+' counted':f.ext?f.docs.length+' linked':f.docs.length+' docs',x+(sc.length?'<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>':''),fi===0);
+  });
+  let e='<p class="bnote">These folders exist but hold no files. Nothing was put in them.</p>';
+  EMPTY.forEach(f=>{e+=row({b:'Empty folders',kind:'folder',title:f[0],text:'Empty folder',link:furl(f[1])});});
+  branch('empty','','📂 Empty folders','Two standard folder sets, mostly unused',EMPTY.length+' empty',e,false);
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  let fh='<p class="bnote">Found while building this capsule. Nothing was moved, renamed or deleted. Each one waits for your yes.</p>';
+  FINDINGS.forEach(it=>{fh+=row({b:'Findings',kind:'finding',title:it[0],text:it[1],st:'finding'});});
+  branch('findings','','🔎 Findings','Hidden tracking number, stale stage and report, missing photo, banned names',FINDINGS.length+' findings',fh,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> Money items stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='</div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':MONEY.length+' items',m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>it.kind!=='money'||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">TRK-2026-1042 · 15222 SW 108 Pl · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(it.kind==='money'?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=it.kind==='doc'?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc') h+='<p class="meta"><span>'+esc(it.date)+'</span><span>'+esc(kb(it.size))+'</span><span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='TRK-2026-1042 (on file as TRK-26-1042) · 15222 SW 108 Pl, Miami 33157 · Folio 30-5030-008-0370\nClient: Daymara Yhanes Ureta · Due-diligence report PRELIMINARY · blocked on 3 lien payoffs\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='folder') s+='   Open: '+it.link+'\n';
+    else if(it.kind==='doc') s+='   '+it.date+' · '+kb(it.size)+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— TRK-2026-1042 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>it.kind!=='money'||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+build();
+(function(){try{const t=new Date('2026-06-26T12:00:00-04:00'),n=new Date();const d=Math.floor((n-t)/86400000);
+if(d>0)$('daysleft').textContent=d+' days';}catch(e){}})();
+</script>

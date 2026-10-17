@@ -1,0 +1,137 @@
+# BUILDER-LOG — VTES panel builder
+
+- 2026-10-13 · baseline · 54 of 116 built (47%) · 38 cloud-buildable left · 24 PC-only blocked (RAMBO silent since 10-10)
+- 2026-10-13T13:43Z · run 1 · built MENU 'Text size A-/A+' + 'High contrast' (remembered per computer) · 56 of 116 (48%) · tests passed: view-controls, money-lock, emails-window, hover-tips · MENU 10 of 12 (83%) · published v33
+- 2026-10-13T14:43Z · run 2 · budget allowed · items 3 of 3 done: P0 Einar Tomas draft (Drive 1KvYULeYb9-fPnOOR1AfsP1UC9Gsse8gq), Medley town reply + new permit path (Drive 1cncFdV4ze5hvFejPoOkzoMB4JmpjYQk9), panel HANDOFFS From/To + Copy packet · 58 of 116 (50%) · tests passed: handoff-packet, view-controls, money-lock · published v36 · blocked: PC window not responding (RAMBO), all PC pieces wait
+- 2026-10-13T15:43Z · run 3 · budget allowed · items 4 started (4 helpers): capsules TUS-26-1033 Medley, TUS-25-1023 14598 SW 110, TRK-2026-1265 Bal Harbour; decisions 18+24 (TRK-2026-1294 CDM) · capsules 1 of 40 done before run · decisions 15 BLOCKED (Sunbiz web blocked from cloud; PC lookup), 21 EXECUTED · panel 58 of 116 (50%) · queue depth ≥12 (36 capsules, decisions 16/25/27/29/30 PC bundle, overnight list) · blocked: PC window still silent (no RAMBO1 receipts)
+- 2026-10-13T16:25Z · run 3 done · 4 of 4 items: capsules TUS-26-1033 (88/88), TUS-25-1023 (128/128), TRK-2026-1265 (1,255 accounted); decisions 18 + 24 EXECUTED_CLOUD · capsules 4 of 40 (10%) · decisions closed 38 of 48 · next: manifest v31, PC bundle (16/25/27/29/30 + copy RFA 2020-203 PDF to MY-DESK) · blocked: PC window silent
+- 2026-10-13T16:43Z · run 4 · budget allowed · 4 started: capsules TRK-2026-1612 Alec 331 Tamiami, TRK-2026-1310 Cutler Bay, TRK-2026-1262 Unit 143, TRK-2026-1536 10362 SW 180 · capsules 4 of 40 before run · panel 58 of 116 (50%) · queue depth ≥12 (32 capsules after this run, manifest v31, PC decision bundle, overnight list) · blocked: PC window silent
+- 2026-10-13T17:05Z · run 4 done · 4 of 4: capsules TRK-2026-1612 (275/275), TRK-2026-1310 (73/73), TRK-2026-1262 (93/93), TRK-2026-1536 (232/232) · capsules 8 of 40 (20%) · decisions 38 of 48 · panel 58 of 116 (50%) · cross-job: 1310 ACS.pdf x3 proven NOT the 14598 jacket (duplicates of 1310's own) · blocked: PC window silent; Clerk lien search (CAPTCHA) needs PC
+- 2026-10-13T17:44Z · run 5 · budget allowed · 4 started: capsules TRK-2026-1535, TRK-2026-1684, TRK-2026-1534, TRK-2026-1294 · capsules 8 of 40 before run · panel 58 of 116 (50%) · queue depth ≥12 (28 capsules after this run, manifest v31, PC decision bundle, overnight list) · blocked: PC window silent
+- 2026-10-13T18:05Z · run 5 done · 4 of 4: capsules TRK-2026-1535 (212/212), TRK-2026-1684 (183/183), TRK-2026-1534 (190/190), TRK-2026-1294 (339/339) · capsules 12 of 40 (30%) · decisions 38 of 48 · panel 58 of 116 (50%) · pattern: 4 Alec DD reports (1534/1535/1536/1612) finished, none sent, none invoiced; Clerk lien search CAPTCHA-blocked on all → PC browser · blocked: PC window silent
+- 2026-10-13T18:44Z · run 6 · budget allowed · 4 started: capsules TRK-2026-1297 Tuscany Cove, TRK-2026-1295 Principio, TRK-2026-1268 1500 Ocean Dr, TRK-2026-1280 14953 SW 34 · capsules 12 of 40 before run · panel 58 of 116 (50%) · queue depth ≥12 (24 capsules after this run, manifest v31, PC bundle, overnight) · blocked: PC Claude window silent (local Ollama lane alive)
+- 2026-10-13T19:00Z · run 6 done · 4 of 4: capsules TRK-2026-1297 (5/5), TRK-2026-1295 (5/5 + 14 related), TRK-2026-1268 (6/6), TRK-2026-1280 (6/6) · capsules 16 of 40 (40%) · decisions 38 of 48 · panel 58 of 116 (50%) · morning yes/no list: Ocean Dr alive?, Tuscany Cove call-or-close, 14953 SW 34 client?, Principio interested? · note: 1280/1297 _PORTAL refreshed today 12:46 EDT still with file:/// links (PC builder may be alive but unfixed)
+- 2026-10-13T19:43Z · run 7 · budget allowed · 4 started: capsules TRK-2026-1292, 1289, 1286 (Alec), 1611 (PP contractor reg → Einar) · capsules 16 of 40 before run · panel 58 of 116 (50%) · queue depth ≥12 (20 capsules after this run, manifest v31, PC bundle, overnight) · blocked: PC Claude window silent
+- 2026-10-13T20:00Z · run 7 done · 4 of 4: capsules TRK-2026-1611 (71/71), 1289 (13/13), 1286 (67/67), 1292 (148/148) · capsules 20 of 40 (50%) · decisions 38 of 48 · panel 58 of 116 (50%) · KEY: Alec — 6+ DD reports finished, none sent, no 2026 invoice on any of 8 jobs; 1292 paid City microfilm link expired unsaved · Einar: current COI (06-22) + 2028 licence renewal found in other folders — copy needs Jorge yes (RED)
+- 2026-10-13T20:44Z · run 8 · budget allowed · 4 started: P0-cash ALEC ROLLUP (send + invoice prep, drafts only), capsules TRK-2026-1256, KAR-26-GROVES, TRK-2026-1042 · capsules 20 of 40 before run · panel 58 of 116 (50%) · queue depth ≥12 · blocked: PC Claude window silent
+- 2026-10-13T21:05Z · run 8 done · 4 of 4: ALEC ROLLUP (5 of 8 ready; drafts only; artifact 2GLjdcVGezMNS8f7DBgrDb), capsules TRK-2026-1256 (96 accounted), KAR-26-GROVES (31/31, = 1256), TRK-2026-1042 (118 accounted) · capsules 23 of 40 (58%) · extra: 1535/1536 PDF helper running · panel 58 of 116 (50%) · blocked: PC Claude window silent
+- 2026-10-13T21:43Z · run 9 · budget allowed · 4 started: capsules TRK-2026-0708-JULIA, TRK-2026-1588, 13920 SW 34 ST (TBD), 2362 NW 32 ST (TBD) · capsules 23 of 40 before run · panel 58 of 116 (50%) · queue depth ≥12 · blocked: PC LiteLLM primary down since 13:41 ET; PC Claude window silent; Alec 1535/1536 PDFs await desktop copy
+- 2026-10-13T22:05Z · run 9 done · 4 of 4: capsules 2362 NW 32 ST (23/23; registry TRK-2026-1561), 13920 SW 34 ST (72/72; registry TRK-2026-1567), TRK-2026-0708-JULIA (63; release never initiated), TRK-2026-1588 (82; never invoiced 63 days) · capsules 27 of 40 (68%) · panel 58 of 116 (50%) · blocked: PC LiteLLM down; PC Claude window silent
+- 2026-10-13T22:44Z · run 10 · budget allowed · 4 started: capsules 535 NW 7 ST, 15601 SW 137 AVE, 13328 SW 113 CT (all TRK-TBD), + 1 panel piece (panel stalled all day behind capsules) · capsules 27 of 40 before run · panel 58 of 116 (50%) · blocked: PC Claude window silent; LiteLLM down
+- 2026-10-13T22:50Z · panel: built TODAY › 'Last updated on page' stamp · 59 of 116 (51%) · tests passed: today-stamp, handoff-packet, view-controls, money-lock, emails-window, hover-tips · published v37
+- 2026-10-13T23:05Z · run 10 done · 4 of 4: panel 59 of 116 (v37), capsules 15601 SW 137 (39/39), 13328 SW 113 CT (22/22), 535 NW 7 ST (22/22; hearing 08-20 ruling unknown — possible lien) · capsules 30 of 40 (75%) · blocked: PC Claude window silent
+- 2026-10-13T23:44Z · run 11 · budget allowed · 4 started: capsules 1514 NW 73 ST, TRK-2026-1296 TEDC creds, TRK-2026-1293 MZ creds, + panel APPROVALS waiting clock · capsules 30 of 40 before run · panel 59 of 116 (51%) · queue: 7 capsules left (2221 Synergy, OPH-0007, Bay Harbor ×5) then panel pieces · blocked: PC Claude window silent
+- 2026-10-13T23:50Z · panel: built APPROVALS 'Waiting clock, overdue after 24 h' · 60 of 116 (52%) · 7 tests passed · published v38
+- 2026-10-14T00:05Z · run 11 done · 4 of 4: panel 60 of 116 (v38), capsules TRK-2026-1293 (69; 1 of 4 creds current), 1514 NW 73 ST (56/56; no TRK), TRK-2026-1296 (5/5; binder empty) · capsules 33 of 40 (83%) · left: 2221 Synergy, OPH-0007, Bay Harbor ×5 · blocked: PC Claude window silent
+- 2026-10-14T00:43Z · run 12 · budget allowed · 4 started: capsules TRK-2026-2221 Synergy, OPH-2026-0007, Bay Harbor 425, Bay Harbor 404 · capsules 33 of 40 before run · panel 60 of 116 (52%) · next: Bay Harbor 302/301/221, then master capsule index, then panel pieces · blocked: PC Claude window silent
+- 2026-10-14T01:05Z · run 12 done · 4 of 4: capsules TRK-2026-2221 (25/25), OPH-2026-0007 (176/176; propose fold into 1265), Bay Harbor 425 (59/59), Bay Harbor 404 (20/20; condo demands 27 days unanswered) · capsules 37 of 40 (93%) · left: Bay Harbor 302/301/221 + master index · panel 60 of 116 (52%)
+- 2026-10-14T01:44Z · run 13 · budget allowed · 4 started: capsules Bay Harbor 302/301/221 (last 3) + P0 Plaza status letter draft for 10/15 (draft only) · capsules 37 of 40 before run · panel 60 of 116 (52%) · next: master capsule index, then panel pieces · blocked: PC Claude window silent
+- 2026-10-14T02:05Z · run 13 done · 4 of 4: Plaza letter draft (Drive 1n1q9JYAzbLfPVZE_QurXS9xsZYE5FPU8), capsules Bay Harbor 302 (21/21), 221 (18/18), 301 (39/39; permit B25-000348 found) · CAPSULES 40 of 40 (100%) · next: master capsule index · panel 60 of 116 (52%)
+- 2026-10-14T02:44Z · run 14 · budget allowed · 3 started: master CAPSULE INDEX (40 of 40), Cowork CDM reissue (cloud lane), panel APPROVALS read-aloud · capsules 40 of 40 (100%) · panel 60 of 116 (52%) · blocked: PC Claude window silent
+- 2026-10-14T02:50Z · panel: built APPROVALS 'Read aloud' · 61 of 116 (53%) · 8 tests passed · published v39
+- 2026-10-14T03:44Z · run 15 · budget allowed · 2 started (+1 CDM helper still running from run 14): BAK-RENAME plan (all jobs, survey only), panel APPROVALS one-card mode · capsules 40 of 40 · panel 61 of 116 (53%) · blocked: PC Claude window silent
+- 2026-10-14T03:50Z · panel: built APPROVALS 'One card at a time mode' · 62 of 116 (53%) · APPROVALS 4 of 5 (last piece is PC) · 9 tests passed · published v40
+- 2026-10-14T04:00Z · CDM reissue (Cowork, cloud lane): 3 of 5 orders EXECUTED-WITH-PROOF (TOP15 v10, rulebook v16 @111 rows, manifest v36), 2 BLOCKED on Cowork answers (capital stack v12 hash mismatch +65 B; calibration v16 REF-08 duplicate id); reply in Outbox 11E6tCLW3ZsdDBD55zF-oDR6Uuh_5LgQi
+- 2026-10-14T04:30Z · BAK-RENAME plan: 2,147 banned backups across 41 job folders (survey only, no renames); root cause = PC portal/stage builders + 2 repo instructions (fixed in repo now: AUTONOMY.md l44, WORK-QUEUE l672); rename batch waits for Jorge 'yes BAK-RENAME'
+- 2026-10-14T04:44Z · run 16 · budget allowed · 2 started: MORNING ONE-TAP yes/no page, next panel piece · capsules 40 of 40 · panel 62 of 116 (53%) · blocked: PC headless cap (RECURRING, 4th)
+- 2026-10-14T04:48Z · panel: built MENU 'Greyed future pages with dates' (Coming next list) · 63 of 116 (54%) · MENU 11 of 12 (92%) · 23 tests passed · not yet republished/committed (runner)
+- 2026-10-14T05:00Z · published v41 (MENU coming-next, 63 of 116, 54%) · found: panel scrolls sideways at 375px (email bar) — queue fix
+- 2026-10-14T05:44Z · run 17 · budget allowed · 2 started: panel phone-width fix + MENU glossary (→ MENU 100%), BAK subfolder sweep · panel 63 of 116 (54%) · blocked: PC headless cap
+- 2026-10-14T06:05Z · BAK subfolder sweep: +563 (85 job subfolders, 478 mailbox) → 2,710 in plan; 3,129 Drive-wide; TO-CLOUD.md copies 403 ≈3.4 GB, writer still active 28–54/day (PC agent) — quarantine proposal, Jorge's yes
+- 2026-10-14T06:00Z panel: MENU glossary + phone-width fix · 64 of 116 (55%) · MENU 12 of 12 (100%) · phone-width, menu-glossary, money-lock tests passed · published v42
+- 2026-10-14T06:45Z · run 18 · budget allowed · 4 started: panel RULES+BRIDGES+WINDOWS (3 tabs → 100%), HASHTAG-PEOPLE v2 jobs 1/40 2/40 4/40 (Cutler Bay 1310, Synergy 2221, Caso 1684; spec _V2-SPEC.md, registry _V2-STATUS.tsv) · panel 64 of 116 (55%) · queue: HASHTAG v2 37 left, ATTACH-ALL prep, OneDrive dup compare · blocked: PC headless cap
+- 2026-10-14T07:00Z panel: RULES directives list + BRIDGES live inbox count + WINDOWS picture cards · 67 of 116 (58%) · RULES, BRIDGES, WINDOWS 100% · 4 test suites passed · published v43 · HASHTAG v2 21 of 40
+- 2026-10-14T07:20Z · HASHTAG-PEOPLE v2 DONE 40 of 40 (184 people added; Drive shows 40 files) · panel 67 of 116 (58%) · queue next: ATTACH-ALL prep, OneDrive dup compare, 3 missing directive files · blocked: PC headless cap
+- 2026-10-14T07:45Z · run 19 · budget allowed · 3 started: panel ORPHANS resolve-proposal + LLMS fixed IDs (ORPHANS → 100%), 3 missing directive files, OneDrive duplicate-tree compare (read-only) · panel 67 of 116 (58%) · queue next: ATTACH-ALL prep · blocked: PC headless cap
+- 2026-10-14T07:58Z panel: ORPHANS propose-match (proposal only) + LLM fixed IDs (existing launcher roster) + RULES +3 directives · 69 of 116 (59%) · ORPHANS 100% · 5 suites passed · published v44
+- 2026-10-14T08:45Z · run 20 · budget allowed · 4 started: panel HANDOFFS 3 pieces (→100%), OneDrive dup part 2 ×3 (2023 PaperPort, INSPECTIONS-MASTER, AJ+Jorge Valdes) · panel 69 of 116 (59%) · queue next: ATTACH-ALL prep, OCR latest-version audit · blocked: PC headless cap
+- 2026-10-14T09:00Z panel: HANDOFFS task-type picker + client-data box/digit checker + LOCAL rule · 72 of 116 (62%) · HANDOFFS 100% · tests pass (handoffs +3 check reads 0 because WIP commit already holds it) · published v45
+- 2026-10-14T09:45Z · run 21 · budget allowed · 2 started: panel STATUS age+watchdog, REPORTS repairs log, ORCH recovery route (4 pieces); morning one-tap refresh with overnight results · panel 72 of 116 (62%) · queue next: ATTACH-ALL prep, OneDrive Jorge-Valdes 46 sub-folders, OCR latest-version audit · blocked: PC headless cap
+- 2026-10-14T10:00Z panel: STATUS feed ages + watchdog banner, REPORTS repairs log, ORCH recovery route · 76 of 116 (66%) · no new tab at 100% · 4 suites passed · published v46
+- 2026-10-14T10:45Z · run 22 · budget allowed · 2 started: panel LINKS pieces (data-backed only), ATTACH-ALL email-attachment proposal (Gmail 30d, propose only) · panel 76 of 116 (66%) · queue next: OneDrive Jorge-Valdes 46, OCR latest-version audit, PaperPort 188 proposal · blocked: PC headless cap
+- 2026-10-14T11:00Z panel: LINKS chronology + 22 MDC proof links + 209-doc library + Drive links (folder-level) + stamp/filter · 81 of 116 (70%) · LINKS 7 of 8 · 4 suites passed · published v47
+- 2026-10-14T11:45Z · run 23 · budget allowed · 2 started: panel CLIENTS (client list, contact sheets, last-email if data), ATTACH-ALL orphans + PaperPort 188 proposal · panel 81 of 116 (70%) · queue next: OCR latest-version audit, OneDrive Jorge-Valdes 46 · blocked: PC headless cap; EXEC-01 not launched (owner yes/no on morning list)
+- 2026-10-14T12:00Z panel: CLIENTS list (36) + contact sheets (41) + last-email snapshot (8 of 36) · 84 of 116 (72%) · CLIENTS 100% · 4 suites passed · published v48 (page private: client names)
+- 2026-10-14T12:45Z · run 24 · budget allowed · 2 started: panel PLAUD (snapshot list, links, file-to-TRK suggestion → PLAUD 100%), OCR latest-version audit data (40 folders, read-only) · panel 84 of 116 (72%) · queue next: OCR panel piece from audit, MYASKS sweep, OneDrive Jorge-Valdes 46 · blocked: PC headless cap; EXEC-01 (owner yes/no)
+- 2026-10-14T12:55Z · Owner yes: remove PC headless cap (RI option 2) + Speechify everywhere → WORK-QUEUE item 23, PASTE-D-071. Read-Aloud.ahk v2: highlight-to-read. Panel v49 PLAUD 100% (87 of 116, 75%). EXEC-01 seat taken by cloud session; first-cycle files in progress.
+- 2026-10-14T13:10Z · Claude Launcher built (tools/claude-launcher, tested 375/1100px, 11 links, 0 errors) · WORK-QUEUE item 24 · PASTE-D-072 (items 23+24). EXEC-01 first-cycle files written (exec-01/).
+- 2026-10-14T13:15Z panel: tab buttons grouped into 6 labelled colour groups (owner ask), copy/read-aloud buttons tinted, phone sticky-bar fix · 87 of 116 (75%) · button-groups 50/50 + 8 suites pass · published v50
+- 2026-10-14T13:45Z · run 25 · budget allowed · 3 helpers running (panel search fix, ROOT-CAUSE SSOT, OCR-text-only survey); done this hour: PaperPort fix order, blocked-workarounds report, PH11 email, Miguel calendar · panel 87 of 116 (75%) · blocked: PC hasn't picked up PASTE-D-072 yet (no receipt 25 min after paste)
+- 2026-10-14T15:05Z panel v52: attention flash + '157 waiting on you' + EXEC-01 recommendations + batch approve (RED excluded), Emails sub-buttons (3 views), ⭐ Save fuzzy collections, MYASKS → master task log with comments to executors; db data() bug fixed · all suites pass · published v52
+- 2026-10-14T15:10Z · run 26 · budget allowed · panel v52 published (4 features); owner approved 8 items via panel → helper processing; Medley viewer built (36/36, desktop upload ordered) · panel 87 of 116 (75%) · VIEW-ALL 1 of 40 built · blocked: no PC receipt for PASTE-D-072 after ~110 min
+- 2026-10-14T15:20Z panel v53: Plaza permits block on 1265 + OPH-0007 cross-ref; 9 PH11 queries find it; tests pass · published v53
+- 2026-10-14T15:42Z · runner · budget allowed · items 1 of 1 (owner P0: Medley microfilm/summary, PH11 final scheduled 10-15) · panel 87 of 116 (75%) · queue depth unchanged · blocked: PC silent since PASTE-D-072 (desktop orders wait); county microfilm site blocked from cloud
+- 2026-10-14T16:42Z · runner · budget allowed · items 0 of 0 new · panel 87 of 116 (75%) · queue unchanged · blocked: PC capped (P1 microfilm refused by Codex, PII); county site blocked from cloud; waiting on Jorge's Option 1/2
+- 2026-10-14T17:42Z · runner · budget allowed · items 0 · panel 87 of 116 (75%; cloud-buildable pieces exhausted, the rest are PC) · blocked: PC cap; Medley microfilm (Jorge Option 1/2)
+- 2026-10-14T18:42Z · runner · budget allowed · items 0 · panel 87 of 116 (75%) · blocked: PC cap; Medley files waiting on Jorge (Fire approval link, microfilm)
+- 2026-10-14T19:42Z · runner · budget allowed · items 0 · panel 87 of 116 (75%) · blocked: PC cap; Medley files waiting on Jorge
+- 2026-10-14T20:42Z · runner · budget allowed · items 0 · panel 87 of 116 (75%) · blocked: PC cap; Medley files waiting on Jorge
+- 2026-10-14T21:42Z · runner · budget allowed · items 0 · panel 87 of 116 (75%) · blocked: PC cap; Medley files waiting on Jorge
+- 2026-10-14T22:42Z · runner · budget allowed · items 0 · panel 87 of 116 (75%) · blocked: PC cap; Medley files waiting on Jorge
+- 2026-10-14T23:42Z · runner · budget allowed · items 0 · panel 87 of 116 (75%) · blocked: PC cap; Medley files waiting on Jorge
+- 2026-10-15T00:42Z · runner · budget allowed · items 1 (pre-mortem) · panel 87 of 116 (75%) · blocked: PC cap; Medley files waiting on Jorge
+- 2026-10-15T01:42Z · runner · budget near weekly limit · items 0 · panel 87 of 116 (75%) · minimal cycle
+- 2026-10-15T02:42Z · allowed_warning · items 1 of 1 (live session work, see EXEC-LOG) · panel unchanged count · queue depth ≥12 · blocked: PC lane (home-made cap → Codex refusals), microfilm P0 waiting on PASTE-D-073 or midnight reset
+- 2026-10-15T03:42Z · allowed_warning · items 1 of 1 (Codex handoff reply read + relayed) · queue ≥12 · blocked: PC Claude lane capped (microfilm P0 re-upload after 04:00Z by WATCH)
+- 2026-10-15T04:42Z · allowed_warning · items 0 of 0 runnable (PC capped; cloud GREEN queue paused to save usage until Sat reset) · blocked: PC cap (D-073)
+- 2026-10-15T05:42Z · allowed_warning · items 0 · blocked: PC cap (D-073)
+- 2026-10-15T06:42Z · allowed_warning · items 0 · blocked: PC cap (D-073)
+- 2026-10-15T07:42Z · allowed_warning · items 0 · blocked: PC cap (D-073)
+- 2026-10-15T08:42Z · allowed_warning · items 0 · blocked: PC cap (D-073)
+- 2026-10-15T09:42Z · allowed_warning · items 0 · blocked: PC cap (D-073)
+- 2026-10-15T10:42Z · allowed_warning · items 0 · blocked: PC cap (D-073)
+- 2026-10-15T11:42Z · allowed_warning · items 2 (QC-01 fixes, PR 14 merge) · blocked: PC cap (D-073)
+- 2026-10-15T12:42Z · allowed_warning · items 0 · blocked: PC cap (D-073)
+- 2026-10-15T13:43Z · allowed_warning · items 1 (OCR runner v2 L3 + census, queue item 30) · blocked: PC cap (D-073)
+- 2026-10-15T14:41Z · allowed_warning · items 1 (Bal Harbour renewal packet: envelope, transmittal, courier request, cf8f7a1) · blocked: PC cap (D-073); packet waits on signed+notarized originals
+- 2026-10-15T15:42Z · allowed_warning · items 1 (Bal Harbour renewal packet: Renewal-marked apps v5, NOCs, 3-copy print packs, Hebert clarification, b2674a6/1370d52) · blocked: PC cap (D-073); packet waits on signatures; print is queue item 32
+- 2026-10-15T16:42Z · allowed_warning · items 1 (Bal Harbour: cover sets, task list, sample labels, Village email v3, PAD bot item 33, 3a121ae) · blocked: PC cap (D-073); packet waits on signed copies and label approval
+- 2026-10-15T17:42Z · allowed_warning · items 0 new (idle: waiting on Jorge's signed 922/321 scans, label-size answer, PASTE-D-073) · blocked: PC cap (D-073)
+- 2026-10-15T18:42Z · allowed_warning · items 0 new (idle: waiting on Jorge's signed scans, label-size answer, PASTE-D-073, yes to send Miguel v5) · blocked: PC cap (D-073)
+- 2026-10-15T19:42Z · allowed_warning (last read 18:42Z) · items 0 new (idle: waiting on Jorge: signed scans, label sizes, D-073, yes to send Miguel v5, Unit 404 reply draft yes/no; API-credit report draft emailed to Jorge only) · blocked: PC cap (D-073)
+- 2026-10-15T20:42Z · allowed_warning · items 0 new (idle: waiting on Jorge: yes to recreate Opus jobs and retry 2 refused Fable routines, Miguel v5 page, Unit 404 reply, label sizes; PC items 34-35 wait on PC) · blocked: PC cap (D-073)
+- 2026-10-15T21:42Z · allowed_warning · items 0 new (idle: same owner decisions pending; no new mail 5:16 PM watch) · blocked: PC cap (D-073)
+- 2026-10-15T22:42Z · allowed_warning · items 0 new (idle: same owner decisions pending; 6:16 PM watch found no new mail) · blocked: PC cap (D-073)
+- 2026-10-15T23:42Z · allowed_warning · items 0 new (idle: waiting on Jorge: Scan Settings screenshot, Opus-job replacement yes, Miguel page, Unit 404 reply, label sizes) · blocked: PC cap (D-073)
+- 2026-10-16T00:43Z · allowed_warning · items 0 new (idle: owner decisions pending; self-test pass done 00:20Z) · blocked: PC cap (D-073)
+- 2026-10-16T01:42Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073)
+- 2026-10-16T02:42Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073)
+- 2026-10-16T03:42Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073)
+- 2026-10-16T04:43Z · allowed_warning · items 0 new (idle; wrote PRE-MORTEM_2026-10-16) · blocked: PC cap (D-073)
+- 2026-10-16T05:43Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073)
+- 2026-10-16T06:43Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073)
+- 2026-10-16T07:43Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073)
+- 2026-10-16T08:41Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073)
+- 2026-10-16T09:41Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073)
+- 2026-10-16T10:41Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073)
+- 2026-10-16T11:41Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073)
+- 2026-10-16T12:43Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-16T13:42Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-16T14:41Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-16T15:42Z · allowed_warning · items 0 new (idle: owner decisions pending) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-16T16:42Z · allowed_warning · items 0 new (idle; PR 14 conflict fixed 16:40Z) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-16T17:42Z · allowed_warning · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-16T18:43Z · allowed_warning (weekly 97%, Fable 100%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written · 18Z probe answered
+- 2026-10-16T19:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-16T20:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-16T21:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-16T22:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-16T23:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T00:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T01:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T02:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T03:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T04:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T05:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T06:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T07:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T08:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T09:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T10:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T11:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T12:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T13:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T14:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T15:42Z · allowed_warning (weekly 97%) · items 0 new (idle) · blocked: PC cap (D-073) · Drive heartbeat written
+- 2026-10-17T16:42Z · allowed (weekly reset) · items 0 new (idle) · blocked: PC cap (D-073) unverified, needs Jorge yes to send 15 pending orders · Drive heartbeat written
+- 2026-10-17T17:42Z · allowed · items 0 new (idle) · blocked: PC cap (D-073) unverified, awaiting Jorge yes to send 15 pending orders · Drive heartbeat written

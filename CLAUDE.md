@@ -233,7 +233,7 @@ Suffixes are allowed: `TRK-2026-0708-JULIA`.
 
 - `_VERSION-LOG.md` in every TRK folder: Version · Date · What Changed · Status.
 - Highest `vN` is current. Superseded versions move to `_Superseded\`.
-- Before editing an existing file, make a `.bak-YYYYMMDD` copy.
+- Before editing an existing file, make a backup copy named `NAME_bak-YYYYMMDD.ext`. The real extension stays LAST, e.g. `_PORTAL_TUS-26-1018_bak-20261013.html` or `LAST-BUS-OUT_bak-20260904-1345.md`. **Never** use `NAME.ext.bak-DATE`: Drive cannot preview that, and it offers "ZIP Extractor / Connect more apps" instead (Jorge, 2026-10-13). This is the default for every agent; Jorge never has to choose.
 - After any TRK move/edit/delete, write a rollback script to
   `C:\Users\JV\OneDrive\Documents\Reports\Undo_Manifests\` named
   `Rollback_[Action]_[YYYY-MM-DD]_[HHMM].ps1`.
@@ -506,6 +506,13 @@ Payment cards show **nickname + last-4 only**; full numbers never written to any
 **Live bank-balance display was declined as a risk** — a "last-known balance" line the
 owner updates by voice, stamped with its date, is the substitute.
 
+**Paid API runs need a cost estimate and Jorge's approval first (owner directive 2026-09-29).**
+> Jorge: *"API keys fees apply — request approval with cost estimate before running."*
+Any run that spends money through an API key (OpenRouter, xAI, OpenAI, Anthropic API, Gemini API)
+first runs `tools/llm_cost_gate.py estimate`, which writes `approvals/<RUN-ID>.md` with a dollar
+figure, and runs only after `llm_cost_gate.py check` passes. Flat-fee subscriptions (Claude Max etc.)
+and local Ollama are exempt. Keys are prepaid with auto top-up OFF, so the worst case is capped.
+
 ### Article 6 — Build order (was the thaw order; active now that Article 1 is repealed)
 
 `JOB-0082` one-click relay → `JOB-0084`/`0084-A` SCOREKEEPER → `JOB-0086`
@@ -515,3 +522,81 @@ LIBRARIAN-RND → `JOB-0085` dictation → retro sweeps → the rest by scorecar
 producing appointments and the three money items collected or delivered. **Each dated
 within 30 days.**
 
+
+---
+
+## 13. Standing protocol — 1Password is the single source of truth (OWNER-DIRECTIVE 1PASSWORD-SSOT-02, 2026-10-12)
+
+Full text: `OWNER-DIRECTIVE_1PASSWORD-SSOT-02_2026-10-12.md` (extends SSOT-01 of 2026-10-10).
+
+- **Never reveal a password.** Passwords are created only by 1Password's suggested-password prompt. No agent reads, prints or types one.
+- **Quarantine, never delete.** Deleting anything needs Jorge's yes for each batch.
+- **Only 1Password autofills.** Other password savers' autofill is switched off once 1Password holds a verified copy. No personal-vs-work picker.
+- **Rotate lowest-risk first.** Money, government, Microsoft 365, Google, Apple and 1Password itself go last, only with Jorge present.
+- **Reports carry counts, never secrets.**
+
+---
+
+## 14. Standing protocol — share links and show what you made (OWNER-DIRECTIVE SHARE-LINK-01, 2026-10-12)
+
+Jorge: *"Give access to link. Always. As an owner's directive. As a default. Also pop up the image or attachment or link in this chat so I can view it."*
+
+- **Show it in the chat, every time.** After publishing or finding an artifact, open it with the Artifact tool's `open` action. Images and files go through SendUserFile with `display: render`. Never just name a file.
+- **Link sharing is on by default** for system, design and status pages. Agents cannot flip the claude.ai Share switch, so say so once and give the one click: page → Share → "Anyone with the link".
+- **Two exceptions, said plainly:**
+  - A page with client names, addresses or money stays private unless Jorge says otherwise for that page.
+  - A page that uses connectors (the `mcp` capability) cannot be public-link shared by platform rule. Share a read-only copy in Drive "Shared Folders for all LLMs" instead.
+
+---
+
+## 15. Standing protocol — every reply can be heard with one key (OWNER-DIRECTIVE READ-ALOUD-01, 2026-10-13)
+
+Full text: `OWNER-DIRECTIVE_READ-ALOUD-01_2026-10-13.md`. Tool: `tools/readaloud/`.
+
+- Jorge clicks **Copy** under a reply and presses **Ctrl+Alt+R**: it opens in big text in Edge and reads aloud by itself. **Ctrl+Alt+S** opens it for Speechify instead.
+- **Write every reply to be heard:** answer first, short paragraphs, numbered lists, few tables, no raw code in the parts meant for Jorge.
+- **Say out loud when a paste block follows.** Never put secrets in a reply.
+
+---
+
+## 16. Standing protocol — pretty format, Orange Tree, money zone locked with 0000 (OWNER-DIRECTIVE PRETTY-AND-MONEY-LOCK-01, 2026-10-13)
+
+Full text: `OWNER-DIRECTIVE_PRETTY-AND-MONEY-LOCK-01_2026-10-13.md`.
+
+- **Everything Jorge views, prints or emails is the pretty, designed artifact.** Plain formats are back-end only.
+- **Default layout is the Orange Tree:** branches that click open, a checkbox per item, "View these together", "Copy for email", printing in color.
+- **Money sections are locked behind the zone code 0000.** While locked they are not shown, copied or printed. A money item is included only after Jorge types 0000 *and* ticks it. 0000 is a stopper, not security, so money pages stay private.
+
+
+---
+
+## 17. Standing protocol — every document viewable three ways, as one continuous file (OWNER-DIRECTIVE VIEW-THREE-WAYS-01, 2026-10-14)
+
+Full text: `OWNER-DIRECTIVE_VIEW-THREE-WAYS-01_2026-10-14.md`. Tracker: `control-panel/VIEW-THREE-WAYS_TRACKER.md`.
+
+- **Every job gets one continuous viewer, `_VIEW-ALL_<job>.html`, in its Drive folder.** No exceptions.
+- **View 1 (default): the original page images, top to bottom.** If a document has no image, its pretty report shows instead.
+- **View 2: the pretty report. View 3: the raw OCR transcription it was built from.**
+- Gaps are shown, never hidden. Money stays locked behind 0000. Progress is reported with a denominator until 100%.
+
+---
+
+## 18. Standing protocol — every tag attached, printed, readable, trackable, searchable (OWNER-DIRECTIVE TAGS-EVERYWHERE-01, 2026-10-14)
+
+Full text: `OWNER-DIRECTIVE_TAGS-EVERYWHERE-01_2026-10-14.md`. Tracker: `control-panel/TAGS-EVERYWHERE_TRACKER.md`.
+
+- **Every identifying number becomes a tag on its job:** permit numbers (original and renewal), units, address forms, folio, case and invoice numbers (never amounts), people, companies, misspellings.
+- **Stored in the job's tag files and in the control panel search.** Internal documents print their tags; client-facing ones print only the TRK.
+- **Every tag file says in plain words what the numbers mean.** Progress is tracked with a denominator. Never invent a TRK.
+
+
+---
+
+## 19. Standing protocol — agents own follow-through (OWNER-DIRECTIVE AGENTS-OWN-FOLLOW-THROUGH-01, 2026-10-15)
+
+Full text: `OWNER-DIRECTIVE_AGENTS-OWN-FOLLOW-THROUGH-01_2026-10-15.md`. Auditor: `selftest/CHECKS.md`.
+
+- **Jorge's click ends Jorge's part.** An approved or tapped item belongs to an agent until it is DONE with proof or answered with a reason.
+- **EXEC-01 (the hourly check) reads the panel database every hour**: new task-comments, approvals with no `doneAt`, and queued orchestrator items. It acts, routes, or answers, and writes the result back.
+- **Two hours maximum.** Older items turn the panel's "⚙️ waiting on agents" counter red and count as an agent fault, never Jorge's.
+- **The self-test, not Jorge, finds the bugs** (every 6 hours, with an end-to-end probe).
