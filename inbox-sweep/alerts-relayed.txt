@@ -113,3 +113,4 @@
 2026-10-17T09:16Z WATCH — nothing new (Gmail, Outlook, panel, Outbox all empty). No Jorge message.
 2026-10-17T10:16Z WATCH — nothing new (Gmail, Outlook, panel, Outbox all empty). No Jorge message.
 2026-10-17T11:16Z WATCH — Outbox: EXECUTED-WITH-PROOF_Burn-Rate_20261017-070004 (Drive 1qDzRen_hkxdSLYGnZ5sCqiInf3Uq9zmV, 11:00Z): PC local script made BURN-RATE.html on Desktop, 27 ledger entries, no model used, input files read-only. Relayed once by Gmail. Mail, panel: nothing new.
+2026-10-17T12:16Z WATCH + SELF-TEST pass 9 — nothing new (Gmail, Outlook, panel, Outbox empty). 12Z probe planted. No Jorge message.
