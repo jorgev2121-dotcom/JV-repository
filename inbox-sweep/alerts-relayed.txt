@@ -110,3 +110,4 @@
 2026-10-17T06:17Z WATCH + SELF-TEST pass 8 — no new real mail (only my own 05:17Z email). Panel clean. Outbox: only the CDM-reissue blocker already relayed 05:16Z. 06Z probe planted. No Jorge message.
 2026-10-17T07:16Z WATCH — no new mail (Gmail empty, Outlook empty). 06Z probe answered 07:18Z. Outbox: nothing new. No Jorge message.
 2026-10-17T08:16Z WATCH — nothing new (Gmail, Outlook, panel, Outbox all empty). No Jorge message.
+2026-10-17T09:16Z WATCH — nothing new (Gmail, Outlook, panel, Outbox all empty). No Jorge message.
