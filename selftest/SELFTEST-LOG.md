@@ -77,3 +77,11 @@
   7 MAIL WATCH: PASS.
   10 USAGE: allowed_warning (read 12:16Z). Weekly resets about noon ET today (1792252800 = 16:00Z). Session context 362k of 1,000k.
   New failures: none, so no new alert.
+- 2026-10-17T18:17Z · SELF-TEST pass 10 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued). 11 approvals still routed to the PC.
+  2 PROBE: PASS · 12Z probe answered 13:18Z. New probe selftest-probe-2026101718 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday triage still on Fable 5.1.
+  7 MAIL WATCH: PASS.
+  10 USAGE: allowed (read 18:16Z). Weekly meter reset. Session context 518k of 1,000k.
+  New failures: none, so no new alert.
