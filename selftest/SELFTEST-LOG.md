@@ -52,3 +52,12 @@
   10 USAGE: allowed_warning. Jorge's screen (2:00 PM ET): weekly all models 97%, Fable 100%, resets in ~22 h (about noon ET Sat 10-17, NOT 10-18 as logged earlier). This session's cost split 95% Opus / 5% Sonnet (the Opus part was before the switch to Sonnet).
   Security cluster today (14:05Z Claude Chrome device, 14:06Z WordPress reset, 16:18Z Claude Code device, 18:05Z Google sign-in to Notion, 18:09Z OpenAI MFA changed): all unconfirmed by Jorge, pattern fits his own account-setup work. Asked him once (Gmail 14:20Z); not repeated.
   New failures: none, so no new alert.
+- 2026-10-17T00:22Z · SELF-TEST pass 7 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS for comments (0 new). Known: 11 approvals routed to the PC, waiting on the PC cap.
+  2 PROBE: PASS · 18Z probe answered 18:43Z. New probe selftest-probe-2026101700 planted.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT 00:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday triage still on Fable 5.1 (Fable weekly limit at 100 percent).
+  7 MAIL WATCH: PASS.
+  10 USAGE: allowed_warning (read 00:16Z). Weekly resets about noon ET today (1792252800). This session context 704k of 1,000k (70 percent).
+  Other: 'Eve' agent keeps sending status mails from Jorge's Outlook (SYNC-01 LANE OPEN, repeated 22:08Z, 23:09Z, 00:10Z); its 23:07Z email to copilot@microsoft.com bounced. Jorge has not yet answered whether Eve is his agent. Not repeated.
+  New failures: none, so no new alert.
