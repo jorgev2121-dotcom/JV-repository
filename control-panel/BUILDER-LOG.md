@@ -140,3 +140,4 @@
 - 2026-10-17T20:42Z · allowed · items 0 new · waiting: Jorge's beige-folder color choice (labels delivered) · Drive heartbeat written
 - 2026-10-17T21:42Z · allowed · items 1 done this hour (OM96352 Folder Label Sheet V2, PARTIAL) · waiting: Jorge's calibration-page check · Drive heartbeat written
 - 2026-10-17T22:42Z · allowed · items 0 new · waiting: Jorge's calibration-page check (OM96352 V2) · Drive heartbeat written
+- 2026-10-17T23:20Z · allowed · OM96352 Folder Label Sheet V3 built per ADDENDUM-A (38 labels + sample; 14 rows shrank to fit; PARTIAL until calibration overlay) · waiting: beige color choice, calibration check
