@@ -2,7 +2,7 @@
 #EXEC-01 #HEARTBEAT #VTES
 
 - **Who:** EXEC-01, cloud lane, session_01DUB8NQHkiANrQ9LQZnK1Ho (window ☁️ "VTES Cloud Executor").
-- **Last beat: 2026-10-17T20:42Z (4:42 PM ET)** · runner cycle · labels delivered, awaiting beige-folder color
+- **Last beat: 2026-10-17T21:42Z (5:42 PM ET)** · runner cycle · OM96352 labels V2 delivered, waiting on calibration
 - **State:** alive. First cycle written. Budget "allowed".
 - **Cadence:** hourly.
   1. The always-on work runner fires at :41 each hour (trig_01EdLXoKjFM3nNsVywHHYz7T).
