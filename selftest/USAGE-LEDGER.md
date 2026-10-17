@@ -3,3 +3,4 @@
 - 2026-10-17T00:16Z · allowed_warning · weekly resets ~noon ET 10-17 · session context 70%
 - 2026-10-17T06:17Z · usage: allowed_warning (weekly resets ~noon ET 10-17) · session context 206k/1000k
 - 2026-10-17T12:16Z · usage: allowed_warning (weekly resets 16:00Z) · session context 362k/1000k
+- 2026-10-17T16:16Z · usage: status now ALLOWED (was allowed_warning); rateLimitType ccr_promotional, resetsAt 1793865600. Weekly limit has reset. Session context 467k/1000k.
