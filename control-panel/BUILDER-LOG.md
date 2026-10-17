@@ -137,3 +137,4 @@
 - 2026-10-17T17:42Z · allowed · items 0 new (idle) · blocked: PC cap (D-073) unverified, awaiting Jorge yes to send 15 pending orders · Drive heartbeat written
 - 2026-10-17T18:42Z · allowed · items 0 new · waiting: Jorge's answer on what to change in the Plaza label sheet (renewal-packet/SAMPLE_labels...) · Drive heartbeat written
 - 2026-10-17T19:42Z · allowed · items 1 done (revised label sheets, 38 files, 12 pages) · waiting: Jorge's print-layout check; PC cap (D-073) unverified · Drive heartbeat written
+- 2026-10-17T20:42Z · allowed · items 0 new · waiting: Jorge's beige-folder color choice (labels delivered) · Drive heartbeat written
