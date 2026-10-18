@@ -92,3 +92,10 @@
   7 MAIL WATCH: PASS (last check 05:17Z, 59 min).
   10 USAGE: allowed (read 06:16Z). Session context 326k of 1,000k.
   New failures: none, so no new alert.
+- 2026-10-18T12:17Z · SELF-TEST pass 12 · 5 of 5 checks run passing (5 skipped to save usage: 3, 5, 6, 8, 9).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued).
+  2 PROBE: PASS · 06Z probe answered 07:17Z. New probe selftest-probe-2026101812 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:16Z.
+  7 MAIL WATCH: PASS (last check 11:17Z, 60 min).
+  10 USAGE: allowed (read 12:16Z). Session context 509k of 1,000k. Weekly meter resets about noon ET today.
+  New failures: none. Security note relayed separately: Claude new trusted device 11:58Z.
