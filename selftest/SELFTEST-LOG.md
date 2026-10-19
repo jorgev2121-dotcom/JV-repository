@@ -114,3 +114,11 @@
   7 MAIL WATCH: PASS (last check 23:17Z, 60 min).
   10 USAGE: allowed (read 00:17Z). Session context 296k of 1,000k.
   New failures: none. Security cluster (Google link 4:48 PM ET, Microsoft reset code 6:56 PM ET) relayed 21:17Z and 23:17Z.
+- 2026-10-19T06:30Z · SELF-TEST pass 15 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read this pass).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued).
+  2 PROBE: PASS · 00Z probe answered 01:19Z. New probe selftest-probe-2026101906 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:21Z (PC awake 78.8 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on Fable 5.1 (last read 00:20Z). Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 05:20Z, 65 min).
+  10 USAGE: allowed (read 06:25Z). Session context 543k of 1,000k.
+  New failures: none. No new Outbox EXECUTED/BLOCKER since the 05:20Z relay.
