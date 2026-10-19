@@ -106,3 +106,11 @@
   7 MAIL WATCH: PASS (last check 17:17Z, 60 min).
   10 USAGE: allowed (read 18:17Z). Session context 739k of 1,000k (watch: auto-compaction will occur).
   New failures: none. Relayed separately: CVS refill duty ceiling (Joey, RED card).
+- 2026-10-19T00:20Z · SELF-TEST pass 14 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued).
+  2 PROBE: PASS · 18Z probe answered 19:19Z. New probe selftest-probe-2026101900 planted; answer it at the 01:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 00:16Z (PC awake 72.7 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on Fable 5.1, last run failed USAGE_LIMIT_REACHED. Only the first page of triggers was read.
+  7 MAIL WATCH: PASS (last check 23:17Z, 60 min).
+  10 USAGE: allowed (read 00:17Z). Session context 296k of 1,000k.
+  New failures: none. Security cluster (Google link 4:48 PM ET, Microsoft reset code 6:56 PM ET) relayed 21:17Z and 23:17Z.
