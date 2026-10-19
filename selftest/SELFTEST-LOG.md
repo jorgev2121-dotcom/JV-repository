@@ -122,3 +122,11 @@
   7 MAIL WATCH: PASS (last check 05:20Z, 65 min).
   10 USAGE: allowed (read 06:25Z). Session context 543k of 1,000k.
   New failures: none. No new Outbox EXECUTED/BLOCKER since the 05:20Z relay.
+- 2026-10-19T12:30Z · SELF-TEST pass 16 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued).
+  2 PROBE: PASS · 06Z probe answered 07:22Z. New probe selftest-probe-2026101912 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:21Z (PC awake 84.8 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on Fable 5.1 (last read 00:20Z). Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 11:20Z, 62 min).
+  10 USAGE: allowed (read 12:22Z). Session context 721k of 1,000k (auto-compaction ahead).
+  New failures: none. No new Outbox EXECUTED/BLOCKER since the 11:20Z relay.
