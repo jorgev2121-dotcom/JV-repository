@@ -162,3 +162,11 @@
   7 MAIL WATCH: PASS (last check 11:30Z, 55 min).
   10 USAGE: allowed (read 12:19Z). Session context 744k of 1,000k.
   New failures: none. QC-01 audit WARN (0 failed) acted on at 7:25 AM ET.
+- 2026-10-20T18:20Z · SELF-TEST pass 21 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; approvals routed, waiting on PC).
+  2 PROBE: PASS · 12Z probe answered 13:25Z. New probe selftest-probe-2026102018 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:11Z (PC awake 114.6 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on a model that was out of usage. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 17:41Z, 39 min).
+  10 USAGE: allowed (read 18:16Z). Session context 202k of 1,000k.
+  New failures: none. Open with Jorge: 12:48 PM ET Windows sign-in yes/no; 8 bundle answers.
