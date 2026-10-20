@@ -154,3 +154,11 @@
   7 MAIL WATCH: PASS (last check 05:20Z, 65 min).
   10 USAGE: allowed (read 06:17Z). Session context 634k of 1,000k.
   New failures: none. Known: PC Claude lane hit its cap 12:12 AM ET (6 of 6, burned by 3 failed owner-directive jobs x2); directives recorded in owner-directives/.
+- 2026-10-20T12:25Z · SELF-TEST pass 20 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; 11 approvals routed, waiting on PC).
+  2 PROBE: PASS · 06Z probe answered 07:20Z. New probe selftest-probe-2026102012 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:16Z (PC awake 108.7 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on a model that was out of usage. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 11:30Z, 55 min).
+  10 USAGE: allowed (read 12:19Z). Session context 744k of 1,000k.
+  New failures: none. QC-01 audit WARN (0 failed) acted on at 7:25 AM ET.

@@ -1,5 +1,5 @@
 # MORNING BUNDLE for Jorge · prepared overnight 2026-10-19/20 · send ONE email around 8:00 AM ET
-Status: NOT YET SENT. Plain words, one yes/no each. Nothing below has been sent to anyone outside.
+Status: SENT 2026-10-20 12:20Z (8:20 AM ET) by Gmail id 1a15940d301a90f3 plus one phone push. Plain words, one yes/no each. Nothing below has been sent to anyone outside.
 
 1. Google alert 8:32 PM ET Oct 19: "You allowed Microsoft apps and services access to some of your Google Account data." Was that you? (Probably Outlook linking Gmail.)
 2. Solicitation letters: say "use your recommendations" for D1 to D5 (review package in repo drafts/LETTERS-NOON_REVIEW-PACKAGE_V2_2026-10-19-1217ET.md and the 12:25 PM ET email). Noon deadline passed; nothing mailed.
