@@ -211,3 +211,4 @@
 2026-10-20T18:43Z · runner · allowed · items 1 of 1 · panel unchanged · blocked: Jorge's sign-in yes/no + 8 bundle answers, PC lane cap until 00:00 ET
 2026-10-20T19:42Z · runner · allowed · items 0 of 0 · panel unchanged · blocked: Jorge's Apple + Google sign-in me/not-me, 8 bundle answers, PC lane cap until 00:00 ET
 2026-10-20T20:42Z · runner · allowed · items 0 of 0 · panel unchanged · blocked: Jorge's Apple + Google me/not-me, 8 bundle answers, Codex Drive share click, PC lane cap until 00:00 ET
+2026-10-20T21:42Z · runner · allowed · items 0 of 0 · panel unchanged · blocked: Jorge's Apple + Google me/not-me, Codex Drive click, 8 bundle answers, PC lane cap until 00:00 ET, PC local model 404
