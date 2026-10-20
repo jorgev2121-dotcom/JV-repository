@@ -207,3 +207,4 @@
 2026-10-20T14:42Z · runner · allowed · items 0 of 0 · panel unchanged · queue depth unchanged · blocked: Jorge's 8 answers, PC lane cap until 00:00 ET
 2026-10-20T15:42Z · runner · allowed · items 0 of 0 · panel unchanged · blocked: Jorge's 8 answers, PC lane cap until 00:00 ET, Desktop PC link offline
 2026-10-20T16:43Z · runner · allowed · items 0 of 0 · panel unchanged · blocked: Jorge's 8 answers, PC lane cap until 00:00 ET, Desktop PC link offline
+2026-10-20T17:42Z · runner · allowed · items 0 of 0 · panel unchanged · blocked: Jorge's sign-in yes/no + 8 bundle answers, PC lane cap until 00:00 ET, Desktop PC link offline
