@@ -186,3 +186,11 @@
   7 MAIL WATCH: PASS (last check 05:42Z, 38 min).
   10 USAGE: allowed (read 06:18Z). Session context 450k of 1,000k.
   New failures: none. Open with Jorge: Apple reset, Google sign-in, Codex Drive click, panel upload decisions, 8 bundle answers.
+- 2026-10-21T12:25Z · SELF-TEST pass 24 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; approvals routed, waiting on PC).
+  2 PROBE: PASS · 06Z probe answered 06:43Z. New probe selftest-probe-2026102112 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:21Z (PC awake 132.8 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on a model that was out of usage. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 11:42Z, 43 min).
+  10 USAGE: allowed (read 12:23Z). Session context 546k of 1,000k.
+  New failures: none. MORNING BUNDLE SENT 12:25Z (Gmail 1a15e6b059f4d644 + push).

@@ -1,5 +1,5 @@
-# MORNING BUNDLE · Wed Oct 21 · DRAFT (send at the 12:16Z watch, about 8:20 AM ET)
-Status: DRAFT, not sent. Plain words. Nothing below was sent to anyone outside, bought or paid.
+# MORNING BUNDLE · Wed Oct 21 · SENT 12:25Z (8:25 AM ET), Gmail 1a15e6b059f4d644 + one phone push
+Status: SENT. Plain words. Nothing below was sent to anyone outside, bought or paid.
 
 ## Top three (answer these first, one word each)
 1. **Apple password reset, 3:40 PM ET Tuesday on jorge@teamusasales.com.** Was it you? Reply "me" or "not me".
