@@ -794,3 +794,12 @@ Jorge has recurring feeder trouble. Gemini gave him PaperPort settings; the clou
 7. Compare against `runner-results/PAPERPORT-SETTINGS-GUIDE_Brother-MFC-L3770CDW_2026-10-15.md` Sections A and B: for each of the 8 settings, write EXPECTED, FOUND, MATCH or MISMATCH. Do not change anything.
 
 8. Known from Jorge's screenshot at 7:11 PM ET: PaperPort's status bar shows **300 DPI, 24-bit color**. Gemini's list says **Grayscale 8-bit**. Expect a MISMATCH on colour mode. PaperPort folder 'My PaperPort Documents' holds 126 items; the Folder Manager window was open on the Documents master folder (C:\Users\JV\OneDrive\Documents). Do not change the folder setting.
+
+---
+## ITEM 2026-10-21-A · ACCESS BLOCKERS (Jorge's own report, read-only survey first) · added by cloud 2:30 PM ET
+Source: Jorge emailed himself, 2:14 to 2:28 PM ET Oct 21, three messages with phone screenshots, subjects "Access issues snips to share paste into LLM for repairs", "last picture of blocker for the day", "Second last blocker pop-up for access problems", "Most recent of major blockers from windows Microsoft and major providers block access to many other things". Also 1Password support ticket 848408 opened 2:11 PM ET. The cloud cannot view the images (and they may show secrets), so it has NOT opened them.
+What Jorge said in words: Outlook (probably the Exchange connection) has been slow for about a year; 2 of 4 items show as sending and stay stuck; a send that should take 1 to 2 seconds takes 4 to 5.
+1. READ-ONLY. Do not change settings, do not type or reveal any password, do not click security prompts.
+2. Write a plain-words report to `G:\My Drive\VTES-Outbox\EXECUTED_ACCESS-BLOCKERS-SURVEY_2026-10-21.md` (never overwrite): list the pop-ups currently on screen (title and which app only), Outlook profile type and Outbox item count with ages, Windows sign-in state (which accounts are signed in, none of the secrets), 1Password app status (locked, unlocked, sync error text).
+3. Tell the cloud the file name. Jorge decides every fix.
+Closing question for the desktop: which of these blockers is the oldest?
