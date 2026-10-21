@@ -168,3 +168,43 @@ existing files is GREEN or YELLOW.
 
 **"Append-only" is not the test — an append still modifies the file.** The test is
 whether the byte stream of the original is altered. If it is, it is YELLOW.
+
+---
+
+## 9. Access permissions — Cowork and Code Desktop Executor
+
+**Added 2026-09-19, documentation only — records what these two surfaces are
+already scoped to per `WINDOW-CONFIG_ALL-SURFACES_2026-08-24.md` and
+`OWNER-GATES.md`. No new capability is granted here; this is GREEN (new-file/
+registry work), not a new system, so it does not trip the Article 1 freeze.**
+
+### 🤝 Cowork (desktop and web)
+
+- **Role:** conversational / planning surface, **not a repo executor.** It does not
+  push, does not run scheduled unattended cycles, and is not one of the two Code
+  windows.
+- **Granted:** read of the repo and public web, same as any live session.
+- **Pending Jorge's word — not yet granted:** `REG-0002`, Google Drive access to
+  `01-JOBS`, sitting in `OWNER-GATES.md` since 2026-07-31, recommended APPROVE,
+  unblocks 8 jobs. **Until Jorge says the word, Cowork has no Drive job-folder
+  access — treat any Cowork claim of having read a job folder as unverified.**
+- Every other action follows the same GREEN/YELLOW/RED ladder in §2 — Cowork gets
+  no separate, looser rule.
+
+### 🖥️ Code — Desktop Executor
+
+- **Role:** the only surface with PC reach. Per `WINDOW-CONFIG`, it and only it can
+  touch local files, Outlook, PaperPort, Chrome, `miamidade.gov`, the registry, and
+  scheduled tasks.
+- **Granted:** everything GREEN in §2, plus YELLOW actions on the PC when the
+  `.bak` + rollback + digest conditions are met.
+- **git push:** conditional on being signed into GitHub on the machine (open item,
+  RI-002/WINDOW-CONFIG) — until then it commits locally and mirrors to the Drive
+  mailbox per the RI-002 standing workaround; it must not claim "pushed" without a
+  remote check (`git ls-remote`), per RI-002.
+- RED stays RED regardless of surface: no unattended deletes, sends, spend, or
+  registry writes outside an approved list, whether run from Desktop or Cowork.
+
+**The one thing this section changes:** nothing is granted that was not already true.
+It exists so "does Cowork/Desktop have access to X" has one place to check instead
+of being re-derived per session.
