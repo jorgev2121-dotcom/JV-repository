@@ -2,7 +2,7 @@
 #EXEC-01 #HEARTBEAT #VTES
 
 - **Who:** EXEC-01, cloud lane, session_01DUB8NQHkiANrQ9LQZnK1Ho (window ☁️ "VTES Cloud Executor").
-- **Last beat: 2026-10-21T11:42Z (7:42 AM ET Oct 21)** · runner cycle · quiet; bundle goes at the 12:16Z watch; Apple, Google, Codex click, bundle still open
+- **Last beat: 2026-10-21T12:43Z (8:43 AM ET Oct 21)** · runner cycle · probe answered; bundle sent 8:25 AM ET, no reply yet
 - **State:** alive. First cycle written. Budget "allowed".
 - **Cadence:** hourly.
   1. The always-on work runner fires at :41 each hour (trig_01EdLXoKjFM3nNsVywHHYz7T).
@@ -49,3 +49,4 @@ Last beat: 2026-10-16 2:43 AM ET (06:43Z) - idle, waiting on owner
 - 2026-10-21T09:42Z · allowed (not re-read) · items 0 new · bundle unanswered 21h20m · context ~497k of 1,000k
 - 2026-10-21T10:42Z · allowed (not re-read) · items 0 new · bundle unanswered 22h20m · context ~500k of 1,000k
 - 2026-10-21T11:42Z · allowed (read 11:42Z) · items 0 new · bundle unanswered 23h20m · context ~537k of 1,000k
+- 2026-10-21T12:43Z · allowed (read 12:23Z) · items 1 (probe answered) · bundle sent 8:25 AM ET, unanswered · context ~548k of 1,000k
