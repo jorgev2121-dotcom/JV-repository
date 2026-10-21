@@ -1,6 +1,6 @@
 # DRAFT - NOT SENT. Desktop install order for panel v5 (TRK-2026-9910-C)
 
-**STATUS: DRAFT. Do not send to VTES-Inbox until Jorge says yes in his own words.** No Drive file exists for this. Nothing is installed. The Desktop is never touched.
+**STATUS: SENT 2026-10-10 after Jorge said yes (see OPEN-ITEMS TRK-2026-9910-C).** No Drive file exists for this. Nothing is installed. The Desktop is never touched.
 
 Basis: CHECK-12 (eighth independent check) = PASS WITH DOCUMENTED LIMITS, 0 mislead, 0 damage, 0 leak, 23 edge, judged at commit 14dcb093502eeb11f43f039878e904ed85c1ab25 of claude/panel-v5-port.
 

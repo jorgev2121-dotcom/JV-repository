@@ -106,6 +106,7 @@ installed updaters, then execute Tier 2, then write the Tier 3 scheduled task.
   2026-08-18 conviction) or it becomes a focus-stealer itself. TRK-2026-9410.
 
 ---
+- **2026-10-10 recurrence:** PDF Viewer Plus SE pops up at login on `Startup\Force-Drive-Snap.vbs.disabled-20260708`. Root cause: a renamed file left IN the Startup folder still launches. Tier 2: move it out (TRK-2026-9952n). Rule: never "disable" a Startup item by renaming — move it.
 
 ## RI-002 — False completion reports
 
@@ -2073,6 +2074,8 @@ live model today. Tier 3 — replace the liveness check with one that actually r
 never again report green while empty. Tier 1 (weak) — restart Ollama for free local backups (returns, may
 die again). **Do NOT accept a plain /health check as proof the router works — round-trip a real model.**
 
+- **2026-09-23 recurrence (cloud):** RAMBO LLM-Watchdog posting SOS-LLM ALL-DOWN every ~10 min from 23:13 ET. :4001 LiteLLM, :4002 and :11434 Ollama all DOWN. The local fallback lane is dead again, so a patch is forbidden. The Tier-2 answer in progress is a real backup executor (Codex CLI, TRK-2026-9952g), not reviving LiteLLM.
+
 ## RI-038 follow-up 2026-08-26 — "the router/orchestrator has been EXTREMELY unreliable" (Rule-4 options)
 **Terms:** a ROUTER (LiteLLM) is the traffic cop — one door, routes each call to a model. An
 ORCHESTRATOR / FOREMAN decides WHAT work goes where and tracks limits. Jorge's bad experience is the
@@ -2107,6 +2110,12 @@ a try/fallback, verified by a real round-trip) already stands as the recommendat
 the next session doesn't spend another owner-directive cycle "reviving" the same component a third
 time.** Not woken Jorge over this — no deadline or client data was at risk, and a sibling session
 already had it in hand; going in the morning report instead.
+**CORRECTION 2026-09-23 ~08:25 UTC (cloud session 01VDQvWT, the one that issued 9952i):** the two 9952i
+FAILED-VERIFICATIONs are **not** evidence that the revival failed. Both failed because the job told RAMBO to
+write `RESULT_...` while the executor accepts only `EXECUTED_<job>` or `BLOCKER_<job>` (TRK-2026-9952l). The
+revival steps were never judged. A v2 with the correct exit contract (`..._9952i_2026-09-23_v2.md`) is queued
+and has not run yet. The flapping itself (7+ SOS alerts) stands, and so does the RI-038 Tier-2 recommendation.
+Only the "revival failed 2/2" reading is wrong: count it as "0 valid attempts so far".
 
 **RI-038 recurrence 2026-09-23 10:36–11:00 AM ET — third flap window the same day, now in business
 hours (TRK-2026-9954).** `SOS-LLM_PRIMARY-DOWN` at 10:36 (`:4001`/`:4002` down, Ollama `:11434` still
@@ -2244,6 +2253,12 @@ level" — the desktop executor has not yet reported on D-034, so cloud also gav
 the three direct clicks himself (Outlook kill, Word "Sign in another way," 9Router
 `123456` typed by hand) rather than leave him waiting on an executor that is not
 answering.
+
+**RI-046 · 2026-10-12 — THIRD sighting. Intuit/QuickBooks sign-in fails with "Hmm. That didn't work," and 1Password's "Save login?" panel lists FIVE saved items for the same site** (one retired Mint plus four "QuickBooks Online - Team USA books" with three different usernames). Duplicate items for one site; autofill picks a wrong credential; the panel offers "Update Existing", which could overwrite the good password. Rule 4 options, ranked by lifespan:
+1. **Tier 1 — Suppression (FORBIDDEN here).** Dismiss the panel, pick one by hand each time, or click Update. Lifespan: until the next fill. Failure mode: wrong item again, or an overwritten good password.
+2. **Tier 2 — Removal (recommended; job 9952af is the read-only first step).** One item per site. Keep one QuickBooks item, archive the others (recoverable 30 days), set the URL to accounts.intuit.com, reset the password through Intuit with a 1Password-generated one (Jorge's standing pre-approval). Also confirm Chrome/Edge managers are OFF, so only 1Password offers to save. Lifespan: permanent for this site. Failure mode: Intuit accepts several IDs (email and short names), so signing in with a different ID creates a new duplicate; mitigate by always using the same ID.
+3. **Tier 3 — Enforcement.** A weekly read-only desktop check using `op` that lists any site with more than one Login item and reports the count in the digest. Catches regressions faster than they accumulate. Failure mode: it reports and does not fix, so someone must read it.
+**Cloud's reading, unverified until job 9952af returns:** the cause is duplicate items, not a locked vault as in the 09-19 sighting.
 
 ---
 **RI-047 · 2026-09-20 — Outlook auto-relaunches itself within seconds of being killed, via COM/DCOM activation, and the resource-exhaustion dialog comes back with it.** Downstream of the same OD-107/1Password chain (RI-046) but a distinct mechanism worth its own number — the desktop's own Drive-side recurring-issues copy independently logged this as "RI-046" too, a genuine numbering collision across the two copies (worth knowing: at least 4 different RECURRING-ISSUES.md copies exist — this repo's, the Drive-side one, `00-CONTINUITY-BOARD`, and `Shared Folders for all LLMs` — and they can drift out of sync on numbering). **What was found:** killing Outlook gets a replacement process back in 2-4 seconds, command line `-Embedding` (COM-launched, not a direct relaunch), parent PID is `svchost.exe` — something is calling `Outlook.Application` via COM and winning the race against even a manual `/safe`-mode launch. The known auto-launch scripts on disk were ruled out (one explicitly skips the COM call when Outlook isn't running; the other's own log shows no activity today). Root cause still unidentified. **Second cycle in a row hitting the same wall: fixing it needs `Stop-Service WSearch`, which needs admin rights the desktop session doesn't have.** Per Rule 4, two Tier-1-only attempts (kill + relaunch) in a row means the next step can't be a third kill-and-relaunch. **Needs one of: (1) an elevated session runs `Stop-Service WSearch`, or (2) Jorge watches a live kill in Task Manager's Details tab (or Process Explorer) to catch the exact parent process the instant Outlook reappears** — a headless session can only see it after the fact. Also noted, likely related: 30-39 PowerShell processes have been alive since 2026-09-19 13:14, and CPU has been pinned 88-100% continuously since ~2026-09-20 00:29.
