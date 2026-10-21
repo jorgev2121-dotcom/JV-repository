@@ -339,7 +339,10 @@ Logged as **RI-046**.
    d. Confirm at the end that 9router binds to `127.0.0.1` only, not `0.0.0.0` — the
       README's production example exposes it to the LAN, and the database holds live
       API keys (this is CVE-2026-63732, the default-password takeover).
-5. **Suspect to check once in — RI-018.** The hourly PAD routine
+5. **Suspect to check once in — RI-018.** *(Desktop 2026-09-19 23:26Z: this is a Power
+   Automate CLOUD flow, not a Task Scheduler task — no local toggle. Off-switch is
+   make.powerautomate.com → My flows → Turn off; owner click 8 on the one-click page, or
+   Cowork with Jorge present.)* The hourly PAD routine
    `PAD - Verification Code Monitor (Hourly)` auto-re-requests Microsoft security codes.
    Repeated code requests are exactly what trips Microsoft's risk detection and
    invalidates Office's sign-in token, which would make Symptom A come back every few
