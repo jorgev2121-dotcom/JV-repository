@@ -232,3 +232,4 @@
 2026-10-21T15:42Z · runner · allowed · items 0 of 0 · panel unchanged · blocked: Jorge's Apple + Google me/not-me, Drive share click for Codex, older bundle questions, panel upload decisions; 6 PC jobs unconfirmed
 2026-10-21T16:42Z · runner · allowed · items 0 of 0 · panel unchanged · blocked: Jorge's Apple + Google me/not-me, Drive share click for Codex, older bundle questions, panel upload decisions; 6 PC jobs unconfirmed
 2026-10-21T17:42Z · runner · allowed · items 0 of 0 · panel unchanged · blocked: Jorge's Apple + Google me/not-me, Drive share click for Codex, older bundle questions, panel upload decisions; 6 PC jobs unconfirmed
+2026-10-21T18:44Z · runner · allowed · items 2 of 2 · panel unchanged · blocked: Jorge's Apple + Google me/not-me, Drive share click for Codex, older bundle questions, panel upload decisions; desktop survey ITEM 2026-10-21-A queued

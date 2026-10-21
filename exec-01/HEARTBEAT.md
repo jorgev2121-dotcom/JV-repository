@@ -2,7 +2,7 @@
 #EXEC-01 #HEARTBEAT #VTES
 
 - **Who:** EXEC-01, cloud lane, session_01DUB8NQHkiANrQ9LQZnK1Ho (window ☁️ "VTES Cloud Executor").
-- **Last beat: 2026-10-21T17:42Z (1:42 PM ET Oct 21)** · runner cycle · quiet; Jorge active at 12:42 PM ET on Speechify billing; bundle questions still open
+- **Last beat: 2026-10-21T18:44Z (2:44 PM ET Oct 21)** · runner cycle · Jorge reporting access blockers by self-email; desktop survey queued; bundle questions still open
 - **State:** alive. First cycle written. Budget "allowed".
 - **Cadence:** hourly.
   1. The always-on work runner fires at :41 each hour (trig_01EdLXoKjFM3nNsVywHHYz7T).
@@ -55,3 +55,4 @@ Last beat: 2026-10-16 2:43 AM ET (06:43Z) - idle, waiting on owner
 - 2026-10-21T15:42Z · allowed (read 15:42Z) · items 0 new · bundle unanswered 3h17m · context ~628k of 1,000k
 - 2026-10-21T16:42Z · allowed (not re-read) · items 0 new · reminder sent 12:20 PM ET, no reply · context ~660k of 1,000k
 - 2026-10-21T17:42Z · allowed (read 17:41Z) · items 0 new · bundle + reminder unanswered · context ~667k of 1,000k
+- 2026-10-21T18:44Z · allowed (read 18:22Z) · items 2 (probe answered, access-blocker report routed) · context ~690k of 1,000k
