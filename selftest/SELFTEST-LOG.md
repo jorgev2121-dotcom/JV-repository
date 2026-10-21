@@ -170,3 +170,11 @@
   7 MAIL WATCH: PASS (last check 17:41Z, 39 min).
   10 USAGE: allowed (read 18:16Z). Session context 202k of 1,000k.
   New failures: none. Open with Jorge: 12:48 PM ET Windows sign-in yes/no; 8 bundle answers.
+- 2026-10-21T00:20Z · SELF-TEST pass 22 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; approvals routed, waiting on PC).
+  2 PROBE: PASS · 18Z probe answered 18:43Z. New probe selftest-probe-2026102100 planted; answer it at the 01:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 00:16Z (PC awake 120.7 h, no sleep). Note: a SYNC-01 result email says the Joey lane on DESKTOP-OTB90LR is offline and VTES_Control_Panel_Latest.html is not in Drive; the PC heartbeat disagrees on the PC being off, so the problem is the Joey lane, not the PC.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on a model that was out of usage. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 23:42Z, 35 min).
+  10 USAGE: allowed (read 00:16Z). Session context 332k of 1,000k.
+  New failures: none. PC Claude lane cap should reset at 00:00 ET (04:00Z).
