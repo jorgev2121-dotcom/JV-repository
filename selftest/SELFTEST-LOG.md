@@ -194,3 +194,11 @@
   7 MAIL WATCH: PASS (last check 11:42Z, 43 min).
   10 USAGE: allowed (read 12:23Z). Session context 546k of 1,000k.
   New failures: none. MORNING BUNDLE SENT 12:25Z (Gmail 1a15e6b059f4d644 + push).
+- 2026-10-21T18:22Z · SELF-TEST pass 25 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; approvals routed, waiting on PC).
+  2 PROBE: PASS · 12Z probe answered 12:44Z. New probe selftest-probe-2026102118 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:16Z (PC awake 138.6 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on a model that was out of usage. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 17:42Z, 40 min).
+  10 USAGE: allowed (read 18:22Z). Session context 678k of 1,000k.
+  New failures: none. Jorge active again: 1Password support ticket 848408 (2:11 PM ET) and a self-email 'Access issues snips to share paste into LLM for repairs' (2:14 PM ET) with two phone screenshots; not an answer to the bundle.
