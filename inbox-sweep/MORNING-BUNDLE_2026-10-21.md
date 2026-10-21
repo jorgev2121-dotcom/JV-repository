@@ -20,6 +20,7 @@ Status: DRAFT, not sent. Plain words. Nothing below was sent to anyone outside, 
 - SYNC-01 reports the Joey lane on DESKTOP-OTB90LR offline and VTES_Control_Panel_Latest.html missing from Drive. Your PC itself is awake (127 hours, no sleep).
 - The local model on the PC returned 404 on JOB-BACKLOG-01.
 - Listkit: Taj proposed a call Tuesday 3:45 PM ET; Taj asked for a login by email. Logins go through 1Password only.
+- Slack Pro trial ended (info only; no payment made, no action needed unless you want Pro).
 - Tool-name slips: 6 so far. Fix (my pick): write the exact search calls into the hourly instructions. Reply "fix slips" to approve.
 
 Closing question: Shall I start with the top three, yes or no?
