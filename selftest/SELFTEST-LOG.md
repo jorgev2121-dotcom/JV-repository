@@ -218,3 +218,11 @@
   7 MAIL WATCH: PASS (last check 05:17Z, 70 min before this read; refreshed 06:30Z).
   10 USAGE: allowed (read 06:28Z). Session context 246k of 1,000k.
   New failures: none. BLOCKER_SILENT-SIGNOFF_2026-10-22.md is the known silent-signoff recurrence (already logged, not re-alerted). Tool-name slip 7th occurrence logged; checklist written.
+- 2026-10-22T12:32Z · SELF-TEST pass 28 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued items).
+  2 PROBE: PASS · 06Z probe answered 07:21Z. New probe selftest-probe-2026102212 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:26Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 11:26Z, 62 min; refreshed 12:32Z).
+  10 USAGE: allowed (read 12:28Z). Session context 355k of 1,000k.
+  New failures: none. Morning bundle sent 8:30 AM ET (Gmail 1a16395b6eaeb1fe + push).
