@@ -803,3 +803,10 @@ What Jorge said in words: Outlook (probably the Exchange connection) has been sl
 2. Write a plain-words report to `G:\My Drive\VTES-Outbox\EXECUTED_ACCESS-BLOCKERS-SURVEY_2026-10-21.md` (never overwrite): list the pop-ups currently on screen (title and which app only), Outlook profile type and Outbox item count with ages, Windows sign-in state (which accounts are signed in, none of the secrets), 1Password app status (locked, unlocked, sync error text).
 3. Tell the cloud the file name. Jorge decides every fix.
 Closing question for the desktop: which of these blockers is the oldest?
+
+---
+## ITEM 2026-10-22-A · ADOBE ACROBAT ONBOARD job refused by Codex · added by cloud 9:20 PM ET Oct 21
+Codex wrote BLOCKER_CODEX-PII_VTES-JOB_ADOBE-ACROBAT-ONBOARD_V1_2026-10-21.md (Outbox, 9:03 PM ET): the job text matched a client-detail pattern, so it was not sent. The job text lives only on the PC.
+1. Run it on the Claude lane (cap resets 00:00 ET) or the LOCAL lane. Do not send it to Codex.
+2. Write the result to `EXECUTED_ADOBE-ACROBAT-ONBOARD_2026-10-22.md` in the Outbox. No passwords, no clicking Google or Adobe consent prompts.
+Closing question for the desktop: did the Claude lane take this job?
