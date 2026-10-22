@@ -226,3 +226,11 @@
   7 MAIL WATCH: PASS (last check 11:26Z, 62 min; refreshed 12:32Z).
   10 USAGE: allowed (read 12:28Z). Session context 355k of 1,000k.
   New failures: none. Morning bundle sent 8:30 AM ET (Gmail 1a16395b6eaeb1fe + push).
+- 2026-10-22T18:32Z · SELF-TEST pass 29 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued items).
+  2 PROBE: PASS · 12Z probe answered 13:32Z. New probe selftest-probe-2026102218 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 17:21Z, 56 min; refreshed 18:32Z).
+  10 USAGE: allowed (read 18:28Z). Session context 487k of 1,000k.
+  New failures: none. Apple password-reset (12:14 PM ET) alert pending Jorge's me/not-me; Chase phone meeting tomorrow 9:30 AM ET reminder sent.
