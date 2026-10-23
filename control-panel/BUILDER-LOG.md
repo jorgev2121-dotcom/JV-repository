@@ -280,3 +280,4 @@
 2026-10-23T15:42Z · runner · allowed (last read 11:42Z) · items 0 of 0 · panel unchanged · blocked: Jorge's morning-bundle answers + TEDC fee AP-0024; PC lane down until 00:00 ET Oct 24; watching Tomas + Frank/Santiago
 2026-10-23T16:42Z · runner · allowed (read 16:41Z) · items 0 of 0 · panel unchanged · blocked: Jorge's morning-bundle answers + TEDC fee AP-0024; PC lane down until 00:00 ET Oct 24; watching Tomas + Frank/Santiago
 2026-10-23T17:42Z · runner · allowed (read 16:41Z) · items 0 of 0 · panel unchanged · blocked: Jorge's morning-bundle answers + TEDC fee AP-0024; PC lane down until 00:00 ET Oct 24; watching Tomas + Frank/Santiago
+2026-10-23T18:42Z · runner · allowed (read 18:25Z) · items 0 of 0 · panel unchanged · blocked: Jorge's Railway yes/no + morning-bundle answers + TEDC fee AP-0024; PC lane down until 00:00 ET Oct 24; watching Tomas + Frank/Santiago
