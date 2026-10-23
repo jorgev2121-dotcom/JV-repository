@@ -242,3 +242,11 @@
   7 MAIL WATCH: PASS (last check 23:20Z, 62 min; refreshed 00:22Z).
   10 USAGE: allowed (read 00:22Z). Session context 637k of 1,000k (rising about 15k per cycle; tell Jorge at about 900k).
   New failures: none. Open with Jorge: Apple reset me/not-me (12:14 PM ET), AI Note Taker trial (4:14 PM ET), morning-bundle answers, trigger-prompt fix yes/no.
+- 2026-10-23T06:25Z · SELF-TEST pass 31 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued items).
+  2 PROBE: PASS · 00Z probe answered 01:21Z. New probe selftest-probe-2026102306 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 05:19Z, 60 min; refreshed 06:25Z).
+  10 USAGE: allowed (read 06:24Z). Session context 727k of 1,000k (about 15k per cycle; fresh session needed at about 900k, roughly 10 hours from now).
+  New failures: none.
