@@ -8,3 +8,4 @@ Read this at the start of every WATCH and RUNNER cycle. Use ONLY these names. Ne
 6. Send to Jorge: `mcp__Gmail__send_message` to jorgev2121@gmail.com ONLY. Push: PushNotification (not after 9 PM ET).
 7. Throttle: `mcp__Claude_Code_Remote__get_session` (no id).
 If a tool call is rejected as nonexistent, fix the name from this list and log it in RECURRING-ISSUES.md.
+- 2026-10-23: Outlook search results were truncated (moreResults:true) at 8-10 items on several WATCH cycles; a real arrival could hide on page 2. From now: use limit 25, check moreResults, and ALSO run sender-specific searches for watched people (tomtechengineer@gmail.com, Frank/Santiago Gala).
