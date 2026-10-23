@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VTES One Page</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#14181f;--mute:#566074;--line:#d9dee7;--link:#0b57d0;--d:#0a6b3d;--c:#6b2fb3;--w:#b4540a}
+@media (prefers-color-scheme:dark){:root{--bg:#10141b;--card:#1a2029;--ink:#eef1f6;--mute:#9aa6ba;--line:#2e3846;--link:#8ab4f8;--d:#5fd39a;--c:#c9a6ff;--w:#ffb070}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 system-ui,Segoe UI,Arial,sans-serif;padding:16px}
+main{max-width:980px;margin:0 auto}
+h1{font-size:1.7rem;margin:.2em 0}
+h2{font-size:1.25rem;margin:1.6em 0 .4em;border-bottom:2px solid var(--line);padding-bottom:.2em}
+p.sub{color:var(--mute);margin:.2em 0 1em}
+a{color:var(--link);word-break:break-word}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card.star{border:3px solid var(--d)}
+.big{font-size:2.4rem;line-height:1}
+.permit{display:flex;flex-wrap:wrap;gap:6px;margin:.5em 0}
+.permit span{border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:.85rem;background:var(--bg)}
+.no{opacity:.65;text-decoration:line-through}
+ul{padding-left:1.2em;margin:.3em 0}
+li{margin:.35em 0}
+.note{color:var(--mute);font-size:.9rem}
+.tag{font-size:.75rem;border-radius:6px;padding:1px 6px;border:1px solid var(--line);color:var(--mute);margin-left:6px}
+</style>
+</head>
+<body>
+<main>
+<h1>VTES — everything on one page</h1>
+<p class="sub">Built 2026-10-23 by ☁️ Cloud from a search of the repo and Google Drive. VTES lanes, panel, health, protocols, and the Executor trail. Every link below was returned by a live Drive search today.</p>
+
+<h2>Section A — The team, with access permits</h2>
+<div class="team">
+  <div class="card star">
+    <div class="big">🖥️</div>
+    <b>CODE · DESKTOP EXECUTOR</b> <span class="tag">paste prefix PASTE-D</span>
+    <p>The only one that touches Jorge's PC. It runs the night queue and the VTES poller work.</p>
+    <div class="permit">
+      <span>🔑 PC files</span><span>🔑 Outlook</span><span>🔑 miamidade.gov</span><span>🔑 PaperPort</span><span>🔑 Local scripts</span><span>🔑 Chrome</span><span>🔑 Task Scheduler</span>
+    </div>
+    <p class="note">Filing, moving, deleting client documents, sending anything outbound, spend and credentials stay RED: they need Jorge's yes.</p>
+  </div>
+  <div class="card">
+    <div class="big">🤝</div>
+    <b>COWORK</b> <span class="tag">paste prefix PASTE-X</span>
+    <p>Email and connected services. Planning surface. Not the repo executor.</p>
+    <div class="permit">
+      <span>🔑 Gmail</span><span>🔑 Calendar</span><span>🔑 Drive</span><span>🔑 Connected apps</span><span class="no">repo executor</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="big">☁️</div>
+    <b>CODE · CLOUD / WEB EXECUTOR</b> <span class="tag">paste prefix PASTE-C</span>
+    <p>Plans and checks. Writes work orders for Desktop.</p>
+    <div class="permit">
+      <span>🔑 Repo</span><span>🔑 Drive</span><span>🔑 Gmail</span><span>🔑 Web</span><span class="no">Jorge's PC</span><span class="no">Outlook</span><span class="no">miamidade.gov</span>
+    </div>
+  </div>
+</div>
+<p class="note">Permits come from the window config and team plan in the repo: <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/WINDOW-CONFIG_ALL-SURFACES_2026-08-24.md">WINDOW-CONFIG_ALL-SURFACES</a> and <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/TEAM-DEPLOYMENT-PLAN_2026-09-28.md">TEAM-DEPLOYMENT-PLAN</a>. I read "access permit icons" as these badges. Tell me if you meant something else.</p>
+
+<h2>Section B — VTES Drive folders (the lanes)</h2>
+<ul>
+<li><a href="https://drive.google.com/drive/folders/1hI2TmVn86Cnh7h_6s93TG0KE1QzVCV5F">VTES-Inbox</a> — jobs waiting for the Executor</li>
+<li><a href="https://drive.google.com/drive/folders/1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN">VTES-Outbox</a> — results, heartbeats, ACKs, EXECUTED files</li>
+<li><a href="https://drive.google.com/drive/folders/1ksoxBbUnCBJf7uddi9lPN7O9aFGKWVRr">VTES-Bridge</a> — charter and handoff</li>
+<li><a href="https://drive.google.com/drive/folders/1dh3SMYXAf7isthzVhvQGQv_PEZ_OaCVn">VTES-Capture-Inbox</a></li>
+<li><a href="https://drive.google.com/drive/folders/1_G5KbMkQ44ydAmEW7qCcrF4-6sBIKH9k">VTES-PANEL</a></li>
+<li><a href="https://drive.google.com/drive/folders/17lZJxj0Aw6XH44nyVNSw0vroRdaowj_n">VTES-MINI-DATABASE</a> <span class="tag">created 2026-10-22</span></li>
+<li><a href="https://drive.google.com/drive/folders/14jY-aRnidB471EIoPf5i-E05O6ZMcRTH">VTES-OWNER-WORKBOOK (1-page)</a></li>
+<li><a href="https://drive.google.com/drive/folders/1_BxhDI-H624wS1jFP7QR7Hk1KbXu_lqU">VTES-LANE-MAP</a> and its doc <a href="https://docs.google.com/document/d/1BZnTgjSQi4VP92uUR0FgpCitC9BmIvfg0D3pHCmJkRo/edit">VTES-LANE-MAP_2026-10-16</a></li>
+<li><a href="https://drive.google.com/drive/folders/1XWYuimxo9D5wfp2nsgSlYxxF2xSiRSVF">_CLAUDE-MAILBOX</a> · <a href="https://drive.google.com/drive/folders/1khPbL-HE7ahw_pv5hEdukS-PbbmT3xdl">PASTE-TRAY</a> · <a href="https://drive.google.com/drive/folders/1aYWNOHk8tcdmugP38pbF7S_Ma2azATzN">MY-DESK</a></li>
+</ul>
+
+<h2>Section C — Panel, health, launcher</h2>
+<ul>
+<li><a href="https://drive.google.com/file/d/1oA3A-s_i5Sn2zHwxnXm-VxNpXSCPBjtp/view">VTES-HEALTH.html</a> — health page, touched yesterday</li>
+<li><a href="https://drive.google.com/file/d/1hhgCZbctVLV6MwKWJ4ZOttsyt9OdTt6H/view">VTES-LLM-LAUNCHER v5</a> and its <a href="https://drive.google.com/file/d/1Rsw_YoEZVl1dODAn0hYi2G4xVT_w2C9F/view">config</a></li>
+<li><a href="https://docs.google.com/document/d/1JWbCZcs56O0SzPGPDUBXuQcv8TsQ1J-t6fNxXnzGgOE/edit">VTS Multi-LLM Control Panel (TRK-2026-9200)</a> — repo copy: <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/VTS-LLM-PANEL_TRK-2026-9200_2026-08-26.md">VTS-LLM-PANEL</a></li>
+<li>Panel handoff: <a href="https://drive.google.com/drive/folders/1GNw2MrM5YwpBbBqgE3zW_onF1-3hQ1ih">README START HERE</a> · <a href="https://drive.google.com/drive/folders/1UV2KbjcFVoAfGVPEBy7-i2SUHnGJ6eYj">handoff brief</a> · <a href="https://drive.google.com/drive/folders/1xhoB3I4QAsadlmIL3FlsgrCpSmzdBB0m">handoff board</a></li>
+<li>Repo: <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/control-panel/PANEL.html">control-panel/PANEL.html</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/tree/claude/stoic-mendel-55xdsy/vts-llm-panel">vts-llm-panel/</a> (health monitor, Gemini key installer, token monitor guide)</li>
+</ul>
+
+<h2>Section D — Protocols and AI bridge</h2>
+<ul>
+<li><a href="https://drive.google.com/drive/folders/1Zs2vURAj86bwstwFzsoL5LZ-xb1V3MVX">Protocol: OCR · VTES · 1Password (2026-10-20)</a></li>
+<li><a href="https://drive.google.com/drive/folders/19sC6imUPw2UQjw13sI56bFFZgTdA7H0D">VTES OCR routing protocol V1</a></li>
+<li><a href="https://drive.google.com/drive/folders/1LEJMjRlIZ8P5JBatPjWT6OPjrCtRLzJj">VTES 1Password portal plan V1</a></li>
+<li><a href="https://drive.google.com/drive/folders/13ZIf3XANjllnkkTUHuGxR5QDBDHbuhvW">Copilot VTES panel request (API drop)</a></li>
+</ul>
+
+<h2>Section E — Desktop Executor trail (newest first)</h2>
+<ul>
+<li>2026-10-22 · <a href="https://drive.google.com/file/d/14Uln2yl_dACJHEpSnhLu-IuoLptDNbQ8/view">ACK: icon vault and watcher job</a> · <a href="https://drive.google.com/file/d/1LlmbcM0gtqTinWHvlgUtwHlXiIw5VXsS/view">BLOCKER on the same job</a></li>
+<li>2026-10-21 · <a href="https://drive.google.com/file/d/11RT1mmyBc8LOLSbBOBcDWg46hgluSY9u/view">EXECUTED: icon, Speechify, health</a></li>
+<li>2026-10-16 · <a href="https://drive.google.com/file/d/1dTy3ywTiNjKvTPw7Udt4M_7wQKphW_-G/view">Reply to Chat: Executor</a></li>
+<li>2026-10-10 · <a href="https://drive.google.com/file/d/1H0qleV9Hqjuw3P7_QXirmKRnlPYOjUe6/view">EXECUTED: section-progress Executor repair</a></li>
+<li>2026-10-08 · <a href="https://drive.google.com/file/d/1L-cOt1fXZayn-P_1RnlR9V_iMdWFYQh7/view">Executor restart result</a></li>
+<li>2026-10-02 · <a href="https://drive.google.com/file/d/1JSGu5FeScaOoSH32stuCb8GLE31GfABv/view">EXECUTED: Desktop Executor shortcut and panel restore</a> · <a href="https://drive.google.com/file/d/1oDvbQlGoK8R7qIyEUSR5SR7IrltF1oEH/view">reply</a></li>
+<li>2026-09-28 · <a href="https://drive.google.com/file/d/1nYlwwtrQxCRfYgtDs207DBtRemhIL84G/view">Reply: Executor-first</a></li>
+<li>2026-09-25 · <a href="https://drive.google.com/file/d/188Z_DzQ2P1wnlwnhkXT9Ci0MYfAObpe5/view">Executor queue (active)</a></li>
+<li>2026-09-23 · <a href="https://drive.google.com/file/d/1-ubI6HOsR-134ngtplQIiomc_Hz1Nnnn/view">Backup-Executor (Codex) directive</a> · <a href="https://drive.google.com/file/d/1YLjLm_CGxxgQwQd1uNE0PDg-OyBP1qtK/view">executed v2</a></li>
+<li>2026-09-05 · <a href="https://drive.google.com/file/d/1_r0KRfsr7MzORBYT-hlmMAj8RcSaL1Bu/view">Desktop Executor handoff</a> · <a href="https://drive.google.com/file/d/1F-N3qSHXwFUDrkYX-sNQ8XNypaJ2IAsM/view">Command Executor now exists</a> · <a href="https://drive.google.com/file/d/1APkyF8dkV2vCZQt5tu1iyQtB_okCELzN/view">safety test result</a></li>
+<li>2026-08-31 · <a href="https://drive.google.com/file/d/1vYRTzpdcKcPam9DLTrsoO51dFy0J9PIE/view">Verdict 9956: the Executor was eating its own output</a></li>
+<li>2026-08-26 · <a href="https://docs.google.com/document/d/16TiDEyPNEDBLMj4ACvBtHSP2_dVFwkVpoMvoDN4Z0UA/edit">Priority Zero: build the JV-Executor launcher</a> · <a href="https://docs.google.com/document/d/1z8Pj4pE3FIJXcoeRZFoLb4U41_M1KFy0M67Yi3dXrgA/edit">one-click launcher and tray icon</a> · <a href="https://drive.google.com/file/d/1Qjq2Lzh5Fp-UHj6_DZW8VZr94j3b8QJ2/view">recreate-jv-executor.ps1</a></li>
+<li>2026-08-20 · <a href="https://drive.google.com/file/d/1Leex5v1jOb1OEmfDQwRRb5w309PIQHob/view">Ask: tray icon to summon the Executor</a></li>
+</ul>
+
+<h2>Section F — Repo files that name VTES or VTS</h2>
+<ul>
+<li><a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/OPEN-ITEMS.md">OPEN-ITEMS.md</a> (69 VTES lines) · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/RECURRING-ISSUES.md">RECURRING-ISSUES.md</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/EXECUTIVE-CHARTER.md">EXECUTIVE-CHARTER.md</a></li>
+<li><a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/mailbox/to-desktop/WORK-QUEUE.md">mailbox/to-desktop/WORK-QUEUE.md</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/mailbox/to-desktop/Executor-Takeover_PASTE-D-063.ps1">Executor-Takeover_PASTE-D-063.ps1</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/mailbox/to-desktop/OWNER-ORDER_PASTE-D-063_executor-takeover_2026-09-28.md">owner order D-063</a></li>
+<li><a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/TEAM-DEPLOYMENT-PLAN_2026-09-28.md">TEAM-DEPLOYMENT-PLAN</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/WATCHDOG-FOUND.md">WATCHDOG-FOUND</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/ONE-ROSTER-ONE-READER_2026-08-18.md">ONE-ROSTER-ONE-READER</a></li>
+<li><a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/shift-brief/CURRENT.md">shift-brief/CURRENT.md</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/RESULT-D2C-9740_MIRROR_four-icons-app-already-installed.md">four Claude icons (TRK-2026-9740 mirror)</a></li>
+</ul>
+
+<h2>Section G — Known gaps, stated plainly</h2>
+<ul>
+<li><b>Search was capped.</b> The Drive search returns one page at a time. There are more VTES-named files than shown, mostly auto-generated ACK, EXECUTED and "SUPERSEDED_by_V1-1" watcher files. I listed the folders and the named documents, not every auto-file.</li>
+<li><b>Not searched:</b> Jorge's PC itself. Cloud cannot reach it. Local VTES scripts such as <code>VTES-Bridge-Poller.ps1</code> and <code>VTES-Reconciler.ps1</code> are named in the repo but have no link from here.</li>
+<li><b>Poller status:</b> the repo says <code>VTES-LOCAL-POLLER</code> was rebuilt around D-063 on 2026-09-28. I have not re-verified that it is running today.</li>
+</ul>
+<p class="note">Registry number: not yet issued. Per the charter I did not invent one.</p>
+</main>
+</body>
+</html>
