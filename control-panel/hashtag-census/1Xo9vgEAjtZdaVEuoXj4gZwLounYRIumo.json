@@ -1,0 +1,25 @@
+{"id":"1Xo9vgEAjtZdaVEuoXj4gZwLounYRIumo",
+"title":"TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)",
+"partial":false,
+"pdfs":42,"search_sidecars":42,"tags_sidecars":44,
+"tags5_sampled":3,"tags5_of_sampled":2,
+"has_HASHTAGS_txt":true,"hashtags_count":43,"has_people_tags":true,"has_trk_tag":true,
+"other_files":["_CONTACTS-EXTRACTED.txt","_PLACEHOLDERS.md","_PORTAL_TRK-2026-1684.html","_STAGE.md","_HASHTAGS.txt.bak-20260903/04","~25 daily _STAGE.md .bak copies in root","12 .pdf.OCR.txt sidecars (01-INTAKE)","~80 raw JSON/PNG/TXT research captures in 06-RAW-DATA","DD report v1-v4 HTML (CLIENT/INTERNAL/ReadAloud) in 05-REPORTS-DELIVERABLES","10+ Research .md memos in 05-REPORTS-DELIVERABLES","4 .eml client emails (04-CORRESPONDENCE, 01-INTAKE)","_Superseded holds 16 WRONG-IMAGE-API-RETURNED-2025-DEED pdfs + sidecars","01-INTAKE/_FOLDED-FROM-ONEDRIVE_2026-09-04 (level 3, not walked)"],
+"people":[
+{"name":"Kathryn Slack","role":"client (orders DD; daughter-in-law of Elisa Caso)","email":"katslack@hotmail.com","evidence":"_HASHTAGS.txt (#KathrynSlack #KatSlack), _PLACEHOLDERS.md, filenames Reply-to-Kathryn-Slack","misspellings":["Kat Slack","Katherine Slack","Kathryn Slak","Cathryn Slack"]},
+{"name":"Elisa Caso (Elisa Isabel Caso / Elisa I. Caso)","role":"prior owner / subject (mother-in-law; Chapter 13 debtor FLSB 14-33452)","email":null,"evidence":"_PLACEHOLDERS.md, filenames CASO-ELISA-ISABEL, Elisa-Caso-Chapter-13","misspellings":["Elisa Casso","Eliza Caso","Elisa Isabel Casso"]},
+{"name":"Federico Caso (Federico Guillermo Caso / Federico G. Caso)","role":"current owner / subject (arrested 2026-08-24/25)","email":null,"evidence":"filenames CASO-FEDERICO-GUILLERMO, MDCR-InmateSearch-CASO-FEDERICO","misspellings":["Frederico Caso","Federico Casso"]},
+{"name":"Peter Sevastopoulos (Peter Arthur Sevastopoulos / Peter A.)","role":"current owner / subject (arrested 2026-08-24/25)","email":null,"evidence":"_HASHTAGS.txt (#Sevastopoulos), filenames SEVASTOPOULOS-PETER-ARTHUR","misspellings":["Sevastapoulos","Sevastopolous","Sebastopoulos","Sevastopulos"]},
+{"name":"Luis Caso (Luis S. Caso)","role":"related party (other property 15472 SW 151 ST; FLSB bankruptcy)","email":null,"evidence":"filenames PA-GetOwners-CASO-LUIS-S, CourtListener-FLSB-Bankruptcy-Luis-Caso","misspellings":["Louis Caso","Luis Casso"]},
+{"name":"P. Meadows, Esq.","role":"bankruptcy attorney","email":"pmeadowsesqbankruptcy@gmail.com","evidence":"_CONTACTS-EXTRACTED.txt","misspellings":["Meadow","Medows"]},
+{"name":"Jorge Valdes","role":"DD preparer (Team USA Sales)","email":"jorge@teamusasales.com","evidence":"_CONTACTS-EXTRACTED.txt","misspellings":[]}
+],
+"companies":[
+{"name":"Wells Fargo (Home Mortgage / Home Equity)","role":"mortgagee / foreclosing lender (2009-082397-CA-01)","email":null,"evidence":"_HASHTAGS.txt, filenames Mortgage-WellsFargoHome*","misspellings":["WellsFargo","Wells Fargo Bank"]},
+{"name":"Chase (JPMorgan Chase)","role":"foreclosing lender (2009-033750-CA-01)","email":null,"evidence":"_HASHTAGS.txt, filename OCS-Docket-2009-033750-CA-01-Chase","misspellings":[]},
+{"name":"Chakla Inc (P10000045402)","role":"Sunbiz entity tied to a subject","email":null,"evidence":"filename Sunbiz-Detail-CHAKLA-INC-P10000045402","misspellings":["Chakla"]},
+{"name":"Miami-Dade Clerk of Courts / Property Appraiser / Tax Collector","role":"record sources","email":null,"evidence":"06-RAW-DATA filenames","misspellings":[]},
+{"name":"Kendall Breeze South","role":"subdivision (PB 160-67)","email":null,"evidence":"_HASHTAGS.txt","misspellings":["Kendal Breeze"]}
+],
+"keywords":["12248 SW 125 TER","12248 SW 125th Terrace","12248SW125TER","Miami 33186","Kendall Breeze South","folio 30-5913-027-0070","3059130270070","FAU 30-5913-000-0190","PB 160-67 Lot 7 Block 1","CFN 2025R464916 quit claim OR 34807-0009","OR 21884-0183 2003 warranty deed","Wells Fargo foreclosure 2009-082397-CA-01","Chase foreclosure 2009-033750-CA-01","dissolution 2010-034599-FC-04","Chapter 13 bankruptcy FLSB 14-33452","Suggestion of Bankruptcy","lis pendens","15472 SW 151 ST (other property)","6530 SW 45 ST","arrests 2026-08-24 Local10","incapacity / guardianship","chain of title","no microfilm / no tax jacket","Caso-Sevastopoulos","TRK-2026-9754"],
+"notes":"Large research capsule (~230 files at depth<=2, 3 listing pages + 1 inline page). 1 of 3 sampled TAGS sidecars had only 2 tags (CFN-2025 UNREDACTED). One sidecar carries a stray #TRK-2026-9754. TAGS sidecars also exist for .eml/.html files. Kat's 2026-09-05 answer (Elisa Caso) not yet recorded in Drive. Money/invoice not set. _FOLDED-FROM-ONEDRIVE subfolder is level 3, not walked."}

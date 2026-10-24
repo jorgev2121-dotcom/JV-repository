@@ -1,0 +1,1 @@
+window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.heartbeat = { "schema": 1, "at": "2026-10-11T21:42:46-04:00", "writer": "CU-VTES5-Feeder (tools/panel/VTES5-Feeder.ps1)", "interval_sec": 120, "executors": { "LLM-01": { "state": "waiting-for-reset", "last_seen": "2026-10-11T21:42:46-04:00" }, "LLM-06": { "state": "up", "last_seen": "2026-10-10T21:42:46-04:00" } } };

@@ -339,7 +339,10 @@ Logged as **RI-046**.
    d. Confirm at the end that 9router binds to `127.0.0.1` only, not `0.0.0.0` — the
       README's production example exposes it to the LAN, and the database holds live
       API keys (this is CVE-2026-63732, the default-password takeover).
-5. **Suspect to check once in — RI-018.** The hourly PAD routine
+5. **Suspect to check once in — RI-018.** *(Desktop 2026-09-19 23:26Z: this is a Power
+   Automate CLOUD flow, not a Task Scheduler task — no local toggle. Off-switch is
+   make.powerautomate.com → My flows → Turn off; owner click 8 on the one-click page, or
+   Cowork with Jorge present.)* The hourly PAD routine
    `PAD - Verification Code Monitor (Hourly)` auto-re-requests Microsoft security codes.
    Repeated code requests are exactly what trips Microsoft's risk detection and
    invalidates Office's sign-in token, which would make Symptom A come back every few
@@ -480,9 +483,330 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
 
 ---
 
+## 17. Install Grok Build desktop app (jonyb21/grok-build-app) — owner request 2026-09-27 · PASTE-D-053
+
+Jorge asked cloud to install this and said **do not ask him to run it**. Cloud cannot: the
+installer is Windows-only (it throws on non-Windows) and cloud has no link to the PC.
+**You run it. Jorge does nothing except sign in to grok.com at the end if asked.**
+
+Cloud reviewed the whole repo before queuing it (install.ps1, src/*.cs, scripts/Build-Icons.ps1):
+it downloads only the official x.ai CLI installer, compiles a small launcher with the
+built-in `csc.exe`, and makes Desktop + Start Menu shortcuts. No admin needed. Nothing
+sends data anywhere else. It is reversible with `uninstall.ps1`.
+
+Steps:
+
+1. `git clone --depth 1 https://github.com/jonyb21/grok-build-app C:\Users\JV\grok-build-app`
+   (if the folder already exists: `git -C C:\Users\JV\grok-build-app pull`).
+2. `cd C:\Users\JV\grok-build-app` then
+   `powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1`
+3. Do **not** touch `%USERPROFILE%\.grok\auth.json` or `config.toml` if they already exist.
+4. Proof of DONE: paste the printed summary and the contents of
+   `%USERPROFILE%\.grok\grok-build-app-install.json` into `mailbox/TO-CLOUD.md`.
+5. If `login_needed` is true, tell Jorge in one line: "Double-click Grok Build on the
+   Desktop and sign in at grok.com." That is his only step.
+6. Failure rules: missing `csc.exe` = BLOCKED, report the path. If the official x.ai
+   installer fails, stop — never download an unofficial grok binary. A failed taskbar pin
+   is still a success.
+
+Undo: `powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\JV\grok-build-app\uninstall.ps1`
+
+### Item 17 addendum — 2026-09-27 · PASTE-X-008 → COWORK (supersedes PASTE-D-053 as the pointer)
+
+Jorge re-sent the install request and added two more. All three need his screen, so
+**Cowork does all three**; the desktop lane backs it up. Order:
+
+**A. Grok approval pop-up that is waiting for him.** Cloud searched Gmail (x.ai mail, last
+7 days) and the OD-107 approvals board: **no Grok approval is waiting in either.** So the
+prompt is on the PC screen. Take a screenshot and find it: a Grok CLI / Grok Build permission
+prompt, a Windows "Do you want to allow" (UAC) box, or a browser sign-in tab at grok.com / x.ai.
+Bring it to the front and read it aloud to Jorge in one sentence. **He clicks Allow himself**
+(Cowork never approves on his behalf). If it is a sign-in, he types the password; you do not.
+
+**B. Install Grok Build.** Steps 1–6 above (clone, `install.ps1`, proof to TO-CLOUD.md).
+Cowork can open PowerShell and run them. If the pop-up in A turns out to be this installer's own
+x.ai CLI prompt, that is expected.
+
+**C. "Router password issue."** Cloud's records: **9Router was UNINSTALLED 2026-09-20 at Jorge's
+request (TRK-2026-9961)**, and the 09-24 morning report shows the **Grok router and LiteLLM :4001
+OFFLINE**. Check which one is on screen:
+1. If 9Router is back and asking for a password: the working password is "on file" with the
+   desktop lane (RAMBO 09-15). Use it, then save it to 1Password as `9Router (127.0.0.1:20128)`.
+   Never guess — it locks after 3 tries.
+2. If it is the Grok router / LiteLLM: it does not use a password; it uses `XAI_API_KEY`.
+   Start it bound to 127.0.0.1 only, confirm `http://127.0.0.1:4001/health` answers.
+3. If it is the Wi-Fi router: stop and tell cloud; that is a different job.
+Report which one it was and the proof to TO-CLOUD.md.
+
+## 18. ON HOLD (GW-0001 not approved 09-29) — OpenRouter gateway · PASTE-D-054 · rules: CLAUDE.md Article 5
+
+Read `GATEWAY-DECISION_2026-09-27.md` (DECISION section) first. **Never put Claude Code behind it.**
+
+0. Wait until Jorge has done his one step: signed in at openrouter.ai and bought **$10 of credit
+   with auto top-up OFF** (approval GW-0001, $10.80 total). If not done, stop and say so.
+1. Create one API key named `CU-bots-nightruns`. If the page offers a credit limit per key, set $10.
+2. Save it straight into 1Password as `OpenRouter — CU-bots-nightruns`. Never into a file, the repo,
+   or chat. Bots read it from 1Password or a user environment variable `OPENROUTER_API_KEY`.
+3. Copy real prices for the models we use from openrouter.ai/models into `tools/llm_prices.json`
+   and set "Last checked" to today.
+4. Proof round-trip (costs well under $0.01, pre-approved as part of GW-0001): one request to
+   `https://openrouter.ai/api/v1/chat/completions` with a cheap model, asking "reply OK".
+   Paste the model name, the reply and the cost shown on the OpenRouter activity page to TO-CLOUD.md.
+5. After that, **every paid run** goes through `tools/llm_cost_gate.py` — estimate, wait for
+   APPROVED, then run. No exceptions.
+
+## 19. Free Gemini path — APPROVED by Jorge 2026-09-29 ("yes, approved, execute") · PASTE-X-009 → COWORK
+
+Cost: **$0** (Gemini free tier). No card. If Google asks for billing, STOP — that is not approved.
+Cloud already fixed and tested the tool (`vts-llm-panel/`, 4 offline tests pass): Gemini model
+updated to `gemini-2.5-flash` (1.5 was retired), and paid fallbacks are now blocked unless a cost
+estimate is APPROVED (tools/llm_cost_gate.py). Cloud cannot reach Google, so the live proof is yours.
+
+1. `git pull`.
+2. In Chrome, open `https://aistudio.google.com/app/apikey`, signed in as jorgev2121@gmail.com.
+   Click **Create API key**. If Google shows a consent screen, Jorge clicks Continue (his only step).
+3. Save the key into 1Password as `Gemini API — free tier (VTS panel)`. Never into a file or chat.
+4. Set it as a user environment variable, not in any script:
+   `[Environment]::SetEnvironmentVariable('GEMINI_API_KEY','<paste from 1Password>','User')`
+   then open a new PowerShell window.
+5. Proof: `python vts-llm-panel\vts_llm_panel.py --health` must show `gemini LIVE`, then
+   `python vts-llm-panel\vts_llm_panel.py "Reply with the word OK"` must show `[answered by: gemini]`.
+6. Paste both outputs (never the key) into TO-CLOUD.md under "ITEM 19 PROOF".
+
+### Item 19 — CHECKPOINT MODE (Jorge 2026-09-29: "I do not trust Code to take A-Z")
+
+Do ONE step, paste its proof to TO-CLOUD.md, then STOP and ask Jorge "Step N done — shall I do step N+1?".
+Never chain steps. Do NOT resume the paused 1Password login-options cleanup unless Jorge says so by name.
+
+- **Step 1 — DONE 2026-09-29 (Jorge confirmed 4 ok on PC).** (read-only): `git pull`; run `python -m unittest vts-llm-panel/test_vts_llm_panel.py -v`;
+  report the 4 "ok" lines and `git log --oneline -1`. Change nothing else. STOP.
+- **Step 2 (Jorge, 3 clicks, no agent):** aistudio.google.com/app/apikey → Create API key → Copy →
+  save in 1Password as `Gemini API — free tier (VTS panel)`. If Google asks for billing: stop, $0 only.
+- **Step 3 (after Jorge says "step 3"):** set user env var `GEMINI_API_KEY` from that 1Password item
+  (`op read`), open a new shell, run `--health` and one "Reply with the word OK" call. Paste outputs,
+  never the key. STOP.
+
+## 20. Free AI keys straight into 1Password — Jorge approved 2026-09-29 · PASTE-X-010 → COWORK
+Supersedes item 19 steps 2–3. Protocol base: `ONE-PASSWORD-TAKEOVER_TRK-2026-9346_2026-08-18.md` Section A —
+**no executor reads, types, stores or transmits a key value.**
+
+**Rules:** $0 only — if any site asks for a card, skip it and report. Sign up with "Continue with Google"
+(jorgev2121@gmail.com). **Do not take a screenshot while a key is on screen, and never read a key aloud or
+type it anywhere.** Checkpoint mode: after EACH key, report "SAVED: …" line and ask Jorge "next key?".
+
+0. `git pull`. Unlock check + dry run: `.\tools\Save-ClipboardKeyTo1Password.ps1 -SelfTest`
+   must print SELF-TEST PASSED. If vault AI-Services is missing, stop and report.
+For each row: open the page → create key → click the page's **Copy** button → run the script → close the key page.
+1. Gemini — aistudio.google.com/app/apikey → "Create API key" → `-Title "Gemini API free"`
+2. Groq — console.groq.com/keys → "Create API Key" → `-Title "Groq API free"`
+3. Cerebras — cloud.cerebras.ai → API Keys → `-Title "Cerebras API free"`
+4. Mistral — console.mistral.ai → choose the free "Experiment" plan (may text Jorge's phone a code —
+   his only step) → API Keys → `-Title "Mistral API free"`
+5. OpenRouter — openrouter.ai/settings/keys → create key, **add no credit** (free models only, $0) →
+   `-Title "OpenRouter API free"`
+5a. GitHub Models — github.com/settings/personal-access-tokens → fine-grained token, **only** permission
+    "Models: read", expiry 1 year → `-Title "GitHub Models token"`
+5b. NVIDIA — build.nvidia.com → sign in → "Get API Key" → `-Title "NVIDIA API free"`
+5c. SambaNova — cloud.sambanova.ai → API Keys → `-Title "SambaNova API free"`
+5d. Hugging Face — huggingface.co/settings/tokens → "Read" token → `-Title "Hugging Face token"`
+5e. Cohere — dashboard.cohere.com/api-keys → the free **Trial** key → `-Title "Cohere API trial"`
+5f. **Airtable (Wally pipeline, Article 2 priority)** — airtable.com/create/tokens → personal access
+    token, scopes `data.records:read` + `data.records:write` + `schema.bases:read`, access = the Wally
+    CRM base only (if no such base exists, skip and say so) → `-Title "Airtable Wally token"`
+6. Proof: `.\vts-llm-panel\run-panel.ps1 --health` → paste the table (shows LIVE / NO-KEY, never keys)
+   into TO-CLOUD.md under "ITEM 20 PROOF".
+
+**Not in this item (paid — cost gate first):** OpenAI, Anthropic API, xAI/Grok. Existing XAI key is dead.
+
+**Data rule for free tiers:** providers may use free-tier inputs to train models. Until reviewed, send
+them no client names, addresses, SSNs or account numbers — sorting labels and generic text only.
+
+## 21. Grok Bot "out of usage" — check which account it is signed into · PASTE-X-011 → COWORK
+**Facts (cloud, from Gmail 2026-09-29):** "Grok Bot is now included with your SuperGrok plan" (updates@email.grok.com,
+2026-08-27, to jorgev2121@gmail.com). SuperGrok is active (Stripe receipt #2347-8393, 2026-09-17). Grok Bot usage is a
+quota that resets on a timer ("Your Grok Bot usage just reset", 2026-09-05). Jorge ALSO pays X Premium+ ($40) — a
+different login that also carries Grok. **API keys and SuperGrok are separate billing and cannot be linked.**
+
+Read-only, checkpoint mode — look and report, change nothing:
+1. Open the Grok Bot app (desktop). Find Settings / Account. Report which account is signed in: the grok.com
+   account jorgev2121@gmail.com (holds SuperGrok) or an X account (holds X Premium+).
+2. Report the plan it shows and the usage-reset time it shows. No screenshots of anything showing keys or cards.
+3. STOP and ask Jorge. If it is the X account: the fix is Sign out → sign in with the account that holds SuperGrok
+   (Jorge clicks; 1Password fills). If it is already SuperGrok: usage simply ran out; it comes back at the reset time,
+   and more usage means a bigger plan (SuperGrok Plus ~$100/mo — needs Jorge's approval, cost rule).
+
+### Item 21 — UPDATE 2026-09-29: Jorge APPROVED moving the bots to SuperGrok (PASTE-X-012)
+> Jorge: "cowork to move bots to supergrok; if too challenging recreate the bots under the supergrok account."
+4. **Before changing anything, inventory every bot** into `mailbox/to-cloud/GROK-BOTS-INVENTORY_2026-09-29.md`:
+   name, its full instructions text, schedule, which tools/apps it is connected to. **No passwords, keys or tokens.**
+   Commit + push it. This file is what makes recreation possible if the old bots do not carry over.
+5. Sign Grok Bot out, sign in with the SuperGrok account (jorgev2121@gmail.com; 1Password fills, Jorge approves).
+   Report: plan shown, usage shown, and whether the bots are still listed.
+6. If the bots did not come across: recreate each one from the inventory, one at a time, and report after each.
+   Re-connecting a tool (Gmail, Drive, etc.) needs Jorge's consent click — ask, never click consent for him.
+7. Do NOT delete anything on the X account. Old bots stay there until Jorge says otherwise.
+
+---
+
+## 22. Broken shortcut pop-up: "shortcut file no longer exists" in OneDrive\Scripts\Panel · PASTE-D-068 → DESKTOP
+
+**Reported by Jorge 2026-10-09.** When he clicks something, a pop-up says a Windows
+shortcut under `C:\Users\JV\OneDrive\Scripts\Panel\` no longer exists. The cloud
+cannot see the PC, and the full filename was cut off in what he pasted. **Do not ask
+Jorge diagnostic questions. Find it yourself.**
+
+Checkpoint mode: do one step, show the proof, then stop.
+
+1. **Find it (read-only).**
+   - List `C:\Users\JV\OneDrive\Scripts\Panel\` with dates, or record that the folder is gone.
+   - Search for anything that points into that folder: Desktop and Start-menu `.lnk` targets,
+     `VTES-CONTROL-PANEL.html`, `BRIDGE-PICKER.hta`, the scripts in `OneDrive\Scripts\`,
+     the browser's start pages, and Task Scheduler.
+   - Check the OneDrive recycle bin and the Windows recycle bin for the missing `.lnk`.
+   - Report: what Jorge clicked, which file it calls, and whether that file was deleted,
+     moved, or never created.
+2. **Fix (only after step 1's proof is shown).**
+   - If it was moved, re-point the caller to the real file.
+   - If it is in a recycle bin, restore it.
+   - If its target is gone for good, remove the dead button rather than leave a pop-up.
+   - Back up any file before editing it (`NAME_bak-YYYYMMDD.ext`, extension last — never `.ext.bak-DATE`). Delete nothing without Jorge's yes.
+3. **Proof.** Click the same button once. It should open the right thing with no pop-up.
+   Push a short result to `mailbox/to-cloud/`.
+
+## 23. REMOVE the PC headless cap, then Speechify everywhere · PASTE-D-071 → DESKTOP · owner yes 2026-10-14 ~8:50 AM ET
+**Owner words:** "yes, remove the PC limit first. Add all enhancements available so speechify becomes available to read highlighted and or auto-populate". RED approved by Jorge in chat. Work from branch `claude/pensive-allen-tyjgl4` (git fetch + checkout that branch first).
+
+**A. Remove the cap (RECURRING-ISSUES 2026-10-14, option 2, Tier 2 — removal).**
+1. Backup first: copy Inbox-Codex-Failover.ps1 to `Inbox-Codex-Failover_bak-20261014.ps1` (same folder). Write rollback `Rollback_Remove-Headless-Cap_2026-10-14_HHMM.ps1` to `C:\Users\JV\OneDrive\Documents\Reports\Undo_Manifests\` (it copies the _bak file back).
+2. In Inbox-Codex-Failover.ps1 (and any other script that writes CAP-REACHED_*.md — search for "CAP-REACHED" and "daily cap"), remove the home-made daily counter so headless Claude runs are limited only by Anthropic's real plan limit. Do not touch any other logic.
+3. Proof: run one headless job; show it starts after the old 6 limit would have blocked it; no new CAP-REACHED file. Write `EXECUTED_REMOVE-HEADLESS-CAP_2026-10-14.md` to VTES-Outbox with the diff, the backup path and the rollback path.
+4. Then drain the stalled queue in order: orders/pending/ (oldest first), RAMBO-QUEUE_2026-10-12.md, the PaperPort-188 table copy, Alec PDFs copy. Codex never gets client data.
+
+**B. Speechify everywhere (YELLOW — rollback first).**
+1. Install the new read-aloud script: run `tools\readaloud\Install-Read-Aloud.ps1` from the branch. New: **highlight text in ANY app, press Ctrl+Alt+R (Edge reads it) or Ctrl+Alt+S (Chrome + Speechify)** — no Copy click needed; the clipboard is restored.
+2. Speechify browser extension in BOTH Chrome and Edge: installed, signed in, enabled. Open its settings and switch ON every option that reads highlighted text or shows the player automatically (right-click "listen"/context menu, the on-page play button, auto-show on all sites). Write down the exact names of the options you switched on — do not guess.
+3. Windows right-click on files: do orders/pending/MSG-CLOUD-TO-CODE_SPEECHIFY-RIGHT-CLICK_2026-10-14.md (HKCU only, rollback first).
+4. If the Speechify Windows desktop app is installed, turn on its own "read selected text" shortcut if it has one; record the key.
+5. Proof: screenshots of each switched-on setting + both right-click menus → `EXECUTED_SPEECHIFY-EVERYWHERE_2026-10-14.md` in VTES-Outbox.
+
+## 24. Claude opens on RAMBO (Code) + Claude Launcher pinned to the taskbar · PASTE-D-072 → DESKTOP · owner ask 2026-10-14 ~9:05 AM ET
+**Owner words (summary):** clicking Claude should open the desktop executor RAMBO by default; all other Claude options one click away; an off-the-rack dashboard pinned as an icon. No official Anthropic launcher exists (docs checked 2026-10-14), so the cloud built `tools/claude-launcher/Claude-Launcher.html` (tested: 11 links, no errors, fits phone width).
+YELLOW — rollback first (`Rollback_Claude-Launcher_2026-10-14_HHMM.ps1` in Undo_Manifests: removes the 2 shortcuts, re-pins the original Claude icon).
+1. Copy `tools\claude-launcher\Claude-Launcher.html` to `C:\VTES-LOCAL\ClaudeLauncher\`.
+2. **Default = RAMBO:** create shortcut "Claude — RAMBO (Code)" whose target is `claude://code/new` (documented Claude desktop deep link; add `?folder=<the repo folder on this PC>` if Desktop accepts it). Unpin the plain Claude icon from the taskbar and pin this one in its place (Claude icon as the shortcut icon). TEST: click it → a new Code session opens. If `claude://` cannot be pinned directly, make the shortcut run `explorer.exe "claude://code/new"`.
+3. **Launcher:** open the launcher HTML in Edge → ⋯ → Apps → "Install this site as an app" (name "Claude Launcher") → right-click its taskbar icon → Pin to taskbar. Also put a shortcut on the Desktop (launchpad only). First click on a 🖥️/🤝/💬 tile: tick "Always allow" for claude://.
+4. TEST every tile once; note any that fail.
+5. Proof: screenshot of the taskbar + launcher → `EXECUTED_CLAUDE-LAUNCHER_2026-10-14.md` in VTES-Outbox.
+
+## 25. Panel approvals 2026-10-14 (owner yes 10:38 AM)
+**Owner words:** "YES — go ahead with the workaround in the blocker note", clicked in the panel's "Waiting on you" list at 10:38 AM ET. Covered by the already-pasted PASTE-D-072 queue drain. No new paste ID. Do these after items 23 and 24.
+
+1. **D-062 read-only check (A-20260928-16). GREEN, read-only.** The result never came back since 2026-09-28 (no `PASTE-D-062-RESULT.txt` in VTES-Outbox, searched by cloud 2026-10-14). Run **only section 1** of `mailbox/to-desktop/Executor-Takeover_PASTE-D-063.ps1` (the "Read-only check" block: state of `CU-Uptime-Heartbeat`, `VTES-LOCAL-POLLER`, `CU-Inbox-Job-Watcher`; newest Outbox file; reachability of api.anthropic.com, github.com, drive.google.com; printer queue). Do not run the other sections; they were for the 2026-09-28 rebuild. Write the output to `G:\My Drive\VTES-Outbox\PASTE-D-062-RESULT.txt` with today's date on line one. Proof = that file exists.
+2. **Two PC confirmations from the 17 owner gates (A-20260731-17, gates REG-0009 and REG-0010). GREEN, read-only.** Check whether (a) the Buttons 9/10/13 install package from 2026-07-23 and (b) the Dropbox Auto-Installer Watcher are installed and working on this PC. Look only: list the files, shortcuts and scheduled tasks by name, and the watcher's last run time. Change nothing. Write `EXECUTED_GATES-REG-0009-0010-CHECK_2026-10-14.md` to VTES-Outbox: one line each, "PRESENT and working", "PRESENT but broken (why)", or "NOT FOUND". Jorge has already approved both gates; this check is the proof they can be closed.
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
 handing him four decisions. `CLAUDE.md` Rules 1 and 7 forbid both. **Recommend one
 option, give the tradeoff in a single line, and proceed unless he objects.** He is a
 non-technical one-man operation; work handed back to him does not get done.
+
+## Item 26 — Panel feeds to 100% via Power Automate Desktop (PAD) · owner ask 2026-10-14 ~9:45 PM ET · 🖥️ DESKTOP
+Goal: finish the 22 PC-only panel pieces (TASKS, APPROVALS, ORCHESTRATOR, TODAY, SESSIONS, CONNECT, STATUS, OCR, REPORTS, JOBS, CAPSULES, LLMS, AGENTS, USAGE, BACKUP). Each piece only needs the PC to write ONE small status file to Drive VTES-Outbox on a schedule; the panel reads it.
+Build each as a PAD flow (Windows Task Scheduler trigger), no Claude run needed, so the 6-a-day cap does not matter:
+1. Every 5 min: `_RAM-GUARD-HEARTBEAT.md` + free-RAM number → STATUS (RAM guard, Free RAM).
+2. Every 20 min: `_OCR-HEARTBEAT.md` + counts of PaperPort / Downloads / Dropbox / C: scans waiting → STATUS, OCR.
+3. Every 15 min: `heartbeat.json` per lane (Orchestrator, Token Monitor, Local Executor) with OK/FAILED/LATE/STUCK → SESSIONS, CONNECT, USAGE (token monitor tile).
+4. Hourly: export the PC task registry and approvals queue as `PC-TASKS.json` and `PC-APPROVALS.json` → TASKS, APPROVALS, TODAY (no money amounts — counts only).
+5. Hourly: job-folder census `PC-JOBS.json` (folder, file count, newest file date) and `_TAG-INDEX.json` → JOBS, CAPSULES.
+6. Hourly: LLM provider ping results `LLM-HEALTH.json` (13 providers, up/down only) → LLMS; housekeeping counts → AGENTS; repair rows → REPORTS.
+7. Nightly 2 AM: backup of the repo + panel export to Drive `BACKUP/` with a dated name → BACKUP.
+8. ORCHESTRATOR: worker picks up a queued job and writes back the same correlation ID (`CID-<date>-<n>`) in its EXECUTED file.
+Rules: GREEN only (read, count, write new status files). No client file is moved, renamed or deleted. No money amounts in any feed. Proof: one EXECUTED_PAD-FEEDS_<date>.md listing each flow, its schedule and the first file it wrote (Drive ID). Grok bots cannot reach the PC, so they are not used for this item; they keep doing reminders. Did each flow write its first file?
+
+## 27. Windows login error + reconnect disconnected agents (from panel orchestrator queue, 2026-10-10; missed 5 days, routed 2026-10-15)
+- Jorge typed into the panel on 10-10: "fix windows login error and fix all LLMs and agent that are disconnected". No check read it until 10-15.
+- PC: capture the exact Windows login error text (screenshot to VTES-Outbox), list which local agents and LLM links are down, and write EXECUTED_/BLOCKER_ to VTES-Outbox. Read-only first; no credential changes without Jorge present (1Password rule).
+
+## 28. Free PC watchdog for the panel (no Claude usage) · OWNER-DIRECTIVE AGENTS-OWN-FOLLOW-THROUGH-01
+- A small scheduled script (PAD or PowerShell, every 30 min) that reads the repo files selftest/SELFTEST-LOG.md and inbox-sweep/last-mail-check.txt. If either is older than 3 hours, it writes BLOCKER_EXEC01-SILENT_<time>.md to VTES-Outbox and shows a Windows toast.
+- Purpose: when Claude's usage limit stops the Cloud checks, something still notices. GREEN: read-only plus one new file.
+
+## 29. Owner-approved panel items of 10-14 (approved 14:01Z, never run) · Claude lane, client items never to Codex
+1. outlook-fix: run the one-click stray-process clear and reopen Outlook.
+2. edge-cookie-clear: clear Edge cookies for the HTTP 400 fix (1Password signs back in).
+3. inbox-approval-gate: add the approval gate to CU-Inbox-Job-Watcher (already in OWNER-APPROVED-PC-ITEMS_2026-10-13).
+4. codex-backup-install: check first; Codex is already installed and answered an order on 10-14 22:51. If installed, report "already done".
+5. Alec reports TRK-2026-1286, 1292, 1534, 1612 (ready) and 1535, 1536 (PDFs not made): make the missing PDFs, then open ONE Outlook draft to Alec with all ready PDFs attached, for Jorge's Send. Never send.
+6. claude-desktop-install: needs Jorge's own click on the Windows Administrator box; just leave the installer in Downloads and say so.
+Receipt per item: EXECUTED_/BLOCKER_ in VTES-Outbox. The cloud then sets doneAt on each panel approval.
+
+## 30. OCR to the LATEST protocol (L3), Phase 1 = 2022-01-01 to today · owner ask 2026-10-15 · 🖥️ DESKTOP · free lane, zero AI tokens
+Files: tools/ocr/Install-OCR-QueueA.ps1 (v2), OCR-QueueA-Runner.ps1 (v2), OCR-L3-Lib.ps1, OCR-Census.ps1. Backups: *_bak-20261015.ps1.
+1. Install Tesseract and Poppler if missing (the runner reports tools=False in the heartbeat if they are).
+2. Run Install-OCR-QueueA.ps1. It registers the 15-minute runner and the hourly census. No admin needed.
+3. Check G:\My Drive\VTES-Outbox\_OCR-HEARTBEAT.md grows and _OCR-CENSUS.md appears. Report both files as the proof.
+Tested in the cloud on sample PDFs (text-layer and upgrade paths). NOT tested: scanned pages (no Tesseract in the cloud).
+Order of work: 2022-to-today first, then 2021, 2020 and so on. Older sidecars are upgraded from their own text and backed up to C:\AI\ocr\_bak first.
+
+## 31. Save the signed Unit 922 and 321 scans from email into the job folder (GREEN, read and save only) · owner ask 2026-10-15 · 🖥️ DESKTOP
+1. Gmail message id 1a0848e2533236e2 (2026-09-09 03:32 UTC, subject "Permit Extension Applications - Units 220 & 721 ...") has two PDF attachments both named "PERM App - Extention of time submittal -.pdf". The same send is in Outlook Sent, 9/8 11:32 PM. Save both into the TRK-2026-1265 job folder as new files named per CLAUDE.md section 9.1 (do not overwrite anything), then tell the cloud the file names.
+2. Open each and say which pages show a signature and a notary seal. Hebert Martinez's reply says they show Units 922 and 321.
+3. Jorge also holds executed hard copies of 922 and 321. If the email scans are not clean, scan the hard copies instead.
+4. Nothing leaves the PC. Sending to the Village is RED and waits for Jorge.
+
+## 32. Print the Bal Harbour renewal packs, 3 copies each (GREEN, print only; nothing leaves the PC) · owner ask 2026-10-15 · 🖥️ DESKTOP
+Files are in the repo folder renewal-packet/ : PRINT-PACK_3-copies_Unit-423_BLC2024-0714, Unit-922_BLC2024-0717, Unit-321_BLC2024-0707 (each 3 copies of the Renewal-marked application, 3 of the Notice of Commencement, and for 922 and 321 3 of the owner-signed recorded 2024 notice page). Print at 100 percent, black and white is fine, Letter size. Then tell Jorge which printer and the page counts (423: 6, 922: 9, 321: 9). Copy the packs and the v5 and NOC files into the TRK-2026-1265 Drive job folder as new files (do not overwrite). Unit 321 application has a garbled owner address line (needs fixing before signing).
+
+## 33. Document-event bot with Power Automate Desktop (PAD), no AI in the loop · owner ask 2026-10-15 · 🖥️ DESKTOP · free lane
+Goal: any action on the PC that creates or moves a document or email attachment is picked up at once, by rules, with no thinking and no tokens.
+1. Outlook rule plus PAD flow: every new attachment is saved to one Drive folder `_INBOX-ATTACHMENTS` with the name `DATE _ SENDER _ ORIGINAL-NAME` (new file only, nothing overwritten).
+2. PAD folder watchers on Downloads, Desktop, PaperPort and the scanner folder: copy each new file to the same inbox folder and add one line to `_INBOX-LOG.csv` (time, source, name, size).
+3. A matcher reads the file name and text and looks for EXACT keys only: TRK number, permit number (BLC...), folio, unit plus address. Exact hit: write the key into the log row and the sidecar. No exact hit: leave it as an orphan (OPH number). No fuzzy matching, ever.
+4. MOVING a file into a job folder is filing, which is RED. It stays a one-click approval until Jorge gives a standing yes for exact-key moves. Until then the bot only saves, stamps and logs.
+5. The cloud watch reads `_INBOX-LOG.csv` hourly and updates the job page placeholders. See control-panel/ROOT-CAUSE_DOCS-NEVER-APPLIED-TO-PLACEHOLDERS_2026-10-15.md.
+Related: item 26 (PAD panel feeds), item 31, item 32.
+
+## 34. MODEL BLOCK on the PC: Desktop executor defaults to Sonnet · owner order 2026-10-15 ~4:10 PM ET · 🖥️ DESKTOP (GREEN, setting only, no client data)
+Jorge ordered Fable 5.1 and Opus 5.5 blocked from running and using his usage limits. He never authorized them.
+1. Back up the Claude Code settings file first (NAME_bak-20261015.ext). Write a rollback script to the Undo_Manifests folder.
+2. Set the default model for Claude Code and for every scheduled task or headless script on this PC to Sonnet 5.5. Search the scripts for "opus", "fable" and "--model" and list every hit.
+3. Do not choose Opus or Fable for any run unless Jorge says so in that run's own order.
+4. Proof: the settings diff and the list of script hits, written to EXECUTED_MODEL-BLOCK_2026-10-15.md in VTES-Outbox. Then report the file name to the cloud.
+
+## 35. WRONG OR DATED PANEL PAGE opens from the PC · owner complaint 2026-10-15 ~4:20 PM ET · 🖥️ DESKTOP (GREEN, read first)
+Jorge clicked "VTES CONTROL PANEL" and got a page that says "Built 2026-10-15 15:46. Source dates are shown on each destination." It shows no version number and looks dated. The current panel is the claude.ai page titled "VTES Control Panel v58 (CURRENT)" (artifact 321Zo6MTHdv9Mj3hGD1QDj). That sentence does not appear in v58 or in the repo, so the PC is serving a different page.
+1. Find which file or shortcut produced that page (the click target, the file path, its Built time, which task or script writes it). Read only. List every other panel page file on the PC with its date.
+2. Back up what you change (NAME_bak-20261015.ext). Write a rollback script.
+3. Point the "VTES CONTROL PANEL" button, the Desktop shortcut and the Claude Launcher tile at the v58 artifact link. Retire the older pages by moving them to _Superseded.
+4. Proof: screenshot of the click opening the page with the version name in its title, plus the list from step 1, written to EXECUTED_PANEL-POINTER_2026-10-15.md in VTES-Outbox.
+
+## 36. PaperPort and scanner feeder: read-only settings report (GREEN, change nothing) · owner ask 2026-10-15 ~6:50 PM ET · 🖥️ DESKTOP
+Jorge has recurring feeder trouble. Gemini gave him PaperPort settings; the cloud has not seen them. First capture what is actually set, so the two can be compared.
+1. Write a plain-words report, no changes, to `G:\My Drive\VTES-Outbox\EXECUTED_PAPERPORT-SETTINGS-REPORT_2026-10-15.md` (never overwrite).
+2. For each PaperPort scan profile: name, scanner, driver type (TWAIN or WIA), Source (Flatbed / ADF / Duplex ADF), resolution, colour mode, "single page items" option on or off, "multiple pages into one item" on or off, "Hide scanner native user interface" on or off, save format, save folder.
+3. The scanner is a Brother MFC-L3770CDW (Jorge, 2026-10-15). Confirm it in Windows, then: make, model, driver name, driver date and version, connection (USB or network), whether Windows lists it as healthy, and the last 10 scanner or PaperPort errors in Event Viewer (time and text only).
+4. Feeder mechanics Jorge can check by eye are NOT for the PC; leave them out.
+5. Proof: the file above. Tell the cloud the file name; the cloud compares it with Gemini's list once Jorge pastes it.
+
+6. Brother-specific: also record whether the Brother TWAIN or WIA driver is the one PaperPort uses, the Brother scanner utility installed (name and version), and whether the scanner is reached by USB or by its network address (the address may change if it is not fixed).
+
+7. Compare against `runner-results/PAPERPORT-SETTINGS-GUIDE_Brother-MFC-L3770CDW_2026-10-15.md` Sections A and B: for each of the 8 settings, write EXPECTED, FOUND, MATCH or MISMATCH. Do not change anything.
+
+8. Known from Jorge's screenshot at 7:11 PM ET: PaperPort's status bar shows **300 DPI, 24-bit color**. Gemini's list says **Grayscale 8-bit**. Expect a MISMATCH on colour mode. PaperPort folder 'My PaperPort Documents' holds 126 items; the Folder Manager window was open on the Documents master folder (C:\Users\JV\OneDrive\Documents). Do not change the folder setting.
+
+---
+## ITEM 2026-10-21-A · ACCESS BLOCKERS (Jorge's own report, read-only survey first) · added by cloud 2:30 PM ET
+Source: Jorge emailed himself, 2:14 to 2:28 PM ET Oct 21, three messages with phone screenshots, subjects "Access issues snips to share paste into LLM for repairs", "last picture of blocker for the day", "Second last blocker pop-up for access problems", "Most recent of major blockers from windows Microsoft and major providers block access to many other things". Also 1Password support ticket 848408 opened 2:11 PM ET. The cloud cannot view the images (and they may show secrets), so it has NOT opened them.
+What Jorge said in words: Outlook (probably the Exchange connection) has been slow for about a year; 2 of 4 items show as sending and stay stuck; a send that should take 1 to 2 seconds takes 4 to 5.
+1. READ-ONLY. Do not change settings, do not type or reveal any password, do not click security prompts.
+2. Write a plain-words report to `G:\My Drive\VTES-Outbox\EXECUTED_ACCESS-BLOCKERS-SURVEY_2026-10-21.md` (never overwrite): list the pop-ups currently on screen (title and which app only), Outlook profile type and Outbox item count with ages, Windows sign-in state (which accounts are signed in, none of the secrets), 1Password app status (locked, unlocked, sync error text).
+3. Tell the cloud the file name. Jorge decides every fix.
+Closing question for the desktop: which of these blockers is the oldest?
+
+---
+## ITEM 2026-10-22-A · ADOBE ACROBAT ONBOARD job refused by Codex · added by cloud 9:20 PM ET Oct 21
+Codex wrote BLOCKER_CODEX-PII_VTES-JOB_ADOBE-ACROBAT-ONBOARD_V1_2026-10-21.md (Outbox, 9:03 PM ET): the job text matched a client-detail pattern, so it was not sent. The job text lives only on the PC.
+1. Run it on the Claude lane (cap resets 00:00 ET) or the LOCAL lane. Do not send it to Codex.
+2. Write the result to `EXECUTED_ADOBE-ACROBAT-ONBOARD_2026-10-22.md` in the Outbox. No passwords, no clicking Google or Adobe consent prompts.
+Closing question for the desktop: did the Claude lane take this job?

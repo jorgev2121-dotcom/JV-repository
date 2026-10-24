@@ -1,0 +1,290 @@
+<title>Alec Valdes Rollup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree rollup. CSS copied from CAPSULE-ENHANCED_TRK-2026-1612_2026-10-13.html. */
+
+/* Orange Tree ENHANCED job capsule. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+
+
+.ready-yes{background:var(--ok-soft);color:var(--ok)}
+.ready-no{background:var(--accent-soft);color:var(--accent)}
+.ready-na{background:var(--wait-soft);color:var(--wait)}
+
+</style>
+
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="pickready" class="go" title="Tick every job that is ready to send">Tick the ready jobs</button>
+  <button id="allc" title="The whole rollup, money excluded while locked, as one continuous page">Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">CLIENT ROLLUP · ORANGE TREE · MASTER TRK-2026-9047</p>
+<h1>Alec Valdes · Avis Builders · all 8 jobs</h1>
+<div class="facts">
+  <span><b>Client</b>Alec Valdes (Avis Builders)</span>
+  <span><b>Master batch</b>TRK-2026-9047</span>
+  <span><b>Jobs</b>7 properties plus the 1531 microfilm batch</span>
+  <span><b>Prepared</b>2026-10-13, nothing sent</span>
+</div>
+<div class="deadline">5 of 8 ready to send today · 2 need a PDF first · 1 has no report of its own
+<small>Nothing has gone to Alec and no invoice exists. One yes from you releases the 5 ready reports with their correction notes. Then the invoice. Amounts are in the money zone (code 0000).</small></div>
+<p class="stamp">TRK-2026-9047 · Alec Rollup · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile c" data-go="j1612"><span class="n">5</span><b>Ready to send</b><small>1612, 1534, 1289, 1286, 1292.</small></button>
+  <button class="tile y" data-go="j1535"><span class="n">2</span><b>Need a PDF first</b><small>1535 and 1536.</small></button>
+  <button class="tile w" data-go="j1289"><span class="n">4</span><b>Correction notes</b><small>Must travel with their report.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> Five reports are finished and <b>none has been sent</b>. Four reports (1535, 1289, 1286, 1292) carry a correction note that must go with them. Tick the jobs, press <b>Copy for email</b>, and the cover email and invoice drafts are ready in the runner-results folder.</p></div>
+
+<div class="tags"><b>Hashtags</b>#TRK-2026-9047 #AlecValdes #AvisBuilders #TRK-2026-1286 #TRK-2026-1289 #TRK-2026-1292 #TRK-2026-1531 #TRK-2026-1534 #TRK-2026-1535 #TRK-2026-1536 #TRK-2026-1612 #11997-SW-218-St #DueDiligence #DD #rollup #orange-tree #JorgeValdes #CU-Inspections</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>8 job branches: 5 ready, 2 need a PDF, 1 has no separate report. Built from the seven job capsules of 2026-10-13, ALEC-VALDES_ALL-JOBS_2026-08-24.md, the _ALEC-VALDES-DD hub _STAGE and the 2026-10-10 inbox sweeps. Nothing on this page sends, files, moves or deletes anything. Ticks are not saved.</p>
+  <p class="tag">TRK-2026-9047 · Alec Rollup · v1 · 2026-10-13 · CURRENT · #TRK-2026-9047 #AlecValdes #AvisBuilders #rollup #orange-tree</p>
+</footer>
+</div>
+
+<script>
+const HUB="17Bg1qkk7IaF75Qa6ZkBK2EC-ukdErDYI";
+const JOBS=[{"k": "1612", "trk": "TRK-2026-1612", "addr": "331 Tamiami Canal Rd, Miami", "folio": "01-4002-003-1200", "area": "City of Miami (Flagami)", "folder": "1qmv-tQKq0qwWRJ98nGJtL9KcBWKE8CAz", "capsule": "1ac2-DjVrh_z-QPtlky-cZ-FLg6grEjix", "r": ["2026-10-10 _ TRK-2026-1612 _ Report _ DD Alec Standard _ v1.pdf", "1AaqsKgAGeT0IDhEgpRgmiQOJ2yhXWz8B", "PDF"], "c": null, "ready": "yes", "readytxt": "Ready to send. PDF finished October 10. No correction note needed.", "head": "Owner of record is Alejandro Luis Compain, with Carrie Compain as life tenant. Two recorded deeds pulled. Tax jacket received.", "gaps": ["City of Miami permit search has not started. The City is waiting on its records-search fee (transaction 1330901), so old permits 70-1199, C-17936V and 72-438 and the 1958 addition are unconfirmed.", "Clerk lien, mortgage and judgment search not done: the Clerk site blocks it with a Turnstile check. This also leaves open whether the life tenant is living, which decides who signs.", "Property Appraiser building sketch and 5 Pictometry views not captured yet.", "Septic records, City code enforcement and some zoning rows not searched yet."]}, {"k": "1534", "trk": "TRK-2026-1534", "addr": "1840 NW 63 ST, Miami 33147", "folio": "30-3115-005-3770", "area": "Unincorporated Miami-Dade", "folder": "1iMO3rvooHDuqLOH_p0UO_8HFnzlb5q1-", "capsule": "18ia1cs6Vy0o4vvteJwzE7NUEhwwWyFf6", "r": ["2026-10-10 _ TRK-2026-1534 _ Report _ DD Alec Standard _ v1.pdf", "1AcPeJPD2DYg6xHTQYHwJvql6bx4wzXVb", "PDF"], "c": null, "ready": "yes", "readytxt": "Ready to send. PDF finished October 10. No correction note needed.", "head": "The 1941 house was demolished after the October 2024 sale. Open permit 2025084268 is building a duplex (1840 and 1842 NW 63 ST). No final or CO on file yet.", "gaps": ["Clerk lien and mortgage search not done: blocked by the Clerk site CAPTCHA.", "Tax Collector balance, permit final status and the sketch and aerial images still need a live browser."]}, {"k": "1535", "trk": "TRK-2026-1535", "addr": "18020 SW 103 AVE, Miami 33157", "folio": "30-5032-086-0020", "area": "Unincorporated Miami-Dade", "folder": "1VqsMKVDz1K_CAOfarKg4WU76vciJl_lq", "capsule": "1KdrxH39I-GqY5bgvm4vaXGgwXUiT26fl", "r": ["2026-10-10 _ TRK-2026-1535 _ Report _ DD Alec Standard _ v1.md", "1te-zH81z13WVJvbqFkL8FoBAyJAxmGze", "Notes (no PDF yet)"], "c": ["2026-10-10 _ TRK-2026-1535 _ Report _ DD Alec Standard _ v2-CORRECTIONS.md", "1JFcuceYbutlgGIJxLcGt_UJ_CP_4Hjy6", "Fixes one date: the county first said \"no building jacket\" on August 24, not September 1. The findings do not change."], "ready": "no", "readytxt": "NOT ready. The report exists only as a notes file; no PDF has been made. Make the PDF first, then send it with the correction note.", "head": "A 2022 to 2023 new build (master permit 2022-069000, Lot 2). No building jacket exists, which is expected; the full permit trail came from county microfilm.", "gaps": ["No PDF of the report exists yet (searched Drive 2026-10-13).", "Alec has never been told that no building jacket exists. The only older draft email to him is out of date and must not be used.", "Final inspection or CO for master permit 2022-069000 not confirmed: needs a signed-in county permit session.", "Clerk Notice of Commencement, mortgage and lien search not done: blocked by the Clerk site CAPTCHA.", "Septic is unconfirmed: the water-and-sewer paper in microfilm names Lot 5, not Lot 2."]}, {"k": "1536", "trk": "TRK-2026-1536", "addr": "10362 SW 180 ST, Miami 33157", "folio": "30-5032-000-1352", "area": "Unincorporated Miami-Dade", "folder": "15L0c4Kixj7UccXoXdvaZE3M4kRc5NrdF", "capsule": "1mbjhYSHkw_2oZu3mbieVWalPBYUv5bp5", "r": ["2026-10-10 _ TRK-2026-1536 _ Report _ DD Alec Standard _ v1.md", "1CRKKppY2A2AwOhvg7ZNF1Kgw3j9OiR0J", "Notes (no PDF yet)"], "c": null, "ready": "no", "readytxt": "NOT ready. The report exists only as a notes file; no PDF has been made. No correction note needed.", "head": "The 1997 unsafe-structures case 97357 is closed and the demolition lien was satisfied in 2001. Seven 2025 trade permits show no completion date.", "gaps": ["No PDF of the report exists yet (searched Drive 2026-10-13).", "Clerk lien, mortgage and judgment search not done: blocked by the Clerk site CAPTCHA. The report calls this the one that matters most.", "Certificate of Occupancy or Completion not confirmed for the 2025 permits.", "Unit count does not match: the Property Appraiser shows 5 units and the impact-fee assessment shows 3.", "Sunbiz entity search blocked (the site refused the request); sketch and aerial images not captured."]}, {"k": "1289", "trk": "TRK-2026-1289", "addr": "1658 NW 1 ST Unit 1, Miami", "folio": "01-4102-098-0001 (condo reference folio; land parcel 01-4102-006-0250)", "area": "City of Miami", "folder": "1GSLddBxDBhErl4M1Ki75MHdQxALKxbTH", "capsule": "1wqDIW69ipl5grImlM0kJqJZlKQOGIJDW", "r": ["2026-10-10 _ TRK-2026-1289 _ Report _ DD Alec Standard _ v1.pdf", "1LTq_sjUZt2TPMOA204E88gIw7pIul_5l", "PDF"], "c": ["2026-10-10 _ TRK-2026-1289 _ Report _ DD Alec Standard _ v2-CORRECTIONS.md", "1Q_IN2lEL3ESRzjiT6esciojER5kYyxL8", "The report says the City microfilm was \"ordered\". In fact it was prepared on August 10 and most likely never submitted."], "ready": "yes", "readytxt": "Ready to send, but only together with the correction note.", "head": "The folio given is a condo reference folio with no owner or value. A new house was finaled on 2024-12-13 under permit BD23018633001. Zoning T5, flood zone X.", "gaps": ["The owner is not proven, because the job was run against a reference folio. A re-run against land parcel 01-4102-006-0250 is still open.", "City of Miami microfilm was most likely never ordered, so there are no City permit records yet.", "Clerk records and imagery not done (Clerk CAPTCHA)."]}, {"k": "1286", "trk": "TRK-2026-1286", "addr": "11997 SW 218 ST, Miami 33170", "folio": "30-6912-004-0951", "area": "Unincorporated Miami-Dade", "folder": "1EhfxswLXwe_wBb6lZWSZWQcfaharetIs", "capsule": "1R7xl0_-srfZ52pl6WBfJecUUBfE7c2zv", "r": ["2026-10-10 _ TRK-2026-1286 _ Report _ DD Alec Standard _ v1.pdf", "18b___rGFsEy1rvxcim8w_F9U1IFHFZ_d", "PDF"], "c": ["2026-10-10 _ TRK-2026-1286 _ Report _ DD Alec Standard _ v2-CORRECTIONS.md", "1D7BL4WtuXsl4xSpnLrTr66rot97VFAKk", "The report says the tax jacket is overdue and should be re-ordered. In fact the Property Appraiser said twice (August 24 and September 2) that no jacket exists."], "ready": "yes", "readytxt": "Ready to send, but only together with the correction note.", "head": "Correct address is 11997 SW 218 ST (not \"1997\", which does not exist). A 2024 new-construction duplex, sold January 2025. No open lien found. No building jacket exists.", "gaps": ["Master permit file 2024043772 not pulled: blocked by the county reCAPTCHA.", "Clerk name-index search not done: blocked.", "Architect or engineer of record, window and door approvals, septic record, Tax Collector bill, sketch and aerial images still missing."]}, {"k": "1292", "trk": "TRK-2026-1292", "addr": "7823 NW 5th Ave, Miami 33150", "folio": "01-3112-016-0030", "area": "City of Miami", "folder": "1DvF-uRQO6EHrkVzipvZaoakVXgFMG-Ft", "capsule": "1HdmJYIAx4Yc4qGkK50V4LCnqta6tB-Cz", "r": ["2026-10-10 _ TRK-2026-1292 _ Report _ DD Alec Standard _ v1.pdf", "1LGmHXAj-fh11LSDDOXG4C1wSPs1iNlkK", "PDF"], "c": ["2026-10-10 _ TRK-2026-1292 _ Report _ DD Alec Standard _ v2-CORRECTIONS.md", "17wrmNgLNbXt0em7VRpuOzX85ToJOSBjJ", "The report says the City microfilm was \"not ordered\". In fact it was ordered, paid and delivered on September 1 as a 14-day download link that was never saved."], "ready": "yes", "readytxt": "Ready to send, but only together with the correction note. The tax jacket (DELIVERABLE v2, September 3) is also ready.", "head": "Owner of record ASF HOMES LLC. Tax jacket received and cleaned. Same parcel as TRK-2026-1531.", "gaps": ["City microfilm lost: delivered September 1 as a 14-day link that was never saved and has almost certainly expired. Getting it again likely means a new request and fee.", "Clerk lien search not done (Clerk CAPTCHA).", "Building imagery (sketch and aerial views) not captured."]}, {"k": "1531", "trk": "TRK-2026-1531", "addr": "7823 NW 5 AV, Miami (same parcel as TRK-2026-1292)", "folio": "01-3112-016-0030", "area": "City of Miami", "folder": "17Bg1qkk7IaF75Qa6ZkBK2EC-ukdErDYI", "capsule": "", "r": null, "c": null, "ready": "na", "readytxt": "No separate report. This is the eighth number on Alec's list: the microfilm batch parent, filed on the same parcel as TRK-2026-1292. Its papers sit inside the 1292 folder. It is delivered through the 1292 report.", "head": "Registry row and order papers only; no capsule folder of its own. Merging it into 1292 is open item TRK-2026-9089 and waits for your one word: merge, or leave both.", "gaps": ["Nothing to send on its own. It matters only for billing: its microfilm cost belongs on the invoice (see the money zone)."]}];
+const MONEY=[["all", "Pass-through costs fronted on Alec's jobs: $100.25, never invoiced", "$56.25 county microfilm (3 orders at $18.75, for 1534, 1535 and 1536, paid 2026-08-06 under batch TRK-2026-1531) plus $44.00 City of Miami microfilm for 1292 (transaction 1326704, paid 2026-08-12). This is the \"invoice $100.25\" in the standing order."], ["all", "Service fees: not set on any of the 8 jobs", "Every _STAGE shows amount [VERIFY], invoiced NO, paid NO. No 2026 invoice to Alec exists anywhere."], ["all", "$5,640 in Zelle payments from Alec, not matched to any job", "$300 (2025-10-14), $340 (2025-12-04) and $5,000 (2026-07-21). Set aside as \"family\" by mistake (TRK-2026-9477). Is the $5,000 a deposit or payment for past work? Only you know."], ["all", "Old invoices, status unknown", "#5931 for $3,250 to AVIS Builder's L.L.C. (2020) and #6051 for $3,800 to Alec Justin Valdes (2023). Both show NO STATUS. Kept off the new invoice."], ["all", "A $112.50 county-fee figure may double-count", "ALEC-VALDES_ALL-JOBS lists $56.25 for 1531 plus $18.75 three times for 1534 to 1536. Those three $18.75 payments add up to the same $56.25, so $112.50 is likely the same money counted twice. [VERIFY]"], ["1612", "1612: City records-search fee $44.00, UNPAID since 2026-08-20", "Transaction 1330901. It is not a pass-through yet, because it has not been paid. Bill it only after it is paid."], ["1292", "1292: re-getting the lost City microfilm may cost a new fee", "Amount unknown. The City said a lapsed link needs a new request."], ["1289", "1289: $44.00 in the pass-through total belongs to 1292, not here", "Transaction 1326704 is the 7823 NW 5th Ave order."], ["all", "Tax jackets cost $0.00", "The Property Appraiser supplies them free."]];
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+const RL={yes:['ready-yes','READY TO SEND'],no:['ready-no','NOT READY'],na:['ready-na','NO SEPARATE REPORT']};
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill=o.pill?'<span class="pill '+o.pill[0]+'">'+esc(o.pill[1])+'</span>':'';
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" data-job="'+esc(o.job||'')+'" data-head="'+(o.head?1:0)+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+esc(o.linklab||'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  JOBS.forEach(j=>{
+    const b=j.trk+' · '+j.addr; let x='';
+    x+=row({b,job:j.k,head:1,kind:'job',title:'Pick '+j.trk+' for the email',text:j.readytxt,pill:RL[j.ready],ready:j.ready});
+    x+='<p class="grp">The property</p>';
+    x+=row({b,job:j.k,kind:'fact',title:j.addr,text:'Folio '+j.folio+' · '+j.area+'. '+j.head});
+    x+='<p class="grp">Report to send</p>';
+    if(j.r) x+=row({b,job:j.k,kind:'doc',title:j.r[0],text:'Type: '+j.r[2],link:durl(j.r[1]),pill:j.r[2]==='PDF'?['p-done','PDF']:['p-miss','NO PDF YET']});
+    else x+=row({b,job:j.k,kind:'fact',title:'No report of its own',text:'Delivered through the TRK-2026-1292 report.'});
+    x+='<p class="grp">Correction note</p>';
+    if(j.c) x+=row({b,job:j.k,kind:'doc',title:'Correction note needed: YES. '+j.c[0],text:j.c[2],link:durl(j.c[1]),pill:['p-key','SEND WITH REPORT']});
+    else x+=row({b,job:j.k,kind:'fact',title:'Correction note needed: NO',text:'No v2-CORRECTIONS note exists or is needed for this job.'});
+    x+='<p class="grp">Gaps to tell Alec about</p>';
+    j.gaps.forEach(g=>{x+=row({b,job:j.k,kind:'gap',title:g,pill:['p-flag','GAP']});});
+    x+='<a class="flink" href="'+furl(j.folder)+'" target="_blank" rel="noopener">Open the job folder in Drive ↗</a>';
+    if(j.capsule) x+=' &nbsp; <a class="flink" href="'+durl(j.capsule)+'" target="_blank" rel="noopener">Open the full job capsule ↗</a>';
+    const icon=j.ready==='yes'?'🟢 ':j.ready==='no'?'🟠 ':'⚪ ';
+    branch('j'+j.k,'',icon+esc(j.trk)+' · '+esc(j.addr),esc(RL[j.ready][1])+(j.c?' · with correction note':''),j.gaps.length+' gaps',x,false);
+  });
+  const shut=!unlocked; let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> Fees, pass-through costs, Zelle payments and old invoices stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',job:it[0],title:it[1],text:it[2],pill:['p-money','MONEY']});});
+    m+='</div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':MONEY.length+' items',m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',onTick));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+/* Ticking a job's top box ticks every row of that job. */
+function onTick(e){const c=e.target; if(c.dataset.head==='1'){document.querySelectorAll('#tree input[data-job="'+c.dataset.job+'"]').forEach(x=>{if(items[+x.dataset.i].kind!=='money')x.checked=c.checked;});} upd();}
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>it.kind!=='money'||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">Alec Valdes rollup · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(it.kind==='money'?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    h+='<div class="cpiece"><span class="it">'+esc(it.title)+'</span>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">Open in Drive ↗</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='Alec Valdes / Avis Builders · due-diligence reports · master TRK-2026-9047\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    if(it.kind==='job'){s+='   Status: '+it.text+'\n';return;}
+    s+=(it.kind==='gap'?'   Gap: ':'   ')+it.title+'\n';
+    if(it.text&&it.kind!=='gap') s+='      '+it.text+'\n';
+    if(it.link) s+='      Open: '+it.link+'\n';
+  });
+  return s+'\n— TRK-2026-9047 · Alec Rollup · v1 · 2026-10-13 · CURRENT';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>it.kind!=='money'||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('pickready').onclick=()=>{document.querySelectorAll('#tree input[data-head="1"]').forEach(c=>{const it=items[+c.dataset.i];c.checked=it.ready==='yes';onTick({target:c});});};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+build();
+</script>

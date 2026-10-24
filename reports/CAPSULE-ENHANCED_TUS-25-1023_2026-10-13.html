@@ -1,0 +1,287 @@
+<title>14598 SW 110 Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule (copied from pilot TUS-26-1018). Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+</style>
+
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED</p>
+<h1>TUS-25-1023 · 14598 SW 110 St, Miami</h1>
+<div class="facts">
+  <span><b>Owner</b>Eduardo “Eddie” Miguelez</span>
+  <span><b>Folio</b>30-5910-018-0210</span>
+  <span><b>Master permit</b>2026-012823</span>
+  <span><b>Process</b>C2025117736</span>
+  <span><b>Citation</b>2024-0228754 / A2023-003010</span>
+</div>
+<div class="deadline">Stage 05-DRAFT since 2026-06-23 · <span id="daysleft">112 days in this stage</span> · overdue (alarm at 7 days)
+<small>No hard deadline is on file. The resubmittal to Miami-Dade is waiting on Tomas’s corrected letter.</small></div>
+<p class="stamp">TUS-25-1023 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile c" data-go="status"><span class="n">2</span><b>Arrived and filed</b><small>County forms, October 12. Tax jacket, September 3.</small></button>
+  <button class="tile y" data-go="status"><span class="n">11</span><b>Still missing</b><small>Letters, forms, inspection, searches.</small></button>
+  <button class="tile w" data-go="people"><span class="n">5</span><b>Waiting on</b><small>You, Tomas, the county, the electrician, the desktop.</small></button>
+  <button class="tile y" data-go="findings"><span class="n">12</span><b>Findings</b><small>Typos, duplicates, banned backup names.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> The resubmittal is stuck on <b>one letter</b>: Tomas’s corrected, re-sealed As-Built Letter. The follow-up asking him for it is drafted in Outlook and <b>waits for your “send”</b>. His original July 2 letter is also not saved in this folder yet.</p></div>
+
+<div class="tags"><b>Hashtags for this job (from _TAGS.txt, August 26)</b>#TUS-25-1023 #folio-30-5910-018-0210 #14598-SW-110-St-Miami #14598-SW-110-St #Miguelez #reimbursement #tax-jacket #JorgeValdes #CU-Inspections<br><b style="margin-top:8px">Suggested additions (not yet in _TAGS.txt)</b>#Eddie #EduardoMiguelez #2026-012823 #2026012823 #C2025117736 #2026035476 #2024-0228754 #A2023-003010 #14595-typo #I4598-typo #irrigation-well #concealed-work #CAT082 #as-built #TomTech #TomasHernandez #Chitolie #MDC-RER</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>128 documents across 9 folders. The Drive folder holds 226 files in all: the 128 documents, 56 backup copies and 42 search, tag, page-map and folder-index sidecars, which are left out of the list. Only documents actually inside this job folder are listed. Nothing on this page sends, files, moves or deletes anything. Ticks are not saved.</p>
+  <p class="tag">TUS-25-1023 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #TUS-25-1023 #Miguelez #14598-SW-110-St #folio-30-5910-018-0210 #capsule #orange-tree</p>
+</footer>
+</div>
+
+<script>
+const FOLDERS=[{"k": "Job root", "t": "Job root", "p": "TUS-25-1023 (top of the job folder)", "fid": "1O3pf_cqyUV34yuU3j5enBbKtXn-_PAt5", "note": "53 backup copies of _PORTAL, _STAGE and _TAGS were left out of this list. All use the banned NAME.ext.bak-DATE form (see Findings).", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "docs": [["_PORTAL_TUS-25-1023.html", "2026-10-13", 121601, "Web page", "1Zj1Ek1vQWI2V1HTFZpMBuTpnBge8XRia", ""], ["_PLACEHOLDERS.md", "2026-10-10", 3428, "Notes", "1OE8x_IY6qqTrKr5U_x6Xq0JElx9hRmR5", "KEY"], ["_STAGE.md", "2026-10-09", 1145, "Notes", "1OKhxXA566D77-sa96HpmaV6sKxpnhIH8", "STALE NEXT ACTION"], ["_CONTACTS-EXTRACTED.txt", "2026-10-05", 405, "Text", "13nFZbemvpFIelqTBiFqxOsNMgeg11sZ9", ""], ["_TAGS.txt", "2026-08-26", 311, "Text", "1ioYc2q4L-xw3B82vrt32qHVrntFq9cwQ", ""], ["_JOB-TREE_TUS-25-1023.html", "2026-08-10", 26098, "Web page", "1_J3oFRqCXkUSJqJNN0jUEGtsbqlBbHfv", ""], ["_READ-FIRST.md", "2026-06-28", 480, "Notes", "1qMwcpJWvLXrd7JiCoXhRmOF8vhsiGJlA", ""]]}, {"k": "_RECEIVED-BY-EMAIL", "t": "_RECEIVED-BY-EMAIL", "p": "TUS-25-1023 / _RECEIVED-BY-EMAIL", "fid": "1zi6Fx3pA82VRqLRHcY4-VaNYCVnp5lFM", "note": "Filed October 12 by the cloud inbox sweep. Form 3 is here as a PDF; forms 1 and 2 are inside the zip, which also holds form 3 again.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["2026-07-09 _ TUS-25-1023 _ Received _ 3 - Standardized Concealed Inspection Report Form v1_1.pdf", "2026-10-12", 294661, "PDF", "14HbmWf_j_7xyoxiWm_Qj3ycu6vMGowQ-", "NEW"], ["2026-07-09 _ TUS-25-1023 _ Received _ 1 - Concealed Work Process Design Professionals.pdf + 2 - Model Cover Letter Concealed Work.docx (zipped).zip", "2026-10-12", 435550, "ZIP", "1Sh7_sJPMLn1nPw5pqXcXJRTgyy3w3pT3", "NEW"]]}, {"k": "01_Emails", "t": "01_Emails", "p": "TUS-25-1023 / 01_Emails", "fid": "1wnfe1APQgYm0d8wZ85vO04lAxltFD5SF", "note": "Several emails say “14595 SW 110 ST” in the subject, one digit off. They are about the irrigation well, which is part of this job, so it looks like a typo in the subject. See Findings.", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "docs": [["_pull-log.txt", "2026-06-24", 147999, "Text", "1LFtKgQyLYJ-q352hwRNIIlCsR4I_vjGh", ""], ["2026-06-12_As-Built Letter (content for your letterhead) - 14598 SW 110_1F860000.msg", "2026-06-14", 67072, "Email", "1tCtXYoipzCrvd7eVrd5fNyXe77QW9CWF", "POSSIBLE DUPLICATE"], ["2026-06-12_As-Built Letter (content for your letterhead) - 14598 SW 110_1F840000.msg", "2026-06-14", 67072, "Email", "1jy0dpKeuhXcjsQ-mq0VxZPPnPjbrhUyj", "POSSIBLE DUPLICATE"], ["2025-06-24_FW_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_1F640000.msg", "2026-06-12", 419328, "Email", "1-YpDroIiJFgcLnqqmQYzIyRj38-HgN0F", ""], ["2026-06-05_Re_ 14598 SW 110 ST - Plumbing Sprinkler 2026035476 _ CAT 00_F2230000.msg", "2026-06-06", 131584, "Email", "1V7oefauNt6AzmAk-lCJkpeODJX1JGP2S", ""], ["2026-06-04_Fw_ 14598 SW 110 ST - Plumbing Sprinkler 2026035476 _ CAT 00_4F0C0000.msg", "2026-06-05", 73728, "Email", "18I8q0yj8T0I9U9SxNXjY3PA51iQ084DS", ""], ["2026-06-04_Fw_ 14598 SW 110 ST - Plumbing Sprinkler 2026035476 _ CAT 00_4F0B0000.msg", "2026-06-05", 76288, "Email", "1Cnrsrq05-zxhM9h4tp7eLWhulcidf2We", ""], ["2026-06-02_Re_ 14598 SW 110 ST - Plumbing Sprinkler 2026035476 _ CAT 00_683A0000.msg", "2026-06-05", 78848, "Email", "1ksl1QeVWtKS_nFGAAyBRd6hmctuMSBCd", ""], ["2026-05-15_Re_ Fw_ 14598 SW 110 St. ELEC Sub permit MDC Master Permit 2_EA110000.msg", "2026-06-05", 67072, "Email", "1yAiCrCZI7PULXnsXFAEokJ7NPOUKoc3_", ""], ["2026-05-14_Fw_ 14598 SW 110 St. ELEC Sub permit MDC Master Permit 2026-_D45A0000.msg", "2026-06-05", 118784, "Email", "14p4S5A3is2nXKaUcvTegbxJpaewIvQwf", ""], ["2026-05-06_Fw_ 14598 SW 110 ST - Plumbing Sprinkler 2026035476_22390000.msg", "2026-06-05", 689152, "Email", "1vVLFqkCK9gRqrIIjn5ShzVz7_4n87D1K", ""], ["2026-05-04_Fw_ 14598 SW 110 ST - Plumbing Sprinkler 2026035476_BE790000.msg", "2026-06-05", 631296, "Email", "1vCLQgY6Ic5qXPNDqLq6gkeMC2U4aflNa", ""], ["2026-05-01_Re_ 14598 SW 110th St., Eduardo Miguelez - master 2026–01282_1AB80000.msg", "2026-06-05", 79360, "Email", "1f5kCV3FQyGJ-Jhy4O-ke9A5fxPAEarg-", ""], ["2026-05-01_FW_ 14598 SW 110 St. ELEC Sub permit MDC Master Permit 2026-_86080000.msg", "2026-06-05", 43008, "Email", "1Zkzgz6YULmFC_f888SOSBFJBYx85KTgZ", ""], ["2026-05-01_14598 SW 110th St., Eduardo Miguelez - master 2026–012823_931F0000.msg", "2026-06-05", 34304, "Email", "1qxfXW2ufWxWjFP_SYg3t7FRmGq1DT7xr", ""], ["2026-05-01_14598 SW 110 St. ELEC Sub permit MDC Master Permit 2026-0128_93200000.msg", "2026-06-05", 42496, "Email", "1miKtSVmyYWCsdRLqpnxjoxSAjK0kDP1a", ""], ["2026-04-20_letter Head - Team USA sales - Miguelez file_DF2B0000.msg", "2026-06-05", 133120, "Email", "1rtrhOZ-rUGdPwcAXSLDmDr2-nksJsrex", ""], ["2026-04-20_Re_ Eddie_DF2C0000.msg", "2026-06-05", 39936, "Email", "1L2XuGrXHIeeDlSLkgvp_j_H5n2fu-nDZ", ""], ["2026-04-13_Fw_ I4598 SW 110 ST Legalization of citations cases P057595_35A60000.msg", "2026-06-05", 80896, "Email", "1h4B3jBkELKX7kVyZLnkmf6aXTtonfpIa", "ADDRESS TYPO I4598"], ["2026-03-27_Re_ Folio 30-5910-018-0210 _ 14598 SW 110 ST _ Process No. W_5B210000.msg", "2026-06-05", 237568, "Email", "1RinArGPUZh4zmnawESjZjz03P-0saFvL", ""], ["2026-03-27_Fw_ Master Permit 2026012823 JOB COPY Plans -14598 SW 110 ST_5B1F0000.msg", "2026-06-05", 748032, "Email", "1FrxL3jiIca-QFhuQig0U_fITh8_gFfo-", ""], ["2026-03-27_14598 SW 110 ST - P.E. AS-BUILT Letter attached_5B200000.msg", "2026-06-05", 69632, "Email", "1hJZ7Liic6RPBSzd0H4MZMls3KT85ytZV", ""], ["2026-03-25_Re_ Master Permit 2026012823 JOB COPY Plans -14598 SW 110 ST_599B0000.msg", "2026-06-05", 1523200, "Email", "1XF4iwI7q7XeCPpp7GPHfs3rn0h-NxfWY", ""], ["2026-03-24_Re_ Master Permit 2026012823 JOB COPY Plans -14598 SW 110 ST_599A0000.msg", "2026-06-05", 1512448, "Email", "1xAjjXGlIIRjhLXCtHIGuaXhWJAGojnJq", ""], ["2026-03-23_Fw_ Master Permit 2026012823 JOB COPY Plans -14598 SW 110 ST_59940000.msg", "2026-06-05", 1448960, "Email", "1OxVTTD94kww_uQN--97w0hQuqTb4_DsU", ""], ["2026-02-24_Fw_ Master Permit 2026012823 JOB COPY Plans -14598 SW 110 ST_A98F0000.msg", "2026-06-05", 1455104, "Email", "1WaM2K30mQyaB9P0vC3ETC3XoW1LA2_1G", ""], ["2026-02-23_Fw_ Master Permit 2026012823 JOB COPY Plans -14598 SW 110 ST_E8D20000.msg", "2026-06-05", 8931328, "Email", "1G4qfMNF0HhnLfa7HEaMYbOlebNfml8tg", ""], ["2025-12-16_RE_ 2026012823 inspection tree -14598 SW 110 ST - legaizaliz_DCED0000.msg", "2026-06-05", 194048, "Email", "1eXFc8JtVn3-B3-ZKYgmdNev5hdjPCjY2", ""], ["2025-12-15_Re_ 14595 SW 110 ST - Legalization of irrigation well - HOLD_C3260000.msg", "2026-06-05", 72704, "Email", "19jWXIJqujRwKHNLUHwWOw1SFR2eX6-v9", "ADDRESS TYPO 14595"], ["2025-12-15_Re_ 14595 SW 110 ST - Legalization of irrigation well - HOLD_83530000.msg", "2026-06-05", 97280, "Email", "12bLw7P_8r34BUEu_2baHjnzxTv-V80HS", "ADDRESS TYPO 14595"], ["2025-12-15_Fwd_ Inspection Request_WCR - 14598 SW 110 ST 33186_83560000.msg", "2026-06-05", 126976, "Email", "19okPQxli4iHVuIBdrTs25eLiXOOJPV6Q", ""], ["2025-12-15_Fw_ 2026012823 inspection tree -14598 SW 110 ST - legaizaliz_C3280000.msg", "2026-06-05", 8804864, "Email", "15UXlXhCMSn3Pq0NvgrET_pq3YHvbcrRz", ""], ["2025-12-15_2026012823 inspection tree -14598 SW 110 ST_C3270000.msg", "2026-06-05", 47616, "Email", "14pFDDnjwt8IMR6L8uszeyaRscnrh_Wi9", ""], ["2025-12-12_Re_ 14595 SW 110 ST - Legalization of irrigation well_88670000.msg", "2026-06-05", 1004032, "Email", "1e12l-WHvkIH0-tJiSJoetUb39O2rGeKX", "ADDRESS TYPO 14595"], ["2025-12-12_Re_ 14595 SW 110 ST - Legalization of irrigation well_18170000.msg", "2026-06-05", 1044480, "Email", "1TBwkfXe5-YmnNoqzeSyX3s2jBzGA68A2", "ADDRESS TYPO 14595"], ["2025-12-12_Re_ 14595 SW 110 ST - Legalization of irrigation well_18080000.msg", "2026-06-05", 1038848, "Email", "1QjLDQIE7zuWs_gCPKRMkF1VGpSPR25Id", "ADDRESS TYPO 14595"], ["2025-12-11_Re_ 14595 SW 110 ST - Legalization of irrigation well_97130000.msg", "2026-06-05", 86528, "Email", "16YEbVON4ABNrlV2PP3T3hRPBLx-l0TkG", "ADDRESS TYPO 14595"], ["2025-12-10_Re_ 14595 SW 110 ST - Legalization of irrigation well_E0470000.msg", "2026-06-05", 81920, "Email", "1PuFmH1v3QnK_JGHr4sK2JwGUWx3BfEKh", "ADDRESS TYPO 14595"], ["2025-12-10_Re_ 14595 SW 110 ST - Legalization of irrigation well_A5CF0000.msg", "2026-06-05", 47616, "Email", "1wToA3jmS0c211pIK6kVEKioir-Zd9g4f", "ADDRESS TYPO 14595"], ["2025-12-10_Fw_ Re_ Eddie's legalization. 14598 SW 110 ST Miami 33186_A5CD0000.msg", "2026-06-05", 8791040, "Email", "1GN-OTvkEru6JrAi_w801R_Wwm1qmFgNR", ""], ["2025-11-19_State Well Permit 13-59-22415 - C2025117736 - Tracking 30117_87010000.msg", "2026-06-05", 665088, "Email", "1hamvucmq8qgB8EIwPQSRxXUESMokZPo5", ""], ["2025-11-19_C2025117736 - Tracking 30117736 - Legalize Code Enforcement_87020000.msg", "2026-06-05", 137216, "Email", "1Fwpq1NN2y3sN_gC6SIdjNoAtZi2hUHBT", ""], ["2025-11-14_Re_ Legalize Irrigation Well - 14598 SW 110 ST - DEPT OF HEA_6C9E0000.msg", "2026-06-05", 2376704, "Email", "1Jl2iOXnoEbdBgyB44lwm0nEfg-gTjzPK", ""], ["2025-11-11_Re_ Legalize Irrigation Well - 14598 SW 110 ST - DEPT OF HEA_D69A0000.msg", "2026-06-05", 52224, "Email", "12W8xiS99ltG4aHFeajcPrhBDlCPggI0F", ""], ["2025-11-11_Re_ Legalize Irrigation Well - 14598 SW 110 ST - DEPT OF HEA_8EF50000.msg", "2026-06-05", 87040, "Email", "1R2hxACSK2Q0HHwSVuJhZkzUtDBIyOWy8", ""], ["2025-11-10_Re_ Legalize Irrigation Well - 14598 SW 110 ST - DEPT OF HEA_2A2A0000.msg", "2026-06-05", 2359296, "Email", "1iUBkhwtgNLrHKr3qcZ_sLXZQw5mS-Bc_", ""], ["2025-11-10_Re_ Legalize Irrigation Well - 14598 SW 110 ST - DEPT OF HEA_0D0C0000.msg", "2026-06-05", 1951744, "Email", "1WOWwvPI7tLzNW0PanfeF1UViEIbPlul5", ""], ["2025-11-10_Legalize Irrigation Well - 14598 SW 110 ST - DEPT OF HEALTH_73FF0000.msg", "2026-06-05", 1445376, "Email", "1rlt7U1sxRDuwumCn6hpSLch82626kVQ4", ""], ["2025-11-04_Fwd_ 14598 SW 110 ST - permit requested to legalize existing_87C80000.msg", "2026-06-05", 97280, "Email", "1DPEP9xN0FmsieQNyA-N56ITEjI5wiSpk", ""], ["2025-10-30_Re_ Proposal for Irrigation Well at 14598 SW 110 ST_4F790000.msg", "2026-06-05", 38400, "Email", "1WeVT9AQ7dwuC5OV0JBY-wBkKKehp8Ttb", ""], ["2025-09-30_14598 SW 110 ST - permit requested to legalize existing case_FFB70000.msg", "2026-06-05", 47104, "Email", "1AppGAR5z0T4r5y6QCj-Dvq7XGHoKrnTk", ""], ["2025-09-05_Re_ MDC Building Permit Application_ C2025117736 - Tracking_7EEA0000.msg", "2026-06-05", 39424, "Email", "1_ug8n8YW0idc4F9OuRj09Mew6CM9wUrL", ""], ["2025-09-05_Re_ MDC Building Permit Application_ C2025117736 - Tracking_7EE90000.msg", "2026-06-05", 131072, "Email", "1pHto45Hp9DUkAtN1Pgq7MUVK1fHT0J10", ""], ["2025-09-05_Re_ MDC Building Permit Application_ C2025117736 - Tracking_7EE80000.msg", "2026-06-05", 130048, "Email", "1hmcsJCtUYuyyXA2FPJ6LC7ZqvgCWoPnC", ""], ["2025-09-05_Fw_ MDC Building Permit Application_ C2025117736 - Tracking_7EE70000.msg", "2026-06-05", 132608, "Email", "1aGH2k8MLbDN7xN-1vjHk9NvZJKaHUypA", ""], ["2025-09-03_Re_ MDC Building Permit Application_ C2025117736 - Tracking_F4890000.msg", "2026-06-05", 126976, "Email", "1IthiTzEnJ9oOO1syzNklVoBRoYq4c8Lv", ""], ["2025-08-28_Re_ Re-work comments 14598 SW 110 ST_C7820000.msg", "2026-06-05", 73216, "Email", "1i7IIIwyGQ2myUses6zK2VfGut9p4Gd1Z", ""], ["2025-08-28_Re_ Re-work comments 14598 SW 110 ST_24900000.msg", "2026-06-05", 72192, "Email", "13Ybbzjb_Er4cbqyN0wrHJiRFjMlsR_21", ""], ["2025-08-27_Fw_ MDC Building Permit Application_ enriquebarton@msn.com-_E4CE0000.msg", "2026-06-05", 124416, "Email", "1vALaFdLlchChfbvmqchq4EODPjleMTdp", ""], ["2025-08-25_Re-work comments 14598 SW 110 ST_85EA0000.msg", "2026-06-05", 70144, "Email", "1OuVUiWrvAtB8bzn2PEdDvDLm0fIZl28F", ""], ["2025-08-25_RE_ Folio 30-5910-018-0210 _ 14598 SW 110 ST _ process no. C_EE0D0000.msg", "2026-06-05", 315904, "Email", "1SrSLOcqDfbH2rviKoMCbJiTEXfpqZ53F", ""], ["2025-08-25_RE_ Folio 30-5910-018-0210 _ 14598 SW 110 ST _ process no. C_C6A40000.msg", "2026-06-05", 320512, "Email", "1IIhvcxpAXifg2ADTNcbxlzoNidaMAJzZ", ""], ["2025-08-25_MDC Building Permit Application_ C2025117736 - Tracking Numb_38960000.msg", "2026-06-05", 118272, "Email", "1KN4y4zs7DpH14znsSJ5uR93W2XQgU6Yb", ""], ["2025-08-22_Re_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_6BD20000.msg", "2026-06-05", 222720, "Email", "16zl39Ay7ZBqejG3IzJVFsKSb1dOXB0CB", ""], ["2025-08-22_Re_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_6BD10000.msg", "2026-06-05", 169472, "Email", "1sHPQ2q0cs5AhdtVN8S6VjFgOByXipmR8", ""], ["2025-08-21_Fw_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_6BCF0000.msg", "2026-06-05", 275968, "Email", "1aLVUhtHfeVmvQ8sUCxJ8BFltsn2MkN0v", ""], ["2025-08-12_Fw_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_DB420000.msg", "2026-06-05", 278016, "Email", "10Yzgb9oXMffy47Bz_5T6lF2jjiC_nZHn", ""], ["2025-08-04_Fwd_ C2025117736_ Tracking Number_ 3025117736- Unable to upl_0E9B0000.msg", "2026-06-05", 176128, "Email", "18JXb232G_Q3JlcQBoLNVGjbD4WYXTilW", ""], ["2025-07-14_Fwd_ C2025117736_ Tracking Number_ 3025117736- Unable to upl_99D30000.msg", "2026-06-05", 152576, "Email", "1PVWAPXXlrj5Qp2B38gcucqP3z9N4uA2l", ""], ["2025-07-14_14598 SW 110 ST _ Enforcement- Compliance Hold _ RER lien Mi_B5DE0000.msg", "2026-06-05", 1033728, "Email", "1LRUm1AsFcemu-Syal7jagv5Mqcoq6o98", ""], ["2025-07-10_Recorded Docs 14598 SW 110 ST - Miguelez _no Lien as of 7-09_B5C80000.msg", "2026-06-05", 4781056, "Email", "1BaL4UUc3Ih0Rk5q1QiyS_Ot0S3JBn1Pj", ""], ["2025-07-10_Recorded Docs 14598 SW 110 ST - Miguelez _no Lien as of 7-09_A3560000.msg", "2026-06-05", 4799488, "Email", "1LOup2BJRt1toQ6ftk9PrSxHvYJ-iqw31", ""], ["2025-07-10_Recorded Docs 14598 SW 110 ST - Miguelez _no Lien as of 7-09_99180000.msg", "2026-06-05", 4802048, "Email", "1A3KdqFvM9_i0WOTkM4b0R93yPvPuq6eM", ""], ["2025-07-08_RE_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_B5C10000.msg", "2026-06-05", 41472, "Email", "1_JaECbN5MUI8cyHQ5GLJ9voLT-n6rCeb", ""], ["2025-07-03_Re_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_16F30000.msg", "2026-06-05", 209408, "Email", "1ylabXzmOw4F-OoYC7SraI4HNRqeHbhZg", ""], ["2025-07-03_Re_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_16F20000.msg", "2026-06-05", 192512, "Email", "1RycXl-z27sGj5D8HwXiqrJII2OzVKOA7", ""], ["2025-07-02_RE_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_B5B30000.msg", "2026-06-05", 188928, "Email", "1Bx3bRkz6a2PsXjcrI83vxtlWlias-3fN", ""], ["2025-07-01_RE_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_B5AF0000.msg", "2026-06-05", 131072, "Email", "1xAEGNapxolh_cxWXwk8hkbCRAYCkYcay", ""], ["2025-06-30_Re_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_B5DF0000.msg", "2026-06-05", 275456, "Email", "17Wb5iUGC6Ry6SMeos0BAqgBv1aqBXgt6", ""], ["2025-06-30_Fwd_ C2025117736_ Tracking Number_ 3025117736- Unable to upl_B5E00000.msg", "2026-06-05", 483840, "Email", "1tc5EHpNtp4IRDVVclr9ASnkjcxLdVNei", ""], ["2025-06-30_FW_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_B5AE0000.msg", "2026-06-05", 604672, "Email", "1n1OjC0CgmlWkKPPkengFmilqlz_wicRz", ""], ["2025-06-27_RE_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_B59A0000.msg", "2026-06-05", 482816, "Email", "1AOBBH9aPVlSgbc6f6ZhdKVRvTIroFVPg", ""], ["2025-06-27_RE_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_B5990000.msg", "2026-06-05", 349184, "Email", "1uHpo2A1J4yxUPly9xMdlV7LDDJuvYAzQ", ""], ["2025-06-26_RE_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_B5950000.msg", "2026-06-05", 388608, "Email", "1FlZmLg9reiH-SoVA1jaxJYNf1amKERl_", ""], ["2025-06-25_RE_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_B5920000.msg", "2026-06-05", 299520, "Email", "1REZ3P4GDGwEaH16LAddFwZ8Q2uu9VELw", ""], ["2025-06-25_RE_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_B58A0000.msg", "2026-06-05", 198656, "Email", "1wC49JnxekAsS7prGR4M_CKm8NLJGrKp8", ""], ["2025-06-25_FW_ Request for Administrative Closure of Citations for Shed_B58D0000.msg", "2026-06-05", 1303040, "Email", "1XEoHgBV5V-ukCab16YBn2q-V93f-Tq9B", ""], ["2025-06-25_FW_ C2025117736_ Tracking Number_ 3025117736- Unable to uplo_B58B0000.msg", "2026-06-05", 169472, "Email", "1kHv7MLk7cckg2c-IgdxcMFtnSKXmHI4q", ""], ["2025-06-20_Re_ FW_ FW_ 14598 SW 110 St _ My Part of re-work_9B2C0000.msg", "2026-06-05", 5010944, "Email", "1vOzH6-ionJNHoZV73MdUNs-OEar9TspU", "POSSIBLE DUPLICATE"], ["2025-06-20_Re_ FW_ FW_ 14598 SW 110 St _ My Part of re-work_16640000.msg", "2026-06-05", 5010944, "Email", "1SKcgaxd8RKarfXWqvmWvNKTLTusWqRwF", "POSSIBLE DUPLICATE"], ["2025-06-12__POA to Jorge Valdes from Eddie Miguelez_B5800000.msg", "2026-06-05", 369664, "Email", "1idoo7PFVFyZU1ZmsYDUhVaY4sxU7SE7d", ""], ["2025-06-12__POA to Jorge Valdes from Eddie Miguelez.pdf_B5810000.msg", "2026-06-05", 365568, "Email", "1odS4rdacFfBpFTxixsnfapet4S04sEsG", ""], ["2025-06-11_Re_ FW_ 14598 SW 110 St _ My Part of re-work_C2790000.msg", "2026-06-05", 77824, "Email", "1euTErjJKvD1rgBaLVPvAGYuzpTSH75VX", ""], ["2025-06-11_Re_ FW_ 14598 SW 110 St _ My Part of re-work_C2780000.msg", "2026-06-05", 74752, "Email", "1PgO6DerVm3W1Ns75NRoaWk0bCQ4jVLGR", ""], ["2025-06-11_Re_ FW_ 14598 SW 110 St _ My Part of re-work_682B0000.msg", "2026-06-05", 73728, "Email", "1EZaJUPGe_kzmEvL6DsCEqBmrvNb1zgSz", ""], ["2025-06-11_Re_ FW_ 14598 SW 110 St _ My Part of re-work_682A0000.msg", "2026-06-05", 76800, "Email", "1qypYhEEQiAAUAyughx-BbQ0uorYex7Sq", ""], ["2025-06-05_Request for Administrative Closure of Citations for Shed and_B57F0000.msg", "2026-06-05", 1303040, "Email", "1pbesTd4BhrBOiy__lJAyUCbS-2ioN1E9", ""], ["_keywords.txt", "2026-06-04", 152, "Text", "1jMmd5jvzg1pyfagqyU2SUOtOIJa0sJLc", ""]]}, {"k": "03_Research-and-Proposal", "t": "03_Research-and-Proposal", "p": "TUS-25-1023 / 03_Research-and-Proposal", "fid": "1_FzAJYlzHo-_IxpJo8chDkOxxs8RNWGS", "note": "CAPSULE.md (June 4) is the original job summary. It gives the ZIP code as 33175; the tax jacket says 33186. See Findings.", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "docs": [["XREF-DASHBOARD_14598_TUS-25-1023.html", "2026-06-23", 6963, "Web page", "1vQo81GWdQmA3UgaQ2CBdS1lJGBrlbf95", ""], ["PA-DATA_14598-SW-110_30-5910-018-0210.html", "2026-06-23", 9499, "Web page", "10LvbwWFd2v4vHp2oOlQ_qiYxPDLlEAZu", ""], ["CONTACT-LIST_14598-SW-110_TUS-25-1023.html", "2026-06-23", 3570, "Web page", "1_54uvQIEbm_5CY0DphQqxoX9SeONJfXl", ""], ["CAPSULE.md", "2026-06-04", 2171, "Notes", "16C3CFCRx5RUrjZ9XfIb_N_iUsc3U7IBT", "ZIP 33175?"]]}, {"k": "04_Permits-and-Applications", "t": "04_Permits-and-Applications", "p": "TUS-25-1023 / 04_Permits-and-Applications", "fid": "189HEiZdNKKKJY7lc72_bS1fWGECbsHwz", "note": "", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "docs": [["PLANS-REVISION_COMPLETED_TUS-25-1023.html", "2026-06-23", 3672, "Web page", "1OEVAdOJbBWZ-tVPQ4v3q9ytR6KzMwkIt", ""], ["PERMIT-APP-MASTER_COMPLETED_TUS-25-1023.html", "2026-06-23", 4849, "Web page", "145Myfnnk5Cu1EzMku4S466lV9VjIxket", ""]]}, {"k": "06_Plans-Photos-Sketches", "t": "06_Plans-Photos-Sketches", "p": "TUS-25-1023 / 06_Plans-Photos-Sketches", "fid": "17f1Q1mAmNL4ZuVgLP5zLsOsJhuEYZTty", "note": "", "side": {"s": 2, "t": 1, "o": 0, "i": 1}, "docs": [["Building-Sketch_30-5910-018-0210_2025.png", "2026-06-23", 181220, "Image", "18da1XwMcJ6VI85_4FCATPyR1OPaHWumq", ""], ["Building-Sketch_30-5910-018-0210_2025.pdf", "2026-06-23", 132519, "PDF", "1hw7DK_I9WW2HSyklB2RepOZ_hrlwqpcu", ""]]}, {"k": "07-TAX-JACKET_2026-08-24/ENHANCED", "t": "07-TAX-JACKET · ENHANCED", "p": "TUS-25-1023 / 07-TAX-JACKET_2026-08-24 / ENHANCED", "fid": "1sVrUTpdM2bGKYGoSAS9FRsdsN2Nc_rEN", "note": "The 2026-09-03 DELIVERABLE v2 is the finished tax jacket. 3 backup copies and a _partmaps folder of 3 page maps were left out.", "side": {"s": 9, "t": 9, "o": 4, "i": 0}, "docs": [["FINAL_ALL.pdf", "2026-09-04", 3526172, "PDF", "1VqHY804BYWg-pNAQsN24vrOK2AV_VtsS", ""], ["FINAL_14598-SW-110-ST-33186_part03_2026-08-24.pdf", "2026-09-04", 2765378, "PDF", "1b9C2-xIUE-OmBK4Xu7mcCYBytpAhUwGk", ""], ["FINAL_14598-SW-110-ST-33186_part02_2026-08-24.pdf", "2026-09-04", 252116, "PDF", "1zTXMKV1tog-y9qgG-vpLUZOs9XCs45NO", ""], ["FINAL_14598-SW-110-ST-33186_part01_2026-08-24.pdf", "2026-09-04", 507086, "PDF", "1aByIkHej0Gzn-Ixat8WWbMmlVT6GLN9X", ""], ["2026-09-03 _ TUS-25-1023 _ TaxJacket _ 14598 SW 110 St Miami DELIVERABLE _ v2.pdf", "2026-09-04", 3570575, "PDF", "1WLfODmCB8PWU2yQIJK-egf5SqSKPOgF9", "KEY"], ["ENHANCED_14598-SW-110-ST-33186_part03_2026-08-24.pdf", "2026-08-26", 5218880, "PDF", "166Xg_MXh_BhyRBlDfcJ7CBrVyz02H8HB", ""], ["ENHANCED_14598-SW-110-ST-33186_part02_2026-08-24.pdf", "2026-08-26", 353890, "PDF", "10wndKKkFl_JUFkJnCQxnlu8IHwLhaZJd", ""], ["ENHANCED_14598-SW-110-ST-33186_part01_2026-08-24.pdf", "2026-08-26", 279847, "PDF", "1kYnIG_vcOXjReLO0sB1pJnSF4WnSUqSu", ""], ["ALBUM_14598-SW-110-ST-33186_part01_2026-08-24.pdf", "2026-08-25", 274790, "PDF", "1dW8rYmSEnnt-sYg_UGBx4nPmpa4yg7DA", ""]]}, {"k": "07-TAX-JACKET_2026-08-24/ORIGINAL", "t": "07-TAX-JACKET · ORIGINAL", "p": "TUS-25-1023 / 07-TAX-JACKET_2026-08-24 / ORIGINAL", "fid": "1MZTC_Y1W_fz4SlWiUnDPrRdp4Pm-Iys5", "note": "", "side": {"s": 3, "t": 3, "o": 0, "i": 0}, "docs": [["TAXJACKET_14598-SW-110-ST-33186_part03_2026-08-24.pdf", "2026-08-24", 1693698, "PDF", "1vyY8t_27FlbKYUbTORY6Wck6C3POpfu1", ""], ["TAXJACKET_14598-SW-110-ST-33186_part02_2026-08-24.pdf", "2026-08-24", 201673, "PDF", "1rWmQYlCbfgYqH1T3C4x-NaDMOLg0HtSC", ""], ["TAXJACKET_14598-SW-110-ST-33186_part01_2026-08-24.pdf", "2026-08-24", 95907, "PDF", "1H44_8mCjeeADMqqSJqTyu7egVwnfeZj-", ""]]}, {"k": "_AUTO-FILED", "t": "_AUTO-FILED", "p": "TUS-25-1023 / _AUTO-FILED", "fid": "18uzUPEWyQ7Obp5Cz3UaowTxRub4-Eb07", "note": "Placed here by an automatic filer. The name has typos (“Inpetiion”, “..pdf”). It names process C2025117736, which matches this job.", "side": {"s": 1, "t": 1, "o": 0, "i": 0}, "docs": [["Inpetiion Hold - Grading InApplication - C2025117736 - EPS..pdf", "2026-07-06", 262723, "PDF", "13pDsbXRhfe_H6PWYQjfQ23LxSlEJDOq7", "AUTO-FILED · CHECK"]]}];
+const PILL={done:["p-done","ARRIVED"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag",""],key:["p-key",""],money:["p-money","MONEY"],person:["p-wait","CONTACT"]};
+const STATUS=[["Arrived and filed", [["Three Miami-Dade concealed-work forms (CAT 082), from Gilberto Martin, July 9", "Saved into _RECEIVED-BY-EMAIL on October 12: form 3 as a PDF, forms 1 and 2 inside a zip. These are the blank forms; the filled-in ones are still missing.", "done"], ["Tax jacket, finished", "Requested June 23, delivered as the 2026-09-03 DELIVERABLE v2 in 07-TAX-JACKET / ENHANCED.", "done"]]], ["Still missing", [["Original sealed Certified As-Built Letter from Tomas, July 2", "Checked today: no file with “As-Built” in its name is in this job folder, except emails. It is only in Outlook. File it even with its typo, as the base document.", "miss"], ["Corrected and re-sealed As-Built Letter", "Page 2 says “2022” where it should say “2012”. This is the only thing holding up the resubmittal. A follow-up to Tomas is drafted in Outlook and not sent, 13 weeks after the first ask.", "miss"], ["Tomas’s answer on the code edition", "Does FBC 2010, 4th Edition, HVHZ still apply if the install is older than March 15, 2012? Asked July 6.", "miss"], ["Filled-in concealed-work forms for the plans revision", "Blank forms arrived July 9 and went to Tomas July 17. The county also wants the Building Official changed from Edward Rojas to Sergio Ascunce.", "miss"], ["Resubmittal of the plans rework and as-built letter, process C2025117736", "Blocked until the four items above are in.", "miss"], ["Rebook the plumbing and sprinkler re-inspection, permit 2026035476", "Bernard Chitolie said on June 4 it must be rebooked. No later email found.", "miss"], ["Electrical sub-permit qualifier under master permit 2026-012823", "David Morales or David Guirola, P.E. Open since May. The July 3 ask got no reply.", "miss"], ["Clerk code-enforcement search on the folio", "Open citations and amounts. The Clerk site blocks automatic searches, so it needs a person. Blocked since June 23.", "miss"], ["Lien and satisfaction search, Clerk Official Records", "Blocked since June 23 until you say yes to the cost. The cost is in the money zone.", "miss"], ["Zoning resolutions or variances for the nonconforming lot", "Open since June 23.", "miss"], ["Close out master permit 2026-012823 and citation 2024-0228754 / A2023-003010", "The end goal of the job.", "miss"]]], ["Waiting on", [["You", "Send the drafted follow-up to Tomas. Say yes or no to the lien search cost. Confirm the billing status (money zone).", "wait"], ["Tomas Hernandez, P.E. (TomTech)", "The corrected letter, the code-edition answer, and the filled-in forms.", "wait"], ["Bernard Chitolie, Miami-Dade RER", "A new date for the plumbing and sprinkler re-inspection.", "wait"], ["The electrical qualifier", "A reply on the electrical sub-permit. Nothing since July 3.", "wait"], ["The desktop helper, or one yes from you", "Save the July 2 sealed letter into this folder. It is only in Outlook. Forwarding that one email to Gmail would let the cloud save it.", "wait"]]]];
+const FINDINGS=[["56 backup copies use the banned name form NAME.ext.bak-DATE", "53 in the job root (_PORTAL, _STAGE, _TAGS) and 3 in 07-TAX-JACKET / ENHANCED. Drive cannot preview these. Nothing was renamed; renaming is filing, which needs your yes."], ["8 emails say “14595 SW 110 ST”, one digit off", "All are December 2025 replies about legalizing the irrigation well, which is part of this job (state well permit 13-59-22415, process C2025117736). It looks like a typo in the email subject, not a misfiled email. Not opened to confirm."], ["One email says “I4598” with a letter I", "April 13, 2026, about the citation cases. A typo; a search for 14598 will miss it."], ["Possible duplicate emails", "Two pairs have the same date, subject and size: the June 12, 2026 As-Built Letter email, and the June 20, 2025 “My Part of re-work” email. The July 10, 2025 “Recorded Docs … no Lien” email is saved 3 times at nearly the same size."], ["ZIP code disagrees", "CAPSULE.md says Miami, FL 33175. The tax jacket files say 33186. 33175 is also the ZIP of the county RER office, so 33175 may be a mix-up."], ["Two folder layouts sit side by side, and 15 folders are empty", "The June layout (01_Emails to 10_Closeout-CU-CO) and the August 17 layout (01-INTAKE to 05-REPORTS-DELIVERABLES). Empty: 01-INTAKE, 02-PERMITS, 03-INVOICES-PAYMENTS, 04-CORRESPONDENCE, 05-REPORTS-DELIVERABLES, _Superseded, 05_Code-Enforcement-Violations, 07_Reports, 08_Correspondence, 09_Financial, 10_Closeout-CU-CO, and the four sub-folders of 02_Files-Attachments (Permits, OCR, Findings, Attachments-From-Emails)."], ["Raw tax jacket files may sit in the wrong job", "_PLACEHOLDERS.md says ACS.pdf, ACS (2).pdf and ACS (3).pdf, dated September 14, are in TRK-2026-1310 (10980 SW 202 Dr, Cutler Bay), not here. Not opened, so unverified. They are not listed on this page because they are not in this folder."], ["Loose copies outside this folder", "The concealed-work forms also sit loose in the My Drive root and as a zip in 01-JOBS / _CONVERGE-STAGING / _Permits-unsorted. Left where they are."], ["One auto-filed PDF to check", "_AUTO-FILED holds “Inpetiion Hold - Grading InApplication - C2025117736 - EPS..pdf”. The process number matches this job; the name has typos."], ["_STAGE.md is stale", "It says “no next action on file” and shows stage 05-DRAFT since June 23. _PLACEHOLDERS.md lists 13 open items."], ["The job number is not in the standard form", "This job uses TUS-25-1023, not TRK-2026-NNNN. Nothing was changed; issuing or changing numbers is a registry edit."], ["Worth a glance: the July 3 electrical ask", "It went to Einarsuarez@yahoo.com. The owner of another job, TUS-26-1018, is named Einar Suarez. The inbox sweep says this was an electrician, so it is probably fine."]];
+const PEOPLE=[["Eduardo “Eddie” Miguelez", "Owner and client, 14598 SW 110 St. No email on file.", ""], ["Tomas Hernandez, P.E. · TomTech", "Engineer. Sealed the As-Built Letter; owes the corrected re-seal and the forms.", "tomtechengineer@gmail.com"], ["Bernard Chitolie · Miami-Dade RER", "Plumbing Section Supervisor. Re-inspection on permit 2026035476. Office: 11805 SW 26 St. Inspections line 786-315-2100.", "bernard.chitolie@miamidade.gov"], ["Gilberto Martin · Miami-Dade RER", "Sent the concealed-work forms on July 9.", "Gilberto.Martin@miamidade.gov"], ["David Guirola, P.E.", "Electrical engineer; possible electrical qualifier. 305-513-9665 or 305-498-9352.", "guiro5@aol.com"], ["David Morales", "Possible electrical sub-permit qualifier. No contact on file.", ""], ["Systematics", "Engineering letter and permit (March 27, 2026 P.E. As-Built letter).", "systematics_kv@hotmail.com"], ["Luis Guiulfo", "Qualifier signatures. 305-833-8084.", "interstatena@yahoo.com"], ["Fausto Guerrero · Marino Construction", "Plumbing contractor. 786-971-8964.", ""], ["Osvaldo Rodriguez · Electrical Masters, Inc.", "Electrical contractor. 305-879-7029.", ""], ["Jade De Armas", "Colleague.", "jdearmas17@gmail.com"], ["Enrique Barton", "Wrote on the county permit application emails, August 2025.", "enriquebarton@msn.com"], ["Edward Rojas and Sergio Ascunce", "Building Officials. The county wants Sergio Ascunce named on the forms instead of Edward Rojas.", ""], ["Jorge Valdes · Team USA Sales, Inc.", "Owner’s agent, under power of attorney from Eddie Miguelez (June 12, 2025).", "jorge@teamusasales.com"]];
+const MONEY=[["Re-inspection fee on permit 2026035476: amount unknown", "Likely due since June 4. Check it on the county ePayment site.", "money"], ["Billing for this job: unverified", "_STAGE shows client, amount, invoiced and paid all as VERIFY. In a May 4 email the owner said he “could not continue paying the permit.” Please confirm where billing stands.", "money"], ["Systematics invoice: $827.90", "For the March 27, 2026 P.E. As-Built letter (from CAPSULE.md). Paid or not is not on file.", "money"], ["Lien and satisfaction search: $1 per unit", "Clerk Official Records. Waiting on your yes to spend.", "money"]];
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=o.st==='flag'||o.st==='key'?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc') h+='<div class="meta"><span>'+esc(o.date)+'</span><span>'+esc(kb(o.size))+'</span><span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','What arrived, what is missing, who it waits on','2 · 11 · 5',h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    f.docs.forEach(d=>{x+=row({b:f.t,kind:'doc',title:d[0],date:d[1],size:d[2],type:d[3],link:durl(d[4]),st:d[5]?(d[5]==='KEY'||d[5]==='NEW'?'key':'flag'):'',flag:d[5],path:f.p});});
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' search'); if(s.t)sc.push(s.t+' tag'); if(s.o)sc.push(s.o+' OCR marker'); if(s.i)sc.push(s.i+' index');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':'📁 '+f.t),esc(f.p),f.docs.length+' docs',x+(sc.length?'<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>':''),fi===0);
+  });
+  let fd='';
+  FINDINGS.forEach(it=>{fd+=row({b:'Findings',kind:'finding',title:it[0],text:it[1],st:'flag',flag:'FINDING'});});
+  branch('findings','','🔎 Findings','Problems spotted in this folder. Noted only: nothing was moved, renamed or deleted.',FINDINGS.length+' findings',fd,false);
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> Money items stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='</div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':MONEY.length+' items',m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>it.kind!=='money'||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">TUS-25-1023 · 14598 SW 110 St · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(it.kind==='money'?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=it.kind==='doc'?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc') h+='<p class="meta"><span>'+esc(it.date)+'</span><span>'+esc(kb(it.size))+'</span><span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='TUS-25-1023 · 14598 SW 110 St, Miami · Eddie Miguelez\nFolio 30-5910-018-0210 · Master permit 2026-012823 · Process C2025117736\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='doc') s+='   '+it.date+' · '+kb(it.size)+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— TUS-25-1023 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>it.kind!=='money'||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+(function(){try{const n=new Date();const d=Math.round((Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())-Date.UTC(2026,5,23))/86400000);
+  $('daysleft').textContent=d+' days in this stage';}catch(e){}})();
+build();
+</script>

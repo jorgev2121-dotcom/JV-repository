@@ -1,0 +1,10 @@
+const {chromium}=require('/opt/node22/lib/node_modules/playwright');
+(async()=>{const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'}).catch(()=>chromium.launch());
+const p=await b.newPage();const errs=[];p.on('pageerror',e=>errs.push(e.message));
+await p.addInitScript(()=>{const store={'approvals/x1':{status:'pending',comment:'KEEP ME'}};
+ const doc=k=>({get:async()=>({data:store[k]}),set:async v=>{store[k]=v},update:async v=>{if(!store[k])throw new Error('nf');store[k]=Object.assign({},store[k],v)},onSnapshot:()=>()=>{}});
+ window.__store=store;window.claude={use:async n=>n==='db'?{doc,collection:()=>({get:async()=>({docs:[]}),onSnapshot:()=>()=>{}})}:null}});
+await p.goto('file://'+process.argv[2]);await p.waitForTimeout(800);
+const fns=await p.evaluate(()=>Object.keys(VTES).filter(k=>k==='decide'));
+await p.evaluate(async()=>{await VTES.decide('x1','approved')});
+console.log('after decide',JSON.stringify(await p.evaluate(()=>window.__store['approvals/x1'])));console.log('ERRS',errs);await b.close()})();
