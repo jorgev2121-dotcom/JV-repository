@@ -478,6 +478,18 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
    QC sampling (1 in 20) and judgment steps. Stop the LLM steps if the weekly pool drops under ~5%.
 3. **Result file** goes to VTES-Outbox with nonce `NIGHT-NONCE-OSPREY-7734-20260923` + `STARTED-BY:`.
 
+
+---
+
+## 17. TRK-2026-9959b — OWNER DIRECTIVE: EXECUTOR-FIRST-01 + GUIDED-HANDOFF-01
+
+Full text: `OWNER-DIRECTIVE_EXECUTOR-FIRST-GUIDED-HANDOFF-01_2026-09-28.md` (repo root; copy in `G:\My Drive\VTES-Inbox\`).
+
+1. **Adopt it.** From now on, never hand Jorge written steps for something you or Cowork can do. When a human-only click remains, do a guided hand-off: drive to the screen, point at it, wait, continue, then say "TASK COMPLETE", go back to the start point, and hand back.
+2. **Build the arrow tool (GREEN — new files only, no persistence):** `C:\Users\JV\OneDrive\Scripts\Show-Pointer.ps1 -X <int> -Y <int> -Caption "<text>" [-Seconds 30]`. It draws a transparent, click-through, always-on-top arrow and caption at those screen coordinates, then closes itself. No scheduled task, no startup entry. Prove it with one screenshot showing the arrow on the Start button, saved to VTES-Outbox.
+3. **1Password dry run (read-only):** open 1Password, stop at the lock screen, point at the unlock box with Show-Pointer, and write down what you did. Don't unlock and don't read any item.
+4. Reply in `G:\My Drive\VTES-Outbox\REPLY-TO-CHAT_EXECUTOR-FIRST-01.md`: DONE / PARTIAL / BLOCKED, with the screenshot as proof.
+
 ---
 
 ## Standing note for the desktop session
