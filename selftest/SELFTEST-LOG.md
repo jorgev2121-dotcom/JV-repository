@@ -290,3 +290,11 @@
   7 MAIL WATCH: PASS (last check 11:17Z, 59 min; refreshed 12:22Z).
   10 USAGE: allowed (read 12:20Z). Session context 615k of 1,000k (about 15k per cycle; tell Jorge at about 800k, fresh session at about 900k).
   New failures: none.
+- 2026-10-24T18:22Z · SELF-TEST pass 37 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 12Z probe answered 13:20Z. New probe selftest-probe-2026102418 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 17:19Z, 63 min; refreshed 18:22Z).
+  10 USAGE: allowed (read 18:20Z). Session context 708k of 1,000k (about 15k per cycle but big Drive reads add more; tell Jorge at about 800k).
+  New failures: none.
