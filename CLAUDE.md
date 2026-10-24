@@ -475,6 +475,9 @@ brakes.**
 - **OD-01** (2026-08-15) — every message ends with a question. See Section 8 above.
 - **OD-CR-01** (2026-09-30; named CR-01 because the plain numbers OD-02 to OD-107 are already used elsewhere in this repo for other things) — capture the county page as a PDF, attach it to a **new Outlook email from Jorge@teamusasales.com (To blank)**, pop it up **flashing, on top of every window**, and let **Jorge review and press Send**. No agent ever sends. Full text: `OWNER-DIRECTIVE_CAPTURE-AND-REVIEW-CR01_2026-09-30.md`. Skills: `county-status-capture`, `owner-review-popup`, `permit-legalization-specialist`.
 
+- **OD-PL-01** (2026-10-24) — Plaud recordings: 30-second discard floor, catch by upload date, dedicated folder plus mini database (`plaud-intake/`), hashtags, orphan options for Jorge's final choice; filing stays RED. Full text: `OWNER-DIRECTIVE_PLAUD-INTAKE-PL01_2026-10-24.md`.
+- **OD-AM-01** (2026-10-24) — **AMENDMENT TO ALL OWNER DIRECTIVES AND PROTOCOLS.** Repetitive work becomes a self-healing flow (PowerShell or Drive routine first, PAD only for click-only steps). Traffic light: **GREEN and YELLOW are handled by an agent; RED goes to Jorge; unclear counts as RED.** It never turns a RED action GREEN. Full text: `OWNER-DIRECTIVE_AMENDMENT-TRAFFIC-LIGHT-AM01_2026-10-24.md`.
+
 ## 12. SUPREME STANDING ORDER — FREEZE AND FINISH (2026-08-16)
 
 **`OWNER-DIRECTIVE_FREEZE-AND-FINISH-01_2026-08-16`, ratified by Jorge. It applies to
