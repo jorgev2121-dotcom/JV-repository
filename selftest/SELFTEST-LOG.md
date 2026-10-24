@@ -274,3 +274,11 @@
   7 MAIL WATCH: PASS (last check 23:19Z, 62 min; refreshed 00:21Z).
   10 USAGE: allowed (read 00:20Z). Session context 451k of 1,000k (jumped from 287k: large Outlook/Drive outputs; keep Outlook limit at 25 but avoid read_resource on newsletters).
   New failures: none. Open with Jorge: Google recovery request me/not-me (hold ends ~8:30 PM ET), Grok-to-Google connection, Railway yes/no, morning-bundle answers, microfilm draft review.
+- 2026-10-24T06:21Z · SELF-TEST pass 35 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 00Z probe answered 01:20Z. New probe selftest-probe-2026102406 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 05:19Z, 62 min; refreshed 06:21Z).
+  10 USAGE: allowed (read 06:20Z). Session context 542k of 1,000k (about 15k per cycle; tell Jorge at about 800k, fresh session at about 900k, roughly 12+ hours away).
+  New failures: none. Open with Jorge: Google recovery request me/not-me (link issued 8:32 PM ET, valid 7 days), Railway yes/no, Apple reset+trial, microfilm draft review, TEDC fee.
