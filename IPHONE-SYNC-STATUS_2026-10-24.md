@@ -16,7 +16,7 @@
 3. **7 Oct iPhone tools built and tested** by the desktop (reply file `REPLY-TO-CHAT_SLICE-RESULTS_A1-A2-B1-C4-D1-IPHONE_2026-10-07`). It said: "phone is locked, so no photo has been copied yet."
 4. **OCR sweep fixed for iPhone photos** (1 Sep, VERDICT-10025): HEIC and burst photos were being thrown away by the text reader. Fixed and verified on real files.
 5. **Plaud bulk import to Drive** by Chat, 29 Jul: 8 recordings exported, ledger started (`PLAUD-IMPORT-LEDGER_2026-07-27`).
-6. **Today (this session):** directive OD-PL-01, amendment OD-AM-01, a registry of all 100 recordings listed so far (53 real, 47 under 30 seconds), and 23 backfill agents launched.
+6. **Today (this session):** directive OD-PL-01, amendment OD-AM-01, a registry of all 100 recordings listed so far (53 real, 47 under 30 seconds), and 23 backfill agents run: **29 Docs now in PLAUD-TRANSCRIPTS since this morning-count of 9; 21 new full or outline Docs landed, 2 were already landed in a second folder, 1 failed (Plaud has no transcript for it), 3 are held.** Docs checked in Drive: 3 of 3 spot-checks passed.
 
 ## Section B — Plaud: is it automatic?
 
@@ -29,7 +29,7 @@
 ## Section C — Pending, and what needs Jorge
 
 **Pending, no Jorge needed (agents):**
-1. Backfill of 23 missing recordings (running; results land in `agent-results/2026-10-24-plaud-backfill/`).
+1. Backfill finished (results in `agent-results/2026-10-24-plaud-backfill/`). Four long recordings (13.5 h, 18 h, 19 h, 24 h) have no transcript or note in Plaud and look like recorder left running; they are outline-only Docs marked NON-JOB candidates.
 2. 18 older recordings (before 27 Aug, 30 s or longer) to check against Drive and the July ledger.
 3. Recordings listed before 6 Aug (pages 6 onward) not yet enumerated.
 4. Apply the full hashtag set to the 9 older docs (they were made before the new format).
