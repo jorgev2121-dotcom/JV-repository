@@ -2327,3 +2327,13 @@ future master key is generated on the PC and never pasted into chat.
 - 2026-10-09 02:00Z (desktop reachability, recurrence of the line-174/822 "desktop Remote Control / asleep" pattern): Jorge asked Cloud to reconnect the desktop and confirm it stays on. Desktop executor session_018cZjR8 = disconnected (last real turn 2026-10-08 22:03Z, ended asking Jorge "which of the three first?"). Jorge-PC bridge session_01YVtd1R showed "connected" but was stale: Cloud's ping made the worker report host_exit and the session ended, i.e. the PC-side Remote Control process was not running. Last PC sign of life 2026-10-09 00:37Z. Cloud cannot start Remote Control or wake the PC; only an action at the PC can. Durable option still open: a Windows scheduled task that relaunches `claude remote-control` at logon and every hour if not running (Tier 3).
 
 - 2026-10-15 — Two stale hourly routines (trig_01JHpfWChefTdQwHJH6Bypa9, trig_0151BtStxyL5DN2rsM17Erzu) fired about 45 times with August-2026 text after the work had moved on. Each firing cost a full session turn and did nothing. Jorge said yes in his own words; both set to enabled=false (paused, not deleted). Tier 2 fix: the cause is removed, not suppressed. To bring back, use update_trigger enabled=true.
+
+---
+
+## RI-049 · 2026-10-25 — Speechify stops reading (random, then intermittent, then permanent)
+
+**Reported by Jorge, 2026-10-25, as "not reading AGAIN".** It has happened before, but this is the first time it is logged here. Symptom: Speechify reads at random, then stops at times, then stops for good. **The screen does not freeze; only the reading stops.** Jorge depends on it (dyslexia), so this is a work-stopper, not an annoyance.
+- Suspected causes, to confirm: clipboard contention from several AI, password and sync tools; RAM pressure; browser memory saver putting the extension to sleep; the audio device switching; a Speechify AI-credit limit.
+- Owner directive issued: SPEECHIFY-PRIORITY-01 (Speechify wins clipboard and RAM conflicts; charter §14).
+- Fix assigned to Joey: JOB_JOEY_SPEECHIFY-FIX-AND-OVERLAY_V1_GO (TRK-2026-10014). It covers the diagnosis, turning off the AI extras, the READ IT overlay with a Windows-voice fallback (Tier 2: removes the single point of failure), and a 15-minute liveness check (Tier 3).
+- **Next recurrence:** patches are forbidden (Rule 4). Present three options, including replacing Speechify with the overlay as the primary reader.

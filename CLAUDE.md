@@ -526,3 +526,14 @@ within 30 days.**
 3. **Same address, new version.** Publish over the existing page so saved decisions and links carry over. Record the old version id in `OPEN-ITEMS.md` so it can be rolled back.
 4. **A fix that adds nothing new does not need a new number.** If it is unclear whether something is an enhancement, ask Jorge in one short question.
 5. **Open question (2026-10-25):** the panel's Change log has used its own "v67 to v70" counter on Oct 23, while the page title said v58. Jorge decides which counter is official. Until he says, the title number is the official one.
+
+---
+
+## 14. Speechify prevails (owner directive, 2026-10-25)
+
+**Owner's words:** *"When RAM or clipboard issues occur, I select Speechify to prevail over all others. This is an owner's directive and to be added to protocol."* Full text: `OWNER-DIRECTIVE_SPEECHIFY-PRIORITY-01_2026-10-25.md` (TRK-2026-10014).
+
+1. **Read-aloud comes first.** Jorge works by listening. When RAM runs low or the clipboard is contested, Speechify keeps working and everything else gives way.
+2. **No agent or script touches the clipboard while Speechify is reading.** Clipboard managers and automation pause.
+3. **Free memory by closing idle helpers only.** Never force-close a program with unsaved work, a transfer in progress, or an open client document. If that's the only way, stop and ask Jorge in one line.
+4. **Reading must never stop completely.** If Speechify fails, the Windows read-aloud fallback overlay takes over.
