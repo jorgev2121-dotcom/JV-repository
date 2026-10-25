@@ -98,6 +98,10 @@ Desktop sessions were once silently pinned to the smallest model (RI-008). **Her
 - The closing line, word for word: **"With 30 years of experience, we can help. Give us a call or write us."**
 - Bottom left: "Re: Property matter · Miami-Dade County". Bottom right: the TRK and the version.
 
+## Envelope rule (owner, 2026-10-25)
+
+**Nothing on the outside of the envelope names the case number, the violation, the property address or the words "unsafe structure".** It shows only the return address, the recipient and, at most, "Re: Property matter · Miami-Dade County" at the bottom left. Formats E1 (window, recommended), E2 and E3 are at https://claude.ai/artifact/4XPCcdCndSwYbzmbLRUcXt . A sample that printed case details on the envelope was retired.
+
 ## Mailing facts (checked 2026-10-25)
 
 - **Envelope:** #10 is 4-1/8 x 9-1/2 in, and fits a letter folded in three.
