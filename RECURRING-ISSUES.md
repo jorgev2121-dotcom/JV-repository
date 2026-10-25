@@ -2337,3 +2337,5 @@ future master key is generated on the PC and never pasted into chat.
 - Owner directive issued: SPEECHIFY-PRIORITY-01 (Speechify wins clipboard and RAM conflicts; charter §14).
 - Fix assigned to Joey: JOB_JOEY_SPEECHIFY-FIX-AND-OVERLAY_V1_GO (TRK-2026-10050). It covers the diagnosis, turning off the AI extras, the READ IT overlay with a Windows-voice fallback (Tier 2: removes the single point of failure), and a 15-minute liveness check (Tier 3).
 - **Next recurrence:** patches are forbidden (Rule 4). Present three options, including replacing Speechify with the overlay as the primary reader.
+
+- **2026-10-25 (RI-012):** Jorge asked for one naming convention across all documents. Proposed fix, Tier 2 (replace): Naming Convention V2 (address first, then date, then ID last), applied by the filing engine at most 200 files per run, each run with a rollback script. Waiting on Jorge's YES. File: NAMING-CONVENTION-V2_PROPOSAL_2026-10-25.md (TRK-2026-10055).
