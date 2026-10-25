@@ -322,3 +322,11 @@
   7 MAIL WATCH: PASS (last check 11:20Z, 61 min; refreshed 12:2xZ).
   10 USAGE: allowed (read 12:20Z). Session context 403k of 1,000k.
   New failures: none. Sunday morning bundle sent 8:20 AM ET (Gmail 1a172fee1ea15409 + push).
+- 2026-10-25T18:22Z · SELF-TEST pass 41 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 12Z probe answered 13:20Z. New probe selftest-probe-2026102518 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:08Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 17:20Z, 62 min; refreshed 18:2xZ).
+  10 USAGE: allowed (read 18:20Z). Session context about 545k of 1,000k.
+  New failures: none. Sunday bundle (8:22 AM ET) and Experian FYI (9:20 AM ET) still unanswered.
