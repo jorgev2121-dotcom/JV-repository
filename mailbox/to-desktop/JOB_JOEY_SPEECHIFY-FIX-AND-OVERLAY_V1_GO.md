@@ -3,7 +3,7 @@
 To: Joey (Grok Bot hub, Owner's Executor). Joey may delegate to RAMBO or a Grok specialist for the PC work.
 From: Cloud window (Claude Code, cloud), for Jorge Valdes
 Date: 2026-10-25
-Tracking: TRK-2026-10014 · #Speechify #Accessibility
+Tracking: TRK-2026-10050 · #Speechify #Accessibility
 Priority: **Top.** Jorge cannot read his work without it. Owner directive SPEECHIFY-PRIORITY-01 applies.
 Return path: write `REPLY-TO-CHAT_JOB_JOEY_SPEECHIFY-FIX-AND-OVERLAY_V1.md` to VTES-Outbox with proof. A receipt-only reply counts as nothing.
 

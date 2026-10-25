@@ -531,9 +531,34 @@ within 30 days.**
 
 ## 14. Speechify prevails (owner directive, 2026-10-25)
 
-**Owner's words:** *"When RAM or clipboard issues occur, I select Speechify to prevail over all others. This is an owner's directive and to be added to protocol."* Full text: `OWNER-DIRECTIVE_SPEECHIFY-PRIORITY-01_2026-10-25.md` (TRK-2026-10014).
+**Owner's words:** *"When RAM or clipboard issues occur, I select Speechify to prevail over all others. This is an owner's directive and to be added to protocol."* Full text: `OWNER-DIRECTIVE_SPEECHIFY-PRIORITY-01_2026-10-25.md` (TRK-2026-10050).
 
 1. **Read-aloud comes first.** Jorge works by listening. When RAM runs low or the clipboard is contested, Speechify keeps working and everything else gives way.
 2. **No agent or script touches the clipboard while Speechify is reading.** Clipboard managers and automation pause.
 3. **Free memory by closing idle helpers only.** Never force-close a program with unsaved work, a transfer in progress, or an open client document. If that's the only way, stop and ask Jorge in one line.
 4. **Reading must never stop completely.** If Speechify fails, the Windows read-aloud fallback overlay takes over.
+
+---
+
+## 15. "The book" and the Auto-Filing Engine (owner directive, 2026-10-25)
+
+Full text: `OWNER-DIRECTIVE_AUTO-FILING-ENGINE-AND-THE-BOOK-01_2026-10-25.md` (TRK-2026-10052).
+
+1. **"The book"** always means **The VTES Control Book**, https://claude.ai/artifact/XE6QRfTbaKswTgFn62wnTz. Dictation spellings VTS, BTES and BTS mean the same book.
+2. **Every enhancement to the book raises its version by exactly 1**, shown in the title bar and in the book's version history. Rollback means picking an earlier version from the version box and republishing it to the same address. Log the old version id in `OPEN-ITEMS.md` every time.
+3. **The Auto-Filing Engine may change files without Jorge's approval** (this overrides "filing is RED" for the engine only), but only:
+   - with a rollback script written first;
+   - by copying, verifying, then removing, and never deleting;
+   - filing into client job folders only on an exact identifier;
+   - stopping for Jorge's YES above 200 items or 10 percent of a folder in one run.
+4. **Every engine change and every health check is logged on the book's Filing Engine page.**
+
+---
+
+## 16. Preview first — "show me before I open it" (owner directive, 2026-10-25)
+
+**Owner's words:** *"Since we are visual people, artifacts are extremely helpful. Would be ideal if every file I pointed to would display an artifact of the documents contained or the standard template, whatever is easiest. It will let me know faster than opening the file if I'm on the right page, the right link."* Tracking: TRK-2026-10054.
+
+1. **When Jorge points any agent at a file, folder or link, show a one-glance preview before doing the work:** the file name, its TRK or OPH number, the document type, and either a picture of page 1 or a five-line summary. For a folder, list what's in it, grouped.
+2. **Then ask in one word whether it's the right one** ("Right file?"), unless he has already confirmed it.
+3. **On the PC, previews come from tools that already exist** (PowerToys Peek and the File Explorer preview pane), not from new code. See `mailbox/to-desktop/JOB_PREVIEW-FIRST-PEEK-SETUP_V1_GO.md`.
