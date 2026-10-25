@@ -1,4 +1,4 @@
-# DRAFT - NOT SENT. Desktop install order for panel v5 (TRK-2026-9910-C)
+# SENT 2026-10-25 to VTES-Inbox (Drive id 1H1qjNLzEWDqYzSyHUsyvuZ4jqEIShl-o) after Jorge said "yes send it." Awaiting RAMBO receipt.
 
 **STATUS: DRAFT. Do not send to VTES-Inbox until Jorge says yes in his own words.** No Drive file exists for this. Nothing is installed. The Desktop is never touched.
 
