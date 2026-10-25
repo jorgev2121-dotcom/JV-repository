@@ -134,3 +134,43 @@ deserves its own pass. Tracked as TRK-2026-9086.
 ---
 
 **Question: which three do you want to clear first?**
+
+---
+
+## OWNER DIRECTIVE 2026-09-19 — "all approved as recommended, reactivate if dead"
+
+**Jorge approved all 13 recommended-APPROVE gates on this list in one line, live, via chat.**
+This supersedes the "sixteen days old, treat as informed not current" caution above for
+these 13 specifically — a fresh decision was just made. Approved: **REG-0001, REG-0002,
+REG-0004, REG-0005, REG-0006, REG-0007, REG-0009, REG-0010, NEW-01, NEW-02, NEW-03, NEW-05**,
+and the 12 recommended-DEFER lines stay deferred (he did not touch those).
+
+**What "approved" changes and does not change, stated plainly so approval is never read as
+completion:** approval clears the owner-decision gate. It does not move data, send money, or
+send mail by itself — someone with the right hands still has to do each one. Split below by
+who that is.
+
+**Cannot be executed by ANY AI, approval or not — these need Jorge's own hand regardless:**
+- `REG-0001` / `REG-0004` — API keys. Paste them yourself into Claude Code / Bus-KeyVault.
+  A key typed into any chat or file is a leaked key.
+- `REG-0007` — the iPhone Keychain/1Password setting is a phone-in-hand action.
+- `REG-0009` / `REG-0010` — confirming an install package is a "yes I see it" a machine can't say for him.
+- `REG-0002` — Cowork's Drive access is a claude.ai connector consent screen. Same family as every
+  other OAuth click in this system: only the account owner can grant it. **Smallest action:** open
+  claude.ai → Settings → Connectors, enable/authorize Google Drive for Cowork if not already lit up.
+
+**Desktop-executable now that it's approved (Outlook, files, the machine) — routed to
+`mailbox/to-desktop/WORK-QUEUE.md`:**
+- `REG-0006` — send the drafted COI refile email
+- `NEW-03` — send the drafted 5-report email to Wally/Alec
+- `NEW-05` — close the line (already acted on; just needs the register entry marked closed)
+
+**Needs one piece of data only Jorge has, then it's mechanical:**
+- `REG-0005` — what dollar cap for PREAUTH-20260727-01? Give the number and it's set once, permanently.
+
+**Spend, card-on-file, needs the actual payment click:**
+- `NEW-01` / `NEW-02` — REISkip batches ($34.95 + $63.90 max). Neither cloud nor desktop holds a
+  payment method; this is a portal click only Jorge (or whoever holds the REISkip login) can make.
+
+**"Reactivate if dead"** — the task board's own live check reported 5 dead. That census belongs
+to whichever machine runs those scheduled tasks (Desktop) — routed to the same work queue.
