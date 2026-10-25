@@ -2330,7 +2330,7 @@ future master key is generated on the PC and never pasted into chat.
 
 ---
 
-## RI-049 · 2026-10-25 — Speechify stops reading (random, then intermittent, then permanent)
+## RI-057 · 2026-10-25 — Speechify stops reading (random, then intermittent, then permanent)
 
 **Reported by Jorge, 2026-10-25, as "not reading AGAIN".** It has happened before, but this is the first time it is logged here. Symptom: Speechify reads at random, then stops at times, then stops for good. **The screen does not freeze; only the reading stops.** Jorge depends on it (dyslexia), so this is a work-stopper, not an annoyance.
 - Suspected causes, to confirm: clipboard contention from several AI, password and sync tools; RAM pressure; browser memory saver putting the extension to sleep; the audio device switching; a Speechify AI-credit limit.
