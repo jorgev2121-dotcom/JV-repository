@@ -562,3 +562,14 @@ Full text: `OWNER-DIRECTIVE_AUTO-FILING-ENGINE-AND-THE-BOOK-01_2026-10-25.md` (T
 1. **When Jorge points any agent at a file, folder or link, show a one-glance preview before doing the work:** the file name, its TRK or OPH number, the document type, and either a picture of page 1 or a five-line summary. For a folder, list what's in it, grouped.
 2. **Then ask in one word whether it's the right one** ("Right file?"), unless he has already confirmed it.
 3. **On the PC, previews come from tools that already exist** (PowerToys Peek and the File Explorer preview pane), not from new code. See `mailbox/to-desktop/JOB_PREVIEW-FIRST-PEEK-SETUP_V1_GO.md`.
+
+---
+
+## 17. Run at the next free slot, finish the whole cycle (owner directive, 2026-10-25)
+
+Full text: `OWNER-DIRECTIVE_RUN-NEXT-SLOT-AND-FINISH-01_2026-10-25.md` (TRK-2026-10056).
+
+1. **A new task starts at the first free slot** (the right agent idle, and enough RAM, with Speechify's share never counted as free). It does **not** wait for a chosen future time unless Jorge asks for one and approves it.
+2. **A run is DONE only when every step of its cycle is done.** Partial is IN PROGRESS, and the agent carries on to the next step without being asked.
+3. **Only a real blocker pauses a step.** Then a **flashing red "NEEDS YOU" pop-up** goes up at once (no sound while Speechify reads), the other steps keep going, and the run resumes by itself when the blocker clears.
+4. **The safety brakes are blockers, not exceptions:** RED steps at night, the filing engine's 200-item brake, and a second hang. Each one pauses only its own step and raises the pop-up.

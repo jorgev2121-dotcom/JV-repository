@@ -12,6 +12,21 @@ Update `OPEN-ITEMS.md` as you go, and move finished work into `mailbox/done/`.
 
 ---
 
+## ★ CURRENT QUEUE, 2026-10-25 — do these first, in this order (PASTE-D-071)
+
+Charter §17: start each one at the first free slot and run every step through to the end. A step that needs Jorge gets a flashing "NEEDS YOU" pop-up; the other steps keep going. All job files are in Drive VTES-Inbox and in this folder.
+
+1. `JOB_DISPATCHER-NEXT-SLOT-RUN-TO-FINISH_V1_GO.md` (TRK-2026-10056). Build it first; it runs the rest.
+2. `JOB_AUTO-FILING-ENGINE-BUILD_V1_GO.md` (TRK-2026-10052; the Drive copy says 10016). Phase A dry run.
+3. `JOB_ALL-DOCS-OCR-AND-RENAME_V1_GO.md` (TRK-2026-10055). Phase A: count, OCR into sidecars, 25 sample renames.
+4. `JOB_REQUEST-STATUS-POPUPS_V1_GO.md` (TRK-2026-10053; the Drive copy says 10017).
+5. `JOB_PREVIEW-FIRST-PEEK-SETUP_V1_GO.md` (TRK-2026-10054).
+6. `JOB_DESKTOP-SWEEP-OCR-RESORT_V1_GO.md` (TRK-2026-10051; the Drive copy says 10015). Phase 1 proposal only.
+
+Scheduled tasks and every RED step wait for Jorge's own typed OK, which counts as a blocker pop-up, not a silent stop.
+
+---
+
 ## 0. FIRST — state your model
 
 Say which model you are running, in one line, before anything else.
