@@ -23,6 +23,16 @@ Charter §17: start each one at the first free slot and run every step through t
 5. `JOB_PREVIEW-FIRST-PEEK-SETUP_V1_GO.md` (TRK-2026-10054).
 6. `JOB_DESKTOP-SWEEP-OCR-RESORT_V1_GO.md` (TRK-2026-10051; the Drive copy says 10015). Phase 1 proposal only.
 
+**Proven tools first (charter §18, TRK-2026-10057):** use the proven tools named in OWNER-DIRECTIVE_PROVEN-TOOLS-FIRST-01 before writing code:
+- Drive's own text search, then OCRmyPDF or Acrobat "Recognize Text";
+- BurntToast for the pop-ups;
+- Windows Task Scheduler;
+- DropIt for rule sorting;
+- PowerToys Peek;
+- Edge "Read aloud" and the Windows voices.
+
+Write the choice into each job's reply.
+
 Scheduled tasks and every RED step wait for Jorge's own typed OK, which counts as a blocker pop-up, not a silent stop.
 
 ---

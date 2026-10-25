@@ -573,3 +573,11 @@ Full text: `OWNER-DIRECTIVE_RUN-NEXT-SLOT-AND-FINISH-01_2026-10-25.md` (TRK-2026
 2. **A run is DONE only when every step of its cycle is done.** Partial is IN PROGRESS, and the agent carries on to the next step without being asked.
 3. **Only a real blocker pauses a step.** Then a **flashing red "NEEDS YOU" pop-up** goes up at once (no sound while Speechify reads), the other steps keep going, and the run resumes by itself when the blocker clears.
 4. **The safety brakes are blockers, not exceptions:** RED steps at night, the filing engine's 200-item brake, and a second hang. Each one pauses only its own step and raises the pop-up.
+
+---
+
+## 18. Proven tools first (owner directive, 2026-10-25)
+
+Full text: `OWNER-DIRECTIVE_PROVEN-TOOLS-FIRST-01_2026-10-25.md` (TRK-2026-10057).
+
+**Before building a program, find a proven tool that already does the job. If one fits with small changes or small compromises, use it.** That is always the first option. Look in this order: a built-in Windows, Google or Microsoft feature; a widely used free or open-source tool; a program Jorge already pays for. Custom code is last, and only as thin glue. Record the choice and the compromise in the job file. A paid tool is still Jorge's yes (spend is RED).
