@@ -14,6 +14,12 @@ Read it fully before doing anything else. These rules are not optional.**
 - **ADHD and dyslexia.** He uses Speechify (text-to-speech) and dictation heavily.
 - **Google Drive is the single source of truth** for job files.
 
+- **Time zone: EASTERN (America/New_York) is a hard default** (owner directive,
+  2026-10-16). Every calendar event, reminder, and displayed time is Eastern. Always
+  pass `timeZone: America/New_York` when creating or updating events, and show times
+  as ET. The Google account itself is set to Pacific, so never rely on its default.
+  Use another zone only when Jorge specifically asks and approves that override.
+
 **What this means in practice:** there is nobody else. If you hand a technical task
 back to Jorge, it does not get done — it joins a backlog that is already 300+ items
 deep. Handing work upward is not neutral. It is how work dies here.
@@ -509,3 +515,14 @@ LIBRARIAN-RND → `JOB-0085` dictation → retro sweeps → the rest by scorecar
 producing appointments and the three money items collected or delivered. **Each dated
 within 30 days.**
 
+---
+
+## 13. Version protocol for the control panel
+
+**Owner directive, Jorge, 2026-10-25, in his own words:** *"When an enhancement is added, the v number increases by 1."*
+
+1. **Every enhancement to the VTES Control Panel raises its version number by exactly 1.** Example: v58 plus the Solicitation tab became **v59** (2026-10-25).
+2. **Put the new number in the page title** (`VTES Control Panel vNN (CURRENT)`) and add a dated line to the panel's Change log tab.
+3. **Same address, new version.** Publish over the existing page so saved decisions and links carry over. Record the old version id in `OPEN-ITEMS.md` so it can be rolled back.
+4. **A fix that adds nothing new does not need a new number.** If it is unclear whether something is an enhancement, ask Jorge in one short question.
+5. **Open question (2026-10-25):** the panel's Change log has used its own "v67 to v70" counter on Oct 23, while the page title said v58. Jorge decides which counter is official. Until he says, the title number is the official one.
