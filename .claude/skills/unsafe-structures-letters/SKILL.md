@@ -100,7 +100,15 @@ Desktop sessions were once silently pinned to the smallest model (RI-008). **Her
 
 ## Envelope rule (owner, 2026-10-25)
 
-**Nothing on the outside of the envelope names the case number, the violation, the property address or the words "unsafe structure".** It shows only the return address, the recipient and, at most, "Re: Property matter · Miami-Dade County" at the bottom left. Formats E1 (window, recommended), E2 and E3 are at https://claude.ai/artifact/4XPCcdCndSwYbzmbLRUcXt . A sample that printed case details on the envelope was retired.
+**Nothing on the outside of the envelope names the case number, the violation or the words "unsafe structure".** A sample that printed case details on the envelope was retired.
+
+**Jorge's format (2026-10-26), E4:**
+- Return address: **JORGE VALDES** (not Team USA Sales), 13633 SW 142ND TER, MIAMI FL 33186. The address is still to be confirmed by Jorge.
+- **RE: <subject property address>** about 1/2 inch above the recipient's name.
+- The recipient block.
+- "Reference: Miami-Dade County property matter" at the bottom left.
+
+E5 is the same, with "· Time sensitive" added. All formats are drawn at https://claude.ai/artifact/4XPCcdCndSwYbzmbLRUcXt. Use whichever one Jorge picks.
 
 ## Mailing facts (checked 2026-10-25)
 
