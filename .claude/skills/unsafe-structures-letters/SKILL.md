@@ -79,7 +79,8 @@ Desktop sessions were once silently pinned to the smallest model (RI-008). **Her
    It writes:
    - the print list (.csv and .xlsx);
    - the letters PDF, one per page, laid out for a #10 window envelope;
-   - the labels PDF (Avery 5160/8160, 30 per sheet; only needed for envelopes without a window);
+   - the envelopes PDF in approved format E5, printed straight onto #10 envelopes;
+   - the labels PDF (Avery 5160/8160, 30 per sheet; a backup only, since E5 prints the address on the envelope);
    - the unknowns list;
    - a counts file.
 
@@ -108,7 +109,7 @@ Desktop sessions were once silently pinned to the smallest model (RI-008). **Her
 - The recipient block.
 - "Reference: Miami-Dade County property matter" at the bottom left.
 
-E5 is the same, with "· Time sensitive" added. All formats are drawn at https://claude.ai/artifact/4XPCcdCndSwYbzmbLRUcXt. Use whichever one Jorge picks.
+E5 is the same, with "· Time sensitive" added. **Jorge APPROVED E5 on 2026-10-26: use E5 for every envelope.** `build_letters.py` prints it as `VTES-UNSAFE-STRUCTURES-ENVELOPES_V<n>.pdf`, one #10 envelope per page; set the return address with `--ret "LINE1|LINE2|LINE3"`. All formats are drawn at https://claude.ai/artifact/4XPCcdCndSwYbzmbLRUcXt.
 
 ## Mailing facts (checked 2026-10-25)
 
