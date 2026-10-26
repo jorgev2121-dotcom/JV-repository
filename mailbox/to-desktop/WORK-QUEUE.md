@@ -12,6 +12,31 @@ Update `OPEN-ITEMS.md` as you go, and move finished work into `mailbox/done/`.
 
 ---
 
+## ★ CURRENT QUEUE, 2026-10-25 — do these first, in this order (PASTE-D-071)
+
+Charter §17: start each one at the first free slot and run every step through to the end. A step that needs Jorge gets a flashing "NEEDS YOU" pop-up; the other steps keep going. All job files are in Drive VTES-Inbox and in this folder.
+
+1. `JOB_DISPATCHER-NEXT-SLOT-RUN-TO-FINISH_V1_GO.md` (TRK-2026-10056). Build it first; it runs the rest.
+2. `JOB_AUTO-FILING-ENGINE-BUILD_V1_GO.md` (TRK-2026-10052; the Drive copy says 10016). Phase A dry run.
+3. `JOB_ALL-DOCS-OCR-AND-RENAME_V1_GO.md` (TRK-2026-10055). Phase A: count, OCR into sidecars, 25 sample renames.
+4. `JOB_REQUEST-STATUS-POPUPS_V1_GO.md` (TRK-2026-10053; the Drive copy says 10017).
+5. `JOB_PREVIEW-FIRST-PEEK-SETUP_V1_GO.md` (TRK-2026-10054).
+6. `JOB_DESKTOP-SWEEP-OCR-RESORT_V1_GO.md` (TRK-2026-10051; the Drive copy says 10015). Phase 1 proposal only.
+
+**Proven tools first (charter §18, TRK-2026-10057):** use the proven tools named in OWNER-DIRECTIVE_PROVEN-TOOLS-FIRST-01 before writing code:
+- Drive's own text search, then OCRmyPDF or Acrobat "Recognize Text";
+- BurntToast for the pop-ups;
+- Windows Task Scheduler;
+- DropIt for rule sorting;
+- PowerToys Peek;
+- Edge "Read aloud" and the Windows voices.
+
+Write the choice into each job's reply.
+
+Scheduled tasks and every RED step wait for Jorge's own typed OK, which counts as a blocker pop-up, not a silent stop.
+
+---
+
 ## 0. FIRST — state your model
 
 Say which model you are running, in one line, before anything else.
@@ -477,6 +502,18 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
    OCR stays a plain Tesseract script with zero LLM tokens. Use `--model sonnet` only for
    QC sampling (1 in 20) and judgment steps. Stop the LLM steps if the weekly pool drops under ~5%.
 3. **Result file** goes to VTES-Outbox with nonce `NIGHT-NONCE-OSPREY-7734-20260923` + `STARTED-BY:`.
+
+
+---
+
+## 17. TRK-2026-9959b — OWNER DIRECTIVE: EXECUTOR-FIRST-01 + GUIDED-HANDOFF-01
+
+Full text: `OWNER-DIRECTIVE_EXECUTOR-FIRST-GUIDED-HANDOFF-01_2026-09-28.md` (repo root; copy in `G:\My Drive\VTES-Inbox\`).
+
+1. **Adopt it.** From now on, never hand Jorge written steps for something you or Cowork can do. When a human-only click remains, do a guided hand-off: drive to the screen, point at it, wait, continue, then say "TASK COMPLETE", go back to the start point, and hand back.
+2. **Build the arrow tool (GREEN — new files only, no persistence):** `C:\Users\JV\OneDrive\Scripts\Show-Pointer.ps1 -X <int> -Y <int> -Caption "<text>" [-Seconds 30]`. It draws a transparent, click-through, always-on-top arrow and caption at those screen coordinates, then closes itself. No scheduled task, no startup entry. Prove it with one screenshot showing the arrow on the Start button, saved to VTES-Outbox.
+3. **1Password dry run (read-only):** open 1Password, stop at the lock screen, point at the unlock box with Show-Pointer, and write down what you did. Don't unlock and don't read any item.
+4. Reply in `G:\My Drive\VTES-Outbox\REPLY-TO-CHAT_EXECUTOR-FIRST-01.md`: DONE / PARTIAL / BLOCKED, with the screenshot as proof.
 
 ---
 
