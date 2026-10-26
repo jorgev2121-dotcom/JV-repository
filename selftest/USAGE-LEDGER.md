@@ -38,3 +38,4 @@
 2026-10-25T18:20Z · usage governor · allowed · session context ~545k of 1,000k
 2026-10-26T00:20Z · usage governor · allowed · session context 685k of 1,000k
 2026-10-26T06:21Z · usage governor · allowed · session context 101k of 1,000k (after compaction)
+2026-10-26T07:23Z · usage governor · allowed · session context ~165k of 1,000k
