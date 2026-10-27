@@ -370,3 +370,12 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal; same a
   7 MAIL WATCH: PASS (prior check 17:19Z, 62 min).
   10 USAGE: allowed. Session context about 460k of 1,000k.
   New failures: none. Open with Jorge: TransUnion x2 + Azure account me/not-me, Claude Code login on PC, five approval pop-ups, Sunday bundle, Tyler reset, Burn Rate daily run.
+
+## Pass 46 · 2026-10-27T00:17Z (8:2x PM ET Mon Oct 26)
+Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102700; previous probe (18Z) answered in 58 min.
+  4 PC ALIVE: FAIL (NEW). _UPTIME-HEARTBEAT.md last modified 21:31Z (5:31 PM ET), about 2 h 50 min old; limit 30 min. The PC itself looks alive (SYNC-01 result emails kept arriving through 8:13 PM ET), so the heartbeat writer may have stopped, not the PC. Alerted once: Gmail + push + panel attention doc selftest-20261027-00-pc-uptime-heartbeat-stale. Cloud cannot fix; needs the desktop (restart heartbeat).
+  7 MAIL WATCH: PASS (prior check 23:17Z, 63 min).
+  10 USAGE: allowed. Session context about 615k of 1,000k.
+  4 of 5 checked passing. New failures: check 4.
