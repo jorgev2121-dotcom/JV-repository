@@ -379,3 +379,12 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   7 MAIL WATCH: PASS (prior check 23:17Z, 63 min).
   10 USAGE: allowed. Session context about 615k of 1,000k.
   4 of 5 checked passing. New failures: check 4.
+
+## Pass 47 · 2026-10-27T06:18Z (2:2x AM ET Tue Oct 27)
+Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102706; previous probe (00Z) answered in 57 min.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 06:16Z. The check-4 failure from pass 46 is RESOLVED (writer running again); attention doc marked resolved. No message to Jorge needed.
+  7 MAIL WATCH: PASS (prior check 05:18Z, 60 min).
+  10 USAGE: allowed. Session context about 745k of 1,000k (warn Jorge at about 800k).
+  5 of 5 checked passing. New failures: none.
