@@ -600,3 +600,15 @@ Full text: `OWNER-DIRECTIVE_AGENTS-OWN-FOLLOW-THROUGH-01_2026-10-15.md`. Auditor
 - **EXEC-01 (the hourly check) reads the panel database every hour**: new task-comments, approvals with no `doneAt`, and queued orchestrator items. It acts, routes, or answers, and writes the result back.
 - **Two hours maximum.** Older items turn the panel's "⚙️ waiting on agents" counter red and count as an agent fault, never Jorge's.
 - **The self-test, not Jorge, finds the bugs** (every 6 hours, with an end-to-end probe).
+
+---
+
+## 20. Version protocol for the control panel (numbered 13 on the base branch; renumbered at merge 2026-10-27, text unchanged)
+
+**Owner directive, Jorge, 2026-10-25, in his own words:** *"When an enhancement is added, the v number increases by 1."*
+
+1. **Every enhancement to the VTES Control Panel raises its version number by exactly 1.** Example: v58 plus the Solicitation tab became **v59** (2026-10-25).
+2. **Put the new number in the page title** (`VTES Control Panel vNN (CURRENT)`) and add a dated line to the panel's Change log tab.
+3. **Same address, new version.** Publish over the existing page so saved decisions and links carry over. Record the old version id in `OPEN-ITEMS.md` so it can be rolled back.
+4. **A fix that adds nothing new does not need a new number.** If it is unclear whether something is an enhancement, ask Jorge in one short question.
+5. **Open question (2026-10-25):** the panel's Change log has used its own "v67 to v70" counter on Oct 23, while the page title said v58. Jorge decides which counter is official. Until he says, the title number is the official one.
