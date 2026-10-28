@@ -98,3 +98,4 @@
 2026-10-28T16:21Z watch: quiet, no push
 2026-10-28T17:20Z watch: quiet, no push (push denied)
 2026-10-28T18:22Z usage allowed, context ~380k
+2026-10-28T19:21Z watch: relayed Grok red card by Gmail; push denied
