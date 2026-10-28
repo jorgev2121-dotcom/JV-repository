@@ -91,3 +91,4 @@
 2026-10-28T09:18Z watch: quiet, no push
 2026-10-28T10:18Z watch: quiet, no push
 2026-10-28T11:19Z watch: morning digest sent
+2026-10-28T12:22Z usage allowed, context ~200k
