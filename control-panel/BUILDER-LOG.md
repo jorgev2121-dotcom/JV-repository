@@ -393,3 +393,4 @@
 2026-10-28T08:43Z runner: heartbeat ok, rate allowed, context ~780k (autocompact at 784k imminent, all state in repo), quiet cycle (quiet hours)
 2026-10-28T09:42Z runner: heartbeat ok, rate allowed, context ~136k (autocompact done, fresh window; state in repo), quiet cycle (quiet hours)
 2026-10-28T10:44Z runner: heartbeat ok, rate allowed, context ~162k, quiet cycle (quiet hours)
+2026-10-28T11:42Z runner: heartbeat ok, rate allowed, context ~190k, morning digest already sent 7:18 AM ET
