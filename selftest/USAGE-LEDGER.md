@@ -90,3 +90,4 @@
 2026-10-28T08:18Z watch context ~770k
 2026-10-28T09:18Z watch: quiet, no push
 2026-10-28T10:18Z watch: quiet, no push
+2026-10-28T11:19Z watch: morning digest sent
