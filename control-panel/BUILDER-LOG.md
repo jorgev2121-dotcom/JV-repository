@@ -400,3 +400,4 @@
 2026-10-28T15:43Z runner: heartbeat ok, rate allowed, context ~307k, quiet cycle
 2026-10-28T16:43Z runner: heartbeat ok, rate allowed, context ~335k, quiet cycle
 2026-10-28T17:42Z runner: heartbeat ok, rate allowed, context ~366k, quiet cycle; git push BLOCKED by auto-mode classifier since 17:2xZ, logs saved locally (waiting on Jorge's yes)
+2026-10-28T18:42Z runner: heartbeat ok, rate allowed, context ~395k, quiet cycle; git push still blocked (asked Jorge by chat, Gmail and panel attention doc)
