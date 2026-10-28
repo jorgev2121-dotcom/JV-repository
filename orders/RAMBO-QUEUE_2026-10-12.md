@@ -1,0 +1,32 @@
+# RAMBO QUEUE — 2026-10-12 (master list, updated by the cloud each time an item finishes)
+
+**STATUS 05:17Z (1:17 AM ET): BLOCKED.** The Claude counter reset at midnight and was spent by 12:24 AM on 11 older jobs. Codex then declined every order of ours. Nothing is installed. Only start: PASTE-D-069 in the desktop Code tab (an interactive window is not counted). Partial result: Codex reviewed 114 panel candidates; see C:\AI\codex-work\MSG-CLOUD-TO-CODE_WIRE-VTES-PANEL-V5_RAMBO1_2026-10-12_v2_ADDENDUM-1_v2\Panel-Candidates.html on the PC.
+**The full A–Z overnight plan with lanes and target times: orders/OVERNIGHT-RUN-PLAN_2026-10-12.md. Follow that order.** New since the list below: RAM guard (plan item C, tools/ramguard) and the panel feeder (plan item F, tools/panel). Rambo 1 may run 2 items at once ONLY on different folders, each holding C:\AI\state\LOCK_<item>.lock.
+
+Lanes: Claude and Codex only (Jorge, 2026-10-12).
+- RAMBO 1 = Claude, on the PC. Runs ONE order at a time, so two sessions never edit the same file (RI-048).
+- RAMBO 2 = Codex, on the PC. Non-client work only, with no Drive access.
+- CLOUD = this session. Checks every hour, relays proof, and re-sends anything Codex swallows.
+
+## Rambo 1, in this order (one after another)
+1. Raise the Claude run counter from 12 to 40, and switch only on real limits. SENT 01:08Z. Status: WAITING (counter resets at midnight ET)
+2. **Control panel (CRITICAL):** step 0 finds Copilot's design on the PC (asks Copilot directly, plus a disk search), screenshots every candidate, and STOPS for Jorge to pick. Then it wires the picked design: feeder every 2 minutes, stale tiles in red, desktop shortcut. v2 SENT 01:23Z + ADDENDUM-1 01:24Z (Copilot = Microsoft Copilot app; it may exist only inside the chat). Status: WAITING
+2b. **OCR running 24/7 on the free lane (NEW):** Rambo 1 builds one Windows task that OCRs every PDF in the job folders, around the clock, at zero AI cost. It writes a heartbeat every 5 minutes and shows on the panel. HELD
+3. **Joey / Grok bots check (NEW):** find out whether Joey can receive work at all (a watched folder, a command line, chat only, or an API key), then send one test. Read-only. HELD
+4. Split the work into Rambo 1 and Rambo 2 lanes, plus two panel tiles. HELD (sent automatically when 1 proves Claude is back)
+5. Usage governor: check what exists, then build the real-limit switch, the usage log and the heartbeat. HELD
+6. Orange Tree live deploy, v3: OCR, the big red timestamp and alerts. HELD
+7. File the 32 remaining email attachments. HELD
+8. Desktop and taskbar AI icons: inventory and screenshot, then one proposed clean layout. Nothing is moved until Jorge says yes. HELD
+9. **1Password SSOT-02 (owner directive 10-12):** phase 0 gate (CLI switch), phase 1 counts, phase 2 consolidate + one autofill + no personal/work picker, phase 3 rotate in batches (high-stakes last, with Jorge), phase 4 weekly auto-heal. HELD
+10. **AI protocols, programs, triggers and hooks registry (repeat request 10-12):** copy with secrets redacted to "Shared Folders for all LLMs\AI-AUTOMATION-REGISTRY_2026-10-12", an index by owner, a first-pass conflict list, and a panel tab. Foundation for the PAD + bot + AI-oversight hybrid. HELD
+11. **Miami-Dade access letter:** issue the TRK from the registry, re-verify every contact on the live sites, check vendor registration (for the logo request). Draft only; Jorge says "send". HELD
+12. **Logo permission request (Jorge 10-12):** separate draft is in outreach/; it goes out only after item 11 confirms vendor status. Never claim "approved vendor" unless registered. HELD
+
+## Running at the same time (parallel)
+- CLOUD, all night: relays each proof to Jorge by phone and email, re-sends any order Codex swallows, and alerts if the panel or governor heartbeat stops.
+- RAMBO 2 (Codex): nothing queued. Every order above needs Drive or client files, which Codex can't touch.
+- Why Rambo 1 does not run two at once: two Claude sessions on the same PC collided on a live email on 09-28 (RI-048). One at a time is slower but safe.
+
+## Expected timing (estimate, not a promise)
+Items 1–2 by about 1 AM ET. Items 3–5 by about 3:30 AM. Item 6 by about 5:30 AM. Item 7 by about 7:30 AM.

@@ -1,0 +1,9 @@
+# Panel spec · "📜 Master task log" button (owner ask 2026-10-14 ~10:30 AM ET)
+Owner words: "Add button. To master. To VTES Control panel. And keep a chronological order of task requested. If scheduled to run, if currently running, if completed, if completed with proof, … provide me a click down button so I can click through the different statuses and write comments to which the indicated executor or orchestrator will receive the message and take action and involve agentic agent when deemed appropriate."
+Design decision (Rule 3 — avoid another copy, the SSOT root cause): do NOT make a new list. Upgrade the existing MYASKS tab into the master log and add a header button "📜 Master task log" that opens it.
+1. One row per owner request, oldest → newest (toggle newest first). Columns: date/time asked · what (plain words) · executor (☁️ Cloud / 🖥️ Desktop RAMBO / 🤝 Cowork / Orchestrator / EXEC-01) · status · proof link.
+2. Status values + colours: ⏰ Scheduled · 🔄 Running (yellow) · ✅ Completed (green) · 🟢✅ Completed with proof (green + proof link) · ⛔ Blocked (red, needs Jorge) · ⏸ Deferred.
+3. A status drop-down filter at the top ("All · Scheduled · Running · Completed · With proof · Blocked") + counts per status — click through.
+4. Each row: 💬 Comment box. Saving writes to the page db collection "task-comments" {taskId, executor, text, at}. The hourly runner (EXEC-01) reads new comments with ArtifactData, acts or routes them to the named executor (desktop via WORK-QUEUE/VTES-Inbox), replies in the same thread, and sets the row status. Agent recommendation shown under each comment reply.
+5. Data source: control-panel/MASTER-TASK-LOG.json (seeded from today's requests; the runner appends each new owner request the moment it is received). Durable in db too; never only in-window.
+6. Money lock, 375px, hover tips, button-group colours, read-aloud. Test: tools/panel/test/master-task-log-test.js.

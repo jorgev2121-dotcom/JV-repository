@@ -1,0 +1,31 @@
+{"id":"1nW4BWBBxU3SJEZtKWawkIm-GJQoIv3BM",
+"title":"TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)",
+"partial":false,
+"pdfs":10,"search_sidecars":10,"tags_sidecars":11,
+"tags5_sampled":3,"tags5_of_sampled":3,
+"has_HASHTAGS_txt":true,"hashtags_count":8,"has_people_tags":true,"has_trk_tag":true,
+"other_files":["_TAGS.txt","_CONTACTS-EXTRACTED.txt","_PLACEHOLDERS.md","_PORTAL_TRK-2026-1310.html","_INDEX.html","_STAGE.md","_JOB-TREE_TRK-2026-1310.html (00-Intake)","~45 daily .bak copies of _PORTAL and _STAGE.md in job root","_QUARANTINE-REVIEW-LATER/QUARANTINE-LOG.csv","nested folder TRK-2026-1667 _ 30-6007-009-0030 _ 10980 SW 202 Dr Unit 29 _ COMPLETE-FOLDER (its subfolders not walked: level 3)"],
+"people":[
+{"name":"Miguel Zaldivar","role":"contractor (MZ Solutions / TEDC Builds)","email":"miguel@mzsolutions.org","evidence":"_HASHTAGS.txt, _CONTACTS-EXTRACTED.txt, _PLACEHOLDERS.md","alt_emails":["mzaldivar@tedcbuilds.org","mzaldivar051@gmail.com"],"misspellings":["Miguel Saldivar","Miguel Zaldibar","Zaldívar","miguel@mzsolutions.com (bounced wrong domain)"]},
+{"name":"Pedro Fiallo","role":"structural engineer, PLF Structural Engineers (PE 76100)","email":"pfiallo@plfengineers.com","evidence":"_PLACEHOLDERS.md, _CONTACTS-EXTRACTED.txt, filename Structural-Balcony-PLF-Fiallo-PE76100","misspellings":["Pedro Fiallos","Pedro Fialo","Fiyallo"]},
+{"name":"Cinde Velazquez","role":"owner representative / client (Asden Properties)","email":"cvelazquez@asdenproperties.com","evidence":"_PLACEHOLDERS.md, _CONTACTS-EXTRACTED.txt","misspellings":["Cindy Velazquez","Cinde Velasquez","Cindi Velazques"]},
+{"name":"Eli Bleeman","role":"owner signer (10960 SW 200TH AVENUE LLC)","email":null,"evidence":"_PLACEHOLDERS.md","misspellings":["Eli Bleman","Eli Blieman","Eli Blehman"]},
+{"name":"Alexis Lamela","role":"signer / notarization coordinator (Paramount Homes NJ)","email":"alexis@paramounthomesnj.com","evidence":"_PLACEHOLDERS.md, _CONTACTS-EXTRACTED.txt","misspellings":["Alexis Lamella","Alexis Lamela-"]},
+{"name":"Daniel Rodriguez","role":"city staff, Miami-Dade RER fee review","email":null,"evidence":"_PLACEHOLDERS.md","misspellings":["Danny Rodriguez","Daniel Rodriquez"]},
+{"name":"N. Follman","role":"Asden Properties staff (owner side)","email":"nfollman@asdenproperties.com","evidence":"_CONTACTS-EXTRACTED.txt","misspellings":["Folman","Follmann"]},
+{"name":"Javier (ECS Surveyors)","role":"surveyor","email":"javier@ecssurveyors.com","evidence":"_CONTACTS-EXTRACTED.txt","misspellings":[]},
+{"name":"Jorge Valdes","role":"permit expediter (Team USA Sales)","email":"jorge@teamusasales.com","evidence":"_CONTACTS-EXTRACTED.txt","misspellings":[]}
+],
+"companies":[
+{"name":"MZ Solutions","role":"contractor / client","email":"miguel@mzsolutions.org","evidence":"_HASHTAGS.txt, filename MZ-Solutions-Balcony-Restoration-Revised","misspellings":["MZ Solution","M Z Solutions"]},
+{"name":"TEDC Builds","role":"contractor (Miguel Zaldivar alt company)","email":"mzaldivar@tedcbuilds.org","evidence":"_CONTACTS-EXTRACTED.txt","misspellings":["TEDC","Ted C Builds"]},
+{"name":"PLF Structural Engineers","role":"engineer of record","email":"admin@plfengineers.com","evidence":"_PLACEHOLDERS.md, filenames","misspellings":["PLF Engineers"]},
+{"name":"Asden Properties","role":"owner management","email":null,"evidence":"_CONTACTS-EXTRACTED.txt","misspellings":["Asden","Ashden Properties"]},
+{"name":"10960 SW 200TH AVENUE LLC","role":"property owner","email":null,"evidence":"_PLACEHOLDERS.md, subfolder 01-Owner-10960-SW-200TH-AVENUE-LLC-Authority","misspellings":["10960 SW 200 Ave LLC"]},
+{"name":"Paramount Homes NJ","role":"owner-side signer company","email":null,"evidence":"_CONTACTS-EXTRACTED.txt","misspellings":[]},
+{"name":"ECS Surveyors","role":"surveyor","email":null,"evidence":"_CONTACTS-EXTRACTED.txt","misspellings":[]},
+{"name":"Miami-Dade RER","role":"permitting authority","email":null,"evidence":"_PLACEHOLDERS.md","misspellings":[]},
+{"name":"Cabana Club Gardens","role":"building / condo name","email":null,"evidence":"_PLACEHOLDERS.md","misspellings":["Cabana Club Garden"]}
+],
+"keywords":["10980 SW 202 Dr","10980 SW 202nd Drive","10980 SW 202 Dr Unit 29","Apt 29","Cutler Bay","FL 33189","folio 30-6007-009-0030","3060070090030","TRK-2026-1667","Cabana Club Gardens","concrete restoration","balcony restoration","structural balcony plans","process C2026170181","tracking 3026170181","upload UP26079529","CGC1528486","notice of commencement","DERM review fee","PLF invoice 260518-001","tax jacket","13633 SW 142 Ter","legalization permit","MZ Solutions"],
+"notes":"Job root is cluttered with ~45 daily .bak-YYYYMMDD copies of _PORTAL and _STAGE.md. _HASHTAGS.txt has #folioTBD although folio 30-6007-009-0030 is confirmed via TRK-2026-1667 (nested COMPLETE-FOLDER inside this job). Most level-2 PDFs are stamped TRK-2026-1667, not 1310. Walk: root + level-1 folders' contents; level-3 contents (TRK-1667 subfolders, Checks/Invoices/Signed/Submittal, ENHANCED/ORIGINAL, PRIOR-FILING_TRK-2026-1310) not walked. Several level-1 folders (06-Photos, 05-Deliverables, 03-Research, 01-Emails, _Superseded, 01-INTAKE files) returned no files."}

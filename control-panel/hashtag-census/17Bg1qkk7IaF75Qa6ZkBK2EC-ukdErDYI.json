@@ -1,0 +1,20 @@
+{"id":"17Bg1qkk7IaF75Qa6ZkBK2EC-ukdErDYI",
+"title":"_ALEC-VALDES-DD",
+"partial":false,
+"pdfs":0,"search_sidecars":0,"tags_sidecars":0,
+"tags5_sampled":0,"tags5_of_sampled":0,
+"has_HASHTAGS_txt":false,"hashtags_count":0,"has_people_tags":false,"has_trk_tag":false,
+"other_files":["_TAGS.txt (8 tags incl #TRK-2026-9047 #Alec-Valdes #Avis-Builders #Orange-Tree)","_CONTACTS-EXTRACTED.txt","_PORTAL_UNASSIGNED_ALEC-VALDES-DD.html","_PORTAL_ALEC-VALDES_TRK-2026-9047.html","_PORTAL_UNASSIGNED_ALEC-VALDES-DD (Google Doc)","_STAGE.md","_INDEX.html","_DD-SITE-QUEUE.csv","DUE-DILIGENCE-MASTER_Alec-Valdes_v2_2026-08-15.html","CODE-ENFORCEMENT-CASE-97357_10362-SW-180-ST_TRK-2026-1536.html","FBC-CODE-ERAS-AND-DISCLOSURES_TRK-2026-1621.html","CODE-ENFORCEMENT-CITATIONS-AND-OWNER-RELIEF_TRK-2026-1622.html","MUNI-ORDINANCES-RESOLUTIONS-VARIANCES_TRK-2026-1623.html","DD-FAQ-AUTHORITY-AND-BUYER-BANK-FLAGS_TRK-2026-1624.html","6x _22-SOURCE-RUN_TRK-2026-{1286,1289,1531,1534,1535,1536}_2026-08-16.html","_ORDERS_TAX-JACKETS_2026-08-16/ (JACKET-ORDER-LOG_TRK-2026-9047.md, JACKET-ORDER-REGISTER.csv, _INDEX.html, _PROOF-ONLINE-FORM/)","_ORDERS_TAX-JACKETS_2026-08-18/ (JACKET-ORDER-LOG_TRK-2026-9250_2026-08-18.md, _PROOF-ONLINE-FORM/)","~90 daily .bak copies of _PORTAL x2 and _STAGE.md in root","01..05 standard subfolders: empty except 05-REPORTS-DELIVERABLES/_dd-skills and _Superseded/_dd-skills.bak (level 3 not walked)"],
+"people":[
+{"name":"Alec Valdes","role":"client (due-diligence buyer), Avis Builders","email":null,"evidence":"_TAGS.txt, _STAGE.md, JACKET-ORDER-LOG_TRK-2026-9047.md, folder title","misspellings":["Alex Valdes","Alec Valdez","Alek Valdes"]},
+{"name":"Sidalia Lopez","role":"city staff - records custodian, Miami-Dade Property Appraiser","email":"RecordsRequest@miamidadepa.gov","evidence":"JACKET-ORDER-LOG_TRK-2026-9047.md","misspellings":["Sidalia Lopes","Sedalia Lopez","Cidalia Lopez"]},
+{"name":"Jorge Valdes","role":"inspector / DD preparer (Team USA Sales / CU Inspections)","email":"jorge@teamusasales.com","evidence":"_CONTACTS-EXTRACTED.txt, _TAGS.txt","misspellings":["jorze@teamusasales.com (OCR error)"]}
+],
+"companies":[
+{"name":"Avis Builders","role":"client company","email":null,"evidence":"_TAGS.txt, _STAGE.md","misspellings":["Avis Builder","Avid Builders"]},
+{"name":"Miami-Dade Property Appraiser (PA)","role":"records source for tax/bldg jackets","email":"PAWEBMAIL@MDCPA.NET","evidence":"JACKET-ORDER-LOG_TRK-2026-9047.md","misspellings":["PAWebMail","MDCPA"]},
+{"name":"City of Miami","role":"records route for 01- folios","email":null,"evidence":"JACKET-ORDER-LOG_TRK-2026-9047.md","misspellings":[]},
+{"name":"CU Inspections","role":"Jorge's company","email":null,"evidence":"_TAGS.txt","misspellings":[]}
+],
+"keywords":["Alec Valdes due diligence","TRK-2026-9047","TRK-2026-9250","Avis Builders","Orange Tree","tax jacket","bldg jacket","ACS (1).pdf","PAWebMail","1840 NW 63 ST 33147 / 30-3115-005-3770 / TRK-2026-1534","18020 SW 103 AVE 33157 / 30-5032-086-0020 / TRK-2026-1535","10362 SW 180 ST 33157 / 30-5032-000-1352 / TRK-2026-1536","code enforcement case 97357","unsafe structure 1997 demolition lien","11997 SW 218 ST 33170 / 30-6912-004-0951 / TRK-2026-1286","1997 SW 218 ST (non-existent address)","7823 NW 5 AVE 33150 / 01-3112-016-0030 / TRK-2026-1531","1658 NW 1 ST / 01-4102-006-0250 / TRK-2026-1289","01-4102-098-0001 condo master","FBC code eras","invoice $100.25","22-source run","TRK-2026-1621..1624"],
+"notes":"Multi-property DD capsule, not a single-address job; no _HASHTAGS.txt (only _TAGS.txt). No PDFs or .SEARCH/.TAGS sidecars at depth <=2, though _CONTACTS-EXTRACTED.txt implies sidecars exist deeper (likely _dd-skills or _PROOF-ONLINE-FORM). Stage 07-OWNER-REVIEW, overdue 51 days, $100.25 never invoiced. Root cluttered with ~90 .bak files. Uses 9xxx admin-band TRK (9047) as master."}
