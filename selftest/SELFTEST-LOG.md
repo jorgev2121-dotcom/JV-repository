@@ -443,3 +443,13 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 GIT PUSH: NEW FAILURE. git push to origin was denied twice by the auto-mode classifier ("Out-of-Place Publication") at 17:2xZ; 2 commits (3 after this pass) sit local only. Waiting on Jorge's yes (asked in chat). Logs are safe in the container; GitHub is behind.
   10 USAGE: allowed. Session context about 380k of 1,000k.
   4 of 5 checked passing. New failures: git push denied.
+
+## Pass 54 · 2026-10-29T00:22Z (00Z, 8:2x PM ET Wed 10-28)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102900; previous probe (18Z) answered at 19:20Z (about 60 min).
+  4 PC ALIVE: FAIL (NEW). _UPTIME-HEARTBEAT.md last modified 20:16Z (4:16 PM ET), over 4 h stale. PC still sends SYNC-01 lane emails (latest 00:12Z), so only the heartbeat task looks stopped. Alerted once (Gmail 1a18504a2586c494 plus panel attention doc). Not fixable from cloud.
+  6 SCHEDULED TASKS: NOT RUN this pass (unverified; same two ACCESS_DENIED failures already alerted).
+  7 MAIL WATCH: PASS (prior check 23:20Z, 60 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z pass 53). 14 commits local only.
+  10 USAGE: allowed. Session context about 535k of 1,000k (autocompact at 784k).
+  3 of 5 checked passing (4 and git push failing). New failures: PC uptime heartbeat stale.
