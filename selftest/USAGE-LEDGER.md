@@ -141,3 +141,4 @@
 - 2026-10-30T11:24Z watch: allowed
 - 2026-10-30T12:35Z watch: allowed
 - 2026-10-30T14:03Z watch: allowed
+- 2026-10-30T14:59Z WATCH: mail checked both boxes, panel new=0, outbox quiet; no helper agents.
