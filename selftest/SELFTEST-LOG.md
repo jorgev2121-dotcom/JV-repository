@@ -484,3 +484,14 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 GIT PUSH: still failing (alerted 18Z 10-28). 52 commits local only.
   10 USAGE: allowed. Session context about 330k of 1,000k.
   3 of 5 checked passing (git push and scheduled tasks failing). New failures: county-reply watch task.
+
+## Pass 58 · 2026-10-30T00:22Z (00Z, 8:2x PM ET Thu 10-29)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 18Z probe answered (about 57 min); planted selftest-probe-2026103000.
+  4 PC ALIVE: FAIL (second night). _UPTIME-HEARTBEAT.md last modified 20:17Z, about 4 h stale; PC SYNC-01 mail kept arriving. Same pattern as 10-28/29. Attention doc written; RECURRING-ISSUES line added; no new email (Jorge told last night, no action).
+  5 OCR FLOWING: no .SEARCH.txt since 10-27 (known); overnight TAGS pass succeeds.
+  6 SCHEDULED TASKS: NOT RUN this pass (known: Filing engine, Weekday check, county-reply watch all ACCESS_DENIED, already alerted).
+  7 MAIL WATCH: PASS (prior check 23:17Z, 63 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 64 commits local only.
+  10 USAGE: allowed. Session context about 465k of 1,000k.
+  2 of 4 checked passing (git push, PC heartbeat failing). New failures: none new (PC heartbeat is a repeat).
