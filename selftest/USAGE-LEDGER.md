@@ -169,3 +169,4 @@
 - 2026-10-31T15:21Z WATCH: mail both boxes, panel new=0, outbox known repeat only; no helper agents.
 - 2026-10-31T16:22Z WATCH: mail both boxes, outbox relayed once; no helper agents.
 2026-10-31T17:16Z watch: 4 searches, 0 sends
+2026-10-31T18:16Z watch: allowed; 1 send
