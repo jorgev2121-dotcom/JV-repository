@@ -810,3 +810,10 @@ Codex wrote BLOCKER_CODEX-PII_VTES-JOB_ADOBE-ACROBAT-ONBOARD_V1_2026-10-21.md (O
 1. Run it on the Claude lane (cap resets 00:00 ET) or the LOCAL lane. Do not send it to Codex.
 2. Write the result to `EXECUTED_ADOBE-ACROBAT-ONBOARD_2026-10-22.md` in the Outbox. No passwords, no clicking Google or Adobe consent prompts.
 Closing question for the desktop: did the Claude lane take this job?
+
+## ITEM (cloud, 2026-10-31T23:17Z, 7:17 PM ET) · #medley #Microfilm · PREPARE ONLY, SEND IS RED
+Source: Jorge's own dictated email to Jorge@TeamUsaSales.com, 6:40 PM ET Sat, subject "#medley #Microfilm", with a screenshot of the downloaded files.
+What Jorge said (plain): he downloaded the microfilm files, wants proof the download was safe for this job's files, and wants a OneDrive share link sent to JULIO SILVA at his Gmail, with Jorge copied.
+Desktop steps (GREEN, no sending): 1) find the downloaded Medley microfilm files on the PC; 2) scan them and record the result; 3) copy them into the Medley job folder (never overwrite; make a backup first); 4) create the OneDrive link; 5) draft the email to Julio Silva with Jorge on cc, leave it unsent. Julio's Gmail address is NOT in anything the cloud can see. Do not guess it.
+RED step (needs Jorge's yes in his own words): sending the email.
+Does Jorge want the draft ready to review first? (cloud asked him in chat)
