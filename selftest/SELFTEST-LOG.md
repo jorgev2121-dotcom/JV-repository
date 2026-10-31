@@ -550,3 +550,14 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 GIT PUSH: still failing (alerted 18Z 10-28). 124 commits local only.
   10 USAGE: allowed. Session context about 530k of 1,000k (autocompact at 784k).
   2 of 4 checked passing (4 and 8 failing; both repeats). New failures: none. Quiet hours: no message to Jorge.
+
+## Pass 64 · 2026-10-31T12:26Z (12Z, 8:2x AM ET Sat 10-31)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 06Z probe answered 07:18Z; planted selftest-probe-2026103112.
+  4 PC ALIVE: FAIL (repeat, 5th day). _UPTIME-HEARTBEAT.md last modified 20:17Z 10-29, about 40 h stale. In the 10-31 morning list ("PC awake?"); no new email.
+  5 OCR FLOWING: not re-checked (known since 10-27).
+  6 SCHEDULED TASKS: not re-run this pass (known ACCESS_DENIED trio, alerted 10-29/10-30).
+  7 MAIL WATCH: PASS (prior check 11:22Z, 64 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 136 commits local only. Asked again in the 10-31 morning list (item 6).
+  10 USAGE: allowed. Session context about 650k of 1,000k (autocompact at 784k, expected in about 8 hours).
+  2 of 4 checked passing (4 and 8 failing; both repeats). New failures: none.
