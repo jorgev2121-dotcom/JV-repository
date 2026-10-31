@@ -167,3 +167,4 @@
 - 2026-10-31T13:21Z WATCH: mail both boxes, probe answered, outbox quiet; no helper agents.
 - 2026-10-31T14:21Z WATCH: mail both boxes, panel new=0, outbox quiet; no helper agents.
 - 2026-10-31T15:21Z WATCH: mail both boxes, panel new=0, outbox known repeat only; no helper agents.
+- 2026-10-31T16:22Z WATCH: mail both boxes, outbox relayed once; no helper agents.
