@@ -835,3 +835,6 @@ GREEN, read-only search, write only new files:
 3. Write C:\VTES-LOCAL\icon-hunt\RESULTS.md: number, file path, last-modified, what it is.
 4. Upload RESULTS.md and the PNGs to the Drive VTES-Outbox as EXECUTED_ICON-HUNT_* so cloud can show them to Jorge as numbered picture buttons.
 Do NOT delete, move or run anything found. Do not touch passwords.
+
+## ITEM — RESTORE THE "VTES CONTROL PANEL" CHROME ICON (added 2026-11-01 ~18:40Z, cloud; Jorge asked by chat)
+Jorge's tray had a Chrome-style icon that opened the VTES master control panel. It is gone after the power surge. Run tools\readaloud\Make-Panel-Icon.ps1 (new file, writes only a new shortcut, reuses the CLOUD icon's CU-Business profile). Then pin the Desktop "VTES Control Panel" and "Read Aloud" icons to the taskbar if computer-use allows, else tell Jorge the right-click steps. Do not touch passwords; the Windows Security "insert your security key" prompt on his screen is his to answer. Report as EXECUTED_ with the script output.
