@@ -46,3 +46,6 @@ WHAT TO DO FIRST
 
 THREE HONEST STATES
 Every task ends DONE (with proof output), BLOCKED (what you tried, why it failed, the smallest one-word action for Jorge) or IN PROGRESS (what remains and when). Never claim done without checking.
+
+UPDATE 2026-11-01 (Jorge, by chat, about 1 PM ET): a power surge hit his office. Several apps and the PC are asking him to sign in again, and his password manager (1Password) has not taken over yet, so he is stuck at login screens. Do not ask for, read, type or store any password or code. Expect the PC check-in to pause and then resume. Wait for him to say the sign-ins are done.
+Jorge also said "allow the push" for the cloud's saved log commits (GitHub backup) on 2026-11-01.
