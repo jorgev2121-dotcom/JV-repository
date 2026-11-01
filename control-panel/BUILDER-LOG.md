@@ -496,3 +496,4 @@
 2026-11-01T15:41Z runner: heartbeat 1WW7IcjbIS-ZQLx_IsLmRmKPN4pDDqd2L, rate allowed, push blocked, context 667k (autocompact at 784k)
 2026-11-01T16:41Z runner: heartbeat 1_r-kwgidYArNHvSf8EQIVxGtedH-K_iG, rate allowed, push blocked, context 691k; no new mail since Unit 423 alert
 2026-11-01T17:55Z panel v61 published (red dot). rollback: v60 = 1793469478-4aee
+2026-11-01T18:0xZ panel v61 re-published (ver 1793553946-e8ac): red dot shrunk to 34px and moved into the top button tray after Refresh, per Jorge's screenshot. Same v61 (layout fix). v60 rollback id still 1793469478-4aee
