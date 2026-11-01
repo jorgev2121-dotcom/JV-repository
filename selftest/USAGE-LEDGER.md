@@ -192,3 +192,4 @@
 2026-11-01T14:16Z watch: allowed; 1 send
 2026-11-01T15:16Z watch: 4 searches, 0 sends
 2026-11-01T16:17Z watch: 4 searches + 1 read, 1 send (Unit 423 alert Gmail 1a197e6fe9a175f3)
+2026-11-01T17:17Z watch cycle, light (mail+panel+outbox queries only)
