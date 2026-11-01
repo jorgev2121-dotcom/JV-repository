@@ -826,3 +826,12 @@ Ask: stop the hourly LOCAL retry for this job and re-file it to the Claude lane 
 Jorge says his "auto reader icon" disappeared and asks to restore it and pin it. Cloud cannot touch his PC (IMPOSSIBLE from cloud), so this is for the desktop (RAMBO).
 Steps: 1) check whether the Read-Aloud hotkey script (tools/readaloud/Read-Aloud.ahk, Ctrl+Alt+R and Ctrl+Alt+S) is running and still installed under C:\VTES-LOCAL\ReadAloud\ with its Startup shortcut; if not, run tools/readaloud/Install-Read-Aloud.ps1. 2) Put a clickable "Read Aloud" icon on the Desktop launchpad AND pin it to the taskbar. 3) Check the Speechify app icon too; if it is gone, restore and pin it (Speechify itself is under repair with support; web app app.speechify.com works). 4) Reply with an EXECUTED_ file that says which icon is back, with a screenshot or a file listing as proof. Do not change anything else.
 Why it matters: Jorge hears every reply with this tool; without it he cannot read the cloud's messages (Rule 7).
+
+## ITEM — FIND JORGE'S RED ROUND READER/DICTATOR ICON (added 2026-11-01 17:20Z, cloud, Jorge said "yes, search the PC for it")
+Jorge's words: his "auto reader and dictator devices" had a SOLID ROUND RED icon at the extreme right of the top panel. It vanished (power surge day). He wants numbered pictures to choose from.
+GREEN, read-only search, write only new files:
+1. Search the PC for anything named like: text to speech, text-to-speech, tts, dictat, reader, read aloud, speechify, voice, mic, record. Look in Desktop, OneDrive\Desktop, Downloads, Start Menu, Startup folder, C:\VTES-LOCAL, %APPDATA%, Chrome/Edge extensions, AutoHotkey scripts, and running tray icons.
+2. For each hit that has an icon, save a PNG of the icon (extract from the .lnk/.exe) to C:\VTES-LOCAL\icon-hunt\NN.png (NN = 01, 02, ...), newest-modified first, max 12.
+3. Write C:\VTES-LOCAL\icon-hunt\RESULTS.md: number, file path, last-modified, what it is.
+4. Upload RESULTS.md and the PNGs to the Drive VTES-Outbox as EXECUTED_ICON-HUNT_* so cloud can show them to Jorge as numbered picture buttons.
+Do NOT delete, move or run anything found. Do not touch passwords.
