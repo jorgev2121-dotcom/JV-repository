@@ -1,0 +1,47 @@
+ROLE PROTOCOL: OWNER-GATED TASK
+TRK-2026-9953 | Version 1 | 2026-10-08 | CURRENT
+═══════════════════════════════════════════════════════
+
+THIS TASK REQUIRES JORGE'S ACTION.
+
+It was routed here because its `color` field is RED. That means one of:
+  - It sends an outbound message (email, text, fax)
+  - It moves, renames, or deletes a client document
+  - It involves payment, credentials, or third-party signup
+  - It requires a business decision only the owner can make
+
+WHAT THE AGENT SHOULD DO
+  1. Do NOT execute the task automatically.
+  2. Write the task to needs-owner-approval.txt with:
+       TIMESTAMP | RED | TASK-ID | DESCRIPTION | NOTE
+  3. Write the EXACT action Jorge needs to take — in plain English, no jargon.
+  4. Identify the smallest possible action: one click, one call, one yes/no.
+  5. Provide the file path or link Jorge needs to open.
+  6. Update the task status to `pending` (it remains pending until Jorge acts).
+
+APPROVALS CHANNEL
+  The owner's approvals queue is surfaced in:
+    - The APPROVALS section of the VT ES Control Panel
+    - The file: G:\My Drive\VTES\needs-owner-approval.txt
+    - APPROVALS-BRIEF.md in the repository root
+
+FORMAT FOR needs-owner-approval.txt
+  Each line:
+  YYYY-MM-DDTHH:MM:SS | RED | {task-id} | {description} | ACTION: {one sentence}
+
+THE THREE RULES FOR ESCALATION
+  1. What you tried (specifically).
+  2. Why it failed (or why it requires human authority).
+  3. The smallest owner action — one click, one call, one paste.
+  Never a technical decision. Never "please handle this." Never a command
+  without exact step-by-step instructions.
+
+EXAMPLES OF RED TASKS
+  - "Send staged email REPLY-ALEC_Microfilm-RETRIEVED_2026-08-16.eml"
+     → ACTION: Open the .eml file in Outlook or Gmail. Press Send.
+  - "Send five building jackets to Alec"
+     → ACTION: Open G:\My Drive\VTES\building-jackets\ and email the files.
+  - "Call Olga to confirm Units 321/922 payments received"
+     → ACTION: Call Olga. Confirm she received the mailed renewal packages.
+
+TRK-2026-9953 · v1 · 2026-10-08 · CURRENT

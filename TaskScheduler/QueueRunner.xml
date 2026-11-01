@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<!--
+  VT ES Queue Runner — Task Scheduler Definition
+  TRK-2026-9959
+
+  INSTALL INSTRUCTIONS (run once on Jorge's desktop):
+    1. Open Task Scheduler (taskschd.msc)
+    2. Action → Import Task → select this file
+    3. Under "Security options", choose: Run whether user is logged on or not
+    4. Check "Do not store password" (runs as current user with S4U)
+    5. Click OK
+
+  OR install via PowerShell 7 (pwsh.exe), run as Administrator:
+    Register-ScheduledTask -Xml (Get-Content .\QueueRunner.xml -Raw) -TaskName "VTES-QueueRunner" -Force
+
+  REQUIREMENT: pwsh.exe (PowerShell 7) must be installed.
+  DO NOT change to powershell.exe — PS 5.1 returns silent false zero. (TRK-2026-9132)
+
+  FOCUS THEFT FIX: Task runs hidden via Windows Task Scheduler service.
+  No window is created because it runs under the service context, not the desktop session.
+  This is the correct fix for TRK-2026-9331 — no -WindowStyle Hidden needed.
+-->
+<Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Description>VT ES Autonomous Queue Runner — runs nightly, processes GREEN and YELLOW tasks, skips RED.</Description>
+    <URI>\VTES\QueueRunner</URI>
+  </RegistrationInfo>
+
+  <Triggers>
+    <!-- Nightly at 10:00 PM -->
+    <CalendarTrigger>
+      <StartBoundary>2026-10-09T22:00:00</StartBoundary>
+      <Enabled>true</Enabled>
+      <ScheduleByDay>
+        <DaysInterval>1</DaysInterval>
+      </ScheduleByDay>
+    </CalendarTrigger>
+  </Triggers>
+
+  <Principals>
+    <Principal id="Author">
+      <LogonType>S4U</LogonType>
+      <!-- S4U: runs as logged-on user, no password stored, no visible window -->
+      <RunLevel>LeastPrivilege</RunLevel>
+    </Principal>
+  </Principals>
+
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <AllowHardTerminate>true</AllowHardTerminate>
+    <StartWhenAvailable>true</StartWhenAvailable>
+    <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
+    <ExecutionTimeLimit>PT8H</ExecutionTimeLimit>
+    <Enabled>true</Enabled>
+    <Hidden>true</Hidden>
+    <WakeToRun>false</WakeToRun>
+    <Priority>7</Priority>
+  </Settings>
+
+  <Actions Context="Author">
+    <Exec>
+      <Command>pwsh.exe</Command>
+      <Arguments>-NonInteractive -NoProfile -ExecutionPolicy Bypass -File "C:\Users\JV\source\JV-repository\scripts\queue-runner.ps1"</Arguments>
+    </Exec>
+  </Actions>
+</Task>
