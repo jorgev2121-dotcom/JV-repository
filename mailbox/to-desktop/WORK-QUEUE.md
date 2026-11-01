@@ -838,3 +838,9 @@ Do NOT delete, move or run anything found. Do not touch passwords.
 
 ## ITEM — RESTORE THE "VTES CONTROL PANEL" CHROME ICON (added 2026-11-01 ~18:40Z, cloud; Jorge asked by chat)
 Jorge's tray had a Chrome-style icon that opened the VTES master control panel. It is gone after the power surge. Run tools\readaloud\Make-Panel-Icon.ps1 (new file, writes only a new shortcut, reuses the CLOUD icon's CU-Business profile). Then pin the Desktop "VTES Control Panel" and "Read Aloud" icons to the taskbar if computer-use allows, else tell Jorge the right-click steps. Do not touch passwords; the Windows Security "insert your security key" prompt on his screen is his to answer. Report as EXECUTED_ with the script output.
+
+## ITEM — SNIP #3 FOR RAMBO: WINDOWS SECURITY "INSERT YOUR SECURITY KEY" PROMPT (added 2026-11-01 ~18:45Z; Jorge: "share number 3, the snip, with Rambo ... one of the blockers I need him and one password to deal with")
+Picture: mailbox/to-desktop/snips/SNIP-3_windows-security-key-prompt_2026-11-01.png
+What it shows: after the power surge, a Windows Security box titled "Making sure it's you" asks to sign in to login.microsoft.com and says "Insert your security key into the USB port". Behind it is a Microsoft "PIN or security key" sign-in window with a Try again button.
+What it needs: Jorge's own hands. His security key (USB) or his Microsoft PIN. YOU MUST NOT read, type, store or guess any password, PIN or key. Do not click Cancel on his behalf.
+What RAMBO may do (GREEN): look at which app raised it (the title says "App, published by Microsoft"), note what is blocked behind it (Microsoft 365 / Outlook / OneDrive sign-in), and write plain words for Jorge: "plug in the key, or choose PIN". Report as EXECUTED_ with what is blocked and the one thing Jorge must do.
