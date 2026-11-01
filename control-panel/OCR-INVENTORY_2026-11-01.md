@@ -20,3 +20,7 @@ Written so any other agent can pick up. Every number names its date and source. 
 
 ## Is it actively going?
 Not provable from the cloud. The PC was alive 10-31 and wrote OCR files that morning, then RAMBO signed out and the order was parked. Today's power surge and the Windows security-key prompt may stop it again. The check is the new PC count job.
+
+## Update 2026-11-01 ~19:55Z (from Jorge's screenshot of his V61.8 panel)
+- RAMBO BLOCKED banner on his panel (checked 2026-10-31 14:02:07): "Claude Code is signed out on this PC. Open RAMBO (Claude Code Beige) and run /login. That is the one thing only you can do." This is the likely reason the DCI zip job was parked and the PC lane stops. Needs Jorge's own sign-in; no agent may do it.
+- His V61.8 already has "Page 39 - OCR Layer Status" (21 items). The cloud panel lineage does not. Merge, do not duplicate: wait for the V61.8 file (queued in WORK-QUEUE).
