@@ -817,3 +817,7 @@ What Jorge said (plain): he downloaded the microfilm files, wants proof the down
 Desktop steps (GREEN, no sending): 1) find the downloaded Medley microfilm files on the PC; 2) scan them and record the result; 3) copy them into the Medley job folder (never overwrite; make a backup first); 4) create the OneDrive link; 5) draft the email to Julio Silva with Jorge on cc, leave it unsent. Julio's Gmail address is NOT in anything the cloud can see. Do not guess it.
 RED step (needs Jorge's yes in his own words): sending the email.
 Does Jorge want the draft ready to review first? (cloud asked him in chat)
+
+## ITEM (cloud, 2026-11-01T14:20Z, 9:20 AM EST) · BACKLOG-01 retry mis-routed · GREEN, PC-side
+Six BLOCKER_LOCAL_JOB-TRK-2026-1016-BACKLOG-01-PC-RETRY files (01:12, 03:17, 04:15, 05:13, 06:15, 08:20 ET). Same error each time: the LOCAL lane (Ollama) was asked for model "claude-sonnet-5", got 404 Not Found. The job needs a Claude model, so it belongs in the Claude lane, not LOCAL.
+Ask: stop the hourly LOCAL retry for this job and re-file it to the Claude lane (or park it). Do not change any client file. Reply with an EXECUTED_ or BLOCKER_ file.
