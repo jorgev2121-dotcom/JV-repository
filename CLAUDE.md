@@ -613,3 +613,14 @@ Full text: `OWNER-DIRECTIVE_AGENTS-OWN-FOLLOW-THROUGH-01_2026-10-15.md`. Auditor
 4. **A fix that adds nothing new does not need a new number.** If it is unclear whether something is an enhancement, ask Jorge in one short question.
 5. **Open question (2026-10-25):** the panel's Change log has used its own "v67 to v70" counter on Oct 23, while the page title said v58. Jorge decides which counter is official. Until he says, the title number is the official one.
 6. **Owner directive, Jorge, 2026-11-01 (supersedes the "+1" step in item 1):** *"Increase the version number in .1 increments"* — so the next enhancement after v63 is **v63.1**, then v63.2 and so on. **And: "work on a second downloaded model so you don't mess up my working one."** Build and test every change on the TEST COPY panel artifact; publish to the live panel (https://claude.ai/artifact/321Zo6MTHdv9Mj3hGD1QDj) only after Jorge says it works. The live panel at v63 (version id 1793555224-57ac) is his working copy.
+
+---
+
+## 21. Standing protocol — merge duplicates; the master panel is only the index (OWNER-DIRECTIVE MERGE-AND-INDEX-01, 2026-11-01)
+
+Full text: `OWNER-DIRECTIVE_MERGE-AND-INDEX-01_2026-11-01.md`.
+
+- **Gather duplicates into one section, then merge them. Newest information wins.** The two sources become older versions in `_Superseded\`; the merged hybrid is the new current version with the highest number.
+- **The master control panel is the index and only that.** Everything else is one layer in, as a subfolder.
+- **Folder names: address, folio, business name or keywords, then date, then TRK at the END.** Hashtags go inside, in `_TAGS.md`, as many as possible.
+- **Never lose a fact:** the older value is kept in `_MERGE-LOG.md`. Moving, renaming or deleting client documents stays RED: the cloud plans, Jorge says yes, the desktop executes.
