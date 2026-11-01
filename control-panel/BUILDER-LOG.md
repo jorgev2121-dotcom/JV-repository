@@ -498,3 +498,4 @@
 2026-11-01T17:55Z panel v61 published (red dot). rollback: v60 = 1793469478-4aee
 2026-11-01T18:0xZ panel v61 re-published (ver 1793553946-e8ac): red dot shrunk to 34px and moved into the top button tray after Refresh, per Jorge's screenshot. Same v61 (layout fix). v60 rollback id still 1793469478-4aee
 2026-11-01T18:2xZ panel v62 published: Back/Forward buttons. v61 rollback id 1793553946-e8ac; v60 1793469478-4aee. Jorge notes Medication Refills button belongs on the PERSONAL side (business/personal split, he says versions ~61.9): NOT yet moved, need to find the personal panel.
+2026-11-01T17:41Z runner: heartbeat 16yjrO1JSrcc_U0lJYQ6nlBy8aAcWyxoE, rate allowed, push OK, context 215k; items 3 done this hour (panel v61/v62 red dot + Back/Forward, icon script, PASTE-D-075); queue: icon hunt + panel icon + snip 3 waiting on PC; blocked: PC pickup (power-surge sign-in)
