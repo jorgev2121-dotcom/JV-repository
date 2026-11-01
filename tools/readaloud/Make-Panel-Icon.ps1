@@ -14,7 +14,8 @@ foreach ($dir in @([Environment]::GetFolderPath('Desktop'), (Join-Path ([Environ
   try {
     $l = $ws.CreateShortcut((Join-Path $dir 'VTES Control Panel.lnk'))
     $l.TargetPath = $chrome; $l.Arguments = ("$profile --app=$url").Trim()
-    $l.Description = 'VTES Control Panel (master panel)'; $l.IconLocation = "$chrome,0"; $l.Save()
+    $l.Description = 'VTES Control Panel (master panel)'; $ico = Join-Path $PSScriptRoot 'icons\VTES-Control-Panel.ico'
+    if (Test-Path $ico) { New-Item -ItemType Directory -Force -Path 'C:\VTES-LOCAL\icons' | Out-Null; Copy-Item $ico 'C:\VTES-LOCAL\icons\VTES-Control-Panel.ico' -Force; $l.IconLocation = 'C:\VTES-LOCAL\icons\VTES-Control-Panel.ico' } else { $l.IconLocation = "$chrome,0" }; $l.Save()
   } catch { "Could not make icon in $dir : $($_.Exception.Message)" }
 }
 "DONE · icon 'VTES Control Panel' on Desktop + Start Menu · profile: [$profile] · Pin: right-click > Show more options > Pin to taskbar"

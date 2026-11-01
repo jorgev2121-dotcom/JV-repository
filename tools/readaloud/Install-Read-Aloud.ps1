@@ -22,7 +22,8 @@ foreach ($dir in @([Environment]::GetFolderPath('Desktop'), (Join-Path ([Environ
     $i = $ws.CreateShortcut($icon)
     $i.TargetPath = $ahk; $i.Arguments = '"' + (Join-Path $dest 'Read-Aloud.ahk') + '"'
     $i.Description = 'Read Aloud: highlight text, press Ctrl+Alt+R (Edge) or Ctrl+Alt+S (Chrome + Speechify)'
-    $i.IconLocation = "$env:SystemRoot\System32\imageres.dll,109"
+    $ico = Join-Path $PSScriptRoot 'icons\Read-Aloud.ico'
+    if (Test-Path $ico) { New-Item -ItemType Directory -Force -Path 'C:\VTES-LOCAL\icons' | Out-Null; Copy-Item $ico 'C:\VTES-LOCAL\icons\Read-Aloud.ico' -Force; $i.IconLocation = 'C:\VTES-LOCAL\icons\Read-Aloud.ico' } else { $i.IconLocation = "$env:SystemRoot\System32\imageres.dll,109" }
     $i.Save()
   } catch { "Could not make icon in $dir : $($_.Exception.Message)" }
 }
