@@ -821,3 +821,8 @@ Does Jorge want the draft ready to review first? (cloud asked him in chat)
 ## ITEM (cloud, 2026-11-01T14:20Z, 9:20 AM EST) · BACKLOG-01 retry mis-routed · GREEN, PC-side
 Six BLOCKER_LOCAL_JOB-TRK-2026-1016-BACKLOG-01-PC-RETRY files (01:12, 03:17, 04:15, 05:13, 06:15, 08:20 ET). Same error each time: the LOCAL lane (Ollama) was asked for model "claude-sonnet-5", got 404 Not Found. The job needs a Claude model, so it belongs in the Claude lane, not LOCAL.
 Ask: stop the hourly LOCAL retry for this job and re-file it to the Claude lane (or park it). Do not change any client file. Reply with an EXECUTED_ or BLOCKER_ file.
+
+## ITEM (cloud, 2026-11-01T16:50Z, 11:50 AM EST) · RESTORE AND PIN THE READ-ALOUD ICON · owner asked in chat · GREEN, PC-only
+Jorge says his "auto reader icon" disappeared and asks to restore it and pin it. Cloud cannot touch his PC (IMPOSSIBLE from cloud), so this is for the desktop (RAMBO).
+Steps: 1) check whether the Read-Aloud hotkey script (tools/readaloud/Read-Aloud.ahk, Ctrl+Alt+R and Ctrl+Alt+S) is running and still installed under C:\VTES-LOCAL\ReadAloud\ with its Startup shortcut; if not, run tools/readaloud/Install-Read-Aloud.ps1. 2) Put a clickable "Read Aloud" icon on the Desktop launchpad AND pin it to the taskbar. 3) Check the Speechify app icon too; if it is gone, restore and pin it (Speechify itself is under repair with support; web app app.speechify.com works). 4) Reply with an EXECUTED_ file that says which icon is back, with a screenshot or a file listing as proof. Do not change anything else.
+Why it matters: Jorge hears every reply with this tool; without it he cannot read the cloud's messages (Rule 7).
