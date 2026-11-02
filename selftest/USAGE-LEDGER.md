@@ -212,3 +212,4 @@
 2026-11-02T07:43Z get_session rate allowed
 2026-11-02T08:41Z get_session rate allowed
 2026-11-02T09:41Z get_session rate allowed
+2026-11-02T12:23Z usage governor: allowed
