@@ -200,3 +200,4 @@
 2026-11-01T21:41Z get_session rate allowed
 2026-11-01T22:41Z get_session rate allowed
 2026-11-01T23:41Z get_session rate allowed
+2026-11-02T00:20Z selftest pass 70, usage allowed
