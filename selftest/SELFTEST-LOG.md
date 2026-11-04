@@ -741,3 +741,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   9 VIEWERS: not checked this pass.
   10 USAGE: allowed. Context about 650k of 1,000k (autocompact at 784k). Git push: PASS.
   New failures: none. No alert sent.
+
+## Pass 80 — 2026-11-04T12:20Z (7:20 AM EST Wed)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110412; answer due at 12:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (uptime 12:16Z).
+  5 OCR FLOWING: pass (.SEARCH.txt created 11-03 22:43Z).
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (counted failing).
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 7 of 10. New failures: none. No alert sent.
