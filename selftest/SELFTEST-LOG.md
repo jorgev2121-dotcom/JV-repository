@@ -753,3 +753,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed. Git push: PASS.
   About 7 of 10. New failures: none. No alert sent.
+
+## Pass 81 — 2026-11-04T18:25Z (1:25 PM EST Wed)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110418; answer due at 18:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 18:11Z).
+  5 OCR FLOWING: pass (overnight OCR batch run succeeded 10:18Z).
+  6 SCHEDULED TASKS: Filing engine health check, Weekday check, VTES task sweeper still ACCESS_DENIED (County-watch on next page, not re-read). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 7 of 10. New failures: none. No alert sent.
