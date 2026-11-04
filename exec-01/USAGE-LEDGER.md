@@ -47,3 +47,4 @@
 2026-11-04T09:42Z RUNNER: allowed, no helpers.
 2026-11-04T10:42Z RUNNER: allowed, no helpers.
 2026-11-04T11:42Z RUNNER: allowed, no helpers.
+2026-11-04T12:43Z RUNNER usage: allowed, context ~115k.
