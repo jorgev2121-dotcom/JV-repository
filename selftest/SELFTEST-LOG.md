@@ -802,3 +802,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed. Git push: PASS.
   About 7 of 10. New failures: none. No alert sent.
+
+## Pass 85 — 2026-11-05T18:25Z (1:25 PM EST Thu)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110518; answer due at 18:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 18:16Z).
+  5 OCR FLOWING: pass, but only just. The newest .SEARCH.txt I can find was created 11-03 22:44Z, so it leaves the 48h window at about 22:44Z tonight. WATCH ITEM: if no new .SEARCH.txt appears, check 5 will fail at the 00Z pass. Not yet an alert (the check is passing now).
+  6 SCHEDULED TASKS: Weekday check and County-watch re-read, both still ACCESS_DENIED (County-watch last denied 11-05 15:26Z); Filing engine health check and VTES task sweeper not in the enabled list this time (not re-read). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 7 of 10. New failures: none. No alert sent.
