@@ -789,3 +789,4 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed. Git push: PASS.
   About 6 of 10 (OCR unverified). New failures: none. No alert sent.
+  CORRECTION to pass 83 (07:20Z): check 5 uses a 48-hour window, not 1 hour. .SEARCH.txt files created 2026-11-03 22:44Z are within it, so check 5 PASSES. Pass 83 = about 7 of 10. No OCR stall. (Sorry for the false worry.)
