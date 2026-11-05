@@ -765,3 +765,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed. Git push: PASS.
   About 7 of 10. New failures: none. No alert sent.
+
+## Pass 82 — 2026-11-05T00:25Z (7:25 PM EST Wed)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110500; answer due at 00:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 00:13Z).
+  5 OCR FLOWING: pass (overnight OCR batch ran 10:18Z; no newer check).
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (Filing engine health check, Weekday check, VTES task sweeper, County-watch last denied 15:26Z). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 7 of 10. New failures: none. No alert sent.
