@@ -583,3 +583,4 @@
 2026-11-05T00:44Z RUNNER: probe 2026110500 answered; heartbeat 37 of 37; no builds; queue unchanged. Next: WATCH 01:16Z.
 2026-11-05T01:44Z RUNNER: heartbeat 38 of 38; panel new=0; no builds; queue unchanged. Next: WATCH 02:16Z.
 2026-11-05T02:44Z RUNNER: heartbeat 39 of 39; panel new=0; no builds; queue unchanged. Next: WATCH 03:16Z.
+2026-11-05T03:44Z RUNNER: heartbeat 40 of 40; panel new=0; no builds; queue unchanged. Next: WATCH 04:16Z; daily pre-mortem at 04:43Z runner.
