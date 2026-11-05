@@ -790,3 +790,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   10 USAGE: allowed. Git push: PASS.
   About 6 of 10 (OCR unverified). New failures: none. No alert sent.
   CORRECTION to pass 83 (07:20Z): check 5 uses a 48-hour window, not 1 hour. .SEARCH.txt files created 2026-11-03 22:44Z are within it, so check 5 PASSES. Pass 83 = about 7 of 10. No OCR stall. (Sorry for the false worry.)
+
+## Pass 84 — 2026-11-05T12:25Z (7:25 AM EST Thu)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110512; answer due at 12:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 12:16Z).
+  5 OCR FLOWING: pass (.SEARCH.txt created 11-03 22:44Z, inside the 48h window).
+  6 SCHEDULED TASKS: Weekday check and County-watch still ACCESS_DENIED (re-read); Filing engine health check and VTES task sweeper last denied 11-04, not re-listed. Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 7 of 10. New failures: none. No alert sent.
