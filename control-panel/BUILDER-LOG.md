@@ -597,3 +597,4 @@
 2026-11-05T14:44Z RUNNER: heartbeat 51 of 51; panel new=0; no builds; queue unchanged. Next: WATCH 15:16Z.
 2026-11-05T15:44Z RUNNER: heartbeat 52 of 52; panel new=0; no builds; queue unchanged. Next: WATCH 16:16Z.
 2026-11-05T16:44Z RUNNER: heartbeat 53 of 53; panel new=0; no builds; queue unchanged. Next: WATCH 17:16Z.
+2026-11-05T17:44Z RUNNER: heartbeat 54 of 54; panel new=0; no builds; queue unchanged. Next: WATCH+SELFTEST 18:16Z.
