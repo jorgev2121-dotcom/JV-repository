@@ -616,3 +616,4 @@
 2026-11-06T08:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: Jorge clicks, PC OCR. Next: WATCH 09:16Z.
 2026-11-06T09:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: Jorge clicks, PC OCR. Next: WATCH 10:16Z.
 2026-11-06T10:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: Jorge clicks, PC OCR. Next: WATCH 11:16Z.
+2026-11-06T11:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: Jorge clicks, PC OCR. Next: WATCH+SELFTEST 12:16Z (plant probe 2026110612).
