@@ -814,3 +814,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed. Git push: PASS.
   About 7 of 10. New failures: none. No alert sent.
+
+## Pass 86 — 2026-11-06T00:30Z (7:30 PM EST Thu)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110600; answer due at 00:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 00:16Z).
+  5 OCR FLOWING: FAIL (NEW). Newest .SEARCH.txt created 11-03 22:44Z, about 49h ago (limit 48h). Cloud TAGS batch is running (BATCH_2026-11-05_0521), so only the PC search-file step is stalled. Alert sent once (Gmail), read-only item added to WORK-QUEUE.md.
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (not re-listed this pass). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 6 of 10. New failure: check 5 (alert sent).
