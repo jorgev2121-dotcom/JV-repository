@@ -613,3 +613,4 @@
 2026-11-06T05:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: 1Password clicks. Next: WATCH+SELFTEST 06:16Z (plant probe 2026110606).
 2026-11-06T06:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: 1Password clicks, OCR (PC). Next: WATCH 07:16Z.
 2026-11-06T07:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: 1Password clicks, OCR (PC), GitHub permission notice (Jorge). Next: WATCH 08:16Z.
+2026-11-06T08:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: Jorge clicks, PC OCR. Next: WATCH 09:16Z.
