@@ -626,3 +626,4 @@
 2026-11-06T18:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: Jorge yes/no x2 + Unit 602 folder, PC OCR. Next: WATCH 19:16Z.
 2026-11-06T19:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: Jorge yes/no x2 + Unit 602 folder, PC OCR. Next: WATCH 20:16Z.
 2026-11-06T20:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: Jorge yes/no x2 + Unit 602 folder, PC OCR. Next: WATCH 21:16Z.
+2026-11-06T21:44Z RUNNER | budget allowed | GREEN cloud items 0 | blocked: Jorge yes/no x2 + Unit 602 folder, PC OCR, PC main LLM down (backup up). Next: WATCH 22:16Z; pre-mortem 11-07 ~04:43Z; self-test 00Z.
