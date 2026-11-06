@@ -838,3 +838,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed. Git push: PASS.
   About 6 of 10. No NEW failure, so no alert.
+
+## Pass 88 — 2026-11-06T12:20Z (7:20 AM EST Fri)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110612; answer due at 12:41Z runner. Previous probe (06Z) answered.
+  3 PANEL LOADS: pass by proxy (db reachable, 327 docs).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 12:16Z).
+  5 OCR FLOWING: FAIL (SAME, no new alert). No .SEARCH.txt created since at least 11-04 12Z.
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (not re-listed). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 6 of 10. No NEW self-test failure. Separate alert sent: QC-01 audit findings A and B (1Password service account + QuickBooks sign-in by desktop lane; no approval record).
