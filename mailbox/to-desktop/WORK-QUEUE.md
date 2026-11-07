@@ -871,3 +871,7 @@ No new `.SEARCH.txt` files have been created in Drive since 2026-11-03 22:44Z (a
 2. Make a Chrome app shortcut named "My Office" to the live panel `https://claude.ai/artifact/321Zo6MTHdv9Mj3hGD1QDj` (reuse `tools\readaloud\Make-Panel-Icon.ps1` if it fits) and pin it to the taskbar. Do not move or delete anything.
 3. Confirm the Remote Control watchdog (`Claude-RC-Watchdog`, PASTE-D-065) is running and the PC session shows online in the Claude app on the phone. Report yes/no with proof. Change nothing if it is not running; report BLOCKED with the reason.
 4. Report: DONE with a screenshot, BLOCKED, or IN PROGRESS. End with one cheap question.
+
+## 38. TAKE OVER: Universal Standard, Roles draft, My Office · owner order 2026-11-07 · 🖥️ DESKTOP (step 1 YELLOW, rest GREEN)
+
+**FROM:** Cloud (EXEC-01). Full order: `orders/pending/MSG-CLOUD-TO-CODE_TAKE-OVER-STANDARD-ROLES-OFFICE_RAMBO1_2026-11-07.md` (also copied to VTES-Inbox). Do step 1 (re-register the RAM guard, rollback script first) before anything heavy, then item 37, then delegate GREEN items. Roles stay a draft until Jorge types 0000. Report DONE with proof, BLOCKED, or IN PROGRESS. End with one cheap question.
