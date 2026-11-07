@@ -1,0 +1,16 @@
+const {chromium}=require('/opt/node22/lib/node_modules/playwright');
+(async()=>{const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'}).catch(()=>chromium.launch());
+const p=await b.newPage({viewport:{width:1280,height:700}});const errs=[];p.on('pageerror',e=>errs.push(e.message));
+await p.addInitScript(()=>{window.claude={use:async()=>null}});
+await p.goto('file://'+process.argv[2]);await p.waitForTimeout(700);
+const open=()=>p.$eval('details.mailmenu',d=>d.open);
+await p.click('.mailmenu summary');console.log('opened',await open());
+await p.click('.mailbar button:nth-of-type(2)');console.log('max big',await p.$eval('.mailpop',e=>e.classList.contains('big')),'open',await open());
+await p.screenshot({path:process.argv[3]+'-max.png'});
+await p.click('.mailbar button:nth-of-type(2)');console.log('unmax big',await p.$eval('.mailpop',e=>e.classList.contains('big')));
+await p.click('.mailbar button:nth-of-type(1)');console.log('after min open',await open());
+await p.click('.mailmenu summary');await p.click('.mailbar button.x');console.log('after close open',await open());
+await p.click('.mailmenu summary');await p.mouse.click(900,600);console.log('after outside click open',await open());
+await p.click('.mailmenu summary');await p.keyboard.press('Escape');console.log('after Esc open',await open());
+await p.click('.mailmenu summary');await p.evaluate(()=>VTES.approveAllAsk());console.log('after ApproveAll open',await open(),'receipt visible',await p.$eval('#approveall',e=>e.offsetHeight>0));
+await p.screenshot({path:process.argv[3]+'-approve.png'});console.log('ERRS',errs);await b.close()})();

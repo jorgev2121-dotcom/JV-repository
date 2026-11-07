@@ -1,0 +1,11 @@
+const {chromium}=require('/opt/node22/lib/node_modules/playwright');
+(async()=>{const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'}).catch(()=>chromium.launch());
+const p=await b.newPage({viewport:{width:1280,height:800}});const errs=[];p.on('pageerror',e=>errs.push(e.message));
+await p.addInitScript(()=>{window.claude={use:async()=>null}});
+await p.goto('file://'+process.argv[2]);await p.waitForTimeout(800);
+await p.click('#zup');await p.click('#zup');console.log('zoom',await p.evaluate(()=>document.body.style.zoom),await p.textContent('#zlbl'));
+await p.click('#zdn');console.log('zoom after down',await p.evaluate(()=>document.body.style.zoom));
+await p.click('#hcbtn');console.log('hc',await p.evaluate(()=>document.body.classList.contains('hc')));
+await p.screenshot({path:process.argv[3]});
+await p.reload();await p.waitForTimeout(600);console.log('remembered zoom',await p.evaluate(()=>document.body.style.zoom),'hc',await p.evaluate(()=>document.body.classList.contains('hc')));
+console.log('ERRS',errs);await b.close()})();

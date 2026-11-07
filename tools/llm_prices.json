@@ -1,0 +1,5 @@
+{
+  "_note": "USD per million tokens. PLACEHOLDERS until the desktop copies real prices from openrouter.ai/models (cloud cannot reach openrouter.ai). Last checked: never.",
+  "x-ai/grok-4": {"in": 3.0, "out": 15.0},
+  "google/gemini-2.5-flash": {"in": 0.30, "out": 2.50}
+}

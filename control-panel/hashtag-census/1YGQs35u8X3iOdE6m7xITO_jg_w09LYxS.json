@@ -1,0 +1,25 @@
+{"id":"1YGQs35u8X3iOdE6m7xITO_jg_w09LYxS","title":"TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)","partial":false,
+"pdfs":17,"search_sidecars":17,"tags_sidecars":17,"tags5_sampled":3,"tags5_of_sampled":1,
+"has_HASHTAGS_txt":false,"hashtags_count":0,"has_people_tags":false,"has_trk_tag":false,
+"other_files":["_PORTAL_TRK-2026-1294.html (279 KB)","_PLACEHOLDERS.md","_STAGE.md","_CONTACTS-EXTRACTED.txt","_TAGS.txt (8 tags incl #TRK-2026-1294, #JorgeValdes)","_INDEX.html","01-Emails/TRK-2026-1294_2026-07-31_TEDC_Zaldivar-intake-pointers.md","01-INTAKE/2026-07-14 Plaud Phase-II-Environmental-Debate-Transcript v1.md","01-INTAKE: 4 PNG page renders, 1 xlsx","05-REPORTS-DELIVERABLES: 6 CSVs (CDM calibration forks v2-v5, Order-B sweeps)","05-REPORTS-DELIVERABLES/_SUBMITTALS: many CDM CSV/TXT/JSON/HTML/PY working files, _INDEX_TEDC-SUBMITTALS_v1.md, EQUITY-PROSPECTS boards; sub-subfolders Bayside-Breeze, Edison-Towers-II, Bayside-Gardens (level 3, not walked)","many .bak-YYYYMMDD files in job root (excluded from listing)"],
+"people":[
+{"name":"Miguel Zaldivar","role":"client contact - VP Construction, TEDC","email":"mzaldivar@tedcbuilds.org","evidence":"01-Emails/Zaldivar-intake-pointers.md; _PLACEHOLDERS.md","misspellings":["Miguel Zadlivar (seen in Dropbox share subject)","Saldivar","Zaldibar"]},
+{"name":"Crystal Jackson","role":"VP Development, TEDC","email":null,"evidence":"intake pointers; _PLACEHOLDERS.md","misspellings":["Kristal Jackson","Cristal"]},
+{"name":"Carol Gardner","role":"President & CEO, TEDC","email":null,"evidence":"intake pointers","misspellings":["Carole Gardener"]},
+{"name":"Ed Workman","role":"environmental consultant - Groundwater Environmental Group (Phase II ESA)","email":null,"evidence":"intake pointers; _PLACEHOLDERS.md","misspellings":["Ed Workmen","Edward Workman"]},
+{"name":"Sophie Harris","role":"DERM staff (county reviewer)","email":null,"evidence":"intake pointers","misspellings":["Sofie Harris"]},
+{"name":"Maria Marquez","role":"DERM staff (county reviewer)","email":null,"evidence":"intake pointers","misspellings":["Maria Marques","Márquez"]},
+{"name":"Melissa Levy","role":"Florida Housing Finance Corp staff (RFA contact)","email":"melissa.levy@floridahousing.org","evidence":"_CONTACTS-EXTRACTED.txt","misspellings":["Melisa Levi"]},
+{"name":"Perla","role":"print shop contact, DCI Printing","email":"info@dciprinting.com","evidence":"intake pointers","misspellings":[]},
+{"name":"Jorge Valdes","role":"owner / consultant (DERM due diligence, proposal LGL-2026-C001-P)","email":"Jorge@TEAMUSASALES.COM","evidence":"_TAGS.txt; intake pointers","misspellings":[]}
+],
+"companies":[
+{"name":"TEDC - Tacolcy Economic Development Corporation (TEDcBuilds), 5900 NW 7th Ave Suite 102, Miami FL 33127","role":"client / developer","evidence":"intake pointers"},
+{"name":"Groundwater Environmental Group","role":"environmental consultant","evidence":"intake pointers; _PLACEHOLDERS.md"},
+{"name":"Miami-Dade DERM","role":"county environmental regulator (HWR-1624)","evidence":"intake pointers"},
+{"name":"Florida Housing Finance Corporation (FHFC)","role":"state funding agency (RFA 2025-205 / 2026-205)","evidence":"_CONTACTS-EXTRACTED.txt; file names"},
+{"name":"DCI Printing","role":"print shop","evidence":"intake pointers"},
+{"name":"Miami-Dade HFA","role":"bond issuer (Edison Towers Phase I $14M bonds, Legistar 211735)","evidence":"file name LEGISTAR-211735_HFA-RESOLUTION..."}
+],
+"keywords":["TRK-2026-1294","Edison Towers II","Edison Towers","Edison Place","661 NW 58 St","661 NW 58th Street Miami 33127","661 Northwest 58th","east of 5821 NW 7th Ave","folio 01-3113-090-0015","0131130900015","HWR-1624","X2026105906","DERM","Phase I ESA","Phase II ESA","RFA 2026-205","RFA 2025-205","SAIL","FHFC","LGL-2026-C001","INV-2026-03761","Legistar 211735","Miami 21 section 3.15","AHC certification","TOWERS II Submittal Package 03.17.26","CDM capital stack","TEDC 9 percent","Tacolcy","affordable senior housing"],
+"notes":"No _HASHTAGS.txt; older _TAGS.txt has 8 tags (TRK yes; only person #JorgeValdes). All 17 PDFs have both SEARCH and TAGS sidecars. TAGS samples: Edison Place Exhibit K = 11 tags; LEGISTAR = 4 tags and is tagged #ORPH-2026-0825 / UNANCHORED-ORPHAN (wrong prefix ORPH vs OPH, and it sits inside a TRK folder); FHFC Attachment-7 = 2 tags. Level-3 folders under _SUBMITTALS (Bayside-Breeze, Edison-Towers-II, Bayside-Gardens) not walked per 2-level rule; counts may be undercounted there. Phase I ESA PDF, DERM letter, X2026105906 still RECEIVED-NOT-FILED per _PLACEHOLDERS. Phone numbers in contacts file not attributed. ~9 calls used."}

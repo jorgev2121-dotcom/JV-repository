@@ -1,0 +1,286 @@
+<title>Medley Job Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+</style>
+
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED</p>
+<h1>TUS-26-1033 · 7265 NW 74 St Bay 2, Medley</h1>
+<div class="facts">
+  <span><b>Tenant</b>Miami Art House / Teatro Miami (Daniel Felipe &amp; Miall Mulkay)</span>
+  <span><b>Landlord</b>Monaco Pereira LLC</span>
+  <span><b>Folio</b>22-3011-052-0020</span>
+  <span><b>Code case</b>ECC2026-0280</span>
+  <span><b>Old process no.</b>PB26-0047 (voided)</span>
+</div>
+<div class="deadline">Retrieve the microfilm images by 2026-11-11 · order X2027004874 · <span id="daysleft">29 days left</span>
+<small>Paid October 12. The images hold every plan on file for the property and may include the lost approved set B2020-0177.</small></div>
+<p class="stamp">TUS-26-1033 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile c" data-go="status"><span class="n">4</span><b>Arrived October 12–13</b><small>Town reply, Elio’s note, microfilm paid, draft reply.</small></button>
+  <button class="tile y" data-go="status"><span class="n">14</span><b>Still missing</b><small>Signatures, the NOV, records, plans, the engineer.</small></button>
+  <button class="tile w" data-go="people"><span class="n">8</span><b>Waiting on</b><small>You, the tenants, the landlord, the Town, the design team.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> The Town of Medley says <b>PB26-0047 is voided and no permit was ever issued</b>, so the job restarts as a new after-the-fact application. The reply to the Town is drafted and waits for your “send”. Separately, the paid microfilm images must be <b>retrieved by November 11</b>.</p></div>
+
+<div class="tags"><b>Hashtags for this job (from _TAGS.txt of October 13 and _HASHTAGS.txt)</b>#7265NW74 #7265 #NW74St #74thStreet #Bay2 #Medley #Medly #Medlee #33166 #MiamiArtHouse #ArtHouse #Arthouse #TeatroMiami #Teatro #theater #theatre #warehouse #DaniWarehouse #DanielFelipe #Daniel #Felipe #Filipe #MiallMulkay #Miall #Mial #Millie #Mulkay #Mulkey #MulkayProductions #MonacoPereira #landlord #CarlosFloresWalters #AdrianaOspina #Fabregat #JorgeFabregat #Synergyn #Synergy #MonicaValdes #GabrielOporto #JulioSilva #MiguelZaldivar #Ordonez #ElioAlvarez #Alvarez #TownOfMedley #PB26-0047 #PB25-0289 #ECC2026-0280 #B2020-0177 #OF25-0069 #X2027004874 #microfilm #afterthefact #ATF #legalization #bathrooms #mezzanine #bar #kitchen #HVAC #subpanel #occupancy #lifesafety #NOV #WeTransfer #22-3011-052-0020 #folio2230110520020 #folio #TUS-26-1033 #TUS26-1033</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>88 documents across 11 folders with files (19 folders in all; 8 are empty). Left out of the list: 63 backup copies, 37 search and 42 tag sidecars, and 7 folder index pages. Nothing on this page sends, files, moves or deletes anything. Ticks are not saved.</p>
+  <p class="tag">TUS-26-1033 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #TUS-26-1033 #Medley #Miami-Art-House #7265-NW-74-St #capsule #orange-tree</p>
+</footer>
+</div>
+
+<script>
+const FOLDERS=[{"k": "Job root", "t": "Job root", "p": "TUS-26-1033 (top of the job folder)", "fid": "1m2zOt4hRY1H6ncRZDtqdotdQQYxvj3DM", "note": "Three tag files sit here: _TAGS.txt of October 13 (current), an older _TAGS.txt of August 31, and _HASHTAGS.txt. There are three portal copies (web page, Google Doc, and an 11 MB EMBEDDED copy from August 19). 58 backup copies were left out of this list.", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "bak": 58, "docs": [["_PORTAL_TUS-26-1033.html", "2026-10-13", 70639, "Web page", "1H8FQ0q2sC9nmVoSH9bew94eeLpjBxXQK", ""], ["_DRAFT_TOWN-REPLY-and-NEW-PERMIT-PATH_2026-10-13.md", "2026-10-13", 4477, "Notes", "1cncFdV4ze5hvFejPoOkzoMB4JmpjYQk9", "DRAFT · NOT SENT"], ["_TAGS.txt", "2026-10-13", 798, "Text", "1Y3gvoIYWGryiueFEF3WxkNgtTGIkRphg", ""], ["_ARRIVALS_2026-10-13.md", "2026-10-13", 2037, "Notes", "15CGYsqLpT24cWBi5TD4VL_zfK-jw_aTR", "NEW"], ["_PLACEHOLDERS.md", "2026-10-10", 6562, "Notes", "1PdbNqV7BKV25LS7NnmB83GLUuQwpOz_Q", "KEY"], ["_HASHTAGS.txt", "2026-10-09", 356, "Text", "1HMEbHewOzdmvMeynylJ3RtBhejafL1YE", ""], ["_STAGE.md", "2026-10-09", 3234, "Notes", "1TeO3rhtrHvhA9iSqalXQPp4ihCHOg4Ec", ""], ["_CONTACTS-EXTRACTED.txt", "2026-10-05", 1146, "Text", "15R74eEWyok9ZqimLzA1MyPb6gAr9yiyW", ""], ["_PORTAL_TUS-26-1033 (Google Doc)", "2026-09-02", 6824, "Google Doc", "1-uXp-c1IkRs2qT73hdobPUsej2ISSIkI9FbpJuyMqbc", "OLDER COPY"], ["_TAGS.txt", "2026-08-31", 1629, "Text", "1T42B4SuC5CMwzTC6NxE3AeucnjQcJIsn", "OLDER COPY"], ["_PORTAL_TUS-26-1033_EMBEDDED.html", "2026-08-19", 11275316, "Web page", "1weu0zs0MlXJYu1yXU82ej1HcQase5CaF", "55 DAYS OLD"], ["_POP-UP-ALL_TUS-26-1033.html", "2026-08-13", 82878, "Web page", "1cLMQqNlmoKsMzIC-l1ubmqf27ueu45Cb", ""], ["_JOB-TREE_TUS-26-1033.html", "2026-08-10", 19913, "Web page", "1eabMDfYBUc5lPq10REKpfHJ-TCWmJt4g", ""], ["_READ-FIRST.md", "2026-06-28", 480, "Notes", "1f-kaprJ_RklBVCS8rzgcQJTn2YR8S33F", ""]]}, {"k": "01-INTAKE", "t": "01-INTAKE", "p": "TUS-26-1033 / 01-INTAKE", "fid": "1URGjO3xdkzxFwGCL7y4S24nhHOgki4rB", "note": "Two files here are exact copies of files in 05-REPORTS-DELIVERABLES (same size). The letter to the Building Official here is the older August 31 version; the newer one is in 05-REPORTS-DELIVERABLES. The two .hta boards open on the PC only.", "side": {"s": 0, "t": 6, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-09-04 _ TUS-26-1033 _ Board _ SEND - Medley Building Official _ v1.hta", "2026-09-04", 7429, "HTA", "1ldlZaNUxuBlMMmEI-gb7NE0liFB_KbYy", "HTA · OPENS ON PC"], ["2026-09-04 _ TUS-26-1033 _ Board _ MEDLEY NUMBERS - what we found _ v1.hta", "2026-09-04", 8831, "HTA", "15MZKEhZJMiLmiHF59ofeUZkuBCmV1dPp", "HTA · OPENS ON PC"], ["2026-09-04 _ TUS-26-1033 _ Email _ LETTER TO MEDLEY BUILDING OFFICIAL _ v1.eml", "2026-08-31", 5960, "Email", "1CzmFz1HVR6Frfo9240oli3v1pSFQtsWp", "OLDER VERSION"], ["2026-09-04 _ TUS-26-1033 _ Email _ ASK TENANT FOR CITATION _ v1.eml", "2026-08-31", 1537, "Email", "1tfEiLHa2aVSiYFRp_87_c4USO67xjNAa", "SAME AS 05-REPORTS COPY"], ["2026-09-04 _ TUS-26-1033 _ Report _ ReadAloud MEDLEY-NUMBERS 2026-08-31 _ v1.html", "2026-08-31", 7719, "Web page", "1icBG_81Yt8siwX07JLhRJzFWXRxLVrn0", ""], ["2026-09-04 _ TUS-26-1033 _ Report _ MEDLEY FACT SHEET _ v1.md", "2026-08-31", 13615, "Notes", "1SPDhmVKc4m9iF--6zfDkCnGkUJ8Jw0sL", "SAME AS 05-REPORTS COPY"]]}, {"k": "02_County-Records/DERM_2026-08-31", "t": "DERM_2026-08-31", "p": "TUS-26-1033 / 02_County-Records / DERM_2026-08-31", "fid": "1jhlfWTv6gKANT9C8BrxQW73byLFVklhx", "note": "Miami-Dade DERM records for the property. Three of the four name NDS Tires, an earlier permit holder at this address. 02_County-Records holds nothing but this folder.", "side": {"s": 3, "t": 3, "o": 0, "i": 0}, "bak": 0, "docs": [["DERM_INSPECTION-REPORT_NDS-TIRES_2025-03-27.pdf", "2026-08-31", 660073, "PDF", "1b8qvZ6iWEIii_Pf-UYch39ah_VGQ3lJg", "PRIOR TENANT"], ["DERM_EMAIL_7265-MEDLEY-CORP_2024-05-29.msg", "2026-08-31", 779264, "Email", "16k-_knqsLs7fpN9k_T4JiN0MgixkaAHF", ""], ["DERM_APPLICATION-FORM_NDS-TIRES_2024-06-18.pdf", "2026-08-31", 1770296, "PDF", "11SdCmcvqOXWPdbhGSZoKtBYezAe25Cke", "PRIOR TENANT"], ["DERM_OPERATING-PERMIT_NDS-TIRES_2024-07-01.pdf", "2026-08-31", 117620, "PDF", "1jzW5_8MnGatj-J-DN4zm9CVpaUNCGebA", "PRIOR TENANT"]]}, {"k": "03_Research-and-Proposal", "t": "03_Research-and-Proposal", "p": "TUS-26-1033 / 03_Research-and-Proposal", "fid": "1K_AKc49gvOEx9auGyu6VQcvwsRZQ7Kr0", "note": "The contact list web page (October 9) and the September 28 design-team addendum are current. The contact list PDF is the June version. 3 backup copies were left out.", "side": {"s": 3, "t": 3, "o": 0, "i": 1}, "bak": 3, "docs": [["CONTACT-LIST_Medley_TUS-26-1033.html", "2026-10-09", 14154, "Web page", "118N7hw_c5aIJa0eac17YcLVAi8LTRxDL", "KEY"], ["CONTACT-LIST_Medley_TUS-26-1033 _ v2 ADDENDUM _ Design Team _ 2026-09-28.md", "2026-09-28", 2753, "Notes", "18oBoI27-8iGmyM6SeVFXSr2Lwz12Dv7M", "KEY"], ["CONTACT_Elio-Alvarez_Medley-Building-Official.vcf", "2026-08-31", 1167, "Contact card", "10_jB_R7Xy05K55ldlY1O4rLGcXI2Xnz0", ""], ["CONTACT-LIST_Medley_TUS-26-1033.pdf", "2026-06-23", 90194, "PDF", "1Im1yvFfsJbRSZxej9aP2iu-6DJqNo7gf", "OLDER COPY"], ["SCOPE-OF-WORK_Medley_TUS-26-1033.pdf", "2026-06-23", 103105, "PDF", "16_hRqJdLmuDGtjl98Vk-TNIg5dIZ0LSf", ""], ["ES_ALCANCE-DE-TRABAJO_TUS-26-1033.pdf", "2026-06-23", 100323, "PDF", "1XNe8evlTVcG1C3J1Juk_Xk--RB5tEsub", "SPANISH"], ["ES_ALCANCE-DE-TRABAJO_TUS-26-1033.html", "2026-06-23", 6093, "Web page", "1BA4jTPGWaZuQWD11C_JyoPCvriO0-hQZ", "SPANISH"], ["SCOPE-OF-WORK_Medley_TUS-26-1033.html", "2026-06-23", 6684, "Web page", "1Sx-uA7SSXmekLMPOz2gDvW8zDLP-fwEE", ""], ["_FOLDER-TREE_TUS-26-1033.html", "2026-06-23", 7117, "Web page", "1Hjckr5n4MRnnBHSYGE5o_PIEvV0_l0VU", ""]]}, {"k": "04_Permits-and-Applications", "t": "04_Permits-and-Applications", "p": "TUS-26-1033 / 04_Permits-and-Applications", "fid": "1K5sOJBL77X3ixZPeRe6Avb9Vbk70sYSE", "note": "These are the filled, unsigned permit applications from June, made for process PB26-0047. The Town voided PB26-0047 on October 13, so a new application is needed.", "side": {"s": 3, "t": 3, "o": 0, "i": 1}, "bak": 0, "docs": [["NOTICE-OF-COMMENCEMENT_DRAFT_TUS-26-1033.pdf", "2026-08-17", 157496, "PDF", "14ZEza46Ck3Yu3G9RTDmuwQvoSBO66SvF", "DRAFT"], ["NOTICE-OF-COMMENCEMENT_DRAFT_TUS-26-1033.html", "2026-08-17", 9692, "Web page", "11oIl5uwXMbk1hI9ZbyRaSkfmFER-pDJ0", "DRAFT"], ["PERMIT-APP-MIAMIDADE_COMPLETED_TUS-26-1033.pdf", "2026-06-23", 65875, "PDF", "1PDtVJ-T8TtwTks-ICSLgGJ4gu_sWVXyN", "UNSIGNED"], ["PERMIT-APP-MEDLEY_COMPLETED_TUS-26-1033.pdf", "2026-06-23", 81856, "PDF", "1Gpvqh_jm0GrR2NOZqZQ5Q0MneX-_GYhV", "UNSIGNED"], ["PERMIT-APP-MIAMIDADE_COMPLETED_TUS-26-1033.html", "2026-06-23", 4473, "Web page", "1GvoK8yp5WyUDdunf8AgNSz7Tp4D1kSlu", ""], ["PERMIT-APP-MEDLEY_COMPLETED_TUS-26-1033.html", "2026-06-23", 5822, "Web page", "1-1KrP-Vx9NESl8JHOYthNQzWFTvzBgRG", ""]]}, {"k": "04-CORRESPONDENCE", "t": "04-CORRESPONDENCE", "p": "TUS-26-1033 / 04-CORRESPONDENCE", "fid": "1qlOUpY0DdZ6sqnxOFlhF01ck0XRyiG29", "note": "The WeTransfer re-share request to Jorge Fabregat is a draft and has not been sent.", "side": {"s": 2, "t": 2, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-10-10 _ TUS-26-1033 _ Draft-Email _ WeTransfer-Reshare-Request_v1.md", "2026-10-10", 798, "Notes", "1gkHs_R3xdfRGRk3xAYpkbMnLMUfpA4So", "DRAFT · NOT SENT"], ["2026-10-06 _ TUS-26-1033 _ Log _ Owner-Instructions-Update _ v2.txt", "2026-10-06", 1953, "Text", "1pNRoAw6KB5_ArxqYnm2XiUWXk2-7gs1-", ""], ["2026-10-06 _ TUS-26-1033 _ Log _ Owner-Call-Millie _ v1.txt", "2026-10-06", 2843, "Text", "1LRip-WtJcujKe0xtZU2i2OJ6BS0UJvSI", ""], ["2026-09-11_2136_Mailer-Daemon_Bounce-Evidence-TUS-26-1033.pdf", "2026-09-17", 81540, "PDF", "1tJ9i1chRoB3LzNBL3CPZdD1Cn2l-pEBo", ""], ["2026-09-08_1520_Jorge-Valdes_Project-Onboarding-Schedule.pdf", "2026-09-17", 87417, "PDF", "1As0bGR430expGEKOnO2nXjlSh3qXZ4FC", ""]]}, {"k": "05-REPORTS-DELIVERABLES", "t": "05-REPORTS-DELIVERABLES", "p": "TUS-26-1033 / 05-REPORTS-DELIVERABLES", "fid": "1n_6_jOXa1HQaJcCcyfXv1PfWgdNuTd0-", "note": "The Job Status Dashboard v1 still sits next to v2; v2 is current. 2 backup copies were left out.", "side": {"s": 2, "t": 2, "o": 0, "i": 0}, "bak": 2, "docs": [["2026-10-12 _ TUS-26-1033 _ Report _ Pre-Report-Call-Sheet _ v1.html", "2026-10-12", 9049, "Web page", "1jRXKcH2BgzQG33f34UXN8mfysN5vvrZC", "NEW"], ["2026-10-06 _ TUS-26-1033 _ Report _ Schedule-and-Punch-List _ v1.html", "2026-10-06", 5882, "Web page", "1ddNHUb_juZ2KiLTjML5k6BQCYEWCNRdu", ""], ["2026-09-17 _ TUS-26-1033 _ Report _ Job-Status-Dashboard _ v2.html", "2026-09-25", 11988, "Web page", "1QEYT8WO7xBBeqTCOrhG7sGgIuBZTRRr7", ""], ["2026-09-16 _ TUS-26-1033 _ Report _ Job-Status-Dashboard _ v1.md", "2026-09-16", 20742, "Notes", "1v2kUdHwPfxuNDycF3F7ZDH2X6Cou5pT7", "OLDER VERSION"], ["NUMBER-SEARCH_Medley_TUS-26-1033_2026-08-31.md", "2026-08-31", 12158, "Notes", "1sYZmQqtvaIWyVbdQC59cp8hZor05GXS5", ""], ["DRAFT-EMAIL_Building-Official-Elio-Alvarez_TUS-26-1033_2026-08-31.eml", "2026-08-31", 8050, "Email", "1anBZ3S2x80e_PxNtAXujwmysfn41UB2h", "DRAFT"], ["DRAFT-EMAIL_Ask-Tenant-For-Citation_TUS-26-1033_2026-08-31.eml", "2026-08-31", 1537, "Email", "1yoW-c-6784zFVosuD1OT5twUwFjKlomX", "SAME AS 01-INTAKE COPY"], ["FACT-SHEET_Building-Official-Letter_TUS-26-1033_2026-08-31.md", "2026-08-31", 13615, "Notes", "1b1h0736iOnWg0DVvOHnAenzIwmSOIXia", "SAME AS 01-INTAKE COPY"], ["MEDLEY-PRINT-RUN_TUS-26-1033_2026-08-18.pdf", "2026-08-18", 1671231, "PDF", "1JRTZp1tayi5S0AY_wDsxGGENsYB-Vjs-", ""]]}, {"k": "06_Plans-Photos-Sketches", "t": "06_Plans-Photos-Sketches", "p": "TUS-26-1033 / 06_Plans-Photos-Sketches", "fid": "1CutIo4kKCWCTCKPSYXN2f6xsMNlpW9Wj", "note": "Sheets A-1, E-1, LS-1, M-1 and P-1 are not sealed yet. The Work Without Permit form is a form, not a plan, and also lives here.", "side": {"s": 9, "t": 8, "o": 0, "i": 1}, "bak": 0, "docs": [["GAME-PLAN-and-CONTACTS_TUS-26-1033.pdf", "2026-06-23", 144462, "PDF", "1CgIP0hlaheoTbCYfQzKzGHLt27EF5laP", ""], ["GAME-PLAN-and-CONTACTS_TUS-26-1033.html", "2026-06-23", 9332, "Web page", "1Cf9xBpNdK0OGGcZslAQkqQvLqW4qJhZf", ""], ["image001.png", "2026-06-23", 327083, "Image", "13RfinhERgOO8yVgrIAQj-w8FvfKaZNJn", ""], ["WORK WITHOUT PERMIT FORM.pdf", "2026-06-16", 1065388, "PDF", "1jhEO57lgUhZfTsvqHV3kxthFx8FIvoeh", "UNSIGNED"], ["A-1 - FLOOR PLAN.pdf", "2026-06-16", 191522, "PDF", "1Ubjtm740LTpJwLSNyDJEimakHNYLXQrD", "KEY"], ["E-1 - ELECTRICAL PLAN.pdf", "2026-06-16", 140541, "PDF", "10Yvo4YCpU0HsGhk13nn1rjLFRJd10BCN", ""], ["LS-1 - FLOOR PLAN - LIFE SAFETY PLAN.pdf", "2026-06-16", 205611, "PDF", "1UrZKdttbMEN6V_FtQsFW-0tydWFxL0Xj", ""], ["LS-1 - LIFE SAFETY.pdf", "2026-06-16", 337217, "PDF", "1Wn3WtlPiAIU6PzeVaxYx4D5bY3XN2Cna", ""], ["M-1 - MECHANICAL PLAN.pdf", "2026-06-16", 730554, "PDF", "1KVUjn20eIGvYvuCJZaoL4LB2GDoNeevI", ""], ["P-1 - SANITARY SERVICE PLAN.pdf", "2026-06-16", 160570, "PDF", "1oJ3MGrvmeWyTJCQt1eJcm_zwDcVz_5p3", ""]]}, {"k": "09_Financial", "t": "09_Financial", "p": "TUS-26-1033 / 09_Financial", "fid": "1O9E2fZoY-SHlpc4PmkJvZXMqlLnGlOVi", "note": "The proposal, power of attorney and landlord consent are here as blank, unsigned forms, in English and Spanish. No signed copy of any of them is anywhere in the job folder. Amounts are in the locked money zone.", "side": {"s": 8, "t": 8, "o": 0, "i": 1}, "bak": 0, "docs": [["ENGINEERING-AGREEMENT_Synergyn_DRAFT_TUS-26-1033.pdf", "2026-08-17", 180884, "PDF", "1VUxY9dZ4jWwYHOsW1HpoQobth749crfo", "DRAFT · UNSIGNED"], ["ENGINEERING-AGREEMENT_Synergyn_DRAFT_TUS-26-1033.html", "2026-08-17", 13450, "Web page", "1Ev7CwQTpqqa03SuVRmWDn9FuzVwtZeGx", "DRAFT"], ["PROPOSAL_TeamUSA-to-Tenant_TUS-26-1033.pdf", "2026-06-23", 93092, "PDF", "1-HsL3_rcRGP3waJ97KevHtk5TNw2g2qF", "UNSIGNED"], ["LIMITED-POA_Tenant-Authorization_TUS-26-1033.pdf", "2026-06-23", 195727, "PDF", "1SfMN1_GDzxRZcy3CrkjvAZ__MD0pt5Ko", "UNSIGNED"], ["LANDLORD-CONSENT_MonacoPereira_TUS-26-1033.pdf", "2026-06-23", 171791, "PDF", "1if7XTXOLfYO6WK10izVmgNLJTCZJI8Wo", "UNSIGNED"], ["INVOICE-01_TUS-26-1033.pdf", "2026-06-23", 59112, "PDF", "1HgOEq3EawxDpEL1iEsbtHOgg5na1AiRA", "SENT 06-23"], ["ES_PROPUESTA_TeamUSA-al-Inquilino_TUS-26-1033.pdf", "2026-06-23", 94836, "PDF", "1remNogMiWUqe44BxgG_LXeHcQfxDJvmm", "SPANISH"], ["ES_PODER-LIMITADO_Autorizacion-Inquilino_TUS-26-1033.pdf", "2026-06-23", 191845, "PDF", "1rvcr72DHqU7A3UbaPNbPmA1zqkpD-Ro6", "SPANISH"], ["ES_FACTURA-01_TUS-26-1033.pdf", "2026-06-23", 59855, "PDF", "1xz4uPdZ95w1Xj_gQvctIVTAPak7BA09H", "SPANISH"], ["PROPOSAL_TeamUSA-to-Tenant_TUS-26-1033.html", "2026-06-23", 4414, "Web page", "1LjVOb0yOQX75pxsHuP3v8aTeytBFlEhY", ""], ["LIMITED-POA_Tenant-Authorization_TUS-26-1033.html", "2026-06-23", 4197, "Web page", "1D9pi8sQn0xA85BE03Se7eq9QMD-OVKWn", ""], ["LANDLORD-CONSENT_MonacoPereira_TUS-26-1033.html", "2026-06-23", 3126, "Web page", "1wG1n9CBu4CHt2NV-kvq-mFlnJhaW9ueD", ""], ["INVOICE-01_TUS-26-1033.html", "2026-06-23", 2446, "Web page", "1OJkM5ADPU5hHqUXG50hL7E4xqiQDNsgu", ""], ["ES_PROPUESTA_TeamUSA-al-Inquilino_TUS-26-1033.html", "2026-06-23", 4618, "Web page", "19GzAMnT5TTZCOIs-bdTGbeVplY8OKsx3", "SPANISH"], ["ES_PODER-LIMITADO_Autorizacion-Inquilino_TUS-26-1033.html", "2026-06-23", 4446, "Web page", "1xcskKsvyY1ccnXyuuoXl1KboRQPNHazQ", "SPANISH"], ["ES_FACTURA-01_TUS-26-1033.html", "2026-06-23", 2557, "Web page", "1kvRfyAWnuKFtlun11eamwWKfG0SvrciL", "SPANISH"]]}, {"k": "OUT-FOR-SIGNATURE_2026-08-10", "t": "OUT-FOR-SIGNATURE_2026-08-10", "p": "TUS-26-1033 / OUT-FOR-SIGNATURE_2026-08-10", "fid": "1jwgH_vlMvEj1pjbjS224YBbKlEIO6UlJ", "note": "The signing packet went out August 10. Nothing signed has come back in the 64 days since.", "side": {"s": 7, "t": 7, "o": 0, "i": 1}, "bak": 0, "docs": [["_STATUS_OUT-FOR-SIGNATURE.txt", "2026-08-10", 1038, "Text", "1Ap_9DN7axJLvhjeX3kc4VbX7hplaT3qE", ""], ["COVER-SHEET_Signers_TUS-26-1033.pdf", "2026-08-10", 45323, "PDF", "1LlvOYY5QkQY8E4CpRMELhMaWlsosycU8", ""], ["TRANSMITTAL-LIST_OutForSignature_TUS-26-1033.pdf", "2026-08-10", 61611, "PDF", "1RX2NADuWtHyBTPqo1AIlfoSVJqAUSF0i", ""], ["MEDLEY_1_PERMIT-APPLICATIONS.pdf", "2026-08-10", 65722, "PDF", "1A7Q0CTTtouTkCd5nse7MfjARrcUv9Ptt", "UNSIGNED"], ["MEDLEY_2_SIGN-and-NOTARIZE.pdf", "2026-08-10", 1241297, "PDF", "18KdO32y-TuLBoUerh2U1NJD2P1e9GsqA", "UNSIGNED"], ["MEDLEY_3_SCOPE-and-PROPOSAL.pdf", "2026-08-10", 102552, "PDF", "1V19RwtboY59GeVOO6j4Hnu1jq8zpT6a0", "UNSIGNED"], ["MEDLEY_4_FINANCIAL-INVOICE.pdf", "2026-08-10", 30000, "PDF", "1OaAQy5wPiF4qZHsRsInupxeKSp-JaXms", ""], ["MEDLEY_5_PLANS.pdf", "2026-08-10", 1340807, "PDF", "1uI6ABzQFEuVia_cJVj23ieKtnDfWzdtl", ""]]}, {"k": "_SUPERSEDED", "t": "_SUPERSEDED", "p": "TUS-26-1033 / _SUPERSEDED", "fid": "1iOcARr0LwcoCBQeAkrWEU0Ltg200WXRp", "note": "Old copy, kept for history.", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "bak": 0, "docs": [["Medley_MiamiArtHouse_Contacts.html", "2026-06-18", 1999, "Web page", "1BHRJc9QfjjPDOzNh98rdZ4hXovJuLAQe", "SUPERSEDED"]]}];
+const PILL={done:["p-done","ARRIVED"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag",""],key:["p-key",""],money:["p-money","MONEY"],person:["p-wait","CONTACT"],finding:["p-flag","FINDING"]};
+const STATUS=[["Arrived October 12 and 13", [["Town of Medley reply: PB26-0047 is VOIDED, and no permit was ever issued", "October 13, 8:49 AM, from building@townofmedley.com. PB26-0047 was only a process number. The plans were never submitted to Medley, and after 180 days with no activity it was voided. A new application is needed.", "done"], ["Elio Alvarez, Building Official: “Thank you, received.”", "October 13, 7:35 AM. No attachments.", "done"], ["Miami-Dade microfilm images, order X2027004874, paid", "October 12. Every plan type on file for 7265 NW 74 St. It may hold the old approved set B2020-0177. An x.ai email calls it “Alec microfilm”; the county record says it is this job.", "done"], ["Draft reply to the Town, and the new permit path, written", "October 13, in the job root. Prepared only. Nothing has been sent.", "done"]]], ["Still missing", [["Microfilm images not retrieved yet", "They must be downloaded by about November 11 (30 days from payment), or they are lost.", "miss"], ["Town answers: new-application checklist, Fire and DERM order, a hold on code deadlines", "Asked in the draft reply, which is not sent yet.", "miss"], ["Public records items 1 to 7 and the meeting with the Town", "Requested October 12. The October 13 reply did not answer them.", "miss"], ["Signed proposal from the tenant", "Only the blank form is on file (09_Financial).", "miss"], ["Signed Limited Power of Attorney from both tenants", "Sent June 23 and again in the August 10 packet. Nothing signed came back.", "miss"], ["Signed landlord consent, Monaco Pereira LLC", "BLOCKED: there is no direct contact for the landlord on file.", "miss"], ["Signed Work Without Permit form", "Landlord and both tenants sign at a notary session that is not booked yet.", "miss"], ["The NOV and every citation number on case ECC2026-0280", "BLOCKED: asked of the tenants August 7, August 31 and October 6, with no reply.", "miss"], ["Old approved plan set B2020-0177", "The WeTransfer link from Jorge Fabregat expired September 27. A re-share request is drafted and not sent. The microfilm may be a second source.", "miss"], ["Engineer and architect of record decision", "Synergyn or Juan B. Ordonez, P.E., plus the new architect’s name, license and contact.", "miss"], ["Engineer seals on sheets A-1, E-1, LS-1, M-1 and P-1", "Waits on the engineer decision.", "miss"], ["Files received September 24 but not saved in Drive", "Five CAD (.dwg) sheets, the AC-1 schedule, a P-1 plumbing plan, and Synergyn’s site-photo report. Waiting for your OK to file.", "miss"], ["Julio Silva’s written proposal (timeline and price)", "Reminder sent September 28.", "miss"], ["Lease copy from Daniel Felipe", "Asked August 10.", "miss"]]], ["Waiting on", [["You", "Say “send” on the Town reply. Decide the engineer of record. Book the notary session. Send the change-of-architect forms to Jorge Fabregat. Set the site meeting. Retrieve the microfilm.", "wait"], ["Daniel Felipe and Miall (Millie) Mulkay, tenants", "Sign the proposal, power of attorney and Work Without Permit form. Send the NOV, citations and the lease.", "wait"], ["Monaco Pereira LLC, landlord", "Sign the landlord consent. A contact is needed first.", "wait"], ["Town of Medley (Elio Alvarez and Building Dept)", "Records items 1 to 7, the new-application checklist, and a meeting date.", "wait"], ["Jorge Fabregat, architect", "Re-share the B2020-0177 approved set, once the drafted request is sent.", "wait"], ["Julio Silva, drafter", "A written proposal.", "wait"], ["Synergyn", "An answer on the draft engineering agreement. No reply since August 24.", "wait"], ["The desktop helper", "Save the September 24 CAD and PDF files into this Drive folder, once you say yes.", "wait"]]]];
+const PEOPLE=[["Daniel Felipe · Miami Art House (tenant)", "Client. The June 23 proposal and invoice went to cfelipe87@live.com.", "daniel@miamiarthouse.com"], ["Miall (Millie) Mulkay · Miami Art House (tenant)", "Client. Also reached at elmija74@gmail.com. Owner call logged October 6.", "miall@miamiarthouse.com"], ["Miami Art House / Teatro Miami", "Client business. The Town copied admin@themiamiarthouse.com on October 13.", "admin@teatromiami.com"], ["Monaco Pereira LLC · landlord", "Signers Carlos Flores Walters or Adriana Ospina. SunBiz doc L22000535389. No email or phone on file.", ""], ["Elio Alvarez · Town of Medley Building Official", "Got the October 12 records request. Contact card in 03_Research-and-Proposal.", "ealvarez@townofmedley.com"], ["Town of Medley Building Dept", "Sent the October 13 reply voiding PB26-0047. Code Compliance: codecompliance@townofmedley.com.", "building@townofmedley.com"], ["J. Sanabria · Town of Medley", "Role not confirmed. His address bounced September 8; do not use it.", ""], ["Jorge Fabregat · architect (original plans)", "Sent the CAD files September 24 and offered to sign change-of-architect forms. Also jorge@fabregatarchitect.com. Phone and license number still needed.", "fabregat28@gmail.com"], ["Julio Silva · J Drafters", "Drafter for the new plan set. 786-663-6177.", "jdrafters@gmail.com"], ["Christopher Thompson · Synergyn", "Proposed engineer of record. (786) 843-0243.", "cthompson@synergyn-us.com"], ["Monica Valdes · Synergyn", "Account manager. (786) 953-6103. 1867 NW 97th Ave Ste 103, Doral.", "mvaldes@synergyn-us.com"], ["Juan B. Ordonez, P.E. · prior engineer", "FL license 43380. Sealed the original A-1. 305-401-2051.", "ordonezpe@gmail.com"], ["Jeanne Clarke · Miami-Dade County", "County staff named in the job records.", "jeanne.clarke@miamidade.gov"], ["Gabriel Oporto", "Design team, named in the October 13 tags. No email on file.", ""], ["“Phil”", "Not identified yet. To confirm on the owner call.", ""], ["Jorge Valdes · Team USA Sales, Inc.", "Owner’s agent. 305-300-4500.", "Jorge@TeamUsaSales.com"]];
+const MONEY=[["Invoice TUS-26-1033-01: $10,600, mailed June 23, not shown as paid", "Its terms say due on acceptance of the proposal, and no signed proposal is on file. No payment was found in the bank data, but that data stops July 24, so this is unverified, not proof of non-payment.", "money"], ["The amounts on file disagree: $10,600 invoice, $21,200 contract, rev.3 at $16,000 with $8,000 due", "Your one answer decides it. Rev.3 reuses the same invoice number and was only ever sent to your own address. Sending it now would forgive $5,200 under an unchanged number.", "money"], ["Medley $8,000 invoice send", "Listed as a cash-collection item in the standing order. It depends on the answer above.", "money"], ["Synergyn fee offer: $11,000 for MEP plus $1,000 per review round", "Unanswered since August 24.", "money"], ["Julio Silva budget cap: no more than $8,000 all-in", "Asked of Julio on September 28 (architect, P.E. and as-built letter fees included). His written proposal has not arrived.", "money"], ["Microfilm order X2027004874: paid October 12", "One card attempt failed at 2:01 PM; the payment went through at 2:04 PM. The amount is not in the job folder.", "money"]];
+const FINDINGS=[["63 backup copies use the banned “.ext.bak-DATE” name", "58 in the job root (29 portal, 27 _STAGE, 2 _TAGS), 2 in 05-REPORTS-DELIVERABLES, 3 in 03_Research-and-Proposal. Drive cannot preview them. Nothing was renamed; renaming is filing, so it waits for your yes."], ["Two copies of the same files in two folders", "“ASK TENANT FOR CITATION” and “MEDLEY FACT SHEET” are in both 01-INTAKE and 05-REPORTS-DELIVERABLES, same sizes. The 01-INTAKE “LETTER TO MEDLEY BUILDING OFFICIAL” is the older August 31 version of the Elio Alvarez draft."], ["Two folder systems side by side, and 8 empty folders", "June folders (01_Emails to 10_Closeout-CU-CO) and August folders (01-INTAKE to 05-REPORTS-DELIVERABLES). Empty: 01_Emails, 02_Files-Attachments, 02-PERMITS, 03-INVOICES-PAYMENTS, 05_Code-Enforcement-Violations, 07_Reports, 08_Correspondence, 10_Closeout-CU-CO."], ["Older versions not moved to _SUPERSEDED", "Job Status Dashboard v1 next to v2; the June contact list PDF next to the October web page; an older _TAGS.txt; the 11 MB _PORTAL EMBEDDED copy from August 19 and a Google Doc copy of the portal from September 2."], ["Papers in a folder that does not match them", "The blank proposal, power of attorney and landlord consent are in 09_Financial; _PLACEHOLDERS expects them under invoices and correspondence. The Work Without Permit form is in 06_Plans-Photos-Sketches."], ["DERM folder holds another business’s records", "Three of the four DERM files name NDS Tires, an earlier permit holder at 7265 NW 74 St. This is likely property history, not a misfile. Please confirm."], ["The placeholder list is out of date since October 13", "_PLACEHOLDERS still says “plan submittal to Town of Medley, target November 5” and “resubmit” paths. The Town voided PB26-0047; the new path targets early December."], ["No _VERSION-LOG.md in the job folder", "CLAUDE.md asks for one in every job folder."], ["Job number is in the short form", "TUS-26-1033 is used everywhere. Search for this exact text, not a TRK-2026 number."], ["The x.ai automation mislabels the microfilm as “Alec microfilm”", "The county email says 7265 NW 74 ST, which is this job."]];
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=o.st==='flag'||o.st==='key'?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc') h+='<div class="meta"><span>'+esc(o.date)+'</span><span>'+esc(kb(o.size))+'</span><span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','What arrived, what is missing, who it waits on','4 · 14 · 8',h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    f.docs.forEach(d=>{x+=row({b:f.t,kind:'doc',title:d[0],date:d[1],size:d[2],type:d[3],link:durl(d[4]),st:d[5]?(d[5]==='KEY'||d[5]==='NEW'?'key':'flag'):'',flag:d[5],path:f.p});});
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' search'); if(s.t)sc.push(s.t+' tag'); if(s.o)sc.push(s.o+' OCR marker'); if(s.i)sc.push(s.i+' index');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':'📁 '+f.t),esc(f.p),f.docs.length+' docs',x+(sc.length?'<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>':''),fi===0);
+  });
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  let fh='<p class="bnote">Found while building this capsule. Nothing was moved, renamed or deleted. Each one waits for your yes.</p>';
+  FINDINGS.forEach(it=>{fh+=row({b:'Findings',kind:'finding',title:it[0],text:it[1],st:'finding'});});
+  branch('findings','','🔎 Findings','Misfiled items, duplicates, banned backup names',FINDINGS.length+' findings',fh,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> Money items stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='</div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':MONEY.length+' items',m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>it.kind!=='money'||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">TUS-26-1033 · 7265 NW 74 St Bay 2 · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(it.kind==='money'?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=it.kind==='doc'?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc') h+='<p class="meta"><span>'+esc(it.date)+'</span><span>'+esc(kb(it.size))+'</span><span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='TUS-26-1033 · 7265 NW 74 St Bay 2, Medley · Folio 22-3011-052-0020\nCode case ECC2026-0280 · PB26-0047 voided · Microfilm X2027004874 due by 2026-11-11\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='doc') s+='   '+it.date+' · '+kb(it.size)+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— TUS-26-1033 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>it.kind!=='money'||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+(function(){try{const n=new Date();const d=Math.round((Date.UTC(2026,10,11)-Date.UTC(n.getFullYear(),n.getMonth(),n.getDate()))/86400000);
+  $('daysleft').textContent=d>1?d+' days left':d===1?'1 day left':d===0?'the deadline is today':'the deadline has passed';}catch(e){}})();
+build();
+</script>

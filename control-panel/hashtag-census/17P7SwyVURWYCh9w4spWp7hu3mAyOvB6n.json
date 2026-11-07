@@ -1,0 +1,29 @@
+{
+  "id": "17P7SwyVURWYCh9w4spWp7hu3mAyOvB6n",
+  "title": "TRK-TBD _ 30-4915-001-1121 _ 13920 SW 34 ST (Medina-Rodriguez)",
+  "partial": false,
+  "pdfs": 12,
+  "search_sidecars": 12,
+  "tags_sidecars": 12,
+  "tags5_sampled": 3,
+  "tags5_of_sampled": 2,
+  "has_HASHTAGS_txt": false,
+  "hashtags_count": null,
+  "has_people_tags": null,
+  "has_trk_tag": null,
+  "other_files": ["_TAGS.txt", "CAPSULE.md", "_PLACEHOLDERS.md", "_PORTAL_UNASSIGNED_TRK-TBD-30-4915-001-1121-13920-SW-34-ST-Medina-Rodriguez.html", "_STAGE.md", "root .bak-YYYYMMDD copies of _PORTAL/_STAGE (excluded from listing, not counted)", "03-Research: _DD-RUNNER-SUMMARY_2026-10-02.md, _DD-RUNNER-STATE.json, 5 DD SITE result .md files (SITE-01, 08, 10, 11, 16), 17 BLOCKER_SITE-*.md files", "07-TAX-JACKET_2026-08-24/ENHANCED: FINAL_ALL.pdf.PAGEMAP.json, 3x WHAT-WAS-DONE.json, 3x ENHANCED pdf .bak-20260826, _partmaps/ folder"],
+  "people": [
+    {"name": "Medina-Rodriguez", "role": "owner of record", "email": null, "evidence": "CAPSULE.md, _TAGS.txt, folder title", "misspellings": ["Medina Rodriquez", "Medina-Rodrigues", "Madina Rodriguez"]},
+    {"name": "Cesar Garcia", "role": "referring contact / client side (Dropbox legalization folder; possible reimbursement invoice)", "email": null, "evidence": "_PLACEHOLDERS.md", "misspellings": ["Caesar Garcia", "Cesar Garsia", "Cézar Garcia"]},
+    {"name": "David", "role": "referring contact (Guirola & Associates PA), surname unknown", "email": null, "evidence": "_PLACEHOLDERS.md", "misspellings": []},
+    {"name": "Jorge Valdes", "role": "owner / inspector (CU Inspections)", "email": null, "evidence": "CAPSULE.md, _TAGS.txt", "misspellings": ["Jorge Valdez"]}
+  ],
+  "companies": [
+    {"name": "Guirola & Associates PA", "role": "design firm / referring", "email": null, "evidence": "_PLACEHOLDERS.md", "misspellings": ["Guirola and Associates", "Girola", "Guirrola"]},
+    {"name": "Team USA Sales, Inc.", "role": "author of DD runner output", "email": null, "evidence": "_DD-RUNNER-SUMMARY_2026-10-02.md"},
+    {"name": "Miami-Dade Property Appraiser", "role": "county - tax jacket source", "email": null, "evidence": "CAPSULE.md"},
+    {"name": "Miami-Dade Clerk / Building / DERM / Tax Collector", "role": "county DD sources (mostly BLOCKED)", "email": null, "evidence": "_DD-RUNNER-SUMMARY_2026-10-02.md"}
+  ],
+  "keywords": ["13920 SW 34 ST", "13920 SW 34th Street", "13920-SW-34-St", "Miami FL 33175", "folio 30-4915-001-1121", "3049150011121", "Medina-Rodriguez", "TRK-2026-1567", "JOB-0030-C", "permit 2018007118", "Invoice 6039", "$926.84 county ePayment 2023-03-17", "legalization", "TEAM - Legalizations Dropbox", "Cesar Garcia", "Guirola", "tax jacket", "DD runner", "microfilm", "lien", "WASD septic", "FEMA flood"],
+  "notes": "No _HASHTAGS.txt and no _CONTACTS-EXTRACTED.txt. Capsule still TRK-TBD; registry issued TRK-2026-1567 (2026-08-09, JOB-0030-C) per _PLACEHOLDERS.md - relabel BLOCKED on Jorge. Sampled .TAGS.txt carry stray 9xxx admin-band TRK tags (#TRK-2026-9490, #TRK-2026-9754) instead of 1567 - mis-anchoring defect. 114 client PDFs live outside the capsule in Dropbox. PDFs are 3 levels deep (07-TAX-JACKET_2026-08-24/ENHANCED + ORIGINAL); walked one level past the 2-level limit to reach them. 00-Intake, 01-Emails, 02-Permit-Apps, 04-Money, 05-Deliverables, 06-Photos empty. _partmaps not walked. DD runner: 5 of 22 sites done."
+}

@@ -1,0 +1,28 @@
+level	path_under_both_roots	kind	size_A	size_B	verdict
+root	2017  PaperPort - NOT SORTED YET	folder	50842	50842	same size
+root	2018 PaperPort - NOT SORT YET	folder	961254	961254	same size
+root	2019 PaperPort - NOT SOETED YET	folder	304	304	same size
+root	2020  PaperPort - NOT SORT YET	folder	304	304	same size
+root	2021  PaperPort - NOT SORT YET	folder	304	304	same size
+root	2022  PaperPort - NOT SORT YET	folder	56047651	56047651	same size
+root	2023  PaperPort - NOT SORTED YET	folder	570277042	556828194	DIFFERENT size (A larger by 13,448,848)
+root	AJ Valdes	folder	9939627	9787498	DIFFERENT size (A larger by 152,129)
+root	BUSINESS TAX LICENSES - ALL CORP- CATAGORY	folder	117949	117949	same size
+root	CHECKS CATEGORY	folder	54593492	54593492	same size
+root	Company Checks	folder	8215257	8215257	same size
+root	INSPECTIONS - MASTER FOLDER - ALL CORPS	folder	13863038	12371420	DIFFERENT size (A larger by 1,491,618)
+root	INSURANCE CATAGORY	folder	608	608	same size
+root	IRS Related Docs NOT Sorted Yet	folder	872439	872439	same size
+root	Jorge Valdes	folder	227514095	227564776	DIFFERENT size (B larger by 50,681)
+root	LEGALIZATION- CATAGORY	folder	602511788	602511788	same size
+root	MARERRO FAMILY MISC DOCS	folder	304	304	same size
+root	Photos	folder	1379612	1379612	same size
+root	Scan folder started Jan 14 2013	folder	87098855	57610839	DIFFERENT size (A larger by 29,488,016)
+root	SearchVerity	folder	194283819	194283819	same size
+root	VALDES FAMILY - MISC DOCS	folder	13151632	13151632	same size
+root	.ppinfocache	file	16338	127	SAME NAME, DIFFERENT SIZE
+scan-folder	Scan Folder started Feb 01 2013	subfolder	48235230	25477118	DIFFERENT size (A larger by 22,758,112)
+scan-folder	maxdesk.ini2	file	8309	3370	SAME NAME, DIFFERENT SIZE
+scan-folder	PP11Thumbs.ptn	file	9642247	2924354	SAME NAME, DIFFERENT SIZE
+scan-folder	PP11Thumbs.ptn2	file	9978	2906	SAME NAME, DIFFERENT SIZE
+scan-folder	(137 other files)	file	-	-	IDENTICAL name+size (not itemised here)

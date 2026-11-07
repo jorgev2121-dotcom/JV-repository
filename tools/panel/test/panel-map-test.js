@@ -1,0 +1,14 @@
+const {chromium}=require('/opt/node22/lib/node_modules/playwright');
+(async()=>{const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'}).catch(()=>chromium.launch());
+const p=await b.newPage({viewport:{width:1000,height:1500}});const errs=[];p.on('pageerror',e=>errs.push(e.message));
+await p.addInitScript(()=>{window.claude={use:async n=>null}});
+await p.goto('file://'+process.argv[2]);await p.waitForTimeout(800);
+await p.screenshot({path:process.argv[3]+'/v13-map-menu.png'});
+for(const t of ['CONNECT','APPROVALS','REPORTS'])await p.evaluate(t=>VTES.show(t),t);
+await p.waitForTimeout(300);
+console.log('rings:',await p.$$eval('.tab.r1,.tab.r2,.tab.r3',e=>e.map(x=>x.className+':'+x.dataset.tab)));
+console.log('recent:',await p.textContent('#recentbar'));console.log('desc:',(await p.textContent('#tabdesc')).slice(0,120));
+console.log('hover:',await p.getAttribute('.tab[data-tab=USAGE]','title'));
+await p.screenshot({path:process.argv[3]+'/v13-recent-rings.png',clip:{x:0,y:0,width:1000,height:330}});
+await p.fill('#q','#money');await p.waitForTimeout(300);console.log('search:',(await p.textContent('#searchpane')).slice(0,200));
+console.log('ERRS',errs);await b.close()})();

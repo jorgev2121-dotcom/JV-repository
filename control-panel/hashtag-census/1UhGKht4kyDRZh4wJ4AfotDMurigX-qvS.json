@@ -1,0 +1,24 @@
+{
+  "id": "1UhGKht4kyDRZh4wJ4AfotDMurigX-qvS",
+  "title": "TRK-TBD _ FOLIO-TBD _ 13328 SW 113 CT (Nick)",
+  "partial": false,
+  "pdfs": 8,
+  "search_sidecars": 8,
+  "tags_sidecars": 8,
+  "tags5_sampled": 3,
+  "tags5_of_sampled": 1,
+  "has_HASHTAGS_txt": false,
+  "hashtags_count": null,
+  "has_people_tags": null,
+  "has_trk_tag": null,
+  "other_files": ["_TAGS.txt", "_PLACEHOLDERS.md", "_PORTAL_UNASSIGNED_TRK-TBD-FOLIO-TBD-13328-SW-113-CT-Nick.html", "_STAGE.md", "_INDEX.html (root + 3 subfolders)", "_JOB-TREE_TRK-TBD.html (00-Intake)", "FINAL_ALL.pdf.PAGEMAP.json", "2x ENHANCED_*.pdf.WHAT-WAS-DONE.json", "2x ENHANCED_*.pdf.bak-20260826 (PDF backups, not counted)", "_partmaps folder (level 3, not walked)", "~52 dated .bak- copies of _PORTAL and _STAGE.md in job root"],
+  "people": [
+    {"name": "Nick (surname unknown)", "role": "client (ordered tax jacket)", "email": null, "evidence": "folder title; _TAGS.txt (#Nick); _PLACEHOLDERS.md", "misspellings": ["Nik", "Nic", "Nicholas", "Nicolas"]},
+    {"name": "Johan Molina", "role": "owner of record", "email": null, "evidence": "_PLACEHOLDERS.md", "misspellings": ["Johann Molina", "Yohan Molina", "Joan Molina", "Johan Molinas"]}
+  ],
+  "companies": [
+    {"name": "Miami-Dade County Property Appraiser", "role": "county (folio / sq ft records)", "email": null, "evidence": "_PLACEHOLDERS.md"}
+  ],
+  "keywords": ["13328 SW 113 CT", "13328 SW 113th Ct", "13328 SW 113 Court", "13328-SW-113-CT-33176", "33176", "Nick", "Johan Molina", "Molina", "folio 30-5018-014-2420", "3050180142420", "tax jacket", "TaxJacket", "TRK-TBD", "FOLIO-TBD", "footprint gap 2,547 vs 1,822 sq ft", "GIS 2547", "TRK-2026-9490", "23328 SW 113 CT (OCR misread)", "Miami-Dade", "Kendall"],
+  "notes": "No TRK number issued (TRK-TBD defect) and no _HASHTAGS.txt / _CONTACTS-EXTRACTED.txt. All 8 PDFs are in 07-TAX-JACKET_2026-08-24 (ORIGINAL: 2, ENHANCED: 6 incl. FINAL_ALL and 2026-09-03 DELIVERABLE v2). DEFECTS: the DELIVERABLE v2 TAGS sidecar carries #TRK-2026-9490 - a 9xxx admin-band number applied to a job, issued outside the registry. FINAL_ALL.pdf TAGS sidecar uses OCR misread '#23328-SW-113-CT' instead of 13328. Folio 30-5018-014-2420 unconfirmed. Most standard subfolders empty. Keyword 'Kendall' is an area guess from ZIP 33176, not from files."
+}

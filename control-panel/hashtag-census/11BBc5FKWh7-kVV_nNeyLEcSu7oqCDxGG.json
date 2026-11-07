@@ -1,0 +1,37 @@
+{
+  "id": "11BBc5FKWh7-kVV_nNeyLEcSu7oqCDxGG",
+  "title": "TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 404 (Reyna Jovel)",
+  "partial": false,
+  "pdfs": 0,
+  "search_sidecars": 0,
+  "tags_sidecars": 0,
+  "tags5_sampled": 0,
+  "tags5_of_sampled": 0,
+  "has_HASHTAGS_txt": false,
+  "hashtags_count": 0,
+  "has_people_tags": false,
+  "has_trk_tag": false,
+  "other_files": [
+    "_TAGS.txt (job root, 9 tags incl. person tag #Reyna-Jovel: #10000-W-Bay-Harbor-Dr #Unit-404 #Reyna-Jovel #Bay-Harbor #Bal-Harbour #HOA #TRK-TBD-defect #JorgeValdes #CU-Inspections)",
+    "_PORTAL_UNASSIGNED_TRK-TBD-FOLIO-TBD-10000-W-Bay-Harbor-Dr-Unit-404-Reyna-Jovel.html",
+    "_STAGE.md",
+    "_INDEX.html (root + 04-Money + 02-Permit-Apps + 00-Intake)",
+    "00-Intake/_JOB-TREE_TRK-TBD.html",
+    "~48 daily .bak-YYYYMMDD copies of _PORTAL html and _STAGE.md in job root"
+  ],
+  "people": [
+    {"name": "Reyna Jovel", "role": "client / unit owner (Unit 404) - role inferred from folder name", "email": null, "evidence": "folder title; _TAGS.txt (#Reyna-Jovel)", "misspellings": ["Reina Jovel", "Reyna Jobel", "Reyna Hovel", "Rayna Jovel"]},
+    {"name": "Jorge Valdes", "role": "owner / inspector (CU Inspections)", "email": null, "evidence": "_TAGS.txt (#JorgeValdes)", "misspellings": ["Jorge Valdez", "George Valdes"]}
+  ],
+  "companies": [
+    {"name": "CU Inspections of South Florida", "role": "Jorge's company", "email": null, "evidence": "_TAGS.txt (#CU-Inspections)"},
+    {"name": "HOA (condominium association, name unknown)", "role": "building association", "email": null, "evidence": "_TAGS.txt (#HOA)"}
+  ],
+  "keywords": [
+    "10000 W Bay Harbor Dr", "10000 West Bay Harbor Drive", "10000 W Bay Harbor Dr Unit 404", "Unit 404", "#404", "Apt 404",
+    "Reyna Jovel", "Jovel", "Reyna",
+    "Bay Harbor Islands", "Bay Harbor", "Bal Harbour",
+    "HOA", "condo", "condominium"
+  ],
+  "notes": "Effectively empty capsule: no PDFs, no sidecars, no _HASHTAGS.txt, no _PLACEHOLDERS.md / CAPSULE.md / _CONTACTS-EXTRACTED.txt. Only scaffolding plus _TAGS.txt, which does carry a person tag (#Reyna-Jovel) - but it is _TAGS.txt, not _HASHTAGS.txt, so has_people_tags is recorded false per spec. Level-2 subfolders (04-Money/Checks, Invoices; 02-Permit-Apps/Signed, Submittal) checked and empty. Sibling units 301, 302, 425 in same building in this batch; no folio recorded. #Bal-Harbour tag likely wrong municipality (address is Bay Harbor Islands)."
+}

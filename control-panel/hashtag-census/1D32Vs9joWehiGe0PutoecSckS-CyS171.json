@@ -1,0 +1,30 @@
+{"id":"1D32Vs9joWehiGe0PutoecSckS-CyS171",
+"title":"TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)",
+"partial":false,
+"pdfs":14,"search_sidecars":9,"tags_sidecars":11,
+"tags5_sampled":3,"tags5_of_sampled":2,
+"has_HASHTAGS_txt":true,"hashtags_count":4,"has_people_tags":false,"has_trk_tag":true,
+"other_files":["_TAGS.txt","_CONTACTS-EXTRACTED.txt (66 emails, 138 phones)","_PLACEHOLDERS.md","_PORTAL_TRK-2026-1265.html","_PORTAL_TRK-2026-1265_EMBEDDED.html","_STAGE.md","_INDEX.html","_JOB-TREE_TRK-2026-1265.html","COWORK-BRIEF_Bal-Harbour-Permit-Status.md","_HASHTAGS.txt.bak-20260904","~70 daily .bak copies of _PORTAL and _STAGE.md in root","_QUARANTINE-REVIEW-LATER (5 zero-byte Bay Harbor Unit 322/301 PDFs + QUARANTINE-LOG.csv)","03-Doron-Evidence_2026-08-18 (DORON-UNIT-LEDGER html; PROVEN/CONTRACTS/_PENDING subfolders level 3)","05-REPORTS-DELIVERABLES: PH1-15/16/17 reports, Expired-Permit-Reissue-Clock, Reissue-Signers, Majestic-Unit-310-Source-Of-Truth","Units/310 _ 9601 Collins Ave Majestic Tower (BLC2025-0251) (level 3, not walked)","01-INTAKE/eTRAKiT-SCRAPE_2026-09-04 and _FOLDED-FROM-ONEDRIVE_2026-09-04 (level 3, not walked)","00-Capsule, 02-Files, _Superseded: empty"],
+"people":[
+{"name":"Miguel Zaldivar","role":"contractor / client, MZ Solutions LLC (CGC1528486)","email":"miguel@mzsolutions.org","evidence":"_PLACEHOLDERS.md, _CONTACTS-EXTRACTED.txt, filename MZ-SOLUTIONS_Zaldivar-intake-pointers.md","alt_emails":["mzaldivar@tedcmiami.org","mzaldivar@tedcbuilds.org"],"misspellings":["Miguel Saldivar","miguel@mazsolutions.org (seen)","miguel@mzsolutions.com (wrong domain, seen)","MZ Solution"]},
+{"name":"Olga Kalogeropoulos","role":"city staff, Bal Harbour Building Department","email":"okalogeropoulos@balharbourfl.gov","evidence":"_PLACEHOLDERS.md, _CONTACTS-EXTRACTED.txt","misspellings":["Olga Kalogeropolous","Olga Calogeropoulos","Kalogeropulos"]},
+{"name":"Hebert Martinez","role":"city staff, Bal Harbour Building Department","email":"hmartinez@balharbourfl.gov","evidence":"_PLACEHOLDERS.md, _CONTACTS-EXTRACTED.txt","misspellings":["Herbert Martinez","Ebert Martinez"]},
+{"name":"S. Alvarez","role":"city staff, Bal Harbour","email":"salvarez@balharbourfl.gov","evidence":"_CONTACTS-EXTRACTED.txt","misspellings":[]},
+{"name":"Quanny Marte","role":"client-side, Plaza of Bal Harbour Association","email":"qmarte@plazaofbalharbour.com","evidence":"_PLACEHOLDERS.md, _CONTACTS-EXTRACTED.txt","misspellings":["Quanny Marti","Quany Marte","Juanny Marte"]},
+{"name":"Juan Carlos Martinez","role":"window contractor, Impact Window Services","email":"impactwindowservices@gmail.com","evidence":"_PLACEHOLDERS.md, filename Plan-de-Ataque-Plaza-Condominio-Juan-Carlos","misspellings":["Juancarlos Martinez","Juan Carlo Martinez"]},
+{"name":"Doron Barnes","role":"unit owner / evidence party (Doron unit ledger)","email":"doronbarnes@gmail.com","evidence":"folder 03-Doron-Evidence_2026-08-18, _CONTACTS-EXTRACTED.txt","misspellings":["Doron Barns","Dorron"]},
+{"name":"Daniel Raboh","role":"unit owner, Plaza Unit 922 (BLC2024-0717)","email":null,"evidence":"_PLACEHOLDERS.md","misspellings":["Daniel Rabo","Daniel Raboj"]},
+{"name":"Jorge Valdes","role":"permit expediter (Team USA Sales)","email":"jorge@teamusasales.com","evidence":"_CONTACTS-EXTRACTED.txt","misspellings":["jrge@teamusasales.com (OCR)","jorgev21@bellsouth.net"]}
+],
+"companies":[
+{"name":"MZ Solutions LLC","role":"contractor / client","email":"miguel@mzsolutions.org","evidence":"folder title, filenames","misspellings":["MZ Solution","Magestic (sic, Majestic) invoice"]},
+{"name":"The Plaza of Bal Harbour (Condo Association)","role":"building / association client","email":"manager@plazaofbalharbour.com","evidence":"_PLACEHOLDERS.md","misspellings":["Plaza Bal Harbor"]},
+{"name":"Majestic Tower","role":"building (9601 Collins Ave, Unit 310)","email":"manager@majestictower.com","evidence":"_PLACEHOLDERS.md, Units subfolder","misspellings":["Magestic Tower (seen in invoice filename)"]},
+{"name":"Bal Harbour Village Building Department","role":"permitting authority","email":null,"evidence":"_PLACEHOLDERS.md","misspellings":["Bal Harbor"]},
+{"name":"Impact Window Services","role":"window installer","email":"impactwindowservices@gmail.com","evidence":"_PLACEHOLDERS.md","misspellings":[]},
+{"name":"Adenat Corporation (Ontario)","role":"unit owner, Plaza Unit 321","email":null,"evidence":"_PLACEHOLDERS.md","misspellings":[]},
+{"name":"Town of Bay Harbor Islands","role":"separate municipality - Unit 322 papers (quarantined)","email":null,"evidence":"_QUARANTINE-REVIEW-LATER filenames","misspellings":["Bay Harbour"]},
+{"name":"TEDC Miami / TEDC Builds","role":"Miguel Zaldivar alt company","email":null,"evidence":"_CONTACTS-EXTRACTED.txt","misspellings":[]}
+],
+"keywords":["Bal Harbour","The Plaza of Bal Harbour","10185 Collins Ave","Majestic Tower 9601 Collins Ave Unit 310","BLC2025-0251","BLC2026-1436 Unit 721","BLC2026-1437 Unit 220","BLC2026-1438 Unit PH11","BLC2024-1335 Unit 220","BLC2024-0715 Unit 721","BLC2024-0707 Unit 321","BLC2024-0717 Unit 922","BLC2024-0714 Unit 423","BLC2024-0027 Unit 714","BLC2024-0025 Unit 914","invoice WEB4575 $968.62","folio 12-2226-029-2460","CGC1528486","expired permit reissue / renewal / extension","impact windows","eTRAKiT","Doron ledger","TRK-2026-1582","10000 W Bay Harbor Dr Unit 322","FL 33154"],
+"notes":"_HASHTAGS.txt has only 4 admin hashtags (no people, no building/address tags); permit numbers listed as bare lines, not #tags. 1 of 3 sampled TAGS sidecars had 3 tags (Reissue Unit 714). Reissue PDFs for 5 units are identical 60,608 B templates. Quarantine holds 5 zero-byte PDFs for Bay Harbor Unit 322/301 (a separate matter, needs own TRK). Several level-3 subfolders (Units/310, eTRAKiT scrape, OneDrive fold, Doron PROVEN/CONTRACTS) not walked, so counts are a floor."}

@@ -1,0 +1,293 @@
+<title>Cutler Bay Job Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+</style>
+
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED</p>
+<h1>TRK-2026-1310 · 10980 SW 202 Dr, Cutler Bay</h1>
+<div class="facts">
+  <span><b>Work</b>Concrete restoration, one balcony at Unit 29 (Cabana Club Gardens)</span>
+  <span><b>Owner</b>10960 SW 200th Avenue LLC</span>
+  <span><b>Contractor</b>MZ Solutions LLC (Miguel Zaldivar)</span>
+  <span><b>Folio</b>30-6007-009-0030</span>
+  <span><b>County process</b>C2026170181 · tracking 3026170181</span>
+  <span><b>Linked number</b>TRK-2026-1667 (Unit 29)</span>
+</div>
+<div class="deadline">Waiting on Mr. Cutie (Miami-Dade electrical review) · you emailed him today, October 13, at 12:19 PM · <span id="daysleft">4 days since the county finished its review</span>
+<small>The county’s October 2 electrical review asks you to state the electrical scope and add the note “NO ELECTRICAL TO BE INSTALL AT THIS MOMENT.” You told him there is no electrical work and asked if the note on revised plans is enough, or if he also needs a notarized letter from the contractor.</small></div>
+<p class="stamp">TRK-2026-1310 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile c" data-go="status"><span class="n">3</span><b>Today, October 13</b><small>Your email to Mr. Cutie, delivered, opened by Miguel.</small></button>
+  <button class="tile y" data-go="status"><span class="n">13</span><b>Still missing</b><small>Electrical sign-off, fee balance, owner papers, 4 files not saved.</small></button>
+  <button class="tile w" data-go="people"><span class="n">5</span><b>Waiting on</b><small>Mr. Cutie, the owner’s side, Miguel, PLF, and you.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> The county finished its plan review on October 9, and its <b>electrical reviewer wants the “no electrical work” point made in writing</b>. You emailed Mr. Cutie today. <b>His answer decides the next step:</b> a note on the revised plans, or a notarized letter from Miguel. The county fee balance is also still unconfirmed.</p></div>
+
+<div class="tags"><b>Hashtags for this job (from _TAGS.txt and _HASHTAGS.txt)</b>#TRK-2026-1310 #TRK-2026-1667 #TRK-2026-10052 #10980-SW-202-Dr #10980SW202Dr #Apt29 #Unit29 #Cutler-Bay #CutlerBay #CabanaClubGardens #concrete-restoration #ConcreteRestoration #balcony #folio-30-6007-009-0030 #C2026170181 #3026170181 #UP26079529 #UP26075409 #10960-SW-200th-Avenue-LLC #MZSolutions #MiguelZaldivar #PLF #PedroFiallo #EliBleeman #CindeVelazquez #AlexisLamela #RobertCutie #RER #JorgeValdes #CU-Inspections</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>73 documents in this job folder: 69 listed in the tree, 4 in the locked money zone. 36 folders in all; 12 are empty. Left out of the list: 57 backup copies, 60 search and 61 tag sidecars, 8 page-map and work-log files, and 4 folder index pages. Nothing on this page sends, files, moves or deletes anything. Ticks are not saved.</p>
+  <p class="tag">TRK-2026-1310 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #TRK-2026-1310 #TRK-2026-1667 #Cutler-Bay #10980-SW-202-Dr #MZ-Solutions #capsule #orange-tree</p>
+</footer>
+</div>
+
+<script>
+const FOLDERS=[{"k": "root", "t": "Job root", "p": "TRK-2026-1310 (top of the job folder)", "fid": "1nW4BWBBxU3SJEZtKWawkIm-GJQoIv3BM", "note": "The portal web page is the PC builder's copy from October 13. _PLACEHOLDERS.md (October 10) lists what is missing. 53 backup copies were left out of this list (25 of _PORTAL, 27 of _STAGE, 1 of _TAGS), and so was one folder index page.", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "bak": 0, "docs": [["_PORTAL_TRK-2026-1310.html", "2026-10-13", 91880, "Web page", "1Ta0zHLijXlOjbvfrPb-tX7JWTZa7GcFO", ""], ["_PLACEHOLDERS.md", "2026-10-10", 7208, "Notes", "1y8bNwVImWhW7blgBIF5-yHFcrUPrzqQI", "KEY"], ["_HASHTAGS.txt", "2026-10-09", 329, "Text", "1G3IDB8Am42uwIWreIxd5iScx_YFJvMJ3", ""], ["_STAGE.md", "2026-10-09", 1939, "Notes", "1E3Vg2w_1gv0-jE4r5HZ8ijhAsTa-3LIm", ""], ["_CONTACTS-EXTRACTED.txt", "2026-10-05", 927, "Text", "1tPx4brNrCJE59Dl36V_1EymJ2pwpnqgE", ""], ["_TAGS.txt", "2026-09-21", 733, "Text", "15hf7cY8K-aodFPfuufCEDVlJKLC37Kiq", ""]], "m": 0}, {"k": "q", "t": "_QUARANTINE-REVIEW-LATER", "p": "TRK-2026-1310 / _QUARANTINE-REVIEW-LATER", "fid": "1KhFy6_EN9YqCQjoXcPwbBcjrCcSyf3eB", "note": "Holds a fourth copy of ACS (2).pdf, set aside on October 7 because its OCR came back empty. The log says why.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "bak": 0, "docs": [["ACS (2).pdf", "2026-09-14", 439988, "PDF", "1yVqhYsx0_Byr9As363igwYgbQZy2KUTJ", "QUARANTINED"], ["QUARANTINE-LOG.csv", "2026-10-07", 337, "Spreadsheet", "1IGSHpsgWp7wk9SXg-URCB1JaI7k9QCNE", ""]], "m": 0}, {"k": "af", "t": "_AUTO-FILED", "p": "TRK-2026-1310 / _AUTO-FILED", "fid": "11zUcUZ0DmvZvEBU0SZVbCpldnMFljm9B", "note": "Filed automatically on September 17. The plan set here is the same 13.2 MB file found in four other places. The two application names may be swapped; see Findings.", "side": {"s": 3, "t": 3, "o": 0, "i": 0}, "bak": 0, "docs": [["Structural Plans Balcony - 10980 SW 202 DR .pdf", "2026-09-17", 13215769, "PDF", "1KduPC0gVnB6TmsTwO3v7Us35nKszf5Kh", "KEY"], ["10980 SW 202 DR - APT 29 - SHOP DRAWING APP.pdf", "2026-09-17", 116864, "PDF", "12PNRo_IitBZjEnQPiGv0QxNll_7Xmxco", ""], ["10980 SW 202 DR - APT 29 - MASTER PERMIT APP.pdf", "2026-09-17", 59672, "PDF", "1lDRPnUB9XlLjOsuyyQLDAzonkuDK6Q6k", ""]], "m": 0}, {"k": "tjo", "t": "07-TAX-JACKET_2026-08-24 / ORIGINAL", "p": "TRK-2026-1310 / 07-TAX-JACKET_2026-08-24 / ORIGINAL", "fid": "1dTktYGFO_pbM8_mmdhtRX-CYKualTM5y", "note": "The three original building-jacket parts from the Property Appraiser, received August 24.", "side": {"s": 3, "t": 3, "o": 0, "i": 0}, "bak": 0, "docs": [["TAXJACKET_10980-SW-202-DR-33189_part01_2026-08-24.pdf", "2026-08-24", 439988, "PDF", "1w4wyWHFJvxTB3VGw_aaAIl2Lc8aVfyWy", "ORIGINAL"], ["TAXJACKET_10980-SW-202-DR-33189_part02_2026-08-24.pdf", "2026-08-24", 267152, "PDF", "1_zn_kjlbtCf08Dq4cnwdBeQoBNB1zGht", "ORIGINAL"], ["TAXJACKET_10980-SW-202-DR-33189_part03_2026-08-24.pdf", "2026-08-24", 933910, "PDF", "1zg_wgUMMBAkVu-gQlFHQZw6ai_56A4kf", "ORIGINAL"]], "m": 0}, {"k": "tje", "t": "07-TAX-JACKET_2026-08-24 / ENHANCED", "p": "TRK-2026-1310 / 07-TAX-JACKET_2026-08-24 / ENHANCED", "fid": "1qW9x9JjAGR-oSOtAykLBBBGl4pOsoKsc", "note": "Cleaned-up, searchable and transcribed versions of the jacket, plus the September 3 deliverable. Left out: 3 backup copies, 36 search and tag sidecars, 5 page-map and work-log files. The _partmaps sub-folder holds only 3 page-map files.", "side": {"s": 18, "t": 18, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-09-03 _ TRK-2026-1310 _ TaxJacket _ 10980 SW 202 Dr Cutler Bay DELIVERABLE _ v2.pdf", "2026-09-04", 14598385, "PDF", "1UhaLQPjHqlbg4VZZJkgr44UdaQ09tVOs", "SAME AS 05-REPORTS COPY"], ["FINAL_ALL.pdf", "2026-09-04", 14534689, "PDF", "1CztLniv8QLHszvv7oaa-OcBCBnuC6ct3", ""], ["FINAL_10980-SW-202-DR-33189_part01_2026-08-24.pdf", "2026-09-04", 4964576, "PDF", "1VqL5dBJcO0n1uzh6qsjElWhg7mT8ysGK", ""], ["FINAL_10980-SW-202-DR-33189_part02_2026-08-24.pdf", "2026-09-04", 1547602, "PDF", "1RMq2Zul08q3PW06-TQPnVKQz6wTJb5vP", ""], ["FINAL_10980-SW-202-DR-33189_part03_2026-08-24.pdf", "2026-09-04", 8021119, "PDF", "1Dx7m2uUEBowrtl01XTTNEqfbnjw7PsqZ", ""], ["ENHANCED_10980-SW-202-DR-33189_part01_2026-08-24.pdf", "2026-08-26", 957006, "PDF", "1FiGyqqzmbdHO_RsVS3tHqTHjL-gGglLl", ""], ["ENHANCED_10980-SW-202-DR-33189_part02_2026-08-24.pdf", "2026-08-26", 1082097, "PDF", "1Zzx3B-6QrM913rQJIgpu2mS3GhgOt7mT", ""], ["ENHANCED_10980-SW-202-DR-33189_part03_2026-08-24.pdf", "2026-08-26", 5833084, "PDF", "1VFg0L9xPP2grv926QTFupur-DC_Gryv9", ""], ["SEARCHABLE_10980-SW-202-DR-33189_part03_2026-08-24.pdf", "2026-08-25", 1400342, "PDF", "1kqmTqRQ2t34kuaWJYt-OB_cOCtsadzs9", ""], ["ALBUM_10980-SW-202-DR-33189_part01_2026-08-24.pdf", "2026-08-25", 875651, "PDF", "10SScR8Z1m7dOoZLQhEKLCCYSLM0aFXjW", ""], ["TRANSCRIBED_10980-SW-202-DR-33189_part03_2026-08-24_p1.pdf", "2026-08-25", 1443287, "PDF", "1sjnWMSY09tImocbBszD1-31usgnLsJqX", ""], ["TRANSCRIBED_10980-SW-202-DR-33189_part03_2026-08-24_p3.pdf", "2026-08-25", 1745335, "PDF", "1EY99q4e-lkU8_1i3Rn8TbT9xdX7jU6ES", ""], ["TRANSCRIBED_10980-SW-202-DR-33189_part03_2026-08-24_p5.pdf", "2026-08-25", 1590582, "PDF", "1p6lhpkstFfE-xXF2V-F8RGkBnwHNPbEV", ""], ["TRANSCRIBED_10980-SW-202-DR-33189_part03_2026-08-24_p7.pdf", "2026-08-25", 921572, "PDF", "1ob4DWq8bfxD_RVuO6IRwHUpZ3Zrt-zea", ""], ["TRANSCRIBED_10980-SW-202-DR-33189_part03_2026-08-24_p9.pdf", "2026-08-25", 542789, "PDF", "1RJEsoo2MUXlkhAPr9W0GU8O86lnBPlCI", ""]], "m": 0}, {"k": "rep", "t": "05-REPORTS-DELIVERABLES", "p": "TRK-2026-1310 / 05-REPORTS-DELIVERABLES", "fid": "1FxoJ77prMk2NeAyHyay-u1fOHGppgZkG", "note": "The tax-jacket deliverable here is the current copy. Email Tracker v2 is current; v1 still sits next to it. 1 backup copy was left out.", "side": {"s": 2, "t": 2, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-09-03 _ TRK-2026-1310 _ TaxJacket _ 10980 SW 202 Dr Cutler Bay DELIVERABLE _ v2.pdf", "2026-09-04", 14598385, "PDF", "19XQiIyh7jRp5SZmO5xeS4hhT8zckvVJ5", "KEY"], ["2026-09-15 _ TRK-2026-1667 _ Report _ Email-Tracker _ v2.html", "2026-09-15", 18518, "Web page", "1lBELapabu1YPo4X2UR4dKsUvPD8LB8VF", ""], ["2026-09-14 _ TRK-2026-1667 _ Report _ Email-Tracker _ v1.html", "2026-09-14", 15649, "Web page", "1Na03oCwQ9cqfc74SyVjyz6N6KUCIHDt5", "OLDER VERSION"]], "m": 0}, {"k": "cor", "t": "04-CORRESPONDENCE", "p": "TRK-2026-1310 / 04-CORRESPONDENCE", "fid": "104CGTyPnQzxRyvFwIKYW30_Dmku7gY7E", "note": "The full text of the job emails up to September 14.", "side": {"s": 0, "t": 1, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-09-14 _ TRK-2026-1667 _ Correspondence-Log _ Full-Email-Bodies _ v1.md", "2026-09-14", 9794, "Notes", "1ZLStXp4SFQN0oMQ26TjF3XcuIBKWsV4I", ""]], "m": 0}, {"k": "inv", "t": "03-INVOICES-PAYMENTS", "p": "TRK-2026-1310 / 03-INVOICES-PAYMENTS", "fid": "17b0Irt6tNujgBjoj1Fsi6zK8yq1k6-1h", "note": "The MZ Solutions proposal is in the locked money zone.", "side": {"s": 1, "t": 1, "o": 0, "i": 0}, "bak": 0, "docs": [], "m": 1}, {"k": "per", "t": "02-PERMITS", "p": "TRK-2026-1310 / 02-PERMITS", "fid": "1_NJSlQC2U9Z9W9CRyJO518piTY1ePkUV", "note": "The v9 draft here is the same file the Unit 29 folder marks as SUPERSEDED. The current signed papers are in the Unit 29 folder, branch 02-County.", "side": {"s": 4, "t": 4, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-09-03 _ TRK-2026-1667 _ Permit _ MDC-Application-and-NOC-DRAFT-for-Owner-Execution _ v9.pdf", "2026-09-14", 1354747, "PDF", "196QP7mVifketootnWX0hrDir90shzsJJ", "DRAFT"], ["2026-09-03 _ TRK-2026-1667 _ 01_PERMIT-APPLICATION _ 10980-SW-202-Dr-Unit-29 _ FOR-SIGNATURE.pdf", "2026-09-14", 523044, "PDF", "1TaysN_PKJWNWaayLxZuYpRqCG1WXefaw", "UNSIGNED"], ["2026-09-03 _ TRK-2026-1667 _ 02_NOTICE-OF-COMMENCEMENT _ 10980-SW-202-Dr-Unit-29 _ FOR-SIGNATURE.pdf", "2026-09-14", 473594, "PDF", "1cgMsxUi6fXkO8MR6Jzk1loNsXTCLlm-j", "UNSIGNED"], ["2026-06-23 _ TRK-2026-1667 _ Plans _ Structural-Balcony-PLF-Fiallo-PE76100-Signed-Sealed _ v1.pdf", "2026-09-14", 13215769, "PDF", "17XeunTpnq0dyi78bN1EPadIhClaRaZkA", "KEY"]], "m": 0}, {"k": "pf", "t": "01-INTAKE / PRIOR-FILING_TRK-2026-1310", "p": "TRK-2026-1310 / 01-INTAKE / PRIOR-FILING_TRK-2026-1310", "fid": "1Epo33uCxKMQALqMKeN77CPrS-8HR-4gq", "note": "Older filing from September 14. The three ACS files are this property's own building jacket (checked; see Findings). The PLF invoice is in the locked money zone.", "side": {"s": 11, "t": 11, "o": 0, "i": 0}, "bak": 0, "docs": [["S BINDER 10980 SW 202 DR .pdf", "2026-09-14", 13215769, "PDF", "1EViGZnz-84PLuv-wKmGcJX1HWAeGVCvg", "SAME AS 3 OTHER COPIES"], ["2026-06-25_10980-SW-202-Dr_Structural-Plans_Concrete-Restoration_PLF_v1.pdf", "2026-09-14", 13215769, "PDF", "1NplOB2oBRn8bxaj5YczbQIVsTfc2NXef", "SAME AS 3 OTHER COPIES"], ["ACS.pdf", "2026-09-14", 933910, "PDF", "1-8tzowsKe59b_9YX9Lwf4qsZKHPQvspc", "RAW JACKET · SEE FINDINGS"], ["ACS (2).pdf", "2026-09-14", 439988, "PDF", "1q71LPok2vFV9Zhv3oMYWwzLdTKW9LJrR", "RAW JACKET · SEE FINDINGS"], ["ACS (3).pdf", "2026-09-14", 267152, "PDF", "1jVihioiJ8DWZp6fq9thfg-vDvpgaqo51", "RAW JACKET · SEE FINDINGS"], ["2026-07-05_10980-SW-202-Dr_Permit-Application_TRK-2026-1310_DRAFT.pdf", "2026-09-14", 908647, "PDF", "1RBsI6_ppG00gHMVQ0uXQYFvErXWf75kU", "DRAFT"], ["2026-07-05_10980-SW-202-Dr_Notice-of-Commencement_TRK-2026-1310_DRAFT.pdf", "2026-09-14", 660403, "PDF", "18lmKv40JJd4s6_c-GdMFPHwpdyb72qmm", "DRAFT"], ["2026-07-05_10980-SW-202-Dr_Notice-of-Termination-of-NOC_TRK-2026-1310_DRAFT.pdf", "2026-09-14", 661710, "PDF", "1U4Ds8CQelsJsbrhFSF2jnXbOEvGRUQiI", "DRAFT"], ["2026-07-05_10980-SW-202-Dr_Release-of-Lien_TRK-2026-1310_DRAFT.pdf", "2026-09-14", 664196, "PDF", "1zR6KMB4DpQ61ZqmngcyBbzG6fIYB4J5E", "DRAFT"], ["2026-07-05_10980-SW-202-Dr_Corporate-Resolution_Owner-Authorization_TRK-2026-1310_DRAFT.pdf", "2026-09-14", 7258, "PDF", "16Y80bgHZY0az-lBIzTy5ihRjBv7ldhQ5", "DRAFT"], ["BLANK_Extension-of-Time-Request_FORM_TRK-2026-1310.pdf", "2026-09-14", 5700, "PDF", "1NRd8uxglH3S8M16d5WiMh-j5Ij4QB3-g", "BLANK FORM"]], "m": 1}, {"k": "oi", "t": "00-Intake", "p": "TRK-2026-1310 / 00-Intake", "fid": "1x1m0RF3JEMJd3V1daTRpwgt8lQmM3T7l", "note": "An old job-tree page from August 10. Its folder index page was left out.", "side": {"s": 0, "t": 0, "o": 0, "i": 1}, "bak": 0, "docs": [["_JOB-TREE_TRK-2026-1310.html", "2026-08-10", 23703, "Web page", "1B_rhKTOk7RreLjJL9nIUaGeTQDIeCqwE", "OLDER COPY"]], "m": 0}, {"k": "u0", "t": "TRK-2026-1667 Unit 29 COMPLETE-FOLDER (top)", "p": "TRK-2026-1310 / TRK-2026-1667 Unit 29 COMPLETE-FOLDER", "fid": "1rZBZDVN8NMVxYz7Y-5K9NtzqkXJ91bWY", "note": "The Unit 29 folder (TRK-2026-1667) sits inside this job. Most current papers live here. Three of its sub-folders are empty.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-09-28 _ TRK-2026-1667 _ Contact Sheet _ RER Fee Review C2026170181 _ v1.md", "2026-09-28", 4586, "Notes", "1zM1FvH_w4Tj23whh6y6UIFfQt0xcqEeO", "KEY"]], "m": 0}, {"k": "u5", "t": "TRK-2026-1667 / 05-Correspondence-and-Email-Attachments", "p": "TRK-2026-1310 / TRK-2026-1667 Unit 29 / 05-Correspondence-and-Email-Attachments", "fid": "1kfhp4sK2liOXUGIcMLrkMn2WyWSGLLYX", "note": "The correspondence index of September 23 lists every email and attachment.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-09-23 _ TRK-2026-1667 _ Correspondence-Index _ All-Emails-and-Attachments _ v1.md", "2026-09-23", 17397, "Notes", "19W7OdRY91RzjpwcYvLRHOV2hsSipgjHb", "KEY"], ["2026-09-15 _ TRK-2026-1667 _ Report _ Email-Tracker _ v2.html", "2026-09-23", 18518, "Web page", "1eKJkaMP4Pb5ioimJA88jNOSzMc0gUsza", "SAME AS 05-REPORTS COPY"], ["2026-09-14 _ TRK-2026-1667 _ Correspondence-Log _ Full-Email-Bodies _ v1.md", "2026-09-23", 9794, "Notes", "13LspwKfGj_AmFkQ46NVi_mX_g77AfKG9", "SAME AS 04-CORRESPONDENCE COPY"]], "m": 0}, {"k": "u6", "t": "TRK-2026-1667 / 06-Research-Tax-Jacket-Property-Records", "p": "TRK-2026-1310 / TRK-2026-1667 Unit 29 / 06-Research-Tax-Jacket-Property-Records", "fid": "1YqVHzhNfuogQbI0mwleN29igZ1VD-8pV", "note": "A third copy of the tax-jacket deliverable, renamed under TRK-2026-1667.", "side": {"s": 1, "t": 1, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-09-03 _ TRK-2026-1667 _ TaxJacket _ 10980-SW-202-Dr-Cutler-Bay-DELIVERABLE _ v2.pdf", "2026-09-23", 14598385, "PDF", "1SisRzahjP1kN1WtVU1pf_WF6beExCXh3", "SAME AS 05-REPORTS COPY"]], "m": 0}, {"k": "u4", "t": "TRK-2026-1667 / 04-Contractor-MZ-Solutions", "p": "TRK-2026-1310 / TRK-2026-1667 Unit 29 / 04-Contractor-MZ-Solutions", "fid": "1-oWnHKzyVDkIEeb3Ik8f5DLHv1_10Dvb", "note": "The unsigned revised proposal is in the locked money zone.", "side": {"s": 1, "t": 1, "o": 0, "i": 0}, "bak": 0, "docs": [], "m": 1}, {"k": "us", "t": "TRK-2026-1667 / _Superseded", "p": "TRK-2026-1310 / TRK-2026-1667 Unit 29 / _Superseded", "fid": "1na8z-tvOFO97Q6Ij0ofZbFc6mvRTaH5g", "note": "Old versions, kept for history.", "side": {"s": 3, "t": 3, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-09-23 _ TRK-2026-1667 _ Permit _ Permit-Application-Qualifier-8486-WRONG _ v4 SUPERSEDED.pdf", "2026-09-23", 135456, "PDF", "1uV5lzJYolVJQfcl4LIqz0cuivi6NRPFK", "SUPERSEDED"], ["2026-09-03 _ TRK-2026-1667 _ Permit _ MDC-Application-and-NOC-DRAFT _ v9 SUPERSEDED.pdf", "2026-09-23", 1354747, "PDF", "1iphUMAPXwTprtHbYHU7iJ74RM3Ygf_LF", "SUPERSEDED"], ["2026-07-05 _ TRK-2026-1667 _ Resolution _ Corporate-Resolution-Original-DRAFT _ v1 SUPERSEDED.pdf", "2026-09-23", 7258, "PDF", "1xbUpjYbMCpBTAk8CXmtNLRPF5EZmvEFv", "SUPERSEDED"]], "m": 0}, {"k": "u2", "t": "TRK-2026-1667 / 02-County-Permit-Application-NOC-NOT", "p": "TRK-2026-1310 / TRK-2026-1667 Unit 29 / 02-County-Permit-Application-NOC-NOT", "fid": "1fFqYEiIwzn2p2-g5b9GOExGOvK3Cg9BV", "note": "The re-signed set of September 24 is current. The September 17 set was rejected by the county.", "side": {"s": 11, "t": 11, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-09-24 _ TRK-2026-1667 _ Signed _ Permit Application _ v1.pdf", "2026-09-28", 198562, "PDF", "1PRqz6ZdckG9db7gEax-aYGEIXK12BSO1", "SIGNED · CURRENT"], ["2026-09-24 _ TRK-2026-1667 _ Signed _ Notice of Commencement _ v1.pdf", "2026-09-28", 136567, "PDF", "1qFG7xB4RnQK55LBB1-CIZGPesukWm-G8", "SIGNED · CURRENT"], ["2026-09-24 _ TRK-2026-1667 _ Signed _ Company Resolution _ v1.pdf", "2026-09-28", 98590, "PDF", "1nX599t_7uhqQVhkXCqXkA4AzbJ7BW1pi", "SIGNED · CURRENT"], ["2026-09-23 _ TRK-2026-1667 _ Permit _ Permit-Application-Eli-Bleeman-Qualifier-4053-CURRENT _ v5.pdf", "2026-09-23", 135472, "PDF", "1GvSf3Klsi4jYmL22Gu5pc7zmvCSErAg6", "UNSIGNED"], ["2026-09-23 _ TRK-2026-1667 _ Permit _ Notice-of-Commencement-Eli-Bleeman-CURRENT _ v4.pdf", "2026-09-23", 83047, "PDF", "1DRW3wYhh7QIIefWWk33yIEJ_y2kd45d5", "UNSIGNED"], ["2026-09-23 _ TRK-2026-1667 _ Permit _ County-Packet-6-Pages-Filled _ v4.pdf", "2026-09-23", 221636, "PDF", "1VJ-yDTvBXVeug7hNOEazWdYvYEQpK-az", ""], ["2026-09-17 _ TRK-2026-1667 _ Permit _ Permit-Application-SIGNED-Eli-Bleeman-President-NJ-Notary-as-Submitted-UP26075409-REJECTED _ v1.pdf", "2026-09-23", 116864, "PDF", "1PRYoZhxwzoHbB3DNwNbnwjeOff58wU5k", "REJECTED"], ["2026-09-17 _ TRK-2026-1667 _ Permit _ Plan-Revision-Shop-Drawing-Application-Signed-Miguel-Zaldivar-UP26075409 _ v1.pdf", "2026-09-23", 59672, "PDF", "1M_C0ovn4cUzyc2dCqXXVe8-v1nT-7Flk", ""], ["2026-07-05 _ TRK-2026-1667 _ Permit _ Notice-of-Termination-of-NOC-DRAFT-for-Closeout _ v1.pdf", "2026-09-23", 661710, "PDF", "1LiArWn9ESUOe-fZTwPyuw0COs1oL6Ro2", "DRAFT"], ["2026-07-05 _ TRK-2026-1667 _ Permit _ Release-of-Lien-DRAFT-for-Closeout _ v1.pdf", "2026-09-23", 664196, "PDF", "1joUIhWP_I4MDDBKAMXJPIVJKmVHKMHE1", "DRAFT"], ["2026-07-05 _ TRK-2026-1667 _ Permit _ Extension-of-Time-Request-BLANK-Form _ v1.pdf", "2026-09-23", 5700, "PDF", "1XPPEwJlEUpzsgLrBCBkHO8t9g9PBdKej", "BLANK FORM"]], "m": 0}, {"k": "u3", "t": "TRK-2026-1667 / 03-Plans-Engineer-PLF-Fiallo", "p": "TRK-2026-1310 / TRK-2026-1667 Unit 29 / 03-Plans-Engineer-PLF-Fiallo", "fid": "1129nwJmpNlRnhSJurqt3WS2QtjcjTHvL", "note": "The signed and sealed plans from Pedro Fiallo, P.E. The PLF invoice is in the locked money zone.", "side": {"s": 2, "t": 2, "o": 0, "i": 0}, "bak": 0, "docs": [["2026-06-23 _ TRK-2026-1667 _ Plans _ Structural-Balcony-PLF-Fiallo-PE76100-Signed-Sealed _ v1.pdf", "2026-09-23", 13215769, "PDF", "13k4nUaaUjURBlmS0itEt4rXy6B3bcTLq", "KEY"]], "m": 1}];
+const MONEYDOCS=[["TRK-2026-1310 / 03-INVOICES-PAYMENTS", "2026-08-28 _ TRK-2026-1667 _ Proposal _ MZ-Solutions-Balcony-Restoration-Revised _ v1.pdf", "2026-09-14", 190347, "PDF", "1QRWsidqEzVz4zMt4fY1t4ipG30lTP3bm", "MONEY"], ["TRK-2026-1310 / 01-INTAKE / PRIOR-FILING_TRK-2026-1310", "10980 SW 202nd Dr, Unit #29 Miami, FL 33189_260518-001.pdf", "2026-09-14", 41670, "PDF", "11BK7T0aYBQ3my3AzjG9hHR5Je72p0LFF", "MONEY"], ["TRK-2026-1310 / TRK-2026-1667 Unit 29 / 04-Contractor-MZ-Solutions", "2026-08-28 _ TRK-2026-1667 _ Proposal _ MZ-Solutions-Balcony-Restoration-Revised-UNSIGNED _ v1.pdf", "2026-09-23", 190347, "PDF", "19h25s41WjpvqIXMrLI2vAbMR31TN2_fl", "MONEY · UNSIGNED"], ["TRK-2026-1310 / TRK-2026-1667 Unit 29 / 03-Plans-Engineer-PLF-Fiallo", "2026-06-26 _ TRK-2026-1667 _ Invoice _ PLF-Engineer-Invoice-260518-001-to-MZ-Solutions-2500 _ v1.pdf", "2026-09-23", 41670, "PDF", "1Uj4gZ-2Fji0Ycry8JrZ3_oxq5aYuYZfK", "MONEY"]];
+const PILL={done:["p-done","DONE"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag",""],key:["p-key",""],money:["p-money","MONEY"],person:["p-wait","CONTACT"],finding:["p-flag","FINDING"]};
+const STATUS=[["Today, October 13", [["You emailed Mr. Cutie, the county’s electrical reviewer", "12:19 PM, high importance, copy to Miguel at miguel@mzsolutions.org. You said there is no electrical work in this permit, and asked: is the note on the revised plans (uploaded as an EPS rework) enough, or does he also need a notarized letter from the contractor? You also asked for a short phone call.", "done"], ["Delivered to the county and to MZ Solutions", "Both delivery receipts came back at 12:19 PM.", "done"], ["Miguel opened it", "Read receipt at 12:22 PM. No reply from Mr. Cutie yet.", "wait"]]], ["Still missing", [["Mr. Cutie’s answer on the electrical comment", "Note on the revised plans, or a notarized letter from Miguel. This clears the electrical part of the October 9 review.", "miss"], ["Final review result and permit number for C2026170181", "The county said on October 9 that the reviewed plans are ready to download from its portal. Nobody has downloaded them yet, and no permit number is on file.", "miss"], ["Where revised upload UP26079529 stands", "Sent October 1. Last seen at “PIC Customer Intake” on October 2.", "miss"], ["The county fee balance", "Fee review asked September 29; county said “updated” October 2; a DERM review fee was added October 1. The amount is not confirmed. Details are in the money zone.", "miss"], ["Scan of Eli Bleeman’s driver’s license", "Asked of Cinde Velazquez September 21 and 23. Not received.", "miss"], ["Mailed wet-ink originals", "Permit application, notice of commencement and company resolution, asked September 23 to go to 13633 SW 142 Ter. Arrival not confirmed.", "miss"], ["An answer to Alexis Lamela", "Her September 24 question: should anyone sign the Witness lines under Eli’s signature on the Company Resolution? No reply found.", "miss"], ["Property certificate of insurance naming 10960 SW 200th Avenue LLC", "The September 3 request is still an unsent draft.", "miss"], ["Signed MZ Solutions proposal (revised August 28)", "Only the unsigned copy is on file.", "miss"], ["Owner LLC’s EIN number", "The September 5 request is still an unsent draft. Sunbiz shows N/A.", "miss"], ["Four files received or sent but not saved in Drive", "3225_001.pdf (September 14 signed set, rejected by the county), the county’s October 2 screenshot, the PLF invoice email, and the county reviewer comments PDF from your September 21 email. Saving them waits for your yes.", "miss"], ["Your old October 2 update to Miguel bounced", "It went to the .com address. Today’s email reached him at .org, so this is mostly overtaken; resend only if he needs the October 2 details.", "miss"], ["Folder name still says FOLIO-TBD", "The folio 30-6007-009-0030 is confirmed. Renaming is filing work, so it waits for your yes.", "miss"]]], ["Waiting on", [["Robert Cutie, Miami-Dade electrical review", "An answer to today’s email, or a time for a call.", "wait"], ["Cinde Velazquez and Alexis Lamela, owner’s side", "Eli’s license scan, the mailed originals, the signed proposal and the EIN.", "wait"], ["Miguel Zaldivar, MZ Solutions", "A notarized “no electrical work” letter, if Mr. Cutie asks for it, and the property insurance certificate.", "wait"], ["Pedro Fiallo, PLF engineers", "Confirm whether invoice 260518-001 was paid.", "wait"], ["You", "Download the reviewed plans from the county portal (or let the desktop do it). Answer Alexis. Say yes to saving the four files.", "wait"]]]];
+const PEOPLE=[["Miguel Zaldivar · MZ Solutions LLC (CGC1528486)", "Contractor and client contact. Use the .org address; the .com address bounces. Also mzaldivar@tedcbuilds.org and mzaldivar051@gmail.com.", "miguel@mzsolutions.org"], ["10960 SW 200th Avenue LLC · owner", "Owner of record per the Property Appraiser. President Eli Bleeman signs for it.", ""], ["Eli Bleeman · owner LLC president", "Signed the September 24 permit papers. His license scan is still needed.", ""], ["Cinde Velazquez · Asden Properties (owner’s side)", "Asked for the license scan, the originals and the signed proposal.", "cvelazquez@asdenproperties.com"], ["N. Follman · Asden Properties", "Named in the job emails. Role not confirmed.", "nfollman@asdenproperties.com"], ["Alexis Lamela · Paramount Homes NJ", "Handled the NJ notary signing. Her witness-line question is unanswered.", "alexis@paramounthomesnj.com"], ["Pedro Fiallo, P.E. 76100 · PLF Structural Engineers", "Signed and sealed the balcony plans. Billed invoice 260518-001. Office: admin@plfengineers.com.", "pfiallo@plfengineers.com"], ["Robert Cutie · Miami-Dade electrical plan review", "You emailed him October 13 about the electrical comment.", "robert.cutie@miamidade.gov"], ["Daniel Rodriguez · Miami-Dade RER", "Answered the fee review on October 2: “Information has been updated.”", "e405304@miamidade.gov"], ["Miami-Dade Permit Records Section", "786-315-2100. Named on the county fee notice.", "RER-SPA@miamidade.gov"], ["Miami-Dade Property Appraiser, building jackets", "Sent the three ACS jacket files on August 24.", "cpl@miamidadepa.gov"], ["Javier · ECS Surveyors", "Found in the scanned papers. Role not confirmed.", "javier@ecssurveyors.com"], ["Jorge Valdes · Team USA Sales, Inc.", "Owner’s agent. 305-300-4500.", "Jorge@TeamUsaSales.com"]];
+const MONEY=[["Miami-Dade upfront plan-review fee on C2026170181: balance not confirmed", "You asked for a fee review on September 29 because the fee looked based on 20,000 sq ft (the whole building), not the 72 sq ft balcony. The county replied “updated” on October 2. A status draft of that day shows a garbled amount (“.76”). Confirm the exact balance with RER before paying.", "money"], ["DERM commercial review fee added October 1", "Part of the same balance. Amount not on file.", "money"], ["PLF engineer invoice 260518-001: $2,500 to MZ Solutions", "Pedro Fiallo asked for payment July 7. Whether it was paid is not verified.", "money"], ["MZ Solutions revised balcony proposal, August 28", "Not signed by the owner. The amount is in the proposal PDF below.", "money"], ["Team USA’s own invoice: not issued", "_STAGE.md says invoiced NO, paid NO, money defect YES. The amount to bill is not on file.", "money"]];
+const FINDINGS=[["The three ACS files are this job’s own building jacket, not the 14598 SW 110 St jacket", "The 14598 capsule asked about this. Checked: the OCR text of ACS.pdf reads “FOLIO 30 6007 009 0030, PROP ADDR 10980 SW 202 DR, CABANA CLUB GDNS”. ACS.pdf, ACS (2).pdf and ACS (3).pdf are exactly the same sizes as TAXJACKET part 3, part 1 and part 2 here. The 14598 jacket parts are different sizes. So they are not misfiled; they are raw duplicates, plus a fourth copy in _QUARANTINE-REVIEW-LATER."], ["57 backup copies use the banned “.ext.bak-DATE” name", "53 in the job root (25 _PORTAL, 27 _STAGE, 1 _TAGS), 3 in the tax-jacket ENHANCED folder, 1 in 05-REPORTS-DELIVERABLES. Drive cannot preview them. Nothing was renamed."], ["The same 13.2 MB plan set is stored 5 times", "S BINDER and the PLF v1 plans (PRIOR-FILING), 02-PERMITS, _AUTO-FILED, and the Unit 29 plans folder. All are 13,215,769 bytes."], ["The tax-jacket deliverable is stored 3 times", "05-REPORTS-DELIVERABLES, the tax-jacket ENHANCED folder, and the Unit 29 research folder (renamed under TRK-2026-1667). Same size."], ["Other pairs of the same file in two places", "PLF invoice, MZ proposal, Email Tracker v2, the correspondence log, the extension-of-time form, release of lien, notice of termination and the corporate resolution draft each appear twice. The v9 county draft sits in 02-PERMITS unmarked, while its twin in the Unit 29 folder is marked SUPERSEDED."], ["Two names in _AUTO-FILED may be swapped", "“SHOP DRAWING APP” is the same size as the rejected September 17 permit application, and “MASTER PERMIT APP” is the same size as the shop-drawing application. Not opened, so unverified."], ["Two tracking numbers for one job, plus a third", "The Unit 29 folder and most papers use TRK-2026-1667. _TAGS.txt also adds #TRK-2026-10052, which has five digits and is not the TRK-2026-NNNN form. Which number is the master needs your call."], ["_STAGE.md and _HASHTAGS.txt are out of date", "_STAGE.md still says folio VERIFY and “nothing has been sent”, but the July 7 email was sent and you emailed the county today. _HASHTAGS.txt says #folioTBD while _TAGS.txt has the confirmed folio."], ["Sidecars without their PDF", "The tax-jacket ENHANCED folder has search and tag files for three DELIVERABLE PDFs (v2 of August 24, FINAL of August 25, part 3) that are not in the folder."], ["Two folder systems and 12 empty folders", "August 11 folders (00-Intake to 06-Photos) next to August 17 folders (01-INTAKE to 05-REPORTS-DELIVERABLES), plus the Unit 29 folder. Empty: 06-Photos, 05-Deliverables, 03-Research, 01-Emails, 04-Money/Checks, 04-Money/Invoices, 02-Permit-Apps/Signed, 02-Permit-Apps/Submittal, _Superseded, and in Unit 29: 00-Cover-Index, 01-Owner-Authority, 07-Working-Papers."], ["No _VERSION-LOG.md and no _ARRIVALS file", "CLAUDE.md asks for a version log in every job folder."], ["_CONTACTS-EXTRACTED.txt has junk phone numbers", "For example (000) 000-0000 and (077) 107-2002, read wrongly from scans. Do not use that list without checking."]];
+
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=o.st==='flag'||o.st==='key'?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc'||o.doc) h+='<div class="meta"><span>'+esc(o.date)+'</span><span>'+esc(kb(o.size))+'</span><span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','What arrived, what is missing, who it waits on',STATUS.map(g=>g[1].length).join(' · '),h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    f.docs.forEach(d=>{x+=row({b:f.t,kind:'doc',title:d[0],date:d[1],size:d[2],type:d[3],link:durl(d[4]),st:d[5]?(d[5]==='KEY'||d[5]==='NEW'?'key':'flag'):'',flag:d[5],path:f.p});});
+    if(f.m) x+='<p class="bnote">'+f.m+' money document'+(f.m>1?'s':'')+' from this folder '+(f.m>1?'are':'is')+' in the locked money zone.</p>';
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' search'); if(s.t)sc.push(s.t+' tag'); if(s.o)sc.push(s.o+' OCR marker'); if(s.i)sc.push(s.i+' index');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':'📁 '+f.t),esc(f.p),f.docs.length+' docs'+(f.m?' + '+f.m+' 🔒':''),x+(sc.length?'<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>':''),fi===0);
+  });
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  let fh='<p class="bnote">Found while building this capsule. Nothing was moved, renamed or deleted. Each one waits for your yes.</p>';
+  FINDINGS.forEach(it=>{fh+=row({b:'Findings',kind:'finding',title:it[0],text:it[1],st:'finding'});});
+  branch('findings','','🔎 Findings','Misfiled items, duplicates, banned backup names',FINDINGS.length+' findings',fh,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> Money items stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<p>This zone holds '+MONEY.length+' money items and '+MONEYDOCS.length+' money documents.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='<p class="grp">Money documents ('+MONEYDOCS.length+')</p>';
+    MONEYDOCS.forEach(d=>{m+=row({b:'Money',kind:'money',doc:1,title:d[1],date:d[2],size:d[3],type:d[4],link:durl(d[5]),st:'money',flag:d[6],path:d[0],text:d[0]});});
+    m+='</div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':MONEY.length+' items · '+MONEYDOCS.length+' docs',m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>it.kind!=='money'||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">TRK-2026-1310 · 10980 SW 202 Dr, Cutler Bay · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(it.kind==='money'?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=it.kind==='doc'?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc'||it.doc) h+='<p class="meta"><span>'+esc(it.date)+'</span><span>'+esc(kb(it.size))+'</span><span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='TRK-2026-1310 · 10980 SW 202 Dr, Cutler Bay (Unit 29, TRK-2026-1667) · Folio 30-6007-009-0030\nMiami-Dade process C2026170181 · tracking 3026170181\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='doc'||it.doc) s+='   '+it.date+' · '+kb(it.size)+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— TRK-2026-1310 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>it.kind!=='money'||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+(function(){try{const n=new Date();const d=Math.round((Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())-Date.UTC(2026,9,9))/86400000);
+  $('daysleft').textContent=d+' days since the county finished its review';}catch(e){}})();
+build();
+</script>
