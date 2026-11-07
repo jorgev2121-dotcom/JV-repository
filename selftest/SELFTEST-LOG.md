@@ -862,3 +862,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed. Git push: PASS.
   About 6 of 10. No NEW self-test failure.
+
+## Pass 90 — 2026-11-07T00:20Z (7:20 PM EST Fri 11-06)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110700; answer due at 00:41Z runner. Previous probe (18Z) answered.
+  3 PANEL LOADS: pass by proxy (db reachable, 331 docs).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 00:16Z).
+  5 OCR FLOWING: FAIL (SAME, no new alert). No .SEARCH.txt created since at least 11-05 00Z (over 48h).
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (not re-listed). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 6 of 10. No NEW failure, so no alert.
