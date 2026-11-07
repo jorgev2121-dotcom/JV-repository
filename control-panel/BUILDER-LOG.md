@@ -642,3 +642,4 @@
 2026-11-07T10:44Z · allowed · items 0 of 0 (panel empty) · panel 63 of 116 unchanged · queue deferred · blocked: PC OCR stall, 4 denied tasks · Next: WATCH 11:16Z
 2026-11-07T11:44Z · allowed · items 0 of 0 (panel empty) · panel 63 of 116 unchanged · queue deferred · blocked: PC OCR stall, 4 denied tasks · Next: WATCH+SELFTEST 12:16Z (plant probe 2026110712)
 2026-11-07T12:44Z · allowed · items 1 of 1 (probe) · panel 63 of 116 unchanged · queue deferred · blocked: PC OCR stall, 4 denied tasks, Unit 307 TRK · Next: WATCH 13:16Z
+2026-11-07T13:44Z · allowed · items 0 of 0 (panel empty) · panel 63 of 116 unchanged · queue deferred · blocked: PC OCR stall, 4 denied tasks, Unit 307 TRK · Next: WATCH 14:16Z
