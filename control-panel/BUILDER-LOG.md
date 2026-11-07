@@ -646,3 +646,4 @@
 2026-11-07T14:44Z · allowed · items 0 of 0 (panel empty) · panel 63 of 116 unchanged · queue deferred · blocked: PC OCR stall, 4 denied tasks, Unit 307 TRK · Next: WATCH 15:16Z
 2026-11-07T15:44Z · allowed · items 0 of 0 (owner builds done earlier this hour) · panel 63 of 116 unchanged · queue deferred · blocked: PC OCR stall, 4 denied tasks, Unit 307 TRK, RAM guard dead, awaiting RAMBO receipt for take-over order · Next: WATCH 16:16Z
 2026-11-07T16:44Z · allowed · items 0 of 0 · panel 63 of 116 unchanged · queue deferred · blocked: RAM guard needs Jorge's Run click, Natalie draft awaits yes, Unit 307 TRK, PC OCR stall, 4 denied tasks · Next: WATCH 17:16Z
+2026-11-07T17:44Z · allowed · items 0 of 0 · panel 63 of 116 unchanged · queue deferred · blocked: 8 owner one-word items, RAMBO Claude budget ended ~12:05 ET, PC RAM AMBER (no PC orders), Unit 307 TRK, PC OCR stall, 4 denied tasks · Next: WATCH+SELFTEST 18:16Z (plant probe 2026110718)
