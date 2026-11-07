@@ -874,3 +874,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed. Git push: PASS.
   About 6 of 10. No NEW failure, so no alert.
+
+## Pass 91 — 2026-11-07T06:20Z (1:20 AM EST Sat)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110706; answer due at 06:41Z runner. Previous probe (00Z) answered.
+  3 PANEL LOADS: pass by proxy (db reachable, 333 docs).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 06:16Z).
+  5 OCR FLOWING: FAIL (SAME, no new alert). Drive search matched only two NO-MATCH_..._SEARCH-LOG_...txt research logs (not OCR sidecars, name differs); no real .SEARCH.txt created since at least 11-05 06Z (over 48h).
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (not re-listed). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 6 of 10. No NEW failure, so no alert.
