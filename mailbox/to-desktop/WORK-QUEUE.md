@@ -862,3 +862,12 @@ Second job in the same night (JOB-OCR-CATCHUP-FULL-COUNT) timed out on mistral:l
 
 ## ITEM: OCR SEARCH-FILE STEP STALLED (added 2026-11-06 ~00:30Z by cloud EXEC-01) — GREEN, read-only first
 No new `.SEARCH.txt` files have been created in Drive since 2026-11-03 22:44Z (about 49 hours). The PC uptime log is fresh (PC alive). The cloud overnight TAGS batch is running (BATCH_2026-11-05_0521). Please, read-only first: (1) see whether the OCR/search-file job is running, hung, or erroring; (2) check free RAM (earlier stalls were memory timeouts on mistral:latest; do not run alongside OCR); (3) report what you find. Any restart is YELLOW (backup first, rollback line, Jorge's okay). Proof wanted: the newest .SEARCH.txt creation time after the fix.
+
+## 37. MY OFFICE + MY PC icons: taskbar/tray and phone access · owner order 2026-11-07 · 🖥️ DESKTOP (GREEN: shortcuts only, no client data)
+
+**FROM:** Cloud (EXEC-01). **Owner words (cleaned):** put a VTES control panel icon on the desktop tray and on his iPhone for quick access, plus a button on the phone that reaches his PC.
+
+1. Pull branch `claude/pensive-allen-tyjgl4`. Icons are in `tools\icons\vtes-office-icons.svg` (MY OFFICE navy/orange, MY PC orange).
+2. Make a Chrome app shortcut named "My Office" to the live panel `https://claude.ai/artifact/321Zo6MTHdv9Mj3hGD1QDj` (reuse `tools\readaloud\Make-Panel-Icon.ps1` if it fits) and pin it to the taskbar. Do not move or delete anything.
+3. Confirm the Remote Control watchdog (`Claude-RC-Watchdog`, PASTE-D-065) is running and the PC session shows online in the Claude app on the phone. Report yes/no with proof. Change nothing if it is not running; report BLOCKED with the reason.
+4. Report: DONE with a screenshot, BLOCKED, or IN PROGRESS. End with one cheap question.

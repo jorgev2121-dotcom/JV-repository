@@ -624,3 +624,15 @@ Full text: `OWNER-DIRECTIVE_MERGE-AND-INDEX-01_2026-11-01.md`.
 - **The master control panel is the index and only that.** Everything else is one layer in, as a subfolder.
 - **Folder names: address, folio, business name or keywords, then date, then TRK at the END.** Hashtags go inside, in `_TAGS.md`, as many as possible.
 - **Never lose a fact:** the older value is kept in `_MERGE-LOG.md`. Moving, renaming or deleting client documents stays RED: the cloud plans, Jorge says yes, the desktop executes.
+
+
+---
+
+## 22. Standing protocol — universal standard and locked roles (OWNER-DIRECTIVE UNIVERSAL-STANDARD-AND-ROLE-LOCK-01, 2026-11-07)
+
+Full text: `OWNER-DIRECTIVE_UNIVERSAL-STANDARD-AND-ROLE-LOCK-01_2026-11-07.md`.
+
+- **Everything gets a name and a tracking number, three layers, and a version that rises by .1 on any change.** The version label is a click-down: newest first with its date, earlier versions selectable, and an old version shows "A newer version of this is available: vX.Y".
+- **Every document, program, report, form and order result is published as an artifact he can see**, backed up to Drive for all LLMs and listed on the VTES panel.
+- **Agent roles are locked.** Changing one needs Jorge to type 0000 (any device, LLM or agent), and the change is logged. 0000 is a stopper, not security.
+- **Never send or accept screenshots of passwords or card numbers.** 1Password stays the single source of truth.
