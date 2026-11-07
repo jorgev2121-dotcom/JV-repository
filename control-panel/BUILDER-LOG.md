@@ -649,3 +649,4 @@
 2026-11-07T17:44Z · allowed · items 0 of 0 · panel 63 of 116 unchanged · queue deferred · blocked: 8 owner one-word items, RAMBO Claude budget ended ~12:05 ET, PC RAM AMBER (no PC orders), Unit 307 TRK, PC OCR stall, 4 denied tasks · Next: WATCH+SELFTEST 18:16Z (plant probe 2026110718)
 2026-11-07T18:44Z · allowed · items 1 of 1 (probe) · panel 63 of 116 unchanged · queue deferred · blocked: RAMBO 8 owner items, Natalie draft yes, Unit 307 TRK, PC OCR stall, 4 denied tasks; context 660k of 784k · Next: WATCH 19:16Z
 2026-11-07T19:44Z · allowed · items 0 of 0 · panel 63 of 116 unchanged · queue deferred · blocked: RAMBO 8 owner items, Natalie draft yes, Unit 307 TRK, PC OCR stall, 4 denied tasks · Next: WATCH 20:16Z
+2026-11-07T20:44Z · allowed · items 0 of 0 · panel 63 of 116 unchanged · queue deferred · blocked: RAMBO 8 owner items, Natalie draft yes, Unit 307 TRK, PC OCR stall, 4 denied tasks; PC back after 20:02-20:31Z gap · Next: WATCH 21:16Z
