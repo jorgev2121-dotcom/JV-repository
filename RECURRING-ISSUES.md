@@ -2323,3 +2323,19 @@ future master key is generated on the PC and never pasted into chat.
 - 2026-10-09 02:00Z (desktop reachability, recurrence of the line-174/822 "desktop Remote Control / asleep" pattern): Jorge asked Cloud to reconnect the desktop and confirm it stays on. Desktop executor session_018cZjR8 = disconnected (last real turn 2026-10-08 22:03Z, ended asking Jorge "which of the three first?"). Jorge-PC bridge session_01YVtd1R showed "connected" but was stale: Cloud's ping made the worker report host_exit and the session ended, i.e. the PC-side Remote Control process was not running. Last PC sign of life 2026-10-09 00:37Z. Cloud cannot start Remote Control or wake the PC; only an action at the PC can. Durable option still open: a Windows scheduled task that relaunches `claude remote-control` at logon and every hour if not running (Tier 3).
 
 - 2026-10-15 — Two stale hourly routines (trig_01JHpfWChefTdQwHJH6Bypa9, trig_0151BtStxyL5DN2rsM17Erzu) fired about 45 times with August-2026 text after the work had moved on. Each firing cost a full session turn and did nothing. Jorge said yes in his own words; both set to enabled=false (paused, not deleted). Tier 2 fix: the cause is removed, not suppressed. To bring back, use update_trigger enabled=true.
+
+## RI-049 · 2026-11-08 — Unattended bulk password rotation through the 1Password CLI keeps being proposed (third sighting)
+
+**Sightings.** (1) 2026-09-17, TRK-2026-9348 "RIOS" proposal: unattended "Password Rotation" via PowerShell/1Password CLI; parked. (2) 2026-10-06, TRK-2026-9969 compacted handoff: "run Miami-Dade password resets in parallel and queue 300+ more"; not forwarded. (3) 2026-11-08, this entry: a pasted PowerShell one-liner that overwrites every stored password in the Personal vault with 24 random characters, and prompts only for items it guesses are owner-level.
+
+**Why it is dangerous, every time.** `op item edit <id> password=<x>` changes the value stored in the vault, not the password on the website. After the run every sign-in fails and the vault no longer holds the working value. Recovery is a forgot-password flow per site with email or SMS codes, which is RED, owner-present work. It also contradicts TRK-2026-9346 Section A (no executor ever sees, types, stores or transmits a password value), which Jorge dictated himself.
+
+**Why previous fixes failed.** Each refusal lived in one session's OPEN-ITEMS row and nothing in the charter files named the pattern, so every new window met it as a first occurrence. The idea is attractive because it looks like one command instead of forty website visits.
+
+**Tier 1 — Suppression (forbidden).** Fix the typos, add a Yes/No box per item. Still writes a vault-only value. Lifespan: until the first run locks an account.
+
+**Tier 2 — Removal (RECOMMENDED, built 2026-11-08).** No script in this repo ever writes a password field. The replacement `mailbox/to-desktop/OP-Group-Tag-And-Rotation-Worklist_TRK-2026-10050.ps1` does the tagging half, scoped and with rollback, and emits a rotation worklist; rotation happens on each website with 1Password generating and saving. Lifespan: permanent. Failure mode: slower; owner-flagged items need Jorge present.
+
+**Tier 3 — Enforcement.** A weekly read-only report of permitting items whose `updated_at` is over 180 days old, in the morning report, so the worklist refills itself. Lifespan: while the task runs (RI-002: check the output grows). Failure mode: nobody works the list.
+
+**Standing line for every window, add to any 1Password task:** a password is changed on the website, by a click, with 1Password generating it. A script that writes a `password=` field is refused on sight and logged here.

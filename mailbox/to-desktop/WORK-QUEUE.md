@@ -480,6 +480,28 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
 
 ---
 
+## 17. TRK-2026-10050 — 1Password: group-tag the permitting items, build the rotation worklist. DO NOT run the pasted bulk-reset one-liner
+
+Jorge pasted (2026-11-08, cloud window) a PowerShell one-liner that re-titles every item
+in the Personal vault and overwrites every stored password with a random string. Cloud
+refused it: a vault-only password change does not change the website, so every account
+would stop working (see `ANALYSIS_1PASSWORD-BULK-RESET-SCRIPT_TRK-2026-10050_2026-11-08.md`
+in this folder, and RI-049). It also breaks TRK-2026-9346 Section A.
+
+Do this instead, at the desktop, with 1Password unlocked and Jorge present:
+
+1. Dry run: `.\OP-Group-Tag-And-Rotation-Worklist_TRK-2026-10050.ps1` (no switches).
+   Nothing changes. Paste the console summary (counts only) to `TO-CLOUD.md`.
+2. If the selection is permitting sites only, run again with `-Apply`. Paste the RESULT
+   line and the read-back count. The rollback script path is printed; keep it.
+3. Give Jorge the worklist CSV path. Passwords are rotated on each website with 1Password
+   generating and saving; rows marked RequiresOwner wait for his yes.
+4. Never paste the CSV or any username into the repo or Drive. Counts only.
+
+Script is untested on Windows (cloud has no PowerShell). The dry run is the test.
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
