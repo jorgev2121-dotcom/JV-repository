@@ -23,3 +23,10 @@ MERGE-AND-INDEX-01 (CLAUDE.md sec 21): merge duplicates, newest wins, master pan
 
 ## Next due
 06Z self-test was pass 71. 12Z self-test: plant selftest-probe-2026110212. OCR check 5 fails after 16:10Z Nov 2 if no new .SEARCH.txt. Morning digest to Jorge about 7:16 AM ET. Daily pre-mortem written (2026-11-02); next one 2026-11-03 at the 05:41Z run.
+
+## RESUME NOTE 2026-11-08 18:2xZ (written because context reached 726k of 784k)
+Cycle pattern: WATCH at :16 (mail Gmail+Outlook, panel task-comments new, Outbox new files, RAM guard, uptime), RUNNER at :41 (panel query, Drive heartbeat `_EXEC-01-HEARTBEAT_<date>T<HHMM>Z.md` in VTES-Outbox 1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN, repo logs, commit and push). Self-test at UTC 00, 06, 12, 18: plant `task-comments/selftest-probe-<YYYYMMDDHH>` at the watch, answer at the runner (batch: set reply-selftest-probe-<id> + update original with if_version 1).
+Open probe: selftest-probe-2026110818 (answer at 18:41Z runner).
+Waiting on Jorge: RAMBO window (PASTE-D-064), RAMBO's eight one-word items, Natalie draft SEND/HOLD, Unit 307 job folder, My Office build yes/no on TEST COPY, Grok panel-sync handoff YES (TRK-2026-1016-SYNC-01), roles lock with 0000.
+Facts: RAM guard dips AMBER at each :16 (local AI engine loads), first RED 3.75 GB at 18:15Z 11-08, pushed once. Four scheduled tasks denied (Filing engine check, Weekday check, task sweeper, County-watch). OCR files stalled since 11-05. QC-01 audit 11-08 WARN fixed: write Drive EXEC-LOG_<date>.md and PRE-MORTEM_<date>.md every day (done for 11-08: Drive 1l6qUUipHzKRE2HUy88xdXfCxB06bWXpF and 1NLuAEkyf4N3Cn0d5fOATaIzMjq9L8d7C); at the next 04:41Z runner write the 11-09 pair and add the rest of 11-08's lines.
+Rules in force: no PC orders unless RAM guard GREEN; no money lines in emails/logs; no outbound to third parties; panel changes only on test copy; never log a line before the event.
