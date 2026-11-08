@@ -935,3 +935,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   10 USAGE: allowed (seven_day). Context 414,168 of 1,000,000 used.
   6 of 10 passing. No NEW failure, so no alert.
   Note: two emails dated 06:04 and 06:13Z, titled PASTE-D-069 and a Re: second item, were sent from Jorge's Gmail by another Cloud Code session (not this one). Logged only.
+## Pass 96 - 2026-11-08T12:2xZ (7:2x AM ET, Sun 11-08)
+  1 INBOX: pass (panel new=0 before probe; 11 approvals all already routed).
+  2 PROBE: previous probe 2026110806 answered 06:42Z (pass). New probe 2026110812 planted; answer at next runner.
+  3 PANEL: pass by proxy (panel db reads and writes worked).
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT.md written 12:11Z; PC up 16.1 h since 3:03 PM ET, never slept). RAM guard ALIVE but AMBER 4.77 GB at 12:16Z, pause flag set (RED starts under 4 GB); no PC orders sent.
+  5 OCR: FAIL, unchanged (no .SEARCH.txt created in 48 h, search excluding the NO-MATCH logs returned nothing).
+  6 SCHEDULED TASKS: FAIL, unchanged (four ACCESS_DENIED confirmed at 06:20Z; not re-listed this pass).
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 575,154 of 1,000,000 used (autocompact at 784,000).
+  6 of 10 passing. No NEW self-test failure, so no alert.
+  QC-01 audit of 11-08 (AUDIT_QC-01_2026-11-08.md): WARN. 5 verified, 3 unverified, 0 failed. Finding A: no Drive EXEC-LOG or pre-mortem for 11-08 since 11-07 12:17Z. FIXED this cycle: EXEC-LOG_2026-11-08.md (Drive 1l6qUUipHzKRE2HUy88xdXfCxB06bWXpF) and PRE-MORTEM_2026-11-08.md (Drive 1NLuAEkyf4N3Cn0d5fOATaIzMjq9L8d7C) written in the EXEC-LOG folder, each line checked against the repo log and heartbeat ids. From now on the runner writes the Drive EXEC-LOG every day. Findings B and C (silent-signoff blocker, 1Password and QuickBooks approvals) are waiting on Jorge or the PC, not fixable from the cloud.
