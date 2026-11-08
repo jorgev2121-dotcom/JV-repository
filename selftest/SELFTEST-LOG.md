@@ -923,3 +923,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed (seven_day). Context 188,594 of 1,000,000 used.
   6 of 10 passing. No NEW failure, so no alert.
+## Pass 95 - 2026-11-08T06:2xZ (1:2x AM ET, Sun 11-08)
+  1 INBOX: pass (panel new=0 before probe; 11 approvals all already routed).
+  2 PROBE: previous probe 2026110800 answered 00:42Z (pass). New probe 2026110806 planted; answer at next runner.
+  3 PANEL: pass by proxy (panel db reads and writes worked).
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT.md written 06:16Z; PC up 10.2 h since 3:03 PM ET, never slept). RAM guard GREEN 6.51 GB, written 06:16Z.
+  5 OCR: FAIL, unchanged (no .SEARCH.txt created in the last 48 h; the only matches were NO-MATCH search logs).
+  6 SCHEDULED TASKS: FAIL, unchanged. All four confirmed ACCESS_DENIED on their last run: Filing engine daily check, Weekday check, VTES task sweeper, County-watch (read this pass on list page 2).
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 414,168 of 1,000,000 used.
+  6 of 10 passing. No NEW failure, so no alert.
+  Note: two emails dated 06:04 and 06:13Z, titled PASTE-D-069 and a Re: second item, were sent from Jorge's Gmail by another Cloud Code session (not this one). Logged only.
