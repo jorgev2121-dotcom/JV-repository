@@ -672,3 +672,4 @@
 - 14:41Z runner: nothing built (no yes from Jorge). Next: WATCH 15:16Z.
 - 15:41Z runner: nothing built (no yes from Jorge). Next: WATCH 16:16Z.
 - 16:44Z runner: nothing built (no yes from Jorge). Next: WATCH 17:16Z.
+- 17:41Z runner: nothing built (no yes from Jorge). Next: WATCH 18:16Z with self-test.
