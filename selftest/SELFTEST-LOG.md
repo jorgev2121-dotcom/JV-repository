@@ -958,3 +958,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed (seven_day). Context 726,735 of 1,000,000 used; autocompact threshold 784,000, so a compaction is close. Resume notes refreshed.
   6 of 10 passing. No NEW self-test failure. The RED reading is a guard event, not a check failure; one push sent.
+
+## Pass 98 · 2026-11-09T00:20Z (7:20 PM EST Sun) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe).
+  2 PROBE: previous probe 2026110818 was answered; new probe 2026110900 planted, to be answered at the 00:41Z runner.
+  3 PANEL LOADS: db reachable; page size NOT re-read this pass (unverified, not counted as new failure).
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT written 7:11 PM ET, PC awake 28.13 h, never slept).
+  5 OCR FLOWING: FAIL, unchanged (no new .SEARCH.txt in 48 h, since 11-05). Not re-alerted.
+  6 SCHEDULED TASKS: FAIL, unchanged (Filing engine daily check, Weekday check, VTES task sweeper still ACCESS_DENIED; County-watch not on first page). Not re-alerted.
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 220,045 of 1,000,000 after compaction.
+  No NEW failure. RAM guard AMBER 4.62 GB at 00:16Z (hourly dip), not RED, no push.
