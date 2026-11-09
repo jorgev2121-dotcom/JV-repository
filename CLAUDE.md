@@ -388,11 +388,22 @@ newsletter and a Publix receipt. Searching `TRK-2026-1262` cannot.
    starting analytical work.
 3. Read this file.
 4. Read `OPEN-ITEMS.md` and report anything IN PROGRESS or BLOCKED.
+5. **Read the checkpoint file FIRST of all the state files.** It is
+   `_CHECKPOINT_CLOUD.md` in Google Drive `VTES-Outbox` (the desktop sees it at
+   `G:\My Drive\VTES-Outbox\_CHECKPOINT_CLOUD.md`). Cloud overwrites it after every
+   milestone: what is done and verified, what is unverified, what is in progress, what
+   is owed, and the live version ids. **Check its "Last written" time and say it out
+   loud.** If it is more than a few hours old, treat it as stale and ask the Cloud
+   window to refresh it. Owner directive, Jorge, 2026-11-09. The desktop cannot see
+   this git repo (RI-037), so a checkpoint kept only here is a checkpoint nobody reads.
 
 **At the end of every session:**
 
 1. Update the status of every item you touched in `OPEN-ITEMS.md`.
 2. Log any recurrence in `RECURRING-ISSUES.md`.
+3. **Cloud only: overwrite `_CHECKPOINT_CLOUD.md` in `VTES-Outbox` on Drive** (and at
+   every milestone during the session, not on a clock). Work recorded only in git or
+   in the conversation does not count as handed over.
 
 **Never end a session leaving work recorded only in the conversation.** The
 conversation will be gone. The files will not.
