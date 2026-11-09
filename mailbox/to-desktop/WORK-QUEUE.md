@@ -875,3 +875,9 @@ No new `.SEARCH.txt` files have been created in Drive since 2026-11-03 22:44Z (a
 ## 38. TAKE OVER: Universal Standard, Roles draft, My Office · owner order 2026-11-07 · 🖥️ DESKTOP (step 1 YELLOW, rest GREEN)
 
 **FROM:** Cloud (EXEC-01). Full order: `orders/pending/MSG-CLOUD-TO-CODE_TAKE-OVER-STANDARD-ROLES-OFFICE_RAMBO1_2026-11-07.md` (also copied to VTES-Inbox). Do step 1 (re-register the RAM guard, rollback script first) before anything heavy, then item 37, then delegate GREEN items. Roles stay a draft until Jorge types 0000. Report DONE with proof, BLOCKED, or IN PROGRESS. End with one cheap question.
+
+## 39. RAM RED: a PowerShell process is growing, find which one (read-only) · cloud note 2026-11-09 04:2xZ · 🖥️ DESKTOP (GREEN: look and report only, kill nothing)
+Why: the RAM guard went RED at 10:15 PM ET (2.35 GB free, powershell 1.33 GB) and was still RED at 11:16 PM ET (1.15 GB free, powershell 2.72 GB). That PowerShell memory doubled in one hour, which looks like a leak or a runaway script, not the usual hourly AI-engine dip.
+Do: (1) list PowerShell processes with their memory and the full command line, and name the scheduled task or script that started the biggest one; (2) write the answer to VTES-Outbox as REPLY-TO-CHAT_RAM-POWERSHELL-GROWTH_<date>.md; (3) do NOT stop or kill anything. Stopping it is YELLOW and needs Jorge's yes plus a rollback note.
+Done means: the file exists and names the script. Not done = unverified.
+Closing question for the desktop: which scheduled task owns that PowerShell process?
