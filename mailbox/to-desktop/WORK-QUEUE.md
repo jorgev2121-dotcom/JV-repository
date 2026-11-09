@@ -881,3 +881,9 @@ Why: the RAM guard went RED at 10:15 PM ET (2.35 GB free, powershell 1.33 GB) an
 Do: (1) list PowerShell processes with their memory and the full command line, and name the scheduled task or script that started the biggest one; (2) write the answer to VTES-Outbox as REPLY-TO-CHAT_RAM-POWERSHELL-GROWTH_<date>.md; (3) do NOT stop or kill anything. Stopping it is YELLOW and needs Jorge's yes plus a rollback note.
 Done means: the file exists and names the script. Not done = unverified.
 Closing question for the desktop: which scheduled task owns that PowerShell process?
+
+## 40. RAM guard heartbeat stopped writing at 2:07 PM ET 11-09, look and report only · cloud note 2026-11-09 19:4xZ · 🖥️ DESKTOP (GREEN: look only, change nothing)
+Why: _RAM-GUARD-HEARTBEAT.md in VTES-Outbox has not changed since 2:07:13 PM ET (last reading GREEN, 9.41 GB free). The PC itself is awake and syncing (the uptime heartbeat wrote at 2:37 PM ET), so only the per-minute CU-RAM-Heartbeat task stopped or its upload failed.
+Do: (1) in Task Scheduler look at CU-RAM-Heartbeat: last run time, last result, whether it is still enabled; (2) say in one line what you saw; (3) if it is Disabled or its last result is an error, write that to VTES-Outbox as REPLY-TO-CHAT_RAM-GUARD-STOPPED_<date>.md and ask Jorge for one yes to re-enable it. Do not change any setting yourself.
+Done means: the reply file exists naming the task state. Not done = unverified.
+Closing question for the desktop: what is CU-RAM-Heartbeat's last run result?
