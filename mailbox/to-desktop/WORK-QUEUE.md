@@ -480,6 +480,26 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
 
 ---
 
+---
+
+## TRK-2026-10053 — Outlook root cause: stop the "2 of 4", the stale Inbox, the missing 2019+ search (added 2026-11-10 by Cloud)
+
+Full job: `G:\My Drive\VTES-Inbox\JOB_MAIL-REPAIR-02_V1_OUTLOOK-ROOT-CAUSE_TRK-2026-10053.md`
+(repo copy `diagnosis/MAIL-ROOT-CAUSE_OUTLOOK-GMAIL_TRK-2026-10053_2026-11-10.md`).
+
+Cloud proved tonight from the servers: all mail 2013 to now is intact, server Outbox empty,
+Conflicts folder 7,042 items and growing, Microsoft sign-in token broken. Do, in order:
+1. Read-only snapshot + rollback script (accounts in profile, every Outbox, cached-mode
+   slider, OST sizes, Windows Search status, sign-in state).
+2. Move stuck Outbox items to Drafts. Never delete.
+3. Patch `C:\AI\system\morning_report.ps1` and the mail rescue: no more Outlook COM Send();
+   write the file and let the cloud seat mail it (Microsoft 365 connector holds Mail.Send).
+4. With Jorge's yes: Option 1 (Outlook on the web as the reading window; remove the
+   bellsouth/onlinecou/Gmail-IMAP accounts from the profile) or Option 2 (new profile, slider
+   All). Recommend 1; say so in one line and proceed unless he objects.
+5. Tests with timestamped screenshots: round-trip send under 60 s, a 2019 subject found,
+   Conflicts count flat after 24 h. Write REPORT_MAIL-REPAIR-02_V1.md to VTES-Outbox.
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
