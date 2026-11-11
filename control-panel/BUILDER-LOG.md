@@ -729,3 +729,4 @@
 2026-11-10T23:46Z runner | budget allowed | items 0 of 0 (all remaining items wait on Jorge) | panel unchanged | queue depth: GREEN items none new | blocked: Jorge answers (xAI, Piwko TRK, :15 task, Natalie, PLF, CDM)
 2026-11-11T00:42Z runner | budget allowed | items 0 of 0 (everything left waits on Jorge) | panel unchanged | queue: no new GREEN items | blocked: Jorge answers (xAI, Piwko TRK, :15 task, Natalie, PLF, CDM)
 2026-11-11T01:42Z runner | budget allowed | items 0 of 0 (everything left waits on Jorge) | panel unchanged | queue: no new GREEN items | blocked: Jorge answers (xAI, Piwko TRK, :15 task, Natalie, PLF, CDM)
+2026-11-11T02:42Z runner | budget allowed | items 0 of 0 (everything left waits on Jorge) | panel unchanged | queue: no new GREEN items | blocked: Jorge answers (xAI, Piwko TRK, :15 task, Natalie, PLF, CDM, Snapshot notice)
