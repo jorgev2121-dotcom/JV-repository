@@ -1091,3 +1091,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed (seven_day). Context 560,374 of 1,000,000 (autocompact at 784,000).
   No NEW failure, no alert. RAM guard last write 12:11:17Z (9 min old at 12:20:26Z, stale over 5 min) while the PC uptime file is fresh; the guard flaps, recheck at the 12:41Z runner before any push.
+
+## Pass 109 - 2026-11-11T18:17Z (18Z self-test)
+  1 PANEL INBOX: pass (new=0 at 18:17Z).
+  2 PROBE: pass (probe 2026111118 planted 18:17Z, answer due at the 18:41Z runner).
+  3 PANEL LOADS: pass (index.html 719,005 bytes, version 1794248937-1f67).
+  4 PC ALIVE: pass (uptime file 18:16:07Z, RAM guard 18:14:33Z).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL, unchanged (Filing engine check, Weekday check, task sweeper, County-watch all still ACCESS_DENIED; read on pages 1 and 2).
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 777,561 of 1,000,000 (autocompact at 784,000).
+  Score 6 of 10 passing. No NEW failure, no alert. SYNC-01 now reads LANE OPEN (18:10Z result from Jorge, 18:14Z Grok), no action for me.
