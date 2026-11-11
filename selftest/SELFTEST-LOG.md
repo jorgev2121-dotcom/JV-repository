@@ -1079,3 +1079,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed (seven_day). Context 391,210 of 1,000,000.
   No NEW failure, no alert. RAM guard wrote 06:18:29Z (fresh).
+
+## Pass 108 · 2026-11-11T12:20Z (7:2x AM EST Wed, fired 12:20:05Z) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe).
+  2 PROBE: previous probe 2026111106 answered 06:42:13Z; new probe 2026111112 planted with at 12:20:36Z (stamped from the clock in the file just before the write), to be answered at the 12:41Z runner.
+  3 PANEL LOADS: pass. index.html 719,005 bytes, version 1794248937-1f67.
+  4 PC ALIVE: pass (uptime file written 12:18:42Z).
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt created since 11-09 12:00Z).
+  6 SCHEDULED TASKS: FAIL, unchanged. Four ACCESS_DENIED: Filing engine daily check (11-11 11:52Z), Weekday check (11-10 21:57Z), VTES task sweeper (11-10 12:21Z; its 11-11 12:18Z run not yet recorded), County-watch (11-10 15:29Z). Two runs show PENDING only because they just fired: Plaza drafter and Cowork watchdog. No other task failed.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 560,374 of 1,000,000 (autocompact at 784,000).
+  No NEW failure, no alert. RAM guard last write 12:11:17Z (9 min old at 12:20:26Z, stale over 5 min) while the PC uptime file is fresh; the guard flaps, recheck at the 12:41Z runner before any push.
