@@ -2502,3 +2502,4 @@ branch AND open PR branches; or give each window its own number block.
 - 2026-11-11 20:41Z RAM-guard recurrence: stale since 20:04:23Z (37 min at 20:41Z), PC alive; pushed once; 6th gap in about 22 h. Watchdog (WORK-QUEUE item 40, Tier 3) waits on Jorge yes.
 - 2026-11-11 22:17Z RAM-guard: the 20:04:23Z outage ended at 22:11:08Z (2h07m, healed on its own); 6th gap in about 23 h, longest yet. Same unresolved issue; watchdog (WORK-QUEUE item 40) waits on Jorge yes.
 - 2026-11-11 22:47Z RAM-guard recurrence: stale again from 22:11:08Z (36 min at 22:47Z), PC alive; pushed once; 7th gap in about 23 h. Watchdog (WORK-QUEUE item 40, Tier 3) waits on Jorge yes.
+- 2026-11-11 23:41Z RAM-guard: the 22:11:08Z outage ended 23:41:21Z (90 min, healed on its own); 7th gap in about 24 h. Same unresolved issue; watchdog (WORK-QUEUE item 40) waits on Jorge yes.
