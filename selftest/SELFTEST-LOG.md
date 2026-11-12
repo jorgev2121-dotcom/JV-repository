@@ -1127,3 +1127,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed (seven_day). Context 573,668 of 1,000,000 (autocompact at 784,000).
   Score 6 of 10 passing. No NEW failure, no alert.
+
+## Pass 112 - 2026-11-12T12:20Z (12Z self-test)
+  1 PANEL INBOX: pass (new=0 at 12:20Z).
+  2 PROBE: pass (probe 2026111212 planted 12:19:54Z, answer due at the 12:41Z runner).
+  3 PANEL LOADS: pass (index.html 719,005 bytes, version 1794248937-1f67).
+  4 PC ALIVE: pass (uptime file 12:16:30Z, RAM guard 12:19:05Z).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL, unchanged (Filing engine check ACCESS_DENIED again 11:52:54Z; Weekday check, task sweeper (12:19:53Z) and County-watch all ACCESS_DENIED on their last runs).
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 737,789 of 1,000,000 (autocompact at 784,000, close).
+  Score 6 of 10 passing. No NEW failure, no alert.
