@@ -1103,3 +1103,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed (seven_day). Context 777,561 of 1,000,000 (autocompact at 784,000).
   Score 6 of 10 passing. No NEW failure, no alert. SYNC-01 now reads LANE OPEN (18:10Z result from Jorge, 18:14Z Grok), no action for me.
+
+## Pass 110 - 2026-11-12T00:17Z (00Z self-test)
+  1 PANEL INBOX: pass (new=0 at 00:17Z).
+  2 PROBE: pass (probe 2026111200 planted 00:17Z, answer due at the 00:41Z runner).
+  3 PANEL LOADS: pass (index.html 719,005 bytes, version 1794248937-1f67).
+  4 PC ALIVE: pass (uptime file 00:16:26Z, RAM guard 00:17:06Z).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL, unchanged (read each by id: Filing engine check, Weekday check, task sweeper and County-watch all still ACCESS_DENIED on their last runs; this pass used four get_trigger reads instead of the two large list pages).
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 381,454 of 1,000,000 (autocompact at 784,000).
+  Score 6 of 10 passing. No NEW failure, no alert. Slip: my first Weekday-check read used a mistyped trigger id and was rejected; redone with the right id.
