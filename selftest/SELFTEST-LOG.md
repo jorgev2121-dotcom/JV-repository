@@ -1139,3 +1139,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed (seven_day). Context 737,789 of 1,000,000 (autocompact at 784,000, close).
   Score 6 of 10 passing. No NEW failure, no alert.
+
+## 2026-11-12T18:18Z · 18Z self-test pass 113 (Thu 11-12, 1:1x PM ET)
+  1 PANEL INBOX: pass (task-comments new=0).
+  2 PROBE: planted selftest-probe-2026111218 at 18:17:02Z; the 18:41Z runner answers it. Previous probe (2026111212) was answered.
+  3 PANEL LOADS: not checked.
+  4 PC ALIVE: pass (uptime heartbeat 18:16:36Z; RAM guard 18:16:12Z GREEN).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL, unchanged for the denied ones (Filing engine check, Weekday check, task sweeper all ACCESS_DENIED on their last runs). Only the first page of triggers was read. WATCH: "RAMBO stall watchdog" last run failed USAGE_LIMIT_REACHED at 18:07Z (new to this log). One run only, so held without an alert; if it fails again next hour it gets one alert.
+  7 MAIL WATCH: pass for Gmail. Outlook search failed three times (Too Many Requests, then a 60 s timeout); mail-check time left at 17:17Z so the next watch re-covers it.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context about 280,000 of 1,000,000 (autocompact at 784,000).
+  Score 6 of 10 passing. No alert sent.
