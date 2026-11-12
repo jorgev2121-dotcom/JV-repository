@@ -1115,3 +1115,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed (seven_day). Context 381,454 of 1,000,000 (autocompact at 784,000).
   Score 6 of 10 passing. No NEW failure, no alert. Slip: my first Weekday-check read used a mistyped trigger id and was rejected; redone with the right id.
+
+## Pass 111 - 2026-11-12T06:17Z (06Z self-test; reads at 06:17Z, probe planted late at 06:42Z after a worker restart interrupted the 06:17Z plant)
+  1 PANEL INBOX: pass (new=0 at 06:17Z and 06:42Z).
+  2 PROBE: pass (probe 2026111206 planted 06:42:22Z, answer due at the 07:41Z runner, inside the 2 hour limit).
+  3 PANEL LOADS: pass (index.html 719,005 bytes, version 1794248937-1f67).
+  4 PC ALIVE: pass (uptime file 06:41:29Z, RAM guard 06:42:04Z).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL, unchanged (Filing engine check, Weekday check, task sweeper and County-watch all still ACCESS_DENIED on their last runs).
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 573,668 of 1,000,000 (autocompact at 784,000).
+  Score 6 of 10 passing. No NEW failure, no alert.
