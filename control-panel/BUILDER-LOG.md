@@ -764,3 +764,4 @@
 2026-11-12T10:41Z · runner · allowed (seven_day) · items 0 started · queue unchanged · blocked: RED items wait on Jorge
 2026-11-12T11:42Z · runner · allowed (seven_day) · items 0 started · queue unchanged · blocked: RED items wait on Jorge
 2026-11-12T12:42Z · runner · allowed (seven_day) · items 0 started · queue unchanged · blocked: RED items wait on Jorge
+2026-11-12T13:42Z runner · items 0 of 0 · panel unchanged (test copy v63.2, live v63) · queue depth: waiting on Jorge yes · blocked: nine xAI payments, Natalie draft, Piwko TRK, watchdog
