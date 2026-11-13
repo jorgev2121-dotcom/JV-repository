@@ -537,3 +537,28 @@ within 30 days.**
 3. **Same address, new version.** Publish over the existing page so saved decisions and links carry over. Record the old version id in `OPEN-ITEMS.md` so it can be rolled back.
 4. **A fix that adds nothing new does not need a new number.** If it is unclear whether something is an enhancement, ask Jorge in one short question.
 5. **Open question (2026-10-25):** the panel's Change log has used its own "v67 to v70" counter on Oct 23, while the page title said v58. Jorge decides which counter is official. Until he says, the title number is the official one.
+
+---
+
+## 14. Standing rule — EMAIL-PHONE-OCR-SEMANTICS-01 V1
+
+**Owner directive, approved by Jorge 2026-11-12. Full text on the Continuity Board:
+`OWNER-DIRECTIVE_EMAIL-PHONE-OCR-SEMANTICS-01_V1.md`. Tracked as TRK-2026-10056.**
+
+OCR finds the exact emails, phones and names. Semantics decides what to do with them.
+**OCR always runs first. Semantics runs only on items exact matching cannot settle.**
+
+1. OCR, Azure primary, extracts exact emails, phones, names.
+2. Normalize: phones digits only, emails lowercase.
+3. Exact match to a job in the circle of truth: attach to the master TRK folder.
+4. No match or conflict: semantics on masked items; Grok Bots judge ambiguous wording.
+5. Still in doubt: orphan folder, 5 hashtags, artifact card, recommendation. Trigger retries the match within 5 minutes, then back to step 3.
+6. Matched items archive in the mini database. Retired numbers become hashtags under the surviving master, never deleted.
+7. Claude final check. Pop-up to Jorge only for RED.
+
+Applies to incoming and outgoing mail. Money, password and Plaud private material stay
+blocked from semantic lanes. Local script does the bulk, RAMBO executes in short pieces,
+every run is logged and timestamped with a rollback script, receipt-only ACKs count as
+nothing. **Moving a client document is still RED (Rule 8): the matcher decides, Jorge
+says yes before anything is filed.** Cloud holds steps 3-4 code in `ocr-semantics/`;
+OCR, scheduling and filing live on the desktop.

@@ -486,3 +486,17 @@ Your last two replies ended by asking Jorge to pick between technical options an
 handing him four decisions. `CLAUDE.md` Rules 1 and 7 forbid both. **Recommend one
 option, give the tradeoff in a single line, and proceed unless he objects.** He is a
 non-technical one-man operation; work handed back to him does not get done.
+
+## Item 15 — EMAIL-PHONE-OCR-SEMANTICS-01 V1 (TRK-2026-10056, PASTE-D-071)
+
+Owner directive 2026-11-12. Rule is now CLAUDE.md section 14. Cloud built and tested the
+normalize/exact-match step: `ocr-semantics/match_exact.py` (5 of 5 synthetic tests,
+proof in `ocr-semantics/proof/`). **Desktop owns everything below. Cloud cannot touch the PC.**
+
+1. Create Windows scheduled task **`EMAIL-PHONE-OCR-SEMANTICS-01_RUN`**, every 5 minutes, running the local OCR + `match_exact.py` over the new-mail and scan drop folders. Read-only on client documents.
+2. OCR first, Azure primary (the three Azure yes/no items are still open in the checkpoint). Feed results to `match_exact.py` with the circle of truth.
+3. Write one log line per run (timestamp, TRK, action, agent, undo path) and a `Rollback_EmailPhoneOCR_YYYY-MM-DD_HHMM.ps1`. Output file must grow each run (RI-002 heartbeat).
+4. Anything that moves a client document stops at RED and waits for Jorge's yes.
+5. Reply with the task name, next run time (`Get-ScheduledTaskInfo`), and the first run's log file. A receipt-only ACK counts as nothing.
+
+Is the task registered and has it run once?

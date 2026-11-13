@@ -1,0 +1,6 @@
+PASS 2026-11-12T20:26:24-05:00 T1 case+format -> MATCH ['TRK-SYNTH-0001']
+PASS 2026-11-12T20:26:24-05:00 T2 phone with +1 -> MATCH ['TRK-SYNTH-0002']
+PASS 2026-11-12T20:26:24-05:00 T3 shared email conflict -> CONFLICT ['TRK-SYNTH-0002', 'TRK-SYNTH-0003']
+PASS 2026-11-12T20:26:24-05:00 T4 no match -> NO_MATCH []
+PASS 2026-11-12T20:26:24-05:00 T5 short junk number -> NO_MATCH []
+5 of 5 synthetic tests passed. Synthetic data only; no real client data touched.
