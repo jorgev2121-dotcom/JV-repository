@@ -337,3 +337,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-13T16:47Z · runner · panel new=0 · governor allowed · context ~357k · Julio arrival waits on desktop save
 - 2026-11-13T17:17Z · watch · mail clear · RAM guard STALE 15 min (PC awake) alerted once · panel new=0
 - 2026-11-13T17:42Z · runner · RAM guard BACK (17:40:02Z) AMBER 5.1 GB pause flag set; Jorge told once (Gmail 1a1d600da3ed9bc4) · panel new=0 · Drive heartbeat 15T8-afZURb_C8vJnOeN9Jf22vZqnL432 · governor allowed · context ~388k
+- 2026-11-13T18:18Z · watch + self-test 117 (5 of 10) · RAM guard RED 3.97 GB no re-alert · panel new=0 · probe 2026111318 planted
