@@ -1151,3 +1151,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed (seven_day). Context about 280,000 of 1,000,000 (autocompact at 784,000).
   Score 6 of 10 passing. No alert sent.
+
+## 2026-11-13T00:18Z · 00Z self-test pass 114 (Thu 11-12, 7:1x PM ET)
+  1 PANEL INBOX: pass (task-comments new=0).
+  2 PROBE: planted selftest-probe-2026111300 at 00:16:54Z; the 00:41Z runner answers it. Previous probe (2026111218) answered 18:42:04Z.
+  3 PANEL LOADS: not checked.
+  4 PC ALIVE: pass (uptime heartbeat 00:16:27Z; RAM guard 00:16:03Z GREEN).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL. Known denied: Filing engine check, Weekday check (21:58Z), task sweeper. NEW: "Rambo" (desktop executor agent) last run 19:34Z USAGE_LIMIT_REACHED; "RAMBO stall watchdog" USAGE_LIMIT_REACHED at 18:07Z and again 00:07Z (second time, so alerted). Only the first page of triggers was read.
+  7 MAIL WATCH: Gmail fine; Outlook search failing since 18:17Z (502), mail-check held at 17:17Z (about 7 h old, so this check reads as FAIL by the 70 min rule; cause is Outlook, not the watch).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context about 450,000 of 1,000,000 (autocompact at 784,000).
+  Score 5 of 10 passing (checks 5, 6, 7 failing, 3 8 9 not checked). NEW failure alert sent once by Gmail (usage limit on Rambo and the watchdog; model change needs Jorge yes). Panel attention doc NOT written: its schema is Jorge's decision records and I did not want to misrender the live panel.
