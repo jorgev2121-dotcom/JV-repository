@@ -1,0 +1,8 @@
+{"circle":[{"trk":"TRK-SYNTH-0001","emails":["Owner.A@Example.com"],"phones":["(305) 555-0101"]},
+{"trk":"TRK-SYNTH-0002","emails":["shared@example.com"],"phones":["305.555.0102"]},
+{"trk":"TRK-SYNTH-0003","emails":["shared@example.com"],"phones":["+1 305 555 0103"]}],
+"items":[{"id":"T1 case+format","emails":["OWNER.a@example.COM"],"phones":[]},
+{"id":"T2 phone with +1","emails":[],"phones":["1-305-555-0102"]},
+{"id":"T3 shared email conflict","emails":["shared@example.com"],"phones":[]},
+{"id":"T4 no match","emails":["nobody@nowhere.org"],"phones":["786-555-9999"]},
+{"id":"T5 short junk number","emails":[],"phones":["555-0101"]}]}
