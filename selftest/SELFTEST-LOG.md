@@ -1175,3 +1175,8 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed (seven_day). Context about 615,000 of 1,000,000 (autocompact at 784,000).
   Score 4 of 10 passing (1, 2, 4, 10). Correction: pass 114's "5 of 10" counted one check too many; its true count was 4 of 10 as well. No NEW failure, no alert.
+
+2026-11-13T12:19Z 12Z self-test pass 116 (checks run: 1, 2, 4, 7, 10; check 6 not rechecked this pass; 3, 5, 8, 9 not checked)
+  7 MAIL WATCH: PASS. Outlook search worked at 12:19Z; the 02:17Z to 12:19Z gap was fully read (85 of 85) and mail-check advanced.
+  10 USAGE: allowed (seven_day). Context about 735,000 of 1,000,000 (autocompact at 784,000, expect compaction soon; everything is in files).
+  Score 5 of 10 counted (1, 2, 4, 7, 10 passing as of last known state; 5 and 6 still failing, others not run). No NEW failure; RAM guard RED alerted separately.
