@@ -329,3 +329,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-13T12:19Z · watch · Gmail clear · Outlook gap CLOSED (85 read, no job mail) · RAM guard RED 3.75 GB, Jorge alerted once · panel new=0 · probe 2026111312 planted
 - 2026-11-13T12:22Z · alert sent: RAM guard RED + Intuit code question (Gmail 1a1d4db76d930dfc + push)
 - 2026-11-13T12:42Z · runner · panel new=0 after probe 2026111312 answered (12:42:36Z) · RAM guard RED alert already sent · Drive heartbeat 1LOrmK8HEkAiD2tbJBnegeCHZmbeHMX1F · governor allowed · context about 177k
+- 2026-11-13T13:55Z · watch · MAIL/DRIVE NOT CHECKED (connectors down) · mail-check held 12:19Z · panel new=0
