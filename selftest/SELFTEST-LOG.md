@@ -1163,3 +1163,15 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   8 STATUS BOARD / 9 VIEWERS: not checked.
   10 USAGE: allowed (seven_day). Context about 450,000 of 1,000,000 (autocompact at 784,000).
   Score 5 of 10 passing (checks 5, 6, 7 failing, 3 8 9 not checked). NEW failure alert sent once by Gmail (usage limit on Rambo and the watchdog; model change needs Jorge yes). Panel attention doc NOT written: its schema is Jorge's decision records and I did not want to misrender the live panel.
+
+## 2026-11-13T06:18Z · 06Z self-test pass 115 (Fri 11-13, 1:1x AM ET)
+  1 PANEL INBOX: pass (task-comments new=0).
+  2 PROBE: planted selftest-probe-2026111306 at 06:17:34Z; the 06:41Z runner answers it. Previous probe (2026111300) answered 00:41:38Z.
+  3 PANEL LOADS: not checked.
+  4 PC ALIVE: pass (uptime heartbeat 06:16:20Z, awake 130 h; RAM guard 06:17:06Z GREEN 8.5 GB free).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt found; newest name match is a 11-07 NO-MATCH log).
+  6 SCHEDULED TASKS: FAIL, unchanged. Denied: Filing engine check, Weekday check, task sweeper. Usage limit: Rambo (19:34Z) and RAMBO stall watchdog (third failure, 02:07Z); Jorge already alerted 00:18Z. Overnight OCR routine is running now (started 06:17:31Z). Only the first page of triggers was read.
+  7 MAIL WATCH: FAIL. Gmail fine; Outlook search 502 on every try since 03:16Z, mail-check held at 02:17Z (4 h old). Cause is the Outlook connector, not the watch.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context about 615,000 of 1,000,000 (autocompact at 784,000).
+  Score 4 of 10 passing (1, 2, 4, 10). Correction: pass 114's "5 of 10" counted one check too many; its true count was 4 of 10 as well. No NEW failure, no alert.
