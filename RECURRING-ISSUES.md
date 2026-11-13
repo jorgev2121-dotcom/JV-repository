@@ -2510,3 +2510,4 @@ branch AND open PR branches; or give each window its own number block.
 - 2026-11-13T17:42Z RAM guard heartbeat quiet from 17:01Z, back by 17:40Z (at least 15 min); recorded under the 17:17Z line above.
 - 2026-11-13T19:18Z RAM guard RED again 19:16Z (llama-server 5.1 GB), third time today (12:18Z, 18:17Z, 19:16Z); not re-alerted; the same local model every time. Tier 3 watchdog or removing the local model both await Jorge's yes.
 - 2026-11-13T19:42Z RAM guard quiet again from 19:16Z (RED at last write), 26 min at 19:42Z; second quiet spell today; same trigger each time is the local model llama-server near 5 GB. Option A (switch off its auto-start) offered to Jorge.
+- 2026-11-13T20:16Z RAM guard RED 2.86 GB at 19:54Z then quiet at least 22 min (third RED/quiet spell today); same llama-server cause; option A awaits Jorge.
