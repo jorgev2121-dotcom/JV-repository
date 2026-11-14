@@ -816,3 +816,4 @@
 - 2026-11-14T15:42Z · runner · budget allowed_warning (last read, not re-read) · items 0 of 0 · queue depth unchanged · blocked: none new
 - 2026-11-14T16:42Z · runner · budget allowed_warning (last read, not re-read) · items 0 of 0 · queue depth unchanged · blocked: none new
 - 2026-11-14T17:42Z · runner · budget allowed_warning (last read, not re-read) · items 0 of 0 · queue depth unchanged · blocked: none new
+- 2026-11-14T18:43Z · runner · budget allowed (last read, not re-read) · items 1 of 1 (probe) · queue depth unchanged · blocked: none new
