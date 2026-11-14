@@ -1189,3 +1189,12 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   7 MAIL WATCH: PASS. Gmail and Outlook both searched this pass; gap closed since 17:17Z; no job mail.
   10 USAGE: allowed (seven_day). Context about 399,000 of 1,000,000 (autocompact at 784,000).
   Score 5 of 10 counted passing (1, 2, 4, 7, 10). No NEW failure; RAM guard RED at 18:17:02Z logged, not re-alerted (flips every 2 to 3 hours; Jorge told at 12:21Z and 17:17Z).
+
+2026-11-14T00:17Z 00Z self-test pass 118 (checks run: 1, 2, 4, 5, 7, 10; check 6 not rechecked this pass; 3, 8, 9 not checked)
+  1 PANEL INBOX: PASS. task-comments new=0 apart from the fresh probe; 11 approvals still routed (WORK-QUEUE item 29 or impossible-for-agents), no doneAt, by design.
+  2 PROBE: PASS. Previous probe 2026111318 answered 18:42:04Z. New probe selftest-probe-2026111400 planted 00:16:54Z.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md written 00:16:55Z; awake about 148 h.
+  5 OCR FLOWING: FAIL (persistent). No .SEARCH.txt modified since 11-12 00:00Z.
+  7 MAIL WATCH: PASS. last-mail-check was 60 min old; both mailboxes searched this pass.
+  10 USAGE: allowed (seven_day). Context about 618,000 of 1,000,000 (autocompact at 784,000).
+  Score 5 of 10 counted passing (1, 2, 4, 7, 10). No NEW failure.
