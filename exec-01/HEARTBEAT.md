@@ -391,3 +391,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-14T19:42Z · runner · panel new=0 · governor not re-read (last allowed) · Drive heartbeat 1942Z
 - 2026-11-14T20:17Z · watch · RAM guard silent 61 min asked once (PC uptime fresh) · panel new=0
 - 2026-11-14T20:42Z · runner · panel new=0 · governor not re-read (last allowed) · Drive heartbeat 2042Z
+- 2026-11-14T21:16Z · watch · all clear · RAM guard writing again (quiet spell 19:15Z to 20:58Z ended) · panel new=0
