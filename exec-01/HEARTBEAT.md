@@ -353,3 +353,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-14T00:42Z · runner · probe 2026111400 answered 00:42:12Z · panel new=0 · RAM guard fresh 00:42:07Z GREEN 10.5 GB pause off · Drive heartbeat 1yxv_IkbSZzwBvrfG6LjPggtvBdp9wxT_ · governor allowed · context ~662k
 - 2026-11-14T01:16Z · watch · all clear · RAM guard GREEN 10 GB · panel new=0
 - 2026-11-14T01:42Z · runner · panel new=0 · governor allowed · context ~693k · Drive heartbeat 1pTaU1a7EBF_tsmcP6bKvMWHUI2Nk5H5A · RAM guard not read this cycle (GREEN 01:16Z)
+- 2026-11-14T02:17Z · watch · all clear · RAM guard GREEN 8.9 GB (25 min old, bursty) · panel new=0
