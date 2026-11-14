@@ -373,3 +373,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-14T10:42Z · runner · panel new=0 · governor not re-read (last allowed_warning, light) · Drive heartbeat 1042Z
 - 2026-11-14T11:17Z · watch · all clear · RAM guard fresh · panel new=0
 - 2026-11-14T11:42Z · runner · panel new=0 · governor not re-read (last allowed_warning, light) · Drive heartbeat 1142Z
+- 2026-11-14T12:17Z · watch+selftest 120 (5 of 10) · Burn Rate EXECUTED relayed once · panel new=0 · probe 2026111412 written
