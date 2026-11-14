@@ -1,6 +1,6 @@
 # Financial accounts inventory for QuickBooks — TRK-2026-10059
 
-**Written by:** ☁️ Cloud, 2026-11-14 (Eastern).
+**Written by:** ☁️ Cloud, 2026-11-14 about 4:15 PM ET.
 **Purpose:** one list of every bank account, credit card, debit card, loan and payment channel Team USA Sales / CU Inspections uses, so the QuickBooks chart of accounts can be filled in one pass the moment the QuickBooks connector is re-authorized.
 **Rule (Article 5 of CLAUDE.md):** nickname and last-4 only. No full account numbers anywhere in this file.
 **TRK note:** 10059 = the 11-12 checkpoint's 10056 + 3. Registry is on the desktop (not reachable from cloud). Verify before reuse.
