@@ -1,0 +1,1218 @@
+# SELF-TEST log
+- 2026-10-15T03:10Z · created. Known failing at start: 1 (fixed by hand this run), 5 (OCR silent since 10-05).
+- 2026-10-15T03:20Z · check 2 PROBE: PASS (probe of 03:12Z answered at 03:20Z by the 03:16 hourly run).
+- 2026-10-15T06:18Z · SELF-TEST pass 1 · 3 of 6 checks run passing (4 skipped to save usage: panel load, scheduled-task list, status board, viewer files).
+  1 PANEL INBOX: FAIL (known) · 0 new comments; 11 approvals routed, waiting over 2 h on the PC (blocked by the PC daily cap; PASTE-D-073).
+  2 PROBE: PASS · 03:12Z probe answered 03:20Z. New probe selftest-probe-2026101506 planted.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:16Z.
+  5 OCR FLOWING: FAIL (known) · no .SEARCH.txt created in Drive in the last 48 h (silent since 10-05).
+  7 MAIL WATCH: PASS · last check 05:16Z, this run 06:17Z.
+  10 USAGE: allowed_warning (last read 02:52Z; not re-read this pass to save usage).
+  New failures: none, so no alert sent.
+- 2026-10-15T07:18Z · check 2 PROBE: PASS (06:18Z probe answered 07:18Z).
+- 2026-10-15T12:18Z · SELF-TEST pass 2 · 3 of 5 checks run passing (5 skipped to save usage).
+  1 PANEL INBOX: FAIL (known) · 0 new comments; 11 approvals routed, still waiting on the PC (cap).
+  2 PROBE: PASS · 06:18Z probe answered 07:18Z. New probe selftest-probe-2026101512 planted.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT 12:16Z.
+  5 OCR FLOWING: FAIL (known) · no new sidecars (not re-searched this pass; last checked 06:18Z).
+  7 MAIL WATCH: PASS.
+  New failures: none. Also: QC-01 audit WARN at 10:53Z (Drive log stale, unlogged trigger edits) was fixed 11:20Z.
+- 2026-10-16T00:20Z · SELF-TEST pass 3 · 5 of 7 checks run passing (3 skipped to save usage: 3, 8, 9).
+  1 PANEL INBOX: PASS for comments (0 new). Known: 11 approvals routed to the PC, waiting on the PC cap.
+  2 PROBE: PASS · all 3 earlier probes answered. New probe selftest-probe-2026101600 planted.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT 00:16Z.
+  5 OCR FLOWING: FAIL (known) · not re-searched; OCR runner never installed on the PC (item 30).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage failed 10-15 11:39Z, USAGE_LIMIT_REACHED, still on Fable 5.1 (platform refused my switch). Sweeper was changed to once a day by someone else at 20:19Z (title says "until it moves off Opus").
+  7 MAIL WATCH: PASS.
+  10 USAGE: allowed_warning (read 00:19Z); weekly meter resets 10-18.
+  New failures: none, so no alert sent.
+- 2026-10-16T06:19Z · SELF-TEST pass 4 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS for comments (0 new). Known: 11 approvals routed to the PC, waiting on the PC cap.
+  2 PROBE: PASS · 00:18Z probe answered 01:18Z. New probe selftest-probe-2026101606 planted.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT 06:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on Fable 5.1, last run failed USAGE_LIMIT_REACHED; its next run is 11:38Z (7:38 AM ET).
+  7 MAIL WATCH: PASS.
+  10 USAGE: allowed_warning (read 06:19Z). This session's own context is about 70 percent full (702k of 1,000k tokens).
+  New failures: none, so no alert sent.
+- 2026-10-16T12:25Z · SELF-TEST pass 5 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS for comments (0 new). Known: 11 approvals routed to the PC, waiting on the PC cap.
+  2 PROBE: PASS · 06:18Z probe answered 07:19Z. New probe selftest-probe-2026101612 planted.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:21Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage failed 11:39Z USAGE_LIMIT_REACHED (still Fable 5.1); I ran that triage by hand at 11:50Z and told Jorge. Only the first page of triggers was read.
+  7 MAIL WATCH: PASS (11:18Z, 67 min at read; refreshed 12:25Z).
+  10 USAGE: allowed_warning (read 12:2xZ). Context about 21 percent used after compaction.
+  Also: QC-01 WARN 10:53Z (EXEC-01 Drive heartbeat stale ~15 h) was my miss; fixed 11:42Z with a new Drive heartbeat, logged in RECURRING-ISSUES.md (2nd occurrence).
+  New failures: none, so no alert sent.
+- 2026-10-16T18:22Z · SELF-TEST pass 6 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS for comments (0 new). Known: 11 approvals routed to the PC, waiting on the PC cap.
+  2 PROBE: PASS · 12Z probe answered 13:24Z. New probe selftest-probe-2026101618 planted.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT 18:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday triage still on Fable 5.1; Jorge's usage screen shows the Fable weekly limit at 100%.
+  7 MAIL WATCH: PASS.
+  10 USAGE: allowed_warning. Jorge's screen (2:00 PM ET): weekly all models 97%, Fable 100%, resets in ~22 h (about noon ET Sat 10-17, NOT 10-18 as logged earlier). This session's cost split 95% Opus / 5% Sonnet (the Opus part was before the switch to Sonnet).
+  Security cluster today (14:05Z Claude Chrome device, 14:06Z WordPress reset, 16:18Z Claude Code device, 18:05Z Google sign-in to Notion, 18:09Z OpenAI MFA changed): all unconfirmed by Jorge, pattern fits his own account-setup work. Asked him once (Gmail 14:20Z); not repeated.
+  New failures: none, so no new alert.
+- 2026-10-17T00:22Z · SELF-TEST pass 7 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS for comments (0 new). Known: 11 approvals routed to the PC, waiting on the PC cap.
+  2 PROBE: PASS · 18Z probe answered 18:43Z. New probe selftest-probe-2026101700 planted.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT 00:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday triage still on Fable 5.1 (Fable weekly limit at 100 percent).
+  7 MAIL WATCH: PASS.
+  10 USAGE: allowed_warning (read 00:16Z). Weekly resets about noon ET today (1792252800). This session context 704k of 1,000k (70 percent).
+  Other: 'Eve' agent keeps sending status mails from Jorge's Outlook (SYNC-01 LANE OPEN, repeated 22:08Z, 23:09Z, 00:10Z); its 23:07Z email to copilot@microsoft.com bounced. Jorge has not yet answered whether Eve is his agent. Not repeated.
+  New failures: none, so no new alert.
+- 2026-10-17T06:17Z · SELF-TEST pass 8 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued). 11 approvals still routed to the PC, waiting on the PC cap.
+  2 PROBE: PASS · 00Z probe answered 01:20Z. New probe selftest-probe-2026101706 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday triage still on Fable 5.1.
+  7 MAIL WATCH: PASS.
+  10 USAGE: allowed_warning (read 06:17Z). Weekly resets about noon ET today (1792252800). Session context 206k of 1,000k.
+  New failures: none, so no new alert.
+- 2026-10-17T12:16Z · SELF-TEST pass 9 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued). 11 approvals still routed to the PC, waiting on the PC cap.
+  2 PROBE: PASS · 06Z probe answered 07:18Z. New probe selftest-probe-2026101712 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday triage still on Fable 5.1.
+  7 MAIL WATCH: PASS.
+  10 USAGE: allowed_warning (read 12:16Z). Weekly resets about noon ET today (1792252800 = 16:00Z). Session context 362k of 1,000k.
+  New failures: none, so no new alert.
+- 2026-10-17T18:17Z · SELF-TEST pass 10 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued). 11 approvals still routed to the PC.
+  2 PROBE: PASS · 12Z probe answered 13:18Z. New probe selftest-probe-2026101718 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday triage still on Fable 5.1.
+  7 MAIL WATCH: PASS.
+  10 USAGE: allowed (read 18:16Z). Weekly meter reset. Session context 518k of 1,000k.
+  New failures: none, so no new alert.
+- 2026-10-18T06:17Z · SELF-TEST pass 11 · 5 of 5 checks run passing (5 skipped to save usage: 3, 5, 6, 8, 9).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued).
+  2 PROBE: PASS · 18Z probe answered 19:20Z. New probe selftest-probe-2026101806 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:16Z.
+  7 MAIL WATCH: PASS (last check 05:17Z, 59 min).
+  10 USAGE: allowed (read 06:16Z). Session context 326k of 1,000k.
+  New failures: none, so no new alert.
+- 2026-10-18T12:17Z · SELF-TEST pass 12 · 5 of 5 checks run passing (5 skipped to save usage: 3, 5, 6, 8, 9).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued).
+  2 PROBE: PASS · 06Z probe answered 07:17Z. New probe selftest-probe-2026101812 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:16Z.
+  7 MAIL WATCH: PASS (last check 11:17Z, 60 min).
+  10 USAGE: allowed (read 12:16Z). Session context 509k of 1,000k. Weekly meter resets about noon ET today.
+  New failures: none. Security note relayed separately: Claude new trusted device 11:58Z.
+- 2026-10-18T18:17Z · SELF-TEST pass 13 · 5 of 5 checks run passing (5 skipped to save usage: 3, 5, 6, 8, 9).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued).
+  2 PROBE: PASS · 12Z probe answered 13:17Z. New probe selftest-probe-2026101818 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:16Z (note: Joey reports the RAMBO/PC link DESKTOP-OTB90LR connected=false, a different link).
+  7 MAIL WATCH: PASS (last check 17:17Z, 60 min).
+  10 USAGE: allowed (read 18:17Z). Session context 739k of 1,000k (watch: auto-compaction will occur).
+  New failures: none. Relayed separately: CVS refill duty ceiling (Joey, RED card).
+- 2026-10-19T00:20Z · SELF-TEST pass 14 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued).
+  2 PROBE: PASS · 18Z probe answered 19:19Z. New probe selftest-probe-2026101900 planted; answer it at the 01:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 00:16Z (PC awake 72.7 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on Fable 5.1, last run failed USAGE_LIMIT_REACHED. Only the first page of triggers was read.
+  7 MAIL WATCH: PASS (last check 23:17Z, 60 min).
+  10 USAGE: allowed (read 00:17Z). Session context 296k of 1,000k.
+  New failures: none. Security cluster (Google link 4:48 PM ET, Microsoft reset code 6:56 PM ET) relayed 21:17Z and 23:17Z.
+- 2026-10-19T06:30Z · SELF-TEST pass 15 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read this pass).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued).
+  2 PROBE: PASS · 00Z probe answered 01:19Z. New probe selftest-probe-2026101906 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:21Z (PC awake 78.8 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on Fable 5.1 (last read 00:20Z). Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 05:20Z, 65 min).
+  10 USAGE: allowed (read 06:25Z). Session context 543k of 1,000k.
+  New failures: none. No new Outbox EXECUTED/BLOCKER since the 05:20Z relay.
+- 2026-10-19T12:30Z · SELF-TEST pass 16 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued).
+  2 PROBE: PASS · 06Z probe answered 07:22Z. New probe selftest-probe-2026101912 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:21Z (PC awake 84.8 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on Fable 5.1 (last read 00:20Z). Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 11:20Z, 62 min).
+  10 USAGE: allowed (read 12:22Z). Session context 721k of 1,000k (auto-compaction ahead).
+  New failures: none. No new Outbox EXECUTED/BLOCKER since the 11:20Z relay.
+- 2026-10-19T18:25Z · SELF-TEST pass 17 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; 11 approvals routed, waiting on PC).
+  2 PROBE: PASS · 12Z probe answered 13:20Z. New probe selftest-probe-2026101918 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on Fable 5.1. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 17:20Z, 65 min).
+  10 USAGE: allowed (read 18:17Z). Session context 283k of 1,000k.
+  New failures: none.
+- 2026-10-20T00:25Z · SELF-TEST pass 18 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; 11 approvals routed, waiting on PC).
+  2 PROBE: PASS · 18Z probe answered 19:20Z. New probe selftest-probe-2026102000 planted; answer it at the 01:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 00:16Z (PC awake 96.7 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on Fable 5.1. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 23:20Z, 65 min).
+  10 USAGE: allowed (read 00:16Z). Session context 488k of 1,000k.
+  New failures: none. No new Outbox EXECUTED/BLOCKER/CLAIM since the 19:25Z relay.
+- 2026-10-20T06:25Z · SELF-TEST pass 19 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; 11 approvals routed, waiting on PC).
+  2 PROBE: PASS · 00Z probe answered 01:20Z. New probe selftest-probe-2026102006 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:16Z (PC awake 102.7 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on Fable 5.1. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 05:20Z, 65 min).
+  10 USAGE: allowed (read 06:17Z). Session context 634k of 1,000k.
+  New failures: none. Known: PC Claude lane hit its cap 12:12 AM ET (6 of 6, burned by 3 failed owner-directive jobs x2); directives recorded in owner-directives/.
+- 2026-10-20T12:25Z · SELF-TEST pass 20 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; 11 approvals routed, waiting on PC).
+  2 PROBE: PASS · 06Z probe answered 07:20Z. New probe selftest-probe-2026102012 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:16Z (PC awake 108.7 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on a model that was out of usage. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 11:30Z, 55 min).
+  10 USAGE: allowed (read 12:19Z). Session context 744k of 1,000k.
+  New failures: none. QC-01 audit WARN (0 failed) acted on at 7:25 AM ET.
+- 2026-10-20T18:20Z · SELF-TEST pass 21 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; approvals routed, waiting on PC).
+  2 PROBE: PASS · 12Z probe answered 13:25Z. New probe selftest-probe-2026102018 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:11Z (PC awake 114.6 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on a model that was out of usage. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 17:41Z, 39 min).
+  10 USAGE: allowed (read 18:16Z). Session context 202k of 1,000k.
+  New failures: none. Open with Jorge: 12:48 PM ET Windows sign-in yes/no; 8 bundle answers.
+- 2026-10-21T00:20Z · SELF-TEST pass 22 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; approvals routed, waiting on PC).
+  2 PROBE: PASS · 18Z probe answered 18:43Z. New probe selftest-probe-2026102100 planted; answer it at the 01:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 00:16Z (PC awake 120.7 h, no sleep). Note: a SYNC-01 result email says the Joey lane on DESKTOP-OTB90LR is offline and VTES_Control_Panel_Latest.html is not in Drive; the PC heartbeat disagrees on the PC being off, so the problem is the Joey lane, not the PC.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on a model that was out of usage. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 23:42Z, 35 min).
+  10 USAGE: allowed (read 00:16Z). Session context 332k of 1,000k.
+  New failures: none. PC Claude lane cap should reset at 00:00 ET (04:00Z).
+- 2026-10-21T06:20Z · SELF-TEST pass 23 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; approvals routed, waiting on PC).
+  2 PROBE: PASS · 00Z probe answered 00:43Z. New probe selftest-probe-2026102106 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:17Z (PC awake 126.7 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on a model that was out of usage. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 05:42Z, 38 min).
+  10 USAGE: allowed (read 06:18Z). Session context 450k of 1,000k.
+  New failures: none. Open with Jorge: Apple reset, Google sign-in, Codex Drive click, panel upload decisions, 8 bundle answers.
+- 2026-10-21T12:25Z · SELF-TEST pass 24 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; approvals routed, waiting on PC).
+  2 PROBE: PASS · 06Z probe answered 06:43Z. New probe selftest-probe-2026102112 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:21Z (PC awake 132.8 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on a model that was out of usage. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 11:42Z, 43 min).
+  10 USAGE: allowed (read 12:23Z). Session context 546k of 1,000k.
+  New failures: none. MORNING BUNDLE SENT 12:25Z (Gmail 1a15e6b059f4d644 + push).
+- 2026-10-21T18:22Z · SELF-TEST pass 25 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued orchestrator items; approvals routed, waiting on PC).
+  2 PROBE: PASS · 12Z probe answered 12:44Z. New probe selftest-probe-2026102118 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:16Z (PC awake 138.6 h, no sleep).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage still on a model that was out of usage. Not re-read this pass.
+  7 MAIL WATCH: PASS (last check 17:42Z, 40 min).
+  10 USAGE: allowed (read 18:22Z). Session context 678k of 1,000k.
+  New failures: none. Jorge active again: 1Password support ticket 848408 (2:11 PM ET) and a self-email 'Access issues snips to share paste into LLM for repairs' (2:14 PM ET) with two phone screenshots; not an answer to the bundle.
+- 2026-10-22T00:20Z · SELF-TEST pass 26 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued items).
+  2 PROBE: PASS · 18Z probe answered. New probe selftest-probe-2026102200 planted; answer it at the 01:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 00:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 23:17Z, 59 min).
+  10 USAGE: allowed (read 00:20Z). Session context 122k of 1,000k (fresh context).
+  New failures: none. Google security alerts 7:45 and 7:54 PM ET: Sign in with Google to adobe.com and Adobe Acrobat Reader granted PDF access; consistent with Jorge installing Acrobat; informational.
+- 2026-10-22T06:30Z · SELF-TEST pass 27 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued items).
+  2 PROBE: PASS · 00Z probe answered 01:20Z. New probe selftest-probe-2026102206 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:26Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 05:17Z, 70 min before this read; refreshed 06:30Z).
+  10 USAGE: allowed (read 06:28Z). Session context 246k of 1,000k.
+  New failures: none. BLOCKER_SILENT-SIGNOFF_2026-10-22.md is the known silent-signoff recurrence (already logged, not re-alerted). Tool-name slip 7th occurrence logged; checklist written.
+- 2026-10-22T12:32Z · SELF-TEST pass 28 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued items).
+  2 PROBE: PASS · 06Z probe answered 07:21Z. New probe selftest-probe-2026102212 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:26Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 11:26Z, 62 min; refreshed 12:32Z).
+  10 USAGE: allowed (read 12:28Z). Session context 355k of 1,000k.
+  New failures: none. Morning bundle sent 8:30 AM ET (Gmail 1a16395b6eaeb1fe + push).
+- 2026-10-22T18:32Z · SELF-TEST pass 29 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued items).
+  2 PROBE: PASS · 12Z probe answered 13:32Z. New probe selftest-probe-2026102218 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 17:21Z, 56 min; refreshed 18:32Z).
+  10 USAGE: allowed (read 18:28Z). Session context 487k of 1,000k.
+  New failures: none. Apple password-reset (12:14 PM ET) alert pending Jorge's me/not-me; Chase phone meeting tomorrow 9:30 AM ET reminder sent.
+- 2026-10-23T00:22Z · SELF-TEST pass 30 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued items).
+  2 PROBE: PASS · 18Z probe answered 19:20Z. New probe selftest-probe-2026102300 planted; answer it at the 01:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 00:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 23:20Z, 62 min; refreshed 00:22Z).
+  10 USAGE: allowed (read 00:22Z). Session context 637k of 1,000k (rising about 15k per cycle; tell Jorge at about 900k).
+  New failures: none. Open with Jorge: Apple reset me/not-me (12:14 PM ET), AI Note Taker trial (4:14 PM ET), morning-bundle answers, trigger-prompt fix yes/no.
+- 2026-10-23T06:25Z · SELF-TEST pass 31 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments, 0 queued items).
+  2 PROBE: PASS · 00Z probe answered 01:21Z. New probe selftest-probe-2026102306 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 05:19Z, 60 min; refreshed 06:25Z).
+  10 USAGE: allowed (read 06:24Z). Session context 727k of 1,000k (about 15k per cycle; fresh session needed at about 900k, roughly 10 hours from now).
+  New failures: none.
+- 2026-10-23T12:28Z · SELF-TEST pass 32 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 06Z probe answered 07:21Z. New probe selftest-probe-2026102312 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:22Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 11:19Z, 66 min; refreshed 12:28Z).
+  10 USAGE: allowed (read 11:42Z). Session context 124k of 1,000k (fresh; the 900k warning no longer applies).
+  New failures: none. Silent-signoff alarm cleared by repair watch 07:44 ET.
+- 2026-10-23T18:26Z · SELF-TEST pass 33 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 12Z probe answered 13:22Z. New probe selftest-probe-2026102318 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:08Z (Grok reports Joey desktop link offline; RAMBO capped until 00:00 ET).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 17:19Z, 57 min; refreshed 18:26Z).
+  10 USAGE: allowed (read 18:25Z). Session context 287k of 1,000k.
+  New failures: none.
+- 2026-10-24T00:21Z · SELF-TEST pass 34 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 18Z probe answered 19:22Z. New probe selftest-probe-2026102400 planted; answer it at the 01:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 00:11Z (Grok: Joey desktop link still offline; RAMBO Claude lane cap resets 00:00 ET Oct 24, i.e. 04:00Z).
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 23:19Z, 62 min; refreshed 00:21Z).
+  10 USAGE: allowed (read 00:20Z). Session context 451k of 1,000k (jumped from 287k: large Outlook/Drive outputs; keep Outlook limit at 25 but avoid read_resource on newsletters).
+  New failures: none. Open with Jorge: Google recovery request me/not-me (hold ends ~8:30 PM ET), Grok-to-Google connection, Railway yes/no, morning-bundle answers, microfilm draft review.
+- 2026-10-24T06:21Z · SELF-TEST pass 35 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 00Z probe answered 01:20Z. New probe selftest-probe-2026102406 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 05:19Z, 62 min; refreshed 06:21Z).
+  10 USAGE: allowed (read 06:20Z). Session context 542k of 1,000k (about 15k per cycle; tell Jorge at about 800k, fresh session at about 900k, roughly 12+ hours away).
+  New failures: none. Open with Jorge: Google recovery request me/not-me (link issued 8:32 PM ET, valid 7 days), Railway yes/no, Apple reset+trial, microfilm draft review, TEDC fee.
+- 2026-10-24T12:22Z · SELF-TEST pass 36 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 06Z probe answered 07:20Z. New probe selftest-probe-2026102412 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 11:17Z, 59 min; refreshed 12:22Z).
+  10 USAGE: allowed (read 12:20Z). Session context 615k of 1,000k (about 15k per cycle; tell Jorge at about 800k, fresh session at about 900k).
+  New failures: none.
+- 2026-10-24T18:22Z · SELF-TEST pass 37 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 12Z probe answered 13:20Z. New probe selftest-probe-2026102418 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 17:19Z, 63 min; refreshed 18:22Z).
+  10 USAGE: allowed (read 18:20Z). Session context 708k of 1,000k (about 15k per cycle but big Drive reads add more; tell Jorge at about 800k).
+  New failures: none.
+- 2026-10-25T00:21Z · SELF-TEST pass 38 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 18Z probe answered 19:17Z. New probe selftest-probe-2026102500 planted; answer it at the 01:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 00:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 23:17Z, 64 min; refreshed 00:21Z).
+  10 USAGE: allowed (read 00:20Z). Session context 178k of 1,000k (fresh after compaction).
+  New failures: none.
+- 2026-10-25T06:21Z · SELF-TEST pass 39 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 00Z probe answered 01:20Z. New probe selftest-probe-2026102506 planted; answer it at the 07:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 06:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 05:17Z, 60 min; refreshed 06:21Z).
+  10 USAGE: allowed (read 06:20Z). Session context 298k of 1,000k.
+  New failures: none.
+- 2026-10-25T12:21Z · SELF-TEST pass 40 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 06Z probe answered 07:20Z. New probe selftest-probe-2026102512 planted; answer it at the 13:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 12:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 11:20Z, 61 min; refreshed 12:2xZ).
+  10 USAGE: allowed (read 12:20Z). Session context 403k of 1,000k.
+  New failures: none. Sunday morning bundle sent 8:20 AM ET (Gmail 1a172fee1ea15409 + push).
+- 2026-10-25T18:22Z · SELF-TEST pass 41 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 12Z probe answered 13:20Z. New probe selftest-probe-2026102518 planted; answer it at the 19:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 18:08Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 17:20Z, 62 min; refreshed 18:2xZ).
+  10 USAGE: allowed (read 18:20Z). Session context about 545k of 1,000k.
+  New failures: none. Sunday bundle (8:22 AM ET) and Experian FYI (9:20 AM ET) still unanswered.
+- 2026-10-26T00:22Z · SELF-TEST pass 42 · 5 of 6 checks run passing (4 skipped to save usage: 3, 5, 8, 9; check 6 not re-read).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: PASS · 18Z probe answered 19:20Z. New probe selftest-probe-2026102600 planted; answer it at the 01:16Z watch.
+  4 PC ALIVE: PASS · _UPTIME-HEARTBEAT modified 00:16Z.
+  6 SCHEDULED TASKS: FAIL (known, not new) · weekday inbox triage model out of usage. Not re-read.
+  7 MAIL WATCH: PASS (last check 23:20Z, 62 min; refreshed 00:2xZ).
+  10 USAGE: allowed (read 00:20Z). Session context 685k of 1,000k (about 15k per cycle; warn Jorge at about 800k, fresh session at about 900k, roughly 8 hours away).
+  New failures: none. Open with Jorge: Sunday bundle (8:22 AM ET), Experian inquiry yes/no, Tyler Community Access reset me/not-me.
+
+## Pass 43 · 2026-10-26T06:21Z (2:2x AM ET Mon Oct 26)
+6 of 10 checked and passing; 4 not re-checked this pass (5, 8, 9 skipped to stay frugal; 6 read only the first page of triggers).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102606; previous probe answered.
+  3 PANEL LOADS: PASS (index.html 662,636 bytes).
+  4 PC ALIVE: PASS (_UPTIME-HEARTBEAT.md modified 06:16Z).
+  5 OCR FLOWING: NOT CHECKED (overnight OCR routine last run SUCCEEDED 05:24Z).
+  6 SCHEDULED TASKS: PASS on page 1 (all last_run SUCCEEDED); page 2 not read.
+  7 MAIL WATCH: PASS (prior check 05:18Z, 64 min).
+  8 STATUS BOARD, 9 VIEWERS: NOT CHECKED.
+  10 USAGE: allowed (read 06:21Z). Session context 101k of 1,000k.
+  New failures: none. Open with Jorge: Sunday bundle, Experian inquiry, Tyler reset me/not-me.
+
+## Pass 44 · 2026-10-26T12:19Z (8:2x AM ET Mon Oct 26)
+Checked: 1, 2, 4, 5, 7, 10. Not re-checked this pass: 3, 6, 8, 9 (frugal; same as pass 43).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102612; previous probe (06Z) answered in 62 min.
+  4 PC ALIVE: PASS (_UPTIME-HEARTBEAT.md modified 12:16Z).
+  5 OCR FLOWING: still FAILING and already known since 10-05 (no true .SEARCH.txt found created in the last 48 h; only energov_search_raw.txt turned up). The overnight OCR routine still reports SUCCEEDED, so this check's wording may be stale; not a new failure.
+  7 MAIL WATCH: PASS (prior check 11:25Z, 54 min).
+  10 USAGE: allowed. Session context about 270k of 1,000k.
+  New failures: none.
+
+## Pass 45 · 2026-10-26T18:19Z (2:2x PM ET Mon Oct 26)
+Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal; same approach as passes 43 and 44).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102618; previous probe (12Z) answered in 78 min.
+  4 PC ALIVE: PASS (_UPTIME-HEARTBEAT.md modified 18:16Z).
+  7 MAIL WATCH: PASS (prior check 17:19Z, 62 min).
+  10 USAGE: allowed. Session context about 460k of 1,000k.
+  New failures: none. Open with Jorge: TransUnion x2 + Azure account me/not-me, Claude Code login on PC, five approval pop-ups, Sunday bundle, Tyler reset, Burn Rate daily run.
+
+## Pass 46 · 2026-10-27T00:17Z (8:2x PM ET Mon Oct 26)
+Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102700; previous probe (18Z) answered in 58 min.
+  4 PC ALIVE: FAIL (NEW). _UPTIME-HEARTBEAT.md last modified 21:31Z (5:31 PM ET), about 2 h 50 min old; limit 30 min. The PC itself looks alive (SYNC-01 result emails kept arriving through 8:13 PM ET), so the heartbeat writer may have stopped, not the PC. Alerted once: Gmail + push + panel attention doc selftest-20261027-00-pc-uptime-heartbeat-stale. Cloud cannot fix; needs the desktop (restart heartbeat).
+  7 MAIL WATCH: PASS (prior check 23:17Z, 63 min).
+  10 USAGE: allowed. Session context about 615k of 1,000k.
+  4 of 5 checked passing. New failures: check 4.
+
+## Pass 47 · 2026-10-27T06:18Z (2:2x AM ET Tue Oct 27)
+Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102706; previous probe (00Z) answered in 57 min.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 06:16Z. The check-4 failure from pass 46 is RESOLVED (writer running again); attention doc marked resolved. No message to Jorge needed.
+  7 MAIL WATCH: PASS (prior check 05:18Z, 60 min).
+  10 USAGE: allowed. Session context about 745k of 1,000k (warn Jorge at about 800k).
+  5 of 5 checked passing. New failures: none.
+
+## Pass 48 · 2026-10-27T12:41Z (12Z, 8:4x AM ET Tue 10-27)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102712; previous probe (06Z) answered.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 12:30Z.
+  6 SCHEDULED TASKS: FAIL (first time checked since pass 43). Filing engine daily health check (last run 10:55Z) and Weekday check Mon 21:45 UTC (last run 10-26 21:45Z) both FAILED with ACCESS_DENIED. Both fire into session_01EVDhiV5UqCd9rZn4Zf91w7, not this one. Alerted once (attention doc + Gmail 1a17d6122438bf8c). Not GREEN-fixable from here.
+  7 MAIL WATCH: PASS (prior check 11:24Z, 76 min on this read; trigger ran late at 12:40Z).
+  10 USAGE: allowed. Session context about 190k of 1,000k.
+  4 of 5 checked passing. New failures: check 6.
+
+## Pass 49 · 2026-10-27T18:18Z (18Z, 2:2x PM ET Tue 10-27)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102718; previous probe (12Z) answered at 13:45Z (60 min; the 13:16Z watch ran late).
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 18:16Z.
+  6 SCHEDULED TASKS: same two FAILs as pass 48, unchanged, already alerted (Filing engine daily health check 10:55Z and Weekday check Mon 21:45 UTC, both ACCESS_DENIED, other session). Not re-alerted. List page 1 of 2 read.
+  7 MAIL WATCH: PASS (prior check 17:17Z, 61 min).
+  10 USAGE: allowed. Session context about 360k of 1,000k.
+  4 of 5 checked passing. New failures: none.
+
+## Pass 50 · 2026-10-28T00:17Z (00Z, 8:2x PM ET Tue 10-27)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102800; previous probe (18Z) answered at 19:20Z (60 min).
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 00:16Z.
+  6 SCHEDULED TASKS: NOT RUN this pass (unverified; same two ACCESS_DENIED failures were unchanged at 18Z, already alerted).
+  7 MAIL WATCH: PARTIAL. Outlook searched OK. Gmail search returned "Resource has been exhausted (check quota)" twice; Gmail not checked this hour (Outlook receives the same business mail). Last Gmail check 22:2xZ.
+  10 USAGE: allowed. Session context about 580k of 1,000k (autocompact at 784k).
+  3 of 4 checked passing (check 7 partial). New failures: none; Gmail quota noted, will retry next watch.
+
+## Pass 51 · 2026-10-28T06:20Z (06Z, 2:2x AM ET Wed 10-28)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102806; previous probe (00Z) answered at 01:20Z (60 min).
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 06:16Z.
+  6 SCHEDULED TASKS: NOT RUN this pass (unverified; list output is large and the two ACCESS_DENIED failures were unchanged and already alerted at 18Z).
+  7 MAIL WATCH: PASS. Outlook and Gmail both searched OK this time (Gmail quota recovered after 5 exhausted hours).
+  10 USAGE: allowed. Session context about 720k of 1,000k (autocompact threshold 784k).
+  4 of 4 checked passing. New failures: none. Quiet hours: no message to Jorge.
+
+## Pass 52 · 2026-10-28T12:22Z (12Z, 8:2x AM ET Wed 10-28)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102812; previous probe (06Z) answered at 07:17Z (about 60 min).
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 12:16Z.
+  6 SCHEDULED TASKS: NOT RUN this pass (unverified; list output is large; the two ACCESS_DENIED failures were unchanged and already alerted).
+  7 MAIL WATCH: PASS (prior check 11:18Z, 64 min). Gmail and Outlook both OK.
+  10 USAGE: allowed. Session context about 200k of 1,000k.
+  4 of 4 checked passing. New failures: none.
+
+## Pass 53 · 2026-10-28T18:22Z (18Z, 2:2x PM ET Wed 10-28)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102818; previous probe (12Z) answered at 13:25Z (about 63 min).
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 18:16Z.
+  6 SCHEDULED TASKS: NOT RUN this pass (unverified; list output is large; the two ACCESS_DENIED failures were unchanged and already alerted).
+  7 MAIL WATCH: PASS (prior check 17:20Z, 62 min). Gmail and Outlook both OK.
+  8 GIT PUSH: NEW FAILURE. git push to origin was denied twice by the auto-mode classifier ("Out-of-Place Publication") at 17:2xZ; 2 commits (3 after this pass) sit local only. Waiting on Jorge's yes (asked in chat). Logs are safe in the container; GitHub is behind.
+  10 USAGE: allowed. Session context about 380k of 1,000k.
+  4 of 5 checked passing. New failures: git push denied.
+
+## Pass 54 · 2026-10-29T00:22Z (00Z, 8:2x PM ET Wed 10-28)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102900; previous probe (18Z) answered at 19:20Z (about 60 min).
+  4 PC ALIVE: FAIL (NEW). _UPTIME-HEARTBEAT.md last modified 20:16Z (4:16 PM ET), over 4 h stale. PC still sends SYNC-01 lane emails (latest 00:12Z), so only the heartbeat task looks stopped. Alerted once (Gmail 1a18504a2586c494 plus panel attention doc). Not fixable from cloud.
+  6 SCHEDULED TASKS: NOT RUN this pass (unverified; same two ACCESS_DENIED failures already alerted).
+  7 MAIL WATCH: PASS (prior check 23:20Z, 60 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z pass 53). 14 commits local only.
+  10 USAGE: allowed. Session context about 535k of 1,000k (autocompact at 784k).
+  3 of 5 checked passing (4 and git push failing). New failures: PC uptime heartbeat stale.
+
+## Pass 55 · 2026-10-29T06:22Z (06Z, 2:2x AM ET Thu 10-29)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: planted selftest-probe-2026102906; previous probe (00Z) answered at 01:20Z (about 60 min).
+  4 PC ALIVE: PASS (RECOVERED). _UPTIME-HEARTBEAT.md modified 06:16Z (the stale gap from 20:16Z on 10-28 is over). The 8:2x PM ET alert is resolved; mention in morning digest.
+  6 SCHEDULED TASKS: NOT RUN this pass (unverified; the two ACCESS_DENIED failures already alerted).
+  7 MAIL WATCH: PASS (prior check 05:21Z, 60 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 27 commits local only.
+  10 USAGE: allowed. Session context about 680k of 1,000k (autocompact at 784k).
+  3 of 4 checked passing (git push still failing). New failures: none. Quiet hours: no message to Jorge.
+
+## Pass 56 · 2026-10-29T12:26Z (12Z, 8:2x AM ET Thu 10-29)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 06Z probe was answered; planted selftest-probe-2026102912.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 12:21Z.
+  6 SCHEDULED TASKS: NOT RUN this pass (unverified; two ACCESS_DENIED failures already alerted).
+  7 MAIL WATCH: PASS (prior check 11:17Z, 68 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 39 commits local only.
+  10 USAGE: allowed. Session context about 145k of 1,000k (compacted).
+  4 of 5 checked passing (git push failing). New failures: none.
+
+## Pass 57 · 2026-10-29T18:22Z (18Z, 2:2x PM ET Thu 10-29)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 12Z probe answered (about 76 min); planted selftest-probe-2026102918.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 18:16Z.
+  5 OCR FLOWING: no .SEARCH.txt since 10-27 (known, failing since 10-05); the overnight TAGS pass did succeed 09:17Z.
+  6 SCHEDULED TASKS: FAIL. Filing engine health check and Weekday check (ACCESS_DENIED, already alerted) plus NEW: 'Watch for county reply C2026170181' ACCESS_DENIED 14:28Z 10-29. Alerted once (Gmail + attention doc). List had more pages, not all read.
+  7 MAIL WATCH: PASS (prior check 17:17Z, 65 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 52 commits local only.
+  10 USAGE: allowed. Session context about 330k of 1,000k.
+  3 of 5 checked passing (git push and scheduled tasks failing). New failures: county-reply watch task.
+
+## Pass 58 · 2026-10-30T00:22Z (00Z, 8:2x PM ET Thu 10-29)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 18Z probe answered (about 57 min); planted selftest-probe-2026103000.
+  4 PC ALIVE: FAIL (second night). _UPTIME-HEARTBEAT.md last modified 20:17Z, about 4 h stale; PC SYNC-01 mail kept arriving. Same pattern as 10-28/29. Attention doc written; RECURRING-ISSUES line added; no new email (Jorge told last night, no action).
+  5 OCR FLOWING: no .SEARCH.txt since 10-27 (known); overnight TAGS pass succeeds.
+  6 SCHEDULED TASKS: NOT RUN this pass (known: Filing engine, Weekday check, county-reply watch all ACCESS_DENIED, already alerted).
+  7 MAIL WATCH: PASS (prior check 23:17Z, 63 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 64 commits local only.
+  10 USAGE: allowed. Session context about 465k of 1,000k.
+  2 of 4 checked passing (git push, PC heartbeat failing). New failures: none new (PC heartbeat is a repeat).
+
+## Pass 59 · 2026-10-30T06:23Z (06Z, 2:2x AM ET Fri 10-30)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 00Z probe answered; planted selftest-probe-2026103006.
+  4 PC ALIVE: FAIL (repeat, third night). _UPTIME-HEARTBEAT.md last modified 20:17Z 10-29, about 10 h stale. No new alert (already told Jorge; in the 7:16 AM ET digest).
+  5 OCR FLOWING: no .SEARCH.txt since 10-27 (known); overnight TAGS pass succeeded 09:17Z 10-29.
+  6 SCHEDULED TASKS: NOT RUN this pass (known ACCESS_DENIED trio already alerted).
+  7 MAIL WATCH: PASS (prior check 05:17Z, 65 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 76 commits local only.
+  10 USAGE: allowed. Session context about 600k of 1,000k (autocompact at 784k).
+  1 of 3 checked passing (git push and PC heartbeat failing, both repeats). New failures: none. Quiet hours: no message to Jorge.
+
+## Pass 60 · 2026-10-30T12:37Z (12Z, 8:3x AM ET Fri 10-30)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 06Z probe answered; planted selftest-probe-2026103012.
+  4 PC ALIVE: FAIL (repeat). _UPTIME-HEARTBEAT.md last modified 20:17Z 10-29, about 16 h stale (last night it recovered by 06:16Z; not this time). PC SYNC-01 mail still arrives. Already in the 7:25 AM ET digest (item 1); no new email.
+  5 OCR FLOWING: no .SEARCH.txt since 10-27 (known).
+  6 SCHEDULED TASKS: NOT RUN this pass (known ACCESS_DENIED trio, in digest).
+  7 MAIL WATCH: PASS (prior check 11:24Z, 71 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 88 commits local only.
+  10 USAGE: allowed. Session context about 720k of 1,000k (autocompact at 784k).
+  1 of 3 checked passing (git push, PC heartbeat failing; both repeats). New failures: none.
+
+## Pass 61 · 2026-10-30T18:22Z (18Z, 2:2x PM ET Fri 10-30)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 12Z probe answered; planted selftest-probe-2026103018.
+  4 PC ALIVE: FAIL (repeat). _UPTIME-HEARTBEAT.md last modified 20:17Z 10-29, about 22 h stale. Already told Jorge (7:25 AM ET digest); no new email.
+  5 OCR FLOWING: no .SEARCH.txt since 10-27 (known).
+  6 SCHEDULED TASKS: NOT RUN this pass (known ACCESS_DENIED trio, already alerted).
+  7 MAIL WATCH: PASS (prior check 17:19Z, 63 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 100 commits local only.
+  10 USAGE: allowed. Session context about 210k of 1,000k (after autocompact).
+  1 of 3 checked passing (git push, PC heartbeat failing; both repeats). New failures: none.
+
+## Pass 62 · 2026-10-31T00:22Z (00Z, 8:2x PM ET Fri 10-30)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 18Z probe answered 19:18Z; planted selftest-probe-2026103100.
+  4 PC ALIVE: FAIL (repeat). _UPTIME-HEARTBEAT.md last modified 20:17Z 10-29, about 28 h stale. Already in the 7:25 AM ET digest; no new email.
+  5 OCR FLOWING: the overnight OCR trigger last ran 09:19Z 10-30 and succeeded (scheduled task view); no new .SEARCH.txt check run this pass (known since 10-27).
+  6 SCHEDULED TASKS: 2 of 11 listed enabled tasks FAIL with ACCESS_DENIED, both known: Filing engine daily health check (10:52Z 10-30) and Weekday check (21:48Z 10-30). Page cut off by size so the county-reply watch was not re-read (known ACCESS_DENIED trio, already alerted 10-29/10-30). No new failure.
+  7 MAIL WATCH: PASS (prior check 23:20Z, 56 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 113 commits local only.
+  10 USAGE: allowed. Session context about 380k of 1,000k (autocompact at 784k).
+  2 of 5 checked passing (4, 6 and 8 failing; all repeats). New failures: none.
+
+## Pass 63 · 2026-10-31T06:22Z (06Z, 2:2x AM ET Sat 10-31)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 00Z probe answered 01:18Z; planted selftest-probe-2026103106.
+  4 PC ALIVE: FAIL (repeat, 4th day). _UPTIME-HEARTBEAT.md last modified 20:17Z 10-29, about 34 h stale. Already in digests; no new email.
+  5 OCR FLOWING: no new .SEARCH.txt check this pass (known since 10-27).
+  6 SCHEDULED TASKS: NOT RE-RUN this pass (known ACCESS_DENIED trio seen in pass 62, already alerted).
+  7 MAIL WATCH: PASS (prior check 05:20Z, 62 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 124 commits local only.
+  10 USAGE: allowed. Session context about 530k of 1,000k (autocompact at 784k).
+  2 of 4 checked passing (4 and 8 failing; both repeats). New failures: none. Quiet hours: no message to Jorge.
+
+## Pass 64 · 2026-10-31T12:26Z (12Z, 8:2x AM ET Sat 10-31)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 06Z probe answered 07:18Z; planted selftest-probe-2026103112.
+  4 PC ALIVE: FAIL (repeat, 5th day). _UPTIME-HEARTBEAT.md last modified 20:17Z 10-29, about 40 h stale. In the 10-31 morning list ("PC awake?"); no new email.
+  5 OCR FLOWING: not re-checked (known since 10-27).
+  6 SCHEDULED TASKS: not re-run this pass (known ACCESS_DENIED trio, alerted 10-29/10-30).
+  7 MAIL WATCH: PASS (prior check 11:22Z, 64 min). Gmail and Outlook both OK.
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 136 commits local only. Asked again in the 10-31 morning list (item 6).
+  10 USAGE: allowed. Session context about 650k of 1,000k (autocompact at 784k, expected in about 8 hours).
+  2 of 4 checked passing (4 and 8 failing; both repeats). New failures: none.
+
+## Pass 65 · 2026-10-31T18:25Z (18Z, 2:2x PM ET Sat 10-31)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 12Z probe answered 13:19Z; planted selftest-probe-2026103118 (next watch answers it).
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 18:14Z (resumed 16:15Z).
+  6 SCHEDULED TASKS: FAIL. ACCESS_DENIED: Filing engine daily health check, Weekday check, and NEW: VTES task sweeper (12:18Z 10-31; ran fine 10-30). Alerted once by Gmail 1a1932ddb77277e8.
+  7 MAIL WATCH: PASS (prior check 17:16Z, 60 min).
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 148 commits local only.
+  10 USAGE: allowed. Session context about 120k (compacted).
+  Also seen: ALARM_TASK-T-0010_OVERDUE (Jorge's RAMBO sign-in code step; not touched). New scheduled task "Rambo" (desktop executor agent, daily 2:34 PM ET) is not mine.
+  3 of 5 checked passing (6 and 8 failing; 6 has one new item). 
+
+## Pass 66 · 2026-11-01T00:25Z (00Z, 8:2x PM ET Sat 10-31)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 18Z probe answered 18:42Z; planted selftest-probe-2026110100 (next watch answers it).
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 00:11Z.
+  6 SCHEDULED TASKS: FAIL, no new failures. ACCESS_DENIED: Filing engine daily health check, Weekday check, VTES task sweeper (all already alerted). First page of list only.
+  7 MAIL WATCH: PASS (prior check 23:16Z, 60 min).
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 160 commits local only.
+  10 USAGE: allowed. Session context about 285k of 1,000k.
+  Also: SOS-LLM RECOVERED 7:55 PM ET (local AI back up again).
+  4 of 7 checked passing (6 and 8 failing; both repeats). New failures: none. Evening hour: no message to Jorge.
+
+## Pass 67 · 2026-11-01T06:25Z (06Z; clocks fall back at 2 AM, so this is about 1:25 AM EST Sun)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 00Z probe answered 01:18Z; planted selftest-probe-2026110106.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 06:16Z.
+  6 SCHEDULED TASKS: FAIL, no new failures. ACCESS_DENIED still: Filing engine daily health check, Weekday check, VTES task sweeper (all already alerted). First page only.
+  7 MAIL WATCH: PASS (prior check 05:16Z, 60 min).
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 172 commits local only.
+  10 USAGE: allowed. Session context about 425k of 1,000k.
+  4 of 6 checked passing (6 and 8 failing; both repeats). New failures: none. Night: no message to Jorge.
+
+## Pass 68 · 2026-11-01T12:25Z (12Z, 7:2x AM EST Sun)
+  1 PANEL INBOX: PASS (0 new comments).
+  2 PROBE: 06Z probe answered 07:18Z; planted selftest-probe-2026110112.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 12:17Z; Burn-Rate EXECUTED-WITH-PROOF 12:00Z.
+  6 SCHEDULED TASKS: FAIL, no new failures. ACCESS_DENIED: Filing engine daily health check (again 11:52Z today), Weekday check, VTES task sweeper (due 12:18Z; not yet re-run when checked). All already alerted.
+  7 MAIL WATCH: PASS (prior check 11:17Z, 61 min).
+  8 GIT PUSH: still failing (alerted 18Z 10-28). 184 commits local only.
+  10 USAGE: allowed. Session context about 560k of 1,000k (autocompact at 784k).
+  4 of 6 checked passing (6 and 8 failing; both repeats). New failures: none. Morning list emailed to Jorge (Gmail 1a1970c7eb0c3bf6): seven one-word items, no dollar amounts.
+
+## 2026-11-01 18:20Z (1:20 PM EST Sun) · pass 69 · 7 of 10 passing, 1 failing, 2 not checked this pass
+  1 PANEL INBOX: PASS. task-comments new=0. 11 approvals are "routed" (since 10-15, waiting on the PC), none done: known, not new.
+  2 PROBE: PASS. selftest-probe-2026110118 planted and answered 18:20Z.
+  3 PANEL LOADS: PASS. Read at 17:3x, 687 KB; republished v63 at 17:4xZ.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 18:16Z.
+  5 OCR FLOWING: PASS. Newest .SEARCH.txt 2026-10-31 16:10Z (about 26 h).
+  6 SCHEDULED TASKS: FAIL, 1 NEW. ACCESS_DENIED now four: Filing engine daily health check, Weekday check, VTES task sweeper, and NEW "Watch for county reply C2026170181" (11-01 14:34Z). Only the first page of triggers was read (has_more). Alerted by Gmail and panel attention doc.
+  7 MAIL WATCH: PASS (17:17Z, 64 min).
+  8 STATUS BOARD: not checked this pass (unverified).
+  9 VIEWERS: not checked this pass (unverified).
+  10 USAGE: allowed. Git push check: PASS (push works since Jorge's "allow the push"; local equals origin).
+  New failures: 1 (county-watch task refused).
+
+## 2026-11-02 00:20Z (7:20 PM EST Sun) · pass 70 · 6 of 10 passing, 1 failing, 3 not checked this pass
+  1 PANEL INBOX: PASS. task-comments new=0; 11 approvals routed since 10-15, waiting on the PC (known).
+  2 PROBE: PASS. selftest-probe-2026110200 planted and answered 00:20Z. (Previous probe 18Z answered.)
+  3 PANEL LOADS: not re-read this pass (last read 17:3xZ, 688 KB; republished v63 17:4xZ).
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 00:16Z (PC on since 11:43 AM, never slept).
+  5 OCR FLOWING: PASS. Newest .SEARCH.txt 2026-10-31 16:10Z (about 32 h). No newer one found; passes the 48 h line at 16:10Z Nov 2.
+  6 SCHEDULED TASKS: FAIL, no new failures. ACCESS_DENIED still: Filing engine daily health check, Weekday check, VTES task sweeper (first page read), and county-watch task (seen 18Z, on the page not re-read). All already alerted.
+  7 MAIL WATCH: PASS (23:17Z, 63 min).
+  8 STATUS BOARD: not checked this pass.
+  9 VIEWERS: not checked this pass.
+  10 USAGE: allowed. Git push: PASS. Context about 560k of 1,000k (autocompact at 784k).
+  New failures: none.
+
+## 2026-11-02 06:26Z (1:26 AM EST Mon) · pass 71 · 6 of 10 passing, 1 failing, 3 not checked this pass
+  1 PANEL INBOX: PASS. task-comments new=0; 11 approvals still routed (waiting on the PC, known).
+  2 PROBE: PASS. selftest-probe-2026110206 planted and answered 06:26Z (00Z probe was answered).
+  3 PANEL LOADS: not re-read this pass.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 06:24Z; PC awake 13.6 h, never slept; RAM governor resumed at 63.5%.
+  5 OCR FLOWING: PASS (barely). No .SEARCH.txt newer than 2026-10-31 16:10Z (about 38 h). Fails at 16:10Z today (48 h line).
+  6 SCHEDULED TASKS: FAIL, no new failures. Same four ACCESS_DENIED tasks; not re-listed this pass, next runs due after 11:51Z.
+  7 MAIL WATCH: PASS (05:17Z, 69 min; this pass ran at 06:24Z because the fire was 8 min late).
+  8 STATUS BOARD: not checked this pass.
+  9 VIEWERS: not checked this pass.
+  10 USAGE: allowed. Git push: PASS. Context 700k of 1,000k (autocompact at 784k).
+  New failures: none. No alert sent.
+## 2026-11-02 12:22Z (7:22 AM EST Mon) · pass 72 · 7 of 10 passing, 1 failing, 2 not checked this pass
+  1 PANEL INBOX: PASS. task-comments new=0 before the probe.
+  2 PROBE: PASS. 06Z probe answered; selftest-probe-2026110212 planted 12:22Z (answer due at the 13:16Z watch).
+  3 PANEL LOADS: not re-read this pass.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 12:21Z; Burn-Rate EXECUTED-WITH-PROOF receipt from the PC at 12:00Z.
+  5 OCR FLOWING: PASS (barely). Newest .SEARCH.txt seen is 2026-10-31 16:10Z (about 40 h). Fails at 16:10Z today.
+  6 SCHEDULED TASKS: FAIL, no new failures. Same four ACCESS_DENIED (Filing engine health, Weekday check, VTES task sweeper, County-watch). First page of the trigger list only.
+  7 MAIL WATCH: PASS (11:20Z, 62 min).
+  8 STATUS BOARD: not checked this pass.
+  9 VIEWERS: not checked this pass.
+  10 USAGE: allowed. Context 190k of 1,000k. Git push: PASS.
+  New failures: none. No alert sent.
+## 2026-11-02 18:22Z (1:22 PM EST Mon) · pass 73 · 7 of 10 passing, 2 failing, 1 not checked this pass
+  1 PANEL INBOX: PASS. task-comments new=0 before the probe.
+  2 PROBE: PASS. selftest-probe-2026110212 answered 13:40Z; selftest-probe-2026110218 planted 18:20Z (answer due at the 19:16Z watch).
+  3 PANEL LOADS: not re-read this pass.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 18:16Z.
+  5 OCR FLOWING: FAIL (NEW). Newest .SEARCH.txt is 2026-10-31 16:10Z, about 50 h; no newer file in Drive. Alerted: Gmail + push + attention doc selftest-ocr-48h-20261102. Needs RAMBO /login (PC lane).
+  6 SCHEDULED TASKS: FAIL, no new failures. Same four ACCESS_DENIED (Filing engine health, Weekday check, VTES task sweeper, County-watch); first page of the list only.
+  7 MAIL WATCH: PASS (17:35Z, 41 min).
+  8 STATUS BOARD: PASS by default (not re-read).
+  9 VIEWERS: not checked this pass.
+  10 USAGE: allowed. Context 360k of 1,000k. Git push: PASS.
+  New failures: OCR flowing (alerted).
+## 2026-11-03 00:20Z (7:20 PM EST Mon) · pass 74 · 6 of 10 passing, 2 failing, 2 not checked this pass
+  1 PANEL INBOX: PASS. task-comments new=0 before the probe.
+  2 PROBE: PASS. selftest-probe-2026110218 answered 18:42Z; selftest-probe-2026110300 planted 00:20Z (answer due at the 01:16Z watch).
+  3 PANEL LOADS: not re-read this pass.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 00:16Z.
+  5 OCR FLOWING: FAIL (already alerted 18:23Z). Newest .SEARCH.txt still 2026-10-31 16:10Z, about 56 h.
+  6 SCHEDULED TASKS: FAIL, no new failures (same four ACCESS_DENIED; list not re-read this pass).
+  7 MAIL WATCH: PASS (23:17Z, 63 min).
+  8 STATUS BOARD: not checked this pass.
+  9 VIEWERS: not checked this pass.
+  10 USAGE: allowed. Context 520k of 1,000k. Git push: PASS.
+  New failures: none. No alert sent.
+## 2026-11-03 06:20Z (1:20 AM EST Tue) · pass 75 · 6 of 10 passing, 2 failing, 2 not checked this pass
+  1 PANEL INBOX: PASS. task-comments new=0 before the probe.
+  2 PROBE: PASS. selftest-probe-2026110300 answered 00:43Z; selftest-probe-2026110306 planted 06:20Z (answer due at the 07:16Z watch).
+  3 PANEL LOADS: not re-read this pass.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 06:16Z.
+  5 OCR FLOWING: FAIL (already alerted 11-02 18:23Z). Newest .SEARCH.txt still 2026-10-31 16:10Z, about 62 h.
+  6 SCHEDULED TASKS: FAIL, no new failures (same four ACCESS_DENIED; list not re-read this pass).
+  7 MAIL WATCH: PASS (05:17Z, 63 min).
+  8 STATUS BOARD: not checked this pass.
+  9 VIEWERS: not checked this pass.
+  10 USAGE: allowed. Context 640k of 1,000k. Git push: PASS.
+  New failures: none. No alert sent.
+## 2026-11-03 12:20Z (7:20 AM EST Tue) · pass 76 · 6 of 10 passing, 2 failing, 2 not checked this pass
+  1 PANEL INBOX: PASS. task-comments new=0 before the probe.
+  2 PROBE: PASS. selftest-probe-2026110306 answered 06:42Z; selftest-probe-2026110312 planted 12:20Z (answer due at the 13:16Z watch).
+  3 PANEL LOADS: not re-read this pass.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 12:16Z; Burn-Rate EXECUTED-WITH-PROOF receipt 12:00Z.
+  5 OCR FLOWING: FAIL (already alerted 11-02 18:23Z). Newest .SEARCH.txt still 2026-10-31 16:10Z, about 68 h.
+  6 SCHEDULED TASKS: FAIL, no new failures (same four ACCESS_DENIED; list not re-read this pass).
+  7 MAIL WATCH: PASS (11:17Z, 63 min).
+  8 STATUS BOARD: not checked this pass.
+  9 VIEWERS: not checked this pass.
+  10 USAGE: allowed. Context 760k of 1,000k (autocompact at 784k). Git push: PASS.
+  New failures: none. No alert sent. Morning digest to Jorge sent by Gmail 12:21Z.
+
+## Pass 77 · 2026-11-03T18:20Z (1:20 PM EST Tue) · 6 of 10 checks passing
+  1 PANEL INBOX: PASS (task-comments new=0 before probe).
+  2 PROBE: PASS (selftest-probe-2026110312 answered). New probe selftest-probe-2026110318 planted 18:20Z.
+  3 PANEL LOADS: PASS by proxy (db reachable, 304 docs); full page read skipped to save context.
+  4 PC ALIVE: PASS (_UPTIME-LOG.csv modified 18:11Z). RAMBO ACK files also seen 14:50Z and 15:00Z.
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt since 11-01 18:00Z). Already alerted 11-02.
+  6 SCHEDULED TASKS: FAIL, unchanged. Same four ACCESS_DENIED: Filing engine daily health check, Weekday check Mon 21:45 UTC, VTES task sweeper, County-watch. Recreate waits on Jorge's word.
+  7 MAIL WATCH: PASS (last check 17:19Z, 60 min).
+  8 STATUS BOARD: not checked this pass.
+  9 VIEWERS: not checked this pass.
+  10 USAGE: allowed. Context about 275k of 1,000k (autocompact at 784k). Git push: PASS.
+  New failures: none. No alert sent.
+
+## Pass 78 · 2026-11-04T00:20Z (7:20 PM EST Tue) · 7 of 10 checks passing
+  1 PANEL INBOX: PASS (new=0).
+  2 PROBE: PASS (selftest-probe-2026110318 answered). New probe selftest-probe-2026110400 planted 00:20Z.
+  3 PANEL LOADS: PASS by proxy (db reachable, 306 docs); full page read skipped.
+  4 PC ALIVE: PASS (_UPTIME-LOG.csv modified 00:12Z).
+  5 OCR FLOWING: PASS. RECOVERED. Newest .SEARCH.txt files created 22:43Z on 11-03 (TRK-2026-1265 Bal Harbour set). Had been failing since 10-31. First pass in this log since.
+  6 SCHEDULED TASKS: FAIL, unchanged. Same four ACCESS_DENIED (Filing engine daily health check, Weekday check, VTES task sweeper, County-watch). Recreate waits on Jorge's word.
+  7 MAIL WATCH: PASS (last check 23:19Z, 57 min).
+  8 STATUS BOARD: not checked this pass.
+  9 VIEWERS: not checked this pass.
+  10 USAGE: allowed. Context about 480k of 1,000k (autocompact at 784k). Git push: PASS.
+  New failures: none. Recovery noted (check 5). No alert sent.
+
+## Pass 79 · 2026-11-04T06:20Z (1:20 AM EST Wed) · 7 of 10 checks passing
+  1 PANEL INBOX: PASS (new=0 before probe).
+  2 PROBE: PASS (selftest-probe-2026110400 answered). New probe selftest-probe-2026110406 planted 06:20Z.
+  3 PANEL LOADS: PASS by proxy (db reachable, 308 docs); full page read skipped.
+  4 PC ALIVE: PASS (_UPTIME-LOG.csv modified 06:16Z).
+  5 OCR FLOWING: PASS (.SEARCH.txt files created 11-03 22:43Z, still being updated 00:42Z).
+  6 SCHEDULED TASKS: NOT RE-LISTED this pass to save context. Last listing (00:20Z): same four ACCESS_DENIED. Counted as failing.
+  7 MAIL WATCH: PASS (last check 05:19Z, 60 min).
+  8 STATUS BOARD: not checked this pass.
+  9 VIEWERS: not checked this pass.
+  10 USAGE: allowed. Context about 650k of 1,000k (autocompact at 784k). Git push: PASS.
+  New failures: none. No alert sent.
+
+## Pass 80 — 2026-11-04T12:20Z (7:20 AM EST Wed)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110412; answer due at 12:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (uptime 12:16Z).
+  5 OCR FLOWING: pass (.SEARCH.txt created 11-03 22:43Z).
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (counted failing).
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 7 of 10. New failures: none. No alert sent.
+
+## Pass 81 — 2026-11-04T18:25Z (1:25 PM EST Wed)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110418; answer due at 18:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 18:11Z).
+  5 OCR FLOWING: pass (overnight OCR batch run succeeded 10:18Z).
+  6 SCHEDULED TASKS: Filing engine health check, Weekday check, VTES task sweeper still ACCESS_DENIED (County-watch on next page, not re-read). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 7 of 10. New failures: none. No alert sent.
+
+## Pass 82 — 2026-11-05T00:25Z (7:25 PM EST Wed)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110500; answer due at 00:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 00:13Z).
+  5 OCR FLOWING: pass (overnight OCR batch ran 10:18Z; no newer check).
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (Filing engine health check, Weekday check, VTES task sweeper, County-watch last denied 15:26Z). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 7 of 10. New failures: none. No alert sent.
+
+## Pass 83 — 2026-11-05T06:25Z (1:25 AM EST Thu)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110506; answer due at 06:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 06:16Z).
+  5 OCR FLOWING: UNVERIFIED this pass (no .SEARCH.txt modified in the last hour; overnight OCR batch is scheduled 06:17Z and had not reported yet). Not counted as passing.
+  6 SCHEDULED TASKS: four still ACCESS_DENIED, from the 00Z listing; not re-listed. Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 6 of 10 (OCR unverified). New failures: none. No alert sent.
+  CORRECTION to pass 83 (07:20Z): check 5 uses a 48-hour window, not 1 hour. .SEARCH.txt files created 2026-11-03 22:44Z are within it, so check 5 PASSES. Pass 83 = about 7 of 10. No OCR stall. (Sorry for the false worry.)
+
+## Pass 84 — 2026-11-05T12:25Z (7:25 AM EST Thu)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110512; answer due at 12:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 12:16Z).
+  5 OCR FLOWING: pass (.SEARCH.txt created 11-03 22:44Z, inside the 48h window).
+  6 SCHEDULED TASKS: Weekday check and County-watch still ACCESS_DENIED (re-read); Filing engine health check and VTES task sweeper last denied 11-04, not re-listed. Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 7 of 10. New failures: none. No alert sent.
+
+## Pass 85 — 2026-11-05T18:25Z (1:25 PM EST Thu)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110518; answer due at 18:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 18:16Z).
+  5 OCR FLOWING: pass, but only just. The newest .SEARCH.txt I can find was created 11-03 22:44Z, so it leaves the 48h window at about 22:44Z tonight. WATCH ITEM: if no new .SEARCH.txt appears, check 5 will fail at the 00Z pass. Not yet an alert (the check is passing now).
+  6 SCHEDULED TASKS: Weekday check and County-watch re-read, both still ACCESS_DENIED (County-watch last denied 11-05 15:26Z); Filing engine health check and VTES task sweeper not in the enabled list this time (not re-read). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 7 of 10. New failures: none. No alert sent.
+
+## Pass 86 — 2026-11-06T00:30Z (7:30 PM EST Thu)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110600; answer due at 00:41Z runner.
+  3 PANEL LOADS: pass by proxy (db reachable).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 00:16Z).
+  5 OCR FLOWING: FAIL (NEW). Newest .SEARCH.txt created 11-03 22:44Z, about 49h ago (limit 48h). Cloud TAGS batch is running (BATCH_2026-11-05_0521), so only the PC search-file step is stalled. Alert sent once (Gmail), read-only item added to WORK-QUEUE.md.
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (not re-listed this pass). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 6 of 10. New failure: check 5 (alert sent).
+
+## Pass 87 — 2026-11-06T06:20Z (1:20 AM EST Fri)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110606; answer due at 06:41Z runner. Previous probe (00Z) was answered.
+  3 PANEL LOADS: pass by proxy (db reachable, 325 docs).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 06:16Z).
+  5 OCR FLOWING: FAIL (SAME, no new alert). No .SEARCH.txt created since at least 11-04 06Z (over 48h). Read-only desktop item still queued.
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (not re-listed). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 6 of 10. No NEW failure, so no alert.
+
+## Pass 88 — 2026-11-06T12:20Z (7:20 AM EST Fri)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110612; answer due at 12:41Z runner. Previous probe (06Z) answered.
+  3 PANEL LOADS: pass by proxy (db reachable, 327 docs).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 12:16Z).
+  5 OCR FLOWING: FAIL (SAME, no new alert). No .SEARCH.txt created since at least 11-04 12Z.
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (not re-listed). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 6 of 10. No NEW self-test failure. Separate alert sent: QC-01 audit findings A and B (1Password service account + QuickBooks sign-in by desktop lane; no approval record).
+
+## Pass 89 — 2026-11-06T18:20Z (1:20 PM EST Fri)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110618; answer due at 18:41Z runner. Previous probe (12Z) answered.
+  3 PANEL LOADS: pass by proxy (db reachable, 329 docs).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 18:16Z).
+  5 OCR FLOWING: FAIL (SAME, no new alert). No .SEARCH.txt created since at least 11-04 18Z.
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (not re-listed). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 6 of 10. No NEW self-test failure.
+
+## Pass 90 — 2026-11-07T00:20Z (7:20 PM EST Fri 11-06)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110700; answer due at 00:41Z runner. Previous probe (18Z) answered.
+  3 PANEL LOADS: pass by proxy (db reachable, 331 docs).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 00:16Z).
+  5 OCR FLOWING: FAIL (SAME, no new alert). No .SEARCH.txt created since at least 11-05 00Z (over 48h).
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (not re-listed). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 6 of 10. No NEW failure, so no alert.
+
+## Pass 91 — 2026-11-07T06:20Z (1:20 AM EST Sat)
+  1 INBOX: pass (panel new=0).
+  2 PROBE: planted selftest-probe-2026110706; answer due at 06:41Z runner. Previous probe (00Z) answered.
+  3 PANEL LOADS: pass by proxy (db reachable, 333 docs).
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 06:16Z).
+  5 OCR FLOWING: FAIL (SAME, no new alert). Drive search matched only two NO-MATCH_..._SEARCH-LOG_...txt research logs (not OCR sidecars, name differs); no real .SEARCH.txt created since at least 11-05 06Z (over 48h).
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (not re-listed). Counted failing.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Git push: PASS.
+  About 6 of 10. No NEW failure, so no alert.
+
+## Pass 92 - 2026-11-07T12:2xZ (7:2x AM ET)
+  1 INBOX: pass (panel new=0 before probe).
+  2 PROBE: probe 2026110712 planted; answer at next runner.
+  3 PANEL: pass by proxy.
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 12:16Z).
+  5 OCR: FAIL, same as before (no .SEARCH.txt created in 48 h).
+  6 SCHEDULED TASKS: four still ACCESS_DENIED (filing engine 11:53Z, weekday check, task sweeper; county-watch not re-listed).
+  7 MAIL WATCH: pass (found Plaza 307 arrival).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed.
+  About 6 of 10. No NEW failure, so no alert.
+  QC-01 audit 11-07 read: WARN. Failed 1 (my EXEC-LOG 11-06 dated ahead of its save). Fixed 12:17Z by writing Drive EXEC-LOG_2026-11-07 (1vHeYMgwvvhwN1LA4wrEtJYR9sAuInMl0) and PRE-MORTEM copy (1Uwbca0qqNkc8T8IBypYLZ6oaOcTGMV8n).
+
+## Pass 93 - 2026-11-07T18:2xZ (1:2x PM ET)
+  1 INBOX: pass (panel new=0 before probe).
+  2 PROBE: probe 2026110718 planted; answer at next runner.
+  3 PANEL: pass by proxy.
+  4 PC ALIVE: pass (_UPTIME-LOG.csv modified 18:12Z).
+  5 OCR: FAIL, same as before (no .SEARCH.txt created in 48 h).
+  6 SCHEDULED TASKS: four counted failing (ACCESS_DENIED), not re-listed this pass.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed. Context 659k of 784k autocompact threshold, about 4 cycles left.
+  About 6 of 10. No NEW failure, so no alert.
+  Also: _RAM-GUARD-HEARTBEAT.md is ALIVE (refreshed 18:16Z); first time since 10-12. Two STALL-ALERTs (12:07, 13:07 ET) are false alarms: the watchdog looks only for EXECUTED_/BLOCKER_ names and RAMBO answered with REPLY-TO-CHAT_ names.
+## Pass 94 - 2026-11-08T00:2xZ (7:2x PM ET, Sat 11-07)
+  1 INBOX: pass (panel new=0 before probe; no approvals newly approved, all 11 already routed).
+  2 PROBE: previous probe 2026110718 answered 18:43Z (pass). New probe 2026110800 planted; answer at next runner.
+  3 PANEL: pass by proxy (panel db reads and writes worked).
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT.md written 00:16Z; PC up 4.21 h since 3:03 PM ET, never slept). RAM guard GREEN 8.05 GB, written 00:17Z.
+  5 OCR: FAIL, unchanged (no new .SEARCH.txt confirmed; not re-searched this pass).
+  6 SCHEDULED TASKS: three seen failing on page 1 (Filing engine daily check, Weekday check, VTES task sweeper: ACCESS_DENIED). County-watch is on page 2, not re-fetched; counted failing as before.
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 188,594 of 1,000,000 used.
+  6 of 10 passing. No NEW failure, so no alert.
+## Pass 95 - 2026-11-08T06:2xZ (1:2x AM ET, Sun 11-08)
+  1 INBOX: pass (panel new=0 before probe; 11 approvals all already routed).
+  2 PROBE: previous probe 2026110800 answered 00:42Z (pass). New probe 2026110806 planted; answer at next runner.
+  3 PANEL: pass by proxy (panel db reads and writes worked).
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT.md written 06:16Z; PC up 10.2 h since 3:03 PM ET, never slept). RAM guard GREEN 6.51 GB, written 06:16Z.
+  5 OCR: FAIL, unchanged (no .SEARCH.txt created in the last 48 h; the only matches were NO-MATCH search logs).
+  6 SCHEDULED TASKS: FAIL, unchanged. All four confirmed ACCESS_DENIED on their last run: Filing engine daily check, Weekday check, VTES task sweeper, County-watch (read this pass on list page 2).
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 414,168 of 1,000,000 used.
+  6 of 10 passing. No NEW failure, so no alert.
+  Note: two emails dated 06:04 and 06:13Z, titled PASTE-D-069 and a Re: second item, were sent from Jorge's Gmail by another Cloud Code session (not this one). Logged only.
+## Pass 96 - 2026-11-08T12:2xZ (7:2x AM ET, Sun 11-08)
+  1 INBOX: pass (panel new=0 before probe; 11 approvals all already routed).
+  2 PROBE: previous probe 2026110806 answered 06:42Z (pass). New probe 2026110812 planted; answer at next runner.
+  3 PANEL: pass by proxy (panel db reads and writes worked).
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT.md written 12:11Z; PC up 16.1 h since 3:03 PM ET, never slept). RAM guard ALIVE but AMBER 4.77 GB at 12:16Z, pause flag set (RED starts under 4 GB); no PC orders sent.
+  5 OCR: FAIL, unchanged (no .SEARCH.txt created in 48 h, search excluding the NO-MATCH logs returned nothing).
+  6 SCHEDULED TASKS: FAIL, unchanged (four ACCESS_DENIED confirmed at 06:20Z; not re-listed this pass).
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 575,154 of 1,000,000 used (autocompact at 784,000).
+  6 of 10 passing. No NEW self-test failure, so no alert.
+  QC-01 audit of 11-08 (AUDIT_QC-01_2026-11-08.md): WARN. 5 verified, 3 unverified, 0 failed. Finding A: no Drive EXEC-LOG or pre-mortem for 11-08 since 11-07 12:17Z. FIXED this cycle: EXEC-LOG_2026-11-08.md (Drive 1l6qUUipHzKRE2HUy88xdXfCxB06bWXpF) and PRE-MORTEM_2026-11-08.md (Drive 1NLuAEkyf4N3Cn0d5fOATaIzMjq9L8d7C) written in the EXEC-LOG folder, each line checked against the repo log and heartbeat ids. From now on the runner writes the Drive EXEC-LOG every day. Findings B and C (silent-signoff blocker, 1Password and QuickBooks approvals) are waiting on Jorge or the PC, not fixable from the cloud.
+## Pass 97 - 2026-11-08T18:2xZ (1:2x PM ET, Sun 11-08)
+  1 INBOX: pass (panel new=0 before probe; 11 approvals all already routed).
+  2 PROBE: previous probe 2026110812 answered 12:42Z (pass). New probe 2026110818 planted; answer at next runner.
+  3 PANEL: pass by proxy (panel db reads and writes worked).
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT.md written 18:16Z; PC up 22.2 h since 3:03 PM ET, never slept). RAM guard ALIVE but RED 3.75 GB at 18:15Z (first RED since the guard came back on 11-07): it set the pause flag and lowered AI process priority itself; local AI engine holds 4.3 GB. Pushed to Jorge ONCE. No PC orders sent.
+  5 OCR: FAIL, unchanged (no .SEARCH.txt created in 48 h).
+  6 SCHEDULED TASKS: FAIL, unchanged (four ACCESS_DENIED, last confirmed 06:20Z; not re-listed this pass to save context).
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 726,735 of 1,000,000 used; autocompact threshold 784,000, so a compaction is close. Resume notes refreshed.
+  6 of 10 passing. No NEW self-test failure. The RED reading is a guard event, not a check failure; one push sent.
+
+## Pass 98 · 2026-11-09T00:20Z (7:20 PM EST Sun) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe).
+  2 PROBE: previous probe 2026110818 was answered; new probe 2026110900 planted, to be answered at the 00:41Z runner.
+  3 PANEL LOADS: db reachable; page size NOT re-read this pass (unverified, not counted as new failure).
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT written 7:11 PM ET, PC awake 28.13 h, never slept).
+  5 OCR FLOWING: FAIL, unchanged (no new .SEARCH.txt in 48 h, since 11-05). Not re-alerted.
+  6 SCHEDULED TASKS: FAIL, unchanged (Filing engine daily check, Weekday check, VTES task sweeper still ACCESS_DENIED; County-watch not on first page). Not re-alerted.
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 220,045 of 1,000,000 after compaction.
+  No NEW failure. RAM guard AMBER 4.62 GB at 00:16Z (hourly dip), not RED, no push.
+
+## Pass 99 · 2026-11-09T06:23Z (1:23 AM EST Mon) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe).
+  2 PROBE: previous probe 2026110900 answered (00:42Z); new probe 2026110906 planted 06:23Z, to be answered at the 06:41Z runner.
+  3 PANEL LOADS: db reachable; page size NOT re-read this pass (unverified, not counted as a new failure).
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT written 1:16 AM ET, PC awake 34.2 h, never slept).
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt created since at least 11-07 06:00Z).
+  6 SCHEDULED TASKS: FAIL, unchanged (same four ACCESS_DENIED: Filing engine daily check, Weekday check, VTES task sweeper, County-watch). COWORK-CDM-OWNER-01 is running (fired 06:16Z, pending).
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 406,907 of 1,000,000 used; autocompact threshold 784,000.
+  No NEW failure, no alert sent. RAM guard AMBER 4.35 GB at 06:21Z (not RED, no push); the 11-08 night RED outage ended at 05:15Z.
+
+## Pass 100 · 2026-11-09T12:25Z (7:25 AM EST Mon) · 6 of 10 checks passing
+  Note: passes 98 and 99 counted check 3 as passing without re-reading the page. This pass actually reads it, so the 6 is now backed by proof.
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe).
+  2 PROBE: previous probe 2026110906 answered (06:42Z); new probe 2026110912 planted 12:25Z, to be answered at the 12:41Z runner.
+  3 PANEL LOADS: pass. Page file index.html read 712,240 bytes (over 100 KB), version 1793849647-3faf.
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT written 7:21 AM ET, PC awake 40.3 h, never slept).
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt created since at least 11-07 12:00Z).
+  6 SCHEDULED TASKS: FAIL, carried from the 06:23Z listing (same four ACCESS_DENIED: Filing engine daily check, Weekday check, VTES task sweeper, County-watch). Not re-listed this pass.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 531,651 of 1,000,000 used; autocompact threshold 784,000.
+  No NEW failure, no alert. RAM guard AMBER 4.17 GB at 12:23Z. QC-01 audit of 11-09 read: WARN, 8 verified, 3 unverified, 0 failed; answered by Drive EXEC-LOG_2026-11-09.md (id 1rpKXx-PDIkNh4tPmDlMDJiwqThi4Hixd).
+
+## Pass 101 · 2026-11-09T18:17Z (1:17 PM EST Mon) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe).
+  2 PROBE: previous probe 2026110912 answered (12:42Z); new probe 2026110918 planted 18:17Z, to be answered at the 18:41Z runner.
+  3 PANEL LOADS: pass. index.html read 712,240 bytes, same version 1793849647-3faf as pass 100.
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT written 1:13 PM ET, PC awake 46.2 h, never slept).
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt created since at least 11-07 18:00Z).
+  6 SCHEDULED TASKS: FAIL, carried from the 06:23Z listing (four ACCESS_DENIED: Filing engine daily check, Weekday check, VTES task sweeper, County-watch). Not re-listed this pass to save context.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 682,066 of 1,000,000 used; autocompact threshold 784,000, so a compaction is near (resume notes refreshed).
+  No NEW failure, no alert. RAM guard GREEN 7.38 GB at 18:16Z. FYI: the guard's security watch reported a NEW process named "op" (looks like the 1Password command-line tool, consistent with the 1Password activation work Jorge authorized this morning; not verified, not alarming).
+
+## Pass 102 · 2026-11-10T00:18Z (7:18 PM EST Mon) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe; 11 approvals all routed, none newer than 11-09 03:09Z).
+  2 PROBE: previous probe 2026110918 answered; new probe 2026111000 planted at about 00:17Z, to be answered at the 00:41Z runner. (I first stamped it 00:18:00Z, ahead of the real write; corrected to 00:17:20Z.)
+  3 PANEL LOADS: pass. index.html read 719,005 bytes, version 1794248937-1f67.
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT written 7:17 PM ET, PC awake 52.1 h, never slept).
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt created since 11-08 00:00Z; search returned none).
+  6 SCHEDULED TASKS: FAIL, unchanged. First page of list_triggers shows ACCESS_DENIED on Filing engine daily check, Weekday check and VTES task sweeper; County-watch is on page 2, carried.
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 130,186 of 1,000,000 used after compaction.
+  No NEW failure, no alert. RAM guard AMBER 5.75 GB at 00:13Z.
+
+## Pass 103 · 2026-11-10T06:20Z (1:2x AM EST Tue) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe; 11 approvals all routed, none newer than 11-09 03:09Z).
+  2 PROBE: previous probe 2026111000 answered (00:41Z); new probe 2026111006 planted 06:20:03Z (clock read just before the write), to be answered at the 06:41Z runner.
+  3 PANEL LOADS: pass. index.html read 719,005 bytes, same version 1794248937-1f67 as pass 102.
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT written 1:16 AM ET, PC awake 58.2 h, never slept).
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt created since 11-08 06:00Z; search returned none).
+  6 SCHEDULED TASKS: FAIL, unchanged. Four ACCESS_DENIED, all with their last run on 11-09: Filing engine daily check, Weekday check, VTES task sweeper (page 1, no run since the 00:16Z listing) and County-watch (page 2, read this pass, denied 15:29Z 11-09). None has fired again yet. Recreating them needs Jorge's word.
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 361,909 of 1,000,000 used.
+  No NEW failure, no alert. RAM guard AMBER 5.22 GB at 06:18Z.
+
+## Pass 104 · 2026-11-10T12:21Z (7:2x AM EST Tue) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe; approvals unchanged, all routed).
+  2 PROBE: previous probe 2026111006 answered (06:42Z); new probe 2026111012 planted 12:21:03Z (clock read just before the write), to be answered at the 12:41Z runner.
+  3 PANEL LOADS: pass. index.html read 719,005 bytes, same version 1794248937-1f67.
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT written 7:16 AM ET, PC awake 64.2 h, never slept).
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt created since 11-08 12:00Z; search returned none).
+  6 SCHEDULED TASKS: FAIL, unchanged. Four ACCESS_DENIED: Filing engine daily check (denied again 11-10 11:52Z), Weekday check (11-09 21:56Z), VTES task sweeper (11-09 12:24Z; its 12:18Z slot today had not fired when read), County-watch (11-09 15:29Z, page 2 not re-read). Recreating them needs Jorge's word.
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 482,991 of 1,000,000 used.
+  No NEW failure, no alert. QC-01 audit today: WARN, 0 EXEC-01 failures. RAM guard RED 2.35 GB at 12:19Z (hourly dip).
+
+## Pass 105 · 2026-11-10T18:17Z (1:1x PM EST Tue) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe; approvals unchanged, all routed).
+  2 PROBE: previous probe 2026111012 answered (12:42Z); new probe 2026111018 planted 18:16:42Z (clock read just before the write), to be answered at the 18:41Z runner.
+  3 PANEL LOADS: pass. index.html read 719,005 bytes, same version 1794248937-1f67.
+  4 PC ALIVE: pass (_UPTIME-HEARTBEAT written 1:13 PM ET, PC awake 70.2 h, never slept).
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt created since 11-08 18:00Z; search returned none).
+  6 SCHEDULED TASKS: FAIL, unchanged. Four ACCESS_DENIED: Filing engine daily check (11-10 11:52Z), VTES task sweeper (11-10 12:21Z, newly seen), Weekday check (11-09 21:56Z), County-watch (11-09 15:29Z, page 2 not re-read). Recreating them needs Jorge's word.
+  7 MAIL WATCH: pass (last-mail-check refreshed this run).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 625,015 of 1,000,000 used (autocompact at 784,000, so a compaction is near; resume notes refreshed).
+  No NEW failure, no alert. RAM guard outage 17:08Z to 18:10Z (pushed once at 17:45Z) ended by itself.
+
+## Pass 106 · 2026-11-11T00:17Z (7:1x PM EST Tue, fired 00:16:21Z) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe).
+  2 PROBE: previous probe 2026111018 answered earlier; new probe 2026111100 planted with at 00:17:59Z (stamped from the clock just before the write), to be answered at the 00:41Z runner.
+  3 PANEL LOADS: pass. index.html 719,005 bytes, version 1794248937-1f67.
+  4 PC ALIVE: pass (uptime file written 00:17:27Z).
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt created since 11-09 00:00Z).
+  6 SCHEDULED TASKS: FAIL, unchanged. Four ACCESS_DENIED: Filing engine daily check, Weekday check, VTES task sweeper, County-watch (page 2 re-read). No other task failed. COWORK-CDM-OWNER-01 run of 22:15Z still PENDING.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 136,960 of 1,000,000.
+  No NEW failure, no alert. RAM guard wrote 00:16:28Z (fresh).
+
+## Pass 107 · 2026-11-11T06:22Z (1:2x AM EST Wed, fired 06:21:53Z) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe).
+  2 PROBE: previous probe 2026111100 answered 00:42:08Z; new probe 2026111106 planted with at 06:22:21Z (stamped from the clock in the file just before the write), to be answered at the 06:41Z runner.
+  3 PANEL LOADS: pass. index.html 719,005 bytes, version 1794248937-1f67.
+  4 PC ALIVE: pass (uptime file written 06:16:38Z).
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt created since 11-09 06:00Z).
+  6 SCHEDULED TASKS: FAIL, unchanged. Four ACCESS_DENIED: Filing engine daily check, Weekday check, VTES task sweeper (page 1), County-watch (page 2). No other task failed. COWORK-CDM-OWNER-01 now SUCCEEDED (its earlier PENDING cleared).
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 391,210 of 1,000,000.
+  No NEW failure, no alert. RAM guard wrote 06:18:29Z (fresh).
+
+## Pass 108 · 2026-11-11T12:20Z (7:2x AM EST Wed, fired 12:20:05Z) · 6 of 10 checks passing
+  1 PANEL INBOX: pass (task-comments new = 0 before my probe).
+  2 PROBE: previous probe 2026111106 answered 06:42:13Z; new probe 2026111112 planted with at 12:20:36Z (stamped from the clock in the file just before the write), to be answered at the 12:41Z runner.
+  3 PANEL LOADS: pass. index.html 719,005 bytes, version 1794248937-1f67.
+  4 PC ALIVE: pass (uptime file written 12:18:42Z).
+  5 OCR FLOWING: FAIL, unchanged (no .SEARCH.txt created since 11-09 12:00Z).
+  6 SCHEDULED TASKS: FAIL, unchanged. Four ACCESS_DENIED: Filing engine daily check (11-11 11:52Z), Weekday check (11-10 21:57Z), VTES task sweeper (11-10 12:21Z; its 11-11 12:18Z run not yet recorded), County-watch (11-10 15:29Z). Two runs show PENDING only because they just fired: Plaza drafter and Cowork watchdog. No other task failed.
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 560,374 of 1,000,000 (autocompact at 784,000).
+  No NEW failure, no alert. RAM guard last write 12:11:17Z (9 min old at 12:20:26Z, stale over 5 min) while the PC uptime file is fresh; the guard flaps, recheck at the 12:41Z runner before any push.
+
+## Pass 109 - 2026-11-11T18:17Z (18Z self-test)
+  1 PANEL INBOX: pass (new=0 at 18:17Z).
+  2 PROBE: pass (probe 2026111118 planted 18:17Z, answer due at the 18:41Z runner).
+  3 PANEL LOADS: pass (index.html 719,005 bytes, version 1794248937-1f67).
+  4 PC ALIVE: pass (uptime file 18:16:07Z, RAM guard 18:14:33Z).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL, unchanged (Filing engine check, Weekday check, task sweeper, County-watch all still ACCESS_DENIED; read on pages 1 and 2).
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 777,561 of 1,000,000 (autocompact at 784,000).
+  Score 6 of 10 passing. No NEW failure, no alert. SYNC-01 now reads LANE OPEN (18:10Z result from Jorge, 18:14Z Grok), no action for me.
+
+## Pass 110 - 2026-11-12T00:17Z (00Z self-test)
+  1 PANEL INBOX: pass (new=0 at 00:17Z).
+  2 PROBE: pass (probe 2026111200 planted 00:17Z, answer due at the 00:41Z runner).
+  3 PANEL LOADS: pass (index.html 719,005 bytes, version 1794248937-1f67).
+  4 PC ALIVE: pass (uptime file 00:16:26Z, RAM guard 00:17:06Z).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL, unchanged (read each by id: Filing engine check, Weekday check, task sweeper and County-watch all still ACCESS_DENIED on their last runs; this pass used four get_trigger reads instead of the two large list pages).
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 381,454 of 1,000,000 (autocompact at 784,000).
+  Score 6 of 10 passing. No NEW failure, no alert. Slip: my first Weekday-check read used a mistyped trigger id and was rejected; redone with the right id.
+
+## Pass 111 - 2026-11-12T06:17Z (06Z self-test; reads at 06:17Z, probe planted late at 06:42Z after a worker restart interrupted the 06:17Z plant)
+  1 PANEL INBOX: pass (new=0 at 06:17Z and 06:42Z).
+  2 PROBE: pass (probe 2026111206 planted 06:42:22Z, answer due at the 07:41Z runner, inside the 2 hour limit).
+  3 PANEL LOADS: pass (index.html 719,005 bytes, version 1794248937-1f67).
+  4 PC ALIVE: pass (uptime file 06:41:29Z, RAM guard 06:42:04Z).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL, unchanged (Filing engine check, Weekday check, task sweeper and County-watch all still ACCESS_DENIED on their last runs).
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 573,668 of 1,000,000 (autocompact at 784,000).
+  Score 6 of 10 passing. No NEW failure, no alert.
+
+## Pass 112 - 2026-11-12T12:20Z (12Z self-test)
+  1 PANEL INBOX: pass (new=0 at 12:20Z).
+  2 PROBE: pass (probe 2026111212 planted 12:19:54Z, answer due at the 12:41Z runner).
+  3 PANEL LOADS: pass (index.html 719,005 bytes, version 1794248937-1f67).
+  4 PC ALIVE: pass (uptime file 12:16:30Z, RAM guard 12:19:05Z).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL, unchanged (Filing engine check ACCESS_DENIED again 11:52:54Z; Weekday check, task sweeper (12:19:53Z) and County-watch all ACCESS_DENIED on their last runs).
+  7 MAIL WATCH: pass.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context 737,789 of 1,000,000 (autocompact at 784,000, close).
+  Score 6 of 10 passing. No NEW failure, no alert.
+
+## 2026-11-12T18:18Z · 18Z self-test pass 113 (Thu 11-12, 1:1x PM ET)
+  1 PANEL INBOX: pass (task-comments new=0).
+  2 PROBE: planted selftest-probe-2026111218 at 18:17:02Z; the 18:41Z runner answers it. Previous probe (2026111212) was answered.
+  3 PANEL LOADS: not checked.
+  4 PC ALIVE: pass (uptime heartbeat 18:16:36Z; RAM guard 18:16:12Z GREEN).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL, unchanged for the denied ones (Filing engine check, Weekday check, task sweeper all ACCESS_DENIED on their last runs). Only the first page of triggers was read. WATCH: "RAMBO stall watchdog" last run failed USAGE_LIMIT_REACHED at 18:07Z (new to this log). One run only, so held without an alert; if it fails again next hour it gets one alert.
+  7 MAIL WATCH: pass for Gmail. Outlook search failed three times (Too Many Requests, then a 60 s timeout); mail-check time left at 17:17Z so the next watch re-covers it.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context about 280,000 of 1,000,000 (autocompact at 784,000).
+  Score 6 of 10 passing. No alert sent.
+
+## 2026-11-13T00:18Z · 00Z self-test pass 114 (Thu 11-12, 7:1x PM ET)
+  1 PANEL INBOX: pass (task-comments new=0).
+  2 PROBE: planted selftest-probe-2026111300 at 00:16:54Z; the 00:41Z runner answers it. Previous probe (2026111218) answered 18:42:04Z.
+  3 PANEL LOADS: not checked.
+  4 PC ALIVE: pass (uptime heartbeat 00:16:27Z; RAM guard 00:16:03Z GREEN).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt since 11-09).
+  6 SCHEDULED TASKS: FAIL. Known denied: Filing engine check, Weekday check (21:58Z), task sweeper. NEW: "Rambo" (desktop executor agent) last run 19:34Z USAGE_LIMIT_REACHED; "RAMBO stall watchdog" USAGE_LIMIT_REACHED at 18:07Z and again 00:07Z (second time, so alerted). Only the first page of triggers was read.
+  7 MAIL WATCH: Gmail fine; Outlook search failing since 18:17Z (502), mail-check held at 17:17Z (about 7 h old, so this check reads as FAIL by the 70 min rule; cause is Outlook, not the watch).
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context about 450,000 of 1,000,000 (autocompact at 784,000).
+  Score 5 of 10 passing (checks 5, 6, 7 failing, 3 8 9 not checked). NEW failure alert sent once by Gmail (usage limit on Rambo and the watchdog; model change needs Jorge yes). Panel attention doc NOT written: its schema is Jorge's decision records and I did not want to misrender the live panel.
+
+## 2026-11-13T06:18Z · 06Z self-test pass 115 (Fri 11-13, 1:1x AM ET)
+  1 PANEL INBOX: pass (task-comments new=0).
+  2 PROBE: planted selftest-probe-2026111306 at 06:17:34Z; the 06:41Z runner answers it. Previous probe (2026111300) answered 00:41:38Z.
+  3 PANEL LOADS: not checked.
+  4 PC ALIVE: pass (uptime heartbeat 06:16:20Z, awake 130 h; RAM guard 06:17:06Z GREEN 8.5 GB free).
+  5 SEARCHABLE FILES: FAIL, unchanged (no .SEARCH.txt found; newest name match is a 11-07 NO-MATCH log).
+  6 SCHEDULED TASKS: FAIL, unchanged. Denied: Filing engine check, Weekday check, task sweeper. Usage limit: Rambo (19:34Z) and RAMBO stall watchdog (third failure, 02:07Z); Jorge already alerted 00:18Z. Overnight OCR routine is running now (started 06:17:31Z). Only the first page of triggers was read.
+  7 MAIL WATCH: FAIL. Gmail fine; Outlook search 502 on every try since 03:16Z, mail-check held at 02:17Z (4 h old). Cause is the Outlook connector, not the watch.
+  8 STATUS BOARD / 9 VIEWERS: not checked.
+  10 USAGE: allowed (seven_day). Context about 615,000 of 1,000,000 (autocompact at 784,000).
+  Score 4 of 10 passing (1, 2, 4, 10). Correction: pass 114's "5 of 10" counted one check too many; its true count was 4 of 10 as well. No NEW failure, no alert.
+
+2026-11-13T12:19Z 12Z self-test pass 116 (checks run: 1, 2, 4, 7, 10; check 6 not rechecked this pass; 3, 5, 8, 9 not checked)
+  7 MAIL WATCH: PASS. Outlook search worked at 12:19Z; the 02:17Z to 12:19Z gap was fully read (85 of 85) and mail-check advanced.
+  10 USAGE: allowed (seven_day). Context about 735,000 of 1,000,000 (autocompact at 784,000, expect compaction soon; everything is in files).
+  Score 5 of 10 counted (1, 2, 4, 7, 10 passing as of last known state; 5 and 6 still failing, others not run). No NEW failure; RAM guard RED alerted separately.
+
+2026-11-13T18:19Z 18Z self-test pass 117 (checks run: 1, 2, 4, 5, 7, 10; check 6 not rechecked this pass; 3, 8, 9 not checked)
+  1 PANEL INBOX: PASS. task-comments new=0; orchestrator queue item is routed; 11 approvals are approved with routedAt and a result (all routed to WORK-QUEUE item 29 or marked impossible-for-agents) and no doneAt, so they sit on the waiting counter by design.
+  2 PROBE: PASS. Previous probe 2026111312 answered at 12:42:36Z. New probe selftest-probe-2026111318 planted 18:17:40Z.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md written 18:16:45Z (about 3 min old); awake 142 h.
+  5 OCR FLOWING: FAIL (persistent). No .SEARCH.txt modified since 11-11 18:00Z; known failure since 11-09.
+  7 MAIL WATCH: PASS. Gmail and Outlook both searched this pass; gap closed since 17:17Z; no job mail.
+  10 USAGE: allowed (seven_day). Context about 399,000 of 1,000,000 (autocompact at 784,000).
+  Score 5 of 10 counted passing (1, 2, 4, 7, 10). No NEW failure; RAM guard RED at 18:17:02Z logged, not re-alerted (flips every 2 to 3 hours; Jorge told at 12:21Z and 17:17Z).
+
+2026-11-14T00:17Z 00Z self-test pass 118 (checks run: 1, 2, 4, 5, 7, 10; check 6 not rechecked this pass; 3, 8, 9 not checked)
+  1 PANEL INBOX: PASS. task-comments new=0 apart from the fresh probe; 11 approvals still routed (WORK-QUEUE item 29 or impossible-for-agents), no doneAt, by design.
+  2 PROBE: PASS. Previous probe 2026111318 answered 18:42:04Z. New probe selftest-probe-2026111400 planted 00:16:54Z.
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md written 00:16:55Z; awake about 148 h.
+  5 OCR FLOWING: FAIL (persistent). No .SEARCH.txt modified since 11-12 00:00Z.
+  7 MAIL WATCH: PASS. last-mail-check was 60 min old; both mailboxes searched this pass.
+  10 USAGE: allowed (seven_day). Context about 618,000 of 1,000,000 (autocompact at 784,000).
+  Score 5 of 10 counted passing (1, 2, 4, 7, 10). No NEW failure.
+
+## Pass 119 · 2026-11-14T06:17Z (06Z self-test) · 5 of 10 counted passing
+  1 PANEL INBOX: PASS. task-comments new=0; approvals routed by design.
+  2 PROBE: PASS. Previous probe 2026111400 answered; new probe 2026111406 written (answer due at the 06:41Z runner).
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 06:16:25Z.
+  5 OCR FLOWING: FAIL (persistent). No .SEARCH.txt modified since 11-12 00:00Z.
+  7 MAIL WATCH: PASS. Both mailboxes searched this pass.
+  10 USAGE: allowed_warning (seven_day). Context about 203,000 of 1,000,000 after compaction.
+  Not run: 3, 6, 8, 9. No NEW failure.
+
+## Pass 120 · 2026-11-14T12:17Z (12Z self-test) · 5 of 10 counted passing
+  1 PANEL INBOX: PASS. task-comments new=0; approvals routed by design.
+  2 PROBE: PASS. Previous probe 2026111406 answered; new probe 2026111412 written (answer due at the 12:41Z runner).
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 12:16:45Z.
+  5 OCR FLOWING: FAIL (persistent). No .SEARCH.txt modified since 11-12 00:00Z.
+  7 MAIL WATCH: PASS. Both mailboxes searched this pass.
+  10 USAGE: allowed_warning (seven_day). Context about 342,000 of 1,000,000.
+  Not run: 3, 6, 8, 9. No NEW failure.

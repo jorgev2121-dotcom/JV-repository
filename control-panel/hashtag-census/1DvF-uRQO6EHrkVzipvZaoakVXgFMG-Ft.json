@@ -1,0 +1,17 @@
+{"id":"1DvF-uRQO6EHrkVzipvZaoakVXgFMG-Ft","title":"TRK-2026-1292 - 7823 NW 5th Ave - Alec Valdes - Avis Builders","partial":false,
+"pdfs":15,"search_sidecars":16,"tags_sidecars":14,"tags5_sampled":3,"tags5_of_sampled":1,
+"has_HASHTAGS_txt":true,"hashtags_count":6,"has_people_tags":true,"has_trk_tag":true,
+"other_files":["_HASHTAGS.txt (#TRK-2026-1292 #AlecValdes #AvisBuilders #7823NW5thAve #microfilm #ClerkLiens)","_TAGS.txt","_PORTAL_TRK-2026-1292.html","_PLACEHOLDERS.md","_STAGE.md","_CONTACTS-EXTRACTED.txt","_INDEX.html (root, 00-Intake, 03-Research, 08-Jacket-Order)","_22-SOURCE-RUN_TRK-2026-1531_2026-08-16.html","05-REPORTS-DELIVERABLES: DD Alec Standard v1.md + v2-CORRECTIONS.md, 2026-09-11 _ TRK-1292 _ DD-Research-Partial _ JOB-4227 _ v1.md","08-Jacket-Order: READ-ME_JACKET-ORDER.txt, 2 PNG screenshots (with .SEARCH.txt, counted)","00-Intake: ORDER-CITY-OF-MIAMI_7823-NW-5-AVE_2026-08-05.eml","03-Research: County DERM/RER/PA pull json/html; 2026-09-11_JOB-4227-DD-Run with ~21 SITE-xx RAW json/html","07-TAX-JACKET/ENHANCED: 3 WHAT-WAS-DONE.json, FINAL_ALL.pdf.PAGEMAP.json, _partmaps (level 3, not walked)","Empty folders: 01-INTAKE, 04-CORRESPONDENCE, _Superseded, 01-Microfilm, 02-Permits, 03-Clerk-Liens, 04-Property-Appraiser, Working Papers (images)","nightly .bak files in root (excluded)"],
+"people":[
+{"name":"Alec Valdes","role":"client (Jorge's son) - Avis Builders","email":null,"evidence":"_HASHTAGS.txt; folder title; READ-ME_JACKET-ORDER.txt","misspellings":["Alex Valdes","Alec Valdez","Aleck"]},
+{"name":"Jorge Valdes","role":"owner / DD researcher (CU Inspections)","email":"jorge@teamusasales.com","evidence":"_CONTACTS-EXTRACTED.txt; READ-ME_JACKET-ORDER.txt","misspellings":["jorze@teamusasales.com (OCR error in contacts file)"]}
+],
+"companies":[
+{"name":"Avis Builders","role":"client company (Alec Valdes)","evidence":"_HASHTAGS.txt, folder title"},
+{"name":"Ajil Construction Inc.","role":"contractor on file for permit work (NOA source)","evidence":"_PLACEHOLDERS.md"},
+{"name":"City of Miami Building Dept","role":"microfilm / permit records (order paid $44, transaction 1326704)","evidence":"_PLACEHOLDERS.md; INV 1326704 file name"},
+{"name":"Miami-Dade Property Appraiser (PAWebMail)","role":"bldg/tax jacket source","evidence":"READ-ME_JACKET-ORDER.txt"},
+{"name":"Miami-Dade Clerk","role":"lien/mortgage/NOC search (blocked)","evidence":"_PLACEHOLDERS.md"}
+],
+"keywords":["TRK-2026-1292","TRK-2026-1531","TRK-2026-9047 (master)","TRK-2026-9754","7823 NW 5 Ave","7823 NW 5th Avenue","7823 NW 5 AV","7823 Northwest Fifth Ave","folio 01-3112-016-0030","0131120160030","BD23019733","Alec","Avis Builders","DD Alec Standard","due diligence book","tax jacket","bldg jacket","microfilm","Clerk liens","INV 1326704","confirmation 202927809","JOB-4227","T3-O Miami 21","Lot 3 / Lots 3&4","lot coverage"],
+"notes":"Only job in this batch with _HASHTAGS.txt (6 tags, person + TRK present; created 2026-10-09). 15 PDFs: DD-BOOK root, DD report v1, invoice x2 (same invoice saved twice: 03-INVOICES and 00-Intake), 8 tax-jacket ENHANCED/FINAL/DELIVERABLE, 3 ORIGINAL. DD Alec Standard v1.pdf has no SEARCH/TAGS sidecars. Naming drift: 'TRK-2026-1531.002_...' uses the forbidden .NNN page form; '2026-09-11 _ TRK-1292 _ ...' uses short form missing year. Four TRKs referenced for one job (1292, 1531, 9047, 9754) - registry reconcile needed. Microfilm SharePoint link likely expired ~2026-09-15. Most standard subfolders empty. _partmaps (level 3) not walked. ~6 calls."}

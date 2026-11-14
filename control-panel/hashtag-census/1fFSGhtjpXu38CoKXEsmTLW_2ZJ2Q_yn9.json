@@ -1,0 +1,13 @@
+{"id":"1fFSGhtjpXu38CoKXEsmTLW_2ZJ2Q_yn9","title":"14953 SW 34 ST (TRK-2026-1280)","partial":false,"pdfs":0,"search_sidecars":0,"tags_sidecars":0,"tags5_sampled":0,"tags5_of_sampled":0,"has_HASHTAGS_txt":false,"hashtags_count":null,"has_people_tags":null,"has_trk_tag":null,
+"other_files":["_TAGS.txt (6 tags incl #TRK-2026-1280, #JorgeValdes; no client tag)","CAPSULE.md","_PLACEHOLDERS.md","_PORTAL_TRK-2026-1280.html","_STAGE.md","_INDEX.html","daily .bak-YYYYMMDD copies in job root (excluded)"],
+"people":[
+{"name":"Jorge Valdes","role":"owner / CU Inspections (listed as job owner; no client identified)","email":null,"evidence":"CAPSULE.md; _TAGS.txt","misspellings":["Jorge Valdez"]}
+],
+"companies":[
+{"name":"CU Inspections of South Florida","role":"owner company","email":null,"evidence":"CAPSULE.md; _TAGS.txt"},
+{"name":"Miami-Dade County Permits (RER)","role":"county permit records (reCAPTCHA-blocked)","email":null,"evidence":"CAPSULE.md"},
+{"name":"Miami-Dade Clerk of Court","role":"liens / offsets search","email":null,"evidence":"CAPSULE.md"},
+{"name":"Miami-Dade Property Appraiser","role":"folio data","email":null,"evidence":"CAPSULE.md"}
+],
+"keywords":["TRK-2026-1280","14953 SW 34 ST","14953 SW 34th Street","14953 Southwest 34 Street","14953-SW-34-St","due diligence","permit history","clerk liens and offsets","satisfactions / releases","reCAPTCHA","Miami-Dade","OPEN-ITEMS TRK-2026-9032 (folder rename)","Tamiami / West Miami-Dade"],
+"notes":"Shell job: all 10 subfolders are empty; zero PDFs and zero sidecars. No _HASHTAGS.txt; _TAGS.txt has 6 tags with TRK but no person/client tag. No client identified anywhere (per _PLACEHOLDERS.md). Folio not yet recorded. Folder name is address-first, not TRK-first (rename pending TRK-2026-9032). Due 2026-07-05, long overdue."}

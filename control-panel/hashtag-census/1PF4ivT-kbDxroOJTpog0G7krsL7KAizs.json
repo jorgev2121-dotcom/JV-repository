@@ -1,0 +1,27 @@
+{
+  "id": "1PF4ivT-kbDxroOJTpog0G7krsL7KAizs",
+  "title": "TRK-2026-1611 - Pembroke Pines Contractor Registration (MZ Solutions)",
+  "partial": false,
+  "pdfs": 3,
+  "search_sidecars": 3,
+  "tags_sidecars": 3,
+  "tags5_sampled": 3,
+  "tags5_of_sampled": 2,
+  "has_HASHTAGS_txt": false,
+  "hashtags_count": null,
+  "has_people_tags": null,
+  "has_trk_tag": null,
+  "other_files": ["_TAGS.txt", "_CONTACTS-EXTRACTED.txt", "_PLACEHOLDERS.md", "_PORTAL_TRK-2026-1611.html", "_STAGE.md", "_INDEX.html (root + 2 subfolders)", "REGISTRATION-RESULT.md", "2026-08-17 - Pembroke Pines - REGISTRATION APPROVED - Contractor ID-000049083.msg", "~51 dated .bak- copies of _PORTAL and _STAGE.md in job root"],
+  "people": [
+    {"name": "Miguel Zaldivar", "role": "contractor / qualifier (CGC1528486), client", "email": "miguel@mzsolutions.org", "evidence": "REGISTRATION-RESULT.md; _CONTACTS-EXTRACTED.txt; _TAGS.txt; file name 'Miguel Zaldivar - CGC1528486 - State Licence Renewal 2026.pdf'", "misspellings": ["Zaldibar", "Saldivar", "Zaldivär", "Zaldevar", "Miguel Saldivar"]},
+    {"name": "Toni Hamilton", "role": "city staff - Permit Technician, Pembroke Pines Building Dept (CGA)", "email": "PinesPermits@cgasolutions.com", "evidence": "REGISTRATION-RESULT.md", "misspellings": ["Tony Hamilton", "Toni Hamelton"]},
+    {"name": "Jorge Valdes", "role": "plans processor / owner's agent", "email": null, "evidence": "REGISTRATION-RESULT.md", "misspellings": []}
+  ],
+  "companies": [
+    {"name": "MZ Solutions, LLC", "role": "contractor / client", "email": "miguel@mzsolutions.org", "evidence": "REGISTRATION-RESULT.md; file names"},
+    {"name": "City of Pembroke Pines Building Department (CGA Solutions)", "role": "city", "email": "PinesPermits@cgasolutions.com", "evidence": "REGISTRATION-RESULT.md"},
+    {"name": "Construction Pros Insurance (constructionprosins.com)", "role": "insurance agent (COI)", "email": "office@constructionprosins.com", "evidence": "_CONTACTS-EXTRACTED.txt"}
+  ],
+  "keywords": ["TRK-2026-1611", "Pembroke Pines", "contractor registration", "MZ Solutions", "MZ Solutions LLC", "Miguel Zaldivar", "CGC1528486", "Contractor ID-000049083", "ID-000049083", "49083", "9770 SW 215 Lane", "9770 SW 215 Ln Cutler Bay", "Cutler Bay 33189", "601 City Center Way", "Development Hub", "General Liability COI", "workers comp exemption", "state licence renewal", "Toni Hamilton", "CGA", "954-435-6502"],
+  "notes": "No _HASHTAGS.txt in job root (only _TAGS.txt with 7 tags incl. person #Miguel-Zaldivar and #TRK-2026-1611). All 3 PDFs in 01-Related-Docs. Job DONE per REGISTRATION-RESULT.md (approved 2026-08-17). Empty subfolders: 01-INTAKE, 02-PERMITS, 03-INVOICES-PAYMENTS, 04-CORRESPONDENCE, 05-REPORTS-DELIVERABLES, 05-Emails, 02-Deliverables, _Superseded. Duplicate structure (02-Correspondence vs 04-CORRESPONDENCE). Workers comp TAGS sidecar has only 4 tags."
+}

@@ -1,0 +1,1 @@
+window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.tokens = { "schema": 1, "at": "2026-10-11T21:42:46-04:00", "writer": "CU-VTES5-Feeder (tools/panel/VTES5-Feeder.ps1): read from _USAGE-GOVERNOR-HEARTBEAT.md written 2026-10-11T21:42:46-04:00", "burn_per_hour": 12345, "window_used_pct": 18.5, "week_used_pct": 40, "window_resets_at": "2099-01-01T05:00:00-05:00" };

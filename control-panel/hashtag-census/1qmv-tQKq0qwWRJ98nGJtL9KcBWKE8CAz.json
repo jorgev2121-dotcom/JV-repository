@@ -1,0 +1,30 @@
+{
+  "id": "1qmv-tQKq0qwWRJ98nGJtL9KcBWKE8CAz",
+  "title": "TRK-2026-1612 _ 01-4002-003-1200 _ 331 Tamiami Canal Rd Miami (ALEC VALDES)",
+  "partial": false,
+  "pdfs": 17,
+  "search_sidecars": 39,
+  "tags_sidecars": 17,
+  "tags5_sampled": 3,
+  "tags5_of_sampled": 1,
+  "has_HASHTAGS_txt": false,
+  "hashtags_count": null,
+  "has_people_tags": null,
+  "has_trk_tag": null,
+  "other_files": ["_TAGS.txt", "_CONTACTS-EXTRACTED.txt", "_PLACEHOLDERS.md", "_PORTAL_TRK-2026-1612.html", "_PORTAL_TRK-2026-1612_EMBEDDED.html (25.7 MB)", "_STAGE.md", "ANSWER_MICROFILM_ASK-PER-ITEM_2026-08-19.md", "07-TAX-JACKET_2026-08-24/_VERSION-LOG.md", "04-CORRESPONDENCE: CITY-MICROFILM_SENT-AND-INVOICED_TRK-2026-1612_2026-08-22.md, JACKET-ORDER_SENT_TRK-2026-1612_2026-08-19.md, ORDER-CITY-OF-MIAMI-MICROFILM ... .eml.SUPERSEDED-ALREADY-SENT-DO-NOT-SEND", "04-COUNTY-RECORDS/CLERK-DEEDS_RETRIEVAL-NOTE_2026-08-19.md", "01-INTAKE: 2026-09-04 _ TRK-2026-1612 _ Email _ REPLY-TO-NANCY PAID _ v1.eml", "05-REPORTS-DELIVERABLES: DD Alec Standard v1 .md, ADDENDUM-A/B/C/D .html, MICROFILM-ITEM-SHEET .html, _22-SOURCE-RUN .html, PRELIMINARY-FINDINGS .html, DD-MASTER_2026-08-17.csv, Report-WorkingPapers folder (24 page PNGs)", "_Superseded/0140020031200_DD-REPORT_2026-08-17_SINGLE-IMAGE-BUILD.html", "ENHANCED: FINAL_ALL.pdf.PAGEMAP.json, 3x WHAT-WAS-DONE.json, ENHANCED v1 .MANIFEST.txt, _partmaps/", "~23 PNG screenshots in 01-INTAKE/06-IMAGES and 05/06-IMAGES (duplicated across both)", "root .bak-YYYYMMDD copies excluded from listing"],
+  "people": [
+    {"name": "Alec Valdes", "role": "client", "email": null, "evidence": "folder title, _TAGS.txt, report filename 'DD Alec Standard'", "misspellings": ["Alex Valdes", "Alec Valdez", "Aleck Valdes"]},
+    {"name": "Nancy Aguilar", "role": "City of Miami records/microfilm staff (issued $44 invoice 1330901)", "email": null, "evidence": "_PLACEHOLDERS.md, file name 'REPLY-TO-NANCY PAID'", "misspellings": ["Nancy Aguilera", "Nancy Agilar"]},
+    {"name": "Carrie Compain", "role": "owner of record in deed chain (living status decides who must sign)", "email": null, "evidence": "_PLACEHOLDERS.md, file name 'name-search-COMPAIN'", "misspellings": ["Carrie Campain", "Carrie Compaine", "Kerry Compain"]},
+    {"name": "Jorge Valdes", "role": "owner / inspector", "email": "jorge@teamusasales.com", "evidence": "_CONTACTS-EXTRACTED.txt, _TAGS.txt", "misspellings": ["Jorge Valdez"]}
+  ],
+  "companies": [
+    {"name": "City of Miami (Building / microfilm records)", "role": "city records - $44 microfilm search, invoice 1330901, unpaid", "email": null, "evidence": "_PLACEHOLDERS.md, 03-INVOICES-PAYMENTS file name"},
+    {"name": "Miami-Dade Clerk of Courts (Official Records)", "role": "deeds / liens source (Turnstile-blocked)", "email": null, "evidence": "04-COUNTY-RECORDS, _PLACEHOLDERS.md"},
+    {"name": "Miami-Dade Property Appraiser", "role": "tax jacket source", "email": null, "evidence": "07-TAX-JACKET folder"},
+    {"name": "Team USA Sales, Inc.", "role": "Jorge's company", "email": "jorge@teamusasales.com", "evidence": "_CONTACTS-EXTRACTED.txt"},
+    {"name": "Florida DOH / HRS", "role": "septic/OSTDS records (not yet queried)", "email": null, "evidence": "_PLACEHOLDERS.md"}
+  ],
+  "keywords": ["331 Tamiami Canal Rd", "331 Tamiami Canal Road Miami", "331-Tamiami-Canal-Rd", "folio 01-4002-003-1200", "0140020031200", "TRK-2026-1612", "Alec Valdes", "Alec DD", "DD Alec Standard", "City of Miami $44 invoice 1330901", "microfilm", "Nancy Aguilar", "Carrie Compain", "permit 70-1199", "permit C-17936V", "permit 72-438", "1958 addition", "plat PB 10-51", "deed 1980-R-235233 BK10862 PG1565", "deed 2013-R-620639 BK28761 PG454", "quit claim deed", "title chain", "flood zone conflict", "NET Flagami", "septic OSTDS", "22-source run", "tax jacket"],
+  "notes": "No _HASHTAGS.txt. _TAGS.txt carries #TRK-2026-1612 and #Alec-Valdes. DD-BOOK TAGS sidecar carries a stray second TRK (#TRK-2026-9754, admin band) and a wrong address tag #111-NW-1-ST (likely City of Miami office address from OCR). Sampled TAGS: DD-BOOK 6 tags, NANCY eml 4, INV 1330901 3 -> 1 of 3 >=5. Walked 3 levels (07-TAX-JACKET/ENHANCED+ORIGINAL, 05/Report-WorkingPapers, 06-IMAGES) to reach the PDFs; _RAW/0140020031200 and _partmaps not walked. search_sidecars count (39) includes 23 PNG .SEARCH.txt in the two 06-IMAGES folders; PDF-only SEARCH sidecars = 16 (DD Alec Standard v1 pdf has no sidecars). Billing to Alec not yet issued; City $44 unpaid 7 weeks. 02-PERMITS empty."
+}

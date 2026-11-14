@@ -1,0 +1,18 @@
+{"id":"12rmgFxUHtAhYJCWdP2RioUu5djjF7zcS","title":"TRK-2026-1268 - 1500 Ocean Drive (Miami Beach) - Roof Permit DD","partial":false,"pdfs":0,"search_sidecars":0,"tags_sidecars":0,"tags5_sampled":0,"tags5_of_sampled":0,"has_HASHTAGS_txt":false,"hashtags_count":null,"has_people_tags":null,"has_trk_tag":null,
+"other_files":["_TAGS.txt (7 tags incl #TRK-2026-1268, #JorgeValdes; no client/person tag for Frank Izquierdo)","CAPSULE.md","_PLACEHOLDERS.md","_PORTAL_TRK-2026-1268.html","_STAGE.md","_INDEX.html","01-Emails/_keywords.txt","03-Research: Findings_DD1500_2026-07-04.md, 1500-Ocean-Drive_Roof-Permit-Research_2026-07-01.md","daily .bak-YYYYMMDD copies in job root (excluded)"],
+"people":[
+{"name":"Frank Izquierdo","role":"client (principal, Prestige Roofing, Inc.)","email":"frank@prestigeroofinginc.net","evidence":"CAPSULE.md; _PLACEHOLDERS.md","misspellings":["Frank Isquierdo","Frank Izquerdo","Frank Esquierdo","Frank Izquiero"]},
+{"name":"Mayra Izquierdo","role":"client office staff (Prestige Roofing)","email":"mayra@prestigeroofinginc.net","evidence":"CAPSULE.md","misspellings":["Maira Izquierdo","Myra Izquierdo","Mayra Isquierdo"]},
+{"name":"Jason Baldwin","role":"Prestige Roofing staff","email":"jason@prestigeroofinginc.net","evidence":"CAPSULE.md","misspellings":["Jayson Baldwin","Jason Baldwyn"]},
+{"name":"Michael Brandt","role":"principal of Structural Integrity Contractors (2019 fraud judgment, prior contractor)","email":null,"evidence":"_PLACEHOLDERS.md","misspellings":["Michael Brant","Micheal Brandt","Mike Brandt"]},
+{"name":"Jorge Valdes","role":"owner / CU Inspections","email":null,"evidence":"_TAGS.txt","misspellings":["Jorge Valdez"]}
+],
+"companies":[
+{"name":"Prestige Roofing, Inc.","role":"client (roofing contractor)","email":"frank@prestigeroofinginc.net","evidence":"CAPSULE.md","misspellings":["Prestige Roofing Inc","Prestige Roof","PrestigeRoofing"]},
+{"name":"1500 Ocean Drive Condominium Association","role":"subject building / DD target (also named as client in conflicting note)","email":null,"evidence":"CAPSULE.md; _PLACEHOLDERS.md"},
+{"name":"Structural Integrity Contractors","role":"prior contractor (2019 fraud judgment)","email":null,"evidence":"_PLACEHOLDERS.md"},
+{"name":"City of Miami Beach (Civic Access / Code Compliance)","role":"permitting and code agency","email":null,"evidence":"CAPSULE.md"},
+{"name":"CU Inspections of South Florida","role":"owner company","email":null,"evidence":"_TAGS.txt"}
+],
+"keywords":["TRK-2026-1268","1500 Ocean Drive","1500 Ocean Dr Miami Beach","1500 Ocean Drive Condominium","Miami Beach FL 33139","South Beach condo tower","113-unit condo","roof permit expired","25-year recertification","40-year recert","structural pool saga","Prestige Roofing","Frank Izquierdo","Go/No-Go recommendation","Miami Beach Civic Access","SunBiz association","Structural Integrity Contractors judgment 2019","DD1500","folio TBD"],
+"notes":"Research-only shell: zero PDFs, zero sidecars, no _HASHTAGS.txt. _TAGS.txt has 7 tags with TRK but no person/client tag. All subfolders empty except 01-Emails (_keywords.txt) and 03-Research (2 md). Folio still TBD. Client identity conflict (Prestige Roofing vs Condo Association) flagged in _PLACEHOLDERS.md. Note: a sent client email reportedly exposed internal AI instructions (per _PLACEHOLDERS.md)."}

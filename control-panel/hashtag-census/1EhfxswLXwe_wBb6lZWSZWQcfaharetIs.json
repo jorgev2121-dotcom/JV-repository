@@ -1,0 +1,16 @@
+{"id":"1EhfxswLXwe_wBb6lZWSZWQcfaharetIs","title":"TRK-2026-1286 - 1997 SW 218 St - Alec Valdes - Avis Builders","partial":false,"pdfs":1,"search_sidecars":2,"tags_sidecars":0,"tags5_sampled":0,"tags5_of_sampled":0,"has_HASHTAGS_txt":false,"hashtags_count":null,"has_people_tags":null,"has_trk_tag":null,
+"other_files":["_TAGS.txt (7 tags incl #TRK-2026-1286, #Alec-Valdes, #Avis-Builders)","_PLACEHOLDERS.md","_PORTAL_TRK-2026-1286.html","_STAGE.md","_INDEX.html","_22-SOURCE-RUN_TRK-2026-1286_2026-08-16.html","08-Jacket-Order: READ-ME_JACKET-ORDER.txt, 2 PA online-form PNG screenshots + 2 .png.SEARCH.txt","05-REPORTS-DELIVERABLES: DD Alec Standard v1 .pdf/.html/.md, v2-CORRECTIONS.md, DD-Research-Partial and DD-Research-Supplement (JOB-4227) .md","03-Research/2026-09-11_JOB-4227-DD-Run (level-3 folder, not walked)","daily .bak-YYYYMMDD copies in job root (excluded)"],
+"people":[
+{"name":"Alec Valdes","role":"client","email":null,"evidence":"folder title; _TAGS.txt; READ-ME_JACKET-ORDER.txt","misspellings":["Alek Valdes","Alec Valdez","Alex Valdes","AlecValdes"]},
+{"name":"Jorge Valdes","role":"owner / CU Inspections","email":"jorge@teamusasales.com","evidence":"_TAGS.txt; READ-ME_JACKET-ORDER.txt (reply inbox)","misspellings":["Jorge Valdez"]}
+],
+"companies":[
+{"name":"Avis Builders","role":"builder / client-side company","email":null,"evidence":"folder title; _TAGS.txt","misspellings":["Avis Builder","AvisBuilders","Avis Bldrs"]},
+{"name":"R&G LLC","role":"contractor (windows/doors per permit)","email":null,"evidence":"_PLACEHOLDERS.md"},
+{"name":"Miami-Dade Property Appraiser (PAWebMail)","role":"county - jacket requests","email":"PAWEBMAIL@MDCPA.NET","evidence":"READ-ME_JACKET-ORDER.txt"},
+{"name":"Loan Store","role":"mortgage lender ($751,143 mortgage)","email":null,"evidence":"_PLACEHOLDERS.md"},
+{"name":"Miami-Dade DOH","role":"septic/OSTDS records","email":null,"evidence":"_PLACEHOLDERS.md"},
+{"name":"CU Inspections of South Florida","role":"owner company","email":null,"evidence":"_TAGS.txt"}
+],
+"keywords":["TRK-2026-1286","master TRK-2026-9047","JOB-4227","11997 SW 218 ST","11997 SW 218th Street","1997 SW 218 St (wrong address in folder name)","folio 30-6912-004-0951","3069120040951","permit 2024043772","bldg jacket","Avis Builders","Alec DD","DD Alec Standard","new construction 2024","septic OSTDS","Loan Store mortgage $751,143","window/door NOA","Goulds / South Dade"],
+"notes":"No _HASHTAGS.txt; a _TAGS.txt exists (7 tags, includes TRK and person tags). Folder title address '1997' is wrong; real address is 11997 SW 218 ST (rename pending Jorge sign-off per _PLACEHOLDERS.md). Inconsistent short TRK form 'TRK-1286' in two report filenames (drift: should be TRK-2026-1286). Only 1 PDF. 2 .SEARCH.txt sidecars (for PNGs, not PDFs). Many subfolders empty."}

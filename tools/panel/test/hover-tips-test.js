@@ -1,0 +1,13 @@
+const {chromium}=require('/opt/node22/lib/node_modules/playwright');
+(async()=>{const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'}).catch(()=>chromium.launch());
+const p=await b.newPage({viewport:{width:1280,height:900}});const errs=[];p.on('pageerror',e=>errs.push(e.message));
+await p.addInitScript(()=>{window.claude={use:async()=>null}});
+await p.goto('file://'+process.argv[2]);await p.waitForTimeout(900);
+await p.evaluate(()=>VTES.show('APPROVALS'));await p.waitForTimeout(500);
+console.log('with tip / total:',await p.evaluate(()=>[document.querySelectorAll('button[data-tip],a[data-tip]').length,document.querySelectorAll('button,a').length]));
+console.log('no-tip samples:',await p.evaluate(()=>[...document.querySelectorAll('button:not([data-tip]),a:not([data-tip])')].slice(0,5).map(e=>e.outerHTML.slice(0,90))));
+await p.hover('.tab[data-tab=USAGE]');await p.waitForTimeout(500);console.log('tab tip:',await p.textContent('#tipbox'));
+await p.hover('#pane-APPROVALS button.approve');await p.waitForTimeout(500);console.log('approve tip:',await p.textContent('#tipbox'));
+await p.screenshot({path:process.argv[3]});
+await p.hover('#pane-APPROVALS .prio button >> nth=4');await p.waitForTimeout(500);console.log('prio tip:',await p.textContent('#tipbox'));
+console.log('ERRS',errs);await b.close()})();

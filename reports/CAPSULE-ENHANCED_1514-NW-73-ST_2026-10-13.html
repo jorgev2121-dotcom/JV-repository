@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1514 NW 73 St Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule, built from the TUS-26-1018 pilot. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+.p-clock{background:var(--money-soft);color:var(--money)}
+.sub{font-family:var(--display);font-size:14px;font-weight:600;color:var(--accent);margin:16px 0 0;overflow-wrap:anywhere}
+.mdocs .sep{margin-top:10px}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED</p>
+<h1>TRK-TBD · 1514 NW 73 St, Miami 33147 · new house, proposal drafted, no tracking number</h1>
+<div class="facts">
+  <span><b>Property</b>1514 NW 73rd St, Miami FL 33147 (vacant 50 × 100 lot)</span>
+  <span><b>Folio</b>30-3111-039-0190 (RU-1)</span>
+  <span><b>Project</b>New single-family house, 3 bed / 2 bath, 1,548 sq ft</span>
+  <span><b>Client</b>Not confirmed (Lynda Harris?)</span>
+  <span><b>Contractor</b>MZ Solutions, LLC (Miguel Zaldivar)</span>
+  <span><b>Tracking number</b>None found in any registry</span>
+</div>
+<div class="deadline">No tracking number. This is a defect (CLAUDE.md §9).
+<small>No number exists in the repo registry files. This helper did not issue one or rename anything. Issuing a number and renaming the folder need your yes.</small></div>
+<p class="stamp">TRK-TBD · 1514-NW-73-ST · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile y" data-go="status"><span class="n">56</span><b>Documents</b><small>Plans, proposal, RFQ, bid work.</small></button>
+  <button class="tile y" data-go="status"><span class="n">7</span><b>Still missing</b><small>A tracking number first.</small></button>
+  <button class="tile w" data-go="people"><span class="n">3</span><b>Waiting on</b><small>You, Miguel, the PC helper.</small></button>
+  <button class="tile c" data-go="findings"><span class="n">10</span><b>Findings</b><small>Wrong city in the tags.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> <b>Say yes to giving this job a tracking number.</b> Then three quick answers move it: who the client is, whether Proposal Rev2 was sent, and whether Miguel ever quoted.</p></div>
+
+<div class="tags"><b>Hashtags for this job (from _TAGS.txt and the census)</b>#1514-NW-73-St #house-project #new-construction #folio-30-3111-039-0190 #Miami-Dade-unincorporated #City-of-Miami(conflict) #MZ-Solutions #Miguel-Zaldivar #Lynda-Harris #RFQ-2026-0714-1514NW73 #plans #TRK-TBD-defect #JorgeValdes #CU-Inspections</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>56 documents across 8 folders (the job folder and 7 subfolders, 6 of them empty), all listed one by one with Drive links; 9 pricing documents are inside the 🔒 Money zone. Not counted as documents: 55 sidecars (.TAGS and .SEARCH), 53 backups in the banned “.ext.bak-date” form, and folders. Nothing in the job folder was moved, renamed or deleted, and no tracking number was issued.</p>
+  <p class="tag">TRK-TBD · 1514-NW-73-ST · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #TRK-TBD-defect #1514-NW-73-St #house-project #capsule #orange-tree</p>
+</footer>
+</div>
+<script>
+const FOLDERS=[{"k": "root", "t": "Job root", "p": "1514 NW 73 St - House Project (top of the job folder)", "fid": "1p4BsdnoZwF5VmZojeaVLvUfL8-5dYpIm", "note": "Almost everything lives loose at the top of the folder. Also here, not listed: 33 .TAGS/.SEARCH sidecars and 53 backups in the banned “name.ext.bak-date” form (25 of _PORTAL, 27 of _STAGE, 1 of the RFQ). See Findings.", "side": {"s": 33, "i": 0, "m": 9}, "docs": [["_PORTAL_UNASSIGNED_1514-NW-73-St-House-Project.html", "2026-10-13", 35730, "Web page", "1ytWtGj-usydaPmUyE4YUlpT5JzqNVF9d", "OLDER PORTAL", "Job notes and generated pages"], ["_PLACEHOLDERS.md", "2026-10-10", 2653, "Notes", "1JkZYUkz13l3Tex5Mo0PZPsEbuSENU-if", "KEY", "Job notes and generated pages"], ["_STAGE.md", "2026-10-09", 1047, "Notes", "1BRwO6UN2_ZlzS8ShhWceYkzp6wrc9aQA", "OVERDUE", "Job notes and generated pages"], ["_CONTACTS-EXTRACTED.txt", "2026-10-05", 421, "Text", "1aY65DMLpKRWD9jCiNr2e43onkE_2PJ6t", "", "Job notes and generated pages"], ["_TAGS.txt", "2026-08-26", 264, "Text", "1DBACVuc9_BHrvkj_xzDJJ1tZZ5oXfEvH", "", "Job notes and generated pages"], ["_INDEX.html", "2026-08-17", 20185, "Web page", "1AiAVzyxOhjFUBCT7mdDp0mnuSkbViR0G", "OLDER INDEX", "Job notes and generated pages"], ["2026-07-31_MZ-SOLUTIONS_Zaldivar-intake-pointers.md", "2026-07-31", 1254, "Notes", "1Km4suTScKv4dTLdTqYh6aX7ZVdO0In9H", "", "Job notes and generated pages"], ["PROPOSAL_1514-NW-73-St_2026-07-15_Rev2-Detailed.pdf", "2026-07-15", 336271, "PDF", "1n_EcBS5107VrAAOoAK7ZbjcikkqpfZde", "KEY", "Proposal, RFQ and bid work (July 2026)"], ["PROPOSAL_1514-NW-73-St_2026-07-15_Rev2-Detailed.html", "2026-07-15", 23503, "Web page", "1mz_x4gy5ITPtGdaB0FgGNjRmuAvKmwIm", "", "Proposal, RFQ and bid work (July 2026)"], ["RESULTS_All-LLM-Handoff_2026-07-15.md", "2026-07-15", 1113, "Notes", "1cniPVadMkllNi3ncsiotFicCsOXWWQwC", "", "Proposal, RFQ and bid work (July 2026)"], ["PROPOSAL_1514-NW-73-St_2026-07-15.pdf", "2026-07-15", 129021, "PDF", "1AHhgLK1qSb7p_ERNuphJDfvhU26HdxsX", "SUPERSEDED BY REV2", "Proposal, RFQ and bid work (July 2026)"], ["PROPOSAL_1514-NW-73-St_2026-07-15.html", "2026-07-15", 9129, "Web page", "1ALMTFin51Y0L8hSYrS0A7KRsnR_1F0At", "", "Proposal, RFQ and bid work (July 2026)"], ["UNIVERSAL-BID-PACKET_2026-07-15.txt", "2026-07-15", 6902, "Text", "1k18x_u4yzrecoLf9GpXjaa5e-GuC2YhR", "", "Proposal, RFQ and bid work (July 2026)"], ["HANDOFF-PACKET_for-external-LLMs_2026-07-14.txt", "2026-07-15", 16268, "Text", "10KTfc8h_wtMmy2EfxsWBS8FA-XiGrq9w", "", "Proposal, RFQ and bid work (July 2026)"], ["TAKEOFF-BLANK_1514-NW-73-St_2026-07-14.md", "2026-07-15", 13584, "Notes", "1Skh2R7p7Ljtl7H9fm6jvMYE50WbHoibO", "", "Proposal, RFQ and bid work (July 2026)"], ["RFQ_MZ-Solutions_1514-NW-73-St_2026-07-14.html", "2026-07-14", 4386, "Web page", "1nCQXCDHYIIAewWxoQeeF_mMXsztxuJnv", "KEY", "Proposal, RFQ and bid work (July 2026)"], ["1514 NW 73rd Street Civil Plans.pdf", "2026-03-20", 4676577, "PDF", "1gC2mqH5-WrGBnqF-fHIsQOIhPr3-ZS3n", "KEY", "Plans as received (dated 2026-03-20)"], ["1514 NW 73 ST  LANDscape plans.pdf", "2026-03-20", 962008, "PDF", "10QB8mNsCjx83ZjStLPDSp9cM7O89cMFN", "", "Plans as received (dated 2026-03-20)"], ["calcs.pdf", "2026-03-20", 598093, "PDF", "1ArNo3cuijYuOcwej7o6dIeC_-rWTXguM", "", "Plans as received (dated 2026-03-20)"], ["1 (1).pdf", "2026-03-20", 533591, "PDF", "1t_nqTrM8MQ8cLy59_yapWTy6fYei-B7J", "", "Plans as received (dated 2026-03-20)"], ["1 (2).pdf", "2026-03-20", 597357, "PDF", "1rLBTAbcItAR_UxMJaDTlNjjaDqzPUzRr", "", "Plans as received (dated 2026-03-20)"], ["1 (3).pdf", "2026-03-20", 341912, "PDF", "15zzQmvy1RX_lo1hFScvMSS5gmebFk1Xe", "", "Plans as received (dated 2026-03-20)"], ["1 (4).pdf", "2026-03-20", 612372, "PDF", "1tbaQqOI1VUQjRVGckPIu9EAPuisjmmvh", "", "Plans as received (dated 2026-03-20)"], ["1 (5).pdf", "2026-03-20", 460454, "PDF", "1fWiG2tFkDPZ6wzFoZNJnm-M1Ft74-4F9", "", "Plans as received (dated 2026-03-20)"], ["1 (6).pdf", "2026-03-20", 427085, "PDF", "1MXbuZ5pVL5Z0IroO8_oiKwfMdgRP3L7l", "", "Plans as received (dated 2026-03-20)"], ["1 (7).pdf", "2026-03-20", 415704, "PDF", "10KW81awogO1hHyw3y8KHaTOe2eSfrh2L", "", "Plans as received (dated 2026-03-20)"], ["1 (8).pdf", "2026-03-20", 501416, "PDF", "1p6RU2t9EWTUYt1fDDLJL71irXkp9ZUZX", "", "Plans as received (dated 2026-03-20)"], ["1 (9).pdf", "2026-03-20", 433748, "PDF", "1W4kL7NnTF4z3C2XjHhcRkDcwW5tLuRNG", "", "Plans as received (dated 2026-03-20)"], ["1 (10).pdf", "2026-03-20", 782633, "PDF", "1z4ACgH2B1fO88ANwBIThJtmnteigDXRE", "", "Plans as received (dated 2026-03-20)"], ["1 (2) (from Dropbox).pdf", "2026-07-14", 597357, "PDF", "1gpb-RVrLpZHOV1TB7ETUIPxAzy9rpSMS", "DUPLICATE OF 1 (2)", "Plans as received (dated 2026-03-20)"], ["1514 NW 73 St Bldg Plans.zip", "2026-03-20", 5705423, "Zip", "1MZn08S2yIaFCchiEJ4MH-7YDZFzzFJ1s", "", "Plans as received (dated 2026-03-20)"], ["advanced_construction_proposal.docx", "2026-03-20", 37559, "Word", "15aixAFBUkblUxzZPQcOVdYPuxoYT9DiU", "", "Contractor papers (MZ Solutions, 2026-03-20)"], ["MZ_full_contract_package.docx", "2026-03-20", 78993, "Word", "1u-MBigtrlYAz1TJ9BCh6yCmdqY9Vp_hX", "", "Contractor papers (MZ Solutions, 2026-03-20)"], ["MZ Solutions, LLC.jpg", "2026-03-20", 42512, "Image", "1dq426fSojf2tJrgrjYOcNURitHnzg4t2", "", "Contractor papers (MZ Solutions, 2026-03-20)"], ["construction_proposal.docx", "2026-03-20", 37255, "Word", "1fTMBQkyuVBImEpEcJXgejZLkWo1jOCo9", "", "Contractor papers (MZ Solutions, 2026-03-20)"]]}, {"k": "plans", "t": "1514 NW 73 St Bldg Plans", "p": "1514 NW 73 St - House Project / 1514 NW 73 St Bldg Plans", "fid": "1QkIohfC1hgfKl6dOoe2VkhJdFiUVhNjN", "note": "The 10 building sheets and the structural calcs. All 11 PDFs are byte-size twins of the copies at the job root (same name, same size). 22 sidecars also sit here.", "side": {"s": 22, "i": 0, "m": 0}, "docs": [["_INDEX.html", "2026-08-17", 10257, "Web page", "166tQ0Jii2Vqu-NzKml8pDHNOxp2mD7bh", "OLDER INDEX", ""], ["1 (1).pdf", "2026-03-20", 533591, "PDF", "1IRkPj3yF5pOG2VZnLuc3uJcUOwhFFZSJ", "SAME AS ROOT COPY", ""], ["1 (2).pdf", "2026-03-20", 597357, "PDF", "1SUfTOsRY8RLvPOe2vDBUTUM5KKKLcNmS", "SAME AS ROOT COPY", ""], ["1 (3).pdf", "2026-03-20", 341912, "PDF", "1_2_oQVqYM7WgAl5dTkWB4yDvM7-XtCk8", "SAME AS ROOT COPY", ""], ["1 (4).pdf", "2026-03-20", 612372, "PDF", "1YvZzWpPTfvrX6-GAVmXPk4Gg_hFxAcm9", "SAME AS ROOT COPY", ""], ["1 (5).pdf", "2026-03-20", 460454, "PDF", "10bweP1hZsymsXiSGS-Z5ps-kvpZ8BAXV", "SAME AS ROOT COPY", ""], ["1 (6).pdf", "2026-03-20", 427085, "PDF", "1wnrv9l_U4IsiLOqTgK_ZtFazuuby10Fw", "SAME AS ROOT COPY", ""], ["1 (7).pdf", "2026-03-20", 415704, "PDF", "1SXwiSUR9UoJO9k4RvhqnkeIhdcZ44T2l", "SAME AS ROOT COPY", ""], ["1 (8).pdf", "2026-03-20", 501416, "PDF", "1XlLgBOe00nIqM0VBpmPt1Z6Tuw665-2g", "SAME AS ROOT COPY", ""], ["1 (9).pdf", "2026-03-20", 433748, "PDF", "1KUpBRY3-uqXAOCT-K_B_pA1uiZb32ShR", "SAME AS ROOT COPY", ""], ["1 (10).pdf", "2026-03-20", 782633, "PDF", "1YFN_PplU5R8Ll7b9FdjqbCGi-FPIYCfl", "SAME AS ROOT COPY", ""], ["calcs.pdf", "2026-03-20", 598093, "PDF", "1MSyH9BGn-pGTqtzsBgY8bwUECdRtS3M9", "SAME AS ROOT COPY", ""]]}, {"k": "e1Yafl", "t": "01-INTAKE (empty)", "p": "1514 NW 73 St - House Project / 01-INTAKE", "fid": "1Yaflz0fYkTT0yfKR8dfA14WWyLEkDlhk", "note": "Empty folder (created 2026-08-17, never filled).", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "e15GSE", "t": "02-PERMITS (empty)", "p": "1514 NW 73 St - House Project / 02-PERMITS", "fid": "15GSErynxG05fqsDYvd69DhsZ5LtYvssP", "note": "Empty folder (created 2026-08-17, never filled).", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "e1HuiD", "t": "03-INVOICES-PAYMENTS (empty)", "p": "1514 NW 73 St - House Project / 03-INVOICES-PAYMENTS", "fid": "1HuiD-nUi8w6MXKIwWOckvM25Gn7MjPPn", "note": "Empty folder (created 2026-08-17, never filled).", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "e1vXeo", "t": "04-CORRESPONDENCE (empty)", "p": "1514 NW 73 St - House Project / 04-CORRESPONDENCE", "fid": "1vXeo04--eH2XoNRjRQupngExVbcTx2Qe", "note": "Empty folder (created 2026-08-17, never filled).", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "e1KcD2", "t": "05-REPORTS-DELIVERABLES (empty)", "p": "1514 NW 73 St - House Project / 05-REPORTS-DELIVERABLES", "fid": "1KcD2tDRevy0fp9RUJnUloi1IPYOUSXcl", "note": "Empty folder (created 2026-08-17, never filled).", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "e10H3p", "t": "_Superseded (empty)", "p": "1514 NW 73 St - House Project / _Superseded", "fid": "10H3pTblaDs_OC3xNmzb81nr_H2IsCWlC", "note": "Empty folder (created 2026-08-17, never filled).", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}];
+const MONEYDOCS=[["1514 NW 73 St - House Project (job root)", "Lynda Harris House Bid 3-23-2026.xlsx", "2026-07-16", 42963, "Spreadsheet", "1KCcOGP2q34uot1Yc1bHgLOhJ1GRb2Ace", "PRICING / ESTIMATE", ""], ["1514 NW 73 St - House Project (job root)", "OUTSIDE-BID_Mistral-7B_local_2026-07-14.md", "2026-07-15", 91, "Notes", "1UHu12KAvEyuEGKKztHuGe-wQJR3lAJ1y", "PRICING / ESTIMATE", ""], ["1514 NW 73 St - House Project (job root)", "OUTSIDE-BID_Gemma3-local_2026-07-14.md", "2026-07-15", 175, "Notes", "1zqbo9Jio7Cb56cmAoFDTgqW5Vk0iBFYN", "PRICING / ESTIMATE", ""], ["1514 NW 73 St - House Project (job root)", "OUTSIDE-BID_GPT-4o-mini_via-OpenRouter_2026-07-14.md", "2026-07-15", 42, "Notes", "1aw8Z6wFrtA5A2HXyxyo8PjxWJR-P_xiW", "PRICING / ESTIMATE", ""], ["1514 NW 73 St - House Project (job root)", "BID-COMPARISON_1514-NW-73-St_2026-07-14.html", "2026-07-15", 60093, "Web page", "1dQcn8Qj1Rfim5v5hyZOyuGuSMbcUDMXq", "PRICING / ESTIMATE", ""], ["1514 NW 73 St - House Project (job root)", "BASELINE-ESTIMATE_1514-NW-73-St_2026-07-14_PRIVATE.md", "2026-07-15", 8412, "Notes", "1cV9Ova-XmlzwMmQvKel4jvQ-gS5bik8p", "PRICING / ESTIMATE", ""], ["1514 NW 73 St - House Project (job root)", "takeoff_pricing_1514_NW_73rd.xlsx", "2026-03-23", 26325, "Spreadsheet", "10Yj_lW6sWq0tC38KP7KPtKk-fvXodvFF", "PRICING / ESTIMATE", ""], ["1514 NW 73 St - House Project (job root)", "Master_Takeoff_with_Civil_Merged.xlsx", "2026-03-20", 28326, "Spreadsheet", "1WAkKyQrDOJA_zfNlcONDIFCxaR8aP9EI", "PRICING / ESTIMATE", ""], ["1514 NW 73 St - House Project (job root)", "Landscape_Takeoff_Estimator.xlsx", "2026-03-23", 10886, "Spreadsheet", "1CrNVOP-fbzzpUoWEuODlBaGWsxfcQnwn", "PRICING / ESTIMATE", ""]];
+const STATUS=[["Where the job stands", [["No tracking number. This is a defect (CLAUDE.md §9)", "The folder has no TRK, and no TRK for 1514 NW 73 St was found in any repo registry or mirror file. OPEN-ITEMS logs it as TRK-2026-9167 (the admin item about the missing number, not a job number). This helper issued no number and renamed nothing. Issuing a number and renaming the folder need your yes.", "key"], ["What the job is", "A new one-story concrete-block house, 3 bed / 2 bath, 1,548 sq ft living (about 1,870 under roof), on a vacant 50 × 100 lot at 1514 NW 73rd Street, Miami FL 33147. Folio 30-3111-039-0190, zoned RU-1, unincorporated Miami-Dade.", "done"], ["The plans are in the folder", "Civil, landscape, structural calcs and building sheets 1 to 10, all dated 2026-03-20, plus the original zip.", "done"], ["Your cost proposal is drafted, not confirmed sent", "Proposal Rev2 (detailed, 2026-07-15) is in the folder. It is marked DRAFT FOR REVIEW and its “Prepared for” line is blank. Nothing on file says it was sent, or to whom.", "clock"], ["The quote request to MZ Solutions got no answer on file", "RFQ-2026-0714-1514NW73 went to Miguel Zaldivar on 2026-07-14, due 2026-07-28 at 5 PM. No reply was found in Gmail or Outlook (sweep of 2026-10-10).", "clock"], ["_STAGE says 05-DRAFT and overdue", "In this stage since 2026-07-14, about 90 days. Next action, client, folio and tracking number all read [VERIFY].", "clock"]]], ["Still missing", [["A tracking number", "Needs to be pulled from the desktop Tracking-Registry (next unused value), then the folder renamed. Both need your yes.", "miss"], ["Who the client is", "_STAGE says [VERIFY]. A bid file is named for Lynda Harris (2026-03-23). An email k.moyerla@gmail.com appears in the plans. The proposal leaves “Prepared for” blank.", "miss"], ["MZ Solutions' quote", "Not received, or not on file. It may have come by phone or Dropbox.", "miss"], ["Whether Proposal Rev2 went out, and to whom", "One answer from you.", "miss"], ["The full Dropbox “House Project” folder", "Miguel shared it on 2026-07-14. Only one file (“1 (2) (from Dropbox).pdf”) is here, and it is the same size as an existing sheet.", "miss"], ["Permits, correspondence, invoices", "All six standard subfolders are empty. No permit application or permit number exists for this job in Drive.", "miss"], ["_VERSION-LOG.md, _ARRIVALS and _HASHTAGS files", "Not present.", "miss"]]], ["Waiting on", [["You", "Three one-word answers: issue a TRK (yes/no), who is the client, and was Rev2 sent.", "wait"], ["Miguel Zaldivar · MZ Solutions", "The RFQ quote, due 2026-07-28.", "wait"], ["RAMBO (the PC helper)", "Pull the next number from the Tracking-Registry once you say yes, and retro-sweep the empty subfolders.", "wait"]]]];
+const PEOPLE=[["Miguel Zaldivar · MZ Solutions, LLC", "General contractor, CGC1528486. RFQ recipient and source of the plans (Dropbox share 2026-07-14). Phone (305) 206-7413 per the RFQ.", "miguel@mzsolutions.org"], ["Lynda Harris", "Likely owner or client: a bid file is named “Lynda Harris House Bid 3-23-2026”. Not verified. No email on file.", ""], ["Unknown · k.moyerla@gmail.com", "Found in the text of the plans. Possibly the designer or engineer. Not verified.", "k.moyerla@gmail.com"], ["Unattributed phone numbers", "(954) 926-3358 and (954) 592-3695 were found in the plans' text. Owner of each number unknown.", ""], ["Miami-Dade County (unincorporated)", "Permitting jurisdiction per the RFQ and the folio prefix 30-. _TAGS.txt says City of Miami instead; see Findings.", ""], ["Jorge Valdes · Team USA Sales, Inc.", "Owner's agent, plans expeditor, estimator. CU Inspections of South Florida. 305-300-4500.", "jorge@teamusasales.com"]];
+const MONEY=[["Proposal Rev2 grand total: $497,822 (draft)", "Dated 2026-07-15, valid 30 days (so lapsed about 2026-08-14). Direct trades $414,851, plus 5% overhead, 10% GC profit and 5% contingency. About $266 per sq ft under roof. Stated market range $458,000 to $548,000. Seven-month schedule. Marked “Not a contract”.", "money"], ["Your fee for this job is not on file", "_STAGE: amount billable, invoiced and paid all read [VERIFY]. 03-INVOICES-PAYMENTS is empty. Is this job billable, and how?", "money"], ["Outside bid check produced nothing", "All 9 outside-LLM bid runs on 2026-07-15 failed (401, 500 or timeout). The three OUTSIDE-BID files are 42 to 175 bytes. The BID-COMPARISON page has no real outside bid behind it.", "money"], ["The MZ contractor quote is the missing comparison", "Without it, Rev2 has only your own baseline estimate behind it.", "money"]];
+const FINDINGS=[["No TRK: a charter defect (CLAUDE.md §9)", "Folder, portal (“TRACKING NUMBER NOT ASSIGNED”), _STAGE and _TAGS (#TRK-TBD-defect) all lack a number. No TRK for this property appears in the repo registry mirrors, OPEN-ITEMS, the census or the people index. Logged as OPEN-ITEMS TRK-2026-9167 since 2026-08-15. A number must be pulled from the desktop Tracking-Registry; this helper did not issue one.", "flag"], ["Jurisdiction conflict", "_TAGS.txt and the people index say City of Miami. The RFQ says unincorporated Miami-Dade County, and the folio prefix 30- agrees. Confirm before any permit work; the wrong building department means a rejected application.", "flag"], ["The 33186 zip is an extraction error", "The census flagged ZIP 33186 against this job. 33186 is Team USA's own office address on the proposal footer. The property zip on the proposal is 33147.", "flag"], ["11 plan PDFs are stored twice", "Sheets 1 (1) to 1 (10) and calcs.pdf sit at the root and in “1514 NW 73 St Bldg Plans”, same names and sizes. “1 (2) (from Dropbox).pdf” is a third copy of sheet 1 (2) by size. Not removed.", "flag"], ["Plan sheets have unfindable names", "“1 (1).pdf” to “1 (10).pdf” say nothing about the job. Their TAGS sidecars carry #ORPH-2026-04xx tags, which is not the OPH standard, inside a known job folder.", "flag"], ["53 banned backup names", "25 _PORTAL and 27 _STAGE nightly copies, plus 1 RFQ copy, named “name.ext.bak-date”. Drive cannot preview them. Nothing renamed.", "flag"], ["Proposal has no client name", "Rev2's “Prepared for” line is blank, and the acceptance block is unsigned. It is a draft.", "flag"], ["Contractor documents predate the RFQ", "MZ_full_contract_package, construction_proposal and advanced_construction_proposal (.docx) and the Lynda Harris bid are all dated March 2026, four months before the July RFQ. The job may have started in March.", "flag"], ["All 6 standard subfolders are empty", "01-INTAKE to 05-REPORTS-DELIVERABLES and _Superseded were created 2026-08-17 and never filled. The real files sit loose at the root.", "flag"], ["No _VERSION-LOG.md, _ARRIVALS or _HASHTAGS file", "The charter asks for a version log in every job folder.", "flag"]];
+
+const PILL={done:["p-done","CONFIRMED"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag","FINDING"],key:["p-key",""],clock:["p-clock","DEADLINE"],money:["p-money","MONEY"],person:["p-wait","CONTACT"]};
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+const KEYFLAGS=['KEY','NEW'];
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=(o.st==='flag'&&o.kind==='doc')||o.st==='key'?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc'||o.kind==='mdoc') h+='<div class="meta"><span>'+esc(o.date)+'</span><span>'+esc(kb(o.size))+'</span><span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function docrow(f,d,kind){
+  const fl=d[5];
+  return row({b:kind==='mdoc'?'Money':f.t,kind:kind,title:d[1+(kind==='mdoc'?0:-1)],date:d[kind==='mdoc'?2:1],size:d[kind==='mdoc'?3:2],type:d[kind==='mdoc'?4:3],link:durl(d[kind==='mdoc'?5:4]),
+    st:kind==='mdoc'?'money':(fl?(KEYFLAGS.includes(fl)?'key':'flag'):''),flag:kind==='mdoc'?d[6]:fl,path:kind==='mdoc'?d[0]+(d[7]?' / ['+d[7]+']':''):f.p+(d[6]?' / ['+d[6]+']':'')});
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','Where it stands, what is missing, who it waits on',STATUS.map(s=>s[1].length).join(' · '),h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    let lastg=null;
+    f.docs.forEach(d=>{ if(d[6]&&d[6]!==lastg){x+='<p class="sub">['+esc(d[6])+']</p>';lastg=d[6];} x+=docrow(f,d,'doc');});
+    if(f.cnt){x+='<p class="bnote">'+f.cnt+' documents here are counted but not listed one by one'+(f.cm?' ('+f.cm+' of them look like money papers)':'')+'. Open the folder in Drive to see them.</p>';
+      if(f.groups) x+='<p class="bnote">They came from '+f.groups+' old folders.</p>';}
+    else if(!f.docs.length) x+='<p class="bnote">No documents here.</p>';
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' sidecar'); if(s.i)sc.push(s.i+' index');
+    if(s.m) x+='<p class="bnote">'+s.m+' money document'+(s.m>1?'s':'')+' from this folder '+(s.m>1?'are':'is')+' kept in the 🔒 Money zone.</p>';
+    if(sc.length) x+='<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>';
+    const n=(f.cnt?f.cnt+' counted':f.docs.length)+(s.m?' + '+s.m+' 🔒':'');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':'📁 '+f.t),esc(f.p),n+' docs',x,fi===0);
+  });
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  let fz='';
+  FINDINGS.forEach(it=>{fz+=row({b:'Findings',kind:'finding',title:it[0],text:it[1],st:'flag'});});
+  branch('findings','','🔎 Findings','Noted only. Nothing was moved, renamed or deleted (filing is RED).',FINDINGS.length+' findings',fz,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> '+MONEY.length+' money items and '+MONEYDOCS.length+' money documents (invoices, checks, receipts, payment evidence) stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='<p class="grp">Money documents ('+MONEYDOCS.length+')</p><div class="mdocs">';
+    let lastp=null;
+    MONEYDOCS.forEach(d=>{ if(d[0]!==lastp){m+='<p class="sub">'+esc(d[0])+'</p>';lastp=d[0];} m+=docrow(null,d,'mdoc');});
+    m+='</div></div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':(MONEY.length+' items · '+MONEYDOCS.length+' docs'),m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+const isMoney=it=>it.kind==='money'||it.kind==='mdoc';
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>!isMoney(it)||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">TRK-TBD · 1514 NW 73 St · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(isMoney(it)?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=(it.kind==='doc'||it.kind==='mdoc')?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc'||it.kind==='mdoc') h+='<p class="meta"><span>'+esc(it.date)+'</span><span>'+esc(kb(it.size))+'</span><span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='TRK-TBD (no tracking number yet) · 1514 NW 73rd St, Miami FL 33147\nFolio 30-3111-039-0190 · new single-family house · unincorporated Miami-Dade\nClient: not confirmed · Contractor: MZ Solutions, LLC\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='doc'||it.kind==='mdoc') s+='   '+it.date+' · '+kb(it.size)+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— TRK-TBD · 1514-NW-73-ST · Capsule ENHANCED · v1 · 2026-10-13';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>!isMoney(it)||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+build();
+</script>
+</body>
+</html>

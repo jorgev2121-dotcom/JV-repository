@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Launcher</title>
+<link rel="manifest" href="data:application/manifest+json,{&quot;name&quot;:&quot;Claude Launcher&quot;,&quot;short_name&quot;:&quot;Claude&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;start_url&quot;:&quot;.&quot;}">
+<style>
+:root{--bg:#fbf7f0;--card:#fff;--ink:#1d1a16;--muted:#6b6258;--line:#e6ddd0;--accent:#c4602b;--accent-ink:#fff;--rambo:#1f5f3a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17150f;--card:#221f18;--ink:#f3eee6;--muted:#a99f92;--line:#3a352b;--accent:#e07a43;--accent-ink:#17150f;--rambo:#3fa36b}}
+:root[data-theme="dark"]{--bg:#17150f;--card:#221f18;--ink:#f3eee6;--muted:#a99f92;--line:#3a352b;--accent:#e07a43;--accent-ink:#17150f;--rambo:#3fa36b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.5 "Segoe UI",system-ui,sans-serif;padding:16px}
+main{max-width:900px;margin:0 auto}h1{font-size:28px;margin:8px 0 4px}p.sub{color:var(--muted);margin:0 0 18px}
+a.big{display:flex;gap:16px;align-items:center;background:var(--rambo);color:#fff;text-decoration:none;border-radius:16px;padding:22px;font-size:24px;font-weight:700;margin-bottom:18px}
+a.big small{display:block;font-weight:400;font-size:16px;opacity:.9}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+a.tile{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;color:var(--ink);text-decoration:none}
+a.tile:hover,a.big:hover{outline:3px solid var(--accent)}
+.e{font-size:30px}.t{font-weight:700;font-size:19px}.d{color:var(--muted);font-size:15px}
+h2{font-size:18px;color:var(--muted);margin:22px 0 8px;text-transform:uppercase;letter-spacing:.05em}
+footer{color:var(--muted);font-size:14px;margin-top:24px}
+</style></head><body><main>
+<h1>Claude Launcher</h1>
+<p class="sub">One click to every Claude window. The big green button is the default: Claude Code on this PC (RAMBO).</p>
+
+<a class="big" href="claude://code/new"><span class="e">🖥️</span><span>CODE · DESKTOP EXECUTOR (RAMBO)<small>New Claude Code session on this PC · paste IDs start with PASTE-D</small></span></a>
+
+<h2>Other Claude windows</h2>
+<div class="grid">
+<a class="tile" href="https://claude.ai/code"><div class="e">☁️</div><div class="t">Code · Cloud executor</div><div class="d">Runs while the PC is off · PASTE-C</div></a>
+<a class="tile" href="claude://cowork/new"><div class="e">🤝</div><div class="t">Cowork</div><div class="d">New Cowork session · PASTE-X</div></a>
+<a class="tile" href="claude://claude.ai/new"><div class="e">💬</div><div class="t">Chat</div><div class="d">New chat in the Claude app</div></a>
+<a class="tile" href="https://claude.ai/projects"><div class="e">📁</div><div class="t">Projects</div><div class="d">Your Claude projects</div></a>
+<a class="tile" href="https://claude.ai/code/artifacts"><div class="e">🗂️</div><div class="t">All my pages</div><div class="d">Every artifact Claude made</div></a>
+<a class="tile" href="https://claude.ai/settings"><div class="e">⚙️</div><div class="t">Settings &amp; usage</div><div class="d">Plan, connectors, usage</div></a>
+</div>
+
+<h2>My VTES pages</h2>
+<div class="grid">
+<a class="tile" href="https://claude.ai/artifact/321Zo6MTHdv9Mj3hGD1QDj"><div class="e">🎛️</div><div class="t">VTES Control Panel</div><div class="d">Everything at a glance</div></a>
+<a class="tile" href="https://claude.ai/artifact/1aUh4m7d3UnbfTjM9PJFUY"><div class="e">🌅</div><div class="t">Morning one-tap</div><div class="d">Today's yes/no list</div></a>
+<a class="tile" href="https://claude.ai/artifact/2pUUCj5hDoajygzeY7QQv6"><div class="e">🍊</div><div class="t">Capsule index</div><div class="d">All 40 jobs</div></a>
+<a class="tile" href="https://drive.google.com/drive/folders/1U4hnBp5Tt0qb1sxvO6dd3csBCWjhdQJt"><div class="e">📂</div><div class="t">01-JOBS in Drive</div><div class="d">Job folders</div></a>
+</div>
+<footer>First click on a 🖥️ / 🤝 / 💬 button: the browser asks "Open Claude?" — tick "Always allow" once. · Read aloud: highlight text, press Ctrl+Alt+R. · v1 2026-10-14</footer>
+</main></body></html>

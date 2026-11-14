@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Groves at Sunset Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule, built from the TUS-26-1018 pilot. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+.p-clock{background:var(--money-soft);color:var(--money)}
+.sub{font-family:var(--display);font-size:14px;font-weight:600;color:var(--accent);margin:16px 0 0;overflow-wrap:anywhere}
+.mdocs .sep{margin-top:10px}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED</p>
+<h1>KAR-26-GROVES · 8850 SW 72 St, Groves at Sunset Pool (Karla) · retired folder, folded into TRK-2026-1256</h1>
+<div class="facts">
+  <span><b>Property</b>The Groves at Sunset, 8850 SW 72 St, Miami FL 33173</span>
+  <span><b>Folio</b>30-4033-001-0012</span>
+  <span><b>Client</b>Karla Morales · owner Sunset Cove LLC</span>
+  <span><b>DOH permit</b>13-60-01441 (open, non-compliant)</span>
+  <span><b>Job of record</b>TRK-2026-1256</span>
+</div>
+<div class="deadline">This folder is retired. The live job is TRK-2026-1256. KAR-26-GROVES is a non-standard number and needs a TRK.
+<small>Folded into TRK-2026-1256 on 2026-06-27. Related, not merged. The DOH response is drafted but not sent and not sealed.</small></div>
+<p class="stamp">KAR-26-GROVES · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile y" data-go="status"><span class="n">31</span><b>Documents</b><small>June notes, dry-run forms, the DOH response draft.</small></button>
+  <button class="tile y" data-go="status"><span class="n">6</span><b>Still missing</b><small>A real TRK and an engineer first.</small></button>
+  <button class="tile w" data-go="people"><span class="n">3</span><b>Waiting on</b><small>You, the engineer, Karla.</small></button>
+  <button class="tile c" data-go="findings"><span class="n">10</span><b>Findings</b><small>Five numbers for one job, 53 backups.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> <b>Work this job in TRK-2026-1256, not here.</b> This folder has no tracking number of its own. The registry already maps its old number to TRK-2026-1256, so the number it needs is most likely 1256, not a new one. The DOH pool permit cannot move until an engineer seals the response.</p></div>
+
+<div class="tags"><b>Hashtags for this job (from _TAGS.txt and _HASHTAGS.txt)</b>#KAR-26-GROVES #TRK-2026-1256 #TUS-26-1021 #TRK-2026-1436 #8850-SW-72-St #Groves-at-Sunset #Karla #pool #DOH #permit-13-60-01441 #Sunset-Cove-LLC #Philip-A-Sigel #JorgeValdes #CU-Inspections #retired-folded #non-standard-number</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>31 documents across 22 folders (the job folder, 17 subfolders and 4 sub-subfolders; 14 of them empty), all listed one by one with Drive links. The job of record, TRK-2026-1256, is a separate folder and is linked, not counted. No money documents were found. Not counted as documents: 53 backups, 7 _INDEX pages and folders. Nothing in the job folder was moved, renamed or deleted.</p>
+  <p class="tag">KAR-26-GROVES · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #KAR-26-GROVES #TRK-2026-1256 #Groves-at-Sunset #Karla #capsule #orange-tree</p>
+</footer>
+</div>
+<script>
+const FOLDERS=[{"k": "root", "t": "Job root", "p": "KAR-26-GROVES (top of the job folder)", "fid": "1b1fdKsVmgQ3x-TKmN9hPJTsRLFuMYPxD", "note": "53 backup copies also sit here (25 of _PORTAL, 27 of _STAGE, 1 of _TAGS, 2026-08-30 to 10-08), all named “name.ext.bak-date”. One older _INDEX.html page too. Not listed; see Findings.", "side": {"s": 0, "i": 1, "m": 0}, "docs": [["_STAGE.md", "2026-10-09", 2142, "Notes", "1vDMf9gd42_OPZ_jd5IjWCe-93gyBjbGR", "KEY · RETIRED-FOLDED", ""], ["_HASHTAGS.txt", "2026-10-09", 1136, "Text", "1mMp2POe0lOBhXrNC7IdZGrUaTdWpm9Jz", "KEY · POINTS TO 1256", ""], ["#karla DOH Non-Compliance Response Package - Permit 13-60-01441 - TRK-2026-1436.pdf", "2026-07-30", 200295, "PDF", "1GQhW-RGLcfF1Z1tJHCVR1ecvIvdsvlJD", "KEY · DRAFT, NOT SENT", ""], ["#karla DOH Non-Compliance Response Package … .pdf.SEARCH.txt", "2026-08-13", 8594, "Text (OCR sidecar)", "1leZRNp1Y6qfrvul2Vop2clRXUG2icwZT", "", ""], ["#karla DOH Non-Compliance Response Package … .pdf.TAGS.txt", "2026-08-13", 232, "Text (tag sidecar)", "1UvJ1HLREPrcnqlN-njR8RXwvuwVyun1k", "WRONG ADDRESS TAG", ""], ["_PORTAL_KAR-26-GROVES.html", "2026-10-13", 35661, "Web page", "1JxzXEMYrCO88_y0naBbnMwi2v53dI5bd", "OLDER PORTAL", ""], ["_TAGS.txt", "2026-09-03", 396, "Text", "1D5ScFJ11hvyi2s7-CDHqNz6gnDsHoZ3V", "", ""], ["_CONTACTS-EXTRACTED.txt", "2026-10-05", 481, "Text", "1vq3AAU_oHbmCX0Elp9rEHDNrmmCLoDVr", "UNVERIFIED", ""], ["_READ-FIRST.md", "2026-06-28", 480, "Notes", "1hxkQrGlBoDlFOtxRx9tr-hBx3MrL3tEW", "", ""]]}, {"k": "autofiled", "t": "_AUTO-FILED (saved emails)", "p": "KAR-26-GROVES / _AUTO-FILED", "fid": "16O73obMjCK7TWR2gSiQJfnDS1hW5OrDC", "note": "Three emails saved as web pages on 2026-06-24. They record that the Miami-Dade plumbing process number C2024-035791 never became an issued permit.", "side": {"s": 0, "i": 0, "m": 0}, "docs": [["Permit #13-60-01441 - The Groves at Sunset (8850 SW 72 St) - guidance request .html", "2026-06-24", 34182, "Email", "1vSo6LM2GaX0qWj6iEMPEd9gQ1Wi0WNVq", "KEY", ""], ["Plumbing Permit Process Number C2024-035791 but never received permit .html", "2026-06-24", 32350, "Email", "1fHf0TKAVu3TvtXGciWQKrE-81ehf01Fc", "KEY", ""], ["Karla Pool MDC Process number no permit 2 in the same status .html", "2026-06-24", 32260, "Email", "18e0ovuazZcvyqRM8HV5BaQ1Dt4D4blJR", "", ""]]}, {"k": "emails", "t": "01_Emails", "p": "KAR-26-GROVES / 01_Emails", "fid": "1tCT2bnS0gUkdJzTqTdEIFePg8oN2jI2B", "note": "An older _INDEX.html page also sits here. The DOH file is a 0-byte placeholder: the real 2 MB PDF Karla sent on 2026-04-01 was never stored in this folder.", "side": {"s": 0, "i": 1, "m": 0}, "docs": [["Grove at Sunset DOH.NEEDS_OCR", "2026-06-19", 0, "Placeholder (0 bytes)", "1qUGcl6szUM0ZC9RPfsROXUoawFuyzA6S", "EMPTY FILE", ""], ["DRAFT-EMAIL_GrovesAtSunset-Pool-Request_v2_2026-06-06.msg.superseded", "2026-06-07", 15360, "Email draft", "17y75M6_VoK8o2Xue8jamKs_JJKopOekj", "SUPERSEDED", ""]]}, {"k": "files", "t": "02_Files-Attachments", "p": "KAR-26-GROVES / 02_Files-Attachments", "fid": "1cFQKUeJgJYARQoNZp8A1EcPDWMD0S_gk", "note": "Owner papers and dry-run forms from June 2026. An older _INDEX.html page also sits here. The sub-folder Attachments-From-Emails is empty.", "side": {"s": 0, "i": 1, "m": 0}, "docs": [["PROPERTY-and-DOH-DATA.md", "2026-06-07", 2418, "Notes", "1GGNdq9OsHQx7eyJmtNeqetqwhf4n04vp", "KEY · FOLIO + OWNER", ""], ["Corporate-Resolution_SunsetCoveLLC_Philip-A-Sigel_2026-06-06.html", "2026-06-07", 4447, "Web page", "1maUH_LFipwsGSkmT1EJQNBBBIVHQFfJL", "KEY", ""], ["Hold-Harmless-Agreement_SunsetCoveLLC_2026-06-06.html", "2026-06-07", 6244, "Web page", "1q487iyESCn379zwB72rOAfpzPGPnNNr3", "", ""], ["Notice-of-Commencement_DRYRUN_2026-06-06.html", "2026-06-07", 5323, "Web page", "1O0VAs0DUSVWwCpvPfWvgsFZbdyilL80t", "DRY RUN", ""], ["Notice-of-Commencement_DRYRUN_2026-06-06_FLAT.pdf.blank", "2026-06-07", 1097, "PDF (blank)", "1qesjnWEtgNCe68h8Lk0b4ZX8qAkbCBFm", "BLANK", ""], ["MDC-Plumbing-Permit_DRYRUN_2026-06-06_FLAT.pdf.blank", "2026-06-07", 1094, "PDF (blank)", "18RONwD_sEncObwv_mQxMZTSENPweOQ1V", "BLANK", ""], ["MDC-Plumbing-Permit_FILLER_2026-06-06.html.superseded", "2026-06-07", 9337, "Web page", "1DD82Poy3BgMUaDhl17T2iDTIhgLyz8P4", "SUPERSEDED", ""], ["Hypothetical-Jobs_A-and-B_2026-06-15.md", "2026-06-15", 3354, "Notes", "1zkMW0QeRCTegxN0Kw54aSlSoTL-4Fhz6", "", ""]]}, {"k": "noc", "t": "02_Files-Attachments / _NOC-build", "p": "KAR-26-GROVES / 02_Files-Attachments / _NOC-build", "fid": "1VfFBNoh0ic9Z06dDHuSf98YCHDM3j3cH", "note": "Notice of Commencement work sets. An older _INDEX.html page also sits here.", "side": {"s": 0, "i": 1, "m": 0}, "docs": [["SET-A_PARTIAL.html", "2026-06-07", 6033, "Web page", "1iBIcZYLWp6lJT2HvUID5vexNJPJ2lAhw", "PARTIAL", ""], ["SET-B_BLANK.html", "2026-06-07", 5455, "Web page", "1N6Flkq7tYOv0z_Un8qHJWPm_INLH5sJh", "BLANK", ""]]}, {"k": "revival", "t": "02_Files-Attachments / Permit-Revival-Research", "p": "KAR-26-GROVES / 02_Files-Attachments / Permit-Revival-Research", "fid": "1gLNhhyqSUFcQ7VppFeK4uwCddpJzaPyC", "note": "The June plan: which permit is open, which one can expire, and the order of the work. An older _INDEX.html page also sits here.", "side": {"s": 0, "i": 1, "m": 0}, "docs": [["CRITICAL-PATH-and-ARRANGEMENT_2026-06-15.md", "2026-06-15", 8537, "Notes", "1NwZWpYKsB0s5sCysQpkahc6J8OW_TCTQ", "KEY", ""], ["DECISION-LOG_Groves-at-Sunset_2026-06-11.html", "2026-06-11", 4478, "Web page", "17PuBr5OkS8gd1du0dWzDCUdbIe4SJwp6", "KEY", ""]]}, {"k": "findingsf", "t": "02_Files-Attachments / Findings", "p": "KAR-26-GROVES / 02_Files-Attachments / Findings", "fid": "1cuWI5Ov8w1BnQV499G5yaVLuFHnWb5Sp", "note": "An older _INDEX.html page also sits here.", "side": {"s": 0, "i": 1, "m": 0}, "docs": [["CONTACTS.md", "2026-06-24", 840, "Notes", "1UA7RWWJ67l5-D-cxnbU9Hp6DC-IUTkd9", "BAD DATES", ""]]}, {"k": "research", "t": "03_Research-and-Proposal", "p": "KAR-26-GROVES / 03_Research-and-Proposal", "fid": "1umBY39rRdiUgAjs5tqKr9xP3Bgp0-NDo", "note": "The first capsule and the scope, from June. These still carry the old number TUS-26-1021. An older _INDEX.html page also sits here.", "side": {"s": 0, "i": 1, "m": 0}, "docs": [["SCOPE-OF-PROJECT_Groves_TUS-26-1021.html", "2026-06-22", 3698, "Web page", "1bk5siOjkRSkbf0oJeLK4TXInXMj-pB3Z", "KEY · OLD NUMBER", ""], ["CONTACT-SHEET_Groves_TUS-26-1021.html", "2026-06-22", 3597, "Web page", "1IKetlNw_wXUGh3LTxDBg3-7h9OVrmme1", "OLD NUMBER", ""], ["CAPSULE.md", "2026-06-07", 2487, "Notes", "1OgOR7hMRueui_zgjprTrmQYqMywqdXF1", "FROZEN STUB", ""], ["CAPSULE_SAMPLE-with-tasks_2026-06-10.md", "2026-06-11", 3738, "Notes", "1Hf6W-WZhCxvFqUnk7UeR9dNwPSZMViGY", "", ""]]}, {"k": "elsewhere", "t": "The job of record: TRK-2026-1256 Groves at Sunset (Karla)", "p": "TRK-2026-1256 - Groves at Sunset (Karla)", "fid": "1k82RhLdntKxlW-Uw8XRjLe-vpGSE-_Qt", "note": "Related, not merged. This is a different folder. Its own index says it absorbed this folder on 2026-06-27 and holds the real, later work (about 160 files). Open the folder link above. Nothing here was moved or merged.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "01-INTAKE", "t": "01-INTAKE (empty)", "p": "KAR-26-GROVES / 01-INTAKE", "fid": "1rwQ-aytKCmADQ5057S0Oga4FR9sJ3iVG", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "02-PERMITS", "t": "02-PERMITS (empty)", "p": "KAR-26-GROVES / 02-PERMITS", "fid": "1lObydNJZp2hirwZrCp00X2us2kvU40zc", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "03-INVOICES-PAYMENTS", "t": "03-INVOICES-PAYMENTS (empty)", "p": "KAR-26-GROVES / 03-INVOICES-PAYMENTS", "fid": "1vpfVilGm9Xi_s3YoDc4WIhW4FbhPBSFm", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "04-CORRESPONDENCE", "t": "04-CORRESPONDENCE (empty)", "p": "KAR-26-GROVES / 04-CORRESPONDENCE", "fid": "1kNxEaC-OqW-kv3zWzYyj2FZdGgs0mEvU", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "05-REPORTS-DELIVERABLES", "t": "05-REPORTS-DELIVERABLES (empty)", "p": "KAR-26-GROVES / 05-REPORTS-DELIVERABLES", "fid": "1uw1RsuFnRufIFJvMCrALWj9xfqckr8de", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "_Superseded", "t": "_Superseded (empty)", "p": "KAR-26-GROVES / _Superseded", "fid": "18PqBk-XtXvvfWUV2cgeFejNB0-Tfr5ol", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "04_Permits-and-Applications", "t": "04_Permits-and-Applications (empty)", "p": "KAR-26-GROVES / 04_Permits-and-Applications", "fid": "1PGV9dclUskSxeeocRXtjftpMSLA3HJZ3", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "05_Code-Enforcement-Violations", "t": "05_Code-Enforcement-Violations (empty)", "p": "KAR-26-GROVES / 05_Code-Enforcement-Violations", "fid": "1irnc6BgfkQY8gq-o6QIa38sIys5KPPkt", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "06_Plans-Photos-Sketches", "t": "06_Plans-Photos-Sketches (empty)", "p": "KAR-26-GROVES / 06_Plans-Photos-Sketches", "fid": "1sj3_e-i4PqupYYTh-G0JJAIWUhDQ7rCE", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "07_Reports", "t": "07_Reports (empty)", "p": "KAR-26-GROVES / 07_Reports", "fid": "1Nmh6M0nb8iokq4S_mPqYGijj2rq4FIeY", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "08_Correspondence", "t": "08_Correspondence (empty)", "p": "KAR-26-GROVES / 08_Correspondence", "fid": "1bukdRU85klDnHKqu_BJzrniipDaEMylO", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "09_Financial", "t": "09_Financial (empty)", "p": "KAR-26-GROVES / 09_Financial", "fid": "1dwLf96RXpiirFk2_CYjzGOOJ47RnWn8u", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "10_Closeout-CU-CO", "t": "10_Closeout-CU-CO (empty)", "p": "KAR-26-GROVES / 10_Closeout-CU-CO", "fid": "1KDcYXHjom6282Ul60Fjbds9YPPfuqLZ0", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}, {"k": "02_Files-Attachments / Attachments-From-Emails", "t": "02_Files-Attachments / Attachments-From-Emails (empty)", "p": "KAR-26-GROVES / 02_Files-Attachments / Attachments-From-Emails", "fid": "1EkJAd61IOGLT-CAJX7wYKfDvj7Cz9Asl", "note": "Empty folder.", "side": {"s": 0, "i": 0, "m": 0}, "docs": []}];
+const MONEYDOCS=[];
+const STATUS=[["Where the job stands", [["This folder is retired. The live job is TRK-2026-1256", "_STAGE (confirmed 2026-10-08) says RETIRED-FOLDED since 2026-06-27: “Do not work this folder … go to TRK-2026-1256, which holds the real advanced work.” Nothing was moved; the folder stays as a cross-reference. Same property, same client (Karla Morales).", "key"], ["The job number KAR-26-GROVES is non-standard", "It is not in the TRK-2026-NNNN form and is not in the registry. The registry already maps the old number TUS-26-1021 to TRK-2026-1256. So the TRK this work needs is most likely 1256, not a new number. Minting a new one would create a duplicate.", "key"], ["The DOH pool permit is open and non-compliant, waiting on an engineer", "FDOH permit 13-60-01441. Reviewer Celia Bedoya, letter of 2025-04-02: three items missing (filter NSF/ANSI 50 proof, pump data at 60 ft head, pH feeder make and model). The response package was drafted 2026-07-28 and is marked “DRAFT, NOT SENT, NOT SEALED”. It needs an Engineer of Record to sign and seal.", "clock"], ["The three DOH items are paperwork, not new equipment", "The old capsule said “wrong filter”. The DOH letter does not say that. All three items are missing documents, so this may be fixed on paper.", "key"], ["The Miami-Dade plumbing permit was never issued", "Process number C2024-035791 never became a permit (saved email, 2026-06-24). A Miami-Dade final inspection is required before DOH will renew the operating permit.", "key"], ["Known facts", "Folio 30-4033-001-0012 (unincorporated Miami-Dade). Owner Sunset Cove LLC, signer Philip A. Sigel (corporate resolution drafted 2026-06-06). 200 units, built 1969. Pool at 8850 SW 72 St; office at 8818 SW 72 St #F-136.", "done"]]], ["Still missing", [["A real TRK on this work", "Confirm TRK-2026-1256 is the number of record (the registry says 1256 = TUS-26-1021), rather than issuing a new one.", "miss"], ["Engineer of Record to seal the DOH response", "Synergyn was asked for a quote (RFQ TUS-26-1021); no accepted quote is on file here.", "miss"], ["Equipment data for the DOH response", "Filter make, model and NSF listing at install date; pump make, model and curve; pH feeder make and model; pipe runs for the head calculation.", "miss"], ["Licensed plumbing contractor of record", "Needed to pull the Miami-Dade plumbing permit. Not assigned.", "miss"], ["The original DOH PDFs from Karla's 2026-04-01 email", "Only a 0-byte placeholder is here.", "miss"], ["Engagement and invoice", "No signed engagement or invoice in this folder.", "miss"]]], ["Waiting on", [["You", "Say yes or no: is TRK-2026-1256 the number for this work? And pick the engineer.", "wait"], ["The engineer (Synergyn, or another P.E.)", "Quote, then the sealed head calculation.", "wait"], ["Karla Morales", "Equipment tags, filter install invoice and date.", "wait"]]]];
+const PEOPLE=[["Karla Morales · The Groves at Sunset", "Property manager. The only client contact. Phone 305-271-7717, fax 305-270-9536.", "sunsetapts@bellsouth.net"], ["Sunset Cove LLC", "Property owner, folio 30-4033-001-0012.", ""], ["Philip A. Sigel · Sunset Cove LLC", "Authorized signer for the owner (corporate resolution drafted 2026-06-06).", ""], ["Celia Bedoya · FDOH Miami-Dade", "Environmental Specialist III. Wrote the 2025-04-02 non-compliance review. 786-654-6589. 1725 NW 167th St, Miami FL 33056.", "MDCHDEngineeringTeam@flhealth.gov"], ["Beleida Lopez · FDOH Miami-Dade", "Sent the 2025-05-07 receipt letter for the modification application.", "beleida.lopez@flhealth.gov"], ["FDOH final inspection desk", "Where the Miami-Dade final inspection gets sent.", "MiamiDadeFinalInspectionRequest@flhealth.gov"], ["Synergyn · engineering firm", "Candidate Engineer of Record. Monica Valdes handles intake; engineers Devon and Chris.", "mvaldes@synergyn-us.com"], ["Miami-Dade County RER / Building", "Plumbing permit (process C2024-035791) and the final inspection.", ""], ["Jorge Valdes · Team USA Sales, Inc.", "Owner's agent. CU Inspections of South Florida. 305-300-4500.", "jorge@teamusasales.com"]];
+const MONEY=[["Proposed fee: $2,500", "From the 2026-06-15 critical-path note. Lien mitigation, if needed, may be billed separately.", "money"], ["Not invoiced, not paid", "_STAGE: amount [VERIFY], invoiced NO, paid NO. Open item TRK-2026-9701 lists Groves at Sunset as an uninvoiced live job. Bill it under TRK-2026-1256, not this folder.", "money"], ["Engineer and plumber costs", "Not quoted yet. The June note offers three ways to arrange them (you as prime, owner pays each directly, or a referral fee). Your call.", "money"], ["Property value (2025)", "$27,550,000 market value, Miami-Dade Property Appraiser.", "money"]];
+const FINDINGS=[["Non-standard job number: KAR-26-GROVES needs a TRK", "Not in TRK-2026-NNNN form and not in the registry. But the registry already says TUS-26-1021 = TRK-2026-1256, and this folder's own _STAGE says it was folded into 1256. So the fix is to confirm 1256, not to mint a new number. A new number would repeat the TRK-2026-1614 duplicate mistake.", "flag"], ["Five numbers for one job", "KAR-26-GROVES (this folder), TUS-26-1021 (scope and contact sheet), TRK-2026-1256 (job of record), TRK-2026-1436 (the DOH response PDF) and a “Sunset Cove Pool” doc (open items TRK-2026-9109 and 9168).", "flag"], ["TRK-2026-1436 was given to one document", "The registry lists 1436 as the DOH response package alone. The rule is one TRK per project. It belongs under 1256 as a document.", "flag"], ["The PDF's tag file has the wrong address", "The .TAGS.txt sidecar tags the PDF to 1725 NW 167th St, FL 33056. That is the DOH office, not the property. An address search could file it wrong.", "flag"], ["The old capsule says “wrong filter”. That is not what DOH said", "DOH asked for proof of NSF certification, pump data and the pH feeder model. Paperwork gaps, not a bad filter. CAPSULE.md is a frozen stub.", "flag"], ["Banned backup names: 53", "25 _PORTAL, 27 _STAGE and 1 _TAGS, all “name.ext.bak-date”. Drive cannot preview this form. Nothing renamed; that is your call.", "flag"], ["14 of 22 folders are empty", "Two scaffolds side by side: 01_ to 10_ (2026-06-24) and 01- to 05- plus _Superseded (2026-08-17). Superseded files sit in 01_Emails and 02_Files, not in _Superseded.", "flag"], ["Files Drive cannot preview", "Two .pdf.blank, one .html.superseded, one .msg.superseded, and a 0-byte .NEEDS_OCR placeholder.", "flag"], ["CONTACTS.md has broken dates", "First and last contact dates read 4501-01-01.", "flag"], ["No _VERSION-LOG.md, _PLACEHOLDERS.md or _ARRIVALS file", "Tags are split across _TAGS.txt and _HASHTAGS.txt.", "flag"]];
+
+const PILL={done:["p-done","CONFIRMED"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag","FINDING"],key:["p-key",""],clock:["p-clock","DEADLINE"],money:["p-money","MONEY"],person:["p-wait","CONTACT"]};
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+const KEYFLAGS=['KEY','NEW'];
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=(o.st==='flag'&&o.kind==='doc')||o.st==='key'?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc'||o.kind==='mdoc') h+='<div class="meta"><span>'+esc(o.date)+'</span><span>'+esc(kb(o.size))+'</span><span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function docrow(f,d,kind){
+  const fl=d[5];
+  return row({b:kind==='mdoc'?'Money':f.t,kind:kind,title:d[1+(kind==='mdoc'?0:-1)],date:d[kind==='mdoc'?2:1],size:d[kind==='mdoc'?3:2],type:d[kind==='mdoc'?4:3],link:durl(d[kind==='mdoc'?5:4]),
+    st:kind==='mdoc'?'money':(fl?(KEYFLAGS.includes(fl)?'key':'flag'):''),flag:kind==='mdoc'?d[6]:fl,path:kind==='mdoc'?d[0]+(d[7]?' / ['+d[7]+']':''):f.p+(d[6]?' / ['+d[6]+']':'')});
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','Where it stands, what is missing, who it waits on',STATUS.map(s=>s[1].length).join(' · '),h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    let lastg=null;
+    f.docs.forEach(d=>{ if(d[6]&&d[6]!==lastg){x+='<p class="sub">['+esc(d[6])+']</p>';lastg=d[6];} x+=docrow(f,d,'doc');});
+    if(f.cnt){x+='<p class="bnote">'+f.cnt+' documents here are counted but not listed one by one'+(f.cm?' ('+f.cm+' of them look like money papers)':'')+'. Open the folder in Drive to see them.</p>';
+      if(f.groups) x+='<p class="bnote">They came from '+f.groups+' old folders.</p>';}
+    else if(!f.docs.length) x+='<p class="bnote">No documents here.</p>';
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' sidecar'); if(s.i)sc.push(s.i+' index');
+    if(s.m) x+='<p class="bnote">'+s.m+' money document'+(s.m>1?'s':'')+' from this folder '+(s.m>1?'are':'is')+' kept in the 🔒 Money zone.</p>';
+    if(sc.length) x+='<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>';
+    const n=(f.cnt?f.cnt+' counted':f.docs.length)+(s.m?' + '+s.m+' 🔒':'');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':'📁 '+f.t),esc(f.p),n+' docs',x,fi===0);
+  });
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  let fz='';
+  FINDINGS.forEach(it=>{fz+=row({b:'Findings',kind:'finding',title:it[0],text:it[1],st:'flag'});});
+  branch('findings','','🔎 Findings','Noted only. Nothing was moved, renamed or deleted (filing is RED).',FINDINGS.length+' findings',fz,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> '+MONEY.length+' money items and '+MONEYDOCS.length+' money documents (invoices, checks, receipts, payment evidence) stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='<p class="grp">Money documents ('+MONEYDOCS.length+')</p><div class="mdocs">';
+    let lastp=null;
+    MONEYDOCS.forEach(d=>{ if(d[0]!==lastp){m+='<p class="sub">'+esc(d[0])+'</p>';lastp=d[0];} m+=docrow(null,d,'mdoc');});
+    m+='</div></div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':(MONEY.length+' items · '+MONEYDOCS.length+' docs'),m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+const isMoney=it=>it.kind==='money'||it.kind==='mdoc';
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>!isMoney(it)||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">KAR-26-GROVES · Groves at Sunset · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(isMoney(it)?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=(it.kind==='doc'||it.kind==='mdoc')?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc'||it.kind==='mdoc') h+='<p class="meta"><span>'+esc(it.date)+'</span><span>'+esc(kb(it.size))+'</span><span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='KAR-26-GROVES · The Groves at Sunset Pool, 8850 SW 72 St, Miami FL 33173\nFolio 30-4033-001-0012 · FDOH permit 13-60-01441 · job of record TRK-2026-1256\nClient: Karla Morales · owner Sunset Cove LLC\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='doc'||it.kind==='mdoc') s+='   '+it.date+' · '+kb(it.size)+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— KAR-26-GROVES · Capsule ENHANCED · v1 · 2026-10-13';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>!isMoney(it)||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+build();
+</script>
+</body>
+</html>

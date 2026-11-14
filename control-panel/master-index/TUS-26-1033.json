@@ -1,0 +1,771 @@
+[
+ {
+  "oid": "11SdCmcvqOXWPdbhGSZoKtBYezAe25Cke",
+  "sid": "1WvLhoClBoAdEN4ExurIFOG4qd9u8tBqw",
+  "name": "DERM_APPLICATION-FORM_NDS-TIRES_2024-06-18.pdf",
+  "date": "2024-06-18",
+  "folder": "02_County-Records / DERM_2026-08-31",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "ndstires@hotmail.com."
+  ],
+  "phone": [
+   "305 629 2898",
+   "305-372-6410",
+   "305-372-6600",
+   "305-375-4070"
+  ],
+  "address": [
+   "701 NW 1st Court",
+   "7265 NW 74 ST",
+   "7265 NW 74 St"
+  ]
+ },
+ {
+  "oid": "1jzW5_8MnGatj-J-DN4zm9CVpaUNCGebA",
+  "sid": "1jLDxFhwHw7m73BxjQQaLTp6WctIlw0AJ",
+  "name": "DERM_OPERATING-PERMIT_NDS-TIRES_2024-07-01.pdf",
+  "date": "2024-07-01",
+  "folder": "02_County-Records / DERM_2026-08-31",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [],
+  "phone": [
+   "(305) 372-6955"
+  ],
+  "address": [
+   "7265 NW 74 ST"
+  ]
+ },
+ {
+  "oid": "1b8qvZ6iWEIii_Pf-UYch39ah_VGQ3lJg",
+  "sid": "1OoIpPkeYl6_GbQnbLHYmY2uNyuT48XD3",
+  "name": "DERM_INSPECTION-REPORT_NDS-TIRES_2025-03-27.pdf",
+  "date": "2025-03-27",
+  "folder": "02_County-Records / DERM_2026-08-31",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [],
+  "phone": [
+   "305-266-4447",
+   "305-629-2898"
+  ],
+  "address": [
+   "7265 NW 74 ST"
+  ]
+ },
+ {
+  "oid": "1Ubjtm740LTpJwLSNyDJEimakHNYLXQrD",
+  "sid": "1k59xhHXUrhl9Smt5UxElmU6B826kgY-J",
+  "name": "A-1 - FLOOR PLAN.pdf",
+  "date": "2026-03-29",
+  "folder": "06_Plans-Photos-Sketches",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [],
+  "phone": [
+   "305 401-2051"
+  ],
+  "address": [
+   "15554 SW 113 Street",
+   "7265 N.W. 74TH STREET"
+  ]
+ },
+ {
+  "oid": "10Yvo4YCpU0HsGhk13nn1rjLFRJd10BCN",
+  "sid": "1y6-vizL3onEzQBJzUKVUP7mww4KXGiW-",
+  "name": "E-1 - ELECTRICAL PLAN.pdf",
+  "date": "2026-03-29",
+  "folder": "06_Plans-Photos-Sketches",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [],
+  "phone": [
+   "305 401-2051"
+  ],
+  "address": [
+   "15554 SW 113 Street",
+   "7265 N.W. 74TH STREET"
+  ]
+ },
+ {
+  "oid": "1UrZKdttbMEN6V_FtQsFW-0tydWFxL0Xj",
+  "sid": "1PrqnW5gUzmR-OAkXhCqEZZuqxpqzedVR",
+  "name": "LS-1 - FLOOR PLAN - LIFE SAFETY PLAN.pdf",
+  "date": "2026-03-29",
+  "folder": "06_Plans-Photos-Sketches",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [],
+  "phone": [
+   "305 401-2051"
+  ],
+  "address": [
+   "15554 SW 113 Street",
+   "7265 N.W. 74TH STREET"
+  ]
+ },
+ {
+  "oid": "1Wn3WtlPiAIU6PzeVaxYx4D5bY3XN2Cna",
+  "sid": "1Nclvs8OPacGt8kNcVcxQm__hejeot0J9",
+  "name": "LS-1 - LIFE SAFETY.pdf",
+  "date": "2026-03-29",
+  "folder": "06_Plans-Photos-Sketches",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [],
+  "phone": [
+   "305 401-2051"
+  ],
+  "address": [
+   "15554 SW 113 Street",
+   "7265 N.W. 74TH STREET"
+  ]
+ },
+ {
+  "oid": "1KVUjn20eIGvYvuCJZaoL4LB2GDoNeevI",
+  "sid": "1Q94L8i84tbl1znObYqUieUYpskcetizx",
+  "name": "M-1 - MECHANICAL PLAN.pdf",
+  "date": "2026-03-29",
+  "folder": "06_Plans-Photos-Sketches",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [],
+  "phone": [
+   "305 401-2051"
+  ],
+  "address": [
+   "15554 SW 113 Street",
+   "7265 N.W. 74TH STREET"
+  ]
+ },
+ {
+  "oid": "1oJ3MGrvmeWyTJCQt1eJcm_zwDcVz_5p3",
+  "sid": "1pWb_PzS3faArI-Lvgxbc2NZTqcg1m-p1",
+  "name": "P-1 - SANITARY SERVICE PLAN.pdf",
+  "date": "2026-03-29",
+  "folder": "06_Plans-Photos-Sketches",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [],
+  "phone": [
+   "305 401-2051"
+  ],
+  "address": [
+   "15554 SW 113 Street",
+   "7265 N.W. 74TH STREET"
+  ]
+ },
+ {
+  "oid": "1jhEO57lgUhZfTsvqHV3kxthFx8FIvoeh",
+  "sid": "1gUWxhaNvB5tOkmh-WgFiDujuWDRZucDd",
+  "name": "WORK WITHOUT PERMIT FORM.pdf",
+  "date": "2026-03-30",
+  "folder": "06_Plans-Photos-Sketches",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "Jeanne.Clarke@miamidade.gov."
+  ],
+  "phone": [
+   "(305) 299-6775",
+   "(305) 401-2051",
+   "(786) 315-2057",
+   "(786) 315-2508",
+   "(786) 315-2570"
+  ],
+  "address": [
+   "15554 S.W. 113th Street.",
+   "7265 N.W. 74TH STREET"
+  ]
+ },
+ {
+  "oid": "13RfinhERgOO8yVgrIAQj-w8FvfKaZNJn",
+  "sid": "1ONZndvp_MLpfJCoRLUTvUKWHMIBXyJgF",
+  "name": "image001.png",
+  "date": "2026-06-23",
+  "folder": "06_Plans-Photos-Sketches",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [
+   "W2026066388"
+  ],
+  "email": [],
+  "phone": [],
+  "address": [
+   "7265 NW 74 St"
+  ]
+ },
+ {
+  "oid": "1CgIP0hlaheoTbCYfQzKzGHLt27EF5laP",
+  "sid": "1vtD4YaviAbSDfdhjSgziNOx0jylH6wta",
+  "name": "GAME-PLAN-and-CONTACTS_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "06_Plans-Photos-Sketches",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [
+   "Jorge@TeamUsaSales.com",
+   "cfelipe87@live.com",
+   "cthompson@synergyn-us.com",
+   "elmija74@gmail.com",
+   "fabregat28@gmail.com",
+   "jorge@teamusasales.com",
+   "mvaldes@synergyn-us.com"
+  ],
+  "phone": [],
+  "address": [
+   "7265 NW 74th St",
+   "7265 NW 74th St.",
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1Im1yvFfsJbRSZxej9aP2iu-6DJqNo7gf",
+  "sid": "1-rJ3hAuM3f9w6lI3QA_wRohqpKVPNcwo",
+  "name": "CONTACT-LIST_Medley_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "03_Research-and-Proposal",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "Jorge@TeamUsaSales.com",
+   "admin@teatromiami.com",
+   "cfelipe87@live.com",
+   "elmija74@gmail.com",
+   "fabregat28@gmail.com"
+  ],
+  "phone": [],
+  "address": [
+   "1771 NW 17th St",
+   "1867 NW 97th Ave",
+   "3131 NE 188 St",
+   "7265 NW 74th St",
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "16_hRqJdLmuDGtjl98Vk-TNIg5dIZ0LSf",
+  "sid": "1_PaMXqH0BUzo7RpSry76IAFw4VQ9naOl",
+  "name": "SCOPE-OF-WORK_Medley_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "03_Research-and-Proposal",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [],
+  "phone": [],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1XNe8evlTVcG1C3J1Juk_Xk--RB5tEsub",
+  "sid": "1w_r5Qt5qFFevylX0tWz8b19mJXdBs53W",
+  "name": "ES_ALCANCE-DE-TRABAJO_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "03_Research-and-Proposal",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [],
+  "phone": [],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1Gpvqh_jm0GrR2NOZqZQ5Q0MneX-_GYhV",
+  "sid": "1Y7ejFY5ooX8hC-b1Jp09esJR3UCTQagS",
+  "name": "PERMIT-APP-MEDLEY_COMPLETED_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "04_Permits-and-Applications",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "Building@townofmedley.com",
+   "Jorge@TeamUsaSales.com"
+  ],
+  "phone": [
+   "305-300-4500",
+   "305-401-2051",
+   "305-887-9541"
+  ],
+  "address": [
+   "15554 SW 113 Street",
+   "7265 NW 74th Street",
+   "7777 NW 72 Ave"
+  ]
+ },
+ {
+  "oid": "1PDtVJ-T8TtwTks-ICSLgGJ4gu_sWVXyN",
+  "sid": "187F2wOj-8Zcw2ndA-ZO4iVQRMdmo5Bwt",
+  "name": "PERMIT-APP-MIAMIDADE_COMPLETED_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "04_Permits-and-Applications",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "Jorge@TeamUsaSales.com"
+  ],
+  "phone": [],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1-HsL3_rcRGP3waJ97KevHtk5TNw2g2qF",
+  "sid": "1ZNsjb95GfnF4dbFqXYvmsQ2i7DqTk6eU",
+  "name": "PROPOSAL_TeamUSA-to-Tenant_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "09_Financial",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [
+   "Jorge@TeamUsaSales.com"
+  ],
+  "phone": [
+   "305-300-4500"
+  ],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1remNogMiWUqe44BxgG_LXeHcQfxDJvmm",
+  "sid": "1-i6Y4e5EIwU7bvVrZ0C5ytQoSEUjzt0n",
+  "name": "ES_PROPUESTA_TeamUSA-al-Inquilino_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "09_Financial",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [
+   "Jorge@TeamUsaSales.com"
+  ],
+  "phone": [
+   "305-300-4500"
+  ],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1SfMN1_GDzxRZcy3CrkjvAZ__MD0pt5Ko",
+  "sid": "1kVoDCxQceV6v22Z5zVQ5VZ_S9Krpt2nm",
+  "name": "LIMITED-POA_Tenant-Authorization_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "09_Financial",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [],
+  "phone": [],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1rvcr72DHqU7A3UbaPNbPmA1zqkpD-Ro6",
+  "sid": "1-AlyBupasQbBLQzBqHMLD7EKfKh_9py8",
+  "name": "ES_PODER-LIMITADO_Autorizacion-Inquilino_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "09_Financial",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [],
+  "phone": [],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1if7XTXOLfYO6WK10izVmgNLJTCZJI8Wo",
+  "sid": "1dO2197Gro3PspOm4rHjJ9j8Lb4-HHZ-B",
+  "name": "LANDLORD-CONSENT_MonacoPereira_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "09_Financial",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [],
+  "phone": [],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1HgOEq3EawxDpEL1iEsbtHOgg5na1AiRA",
+  "sid": "1gV__-64pD1vYJZ6e0SKFrnhrA8tzb1qO",
+  "name": "INVOICE-01_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "09_Financial",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [
+   "Jorge@TeamUsaSales.com"
+  ],
+  "phone": [
+   "305-300-4500"
+  ],
+  "address": [
+   "7265 NW 74th St"
+  ]
+ },
+ {
+  "oid": "1xz4uPdZ95w1Xj_gQvctIVTAPak7BA09H",
+  "sid": "1g3uYqIizwT-y0FxXhQmRu9OwydoNrSPG",
+  "name": "ES_FACTURA-01_TUS-26-1033.pdf",
+  "date": "2026-06-23",
+  "folder": "09_Financial",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [
+   "Jorge@TeamUsaSales.com"
+  ],
+  "phone": [
+   "305-300-4500"
+  ],
+  "address": [
+   "7265 NW 74th St"
+  ]
+ },
+ {
+  "oid": "1LlvOYY5QkQY8E4CpRMELhMaWlsosycU8",
+  "sid": "187kb59g_nOwK9AungPnKDShgfnN3Uds2",
+  "name": "COVER-SHEET_Signers_TUS-26-1033.pdf",
+  "date": "2026-08-10",
+  "folder": "OUT-FOR-SIGNATURE_2026-08-10",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [],
+  "phone": [],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1RX2NADuWtHyBTPqo1AIlfoSVJqAUSF0i",
+  "sid": "16dXq_SQqnXUCNsXVkeO_uXyustNXja7T",
+  "name": "TRANSMITTAL-LIST_OutForSignature_TUS-26-1033.pdf",
+  "date": "2026-08-10",
+  "folder": "OUT-FOR-SIGNATURE_2026-08-10",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [],
+  "phone": [],
+  "address": [
+   "7265 NW 74 St"
+  ]
+ },
+ {
+  "oid": "1A7Q0CTTtouTkCd5nse7MfjARrcUv9Ptt",
+  "sid": "1lyltDuSzcSdtSwkCOWbquzvYzAJhVQSS",
+  "name": "MEDLEY_1_PERMIT-APPLICATIONS.pdf",
+  "date": "2026-08-10",
+  "folder": "OUT-FOR-SIGNATURE_2026-08-10",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "Building@townofmedley.com",
+   "Jorge@TeamUsaSales.com"
+  ],
+  "phone": [
+   "305-300-4500",
+   "305-401-2051",
+   "305-887-9541"
+  ],
+  "address": [
+   "15554 SW 113 Street",
+   "7265 NW 74th Street",
+   "7777 NW 72 Ave"
+  ]
+ },
+ {
+  "oid": "18KdO32y-TuLBoUerh2U1NJD2P1e9GsqA",
+  "sid": "1jRGuS1hdmFgdW5t6YdooY-oNrU9bMHZp",
+  "name": "MEDLEY_2_SIGN-and-NOTARIZE.pdf",
+  "date": "2026-08-10",
+  "folder": "OUT-FOR-SIGNATURE_2026-08-10",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [],
+  "phone": [],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1V19RwtboY59GeVOO6j4Hnu1jq8zpT6a0",
+  "sid": "1JFnsOCmJOWmoVf_HHK96Xtl0GRTi1D01",
+  "name": "MEDLEY_3_SCOPE-and-PROPOSAL.pdf",
+  "date": "2026-08-10",
+  "folder": "OUT-FOR-SIGNATURE_2026-08-10",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "Jorge@TeamUsaSales.com"
+  ],
+  "phone": [
+   "305-300-4500"
+  ],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1OaAQy5wPiF4qZHsRsInupxeKSp-JaXms",
+  "sid": "1syqCv1i1fHjcySITH_MI64pkb5-XDad9",
+  "name": "MEDLEY_4_FINANCIAL-INVOICE.pdf",
+  "date": "2026-08-10",
+  "folder": "OUT-FOR-SIGNATURE_2026-08-10",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [
+   "Jorge@TeamUsaSales.com"
+  ],
+  "phone": [
+   "305-300-4500"
+  ],
+  "address": [
+   "7265 NW 74th St"
+  ]
+ },
+ {
+  "oid": "1uI6ABzQFEuVia_cJVj23ieKtnDfWzdtl",
+  "sid": "1CsZEtGk0IWd5vMF7aWZTPvi7SvHL626x",
+  "name": "MEDLEY_5_PLANS.pdf",
+  "date": "2026-08-10",
+  "folder": "OUT-FOR-SIGNATURE_2026-08-10",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [],
+  "permit": [],
+  "email": [],
+  "phone": [
+   "305 401-2051"
+  ],
+  "address": [
+   "15554 SW 113 Street",
+   "7265 N.W. 74TH STREET"
+  ]
+ },
+ {
+  "oid": "14ZEza46Ck3Yu3G9RTDmuwQvoSBO66SvF",
+  "sid": "1iIV51RuGNccWFabslZOPIsjVhhbCR84z",
+  "name": "NOTICE-OF-COMMENCEMENT_DRAFT_TUS-26-1033.pdf",
+  "date": "2026-08-17",
+  "folder": "04_Permits-and-Applications",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "Jorge@TeamUsaSales.com"
+  ],
+  "phone": [
+   "305-300-4500"
+  ],
+  "address": [
+   "7265 NW 74 St",
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1VUxY9dZ4jWwYHOsW1HpoQobth749crfo",
+  "sid": "1LLNiyBEsiImG_n8kXEB6ZZceSEQBoBxK",
+  "name": "ENGINEERING-AGREEMENT_Synergyn_DRAFT_TUS-26-1033.pdf",
+  "date": "2026-08-17",
+  "folder": "09_Financial",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "cthompson@synergyn-us.com",
+   "mvaldes@synergyn-us.com"
+  ],
+  "phone": [],
+  "address": [
+   "1867 NW 97th Avenue",
+   "7265 NW\n74th Street",
+   "7265 NW 74 St"
+  ]
+ },
+ {
+  "oid": "1JRTZp1tayi5S0AY_wDsxGGENsYB-Vjs-",
+  "sid": "1mCRrk_qIPgf7quM_Wzl1x8gLdxMBc-TD",
+  "name": "MEDLEY-PRINT-RUN_TUS-26-1033_2026-08-18.pdf",
+  "date": "2026-08-18",
+  "folder": "05-REPORTS-DELIVERABLES",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "Jorge@TeamUsaSales.com",
+   "admin@teatromiami.com",
+   "cfelipe87@live.com",
+   "elmija74@gmail.com",
+   "fabregat28@gmail.com",
+   "mvaldes@synergyn-us.com"
+  ],
+  "phone": [
+   "305 401-2051",
+   "305-300-4500"
+  ],
+  "address": [
+   "15554 SW 113 Street",
+   "1771 NW 17th St",
+   "1867 NW 97th Ave",
+   "3131 NE 188 St",
+   "7265 N.W. 74TH STREET",
+   "7265 NW 74 St",
+   "7265 NW 74th St",
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1As0bGR430expGEKOnO2nXjlSh3qXZ4FC",
+  "sid": "1VFdUTuF--VubpI_6-n0LvZXFlY9JLh1h",
+  "name": "2026-09-08_1520_Jorge-Valdes_Project-Onboarding-Schedule.pdf",
+  "date": "2026-09-08",
+  "folder": "04-CORRESPONDENCE",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "Jorge@TEAMUSASALES.COM",
+   "daniel@miamiarthouse.com",
+   "expediting@teamusasales.com",
+   "jdrafters@gmail.com",
+   "jorge@fabregatarchitect.com",
+   "jorgev2121@gmail.com",
+   "jsanabria@townofmedley.com",
+   "miall@miamiarthouse.com",
+   "ordonezpe@gmail.com"
+  ],
+  "phone": [],
+  "address": [
+   "7265 NW 74th St",
+   "7265 NW 74th Street"
+  ]
+ },
+ {
+  "oid": "1tJ9i1chRoB3LzNBL3CPZdD1Cn2l-pEBo",
+  "sid": "1pWVHvmzWSytDkTWCho3imS5plrNkPCp6",
+  "name": "2026-09-11_2136_Mailer-Daemon_Bounce-Evidence-TUS-26-1033.pdf",
+  "date": "2026-09-11",
+  "folder": "04-CORRESPONDENCE",
+  "job": "TUS-26-1033",
+  "has_text": true,
+  "folio": [
+   "22-3011-052-0020"
+  ],
+  "permit": [],
+  "email": [
+   "cfelipe87@live.com",
+   "daniel@miamiarthouse.com",
+   "elmija74@gmail.com.",
+   "jorgev2121@gmail.com",
+   "mailer-daemon@googlemail.com",
+   "miall@miamiarthouse.com"
+  ],
+  "phone": [],
+  "address": [
+   "7265 NW 74th Street"
+  ]
+ }
+]

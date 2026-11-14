@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Version Viewer Demo</title>
+<meta name="description" content="Demo of the VTES version click-down: an appointment that was moved, with the old time still viewable.">
+<style>
+  :root { --bg: #f6f6f4; --fg: #1a1a1a; --card: #ffffff; --line: #d0d0d0; --muted: #555; --accent: #0b57d0; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #0f0f0f; --fg: #f0f0f0; --card: #141414; --line: #444; --muted: #b8b8b8; --accent: #8ab4f8; }
+  }
+  :root[data-theme="dark"] { --bg: #0f0f0f; --fg: #f0f0f0; --card: #141414; --line: #444; --muted: #b8b8b8; --accent: #8ab4f8; }
+  html, body { margin: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 18px; line-height: 1.5; }
+  body { padding: 16px; max-width: 760px; margin: 0 auto; overflow-x: hidden; }
+  h1 { font-size: 24px; margin: 0 0 6px; }
+  .lead { color: var(--muted); margin: 0 0 16px; }
+  .card { background: var(--card); border: 2px solid var(--line); border-radius: 14px; overflow: visible; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+  .toolbar button { font: inherit; font-size: 16px; font-weight: 700; min-height: 44px; padding: 8px 14px; border-radius: 8px; border: 2px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; }
+  #log { font-size: 16px; color: var(--muted); border-left: 4px solid var(--line); padding: 8px 12px; min-height: 44px; }
+  .appt { margin: 0; }
+  .appt dt { font-weight: 700; margin-top: 10px; }
+  .appt dd { margin: 0; }
+  .big { font-size: 28px; font-weight: 800; }
+  footer { margin-top: 24px; font-size: 14px; color: var(--muted); text-align: right; }
+</style>
+</head>
+<body>
+  <h1>Version viewer, demo</h1>
+  <p class="lead">An appointment that was moved. The header opens on the <b>current</b> time. Tap the version button to see or use the old one.</p>
+
+  <div class="card" id="viewer"></div>
+
+  <div class="toolbar">
+    <button type="button" id="btn-change">Add a change (makes the next .1 version)</button>
+    <button type="button" id="btn-theme">Toggle light / dark</button>
+  </div>
+  <div id="log" aria-live="polite">Nothing used yet.</div>
+
+  <footer>TRK-TBD-ASSIGN-ON-REGISTRY · version-viewer demo · v1.0 · 2026-11-07 · CURRENT</footer>
+
+<script src="version-viewer.js"></script>
+<script>
+  var APPOINTMENT = {
+    id: 'APPT-DEMO-001',
+    name: 'Appointment: site inspection, sample unit',
+    trk: 'TRK-TBD-ASSIGN-ON-REGISTRY',
+    versions: [
+      { v: '1.0', date: '2026-11-03', note: 'Original time set',
+        html: '<dl class="appt"><dt>When</dt><dd class="big">Tuesday, Nov 10, 2026 · 10:00 AM ET</dd>' +
+              '<dt>Where</dt><dd>Sample property, Bal Harbour (address withheld in demo)</dd>' +
+              '<dt>With</dt><dd>Building inspector</dd><dt>Bring</dt><dd>Permit card, photo ID</dd></dl>' },
+      { v: '1.1', date: '2026-11-06', note: 'Inspector asked to move it to the afternoon',
+        html: '<dl class="appt"><dt>When</dt><dd class="big">Tuesday, Nov 10, 2026 · 2:30 PM ET</dd>' +
+              '<dt>Where</dt><dd>Sample property, Bal Harbour (address withheld in demo)</dd>' +
+              '<dt>With</dt><dd>Building inspector</dd><dt>Bring</dt><dd>Permit card, photo ID</dd>' +
+              '<dt>Changed</dt><dd>Time moved from 10:00 AM to 2:30 PM.</dd></dl>' }
+    ]
+  };
+
+  var log = document.getElementById('log');
+  var viewer = VersionViewer.mount(document.getElementById('viewer'), APPOINTMENT, {
+    onUse: function (ver, isCurrent) {
+      log.textContent = 'You chose to USE v' + ver.v + ' (' + VersionViewer.formatDate(ver.date) + ')' + (isCurrent ? ', the current one.' : ', an OLDER one. The banner stays up so you know.');
+    }
+  });
+
+  document.getElementById('btn-change').addEventListener('click', function () {
+    var n = VersionViewer.nextVersion(viewer.current().v);
+    viewer.addVersion('<dl class="appt"><dt>When</dt><dd class="big">Wednesday, Nov 11, 2026 · 9:00 AM ET</dd><dt>Changed</dt><dd>Demo change made from the button. This is v' + n + '.</dd></dl>', 'Demo change from the button');
+    log.textContent = 'Added v' + n + '. The header now shows it as current.';
+  });
+  document.getElementById('btn-theme').addEventListener('click', function () {
+    var r = document.documentElement, cur = r.getAttribute('data-theme');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    r.setAttribute('data-theme', next);
+    document.getElementById('viewer').setAttribute('data-theme', next);
+  });
+</script>
+</body>
+</html>
