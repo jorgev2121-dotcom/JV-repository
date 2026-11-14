@@ -1,0 +1,19 @@
+Day of month,Amount USD,Payee,Paid from,Suggested QuickBooks category,Business or personal
+7,650.0,Chase Ink card payment,Chase 8020,Credit card payment (Team INK),Business
+15,256.0,AT&T cell,Chase 8020,Telephone,Business
+15,32.0,Microsoft 365,Chase 8020,Software and apps,Business
+16,199.99,Amazon (budget estimate),Chase 8020 / Amazon card,Per purchase,Mixed
+18,379.74,Nissan Finance (Altima),Chase 8020,Auto loan payment,Owner decides
+20,606.0,Kia / DCFCU auto loan,Chase 8020,Auto loan payment,Owner decides
+20,10.0,Apple,Chase 8020,Software and apps,Owner decides
+20,35.0,Intuit QuickBooks,Chase 8020,Software and apps,Business
+20,1500.99,BOA transfer,Chase 8020,Owner Draw,Personal
+23,300.94,Citi credit card,Chase 8020,Credit card payment (Citi 6889),Business if item 12 is business
+24,413.0,Progressive insurance,Chase 8020,Insurance (vehicle),Owner decides
+28,92.0,Aetna,Chase 8020,Owner health insurance,Owner decides
+28,624.0,Discover / Capital One payment,Chase 8020,Credit card payment (Discover),Business
+30,100.0,Claude subscription,Chase 8020,Software and apps,Business
+4,199.99,PayPal via Ink card (budget estimate),Team INK card,Per purchase,Mixed
+,39.99,Lively (mom's phone),Team INK card,Owner Draw,Personal
+,30.99,Microsoft AI subscriptions,Team INK card,Software and apps,Business
+,21.99,Netflix (mom),Team INK card,Owner Draw,Personal
