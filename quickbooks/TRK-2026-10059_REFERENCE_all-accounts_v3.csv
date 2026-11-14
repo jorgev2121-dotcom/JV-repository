@@ -1,0 +1,26 @@
+Item,Account name,Institution,Kind,Ends in,Business or personal,In QuickBooks today,QB Type,QB Detail Type,Limit or amount,Autopay / schedule,Status and notes,Action in QuickBooks
+1,"Team USA Sales, Inc.",,Company,,Business,Yes (this file),,,EIN 46-2171268,,"13633 SW 142nd Terrace, Miami FL 33186-8347. Cell 305-300-4500",Confirm EIN in Company settings
+2,"CU Inspections of South Florida, Inc.",,Company,,Business,Decide,,,EIN 27-0951646,,Same owner and address,Owner decides: one QuickBooks company or two
+3,Chase Team USA Sales 8020,"Chase (Florida, routing 267084131)",Checking,8020,Business,No,Bank,Checking,,Pays Intuit $35 on the 20th and all Section E debits,Operating account. Debit card ending 0058. Statement notice 2026-11-01,CREATE (Import 1)
+4,Chase CU Inspections 5615,"Chase (Florida, routing 267084131)",Checking,5615,Business,No,Bank,Checking,,,Client Zelle deposits. Debit card ending 7675. Overdraft notice 2026-11-13,CREATE (Import 1)
+5,Chase personal checking,Chase (routing 267084131),Checking,5709,Personal,No,,,,,Debit card ending 3691 (replaced 2024-10-26),KEEP OUT. Transfers = Owner Contribution / Owner Draw
+6,Bank of America personal checking,Bank of America (routing 063100277),Checking,8939,Personal,No,,,,"$1,500.99 to BOA on the 20th from 8020","Debit card ending 6767. $29,712.84 sent INTO the business 2025-08 to 2026-08",KEEP OUT. Book transfers as Owner Contribution
+7,Chase account (old),Chase,Checking,8662,Unknown,No,,,,,In older exports only; not on the 2025 sheet,Treat as closed
+8,DCFCU account,"Dade County Federal Credit Union, 305-471-5080",Account,0517,Unknown,No,,,,Recurring DCFCU payment processed 2026-11-11,In older exports only,Owner decides
+9,Team INK Credit Card,Chase Ink Business,Credit card,2690,Business,"Yes, balance $10,674.53",Credit Card,Credit Card,"Limit $42,999",$650 on the 7th from 8020,"Card issued 2025-08-01 (sheet also writes 2698 once). Earlier cards 0012 and 9687 closed. Carries Lively $39.99, Microsoft AI $30.99, Netflix $21.99, PayPal ~$199.99",Keep. Add description 'Chase Ink ending 2690'. Code Netflix and Lively to Owner Draw
+10,Discover,"Discover, now Capital One (since 2026-10-19)",Credit card,6118,Business,"Yes, balance $8,203.00",Credit Card,Credit Card,"Limit $12,000",$624 on the 28th from 8020 (0% plan ended 2025-07-28),Discover accounts moved to Capital One 2026-10-19,Keep. Re-link the bank feed under Capital One
+11,Barclay (AAdvantage),Barclays US,Credit card,7669,Business,"Yes, balance $6,227.80",Credit Card,Credit Card,"Limit $9,000",,REPLACED BY CITI on 2026-06-02 (sheet). Same debt continues as item 12,RENAME to 'Citi AAdvantage 6889'. Do not create a second card
+12,Citi AAdvantage Platinum Select,"Citi, 1-800-950-5114",Credit card,6889,Business,Only as 'Barclay',Credit Card,Credit Card,,$300.94 on the 23rd from 8020; statement closes about the 27th,Cardmember since 2018. Successor of item 11,Rename item 11 to this; re-link feed to Citi
+13,American Express,American Express,Credit card,12001,Business,"Yes, balance $1,744.85",Credit Card,Credit Card,"Limit $10,000",,Member since 1992. 7.99% term plan ($140/mo) ended 2025-05-23,Keep. Add description 'Amex ending 12001'
+14,Amazon,Chase Amazon Prime Visa,Credit card,7343,Business (mixed),"Yes, balance $205.50",Credit Card,Credit Card,Limit $500,Statement balance autopay; ~$199.99 budget on the 16th,"Issuer is Chase, not Synchrony",Keep. Add description 'Chase Amazon Prime Visa 7343'. Personal buys = Owner Draw
+15,Home Depot Card,"Citi (Home Depot), 1-800-677-0232",Credit card,6354,Owner decides,No,Credit Card,Credit Card,"Limit $2,000",,Minimum-payment alerts Oct to Nov 2026,Import 2 if business
+16,U.S. Bank Shield Visa,"U.S. Bank, 1-800-285-8585",Credit card,9915,Owner decides,No,Credit Card,Credit Card,,,"New card, welcome email 2026-10-14",Import 2 if business
+17,CFNA Firestone,Credit First National Association,Credit card,554,Owner decides,No,Credit Card,Credit Card,"Limit $2,200",,New to the inventory (from the sheet),Import 2 if business
+18,Macy's,Macy's,Store card,,Personal,No,,,Limit $500,,No number on the sheet,KEEP OUT
+19,SBA EIDL Loan,"U.S. Small Business Administration, 1-833-853-5638",Loan,8008,Business,No,Long Term Liabilities,Notes Payable,"Original $232,900","Last payment seen 2022-12-29 ($1,232)",No payment seen 2025-01 to 2026-07. Is it current?,CREATE (Import 1); opening balance from SBA portal
+20,DCFCU Auto Loan,Dade County Federal Credit Union,Loan,0040,Owner decides,No,Long Term Liabilities,Notes Payable,,$606 on the 20th from 8020 (Kia),Returned autopay reset 2026-10-26,Import 2 if business
+21,Nissan Finance Altima,Nissan Finance,Loan,,Owner decides,No,Long Term Liabilities,Notes Payable,,$379.74 on the 18th from 8020,Paid from the business account,Import 2 if business
+22,"Mortgages and HOA (FCI, Selene, Rushmore, Twin Lakes)",Various,Loans,,Personal,No,,,,,Home at 13633 SW 142nd Terrace,KEEP OUT unless a CPA sets a home-office share
+23,Owner Contribution,,Equity,,Business,No,Equity,Owner's Equity,,,For items 5 and 6 transfers in,CREATE (Import 1)
+24,Owner Draw,,Equity,,Business,No,Equity,Owner's Equity,,,For money out to Jorge personally,CREATE (Import 1)
+25,Zelle / Check / ACH,,Payment methods,,Business,Check,,,,,Zelle into 5615 is the main client channel,"Add as Payment methods, not accounts"
