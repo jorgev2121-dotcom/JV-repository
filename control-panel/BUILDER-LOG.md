@@ -805,3 +805,4 @@
 - 2026-11-14T04:44Z · runner · budget allowed · items 1 of 1 (pre-mortem) · queue depth unchanged · blocked: none new (RAM guard Option A, Julio PDFs wait on desktop/Jorge)
 - 2026-11-14T05:42Z · runner · budget allowed_warning · items 1 of 1 (Drive log part 2) · queue depth unchanged · blocked: none new
 - 2026-11-14T06:42Z · runner · budget allowed_warning · items 1 of 1 (probe) · queue depth unchanged · blocked: none new
+- 2026-11-14T07:42Z · runner · budget allowed_warning (last read, not re-read) · items 0 of 0 · queue depth unchanged · blocked: none new
