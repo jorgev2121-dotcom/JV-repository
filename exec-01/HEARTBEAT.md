@@ -361,3 +361,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-14T04:44Z · runner · panel new=0 · governor allowed · context ~781k · pre-mortem 11-14 written · Drive heartbeat 0443Z
 - 2026-11-14T05:17Z · watch · Chase declined/overdraft notice asked once · panel new=0 · RAM guard fresh
 - 2026-11-14T05:42Z · runner · panel new=0 · governor allowed_warning (light) · context compacted (~190k) · Drive heartbeat 0542Z + EXEC-LOG part 2 written
+- 2026-11-14T06:17Z · watch+selftest 119 (5 of 10) · panel new=0 · probe 2026111406 written · governor allowed_warning
