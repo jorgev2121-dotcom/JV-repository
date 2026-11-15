@@ -2339,3 +2339,5 @@ future master key is generated on the PC and never pasted into chat.
 **RI-038 recurrence · 2026-11-07 (cloud PR #10 monitor, from VTES-HEALTH on Drive; PC not checked).** LiteLLM :4001 was down on 10-31 4 PM, up 11-01 to 11-04, then down again at the 11-05 and 11-06 4 PM checks. On 11-06 Ollama was down as well, which leaves Codex as the only working lane on the PC. RI-038 already recommends Tier 2 (removal: stop running a self-hosted LiteLLM on the PC). **Per Rule 4, no restart-only (Tier 1) fix should be proposed for this again.**
 
 **RI-038 recurrence · 2026-11-12 (cloud PR #10 monitor, from VTES-HEALTH).** Ollama and LiteLLM were both down again at the 11-11 4:04 PM ET check, with RAM at 3.0 GB. They were up from 11-07 to 11-10. That is the third down-and-up swing since 10-31. The pattern matches low RAM pushing out the local model stack. Tier 2 per RI-038 still stands; no restart-only fix proposed.
+
+**RI-038 recurrence · 2026-11-15 (cloud PR #10 monitor, VTES-HEALTH).** LiteLLM :4001 was down again at the 11-14 4 PM ET check (RT-2026-11-14-0066). Ollama was up, RAM 4.7 GB. That is the fourth down day since 10-31. Tier 2 per RI-038 stands.
