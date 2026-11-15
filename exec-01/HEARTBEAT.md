@@ -433,3 +433,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-15T16:42Z · runner · panel new=0 · governor not re-read (last allowed) · Drive heartbeat 1642Z
 - 2026-11-15T17:17Z · watch · all clear · RAM guard fresh · panel new=0
 - 2026-11-15T17:42Z · runner · panel new=0 · governor not re-read (last allowed) · Drive heartbeat 1742Z
+- 2026-11-15T18:17Z · watch · self-test pass 125 · probe 2026111518 written · RAM guard fresh (new process ppscanmg noted)
