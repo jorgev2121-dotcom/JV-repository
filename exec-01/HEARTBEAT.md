@@ -481,3 +481,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-16T16:42Z · runner · panel new=0 · governor allowed · Drive heartbeat 1642Z
 - 2026-11-16T17:18Z · watch · no job mail · RAM guard AMBER 5.37 GB pause flag set (logged) · panel new=0
 - 2026-11-16T17:43Z · runner · panel new=0 · governor allowed · RAM guard last write 17:15Z AMBER (logged) · Drive heartbeat 1743Z
+- 2026-11-16T18:18Z · watch + self-test pass 129 · RAM guard quiet spell since 17:15Z (last AMBER), uptime fresh, not re-alerted · panel new=0
