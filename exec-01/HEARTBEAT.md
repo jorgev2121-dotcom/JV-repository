@@ -451,3 +451,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-16T01:42Z · runner · panel new=0 · governor not re-read (last allowed) · Drive heartbeat 0142Z
 - 2026-11-16T02:17Z · watch · all clear · RAM guard fresh GREEN · panel new=0
 - 2026-11-16T02:42Z · runner · panel new=0 · governor not re-read (last allowed) · Drive heartbeat 0242Z
+- 2026-11-16T03:17Z · watch · Google new Windows sign-in + local-job BLOCKER relayed (push+email) · Tomas sealed plans show Unknown Signature (Jorge asked Tomas) · RAM guard AMBER fresh · panel new=0
