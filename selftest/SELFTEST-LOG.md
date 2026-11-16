@@ -1270,3 +1270,12 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   7 MAIL WATCH: PASS. Both mailboxes searched this pass.
   10 USAGE: allowed (seven_day). Context about 510,000 of 1,000,000 (autocompact at 784,000).
   Not run: 3, 6, 8, 9. No NEW failure.
+
+## 2026-11-16T06:17Z pass 127 (06Z self-test hour) - 5 of 10 checks passing (counted: 1, 2, 4, 7, 10)
+  1 PANEL INBOX: PASS. task-comments new=0.
+  2 PROBE: PASS. Previous probe 2026111600 answered 00:41Z; new probe 2026111606 written (answer due at the 06:41Z runner).
+  4 PC ALIVE: PASS. _UPTIME-HEARTBEAT.md modified 06:14:40Z.
+  5 OCR FLOWING: FAIL (persistent). No .SEARCH.txt modified since 11-12 00:00Z (tesseract seen on the PC 11-15 22:10 ET, so watch this).
+  7 MAIL WATCH: PASS. Both mailboxes searched this pass.
+  10 USAGE: allowed (seven_day). Context about 662,000 of 1,000,000 (autocompact at 784,000; expect a compaction within a few hours; all state is in files).
+  Not run: 3, 6, 8, 9. No NEW failure.
