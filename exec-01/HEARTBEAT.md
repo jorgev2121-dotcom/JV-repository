@@ -445,3 +445,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-15T22:42Z · runner · panel new=0 · governor not re-read (last allowed) · Drive heartbeat 2242Z
 - 2026-11-15T23:17Z · watch · Julio forwarded Tomas sealed plans (A2.0 SS.pdf, A1.0.pdf) relayed + ARRIVALS + desktop copy line · RAM guard quiet 69 min after RED (not re-alerted) · panel new=0
 - 2026-11-15T23:42Z · runner · panel new=0 · RAM guard wrote RED 23:25Z (no llama-server in top list, logged) · Drive heartbeat 2342Z
+- 2026-11-16T00:17Z · watch · self-test pass 126 · probe 2026111600 written · RAM guard fresh (AMBER) · panel new=0
