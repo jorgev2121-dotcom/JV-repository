@@ -843,3 +843,4 @@
 2026-11-16T21:42Z · allowed · items 0 of 0 (no GREEN cloud item queued; RED items wait on Jorge) · P0 Einar due today, waiting on Jorge's yes for desktop copy
 2026-11-16T22:42Z · allowed · items 0 of 0 (no GREEN cloud item queued; RED items wait on Jorge) · P0 Einar due today, waiting on Jorge's yes for desktop copy; two unsent Pasadena drafts reported
 2026-11-16T23:42Z · allowed · items 0 of 0 (no GREEN cloud item queued; RED items wait on Jorge) · Einar comply-by passed, waiting on Jorge's yes for desktop copy and on the two unsent drafts
+2026-11-17T00:42Z · allowed · items 0 of 0 (no GREEN cloud item queued; RED items wait on Jorge) · Pasadena: two unsent drafts and desktop copy order wait on Jorge
