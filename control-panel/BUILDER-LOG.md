@@ -862,3 +862,4 @@
 2026-11-17T16:42Z · allowed · items 0 of 0 (no GREEN cloud item queued; RED items wait on Jorge) · RAM about 4.6 GB free (AMBER scale) · Pasadena drafts, desktop copy order, Community Access and Chase-claim questions wait on Jorge
 2026-11-17T17:42Z · allowed · items 0 of 0 (no GREEN cloud item queued; RED items wait on Jorge) · RAM RED sustained, Jorge alerted once, awaiting yes/no on memory cap
 2026-11-17T18:42Z · allowed · items 0 of 0 (no GREEN cloud item queued; RED items wait on Jorge) · probe answered · RAM RED llama-server 4.7 GB · permit package draft, RAM cap, Chase and Community Access questions wait on Jorge
+2026-11-17T19:42Z · allowed · items 0 of 0 (no GREEN cloud item queued; RED items wait on Jorge) · RAM RED llama-server 4.0 GB at :40 · permit package draft, RAM cap, Chase and Community Access questions wait on Jorge
