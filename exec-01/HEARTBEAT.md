@@ -537,3 +537,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-17T20:42Z · runner · panel new=0 · governor allowed (last read 19:41Z) · RAM guard AMBER 4.18 GB at 15:40:55 ET (llama-server 5.1 GB, Memory Compression 1.5 GB; :40 pattern; no new alert) · Drive heartbeat 2042Z
 - 2026-11-17T21:21Z · watch · Pembroke Pines Development HUB account approved relayed once · RAM guard GREEN 9.74 GB · panel new=0
 - 2026-11-17T21:42Z · runner · panel new=0 · governor allowed · RAM guard AMBER 4.14 GB at 16:40:24 ET (llama-server 3.9 GB, Memory Compression 1.7 GB; fourth :40 spike in a row; no new alert) · Drive heartbeat 2142Z
+- 2026-11-17T22:21Z · watch · Pasadena permit SUBMITTED ONLINE by Jorge (RO26-10796) noted, no relay · RAM guard GREEN 8.73 GB · panel new=0
