@@ -522,3 +522,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-17T13:23Z · watch · all clear · RAM guard GREEN 7.06 GB · panel new=0
 - 2026-11-17T13:42Z · runner · panel new=0 · governor allowed · RAM guard AMBER 5.76 GB at 08:41:22 ET (Edge 1.2 GB, Claude 0.8 GB, ChatGPT 0.6 GB; :40 pattern, not RED) · Drive heartbeat 1342Z
 - 2026-11-17T14:21Z · watch · all clear · RAM guard GREEN 7.66 GB · panel new=0
+- 2026-11-17T14:42Z · runner · panel new=0 · governor allowed · RAM guard RED 3.18 GB at 09:41:07 ET (llama-server 2.8 GB; guard paused work and lowered AI priority itself; no email, watch re-checks 15:16Z) · Drive heartbeat 1442Z
