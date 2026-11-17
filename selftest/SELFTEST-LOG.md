@@ -1294,3 +1294,8 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   5 of 10 counted passing: checks 1, 2, 4, 7, 10. Check 5 (OCR, no .SEARCH.txt since 11-12) persistent FAIL; not run 3, 6, 8, 9. No NEW failure. Probe selftest-probe-2026111700 written; runner answers it next. Probe 2026111618 was answered 18:42Z (about 24 min).
   7 MAIL WATCH: PASS. Both mailboxes searched.
   10 USAGE: allowed (seven_day). Context about 543,000 of 1,000,000 (autocompact at 784,000).
+
+## Pass 131 · 2026-11-17T06:18Z (06Z self-test, WATCH)
+  5 of 10 counted passing: checks 1, 2, 4, 7, 10. Check 5 (OCR, no .SEARCH.txt since 11-12) persistent FAIL; not run 3, 6, 8, 9. No NEW failure. Probe selftest-probe-2026111706 written; runner answers it next. Probe 2026111700 was answered 00:42Z (about 24 min).
+  7 MAIL WATCH: PASS. Both mailboxes searched.
+  10 USAGE: allowed (seven_day). Context about 720,000 of 1,000,000 (autocompact at 784,000; compaction expected within a few hours; all state is in files).
