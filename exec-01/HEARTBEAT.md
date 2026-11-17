@@ -531,3 +531,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-17T17:42Z · runner · panel new=0 · governor allowed · RAM guard RED sustained 22+ min (3.15 GB at 12:36:33 ET) · relayed once by email 1a1ea9a054984f75 plus push · Drive heartbeat 1742Z
 - 2026-11-17T18:20Z · watch · self-test pass 133 (5 of 6 counted) · Pasadena 18-file permit draft found and relayed once · panel new=0 · logged late
 - 2026-11-17T18:42Z · runner · probe selftest-probe-2026111718 answered (about 25 min) · panel new=0 · governor allowed (18:17Z) · RAM guard RED 3.04 GB at 13:41:11 ET (llama-server 4.7 GB; already alerted 17:42Z, not repeated) · Drive heartbeat 1842Z
+- 2026-11-17T19:20Z · watch · all clear · RAM guard GREEN 7.35 GB · panel new=0
