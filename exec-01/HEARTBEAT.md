@@ -498,3 +498,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-17T01:19Z · watch · no job mail · RAM guard last write 00:11:06Z RED (uptime fresh, not re-alerted) · panel new=0
 - 2026-11-17T01:42Z · runner · panel new=0 · governor allowed · RAM guard last write 00:11:06Z RED (not re-alerted) · Drive heartbeat 0142Z
 - 2026-11-17T02:19Z · watch · no job mail · RAM guard AMBER 4.45 GB at 02:16Z, llama-server 5.3 GB back (not re-alerted) · panel new=0
+- 2026-11-17T02:42Z · runner · panel new=0 · governor allowed · RAM guard GREEN 6.32 GB pause flag off · Drive heartbeat 0242Z
