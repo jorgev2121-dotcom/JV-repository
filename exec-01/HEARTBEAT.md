@@ -533,3 +533,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-17T18:42Z · runner · probe selftest-probe-2026111718 answered (about 25 min) · panel new=0 · governor allowed (18:17Z) · RAM guard RED 3.04 GB at 13:41:11 ET (llama-server 4.7 GB; already alerted 17:42Z, not repeated) · Drive heartbeat 1842Z
 - 2026-11-17T19:20Z · watch · all clear · RAM guard GREEN 7.35 GB · panel new=0
 - 2026-11-17T19:42Z · runner · panel new=0 · governor allowed · RAM guard RED 3.2 GB at 14:40:08 ET (llama-server 4.0 GB, Grok Bot 1.0 GB; alerted 17:42Z, not repeated) · Drive heartbeat 1942Z
+- 2026-11-17T20:21Z · watch · Cary Cass mitigation forms relayed once (no TRK) · RAM guard GREEN 8.45 GB · panel new=0
