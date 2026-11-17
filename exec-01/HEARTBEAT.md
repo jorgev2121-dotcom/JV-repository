@@ -539,3 +539,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-17T21:42Z · runner · panel new=0 · governor allowed · RAM guard AMBER 4.14 GB at 16:40:24 ET (llama-server 3.9 GB, Memory Compression 1.7 GB; fourth :40 spike in a row; no new alert) · Drive heartbeat 2142Z
 - 2026-11-17T22:21Z · watch · Pasadena permit SUBMITTED ONLINE by Jorge (RO26-10796) noted, no relay · RAM guard GREEN 8.73 GB · panel new=0
 - 2026-11-17T22:42Z · runner · panel new=0 · governor allowed · RAM guard RED 3.14 GB at 17:40:40 ET (llama-server 1.7 GB, Grok Bot 1.1 GB; not re-alerted) · guard security watch NEW names MbamBgNativeMsg, git, TwainClientU (look ordinary; asked Jorge) · Drive heartbeat 2242Z
+- 2026-11-17T23:21Z · watch · Pasadena hearing extended to 1/28/27 per Officer Libio, relayed once · RAM guard GREEN 6.84 GB · panel new=0
