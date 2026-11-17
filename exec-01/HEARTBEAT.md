@@ -503,3 +503,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-17T03:42Z · runner · panel new=0 · governor allowed · RAM guard GREEN 6.03 GB (right at the line) · Drive heartbeat 0342Z
 - 2026-11-17T04:19Z · watch · all clear · RAM guard GREEN 8.6 GB · panel new=0
 - 2026-11-17T04:42Z · runner · panel new=0 · governor allowed · RAM guard AMBER 4.74 GB at 04:40:56Z (llama-server 2.7 GB, logged, not re-alerted) · daily pre-mortem PRE-MORTEM_2026-11-17.md and Drive EXEC-LOG_2026-11-17_part2.md (id 1FCn0L8ShBV3pguuOShfFPZ4rlfd_iNTe) written (their bodies say 04:45Z and 04:46Z; real time 04:42Z) · Drive heartbeat 0442Z
+- 2026-11-17T05:19Z · watch · no job mail · RAM guard AMBER 5.87 GB llama-server 2.2 GB (not re-alerted) · panel new=0
