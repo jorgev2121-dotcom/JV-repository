@@ -1299,3 +1299,11 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   5 of 10 counted passing: checks 1, 2, 4, 7, 10. Check 5 (OCR, no .SEARCH.txt since 11-12) persistent FAIL; not run 3, 6, 8, 9. No NEW failure. Probe selftest-probe-2026111706 written; runner answers it next. Probe 2026111700 was answered 00:42Z (about 24 min).
   7 MAIL WATCH: PASS. Both mailboxes searched.
   10 USAGE: allowed (seven_day). Context about 720,000 of 1,000,000 (autocompact at 784,000; compaction expected within a few hours; all state is in files).
+
+## Pass 132 · 2026-11-17T12:21Z (12Z self-test, WATCH)
+  5 of 7 counted passing: checks 1, 2, 4, 7, 10 pass. Check 5 (OCR, no .SEARCH.txt since 11-12) persistent FAIL. Check 6 FAIL (known): scheduled tasks Filing engine daily health check, Weekday check Mon 21:45 UTC and VTES task sweeper last_run ACCESS_DENIED (the already-logged denied tasks; first page of list_triggers only, more pages not read). Not run: 3, 8, 9. No NEW failure, so no alert.
+  1 PANEL INBOX: PASS (task-comments new=0; orchestrator queued=0; 11 approvals approved with routedAt and result, no doneAt, waiting on the PC or Jorge, unchanged since 11-09).
+  2 PROBE: PASS (selftest-probe-2026111706 answered 06:42Z). New probe selftest-probe-2026111712 written 12:21Z; the 12:41Z runner answers it.
+  4 PC ALIVE: PASS (_UPTIME-HEARTBEAT modified 12:16:19Z, 4 min old).
+  7 MAIL WATCH: PASS (last-mail-check 11:17Z, 63 min before this run; advanced to 12:21Z).
+  10 USAGE: allowed (seven_day). Context about 229,000 of 1,000,000 (autocompact at 784,000; compacted since pass 131).
