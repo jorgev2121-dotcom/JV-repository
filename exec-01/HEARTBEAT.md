@@ -521,3 +521,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-17T12:42Z · runner · probe selftest-probe-2026111712 answered (about 21 min) · panel new=0 · governor allowed (12:21Z) · RAM guard GREEN 6.01 GB at 07:41:58 ET (near AMBER, llama-server 1.0 GB, :40 pattern) · Drive heartbeat 1242Z
 - 2026-11-17T13:23Z · watch · all clear · RAM guard GREEN 7.06 GB · panel new=0
 - 2026-11-17T13:42Z · runner · panel new=0 · governor allowed · RAM guard AMBER 5.76 GB at 08:41:22 ET (Edge 1.2 GB, Claude 0.8 GB, ChatGPT 0.6 GB; :40 pattern, not RED) · Drive heartbeat 1342Z
+- 2026-11-17T14:21Z · watch · all clear · RAM guard GREEN 7.66 GB · panel new=0
