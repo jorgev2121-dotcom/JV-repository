@@ -1315,3 +1315,11 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   4 PC ALIVE: PASS (_UPTIME-HEARTBEAT modified 18:11:51Z).
   7 MAIL WATCH: PASS (last-mail-check 17:18Z, 59 min before this run).
   10 USAGE: allowed (seven_day). Context about 458,000 of 1,000,000 (autocompact at 784,000).
+
+## Pass 134 · 2026-11-18T00:17Z (00Z self-test, WATCH)
+  5 of 6 counted passing: checks 1, 2, 4, 7, 10 pass. Check 5 (OCR, no .SEARCH.txt since at least 11-15) persistent FAIL. Not run: 3, 6, 8, 9. No NEW failure, so no alert.
+  1 PANEL INBOX: PASS (task-comments new=0; orchestrator queued=0; the same 11 approvals have routedAt and result, no doneAt, waiting on the PC or Jorge, unchanged since 11-09).
+  2 PROBE: PASS (selftest-probe-2026111718 answered 18:42Z). New probe selftest-probe-2026111800 written 00:17Z; the 00:41Z runner answers it.
+  4 PC ALIVE: PASS (_UPTIME-HEARTBEAT modified 00:13:24Z).
+  7 MAIL WATCH: PASS (last-mail-check 23:19Z, 57 min before this run).
+  10 USAGE: allowed (seven_day). Context about 685,000 of 1,000,000 (autocompact at 784,000; compaction expected within hours; all state is in files).

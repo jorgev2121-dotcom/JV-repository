@@ -541,3 +541,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-17T22:42Z · runner · panel new=0 · governor allowed · RAM guard RED 3.14 GB at 17:40:40 ET (llama-server 1.7 GB, Grok Bot 1.1 GB; not re-alerted) · guard security watch NEW names MbamBgNativeMsg, git, TwainClientU (look ordinary; asked Jorge) · Drive heartbeat 2242Z
 - 2026-11-17T23:21Z · watch · Pasadena hearing extended to 1/28/27 per Officer Libio, relayed once · RAM guard GREEN 6.84 GB · panel new=0
 - 2026-11-17T23:42Z · runner · panel new=0 · governor allowed (last read 22:42Z) · RAM guard GREEN 7.1 GB at 18:26:49 ET (file 14 min old, sync gap) · Drive heartbeat 2342Z
+- 2026-11-18T00:20Z · watch · self-test pass 134 (5 of 6 counted) · no new failure · another xAI receipt (money zone, no amounts) · RAM guard GREEN 6.54 GB · panel new=0 · probe selftest-probe-2026111800 written
