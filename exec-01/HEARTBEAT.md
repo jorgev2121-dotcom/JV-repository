@@ -569,3 +569,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-18T12:42Z · runner · probe 2026111812 answered 12:42Z (planted 12:18Z, 24 min) · Drive heartbeat 1gwqmyKCrxxQ8K1JXH6pld2fKJaNXBbZj · 0 PC orders
 - 2026-11-18T13:24Z · watch · ES Windows dealer-application invite logged · guard GREEN 7.44 GB
 - 2026-11-18T13:42Z · runner · panel new=0 · Drive heartbeat 1qGuAgoXKoCTzT2_WHVHId0wvCAwtpcHo · 0 PC orders
+- 2026-11-18T14:21Z · watch · Jorge chasing Miguel for the COI (logged) · guard GREEN 8.13 GB
