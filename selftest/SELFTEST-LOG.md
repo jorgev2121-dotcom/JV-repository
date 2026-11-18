@@ -1331,3 +1331,4 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   7 MAIL WATCH: PASS (last-mail-check 05:16Z, 60 min before this run).
   10 USAGE: allowed (seven_day). Context about 234,000 of 1,000,000 after compaction.
   RAM guard recovered: GREEN 10.15 GB at 01:16 ET after a 3 h 33 min Drive sync gap.
+  NOTE: times above (06:18Z probe, 06:19Z log) were written about 1 to 2 minutes ahead of the clock (real 06:17:22Z); the clock read before writing, not after.
