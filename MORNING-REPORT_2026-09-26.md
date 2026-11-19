@@ -2,6 +2,8 @@
 
 **Covers 2026-09-25 evening through 2026-09-26 ~22:36 UTC. Nothing was filed, sent, spent, or deleted. Quiet stretch — three things need a one-word answer from you, one thing needs a single click, one thing just needs eyes at the desktop.**
 
+
+**📌 PINNED COUNTER — the PC runs jobs unattended, but with NO safety lock. Day 46 as of 2026-09-27.** Correction, 2026-09-24: the unattended runner exists (`CU-Inbox-Job-Watcher`), and it ran jobs by itself on 09-24. What is still unproven is the **safety lock** (approved-jobs list, TRK-2026-9952k). Right now any file dropped in the Drive inbox can start an edit-capable Claude run on the PC. The counter counts days since the 2026-08-12 approval and stops only when `RESULT_HEADLESS-SAFE_TRK-2026-9952k` lands with nonce `HEADLESS-NONCE-TERN-4412-20260923` and both proofs passed. *Rule for every session that updates this report: recompute the day number, and never remove this line until that RESULT is verified.*
 ---
 
 ## Three things waiting on your word, all quick
