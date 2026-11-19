@@ -625,3 +625,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-19T16:41Z · runner · panel new=0 · Drive heartbeat 1DZh5yuyqb-mApgSFTT-GgBcacBRcqjiE · 0 PC orders
 - 2026-11-19T17:17Z · watch · panel new=0 · guard alive 17:14:51Z · mail routine · nothing relayed
 - 2026-11-19T17:42Z · runner · panel new=0 · Drive heartbeat 15ZLwy_1TfYqKwlRlITbFEP-Ku8Gw5bm9 · 0 PC orders
+- 2026-11-19T18:17Z · watch+selftest 141 · panel new=0 · probe 18 planted · guard 26 min stale sync gap · #10980 owner-signature thread logged · nothing relayed
