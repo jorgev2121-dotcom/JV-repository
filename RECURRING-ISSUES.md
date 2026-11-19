@@ -2341,3 +2341,5 @@ future master key is generated on the PC and never pasted into chat.
 **RI-038 recurrence · 2026-11-12 (cloud PR #10 monitor, from VTES-HEALTH).** Ollama and LiteLLM were both down again at the 11-11 4:04 PM ET check, with RAM at 3.0 GB. They were up from 11-07 to 11-10. That is the third down-and-up swing since 10-31. The pattern matches low RAM pushing out the local model stack. Tier 2 per RI-038 still stands; no restart-only fix proposed.
 
 **RI-038 recurrence · 2026-11-15 (cloud PR #10 monitor, VTES-HEALTH).** LiteLLM :4001 was down again at the 11-14 4 PM ET check (RT-2026-11-14-0066). Ollama was up, RAM 4.7 GB. That is the fourth down day since 10-31. Tier 2 per RI-038 stands.
+
+**RI-038 recurrence · 2026-11-19 (cloud PR #10 monitor, VTES-HEALTH).** Ollama and LiteLLM were back up at the 11-17 check, then both down again at the 11-18 4:03 PM ET check (RT-2026-11-18-0071, -0073). RAM was 4.8 GB. That is the fifth down-and-up swing since 10-31. Tier 2 per RI-038 stands.
