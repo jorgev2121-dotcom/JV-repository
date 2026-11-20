@@ -86,3 +86,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-20 | Outlook (routine, logged only) | Jorge SYNC-01 result 07:18Z; Grok digests 07:30-07:33Z | no job match, no attachments | none relayed
 - 2026-11-20 | Outlook+Gmail | no new mail since 08:17Z | n/a | none relayed
 - 2026-11-20 | Outlook (money zone, logged only) | card statement-ready notice 10:08Z (no amounts recorded), retail promo | no job match, no attachments | none relayed
+- 2026-11-20T11:17Z WATCH: no job arrivals (SYNC-01 result, card notice, newsletter).
