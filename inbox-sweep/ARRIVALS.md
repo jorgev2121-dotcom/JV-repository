@@ -89,3 +89,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-20T11:17Z WATCH: no job arrivals (SYNC-01 result, card notice, newsletter).
 - 2026-11-20T12:18Z WATCH: no job arrivals (Grok digests, news).
 - 2026-11-20T13:20Z WATCH: no job arrivals (marketing; Plat Committee webinar reminder).
+- 2026-11-20T14:19Z WATCH: no job arrivals (retail promos only).
