@@ -79,3 +79,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-20 | Outlook+Gmail (routine, logged only) | social notices, marketing, Grok digest | no job match, no attachments | none relayed
 - 2026-11-20 | Outlook (routine, logged only) | Grok digests 01:22-01:25Z | no job match, no attachments | none relayed
 - 2026-11-20 | Outlook (routine, logged only) | Facebook notice 'MZ Solutions, LLC shared a video' 03:06Z (social post, no attachment) | no job match | none relayed
+- 2026-11-20 | Outlook (routine, logged only) | Jorge SYNC-01 result 04:11Z; card-offer marketing | no job match, no attachments | none relayed
