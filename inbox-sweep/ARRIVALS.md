@@ -98,3 +98,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-20T20:17Z WATCH: no job arrivals (BOI solicitation-looking notice, news, marketing).
 - 2026-11-20T21:17Z WATCH: no job arrivals (Grok digests, promo).
 - 2026-11-20T22:17Z WATCH: no job arrivals (digest, news, marketing).
+- 2026-11-20T23:17Z WATCH: no job arrivals (Jorge's Speechify support emails and auto-replies, marketing).
