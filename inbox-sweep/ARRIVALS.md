@@ -92,3 +92,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-20T14:19Z WATCH: no job arrivals (retail promos only).
 - 2026-11-20T15:18Z WATCH: no job arrivals (SYNC-01 result, payment reminder, marketing).
 - 2026-11-20T16:18Z WATCH: no job arrivals (Google new-sign-in alert, statement notice, marketing).
+- 2026-11-20T17:17Z WATCH: no job arrivals (marketing only).
