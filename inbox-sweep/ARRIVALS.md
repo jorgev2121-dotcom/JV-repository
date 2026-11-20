@@ -77,3 +77,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-19 | Outlook (routine, logged only) | newsletters and marketing only | no job match, no attachments | none relayed
 - 2026-11-20 | Outlook (routine, logged only) | social-media notice | no job match | none relayed
 - 2026-11-20 | Outlook+Gmail (routine, logged only) | social notices, marketing, Grok digest | no job match, no attachments | none relayed
+- 2026-11-20 | Outlook (routine, logged only) | Grok digests 01:22-01:25Z | no job match, no attachments | none relayed
