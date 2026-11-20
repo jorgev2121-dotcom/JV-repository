@@ -76,3 +76,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-19 | Outlook+Gmail | support@x.ai (Ana, billing) 21:22Z 'Re: Request for a credit on Grok / xAI billing' | no TRK (money zone, Jorge's own xAI account, ticket T-K36581) | refunds denied, Auto Top-up still on, plan renews 11-26, asks for conversation ID + screenshot; no attachments | Jorge told once by push + chat; RED ask written; nothing done on billing
 - 2026-11-19 | Outlook (routine, logged only) | newsletters and marketing only | no job match, no attachments | none relayed
 - 2026-11-20 | Outlook (routine, logged only) | social-media notice | no job match | none relayed
+- 2026-11-20 | Outlook+Gmail (routine, logged only) | social notices, marketing, Grok digest | no job match, no attachments | none relayed
