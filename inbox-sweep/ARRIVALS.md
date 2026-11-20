@@ -95,3 +95,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-20T17:17Z WATCH: no job arrivals (marketing only).
 - 2026-11-20T18:18Z WATCH: no job arrivals (Grok digests, marketing, unknown-sender invitations).
 - 2026-11-20T19:17Z WATCH: no job arrivals (Jorge's own paste-to-RAMBO email, marketing, unknown-sender invitations).
+- 2026-11-20T20:17Z WATCH: no job arrivals (BOI solicitation-looking notice, news, marketing).
