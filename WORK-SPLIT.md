@@ -190,3 +190,5 @@ desktop apps, local OCR, scheduled tasks on Windows, and the tracking-number reg
 6. **If direct messaging fails, fall back to the Drive mailbox** and say so in the message.
 
 Is RAMBO back on Remote Control so it can answer?
+
+**CORRECTION 2026-11-21 ~11:00 ET (cloud's own error).** Section A item 3 and the panel text implied the PC was unreachable. Drive `STATE-OF-PLAY` (10:43 ET) shows RAMBO-DESKTOP **active**, last activity 10:39 ET. The PC is alive. Only the **Remote Control lane** is down (all sessions `disconnected`, `computer_unreachable` 11-16 to 11-17). The Drive lane works. `delivered` on a direct message means the server accepted it, not that RAMBO read it. Investigation job sent to RAMBO via Drive: `JOB-RAMBO_INVESTIGATE-REMOTE-CONTROL-LANE_2026-11-21.md`. Which of the lanes can RAMBO see from its side?
