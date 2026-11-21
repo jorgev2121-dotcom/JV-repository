@@ -121,3 +121,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-21T19:18Z relayed: xAI Stripe receipt + invoice (19:14Z, amounts not recorded). Logged only: Grok VTES sync/reply-watcher/backlog digests, Jorge SYNC-01 result self-email (19:10Z), Sunglass Hut/Quest marketing.
 - 2026-11-21T20:18Z logged only: Grok VTES sync/reply-watcher/backlog digests, Jorge SYNC-01 result self-email (20:11Z). Nothing relayed.
 - 2026-11-21T21:18Z logged only: Grok VTES sync/reply-watcher/LiteLLM-RC-down digests, Jorge SYNC-01 result self-email (21:11Z). Nothing relayed.
+- 2026-11-21T22:18Z relayed: Experian alert email (22:15Z). Logged only: Grok sync/reply-watcher/LiteLLM-RC-PC-down digests; Jorge SYNC-01 result self-email (22:11Z); Jorge's own follow-up email to Cary Cass on a Citizens mitigation package (21:59Z, no TRK or OPH exists for Cary Cass; policy number not recorded); Sunglass Hut marketing.
