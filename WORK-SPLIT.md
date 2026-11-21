@@ -133,3 +133,62 @@ file all along.**
 **What will NOT produce a breakthrough:** a longer task list. The list is not the
 constraint. **The constraint is that one of the two workers is asleep unless
 someone opens a window.**
+
+---
+
+# Division of work 2026-11-21 (Cloud executor and Desktop executor / RAMBO)
+
+**Owner order, Jorge, 2026-11-21 (iPhone):** connect the cloud executor and the desktop
+executor, then divide the work so the two do not collide. Free two-way talk if possible,
+handoffs if not. List it on the VTES Control Panel.
+
+## Section A. The connection, as verified today
+
+1. **Drive mailbox: WORKING.** Cloud wrote `MSG-CLOUD-TO-CODE_UNSAFE-STRUCTURES-PRIORITIES_2026-11-21.md`
+   to VTES-Inbox and read it back (4,073 bytes). This is the guaranteed route.
+2. **Cloud to PC direct messages: ENABLED today.** Cloud's send was refused until Jorge
+   approved, in person on his phone, that this session may reach his other sessions. He did.
+   Cloud then sent one message to the RAMBO session (`session_017mUMsg6Ta1yqQudpdCtVBz`);
+   the tool reported `delivered`.
+3. **Reply from RAMBO: NOT SEEN.** Every desktop session on DESKTOP-OTB90LR reads
+   `disconnected`; the newest error is `computer_unreachable` (last seen 2026-11-17).
+   `list_computer_folders` is empty. Until RAMBO answers, treat the link as one-way.
+4. **Smallest action for Jorge if RAMBO stays silent:** at the PC, open the Claude desktop
+   app and make sure Remote Control is on (Settings, Claude Code, Remote Control).
+   Cloud cannot do this part. It is IMPOSSIBLE from here, not hard.
+5. **Desktop to git push:** recorded BROKEN on 2026-08-16. Not re-tested today. Do not
+   rely on it. Desktop writes to Drive; cloud mirrors into the repo.
+
+## Section B. The split
+
+**CLOUD takes** anything that needs Gmail, Google Drive, QuickBooks, GitHub, the Control
+Panel, reports and artifacts, scheduled wakes, and the ledgers (`OPEN-ITEMS.md`,
+`RECURRING-ISSUES.md`, `PASTE-LOG.md`, the checkpoint).
+
+**DESKTOP (RAMBO) takes** anything that needs the PC: miamidade.gov, miamidadepa.gov,
+sunbiz.org and the Clerk site (cloud is refused there), OneDrive, 1Password, Outlook,
+desktop apps, local OCR, scheduled tasks on Windows, and the tracking-number registry.
+
+**Current jobs**
+
+1. Unsafe Structures live refresh: **Desktop** (county and Sunbiz). **Cloud** builds the
+   report and the owner brief from whatever Desktop saves.
+2. Issue the Unsafe Structures TRK number: **Desktop**, from the registry. Cloud must not.
+3. Wally pipeline and the three cash items: unchanged, Priority Zero. Cloud drafts and
+   sends nothing without Jorge's YES; Desktop does PC-side steps.
+4. QuickBooks: **Cloud** (connectors say "sign in again", so Jorge's click is needed).
+5. Mail-repair ACK, PASTE-D-071, RI-057 and RI-058 numbering check: **Desktop**.
+
+## Section C. Rules so the two never collide
+
+1. **One owner per job.** The owner is named in this file. A different window does not
+   start it; it asks.
+2. **Claim before you touch.** Write `CLAIM_<job>_<window>.md` to VTES-Outbox first.
+3. **Only one writer into `01-JOBS` at a time.** Filing is RED. Rollback script first.
+4. **Cloud never issues a TRK.** Desktop issues from the registry.
+5. **Every message ends with a question** (OD-01). Silence is not an answer.
+6. **If direct messaging fails, fall back to the Drive mailbox** and say so in the message.
+
+Is RAMBO back on Remote Control so it can answer?
+
+**CORRECTION 2026-11-21 ~11:00 ET (cloud's own error).** Section A item 3 and the panel text implied the PC was unreachable. Drive `STATE-OF-PLAY` (10:43 ET) shows RAMBO-DESKTOP **active**, last activity 10:39 ET. The PC is alive. Only the **Remote Control lane** is down (all sessions `disconnected`, `computer_unreachable` 11-16 to 11-17). The Drive lane works. `delivered` on a direct message means the server accepted it, not that RAMBO read it. Investigation job sent to RAMBO via Drive: `JOB-RAMBO_INVESTIGATE-REMOTE-CONTROL-LANE_2026-11-21.md`. Which of the lanes can RAMBO see from its side?
