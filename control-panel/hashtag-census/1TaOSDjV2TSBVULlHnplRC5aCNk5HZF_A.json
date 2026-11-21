@@ -1,0 +1,43 @@
+{
+  "id": "1TaOSDjV2TSBVULlHnplRC5aCNk5HZF_A",
+  "title": "TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 301",
+  "partial": false,
+  "pdfs": 8,
+  "search_sidecars": 0,
+  "tags_sidecars": 0,
+  "tags5_sampled": 0,
+  "tags5_of_sampled": 0,
+  "has_HASHTAGS_txt": false,
+  "hashtags_count": 0,
+  "has_people_tags": false,
+  "has_trk_tag": false,
+  "other_files": [
+    "_TAGS.txt (job root, 8 tags: #10000-W-Bay-Harbor-Dr #Unit-301 #Bay-Harbor #Bal-Harbour #HOA #TRK-TBD-defect #JorgeValdes #CU-Inspections)",
+    "_PORTAL_UNASSIGNED_TRK-TBD-FOLIO-TBD-10000-W-Bay-Harbor-Dr-Unit-301.html",
+    "_STAGE.md",
+    "_INDEX.html (root + 04-Money + 02-Permit-Apps + 00-Intake)",
+    "00-Intake/_JOB-TREE_TRK-TBD.html",
+    "01-INTAKE/_FROM-MAJESTIC-MISFILE_2026-10-07/ (folder holding all 8 PDFs)",
+    "~48 daily .bak-YYYYMMDD copies of _PORTAL html and _STAGE.md in job root"
+  ],
+  "people": [
+    {"name": "Gabriela M Valles", "role": "client / unit owner on the 301 permit package (window & door replacement)", "email": null, "evidence": "file names in 01-INTAKE/_FROM-MAJESTIC-MISFILE_2026-10-07 (e.g. 'GABRIELA M VALLES-1 - V2.pdf', 'GABRIELA M VALLES - WINDLOADS.pdf')", "misspellings": ["Gabriela Valles", "Gabriella Valles", "Gabriela Vallez", "Gabriela Vayes", "Gabriela M. Valle"]},
+    {"name": "Jorge Valdes", "role": "owner / inspector (CU Inspections)", "email": null, "evidence": "_TAGS.txt (#JorgeValdes)", "misspellings": ["Jorge Valdez", "George Valdes"]}
+  ],
+  "companies": [
+    {"name": "Majestic Building (Majestic condominium)", "role": "building named on the permit application - 9601 Collins Ave, Bal Harbour", "email": null, "evidence": "file name '301 Permit Application_Majestic Bulding _9601 Collins Ave _ Bal Harbour  (2).pdf' (note 'Bulding' typo in file name)"},
+    {"name": "CU Inspections of South Florida", "role": "Jorge's company", "email": null, "evidence": "_TAGS.txt (#CU-Inspections)"},
+    {"name": "HOA (condominium association, name unknown)", "role": "building association", "email": null, "evidence": "_TAGS.txt (#HOA)"},
+    {"name": "Village of Bal Harbour", "role": "likely permitting jurisdiction for 9601 Collins Ave", "email": null, "evidence": "permit application file name"}
+  ],
+  "keywords": [
+    "10000 W Bay Harbor Dr Unit 301", "10000 W Bay Harbor Dr", "Unit 301", "#301",
+    "9601 Collins Ave", "9601 Collins Avenue Bal Harbour", "Majestic", "Majestic Building", "Majestic Bulding",
+    "Gabriela M Valles", "Valles",
+    "Bal Harbour", "Bay Harbor Islands",
+    "permit application 301",
+    "windows and doors", "impact windows", "sliding glass door", "single hung window", "mullion", "windloads", "wind load calcs",
+    "Series EL400 sliding glass door NOA 23-0714.13", "Series EL-100 single hung NOA 23-0913.06", "Series 1000WW single hung NOA 23-0803.05", "extruded aluminum tube mullion NOA 24-0312.06"
+  ],
+  "notes": "ADDRESS CONFLICT - possible misfile, do not file against this without Jorge: all 8 PDFs sit in 01-INTAKE/_FROM-MAJESTIC-MISFILE_2026-10-07 (depth-2 folder, created 2026-10-07) and name the Majestic Building at 9601 Collins Ave, Bal Harbour, Unit 301, client Gabriela M Valles - NOT 10000 W Bay Harbor Dr. The folder name suggests they were moved here from a Majestic folder on the guess that 'Unit 301' matched; that is the kind of number-only match the charter warns about. The job-root #Bal-Harbour tag on all four Bay Harbor Dr unit folders may come from the same confusion. PDFs have no .SEARCH.txt or .TAGS.txt sidecars. No _HASHTAGS.txt, CAPSULE.md, _PLACEHOLDERS.md or _CONTACTS-EXTRACTED.txt. Other level-2 subfolders (04-Money/Checks, Invoices; 02-Permit-Apps/Signed, Submittal) empty. File dates on the PDFs are 2025-05-02."
+}

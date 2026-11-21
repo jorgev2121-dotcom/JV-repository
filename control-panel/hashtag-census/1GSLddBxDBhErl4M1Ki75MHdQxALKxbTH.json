@@ -1,0 +1,16 @@
+{"id":"1GSLddBxDBhErl4M1Ki75MHdQxALKxbTH","title":"TRK-2026-1289 - City of Miami folio 01-4102-098-0001 - Alec Valdes","partial":false,"pdfs":1,"search_sidecars":0,"tags_sidecars":0,"tags5_sampled":0,"tags5_of_sampled":0,"has_HASHTAGS_txt":false,"hashtags_count":null,"has_people_tags":null,"has_trk_tag":null,
+"other_files":["_TAGS.txt (7 tags incl #TRK-2026-1289, #Alec-Valdes, #JorgeValdes)","_PLACEHOLDERS.md","_PORTAL_TRK-2026-1289.html","_STAGE.md","_INDEX.html","_22-SOURCE-RUN_TRK-2026-1289_2026-08-16.html","ORDER-CityOfMiami-Microfilm_TRK-2026-1289_2026-08-10.txt","05-REPORTS-DELIVERABLES: DD Alec Standard v1.pdf, v1.md, v2-CORRECTIONS.md","03-Research: County PA/RER/DERM pulls, PA_0141020980001.json","~50 daily .bak-YYYYMMDD copies of _PORTAL and _STAGE in job root"],
+"people":[
+{"name":"Alec Valdes","role":"client","email":null,"evidence":"folder title; _TAGS.txt; _PLACEHOLDERS.md","misspellings":["Alek Valdes","Alec Valdez","Alex Valdes"]},
+{"name":"Jorge Valdes","role":"owner / CU Inspections","email":null,"evidence":"_TAGS.txt; _PLACEHOLDERS.md","misspellings":["Jorge Valdez"]},
+{"name":"Nancy Aguilar","role":"City of Miami Building Records staff","email":null,"evidence":"_PLACEHOLDERS.md","misspellings":["Nancy Aguilera"]}
+],
+"companies":[
+{"name":"City of Miami Building Records","role":"city records (microfilm)","email":"BuildingRecords@miamigov.com","evidence":"_PLACEHOLDERS.md"},
+{"name":"City of Miami Code Compliance (NET)","role":"city code enforcement","email":null,"evidence":"_PLACEHOLDERS.md"},
+{"name":"Miami-Dade Property Appraiser","role":"county","email":null,"evidence":"_PLACEHOLDERS.md; 03-Research file names"},
+{"name":"PHCD (Miami-Dade Public Housing and Community Development)","role":"infill housing program","email":null,"evidence":"_PLACEHOLDERS.md"},
+{"name":"CU Inspections of South Florida","role":"owner company","email":null,"evidence":"_TAGS.txt"}
+],
+"keywords":["TRK-2026-1289","1658 NW 1 ST Unit 1","1658 NW 1st Street #1","1658 Northwest First Street","folio 01-4102-098-0001","0141020980001","parent folio 01-4102-006-0250","Declaration of Condominium OR 35086-400","MLS A11765872","PHCD infill house","Alec DD","DD Alec Standard","City of Miami microfilm","2025 roofing permit expired","iBuild","Little Havana / NW 1 St condo","DERM","tax jacket"],
+"notes":"No _HASHTAGS.txt; a _TAGS.txt capsule sidecar exists (7 tags, includes TRK and person tags). Only 1 PDF (DD Alec Standard v1 report). No .SEARCH.txt or .TAGS.txt sidecars. Many subfolders empty (01-Microfilm, 02-Permits, 03-Clerk-Liens, 04-Property-Appraiser, 04-CORRESPONDENCE, 03-INVOICES-PAYMENTS, 00-Intake, 01-INTAKE, _Superseded, Working Papers). Job root cluttered with ~50 daily .bak copies."}

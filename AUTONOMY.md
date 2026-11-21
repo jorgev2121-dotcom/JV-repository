@@ -41,7 +41,7 @@ these rules is to make the unnoticed case harmless.
 
 ### YELLOW — act, but leave an undo, and log it
 
-Permitted unattended, on three conditions: **a `.bak-YYYYMMDD` copy first, a rollback
+Permitted unattended, on three conditions: **a `NAME_bak-YYYYMMDD.ext` copy first (extension last, CLAUDE.md §9), a rollback
 script written before the change, and a line in the daily digest.**
 
 - Edit an existing file

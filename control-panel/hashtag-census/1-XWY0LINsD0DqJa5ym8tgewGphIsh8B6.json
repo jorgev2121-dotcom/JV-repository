@@ -1,0 +1,20 @@
+{"id":"1-XWY0LINsD0DqJa5ym8tgewGphIsh8B6","title":"TRK-2026-1295 - Principio - 5401 NW 7 Ave Miami - 142 unit workforce housing (TEDC)","partial":false,
+"pdfs":0,"search_sidecars":0,"tags_sidecars":0,"tags5_sampled":0,"tags5_of_sampled":0,
+"has_HASHTAGS_txt":false,"hashtags_count":0,"has_people_tags":false,"has_trk_tag":false,
+"other_files":["_PORTAL_TRK-2026-1295.html","_PLACEHOLDERS.md","_TAGS.txt (8 tags incl #TRK-2026-1295, #JorgeValdes; no other people)","_STAGE.md","_INDEX.html","01-Emails/_INDEX.html","01-Emails/TRK-2026-1295_2026-07-31_TEDC_Zaldivar-intake-pointers.md","~49 nightly .bak-YYYYMMDD copies of _PORTAL html and _STAGE.md in job root"],
+"people":[
+{"name":"Miguel Zaldivar","role":"client contact - VP Construction, TEDC","email":"mzaldivar@tedcbuilds.org","evidence":"01-Emails/TRK-2026-1295_2026-07-31_TEDC_Zaldivar-intake-pointers.md","misspellings":["Miguel Saldivar","Zaldibar","Zaldívar","Migel"]},
+{"name":"Carol Gardner","role":"President & CEO, TEDC","email":null,"evidence":"Zaldivar-intake-pointers.md","misspellings":["Carole Gardener"]},
+{"name":"Sheldon K Powell","role":"TEDC staff","email":null,"evidence":"Zaldivar-intake-pointers.md","misspellings":["Sheldon Powel"]},
+{"name":"Crystal Jackson","role":"TEDC staff","email":null,"evidence":"Zaldivar-intake-pointers.md","misspellings":["Kristal Jackson"]},
+{"name":"Ben Hoffman","role":"developer - Next Development Group","email":null,"evidence":"Zaldivar-intake-pointers.md","misspellings":["Ben Hofman","Benjamin Hoffmann"]},
+{"name":"Jennifer Sanz","role":"developer - Next Development Group","email":null,"evidence":"Zaldivar-intake-pointers.md","misspellings":["Jennifer Sans","Jenifer Sanz"]},
+{"name":"Jorge Valdes","role":"owner / CU Inspections (role in deal undefined)","email":"Jorge@TEAMUSASALES.COM","evidence":"_TAGS.txt, intake pointers","misspellings":[]}
+],
+"companies":[
+{"name":"TEDC - Tacolcy Economic Development Corporation (TEDcBuilds)","role":"client / developer","evidence":"intake pointers, _TAGS.txt"},
+{"name":"Next Development Group","role":"co-developer / outside party","evidence":"intake pointers"},
+{"name":"Team USA Sales / CU Inspections","role":"Jorge's company","evidence":"_TAGS.txt"}
+],
+"keywords":["TRK-2026-1295","Principio","5401 NW 7 Ave","5401 NW 7th Avenue","5401 Northwest 7th Ave Miami","TEDC","Tacolcy","TEDcBuilds","142-unit","workforce housing","equity raise","investor presentation","Principio_Inv_Presentation.pdf","Principio_Deal-Summary UPDATED.docx","Investor Deck","TUS-26-1031","TUS-26-1031_Principio_Review","Next Development Group","Zaldivar"],
+"notes":"No PDFs, no sidecars, no _HASHTAGS.txt. Capsule has an older _TAGS.txt with 8 tags (TRK tag present, only person tag is #JorgeValdes). Job root cluttered with ~49 nightly .bak files. Equity raise/investor job, not permit job. Folio unknown. Old internal number TUS-26-1031 should be a keyword/tag. All subfolders empty except 01-Emails. Walk used 5 calls."}

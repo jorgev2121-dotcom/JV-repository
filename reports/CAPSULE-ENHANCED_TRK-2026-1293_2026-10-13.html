@@ -1,0 +1,289 @@
+<title>MZ Credentials Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+</style>
+
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED</p>
+<h1>TRK-2026-1293 · MZ Solutions LLC · Company Credentials 2026</h1>
+<div class="facts">
+  <span><b>Company</b>MZ Solutions, LLC (Miguel Zaldivar)</span>
+  <span><b>Licence</b>CGC1528486</span>
+  <span><b>Kind</b>Company binder, no property</span>
+  <span><b>Stage on file</b>04-OCR-INDEXED (stale)</span>
+</div>
+<div class="deadline">This binder does NOT hold the current set · 1 of 4 credentials current here
+<small>Current here: the insurance certificate (to February 5, 2027). Expired here: the State licence printout (August 31, 2026) and the Miami-Dade tax receipt (September 30, 2026). Missing here: workers' comp. The current licence (to August 31, 2028) and the workers' comp exemption (to September 28, 2027) are already in Drive, filed under TRK-2026-1265 and TRK-2026-1611. <a class="open" href="https://drive.google.com/file/d/1jbLnB_lYcs-acLT-nGJl2_rVbjFIu2dY/view" target="_blank" rel="noopener">Open the 2028 licence ↗</a></small></div>
+<p class="stamp">TRK-2026-1293 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile c" data-go="status"><span class="n">1</span><b>Current in the binder</b><small>Insurance certificate, good to February 5, 2027.</small></button>
+  <button class="tile y" data-go="status"><span class="n">3</span><b>Expired or missing</b><small>Licence, tax receipt, workers' comp.</small></button>
+  <button class="tile w" data-go="status"><span class="n">3</span><b>Waiting on</b><small>You (one yes), Miguel, and the desktop.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> <b>Do not send this binder as is.</b> Its licence and tax receipt are expired, and the licence filename wrongly says 2027. The current licence and the workers' comp exemption already exist in Drive. One yes from you copies them in. <b>The tax receipt needs Miguel</b>: no 2026-2027 receipt exists anywhere.</p></div>
+
+<div class="tags"><b>Hashtags for this job (from _TAGS.txt of August 26, plus this check)</b>#TRK-2026-1293 #MZ-Solutions #MZSolutions #Miguel-Zaldivar #CGC1528486 #credentials #company-file #COI #WorkersComp-Exemption #LBTR #TRK-2026-1265 #TRK-2026-1611 #JorgeValdes #CU-Inspections</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>11 documents listed in 3 folder branches; 7 empty folders linked (9 folders in all). Left out of the list: 52 backup copies, 3 search and 3 tag sidecars. Total 69 of 69 files accounted for. 5 related files elsewhere in Drive are linked but not counted. Account, policy, receipt and exemption numbers are shown as last 4 only. Nothing on this page sends, files, moves or deletes anything. Ticks are not saved.</p>
+  <p class="tag">TRK-2026-1293 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #TRK-2026-1293 #MZ-Solutions #CGC1528486 #credentials #capsule #orange-tree</p>
+</footer>
+</div>
+
+<script>
+const FOLDERS=[{"k": "root", "t": "Job root", "p": "TRK-2026-1293 (top of the job folder)", "fid": "1b-TSeCFXfbNYskzZu1pwcEXxpd2S7MC-", "note": "The old portal, stage and placeholder notes. 52 backup copies were left out of this list (25 portal, 27 _STAGE), all in the banned NAME.ext.bak-DATE form.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["_PLACEHOLDERS.md", "2026-10-10", 3200, "Notes", "1wbrBfQ_W4CEFx2pAlmy6GzCedERui9VI", "KEY"], ["_PORTAL_TRK-2026-1293.html", "2026-10-13", 17080, "Web page", "1lDe4okT9bcZUghOJmvU12a7NxCwb_WP6", "OLD FORMAT"], ["_STAGE.md", "2026-10-09", 1232, "Notes", "1oL41jHG3yWDlwDRpPrdlU6srE4uFG78Z", "STALE"], ["_TAGS.txt", "2026-08-26", 269, "Text", "1E4SO-6px37Q1bf9qeCXgs8fLWNibrgpP", ""], ["_INDEX.html", "2026-08-17", 4561, "Web page", "1ihMmZEhE4Ro_P0_90J2y8DOwf4-W_gx4", ""]]}, {"k": "files", "t": "02-Files (the credentials binder)", "p": "TRK-2026-1293 / 02-Files", "fid": "14_I-gLczlIoM8a1g3m_QwCJks3uVqAa9", "note": "Everything in the binder today. Two of the three credentials are expired: the State licence printout (expired August 31) and the County tax receipt (expired September 30). The insurance certificate is still in force.", "side": {"s": 3, "t": 3, "o": 0, "i": 0}, "docs": [["CGC 1528486 - DBPR - ZALDIVAR, MIGUEL; Doing Business as MZ Solutions LLC - EXP- 20270127.pdf", "2026-01-28", 168090, "PDF", "1u1_SXnBzuQJW8sNXrfg061_f_6XhvdBQ", "EXPIRED 08-31-2026"], ["COI -CGC-20260127 - Update Docs -Realease Hold .pdf", "2026-01-27", 134924, "PDF", "1RmTaNjs7IwAW7A15VImuMdQPzeWNfP0b", "CURRENT TO 02-05-2027"], ["LBTR 2026- MZ Solutions Local Buisness Tax Receipt - for 2026.pdf", "2026-01-28", 493215, "PDF", "1FAEoonCM1vlZ9KaMX_8JOQ6hJACb3me-", "EXPIRED 09-30-2026"], ["MZ Solutions - Lanuage for recurring email copt paste - change minicipality name.txt", "2026-01-28", 373, "Text", "1EG5pQftTkOv7Wc2-rvJzUTFnuuxP6vVk", ""]]}, {"k": "emails", "t": "01-Emails", "p": "TRK-2026-1293 / 01-Emails", "fid": "1kqVMXumUeN-d_PHVHJBNrgLTUcZOaY-m", "note": "The July 31 intake note: six emails from May and June where Miguel sent his credentials. The attachments themselves were never pulled in.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["TRK-2026-1293_2026-07-31_MZ-SOLUTIONS_Zaldivar-intake-pointers.md", "2026-07-31", 2033, "Notes", "1W7OZ1RXzH1pn1lh-tvDzwh-z21tl5a7Z", "KEY"], ["_INDEX.html", "2026-08-17", 3082, "Web page", "1bO5RMDYvfaCrMIe_0tj65ytpaPE_Q9Qn", ""]]}, {"k": "ext", "ext": true, "t": "The CURRENT credentials, filed in other jobs", "p": "Not in this folder · not part of the count", "fid": "1S9iw9wf6e4KOR2RbAd2FM6vO2fah072J", "note": "These are the current versions. They live under Bal Harbour (TRK-2026-1265) and Pembroke Pines (TRK-2026-1611). The folder link opens the Pembroke Pines documents. Nothing was copied or moved.", "side": {"s": 0, "t": 0, "o": 0, "i": 0}, "docs": [["2026-09-03 _ TRK-2026-1265 _ Licensing _ M. Zaldivar CGC License Renewal 2028.pdf", "2026-09-03", 893535, "PDF", "1jbLnB_lYcs-acLT-nGJl2_rVbjFIu2dY", "CURRENT TO 08-31-2028"], ["2026-09-03 _ TRK-2026-1265 _ Licensing _ Bal Harbour Building Department_MZ Solutions, LLC_MAIN CERTIFICATE 2026-202_9-3-2026_1926220343.pdf", "2026-09-03", 144989, "PDF", "1AdjxxMKcPLjj5DIsZ1uSlii0bM3k4Y7L", "CURRENT TO 02-05-2027"], ["MZ Solutions LLC - General Liability - City of Pembroke Pines - 2026-2027.pdf (dated June 22)", "2026-08-12", 145617, "PDF", "1n995CmdFHOfIUrK-6wtOcb0GDyV8iCCr", "CURRENT TO 02-05-2027"], ["MZ Solutions LLC - Workers Compensation Exemption - Renewal 2027.pdf", "2026-04-21", 427081, "PDF", "1RPc6NWLlnNdxIbPx7b511wNTTUDDtY5I", "CURRENT TO 09-28-2027"], ["Miguel Zaldivar - CGC1528486 - State Licence Renewal 2026.pdf (the 1611 copy)", "2025-11-10", 445597, "PDF", "1oaUMNBz-BLmA_Vc5mgx-DzmdmhaD4rqz", "EXPIRED 08-31-2026"]]}];
+const EMPTY=[["01-INTAKE", "1lUPooqeYxqPAuz3XQa8qUwhohvREXnYM"], ["02-PERMITS", "1fXuj8mIlwCr6k0cQ-2kn6wf9LHaiwyuH"], ["03-INVOICES-PAYMENTS", "1SFEVeI7NHFNM4cAkM4bbVTWQgticoNaV"], ["03-Status", "1JEYFfPcSZ-CUrwGkkEc77E3IpfvVEU_q"], ["04-CORRESPONDENCE", "1oGX87iMcwkh73kLubvxwZUJCrwzGY3a0"], ["05-REPORTS-DELIVERABLES", "1_kw9jFO_XQ603aLGdisMljpCCmXmyeqi"], ["_Superseded", "1JwnX7XSfljM8aomtFe3rRvXW9a_5XohB"]];
+const PILL={done:["p-done","CURRENT"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag",""],key:["p-key","KEY"],money:["p-money","MONEY"],person:["p-wait","CONTACT"],finding:["p-flag","FINDING"]};
+const STATUS=[["Credentials check as of October 13, 2026 (does this binder hold the current ones?)", [["State CGC licence: binder copy is EXPIRED", "The binder holds a DBPR web printout of January 28, 2026 that reads “Expires 08/31/2026.” Its filename says “EXP 20270127”, which is wrong. The current licence (CGC1528486, issued May 11, expires August 31, 2028) is filed only under Bal Harbour, TRK-2026-1265.", "miss"], ["Insurance certificate (general liability): binder copy is CURRENT", "ACORD 25 dated January 27, 2026, holder Bal Harbour Building Department. Policy ending …03-1 with James River Insurance, February 5, 2026 to February 5, 2027. Good for 115 more days. Two newer certificates on the same policy exist elsewhere: Bal Harbour (September 3) and Pembroke Pines (June 22).", "done"], ["Workers' comp: NOT in the binder", "The binder's certificate leaves the workers' comp section blank. Miguel's Construction Industry Exemption (number ending …2262) is current to September 28, 2027, but it is filed only under Pembroke Pines, TRK-2026-1611.", "miss"], ["Miami-Dade Local Business Tax Receipt: binder copy is EXPIRED", "Receipt ending …4273, General Building Contractor. It reads “Expires September 30, 2026”, 13 days ago. No 2026-2027 receipt was found anywhere in Drive.", "miss"], ["Verdict: the binder does NOT have the current set", "1 of 4 credentials is current in the binder (the insurance certificate). 2 current ones exist elsewhere in Drive (licence, workers' comp). 1 has no current copy anywhere (the tax receipt).", "key"]]], ["Still missing", [["Current licence copy (2028) in 02-Files", "Already received September 3. Filed only under TRK-2026-1265.", "miss"], ["Workers' comp exemption in 02-Files", "Already on file under TRK-2026-1611.", "miss"], ["2026-2027 Miami-Dade tax receipt", "Not in Drive. Miguel must renew it or send it, if he already has.", "miss"], ["Ten Thousand Plaza certificate of September 4", "Arrived by email; the October 10 sweep found no copy anywhere in Drive.", "miss"], ["No _VERSION-LOG.md in the folder", "Required in every TRK folder. Also no _ARRIVALS or _HASHTAGS file.", "miss"]]], ["Waiting on", [["You: copy the 2028 licence and the workers' comp exemption into this binder?", "Filing is a morning yes. It makes this binder whole except for the tax receipt.", "wait"], ["Miguel Zaldivar: the renewed tax receipt", "Expired September 30. Bal Harbour's clerk asks contractors to keep it current.", "wait"], ["Desktop: stage override in _MATTER-OVERRIDES.json", "_STAGE.md says “no next action on file” and must not be hand-edited.", "wait"]]]];
+const PEOPLE=[["Miguel Zaldivar · qualifier, MZ Solutions, LLC", "Certified General Contractor CGC1528486. Business address 9770 SW 215 Lane, Cutler Bay, FL 33189. Sends his own credentials when asked.", "miguel@mzsolutions.org"], ["Construction Pros Insurance · MZ's insurance agent", "Issues the certificates. Phones 800-685-0027 and 813-659-5480. Ask here for a fresh certificate with a new holder.", "office@constructionprosins.com"], ["Olga Kalogeropoulos · Bal Harbour Building Department", "Keeps MZ's contractor licensing file. Confirmed it “updated” on September 4. Asks for licence, certificate, workers' comp and tax receipt to stay current.", ""], ["Miami-Dade Tax Collector", "Issues the Local Business Tax Receipt. mdctaxcollector.gov.", ""], ["Florida DFS, Division of Workers' Compensation", "Issuer of the exemption. Questions line (850) 413-1609.", ""], ["Jorge Valdes · keeper of the binder", "Plans processor. Uses this binder for every city that asks for MZ's papers.", ""]];
+const MONEY=[["Tax receipt renewal fee", "Owed by MZ Solutions to the Miami-Dade Tax Collector, not by you. Last year's fee is printed on the receipt in 02-Files.", "money"], ["Billing for this binder: none", "_STAGE shows amount billable, invoiced and paid all as [VERIFY]. This is a company file, not a job. 03-INVOICES-PAYMENTS is empty.", "money"]];
+const FINDINGS=[["The licence filename is wrong: it says “EXP 20270127”, but the document says August 31, 2026", "The PDF is a DBPR web printout from January 28, 2026. 20270127 matches nothing on it. Anyone trusting the filename would think the licence is good into 2027. Renaming is your call."], ["The binder's licence and tax receipt are both expired", "State licence expired August 31, tax receipt expired September 30. Only the insurance certificate is still current."], ["The current licence and workers' comp exemption are in other job folders", "2028 licence: TRK-2026-1265 (Bal Harbour). Workers' comp exemption: TRK-2026-1611 (Pembroke Pines). Copying them here is filing, so it waits for your yes."], ["No 2026-2027 tax receipt exists anywhere in Drive", "A Drive search found only the 2024, 2025 and 2026 receipts. Whether Miguel already renewed is unverified."], ["The workers' comp gap the October 10 sweep raised is answered", "The certificates leave workers' comp blank because Miguel is exempt. His exemption runs to September 28, 2027."], ["The old portal links to local G: drive paths, not Drive links", "All 8 links in _PORTAL_TRK-2026-1293.html point at the G: drive on the PC. They do not open on a phone or when shared. This capsule uses Drive links only."], ["52 backups use the banned NAME.ext.bak-DATE form", "25 _PORTAL and 27 _STAGE copies, about one a day from August 30 to October 8. Drive cannot preview them. None were touched."], ["_STAGE.md is stale", "Says 04-OCR-INDEXED, overdue YES, client and next action [VERIFY]. A company binder has no pipeline stage. Fix is a desktop override, not a hand edit."], ["Two folder sets side by side; 7 folders are empty", "All documents sit in the older set (01-Emails, 02-Files). 01-INTAKE, 02-PERMITS, 03-INVOICES-PAYMENTS, 03-Status, 04-CORRESPONDENCE, 05-REPORTS-DELIVERABLES and _Superseded hold nothing."], ["Filenames carry no TRK and do not follow the DATE _ TRK _ TYPE grammar", "None of the 3 credential PDFs has the tracking number in its name. One text file has its name repeated twice."]];
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=(o.st==='flag'||o.st==='key')&&o.flag?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc') h+='<div class="meta"><span>'+esc(o.date)+'</span><span>'+esc(kb(o.size))+'</span><span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':o.kind==='folder'?'Open folder in Drive ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','Credentials check, still missing, and who it waits on','1 of 4 current',h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    f.docs.forEach(d=>{x+=row({b:f.t,kind:'doc',title:d[0],date:d[1],size:d[2],type:d[3],link:durl(d[4]),st:d[5]?(d[5]==='KEY'||d[5]==='NEW'||d[5].startsWith('CURRENT')?'key':'flag'):'',flag:d[5],path:f.p});});
+    if(f.cnt) x+='<p class="bnote">📦 '+f.cnt+' '+esc(f.cntwhat)+' are counted here, not listed one by one, to keep this page small. Open the folder to see them.</p>';
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' search'); if(s.t)sc.push(s.t+' tag'); if(s.o)sc.push(s.o+' OCR marker'); if(s.i)sc.push(s.i+' index');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':(f.ext?'🔗 ':'📁 ')+f.t),esc(f.p),f.cnt?f.cnt+' counted':f.ext?f.docs.length+' linked':f.docs.length+' docs',x+(sc.length?'<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>':''),fi===0);
+  });
+  let e='<p class="bnote">These folders exist but hold no files. Nothing was put in them.</p>';
+  EMPTY.forEach(f=>{e+=row({b:'Empty folders',kind:'folder',title:f[0],text:'Empty folder',link:furl(f[1])});});
+  branch('empty','','📂 Empty folders','Standard folder set, created but never used',EMPTY.length+' empty',e,false);
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  let fh='<p class="bnote">Found while building this capsule. Nothing was moved, renamed or deleted. Each one waits for your yes.</p>';
+  FINDINGS.forEach(it=>{fh+=row({b:'Findings',kind:'finding',title:it[0],text:it[1],st:'finding'});});
+  branch('findings','','🔎 Findings','Wrong licence filename, two expired credentials, current ones filed elsewhere',FINDINGS.length+' findings',fh,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> Money items stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='</div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':MONEY.length+' items',m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>it.kind!=='money'||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">TRK-2026-1293 · MZ Solutions credentials · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(it.kind==='money'?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=it.kind==='doc'?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc') h+='<p class="meta"><span>'+esc(it.date)+'</span><span>'+esc(kb(it.size))+'</span><span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='TRK-2026-1293 · MZ Solutions LLC · Company Credentials 2026\nCredentials check 2026-10-13: 1 of 4 current in the binder\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='folder') s+='   Open: '+it.link+'\n';
+    else if(it.kind==='doc') s+='   '+it.date+' · '+kb(it.size)+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— TRK-2026-1293 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>it.kind!=='money'||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+build();
+</script>

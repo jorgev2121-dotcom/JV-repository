@@ -1,0 +1,48 @@
+{
+  "id": "1ytvJCzwLtpqUqKNGRDpvxhVyBUxzBvvR",
+  "title": "TRK-TBD _ FOLIO-TBD _ 2362-2364 NW 32 ST City of Miami (2362 Acquisition LLC)",
+  "partial": false,
+  "pdfs": 9,
+  "search_sidecars": 9,
+  "tags_sidecars": 9,
+  "tags5_sampled": 3,
+  "tags5_of_sampled": 1,
+  "has_HASHTAGS_txt": false,
+  "hashtags_count": 0,
+  "has_people_tags": false,
+  "has_trk_tag": false,
+  "other_files": [
+    "_TAGS.txt (job root, 8 tags: #2362-NW-32-St #2364-NW-32-St #2362-Acquisition-LLC #City-of-Miami #folio-FOLIO-TBD #TRK-TBD-defect #JorgeValdes #CU-Inspections)",
+    "_PLACEHOLDERS.md",
+    "_PORTAL_UNASSIGNED_TRK-TBD-FOLIO-TBD-2362-2364-NW-32-ST-City-of-Miami-2362-Acquisition-LLC.html",
+    "_STAGE.md",
+    "_INDEX.html",
+    "00-Intake/_JOB-TREE_TRK-TBD.html",
+    "07-TAX-JACKET_2026-08-24/ENHANCED/FINAL_ALL.pdf.PAGEMAP.json + 2 WHAT-WAS-DONE.json",
+    "~48 daily .bak-YYYYMMDD copies of _PORTAL html and _STAGE.md in job root"
+  ],
+  "people": [
+    {"name": "Jorge Valdes", "role": "owner / inspector (CU Inspections), permit applicant", "email": null, "evidence": "_TAGS.txt (#JorgeValdes); _PLACEHOLDERS.md", "misspellings": ["Jorge Valdez", "George Valdes"]},
+    {"name": "Jose A. Gonzalez", "role": "City of Miami contact on citation BD2016-003432 (citation/title)", "email": "citationtitle@gmail.com", "evidence": "_PLACEHOLDERS.md", "misspellings": ["Jose Gonzales", "Jose A Gonzales", "Joseph Gonzalez"]},
+    {"name": "Jade De Armas", "role": "party on citation BD2016-003432 thread (role unverified)", "email": null, "evidence": "_PLACEHOLDERS.md", "misspellings": ["Jade DeArmas", "Jade Dearmas", "Jade de Armas"]}
+  ],
+  "companies": [
+    {"name": "2362 Acquisition LLC", "role": "client per folder name (unverified)", "email": null, "evidence": "folder title; _TAGS.txt"},
+    {"name": "RRR LLC", "role": "possible client of record - corporate resolution for citation BD2016-003432", "email": null, "evidence": "_PLACEHOLDERS.md (Corporate-Resolution-RRR-LLC-Citation-BD2016-003432.docx)"},
+    {"name": "City of Miami", "role": "permitting jurisdiction / citation issuer", "email": null, "evidence": "folder title; _PLACEHOLDERS.md"},
+    {"name": "CU Inspections of South Florida", "role": "preparer of tax jacket", "email": null, "evidence": "TaxJacket DELIVERABLE v2 .SEARCH.txt"}
+  ],
+  "keywords": [
+    "2362 NW 32 ST", "2364 NW 32 ST", "2362-2364 NW 32 ST", "2362-64 NW 32 ST", "2362 NW 32nd Street Miami FL 33142",
+    "folio 01-3127-028-0871", "0131270280871",
+    "TRK-2026-1561",
+    "citation BD2016-003432", "BD2016-003432",
+    "2362 Acquisition LLC", "RRR LLC",
+    "roofing permit", "roof",
+    "tax jacket", "building jacket",
+    "duplex", "T3-O zoning", "flood zone AE",
+    "New Haven PB 6 PG 184", "Lot 10 Block 5",
+    "City of Miami", "corporate resolution", "lien search", "NOC"
+  ],
+  "notes": "No _HASHTAGS.txt; job root has _TAGS.txt instead. TRK conflict: _PLACEHOLDERS.md says desktop registry assigned TRK-2026-1561 (folio 0131270280871), but PDF sidecars are stamped TRK-2026-9490 (DELIVERABLE v2) and TRK-2026-9754 (FINAL_ALL) - both inside the reserved 9xxx admin band; needs reconciliation. Client identity unresolved (2362 Acquisition LLC vs RRR LLC). All PDFs live in 07-TAX-JACKET_2026-08-24/ENHANCED and /ORIGINAL (depth 2 subfolders; included in counts). All other subfolders empty except _INDEX.html files. One .pdf.bak-20260826 excluded from pdf count. Root clutter: ~48 daily .bak copies of portal/stage files. Desktop working folder (137 files) not yet swept into Drive per _PLACEHOLDERS.md."
+}

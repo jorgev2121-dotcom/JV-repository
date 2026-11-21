@@ -134,3 +134,27 @@ deserves its own pass. Tracked as TRK-2026-9086.
 ---
 
 **Question: which three do you want to clear first?**
+
+---
+
+## Owner decision · 2026-10-14 10:38 AM ET (panel "Waiting on you", item A-20260731-17)
+
+**Jorge said YES** to the 17 gates as recommended above: 13 APPROVE, 1 MODIFY, 3 DEFER.
+Recorded by Cloud (EXEC-01 helper). Source: panel db task-comments doc 9q9bouvzs9sjp0v86usy.
+
+**Closed now (decision recorded, nothing else to do):**
+1. NEW-05 · Zoho dropped, shared workbook is the CRM of record · CLOSED.
+2. REG-0008 · MODIFY · re-log in to each app when it asks · CLOSED as a standing rule.
+3. REG-0003, NEW-04, REG-0011 · DEFER · CLOSED (no action).
+4. REG-0012 · APPROVE · client reports may cure historical irregularities, flagged as corrections · decision recorded.
+
+**Routed to the PC (read-only checks):** REG-0009 and REG-0010 · WORK-QUEUE item 25.2.
+
+**Approved, but the action itself is Jorge's click (credentials, outbound or spend):**
+1. REG-0001, REG-0004 · paste each API key into 1Password, never into a chat (SSOT-02). Paid API runs still need the cost gate first (Article 5).
+2. REG-0002 · Cowork access to 01-JOBS · one grant click in Cowork settings.
+3. REG-0007 · iPhone AutoFill to 1Password · on the phone.
+4. REG-0006, NEW-03 · emails drafted in July. They are 2.5 months old: check each draft is still right before pressing Send.
+5. NEW-01, NEW-02, REG-0005 · spend items. Jorge's yes covers them. Before anything is bought, re-price them (the list is from July) and run them through the money zone.
+
+Which one of the click items shall the cloud set up first?

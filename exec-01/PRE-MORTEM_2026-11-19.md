@@ -1,0 +1,14 @@
+# PRE-MORTEM 2026-11-19 (EXEC-01 cloud) - "It is a week from now and this failed. Why?"
+Written 04:45Z 11-19 (11:45 PM ET Wed 11-18). Changes from 11-18 marked NEW.
+
+1. **Einar TUS-26-1018 (8621 Pasadena).** Permit RO26-10796 submitted online by Jorge 11-17. Officer Libio said he will extend the case to the 1/28/27 hearing (UNVERIFIED, no written order). Thu 11-19 is the original Special Magistrate hearing date: if the extension is not confirmed in writing, the hearing may proceed. NEW: Jorge chased Tomas and Julio at 4:16 PM ET 11-18 and chased MZ Solutions (Miguel) for the Certificate of Insurance with the Pembroke Pines holder. Still missing: Julio's revised A1.0 and A2.0, Tomas's re-sealed set and letter, the COI. Risk: nobody owns the deadline after the hearing date passes.
+2. **NEW: Four unsent AI drafts to Alexis in Jorge's Outlook** (Unit 29 revised structural report from PLF; three versions of the Cary Cass mitigation package asking for a price, two with an UNFINISHED marker). Risk: the wrong version gets sent, or none does. Jorge must finish and send; I opened no attachments.
+3. **Cary Cass.** Jorge is actively working it (replied to Cary at 4:58 PM ET 11-18) but no TRK or OPH exists. Never invent a number. Risk: loose documents with no filing identity. Waiting on Jorge's yes to prepare a TRK request.
+4. **Money zone (no amounts).** xAI charged the card five times since 11-17 (Auto Top-up still on, stop is Jorge's click); an Apple "AI Note Taker" 7-day premium subscription auto-renews; xAI credit request open (Sam, ticket T-K36581, one more detail owed by Jorge); Chase claim answer APPROVE written by Jorge. Risk: silent recurring charges.
+5. **NEW: RAM guard silence was a false alarm.** Guard file silent 22:34Z to 04:10Z (5 h 36 min, the longest yet) then resumed RED 3.17 GB. My 02:19Z alert came too early; the rule is now: wait 6 h when the uptime file is fresh. Real RAM risk stays: three RED readings 11-18 evening (3.26, 2.25, 3.17 GB), cap-the-memory question open.
+6. **NEW: Sign-in verification mails** (Intuit 02:52Z, Microsoft CU Inspections 03:09Z) and a Google "you allowed Plaud" alert (11-18 17:51Z). Probably Jorge, UNVERIFIED; no code recorded, no link clicked.
+7. **Grok automations** keep reporting the same blocked backlog ("ceiling hit", "source file missing") all night. Risk: noise hides a real blocker. I log only.
+8. **Context and budget:** weekly meter allowed; my context about 700,000 of 1,000,000 before compaction at 784,000. All state is in files.
+9. **Unanswered questions to Jorge:** Auto Top-up, Apple note-taker, Intuit/Microsoft sign-in, Cary Cass TRK, ES Windows dealer application job, xAI detail for Sam, RAM cap, hearing calendar reminder, Natalie reply (sent by Jorge 11-18), Piwko W-9, PLF signer, CDM protest window.
+
+Rollback: this file is new; delete to undo. #EXEC-01 #TUS-26-1018 #CaryCass #xAI #RAMGuard

@@ -1,0 +1,140 @@
+<title>VTES Agent Roles</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one column roster, status stripe on the left of each row, big readable text for text-to-speech listeners.
+   Palette: ink navy, signal orange, paper blue-grey, status green/amber/red kept separate from the accent. */
+:root{
+  --bg:#f3f5f8; --surface:#ffffff; --fg:#14283a; --muted:#566676; --line:#d5dce4;
+  --accent:#d9730d; --ink:#12304a; --ok:#1c7a4a; --warn:#a15c00; --bad:#b3261e;
+  --ok-bg:#e1f3e8; --warn-bg:#fdf0d8; --bad-bg:#fbe4e2;
+  --display:"Bricolage Grotesque","Trebuchet MS",sans-serif; --body:"Source Sans 3","Segoe UI",sans-serif; --mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1a25; --surface:#16273a; --fg:#e6edf4; --muted:#9db0c2; --line:#2a3f55;
+  --accent:#f29a3d; --ink:#9cc4e8; --ok:#6fd49a; --warn:#f2b866; --bad:#ff8d85;
+  --ok-bg:#16382a; --warn-bg:#40300f; --bad-bg:#44201d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1a25; --surface:#16273a; --fg:#e6edf4; --muted:#9db0c2; --line:#2a3f55;
+  --accent:#f29a3d; --ink:#9cc4e8; --ok:#6fd49a; --warn:#f2b866; --bad:#ff8d85;
+  --ok-bg:#16382a; --warn-bg:#40300f; --bad-bg:#44201d; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:18px;line-height:1.55;margin:0;
+  padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1{font-family:var(--display);font-weight:800;font-size:2rem;line-height:1.1;margin:0;color:var(--ink);text-wrap:balance}
+h2{font-family:var(--display);font-weight:600;font-size:1.25rem;margin:0 0 8px;color:var(--ink)}
+p{margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--muted);font-size:.95rem}
+.id{font-family:var(--mono);font-size:.85rem}
+details.ver{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 12px}
+details.ver summary{cursor:pointer;font-weight:600;color:var(--ink)}
+details.ver p{color:var(--muted);font-size:.95rem;padding-block:6px 2px}
+.banner{background:var(--warn-bg);color:var(--fg);border-left:5px solid var(--warn);padding:12px 14px;border-radius:4px}
+.tally{display:flex;flex-wrap:wrap;gap:8px 18px;font-weight:600}
+.tally span{display:inline-flex;gap:6px;align-items:center}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+.role{background:var(--surface);border:1px solid var(--line);border-left-width:6px;border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.role.ok{border-left-color:var(--ok)} .role.partial{border-left-color:var(--warn)} .role.none{border-left-color:var(--bad)}
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;align-items:baseline}
+.name{font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--ink)}
+.pill{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:99px}
+.pill.ok{background:var(--ok-bg);color:var(--ok)} .pill.partial{background:var(--warn-bg);color:var(--warn)} .pill.none{background:var(--bad-bg);color:var(--bad)}
+.facts{display:flex;flex-wrap:wrap;gap:4px 16px;color:var(--muted);font-size:.95rem}
+.facts b{color:var(--fg);font-weight:600}
+.lock{border:2px dashed var(--accent);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px}
+ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:4px}
+.foot{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+<main>
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <h1>VTES Agent Roles</h1>
+    <div class="meta"><span class="id">TRK-TBD-ASSIGN-ON-REGISTRY</span><span>Tracking number to be issued from the registry</span></div>
+    <details class="ver"><summary>v1.0 · Nov 7, 2026 · CURRENT</summary><p>This is the first version. No earlier versions exist yet. When this changes it becomes v1.1, and this one stays here to view.</p></details>
+  </header>
+
+  <p class="banner"><b>DRAFT. Not locked.</b> Roles lock only when Jorge types 0000. Nothing below changes until then.</p>
+
+  <section>
+    <h2>Where things stand today</h2>
+    <p class="tally">
+      <span><i class="dot" style="background:var(--ok)"></i>8 of 12 exist</span>
+      <span><i class="dot" style="background:var(--warn)"></i>3 partly built</span>
+      <span><i class="dot" style="background:var(--bad)"></i>1 not built</span>
+    </p>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:10px">
+    <h2>The twelve roles</h2>
+
+    <div class="role ok"><div class="top"><span class="name">Owner (Jorge)</span><span class="pill ok">Exists</span></div>
+      <p>The only human. Says yes or no to risky items and types 0000.</p>
+      <div class="facts"><span><b>Level:</b> not an agent</span></div></div>
+
+    <div class="role partial"><div class="top"><span class="name">Chief</span><span class="pill partial">Partly built</span></div>
+      <p>Takes your request and picks which agent and which level gets it. The one place the usage rule is applied.</p>
+      <div class="facts"><span><b>Level:</b> Sonnet</span><span><b>Reports to:</b> Jorge</span></div>
+      <p style="color:var(--muted);font-size:.95rem">Today the cloud executor does this inside its hourly cycle. The PC Chief program has been silent since Oct 29.</p></div>
+
+    <div class="role ok"><div class="top"><span class="name">EXEC-01, cloud executor</span><span class="pill ok">Exists</span></div>
+      <p>Runs the hourly cycle, fixes problems before you see them, writes the heartbeat and logs.</p>
+      <div class="facts"><span><b>Level:</b> Sonnet</span><span><b>Reports to:</b> Jorge</span></div></div>
+
+    <div class="role ok"><div class="top"><span class="name">QC-01, independent auditor</span><span class="pill ok">Exists</span></div>
+      <p>Checks that what was claimed really happened. Reports to you only. Today's verdict: warning.</p>
+      <div class="facts"><span><b>Level:</b> Sonnet</span><span><b>Runs:</b> daily 6:51 AM</span></div></div>
+
+    <div class="role ok"><div class="top"><span class="name">Auditor, the self-test</span><span class="pill ok">Exists</span></div>
+      <p>Ten checks, four times a day. About six of ten pass right now.</p>
+      <div class="facts"><span><b>Level:</b> Haiku is enough</span><span><b>Reports to:</b> EXEC-01</span></div></div>
+
+    <div class="role partial"><div class="top"><span class="name">Usage and token monitor</span><span class="pill partial">Partly built</span></div>
+      <p>One hourly line: how much room is left on every meter, which model each routine uses, who is above their level.</p>
+      <div class="facts"><span><b>Level:</b> Haiku</span><span><b>Reports to:</b> Chief, Analyst</span></div>
+      <p style="color:var(--muted);font-size:.95rem">Only the weekly meter reading exists. It does not yet cover every LLM.</p></div>
+
+    <div class="role none"><div class="top"><span class="name">Analyst</span><span class="pill none">Not built</span></div>
+      <p>Once a day, turns the usage line into a short roll-up with a count and one recommendation, like "move this routine down a level".</p>
+      <div class="facts"><span><b>Level:</b> Sonnet</span><span><b>Reports to:</b> Chief</span></div></div>
+
+    <div class="role partial"><div class="top"><span class="name">RAM governor</span><span class="pill partial">Partly built</span></div>
+      <p>Watches the PC's free memory and slows or pauses work so it does not crash.</p>
+      <div class="facts"><span><b>Level:</b> no AI, a script</span><span><b>Reports to:</b> EXEC-01</span></div>
+      <p style="color:var(--muted);font-size:.95rem">The scripts exist, but the one-minute heartbeat file is missing, so it looks switched off. The take-over order tells RAMBO to fix this first.</p></div>
+
+    <div class="role ok"><div class="top"><span class="name">RAMBO, PC executor</span><span class="pill ok">Exists</span></div>
+      <p>The hands on your PC: files, Chrome, printer, county sites. Files things only after your yes.</p>
+      <div class="facts"><span><b>Level:</b> Sonnet</span><span><b>Reports to:</b> EXEC-01</span></div></div>
+
+    <div class="role ok"><div class="top"><span class="name">Local engine (Ollama)</span><span class="pill ok">Exists, unstable</span></div>
+      <p>Free first pass for sorting and simple drafts that a higher level checks.</p>
+      <div class="facts"><span><b>Level:</b> bottom of the ladder</span></div></div>
+
+    <div class="role ok"><div class="top"><span class="name">Codex lane</span><span class="pill ok">Exists, unverified</span></div>
+      <p>Takes non-client code and automation when the Claude lane is capped.</p>
+      <div class="facts"><span><b>Level:</b> side lane</span></div></div>
+
+    <div class="role ok"><div class="top"><span class="name">Cowork</span><span class="pill ok">Exists</span></div>
+      <p>Long documents, the decision model, and the four-hour watchdog.</p>
+      <div class="facts"><span><b>Level:</b> Sonnet</span><span><b>Reports to:</b> Jorge</span></div></div>
+  </section>
+
+  <section>
+    <h2>How a task gets its agent</h2>
+    <ol>
+      <li>Chief names the job and what it touches.</li>
+      <li>It starts at the lowest level that can do the job.</li>
+      <li>It moves up one level only if the job needs judgment. Never two.</li>
+      <li>Fable is never picked by rotation. You say yes for that.</li>
+      <li>Anything risky stops and asks you first.</li>
+    </ol>
+  </section>
+
+  <section class="lock">
+    <h2 style="margin:0">The 0000 lock</h2>
+    <p>To lock or change any role, you type 0000 to the chief, from any device, LLM or agent. Each change gets a dated log line with who asked.</p>
+    <p style="color:var(--muted);font-size:.95rem">0000 is a stopper, not real security. The log is what shows misuse. This page only displays the list; typing here does nothing.</p>
+  </section>
+
+  <p class="foot">TRK-TBD-ASSIGN-ON-REGISTRY · v1.0 · 2026-11-07 · CURRENT · #Roles #Usage #RAM<br>Source: design/ROLES-AND-ROTATION_2026-11-07_v1.0.md</p>
+</main>

@@ -1,0 +1,20 @@
+const {chromium}=require('/opt/node22/lib/node_modules/playwright');
+(async()=>{const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'}).catch(()=>chromium.launch());
+const p=await b.newPage({viewport:{width:1280,height:800}});const errs=[];p.on('pageerror',e=>errs.push(e.message));
+await p.addInitScript(()=>{window.claude={use:async()=>null}});
+await p.goto('file://'+process.argv[2]);await p.waitForTimeout(800);
+await p.evaluate(()=>VTES.show('HANDOFFS'));await p.waitForTimeout(200);
+console.log('builder visible',await p.isVisible('#hp-card'));
+await p.selectOption('#hp-from',{label:'🖥️ Desktop executor (RAMBO)'});
+await p.selectOption('#hp-to',{label:'🧭 Codex'});
+await p.fill('#hp-what','Rename the test folder and report back');
+const pv=await p.inputValue('#hp-preview');console.log('PREVIEW\n'+pv);
+const first=pv.split('\n')[0];
+console.log('first line ok',/^HANDOFF · 🖥️ Desktop executor \(RAMBO\) → 🧭 Codex · \d{4}-\d{2}-\d{2}$/.test(first));
+console.log('has task',pv.includes('Rename the test folder and report back'));
+console.log('has rules',pv.includes("Rules: CLAUDE.md applies · RED items need Jorge's yes · end with a question."));
+console.log('tips',await p.evaluate(()=>['hp-from','hp-to','hp-what','hp-preview','hp-copy'].every(id=>{var e=document.getElementById(id);return e&&e.dataset.tip})));
+try{await p.click('#hp-copy');await p.waitForTimeout(400);console.log('copy msg',await p.textContent('#hp-msg'))}catch(e){console.log('copy click error (ignored)',e.message)}
+console.log('BUILD flipped',await p.evaluate(()=>document.documentElement.outerHTML.includes("['From / To lists',1],['Copy packet button',1]")));
+await p.screenshot({path:process.argv[3]});
+console.log('ERRS',errs);await b.close()})();
