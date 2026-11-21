@@ -718,3 +718,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-21T15:17Z WATCH done (panel new=0; RAM guard 12h07 gap, already alarmed, desktop check queued).
 - 2026-11-21T15:42Z · runner · panel new=0 · RAM guard still silent (12 h 32 min), PC uptime fresh 15:34:54Z · Drive heartbeat 1NEXn3PDeT7QlF2Ax0GXu6J8mPjgWEM7Z (title 1542Z matches create time) · 0 PC orders
 - 2026-11-21T16:17Z WATCH done (panel new=0; RAM guard 13h07 gap, already alarmed, desktop check queued).
+- 2026-11-21T16:42Z · runner · panel new=0 · RAM GUARD OUTAGE ENDED: file rewritten 16:22:47Z (Miami 11:22:30 on DESKTOP-OTB90LR), RED, pause flag set; outage = 03:10:09Z to 16:22:47Z, never a dead PC (uptime file fresh throughout), a Drive sync gap or paused sync · Drive heartbeat 1pVWPO6NpZVHSknnqqu0SD4-P5wbuFtcl (title 1642Z matches create time) · 0 PC orders (RED pause flag also blocks them)
