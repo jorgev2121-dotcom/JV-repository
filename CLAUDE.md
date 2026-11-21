@@ -537,3 +537,15 @@ within 30 days.**
 3. **Same address, new version.** Publish over the existing page so saved decisions and links carry over. Record the old version id in `OPEN-ITEMS.md` so it can be rolled back.
 4. **A fix that adds nothing new does not need a new number.** If it is unclear whether something is an enhancement, ask Jorge in one short question.
 5. **Open question (2026-10-25):** the panel's Change log has used its own "v67 to v70" counter on Oct 23, while the page title said v58. Jorge decides which counter is official. Until he says, the title number is the official one.
+
+---
+
+## 14. Reply length standard
+
+**Owner directive, Jorge, 2026-11-21, in his own words:** *"Rewrite the most recent reply in 900 words and continue to do it in that manner until you're told otherwise."* (Dictated; "900 workshops" was read as "900 words", matching his earlier "600 to 900 word contiguous read".)
+
+1. **Every reply to Jorge is one continuous read of about 900 words** (never under 600). Short paragraphs, Section A / Section B labels, answer first, reasoning after.
+2. **Prose first.** Use a numbered list only when he must choose or act in order. No tables (Rule 7 still stands).
+3. **Still end with a question (OD-01).** Still prefix with the window emoji.
+4. **This stays in force until Jorge says otherwise.** Do not shorten replies because a task seems small. If he says "short", it is lifted.
+5. **Open question:** if "workshops" meant something other than "words", he will say so. Until then, words.
