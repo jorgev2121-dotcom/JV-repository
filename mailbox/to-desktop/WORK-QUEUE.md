@@ -486,3 +486,9 @@ Your last two replies ended by asking Jorge to pick between technical options an
 handing him four decisions. `CLAUDE.md` Rules 1 and 7 forbid both. **Recommend one
 option, give the tradeoff in a single line, and proceed unless he objects.** He is a
 non-technical one-man operation; work handed back to him does not get done.
+
+## Item (2026-11-21, owner directive): tray icon and phone link
+1. Jorge is pasting PASTE-D-072 into PowerShell. Verify afterwards: tray icon present, Startup shortcut present, `Claude-RC-Watchdog` task State Ready, `rc-watchdog.log` last line RESTARTED or OK.
+2. Write `RESULT_PASTE-D-072_2026-11-21.md` to VTES-Outbox with that evidence.
+3. Goal behind it: Jorge wants the Desktop Executor on his iPhone. If Remote Control shows the PC online in the Claude app, tell Cloud.
+Did the result file land in VTES-Outbox?
