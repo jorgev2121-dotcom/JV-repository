@@ -958,3 +958,4 @@
 2026-11-21T16:42Z runner · items 0 of 0 · panel unchanged · queue depth 0 · RAM guard RESUMED (file rewritten 16:22:47Z) after a 13 h 12 min silent spell; it reads RED (free RAM 1.87 of 31.89 GB) with the pause flag set, so no new desktop work starts, which probably explains the desktop silence; new process names HxTsr and CompatTelRunner (look like Windows components, UNVERIFIED); WORK-QUEUE item 41 stays queued for the desktop
 2026-11-21T17:41Z runner · items 0 of 0 · panel unchanged · queue depth 0 · blocked: RED items await Jorge (xAI Auto Top-up); desktop owes the RAM guard look (WORK-QUEUE 41), no reply yet
 2026-11-21T18:41Z runner: items 0 of 0 · panel unchanged · queue depth n/a · blocked: none new (xAI, RAM guard RED still open)
+2026-11-21T19:41Z runner: items 0 of 0 · panel unchanged · blocked: none new (xAI Auto Top-up, RAM guard RED still open)
