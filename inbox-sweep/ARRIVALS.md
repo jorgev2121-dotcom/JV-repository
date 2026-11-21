@@ -115,3 +115,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-21T13:17Z WATCH: no job arrivals (marketing, Grok digests).
 - 2026-11-21T14:17Z WATCH: no job arrivals (bank card delivery notice, Grok digests, promos).
 - 2026-11-21T15:17Z WATCH: no job arrivals (self-sent connect-cloud-to-desktop steps from another cloud window, Intuit payment notice, Grok digests, promos).
+- 2026-11-21T16:17Z WATCH: no job arrivals (ListKit call recap, resent connect-cloud-to-desktop steps from another cloud window, Grok digests, promos).
