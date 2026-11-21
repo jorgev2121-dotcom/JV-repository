@@ -694,3 +694,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-21T03:18Z WATCH done (panel new=0; RAM guard resumed 03:10Z).
 - 2026-11-21T03:41Z · runner · panel new=0 · Drive heartbeat 1JEVLlBKPIeX0C0vnKoNWA3MxdnjvY4UY (title says 0342Z, created 03:41Z: one minute ahead, left) · 0 PC orders
 - 2026-11-21T04:17Z WATCH done (panel new=0; second bank declined notice logged).
+- 2026-11-21T04:41Z · runner · panel new=0 · pre-mortem exec-01/PRE-MORTEM_2026-11-21.md · Drive EXEC-LOG_2026-11-21_part2.md id 13Homa9an4CdbSUJTUEN5ferWM4tHrgCK (its body says Written 04:43Z but it was created 04:41Z: ahead of the clock, new-file-only so left) · Drive heartbeat 16e_99PlKk-e4dBqovWzbWp0FRe3PS-c8 (title says 0443Z, created 04:41Z: two minutes ahead, left) · repo pre-mortem header corrected to 04:41Z · 0 PC orders
