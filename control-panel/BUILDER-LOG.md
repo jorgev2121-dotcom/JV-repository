@@ -959,3 +959,4 @@
 2026-11-21T17:41Z runner · items 0 of 0 · panel unchanged · queue depth 0 · blocked: RED items await Jorge (xAI Auto Top-up); desktop owes the RAM guard look (WORK-QUEUE 41), no reply yet
 2026-11-21T18:41Z runner: items 0 of 0 · panel unchanged · queue depth n/a · blocked: none new (xAI, RAM guard RED still open)
 2026-11-21T19:41Z runner: items 0 of 0 · panel unchanged · blocked: none new (xAI Auto Top-up, RAM guard RED still open)
+2026-11-21T20:41Z runner: items 0 of 0 · panel unchanged · blocked: none new (xAI Auto Top-up, RAM guard silent-sync-gap still open)
