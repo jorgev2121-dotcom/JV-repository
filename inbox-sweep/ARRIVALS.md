@@ -107,3 +107,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-21T05:17Z WATCH: no job arrivals (Grok digest).
 - 2026-11-21T06:18Z WATCH: no arrivals.
 - 2026-11-21T07:19Z WATCH: no job arrivals; xAI charge receipt relayed to Jorge once (push + Gmail).
+- 2026-11-21T08:17Z WATCH: no job arrivals (SYNC-01 result, Grok digests, newsletter).
