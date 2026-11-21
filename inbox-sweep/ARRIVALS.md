@@ -100,3 +100,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-20T22:17Z WATCH: no job arrivals (digest, news, marketing).
 - 2026-11-20T23:17Z WATCH: no job arrivals (Jorge's Speechify support emails and auto-replies, marketing).
 - 2026-11-21T00:18Z WATCH: no job arrivals (Speechify human reply to Jorge, promos).
+- 2026-11-21T01:17Z WATCH: no job arrivals (Jorge's own script email, SSA notice, Grok digests, promos).
