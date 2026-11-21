@@ -887,3 +887,9 @@ Why: _RAM-GUARD-HEARTBEAT.md in VTES-Outbox has not changed since 2:07:13 PM ET 
 Do: (1) in Task Scheduler look at CU-RAM-Heartbeat: last run time, last result, whether it is still enabled; (2) say in one line what you saw; (3) if it is Disabled or its last result is an error, write that to VTES-Outbox as REPLY-TO-CHAT_RAM-GUARD-STOPPED_<date>.md and ask Jorge for one yes to re-enable it. Do not change any setting yourself.
 Done means: the reply file exists naming the task state. Not done = unverified.
 Closing question for the desktop: what is CU-RAM-Heartbeat's last run result?
+
+## 41. RAM guard heartbeat silent since 10:10 PM ET Fri 11-20, look and report only · cloud note 2026-11-21 09:4xZ · 🖥️ DESKTOP (GREEN: look only, change nothing)
+Why: _RAM-GUARD-HEARTBEAT.md in VTES-Outbox has not changed since about 10:10 PM ET Friday (03:10Z), over 6 hours. The PC itself is awake and syncing (the uptime heartbeat wrote at 4:38 AM ET Saturday), so only the RAM guard task stopped or its upload failed. The same pattern happened on 11-09 (item 40). Earlier on 11-20 the guard file also got a new Drive id and a stray .tmp file.
+Do: (1) in Task Scheduler look at CU-RAM-Heartbeat: last run time, last result, whether it is still enabled; (2) say in one line what you saw; (3) if it is Disabled or its last result is an error, write that to VTES-Outbox as REPLY-TO-CHAT_RAM-GUARD-STOPPED_<date>.md and ask Jorge for one yes to re-enable it. Change no setting yourself.
+Done means: the reply file exists naming the task state. Not done = unverified.
+Closing question for the desktop: what is CU-RAM-Heartbeat's last run result?
