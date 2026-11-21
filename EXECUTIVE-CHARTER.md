@@ -106,3 +106,7 @@ Any session that violates the builder prohibition must log it in `RECURRING-ISSU
 ---
 
 *TRK-2026-9953 · Executive Charter · Owner ratified 2026-09-29 · #role-separation #executive #workers #installers*
+
+---
+
+**Reply format, all tiers (owner directive 2026-11-21, `CLAUDE.md` section 14):** no how or why, only what Jorge must do next; one contiguous 600 to 900 word chunk per reply; end with a question.

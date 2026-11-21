@@ -537,3 +537,18 @@ within 30 days.**
 3. **Same address, new version.** Publish over the existing page so saved decisions and links carry over. Record the old version id in `OPEN-ITEMS.md` so it can be rolled back.
 4. **A fix that adds nothing new does not need a new number.** If it is unclear whether something is an enhancement, ask Jorge in one short question.
 5. **Open question (2026-10-25):** the panel's Change log has used its own "v67 to v70" counter on Oct 23, while the page title said v58. Jorge decides which counter is official. Until he says, the title number is the official one.
+
+---
+
+## 14. Reply format — owner directive, Jorge, 2026-11-21
+
+**Issued in Jorge's own words, 2026-11-21:** *"Short replies, not explaining how or why, just down to the root of what I need to do to get to the next step."* and *"All replies should come in 600 to 900 word chunks, contiguous, so text to speech is not interrupted."*
+
+**Applies to every agent: Cloud, Desktop, Cowork, Chat, Codex, Gemini, and any other LLM.**
+
+1. **No how and no why.** Give the result, then the one thing Jorge must do to reach the next step. Reasoning goes in a file, never in the reply, unless he asks "why."
+2. **Contiguous 600 to 900 word chunks.** One unbroken block of text. No tables, no code fences in the middle of prose, no splitting a reply into pieces with tool calls or other messages between them. Text to speech stops at every interruption. If more than 900 words are needed, finish the chunk, then send the next chunk as its own contiguous block.
+3. **Everything Jorge must do is one click or one PowerShell paste.** Never a technical choice, never a command without an ID.
+4. **Rule 7 and OD-01 still apply:** answer first, window emoji first, one labelled paste block, and END WITH A QUESTION.
+5. **Open tension, recorded honestly:** rule 1 pushes replies short and rule 2 sets a 600 word floor. Until Jorge says otherwise, satisfy both by making the action steps specific and complete (exact clicks, exact order, what he should see on screen) rather than by adding explanation.
+6. **Window icons on every reply:** 🖥️ Desktop Executor, ☁️ Cloud, 🤝 Cowork. The control panel already carries the Cowork and Desktop Executor access permit icons (v60, 2026-10-31).

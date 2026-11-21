@@ -11,4 +11,6 @@ It is written for Claude, but every rule applies to you unchanged. That includes
 
 The state lives in these files, not in any agent's memory. That is what makes the role replaceable.
 
+**Reply format (owner directive 2026-11-21, `CLAUDE.md` section 14):** no how or why, only what Jorge must do next; every reply is one contiguous 600 to 900 word chunk so text to speech is not interrupted; end with a question.
+
 #TRK-2026-9952f
