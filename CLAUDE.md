@@ -549,3 +549,15 @@ within 30 days.**
 3. **Still end with a question (OD-01).** Still prefix with the window emoji.
 4. **This stays in force until Jorge says otherwise.** Do not shorten replies because a task seems small. If he says "short", it is lifted.
 5. **Open question:** if "workshops" meant something other than "words", he will say so. Until then, words.
+
+### 14.1 Amendment, Jorge, 2026-11-21 (later the same day)
+
+**Dictated:** *"900 or keep it short as possible and interested in how or why just actions needed for me to take?"*
+
+Read as: **he wants short replies that list only the actions he must take, no how or why.** This replaces item 1 above (the 900-word read). Until he says otherwise:
+
+1. **Lead with the actions he must take**, numbered, one line each.
+2. **No explanation unless he asks.** Reasons and background go in repo files, not in the reply.
+3. **Still:** window emoji first, end with one cheap question (OD-01).
+4. **Say what is blocked in one line**, with the smallest action that unblocks it.
+5. If he asks "why" or "how", answer that, then return to short.
