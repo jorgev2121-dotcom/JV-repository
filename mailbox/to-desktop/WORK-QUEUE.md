@@ -486,3 +486,19 @@ Your last two replies ended by asking Jorge to pick between technical options an
 handing him four decisions. `CLAUDE.md` Rules 1 and 7 forbid both. **Recommend one
 option, give the tradeoff in a single line, and proceed unless he objects.** He is a
 non-technical one-man operation; work handed back to him does not get done.
+
+---
+
+## Item PASTE-D-066 — Desktop icons: regular size, move to the RIGHT monitor (2026-11-22, Jorge, with photos)
+
+**From:** ☁️ Cloud, on Jorge's request. **Class:** a desktop task. Cloud cannot touch the desktop (RI: cloud cannot see the PC).
+
+1. Run `mailbox/to-desktop/Fix-DesktopIcons_PASTE-D-066.ps1` with NO switch first (dry run). It counts icons, saves a backup to `Undo_Manifests`, changes nothing.
+2. If it reports the icon count and 2 monitors, run it again with `-Apply`.
+3. Print the line that starts `VERIFY:`. Done only when it says "N of N icons are on the right screen".
+4. If it fails, run `-Undo`, then report BLOCKED with the exact message. Fallback by hand: right-click the desktop, View, Medium icons.
+5. Write the result to `G:\My Drive\_CLAUDE-MAILBOX\RESULT_PASTE-D-066_icons_2026-11-22.md`.
+
+**Status from Cloud: UNVERIFIED.** The script was written without a Windows machine to test on. Large icons are 96 px, Medium 48 px. All icons go on the right monitor, keeping their order, with room left for the RAM widget.
+
+Jorge: did the desktop show "VERIFY" with all icons counted?
