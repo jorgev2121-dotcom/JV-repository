@@ -741,3 +741,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-22T02:42Z · runner · panel new=0, no probe pending · PC uptime fresh (modified 02:34:30Z) · RAM guard file still not written since 20:51Z (5 h 51 min, sync-gap pattern; 6 h limit at 02:51Z, 03:16Z watch decides) · Drive heartbeat 18Lj60rIuAZPb2vp8k59iSm269Uk-7mBz (title 0242Z matches create 02:42:10Z)
 - 2026-11-22T03:18Z WATCH done (panel new=0; RAM guard alarm sent once; uptime fresh 03:03:05Z; not a self-test hour).
 - 2026-11-22T03:42Z · runner · panel new=0, no probe pending · PC uptime fresh (modified 03:25:58Z) · RAM guard file still silent since 20:51Z (alarm already sent once at 03:18Z, no repeat) · Drive heartbeat 1wlsOdTSrVvX3XpBHjjy5Qw3eYhPqTxRu (title 0342Z matches create 03:42:18Z)
+- 2026-11-22T04:19Z WATCH done (panel new=0; RAM guard resumed 03:53Z AMBER; uptime fresh 04:13:40Z; not a self-test hour). RI line added.
