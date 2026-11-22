@@ -734,3 +734,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-21T23:18Z WATCH done (panel new=0; nothing new to relay; uptime fresh 23:06:45Z; RAM guard not in modified list since 20:51Z write, about 2 h 27 min, sync-gap pattern, under 6 h limit; not a self-test hour).
 - 2026-11-21T23:41Z · runner · panel new=0, no probe pending · PC uptime fresh (6:31 PM ET stamp, modified 23:32:18Z) · Drive heartbeat 1NJlthLq6OcpvNo4PgGXoAwYGzejVd5Ro (title 2341Z matches create 23:41:41Z)
 - 2026-11-22T00:17Z WATCH done (panel new=0; probe 2026112200 planted; self-test pass 150 5 of 5; context 280k after compaction; uptime fresh 00:04:50Z; RAM guard last write 20:51Z, sync gap, under 6 h).
+- 2026-11-22T00:41Z · runner · panel new=0 after answering probe selftest-probe-2026112200 (reply doc written, probe v2) · PC uptime fresh (7:35 PM ET stamp, modified 00:36:09Z) · Drive heartbeat 1Uqj75pbQa87zoix_ua42PPy0IYvgy3Xe (title 0041Z matches create 00:41:38Z)
