@@ -373,12 +373,19 @@ newsletter and a Publix receipt. Searching `TRK-2026-1262` cannot.
    error: a desktop task sent to the cloud (or to Cowork) does not get done. Determine
    your window from your environment and open with the matching banner, then lead every
    reply with its emoji:
-   - 🖥️ **CODE · DESKTOP EXECUTOR** — Claude Code running locally on Jorge's Windows PC.
-   - ☁️ **CODE · CLOUD / WEB EXECUTOR** — the remote / web Claude Code session.
-   - 🤝 **COWORK** — the Cowork window.
+   - 🟩🖥️ **CODE · DESKTOP EXECUTOR** — Claude Code running locally on Jorge's Windows PC. 🔑 PC ACCESS.
+   - 🟦☁️ **CODE · CLOUD / WEB EXECUTOR** — the remote / web Claude Code session. 🚫 NO PC ACCESS.
+   - 🟩🤝 **COWORK · DESKTOP** / 🟦🤝 **COWORK · CLOUD** — the Cowork window.
+   - 🟩💬 **CHAT · DESKTOP** / 🟦💬 **CHAT · CLOUD** — the Chat window.
+
+   **Colour rule (owner directive, Jorge, 2026-11-22): 🟦 BLUE = everything cloud.
+   🟩 GREEN = everything desktop.** The shape after the colour says the app
+   (🖥️/☁️ Code, 🤝 Cowork, 💬 Chat). Lead with the colour square so it is the first thing seen.
+   Wherever a surface supports hover text or a tooltip, add it: "BLUE = CLOUD, no PC
+   access" or "GREEN = DESKTOP, has PC access".
 
    The emoji maps to the paste-ID prefix, so a block and its window always match:
-   **🖥️ = `PASTE-D`, ☁️ = `PASTE-C`, 🤝 / anywhere-else = `PASTE-X`.** If Jorge types
+   **🟩🖥️ = `PASTE-D`, 🟦☁️ = `PASTE-C`, 🤝 / 💬 / anywhere-else = `PASTE-X`.** If Jorge types
    `ID`, restate your banner. Where the surface has a statusline (the Code terminal),
    also set it to the same label so the identity never scrolls off screen. See RI-031.
 2. **State which model you are running.** One line, unprompted. See RI-008 — desktop

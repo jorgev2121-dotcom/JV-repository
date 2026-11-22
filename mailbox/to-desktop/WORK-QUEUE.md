@@ -480,6 +480,29 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
 
 ---
 
+## 17. OWNER DIRECTIVE 2026-11-22 — Colour-code every window (TRK to be issued from the registry)
+
+**Jorge's rule: 🟦 BLUE = cloud. 🟩 GREEN = desktop.** Shape says the app. See `CLAUDE.md` §10.
+
+Desktop steps (read-only to client files, GREEN at any hour):
+
+1. **Statusline.** Set the Claude Code statusline to start with `🟩🖥️ CODE · DESKTOP · PC ACCESS`
+   in green text. Keep the existing model display next to it. Make a `.bak-20261122`
+   copy of `settings.json` first.
+2. **Desktop shortcuts.** Give the Chase, Claude and other launch shortcuts a hover
+   comment: "GREEN = DESKTOP, has PC access".
+3. **Chrome profile colour.** Desktop profile = green theme.
+4. **Read-aloud HTML files** (`Latest-Reply_ReadAloud.html`): put a green banner at the
+   top and a `title=` hover text saying "GREEN = DESKTOP".
+5. **Report back** with the screenshot or file proving each step. No proof = unverified.
+
+Limit: the app's own icons and its in-app hover cannot be recoloured. Only the items
+above can be marked.
+
+Did the green statusline appear when you restarted Claude Code?
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
