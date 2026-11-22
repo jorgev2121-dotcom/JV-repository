@@ -126,3 +126,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-22T00:17Z logged only: Grok sync/backlog digests, Jorge SYNC-01 result self-email (00:13Z), Spotify and Facebook notices, earlier Plaud login-code emails (codes not recorded). Nothing relayed.
 - 2026-11-22T01:18Z logged only: Grok sync/backlog/reply-watcher digests, Jorge SYNC-01 result self-email (01:12Z), TikTok notice. Nothing relayed.
 - 2026-11-22T02:18Z logged only: Grok sync/backlog/reply-watcher digests, Jorge SYNC-01 result self-email (02:11Z), Facebook notice, TikTok notice. Nothing relayed. Note: BLOCKER_SILENT-SIGNOFF file showed size 0 at 02:16:18Z, probably mid-refresh (UNVERIFIED); recheck next run.
+- 2026-11-22T03:18Z relayed: RAM guard 6 h silence alarm. Logged only: Grok sync-handoff 'Lane blocked, owner approve pending' and repair-agent digests, Jorge SYNC-01 result self-email (03:09Z, says LANE BLOCKED; details not read).
