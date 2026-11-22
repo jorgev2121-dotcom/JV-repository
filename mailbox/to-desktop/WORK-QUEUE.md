@@ -503,6 +503,43 @@ Did the green statusline appear when you restarted Claude Code?
 
 ---
 
+## 18. OWNER DIRECTIVE 2026-11-22 — Desktop icon cleanup: small icons, other screen (TRK to be issued from the registry)
+
+**Why:** Jorge's Desktop has about 100 icons covering the screen. `CLAUDE.md` §9 says the
+Desktop is a launchpad, never storage. No named icon-cleanup protocol exists in the
+repo, so this item is the protocol. Closest prior art: `RECURRING-ISSUES.md` holding-area
+diagnosis (Tier 3 = a scheduled sweep that reports what has sat there).
+
+**Jorge wants:** (a) smaller icons, (b) icons back on the OTHER screen, where they were
+before, (c) the unnecessary ones cleared.
+
+**Safety rule: MOVE, never delete. Deleting is RED.** Nothing leaves the machine.
+
+Steps (Desktop executor only, cloud cannot touch the PC):
+
+1. **Snapshot first.** Save a screenshot and a file list of `C:\Users\JV\Desktop\`
+   (names, type, date modified, size) to `C:\Users\JV\OneDrive\Documents\Reports\`.
+   Write a rollback script to `...\Undo_Manifests\Rollback_DesktopClean_2026-11-22_HHMM.ps1`.
+2. **Small icons.** Right-click Desktop, View, Small icons. Confirm Auto-arrange is OFF
+   so positions are kept.
+3. **Other screen.** Find which monitor holds the desktop icons now. Ask Jorge ONE
+   question: which screen did they sit on before? Then move them there (set that
+   monitor as primary in Display settings, or drag). Do not change resolution.
+4. **Classify every item** into KEEP (working launchers: Claude, Rambo, VTES Panel,
+   Chrome, Outlook, 1Password, Chase) / ARCHIVE (old versions such as VTES Panel V67,
+   V68, duplicate Latest-Reply files, FINISHER-01 copies, stale `.hta` and `.html`)
+   / UNSURE.
+5. **Move ARCHIVE items** into `Desktop\_Desktop-Archive-2026-11-22\`, ordered by type.
+   Leave UNSURE where they are and list them for Jorge.
+6. **Prove it.** After screenshot, before and after counts (for example "98 to 31"),
+   and the rollback script path. No proof = unverified.
+7. **Log** a dated line in `RECURRING-ISSUES.md` that Desktop clutter returned
+   (Rule 4). Propose a Tier 3 monthly report listing Desktop items by age.
+
+Did the Desktop come out smaller and on the right screen after Rambo finished?
+
+---
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
