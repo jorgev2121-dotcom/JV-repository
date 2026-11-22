@@ -758,3 +758,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-22T11:18Z WATCH done (panel new=0; nothing new; RAM guard writing 11:16:11Z; uptime fresh 11:16:28Z; not a self-test hour).
 - 2026-11-22T11:41Z · runner · panel new=0, no probe pending · PC uptime fresh (modified 11:37:29Z) · Drive heartbeat 1x2bKqRr8-1NnoIva1TlNAJUjgUtQxc8m (title 1141Z matches create 11:41:46Z)
 - 2026-11-22T12:18Z WATCH done (panel new=0; probe 2026112212 planted; self-test pass 152 5 of 5; context 526k; RAM guard writing 12:16Z; uptime fresh 12:16:47Z).
+- 2026-11-22T12:41Z · runner · panel new=0 after answering probe selftest-probe-2026112212 (reply doc written, probe v2) · PC uptime fresh (modified 12:37:29Z) · Drive heartbeat 1oV4Da6w_sYA9oU7-QeiAPONVJOrwuu2n (title 1241Z matches create 12:41:44Z)
