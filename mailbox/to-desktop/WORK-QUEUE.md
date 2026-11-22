@@ -480,6 +480,21 @@ Delivered via Drive on 2026-09-23 because Jorge was away from the PC. The full t
 
 ---
 
+## 17. TRK-2026-9952f — OWNER DIRECTIVE 2026-11-22: shrink oversize desktop icons, move them to the RIGHT screen, pop the phone-remote-access permit
+
+**Window: DESKTOP EXECUTOR (RAMBO lane).** Cloud cannot touch the PC (IMPOSSIBLE from cloud). Script is ready and unverified on Windows: `Fix-Icons-And-Remote-Access_PASTE-D-066.ps1` (same folder; copy also in Drive `_CLAUDE-MAILBOX`).
+
+Steps, in order:
+1. Run `powershell -ExecutionPolicy Bypass -File .\Fix-Icons-And-Remote-Access_PASTE-D-066.ps1 -MakeRightPrimary`.
+2. If it errors, read the error and fix the script yourself. Do not hand it to Jorge.
+3. Verify with a screenshot, not only the log: icons are Medium size, and they sit on the right-hand screen. Log is `%USERPROFILE%\ClaudeWatchdog\icons-and-remote.log`. Fallback if the monitor swap fails: Settings > Display > pick the right screen > "Make this my main display".
+4. The script pops a YES/NO "Phone remote access" window. **Only Jorge can press YES.** It is the owner's own consent. Leave the window up, and say so in your report. Do NOT click YES for him.
+5. On YES the script starts `claude remote-control` (or the RC-Watchdog if installed). Confirm the process is running and a session shows on the phone app.
+6. Shortcuts created: Phone Remote Access PERMIT, Claude Cowork, Claude Code Desktop Executor. Report any that were skipped.
+
+Never: open RDP or any port to the internet. Remote Control is the only approved route.
+Report to TO-CLOUD.md with the log tail and the screenshot. Close the item as DONE only with that proof.
+
 ## Standing note for the desktop session
 
 Your last two replies ended by asking Jorge to pick between technical options and by
