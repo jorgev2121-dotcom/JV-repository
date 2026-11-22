@@ -1,7 +1,7 @@
-# MSG-CLOUD-TO-RAMBO-CROCKPOT — Connect as Claude Desktop Executor
+# MSG-CLOUD-TO-RAMBO-GROKBOT — Connect as Claude Desktop Executor
 
 **FROM:** ☁️ Cloud executor, on Jorge's request, 2026-11-22
-**TO:** RAMBO (desktop lane, DESKTOP-OTB90LR) and CROCKPOT
+**TO:** RAMBO (desktop lane, DESKTOP-OTB90LR) and GROK BOT (Jorge said "Crockpot" and confirmed on 2026-11-22 that he means Grok bot)
 **TASK:** Flip the switch so the cloud session can reach the Claude Code Desktop app, then confirm contact.
 
 ## Section A — Why this was sent
@@ -28,3 +28,5 @@ Write a file named `RECEIPT_DESKTOP_connected_2026-11-22.md` in `G:\My Drive\_CL
 The cloud's folder list shows the desktop folder as online, and the receipt file exists.
 
 Jorge: did the receipt file show up on your side?
+
+P.S. Grok bot is not a Claude app. It cannot flip the Claude Remote Control switch. Its part: confirm it received this and write its own receipt line in `_CLAUDE-MAILBOX`. RAMBO does the Claude Desktop connection. Icons for the Cowork and Desktop Executor access permits: `ACCESS-PERMIT-ICONS_2026-11-22.html`.
