@@ -164,3 +164,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-23T14:17Z WATCH: nothing needing action; Grok/SYNC-01 digests, social, newsletters
 - 2026-11-23T15:16Z WATCH: Jorge's own QuickBooks help request to his accountant firm (14:42Z, auto-reply: out of office until 11-25); other items routine
 - 2026-11-23T16:17Z WATCH: Miguel read receipt (Dealer Registration), rest routine
+- 2026-11-23T17:16Z WATCH: Jorge self-email TUS-26-1033 refund/hold-harmless agreement (own draft, no third-party arrival); Intuit digest (bank feeds need reconnect)
