@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VTES One Page</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#14181f;--mute:#566074;--line:#d9dee7;--link:#0b57d0;--d:#0a6b3d;--c:#6b2fb3;--w:#b4540a}
+@media (prefers-color-scheme:dark){:root{--bg:#10141b;--card:#1a2029;--ink:#eef1f6;--mute:#9aa6ba;--line:#2e3846;--link:#8ab4f8;--d:#5fd39a;--c:#c9a6ff;--w:#ffb070}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 system-ui,Segoe UI,Arial,sans-serif;padding:16px}
+main{max-width:980px;margin:0 auto}
+h1{font-size:1.7rem;margin:.2em 0}
+h2{font-size:1.25rem;margin:1.6em 0 .4em;border-bottom:2px solid var(--line);padding-bottom:.2em}
+p.sub{color:var(--mute);margin:.2em 0 1em}
+a{color:var(--link);word-break:break-word}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card.star{border:3px solid var(--d)}
+.big{font-size:2.4rem;line-height:1}
+.permit{display:flex;flex-wrap:wrap;gap:6px;margin:.5em 0}
+.permit span{border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:.85rem;background:var(--bg)}
+.no{opacity:.65;text-decoration:line-through}
+ul{padding-left:1.2em;margin:.3em 0}
+li{margin:.35em 0}
+.note{color:var(--mute);font-size:.9rem}
+details{margin:.5em 0}summary{cursor:pointer;padding:6px 0}
+.tag{font-size:.75rem;border-radius:6px;padding:1px 6px;border:1px solid var(--line);color:var(--mute);margin-left:6px}
+</style>
+</head>
+<body>
+<main>
+<h1>VTES — everything on one page</h1>
+<p class="sub">Built 2026-10-23 by ☁️ Cloud from a search of the repo and Google Drive. VTES lanes, panel, health, protocols, and the Executor trail. Every link below was returned by a live Drive search on 2026-10-23.</p>
+
+<h2>Section A — The team, with access permits</h2>
+<div class="team">
+  <div class="card star">
+    <div class="big">🖥️</div>
+    <b>CODE · DESKTOP EXECUTOR</b> <span class="tag">paste prefix PASTE-D</span>
+    <p>The only one that touches Jorge's PC. It runs the night queue and the VTES poller work.</p>
+    <div class="permit">
+      <span>🔑 PC files</span><span>🔑 Outlook</span><span>🔑 miamidade.gov</span><span>🔑 PaperPort</span><span>🔑 Local scripts</span><span>🔑 Chrome</span><span>🔑 Task Scheduler</span>
+    </div>
+    <p class="note">Filing, moving, deleting client documents, sending anything outbound, spend and credentials stay RED: they need Jorge's yes.</p>
+  </div>
+  <div class="card">
+    <div class="big">🤝</div>
+    <b>COWORK</b> <span class="tag">paste prefix PASTE-X</span>
+    <p>Email and connected services. Planning surface. Not the repo executor.</p>
+    <div class="permit">
+      <span>🔑 Gmail</span><span>🔑 Calendar</span><span>🔑 Drive</span><span>🔑 Connected apps</span><span class="no">repo executor</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="big">☁️</div>
+    <b>CODE · CLOUD / WEB EXECUTOR</b> <span class="tag">paste prefix PASTE-C</span>
+    <p>Plans and checks. Writes work orders for Desktop.</p>
+    <div class="permit">
+      <span>🔑 Repo</span><span>🔑 Drive</span><span>🔑 Gmail</span><span>🔑 Web</span><span class="no">Jorge's PC</span><span class="no">Outlook</span><span class="no">miamidade.gov</span>
+    </div>
+  </div>
+</div>
+<p class="note">Permits come from the window config and team plan in the repo: <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/WINDOW-CONFIG_ALL-SURFACES_2026-08-24.md">WINDOW-CONFIG_ALL-SURFACES</a> and <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/TEAM-DEPLOYMENT-PLAN_2026-09-28.md">TEAM-DEPLOYMENT-PLAN</a>. I read "access permit icons" as these badges. Tell me if you meant something else.</p>
+
+<h2>Section B — VTES Drive folders (the lanes)</h2>
+<ul>
+<li><a href="https://drive.google.com/drive/folders/1hI2TmVn86Cnh7h_6s93TG0KE1QzVCV5F">VTES-Inbox</a> — jobs waiting for the Executor</li>
+<li><a href="https://drive.google.com/drive/folders/1NDadXJz9eKpRbmYrE-CRH2RtKbynQClN">VTES-Outbox</a> — results, heartbeats, ACKs, EXECUTED files</li>
+<li><a href="https://drive.google.com/drive/folders/1ksoxBbUnCBJf7uddi9lPN7O9aFGKWVRr">VTES-Bridge</a> — charter and handoff</li>
+<li><a href="https://drive.google.com/drive/folders/1dh3SMYXAf7isthzVhvQGQv_PEZ_OaCVn">VTES-Capture-Inbox</a></li>
+<li><a href="https://drive.google.com/drive/folders/1_G5KbMkQ44ydAmEW7qCcrF4-6sBIKH9k">VTES-PANEL</a></li>
+<li><a href="https://drive.google.com/drive/folders/17lZJxj0Aw6XH44nyVNSw0vroRdaowj_n">VTES-MINI-DATABASE</a> <span class="tag">created 2026-10-22</span></li>
+<li><a href="https://drive.google.com/drive/folders/14jY-aRnidB471EIoPf5i-E05O6ZMcRTH">VTES-OWNER-WORKBOOK (1-page)</a></li>
+<li><a href="https://drive.google.com/drive/folders/1_BxhDI-H624wS1jFP7QR7Hk1KbXu_lqU">VTES-LANE-MAP</a> and its doc <a href="https://docs.google.com/document/d/1BZnTgjSQi4VP92uUR0FgpCitC9BmIvfg0D3pHCmJkRo/edit">VTES-LANE-MAP_2026-10-16</a></li>
+<li><a href="https://drive.google.com/drive/folders/14rLFyk8Fz2MQ1n4zyKJ2p-vWfKEwPpkW">VTES-Control-Panel</a> · <a href="https://drive.google.com/drive/folders/1ZPSUQhjgdYfqi4QB4Z577CkPeAvTyQZC">VTES-STATUS-BOARD V1</a> · <a href="https://drive.google.com/drive/folders/1d_NfhUr4S6OpXVvG0NFKokeUgl_1-kCM">VTES-PAPERPORT-SCANS V1</a></li>
+<li><a href="https://drive.google.com/drive/folders/150Yv0k6B-67YWB_5J7FjzaUeslOQbusi">VTES-Inbox-CODEX</a> · <a href="https://drive.google.com/drive/folders/1xLos9ySagIs_mZVHWp79zBmQBzSualhW">VTES-Inbox-LOCAL</a> · <a href="https://drive.google.com/drive/folders/1mHH1RG87CPerSzVHsN1SPAAbx8DAcyOq">VTES-Outlook-Setup</a></li>
+<li><a href="https://drive.google.com/drive/folders/19oXBeIRD1ltFF-OmJ-3RwRstvN-Ri3IZ">VTES-SOLICIT stage folders V1</a> · <a href="https://drive.google.com/drive/folders/1r0RiAZ76jwu5lkynEBRGUm0EEPMYEnSC">VTES-VENDOR listkit interactions</a> · <a href="https://drive.google.com/drive/folders/1xgh2iCddC7NG0S2mFGKUpl5kbl4TVbIs">TRK-2026-1699 Mr. IT session (#VTES)</a></li>
+<li><a href="https://drive.google.com/drive/folders/1XWYuimxo9D5wfp2nsgSlYxxF2xSiRSVF">_CLAUDE-MAILBOX</a> · <a href="https://drive.google.com/drive/folders/1khPbL-HE7ahw_pv5hEdukS-PbbmT3xdl">PASTE-TRAY</a> · <a href="https://drive.google.com/drive/folders/1aYWNOHk8tcdmugP38pbF7S_Ma2azATzN">MY-DESK</a></li>
+</ul>
+
+<h2>Section C — Panel, health, launcher</h2>
+<ul>
+<li><a href="https://drive.google.com/file/d/1oA3A-s_i5Sn2zHwxnXm-VxNpXSCPBjtp/view">VTES-HEALTH.html</a> — health page, touched yesterday</li>
+<li><a href="https://drive.google.com/file/d/1hhgCZbctVLV6MwKWJ4ZOttsyt9OdTt6H/view">VTES-LLM-LAUNCHER v5</a> and its <a href="https://drive.google.com/file/d/1Rsw_YoEZVl1dODAn0hYi2G4xVT_w2C9F/view">config</a></li>
+<li><a href="https://docs.google.com/document/d/1JWbCZcs56O0SzPGPDUBXuQcv8TsQ1J-t6fNxXnzGgOE/edit">VTS Multi-LLM Control Panel (TRK-2026-9200)</a> — repo copy: <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/VTS-LLM-PANEL_TRK-2026-9200_2026-08-26.md">VTS-LLM-PANEL</a></li>
+<li>Panel handoff: <a href="https://drive.google.com/drive/folders/1GNw2MrM5YwpBbBqgE3zW_onF1-3hQ1ih">README START HERE</a> · <a href="https://drive.google.com/drive/folders/1UV2KbjcFVoAfGVPEBy7-i2SUHnGJ6eYj">handoff brief</a> · <a href="https://drive.google.com/drive/folders/1xhoB3I4QAsadlmIL3FlsgrCpSmzdBB0m">handoff board</a></li>
+<li>Repo: <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/control-panel/PANEL.html">control-panel/PANEL.html</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/tree/claude/stoic-mendel-55xdsy/vts-llm-panel">vts-llm-panel/</a> (health monitor, Gemini key installer, token monitor guide)</li>
+</ul>
+
+<h2>Section D — Protocols and AI bridge</h2>
+<ul>
+<li><a href="https://drive.google.com/drive/folders/1Zs2vURAj86bwstwFzsoL5LZ-xb1V3MVX">Protocol: OCR · VTES · 1Password (2026-10-20)</a></li>
+<li><a href="https://drive.google.com/drive/folders/19sC6imUPw2UQjw13sI56bFFZgTdA7H0D">VTES OCR routing protocol V1</a></li>
+<li><a href="https://drive.google.com/drive/folders/1LEJMjRlIZ8P5JBatPjWT6OPjrCtRLzJj">VTES 1Password portal plan V1</a></li>
+<li><a href="https://drive.google.com/drive/folders/13ZIf3XANjllnkkTUHuGxR5QDBDHbuhvW">Copilot VTES panel request (API drop)</a></li>
+</ul>
+
+<h2>Section E — Desktop Executor trail (newest first)</h2>
+<ul>
+<li>2026-10-22 · <a href="https://drive.google.com/file/d/14Uln2yl_dACJHEpSnhLu-IuoLptDNbQ8/view">ACK: icon vault and watcher job</a> · <a href="https://drive.google.com/file/d/1LlmbcM0gtqTinWHvlgUtwHlXiIw5VXsS/view">BLOCKER on the same job</a></li>
+<li>2026-10-21 · <a href="https://drive.google.com/file/d/11RT1mmyBc8LOLSbBOBcDWg46hgluSY9u/view">EXECUTED: icon, Speechify, health</a></li>
+<li>2026-10-16 · <a href="https://drive.google.com/file/d/1dTy3ywTiNjKvTPw7Udt4M_7wQKphW_-G/view">Reply to Chat: Executor</a></li>
+<li>2026-10-10 · <a href="https://drive.google.com/file/d/1H0qleV9Hqjuw3P7_QXirmKRnlPYOjUe6/view">EXECUTED: section-progress Executor repair</a></li>
+<li>2026-10-08 · <a href="https://drive.google.com/file/d/1L-cOt1fXZayn-P_1RnlR9V_iMdWFYQh7/view">Executor restart result</a></li>
+<li>2026-10-02 · <a href="https://drive.google.com/file/d/1JSGu5FeScaOoSH32stuCb8GLE31GfABv/view">EXECUTED: Desktop Executor shortcut and panel restore</a> · <a href="https://drive.google.com/file/d/1oDvbQlGoK8R7qIyEUSR5SR7IrltF1oEH/view">reply</a></li>
+<li>2026-09-28 · <a href="https://drive.google.com/file/d/1nYlwwtrQxCRfYgtDs207DBtRemhIL84G/view">Reply: Executor-first</a></li>
+<li>2026-09-25 · <a href="https://drive.google.com/file/d/188Z_DzQ2P1wnlwnhkXT9Ci0MYfAObpe5/view">Executor queue (active)</a></li>
+<li>2026-09-23 · <a href="https://drive.google.com/file/d/1-ubI6HOsR-134ngtplQIiomc_Hz1Nnnn/view">Backup-Executor (Codex) directive</a> · <a href="https://drive.google.com/file/d/1YLjLm_CGxxgQwQd1uNE0PDg-OyBP1qtK/view">executed v2</a></li>
+<li>2026-09-05 · <a href="https://drive.google.com/file/d/1_r0KRfsr7MzORBYT-hlmMAj8RcSaL1Bu/view">Desktop Executor handoff</a> · <a href="https://drive.google.com/file/d/1F-N3qSHXwFUDrkYX-sNQ8XNypaJ2IAsM/view">Command Executor now exists</a> · <a href="https://drive.google.com/file/d/1APkyF8dkV2vCZQt5tu1iyQtB_okCELzN/view">safety test result</a></li>
+<li>2026-08-31 · <a href="https://drive.google.com/file/d/1vYRTzpdcKcPam9DLTrsoO51dFy0J9PIE/view">Verdict 9956: the Executor was eating its own output</a></li>
+<li>2026-08-26 · <a href="https://docs.google.com/document/d/16TiDEyPNEDBLMj4ACvBtHSP2_dVFwkVpoMvoDN4Z0UA/edit">Priority Zero: build the JV-Executor launcher</a> · <a href="https://docs.google.com/document/d/1z8Pj4pE3FIJXcoeRZFoLb4U41_M1KFy0M67Yi3dXrgA/edit">one-click launcher and tray icon</a> · <a href="https://drive.google.com/file/d/1Qjq2Lzh5Fp-UHj6_DZW8VZr94j3b8QJ2/view">recreate-jv-executor.ps1</a></li>
+<li>2026-08-20 · <a href="https://drive.google.com/file/d/1Leex5v1jOb1OEmfDQwRRb5w309PIQHob/view">Ask: tray icon to summon the Executor</a></li>
+</ul>
+
+<h2>Section F — Repo files that name VTES or VTS</h2>
+<ul>
+<li><a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/OPEN-ITEMS.md">OPEN-ITEMS.md</a> (69 VTES lines) · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/RECURRING-ISSUES.md">RECURRING-ISSUES.md</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/EXECUTIVE-CHARTER.md">EXECUTIVE-CHARTER.md</a></li>
+<li><a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/mailbox/to-desktop/WORK-QUEUE.md">mailbox/to-desktop/WORK-QUEUE.md</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/mailbox/to-desktop/Executor-Takeover_PASTE-D-063.ps1">Executor-Takeover_PASTE-D-063.ps1</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/mailbox/to-desktop/OWNER-ORDER_PASTE-D-063_executor-takeover_2026-09-28.md">owner order D-063</a></li>
+<li><a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/TEAM-DEPLOYMENT-PLAN_2026-09-28.md">TEAM-DEPLOYMENT-PLAN</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/WATCHDOG-FOUND.md">WATCHDOG-FOUND</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/ONE-ROSTER-ONE-READER_2026-08-18.md">ONE-ROSTER-ONE-READER</a></li>
+<li><a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/shift-brief/CURRENT.md">shift-brief/CURRENT.md</a> · <a href="https://github.com/jorgev2121-dotcom/JV-repository/blob/claude/stoic-mendel-55xdsy/RESULT-D2C-9740_MIRROR_four-icons-app-already-installed.md">four Claude icons (TRK-2026-9740 mirror)</a></li>
+</ul>
+
+<h2>Section G — Every named VTES file found (178)</h2>
+<p class="note">Grouped by name. Auto-generated ACK, EXECUTED, SUPERSEDED and watchman files are left out on purpose; they are noise.</p>
+<details><summary><b>Control panel</b> (43)</summary><ul>
+<li><a href="https://drive.google.com/file/d/1FJ1R-tcW0x-7lh0fKdhnudlGh4Xy0wsf/view">API-DROP_COPILOT-VTES-PANEL-REQUEST_2026-10-16.md</a></li>
+<li><a href="https://drive.google.com/file/d/1tH_Ljy-myByH3CUgLBelmjIzAlk9_R_A/view?usp=drivesdk">BLOCKER_CODEX-PII_JOB_RAMBO_OPEN-VTES-CONTROL-PANEL_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1CD1deT-vf_tX1ALAah-l1sjpbEtaRyDJ/view?usp=drivesdk">BLOCKER_CODEX-PII_JOB_VTES-CONTROL-PANEL-PROMOTE-LATEST_V1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/1pJUy43eIE5g3bGVannC09EkCLdYhJ90C/view?usp=drivesdk">BLOCKER_CODEX_MSG-CLOUD-TO-CODE_WIRE-VTES-PANEL-V5_RAMBO1_2026-10-12.md</a></li>
+<li><a href="https://drive.google.com/file/d/1-D8w0piPIinp3vFgvb3NQvgxpTuXQrji/view?usp=drivesdk">BLOCKER_CODEX_MSG-CLOUD-TO-CODE_WIRE-VTES-PANEL-V5_RAMBO1_2026-10-12_v2.md</a></li>
+<li><a href="https://drive.google.com/file/d/19ok9M7_HaEQ3rtGP8uGjXgDVyE5jMoEv/view">EMAIL-REQUEST_COPILOT-VTES-PANEL_2026-10-16.md</a></li>
+<li><a href="https://drive.google.com/file/d/1dIk8pQ-PMHNiyM65bP-XSJ7DBYHBgqjB/view">HANDOFF_VTES-CONTROL-PANEL_CHANGE-HISTORY_2026-10-02.md</a></li>
+<li><a href="https://drive.google.com/file/d/1SeA5nn9pCpLquOxMpNTi2FhIzUfUDWHl/view?usp=drivesdk">JOB-NEXT_LINK-LIBRARY-PAGE-VTES-PANEL_RAMBO.md</a></li>
+<li><a href="https://drive.google.com/file/d/11JmOSFhwYhKA6arPlTdS52fFo2xhwHCD/view?usp=drivesdk">JOB-VTES-PANEL-DESKTOP-COPY_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1ZcRRrNp7SOZ9tb_6DZ2GVPHTsDJjrW79/view">JOB_RAMBO_OPEN-VTES-CONTROL-PANEL_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1F8nnXK-HeEI3mRjh-IqO69EgSz1D6mPM/view">JOB_RAMBO_PRIORITY_VTES-PANEL-100_OCR_42-LABELS_UPTIME_2026-10-18.md</a></li>
+<li><a href="https://drive.google.com/file/d/13o8hggskRGcD9gvf_YM6oS53UCPFkXZ0/view">JOB_RAMBO_RESTORE-CURRENT-VTES-CONTROL-PANEL_2026-10-20.md</a></li>
+<li><a href="https://drive.google.com/file/d/1ff2ALDtS8Xs3CQwILs1bLl-EcLumqHks/view">JOB_TRK-2026-1016-SYNC-01_VTES-CONTROL-PANEL.md</a></li>
+<li><a href="https://drive.google.com/file/d/19Cgkm14z8FB39T4DOSMWPVjXmJPVa7gg/view?usp=drivesdk">JOB_VTES-CONTROL-PANEL-PROMOTE-LATEST_V1_ADDENDUM-A.md</a></li>
+<li><a href="https://drive.google.com/file/d/1sK8AvK-1Xcfc1EH9_EevdsamlZGaO6t0/view">JOB_VTES-CONTROL-PANEL-PROMOTE-LATEST_V1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/1V9Kxz6E6M5KqHK-U_-2sT5o6QXzamq-x/view?usp=drivesdk">JOB_VTES-CONTROL-PANEL-UPLOAD-SOURCES_V1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/16S1yuc6bxT8GeuFxqsYk8LirBKyDO2wS/view?usp=drivesdk">MSG-COWORK-TO-CODE_VTES-CONTROL-PANEL-REBUILD_ENHANCEMENTS_2026-09-26.md</a></li>
+<li><a href="https://drive.google.com/file/d/1LL0rbQI2RVlGbbZwZbtwl3H9hF-XvHmu/view">OWNER-APPROVAL_VTES-CONTROL-PANEL-V1-LAYOUT_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1AeXg0Ecw0HP9LxGKxzMpgr7m8tEX85Qq/view">PASTE-TO-GEMINI_VTES-CONTROL-PANEL_2026-10-02.txt</a></li>
+<li><a href="https://drive.google.com/file/d/1l0Fy-b_NC7Thl_TsEqiyF4--PPEDQhnL/view">RAMBO-TASK_VTES-CONTROL-PANEL_OPEN-LATEST-BUTTON_2026-10-19</a></li>
+<li><a href="https://drive.google.com/file/d/1so7zypnv4iwMlapURbRQXDCYCUdH4Hr8/view">REQUEST_COPILOT-VTES-PANEL_API-DROP_2026-10-16.md</a></li>
+<li><a href="https://drive.google.com/file/d/1zOwDq5bZJ8mVzepw4ZxaVmzSRnkDeaX3/view">TASK-C2D_WHY-LITELLM-VTES-PANEL-IS-DOWN_2026-08-25.md</a></li>
+<li><a href="https://drive.google.com/file/d/1NmT2SPFfyCeliTzl4TxJvlTHwfZ9h4T8/view">UPDATE-SYNC-VTES-CONTROL-PANEL_2026-10-16.ps1</a></li>
+<li><a href="https://drive.google.com/file/d/1yOmyWx1nrvKu9ya0cWKK6Eq4v4o_mqOQ/view">VTES-AGENT-MONITOR_CURRENT_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1FFBYeQFFxW2VejL9eCnGfz6uM7zje47Q/view">VTES-AGENT-MONITOR_V1.html</a></li>
+<li><a href="https://drive.google.com/file/d/1ybL2rjx7gX7YNSjs0k4HUsafUcIx9x-A/view?usp=drivesdk">VTES-CONTROL-PANEL-HOME.html</a></li>
+<li><a href="https://drive.google.com/file/d/134_x3LqCJNQcHA4uwSw7oSkIm4clFMPI/view">VTES-CONTROL-PANEL_ADDENDUM_DIRECTIVES_2026-10-18.md</a></li>
+<li><a href="https://drive.google.com/file/d/10jmRYo63h_jQW4cTWHBa18UnUPfQd5KO/view">VTES-CONTROL-PANEL_CURRENT_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1by58enoEgLbKzy27b_WOMr_CbDlm38ky/view?usp=drivesdk">VTES-CONTROL-PANEL_CURRENT_V2.md</a></li>
+<li><a href="https://drive.google.com/file/d/162e-Rbqu-zaNbdhZdU-6Qsm5VoXP_UeC/view?usp=drivesdk">VTES-CONTROL-PANEL_CURRENT_V3.md</a></li>
+<li><a href="https://drive.google.com/file/d/118F8nVr35KUoXo4vlQzYr05K8mJqiw9b/view?usp=drivesdk">VTES-CONTROL-PANEL_FEATURE-GAP_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/19sjnV2k910YE6BZyxa1hG7ksu16-sx2i/view">VTES-CONTROL-PANEL_HISTORY-AND-LATEST_2026-10-02.md</a></li>
+<li><a href="https://drive.google.com/file/d/1ocTh7Jp5pKy04nPMGTMg6jlHE00TI6uz/view?usp=drivesdk">VTES-CONTROL-PANEL_REWORK-PROTOCOL_SPEECH-FIX_V1_2026-10-22.md</a></li>
+<li><a href="https://drive.google.com/file/d/1m_dcHtW_BL98odQVQTc2VsMHyz4s6X4B/view">VTES-CONTROL-PANEL_V4-DRAFT_2026-10-18.html</a></li>
+<li><a href="https://drive.google.com/file/d/1oA3A-s_i5Sn2zHwxnXm-VxNpXSCPBjtp/view">VTES-HEALTH.html</a></li>
+<li><a href="https://drive.google.com/file/d/1ny5fWiYI3z-Tk9VPXDwzLXhIRZt6a_i9/view?usp=drivesdk">VTES-JOB_LANE-CHATGPT_NO-CLIENT-DETAILS_ICON-SPEECHIFY-HEALTH_V1_2026-10-21.md</a></li>
+<li><a href="https://drive.google.com/file/d/1-BcroBVGhPngDUS5fc25l37DTdRA3Wij/view">VTES-LLM-SUBSCRIPTIONS-PANEL.html</a></li>
+<li><a href="https://drive.google.com/file/d/1qypuN-bXB8tqb5Tenw2woNR2hOeGruKD/view">VTES-PANEL-HANDOFF-BRIEF_2026-10-12.md</a></li>
+<li><a href="https://drive.google.com/file/d/1j_A8Ovdj7mnDsX0W6kaxs6j9sC0k2kJ9/view">VTES-PROTOCOL-ADDENDUM_REGISTRIES-PANEL_2026-10-20_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1rv-Fx5nsyyDi3isZZ6xqHJwvlmGJVZ-D/view">VTES-SOLICIT_V2_LISTS-PANEL_NARRATIVE-AND-STAGE-LADDER_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1lfvYHtvKjT9AtVpIbHjCpjizFjDoNBLR/view">VTES_Control_Panel_V1.html</a></li>
+<li><a href="https://drive.google.com/file/d/1TiAZLbtIxx4JwygD6SU1eHrUb7kKnf8t/view?usp=drivesdk">VTES_Control_Panel_V2.html</a></li>
+<li><a href="https://drive.google.com/file/d/1-YvMttfZq_fz8wp44WIemR6y449LfUN2/view?usp=drivesdk">VTES_Control_Panel_V3.html</a></li>
+</ul></details>
+<details><summary><b>Launcher and panel code</b> (25)</summary><ul>
+<li><a href="https://drive.google.com/file/d/1RBf6Z1xolzDCfSTGxagCYIOhYKqQFaRk/view">TASK-C2D_TRK-2026-9910-B_VTES-LLM-LAUNCHER_v2_2026-09-30.md</a></li>
+<li><a href="https://drive.google.com/file/d/1c8drh2Dzk-DpjMCQVpOC47l94QAcVHl1/view?usp=drivesdk">vtes-addresses.json</a></li>
+<li><a href="https://drive.google.com/file/d/1P2BDFV-VA1d8Umf3HM-7fLSnKtvWRx_y/view">vtes-addresses.json</a></li>
+<li><a href="https://drive.google.com/file/d/1LBDAyhpCNljB4csiPT-_yR1_DYj22FBY/view?usp=drivesdk">vtes-addresses.json.bak-20261006</a></li>
+<li><a href="https://drive.google.com/file/d/1QEL4cBcSHDZS1AML2-xNDz1RwdX2A3hG/view?usp=drivesdk">vtes-addresses.json.bak-20261006-llm03</a></li>
+<li><a href="https://drive.google.com/file/d/1ZmPYHkN1VDE1tRePiGxtgFhYCa0t1Zkj/view?usp=drivesdk">VTES-LLM-LAUNCHER.html</a></li>
+<li><a href="https://drive.google.com/file/d/1Yv3Z7Iit2UrJAQZbbBSohR-aUew65GZV/view?usp=drivesdk">VTES-LLM-LAUNCHER.html.bak-20261002-retired</a></li>
+<li><a href="https://drive.google.com/file/d/16pOypyR8soy-4glQ_2uoL70kSde3J_bz/view?usp=drivesdk">VTES-LLM-LAUNCHER_v2.html</a></li>
+<li><a href="https://drive.google.com/file/d/140-jyBriYrIs8UsQ8Z_3EI8OHjMViJIA/view?usp=drivesdk">VTES-LLM-LAUNCHER_v2.html.bak-20261002-retired</a></li>
+<li><a href="https://drive.google.com/file/d/104sYoYpR0AzmrtMerxklubRx8Y6yAYFd/view?usp=drivesdk">VTES-LLM-LAUNCHER_v3.html</a></li>
+<li><a href="https://drive.google.com/file/d/1uuH8C6gA-FtPhGoKIbRmhcN2GNtl6tBt/view?usp=drivesdk">VTES-LLM-LAUNCHER_v3.html</a></li>
+<li><a href="https://drive.google.com/file/d/1yoVUY_PrUwAfuFi29kzarKwXqsyOwjQl/view?usp=drivesdk">VTES-LLM-LAUNCHER_v3.html.bak-20261002-retired</a></li>
+<li><a href="https://drive.google.com/file/d/1hhgCZbctVLV6MwKWJ4ZOttsyt9OdTt6H/view?usp=drivesdk">VTES-LLM-LAUNCHER_v5.html</a></li>
+<li><a href="https://drive.google.com/file/d/12ml1K74MGJWob3enrK55El_EYevaWldq/view?usp=drivesdk">VTES-Open.ps1</a></li>
+<li><a href="https://drive.google.com/file/d/1oEzF15pD604qLiARIMePGQRiTg72_Ucm/view">VTES-Tray.ps1</a></li>
+<li><a href="https://drive.google.com/file/d/1LRC-Pp5ujZz2tX29tjlroS5jR08Sv5x6/view?usp=drivesdk">vtes5-bots.js</a></li>
+<li><a href="https://drive.google.com/file/d/1Rsw_YoEZVl1dODAn0hYi2G4xVT_w2C9F/view?usp=drivesdk">vtes5-config.js</a></li>
+<li><a href="https://drive.google.com/file/d/1sd9clBP8yevBt7x6Rt2IZzLcU1Bv86YA/view?usp=drivesdk">vtes5-health.js</a></li>
+<li><a href="https://drive.google.com/file/d/1A-cOn3-Yr-9uSKDFS6xgjk51FvoSyw2t/view?usp=drivesdk">vtes5-heartbeat.js</a></li>
+<li><a href="https://drive.google.com/file/d/1EZOYbnlW_HbT7ffyg2JBbcj4fNxtElpv/view?usp=drivesdk">vtes5-housekeeping.js</a></li>
+<li><a href="https://drive.google.com/file/d/1W5pYiqKO7jHQawBZMzn0FiysAJBw5PNW/view?usp=drivesdk">vtes5-live.js</a></li>
+<li><a href="https://drive.google.com/file/d/15Gdumgbcd1wi0Aj7QQ3IsMNoeuKgRrKs/view?usp=drivesdk">vtes5-miamidade.js</a></li>
+<li><a href="https://drive.google.com/file/d/1pKNom5GKX34cLM07BWrOlhhUVMi8-ViF/view?usp=drivesdk">vtes5-state.js</a></li>
+<li><a href="https://drive.google.com/file/d/1PDokFkT1QCX6S4z8PYskdoqXAP-Juusl/view?usp=drivesdk">vtes5-tokens.js</a></li>
+<li><a href="https://drive.google.com/file/d/1Bhjrv51GKtx5bbV6OcaFMg2M4k5bW8Jm/view?usp=drivesdk">vtes5-ui.js</a></li>
+</ul></details>
+<details><summary><b>Docs pipeline, scripts and tools</b> (23)</summary><ul>
+<li><a href="https://drive.google.com/file/d/1CZgNEoZq7RNHoSWuOY6OwGxwpp2n73Pd/view?usp=drivesdk">BLOCKER_CODEX-PII_JOB_VTES-DOCS-PIPELINE-V1-1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/1d26iRKWzxpatE9gTvkSW8KMHZw9FfYzr/view?usp=drivesdk">BLOCKER_CODEX_JOB_VTES-DOCS-PIPELINE-V1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/1-WS2uqXyJ7FeWwaJNW90qKTBSQ_LkdJv/view?usp=drivesdk">JOB_VTES-DOCS-PIPELINE-V1-1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/1vsby9dyjXYBtG10D4jWbEDryFjVMKbd7/view?usp=drivesdk">VTES-DOCS-NIGHT_V1-1.cmd</a></li>
+<li><a href="https://drive.google.com/file/d/1b-AKzhigG0LtK3Jq-xaxkttuS2k0ZZ3b/view?usp=drivesdk">VTES-DOCS-PIPELINE_V1-1.py</a></li>
+<li><a href="https://drive.google.com/file/d/1rh8S-AiZvtadhJAiJMYAEpZhVuFftF13/view?usp=drivesdk">VTES-DOCS-PIPELINE_V1.py</a></li>
+<li><a href="https://drive.google.com/file/d/1oJTrv2bHFsOZuEsRv-kAme0ZWZ31nTIY/view?usp=drivesdk">VTES-DOCS-SETUP_V1.ps1</a></li>
+<li><a href="https://drive.google.com/file/d/1fDeH_8d9Q1O2UkXC_xNQvRh47H_kGGtp/view?usp=drivesdk">VTES-DOCS-STOP_V1.ps1</a></li>
+<li><a href="https://drive.google.com/file/d/1tEroHhgCKqChyUHLIQIdYKHcco1b4B2Y/view">VTES-GO-1-VENDOR-BORIS_V1.cmd</a></li>
+<li><a href="https://drive.google.com/file/d/13-ZGUWZRYm__vz72P3joWA26t2yZo5QP/view">VTES-GO-2-FINANCE_V1.cmd</a></li>
+<li><a href="https://drive.google.com/file/d/13ESlEr3VKr92txDSM2w8lmRAW_7fVJYy/view">VTES-GO-3-1PASSWORD_V1.cmd</a></li>
+<li><a href="https://drive.google.com/file/d/1EWYnoKRkcjUJMmdNfdQ2ryM9NTDkqyuo/view?usp=drivesdk">VTES-GO-4-DOCS_V1-1.cmd</a></li>
+<li><a href="https://drive.google.com/file/d/1jw7DQuqKqFVixI3TFrr0INi88qx_ob6R/view?usp=drivesdk">VTES-GO-5-SETUP-DOCS_V1.cmd</a></li>
+<li><a href="https://drive.google.com/file/d/1CUzOycSp0w0AY7Z9WfaPPG70QKG2mcb-/view">VTES-GO-BUTTON_V1.cmd</a></li>
+<li><a href="https://drive.google.com/file/d/1p_65G7lN_bdwpwhrIzEKA8iBm4VK_Ws6/view">VTES-OUTLOOK-01-BuildFolders.ps1</a></li>
+<li><a href="https://drive.google.com/file/d/19Nj47nGyPbyAZG3xMy-tlP0DuerGTjOO/view?usp=drivesdk">VTES-RAM-FREE_V1.ps1</a></li>
+<li><a href="https://drive.google.com/file/d/18km_DNoZHGWM-jh-51_b1IdHJ1tqCizD/view">VTES-RAM-GOVERNOR_DRAFT_2026-10-19.ps1</a></li>
+<li><a href="https://drive.google.com/file/d/1Klajj3Qjr81rCBq3OcOoFr0QcMyvdeLF/view?usp=drivesdk">VTES-RAM-RESTORE_V1.ps1</a></li>
+<li><a href="https://drive.google.com/file/d/1ZQvsPoyMSBx97EtSO280yq-l0wJz-awL/view">VTES-WATCHDOG_DRAFT-v2_2026-10-19.ps1</a></li>
+<li><a href="https://drive.google.com/file/d/1b3FKI7s6rMNfr7ES2mGKc7C5DQ3-Ziz_/view">VTES-WATCHDOG_DRAFT_2026-10-19.ps1</a></li>
+<li><a href="https://drive.google.com/file/d/1bzV5vQg3g3A9YELaSX9rMBc41vQ8_UKN/view?usp=drivesdk">vtes_dedupe.py</a></li>
+<li><a href="https://drive.google.com/file/d/18vk5whfBuxIOPSmScLtHfnRX1zPcrVwS/view?usp=drivesdk">vtes_dispatcher.py</a></li>
+<li><a href="https://drive.google.com/file/d/1MFjfsX9JQptI8ObqRRWzScowtv05ye2C/view?usp=drivesdk">vtes_ocr_census.py</a></li>
+</ul></details>
+<details><summary><b>Solicit, vendor, finance, absorb</b> (24)</summary><ul>
+<li><a href="https://drive.google.com/file/d/1ruyYTcH2vuu7vQRvHAud3ljGupKY2i72/view">00_INTERACTION-LOG_VTES-VENDOR_LISTKIT.md</a></li>
+<li><a href="https://drive.google.com/file/d/1D7JgWQlnp95xVqmgGFohoP8_AK25jEsu/view?usp=drivesdk">BLOCKER_CODEX-PII_JOB_VTES-FINANCE-INTAKE-01_V1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/1Jpu4-hIDX1vJIG3MzeL89m7bx6msKcO9/view?usp=drivesdk">BLOCKER_CODEX-PII_JOB_VTES-VENDOR-ADD-BORIS-PISMENI_V1_ADDENDUM-A.md</a></li>
+<li><a href="https://drive.google.com/file/d/1EZjarQS3ZqGL-JQW9H44TiImsFpOexwA/view?usp=drivesdk">BLOCKER_CODEX-PII_JOB_VTES-VENDOR-ADD-BORIS-PISMENI_V1_ADDENDUM-B.md</a></li>
+<li><a href="https://drive.google.com/file/d/1i6K7in4FtNWK5IKWh3WNv9UWWmLfIGGt/view?usp=drivesdk">BLOCKER_CODEX-PII_JOB_VTES-VENDOR-ADD-BORIS-PISMENI_V1_ADDENDUM-C.md</a></li>
+<li><a href="https://drive.google.com/file/d/1UwJodejpX8DQwgiOcZxXd3PSYem18bcf/view?usp=drivesdk">BLOCKER_CODEX-PII_JOB_VTES-VENDOR-ADD-BORIS-PISMENI_V1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/1L9LVK604UVZTQEQbiz3xnPB0PyC-Q61v/view?usp=drivesdk">BLOCKER_CODEX-PII_VTES-SOLICIT_OWNER-MANUAL_PHASE-1_IDENTIFY-QUALIFY-APPROACH_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1jwxnWY74BDnXsf1I3V1VhnfJgxDs0cKJ/view?usp=drivesdk">BLOCKER_CODEX-PII_VTES-SOLICIT_V1_OWNER-MANUAL_PHASE-1_IDENTIFY-QUALIFY-APPROACH_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1DudTmm4Ka7YR-nYRR4xAQUnAfOGkPrMU/view?usp=drivesdk">BLOCKER_CODEX-PII_VTES-SOLICIT_V1_PENDING-TASKS_CALL-AGENTS-DNC-COMMERCIAL-RESEARCH_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/17N3Sjwdxk0EUTqLeFRVbsbZBptw2OEAL/view?usp=drivesdk">BLOCKER_CODEX_VTES-ABSORB-42_V1_SPEC_ORANGE-TREE-ABSORB-EXISTING-DATA_PILOT-5-THEN-42_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1ukkFJbNLYGkB_g_UZHIh6P3qpaua5yNx/view">JOB_VTES-FINANCE-INTAKE-01_V1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/1TrMTjLRMRTXq6Ku9zqoZS8vgqyJY2fbF/view">JOB_VTES-VENDOR-ADD-BORIS-PISMENI_V1_ADDENDUM-A.md</a></li>
+<li><a href="https://drive.google.com/file/d/1ZjPPcY-w9phFO0RKAcVoJJMziGtfS_6v/view">JOB_VTES-VENDOR-ADD-BORIS-PISMENI_V1_ADDENDUM-B.md</a></li>
+<li><a href="https://drive.google.com/file/d/1Vz97u6GqIy6uAB3qv2jpDtQpdQEmrlGa/view">JOB_VTES-VENDOR-ADD-BORIS-PISMENI_V1_ADDENDUM-C.md</a></li>
+<li><a href="https://drive.google.com/file/d/1kw0xv_ntkDeS73-AGy9QzKDAu4ZLjOii/view">JOB_VTES-VENDOR-ADD-BORIS-PISMENI_V1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/10_IgiBoS2zfFgEQmipVRwIGaKGKV6Jda/view">PASTE_VTES-FINANCE-INTAKE-01_V1_GO.txt</a></li>
+<li><a href="https://drive.google.com/file/d/1l4MxYBHWV3PcgtM0WYBaO0nzLjX_RzCr/view">PASTE_VTES-VENDOR-ADD-BORIS-PISMENI_V1_GO.txt</a></li>
+<li><a href="https://drive.google.com/file/d/16ocVupGMlBvYqGKTaCFz8aBEsOTuGeew/view">VTES-ABSORB-42_V1_SPEC_ORANGE-TREE-ABSORB-EXISTING-DATA_PILOT-5-THEN-42_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1D7JMffPyQn0Jub_Ggo5cfZ8bFkiZRQaI/view?usp=drivesdk">VTES-QUICKBOOKS-INTAKE-LIST_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1qBVzcyh7vVWxYl6KxrQ95FaTR6aOL8zp/view">VTES-SOLICIT_V1_MARKETING-NOTE_COMMISSIONED-CALLERS-AND-SURGEON-MESSAGE_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1KUTMaJ0YYcXXDs80_HTMKSeDSUscEUfl/view">VTES-SOLICIT_V1_OWNER-MANUAL_PHASE-1_IDENTIFY-QUALIFY-APPROACH_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1B9_MeGrqUyeyafhcts5hMqasgxxHNoYw/view">VTES-SOLICIT_V1_PENDING-TASKS_CALL-AGENTS-DNC-COMMERCIAL-RESEARCH_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/18E6PzX5GzTYnIJjc2ihaBtbQ0BgZ_mvT/view">VTES-SOLICIT_V2_GRADES-AND-CONFLICTS_NARRATIVE_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1XqZxrRguSquYHnXf_LSgo1mMao_NdGOG/view">VTES-SOLICIT_V2_LIST-REGISTER_NARRATIVE_2026-10-19.md</a></li>
+</ul></details>
+<details><summary><b>Lane map, protocols, registers</b> (20)</summary><ul>
+<li><a href="https://drive.google.com/file/d/1RBtnlaQmIcEPQnkdjktAnTu9AobzY_Bj/view">INDEX_VTES-SYSTEM-FILE-MAP_2026-09-16.md</a></li>
+<li><a href="https://drive.google.com/file/d/1KQ8QXNy5CJO7uDCtx2EWBBi3H1oZdCzo/view?usp=drivesdk">INDEX_VTES-SYSTEM-FILE-MAP_LOCAL-COMPLETE_2026-09-16.md</a></li>
+<li><a href="https://drive.google.com/file/d/136K3RApgL3OGMVrU4XCuefeobSbIh5ec/view">PROTOCOL-OCR-VTES-1PASSWORD-2026-10-20.md</a></li>
+<li><a href="https://drive.google.com/file/d/1uSizTNE7eVsdqTdYbDIf8TpGaJzg2ErC/view">PROTOCOL_VTES-Control-Panel_how-to-edit_2026-10-16.md</a></li>
+<li><a href="https://drive.google.com/file/d/10shrZg7w8JMnCAbkuX4MmMtsZGB2LmAW/view">REPLY-TO-CHAT_OCR-VTES-1P_20261020-1611.md</a></li>
+<li><a href="https://drive.google.com/file/d/123X7KRl0huHNsXch5YEOBRZ59d4AGRRV/view">VTES-1PASSWORD-PORTAL-PLAN_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/13DAwH1PIQkspILEXKWs4ppBu-t3FsT-C/view?usp=drivesdk">VTES-CAPABILITY-MATRIX_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1uZDekZWNcQ_lSGow1aayoonPAIUOP2qY/view?usp=drivesdk">VTES-DRIVE-ARCHITECTURE_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1tUcnt9NFM8bBUdXsgbjMKx14zg3fXccB/view?usp=drivesdk">VTES-EMAIL-STAGING-PROTOCOL_V1.md</a></li>
+<li><a href="https://docs.google.com/document/d/1BZnTgjSQi4VP92uUR0FgpCitC9BmIvfg0D3pHCmJkRo/edit?usp=drivesdk&amp;ouid=113599498108318087424">VTES-LANE-MAP_2026-10-16.md</a></li>
+<li><a href="https://drive.google.com/file/d/1L2UmapHjtmgRedekyRISDy_VaZe6_3Zq/view">VTES-LANE-MAP_2026-10-18.md</a></li>
+<li><a href="https://drive.google.com/file/d/1FwrefspMLDq3LvPNmc3uHSRxTcYUGApx/view">VTES-LANE-MAP_2026-10-20_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1_vhkhyXH8kovVUMeIGmgDnzE84Cpnnxl/view">VTES-LANE-MAP_A-TO-Z_2026-10-16.html</a></li>
+<li><a href="https://drive.google.com/file/d/1T4RIjDpiDvBEb3-xz5VFebJiwU12Ad5D/view">VTES-OCR-PROTOCOL_V4_2026-10-19</a></li>
+<li><a href="https://drive.google.com/file/d/1EWom3Ewnsj6QOyey3clh-GFA8sjlkdqb/view">VTES-OCR-ROUTING-PROTOCOL_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1rR689aCf0GE9py8qH42CjMGrO7nAJsrI/view?usp=drivesdk">VTES-ONE-CLICK-PROTOCOL_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1RZzodrZcVerF5GUBxSZvL0A46s-cQ5c1/view?usp=drivesdk">VTES-VERSION-REGISTER_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1aR12TK4DXgcSfvXYVpHubCh5TNJGgCpT/view?usp=drivesdk">VTES-VERSION-REGISTER_V2.md</a></li>
+<li><a href="https://drive.google.com/file/d/1cXk8g3LQPRPDEZieYsS8aI9vLQM0x-c9/view?usp=drivesdk">VTES-VERSION-REGISTER_V3.md</a></li>
+<li><a href="https://drive.google.com/file/d/1aghglsbABRO5HYgTZ7_E1TdJs2zn_RBR/view?usp=drivesdk">VTES_OCR-Protocol_V1_paste-block</a></li>
+</ul></details>
+<details><summary><b>Blockers and failed checks</b> (8)</summary><ul>
+<li><a href="https://drive.google.com/file/d/1zFaO1yOhy0NMD8_6oouNwcPJC6dY-sHr/view?usp=drivesdk">BLOCKER_CODEX-PII_JOB_VTES-LANE-FAILOVER-FIX_V1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/1xFC2FtI2wKv8fMhZ_uswMN0jFn9J4H2L/view">BLOCKER_CODEX-PII_VTES-JOB_ADOBE-ACROBAT-ONBOARD_V1_2026-10-21.md</a></li>
+<li><a href="https://drive.google.com/file/d/1x1sQjCRCFmtk7cteRHCSIWGQuvNrvLPJ/view">BLOCKER_CODEX-PII_VTES-JOB_OVERNIGHT-WORKORDER_V1-ADDENDUM-G-H-I_2026-10-21.md</a></li>
+<li><a href="https://drive.google.com/file/d/1IxMPw_-b2_qNr0TgSzf5Vmh7dQfuSGVY/view?usp=drivesdk">BLOCKER_CODEX-PII_VTES-OWNER-DECISIONS-EXPORT_40_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1LlmbcM0gtqTinWHvlgUtwHlXiIw5VXsS/view">BLOCKER_CODEX_VTES-JOB_ICON-VAULT-AND-WATCHER_V1_2026-10-22.md</a></li>
+<li><a href="https://drive.google.com/file/d/1_x6gLP3-F8-Vd-UdESDf2goJw7H3hSCq/view">BLOCKER_CODEX_VTES-JOB_OVERNIGHT-WORKORDER_V1_2026-10-21.md</a></li>
+<li><a href="https://drive.google.com/file/d/1qWGAYpMPu8CUUzFlUCKK2qg98mLqN00l/view?usp=drivesdk">BLOCKER_MSG-CLOUD-TO-CODE_RAISE-OWNER-POPUP_VTES-ADDRESS-INSTALL_2026-10-06.md</a></li>
+<li><a href="https://drive.google.com/file/d/1TSZN-qyZV3nIOnTMUl_0EUd2uJJxPJXv/view?usp=drivesdk">FAILED-VERIFICATION_OWNER-DIRECTIVE_VERSIONING-RULE_VTES-PRODUCTS_V1_2026-10-19.md</a></li>
+</ul></details>
+<details><summary><b>Handoffs, jobs, messages, other</b> (35)</summary><ul>
+<li><a href="https://docs.google.com/document/d/1gt0ddKEiKIBmeFJ7obDSBn1BOm-2TliGlePSUpotZ7Y/edit?usp=drivesdk&amp;ouid=113599498108318087424">01 - VTES Consolidated Handoff - paste into Code</a></li>
+<li><a href="https://drive.google.com/file/d/1ZrMpy-oyhJI7IEqMXJOFXTdXKzLs97Uo/view">2026-09-20_VTES_Getting-Out-of-the-Middle_Analysis.html</a></li>
+<li><a href="https://drive.google.com/file/d/1mi1F2nYZYiW-eP_nleOeugUvsMJdB6Q3/view?usp=drivesdk">20261022-092516-MSG-RAMBO-TASK_2026-10-22_Pin-VTES-Book-Icon-Taskbar.txt</a></li>
+<li><a href="https://drive.google.com/file/d/13XWjtVANbeVZNrfDQXcC42NbSPFAi_T4/view?usp=drivesdk">20261022-094021-MSG-README-FIRST_See-VTES-MINI-DATABASE.txt</a></li>
+<li><a href="https://drive.google.com/file/d/1A_drG_Scobi7CfBXmoax6b3ktLSMpU8x/view">BOARD-PROPOSAL_VTES-STABILITY-PLAN-v1.0_2026-08-05.md</a></li>
+<li><a href="https://drive.google.com/file/d/1t6e3x0OxiqrSUm7KMwd63CxkgSRGXjfv/view">EXECUTOR-CARD_VTES-SYNC_2026-10-16.md</a></li>
+<li><a href="https://drive.google.com/file/d/1m9LcbeMDJN816etuK2__YKw8Opq235K9/view?usp=drivesdk">JOB-VTES-CLAUDEMD-MERGE_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1L96n0deS8aguoO46oKU6G7vjzE4zFj2f/view?usp=drivesdk">JOB-VTES-LANE-TESTS-L2C-L3C_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1wCjPf7Sg_9oNZe1MYdRua1VGojpJgJw1/view?usp=drivesdk">JOB-VTES-RUNNER-GOVERNOR-SELFHEAL_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1BWxrNf_rEWK9COInk5zYARgawUejG9ST/view?usp=drivesdk">JOB_VTES-LANE-FAILOVER-FIX_V1_GO.md</a></li>
+<li><a href="https://drive.google.com/file/d/1psx0nIgkoIf95DEfiFOlnDH367rTnxHr/view">OWNER-DIRECTIVE_VERSIONING-RULE_VTES-PRODUCTS_V1_2026-10-19.md</a></li>
+<li><a href="https://drive.google.com/file/d/1QselFDAg8jwsv_glbr0eiwtnp7HrQOke/view">PASTE-BLOCK_VTES-SYNC_2026-10-16.txt</a></li>
+<li><a href="https://drive.google.com/file/d/1JnIxo6Vo5AqCRqcZu-D8mu8PwqvY7ijA/view?usp=drivesdk">README-FIRST_See-VTES-MINI-DATABASE.txt</a></li>
+<li><a href="https://docs.google.com/spreadsheets/d/14Ic43WkrnQEIAmt2j4SJUWn8gDA83KhsuRLBxer6Pu4/edit?usp=drivesdk&amp;ouid=113599498108318087424">VTES Job Ledger</a></li>
+<li><a href="https://drive.google.com/file/d/1evemxpAdVIDffySOMd1VRes503UQRcTr/view">VTES-BRIDGE-TEST.txt</a></li>
+<li><a href="https://drive.google.com/file/d/1A2AZCR6JWtmwbcUMJa9ZdL8MlJ8miIlZ/view?usp=drivesdk">vtes-cowork-access-grant.md</a></li>
+<li><a href="https://drive.google.com/file/d/1u4w4u46TKDTeXOc7OOjWtv3wcLH9nShN/view?usp=drivesdk">vtes-cowork-access-grant.md.bak-20260705</a></li>
+<li><a href="https://drive.google.com/file/d/1YhrSZuwk12baTngeRXp8vNY3blygQnm6/view?usp=drivesdk">VTES-DRAFTS-QUARANTINE-LOG_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1mEE2paCduE_kkOMYmglyuHokQfLHDsy_/view">VTES-EXECUTOR-AND-ORCHESTRATOR-for-Code.md</a></li>
+<li><a href="https://drive.google.com/file/d/1_qeu3uDLi7Y6Gg_WQ6ZAANlPm8in_g5k/view">VTES-HANDOFF-BOARD_REDACTED_2026-10-15.md</a></li>
+<li><a href="https://drive.google.com/file/d/1ki22pLIehKQhr5Etsh_5QpHWpaHSS_pa/view?usp=drivesdk">VTES-JOB_ADOBE-ACROBAT-ONBOARD_V1_2026-10-21.md</a></li>
+<li><a href="https://drive.google.com/file/d/13TyK6xcwpdX7jfM26qS8ik7d1MkyWU2f/view?usp=drivesdk">VTES-JOB_ICON-VAULT-AND-WATCHER_V1_2026-10-22.md</a></li>
+<li><a href="https://drive.google.com/file/d/1IflB5ad_VJvSA7K1IeG0s8YxmIgpF9fp/view?usp=drivesdk">VTES-JOB_OVERNIGHT-WORKORDER_V1-ADDENDUM-G-H-I_2026-10-21.md</a></li>
+<li><a href="https://drive.google.com/file/d/11dePDkzZE4uwjQSYh2dT3ZwxfGsbarv2/view?usp=drivesdk">VTES-JOB_OVERNIGHT-WORKORDER_V1_2026-10-21.md</a></li>
+<li><a href="https://drive.google.com/file/d/12X001UPb57XlXNfwYNEab0LjpNxlcCCU/view">VTES-LIVE-PROGRESS_CONTACT-EXTRACTION-PIPELINE_2026-09-26.md</a></li>
+<li><a href="https://docs.google.com/document/d/1xoGn5ImM55lutqJwEyY-Iecelu4zVEObkVgX97WttYA/edit?usp=drivesdk&amp;ouid=113599498108318087424">VTES-OPEN-TASKS-MASTER_2026-09-14 (TRK-2026-9787)</a></li>
+<li><a href="https://drive.google.com/file/d/1laWPFtlrEg5YxOKyXNVTLbfx7GOXIW0H/view?usp=drivesdk">VTES-OUTBOX-TRUE-DATES.csv</a></li>
+<li><a href="https://drive.google.com/file/d/158abWPaPz7ncXFbXOOsdwgMZsUxFK9kY/view">VTES-OWNER-CHARTER-and-HANDOFF-v2.md</a></li>
+<li><a href="https://drive.google.com/file/d/1BruLEjUwqofllKC3wrga55BuTNjiIda5/view">VTES-OWNER-CHARTER-and-HANDOFF.md</a></li>
+<li><a href="https://drive.google.com/file/d/1AqLXJzGTH4THDCLckkVgQGGGEGra2wq-/view?usp=drivesdk">VTES-OWNER-DECISIONS-EXPORT_40_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1dDNs7DaoIzBj1M8xcZKRxvL43cvKlEDH/view?usp=drivesdk">VTES-PASTE-BLOCK-RETIRED_V1.md</a></li>
+<li><a href="https://drive.google.com/file/d/1bpZfUcDvcoydcmuJfzV6O8wtvaZHpCwk/view">VTES-TASK-QUEUE.json</a></li>
+<li><a href="https://drive.google.com/file/d/1GZuXR2nK70Q_b_FNbBozv3m29erO-4bT/view?usp=drivesdk">VTES-UNIT-423-PLAZA_STATUS_2026-10-22.md</a></li>
+<li><a href="https://drive.google.com/file/d/1hP0dJFpZ05o2MBXxNRjdIa8qNg_LU_Ch/view?usp=drivesdk">vtes_docs_config_TEMPLATE_V1.json</a></li>
+<li><a href="https://drive.google.com/file/d/1GnEh--YMSwFErbzuLw7QU0LGqD4n3Kg9/view">WORKFLOW-GUIDE_VTES-SYNC_2026-10-16.md</a></li>
+</ul></details>
+<h2>Section H — Known gaps, stated plainly</h2>
+<ul>
+<li><b>Drive search finished.</b> The VTES-named folder list and the VTES-named file list both ran to the end with no further pages. Files that carry VTES only inside their text, or not in the title, are not included.</li>
+<li><b>Left off on purpose:</b> one folder whose name suggests personal health records. It is VTES-named, but I did not put it on a page that gets shared. Say so if you want it added.</li>
+<li><b>Not searched:</b> Jorge's PC itself. Cloud cannot reach it. A PC-side search is queued for RAMBO. Local scripts such as <code>VTES-Bridge-Poller.ps1</code> and <code>VTES-Reconciler.ps1</code> are named in the repo but have no link from here.</li>
+<li><b>Poller status:</b> the repo says <code>VTES-LOCAL-POLLER</code> was rebuilt around D-063 on 2026-09-28. I have not re-verified that it is running today.</li>
+</ul>
+<p class="note">Registry number: not yet issued. Per the charter I did not invent one.</p>
+</main>
+</body>
+</html>
