@@ -981,3 +981,4 @@ WATCH: no push (4:2x AM ET Tue). Quiet: Outbox only a routine EXECUTED_CODEX att
 2026-11-23T01:16Z WATCH: no new alerts relayed. Mail since 00:16Z: Jorge self-email (attorney summary, money zone, logged without content), SYNC-01 result mails, Grok digests (backlog, reply-watcher, sync handoff): logged only.
 2026-11-23T02:17Z WATCH: no new alerts relayed. Mail since 01:16Z: Grok digests, SYNC-01 result mail, social notices: logged only.
 2026-11-23T03:16Z WATCH: no new alerts relayed. Mail since 02:16Z: Grok digests, SYNC-01 result mail; Outlook withheld 1 automated Anthropic account email (sign-in link or code, not read, probably Jorge, UNVERIFIED): logged only.
+2026-11-23T04:17Z Google 'You shared some Google Account data with QuickBooks' (arrived 04:03Z; Sign in with Google to QuickBooks at 11:03 PM ET 11-22): probably Jorge, UNVERIFIED; nothing clicked; push + Gmail 1a2069f48a85d5b7
