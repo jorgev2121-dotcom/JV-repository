@@ -160,3 +160,4 @@ One line per arrival. Newest at the bottom. Written by the hourly watch, step 0.
 - 2026-11-23T10:16Z WATCH: nothing needing action; Grok/SYNC-01 digests only
 - 2026-11-23T11:17Z WATCH: nothing needing action; Grok/SYNC-01 digests only
 - 2026-11-23T12:17Z WATCH: nothing needing action; Grok/SYNC-01 digests, daily Burn Rate proof file (routine)
+- 2026-11-23T13:17Z WATCH: Fyxer briefing mentions Tomas plans / Julio sheets / corrected final letter for 8621 as to-dos (no attachment, nothing filled); rest Grok/SYNC-01/retail
