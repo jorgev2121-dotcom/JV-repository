@@ -828,3 +828,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-23T21:42Z RUNNER: Drive heartbeat 13TnnTZmX-aiqWlzyG7mgVz5398XpO1o0; panel new=0; PC awake; RAM guard main stale since 18:41Z, .tmp updating (sync-gap watch)
 - 2026-11-23T22:17Z WATCH: panel new=0, uptime fresh 21:58Z, RAM guard main silent since 18:41Z and .tmp stopped at 21:41Z (0 bytes): sync stall watch, alarm at 00:41Z
 - 2026-11-23T22:41Z RUNNER: Drive heartbeat 1Sjxf-r1nsKJL6cPkqy4H96pMjKZQNNH6; panel new=0. NEW: PC uptime file last written 21:58Z (43 min ago, normally every 5 min) and RAM guard silent since 18:41Z: PC may be asleep/off or Drive sync stalled. Plan: one push + Gmail at the 23:16Z WATCH if still silent (about 80 min). Self-test check 4 will fail at 00:16Z if so.
+- 2026-11-23T23:17Z WATCH: panel new=0; RAM guard back 23:14Z (4 h 33 min silence, no alarm), uptime back 23:11Z; Outbox only routine silent-signoff
