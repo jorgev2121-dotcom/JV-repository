@@ -820,3 +820,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-23T17:42Z RUNNER: Drive heartbeat 1_fYboaB-TsNdOHWvgDiw1Ez_QefTXaaG; panel new=0; PC awake
 - 2026-11-23T18:16Z WATCH: panel new=0, probe selftest-probe-2026112318 planted, RAM guard fresh 18:11Z, uptime fresh 18:12Z, Outbox only routine silent-signoff
 - 2026-11-23T18:42Z RUNNER: probe 2026112318 answered; Drive heartbeat 1sd2h2uDBRh845sf-yM1oGQyYpH2PEEoN; PC awake
+- 2026-11-23T19:16Z WATCH: panel new=0, uptime fresh 19:11Z, RAM guard main file stale since 18:41Z with .tmp updating (sync gap watch, alarm at 6 h), Outbox only routine silent-signoff
