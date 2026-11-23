@@ -357,3 +357,4 @@
 2026-11-23T09:16Z allowed seven_day context about 345k (check 10 only)
 2026-11-23T10:16Z allowed seven_day context about 360k (check 10 only)
 2026-11-23T11:17Z allowed seven_day context about 375k (check 10 only)
+2026-11-23T12:17Z allowed seven_day context 400k pass156
