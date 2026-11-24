@@ -834,3 +834,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-24T00:41Z RUNNER: probe 2026112400 answered; Drive heartbeat 1KxEXSoAhXvdGYKx3M9Q3-5Op5WD-Xzuf (title says 0042Z, created 00:42:02Z, clock read 00:41:53Z); PC uptime file last written 00:18:51Z (23 min stale, watching, alert threshold 30 min / self-test)
 - 2026-11-24T01:17Z WATCH: panel new=0, uptime fresh 01:13Z, RAM guard main last 00:16Z (watch), Outbox only routine silent-signoff
 - 2026-11-24T01:41Z RUNNER: Drive heartbeat 1YyS-xr9_eSnIYEatIF8HV0qZkhNiAEHa; panel new=0; PC uptime fresh 01:40Z; RAM guard main last 00:16Z (1 h 25 min, sync-gap watch, alarm 6 h)
+- 2026-11-24T02:16Z WATCH: panel new=0, RAM guard back 02:13Z (about 2 h silence since 00:16Z, no alarm), uptime fresh 02:16Z, Outbox only routine silent-signoff
