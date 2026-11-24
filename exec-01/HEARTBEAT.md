@@ -862,3 +862,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-24T14:41Z RUNNER: Drive heartbeat 1Z_3mb9_Xf8YuOSkdMty048V7rs8p0TKF; panel new=0; PC uptime 14:40Z; RAM guard last 10:08Z (273 min, sync-gap rule, alarm after 16:08Z)
 - 2026-11-24T15:17Z WATCH: no arrivals; panel new=0; uptime 15:16Z; RAM guard last 10:08Z (5 h 09 min, alarm point 16:08Z)
 - 2026-11-24T15:42Z RUNNER: Drive heartbeat 1lmrppssaiFnO70ht8pugKCL_M2e69TuM; panel new=0; PC uptime 15:35Z; RAM guard last 10:08Z (334 min, sync-gap rule, alarm point 16:08Z)
+- 2026-11-24T16:17Z WATCH: RAM guard 6 h alarm sent once (push plus Gmail); alarm text had the time an hour late (5:08 AM ET, not 6:08), logged; uptime 16:13Z; panel new=0
