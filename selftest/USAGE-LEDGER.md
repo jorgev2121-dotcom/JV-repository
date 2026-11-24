@@ -372,3 +372,6 @@
 2026-11-24T00:17Z allowed seven_day context 712k pass158
 2026-11-24T01:17Z allowed seven_day context about 730k (check 10 only)
 2026-11-24T02:16Z allowed seven_day context about 750k (check 10 only)
+2026-11-24T03:17Z allowed seven_day (WATCH, check 10 only, context not read)
+2026-11-24T04:17Z allowed seven_day (check 10 not read this hour)
+2026-11-24T06:17Z allowed seven_day context 237k pass159
