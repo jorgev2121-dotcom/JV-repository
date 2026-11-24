@@ -850,3 +850,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-24T08:41Z RUNNER: Drive heartbeat 1VaJTCER_oqdp05ZtN6JZJYGtZcMM6Nw9; panel new=0; PC uptime 08:35Z; RAM guard last 06:42Z (119 min, sync-gap rule, alarm after 12:42Z)
 - 2026-11-24T09:17Z WATCH: no arrivals; panel new=0; uptime 09:14Z; RAM guard last 06:42Z (2 h 35 min, sync-gap rule)
 - 2026-11-24T09:42Z RUNNER: Drive heartbeat 1K3kKmNE-Wa4iGqbPAIMJtvue7X_bRNp1; panel new=0; PC uptime 09:38Z; RAM guard last 06:42Z (3 h, sync-gap rule, alarm after 12:42Z)
+- 2026-11-24T10:17Z WATCH: no arrivals; panel new=0; uptime 10:06Z; RAM guard back 10:08Z after 3 h 26 min (no alarm), RECURRING-ISSUES line added
