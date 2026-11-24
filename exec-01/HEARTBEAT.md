@@ -868,3 +868,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-24T17:42Z RUNNER: Drive heartbeat 19H3oj_9BIRDJFCvjpejZt2Wd43SzXCLM; panel new=0; PC uptime 17:22Z; RAM guard last 10:08Z (454 min), 6 h alarm already sent 16:17Z
 - 2026-11-24T18:18Z WATCH: self-test pass161 5 of 5; probe 2026112418 planted; uptime 18:15Z; RAM guard last 10:08Z (alarm already sent)
 - 2026-11-24T18:41Z RUNNER: Drive heartbeat 15jvC5IXtBAOJDWX72wQIDmTvFaFJCV5W; probe 2026112418 answered; PC uptime 18:39Z; RAM guard last 10:08Z (513 min), 6 h alarm already sent 16:17Z
+- 2026-11-24T19:17Z WATCH: Experian alert relayed once; RAM guard back 19:00Z after 8h52; panel new=0; uptime 19:10Z
