@@ -1526,3 +1526,8 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   1,2,4,7,10 run: 5 of 5 run checks pass (panel clean; probe selftest-probe-2026112500 planted, previous probe 2026112418 answered 18:42Z; PC uptime fresh 00:14Z; mail watch last check 23:17Z; usage allowed seven_day, context about 709k of 1,000,000, autocompact at 784,000: COMPACTION LIKELY WITHIN ABOUT 1 TO 3 HOURS; all state is in repo logs and Drive).
   RAM guard: writing normally (00:12Z), level RED about 3.8 GB free. Not a numbered check.
   Not run: 3, 6, 8, 9. Check 5 (OCR) persistent FAIL since 10-05.
+2026-11-25T06:17Z pass163 (WATCH, self-test hour 06Z): 5 of 5 run checks pass.
+  1 PANEL INBOX pass (new comments 0, none older than 2 h). 2 PROBE pass (no probe pending; selftest-probe-2026112506 planted 06:17Z, due answer at 06:41Z runner). 4 PC ALIVE pass (uptime file 06:16Z). 7 MAIL WATCH pass (last check 05:17Z, 59 min old). 10 USAGE GOVERNOR pass (allowed, seven_day; context 265k of 1,000,000 after one compaction; autocompact at 784k).
+  Not run: 3, 6, 8, 9. Check 5 (OCR) persistent FAIL since 10-05.
+  Model note: configured_model is claude-opus-5-5 but this session runs claude-sonnet-5-5 (user_switched_model). Logged for RI-008, not acted on.
+  RAM guard writing 06:16Z, level AMBER 5.26 GB free (improving). Checkpoint refreshed after compaction: new Drive file 1B-ruJ1KzMk9vhMR1JF91pmvHnAbyceWk, old one trashed. Slip: new checkpoint text says 'Last written 06:19Z' but file was created 06:17Z (logged, Drive notes are not overwritten).
