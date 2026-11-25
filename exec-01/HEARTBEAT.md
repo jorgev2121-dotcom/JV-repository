@@ -881,3 +881,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-25T00:18Z WATCH: self-test pass162 5 of 5; probe 2026112500 planted; uptime 00:14Z; RAM guard 00:12Z; context 709k, compaction likely within 1-3 h
 - 2026-11-25T00:19Z WATCH: Drive checkpoint refreshed (charter section 10): new _CHECKPOINT_CLOUD.md id 1SwpEn1BZL9HYrOxQ4KYz8uCkj0zQWeMu created 00:17Z, old 11-21 copy (id 1R80Y9y9XRxXae4MxGQLVXfMTwk4wG9oq) moved to Drive trash (recoverable). Slip: the file text says 'Last written 00:2xZ' but real time was 00:17Z. Reason: context near 709k, compaction soon.
 - 2026-11-25T00:42Z RUNNER: Drive heartbeat 1vIHE1oIApC2x5B6AGQvK15Q1DEYNjAjH; probe 2026112500 answered; PC uptime 00:37Z; RAM guard 00:12Z (normal, RED 3.8 GB)
+- 2026-11-25T01:17Z WATCH: no arrivals; panel new=0; uptime 01:04Z; RAM guard last 00:12Z (64 min, sync-gap rule)
