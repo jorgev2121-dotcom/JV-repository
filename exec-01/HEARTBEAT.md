@@ -907,3 +907,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-25T12:42Z RUNNER: Drive heartbeat 1Iiz53LXedc90_GlHkNQTE2oaJsNzZI3a; probe selftest-probe-2026112512 answered 12:42Z (24 min); panel new=0; PC uptime 12:37Z; RAM guard 12:40Z (normal, RED 3.28 GB)
 - 2026-11-25T13:17Z WATCH: no arrivals; panel new=0; uptime 13:12Z; RAM guard 13:15Z RED 3.17 GB
 - 2026-11-25T13:42Z RUNNER: Drive heartbeat 1Rt7KUSoHjKxkH1zN4IRHDxSo6gEiwjPa; panel new=0; PC uptime 13:37Z; RAM guard 13:35Z (RED 2.83 GB, new process name 'copilot_setup' logged only). FINDING: Drive trashed the old guard file 1KmR_PZ0zeHYGKmyEwKGJWaDAeLLww52Y at 13:29:03Z and a new _RAM-GUARD-HEARTBEAT.md (id 1_AwDevegUGKLb1VClRfJ-8SxaZd-Xs10) appeared at 13:29:38Z. Use title search, not the old id, from now on.
+- 2026-11-25T14:17Z WATCH: no arrivals needing relay; panel new=0; uptime 14:15Z; RAM guard 13:45Z RED 2.39 GB new name opushutil
