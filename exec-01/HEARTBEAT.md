@@ -878,3 +878,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-24T22:42Z RUNNER: Drive heartbeat 1d_28joyz5tIOZMPpHvKsK356lu6nLkp_; panel new=0; PC uptime 22:39Z; RAM guard 22:30Z (normal, RED 3.96 GB free)
 - 2026-11-24T23:17Z WATCH: no arrivals; panel new=0; uptime 23:12Z; RAM guard 23:04Z (AMBER 4.5 GB)
 - 2026-11-24T23:41Z RUNNER: Drive heartbeat 1Ir1S5_EqO9dcT_LNX5Lyko3jo1xMFd9i; panel new=0; PC uptime 23:37Z; RAM guard 23:31Z (normal, RED 3.78 GB free)
+- 2026-11-25T00:18Z WATCH: self-test pass162 5 of 5; probe 2026112500 planted; uptime 00:14Z; RAM guard 00:12Z; context 709k, compaction likely within 1-3 h
