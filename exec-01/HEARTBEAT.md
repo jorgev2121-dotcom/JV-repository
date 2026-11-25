@@ -921,3 +921,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-25T19:41Z RUNNER: Drive heartbeat 1bV-dQYnHdkIEDMCFnVgkwKuRnMqjkXrP; panel new=0; PC uptime 19:37Z; RAM guard 19:41Z GREEN 6.53 GB, pause flag off
 - 2026-11-25T20:18Z WATCH: no arrivals; panel new=0; uptime 20:15Z; RAM guard 20:07Z GREEN 6.09 GB
 - 2026-11-25T20:41Z RUNNER: Drive heartbeat 1X0Y1GOZ_ip8Tk9xRcePIH7w1_8xaqYLM; panel new=0; PC uptime 20:38Z; RAM guard last 20:30Z RED 3.98 GB (11 min, borderline)
+- 2026-11-25T21:17Z WATCH: no arrivals; panel new=0; uptime 21:16Z; RAM guard file replaced again (new id, 21:10Z, alive)
