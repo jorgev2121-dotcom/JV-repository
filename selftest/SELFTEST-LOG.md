@@ -1535,3 +1535,7 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   1 PANEL INBOX pass (new comments 0). 2 PROBE pass (previous probe 2026112506 answered 06:42Z; selftest-probe-2026112512 planted 12:18Z, due answer at 12:41Z runner). 4 PC ALIVE pass (uptime file 12:12Z). 7 MAIL WATCH pass (last check 11:17Z, 61 min old). 10 USAGE GOVERNOR pass (allowed, seven_day; context 415k of 1,000,000, autocompact at 784k).
   Not run: 3, 6, 8, 9. Check 5 (OCR) persistent FAIL since 10-05.
   RAM guard 12:11Z RED 2.57 GB free; it flagged a new process name 'git' (ordinary, logged only).
+2026-11-25T18:18Z pass165 (WATCH, self-test hour 18Z): 5 of 5 run checks pass.
+  1 PANEL INBOX pass (new comments 0). 2 PROBE pass (previous probe 2026112512 answered 12:42Z; selftest-probe-2026112518 planted 18:18Z, due answer at 18:41Z runner). 4 PC ALIVE pass (uptime file 18:15Z). 7 MAIL WATCH pass (last check 17:17Z, 61 min old). 10 USAGE GOVERNOR pass (allowed, seven_day; context 591k of 1,000,000, autocompact at 784k: compaction likely in about 6 to 8 hours; state is in repo logs and Drive checkpoint).
+  Not run: 3, 6, 8, 9. Check 5 (OCR) persistent FAIL since 10-05.
+  RAM guard 17:48Z GREEN 7.67 GB free, pause flag off (fourth GREEN in a row).
