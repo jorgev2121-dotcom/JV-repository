@@ -1531,3 +1531,7 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   Not run: 3, 6, 8, 9. Check 5 (OCR) persistent FAIL since 10-05.
   Model note: configured_model is claude-opus-5-5 but this session runs claude-sonnet-5-5 (user_switched_model). Logged for RI-008, not acted on.
   RAM guard writing 06:16Z, level AMBER 5.26 GB free (improving). Checkpoint refreshed after compaction: new Drive file 1B-ruJ1KzMk9vhMR1JF91pmvHnAbyceWk, old one trashed. Slip: new checkpoint text says 'Last written 06:19Z' but file was created 06:17Z (logged, Drive notes are not overwritten).
+2026-11-25T12:18Z pass164 (WATCH, self-test hour 12Z): 5 of 5 run checks pass.
+  1 PANEL INBOX pass (new comments 0). 2 PROBE pass (previous probe 2026112506 answered 06:42Z; selftest-probe-2026112512 planted 12:18Z, due answer at 12:41Z runner). 4 PC ALIVE pass (uptime file 12:12Z). 7 MAIL WATCH pass (last check 11:17Z, 61 min old). 10 USAGE GOVERNOR pass (allowed, seven_day; context 415k of 1,000,000, autocompact at 784k).
+  Not run: 3, 6, 8, 9. Check 5 (OCR) persistent FAIL since 10-05.
+  RAM guard 12:11Z RED 2.57 GB free; it flagged a new process name 'git' (ordinary, logged only).
