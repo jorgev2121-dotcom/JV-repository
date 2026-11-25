@@ -893,3 +893,9 @@ Why: _RAM-GUARD-HEARTBEAT.md in VTES-Outbox has not changed since about 10:10 PM
 Do: (1) in Task Scheduler look at CU-RAM-Heartbeat: last run time, last result, whether it is still enabled; (2) say in one line what you saw; (3) if it is Disabled or its last result is an error, write that to VTES-Outbox as REPLY-TO-CHAT_RAM-GUARD-STOPPED_<date>.md and ask Jorge for one yes to re-enable it. Change no setting yourself.
 Done means: the reply file exists naming the task state. Not done = unverified.
 Closing question for the desktop: what is CU-RAM-Heartbeat's last run result?
+
+## 42. RAM guard saw 10 new process names at 11:37 AM ET 11-25, look and report only · cloud note 2026-11-25 21:4xZ · 🖥️ DESKTOP (GREEN: look only, change nothing, kill nothing)
+Why: the security watch in the RAM guard heartbeat listed these new names at one time: iPSMonitor, PowerToys.ColorPickerUI, mshta, OneDriveStandaloneUpdater, runonce, MpCmdRun, AppHostRegistrationVerifier, AppVShNotify, LocationNotificationWindows, a Lenovo Vantage add-in. Most are ordinary (Windows, OneDrive, Defender, Lenovo, PowerToys). The two worth one look are mshta (a Windows tool that some installers use and some malware abuses) and iPSMonitor (not recognised). Earlier today it also listed copilot_setup, opushutil, cvtres and sppsvc. Probably the Copilot and Office updates, but unverified.
+Do: (1) look at what started mshta and iPSMonitor (Task Scheduler, Startup apps, Windows Security protection history); (2) say in one line what you saw; (3) if either points to something Jorge did not install, write that to VTES-Outbox as REPLY-TO-CHAT_NEW-PROCESS-NAMES_<date>.md and ask Jorge one yes before anything is removed. Change no setting yourself.
+Done means: the reply file exists naming what started each one. Not done = unverified.
+Closing question for the desktop: what started mshta and iPSMonitor?

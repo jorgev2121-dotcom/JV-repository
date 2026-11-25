@@ -922,3 +922,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-25T20:18Z WATCH: no arrivals; panel new=0; uptime 20:15Z; RAM guard 20:07Z GREEN 6.09 GB
 - 2026-11-25T20:41Z RUNNER: Drive heartbeat 1X0Y1GOZ_ip8Tk9xRcePIH7w1_8xaqYLM; panel new=0; PC uptime 20:38Z; RAM guard last 20:30Z RED 3.98 GB (11 min, borderline)
 - 2026-11-25T21:17Z WATCH: no arrivals; panel new=0; uptime 21:16Z; RAM guard file replaced again (new id, 21:10Z, alive)
+- 2026-11-25T21:41Z RUNNER: Drive heartbeat 1zSpwkXhxT-xeZdZIk7diSsdV-70RTviO (titled 2141Z, created 21:42:19Z: one-minute slip); panel new=0; PC uptime 21:39Z (now also carries the RAM governor log lines); RAM guard 21:37Z GREEN 8.25 GB with 10 new process names at once (mshta and iPSMonitor are the two worth a look); routed as desktop look-only item 42 in mailbox/to-desktop/WORK-QUEUE.md
