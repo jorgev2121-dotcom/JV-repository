@@ -57,7 +57,7 @@ Chase routing number used by Intuit for the 8020 account: 267084131 (Chase Flori
 
 All three send notices to Jorge@TeamUSASales.com. Business or personal is Jorge's call; if business, add them.
 
-13. **Citi / AAdvantage Platinum Select, card ending 6889** — cardmember since 2018, autopay on, statement closes ~27th. Citi (public): 1-800-950-5114.
+13. **Citi / AAdvantage Platinum Select, card ending 6889** — **PERSONAL (Jorge, 2026-11-26). Not in the business books.** Cardmember since 2018, autopay on, statement closes ~27th.
 14. **Home Depot Consumer Credit Card (issued by Citi), ending 6354** — minimum-payment alerts Oct–Nov 2026. (public): 1-800-677-0232.
 15. **U.S. Bank Shield Visa, ending 9915** — NEW card, welcome email 2026-10-14. (public): 1-800-285-8585.
 
