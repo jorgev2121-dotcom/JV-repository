@@ -1547,3 +1547,7 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
   1 PANEL INBOX pass (new comments 0). 2 PROBE pass (selftest-probe-2026112600 answered 00:42Z; selftest-probe-2026112606 planted, stamped 06:18Z but the clock read 06:16Z, a two-minute-ahead slip, logged not rewritten; due answer at the 06:41Z runner). 4 PC ALIVE pass (uptime file 06:16Z). 7 MAIL WATCH pass (last check 05:16Z, 60 min). 10 USAGE GOVERNOR pass (allowed, seven_day; context 316k of 1,000,000).
   Not run: 3, 6, 8, 9. Check 5 (OCR) persistent FAIL since 10-05.
   RAM guard 06:16Z fresh.
+2026-11-26T12:16Z pass168 (WATCH, self-test hour 12Z): 5 of 5 run checks pass.
+  1 PANEL INBOX pass (new comments 0). 2 PROBE pass (selftest-probe-2026112606 answered 06:41Z; selftest-probe-2026112612 planted, due answer at the 12:41Z runner). 4 PC ALIVE pass (uptime file 12:16Z). 7 MAIL WATCH pass (last check 11:16Z, 60 min). 10 USAGE GOVERNOR pass (allowed, seven_day; context 447k of 1,000,000).
+  Not run: 3, 6, 8, 9. Check 5 (OCR) persistent FAIL since 10-05.
+  RAM guard 12:16Z fresh.
