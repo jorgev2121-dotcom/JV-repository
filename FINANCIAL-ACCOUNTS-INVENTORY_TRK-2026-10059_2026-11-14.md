@@ -81,9 +81,13 @@ Bank customer-service numbers above are public numbers from memory, included for
 
 ## Section H — Status
 
+**2026-11-26 update:** QuickBooks connector live. Chart already holds 8020, 5615, 5709, 8939, Amazon Visa 7343, INK 4981 and the four older cards; 8 bank feeds connected, 6 healthy, 2 legacy-2021 dead. Cloud created `SBA EIDL Loan (8008)` (id 105). 645 bank-feed rows wait for review. Amazon Visa (7343) is typed as a Bank account and should be a Credit Card.
+
+### Earlier status (2026-11-14)
+
 - Connector check 2026-11-14: QuickBooks Labs and QuickBooks (Intuit) connectors both answer "sign in again." Nothing read or written in QuickBooks.
 - This file is the prepared input. When the connector is back: create items 6, 7, 8 (Bank), 11 (Long Term Liability), plus any of 13–15 Jorge marks business; verify the five cards' feeds; record BofA transfers as Owner Contribution.
 
-TRK-2026-10059 · v2 · 2026-11-14 · CURRENT
+TRK-2026-10059 · v3 · 2026-11-26 · CURRENT
 v2 change: 5615 = CU Inspections, 5709 = personal, Macy's card added, 2022 limits added (source: TeamUSASales_Budget 2022.xlsx).
 #TeamUSASales #CU-Inspections #QuickBooks #ChartOfAccounts #JorgeValdes
