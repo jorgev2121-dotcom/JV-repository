@@ -44,6 +44,10 @@ Chase routing number used by Intuit for the 8020 account: 267084131 (Chase Flori
 - Mazda Financial Services auto loan $438.41/month and Progressive auto insurance (2022; the auto loan today is DCFCU ending 0040)
 - Fixed monthly business items then: Intuit QuickBooks, Microsoft 365, AT&T, Dropbox, Sunpass, MDC RER permit fees, county recording fees
 
+### Added 2026-11-26
+17. **BankAmericard Mastercard ending 5383** (Bank of America) — new, limit $12,000, due the 18th. $11,400 balance transfer to Ink 4981 requested 11-24. In QuickBooks as id 106; no feed yet.
+18. **Discover is now serviced by Capital One** (since 2025). QuickBooks account id 88 renamed accordingly; no feed; balance last posted 2021.
+
 ## Section C — Loans (liabilities QuickBooks should carry)
 
 11. **SBA EIDL loan, $232,900 original** — long-term liability. Last payment visible on the business account 2022-12-29 (−$1,232). No payment observed 2025-01 → 2026-07 (OPEN-ITEMS 9697). Open question: which account pays it, and is it current. SBA loan servicing (public): 1-833-853-5638.
