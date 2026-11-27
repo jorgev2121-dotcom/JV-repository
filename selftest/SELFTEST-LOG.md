@@ -1566,3 +1566,6 @@ Checked: 1, 2, 4, 7, 10. Not re-checked this pass: 3, 5, 6, 8, 9 (frugal).
 - 2026-11-27T12:16Z pass172: 5 of 5 run checks pass. 1 PANEL INBOX pass (new comments 0 besides the probe). 2 PROBE pass (selftest-probe-2026112706 answered 06:41Z; selftest-probe-2026112712 planted 12:16Z, due answer at the 12:41Z runner). 4 PC ALIVE pass (uptime file 12:16Z). 7 MAIL WATCH pass (last check 11:16Z, 60 min). 10 USAGE GOVERNOR pass (allowed, seven_day; context 281k of 1,000,000, autocompact at 784k).
   Not run: 3, 6, 8, 9. Check 5 (OCR) persistent FAIL since 10-05.
   RAM guard 12:16Z fresh.
+- 2026-11-27T18:17Z pass173: 5 of 5 run checks pass. 1 PANEL INBOX pass (new comments 0 besides the probe). 2 PROBE pass (selftest-probe-2026112712 answered 12:41Z; selftest-probe-2026112718 planted 18:16Z, due answer at the 18:41Z runner). 4 PC ALIVE pass (uptime file 18:16Z). 7 MAIL WATCH pass (last check 17:16Z, 60 min). 10 USAGE GOVERNOR pass (allowed, seven_day; context 706k of 1,000,000, autocompact at 784k).
+  Not run: 3, 6, 8, 9. Check 5 (OCR) persistent FAIL since 10-05.
+  RAM guard heartbeat quiet since 17:37Z (see RECURRING-ISSUES); checkpoint refreshed 17:42Z (file 10IfQKWHMRjn9p3Lg2gMPZcXeJmurdhJK).
