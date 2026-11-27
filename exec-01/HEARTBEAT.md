@@ -1005,3 +1005,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-27T13:42Z RUNNER 13:41Z: throttle allowed, panel new=0, Drive heartbeat 1342Z written, context 388k, no RED executed
 - 2026-11-27T14:16Z WATCH 14:16Z cycle done; RAM guard AMBER (pause flag, fresh heartbeat); panel new=0
 - 2026-11-27T14:42Z RUNNER 14:41Z: throttle allowed, panel new=0, Drive heartbeat 1441Z written, context 459k; RAM guard RED (free RAM about 2.9 of 31.9 GB, pause flag set, AI processes set below-normal by the guard itself, heartbeat fresh; a local llama-server process is using about 2.4 GB); pushed to Jorge once; PC orders held; no RED executed
+- 2026-11-27T15:16Z WATCH 15:16Z cycle done; RAM guard GREEN again; panel new=0
