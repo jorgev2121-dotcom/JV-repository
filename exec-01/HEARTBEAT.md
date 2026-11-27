@@ -1003,3 +1003,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-27T12:41Z RUNNER 12:41Z: throttle allowed, 12Z probe answered (reply doc written 12:41:50Z), panel new=0, Drive heartbeat 1241Z written, context 327k, no RED executed
 - 2026-11-27T13:16Z WATCH 13:16Z cycle done, nothing new, panel new=0
 - 2026-11-27T13:42Z RUNNER 13:41Z: throttle allowed, panel new=0, Drive heartbeat 1342Z written, context 388k, no RED executed
+- 2026-11-27T14:16Z WATCH 14:16Z cycle done; RAM guard AMBER (pause flag, fresh heartbeat); panel new=0
