@@ -1213,3 +1213,4 @@
 - 2026-11-27T15:41Z RUNNER 15:41Z | budget allowed | items 0 of 0 | no panel build | queue unchanged | blocked: Jorge yes-questions only
 - 2026-11-27T16:16Z WATCH 16:16Z: no changes, no builds
 - 2026-11-27T16:42Z RUNNER 16:41Z | budget allowed | items 0 of 0 | PC orders held (RAM guard heartbeat stale 19 min) | blocked: guard restart is a desktop item
+- 2026-11-27T17:16Z WATCH 17:16Z: no builds; PC orders held (RAM guard stale)
