@@ -1041,3 +1041,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-28T07:43Z RUNNER 07:41Z: throttle allowed, panel new=0, Drive heartbeat 0742Z written, context 262k of 784k, no RED executed
 - 2026-11-28T08:18Z WATCH 08:16Z: panel new=0; Gmail clean; Outlook 2 routine SYNC-01 self-mails (logged only); Outbox routine; RAM guard wrote 08:15Z (alive); nothing relayed; no RED executed
 - 2026-11-28T08:43Z RUNNER 08:41Z: throttle allowed, panel new=0, Drive heartbeat 0842Z written, context 319k of 784k, no RED executed
+- 2026-11-28T09:20Z WATCH 09:16Z: panel new=0; Gmail clean; Outlook 2 routine SYNC-01 self-mails (logged only); Outbox routine; RAM guard last 08:37Z (~41 min quiet, longer than earlier gaps) while uptime fresh 09:12Z so PC awake: pushed + Gmailed once; no RED executed
