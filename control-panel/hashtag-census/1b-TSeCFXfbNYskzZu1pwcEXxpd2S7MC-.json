@@ -1,0 +1,19 @@
+{"id":"1b-TSeCFXfbNYskzZu1pwcEXxpd2S7MC-","title":"TRK-2026-1293 - MZ Solutions LLC - Company Credentials 2026 (MZ SOLUTIONS)","partial":false,
+"pdfs":3,"search_sidecars":3,"tags_sidecars":3,"tags5_sampled":3,"tags5_of_sampled":1,
+"has_HASHTAGS_txt":false,"hashtags_count":0,"has_people_tags":false,"has_trk_tag":false,
+"other_files":["_PORTAL_TRK-2026-1293.html","_PLACEHOLDERS.md","_STAGE.md","_TAGS.txt (7 tags incl #TRK-2026-1293, #Miguel-Zaldivar, #JorgeValdes)","_INDEX.html","01-Emails/TRK-2026-1293_2026-07-31_MZ-SOLUTIONS_Zaldivar-intake-pointers.md","02-Files/MZ Solutions - Lanuage for recurring email copt paste - change minicipality name.txt (no extension, octet-stream)","nightly .bak files in root (excluded)"],
+"people":[
+{"name":"Miguel Zaldivar","role":"general contractor / owner of MZ Solutions LLC (CGC1528486)","email":"miguel@mzsolutions.org","evidence":"01-Emails/Zaldivar-intake-pointers.md; file name 'CGC 1528486 - DBPR - ZALDIVAR, MIGUEL'","misspellings":["Miguel Zadlivar","Saldivar","Zaldibar","ZALDIVAR, MIGUEL"]},
+{"name":"Reyna Jovel","role":"related party on 10000 W Bay Harbor Dr #404 job (COI holder context)","email":null,"evidence":"_PLACEHOLDERS.md","misspellings":["Reina Jovel","Reyna Joval"]},
+{"name":"Jorge Valdes","role":"owner / permit expediter using MZ credentials","email":"Jorge@TEAMUSASALES.COM","evidence":"_TAGS.txt","misspellings":[]}
+],
+"companies":[
+{"name":"MZ Solutions LLC","role":"general contractor (client company)","evidence":"all files"},
+{"name":"Florida DBPR","role":"state licensing agency","evidence":"CGC 1528486 license file name"},
+{"name":"Ten Thousand Plaza Condominium","role":"COI certificate holder","evidence":"_PLACEHOLDERS.md"},
+{"name":"Town of Bal Harbour (building dept)","role":"COI certificate holder / permit clerk","evidence":"_PLACEHOLDERS.md"},
+{"name":"City of Pembroke Pines Building Department","role":"contractor registration certificate holder","evidence":"intake pointers"},
+{"name":"TEDC","role":"separate company also tied to Zaldivar - never merge (TRK-2026-1296)","evidence":"intake pointers"}
+],
+"keywords":["TRK-2026-1293","MZ Solutions","MZ Solutions LLC","Miguel Zaldivar credentials","CGC1528486","CGC 1528486","DBPR license","GC license","COI","certificate of insurance","General Liability","workers comp","LBTR","Local Business Tax Receipt","receipt 7294711","9770 SW 215 Ln","9770 SW 215th Lane 33189","CSR24 MZSOLUT-01","Pembroke Pines contractor registration","Bal Harbour COI","Ten Thousand Plaza","company credentials 2026"],
+"notes":"No _HASHTAGS.txt. Capsule-level _TAGS.txt has 7 tags including a person tag (#Miguel-Zaldivar) and TRK tag. Two of three PDF TAGS sidecars are unanchored (#ORPH-2026-0817, #ORPH-2026-0818; 'ORPH' prefix is not the OPH standard) even though they sit inside a TRK folder; LBTR sidecar has 6 tags but no TRK tag. Renewed CGC license (exp 2028-08-31) and two Sept-2026 COIs RECEIVED-NOT-FILED here (live under TRK-2026-1265). Misspellings seen in file names: 'Buisness', 'Realease', 'Lanuage', 'copt', 'minicipality'. Cross-ref TUS-26-1018 (8621 Pasadena Blvd). 5 calls."}

@@ -1,0 +1,53 @@
+PASS  phone-light opens on current version v1.1 with date  (v1.1 (current)Nov 6, 2026▾)
+PASS  phone-light banner hidden on current
+PASS  phone-light body shows the revised time
+PASS  phone-light dropdown opens
+PASS  phone-light dropdown lists versions newest first  (v1.1,v1.0)
+PASS  phone-light each row has View and Use
+PASS  phone-light banner text when old version shown  (A newer version of this is available: v1.1 (Nov 6, 2026))
+PASS  phone-light old body shows original 10:00 AM time
+PASS  phone-light header says v1.0 (older)
+PASS  phone-light jump button returns to v1.1
+PASS  phone-light Use on old version fires onUse  (You chose to USE v1.0 (Nov 3, 2026), an OLDER one. The banner stays up so you know.)
+PASS  phone-light add-change makes v1.2 current
+PASS  phone-light no horizontal scroll  (390 <= 390)
+PASS  phone-light open dropdown stays inside the viewport  (right edge 356 <= 390)
+PASS  phone-light body text at least 18px  (18px)
+PASS  phone-light background matches scheme  (rgb(255, 255, 255))
+PASS  phone-dark opens on current version v1.1 with date  (v1.1 (current)Nov 6, 2026▾)
+PASS  phone-dark banner hidden on current
+PASS  phone-dark body shows the revised time
+PASS  phone-dark dropdown opens
+PASS  phone-dark dropdown lists versions newest first  (v1.1,v1.0)
+PASS  phone-dark each row has View and Use
+PASS  phone-dark banner text when old version shown  (A newer version of this is available: v1.1 (Nov 6, 2026))
+PASS  phone-dark old body shows original 10:00 AM time
+PASS  phone-dark header says v1.0 (older)
+PASS  phone-dark jump button returns to v1.1
+PASS  phone-dark Use on old version fires onUse  (You chose to USE v1.0 (Nov 3, 2026), an OLDER one. The banner stays up so you know.)
+PASS  phone-dark add-change makes v1.2 current
+PASS  phone-dark no horizontal scroll  (390 <= 390)
+PASS  phone-dark open dropdown stays inside the viewport  (right edge 356 <= 390)
+PASS  phone-dark body text at least 18px  (18px)
+PASS  phone-dark background matches scheme  (rgb(20, 20, 20))
+PASS  desktop-light opens on current version v1.1 with date  (v1.1 (current)Nov 6, 2026▾)
+PASS  desktop-light banner hidden on current
+PASS  desktop-light body shows the revised time
+PASS  desktop-light dropdown opens
+PASS  desktop-light dropdown lists versions newest first  (v1.1,v1.0)
+PASS  desktop-light each row has View and Use
+PASS  desktop-light banner text when old version shown  (A newer version of this is available: v1.1 (Nov 6, 2026))
+PASS  desktop-light old body shows original 10:00 AM time
+PASS  desktop-light header says v1.0 (older)
+PASS  desktop-light jump button returns to v1.1
+PASS  desktop-light Use on old version fires onUse  (You chose to USE v1.0 (Nov 3, 2026), an OLDER one. The banner stays up so you know.)
+PASS  desktop-light add-change makes v1.2 current
+PASS  desktop-light no horizontal scroll  (1200 <= 1200)
+PASS  desktop-light open dropdown stays inside the viewport  (right edge 962 <= 1200)
+PASS  desktop-light body text at least 18px  (18px)
+PASS  desktop-light background matches scheme  (rgb(255, 255, 255))
+PASS  nextVersion 1.0 -> 1.1
+PASS  nextVersion 1.9 -> 2.0
+PASS  validate rejects out-of-order versions
+PASS  no page errors or console errors
+RESULT 52 of 52 checks passed, 2026-11-07T15:30:01.020Z

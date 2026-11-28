@@ -1,0 +1,37 @@
+{
+  "id": "1iMO3rvooHDuqLOH_p0UO_8HFnzlb5q1-",
+  "title": "TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST",
+  "partial": true,
+  "pdfs": 124,
+  "search_sidecars": 92,
+  "tags_sidecars": 122,
+  "tags5_sampled": 3,
+  "tags5_of_sampled": 3,
+  "has_HASHTAGS_txt": false,
+  "hashtags_count": null,
+  "has_people_tags": null,
+  "has_trk_tag": null,
+  "other_files": ["_TAGS.txt", "_CONTACTS-EXTRACTED.txt", "_PLACEHOLDERS.md", "_PORTAL_TRK-2026-1534.html", "_STAGE.md", "_INDEX.html (root + 6 subfolders)", "_22-SOURCE-RUN_TRK-2026-1534_2026-08-16.html", "00-Intake/_JOB-TREE_TRK-2026-1534.html", "03-Research: _DD-RUNNER-SUMMARY_2026-10-02.md, _DD-RUNNER-STATE.json, 3 DD SITE .md, 18 BLOCKER_SITE-*.md, County PA/DERM/RER pull files 2026-08-15, 2026-09-11_JOB-4227-DD-Run folder (RAW json/html), Report-WorkingPapers (4 contact_0N.jpg)", "05-REPORTS-DELIVERABLES: DD Alec Standard v1 .md, 2026-09-11 _ TRK-1534 _ DD-Research-Partial _ JOB-4227 _ v1.md", "07-Microfilm-Records/X2026148675: 3 _DOWNLOAD-LOG csv, _INDEX.html, 5 PERMIT-* folders", "08-Jacket-Order _ 1840-NW-63-ST _ for-Alec-Valdes: READ-ME_JACKET-ORDER.txt, 3 ONLINE-FORM PNG screenshots + SEARCH sidecars, _INDEX.html", "07-TAX-JACKET ENHANCED: FINAL_ALL.pdf.PAGEMAP.json, 3x WHAT-WAS-DONE.json, _partmaps/", "root .bak-YYYYMMDD copies excluded from listing"],
+  "people": [
+    {"name": "Alec Valdes", "role": "client", "email": null, "evidence": "_TAGS.txt, folder '08-Jacket-Order _ 1840-NW-63-ST _ for-Alec-Valdes', report 'DD Alec Standard'", "misspellings": ["Alex Valdes", "Alec Valdez"]},
+    {"name": "Daniela Banquez", "role": "permit expediter / contractor permitting contact (Portobello Construction)", "email": "permitting@portobello-construction.com", "evidence": "07-Microfilm-Records/X2026148675/PERMIT-2026133573/CONTACT SHEET.PDF.SEARCH.txt", "misspellings": ["Daniela Vanquez", "Daniela Banques", "Daniella Banquez"]},
+    {"name": "Jeffrey Whitmore", "role": "Miami-Dade County staff (RER/permitting)", "email": "jeffrey.whitmore@miamidade.gov", "evidence": "_CONTACTS-EXTRACTED.txt", "misspellings": ["Jeff Whitmore", "Jeffrey Witmore"]},
+    {"name": "Barbara Bell", "role": "Miami-Dade County staff", "email": "barbara.bell@miamidade.gov", "evidence": "_CONTACTS-EXTRACTED.txt", "misspellings": []},
+    {"name": "R. L. Llomas, PE", "role": "engineer (likely structural/engineer of record)", "email": "rllomas@lrlomaspe.com", "evidence": "_CONTACTS-EXTRACTED.txt (domain lrlomaspe.com)", "misspellings": ["Lomas", "Llomaz"]},
+    {"name": "Ed Castro", "role": "unknown party in permit set (gmail contact)", "email": "edcastro14811@gmail.com", "evidence": "_CONTACTS-EXTRACTED.txt", "misspellings": ["Edd Castro"]},
+    {"name": "RWK", "role": "engineer initials on structural narrative letters / landscaping (unresolved)", "email": null, "evidence": "file names 'STRUCTURAL RESPOND NARRATIVE LETTER - RWK 05-03-2025.PDF', 'PROFESSIONAL LANDSCAPING - 1840 NW 63 ST - RWK 05-03-2025.PDF'", "misspellings": []},
+    {"name": "Jorge Valdes", "role": "owner / inspector", "email": "jorge@teamusasales.com", "evidence": "_CONTACTS-EXTRACTED.txt, _TAGS.txt", "misspellings": ["Jorge Valdez"]}
+  ],
+  "companies": [
+    {"name": "Portobello Construction", "role": "general contractor / permit applicant", "email": "permitting@portobello-construction.com; admin@portobello-construction.com", "evidence": "_CONTACTS-EXTRACTED.txt, CONTACT SHEET SEARCH sidecar", "misspellings": ["Portabello", "Porto Bello"]},
+    {"name": "L R Llomas PE", "role": "engineering firm", "email": "rllomas@lrlomaspe.com", "evidence": "_CONTACTS-EXTRACTED.txt"},
+    {"name": "Martinez Truss", "role": "truss manufacturer (TRUSS CALC / SD TRUSS)", "email": "info@martineztruss.com", "evidence": "_CONTACTS-EXTRACTED.txt, PERMIT-2025152864 file names"},
+    {"name": "All American Engineering FL", "role": "engineer (unconfirmed role)", "email": "allamericanengineeringfl@gmail.com", "evidence": "_CONTACTS-EXTRACTED.txt"},
+    {"name": "Simpson Strong-Tie", "role": "product approval docs (connectors) - vendor, not a job party", "email": "crizer@strongtie.com etc.", "evidence": "_CONTACTS-EXTRACTED.txt, FL 10531 / FL 11473 SIMPSON file names"},
+    {"name": "Nu-Vue Industries / Rheem", "role": "NOA product approvals (window, A/C)", "email": null, "evidence": "file names 'NOA 24-0213.05 NV358 NU-VUE IND.PDF', 'NOA 23-1204.05-RHEEM.PDF'"},
+    {"name": "Miami-Dade RER (Herbert S. Saffir Permitting and Inspection Center)", "role": "county permitting", "email": "newbusinesssupvlist@miamidade.gov", "evidence": "CONTACT SHEET SEARCH sidecar, _CONTACTS-EXTRACTED.txt"},
+    {"name": "City of Miami", "role": "jurisdiction / microfilm", "email": null, "evidence": "_TAGS.txt (#City-of-Miami #microfilm)"}
+  ],
+  "keywords": ["1840 NW 63 ST", "1840 NW 63rd Street Miami FL 33147", "1840-NW-63-St", "1842 NW 63 ST (second duplex unit)", "folio 30-3115-005-3770", "3031150053770", "TRK-2026-1534", "JOB-4227", "Alec Valdes", "new duplex", "permit 2025084268", "permit 2025152864 (trusses)", "permit 2026018298 (railings)", "permit 2026133573 (concealed work / window-door inspection)", "permit 2026143202 (fence)", "microfilm X2026148675", "impact fee $19,689.38", "deed OR 34499/0168", "plat PB 7-79", "PSR 2026-054125-0", "ROW permit", "Portobello Construction", "Daniela Banquez", "metal / aluminum / chain link fence", "concealed work affidavit", "1947 accessory building", "Martinez Truss"],
+  "notes": "No _HASHTAGS.txt. _TAGS.txt has #TRK-2026-1534 and #Alec-Valdes. PARTIAL: bulk of the PDFs (110) live in 07-Microfilm-Records/X2026148675/PERMIT-* folders, 4 levels deep; walked past the 2-level limit to count them. PDF and TAGS counts are from full listings; search_sidecars (92) is an ESTIMATE - microfilm SEARCH sidecars were only partially enumerated (~76 estimated; the 2026-08-13 batch of ~31 drawing sheets appears to have TAGS only, no SEARCH). 92 includes 3 PNG SEARCH sidecars in 08-Jacket-Order. DD-BOOK TAGS sidecar carries a stray admin-band TRK (#TRK-2026-9754) and a second folio 30-3115-005-3779 (likely OCR variant). Microfilm TAGS sidecars carry cross-job noise addresses (e.g. #13935-SW-106-TER). _CONTACTS-EXTRACTED lists 19 emails, 46 phones (many 202/302 OCR noise). Report DD Alec Standard v1 finished but not sent; invoice not issued (_PLACEHOLDERS). ~14 Drive search calls used."
+}

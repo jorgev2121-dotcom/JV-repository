@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bal Harbour Job Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule, built from the TUS-26-1018 pilot. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+.p-clock{background:var(--money-soft);color:var(--money)}
+.sub{font-family:var(--display);font-size:14px;font-weight:600;color:var(--accent);margin:16px 0 0;overflow-wrap:anywhere}
+.mdocs .sep{margin-top:10px}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED</p>
+<h1>TRK-2026-1265 · Bal Harbour Permit Status (MZ Solutions)</h1>
+<div class="facts">
+  <span><b>Building</b>The Plaza of Bal Harbour, 10185 Collins Ave</span>
+  <span><b>Also</b>Majestic Tower Unit 310, 9601 Collins Ave</span>
+  <span><b>Contractor</b>MZ Solutions LLC · CGC1528486</span>
+  <span><b>Village</b>Bal Harbour</span>
+</div>
+<div class="deadline">Unit 721 renewal window closes 2027-01-31 · <span id="dl721">110 days left</span><br>Unit 220 renewal window closes 2027-02-12 · <span id="dl220">122 days left</span>
+<small>The Village said on September 9: renewal, not a new permit, for 922, 321, 220 and 721. Renewal needs the signed, notarized originals first.</small></div>
+<p class="stamp">TRK-2026-1265 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile m" data-go="status"><span class="n">2</span><b>Renewal deadlines</b><small>721 on Jan 31, 220 on Feb 12.</small></button>
+  <button class="tile y" data-go="status"><span class="n">8</span><b>Still missing</b><small>Originals, issued permits, signers.</small></button>
+  <button class="tile w" data-go="people"><span class="n">5</span><b>Waiting on</b><small>You, the Village, Miguel, Juan Carlos, owners.</small></button>
+  <button class="tile c" data-go="findings"><span class="n">12</span><b>Findings</b><small>Backups, duplicates, other jobs mixed in.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> Units 220 and 721 can still be renewed on the same plans, but only after the Village gets the <b>right signed, notarized originals</b>. The September 8 scan showed 922 and 321 instead. Before paying any renewal fee, ask the Village one written question about the emergency pause (Statute 252.363); it could save the fee.</p></div>
+
+<div class="tags"><b>Hashtags for this job (from _TAGS.txt, _HASHTAGS.txt and the October 13 decisions)</b>#TRK-2026-1265 #Bal-Harbour #BalHarbour #Bay-Harbor #MZ-Solutions #Miguel-Zaldivar #CGC1528486 #permit #permit-renewal #FBC105 #Plaza #ThePlaza #10185Collins #PlazaOfBalHarbour #Olga #Kalogeropoulos #HebertMartinez #QuannyMarte #JuanCarlos #ImpactWindowServices #Doron #DoronBarnes #922 #321 #220 #721 #423 #714 #914 #PH11 #307 #1016 #1515 #BLC2024-0715 #BLC2024-1335 #BLC2024-0717 #BLC2024-0707 #BLC2026-1436 #BLC2026-1437 #BLC2026-1438 #WEB4575 #Sunbiz #AP-0059 #Majestic #MajesticTower #Unit310 #9601CollinsAve #BLC2025-0251 #CU-2026-BH-085 #BH-441 #JOB-0110 #capsule-of-record-DRIVE #AP-0070 #JorgeValdes #CU-Inspections</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>1255 documents across 33 folders. Listed one by one: 64 in the tree and 18 in the locked money zone. Counted but not listed one by one: 1173 in the older OneDrive copy (its archive, superseded and duplicate folders; open those folders in Drive). Left out of the list: backup copies, search, tag and OCR sidecars, and folder index pages. Nothing on this page sends, files, moves or deletes anything. Ticks are not saved.</p>
+  <p class="tag">TRK-2026-1265 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #TRK-2026-1265 #BalHarbour #Plaza #10185Collins #MZ-Solutions #capsule #orange-tree</p>
+</footer>
+</div>
+<script>
+const FOLDERS=[{"k":"root","t":"Job root","p":"TRK-2026-1265 (top of the job folder)","fid":"1D32Vs9joWehiGe0PutoecSckS-CyS171","note":"56 backup copies sit in this folder (28 of _PORTAL, 27 of _STAGE, 1 of _HASHTAGS). All use the banned “name.ext.bak-date” form. They are left out of this list.","side":{"s":0,"i":1,"m":0},"docs":[["_PORTAL_TRK-2026-1265.html","2026-10-13",1355288,"Web page","14-HXCFbYjUbyHCw19X00xIzfzfqzSZnU","",""],
+["_PLACEHOLDERS.md","2026-10-10",6098,"Notes","12PpIOk5SE3V5PfFRrnCOpkzLsQxFbA08","KEY",""],
+["_STAGE.md","2026-10-09",1192,"Notes","1cpEuP0aWljkBEg_kRJD45ULZYgIv1TIo","",""],
+["_CONTACTS-EXTRACTED.txt","2026-10-05",4708,"Text","1nyygQWO2mb4W8nBA1rTQ4ZEhjJxuz-oR","",""],
+["_HASHTAGS.txt","2026-09-04",570,"Text","1NnD3v6JPAe6o3xtPWsQBzSC305fOResc","",""],
+["_TAGS.txt","2026-08-26",275,"Text","1E43R3LgVs3zVEmMuUNg1WJi3ruBtoMZ6","",""],
+["_PORTAL_TRK-2026-1265_EMBEDDED.html","2026-08-19",1006144,"Web page","1vJmwVKmQeugzwRJZ46P68GEzSlHu1Grl","55-DAY-OLD COPY",""],
+["_INDEX.html","2026-08-17",5687,"Web page","1m80rQ_ny_7Kn2_CKaTMBVFeQ6KH3kjZI","",""],
+["_JOB-TREE_TRK-2026-1265.html","2026-08-10",59789,"Web page","1krTPbG6j6to8_wgyZVV1xCnqCqLARM_S","",""],
+["COWORK-BRIEF_Bal-Harbour-Permit-Status.md","2026-07-01",2890,"Notes","1QXQy7Bt9xdJF1xPBSIXb7Ty3_o3X6iP_","",""]]},
+{"k":"intake","t":"01-INTAKE","p":"TRK-2026-1265 / 01-INTAKE","fid":"1E8BUQUyw0OYOYRMbiclj-GRsspmjrBma","note":"","side":{"s":2,"i":0,"m":0},"docs":[["2026-09-01 _ TRK-2026-1265 _ Intake _ Plan-de-Ataque-Plaza-Condominio-Juan-Carlos _ v1.pdf","2026-09-01",23751,"PDF","1GSrB_5vslyV4NYeh8a28kNeS8qdzRWKS","",""]]},
+{"k":"etrak4","t":"eTRAKiT scrape, Sept 4","p":"TRK-2026-1265 / 01-INTAKE / eTRAKiT-SCRAPE_2026-09-04","fid":"1xFtNaGEXHJT3sILg98PPsHGSAKHOEY2F","note":"","side":{"s":0,"i":0,"m":0},"docs":[["eTRAKiT_18-unit-rescrape_2026-09-04.json","2026-09-04",44336,"Data","1QVDVmr-FPhq6oKYR32O-JTfGUzwOWyqi","",""],
+["9540_bh_scrape_2026-09-04.py","2026-09-04",3652,"Script","1FrkYXZkLAVETnEN0ccPbItP1Dbko7HEA","",""]]},
+{"k":"emails","t":"01-Emails","p":"TRK-2026-1265 / 01-Emails","fid":"1nHGwotXSpIhjlsQfJ06_hJIcemU9dh2O","note":"","side":{"s":0,"i":1,"m":0},"docs":[["TRK-2026-1265_2026-07-31_MZ-SOLUTIONS_Zaldivar-intake-pointers.md","2026-07-31",2291,"Notes","1ulCOIH-DNgoJsaGrGKLAwekKpjjBuBen","",""]]},
+{"k":"permits","t":"02-PERMITS","p":"TRK-2026-1265 / 02-PERMITS","fid":"12YSOXGPexlbOO6YeaEJAVYm6HkcQjx0F","note":"Five 2026-09-06 reissue PDFs (922, 321, 423, 714, 914) are each exactly 60,608 bytes. They may be the same blank form. 5 backup copies (.html.bak-20260906) left out.","side":{"s":18,"i":0,"m":0},"docs":[["2026-09-06 _ TRK-2026-1265 _ Permit _ Reissue-Application-BLC2024-0717-Unit-922 _ v1.pdf","2026-09-06",60608,"PDF","18eHFkwDZ37G2F8b5kK1-CEH8uN2fer4n","SAME SIZE x5",""],
+["2026-09-06 _ TRK-2026-1265 _ Permit _ Reissue-Application-BLC2024-0717-Unit-922 _ v1.html","2026-09-06",8408,"Web page","1c-6LexQZQT2HWj7RC7I4cwch24DeUuvt","",""],
+["2026-09-06 _ TRK-2026-1265 _ Permit _ Reissue-Application-BLC2024-0707-Unit-321 _ v1.pdf","2026-09-06",60608,"PDF","1HD_TrO0buoyZBGGytVHQv1b0pYLVbTwi","SAME SIZE x5",""],
+["2026-09-06 _ TRK-2026-1265 _ Permit _ Reissue-Application-BLC2024-0707-Unit-321 _ v1.html","2026-09-06",9178,"Web page","1-EP-KpEXpbYD0mOsACDQ4UNshHOzzlJ6","",""],
+["2026-09-06 _ TRK-2026-1265 _ Permit _ Reissue-Application-BLC2024-0714-Unit-423 _ v1.pdf","2026-09-06",60608,"PDF","1IzyqZ86bN6GpGFcXDXOY7fTuImTjqcCu","SAME SIZE x5",""],
+["2026-09-06 _ TRK-2026-1265 _ Permit _ Reissue-Application-BLC2024-0714-Unit-423 _ v1.html","2026-09-06",10635,"Web page","16NWoQBNDhBOsCiE2YKxq5uiiB7VAy55O","",""],
+["2026-09-06 _ TRK-2026-1265 _ Permit _ Reissue-Application-BLC2024-0027-Unit-714 _ v1.pdf","2026-09-06",60608,"PDF","1CLmLZYeLl1SULcWOjw965D-w1-hTYcq3","SAME SIZE x5",""],
+["2026-09-06 _ TRK-2026-1265 _ Permit _ Reissue-Application-BLC2024-0027-Unit-714 _ v1.html","2026-09-06",8916,"Web page","1i33YB7_bPaKhsLFL2euRaCAz_bI0Ty0t","",""],
+["2026-09-06 _ TRK-2026-1265 _ Permit _ Reissue-Application-BLC2024-0025-Unit-914 _ v1.pdf","2026-09-06",60608,"PDF","1CbzEk-uQ7cfm353Mjqwh9KmXtn00dRkk","SAME SIZE x5",""],
+["2026-09-06 _ TRK-2026-1265 _ Permit _ Reissue-Application-BLC2024-0025-Unit-914 _ v1.html","2026-09-06",8858,"Web page","142Uch4SOo4laWZYxdOH_hCFofi7Dtv0F","",""],
+["2026-09-04 _ TRK-2026-1265 _ Permit _ Extension-Application-BLC2024-1335-Unit-220 _ v1.pdf","2026-09-04",185543,"PDF","1OHQV9hlshqIXfuoYdtR8SqR_EZRZBvIF","UNSIGNED DRAFT",""],
+["2026-09-04 _ TRK-2026-1265 _ Permit _ Extension-Application-BLC2024-1335-Unit-220 _ v1.html","2026-09-04",20295,"Web page","1iG_qw83aA5jFMIFaXAouFAaqrdxuFzIV","",""],
+["2026-09-04 _ TRK-2026-1265 _ Permit _ Extension-Application-BLC2024-0715-Unit-721 _ v1.pdf","2026-09-04",183359,"PDF","1E7JlEdEQnIYqxGSsi0Hy_z8lZwBgYuFw","UNSIGNED DRAFT",""],
+["2026-09-04 _ TRK-2026-1265 _ Permit _ Extension-Application-BLC2024-0715-Unit-721 _ v1.html","2026-09-04",19857,"Web page","1ZZKkG81jlojmT61MG3VD_exR77MnFWyG","",""],
+["2026-08-20 _ TRK-2026-1265 _ Permit _ Permit Application.pdf","2026-08-20",999971,"PDF","1uG6A65ytggUnZYF9-vIJmijim4CKkY_K","KEY",""],
+["2026-08-20 _ TRK-2026-1265 _ Permit _ MZ SOLUTIONS, LLC PERMIT HISTORY.xlsx","2026-08-20",13832,"Spreadsheet","1joTiIVwah7adITeXwUYfBZIRkMDeEJsX","",""],
+["2026-08-20 _ TRK-2026-1265 _ Correspondence _ MZ SOLUTIONS, LLC CGC1528486 permit history.txt","2026-08-20",1636,"Text","1eu4c2RWA5mlcbIozFwEoGdhjIDFIQ2bk","",""],
+["2026-08-19 _ TRK-2026-1265 _ Correspondence _ Extension Request - Permit BLC2024-1335 - Unit 220 - The Plaza, 10185 Collins Ave.txt","2026-08-19",988,"Text","1bU5BhFyhhQ6_t7gV84PW7eG9Aea5DNV4","CORRESPONDENCE IN PERMITS",""]]},
+{"k":"status","t":"03-Status","p":"TRK-2026-1265 / 03-Status","fid":"1JD2sEJ8Y_q7RqZNp31bM2Q3ciZ0mPWoP","note":"","side":{"s":0,"i":1,"m":0},"docs":[["Permit Status-Bal Harbour-MZ Solution 20260108.xlsx","2026-07-16",32397,"Spreadsheet","1zAG4_Nav36Eh74bLAwPm556LKp6YPPjp","",""]]},
+{"k":"corr","t":"04-CORRESPONDENCE","p":"TRK-2026-1265 / 04-CORRESPONDENCE","fid":"14a2y9DsjG24Wjm9YEGV7zaeGR6Mog1tE","note":"","side":{"s":0,"i":0,"m":0},"docs":[["2026-10-07 _ TRK-2026-1265 _ Correspondence _ Association-Owner-Address-Request-5-Units _ v1.eml","2026-10-07",908,"Email","1Gs9nmpITR4w4JJC1_rELiae9CV6PVpM1","",""]]},
+{"k":"reports","t":"05-REPORTS-DELIVERABLES","p":"TRK-2026-1265 / 05-REPORTS-DELIVERABLES","fid":"1ELGf9F2pjtI8EdO4eFi2UDmcVPW2clxI","note":"One backup copy (Expired-Permit-Reissue-Clock v1.bak-20260902.md) left out.","side":{"s":0,"i":0,"m":2},"docs":[["2026-10-07 _ TRK-2026-1265 _ Report _ Majestic-Unit-310-Source-Of-Truth _ v1.md","2026-10-07",1085,"Notes","1jK4_pvMadGgexm-M4OU13EUHY3zYWP_U","MAJESTIC 310",""],
+["2026-09-04 _ TRK-2026-1265 _ PH1-17 _ Report _ Plaza-Master-Extension-Survival-And-Inspection-Status _ v1.html","2026-09-04",28101,"Web page","12aix11khD7XccSWPV3IkAbvd1iut53OL","",""],
+["2026-09-04 _ TRK-2026-1265 _ PH1-16 _ Report _ Renewal-Needed-vs-Not_Corrected-Clock _ v1.html","2026-09-04",12203,"Web page","1nDCLS5OQgubpCyzWduhmcMN7iRoti_I7","",""],
+["2026-09-03 _ TRK-2026-1265 _ Report _ Inspection-History-vs-No-Work-Certification-8-Units _ v1.html","2026-09-03",13411,"Web page","1b5FMewXAEqX6-qIg-uWvhqntmG41bzB7","",""],
+["2026-09-02 _ TRK-2026-1265 _ Report _ Reissue-Signers-And-Omissions _ v1.md","2026-09-02",7773,"Notes","1mmoo-Cg0chr-8SGYjOm0IgTSrkWu5oAS","",""],
+["2026-09-02 _ TRK-2026-1265 _ Report _ Expired-Permit-Reissue-Clock _ v1.md","2026-09-02",10751,"Notes","1tO2478l_rUUONOWIfOpANq0w3dRr6Fdj","KEY",""]]},
+{"k":"doron","t":"03-Doron-Evidence","p":"TRK-2026-1265 / 03-Doron-Evidence_2026-08-18","fid":"1N8kd6LbYxjQgsNsvYfh9VnjVoBcmN-XV","note":"Every document here is payment evidence, so it lives in the money zone.","side":{"s":0,"i":0,"m":1},"docs":[]},
+{"k":"doron_p","t":"Doron · PROVEN","p":"TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / PROVEN","fid":"16aUhEKngZyYB3Z4tNcAnAxEmFkNW2roQ","note":"","side":{"s":6,"i":0,"m":6},"docs":[]},
+{"k":"doron_c","t":"Doron · CONTRACTS","p":"TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / CONTRACTS","fid":"1jnHckwmo2eGGbtsx5JEZZGlAG1gfdpQF","note":"","side":{"s":3,"i":0,"m":3},"docs":[]},
+{"k":"doron_u","t":"Doron · PENDING SUPPORT","p":"TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / _PENDING-ADDITIONAL-SUPPORT","fid":"119Qpmg48tGL2LCYKxLSEfzTvbOqeKaev","note":"","side":{"s":5,"i":0,"m":5},"docs":[]},
+{"k":"majestic","t":"Majestic Tower Unit 310","p":"TRK-2026-1265 / Units / 310 _ 9601 Collins Ave Majestic Tower (BLC2025-0251)","fid":"1JT99YVkIKS0BMpHjB7T8VWRQgEpekPPG","note":"Majestic Tower Unit 310 (BLC2025-0251, FINALED) belongs to this job, per the 2026-10-07 source-of-truth report.","side":{"s":0,"i":0,"m":1},"docs":[["UNIT-310_SHEET.html","2026-08-05",11868,"Web page","1CB1_RlcwrNOfGRTw8shGfk6DF0BOd4Dn","MAJESTIC 310",""],
+["_BUILDING-SHEET.html","2026-08-05",5422,"Web page","1dqatHE9GrD50IVad2n130UPwAnyw2uY9","MAJESTIC 310",""],
+["BH-441_CAPSULE.md","2026-06-10",851,"Notes","107f4Kxbgn-txROeMGhnBe1rDTq4JCSpV","MAJESTIC 310",""],
+["_ MZ Solutions Local Tax 2025.pdf","2025-03-10",411246,"PDF","1AjEEAcH-pMLI2du4afd9hiL4gBLA3m-H","MZ CREDENTIAL",""],
+["_ MZ Solutions LLC _ Miguel Zaldivar CGC License _ Renewal date August 31 2026.pdf","2025-03-10",976726,"PDF","1LIP43fbUT2pJzXTA1ULZKGV_b4jAtxhG","MZ CREDENTIAL",""],
+["MAJESTIC 310-3.pdf","2025-02-25",718701,"PDF","1FcYHDRHl4tE-TyyJOWntshEG_LMuBiwG","MAJESTIC 310",""],
+["MAJESTIC 310-2.pdf","2025-02-25",255745,"PDF","1uk06QSHe1TY8Dg9UWNe-W7-OXH84mbWH","MAJESTIC 310",""],
+["MAJESTIC 310-1.pdf","2025-02-25",330351,"PDF","10rUOEfOYCTAcBWL0uALytYeClSdcVJsU","MAJESTIC 310",""],
+["MAJESTIC 310 - WINDLOADS.pdf","2025-02-25",216228,"PDF","1U4RJRJlhXDGAWdwGTpXniC4h0HrEIN7h","MAJESTIC 310",""],
+["MAJESTIC 310 - Series-14000-ALUMINUM-CLIPPED-TUBE-MULLION-42524.1.pdf","2025-02-25",13414684,"PDF","14rJgZD9CpuP-JnH3lbIpX5YVc23k6qBf","MAJESTIC 310",""],
+["MAJESTIC 310 - Series 7000 Aluminum Window Wall System - 22244.1.pdf","2025-02-25",7228830,"PDF","10FR27cY9o6V1S3Ed4aOr5Z52jacI6Oac","MAJESTIC 310",""],
+["MAJESTIC 310 - ES-SGD2020 SLIDING GLASS DOOR-LMI & SMI - 22267.1.pdf","2025-02-25",13737980,"PDF","1kNrq06NDd6orfHhDcPR2Ps3JvrlJGvqZ","MAJESTIC 310",""],
+["z_NOC 9601 COLLINS AVE  UNIT  310_ out for signature _  v6.pdf","2025-02-07",681083,"PDF","1IgHn2q0faqFm434Fkb8pd58SD3tmhWsC","MAJESTIC 310",""],
+["z_PERM APP_ Magestic 9601 Collins Ave Unit 310 _ out for signature v6.pdf","2025-02-07",1174220,"PDF","14GGPHbbLAMyZyXCe2a11eoFByCIkLT5Z","MAJESTIC 310",""],
+["_COI _ Certificate to Majestic Tower ...pdf","2025-02-07",88845,"PDF","14DgWxtURdXXNK1Hk1ieJwgZVAm73fwiw","MAJESTIC 310",""],
+["zContractor Package _MAJESTIC TOWER - bLANK ...2024.pdf","2025-02-07",769055,"PDF","1NDxLd0N-1HGrKVSphW46pqEXnA7Dta1V","MAJESTIC 310",""],
+["zCONTACT  with Management company _ Majestic tower _ UNIT 310 Contractor Package.msg","2025-02-07",842752,"Email","1xKPZBVFhadI6IjheJ1Me9XphWTipS2vo","MAJESTIC 310",""]]},
+{"k":"quar","t":"_QUARANTINE-REVIEW-LATER","p":"TRK-2026-1265 / _QUARANTINE-REVIEW-LATER","fid":"1UrcFA21c0ijCFAML95vPOjDVUSJf3s1A","note":"Five empty (0-byte) Town of Bay Harbor Islands files for 10000 W Bay Harbor Dr. Not this job. Waiting on a decision.","side":{"s":0,"i":0,"m":0},"docs":[["QUARANTINE-LOG.csv","2026-10-07",2440,"Spreadsheet","1iLle8IBbHjDUiqH278iuzYhrMG2XGsgO","",""],
+["[322_10000 W BAY HARBOR DR_ Building 10000 _  13-2227-055-037] CERT-COI- MZ to Town of Bay Harbor _ 1852434038.pdf","2025-05-19",0,"PDF","1gbPzmOFgIdKDhmOqZwzmaj5VlHyssoQQ","0 BYTES · BAY HARBOR",""],
+["[301_ 10000 W BAY HARBOR DR_ Building 10000 _ 13-2227-055-006] CERT-COI- MZ to Town of Bay Harbor _ 1852434038.pdf","2025-05-19",0,"PDF","12pTfDByLg6IfA0Fli5QdlVlyQ1nrl-Zs","0 BYTES · BAY HARBOR",""],
+["[322_10000 W BAY HARBOR DR_ Building 10000 _  13-2227-055-037] 322 PERTMIT APP _ Out for signature.pdf","2025-05-12",0,"PDF","1bnN2VRRJI0ezbZn34oGpJ7IB1Chezl3f","0 BYTES · BAY HARBOR",""],
+["[322_10000 W BAY HARBOR DR_ Building 10000 _  13-2227-055-037] _322 BAY HARBOR _ PERM APP_ 10000 Building_  out for signature .pdf","2025-04-21",0,"PDF","1iT2MfKejTs5u0VHBfubepeb9EtWHAtPR","0 BYTES · BAY HARBOR",""],
+["[322_10000 W BAY HARBOR DR_ Building 10000 _  13-2227-055-037] _322 BAY HARBOR - NOC_Notice of Commencement_ out for signature .pdf","2025-04-21",0,"PDF","1vznD2rYGsr9sJVvpIQyPCH1RKFYxVpSW","0 BYTES · BAY HARBOR",""]]},
+{"k":"fold","t":"OneDrive copy · top","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza","fid":"1Mii05_AYPElDNULeL7o8c1SkNgYFjw9k","note":"Copied in from OneDrive on 2026-09-04 when Drive became the capsule of record. Older copy.","side":{"s":0,"i":1,"m":0},"docs":[["_PORTAL_TRK-2026-1265.html","2026-09-01",731061,"Web page","18cRl8iLipnc3Gg1dz35ip9SIyvvn5xmT","OLDER ONEDRIVE COPY",""]]},
+{"k":"f_intake","t":"OneDrive copy · 01-INTAKE","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 01-INTAKE","fid":"1iAVJLx6AfuA7xZPHzPBA7hnpz_sOsHg_","note":"","cnt":2,"cm":0,"groups":0,"side":{"s":6,"i":0,"m":0},"docs":[]},
+{"k":"f_permits","t":"OneDrive copy · 02-PERMITS","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 02-PERMITS","fid":"1CqpgooA4tr1exIGVpI8L0OUzXDQVcagl","note":"","cnt":1,"cm":0,"groups":0,"side":{"s":3,"i":0,"m":0},"docs":[]},
+{"k":"f_expired","t":"OneDrive copy · Expired permit applications","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 02-PERMITS / EXPIRED-PERMITS_APPLICATIONS_2026-09-02","fid":"1Vu5w3i8SdGY_dAYTlCa1IZRiyEkXobw2","note":"","cnt":20,"cm":0,"groups":0,"side":{"s":0,"i":0,"m":0},"docs":[]},
+{"k":"f_expsup","t":"OneDrive copy · Expired apps, superseded v2 and v3","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 02-PERMITS / EXPIRED-PERMITS_APPLICATIONS_2026-09-02 / _Superseded","fid":"1ypg_-A7l8-0yh4fd6j1pzV9qVd6LWmgw","note":"","cnt":20,"cm":0,"groups":0,"side":{"s":0,"i":0,"m":0},"docs":[]},
+{"k":"f_regen","t":"OneDrive copy · Regenerated apps","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 02-PERMITS / REGENERATED-APPS_2026-09-02","fid":"13DR5ZLvKIde-r1M4S94YHx54eUn-7gJh","note":"","cnt":4,"cm":0,"groups":0,"side":{"s":0,"i":0,"m":0},"docs":[]},
+{"k":"f_inv","t":"OneDrive copy · 03-INVOICES-PAYMENTS","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 03-INVOICES-PAYMENTS","fid":"1qY6XPyBjHwOD6jOvt8YbtPexoBApwOrq","note":"","cnt":5,"cm":5,"groups":0,"side":{"s":9,"i":0,"m":0},"docs":[]},
+{"k":"f_doron","t":"OneDrive copy · Doron evidence","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 03-Doron-Evidence_2026-08-18","fid":"1uuYha2PE0DiDyD31BF4Sbfs04zfQABLT","note":"","cnt":1,"cm":1,"groups":0,"side":{"s":0,"i":0,"m":0},"docs":[]},
+{"k":"f_doron_p","t":"OneDrive copy · Doron PROVEN","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 03-Doron-Evidence_2026-08-18 / PROVEN","fid":"1zeG1e3NIbjWjN1HrXWSVXRLx79JMRkaH","note":"","cnt":6,"cm":6,"groups":0,"side":{"s":0,"i":0,"m":0},"docs":[]},
+{"k":"f_doron_c","t":"OneDrive copy · Doron CONTRACTS","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 03-Doron-Evidence_2026-08-18 / CONTRACTS","fid":"14viAwEyJg4DTj79TaA-qi_jYUA0aUL-L","note":"","cnt":3,"cm":3,"groups":0,"side":{"s":0,"i":0,"m":0},"docs":[]},
+{"k":"f_doron_u","t":"OneDrive copy · Doron PENDING","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 03-Doron-Evidence_2026-08-18 / _PENDING-ADDITIONAL-SUPPORT","fid":"104XMhpcHahV59o61UV7l6wSUqdbBFcMv","note":"","cnt":5,"cm":5,"groups":0,"side":{"s":0,"i":0,"m":0},"docs":[]},
+{"k":"f_corr","t":"OneDrive copy · 04-CORRESPONDENCE","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 04-CORRESPONDENCE","fid":"1bBZRS4wrl9P-XVSrk16qzeuEfjr_Z3xY","note":"","cnt":4,"cm":0,"groups":0,"side":{"s":3,"i":0,"m":0},"docs":[]},
+{"k":"f_insp","t":"OneDrive copy · Inspection confirmations","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 04-CORRESPONDENCE / INSPECTION-CONFIRMATIONS_2026-09-02","fid":"1CsN91r_gxWC6JbD7qOGkpqAW3yFxyyGL","note":"","cnt":14,"cm":0,"groups":0,"side":{"s":0,"i":0,"m":0},"docs":[]},
+{"k":"f_rep","t":"OneDrive copy · 05-REPORTS (Sept 2–3 phase reports)","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 05-REPORTS-DELIVERABLES","fid":"18grrPTbmzlK4FqeI7VygXpg50h9Pw_0Q","note":"The September 2–3 phase reports (PH0, PH1, PH2). 4 backup copies (.html.bak-20260903) left out.","cnt":53,"cm":7,"groups":0,"side":{"s":51,"i":0,"m":0},"docs":[]},
+{"k":"f_contig","t":"OneDrive copy · Contiguous by unit","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 05-REPORTS-DELIVERABLES / CONTIGUOUS-BY-UNIT","fid":"1nQihs7RThDQwHBmE4bURp0frJOsn2Yqa","note":"","cnt":18,"cm":0,"groups":0,"side":{"s":0,"i":0,"m":0},"docs":[]},
+{"k":"f_repsup","t":"OneDrive copy · Reports superseded","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 05-REPORTS-DELIVERABLES / _Superseded","fid":"1cc17z0mXJ1GBQPtvlsAyvllU_I8abBmU","note":"","cnt":39,"cm":2,"groups":0,"side":{"s":0,"i":0,"m":0},"docs":[]},
+{"k":"f_rel","t":"OneDrive copy · 01-Related-Docs","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 01-Related-Docs","fid":"1B8f6T3JIm5BkdbNhHL9DdcqPRe0c7Dgi","note":"","side":{"s":0,"i":1,"m":0},"docs":[]},
+{"k":"f_etrak2","t":"OneDrive copy · eTRAKiT scrape, Sept 2","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 01-Related-Docs / eTRAKiT-SCRAPE_2026-09-02","fid":"1yiCB580LaU0EVXjnH1aJANF6WHYwxiaU","note":"","cnt":3,"cm":0,"groups":0,"side":{"s":0,"i":0,"m":0},"docs":[]},
+{"k":"f_arch","t":"OneDrive copy · _FROM-ARCHIVE (whole Bal Harbour archive)","p":"TRK-2026-1265 / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / …The-Plaza / 01-Related-Docs / _FROM-ARCHIVE","fid":"1ElXNzVqhZhhkzqdSfb6LHRXEAvd_MKjJ","note":"The full older archive, flattened. Each file name starts with its old folder in [brackets]. It mixes in other matters (Balmoral Condo, Bay Harbor Islands, Bal Harbour 101, others). See Findings.","cnt":975,"cm":142,"groups":180,"side":{"s":0,"i":1,"m":0},"docs":[]}];
+const MONEYDOCS=[["TRK-2026-1265 / 05-REPORTS-DELIVERABLES","2026-09-04 _ TRK-2026-1265 _ PH1-15 _ Report _ Rescrape-9-03-Payment-Pin-And-Status _ v1.html","2026-09-04",15039,"Web page","1ioseqhnf1z43txOWDczHe1l1yG99mS59","",""],
+["TRK-2026-1265 / 05-REPORTS-DELIVERABLES","2026-09-04 _ TRK-2026-1265 _ PH1-15 _ Report _ Rescrape-9-03-Payment-Pin-And-Status _ v1.md","2026-09-04",10136,"Notes","16sIeoWnb3qVflQDex76KR1gFkffFUjW9","",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18","DORON-UNIT-LEDGER_TRK-2026-1265_2026-08-18.html","2026-09-04",12516,"Web page","1rXi3SI1XX8IctAp3-8hR--jlATJriTWV","",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / PROVEN","SUPPORT_WellsFargo-PhotoCopy-Request-Letter.png","2026-08-19",340835,"Image","122kXvcLETWJ3JKKnyI1rcmRzDbN6Mwza","",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / PROVEN","SUPPORT_CarbonStub-1002_5000.jpeg","2026-08-19",2524834,"Image","1zSzkzIdFkpmFZLXSCF9mE_MUyElXAtSX","",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / PROVEN","SUPPORT_CarbonStub-1001_19875.jpeg","2026-08-19",2478412,"Image","1J_B1d0yVRbJ52kUx67D_3lgcXz6gjYEF","",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / PROVEN","CLEARED_Check-258_MZ-Solutions_4200_Units-815-321_2024-07-29.jpeg","2026-08-19",2768431,"Image","1gDVeNoMCiMss6TwiV9qaUMDrAERVn8dV","",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / PROVEN","CLEARED_Check-1002_VAAV-to-ImpactWindowsFL_5000_Unit-1215q_2024-02-27.png","2026-08-19",787392,"Image","17vijktHDyV1Xg7bsUPc3GAQAhfjQL7xk","",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / PROVEN","CLEARED_Check-1001_VAAV-to-ImpactWindowsFL_19875_Units-815-220-309-1016_2024-02-26.png","2026-08-19",809236,"Image","1p_HauyHMPiysWAcgUT76YBGAFJEgJX2c","",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / CONTRACTS","CONTRACT_Unit-721_11000_inv-582638_clean.png","2026-08-19",291654,"Image","1ZmcX9J6qtdRmpIyaZVD2dEyqbjkLgC6m","",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / CONTRACTS","CONTRACT_Unit-721_11000_inv-582638_2024-04-18_with-balance-notes.png","2026-08-19",573548,"Image","1mPp5fui48oePnCKnshub9eTlw3YNJKyF","",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / CONTRACTS","CONTRACT_Unit-309_14000_inv-582631_2024-04-18.png","2026-08-19",932639,"Image","1z6HeC6ak2s3CNnmQZGZMajDuYczkh-oo","",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / _PENDING-ADDITIONAL-SUPPORT","UNPROVEN_Check-259-photo_MZ-Solutions_5600_Unit-307_2024-07-29_on-contract-16000.jpeg","2026-08-19",2637311,"Image","1kGmM8CWG99wGHQAMPDPPKuPvfADlJK6B","UNPROVEN",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / _PENDING-ADDITIONAL-SUPPORT","UNPROVEN_Check-248-textmsg-screenshot_Unit-721.png","2026-08-19",3968128,"Image","10v3K4Mujcg0ZgCFWWtIbXqCjRIWNyq1H","UNPROVEN",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / _PENDING-ADDITIONAL-SUPPORT","UNPROVEN_Check-248-photo_ImpactWindows_6075_Unit-721_2026-01-06.jpeg","2026-08-19",1055284,"Image","1sLIKbRiUeb8xRn-fTouEVh7sS4NPuxP2","UNPROVEN",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / _PENDING-ADDITIONAL-SUPPORT","UNPROVEN_Check-1025-photo_ImpactWindowFL_1000_Unit-220_2025-02-19_b.jpeg","2026-08-19",2745338,"Image","1stITQNdZBqn1ILcb6AkFDbLiESINiVIY","UNPROVEN",""],
+["TRK-2026-1265 / 03-Doron-Evidence_2026-08-18 / _PENDING-ADDITIONAL-SUPPORT","UNPROVEN_Check-1025-photo_ImpactWindowFL_1000_Unit-220_2025-02-19_a.jpeg","2026-08-19",2739827,"Image","1-9JuWcLhXcJbPhJUd8qXRHaFJpOoHgSr","UNPROVEN",""],
+["TRK-2026-1265 / Units / 310 _ 9601 Collins Ave Majestic Tower (BLC2025-0251)","z INVOICE _ Magestic Tower - Unit 310 _ out for signature v.4.pdf","2025-02-07",58325,"PDF","1dG9aASW2wuWFdoZ59dA-17604dBsvvZf","MAJESTIC 310",""]];
+const STATUS=[["The renewal clock",[["Unit 721 · BLC2024-0715 · renewal window closes 2027-01-31","Expired 2026-08-04. 110 days left on October 13. Bal Harbour gives a 50% credit on the permit fee inside this window.","clock"],
+["Unit 220 · BLC2024-1335 · renewal window closes 2027-02-12","Expired 2026-08-16. 122 days left on October 13.","clock"],
+["Units 922 (BLC2024-0717) and 321 (BLC2024-0707): window closed 2025-06-19, but the Village still offered renewal","On September 9, Hebert Martinez wrote that 922, 321, 220 and 721 all show expired, so the application must be a renewal, not an extension. He did not say any unit needs a brand-new permit.","done"],
+["A possible pause on the clock for 220 and 721 (Florida Statute 252.363)","A state emergency (EO 26-33, from 2026-02-09) may pause both permits and add 24 months. It needs written notice to the Village, likely by about 2027-01-03. Not confirmed by the Village.","key"]]],
+["What the Village said",[["September 9: the scan showed the wrong units","The PDFs sent September 8 showed Units 922 and 321, but the email named 220 and 721. The Village will calculate renewal fees once the right originals arrive.","miss"],
+["September 8: “APPROVED” for BLC2026-1436 (721), 1437 (220) and 1438 (PH11)","PH11 showed READY on October 7, with no issue date. None of the three is issued yet. This sits uneasily with the September 9 reply; see Findings.","wait"]]],
+["Still missing",[["Signed, notarized original renewal applications for Units 220 and 721","Only unsigned drafts are on Drive (02-PERMITS, September 4). Use the “find the originals” sheet for Olga (reports/OLGA-BAL-HARBOUR_FIND-ORIGINALS_2026-10-13, in the repository) to tick off each original.","miss"],
+["Issued renewal permits BLC2026-1436, 1437 and 1438","The October 7 draft to Olga asking to issue PH11 and inspect on October 8 is still unsent, and that date has passed.","miss"],
+["Renewal filings for Units 321, 922 and 423","Not filed. The Association’s July 7 list also names 307, 602, 815, 1016, 1515 and 305. Two owners live outside the US, which slows signing and notarizing.","miss"],
+["Who can sign for 714 Plaza Holding LLC, 914 Plaza Holdings LLC and Adenat Corporation (321)","BLOCKED. The cloud cannot reach Sunbiz. Best names on file (September mirror reads, unconfirmed): 714 managers David Feingold and Eli Ness; 914 member DEG Investments LLC, no person confirmed; Adenat not found in Florida.","miss"],
+["Juan Carlos Martinez’s written account for each unit","Asked July 9. No reply found.","miss"],
+["Status update to Quanny Marte (Plaza Association)","Draft dated October 1 is unsent. It says reactivation is “not yet confirmed”, which clashes with the September 8 approvals. The next update was promised for October 15.","miss"],
+["Copies of the reactivated permits for the Association","Quanny asked August 26. Waits on the Village issuing them.","miss"],
+["A new tracking number for the Bay Harbor Islands Unit 322 papers","They are not this job. Issuing a number is your one-tap approval.","miss"]]],
+["Waiting on",[["You","One minute on Sunbiz (or say “do it on desktop”). Send the PH11 note to Olga with a new date. Fix and send the Quanny update. Approve a number for Unit 322. Find the signed originals for 220 and 721.","wait"],
+["Bal Harbour Building Department (Olga Kalogeropoulos, Hebert Martinez)","Issue 1436, 1437 and 1438. Calculate the renewal fees once the originals arrive.","wait"],
+["Miguel Zaldivar · MZ Solutions","Say in writing which permits invoice WEB4575 covers.","wait"],
+["Juan Carlos Martinez · Impact Window Services","His per-unit account, and the window maker’s lead time.","wait"],
+["Unit owners and LLC managers","Sign and notarize the renewal applications.","wait"]]]];
+const PEOPLE=[["Miguel Zaldivar · MZ Solutions LLC (CGC1528486)","Client and general contractor. Every permit here is under his licence. Use the .org address.","miguel@mzsolutions.org"],
+["Olga Kalogeropoulos · Bal Harbour Building Department","Permit clerk, 655 96th St. Phone 305-993-7366.","okalogeropoulos@balharbourfl.gov"],
+["Hebert Martinez · Bal Harbour Building Department","Wrote the September 9 renewal-not-extension reply.","hmartinez@balharbourfl.gov"],
+["S. Alvarez · Bal Harbour","Village staff, seen on the permit threads.","salvarez@balharbourfl.gov"],
+["Quanny Marte · Plaza of Bal Harbour Association","Gets the Association status updates.","qmarte@plazaofbalharbour.com"],
+["Plaza of Bal Harbour · manager","Building manager, copied on Association updates.","manager@plazaofbalharbour.com"],
+["Juan Carlos Martinez · Impact Window Services","Window contractor. Owes the per-unit written account.","impactwindowservices@gmail.com"],
+["Doron Barnes & Sandra Metta · Unit 220","Owners of record. Doron’s payment evidence is in the money zone.","doronbarnes@gmail.com"],
+["Fyon Florida Living Trust · Unit 721","Trustees Alexandre Fyon and Natalie Oiknine. No email confirmed for this job.",""],
+["Daniel Raboh · Unit 922","Owner of record. No email on file.",""],
+["Adenat Corporation · Unit 321","Owner of record, Brampton, Ontario. No Florida company record found.",""],
+["714 Plaza Holding LLC · 914 Plaza Holdings LLC","Owners of 714 and 914. Signers not confirmed (Sunbiz blocked from the cloud).",""],
+["Sylvia Azoulay · Unit 423 · Michael Orfanopoulos, trustee · Unit PH11","Owners of record. No email on file.",""],
+["Majestic Tower · management","9601 Collins Ave, Unit 310 (BLC2025-0251, finaled).","manager@majestictower.com"],
+["Jorge Valdes · Team USA Sales, Inc.","Permit expediter. 305-300-4500.","Jorge@TeamUsaSales.com"]];
+const MONEY=[["Renewal fees for 220, 721, 922 and 321: not known yet","The Village calculates them after the originals arrive. Village form: fees over $1,000 pay 50% plus county fees; under $1,000 pay in full plus county fees.","money"],
+["Invoice WEB4575 · $968.62 · paid 2026-09-03","Which permits it covers is unverified. The October 7 draft says 1436, 1437 and 1438. Ask Miguel or the Village to itemize it.","money"],
+["Possible saving: the emergency pause","If Statute 252.363 applies, 220 and 721 may avoid the renewal fee and gain up to 24 months. Ask the Village in writing first.","money"],
+["Extension fee","The 2022 schedule lists $150 per extension. The 2026 figure is not confirmed.","money"],
+["Majestic Unit 310 invoice: sent or paid?","An unsigned invoice (v.4) is on file. _STAGE flags a money defect. Unverified.","money"],
+["Your fee for this job: billable, invoiced, paid","All three show VERIFY in _STAGE.","money"]];
+const FINDINGS=[["Banned backup names: about 70","56 in the job root (28 _PORTAL, 27 _STAGE, 1 _HASHTAGS), 5 in 02-PERMITS, 1 in 03-Doron-Evidence, 4 in the OneDrive copy’s reports and 9 tag sidecars there. All use “name.ext.bak-date”, which Drive cannot preview. One near-miss: “v1.bak-20260902.md”. Nothing renamed; filing is your call.","flag"],
+["The job lives twice: Drive folders plus a full OneDrive copy","The OneDrive copy (folded in September 4) holds its own portal (September 1), a second set of Doron evidence, and most of the September phase reports. The root also has a 55-day-old _PORTAL_EMBEDDED copy.","flag"],
+["Duplicate copies: 172 extra copies in 70 sets","Same name and same size in two or more places. Most are inside the old archive (one MZ invoice template appears 36 times, wire-transfer info 26 times). The Majestic Unit 310 folder repeats 14 archive files. All 14 Doron evidence files exist twice (Drive folder and OneDrive copy).","flag"],
+["Five reissue PDFs are the same size","The September 6 reissue applications for 922, 321, 423, 714 and 914 are each 60,608 bytes. They may be one blank form saved five times. Not opened.","flag"],
+["Two Village records disagree","September 8 emails say “APPROVED” for 1436, 1437 and 1438. The September 9 reply says 220 and 721 still need renewal applications, with fees to be calculated. Read both before paying anything.","flag"],
+["Other jobs are mixed into this folder","Bay Harbor Islands (10000 W Bay Harbor Dr units 301, 302, 322, 425), Balmoral Condo 6X and 15P (9801 Collins), Bal Harbour 101 Condo unit 207 (10155 Collins), Bal Harbour Tower (9999 Collins), 10601 SW 120 Ave (Wally pool) and 19081 NW 77 Ct all appear in the old archive. The 5 quarantined Bay Harbor files are 0 bytes. Proposed for the morning filing list; nothing moved.","flag"],
+["Banned “.NNN” number in two file names","“TRK-2026-1442.012” appears in two archive files for Bay Harbor Unit 425.","flag"],
+["Correspondence filed under 02-PERMITS","Two .txt emails (Unit 220 extension request, MZ permit history) sit in 02-PERMITS, not 04-CORRESPONDENCE.","flag"],
+["Empty folders","00-Capsule, 02-Files, _Superseded and 03-INVOICES-PAYMENTS at the top level are empty. The invoices live in the OneDrive copy.","flag"],
+["_STAGE is misleading","It says 08-DELIVERED, based on the Majestic report, while the Plaza renewals are wide open. Folio and client show VERIFY.","flag"],
+["No _VERSION-LOG.md and no _ARRIVALS file","The charter asks for a version log in every job folder. Two tag files exist side by side (_TAGS.txt, August 26; _HASHTAGS.txt, September 4).","flag"],
+["Extracted contact list has errors","_CONTACTS-EXTRACTED.txt contains typos (miguel@mazsolutions.org, stephan@theshadeplace.cokm) and junk phone numbers. Treat it as unverified.","flag"]];
+
+const PILL={done:["p-done","CONFIRMED"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag","FINDING"],key:["p-key",""],clock:["p-clock","DEADLINE"],money:["p-money","MONEY"],person:["p-wait","CONTACT"]};
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+const KEYFLAGS=['KEY','NEW'];
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=(o.st==='flag'&&o.kind==='doc')||o.st==='key'?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc'||o.kind==='mdoc') h+='<div class="meta"><span>'+esc(o.date)+'</span><span>'+esc(kb(o.size))+'</span><span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function docrow(f,d,kind){
+  const fl=d[5];
+  return row({b:kind==='mdoc'?'Money':f.t,kind:kind,title:d[1+(kind==='mdoc'?0:-1)],date:d[kind==='mdoc'?2:1],size:d[kind==='mdoc'?3:2],type:d[kind==='mdoc'?4:3],link:durl(d[kind==='mdoc'?5:4]),
+    st:kind==='mdoc'?'money':(fl?(KEYFLAGS.includes(fl)?'key':'flag'):''),flag:kind==='mdoc'?d[6]:fl,path:kind==='mdoc'?d[0]+(d[7]?' / ['+d[7]+']':''):f.p+(d[6]?' / ['+d[6]+']':'')});
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','Renewal clock, what the Village said, what is missing, who it waits on',STATUS.map(s=>s[1].length).join(' · '),h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    let lastg=null;
+    f.docs.forEach(d=>{ if(d[6]&&d[6]!==lastg){x+='<p class="sub">['+esc(d[6])+']</p>';lastg=d[6];} x+=docrow(f,d,'doc');});
+    if(f.cnt){x+='<p class="bnote">'+f.cnt+' documents here are counted but not listed one by one'+(f.cm?' ('+f.cm+' of them look like money papers)':'')+'. Open the folder in Drive to see them.</p>';
+      if(f.groups) x+='<p class="bnote">They came from '+f.groups+' old folders (unit folders, permit apps, admin, accounting and other matters).</p>';}
+    else if(!f.docs.length) x+='<p class="bnote">No documents here outside the money zone.</p>';
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' sidecar'); if(s.i)sc.push(s.i+' index');
+    if(s.m) x+='<p class="bnote">'+s.m+' money document'+(s.m>1?'s':'')+' from this folder '+(s.m>1?'are':'is')+' kept in the 🔒 Money zone.</p>';
+    if(sc.length) x+='<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>';
+    const n=(f.cnt?f.cnt+' counted':f.docs.length)+(s.m?' + '+s.m+' 🔒':'');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':'📁 '+f.t),esc(f.p),n+' docs',x,fi===0);
+  });
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  let fz='';
+  FINDINGS.forEach(it=>{fz+=row({b:'Findings',kind:'finding',title:it[0],text:it[1],st:'flag'});});
+  branch('findings','','🔎 Findings','Noted only. Nothing was moved, renamed or deleted (filing is RED).',FINDINGS.length+' findings',fz,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> '+MONEY.length+' money items and '+MONEYDOCS.length+' money documents (invoices, checks, receipts, payment evidence) stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='<p class="grp">Money documents ('+MONEYDOCS.length+')</p><div class="mdocs">';
+    let lastp=null;
+    MONEYDOCS.forEach(d=>{ if(d[0]!==lastp){m+='<p class="sub">'+esc(d[0])+'</p>';lastp=d[0];} m+=docrow(null,d,'mdoc');});
+    m+='</div></div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':(MONEY.length+' items · '+MONEYDOCS.length+' docs'),m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+const isMoney=it=>it.kind==='money'||it.kind==='mdoc';
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>!isMoney(it)||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">TRK-2026-1265 · Bal Harbour Permit Status · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(isMoney(it)?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=(it.kind==='doc'||it.kind==='mdoc')?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc'||it.kind==='mdoc') h+='<p class="meta"><span>'+esc(it.date)+'</span><span>'+esc(kb(it.size))+'</span><span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='TRK-2026-1265 · Bal Harbour Permit Status (MZ Solutions)\nThe Plaza of Bal Harbour, 10185 Collins Ave\nRenewal windows close: Unit 721 on 2027-01-31 · Unit 220 on 2027-02-12\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='doc'||it.kind==='mdoc') s+='   '+it.date+' · '+kb(it.size)+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— TRK-2026-1265 · Capsule ENHANCED · v1 · 2026-10-13';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>!isMoney(it)||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+(function(){try{const n=new Date();const today=Date.UTC(n.getFullYear(),n.getMonth(),n.getDate());
+  const say=(id,y,m,d)=>{const k=Math.round((Date.UTC(y,m,d)-today)/86400000);$(id).textContent=k>1?k+' days left':k===1?'1 day left':k===0?'closes today':'window has closed';};
+  say('dl721',2027,0,31); say('dl220',2027,1,12);}catch(e){}})();
+build();
+</script>
+</body>
+</html>

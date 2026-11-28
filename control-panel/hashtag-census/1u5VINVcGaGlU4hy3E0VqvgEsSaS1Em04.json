@@ -1,0 +1,27 @@
+{
+  "id": "1u5VINVcGaGlU4hy3E0VqvgEsSaS1Em04",
+  "title": "TRK-TBD _ FOLIO-TBD _ 535 NW 7 ST Homestead (Renzo Cahuana)",
+  "partial": false,
+  "pdfs": 10,
+  "search_sidecars": 10,
+  "tags_sidecars": 10,
+  "tags5_sampled": 3,
+  "tags5_of_sampled": 3,
+  "has_HASHTAGS_txt": false,
+  "hashtags_count": null,
+  "has_people_tags": null,
+  "has_trk_tag": null,
+  "other_files": ["_TAGS.txt", "_CONTACTS-EXTRACTED.txt", "_PLACEHOLDERS.md", "_PORTAL_UNASSIGNED_TRK-TBD-FOLIO-TBD-535-NW-7-ST-Homestead-Renzo-Cahuana.html", "_STAGE.md", "_INDEX.html (root + 3 subfolders)", "_JOB-TREE_TRK-TBD.html (00-Intake)", "2x ENHANCED_*.pdf.WHAT-WAS-DONE.json", "2x ENHANCED_*.pdf.bak-20260826 (PDF backups, not counted)", "dated .bak- copies of _PORTAL and _STAGE.md in job root (filtered out of listing)"],
+  "people": [
+    {"name": "Renzo Gustavo Cahuana", "role": "owner / client", "email": null, "phone": "305-963-9820", "evidence": "_PLACEHOLDERS.md; folder title; _TAGS.txt (#Renzo-Cahuana)", "misspellings": ["Renso Cahuana", "Renzo Cahuna", "Renzo Kahuana", "Cajuana", "Cahuanna"]},
+    {"name": "Jaddrey de Armas", "role": "referrer (sent case docs 2026-08-05)", "email": "jdearmas17@gmail.com", "evidence": "_PLACEHOLDERS.md", "misspellings": ["Jadrey de Armas", "Jeffrey de Armas", "Jaddrey DeArmas", "Dearmas"]},
+    {"name": "Yairis Chapelli", "role": "city staff - Code Compliance Officer, City of Homestead", "email": null, "phone": "305-224-5577", "evidence": "_PLACEHOLDERS.md; _CONTACTS-EXTRACTED.txt (phone)", "misspellings": ["Yaris Chapelli", "Yairis Chapeli", "Iris Chapelli", "Chappelli"]}
+  ],
+  "companies": [
+    {"name": "City of Homestead Code Compliance", "role": "city (case CE25080356, fine hearing 2026-08-20)", "email": null, "evidence": "_PLACEHOLDERS.md; Violations.pdf / Notice / Order file names"},
+    {"name": "TomTech", "role": "engineer (as-built quote request, drafted, never sent)", "email": null, "evidence": "_PLACEHOLDERS.md"},
+    {"name": "Miami-Dade County Property Appraiser", "role": "county (MDC Page / folio record)", "email": null, "evidence": "MDC Page.pdf"}
+  ],
+  "keywords": ["535 NW 7 ST", "535 NW 7th St", "535 NW 7th Street Homestead", "535-NW-7-ST-Homestead-FL-33030", "Homestead", "33030", "Renzo Cahuana", "Renzo", "Cahuana", "folio 10-7813-003-0120", "1078130030120", "TRK-2026-1532", "CE25080356", "code case", "code hearing", "fine hearing 2026-08-20", "violations", "Notice of Violation", "Order", "tax jacket", "as-built", "TomTech", "Jaddrey de Armas", "Yairis Chapelli", "OD-65"],
+  "notes": "Folder still labelled TRK-TBD/FOLIO-TBD although the registry already issued TRK-2026-1532 and folio 10-7813-003-0120 is known (relabel waiting on Jorge, RED). No _HASHTAGS.txt; _TAGS.txt has 8 tags incl. #Renzo-Cahuana but no TRK tag (#TRK-TBD-defect). PDFs: 5 in 03-Research (case docs), 5 in 07-TAX-JACKET_2026-08-24 (ORIGINAL 2, ENHANCED 3 incl. ALBUM). Survey.pdf from the referrer email is not filed in Drive. Proposal/continuance/engineer emails drafted but never sent; hearing date already passed. Root .bak- files were excluded from the listing with a title filter."
+}

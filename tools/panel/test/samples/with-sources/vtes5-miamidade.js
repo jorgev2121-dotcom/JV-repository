@@ -1,0 +1,1 @@
+window.VTES_DATA = window.VTES_DATA || {}; window.VTES_DATA.miamidade = { "schema": 1, "at": "2026-10-11T21:42:46-04:00", "writer": "CU-VTES5-Feeder (tools/panel/VTES5-Feeder.ps1): no Miami-Dade counter source yet, nothing counted", "counted": null, "target": 300 };

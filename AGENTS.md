@@ -12,3 +12,9 @@ It is written for Claude, but every rule applies to you unchanged. That includes
 The state lives in these files, not in any agent's memory. That is what makes the role replaceable.
 
 #TRK-2026-9952f
+
+
+## Owner directive READ-ALOUD-01 (2026-10-13)
+Every reply is read aloud to Jorge (Ctrl+Alt+R → Edge Read aloud, or Speechify). Write answer-first, short paragraphs, numbered lists, few tables, no secrets. Full text: OWNER-DIRECTIVE_READ-ALOUD-01_2026-10-13.md.
+
+- **OD PRETTY-AND-MONEY-LOCK-01 (2026-10-13):** Jorge sees only pretty, designed artifacts in the Orange Tree layout. Money sections are locked behind zone code 0000. See `OWNER-DIRECTIVE_PRETTY-AND-MONEY-LOCK-01_2026-10-13.md` and CLAUDE.md §16.

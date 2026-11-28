@@ -1,0 +1,106 @@
+<title>Job Punch Lists</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an index, then one sheet per job (or two small jobs per sheet), each split into "Claude does" and "You do". Orange Tree tokens. */
+:root{--ground:#fbfaf8;--surface:#fff;--raised:#f4f1ec;--line:#e4dfd7;--ink:#16181d;--muted:#5d6470;--accent:#b4650c;--accent-soft:#f7ead9;--ok:#1a6f3c;--ok-soft:#e4f2e8;--owner:#1a5fb4;--owner-soft:#e6eef9;--money:#a32d1f;--money-soft:#fbe8e5;
+--display:Archivo,"Segoe UI",sans-serif;--body:"Source Sans 3","Segoe UI",system-ui,sans-serif;--mono:"IBM Plex Mono",Consolas,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ground:#0a0c0f;--surface:#14171c;--raised:#1b1f26;--line:#282d36;--ink:#e7ecf1;--muted:#94a1b0;--accent:#ffb35c;--accent-soft:#2a1c0c;--ok:#6ede9b;--ok-soft:#0f2417;--owner:#7fbfff;--owner-soft:#111d2b;--money:#ff8b78;--money-soft:#2c1311;color-scheme:dark}}
+:root[data-theme="dark"]{--ground:#0a0c0f;--surface:#14171c;--raised:#1b1f26;--line:#282d36;--ink:#e7ecf1;--muted:#94a1b0;--accent:#ffb35c;--accent-soft:#2a1c0c;--ok:#6ede9b;--ok-soft:#0f2417;--owner:#7fbfff;--owner-soft:#111d2b;--money:#ff8b78;--money-soft:#2c1311;color-scheme:dark}
+*{box-sizing:border-box}body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.45;margin:0}
+.wrap{max-width:900px;margin:0 auto;padding-inline:18px;padding-block:0 60px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 18px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 12px;cursor:pointer}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+h1{font-family:var(--display);color:var(--accent);font-size:clamp(28px,5vw,36px);margin:20px 0 4px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 14px}
+.idx{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:18px}
+.idx h2{font-family:var(--display);font-size:20px;margin:0 0 6px}
+.idx ol{list-style:none;margin:0;padding:0;columns:2;column-gap:24px}
+.idx li{display:grid;grid-template-columns:52px minmax(0,1fr) 44px;gap:6px;padding:3px 0;border-bottom:1px dotted var(--line);break-inside:avoid;font-size:14.5px}
+.idx .no,.jid{font-family:var(--mono);font-weight:500;color:var(--accent)}
+.idx .pg{font-family:var(--mono);color:var(--muted);text-align:right}
+.sheet{display:flex;flex-direction:column;gap:14px;margin-bottom:22px}
+.job{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;break-inside:avoid}
+.jh{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;border-bottom:2px solid var(--accent);padding-bottom:6px;margin-bottom:8px}
+.jh .jt{font-family:var(--display);font-size:20px;font-weight:700}
+.jh .num{font-family:var(--mono);font-size:13px;background:var(--accent-soft);color:var(--accent);border-radius:20px;padding:1px 9px}
+.meta{color:var(--muted);font-size:14.5px;width:100%}.due{color:var(--money);font-weight:700;font-size:14.5px;width:100%}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:620px){.cols{grid-template-columns:1fr}.idx ol{columns:1}}
+.col h3{font-family:var(--display);font-size:15px;margin:0 0 4px;letter-spacing:.03em;text-transform:uppercase}
+.col.c h3{color:var(--ok)}.col.y h3{color:var(--owner)}
+.it{display:grid;grid-template-columns:22px 44px minmax(0,1fr);gap:4px;padding:4px 0;border-bottom:1px solid var(--line);font-size:15px}
+.it:last-child{border-bottom:0}.cb{font-size:18px;line-height:1.1}.iid{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:2px}
+.mz{margin-top:8px;background:var(--money-soft);border:1px dashed var(--money);border-radius:8px;padding:6px 10px;font-size:14.5px;color:var(--money)}
+.mz button{font-size:13px;padding:3px 9px;margin-left:6px}
+.lockbox{display:none;margin-top:6px}.lockbox.show{display:flex;gap:6px;align-items:center}
+.lockbox input{width:6em;font-family:var(--mono);font-size:18px;text-align:center;border:2px solid var(--money);border-radius:6px;background:var(--surface);color:var(--ink)}
+.foot{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right;margin-top:6px}
+@media print{@page{size:Letter;margin:.5in}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}body{background:#fff;font-size:13.5px}.bar,.noprint,.mz button,.lockbox{display:none!important}
+.idx{break-after:page}.sheet{break-after:page;margin:0}.sheet:last-child{break-after:auto}.job{border-color:#ccc}}
+</style>
+<div class="bar noprint"><b>Layout:</b><button id="m1">1 job per page</button><button id="m2" class="on">2 small jobs per page</button><span style="flex:1"></span><span id="lockst" style="font-size:14px;color:var(--money);font-weight:700">🔒 Money locked</span></div>
+<div class="wrap">
+<h1>Job Punch Lists</h1>
+<p class="sub">Every open job: what Claude does and what you do, each line numbered so you can say “J-03 item 2”. Money lines stay locked until you type 0000. Printing leaves money out.</p>
+<div class="idx"><h2>Index</h2><ol id="idx"></ol></div>
+<div id="sheets"></div>
+<p class="foot">Job punch lists · v1 · 2026-10-13 · CURRENT · #punch-list #JorgeValdes #VTES</p>
+</div>
+<script>
+const JOBS=[
+{n:"TUS-26-1018",t:"8621 Pasadena Blvd, Pembroke Pines",who:"Einar Suarez & Barbara Rodriguez",due:"Comply by Nov 16 · hearing Nov 19 (case 260301031)",
+ me:["Save Tomas's sealed A1.0, A2.0 and As-Built Letter into the job folder (desktop order queued)","Draft an email to Tomas asking for a re-dated letter with the “door schedule” typo fixed — for your review, not sent","Request a current insurance certificate from MZ Solutions (miguel@mzsolutions.org) — draft for your review","Build the upload checklist for the Pembroke Pines portal"],
+ you:["Get the permit application signed and notarized (owner + MZ Solutions)","Get the owner authorization (power of attorney) signed","Decide: is a Notice of Commencement needed?","Decide: attend or respond to the Nov 19 hearing"],
+ money:["Agree and invoice Tomas's sign-and-seal fee","Job value, invoice and payment are all unverified"]},
+{n:"TUS-26-1033",t:"7265 NW 74 St Bay 2, Medley",who:"Miami Art House / Teatro Miami (Daniel Felipe, Miall Mulkay)",due:"Microfilm images must be retrieved by about Nov 11",
+ me:["Retrieve the paid microfilm images (X2027004874) into the job folder (desktop order queued)","Check the microfilm for the old approved plan set B2020-0177","Follow up with the Town for records items 1–7 and the meeting — draft for your review","Plan the new permit application (PB26-0047 was voided)"],
+ you:["Get the signed proposal back from the clients","Get the signed power of attorney, landlord consent and Work Without Permit form","Book the notary session","Decide the engineer of record (Synergyn or Ordonez)"],
+ money:["Decide the invoice amount (three amounts on file)","Payment of invoice TUS-26-1033-01 is unverified"]},
+{n:"TRK-2026-1265",t:"The Plaza of Bal Harbour, 10185 Collins Ave",who:"Village of Bal Harbour · Olga Kalogeropoulos, Hebert Martinez",due:"Permits expired — renewals needed",
+ me:["List which units need RENEWAL applications (922, 321, 220, 721)","Re-draft the PH11 issuance + final inspection email (still in Drafts) — for your review","Fix the broken Drive copies of the 922 and 321 applications"],
+ you:["Find the signed originals for Units 922 and 321 and hand-deliver them to Olga","Print the Sept 8 scan from Gmail (link in chat)","Say “send” on the PH11 email"],
+ money:["Pay the renewal fees once the Village calculates them"]},
+{n:"TUS-25-1023",t:"14598 SW 110 St, Miami",who:"Eduardo “Eddie” Miguelez",due:"Corrected re-seal 13+ weeks overdue",
+ me:["Follow up with Tomas for the corrected, re-sealed As-Built Letter (2022 → 2012) — draft for your review","Save the 3 emails already found (Fabregat CAD, Synergyn, Tomas) once you say yes to forwarding"],
+ you:["Yes or no: forward those 3 Outlook emails to your Gmail so they can be saved"],money:[]},
+{n:"ALEC DD",t:"Alec Valdes due diligence (1612, 1534, 1535, 1536, 1292, 1286, 1289)",who:"Alec Valdes · Avis Builders",due:"Finished reports waiting to go out",
+ me:["Package the finished DD reports for 331 Tamiami (1612) and 1840 NW 63 (1534)","Fix the wrong tracking-number tags (9490 / 9754) on the DD books","Fix the 1286 folder address (11997 SW 218 St, not 1997)"],
+ you:["Say “send” on the DD reports to Alec","Approve the 1286 folder rename"],
+ money:["Invoice the Alec DD work (the $100.25 item and the finished reports)"]},
+{n:"BAY HARBOR",t:"10000 W Bay Harbor Dr — Units 221, 301, 302, 404, 425",who:"Reyna Jovel (404) and others",due:"",
+ me:["Review a possible misfile: 8 Majestic (9601 Collins, Unit 301, Gabriela M Valles) PDFs sitting in the Bay Harbor Unit 301 folder","Correct the #Bal-Harbour tag (Bay Harbor Islands is a different town)","Look up the registry for real tracking numbers"],
+ you:["Approve moving the Majestic PDFs once the review confirms it","Approve issuing tracking numbers for the five units"],money:[]},
+{n:"TRK-2026-1256",t:"Groves at Sunset (8850 SW 72 St)",who:"Karla",due:"",
+ me:["Settle the address conflict (8818 vs 8850 SW 72 St)","Mark KAR-26-GROVES as a retired duplicate"],you:["Confirm the correct address"],money:[]},
+{n:"TBD → 1532",t:"535 NW 7 St, Homestead",who:"Renzo Cahuana",due:"",
+ me:["Prepare the relabel to TRK-2026-1532 (folio 10-7813-003-0120)","Follow up on the TomTech as-built quote"],you:["Approve the relabel"],money:[]},
+{n:"TBD → 1650 / 1567",t:"15601 SW 137 Ave and 13920 SW 34 St",who:"MZ Solutions (Pine Brook / Sheffield) · Medina-Rodriguez",due:"",
+ me:["Prepare relabels to TRK-2026-1650 and TRK-2026-1567"],you:["Approve both relabels"],money:[]},
+{n:"TRK-2026-1561?",t:"2362-2364 NW 32 St, City of Miami",who:"2362 Acquisition LLC or RRR LLC",due:"",
+ me:["Untangle the three tracking numbers on this job","Confirm who the client is from the corporate resolution"],you:["Confirm the client name"],money:[]},
+{n:"TRK-26-1042",t:"15222 SW 108 Pl, Miami",who:"Daymara Yhanes Ureta",due:"Two open county cases from 2008",
+ me:["Fix the wrong tracking-number tag on the deliverable","Put the folio (30-5030-008-0370) on the folder"],you:["Approve the folder rename"],money:[]},
+{n:"NO NUMBER",t:"1514 NW 73 St — House Project and 13328 SW 113 Ct (Nick)",who:"",due:"",
+ me:["Issue real tracking numbers from the registry","Remove the 11 duplicate plan PDFs (report only first)","Check the zip and jurisdiction conflict"],you:["Approve the new numbers"],money:[]},
+{n:"SYSTEM",t:"VTES system — your PC and the control panel",who:"Not a client job",due:"",
+ me:["Panel builder: 56 of 116 pieces built, runs hourly","Stop the PC from sending PC jobs to the Codex backup lane","Hashtags: add people to every job's tag file (tonight)","Hourly mail watch for every job"],
+ you:["Open the PC window and paste PASTE-D-070 (link in chat)","Click Yes on the Windows prompt for the Claude Desktop install","Clear Edge cookies for Speechify and Gemini only"],money:[]}
+];
+
+var mode=2,unlocked=false;function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function size(j){return j.me.length+j.you.length+(j.due?1:0)}
+function sheets(){var out=[],i=0;while(i<JOBS.length){var a=JOBS[i],b=JOBS[i+1];if(mode===2&&b&&size(a)+size(b)<=12){out.push([i,i+1]);i+=2}else{out.push([i]);i++}}return out}
+function item(code,t){return '<div class="it"><span class="cb">☐</span><span class="iid">'+code+'</span><span>'+esc(t)+'</span></div>'}
+function card(j,k){var id='J-'+String(k+1).padStart(2,'0');var h='<section class="job" id="'+id+'"><div class="jh"><span class="jid">'+id+'</span><span class="jt">'+esc(j.t)+'</span><span class="num">'+esc(j.n)+'</span>'+(j.who?'<span class="meta">'+esc(j.who)+'</span>':'')+(j.due?'<span class="due">⏰ '+esc(j.due)+'</span>':'')+'</div><div class="cols"><div class="col c"><h3>Claude does</h3>'+j.me.map(function(t,x){return item('C'+(x+1),t)}).join('')+'</div><div class="col y"><h3>You do</h3>'+j.you.map(function(t,x){return item('Y'+(x+1),t)}).join('')+'</div></div>';
+if(j.money.length){h+=unlocked?'<div class="mz">🔓 Money: '+j.money.map(function(t,x){return '<div class="it"><span class="cb">☐</span><span class="iid">M'+(x+1)+'</span><span>'+esc(t)+'</span></div>'}).join('')+'</div>':'<div class="mz noprint">🔒 '+j.money.length+' money item(s) locked <button onclick="ask()">Open with 0000</button></div>'}
+return h+'</section>'}
+function draw(){var S=sheets(),idx='',sh='';S.forEach(function(s,p){sh+='<div class="sheet">'+s.map(function(k){return card(JOBS[k],k)}).join('')+'</div>';s.forEach(function(k){idx+='<li><span class="no">J-'+String(k+1).padStart(2,'0')+'</span><span>'+esc(JOBS[k].t)+'</span><span class="pg">p.'+(p+2)+'</span></li>'})});
+document.getElementById('idx').innerHTML=idx;document.getElementById('sheets').innerHTML=sh;document.getElementById('m1').className=mode===1?'on':'';document.getElementById('m2').className=mode===2?'on':'';
+document.getElementById('lockst').innerHTML=unlocked?'🔓 Money open <button onclick="unlocked=false;draw()">Lock again</button>':'🔒 Money locked'}
+function ask(){var b=document.getElementById('lb');b.classList.add('show');document.getElementById('pin').focus()}
+document.getElementById('m1').onclick=function(){mode=1;draw()};document.getElementById('m2').onclick=function(){mode=2;draw()};
+document.write('');draw();
+var lb=document.createElement('form');lb.id='lb';lb.className='lockbox noprint';lb.innerHTML='<label for="pin">Zone code</label><input id="pin" type="password" maxlength="4" inputmode="numeric"><button type="submit">Open</button><span id="perr"></span>';document.querySelector('.bar').appendChild(lb);
+lb.onsubmit=function(e){e.preventDefault();if(document.getElementById('pin').value==='0000'){unlocked=true;lb.classList.remove('show');draw()}else{document.getElementById('perr').textContent='Not the zone code.'}document.getElementById('pin').value=''};
+</script>

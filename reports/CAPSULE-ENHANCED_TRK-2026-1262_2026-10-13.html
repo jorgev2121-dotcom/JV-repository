@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>20001 Unit 143 Capsule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree ENHANCED job capsule, built from the TUS-26-1018 pilot. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+.p-clock{background:var(--money-soft);color:var(--money)}
+.sub{font-family:var(--display);font-size:14px;font-weight:600;color:var(--accent);margin:16px 0 0;overflow-wrap:anywhere}
+.mdocs .sep{margin-top:10px}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="The whole capsule, money excluded while locked, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">JOB CAPSULE · ORANGE TREE ENHANCED</p>
+<h1>TRK-2026-1262 · 20001 SW 110 CT Unit 143</h1>
+<div class="facts">
+  <span><b>Place</b>20001 SW 110 CT, Bldg 1, Unit 143, Cutler Bay FL 33189</span>
+  <span><b>Folio</b>30-6007-011-0020</span>
+  <span><b>Permit</b>2026061642 · process C2026116502</span>
+  <span><b>Code case</b>20260245510</span>
+  <span><b>Client</b>MZ Solutions LLC · CGC1528486</span>
+</div>
+<div class="deadline">Permit finaled 2026-08-07 · county record shows the code case CLOSED 09/30/2026<br>Closure letter first asked for 2026-08-07 · <span id="dlnov">67 days without it</span>
+<small>The work is done. What is left: the county’s written closure letter, telling Miguel, and the payment (🔒 Money).</small></div>
+<p class="stamp">TRK-2026-1262 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile c" data-go="status"><span class="n">2</span><b>Done</b><small>Permit finaled. Case shows closed.</small></button>
+  <button class="tile y" data-go="status"><span class="n">4</span><b>Still missing</b><small>Closure letter, note to Miguel, fire letter, payment.</small></button>
+  <button class="tile w" data-go="status"><span class="n">4</span><b>Waiting on</b><small>You, the county, Miguel, the PC helper.</small></button>
+  <button class="tile c" data-go="findings"><span class="n">11</span><b>Findings</b><small>Three homes, empty folders, backups.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> The job is finished on the county side: the permit is finaled and the code case reads <b>CLOSED</b>. Send Miguel the ready closure note (it only needs his address), then collect the two July invoices.</p></div>
+
+<div class="tags"><b>Hashtags for this job (from _TAGS.txt, _HASHTAGS.txt and the case card; one money tag is kept in the locked zone)</b>#TRK-2026-1262 #20001 #20001LV #20001-SW-110-CT #Unit-143 #20001-SW-110-CT-Bldg-1-Unit-143 #Cutler-Bay #folio-30-6007-011-0020 #permit-2026061642 #C2026116502 #E319961 #code-case-2026-0245510 #20260245510 #NOV #BLDG-001P #Fire-001P #PERMIT-ISSUED #FINALED #MZ-Solutions #Miguel-Zaldivar #CGC1528486 #owner-10960-SW-200th-Avenue-LLC #ALT-INTERIOR #drywall-re-legalize #INV-2026-03741 #INV-2026-03748 #COI-hand-delivered #plans-approved #fire-signed-off #MDC #permit #tax-jacket #capsule-of-record-DRIVE #AP-0070 #folded-2026-09-04 #JorgeValdes #CU-Inspections</div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>93 documents across 11 folders with documents, every one listed with its Drive link: 73 in the tree and 20 in the locked money zone. Empty folders: 02-PERMITS, 03-INVOICES-PAYMENTS, 04-CORRESPONDENCE, 05-REPORTS-DELIVERABLES, 01-INTAKE (holds only the OneDrive copy), OneDrive copy · 06-Internal-Notes, OneDrive copy · 02-Meetings-and-Conversations. Left out of the list: 57 backup copies, search, tag and OCR sidecars, page-map data files and folder index pages. Nothing on this page sends, files, moves or deletes anything. Ticks are not saved.</p>
+  <p class="tag">TRK-2026-1262 · Capsule ENHANCED · v1 · 2026-10-13 · CURRENT · #TRK-2026-1262 #20001 #20001LV #Unit-143 #MZ-Solutions #capsule #orange-tree</p>
+</footer>
+</div>
+<script>
+const FOLDERS=[{"k":"root","t":"Job root","p":"20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","fid":"133VMph_ujXc_q4KyQjf7AB9OflnxSu2u","note":"Almost every document of this job sits here at the top, not in the numbered folders. 02-PERMITS, 03-INVOICES-PAYMENTS, 04-CORRESPONDENCE and 05-REPORTS-DELIVERABLES are empty. Backup copies (nightly _PORTAL and _STAGE copies) are left out of this list.","side":{"s":42,"i":1,"m":12},"docs":[["_PORTAL_TRK-2026-1262.html","2026-10-13",86442,"Web page","1SH9k8IYsIUs3hBtcbBT2GFqqF1amLC6e","",""],
+["_PLACEHOLDERS.md","2026-10-10",3383,"Notes","1jejoI14wHuUZ5MzRolIDbFPnXSzXdyL2","",""],
+["_STAGE.md","2026-10-09",1176,"Notes","1vYtn2SeTsKsLrqW2SBKQEromc8_B9vwI","",""],
+["_CONTACTS-EXTRACTED.txt","2026-10-05",634,"Text","1NBwXeVxeF8YedUnjrpeOGe9PqN6jK1-a","",""],
+["2026-09-30 _ TRK-2026-1262 _ Index _ 20001 SW 110 CT Unit 143 _ v1.md","2026-09-30",5107,"Notes","180a2aR8v55TynlVR-Zr9aLAcP3EDQ83M","KEY",""],
+["_HASHTAGS.txt","2026-09-04",559,"Text","1322ytR7PB3ObCGxyGz46YYjG2Df2UW-3","",""],
+["MDC-LOOKUP-OPTIONS_Fire-and-Permit-Routes_20001-Unit143_2026-08-06","2026-09-02",6838,"Google Doc","1ZjyDoQLOsD1K7Qxq_eGSqmwHH5LfTS846D3k9jlbR6A","",""],
+["SUPPORTING-DOCS_Case-2026-0245510_NOV-Status-and-Evidence_20001-Unit143_2026-09-02","2026-09-02",6420,"Google Doc","17wgamAZ25Tt3JBt4hp75ffcgoQrlc8wMVlUz_pph0qo","",""],
+["MDC-LOOKUP-OPTIONS_Fire-and-Permit-Routes_20001-Unit143_2026-08-06.html","2026-09-02",11182,"Web page","1KVpNzCtosJzUAhFbaH186yho2QrqUxd-","",""],
+["CASE-2026-0245510_Closure-Path_20001-Unit143_2026-08-06.html","2026-09-02",5816,"Web page","1qdIGDvDs1X-aDvCVRd9mqRpSxTpyAbl7","",""],
+["_TAGS.txt","2026-08-26",654,"Text","1C6zeafNuZYBN5j_kDNDbW4oObWEdn1y4","",""],
+["_JOB-TREE_TRK-2026-1262.html","2026-08-10",43454,"Web page","1_P7dN9lxjEENR783kIw_IcuU0P5a6fqw","",""],
+["TRK-2026-1262_2026-07-31_MZ-SOLUTIONS_Zaldivar-intake-pointers.md","2026-07-31",2140,"Notes","1vDImLl8uukqkQm460XhX82IVAzF9SMNa","",""],
+["2026-07-29 _ TRK-2026-1262 _ Permit _ Permit Card Property _ v1.pdf","2026-07-30",117726,"PDF","1dQXbfqWB0cQ_Ka6ApymWpdFaTzkoUjF1","",""],
+["20001 - MDC - Process tracking of reviewer comment - C2026116502 - EPS.pdf","2026-07-30",163244,"PDF","1xe69u5DFiL8yylrEbZ1zzWmg9-K2jEYd","",""],
+["SEND-ME_Complete-Job-File-to-Miguel_20-Attachments_2026-07-30.eml","2026-07-30",15587009,"Email","1v77b8v1W01PRBaSMgrZ6jbcElkkpTp6B","",""],
+["REVIEW-PACKAGE_Issued-Permit-Docs_20001-Unit143_2026-07-30.pdf","2026-07-30",3891316,"PDF","16myTZMVdeCl3JW2X-stAxMtILe_wqV-4","",""],
+["2026-07-30 _ TRK-2026-1262 _ Report _ Job File Summary _ v2 CORRECTED.pdf","2026-07-30",129461,"PDF","1R7Hk_Um00TnUn4u3vkyzFZgJ4NU--eoF","KEY",""],
+["2026-07-29 _ TRK-2026-1262 _ Permit _ Permit Card Unit 143 _ v1.pdf","2026-07-30",118596,"PDF","1L4TAZ08fK99RqOtpi0vPlsywaHgJgb8r","",""],
+["2026-07-29 _ TRK-2026-1262 _ Permit _ Permit Application Printout _ v1.pdf","2026-07-30",159514,"PDF","13wmvILcmokUwXqZT5SH3d8mwOFy3BCNR","",""],
+["2026-07-29 _ TRK-2026-1262 _ Permit _ MDC E-Permitting Status Screen _ v1.pdf","2026-07-30",122082,"PDF","1IUPiplxTUgbT_ccXaTIjoH20EphsWxOd","",""],
+["2026-07-29 _ TRK-2026-1262 _ Permit _ C2026061642 BLDG 001P Fire 001P _ v1.pdf","2026-07-30",113387,"PDF","1uiEMmfySMrGyjdFTXinRHZuyOq62hPeu","OLD WRONG NUMBER",""],
+["VERSION-LOG_TRK-2026-1262.md","2026-07-30",934,"Notes","1fdyIibxNGM8VxN8KYOwx2Pqv_eBqRyXk","",""],
+["_MANIFEST_2026-07-29-DOWNLOADS.txt","2026-07-30",811,"Text","1V_2nU3oNPpDTSjj-J2PD5Xc21iv6o_pC","",""],
+["2026-07-29 _ TRK-2026-1262 _ Permit _ Issued Permit 2026061642 BatchPrint _ FINAL.pdf","2026-07-30",3348744,"PDF","1pp5_0eGkdjD5Za2E_D_LQWZfryxRSzlr","",""],
+["_PDF-INDEX.md","2026-07-27",382,"Notes","1NDrCXRVjTQtCKZ2nteuvRDCSR9ll-8c_","",""],
+["MZ-Solutions_Fire-Mitigation_20001-Unit143_NO-Sprinklers_2026-06-30.pdf","2026-06-30",64132,"PDF","147qkRhAIUKPOhxh0lo2Xt0R_ol1_WXBU","",""],
+["PRINT_20001_1front-5notary_2026-06-30.pdf","2026-06-30",256985,"PDF","1nnV4x4d4TZEoGKEI9O84mi2an4FjZXKw","",""],
+["Contact-Sheet_20001-Unit143_2026-06-30","2026-06-30",4337,"Google Doc","1T_YYwHVz-KTmUksdCoGZLdzFC6kuiFaYwe_cYblUsIc","",""],
+["Contact-Sheet_20001-Unit143_2026-06-30.pdf","2026-06-30",64516,"PDF","1NUl_WA_h3ArxUYukuhT10QLjU8ilZdW_","",""],
+["PRINT_NO-Sprinklers_1front-4second.pdf","2026-06-30",213279,"PDF","1Ypcqv7PEIZSb3KE7nPRN0Wrs_z-R_JdR","",""],
+["MZ-Solutions_Fire-Mitigation_20001-Unit143_NO-Sprinklers_2026-06-30","2026-06-30",4140,"Google Doc","1tq7Y6vR6K2LqKjJcOC77074fU5aJ78YNb2WPdCVKBa0","",""],
+["MZ-Solutions_Fire-Mitigation_20001-Unit143_WITH-Sprinklers_2026-06-30","2026-06-30",4213,"Google Doc","1x2xmMFbwSC-l6n24UJ-DAkBDbvpTI_YbugSZ8KEDfGY","",""],
+["MZ-Solutions_Fire-Mitigation_20001-Unit143_WITH-Sprinklers_2026-06-30.pdf","2026-06-30",57345,"PDF","1VB4FYdgZA4bvcio7HIcMfYBNHGNWnuGi","",""]]},
+{"k":"auto","t":"_AUTO-FILED","p":"20001 SW 110 CT Unit 143 (TRK-2026-1262) / _AUTO-FILED","fid":"11qTESx4oiSGSZ_MWVB69Ye7C34scO_QX","note":"","side":{"s":0,"i":0,"m":0},"docs":[["CALLCARD_20001SW110CT_TRK20261262.html","2026-08-24",3717,"Web page","1j-VxCj34RETt-gHwO0mUJUXdbEUjvtgA","",""]]},
+{"k":"sup","t":"_Superseded","p":"20001 SW 110 CT Unit 143 (TRK-2026-1262) / _Superseded","fid":"1TfY2FjVC_fxiaklVYYZahsRkwoQbEtcw","note":"Older versions. The first INV-2026-03741 (July 1) was replaced by the revised R1 on July 17.","side":{"s":10,"i":1,"m":4},"docs":[["20001 - MDC - Process tracking of reviewer comment - C2026116502 - EPS_HTML-SAVED-AS-PDF.pdf","2026-07-30",17998,"PDF","1D7sMVq30A2GOrvS443Fc4vgPoucBqAXc","",""]]},
+{"k":"tjo","t":"Tax jacket · ORIGINAL scans","p":"20001 SW 110 CT Unit 143 (TRK-2026-1262) / 07-TAX-JACKET_2026-08-24 / ORIGINAL","fid":"1Ht4Mjrm7teQNTyJL523rqtAgkDxsYlLC","note":"The county tax-jacket (microfilm) scans as received, in three parts.","side":{"s":6,"i":0,"m":0},"docs":[["TAXJACKET_20001-SW-110-CT-33189_part03_2026-08-24.pdf","2026-08-24",379173,"PDF","1YyWzN9DMMoVkdn51RIe2XLme53EdQ4zv","",""],
+["TAXJACKET_20001-SW-110-CT-33189_part02_2026-08-24.pdf","2026-08-24",1538901,"PDF","1uCBpQFUHYnSjsz4C4nvAnQBtfIriUOh8","",""],
+["TAXJACKET_20001-SW-110-CT-33189_part01_2026-08-24.pdf","2026-08-24",163239,"PDF","1N1f0afPFpNzaqFA8fhJtEc4EyFdWu9ri","",""]]},
+{"k":"tje","t":"Tax jacket · ENHANCED","p":"20001 SW 110 CT Unit 143 (TRK-2026-1262) / 07-TAX-JACKET_2026-08-24 / ENHANCED","fid":"1uQ-1MuDMsbXebYmt2X9zTdlVRTF9Z2as","note":"The cleaned-up tax jacket. The September 3 DELIVERABLE v2 (17 pages) is the one to use. 3 backup copies in the banned “.pdf.bak-date” form and 8 page-map and what-was-done data files (4 here, 4 in the _partmaps subfolder) are left out.","side":{"s":30,"i":0,"m":0},"docs":[["2026-09-03 _ TRK-2026-1262 _ TaxJacket _ 20001 SW 110 CT Unit 143 DELIVERABLE _ v2.pdf","2026-09-04",4782292,"PDF","1_YTekEZVUvp13IF_oyOHuLd_5jr9Fser","KEY",""],
+["FINAL_ALL.pdf","2026-09-04",4731290,"PDF","1srLpIcqwRC9E03lxWD9oiNcAkKO44XK2","",""],
+["FINAL_20001-SW-110-CT-33189_part03_2026-08-24.pdf","2026-09-04",1810566,"PDF","1Ao45tph28Cqvlk0kZXwHV5wKHaM_Pggx","",""],
+["FINAL_20001-SW-110-CT-33189_part02_2026-08-24.pdf","2026-09-04",2772522,"PDF","1bKQhpVkvPe9sXYdhFol0E3l8iVNP7QHN","",""],
+["FINAL_20001-SW-110-CT-33189_part01_2026-08-24.pdf","2026-09-04",148481,"PDF","1kTh1XpZWwePZ3CPya6Jq5KsocUx0qHtN","",""],
+["ENHANCED_20001-SW-110-CT-33189_part02_2026-08-24.pdf","2026-08-26",6073319,"PDF","1BRQ79W1xsnNiFbQnvcoAvep6HXMF56BI","",""],
+["ENHANCED_20001-SW-110-CT-33189_part03_2026-08-24.pdf","2026-08-26",586013,"PDF","1405fwRCVBaW8LyeYp3o2_KwPVJwHSS7z","",""],
+["ENHANCED_20001-SW-110-CT-33189_part01_2026-08-24.pdf","2026-08-26",820375,"PDF","1bUhr0lhUqEPmpDY5xP4Kr9Za8pfgHUHq","",""],
+["ALBUM_20001-SW-110-CT-33189_part03_2026-08-24.pdf","2026-08-25",569255,"PDF","1udunXMtVoI9lFy_2u3gWbOpPKsJTyPnS","",""],
+["IMPORTANT_p1-PERMITS-AND-HANDWRITING-READ_2026-08-24.pdf","2026-08-25",3725732,"PDF","12419db9twaw7FFW9MV9khikbbLD4JRjN","KEY",""],
+["_IMPORTANT_p1-PERMIT-NUMBERS.md","2026-08-25",1680,"Notes","1THUjip0Mr3s8LsQRXGKxme83KrYcU8l7","",""],
+["IMPORTANT_p1-PERMIT-NUMBERS_MAXCONTRAST_2026-08-24.pdf","2026-08-25",2143073,"PDF","1BO0afPJdwtWLulo2_7cSn8uDFbjh9dID","",""],
+["_PAGE-MAP_part02_2026-08-24.md","2026-08-25",2146,"Notes","1GeFjQy1nuR-eM11GByvRETN0ZeucFW6p","",""]]},
+{"k":"fold","t":"OneDrive copy · top","p":"20001 SW 110 CT Unit 143 (TRK-2026-1262) / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / 20001 SW 110 CT UNIT 143 (TRK-2026-1262)","fid":"1FwWPyp3o3-T2_sIwbDuKFP52AXnfB7Op","note":"Copied in from OneDrive on 2026-09-04 when Drive became the capsule of record. Older copy. Most files repeat the ones at the job root under another name.","side":{"s":6,"i":0,"m":2},"docs":[["INDEX.md","2026-07-26",1390,"Notes","1kKWheTF8kTjKs6Bx1fsYwqBHSlyM4nqH","",""],
+["20001 SW 110 CT Unit 143 - field inspection - TUSA.pdf","2026-06-22",1254563,"PDF","1PBST9esNKE9ls2Kg6TDlMS9dRq7Yz6WY","",""]]},
+{"k":"fsup","t":"OneDrive copy · _Superseded","p":"20001 SW 110 CT Unit 143 (TRK-2026-1262) / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / 20001 SW 110 CT UNIT 143 (TRK-2026-1262) / _Superseded","fid":"1yrpzcqPns_tPKLgjJOfJKks2GmX3CYc4","note":"","side":{"s":4,"i":0,"m":2},"docs":[]},
+{"k":"fperm","t":"OneDrive copy · 05-PERMIT-CLEARED","p":"20001 SW 110 CT Unit 143 (TRK-2026-1262) / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / 20001 SW 110 CT UNIT 143 (TRK-2026-1262) / 05-PERMIT-CLEARED_2026-07-29","fid":"1YCG8Bn7qAnMikqjMrNjcsxGCagVP4D23","note":"Permit papers saved July 29, plus “TRUE-PDF” re-saves from August 22. The same permit papers are at the job root under the “2026-07-29 _ TRK-2026-1262 _ Permit” names.","side":{"s":22,"i":0,"m":0},"docs":[["TRK-2026-1262_Print Permit Application 20001 SW 110 CT - print_permit_application._TRUE-PDF_2026-08-22.pdf","2026-08-22",132317,"PDF","1nROu6DzIt2-I0OaI4Rr8Zft3XAGq5Sxm","",""],
+["TRK-2026-1262_Permit Card-20001 SW 110 CT_TRUE-PDF_2026-08-22.pdf","2026-08-22",115670,"PDF","1a47xa-v9yYS-VBclj59XmgId_9LU1zKo","",""],
+["TRK-2026-1262_Permit Card 20001 SW 110 CT 143_TRUE-PDF_2026-08-22.pdf","2026-08-22",115670,"PDF","1G-3MKGHbxyUrkHH5SJ_HeqgXzwUadCEr","",""],
+["TRK-2026-1262_20001 SW 110 CT- C2026061642 - Permit 2026-0616- BLDG 001P  Fire 001P_TRUE-PDF_2026-08-22.pdf","2026-08-22",123202,"PDF","1uUS9LTwvzi5jOloZUhkN14ms71Lcj12K","OLD WRONG NUMBER",""],
+["TRK-2026-1262_20001 SW 110 CT 143Miami-Dade County - E-permitting - Permit Status_TRUE-PDF_2026-08-22.pdf","2026-08-22",116505,"PDF","1XFka1FNkwCYzByjr2g6AJHlZfbilkScN","",""],
+["TRK-2026-1262_2026061642-20001 SW 110 CT 143 - Permit Number 2026061642-BatchPrint.pdf","2026-07-29",3348744,"PDF","1DjT2b0FAhckE3k8530QB2I-0jKe7BKtu","",""],
+["TRK-2026-1262_Permit Card-20001 SW 110 CT.pdf","2026-07-29",63838,"PDF","1lLm_SxWu5uTmkf3xZJvmbaYteyLo0O7J","",""],
+["TRK-2026-1262_Print Permit Application 20001 SW 110 CT - print_permit_application..pdf","2026-07-29",22601,"PDF","1fxew6y_DIV02PRUOsy8D-QQzv-_O-Q1S","",""],
+["TRK-2026-1262_Permit Card 20001 SW 110 CT 143.pdf","2026-07-29",66817,"PDF","1khnD210GR2cAY4f0lL9JSuNKu2CSMUUw","",""],
+["TRK-2026-1262_20001 SW 110 CT 143Miami-Dade County - E-permitting - Permit Status.pdf","2026-07-29",17437,"PDF","1flIg2RHfeeqEGH4uoWIag_DF5LQwjMRf","",""],
+["TRK-2026-1262_20001 SW 110 CT- C2026061642 - Permit 2026-0616- BLDG 001P  Fire 001P.pdf","2026-07-29",32612,"PDF","1C2gJ_wwyGYSF5LYfAXFIqEUeBNApTdZh","OLD WRONG NUMBER",""]]},
+{"k":"femail","t":"OneDrive copy · 05-Emails","p":"20001 SW 110 CT Unit 143 (TRK-2026-1262) / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / 20001 SW 110 CT UNIT 143 (TRK-2026-1262) / 05-Emails-To-From-CC-BCC","fid":"18OSOw1ua0m2vwo2nXSMPmO3L8uwmXPSt","note":"","side":{"s":0,"i":0,"m":0},"docs":[["_EMAIL-LOG.md","2026-07-26",899,"Notes","15uKS9WuHt53TmSGQOCyazB4QQtVXDb5m","",""]]},
+{"k":"fcont","t":"OneDrive copy · 01-Contacts","p":"20001 SW 110 CT Unit 143 (TRK-2026-1262) / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / 20001 SW 110 CT UNIT 143 (TRK-2026-1262) / 01-Contacts","fid":"132qJoUrzkZRRAyby5bC1DMop0C9aU7U6","note":"","side":{"s":2,"i":0,"m":0},"docs":[["CONTACT-SHEET_20001_FILLED.pdf","2026-06-01",1036240,"PDF","1zVFa59QLi3yWJXdwQ5FrB-HgjJaVebBi","",""],
+["CONTACTS.md","2026-07-26",549,"Notes","141ml4fceNMJRHWVXRXJsNwGArh-uE_cF","",""],
+["FORM_Access-Contact-Sheet.docx","2026-06-02",9209,"Word","17Aj--EteHvjpWmoXrSVsXls7QGvr5e1i","",""],
+["8_Access-Contact-Sheet.docx","2026-06-02",9209,"Word","1Ce-lTCnDRikvl_VjmF3zykDwhH1cLlx0","",""]]},
+{"k":"fscope","t":"OneDrive copy · 04-Scope","p":"20001 SW 110 CT Unit 143 (TRK-2026-1262) / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / 20001 SW 110 CT UNIT 143 (TRK-2026-1262) / 04-Scope-and-Project-Overview","fid":"1gnn-BdZ83uEozvfJzmhEWCQzaAA1AD9g","note":"","side":{"s":0,"i":0,"m":0},"docs":[["PROJECT-OVERVIEW.md","2026-07-26",631,"Notes","1lPxNvF3NMookZgOfRQsrr21wCNFORvIH","",""],
+["FORM_Scope-of-Work.docx","2026-06-02",9536,"Word","1SGisQqroo1OhpDENJEwdlXxJ38imO0S9","",""],
+["2_Scope-of-Work.docx","2026-06-02",9536,"Word","1-cbEn6mB2lai_S8iLOwn8giVA6yILMuG","",""]]}];
+const MONEYDOCS=[["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","20001 unit 143 MDC permit fees  - submit for reimbersment - C2026116502 - EPS.pdf","2026-07-30",203535,"PDF","1NjksiF2y38vJDElUvb9HEnK3-ZfVyhpt","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","SEND-ME_REVISED-Reimbursement-Package-to-Miguel_LOW-INK_2026-07-30.eml","2026-07-30",546459,"Email","1KZE8fIS9ONKMw__BihL5o4cPcsxzLsnw","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","FORWARD-PACKAGE_REVISED-Reimbursement_20001-Unit143_LOW-INK_2026-07-30.pdf","2026-07-30",362830,"PDF","1cK83xf5NemxaTNwqfrYbSfC9BvhQAac6","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","FINDINGS_Payment-Block_2026-07-27.md","2026-07-27",1722,"Notes","1tmw_eY69fRwpX2fAzavVl7fhv0CFNANC","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","SEND-ME_REVISED-Reimbursement-Package-to-Miguel_2026-07-17.pdf","2026-07-27",1671617,"PDF","1Yd1Orsdn4uSBAYqG2cfq0M0w7NuOoS74","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","TeamUSA-Invoice_INV-2026-03741_Reimbursement_REVISED_522.14_v2_2026-07-17.pdf","2026-07-17",113682,"PDF","1SIClFklLw_jX4ZpyWy6t26eLcor53g4w","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","SEND-ME_REVISED-Reimbursement-Package-to-Miguel_2026-07-17.eml","2026-07-17",545551,"Email","1Zvur8fSLdWrDHMn8mXYF877arlYeeb2G","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","TeamUSA-Invoice_INV-2026-03748_Services_20001-Unit143_v2_2026-07-17.pdf","2026-07-17",113838,"PDF","1SbTmkYsCV2MGoKzXRJZx3pOvjxayDlHq","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","MDC-Receipt_Upfront-PlanReview-Fees_314.14_C2026116502_Paid-2026-06-04.pdf","2026-07-17",174924,"PDF","1F5SvePkoVt4ebothSOTAk5BqMscHT-IA","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","MDC-Fee-Statement_C2026116502_Total-971.44_20001-Unit143_2026-07-15.pdf","2026-07-15",189177,"PDF","1IpMmmJ663mzNtliCiOT9N9laxicD33xy","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","20001 MDC Billing permits and process - Application - C2026116502 - EPS.html","2026-07-01",51732,"Web page","1i26d1BeDIkeN7WiaJ-TpcN8JznF1YR7w","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) (top of the job folder)","20001 - MDC Permit fees - C2026116502 - EPS.html","2026-07-01",51732,"Web page","1JUBWE_BLEWycWKDhO3SeToo3cmqsx2QL","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) / _Superseded","20001 unit 143 MDC permit fees  - submit for reimbersment - C2026116502 - EPS_HTML-SAVED-AS-PDF.pdf","2026-07-30",51732,"PDF","1m54Ctf5iLXHh9GsllbNyd_2CIcfBMtN6","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) / _Superseded","TeamUSA-Invoice_INV-2026-03741_Reimbursement_REVISED_522.14_v2_2026-07-17_no-p2-header.pdf","2026-07-17",108047,"PDF","1icYZQBQ-e7olz54bsfIkywcPO_2IftYJ","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) / _Superseded","TeamUSA-Invoice_INV-2026-03748_Services_20001-Unit143_2026-07-01.pdf","2026-07-01",108889,"PDF","1m14R1vaRK0BXwzuN5DcKdFtuZ-qxOKm4","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) / _Superseded","TeamUSA-Invoice_INV-2026-03741_Reimbursement_20001-Unit143_2026-07-01.pdf","2026-07-01",107604,"PDF","1himlGYhpCGae-eOOCuwyWDIcEVFxXiPO","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / 20001 SW 110 CT UNIT 143 (TRK-2026-1262)","TeamUSA-Invoice_INV-2026-03741_Reimbursement_REVISED_522.14_v2_2026-07-17.pdf","2026-07-17",113682,"PDF","1xYxRvSvPvYHGFrWzmevoUci8iJli_u2t","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / 20001 SW 110 CT UNIT 143 (TRK-2026-1262)","TeamUSA-Invoice_INV-2026-03748_Services_20001-Unit143_v2_2026-07-17.pdf","2026-07-17",113838,"PDF","1Zj73BQ_rJXT2e9k-m7xfeTQS8Y4FqjP_","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / 20001 SW 110 CT UNIT 143 (TRK-2026-1262) / _Superseded","VOID-TeamUSA-Invoice_INV-2026-03741_Reimbursement_20001-Unit143_2026-07-01.pdf","2026-07-01",107604,"PDF","1hfR7DuD6uYpt8YIUXCQQrsQPZ2758V6k","",""],
+["20001 SW 110 CT Unit 143 (TRK-2026-1262) / 01-INTAKE / _FOLDED-FROM-ONEDRIVE_2026-09-04 / 20001 SW 110 CT UNIT 143 (TRK-2026-1262) / _Superseded","TeamUSA-Invoice_INV-2026-03748_Services_20001-Unit143_2026-07-01.pdf","2026-07-01",108889,"PDF","1EJxhgWPtA3R6IkQifLXX7IVJV6WKLppY","",""]];
+const STATUS=[["Done",[["Permit 2026061642 FINALED on 2026-08-07","Fire final August 6, building final August 7. Miami-Dade confirmed by email on August 7: the inspection passed. This was the legalization of the interior work (drywall) in Unit 143.","done"],
+["Code case 20260245510 shows CLOSED on the county record (09/30/2026)","Seen on the public Regulation Cases record and written into the October 2 draft. The permit field on the case is still blank.","done"]]],
+["Still missing",[["The county’s written closed-NOV letter for case 20260245510","Asked for on August 7, with follow-ups August 24, September 11 and September 28. No letter or PDF has come by email. Easiest fix: one call to Building Support, 786-315-2424, quoting the case, permit 2026061642 and folio 30-6007-011-0020.","miss"],
+["Tell Miguel the violation is closed","An Outlook draft dated October 2 is ready: “[#20001] 20001 SW 110 CT Unit 143 - Code violation CLOSED 09/30/2026 (Case 20260245510)”. It has no recipient yet. Add Miguel and press Send.","miss"],
+["Fire Department letter (executed July 1) is not saved in this folder","It came back attached to Miguel’s July 15 email to Julian Quintela. The October 12 filing run could not get the file. It may already sit inside the permit package PDFs (not checked).","miss"],
+["Whether the client has paid","Two invoices went out July 17 and Miguel read them July 20. No payment record has been found. Details are in the 🔒 Money zone.","miss"]]],
+["Waiting on",[["You","Send the closure note to Miguel (one tap). Call Building Support for the closure letter. Say which of the job’s homes is the real one (see Findings).","wait"],
+["Miami-Dade Building Support / Code Enforcement","Issue the closed-NOV letter and link the finaled permit to the case.","wait"],
+["Miguel Zaldivar · MZ Solutions","Payment of the two July invoices (see 🔒 Money).","wait"],
+["The PC helper (RAMBO)","Fill the _STAGE.md fields that show VERIFY, and save the Fire Department letter into 01-INTAKE.","wait"]]]];
+const PEOPLE=[["Miguel Zaldivar · MZ Solutions LLC (CGC1528486)","Client and general contractor. The permit is under his licence. Licence active to 2028-08-31.","miguel@mzsolutions.org"],
+["Julian Quintela · Miami-Dade Fire plan review","Fire plan reviewer, 11805 SW 26 St #105. Phone 786-315-2771 option 1, or 305-717-8430. Cleared the fire review July 23.","julian.quintela@miamidade.gov"],
+["Miami-Dade Building Support","Where the closed-NOV request went. Phone 786-315-2424.","BuildingSupport@miamidade.gov"],
+["Boris Luis · Miami-Dade code inspector","Inspector on case 20260245510 (opened 2026-01-20: leak, ceiling cracks and mold). No email on file.",""],
+["Miami-Dade RER ePayment","Got the July 23 “unable to process C2026116502” note.","epaymentrer@miamidade.gov"],
+["Miami-Dade Contractor Licensing (RER)","Phone 786-315-2880. Holds MZ’s insurance on file (the July payment block).",""],
+["10960 SW 200TH AVENUE LLC · owner of record","Named on the code case as owner. 2431 Atlantic Ave Ste 1, Manasquan NJ 08736. No email on file.",""],
+["Jorge Valdes · Team USA Sales, Inc.","Owner’s agent and permit expediter. 305-300-4500.","Jorge@TeamUsaSales.com"]];
+const MONEY=[["INV-2026-03748 · services · $1,700.00","Sent July 17 (v2), read by Miguel July 20. Paid: UNVERIFIED. No payment record found.","money"],
+["INV-2026-03741 R1 · reimbursement · $522.14","$314.14 upfront plan-review fee paid to the county June 4, plus $208.00 extension-of-time fee. Replaced the first $1,231.00 version (now VOID). Paid: UNVERIFIED.","money"],
+["Total billed to MZ Solutions: $2,222.14","Both invoices still show as not paid in every record seen. Worth one follow-up to Miguel.","money"],
+["County fee statement C2026116502: $971.44","July 15 statement. The July payment block came from MZ’s lapsed insurance on the county registration. The permit was later issued and finaled, so the fee was presumably paid. An August note said $637.79 was still owed to the county: VERIFY.","money"],
+["Your fee status in _STAGE.md","Billable, invoiced and paid all show VERIFY.","money"]];
+const FINDINGS=[["One job, three Drive homes","This folder; a bare “TRK-2026-1262” twin folder inside _CONVERGE-STAGING (id 1INMYLYOu1ehUzGKUZII-b5hiIGIZE9kq, HTML summary copies); and the OneDrive copy folded into 01-INTAKE on September 4. Merging is your decision (OPEN-ITEMS TRK-2026-9104). Nothing was moved.","flag"],
+["The numbered folders are empty","02-PERMITS, 03-INVOICES-PAYMENTS, 04-CORRESPONDENCE and 05-REPORTS-DELIVERABLES hold nothing. The OneDrive copy’s 06-Internal-Notes and 02-Meetings are empty too. The documents sit at the job root. Proposed for the morning filing list.","flag"],
+["Backup copies in the banned form: 57","Nightly “_PORTAL…html.bak-date” and “_STAGE.md.bak-date” copies at the root, a _TAGS.txt.bak and a VERSION-LOG .md.bak, plus 3 tax-jacket “.pdf.bak-20260826” copies. Drive cannot preview “name.ext.bak-date”. Left out of the lists; nothing renamed.","flag"],
+["The same papers saved twice or more","Permit papers are at the root and again in the OneDrive copy under other names (the 3,348,744-byte issued-permit BatchPrint is in both). Both v2 invoices and both July 1 invoices exist twice. The two EPS fee web pages at the root are the same size (51,732 bytes) and so is a superseded PDF. The two August 22 TRUE-PDF permit cards are the same size (115,670 bytes), and the OneDrive copy holds two pairs of same-size Word forms (contact sheet, scope of work).","flag"],
+["An old wrong permit number in file names","“C2026061642” appears in several file names. The real numbers are permit 2026061642 (no C) and process C2026116502. Those files are tagged OLD WRONG NUMBER in the lists.","flag"],
+["_STAGE.md is misleading","It says stage 04-OCR-INDEXED, overdue, with client, folio, next action and money all VERIFY. In fact the permit is finaled and only the closure letter and payment are open.","flag"],
+["Version log has the wrong name and is stale","It is “VERSION-LOG_TRK-2026-1262.md”, not “_VERSION-LOG.md”, and its last line is July 30. There is no _ARRIVALS file. Two tag files sit side by side (_TAGS.txt and _HASHTAGS.txt).","flag"],
+["Extracted contact list has junk numbers","_CONTACTS-EXTRACTED.txt lists 14 phone numbers read from scans, several of them permit numbers or zeros (for example 000-000-0000). Treat it as unverified.","flag"],
+["Folder name starts with the address","The folder is “20001 SW 110 CT Unit 143 (TRK-2026-1262)”, so it sorts away from the other jobs (OPEN-ITEMS TRK-2026-9032).","flag"],
+["Do not mix up 110 CT and 110 ST","14598 SW 110 ST (TRK-2026-1614) is a different client and was once nearly filed here. Never match on “110” alone.","flag"],
+["A loose Word file outside the folder","“20001 Last Friday.docx” (689 KB, 2026-08-25) sits at the top of My Drive, id 1ydxcsbOBdHepxS0WG5wdHeh5CQ6dzSNK. Not read. Not counted here.","flag"]];
+
+const PILL={done:["p-done","CONFIRMED"],miss:["p-miss","MISSING"],wait:["p-wait","WAITING"],flag:["p-flag","FINDING"],key:["p-key",""],clock:["p-clock","DEADLINE"],money:["p-money","MONEY"],person:["p-wait","CONTACT"]};
+let items=[], unlocked=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+' MB':n>=1024?Math.round(n/1024)+' KB':n+' B';
+const durl=id=>'https://drive.google.com/file/d/'+id+'/view';
+const furl=id=>'https://drive.google.com/drive/folders/'+id;
+const KEYFLAGS=['KEY','NEW'];
+
+function row(o){
+  const idx=items.length; items.push(o);
+  let pill='';
+  if(o.st&&PILL[o.st]){const lab=(o.st==='flag'&&o.kind==='doc')||o.st==='key'?o.flag:PILL[o.st][1]; if(lab)pill='<span class="pill '+PILL[o.st][0]+'">'+esc(lab)+'</span>';}
+  let h='<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing or copying">'
+   +'<div><label for="cb'+idx+'"><span class="it">'+esc(o.title)+'</span>'+pill+'</label>';
+  if(o.text) h+='<span class="id">'+esc(o.text)+'</span>';
+  if(o.kind==='doc'||o.kind==='mdoc') h+='<div class="meta"><span>'+esc(o.date)+'</span><span>'+esc(kb(o.size))+'</span><span>'+esc(o.type)+'</span></div>';
+  if(o.link) h+='<a class="open" href="'+esc(o.link)+'" target="_blank" rel="noopener">'+(o.kind==='person'?'Email '+esc(o.email)+' ↗':'Open in Drive ↗')+'</a>';
+  return h+'</div></div>';
+}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  $('tree').appendChild(w);
+}
+function docrow(f,d,kind){
+  const fl=d[5];
+  return row({b:kind==='mdoc'?'Money':f.t,kind:kind,title:d[1+(kind==='mdoc'?0:-1)],date:d[kind==='mdoc'?2:1],size:d[kind==='mdoc'?3:2],type:d[kind==='mdoc'?4:3],link:durl(d[kind==='mdoc'?5:4]),
+    st:kind==='mdoc'?'money':(fl?(KEYFLAGS.includes(fl)?'key':'flag'):''),flag:kind==='mdoc'?d[6]:fl,path:kind==='mdoc'?d[0]+(d[7]?' / ['+d[7]+']':''):f.p+(d[6]?' / ['+d[6]+']':'')});
+}
+function build(){
+  $('tree').innerHTML=''; items=[];
+  let h='';
+  STATUS.forEach(([g,list])=>{h+='<p class="grp">'+esc(g)+'</p>';list.forEach(it=>{h+=row({b:'Status at a glance',kind:'status',grp:g,title:it[0],text:it[1],st:it[2]});});});
+  branch('status','status','Status at a glance','What is done, what is missing, who it waits on',STATUS.map(s=>s[1].length).join(' · '),h,true);
+  FOLDERS.forEach((f,fi)=>{
+    let x='';
+    if(f.note) x+='<p class="bnote">'+esc(f.note)+'</p>';
+    x+='<a class="flink" href="'+furl(f.fid)+'" target="_blank" rel="noopener">Open this folder in Drive ↗</a>';
+    let lastg=null;
+    f.docs.forEach(d=>{ if(d[6]&&d[6]!==lastg){x+='<p class="sub">['+esc(d[6])+']</p>';lastg=d[6];} x+=docrow(f,d,'doc');});
+    if(f.cnt){x+='<p class="bnote">'+f.cnt+' documents here are counted but not listed one by one'+(f.cm?' ('+f.cm+' of them look like money papers)':'')+'. Open the folder in Drive to see them.</p>';
+      if(f.groups) x+='<p class="bnote">They came from '+f.groups+' old folders (unit folders, permit apps, admin, accounting and other matters).</p>';}
+    else if(!f.docs.length) x+='<p class="bnote">No documents here outside the money zone.</p>';
+    const s=f.side, sc=[]; if(s.s)sc.push(s.s+' sidecar'); if(s.i)sc.push(s.i+' index');
+    if(s.m) x+='<p class="bnote">'+s.m+' money document'+(s.m>1?'s':'')+' from this folder '+(s.m>1?'are':'is')+' kept in the 🔒 Money zone.</p>';
+    if(sc.length) x+='<p class="bnote">Sidecars not listed: '+esc(sc.join(' · '))+'.</p>';
+    const n=(f.cnt?f.cnt+' counted':f.docs.length)+(s.m?' + '+s.m+' 🔒':'');
+    branch('f'+fi,'',esc(fi===0?'📁 Job root':'📁 '+f.t),esc(f.p),n+' docs',x,fi===0);
+  });
+  let p='';
+  PEOPLE.forEach(it=>{p+=row({b:'People & contacts',kind:'person',title:it[0],text:it[1],email:it[2],link:it[2]?'mailto:'+it[2]:'',st:'person'});});
+  branch('people','','👥 People &amp; contacts','Who is involved and how to reach them',PEOPLE.length+' people',p,false);
+  let fz='';
+  FINDINGS.forEach(it=>{fz+=row({b:'Findings',kind:'finding',title:it[0],text:it[1],st:'flag'});});
+  branch('findings','','🔎 Findings','Noted only. Nothing was moved, renamed or deleted (filing is RED).',FINDINGS.length+' findings',fz,false);
+  const shut=!unlocked;
+  let m;
+  if(shut){
+    m='<p><b>Protected zone.</b> '+MONEY.length+' money items and '+MONEYDOCS.length+' money documents (invoices, checks, receipts, payment evidence) stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(it=>{m+=row({b:'Money',kind:'money',title:it[0],text:it[1],st:'money'});});
+    m+='<p class="grp">Money documents ('+MONEYDOCS.length+')</p><div class="mdocs">';
+    let lastp=null;
+    MONEYDOCS.forEach(d=>{ if(d[0]!==lastp){m+='<p class="sub">'+esc(d[0])+'</p>';lastp=d[0];} m+=docrow(null,d,'mdoc');});
+    m+='</div></div>';
+  }
+  branch('money','money'+(shut?' locked':''),(shut?'🔒 ':'🔓 ')+'Money','Protected zone · not printed, copied or shared unless you open it',shut?'locked':(MONEY.length+' items · '+MONEYDOCS.length+' docs'),m,true);
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const fm=$('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();}else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();});
+  upd();
+}
+const isMoney=it=>it.kind==='money'||it.kind==='mdoc';
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>!isMoney(it)||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='<h2 style="margin-top:8px">TRK-2026-1262 · 20001 SW 110 CT Unit 143 · selected</h2>',last='';
+  list.forEach(it=>{
+    if(it.b!==last){h+='<h2>'+(isMoney(it)?'🔓 ':'')+esc(it.b)+'</h2>';last=it.b;}
+    let sep=(it.kind==='doc'||it.kind==='mdoc')?esc(it.path):it.kind==='status'?'Status · '+esc(it.grp):esc(it.b);
+    h+='<div class="cpiece"><div class="sep">'+sep+'</div><span class="it">'+esc(it.title)+'</span>';
+    if(it.kind==='doc'||it.kind==='mdoc') h+='<p class="meta"><span>'+esc(it.date)+'</span><span>'+esc(kb(it.size))+'</span><span>'+esc(it.type)+'</span>'+(it.flag?'<span>'+esc(it.flag)+'</span>':'')+'</p>';
+    if(it.text) h+='<p>'+esc(it.text)+'</p>';
+    if(it.link) h+='<p><a class="open" href="'+esc(it.link)+'" target="_blank" rel="noopener">'+(it.kind==='person'?'Email '+esc(it.email)+' ↗':'Open in Drive ↗')+'</a></p>';
+    h+='</div>';
+  });
+  $('cbody').innerHTML=list.length?h:'<p>Nothing picked yet. Tick boxes in the tree first.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){
+  let s='TRK-2026-1262 · 20001 SW 110 CT Unit 143, Cutler Bay FL 33189\nFolio 30-6007-011-0020 · Permit 2026061642 (finaled 2026-08-07) · Code case 20260245510\n',last='';
+  list.forEach(it=>{
+    if(it.b!==last){s+='\n'+it.b.toUpperCase()+'\n';last=it.b;}
+    s+='☐ '+it.title+'\n';
+    if(it.kind==='doc'||it.kind==='mdoc') s+='   '+it.date+' · '+kb(it.size)+' · '+it.type+'\n   Open: '+it.link+'\n';
+    else { if(it.text) s+='   '+it.text+'\n'; if(it.email) s+='   '+it.email+'\n'; }
+  });
+  return s+'\n— TRK-2026-1262 · Capsule ENHANCED · v1 · 2026-10-13';
+}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>!isMoney(it)||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Use “View these together”, select the text and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+$('pr').onclick=()=>{setAll(true);window.print();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+(function(){try{const n=new Date();const today=Date.UTC(n.getFullYear(),n.getMonth(),n.getDate());
+  const k=Math.round((today-Date.UTC(2026,7,7))/86400000);$('dlnov').textContent=k===1?'1 day without it':k+' days without it';}catch(e){}})();
+build();
+</script>
+</body>
+</html>

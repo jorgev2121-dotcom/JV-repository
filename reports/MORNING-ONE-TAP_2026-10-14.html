@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morning One-Tap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Orange Tree, reused from CAPSULE-INDEX_2026-10-14. Same tokens as _ORANGE-TREE-DD v2 and PENDING-TASKS v3. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 16px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.go:hover{color:#fff;opacity:.9}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+.kick{font-family:var(--mono);font-size:13px;color:var(--muted);margin:22px 0 0;letter-spacing:.04em}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(27px,5vw,38px);line-height:1.1;margin:4px 0 8px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;font-size:16px}
+.facts span b{color:var(--muted);font-weight:600;margin-right:4px}
+.deadline{background:var(--money-soft);border:2px solid var(--money);color:var(--money);border-radius:10px;padding:10px 14px;font-weight:700;font-size:17px;margin:6px 0 4px}
+.deadline small{display:block;font-weight:600;font-size:14px;color:var(--ink);opacity:.85}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 18px;overflow-wrap:anywhere}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--accent)} .tile.w .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.tags{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 18px;overflow-wrap:anywhere}
+.tags b{font-family:var(--body);font-size:14px;color:var(--ink);display:block;margin-bottom:2px}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 54px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.branch.status{border:2px solid var(--accent)}
+.bh{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600;overflow-wrap:anywhere}
+.bm{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.score{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.bnote{font-size:15px;color:var(--muted);margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:10px}
+.flink{font-size:14px;font-weight:600;color:var(--owner);display:inline-block;margin:8px 0 2px}
+.grp{font-family:var(--display);font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 0;text-transform:uppercase;letter-spacing:.05em}
+.item{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.it{font-weight:700;overflow-wrap:anywhere}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.open{display:inline-block;margin-top:4px;font-size:15px;font-weight:600;color:var(--owner);text-decoration:none}
+.open:hover{text-decoration:underline}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-done{background:var(--ok-soft);color:var(--ok)}
+.p-miss{background:var(--accent-soft);color:var(--accent)}
+.p-wait{background:var(--owner-soft);color:var(--owner)}
+.p-flag{background:var(--wait-soft);color:var(--wait)}
+.p-key{background:var(--accent-soft);color:var(--accent)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px;overflow-wrap:anywhere}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+footer .tag{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+@media (max-width:520px){.bt{font-size:17px}.bar{padding:8px 16px}button{padding:7px 10px}.tile .n{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:13.5px}
+  .bar,.selbar,.lock form,.noprint,.tiles{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item,.cpiece{break-inside:avoid}
+  .branch.money.locked{display:none!important}
+  .open::after{content:" " attr(href);font-family:var(--mono);font-size:10px;color:var(--muted);word-break:break-all}
+}
+.p-tbd{background:var(--money-soft);color:var(--money);font-weight:600}
+.p-job{background:var(--raised);color:var(--ink)}
+.p-ns{background:var(--wait-soft);color:var(--wait)}
+.branch.urgent{border:2px solid var(--money)}
+.docs{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+
+/* One-tap additions */
+.q{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;padding:14px 0;border-bottom:1px solid var(--line);align-items:start}
+.q:last-child{border-bottom:0}
+.q input[type=checkbox]{width:34px;height:34px;margin:2px 0 0;accent-color:var(--ok);cursor:pointer}
+.qn{font-family:var(--display);font-size:22px;color:var(--accent);margin-right:6px}
+.qw{font-weight:700;font-size:18px;overflow-wrap:anywhere}
+.rec{margin:6px 0 0;font-size:16px}
+.rec b{color:var(--ok)}
+.why{margin:2px 0 0;font-size:15px;color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}
+.opt{font-size:16px;padding:9px 16px;min-width:64px;border-radius:22px;border:2px solid var(--line);background:var(--surface)}
+.opt.recd{border-color:var(--ok)}
+.opt[aria-pressed=true]{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt[aria-pressed=true]:hover{color:#fff}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:6px;overflow-wrap:anywhere}
+.answers{font-family:var(--mono);font-size:14px;background:var(--raised);border-radius:10px;padding:10px 14px;margin:0 0 14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.mrow{padding:10px 0;border-bottom:1px solid var(--line)}
+.branch.night{border:2px solid var(--ok)}
+.ntick{width:24px;height:24px;margin:2px 0 0;accent-color:var(--ok);cursor:pointer}
+.nrow{display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.nrow:last-child{border-bottom:0}
+.nrow .it{font-weight:700;font-size:17px;overflow-wrap:anywhere}
+@media (max-width:620px){.bar{position:static}.selbar{top:env(safe-area-inset-top,0px)}}
+@media print{.opt{display:none}.opt[aria-pressed=true]{display:inline-block}.answers{display:none}}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="say" class="go" title="Read the list aloud">🔊 Read aloud</button>
+  <span class="spacer"></span>
+  <button id="pr" title="Print in color. Money stays out while locked.">Print</button>
+</div>
+
+<div class="wrap">
+<p class="kick">MORNING ONE-TAP · ORANGE TREE</p>
+<h1>Your decisions for Wednesday, October 14</h1>
+<div class="facts">
+  <span><b>Decisions</b>29</span>
+  <span><b>Urgent</b>7</span>
+  <span><b>Money</b>9</span>
+  <span><b>System</b>6</span>
+  <span><b>Stalled</b>7</span>
+</div>
+<div class="deadline">Plaza letter due tomorrow, October 15.
+<small>Einar permit: submit before November 16. <span id="dleft"></span></small></div>
+<p class="stamp">ADMIN · Morning One-Tap · v1 · 2026-10-14 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tot"><p><b>How to use this.</b> Each line has one recommended answer, marked in green. Tick the big box to accept it. Or tap a different word. Then press <b>Copy my answers</b> and paste them into the chat.</p></div>
+
+<div class="selbar show" id="selbar">
+  <b><span id="selcount">0</span> of 29 answered</b>
+  <button id="copyans" class="go">Copy my answers</button>
+  <button id="selview">View these together</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Your answers, together.</b> <button id="back">← Back to the list</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>Sources: runner-results from October 13 and 14, the capsule index, the decisions census, the backup rename plan, the recurring-issues log and the overnight mail alerts. Nothing was sent, filed, moved or renamed to make this page.</p>
+  <p class="tag">#morning-one-tap #orange-tree #JorgeValdes #VTES · ADMIN · Morning One-Tap · v1 · 2026-10-14 · CURRENT</p>
+  <p><b>Which number shall we start with?</b></p>
+</footer>
+</div>
+
+<script>
+const GROUPS=[["urgent", "🚨 Deadlines and at risk", "Dated deadlines, and things that can go wrong this week"], ["money", "💵 Money", "Work done, not billed, or bills not checked. Amounts are only in the locked zone"], ["system", "⚙️ System fixes", "Fixes to the machinery. Each one stops a problem that keeps coming back"], ["stalled", "⏸ Stalled jobs: alive or close?", "Quiet jobs. One word restarts or closes each one"]];
+const ITEMS=[{"n": 1, "g": "urgent", "w": "Plaza status letter is due tomorrow, October 15. The draft is ready.", "r": "Yes, send it tomorrow, after you check the Village portal for units 220 and 721.", "t": "Late breaks your two-week promise again. Unchecked, one permit line could be wrong.", "o": ["yes", "hold"], "ro": "yes", "s": "TRK-2026-1265 · PLAZA-STATUS-LETTER draft"}, {"n": 2, "g": "urgent", "w": "Plaza: was the October 1 letter ever sent?", "r": "Say unsure if you do not remember. Then the desktop checks your Sent folder first.", "t": "Your answer picks the opening: an apology, or a normal update.", "o": ["yes", "no", "unsure"], "ro": "unsure", "s": "TRK-2026-1265 · Plaza draft, check 3"}, {"n": 3, "g": "urgent", "w": "Plaza letter: keep units 220 and 922 in it? They were not in your September 2 list.", "r": "Keep them. Both carry good news, the Village's renewal route.", "t": "Keeping them means a slightly longer letter.", "o": ["keep", "cut"], "ro": "keep", "s": "TRK-2026-1265 · Plaza draft, check 4"}, {"n": 4, "g": "urgent", "w": "535 NW 7 St: call Officer Chapelli, 305-224-5577, about the August 20 fine hearing.", "r": "Yes, today. The ruling is still unknown after 54 days.", "t": "A fine order can become a lien on Renzo's house. One call answers it.", "o": ["yes", "later"], "ro": "yes", "s": "535 NW 7 ST · case CE25080356"}, {"n": 5, "g": "urgent", "w": "Bay Harbor Unit 404: push Miguel for the Workers' Comp certificate addressed to Ten Thousand Plaza.", "r": "Yes, today. The condo's three demands of September 17 have had no reply for 27 days.", "t": "The family has threatened in writing to take back their deposit.", "o": ["yes", "later"], "ro": "yes", "s": "10000 W Bay Harbor Dr Unit 404"}, {"n": 6, "g": "urgent", "w": "Einar: copy the June 22 insurance certificate, Pembroke Pines as holder, and the 2028 licence into the Einar folder.", "r": "Yes. The permit must be submitted before November 16, and the folder has only old copies.", "t": "This is filing, so it needs your yes. Nothing is moved, only copied.", "o": ["yes", "no"], "ro": "yes", "s": "TUS-26-1018 · copies from TRK-2026-1611 and 1265"}, {"n": 7, "g": "urgent", "w": "Julia's Place bond: request the second inspection on the County's CSS portal.", "r": "Yes. It does not need the W-9 first. The County asked about it on April 27.", "t": "A fee applies. The refund takes six to eight weeks after this starts.", "o": ["yes", "later"], "ro": "yes", "s": "TRK-2026-0708-JULIA"}, {"n": 8, "g": "money", "w": "Alec: send the 5 ready reports, 1612, 1534, 1289, 1286 and 1292, with their correction notes.", "r": "Yes, send. 1535 and 1536 follow once their PDFs are made.", "t": "Nothing can be invoiced until these go out.", "o": ["send", "hold"], "ro": "send", "s": "TRK-2026-9047 · ALEC-ROLLUP"}, {"n": 9, "g": "money", "w": "Alec invoice: the draft is ready, but the seven service fees are blank.", "r": "Yes, fill them in today, inside the money zone.", "t": "Waiting delays the cash. The fees are the only thing missing.", "o": ["yes", "later"], "ro": "yes", "s": "ALEC-INVOICE-DRAFT"}, {"n": 10, "g": "money", "w": "Alec: fold the 1531 microfilm batch into 1292 for billing? Same parcel.", "r": "Yes. It has no report of its own.", "t": "One less job number to track. It is a registry change, so it needs your word.", "o": ["yes", "no"], "ro": "yes", "s": "TRK-2026-9089"}, {"n": 11, "g": "money", "w": "Port Charlotte, TRK-2026-1588: delivered in August, never priced. Who is the client?", "r": "Only you know. Say the name, and the price comes next.", "t": "Without a client, nobody can be billed.", "o": ["Miguel", "Lily", "other"], "ro": null, "s": "TRK-2026-1588"}, {"n": 12, "g": "money", "w": "15601 SW 137 Ave: who pays for this job?", "r": "Only you know. Say which company.", "t": "The report went out in August, and no invoice exists yet.", "o": ["MZ", "TEDC", "other"], "ro": null, "s": "15601 SW 137 AVE · uses TRK-2026-1650"}, {"n": 13, "g": "money", "w": "Bay Harbor Unit 404: your own fee was never invoiced. Bill it now?", "r": "Yes. The job is active, and Unit 301 set the pattern.", "t": "None. It only needs your yes.", "o": ["yes", "later"], "ro": "yes", "s": "10000 WBH 404"}, {"n": 14, "g": "money", "w": "Bay Harbor Unit 302: no invoice found. Shall the desktop look up permit B24-000680 first, to see if the work was finished?", "r": "Yes, look first, then bill.", "t": "One day's delay, but you do not bill for unfinished work.", "o": ["yes", "no"], "ro": "yes", "s": "10000 WBH 302"}, {"n": 15, "g": "money", "w": "Cutler Bay, TRK-2026-1310: was the PLF invoice paid? The plans were approved yesterday.", "r": "Say unsure if you do not know, and the desktop checks.", "t": "Your own invoice for this job has not been issued yet either.", "o": ["yes", "no", "unsure"], "ro": "unsure", "s": "TRK-2026-1310"}, {"n": 16, "g": "money", "w": "HOA payment: it needs your portal login and bank details. The PC failed it twice.", "r": "Do it yourself today. Only you can, by rule.", "t": "It cannot move without you.", "o": ["today", "later"], "ro": "today", "s": "DECISION 28 · TRK-2026-9972"}, {"n": 17, "g": "system", "w": "Remove the PC's home-made daily limit on Claude runs. It stalls every desktop order.", "r": "Yes, remove it. Anthropic's own limit still protects you.", "t": "Logged four times. Raising the number did not last.", "o": ["yes", "no"], "ro": "yes", "s": "RECURRING-ISSUES, 2026-10-14"}, {"n": 18, "g": "system", "w": "Rename 2,147 backup files to the new name form, so Drive can preview them.", "r": "Do one job first, check it, then the rest.", "t": "One extra day, but a mistake stays small.", "o": ["one", "all", "no"], "ro": "one", "s": "BAK-RENAME-PLAN"}, {"n": 19, "g": "system", "w": "Fold the Plaza orphan folder, OPH-2026-0007, into TRK-2026-1265. Units 305 and 1515 stay orphans for now.", "r": "Yes. Same building, same contractor, same Village.", "t": "This is filing, so it needs your yes.", "o": ["yes", "no"], "ro": "yes", "s": "OPH-2026-0007"}, {"n": 20, "g": "system", "w": "Rename 4 folders still marked TRK-TBD to their known numbers: 1532, 1561, 1567 and 1650.", "r": "Yes. The desktop checks your master registry for 1650 first.", "t": "A folder without a number cannot be found by search.", "o": ["yes", "no"], "ro": "yes", "s": "CAPSULE-INDEX · same problem everywhere"}, {"n": 21, "g": "system", "w": "Six new orphan papers, OPH-0010 to 0015: shall tonight's run prepare their filing for your yes tomorrow?", "r": "Yes. Nights prepare, mornings file.", "t": "Nothing is filed without your next yes.", "o": ["yes", "no"], "ro": "yes", "s": "DECISION 19 · TRK-2026-9771"}, {"n": 22, "g": "system", "w": "Plaza owners for units 714 and 914: shall the desktop read Sunbiz in your browser, so we can contact them?", "r": "Yes. The cloud cannot reach Sunbiz.", "t": "Contacting owners is outbound, so it waits for your next yes.", "o": ["yes", "no"], "ro": "yes", "s": "DECISION 26 and 15 · TRK-2026-1265"}, {"n": 23, "g": "stalled", "w": "Ocean Drive, TRK-2026-1268: Frank has waited 104 days for a go or no-go.", "r": "Alive. Send Frank one short check-in.", "t": "Closing it ends the job. A check-in costs one email.", "o": ["alive", "close"], "ro": "alive", "s": "TRK-2026-1268"}, {"n": 24, "g": "stalled", "w": "Tuscany Cove, TRK-2026-1297: Miguel said call me, five months ago.", "r": "Alive. The desktop runs the free code-case lookups, then you call Miguel.", "t": "There may be fines on this property.", "o": ["alive", "close"], "ro": "alive", "s": "TRK-2026-1297"}, {"n": 25, "g": "stalled", "w": "14953 SW 34 St, TRK-2026-1280: no client is named anywhere. Nothing was started.", "r": "Close it, unless you remember who ordered it.", "t": "If someone did order it, closing loses that job.", "o": ["close", "alive"], "ro": "close", "s": "TRK-2026-1280"}, {"n": 26, "g": "stalled", "w": "Principio, TRK-2026-1295: an investor deal from TEDC. Quiet since June.", "r": "Drop it. It is not a permit job, and no terms were ever set.", "t": "If Miguel still wants it, you lose a possible deal.", "o": ["drop", "alive"], "ro": "drop", "s": "TRK-2026-1295"}, {"n": 27, "g": "stalled", "w": "1514 NW 73 St, a new house: who is the client? The proposal was never sent.", "r": "Say the name. Then it gets a tracking number.", "t": "Without a client it cannot move.", "o": ["name", "close"], "ro": null, "s": "1514 NW 73 ST · admin 9167"}, {"n": 28, "g": "stalled", "w": "Synergy, TRK-2026-2221: Victor asked for a call on September 28. A follow-up email sits unsent.", "r": "Call Victor, and delete the old draft.", "t": "A call answers more than an email does.", "o": ["call", "send", "delete"], "ro": "call", "s": "TRK-2026-2221"}, {"n": 29, "g": "stalled", "w": "Daymara, TRK-2026-1042: no word for 109 days, and nothing was ever sent to her.", "r": "Close it.", "t": "If she comes back, the folder is still there.", "o": ["close", "alive"], "ro": "close", "s": "TRK-2026-1042"}];
+const MONEY=[["Alec invoice", "Pass-through known: $100.25 ($56.25 county microfilm plus $44.00 City microfilm on 1292). Seven service fees blank. Zelle credit and invoice number blank."], ["Bay Harbor Unit 404", "Owner's contract with MZ: $16,000. Deposit check 106: $8,000, dated 2025-06-17. Your own fee never invoiced; Unit 301 was billed $1,000."], ["Bay Harbor Unit 302", "No invoice found among 6090, 6091, 6094, 6095, 6097. QuickBooks not searched."], ["Cutler Bay, TRK-2026-1310", "PLF invoice $2,500, paid status not verified. Team USA's own invoice not issued."], ["Port Charlotte, TRK-2026-1588", "Never priced or invoiced, 63 days after delivery."], ["15601 SW 137 Ave", "No invoice found. Fee not set. Payer not on file."], ["Julia's Place bond", "Inspection and admin fees: amounts not on file. Our fee not set."], ["535 NW 7 St", "Admin fee $80. Possible fine exposure, rate unverified."], ["Credit card statement", "A card statement is ready. Amount not recorded here."]];
+const NIGHT=[["Done","Done items. Tick each one when you have seen it.",[
+["People hashtags: 40 of 40 jobs","Every job folder now has people tags. 184 people added. Nothing old was changed."],
+["Control panel: 64 to 72 of 116","Tabs now at 100%: MENU, RULES, BRIDGES, WINDOWS, ORPHANS, HANDOFFS."],
+["3 owner directive files written","Freeze and Finish, Share Link, and 1Password. The 1Password one is a summary only."],
+["OneDrive duplicate check, part 2","Nothing was moved or deleted. Result is in the question below."]]],
+["Look","New look-only questions. Nothing was changed. Tick when you have read it.",[
+["Cutler Bay: extra TRK tags","The old Cutler Bay tags also carry #TRK-2026-10052 (too many digits) and #TRK-2026-1667. Which number is the real job?"],
+["Groves: #TRK-2026-1436","1436 is also a Plaza permit number. Likely a permit number mistaken for a job number. Which is right?"],
+["15222 SW 108 Pl: short form TRK-26-1042","Only the short form was found. The long form TRK-2026-1042 is not confirmed for this address."],
+["OneDrive: the second Field Inspections copy","It is a near-duplicate of the first. The first copy is the more complete one. Proposal: quarantine the second copy after a PC hash check. Never delete. Needs your yes."],
+["Hand-offs: keep Cowork, iPhone and Ollama allowed when client data is ticked?","Yes keeps them working. No blocks all three for client jobs."]]],
+["Notice","Personal notices. No amounts here.",[
+["Office 365 invoice is ready","It arrived by email overnight."],
+["Slack Pro trial ends October 21","Decide before then whether to keep it."]]]];
+let ntick={};
+try{const v=JSON.parse(localStorage.getItem('onetap-night-2026-10-14')||'{}');if(v&&typeof v==='object')ntick=v;}catch(e){}
+const g=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let ans={}, unlocked=false, mtick={};
+try{const v=JSON.parse(localStorage.getItem('onetap-2026-10-14')||'{}');if(v&&typeof v==='object')ans=v;}catch(e){}
+function save(){try{localStorage.setItem('onetap-2026-10-14',JSON.stringify(ans));}catch(e){}}
+function branch(key,cls,title,meta,score,inner,open){
+  const w=document.createElement('section'); w.className='branch'+(cls?' '+cls:''); w.id='br-'+key;
+  w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">'+(open?'▾':'▸')+'</span><span><span class="bt">'+title+'</span><br><span class="bm">'+meta+'</span></span><span class="score">'+score+'</span></button>';
+  const body=document.createElement('div'); body.className=cls&&cls.includes('locked')?'lock':'bb'; body.innerHTML=inner;
+  if(!open) body.style.display='none';
+  w.appendChild(body);
+  w.querySelector('.bh').addEventListener('click',()=>{const o=body.style.display!=='none';body.style.display=o?'none':'';w.querySelector('.tw').textContent=o?'▸':'▾';});
+  g('tree').appendChild(w);
+}
+function qrow(it){
+  const a=ans[it.n];
+  let h='<div class="q" id="q'+it.n+'"><input type="checkbox" data-n="'+it.n+'" aria-label="Accept the recommendation for item '+it.n+'"'+(a?' checked':'')+'><div>';
+  h+='<span class="qn">'+it.n+'.</span><span class="qw">'+esc(it.w)+'</span>';
+  h+='<p class="rec"><b>Recommended:</b> '+esc(it.r)+'</p><p class="why">'+esc(it.t)+'</p><div class="opts">';
+  it.o.forEach(o=>{h+='<button type="button" class="opt'+(o===it.ro?' recd':'')+'" data-n="'+it.n+'" data-o="'+esc(o)+'" aria-pressed="'+(a===o)+'">'+esc(o)+(o===it.ro?' ✓':'')+'</button>';});
+  h+='</div><div class="src">'+esc(it.s)+'</div></div></div>';
+  return h;
+}
+function build(){
+  g('tree').innerHTML='';
+  (function(){
+    let h='<p class="bnote">Done items first, then new look-only questions, then notices. Ticking is just your way to mark it read. It adds nothing to the 29 answers.</p>';
+    let total=0, got=0;
+    NIGHT.forEach(([k,t,list],gi)=>{
+      h+='<p class="grp">'+esc(t)+'</p>';
+      list.forEach(([w,d],i)=>{const id=gi+'-'+i; total++; if(ntick[id]) got++;
+        h+='<div class="nrow"><input type="checkbox" class="ntick" data-id="'+id+'" aria-label="Mark as read: '+esc(w)+'"'+(ntick[id]?' checked':'')+'><span><span class="it">'+esc(w)+'</span><span class="id">'+esc(d)+'</span></span></div>';});
+    });
+    h+='<p class="bnote">One more notice is in the locked Money details below: a credit card statement is ready. Code 0000 opens it.</p>';
+    branch('night','night','🌙 Overnight (while you slept)','Done items, new questions, notices',got+' of '+total+' read',h,true);
+  })();
+  GROUPS.forEach(([k,t,m],bi)=>{
+    const list=ITEMS.filter(x=>x.g===k); let h='';
+    list.forEach(it=>{h+=qrow(it);});
+    branch(k,k==='urgent'?'urgent':'',esc(t),esc(m),list[0].n+' to '+list[list.length-1].n,h,true);
+  });
+  let m;
+  if(!unlocked){
+    m='<p><b>Protected zone.</b> Money details stay out of copies, prints and the together view until you open this zone and tick them yourself.</p>'
+     +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+  } else {
+    m='<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied and printed. <button type="button" id="relock">Lock again</button></div>';
+    MONEY.forEach(([t,x],i)=>{m+='<div class="item"><input type="checkbox" class="mt" data-i="'+i+'"'+(mtick[i]?' checked':'')+'><span><span class="it">'+esc(t)+'<span class="pill p-money">MONEY</span></span><span class="id">'+esc(x)+'</span></span></div>';});
+    m+='</div>';
+  }
+  branch('mzone','money'+(unlocked?'':' locked'),(unlocked?'🔓 ':'🔒 ')+'Money details','Protected zone · opens with the zone code',unlocked?MONEY.length+' items':'locked',m,true);
+  document.querySelectorAll('#tree .q input[type=checkbox]').forEach(c=>c.addEventListener('change',()=>{
+    const it=ITEMS[+c.dataset.n-1];
+    if(c.checked){ans[it.n]=it.ro||ans[it.n]; if(!ans[it.n]){c.checked=false;flash(it.n);return;}} else delete ans[it.n];
+    paint(it.n);}));
+  document.querySelectorAll('#tree .opt').forEach(b=>b.addEventListener('click',()=>{
+    const n=+b.dataset.n; ans[n]=(ans[n]===b.dataset.o)?undefined:b.dataset.o; if(!ans[n]) delete ans[n]; paint(n);}));
+  document.querySelectorAll('#tree .ntick').forEach(c=>c.addEventListener('change',()=>{ntick[c.dataset.id]=c.checked;try{localStorage.setItem('onetap-night-2026-10-14',JSON.stringify(ntick));}catch(e){}
+    const ch=document.querySelectorAll('#tree .ntick'),n=[...ch].filter(x=>x.checked).length;document.querySelector('#br-night .score').textContent=n+' of '+ch.length+' read';}));
+  document.querySelectorAll('#tree .mt').forEach(c=>c.addEventListener('change',()=>{mtick[c.dataset.i]=c.checked;}));
+  const fm=g('lockform'); if(fm) fm.addEventListener('submit',e=>{e.preventDefault();
+    if(g('pin').value==='0000'){unlocked=true;build();}else{g('pinerr').textContent='That is not the zone code.';g('pin').value='';}});
+  const r=g('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;mtick={};build();});
+  upd();
+}
+function flash(n){const el=g('q'+n).querySelector('.opts');el.style.outline='2px solid var(--accent)';setTimeout(()=>{el.style.outline='';},1200);g('copymsg').textContent='Item '+n+' needs a word: tap one.';}
+function paint(n){
+  const a=ans[n], q=g('q'+n);
+  q.querySelector('input[type=checkbox]').checked=!!a;
+  q.querySelectorAll('.opt').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.o===a)));
+  save(); upd();
+}
+function upd(){g('selcount').textContent=Object.keys(ans).length;g('copymsg').textContent='';}
+function answerText(){
+  const done=ITEMS.filter(it=>ans[it.n]);
+  let s='Morning one-tap, October 14 answers: '+(done.length?done.map(it=>it.n+' '+ans[it.n]).join(', '):'none yet')+'.';
+  const left=ITEMS.length-done.length; if(left) s+=' Not answered: '+left+'.';
+  if(unlocked){const mm=MONEY.filter((x,i)=>mtick[i]); if(mm.length) s+='\nMoney items ticked: '+mm.map(x=>x[0]+' ('+x[1]+')').join('; ');}
+  return s;
+}
+function copyText(t){
+  const done=()=>{g('copymsg').textContent='Copied. Paste it into the chat.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}
+}
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();g('copymsg').textContent=ok?'Copied. Paste it into the chat.':'Copy was blocked here. Use View these together, select the text and press Ctrl+C.';}
+g('copyans').onclick=()=>copyText(answerText());
+g('selview').onclick=()=>{
+  let h='<h2 style="margin-top:8px">Your answers</h2><div class="answers">'+esc(answerText())+'</div>',last='';
+  ITEMS.filter(it=>ans[it.n]).forEach(it=>{const gr=GROUPS.find(x=>x[0]===it.g)[1];
+    if(gr!==last){h+='<h2>'+esc(gr)+'</h2>';last=gr;}
+    h+='<div class="cpiece"><div class="sep">'+esc(it.s)+'</div><span class="it">'+it.n+'. '+esc(it.w)+'</span><p><b>Your answer: '+esc(ans[it.n])+'</b></p></div>';});
+  if(unlocked) MONEY.forEach((x,i)=>{if(mtick[i]) h+='<div class="cpiece"><div class="sep">MONEY</div><span class="it">'+esc(x[0])+'</span><p>'+esc(x[1])+'</p></div>';});
+  g('cbody').innerHTML=h; g('tree').style.display='none'; g('contig').style.display='block'; window.scrollTo(0,0);};
+g('back').onclick=()=>{g('contig').style.display='none';g('tree').style.display='';};
+g('selclear').onclick=()=>{ans={};save();build();};
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+g('ex').onclick=()=>setAll(true); g('co').onclick=()=>setAll(false);
+g('pr').onclick=()=>{setAll(true);window.print();};
+g('say').onclick=()=>{
+  if(!('speechSynthesis' in window)){g('copymsg').textContent='Read aloud is not available in this browser.';return;}
+  const ss=window.speechSynthesis; if(ss.speaking){ss.cancel();return;}
+  ITEMS.forEach(it=>{ss.speak(new SpeechSynthesisUtterance('Number '+it.n+'. '+it.w+' Recommended: '+it.r));});
+};
+(function(){const d=Math.ceil((new Date('2026-11-16T00:00:00')-new Date())/86400000);g('dleft').textContent=d>0?d+' days left.':'The submit date has passed: check the case now.';})();
+build();
+</script>
+</body>
+</html>

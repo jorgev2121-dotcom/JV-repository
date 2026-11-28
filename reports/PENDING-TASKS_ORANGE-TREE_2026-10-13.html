@@ -1,0 +1,243 @@
+<title>Owner Pending Tasks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the Orange Tree — branch → item, tick to select, read selected as one continuous page. Same tokens as _ORANGE-TREE-DD v2. */
+:root{
+  --ground:#fbfaf8; --surface:#ffffff; --raised:#f4f1ec;
+  --line:#e4dfd7; --ink:#16181d; --muted:#5d6470;
+  --accent:#b4650c; --accent-soft:#f7ead9;
+  --ok:#1a6f3c; --ok-soft:#e4f2e8;
+  --money:#a32d1f; --money-soft:#fbe8e5;
+  --owner:#1a5fb4; --owner-soft:#e6eef9;
+  --wait:#6b7280; --wait-soft:#eef0f2;
+  --display:Archivo,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#0a0c0f; --surface:#14171c; --raised:#1b1f26; --line:#282d36; --ink:#e7ecf1; --muted:#94a1b0;
+  --accent:#ffb35c; --accent-soft:#2a1c0c; --ok:#6ede9b; --ok-soft:#0f2417; --money:#ff8b78; --money-soft:#2c1311;
+  --owner:#7fbfff; --owner-soft:#111d2b; --wait:#8b93a0; --wait-soft:#191d23; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:var(--surface);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;padding:9px 18px;align-items:center}
+button{font-family:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:7px;background:var(--raised);color:var(--ink);padding:7px 13px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--owner);color:#fff;border-color:var(--owner)}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.spacer{flex:1}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,5vw,38px);line-height:1.1;margin:22px 0 6px;color:var(--accent);text-wrap:balance}
+h2{font-family:var(--display);font-size:22px;margin:28px 0 10px;text-wrap:balance}
+.sub{color:var(--muted);font-size:16px;max-width:64ch;margin:0 0 4px}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--muted);margin:6px 0 18px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-weight:400}
+.tile .n{font-family:var(--display);font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.tile b{display:block;font-size:16px;margin-top:4px}
+.tile small{color:var(--muted);font-size:14px}
+.tile.c .n{color:var(--ok)} .tile.y .n{color:var(--owner)} .tile.m .n{color:var(--money)}
+.tot{background:var(--accent-soft);border:2px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:20px}
+.tot p{margin:0}
+.tot b{color:var(--accent)}
+.selbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 56px);z-index:55;display:none;align-items:center;gap:10px;background:var(--owner-soft);border:1px solid var(--owner);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:15px;flex-wrap:wrap}
+.selbar.show{display:flex}
+.selbar b{color:var(--owner)}
+.branch{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.branch.money{border:2px solid var(--money)}
+.bh{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;background:var(--surface);border:0;border-radius:0;width:100%;text-align:left;font-weight:400}
+.bh:hover{background:var(--raised);color:var(--ink)}
+.tw{font-family:var(--mono);font-size:13px;color:var(--accent);width:14px;flex:none}
+.bt{font-family:var(--display);font-size:19px;font-weight:600}
+.bm{font-size:14px;color:var(--muted)}
+.score{margin-left:auto;font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;background:var(--raised);border-radius:20px;padding:3px 11px}
+.bb{padding:4px 15px 12px;border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:28px 34px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.item:last-child{border-bottom:0}
+.item input{width:20px;height:20px;margin:3px 0 0;accent-color:var(--accent);cursor:pointer}
+.num{font-family:var(--mono);font-weight:500;color:var(--muted);font-size:14px;padding-top:2px}
+.it{font-weight:700}
+.id{display:block;color:var(--muted);font-size:15px;margin-top:2px}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.04em;border-radius:20px;padding:1px 9px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.p-ready{background:var(--ok-soft);color:var(--ok)}
+.p-yes{background:var(--owner-soft);color:var(--owner)}
+.p-wait{background:var(--wait-soft);color:var(--wait)}
+.p-money{background:var(--money-soft);color:var(--money)}
+.lock{padding:16px 15px;border-top:1px solid var(--line);background:var(--money-soft)}
+.lock p{margin:0 0 10px;max-width:60ch}
+.lock form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lock input{font-family:var(--mono);font-size:22px;letter-spacing:.3em;width:7.5em;padding:6px 10px;border:2px solid var(--money);border-radius:8px;background:var(--surface);color:var(--ink);text-align:center}
+.lock .err{color:var(--money);font-weight:700;font-size:15px}
+.mzone{border-left:4px solid var(--money);padding-left:10px}
+.mzone .zbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 4px;color:var(--money);font-weight:700;font-size:14px}
+#contig{display:none}
+.sep{font-family:var(--mono);font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:16px}
+.cpiece p{margin:4px 0 0}
+.cpiece .it{font-size:18px}
+.flag{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:0 0 12px}
+.flag p{margin:0}
+.copied{color:var(--ok);font-weight:700;font-size:14px}
+footer{margin-top:30px;color:var(--muted);font-size:14px}
+.tag{font-family:var(--mono);font-size:12px}
+@media (max-width:520px){.item{grid-template-columns:26px 26px minmax(0,1fr)}.bt{font-size:17px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{
+  @page{size:Letter;margin:.55in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:14px;background:#fff}
+  .bar,.selbar,.lock form,.noprint{display:none!important}
+  .bb{display:block!important}
+  .branch{break-inside:auto}
+  .item{break-inside:avoid}
+  .pagebreak{break-before:page}
+  .branch.money{display:none}
+}
+</style>
+
+<div class="bar">
+  <button id="ex" title="Open every branch">Expand all</button>
+  <button id="co" title="Close every branch">Collapse all</button>
+  <button id="allc" class="go" title="Every task, open money items excluded, as one continuous page">▶ Read everything end to end</button>
+  <span class="spacer"></span>
+  <button id="mine" title="Show only the tasks you do">Show only my tasks</button>
+</div>
+
+<div class="wrap">
+<h1>Pending Tasks</h1>
+<p class="sub">Three branches: <b>what Claude does, what you do, and money.</b> Click a branch to open it. Tick boxes to pick what to view together, copy into an email, or print. The money branch stays shut until you type <b>0000</b>.</p>
+<p class="stamp">Owner checklist · v3 · 2026-10-13 · CURRENT · prepared by ☁️ Claude (Cloud)</p>
+
+<div class="tiles">
+  <button class="tile c" data-go="claude"><span class="n">11</span><b>Claude does</b><small>Starts on its own unless marked “needs your yes”.</small></button>
+  <button class="tile y" data-go="you"><span class="n">8</span><b>You do</b><small>One small action each. Number 1 first.</small></button>
+  <button class="tile m" data-go="money"><span class="n">🔒</span><b>Money</b><small>Protected zone. Opens with 0000.</small></button>
+</div>
+
+<div class="tot"><p><b>The one thing that matters most.</b> Your desktop helper, RAMBO, has been silent since October 10. OCR, read-aloud, the 10 tasks moved to RAMBO, and the PC side of the panel all wait on it. <b>Your task 1</b> wakes it up.</p></div>
+
+<div class="selbar" id="selbar">
+  <b><span id="selcount">0</span> selected</b>
+  <button id="selview">View these together</button>
+  <button id="selcopy">Copy for email</button>
+  <button id="selclear">Clear</button>
+  <span id="copymsg" class="copied" aria-live="polite"></span>
+</div>
+
+<div id="tree"></div>
+
+<div id="contig">
+  <div class="flag noprint"><p><b>Continuous view.</b> Everything you picked, in order, as one page. <button id="back">← Back to the tree</button></p></div>
+  <div id="cbody"></div>
+</div>
+
+<footer>
+  <p>Nothing on this page sends, files, moves or deletes anything. Ticks are for picking what to view or share; they are not saved.</p>
+  <p class="tag">Owner checklist · v3 · 2026-10-13 · CURRENT · #pending-tasks #JorgeValdes #VTES #orange-tree</p>
+</footer>
+</div>
+
+<script>
+const PILL={ready:["p-ready","CLAUDE STARTS"],yes:["p-yes","NEEDS YOUR YES"],wait:["p-wait","WAITS ON RAMBO"],one:["p-yes","ONE WORD"],click:["p-yes","ONE CLICK"],later:["p-wait","LATER"],money:["p-money","MONEY"]};
+const BRANCHES=[
+ {key:"claude",t:"What Claude does",m:"11 tasks · in order",items:[
+  ["Fix the OCR runner before it is installed","It would redo finished files. Upgrade it to the newest OCR standard.","ready"],
+  ["Pull text from typed PDFs in Google Drive","Restarts part of OCR from the cloud. Scanned pages still need the PC.","yes"],
+  ["Send RAMBO one short order for its 10 tasks","So they are not lost while the desktop is silent.","ready"],
+  ["Panel: Document Library page","Your 209 library documents, opening from Google Drive instead of the G: drive.","ready"],
+  ["Panel: hand-off packet builder with a Copy button","Pick a task, it picks the cheapest helper, one button copies the instructions.","ready"],
+  ["Panel: Menu finish","Coming-soon boxes, word explanations (TRK, OPH), text size A− A+, high contrast.","ready"],
+  ["Job queue: connect a worker that picks up your sent jobs","Today jobs wait in line; nothing picks them up yet.","wait"],
+  ["OneDrive duplicate check","About 4,000 possible duplicate scans. A report only; nothing is deleted.","ready"],
+  ["Hashtag index for every job file","The tag index the search box reads. Writing tags on the PC waits on RAMBO.","ready"],
+  ["Miami-Dade access letter, final version","Get a real tracking number and verify the contacts. Nothing is sent without your “send”.","ready"],
+  ["Keep watching every hour","Relay any result from the PC to you in plain words.","ready"]]},
+ {key:"you",t:"What you do",m:"8 tasks · start with number 1",items:[
+  ["On your PC, open the Claude Code window and click “Allow” if it asks","Leave it open. This wakes RAMBO and unlocks most of Claude’s list.","click"],
+  ["Say “yes” or “no” to Claude pulling text from typed PDFs","One word in the chat.","one"],
+  ["Try read-aloud today with no install","In Edge, highlight a reply, right-click, “Read aloud selection”. The one-key version installs when RAMBO wakes.","click"],
+  ["Send yourself Copilot’s panel design","In Copilot open “Continue Previous Conversation”, press Ctrl+A then Ctrl+C, and email it to yourself with the subject COPILOT PANEL DESIGN.","click"],
+  ["Tell Claude your second Microsoft email address","So it can go in the Emails menu. Or say “none”.","one"],
+  ["Printer scan CCO_000001: PDF or picture?","One word: “PDF” or “picture”.","one"],
+  ["Say “send” on the Miami-Dade access letter","Claude shows you the final version first. Nothing goes out before that.","one"],
+  ["OneDrive duplicates: yes per batch","After the report. Nothing is deleted without your yes.","later"]]},
+ {key:"money",t:"Money",m:"Protected zone · not printed, copied or shared unless you open it",locked:true,items:[
+  ["Medley / Miami Art House: $8,000 deposit invoice","Last record: the signed owner agreement was not found anywhere on the PC, and the notary session had not happened. Check the bank record before invoicing.","money"],
+  ["Alec due diligence: deliver, then invoice $100.25","Deliver the report set first, then send the invoice.","money"],
+  ["Alabama Jack’s deposit invoice: finished, never sent","Held up by a $30 price question. One answer from you releases it.","money"],
+  ["County permit fees you paid up front: $3,796, no invoice yet","2025 fees now matched to job addresses. Each needs an invoice.","money"],
+  ["QuickBooks: 43 invoices, about $75,549, paid status unknown","One QuickBooks sign-in answers all 43.","money"],
+  ["Einar: overdue matter","Staged for your decision.","money"]]}
+];
+let items=[], unlocked=false, onlyMine=false;
+const $=id=>document.getElementById(id);
+
+function itemRow(b,it,i){
+  const idx=items.length;
+  items.push({branch:b.key,bt:b.t,n:i+1,title:it[0],text:it[1],st:it[2]});
+  const p=PILL[it[2]];
+  return '<div class="item"><input type="checkbox" id="cb'+idx+'" data-i="'+idx+'" title="Tick to pick this for viewing, copying or printing">'
+   +'<span class="num">'+(i+1)+'</span><label for="cb'+idx+'"><span class="it">'+it[0]+'</span><span class="pill '+p[0]+'">'+p[1]+'</span><span class="id">'+it[1]+'</span></label></div>';
+}
+function build(){
+  const root=$('tree'); root.innerHTML=''; items=[];
+  BRANCHES.forEach(b=>{
+    const w=document.createElement('section'); w.className='branch'+(b.locked?' money':''); w.id='br-'+b.key;
+    if(b.key==='claude') w.classList.add('claudebr');
+    const shut=b.locked&&!unlocked;
+    w.innerHTML='<button class="bh" title="Open or close this branch"><span class="tw">▾</span><span><span class="bt">'+(b.locked?(shut?'🔒 ':'🔓 '):'')+b.t+'</span><br><span class="bm">'+b.m+'</span></span>'
+      +'<span class="score">'+(shut?'locked':b.items.length+' tasks')+'</span></button>';
+    const body=document.createElement('div'); body.className='bb';
+    if(shut){
+      body.className='lock';
+      body.innerHTML='<p><b>Protected zone.</b> Money items stay out of copies, prints and the continuous view until you open this zone and tick them yourself.</p>'
+       +'<form id="lockform" autocomplete="off"><label for="pin" class="noprint">Type the zone code</label><input id="pin" inputmode="numeric" maxlength="4" type="password" placeholder="••••"><button class="go" type="submit">Open money zone</button><span class="err" id="pinerr" aria-live="polite"></span></form>';
+    } else {
+      let h=b.locked?'<div class="mzone"><div class="zbar">🔓 Money zone open. Ticked money items can be copied. <button type="button" id="relock">Lock again</button></div>':'';
+      b.items.forEach((it,i)=>{h+=itemRow(b,it,i)}); if(b.locked)h+='</div>';
+      body.innerHTML=h;
+    }
+    w.appendChild(body); root.appendChild(w);
+    w.querySelector('.bh').addEventListener('click',()=>{const open=body.style.display!=='none';body.style.display=open?'none':'';w.querySelector('.tw').textContent=open?'▸':'▾';});
+  });
+  document.querySelectorAll('#tree input[type=checkbox]').forEach(c=>c.addEventListener('change',upd));
+  const f=$('lockform'); if(f) f.addEventListener('submit',e=>{e.preventDefault();
+    if($('pin').value==='0000'){unlocked=true;build();applyMine();upd();}
+    else{$('pinerr').textContent='That is not the zone code.';$('pin').value='';}});
+  const r=$('relock'); if(r) r.addEventListener('click',()=>{unlocked=false;build();applyMine();upd();});
+  upd();
+}
+function sel(){return [...document.querySelectorAll('#tree input:checked')].map(c=>items[+c.dataset.i]).filter(it=>it.branch!=='money'||unlocked);}
+function upd(){const n=sel().length;$('selcount').textContent=n;$('selbar').classList.toggle('show',n>0);$('copymsg').textContent='';}
+function render(list){
+  let h='',last='';
+  list.forEach(it=>{
+    if(it.bt!==last){h+='<h2>'+(it.branch==='money'?'🔓 ':'')+it.bt+'</h2>';last=it.bt;}
+    h+='<div class="cpiece"><div class="sep">'+it.bt+' · task '+it.n+'</div><span class="it">'+it.title+'</span><span class="pill '+PILL[it.st][0]+'">'+PILL[it.st][1]+'</span><p>'+it.text+'</p></div>';
+  });
+  $('cbody').innerHTML=h||'<p>Nothing picked yet.</p>';
+  $('tree').style.display='none';$('contig').style.display='block';window.scrollTo(0,0);
+}
+function plain(list){let s='',last='';list.forEach(it=>{if(it.bt!==last){s+=(s?'\n':'')+it.bt.toUpperCase()+'\n';last=it.bt;}s+='☐ '+it.n+'. '+it.title+'\n   '+it.text+'\n';});return s+'\n— Owner checklist · v3 · 2026-10-13';}
+$('selview').onclick=()=>render(sel());
+$('allc').onclick=()=>render(items.filter(it=>it.branch!=='money'||unlocked));
+$('back').onclick=()=>{$('contig').style.display='none';$('tree').style.display='';};
+$('selclear').onclick=()=>{document.querySelectorAll('#tree input:checked').forEach(c=>c.checked=false);upd();};
+$('selcopy').onclick=()=>{const t=plain(sel());
+  const done=()=>{$('copymsg').textContent='Copied. Paste it into your email.';};
+  try{navigator.clipboard.writeText(t).then(done,()=>fallback(t));}catch(e){fallback(t);}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();$('copymsg').textContent=ok?'Copied. Paste it into your email.':'Copy was blocked here. Select the text in “View these together” and press Ctrl+C.';}
+function setAll(open){document.querySelectorAll('#tree .bb,#tree .lock').forEach(b=>b.style.display=open?'':'none');document.querySelectorAll('#tree .tw').forEach(t=>t.textContent=open?'▾':'▸');}
+$('ex').onclick=()=>setAll(true); $('co').onclick=()=>setAll(false);
+function applyMine(){const c=$('br-claude');if(c)c.style.display=onlyMine?'none':'';}
+$('mine').onclick=e=>{onlyMine=!onlyMine;e.currentTarget.classList.toggle('on',onlyMine);e.currentTarget.textContent=onlyMine?'Showing only my tasks':'Show only my tasks';applyMine();};
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{const b=$('br-'+t.dataset.go);if(!b)return;b.style.display='';const body=b.querySelector('.bb,.lock');body.style.display='';b.querySelector('.tw').textContent='▾';b.scrollIntoView({behavior:'smooth',block:'start'});});
+build();
+</script>

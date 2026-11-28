@@ -1,0 +1,671 @@
+# PEOPLE-INDEX — who appears in which job (built 2026-10-13 from the 41-folder hashtag census)
+
+Used by the hourly mail watch (step 0). Each sender maps to their jobs. One or two keywords from the email (address, folio, permit number) then pick the exact job. If more than one job still matches, flag it for Jorge. Never guess.
+
+- **Miguel Zaldivar** · 14 job(s) · miguel@mzsolutions.org, mzaldivar@tedcbuilds.org, mzaldivar@tedcbuilds.org; miguel@mzsolutions.org · client (MZ Solutions); client / requestor (orderer of DD report; client contact 
+  - 1514 NW 73 St - House Project
+  - 20001 SW 110 CT Unit 143 (TRK-2026-1262)
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+  - TRK-2026-1293 - MZ Solutions LLC - Company Credentials 2026 (MZ SOLUTIONS)
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+  - TRK-2026-1295 - Principio - 5401 NW 7 Ave Miami - 142 unit workforce housing (TEDC)
+  - TRK-2026-1296 - TEDC Tacolcy EDC - Company Credentials 2026 (TEDC)
+  - TRK-2026-1297 - Tuscany Cove folio 01-3114-072-0010 - City of Miami Code Case 00009753 (TEDC)
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+  - TRK-2026-1588 _ 402125130005 _ 4225 Rose Arbor Cir Port Charlotte
+  - TRK-2026-1611 - Pembroke Pines Contractor Registration (MZ Solutions)
+  - TRK-TBD _ FOLIO-TBD _ 15601 SW 137 AVE
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **CU Inspections of South Florida** · 10 job(s) · no email on file · Jorge's company; Jorge's firm; owner company; preparer of tax jacket
+  - 14953 SW 34 ST (TRK-2026-1280)
+  - TRK-2026-1268 - 1500 Ocean Drive (Miami Beach) - Roof Permit DD
+  - TRK-2026-1286 - 1997 SW 218 St - Alec Valdes - Avis Builders
+  - TRK-2026-1289 - City of Miami folio 01-4102-098-0001 - Alec Valdes
+  - TRK-26-1042 _ FOLIO-TBD _ 15222 SW 108 Pl Miami 33157 (Daymara Yhanes)
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 301
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 302
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 404 (Reyna Jovel)
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 425
+  - TRK-TBD _ FOLIO-TBD _ 2362-2364 NW 32 ST City of Miami (2362 Acquisition LLC)
+- **Alec Valdes** · 8 job(s) · no email on file · client; client (Jorge's son) - Avis Builders; client (due-diligence buyer), Avis
+  - TRK-2026-1286 - 1997 SW 218 St - Alec Valdes - Avis Builders
+  - TRK-2026-1289 - City of Miami folio 01-4102-098-0001 - Alec Valdes
+  - TRK-2026-1292 - 7823 NW 5th Ave - Alec Valdes - Avis Builders
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+  - TRK-2026-1612 _ 01-4002-003-1200 _ 331 Tamiami Canal Rd Miami (ALEC VALDES)
+  - _ALEC-VALDES-DD
+- **Miami-Dade Property Appraiser** · 6 job(s) · no email on file · county; county - supplied tax jacket; county - tax jacket source; folio data; ta
+  - 14953 SW 34 ST (TRK-2026-1280)
+  - TRK-2026-1289 - City of Miami folio 01-4102-098-0001 - Alec Valdes
+  - TRK-2026-1612 _ 01-4002-003-1200 _ 331 Tamiami Canal Rd Miami (ALEC VALDES)
+  - TRK-26-1042 _ FOLIO-TBD _ 15222 SW 108 Pl Miami 33157 (Daymara Yhanes)
+  - TRK-TBD _ 30-4915-001-1121 _ 13920 SW 34 ST (Medina-Rodriguez)
+  - TRK-TBD _ FOLIO-TBD _ 15601 SW 137 AVE
+- **MZ Solutions** · 5 job(s) · miguel@mzsolutions.org · client / requestor; client company (fire mitigation / permit; contractor / clien
+  - 20001 SW 110 CT Unit 143 (TRK-2026-1262)
+  - TRK-2026-1296 - TEDC Tacolcy EDC - Company Credentials 2026 (TEDC)
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+  - TRK-TBD _ FOLIO-TBD _ 15601 SW 137 AVE
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **MZ Solutions LLC** · 5 job(s) · miguel@mzsolutions.org · contractor / client; contractor, CGC1528486 (Bal Harbour impa; general contracto
+  - 1514 NW 73 St - House Project
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+  - TRK-2026-1293 - MZ Solutions LLC - Company Credentials 2026 (MZ SOLUTIONS)
+  - TRK-2026-1588 _ 402125130005 _ 4225 Rose Arbor Cir Port Charlotte
+- **Team USA Sales, Inc.** · 5 job(s) · jorge@teamusasales.com, jorze@teamusasales.com · Jorge's company; author of DD runner output; invoicing company (INV-2026-03741, 
+  - 20001 SW 110 CT Unit 143 (TRK-2026-1262)
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+  - TRK-2026-1612 _ 01-4002-003-1200 _ 331 Tamiami Canal Rd Miami (ALEC VALDES)
+  - TRK-TBD _ 30-4915-001-1121 _ 13920 SW 34 ST (Medina-Rodriguez)
+- **Avis Builders** · 4 job(s) · no email on file · builder / client-side company; client company; client company (Alec Valdes); cli
+  - TRK-2026-1286 - 1997 SW 218 St - Alec Valdes - Avis Builders
+  - TRK-2026-1292 - 7823 NW 5th Ave - Alec Valdes - Avis Builders
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+  - _ALEC-VALDES-DD
+- **HOA (condominium association, name unknown)** · 4 job(s) · no email on file · building association
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 301
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 302
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 404 (Reyna Jovel)
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 425
+- **Team USA Sales** · 4 job(s) · expediting@teamusasales.com, jorge@teamusasales.com · consultant (Jorge); consultant / expediting; consultant letterhead; vendor (Jorg
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+  - TRK-2026-2221 _ Synergy General Contracting Trifold Brochure (Victor Seijas)
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **City of Miami** · 3 job(s) · no email on file · jurisdiction / microfilm; permitting jurisdiction / citation issue; records rout
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+  - TRK-TBD _ FOLIO-TBD _ 2362-2364 NW 32 ST City of Miami (2362 Acquisition LLC)
+  - _ALEC-VALDES-DD
+- **CU Inspections** · 3 job(s) · no email on file · Jorge's company; Jorge's company (tag); Jorge's firm
+  - KAR-26-GROVES _ FOLIO-TBD _ 8850 SW 72 St Groves at Sunset Pool
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 221
+  - _ALEC-VALDES-DD
+- **Reyna Jovel** · 3 job(s) · no email on file · client / unit owner (Unit 404) - role in; owner, 10000 W Bay Harbor Dr #404; rel
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+  - TRK-2026-1293 - MZ Solutions LLC - Company Credentials 2026 (MZ SOLUTIONS)
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 404 (Reyna Jovel)
+- **10960 SW 200TH AVENUE LLC** · 2 job(s) · no email on file · property owner
+  - 20001 SW 110 CT Unit 143 (TRK-2026-1262)
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **Carol Gardner** · 2 job(s) · no email on file · President & CEO, TEDC
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+  - TRK-2026-1295 - Principio - 5401 NW 7 Ave Miami - 142 unit workforce housing (TEDC)
+- **Crystal Jackson** · 2 job(s) · no email on file · TEDC staff; VP Development, TEDC
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+  - TRK-2026-1295 - Principio - 5401 NW 7 Ave Miami - 142 unit workforce housing (TEDC)
+- **Daniel Raboh** · 2 job(s) · no email on file · owner of record, 10185 Collins #922; unit owner, Plaza Unit 922 (BLC2024-0717
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Daniel Rodriguez** · 2 job(s) · daniel.rodriguez7@miamidade.gov · Miami-Dade County staff; city staff, Miami-Dade RER fee review
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **Deja Cook** · 2 job(s) · deja.cook@miamidade.gov · Miami-Dade County staff
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **Doron Barnes** · 2 job(s) · doronbarnes@gmail.com · owner of record, 10185 Collins #220; unit owner / evidence party (Doron unit 
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Jade De Armas** · 2 job(s) · jdearmas17@gmail.com · colleague; party on citation BD2016-003432 thread (
+  - TRK-TBD _ FOLIO-TBD _ 2362-2364 NW 32 ST City of Miami (2362 Acquisition LLC)
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Julio Silva** · 2 job(s) · jdrafters@gmail.com · drafter (jdrafters), contract for drawin; drafter (window/door plans, title bloc
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Karla Morales** · 2 job(s) · sunsetapts@bellsouth.net · client / property manager, Groves at Sun
+  - KAR-26-GROVES _ FOLIO-TBD _ 8850 SW 72 St Groves at Sunset Pool
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+- **Miami-Dade Clerk of Courts (Official Records)** · 2 job(s) · no email on file · deeds / liens source (Turnstile-blocked); lien / recordings source (CAPTCHA bloc
+  - TRK-2026-1612 _ 01-4002-003-1200 _ 331 Tamiami Canal Rd Miami (ALEC VALDES)
+  - TRK-26-1042 _ FOLIO-TBD _ 15222 SW 108 Pl Miami 33157 (Daymara Yhanes)
+- **Miami-Dade County Property Appraiser** · 2 job(s) · no email on file · county (MDC Page / folio record); county (folio / sq ft records)
+  - TRK-TBD _ FOLIO-TBD _ 13328 SW 113 CT (Nick)
+  - TRK-TBD _ FOLIO-TBD _ 535 NW 7 ST Homestead (Renzo Cahuana)
+- **Miami-Dade DERM** · 2 job(s) · no email on file · county environmental regulator (HWR-1624; environmental permits / inspections
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Miami-Dade Property Appraiser (PAWebMail)** · 2 job(s) · pawebmail@mdcpa.net · bldg/tax jacket source; county - jacket requests
+  - TRK-2026-1286 - 1997 SW 218 St - Alec Valdes - Avis Builders
+  - TRK-2026-1292 - 7823 NW 5th Ave - Alec Valdes - Avis Builders
+- **Nancy Aguilar** · 2 job(s) · no email on file · City of Miami Building Records staff; City of Miami records/microfilm staff (i
+  - TRK-2026-1289 - City of Miami folio 01-4102-098-0001 - Alec Valdes
+  - TRK-2026-1612 _ 01-4002-003-1200 _ 331 Tamiami Canal Rd Miami (ALEC VALDES)
+- **Philip A. Sigel** · 2 job(s) · no email on file · owner signer for Sunset Cove LLC; owner signer, Sunset Cove LLC
+  - KAR-26-GROVES _ FOLIO-TBD _ 8850 SW 72 St Groves at Sunset Pool
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+- **Quanny Marte** · 2 job(s) · qmarte@plazaofbalharbour.com · client-side, Plaza of Bal Harbour Associ; recipient of Plaza status report (like
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Sunset Cove LLC** · 2 job(s) · no email on file · property owner; property owner (LLC)
+  - KAR-26-GROVES _ FOLIO-TBD _ 8850 SW 72 St Groves at Sunset Pool
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+- **Synergyn** · 2 job(s) · cthompson@synergyn-us.com, info@synergyn-us.com · engineering (fee offer $11,000 MEP); engineering firm (PE for HRS/DOH docs), 
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **TEDC** · 2 job(s) · no email on file · end client / developer; separate company also tied to Zaldivar -
+  - TRK-2026-1293 - MZ Solutions LLC - Company Credentials 2026 (MZ SOLUTIONS)
+  - TRK-TBD _ FOLIO-TBD _ 15601 SW 137 AVE
+- **TEDC / TEDcBuilds - Tacolcy Economic Development Corporation** · 2 job(s) · mzaldivar@tedcbuilds.org · client / property owner, 5900 NW 7th Ave; client; this capsule is its company-le
+  - TRK-2026-1296 - TEDC Tacolcy EDC - Company Credentials 2026 (TEDC)
+  - TRK-2026-1297 - Tuscany Cove folio 01-3114-072-0010 - City of Miami Code Case 00009753 (TEDC)
+- **The Groves at Sunset (apartments)** · 2 job(s) · sunsetapts@bellsouth.net · property / client site
+  - KAR-26-GROVES _ FOLIO-TBD _ 8850 SW 72 St Groves at Sunset Pool
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+- **Tomas Hernandez PE** · 2 job(s) · tomtechengineer@gmail.com · engineer (TomTech) - sign-and-seal as-bu; engineer - Certified As-Built Letter (
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **TomTech** · 2 job(s) · tomtechengineer@gmail.com · engineer (as-built quote request, drafte; engineering (Tomas Hernandez PE)
+  - TRK-TBD _ FOLIO-TBD _ 535 NW 7 ST Homestead (Renzo Cahuana)
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **10000 W Bay Harbor 425 LLC** · 1 job(s) · no email on file · owner, Ten Thousand building #425
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **10362 PAO Estates LLC** · 1 job(s) · no email on file · owner entity (Sunbiz check pending)
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **1500 Ocean Drive Condominium Association** · 1 job(s) · no email on file · subject building / DD target (also named
+  - TRK-2026-1268 - 1500 Ocean Drive (Miami Beach) - Roof Permit DD
+- **15P Balmoral Holding LLC** · 1 job(s) · no email on file · owner of record 9801 Collins #15P
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **2362 Acquisition LLC** · 1 job(s) · no email on file · client per folder name (unverified)
+  - TRK-TBD _ FOLIO-TBD _ 2362-2364 NW 32 ST City of Miami (2362 Acquisition LLC)
+- **714 Plaza Holding LLC** · 1 job(s) · no email on file · owner of record #714
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **914 Plaza Holdings LLC** · 1 job(s) · no email on file · owner of record #914
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **A Plus ETL (aplusetl@yahoo.com)** · 1 job(s) · aplusetl@yahoo.com · unknown vendor, possibly engineering/tes
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Adenat Corporation** · 1 job(s) · no email on file · owner of record #321
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Adenat Corporation (Ontario)** · 1 job(s) · no email on file · unit owner, Plaza Unit 321
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Adriana Ospina** · 1 job(s) · no email on file · landlord signer, Monaco Pereira LLC
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **AFC Engineering** · 1 job(s) · alfarooq@afceng.com · engineer RFQ
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **Ajil Construction Inc.** · 1 job(s) · no email on file · contractor on file for permit work (NOA 
+  - TRK-2026-1292 - 7823 NW 5th Ave - Alec Valdes - Avis Builders
+- **Al Farooq (AFC Engineering)** · 1 job(s) · alfarooq@afceng.com · engineer contacted for RFQ
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **Al-Flex** · 1 job(s) · office@al-flex.com; alflex@bellsouth.net · vendor (likely roofing/aluminum/hurrican
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **Albert Oiknine** · 1 job(s) · no email on file · trustee / owner of record, 10185 Collins
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Alexandre Fyon** · 1 job(s) · no email on file · trustee / owner of record, 10185 Collins
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Alexis Lamela** · 1 job(s) · alexis@paramounthomesnj.com · signer / notarization coordinator (Param
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **All American Engineering FL** · 1 job(s) · allamericanengineeringfl@gmail.com · engineer (unconfirmed role)
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **Asden Properties** · 1 job(s) · no email on file · owner management
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **Aviv Bernstein** · 1 job(s) · no email on file · c/o for West 22nd St LLC, owner of 10185
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Bal Harbour Village Building Department** · 1 job(s) · no email on file · permitting authority
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Barbara Bell** · 1 job(s) · barbara.bell@miamidade.gov · Miami-Dade County staff
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **Barbara Rodriguez** · 1 job(s) · no email on file · co-owner
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **Beleida Lopez** · 1 job(s) · beleida.lopez@flhealth.gov · FL Health (DOH) staff
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+- **Ben (Vista Impact)** · 1 job(s) · ben@vistaimpact.com · window contractor contact
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **Ben Hoffman** · 1 job(s) · no email on file · developer - Next Development Group
+  - TRK-2026-1295 - Principio - 5401 NW 7 Ave Miami - 142 unit workforce housing (TEDC)
+- **Bernard Chitolie** · 1 job(s) · bernard.chitolie@miamidade.gov · Miami-Dade RER Plumbing Section Supervis
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Betsy Del Val** · 1 job(s) · no email on file · City of Miami staff (looped in Haines 20
+  - TRK-2026-1297 - Tuscany Cove folio 01-3114-072-0010 - City of Miami Code Case 00009753 (TEDC)
+- **Bryan Diaz** · 1 job(s) · bryandiazdev@gmail.com · designer of original trifold and art ass
+  - TRK-2026-2221 _ Synergy General Contracting Trifold Brochure (Victor Seijas)
+- **C. Thompson** · 1 job(s) · cthompson@synergyn-us.com · Synergyn engineering
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Cabana Club Gardens** · 1 job(s) · no email on file · building / condo name
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **Carlos Flores Walters** · 1 job(s) · no email on file · landlord signer, Monaco Pereira LLC
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Carrie Compain** · 1 job(s) · no email on file · owner of record in deed chain (living st
+  - TRK-2026-1612 _ 01-4002-003-1200 _ 331 Tamiami Canal Rd Miami (ALEC VALDES)
+- **Celia Bedoya** · 1 job(s) · no email on file · FDOH (Florida Dept of Health) pool permi
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+- **Cesar Garcia** · 1 job(s) · no email on file · referring contact / client side (Dropbox
+  - TRK-TBD _ 30-4915-001-1121 _ 13920 SW 34 ST (Medina-Rodriguez)
+- **CGP Construction** · 1 job(s) · gpao@cgp-construction.com · contractor (German Pao)
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **CGTJ** · 1 job(s) · no email on file · company on as-built model and P&D permit
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Chakla Inc (P10000045402)** · 1 job(s) · no email on file · Sunbiz entity tied to a subject
+  - TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)
+- **Charles A. Robinson** · 1 job(s) · no email on file · party of record on folio (prior owner/gr
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **Charlotte County Clerk of Court (Official Records)** · 1 job(s) · no email on file · county records
+  - TRK-2026-1588 _ 402125130005 _ 4225 Rose Arbor Cir Port Charlotte
+- **Charlotte County Property Appraiser (ccappraiser)** · 1 job(s) · no email on file · county
+  - TRK-2026-1588 _ 402125130005 _ 4225 Rose Arbor Cir Port Charlotte
+- **Charlotte County Tax Collector** · 1 job(s) · no email on file · county (2022 annual bill, tax deed redem
+  - TRK-2026-1588 _ 402125130005 _ 4225 Rose Arbor Cir Port Charlotte
+- **Chase (JPMorgan Chase)** · 1 job(s) · no email on file · foreclosing lender (2009-033750-CA-01)
+  - TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)
+- **Cinde Velazquez** · 1 job(s) · cvelazquez@asdenproperties.com · owner representative / client (Asden Pro
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **City of Homestead Code Compliance** · 1 job(s) · no email on file · city (case CE25080356, fine hearing 2026
+  - TRK-TBD _ FOLIO-TBD _ 535 NW 7 ST Homestead (Renzo Cahuana)
+- **City of Miami (Building / microfilm records)** · 1 job(s) · no email on file · city records - $44 microfilm search, inv
+  - TRK-2026-1612 _ 01-4002-003-1200 _ 331 Tamiami Canal Rd Miami (ALEC VALDES)
+- **City of Miami (per _TAGS.txt) / Miami-Dade unincorporated (folio prefix 30-)** · 1 job(s) · no email on file · permitting jurisdiction - CONFLICT to ve
+  - 1514 NW 73 St - House Project
+- **City of Miami Beach (Civic Access / Code Compliance)** · 1 job(s) · no email on file · permitting and code agency
+  - TRK-2026-1268 - 1500 Ocean Drive (Miami Beach) - Roof Permit DD
+- **City of Miami Building Dept** · 1 job(s) · no email on file · microfilm / permit records (order paid $
+  - TRK-2026-1292 - 7823 NW 5th Ave - Alec Valdes - Avis Builders
+- **City of Miami Building Records** · 1 job(s) · buildingrecords@miamigov.com · city records (microfilm)
+  - TRK-2026-1289 - City of Miami folio 01-4102-098-0001 - Alec Valdes
+- **City of Miami Code Compliance (NET)** · 1 job(s) · no email on file · city code enforcement
+  - TRK-2026-1289 - City of Miami folio 01-4102-098-0001 - Alec Valdes
+- **City of Miami Code Compliance / Building** · 1 job(s) · no email on file · code case 00009753, permit BD23-016372-0
+  - TRK-2026-1297 - Tuscany Cove folio 01-3114-072-0010 - City of Miami Code Case 00009753 (TEDC)
+- **City of Miami Unsafe Structures** · 1 job(s) · unsafestructures@miamigov.com · agency contact found in OCR
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **City of Pembroke Pines Building Department** · 1 job(s) · no email on file · contractor registration certificate hold
+  - TRK-2026-1293 - MZ Solutions LLC - Company Credentials 2026 (MZ SOLUTIONS)
+- **City of Pembroke Pines Building Department (CGA Solutions)** · 1 job(s) · pinespermits@cgasolutions.com · city
+  - TRK-2026-1611 - Pembroke Pines Contractor Registration (MZ Solutions)
+- **City of Pembroke Pines Building Department / Code Compliance** · 1 job(s) · no email on file · permitting authority; NOV case 260301031
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **Claudia Milano** · 1 job(s) · no email on file · sender of 2026-08-12 FW email with pH fe
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+- **Construction Pros Insurance** · 1 job(s) · office@constructionprosins.com · COI insurer/agent
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **Construction Pros Insurance (constructionprosins.com)** · 1 job(s) · office@constructionprosins.com · insurance agent (COI)
+  - TRK-2026-1611 - Pembroke Pines Contractor Registration (MZ Solutions)
+- **Contractor license CGC1528486** · 1 job(s) · no email on file · general contractor of record (name not s
+  - 20001 SW 110 CT Unit 143 (TRK-2026-1262)
+- **Cove Architecture** · 1 job(s) · no email on file · architect (prepared feasibility study)
+  - TRK-TBD _ FOLIO-TBD _ 15601 SW 137 AVE
+- **csr24 broker portal (insurance broker, unnamed)** · 1 job(s) · no email on file · issuer of TEDC certificate of insurance
+  - TRK-2026-1296 - TEDC Tacolcy EDC - Company Credentials 2026 (TEDC)
+- **D. Hunt** · 1 job(s) · dhunt@synergyn-us.com · Synergyn (engineering firm) staff
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+- **Daniel Capote** · 1 job(s) · daniel.capote@miamidade.gov · Miami-Dade County staff
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Daniel Felipe** · 1 job(s) · daniel@miamiarthouse.com · client / tenant (Miami Art House)
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Daniela Banquez** · 1 job(s) · permitting@portobello-construction.com · permit expediter / contractor permitting
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **David** · 1 job(s) · no email on file · referring contact (Guirola & Associates 
+  - TRK-TBD _ 30-4915-001-1121 _ 13920 SW 34 ST (Medina-Rodriguez)
+- **David Guirola, P.E.** · 1 job(s) · guiro5@aol.com · electrical engineer / possible electrica
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **David Morales** · 1 job(s) · no email on file · possible electrical sub-permit qualifier
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Daymara Yhanes Ureta** · 1 job(s) · no email on file · client / prospect (intake 2026-06-26, 10
+  - TRK-26-1042 _ FOLIO-TBD _ 15222 SW 108 Pl Miami 33157 (Daymara Yhanes)
+- **DCI Printing** · 1 job(s) · no email on file · print shop
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+- **ECS Surveyors** · 1 job(s) · no email on file · surveyor
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **Ed Castro** · 1 job(s) · edcastro14811@gmail.com · unknown party in permit set (gmail conta
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **Ed Workman** · 1 job(s) · no email on file · environmental consultant - Groundwater E
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+- **Edison Towers II** · 1 job(s) · no email on file · TEDC portfolio project on developer-expe
+  - TRK-2026-1296 - TEDC Tacolcy EDC - Company Credentials 2026 (TEDC)
+- **Eduardo "Eddie" Miguelez** · 1 job(s) · no email on file · client / owner
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Edward Rojas** · 1 job(s) · no email on file · Building Official named on application (
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Einar Suarez** · 1 job(s) · no email on file · client / owner
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **Electrical Masters, Inc.** · 1 job(s) · no email on file · electrical contractor
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Eli Bleeman** · 1 job(s) · no email on file · owner signer (10960 SW 200TH AVENUE LLC)
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **Elio Alvarez** · 1 job(s) · building@townofmedley.com · Town of Medley Building Official
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Elisa Caso (Elisa Isabel Caso / Elisa I. Caso)** · 1 job(s) · no email on file · prior owner / subject (mother-in-law; Ch
+  - TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)
+- **Elizabeth Martinez** · 1 job(s) · elizabeth.martinez@miamidade.gov · Miami-Dade County staff
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **Emanuel Orfanopoulos** · 1 job(s) · no email on file · family irrevocable trust, 10185 Collins 
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Engel or Hugh McLean** · 1 job(s) · no email on file · possible drafter of elevations (unconfir
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **Enrique "Henry" Piwko** · 1 job(s) · henrypiwko@icloud.com · owner / client
+  - TRK-2026-0708-JULIA - Julia's Place Bond Release (Piwko)
+- **Enrique Barton** · 1 job(s) · enriquebarton@msn.com · email correspondent on MDC permit applic
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Fabregat Architect** · 1 job(s) · jorge@fabregatarchitect.com · architect firm
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Fausto Guerrero** · 1 job(s) · no email on file · plumbing contractor (Marino Construction
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **FDOT** · 1 job(s) · no email on file · party Miguel says actually trimmed the t
+  - TRK-2026-1297 - Tuscany Cove folio 01-3114-072-0010 - City of Miami Code Case 00009753 (TEDC)
+- **Federico Caso (Federico Guillermo Caso / Federico G. Caso)** · 1 job(s) · no email on file · current owner / subject (arrested 2026-0
+  - TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)
+- **Florida DBPR** · 1 job(s) · no email on file · state licensing agency
+  - TRK-2026-1293 - MZ Solutions LLC - Company Credentials 2026 (MZ SOLUTIONS)
+- **Florida Department of Health (FDOH / HRS), Miami-Dade** · 1 job(s) · mdchdengineeringteam@flhealth.gov · state pool permit agency
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+- **Florida Department of Health, Miami-Dade (engineering team)** · 1 job(s) · mdchdengineeringteam@flhealth.gov · pool permit 13-60-01441
+  - KAR-26-GROVES _ FOLIO-TBD _ 8850 SW 72 St Groves at Sunset Pool
+- **Florida Dept of Health** · 1 job(s) · no email on file · state well permit 13-59-22415 (irrigatio
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Florida DOH / HRS** · 1 job(s) · no email on file · septic/OSTDS records (not yet queried)
+  - TRK-2026-1612 _ 01-4002-003-1200 _ 331 Tamiami Canal Rd Miami (ALEC VALDES)
+- **Florida Housing Finance Corporation (FHFC)** · 1 job(s) · no email on file · state funding agency (RFA 2025-205 / 202
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+- **Frank Izquierdo** · 1 job(s) · frank@prestigeroofinginc.net · client (principal, Prestige Roofing, Inc
+  - TRK-2026-1268 - 1500 Ocean Drive (Miami Beach) - Roof Permit DD
+- **Gabriel Oporto** · 1 job(s) · no email on file · design team (per new _TAGS.txt)
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Gabriela M Valles** · 1 job(s) · no email on file · client / unit owner on the 301 permit pa
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 301
+- **Garcia (garcia5229@bellsouth.net)** · 1 job(s) · garcia5229@bellsouth.net · unknown contact
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **German Pao** · 1 job(s) · gpao@cgp-construction.com · borrower/owner (executed loan package); 
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **Gilberto Martin** · 1 job(s) · no email on file · Miami-Dade RER staff (sent concealed-wor
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Groundwater Environmental Group** · 1 job(s) · no email on file · environmental consultant
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+- **Guirola & Associates PA** · 1 job(s) · no email on file · design firm / referring
+  - TRK-TBD _ 30-4915-001-1121 _ 13920 SW 34 ST (Medina-Rodriguez)
+- **Hebert Martinez** · 1 job(s) · hmartinez@balharbourfl.gov · city staff, Bal Harbour Building Departm
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **HOA (unnamed condo association)** · 1 job(s) · no email on file · possible client/party
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 221
+- **Impact Window Services** · 1 job(s) · impactwindowservices@gmail.com · window installer
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Impact Windows FL Inc** · 1 job(s) · no email on file · contractor/sub - workers comp COIs (NorG
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Intrepid Impact Windows** · 1 job(s) · steven@intrepidimpactwindows.com · impact window/door contractor
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **J. Sanabria** · 1 job(s) · jsanabria@townofmedley.com · Town of Medley staff (role unverified; e
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Jaddrey de Armas** · 1 job(s) · jdearmas17@gmail.com · referrer (sent case docs 2026-08-05)
+  - TRK-TBD _ FOLIO-TBD _ 535 NW 7 ST Homestead (Renzo Cahuana)
+- **James W. Campbell** · 1 job(s) · no email on file · deceased co-owner (death certificate nee
+  - TRK-2026-1588 _ 402125130005 _ 4225 Rose Arbor Cir Port Charlotte
+- **Jason Baldwin** · 1 job(s) · jason@prestigeroofinginc.net · Prestige Roofing staff
+  - TRK-2026-1268 - 1500 Ocean Drive (Miami Beach) - Roof Permit DD
+- **Javier (ECS Surveyors)** · 1 job(s) · javier@ecssurveyors.com · surveyor
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **JC Martinez** · 1 job(s) · no email on file · contractor/entity under analysis (insura
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Jeanne Clarke** · 1 job(s) · jeanne.clarke@miamidade.gov · Miami-Dade County staff
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Jeffrey Whitmore** · 1 job(s) · jeffrey.whitmore@miamidade.gov · Miami-Dade County staff (RER/permitting)
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **Jennifer Sanz** · 1 job(s) · no email on file · developer - Next Development Group
+  - TRK-2026-1295 - Principio - 5401 NW 7 Ave Miami - 142 unit workforce housing (TEDC)
+- **Joey (IT Joey)** · 1 job(s) · no email on file · unrelated IT contact in emails folder
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **Johan Molina** · 1 job(s) · no email on file · owner of record
+  - TRK-TBD _ FOLIO-TBD _ 13328 SW 113 CT (Nick)
+- **Jorge Fabregat** · 1 job(s) · jorge@fabregatarchitect.com · architect (original plans; offered chang
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Jorge Salazar** · 1 job(s) · salazarjorge321@hotmail.com · unknown (contractor or applicant contact
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **Jose A. Gonzalez** · 1 job(s) · citationtitle@gmail.com · City of Miami contact on citation BD2016
+  - TRK-TBD _ FOLIO-TBD _ 2362-2364 NW 32 ST City of Miami (2362 Acquisition LLC)
+- **Jose Remigio** · 1 job(s) · jose.remigio@miamidade.gov · Miami-Dade County staff
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Joseph Libio** · 1 job(s) · no email on file · City of Pembroke Pines code officer (NOV
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **Juan B. Ordonez PE** · 1 job(s) · ordonezpe@gmail.com · current/possible engineer of record
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Juan Carlos Martinez** · 1 job(s) · impactwindowservices@gmail.com · window contractor, Impact Window Service
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Julia's Place** · 1 job(s) · no email on file · property / building name
+  - TRK-2026-0708-JULIA - Julia's Place Bond Release (Piwko)
+- **Julian Quintela** · 1 job(s) · no email on file · Miami-Dade County (MDC) staff - permit/f
+  - 20001 SW 110 CT Unit 143 (TRK-2026-1262)
+- **Kathryn Slack** · 1 job(s) · katslack@hotmail.com · client (orders DD; daughter-in-law of El
+  - TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)
+- **Ken Brown** · 1 job(s) · no email on file · Principal & Qualifier, Synergy GC
+  - TRK-2026-2221 _ Synergy General Contracting Trifold Brochure (Victor Seijas)
+- **Kendall Breeze South** · 1 job(s) · no email on file · subdivision (PB 160-67)
+  - TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)
+- **Keytove LLC** · 1 job(s) · no email on file · owner of record #815
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **L R Llomas PE** · 1 job(s) · rllomas@lrlomaspe.com · engineering firm
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **Lily** · 1 job(s) · no email on file · possible ordering client ('the house Lil
+  - TRK-2026-1588 _ 402125130005 _ 4225 Rose Arbor Cir Port Charlotte
+- **Loan Store** · 1 job(s) · no email on file · mortgage lender ($751,143 mortgage)
+  - TRK-2026-1286 - 1997 SW 218 St - Alec Valdes - Avis Builders
+- **Luis Caso (Luis S. Caso)** · 1 job(s) · no email on file · related party (other property 15472 SW 1
+  - TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)
+- **Luis Guiulfo** · 1 job(s) · interstatena@yahoo.com · qualifier signatures
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Lynda Harris** · 1 job(s) · no email on file · likely owner/client of the house (bid fi
+  - 1514 NW 73 St - House Project
+- **M. Diaz** · 1 job(s) · mdiaz@synergyn-us.com · Synergyn (engineering firm) staff
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+- **Majestic Building (Majestic condominium)** · 1 job(s) · no email on file · building named on the permit application
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 301
+- **Majestic Tower** · 1 job(s) · manager@majestictower.com · building (9601 Collins Ave, Unit 310)
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Maria Marquez** · 1 job(s) · no email on file · DERM staff (county reviewer)
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+- **Marino Construction** · 1 job(s) · no email on file · plumbing contractor
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Martinez Truss** · 1 job(s) · info@martineztruss.com · truss manufacturer (TRUSS CALC / SD TRUS
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **Masonite** · 1 job(s) · sschreiber@masonite.com · door manufacturer (NOA/product approval)
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **Mata Investments** · 1 job(s) · no email on file · owner/developer on Model A engineering s
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Maurice Rivas** · 1 job(s) · mauricerivas2013@gmail.com · design professional/engineer on revision
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **Mayra Izquierdo** · 1 job(s) · mayra@prestigeroofinginc.net · client office staff (Prestige Roofing)
+  - TRK-2026-1268 - 1500 Ocean Drive (Miami Beach) - Roof Permit DD
+- **Medina-Rodriguez** · 1 job(s) · no email on file · owner of record
+  - TRK-TBD _ 30-4915-001-1121 _ 13920 SW 34 ST (Medina-Rodriguez)
+- **Melissa Levy** · 1 job(s) · melissa.levy@floridahousing.org · Florida Housing Finance Corp staff (RFA 
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+- **Miall Mulkay (Millie)** · 1 job(s) · miall@miamiarthouse.com · client / tenant (Miami Art House, Mulkay
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Miami Art House / Teatro Miami** · 1 job(s) · admin@teatromiami.com · client business (theater in warehouse ba
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Miami-Dade Clerk** · 1 job(s) · no email on file · lien/mortgage/NOC search (blocked)
+  - TRK-2026-1292 - 7823 NW 5th Ave - Alec Valdes - Avis Builders
+- **Miami-Dade Clerk / Building / DERM / Tax Collector** · 1 job(s) · no email on file · county DD sources (mostly BLOCKED)
+  - TRK-TBD _ 30-4915-001-1121 _ 13920 SW 34 ST (Medina-Rodriguez)
+- **Miami-Dade Clerk of Court** · 1 job(s) · no email on file · liens / offsets search
+  - 14953 SW 34 ST (TRK-2026-1280)
+- **Miami-Dade Clerk of Courts / Property Appraiser / Tax Collector** · 1 job(s) · no email on file · record sources
+  - TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)
+- **Miami-Dade County (RER / E-Permitting / Code Enforcement)** · 1 job(s) · no email on file · permitting agency, NOV case 2026-0245510
+  - 20001 SW 110 CT Unit 143 (TRK-2026-1262)
+- **Miami-Dade County Finance** · 1 job(s) · no email on file · city/county staff (bond release)
+  - TRK-2026-0708-JULIA - Julia's Place Bond Release (Piwko)
+- **Miami-Dade County Permits (RER)** · 1 job(s) · no email on file · county permit records (reCAPTCHA-blocked
+  - 14953 SW 34 ST (TRK-2026-1280)
+- **Miami-Dade County RER / Building** · 1 job(s) · no email on file · county permitting and code enforcement (
+  - TRK-2026-1256 - Groves at Sunset (Karla)
+- **Miami-Dade County RER / Building / DERM** · 1 job(s) · newbusinesssupvlist@miamidade.gov · permitting agency
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Miami-Dade County RER / Building / Unsafe Structures** · 1 job(s) · newbusinesssupvlist@miamidade.gov · permitting / enforcement agency
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **Miami-Dade DOH** · 1 job(s) · no email on file · septic/OSTDS records
+  - TRK-2026-1286 - 1997 SW 218 St - Alec Valdes - Avis Builders
+- **Miami-Dade HFA** · 1 job(s) · no email on file · bond issuer (Edison Towers Phase I $14M 
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+- **Miami-Dade Property Appraiser (PA)** · 1 job(s) · pawebmail@mdcpa.net · records source for tax/bldg jackets
+  - _ALEC-VALDES-DD
+- **Miami-Dade RER** · 1 job(s) · no email on file · permitting authority
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **Miami-Dade RER (Herbert S. Saffir Permitting and Inspection Center)** · 1 job(s) · newbusinesssupvlist@miamidade.gov · county permitting
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **Miami-Dade RER (Regulatory and Economic Resources)** · 1 job(s) · no email on file · county permitting / code enforcement
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Miami-Dade RER Lien Collection** · 1 job(s) · no email on file · city/county staff - lien payoffs, 786-46
+  - TRK-26-1042 _ FOLIO-TBD _ 15222 SW 108 Pl Miami 33157 (Daymara Yhanes)
+- **Miami-Dade Water and Sewer (WASD)** · 1 job(s) · no email on file · utility - final balance payoff/estoppel
+  - TRK-TBD _ FOLIO-TBD _ 15601 SW 137 AVE
+- **Michael Brandt** · 1 job(s) · no email on file · principal of Structural Integrity Contra
+  - TRK-2026-1268 - 1500 Ocean Drive (Miami Beach) - Roof Permit DD
+- **Michael Orfanopoulos** · 1 job(s) · no email on file · trustee / owner of record, 10185 Collins
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Millicent J. Campbell** · 1 job(s) · no email on file · owner of record (mailing address Brentwo
+  - TRK-2026-1588 _ 402125130005 _ 4225 Rose Arbor Cir Port Charlotte
+- **Monaco Pereira LLC** · 1 job(s) · no email on file · landlord (SunBiz doc L22000535389)
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Monica Valdes** · 1 job(s) · mvaldes@synergyn-us.com · Synergyn engineering
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Mulkay Productions** · 1 job(s) · no email on file · client entity
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **MZ Solutions, LLC** · 1 job(s) · miguel@mzsolutions.org · contractor / client
+  - TRK-2026-1611 - Pembroke Pines Contractor Registration (MZ Solutions)
+- **N. Follman** · 1 job(s) · nfollman@asdenproperties.com · Asden Properties staff (owner side)
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **NAMI Inc** · 1 job(s) · nami@namiinc.com · vendor/engineering (unidentified)
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **NDS Tires** · 1 job(s) · ndstires@hotmail.com · prior DERM permit holder at the property
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Nelco Testing (nelcotestine.com)** · 1 job(s) · nelcol@nelcotestine.com · testing lab / special inspector (likely)
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Next Development Group** · 1 job(s) · no email on file · co-developer / outside party
+  - TRK-2026-1295 - Principio - 5401 NW 7 Ave Miami - 142 unit workforce housing (TEDC)
+- **Nick (surname unknown)** · 1 job(s) · no email on file · client (ordered tax jacket)
+  - TRK-TBD _ FOLIO-TBD _ 13328 SW 113 CT (Nick)
+- **Nicole Ortiz** · 1 job(s) · nicole.ortiz@miamidade.gov · Miami-Dade County staff
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Nu-Vue Industries / Rheem** · 1 job(s) · no email on file · NOA product approvals (window, A/C)
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **OCMI III Inc dba PEOPayGo** · 1 job(s) · certs@peopaygo.com · PEO - workers comp for leased employees 
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Olga Kalogeropoulos** · 1 job(s) · okalogeropoulos@balharbourfl.gov · city staff, Bal Harbour Building Departm
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Osvaldo Rodriguez** · 1 job(s) · no email on file · electrical contractor (Electrical Master
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **P. Meadows, Esq.** · 1 job(s) · pmeadowsesqbankruptcy@gmail.com · bankruptcy attorney
+  - TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)
+- **Paramount Homes NJ** · 1 job(s) · no email on file · owner-side signer company
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **Pedro Fiallo** · 1 job(s) · pfiallo@plfengineers.com · structural engineer, PLF Structural Engi
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **Perla** · 1 job(s) · info@dciprinting.com · print shop contact, DCI Printing
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+- **Peter Sevastopoulos (Peter Arthur Sevastopoulos / Peter A.)** · 1 job(s) · no email on file · current owner / subject (arrested 2026-0
+  - TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)
+- **PHCD (Miami-Dade Public Housing and Community Development)** · 1 job(s) · no email on file · infill housing program
+  - TRK-2026-1289 - City of Miami folio 01-4102-098-0001 - Alec Valdes
+- **Phil** · 1 job(s) · no email on file · unknown - to be confirmed on owner call
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **Plex Capital LLC** · 1 job(s) · no email on file · owner/developer entity; duplex waiver of
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **PLF Structural Engineers** · 1 job(s) · admin@plfengineers.com · engineer of record
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **Polyglass** · 1 job(s) · no email on file · roof underlayment manufacturer (NOA 21-1
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Portobello Construction** · 1 job(s) · permitting@portobello-construction.com; admin@portobello-construction.com · general contractor / permit applicant
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **Prestige Roofing, Inc.** · 1 job(s) · frank@prestigeroofinginc.net · client (roofing contractor)
+  - TRK-2026-1268 - 1500 Ocean Drive (Miami Beach) - Roof Permit DD
+- **R&G LLC** · 1 job(s) · no email on file · contractor (windows/doors per permit)
+  - TRK-2026-1286 - 1997 SW 218 St - Alec Valdes - Avis Builders
+- **R. L. Llomas, PE** · 1 job(s) · rllomas@lrlomaspe.com · engineer (likely structural/engineer of 
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **ram61@bellsouth.net** · 1 job(s) · ram61@bellsouth.net · unknown individual/vendor
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Raymond Murga** · 1 job(s) · raymond.murga@miamidade.gov · Miami-Dade County staff
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **RBT Developments** · 1 job(s) · rs@rbtdevelopments.com · developer/contractor
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Renzo Gustavo Cahuana** · 1 job(s) · no email on file · owner / client
+  - TRK-TBD _ FOLIO-TBD _ 535 NW 7 ST Homestead (Renzo Cahuana)
+- **Robert Santos-Alborna** · 1 job(s) · no email on file · City of Miami Director (released permit 
+  - TRK-2026-1297 - Tuscany Cove folio 01-3114-072-0010 - City of Miami Code Case 00009753 (TEDC)
+- **Roberto Carmona** · 1 job(s) · no email on file · prior owner / violator of record on open
+  - TRK-26-1042 _ FOLIO-TBD _ 15222 SW 108 Pl Miami 33157 (Daymara Yhanes)
+- **Rosa Guerra** · 1 job(s) · rosa.guerra@miamidade.gov · Miami-Dade County staff
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **RRR LLC** · 1 job(s) · no email on file · possible client of record - corporate re
+  - TRK-TBD _ FOLIO-TBD _ 2362-2364 NW 32 ST City of Miami (2362 Acquisition LLC)
+- **RS (RBT Developments)** · 1 job(s) · rs@rbtdevelopments.com · developer/contractor contact, initials o
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **RWK** · 1 job(s) · no email on file · engineer initials on structural narrativ
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **S. Alvarez** · 1 job(s) · salvarez@balharbourfl.gov · city staff, Bal Harbour
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **S. Schreiber** · 1 job(s) · sschreiber@masonite.com · Masonite (door manufacturer) contact, pr
+  - TRK-2026-1536 _ 30-5032-000-1352 _ 10362 SW 180 ST
+- **Sandra Metta** · 1 job(s) · no email on file · co-owner of record, 10185 Collins #220
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Sergio Ascunce** · 1 job(s) · no email on file · Building Official (county wants named)
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Sheldon K Powell** · 1 job(s) · no email on file · TEDC staff
+  - TRK-2026-1295 - Principio - 5401 NW 7 Ave Miami - 142 unit workforce housing (TEDC)
+- **Sheldon K. Powell** · 1 job(s) · no email on file · end client / developer (TEDC)
+  - TRK-TBD _ FOLIO-TBD _ 15601 SW 137 AVE
+- **Sidalia Lopez** · 1 job(s) · recordsrequest@miamidadepa.gov · city staff - records custodian, Miami-Da
+  - _ALEC-VALDES-DD
+- **Simpson Strong-Tie** · 1 job(s) · crizer@strongtie.com etc. · product approval docs (connectors) - ven
+  - TRK-2026-1534 _ 30-3115-005-3770 _ 1840 NW 63 ST
+- **Sophie Harris** · 1 job(s) · no email on file · DERM staff (county reviewer)
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+- **Steven (Intrepid Impact Windows)** · 1 job(s) · steven@intrepidimpactwindows.com · window/door contractor contact
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Structural Integrity Contractors** · 1 job(s) · no email on file · prior contractor (2019 fraud judgment)
+  - TRK-2026-1268 - 1500 Ocean Drive (Miami Beach) - Roof Permit DD
+- **Sylvia Azoulay** · 1 job(s) · no email on file · owner of record, 10185 Collins #423
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Synergy General Contracting (Synergy GC)** · 1 job(s) · info@synergygc.net · client
+  - TRK-2026-2221 _ Synergy General Contracting Trifold Brochure (Victor Seijas)
+- **Systematics (Systematics_KV)** · 1 job(s) · systematics_kv@hotmail.com · engineering letter + permit; invoice $82
+  - TUS-25-1023 _ 30-5910-018-0210 _ 14598 SW 110 St Miami
+- **Team USA Sales / CU Inspections** · 1 job(s) · no email on file · Jorge's company
+  - TRK-2026-1295 - Principio - 5401 NW 7 Ave Miami - 142 unit workforce housing (TEDC)
+- **TEDC - Tacolcy Economic Development Corporation (TEDcBuilds)** · 1 job(s) · no email on file · client / developer
+  - TRK-2026-1295 - Principio - 5401 NW 7 Ave Miami - 142 unit workforce housing (TEDC)
+- **TEDC - Tacolcy Economic Development Corporation (TEDcBuilds), 5900 NW 7th Ave Suite 102, Miami FL 33127** · 1 job(s) · no email on file · client / developer
+  - TRK-2026-1294 - Edison Towers II - 661 NW 58 St Miami 33127 (TEDC)
+- **TEDC Builds** · 1 job(s) · mzaldivar@tedcbuilds.org · contractor (Miguel Zaldivar alt company)
+  - TRK-2026-1310 _ FOLIO-TBD _ 10980 SW 202 Dr Cutler Bay (Concrete Restoration)
+- **TEDC Miami / TEDC Builds** · 1 job(s) · no email on file · Miguel Zaldivar alt company
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Ten Thousand Plaza Condominium** · 1 job(s) · no email on file · COI certificate holder
+  - TRK-2026-1293 - MZ Solutions LLC - Company Credentials 2026 (MZ SOLUTIONS)
+- **Tevin Taylor** · 1 job(s) · ttaylor@tpmcmiami.net · property manager, TPMC
+  - TRK-2026-1297 - Tuscany Cove folio 01-3114-072-0010 - City of Miami Code Case 00009753 (TEDC)
+- **The Plaza of Bal Harbour (Condo Association)** · 1 job(s) · manager@plazaofbalharbour.com · building / association client
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Title company (unnamed)** · 1 job(s) · no email on file · title commitment
+  - TRK-2026-1588 _ 402125130005 _ 4225 Rose Arbor Cir Port Charlotte
+- **Toni Hamilton** · 1 job(s) · pinespermits@cgasolutions.com · city staff - Permit Technician, Pembroke
+  - TRK-2026-1611 - Pembroke Pines Contractor Registration (MZ Solutions)
+- **Town of Bal Harbour (building dept)** · 1 job(s) · no email on file · COI certificate holder / permit clerk
+  - TRK-2026-1293 - MZ Solutions LLC - Company Credentials 2026 (MZ SOLUTIONS)
+- **Town of Bay Harbor Islands** · 1 job(s) · no email on file · separate municipality - Unit 322 papers 
+  - TRK-2026-1265 - Bal Harbour Permit Status (MZ Solutions)
+- **Town of Medley Building Dept** · 1 job(s) · building@townofmedley.com · permitting authority
+  - TUS-26-1033 _ 22-3011-052-0020 _ 7265 NW 74 St Bay 2 Medley
+- **TPMC** · 1 job(s) · ttaylor@tpmcmiami.net · property manager (same 5900 NW 7th Ave a
+  - TRK-2026-1297 - Tuscany Cove folio 01-3114-072-0010 - City of Miami Code Case 00009753 (TEDC)
+- **Trelana Haines** · 1 job(s) · no email on file · City of Miami contact (referral 2025-04-
+  - TRK-2026-1297 - Tuscany Cove folio 01-3114-072-0010 - City of Miami Code Case 00009753 (TEDC)
+- **unknown (k.moyerla@gmail.com)** · 1 job(s) · k.moyerla@gmail.com · contact found in OCR of plans - possibly
+  - 1514 NW 73 St - House Project
+- **Victor Seijas** · 1 job(s) · vic2669@gmail.com · client - Project Manager & Estimator, Sy
+  - TRK-2026-2221 _ Synergy General Contracting Trifold Brochure (Victor Seijas)
+- **Village of Bal Harbour** · 1 job(s) · no email on file · likely permitting jurisdiction for 9601 
+  - TRK-TBD _ FOLIO-TBD _ 10000 W Bay Harbor Dr Unit 301
+- **Village of Bal Harbour / Town of Bay Harbor Islands** · 1 job(s) · no email on file · permitting municipalities
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Vista Impact Windows & Doors** · 1 job(s) · ben@vistaimpact.com · window/door installer, sales order 98260
+  - TUS-26-1018 _ FOLIO-TBD _ 8621 Pasadena Blvd Pembroke Pines
+- **Vivian Pena** · 1 job(s) · vivian.pena@miamidade.gov · Miami-Dade County staff
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **WASA (WASD - Miami-Dade Water and Sewer)** · 1 job(s) · no email on file · utility payment
+  - TRK-2026-1535 _ 30-5032-086-0020 _ 18020 SW 103 AVE
+- **Wells Fargo (Home Mortgage / Home Equity)** · 1 job(s) · no email on file · mortgagee / foreclosing lender (2009-082
+  - TRK-2026-1684 _ 30-5913-027-0070 _ 12248 SW 125 TER (Caso-Sevastopoulos)
+- **West 22nd St LLC** · 1 job(s) · no email on file · owner of record #1016
+  - OPH-2026-0007 _ Bal Harbour + Plaza _ HOA-questioned units
+- **Yairis Chapelli** · 1 job(s) · no email on file · city staff - Code Compliance Officer, Ci
+  - TRK-TBD _ FOLIO-TBD _ 535 NW 7 ST Homestead (Renzo Cahuana)

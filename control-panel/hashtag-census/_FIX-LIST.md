@@ -1,0 +1,40 @@
+# Hashtag census — fix list for a morning session (nothing changed yet)
+
+- TRK-26-1042 (15222 SW 108 Pl):
+  - The v2 DELIVERABLE .TAGS.txt carries #TRK-2026-9490, which is in the admin band. It should be #TRK-26-1042 / #TRK-2026-1042.
+  - The FINAL_ALL tags are cut off at "Daymara-Yh".
+  - The root has _TAGS.txt instead of _HASHTAGS.txt, so a second tag-file convention is in use.
+  - The folder name says FOLIO-TBD; the folio is 30-5030-008-0370.
+- 13328 SW 113 CT (Nick): the DELIVERABLE v2 tags carry #TRK-2026-9490, which is in the admin band. This is the same wrong number as TRK-26-1042, so a template bug likely stamped it on several jobs. The FINAL_ALL tags read #23328 instead of 13328 (OCR error).
+- 535 NW 7 ST Homestead: the folder is still labelled TRK-TBD and FOLIO-TBD. The registry has TRK-2026-1532 and the folio is 10-7813-003-0120. The relabel waits on Jorge.
+- 4225 Rose Arbor (1588): the 2022 tax bill tags carry #TRK-2026-9754, which is in the admin band.
+- Julia (0708): _HASHTAGS.txt and _TAGS.txt use different TRK forms.
+- 1286: the folder says "1997 SW 218 St"; the real address is 11997. Two report names use the short form "TRK-1286".
+- Pattern: three tag-file conventions are in use: _HASHTAGS.txt, _TAGS.txt, and per-document .TAGS.txt. About 50 nightly .bak copies sit in every job root.
+- 2362-2364 NW 32 ST: three TRK numbers. The registry says TRK-2026-1561; the sidecars carry 9490 and 9754 (admin band). The client is unclear: the folder says 2362 Acquisition LLC, the resolution names RRR LLC.
+- **#TRK-2026-9490 / 9754 template bug:** now seen on 4 jobs (1042, Nick 13328, Rose Arbor 1588, NW 32 ST). One sweep should fix the sidecar tags.
+- **Possible misfile, Bay Harbor Unit 301:** 8 PDFs in 01-INTAKE/_FROM-MAJESTIC-MISFILE_2026-10-07 are for the Majestic Building, 9601 Collins, Unit 301 (Gabriela M Valles), not 10000 W Bay Harbor. Review before filing anything.
+- The Bay Harbor unit folders carry #Bal-Harbour, which is wrong. Bay Harbor Islands is a different town.
+- 1514 NW 73 St: no TRK at all. 11 plan PDFs are duplicated between the root and "Bldg Plans". The zip (33186) and the jurisdiction (folio 30- vs "City of Miami") conflict.
+- Sidecars inside known TRK folders carry #ORPH-2026-NNNN / #UNANCHORED-ORPHAN. That prefix is wrong; the standard is OPH. Seen in 1294, 1293 and 1514.
+- 1292: the forbidden dot-page form "TRK-2026-1531.002_" and the short form "TRK-1292" are both in use.
+- Misspellings to add to the people index: "Miguel Zadlivar"; "jorze@" is an OCR error.
+- 1310: still tagged #folioTBD, but the folio 30-6007-009-0030 is confirmed through the nested 1667 records. Most of its PDFs are stamped TRK-2026-1667.
+- 1265: _HASHTAGS.txt has only 4 admin tags. The quarantine folder holds 5 zero-byte PDFs for Bay Harbor Units 322 and 301.
+- 2221: the three brochure TAGS files are identical and carry a misleading #Plans tag.
+- _ALEC-VALDES-DD: $100.25 never invoiced; 51 days in owner review (money item; locked zone).
+- 1536: the DD-book tags carry #TRK-2026-9754 too, so the admin-band tag bug is now on 5 jobs. _STAGE.md says no tax jacket exists, but one is in 07-TAX-JACKET. The DD book is unsent and uninvoiced (money item).
+- 1535: the folder holds multi-lot "Perrine Model A" plans under master permit 2022069000, not just one address.
+- TEDC 1296/1297: no PDFs; the credentials are still in Outlook. 1297 has no street address.
+- The admin-band tag bug (#TRK-2026-9490/9754) also appears on 15601 SW 137 AVE, 13920 SW 34 ST, 331 Tamiami and 1840 NW 63. That makes about 9 jobs, so it is systemic: the DD-BOOK sidecar generator stamps them. Fix it at the generator, not per file.
+- OCR has carried stray addresses from other jobs into sidecars: #111-NW-1-ST, #13935-SW-106-TER, folio 30-3115-005-3779.
+- 15601 SW 137 AVE is really TRK-2026-1650 (MZ Solutions, Pine Brook/Sheffield). 13920 SW 34 ST is TRK-2026-1567. Both relabels wait on Jorge.
+- The Alec DD Standard reports for 1612 and 1534 are finished, unsent and uninvoiced (money items).
+- Einar (TUS-26-1018), from the capsule pilot:
+  - The 10-12 Tomas arrivals are not in Drive yet; that waits on the desktop.
+  - Two "IT Joey - AI copilot studio" emails from another matter sit in 01_Emails.
+  - The NOV sits in Citations, not in 05_Code-Enforcement-Violations.
+  - Two folder schemes are in use side by side.
+  - 9 stale NEEDS_OCR markers.
+  - _JOB-TREE_TRK-TBD.html is a defect file.
+  - Duplicate FINDINGS.md / CAPSULE.md / June 5 permit and NOC PDFs.
