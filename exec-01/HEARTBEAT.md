@@ -1035,3 +1035,4 @@ Last beat: 2026-11-07T21:44Z (Drive 1vke8JunjzTEtNJOB01fmo3-XWZpLfS_z)
 - 2026-11-28T04:43Z RUNNER 04:41Z: throttle allowed, panel new=0, Drive heartbeat 0442Z written, context 741k of 784k (compaction imminent; checkpoint 1_svrOnsx7MRztm2U8LN05fX1ggCiKUTa current), no RED executed
 - 2026-11-28T05:18Z WATCH 05:16Z: panel new=0; Gmail clean; Outlook back online, 2 routine SYNC-01 self-mails (logged only); Outbox routine (silent-signoff, uptime fresh 05:17Z); RAM guard wrote 05:17Z (alive); nothing relayed; no RED executed
 - 2026-11-28T05:43Z RUNNER 05:41Z: throttle allowed, panel new=0, Drive heartbeat 0542Z written, context 143k of 784k (post-compaction), no RED executed
+- 2026-11-28T06:18Z WATCH 06:16Z (self-test hour): panel new=0; Gmail clean; Outlook 1 routine SYNC-01 self-mail (logged only); Outbox routine; RAM guard 06:15Z alive; probe planted; nothing relayed; no RED executed
